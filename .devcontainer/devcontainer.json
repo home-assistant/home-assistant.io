@@ -25,7 +25,8 @@
         "mrmlnc.vscode-scss",
         "streetsidesoftware.code-spell-checker",
         "3w36zj6.textlint",
-        "yzhang.markdown-all-in-one"
+        "yzhang.markdown-all-in-one",
+        "astro-build.astro-vscode"
       ],
       "settings": {
         "editor.renderWhitespace": "boundary",

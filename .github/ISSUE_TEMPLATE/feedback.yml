@@ -10,15 +10,36 @@ body:
         Those bugs should be reported in the [Home Assistant Core issue tracker][core].
 
         [core]: https://github.com/home-assistant/core/issues
-  - type: textarea
+  - type: dropdown
+    id: issue-type
     attributes:
-      label: Feedback
+      label: Type of issue
       description: >-
-        Please be sure to provide feedback as clear as possible. Describe what
-        you think is incorrect or can be improved, and try to provide a
-        suggestion on how you think it can be improved or fixed.
+        If more than one type applies, choose the most relevant one.
+      options:
+        - Grammatical error or typo
+        - Documentation not according to the Home Assistant style guide
+        - Outdated or incorrect information
+        - Missing information
+        - Unclear or confusing information
+        - Other (issue in content formatting, broken link or image, non-working widget)
     validations:
       required: true
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: Problem description
+      description: >-
+        Clearly describe what is wrong, missing, or unclear in the documentation.
+    validations:
+      required: true
+  - type: textarea
+    id: suggested-solution
+    attributes:
+      label: Suggested solution
+      description: >-
+        If you have found a solution, write the correct information as concretely as possible.
+        If you know the correct value or behavior, state it directly (for example: "step X should say Y, not Z").
   - type: markdown
     attributes:
       value: |
@@ -36,14 +57,23 @@ body:
     id: version
     attributes:
       label: Version
-      placeholder: "e.g., 2022.7.0"
+      placeholder: "For example: 2022.7.0"
       description: >
         Latest stable version of Home Assistant available
         (which does not have to match the version you are using).
+  - type: textarea
+    id: evidence
+    attributes:
+      label: How do you know the suggested solution is correct?
+      description: >
+        If applicable, link a source that backs up your proposed fix to help the writer verify it
+        without redoing your research. For example, a merged PR that changed the documented behavior, 
+        the relevant source code, release notes, a configuration you ran, or describe your own test.
+      placeholder: "For example: Tested on Home Assistant Core 2026.9.1, config: ..., see home-assistant/core#XXXXX"
   - type: textarea
     attributes:
       label: Additional information
       description: >
         If you have any additional information for us, use the field below.
-        Please note, you can attach screenshots or screen recordings here, by
+        You can attach screenshots or screen recordings here by
         dragging and dropping files in the field below.

@@ -8,6 +8,13 @@ import { getComponentPreviews } from "../../lib/component-previews.mjs";
 // the sibling <Name>.astro component (see src/lib/component-previews.mjs
 // and astro/README.md). Each tile links to a full-screen stage where
 // the variants render at true viewport width.
+//
+// Components use viewport media queries, so a tile that is much
+// narrower than the window shows the wrong layout and overflows. Two
+// things keep that in check: the page runs at the full window width,
+// and fixtures marked `wide: true` (header, footer) get a tile that
+// spans the whole row, so the demo is only a gutter short of the
+// viewport the component is laid out for.
 // This page is a development aid: it is only reachable through
 // /astro-preview/ and is excluded from the Jekyll/Astro route parity
 // checks.
@@ -28,8 +35,8 @@ const entries = getComponentPreviews();
       </p>
     ) : (
       <div class="tiles">
-        {entries.map(({ slug, name, description, variants, Component, path }) => (
-          <section class="tile">
+        {entries.map(({ slug, name, description, wide, variants, Component, path }) => (
+          <section class:list={["tile", { wide }]}>
             <header>
               <h2>
                 <a href={`${slug}/`}>{name}</a>
@@ -86,6 +93,12 @@ const entries = getComponentPreviews();
     border-radius: 6px;
     display: flex;
     flex-direction: column;
+    /* Grid items default to min-width: auto and would grow past
+       their cell to fit a wide demo; let the demo scroll instead. */
+    min-width: 0;
+  }
+  .tile.wide {
+    grid-column: 1 / -1;
   }
   .tile header {
     border-bottom: 1px solid #d1d5db;
@@ -117,7 +130,14 @@ const entries = getComponentPreviews();
     text-transform: uppercase;
   }
   .variant .demo {
+    /* Horizontal scroll instead of spilling into the next tile. */
+    overflow-x: auto;
     padding: 0.75rem;
+  }
+  .tile.wide .demo {
+    /* Full-width components render edge to edge, as on a page. */
+    overflow: visible;
+    padding: 0;
   }
   .tile footer {
     border-top: 1px solid #d1d5db;

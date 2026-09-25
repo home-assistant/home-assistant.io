@@ -17,6 +17,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - switch
 ha_integration_type: device
 ---
 
@@ -38,6 +39,19 @@ The plugin provides several values suitable for the energy dashboard.
 The best supported are the inverters of ET/EH families, where the sensors `Meter Total Energy (export)`, `Meter Total Energy (import)`, `Total PV Generation`, `Total Battery Charge` and `Total Battery Discharge` are the most suitable for the dashboard measurements and statistics.
 
 For the other inverter families, if such sensors are not directly available by the inverter, they can be calculated from existing sensors. [Template Sensor](/integrations/template/) can be used to separate buy and sell power values and [Riemann Sum](/integrations/integration/) can be used to convert these instant power (W) values into cumulative energy values (Wh), which then can be used within the energy dashboard.
+
+## Inverter switches
+
+Depending on your inverter model and family, the following on/off settings may be available as switch entities:
+
+- **Fast charging** – enables fast charging of the battery (ET/EH and ES/EM families).
+- **Backup supply** – enables the backup/UPS power supply (ET/EH and ES/EM families).
+- **Load control** – enables load control mode (ET/EH family only).
+- **DoD holding** – enables depth-of-discharge holding (ET/EH family only).
+
+{% note %}
+These switches change internal inverter operational settings that are normally only accessible to installers. Use them with caution, and only if you understand what the setting controls.
+{% endnote %}
 
 ## Inverter polling interval
 

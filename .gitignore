@@ -21,6 +21,7 @@ vendor
 node_modules
 astro/dist/
 astro/.astro/
+astro/src/assets/brands/
 source/.jekyll-metadata
 *.iml
 .idea/

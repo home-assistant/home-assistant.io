@@ -196,9 +196,9 @@ The integration does not provide the ability to reboot, which can instead be don
 
 ## Troubleshooting
 
-### Can’t set up the device
+{% details "Can’t set up the device" %}
 
-#### Symptom: “This device can’t be reached”
+### Symptom: “This device can’t be reached”
 
 When trying to set up the integration, the form shows the message “This device can’t be reached”.
 
@@ -208,24 +208,36 @@ This means the settings on the device are incorrect, since the device needs to b
 
 #### Resolution
 
-To resolve this issue, try the following steps:
-
 1. Make sure your device is powered up (LEDs are on).
 2. Make sure your device is connected to the internet:
    - Make sure the app of the manufacturer can see the device.
 3. Make sure the device has the local communication enabled:
    - Check the device’s settings.
    - Check the device’s manual.
-...
 
-### I can't see my devices
+{% enddetails %}
 
-Make sure the devices are visible and controllable via the manufacturer's app.
-If they are not, check the device's power and network connection.
+{% details "Pairing a Thread device fails" %}
 
-### The device goes unavailable after a day
+### Symptom: the device is in pairing mode, but commissioning does not complete
 
-Make sure you turned off the device's power-saving mode.
+You are trying to add a Thread device through the Home Assistant Companion app, but the process fails or times out.
+
+#### Description
+
+Pairing a Thread device involves multiple steps that happen automatically: your phone connects to the device over Bluetooth Low Energy (BLE), shares the Thread network credentials, and then the device joins the Thread mesh and gets commissioned into Home Assistant. A failure at any of these steps can cause pairing to fail.
+
+#### Resolution
+
+First, make sure you have followed all the prerequisites for adding a Matter device, including phone setup and Bluetooth requirements. Refer to the [adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant) procedure for the full checklist.
+
+If pairing still fails after verifying the prerequisites, check the following:
+
+- The device is still in pairing mode. Most devices only stay in pairing mode for a limited time. If it expires, reset the device to pairing mode and try again.
+- Restart your phone. If commissioning fails or stalls, a full restart of your phone can clear stale Bluetooth state or stale Thread routes and often resolves the issue.
+- Mesh Wi-Fi access points are not blocking multicast. Some mesh Wi-Fi systems aggressively filter multicast traffic on Wi-Fi. This can prevent your phone from discovering the border router via mDNS. If you suspect this, check your mesh system's settings for options related to multicast, IGMP snooping, or mDNS.
+
+{% enddetails %}
 
 ## Removing the integration
 

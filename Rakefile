@@ -75,6 +75,14 @@ task :generate do
     # _headers marks the whole path noindex.
     FileUtils.rm_rf("#{public_dir}astro-preview")
     FileUtils.cp_r("astro/dist", "#{public_dir}astro-preview")
+    # Astro pages link their bundled stylesheets, scripts and images
+    # with root-absolute /_astro/ paths, which is where they belong
+    # once Astro serves real routes. Publish that directory at the
+    # site root too, or the preview pages lose their styles. The file
+    # names are content-hashed, so nothing can clash with Jekyll's
+    # output.
+    FileUtils.rm_rf("#{public_dir}_astro")
+    FileUtils.cp_r("astro/dist/_astro", "#{public_dir}_astro") if File.directory?("astro/dist/_astro")
   end
   if ENV["CONTEXT"] != 'production'
     File.open("#{public_dir}robots.txt", 'w') do |f|

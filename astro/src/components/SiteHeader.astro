@@ -1,0 +1,485 @@
+---
+// Site header: logo, version badge, main navigation with its
+// dropdowns, the search mount point and the "Get started" call to
+// action.
+//
+// Ports the structure and layout of the Jekyll header in
+// `source/_includes/site/header.html` (placed by
+// `source/_layouts/default.html`). The styling is a deliberate revamp
+// rather than a copy: one link style for the whole navigation instead
+// of the per-context underline, weight and wash treatments in
+// `sass/homeassistant/base/_header.scss`,
+// `sass/homeassistant/base/_navigation.scss` and the `.site-header`,
+// `.menu` and `.docsearch` rules in `sass/homeassistant/_overrides.scss`.
+//
+// Three deliberate differences from the Jekyll markup, all agreed:
+//   - Icons are inline SVGs instead of `<iconify-icon>` elements, so
+//     the header does not depend on the Iconify CDN script.
+//   - The DocSearch container is rendered empty, exactly as Jekyll
+//     does; the page still loads and initializes @docsearch/js
+//     against `#docsearch` and brings its own styles for the widget.
+//   - The header does not position itself. On the live site the page
+//     makes it `position: fixed` so content scrolls underneath; that
+//     belongs to the page layout, not to the header.
+import "../styles/tokens.scss";
+// Both logos come from the Open Home Foundation brand assets API and
+// are downloaded into src/assets/brands/ when the build starts (see
+// integrations/brand-assets.mjs and the list in astro.config.mjs).
+import logoUrl from "../assets/brands/home-assistant-lockup-color-light.svg?url";
+import logoInverseUrl from "../assets/brands/home-assistant-lockup-monochrome-dark.svg?url";
+
+const {
+  pathname = "",
+  dark = false,
+  version,
+  versionUrl,
+  releasedOn,
+} = Astro.props;
+
+// Jekyll marks an item active by comparing the first path segment.
+const root = pathname.split("/")[1];
+
+// The label needs a unique target: a page may hold more than one header.
+const menuId = `site-menu-${crypto.randomUUID().slice(0, 8)}`;
+
+const icons = {
+  "arrow-right":
+    '<path fill="currentColor" d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z"/>',
+  "chevron-down":
+    '<path fill="currentColor" d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z"/>',
+  "code-braces":
+    '<path fill="currentColor" d="M8 3a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2H3v2h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h2v-2H8v-5a2 2 0 0 0-2-2a2 2 0 0 0 2-2V5h2V3m6 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2a2 2 0 0 1-2-2V5h-2V3z"/>',
+  cog: '<path fill="currentColor" d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1s.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64z"/>',
+  "comment-processing-outline":
+    '<path fill="currentColor" d="M9 22a1 1 0 0 1-1-1v-3H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6.1l-3.7 3.71c-.2.19-.45.29-.7.29zm1-6v3.08L13.08 16H20V4H4v12zm7-5h-2V9h2zm-4 0h-2V9h2zm-4 0H7V9h2z"/>',
+  gauge:
+    '<path fill="currentColor" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 2a8 8 0 0 1 8 8c0 2.4-1 4.5-2.7 6c-1.4-1.3-3.3-2-5.3-2s-3.8.7-5.3 2C5 16.5 4 14.4 4 12a8 8 0 0 1 8-8m2 1.89c-.38.01-.74.26-.9.65l-1.29 3.23l-.1.23c-.71.13-1.3.6-1.57 1.26c-.41 1.03.09 2.19 1.12 2.6s2.19-.09 2.6-1.12c.26-.66.14-1.42-.29-1.98l.1-.26l1.29-3.21l.01-.03c.2-.51-.05-1.09-.56-1.3c-.13-.05-.26-.07-.41-.07M10 6a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1M7 9a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1m10 0a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1"/>',
+  "home-assistant":
+    '<path fill="currentColor" d="M22.939 10.627L13.061.749a1.505 1.505 0 0 0-2.121 0l-9.879 9.878C.478 11.21 0 12.363 0 13.187v9c0 .826.675 1.5 1.5 1.5h9.227l-4.063-4.062a2 2 0 0 1-.664.113c-1.13 0-2.05-.92-2.05-2.05s.92-2.05 2.05-2.05s2.05.92 2.05 2.05c0 .233-.041.456-.113.665l3.163 3.163V9.928a2.05 2.05 0 0 1-1.15-1.84c0-1.13.92-2.05 2.05-2.05s2.05.92 2.05 2.05a2.05 2.05 0 0 1-1.15 1.84v8.127l3.146-3.146A2.05 2.05 0 0 1 18 12.239c1.13 0 2.05.92 2.05 2.05s-.92 2.05-2.05 2.05a2 2 0 0 1-.709-.13L12.9 20.602v3.088h9.6c.825 0 1.5-.675 1.5-1.5v-9c0-.825-.477-1.977-1.061-2.561z"/>',
+  "robot-happy":
+    '<path fill="currentColor" d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1M9.79 16.5C9.4 15.62 8.53 15 7.5 15s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1m9 0c-.39-.88-1.29-1.5-2.29-1.5s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1"/>',
+  "solar-power-variant":
+    '<path fill="currentColor" d="M3.33 16H11v-3H4zM13 16h7.67L20 13h-7zm8.11 2H13v4h9zM2 22h9v-4H2.89zm9-14h2v3h-2zm4.76-.79l1.42-1.42l2.12 2.12l-1.41 1.42zm-11.05.7l2.12-2.12l1.41 1.42l-2.12 2.12zM3 2h3v2H3zm15 0h3v2h-3zm-6 5c2.76 0 5-2.24 5-5H7c0 2.76 2.24 5 5 5"/>',
+  "view-grid":
+    '<path fill="currentColor" d="M3 11h8V3H3m0 18h8v-8H3m10 8h8v-8h-8m0-10v8h8V3"/>',
+};
+
+const navigation = [
+  {
+    label: "Documentation",
+    href: "/docs/",
+    roots: ["docs", "dashboards", "voice_control", "common-tasks"],
+    items: [
+      { label: "Installation", href: "/installation/", icon: "home-assistant" },
+      { label: "Automations", href: "/docs/automation/", icon: "robot-happy" },
+      { label: "Dashboards", href: "/dashboards/", icon: "gauge" },
+      {
+        label: "Voice assistants",
+        href: "/voice_control/",
+        icon: "comment-processing-outline",
+      },
+      {
+        label: "Device organization",
+        href: "/docs/organizing/",
+        icon: "view-grid",
+      },
+      {
+        label: "Energy management",
+        href: "/docs/energy/",
+        icon: "solar-power-variant",
+      },
+      { label: "Templating", href: "/docs/templating/", icon: "code-braces" },
+      {
+        label: "Configuration using the YAML file",
+        href: "/docs/configuration/",
+        icon: "cog",
+      },
+    ],
+  },
+  {
+    label: "Our hardware",
+    href: "#",
+    items: [
+      { label: "Home Assistant Green", href: "/green/" },
+      { label: "Connect ZBT-2", href: "/connect/zbt-2/" },
+      { label: "Connect ZWA-2", href: "/connect/zwa-2/" },
+      { label: "Voice Preview Edition", href: "/voice-pe/" },
+    ],
+  },
+  { label: "Integrations", href: "/integrations/", roots: ["integrations"] },
+  { label: "Blog", href: "/blog/", roots: ["blog"] },
+  { label: "Need help?", href: "/help/", roots: ["help"] },
+];
+
+const versionTitle =
+  version && releasedOn
+    ? `Latest version ${version} released ${new Intl.DateTimeFormat("en-US", {
+        dateStyle: "long",
+        timeZone: "UTC",
+      }).format(new Date(releasedOn))}`
+    : undefined;
+---
+
+<header class:list={["site-header", { dark }]}>
+  <div class="bar">
+    <div class="brand">
+      <a class="site-title" href="/">
+        <img src={dark ? logoInverseUrl : logoUrl} alt="Home Assistant" />
+      </a>
+      {
+        version && (
+          <a class="version" href={versionUrl} title={versionTitle}>
+            {version}
+          </a>
+        )
+      }
+    </div>
+
+    <nav aria-label="Main">
+      <input
+        class="menu-state"
+        type="checkbox"
+        id={menuId}
+        aria-label="Main menu"
+      />
+      <label class="menu-button" for={menuId}></label>
+
+      <ul class="menu">
+        {
+          navigation.map(({ label, href, roots, items }) => (
+            <li>
+              <a class:list={{ active: roots?.includes(root) }} href={href}>
+                {label}
+                {items && (
+                  <svg
+                    class="icon"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    set:html={icons["chevron-down"]}
+                  />
+                )}
+              </a>
+              {items && (
+                <ul>
+                  {items.map((item) => (
+                    <li>
+                      <a href={item.href}>
+                        {item.icon && (
+                          <svg
+                            class="icon"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                            set:html={icons[item.icon]}
+                          />
+                        )}
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))
+        }
+
+        <li class="nav-search">
+          {/* Filled in by @docsearch/js, which the page loads. */}
+          <div class="docsearch" id="docsearch"></div>
+        </li>
+
+        <li class="nav-cta">
+          <a
+            class:list={{
+              active: root === "getting-started" || root === "installation",
+            }}
+            href="/installation/"
+          >
+            Get started
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              set:html={icons["arrow-right"]}
+            />
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style lang="scss">
+  @use "../styles/breakpoints";
+
+  /* Mobile first: the menu is a panel that drops out of the bar and is
+     opened by the checkbox, which is what the Jekyll header does below
+     1140px. The desktop bar is the media query at the bottom.
+
+     Every link in the header — bar item, dropdown item, panel item —
+     shares one style: current color, no decoration, a wash on hover
+     and focus, the accent color when active. The three variables
+     below are all the dark variant changes. */
+
+  .site-header {
+    --nav-color: var(--color-text);
+    --nav-color-active: var(--color-link);
+    --nav-wash: var(--color-hover-wash);
+
+    backdrop-filter: blur(1.5rem);
+    background-color: var(--color-header-surface);
+    color: var(--nav-color);
+    font-family: var(--font-sans);
+    position: relative;
+
+    &.dark {
+      backdrop-filter: none;
+      background-color: transparent;
+    }
+  }
+
+  .bar {
+    align-items: center;
+    display: flex;
+    gap: var(--layout-gutter);
+    height: var(--header-height);
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: var(--layout-max-width);
+    padding: 0 var(--layout-gutter);
+  }
+
+  /* Logo and version badge */
+
+  .brand {
+    align-items: center;
+    display: flex;
+    gap: var(--space-small);
+    white-space: nowrap;
+  }
+
+  .site-title img {
+    display: block;
+    height: 2rem;
+    width: auto;
+  }
+
+  .version {
+    background: var(--color-surface-subtle);
+    border-radius: var(--radius-small);
+    color: var(--color-link);
+    font-size: var(--font-size-small);
+    padding: 0 var(--space-small);
+    text-decoration: none;
+  }
+
+  /* Menu button (the checkbox drives the panel, no JavaScript) */
+
+  nav {
+    align-items: center;
+    display: flex;
+  }
+
+  .menu-state {
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    width: 0;
+  }
+
+  .menu-button {
+    align-items: center;
+    background: var(--color-highlight);
+    border-radius: 50%;
+    color: var(--color-text-inverse);
+    cursor: pointer;
+    display: flex;
+    height: 2rem;
+    justify-content: center;
+    user-select: none;
+    width: 2rem;
+
+    &::after {
+      content: "☰";
+    }
+
+    &:hover,
+    .menu-state:focus-visible + & {
+      background: var(--color-highlight-shade);
+    }
+
+    .menu-state:checked + &::after {
+      content: "⨉";
+    }
+  }
+
+  /* Menu panel */
+
+  .menu {
+    background: var(--color-surface);
+    box-shadow: var(--shadow-panel);
+    display: none;
+    flex-wrap: wrap;
+    left: 0;
+    list-style: none;
+    margin: 0;
+    max-height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+    padding: var(--layout-gutter) 0;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 10;
+
+    .menu-state:checked ~ & {
+      display: flex;
+    }
+
+    li {
+      width: 100%;
+    }
+
+    /* Submenus sit inline and stay open inside the panel. */
+    ul {
+      list-style: none;
+      margin: 0 0 0 var(--layout-gutter);
+      padding: 0;
+    }
+
+    a {
+      align-items: center;
+      border-radius: var(--radius-small);
+      color: inherit;
+      display: flex;
+      font-size: var(--font-size-medium);
+      gap: var(--space-small);
+      line-height: 1.2;
+      margin: 0 var(--layout-gutter);
+      padding: var(--space-medium);
+      text-decoration: none;
+      transition: background-color 0.15s;
+
+      &:hover,
+      &:focus-visible {
+        background: var(--nav-wash);
+      }
+
+      &.active {
+        color: var(--nav-color-active);
+      }
+    }
+
+    .icon {
+      flex: none;
+      height: var(--font-size-large);
+      width: var(--font-size-large);
+    }
+  }
+
+  /* Search and call to action lead the panel, side by side. The call
+     to action goes first, with search beside it, reversing their
+     desktop-bar DOM order — same as the live site. */
+
+  .nav-cta,
+  .nav-search {
+    width: auto;
+  }
+
+  .nav-cta {
+    order: -2;
+  }
+
+  .nav-search {
+    order: -1;
+  }
+
+  .nav-cta a {
+    background: var(--color-link);
+    border-radius: var(--radius-pill);
+    color: var(--color-text-inverse);
+    font-weight: 600;
+    line-height: 1;
+    padding: var(--space-medium) var(--space-large);
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus-visible,
+    &.active {
+      background: var(--color-highlight-shade);
+      color: var(--color-text-inverse);
+    }
+  }
+
+  /* Desktop bar */
+
+  @media only screen and (min-width: breakpoints.$desk) {
+    .site-header.dark {
+      --nav-color: var(--color-text-inverse);
+      --nav-color-active: var(--color-text-inverse);
+      --nav-wash: var(--color-hover-wash-inverse);
+    }
+
+    .bar {
+      padding: 0 var(--layout-gutter-wide);
+    }
+
+    .menu-button {
+      display: none;
+    }
+
+    .menu {
+      align-items: center;
+      background: none;
+      box-shadow: none;
+      display: flex;
+      max-height: none;
+      overflow: visible;
+      padding: 0;
+      position: static;
+
+      a {
+        margin: 0;
+      }
+
+      > li {
+        display: flex;
+        position: relative;
+        width: auto;
+      }
+
+      > li > a {
+        white-space: nowrap;
+      }
+
+      /* Dropdowns: hover for pointers, focus-within for keyboards. */
+      > li > ul {
+        background: var(--color-surface);
+        box-shadow: var(--shadow-panel);
+        color: var(--color-text);
+        display: none;
+        flex-direction: column;
+        left: 0;
+        margin: 0;
+        padding: var(--space-small);
+        position: absolute;
+        top: 100%;
+        /* Absolute boxes shrink to the item above them without this. */
+        width: max-content;
+      }
+
+      > li:hover > ul,
+      > li:focus-within > ul {
+        display: flex;
+      }
+    }
+
+    /* In the bar they follow the navigation instead of leading it. */
+    .nav-cta,
+    .nav-search {
+      order: 0;
+    }
+
+    .nav-cta a {
+      margin-left: 0.5rem;
+    }
+  }
+</style>

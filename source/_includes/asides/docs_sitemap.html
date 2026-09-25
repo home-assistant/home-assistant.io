@@ -1,16 +1,40 @@
+{%- comment -%}
+  The automation branch stays open on the trigger, condition, and action
+  reference pages, so you keep the automation context when you browse them.
+{%- endcomment -%}
+{%- assign in_automation_reference = false -%}
+{%- if root == 'triggers' or root == 'conditions' or root == 'actions' -%}
+  {%- assign in_automation_reference = true -%}
+{%- endif -%}
+
 <li>
   <iconify-icon icon="mdi:robot-happy"></iconify-icon> {% active_link /docs/automation/ Automations %}
-  {% if doc == 'automation' or doc == 'blueprint' or doc == 'scripts' or doc == 'scene' or include.docs_index %}
+  {% if doc == 'automation' or doc == 'blueprint' or doc == 'scripts' or doc == 'scene' or in_automation_reference or include.docs_index %}
   <ul>
     <li>
       {% icon "mdi:robot-happy" %} {% active_link /docs/automation/basics/ Understanding automations %}
-      {% if doc == 'automation' or include.docs_index %}
+      {% if doc == 'automation' or in_automation_reference or include.docs_index %}
       <ul>
         <li>{% active_link /docs/automation/using_blueprints/ Using automation blueprints %}</li>
         <li>{% active_link /docs/automation/editor/ Editor %}</li>
-        <li>{% active_link /docs/automation/trigger/ Triggers %}</li>
-        <li>{% active_link /docs/automation/condition/ Conditions %}</li>
-        <li>{% active_link /docs/automation/action/ Actions %}</li>
+        <li>
+          {% active_link /docs/automation/trigger/ Triggers %}
+          <ul>
+            <li>{% active_link /triggers/ Browse available triggers %}</li>
+          </ul>
+        </li>
+        <li>
+          {% active_link /docs/automation/condition/ Conditions %}
+          <ul>
+            <li>{% active_link /conditions/ Browse available conditions %}</li>
+          </ul>
+        </li>
+        <li>
+          {% active_link /docs/automation/action/ Actions %}
+          <ul>
+            <li>{% active_link /actions/ Browse available actions %}</li>
+          </ul>
+        </li>
         <li>{% active_link /docs/automation/modes/ Run modes %}</li>
         <li>{% active_link /docs/automation/services/ Automation actions %}</li>
         <li>{% active_link /docs/automation/templating/ Templates %}</li>
@@ -274,7 +298,7 @@
 </li>
 
 <li>
-  {% icon "bitcoin-icons:node-hardware-filled" %} Official hardware
+  {% icon "bitcoin-icons:node-hardware-filled" %} {% active_link /hardware/ Official hardware %}
   <ul>
     <li><a href="https://support.nabucasa.com/hc/categories/24638797677853">Home Assistant Green</a></li>
     <li><a href="https://support.nabucasa.com/hc/categories/24734620813469">Home Assistant Connect ZBT-1</a></li>

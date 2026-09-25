@@ -91,12 +91,7 @@ The hub attached Tapo buttons S200B and S200D, which do not currently support al
 {% endnote %}
 
 {% note %}
-Some firmware versions (e.g., for Tapo Cameras or KH100 hub) require explicit activation of third-party integrations before they will allow access from Home Assistant.
-If you encounter authentication issues, ensure that Third-Party Compatibility is enabled within the device settings of the official vendor app.
-The option can be found under **Tapo Lab** > **Third-Party Compatibility** in the native Tapo app or **Settings** > **Third-Party Compatibility** in the Kasa app,
-depending on the device you are integrating.
-
-Alternatively, you can factory reset and then prevent the device from accessing the internet.
+Some firmware versions require explicit activation of third-party integrations before they allow access from Home Assistant. See [Third-party compatibility](#third-party-compatibility).
 {% endnote %}
 
 ### Supported Kasa devices
@@ -173,9 +168,12 @@ The integration connects locally to the devices without going via the TP-Link cl
 
 ## Known limitations
 
-### Camera connections
+### Third-party compatibility
 
-Some firmware versions of Tapo Cameras will not authenticate unless you enable **Tapo Lab** > **Third-Party Compatibility** in the native Tapo app.
+Some firmware versions require explicit activation of third-party integrations before they allow access from Home Assistant. This can affect devices across the Tapo and Kasa product lines, including some cameras, hubs, and plugs.
+
+If you encounter authentication or communication issues, ensure that **Third-Party Compatibility** is enabled in the official vendor app. The option can be found under **Tapo Lab** > **Third-Party Compatibility** in the native Tapo app or **Settings** > **Third-Party Compatibility** in the Kasa app, depending on the device you are integrating.
+
 Alternatively, you can factory reset and then prevent the device from accessing the internet.
 
 ### Subnets and discovery
@@ -207,7 +205,7 @@ If required, you can manually trigger an update via **Settings** > **Tools** > *
 
 - Take note of the known limitation for subnets above.
 - Ensure that your username is your TP-Link cloud username, which is your *case-sensitive* email address.
-- Ensure you have enabled **Tapo Lab** > **Third-Party Compatibility** in the Tapo app. You may need to factory reset and re-add to the Tapo app after this step. This appears to break connections for some power strip and outlet models and the integration gives a communication error instead of notifying you that you need to change this setting in the app.
+- If you encounter authentication or communication errors, check the [Third-party compatibility](#third-party-compatibility) limitation above.
 - Disable or remove any custom integrations that interact with TPLink devices supported by this integration.
 - Ensure stable network connectivity between Home Assistant and the device.
 - Unplug existing TP-Link/Tapo devices on your network before onboarding a new device. The TP-Link Simple Setup (TSS) protocol, which shares credentials from existing devices, can break authentication. If issues persist, factory reset the new device and re-add it without other TP-Link devices active.

@@ -55,6 +55,7 @@ Enjoy the release!
 - [Patch releases](#patch-releases)
   - [2026.9.1 - September 5](#202691---september-5)
   - [2026.9.2 - September 11](#202692---september-11)
+  - [2026.9.3 - September 18](#202693---september-18)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -758,6 +759,78 @@ release once a week, aiming for Friday.
 [@sdague]: https://github.com/sdague
 [@sdelmas]: https://github.com/sdelmas
 [@starkillerOG]: https://github.com/starkillerOG
+
+### 2026.9.3 - September 18
+
+- Fix EnergyZero market price regression ([@klaasnicolaas] - [#181230])
+- Require the IRK in the Private BLE Device config flow ([@frenck] - [#181969])
+- Keep the known Bond host when zeroconf still announces it ([@frenck] - [#181975])
+- Fix function name in external statistics mean_type message ([@Booyaka101] - [#182031])
+- Fix Matter cover entity not created when tilt attribute is null for Shelly devices ([@jowi24] - [#182042])
+- Bump holidays to 0.104 ([@gjohansson-ST] - [#182044])
+- Bump pylutron to 0.4.4 ([@cdheiser] - [#182049])
+- Make Nest climate turn_on idempotent ([@allenporter] - [#182086])
+- Increase Hot Spring polling interval to 60 seconds ([@Moustachauve] - [#182150])
+- Fix Google Tasks error handling on DNS failure ([@joostlek] - [#182195])
+- Fix Alexa doorbell raises error in state report becase the return status is NO_CONTENT ([@jbouwh] - [#182209])
+- Bump hassil to 3.12.1 ([@synesthesiam] - [#182213])
+- Encrypt and decrypt supervisor.tar in backup rewrites ([@agners] - [#182220])
+- Bump waterfurnace to 1.9.2 ([@sdague] - [#182019])
+- Bump waterfurnace to 1.9.7 ([@sdague] - [#182263])
+- Redact the AirVisual API key in debug logging ([@frenck] - [#182280])
+- Fix Spotify reauth crash when config entry data lacks "id" ([@joostlek] - [#182290])
+- Validate username during onboarding before creating a new user ([@edenhaus] - [#182320])
+- Fix missing f-string prefix in wiz error message ([@David-Wu1119] - [#182363])
+- Fix IMAP custom data event template option not reset when cleared ([@jbouwh] - [#182377])
+- Fix duplicate devices in Airthings BLE on incomplete read ([@joostlek] - [#182417])
+- Log exception when api fails in WAQI ([@chemelli74] - [#182419])
+- bump aioamazondevices to 15.2.0 ([@jamesonuk] - [#182204])
+- Bump aioamazondevices to 16.3.0 ([@chemelli74] - [#182438])
+- Bump reolink_aio to 0.21.17 ([@starkillerOG] - [#182472])
+
+[#181230]: https://github.com/home-assistant/core/pull/181230
+[#181969]: https://github.com/home-assistant/core/pull/181969
+[#181975]: https://github.com/home-assistant/core/pull/181975
+[#182019]: https://github.com/home-assistant/core/pull/182019
+[#182031]: https://github.com/home-assistant/core/pull/182031
+[#182042]: https://github.com/home-assistant/core/pull/182042
+[#182044]: https://github.com/home-assistant/core/pull/182044
+[#182049]: https://github.com/home-assistant/core/pull/182049
+[#182086]: https://github.com/home-assistant/core/pull/182086
+[#182150]: https://github.com/home-assistant/core/pull/182150
+[#182195]: https://github.com/home-assistant/core/pull/182195
+[#182204]: https://github.com/home-assistant/core/pull/182204
+[#182209]: https://github.com/home-assistant/core/pull/182209
+[#182213]: https://github.com/home-assistant/core/pull/182213
+[#182220]: https://github.com/home-assistant/core/pull/182220
+[#182263]: https://github.com/home-assistant/core/pull/182263
+[#182280]: https://github.com/home-assistant/core/pull/182280
+[#182290]: https://github.com/home-assistant/core/pull/182290
+[#182320]: https://github.com/home-assistant/core/pull/182320
+[#182363]: https://github.com/home-assistant/core/pull/182363
+[#182377]: https://github.com/home-assistant/core/pull/182377
+[#182417]: https://github.com/home-assistant/core/pull/182417
+[#182419]: https://github.com/home-assistant/core/pull/182419
+[#182438]: https://github.com/home-assistant/core/pull/182438
+[#182472]: https://github.com/home-assistant/core/pull/182472
+[@Booyaka101]: https://github.com/Booyaka101
+[@David-Wu1119]: https://github.com/David-Wu1119
+[@Moustachauve]: https://github.com/Moustachauve
+[@agners]: https://github.com/agners
+[@allenporter]: https://github.com/allenporter
+[@cdheiser]: https://github.com/cdheiser
+[@chemelli74]: https://github.com/chemelli74
+[@edenhaus]: https://github.com/edenhaus
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jamesonuk]: https://github.com/jamesonuk
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@jowi24]: https://github.com/jowi24
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@sdague]: https://github.com/sdague
+[@starkillerOG]: https://github.com/starkillerOG
+[@synesthesiam]: https://github.com/synesthesiam
 
 ## Need help? Join the community
 

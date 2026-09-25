@@ -246,7 +246,7 @@ Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at di
 
 Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), select entities are added for:
 
-- Floodlight mode (Off, Auto, On at night, Schedule, Adaptive, Auto adaptive)
+- Floodlight mode (Off, Auto, Auto PIR, On at night, Schedule, Adaptive, Auto adaptive)
 - Floodlight event mode (Off, On, Flash)
 - Day night mode+ (Auto, Color, Black&White)
 - <abbr title="pan, tilt, and zoom">PTZ</abbr> preset

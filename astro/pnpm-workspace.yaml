@@ -3,4 +3,7 @@
 
 # Dependencies allowed to run their install scripts.
 allowBuilds:
+  # Optional native dependency of sass, only used by the Sass CLI's
+  # --watch flag. Vite compiles the SCSS and does its own watching.
+  '@parcel/watcher': false
   esbuild: true

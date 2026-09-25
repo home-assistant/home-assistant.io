@@ -43,11 +43,11 @@ For the notification, press "Allow", then "OK".
 
 To prevent excessive battery drainage, a dynamic interval is used for each individual device instead of a fixed interval for all devices linked to one account. The dynamic interval is based on the current zone of a device, the distance towards home and the battery level of the device.
 
-## Two Factor Authentication
+## Two-factor authentication
 
-{% important %}
-You need to use an [app-specific password](https://support.apple.com/102654) to set up this integration.
-{% endimportant %}
+Use your regular Apple Account password when setting up the integration. If Apple requires two-factor authentication, Home Assistant asks you to enter the six-digit verification code displayed on one of your trusted Apple devices or sent to your trusted phone number.
+
+If you do not receive a verification code, select **Request a new verification code** in the verification step to ask Apple to send another code.
 
 ## In case of troubleshooting
 
