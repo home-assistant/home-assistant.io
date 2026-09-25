@@ -80,11 +80,23 @@ automation: |
         entity_id: button.garage_door_open
 {% endexample %}
 
-### Low battery notification
+Sending a notification when a device's battery drops below 25%:
 
-Run actions when a PAJ GPS device's battery drops below a chosen level. For example, you can send a notification reminding you to recharge the tracker.
-
-{% blueprint_example blueprint="paj_gps/low_battery.yaml" %}
+{% example %}
+automation: |
+  alias: "Notify when PAJ GPS battery is low"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.my_tracker_battery
+      below: 25
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_phone
+      data:
+        title: "Tracker battery low"
+        message: "Please recharge your tracker soon."
+{% endexample %}
 
 ## Data updates
 
