@@ -1,0 +1,45 @@
+blueprint:
+  name: Battery Management (weather-based emergency SOC)
+  description: Set Emergency SOC based on upcoming lowest temperature in line with recommendations
+  domain: automation
+  input:
+    upcoming_low_temp:
+      name: Upcoming lowest temperature
+      description: Sensor or input_number representing the lowest temp (today/tomorrow)
+      selector:
+        entity:
+          domain:
+            - sensor
+            - input_number
+
+    soc_target:
+      name: SOC target entity
+      selector:
+        entity:
+          domain: number
+
+trigger:
+  - platform: state
+    entity_id: !input upcoming_low_temp
+
+condition: []
+
+action:
+  - variables:
+      min_temp: "{{ states(!input upcoming_low_temp) | float(0) }}"
+      new_soc: >-
+        {% if min_temp < 0 %}
+          50
+        {% elif min_temp < 5 %}
+          30
+        {% else %}
+          10
+        {% endif %}
+
+  - service: number.set_value
+    target:
+      entity_id: !input soc_target
+    data:
+      value: "{{ new_soc }}"
+
+mode: single
