@@ -84,9 +84,9 @@ max_volume:
   default: -20
   type: integer
 sources:
-  description: A list of mappings from source to source name. Valid sources are `1 to 12`. (for `RS232` and `Telnet` types)
+  description: "Maps receiver source identifiers to names displayed in Home Assistant. Identifiers can be integers from `1` to `12`, or nonempty strings supported by your receiver, such as `OPT 1`, `OPT 2`, and `COAX 1`. Applies to `RS232` and `Telnet` connections."
   required: false
-  type: [list, string]
+  type: map
 volume_step:
   description: The amount in dB you want to increase the volume with when pressing volume up/down. (for `TCP` type only)
   required: false
@@ -116,3 +116,45 @@ media_player:
       1: "Kodi"
       2: "TV"
 ```
+
+### Named sources
+
+If your NAD receiver uses named sources instead of numeric identifiers, use the exact spelling, capitalization, and spacing expected by your receiver:
+
+```yaml
+# Example configuration.yaml entry for named sources
+media_player:
+  - platform: nad
+    serial_port: /dev/ttyUSB0
+    name: "NAD C390DD"
+    sources:
+      "OPT 1": "Kodi"
+      "OPT 2": "TV"
+      "COAX 1": "Nintendo"
+```
+
+Numeric source identifiers must be unquoted YAML integers, such as `2`, rather than strings such as `"2"`.
+
+### Finding your source identifiers
+
+For RS232 and Telnet connections, you can use debug logging to find the source identifiers reported by your receiver. Set up the NAD integration with your connection settings first. You can omit `sources` while finding the identifiers.
+
+1. Add the following to your `configuration.yaml` file. If you already have a `logger:` section, merge these entries into its `logs:` mapping instead of adding another `logger:` section. Keep your other logging settings.
+
+   ```yaml
+   logger:
+     logs:
+       homeassistant.components.nad: debug
+       nad_receiver: debug
+   ```
+
+2. [Restart Home Assistant](/docs/configuration/#reloading-the-configuration-to-apply-changes) to apply the logging settings.
+3. Turn on your receiver. Go to {% my logs title="**Settings** > **System** > **Logs**" %} and select **Home Assistant Core**. Enable **Show raw logs** to view the full log output.
+4. Change the input using your receiver's remote control or front panel. Wait for Home Assistant's next poll, then look for a message like this:
+
+   ```text
+   [nad_receiver] sent: 'Main.Source?' reply: 'Main.Source=OPT 1'
+   ```
+
+5. Use the value after `Main.Source=` in the reply as the key in your `sources` mapping. For this example, use `"OPT 1"` and choose a display name, such as `"TV"`. If the reply is `Main.Source=2`, use the unquoted integer `2`. Repeat for each input you want to configure.
+6. After updating `sources`, remove the temporary debug entries or restore their previous logging levels. Restart Home Assistant to apply the source mapping and logging changes.
