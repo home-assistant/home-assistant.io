@@ -94,7 +94,7 @@ The Rain Bird integration provides the following entities.
 
 - **Run program**
   - **Description**: A button is created for each program the controller supports
-    (Run program A, Run program B, and so on). Pressing it starts that program right away,
+    (Run PGM A, Run PGM B, and so on). Pressing it starts that program right away,
     using the zones and run times stored on the controller, the same as starting the program
     manually at the controller. You can use it in automations with the `button.press` action.
   - **Available for devices**: All. The number of buttons depends on how many programs your
