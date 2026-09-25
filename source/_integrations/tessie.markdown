@@ -463,11 +463,28 @@ automation:
           entity_id: cover.garage_door
 ```
 
-### Run actions when charging is complete
+### Automation: Notify when charging is complete
 
-Run actions when a Tessie vehicle stops charging after reaching a chosen battery level.
+This example sends a notification when the vehicle stops charging after reaching at least 80% state of charge.
 
-{% blueprint_example blueprint="tessie/charging_complete.yaml" %}
+```yaml
+alias: "Notify when Tessie charging is complete"
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.my_tesla_battery_charging
+    from: "on"
+    to: "off"
+conditions:
+  - condition: numeric_state
+    entity_id: sensor.my_tesla_battery_level
+    above: 79
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "Tesla charging is complete at {{ states('sensor.my_tesla_battery_level') }}%."
+```
 
 ## Troubleshooting
 
