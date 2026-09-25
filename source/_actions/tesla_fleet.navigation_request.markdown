@@ -64,6 +64,65 @@ destination:
 
 {% include actions/try_it.md %}
 
+{% include actions/more_examples.md %}
+
+### Automation: navigate to your next appointment
+
+Half an hour before a calendar event starts, send the event's location to the car.
+
+- **Trigger**: Calendar: 30 minutes before an event starts
+- **Condition**: The event has a location
+- **Action**: Navigate to destination, with the event's location
+
+{% details "YAML example for navigating to your next appointment" %}
+
+{% example %}
+automation: |
+  alias: "Navigate to next appointment"
+  triggers:
+    - trigger: calendar
+      entity_id: calendar.personal
+      event: start
+      offset: "-0:30:0"
+  conditions:
+    - condition: template
+      value_template: "{{ trigger.calendar_event.location | default('') != '' }}"
+  actions:
+    - action: tesla_fleet.navigation_request
+      data:
+        device_id: 0d462c0c4c0b064b1a91cdbd1ffcbd31
+        destination: "{{ trigger.calendar_event.location }}"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: send a destination from your dashboard
+
+Type a destination into a text field on your dashboard and send it to the car. The text field is an [input text](/integrations/input_text/) {% term helper %} that you create separately.
+
+- **Trigger**: Input text: the value changes
+- **Action**: Navigate to destination, with the new value
+
+{% details "YAML example for sending a destination from your dashboard" %}
+
+{% example %}
+automation: |
+  alias: "Send destination to car"
+  triggers:
+    - trigger: state
+      entity_id: input_text.car_destination
+  conditions:
+    - condition: template
+      value_template: "{{ trigger.to_state.state not in ['', 'unknown', 'unavailable'] }}"
+  actions:
+    - action: tesla_fleet.navigation_request
+      data:
+        device_id: 0d462c0c4c0b064b1a91cdbd1ffcbd31
+        destination: "{{ trigger.to_state.state }}"
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}

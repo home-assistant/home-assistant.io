@@ -31,7 +31,7 @@ Vehicle:
 Location:
   description: The location to navigate to, as a latitude and longitude.
 Order:
-  description: How to add this destination to the trip. `1` replaces the trip, `2` adds it as the next stop, and `3` adds it as the last stop.
+  description: How to add this destination to the trip. `1` replaces the trip, `2` adds it as the next stop, and `3` adds it as the last stop. Defaults to `1`.
   required: false
 {% endoptions_ui %}
 
@@ -67,6 +67,7 @@ order:
     How to add this destination to the trip. `1` replaces the trip, `2` adds it as the next stop, and `3` adds it as the last stop.
   required: false
   type: integer
+  default: 1
 {% endoptions_yaml %}
 
 ## Good to know
@@ -74,6 +75,71 @@ order:
 - The vehicle is woken up if needed, and the **Vehicle Commands** scope is required.
 
 {% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
+
+### Automation: navigate home when leaving work
+
+When you leave the work zone on a weekday, send your home location to the car so navigation is ready when you get in.
+
+- **Trigger**: Zone: you leave the work zone
+- **Action**: Navigate to coordinates, with the location of your home zone
+
+{% details "YAML example for navigating home when leaving work" %}
+
+{% example %}
+automation: |
+  alias: "Navigate home when leaving work"
+  triggers:
+    - trigger: zone
+      entity_id: person.alex
+      zone: zone.work
+      event: leave
+  conditions:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  actions:
+    - action: tesla_fleet.navigation_gps_request
+      data:
+        device_id: 0d462c0c4c0b064b1a91cdbd1ffcbd31
+        gps:
+          latitude: "{{ state_attr('zone.home', 'latitude') }}"
+          longitude: "{{ state_attr('zone.home', 'longitude') }}"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: add a stop on the way
+
+Press a button on your dashboard to add a regular stop, such as a grocery store, as the next stop on the current trip. The button is an [input button](/integrations/input_button/) {% term helper %} that you create separately.
+
+- **Trigger**: Input button: pressed
+- **Action**: Navigate to coordinates, with **Order** set to `2`
+
+{% details "YAML example for adding a stop on the way" %}
+
+{% example %}
+automation: |
+  alias: "Add grocery store as next stop"
+  triggers:
+    - trigger: state
+      entity_id: input_button.add_grocery_stop
+  actions:
+    - action: tesla_fleet.navigation_gps_request
+      data:
+        device_id: 0d462c0c4c0b064b1a91cdbd1ffcbd31
+        gps:
+          latitude: "{{ state_attr('zone.grocery_store', 'latitude') }}"
+          longitude: "{{ state_attr('zone.grocery_store', 'longitude') }}"
+        order: 2
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 
