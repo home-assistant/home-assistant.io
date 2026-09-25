@@ -1,0 +1,46 @@
+blueprint:
+  name: Arm and disarm Blink based on presence
+  description: Arm a Blink system when everyone leaves home and disarm it when someone returns.
+  domain: automation
+  input:
+    presence_entities:
+      name: People or device trackers
+      description: Select the people or device trackers used to determine whether anyone is home.
+      selector:
+        entity:
+          multiple: true
+          filter:
+            - domain:
+                - person
+                - device_tracker
+    alarm_control_panel:
+      name: Blink alarm control panel
+      selector:
+        entity:
+          filter:
+            - integration: blink
+              domain: alarm_control_panel
+
+variables:
+  presence_entities: !input presence_entities
+
+triggers:
+  - trigger: state
+    entity_id: !input presence_entities
+
+actions:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: >-
+              {% set entities = expand(presence_entities) | list %}
+              {{ entities | rejectattr('state', 'in', ['unknown', 'unavailable']) | list | count == entities | count
+                 and entities | selectattr('state', 'eq', 'home') | list | count == 0 }}
+        sequence:
+          - action: alarm_control_panel.alarm_arm_away
+            target:
+              entity_id: !input alarm_control_panel
+    default:
+      - action: alarm_control_panel.alarm_disarm
+        target:
+          entity_id: !input alarm_control_panel

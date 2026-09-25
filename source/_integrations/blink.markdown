@@ -82,40 +82,6 @@ sequence:
       filename: /tmp/my_image.jpg
 ```
 
-### Arm Blink when away
-
-This example automation will arm your blink sync module to detect motion on any of your blink cameras that have motion detection enabled. By default, Blink enables motion detection on all cameras so, unless you've changed anything in your app, you're all set. If you want to manually enable motion detection for individual cameras, you can use the [appropriate camera action](/integrations/camera/#action-enable-motion-detection) but motion will only be captured if the sync module is armed.
-
-Here, this example assumes your blink module is named `My Sync Module` and that you have [device trackers](/integrations/device_tracker) set up for presence detection.
-
-```yaml
-- alias: "Arm Blink When Away"
-  triggers:
-    - trigger: state
-      entity_id: all
-      to: "not_home"
-  actions:
-    - action: alarm_control_panel.alarm_arm_away
-      target:
-        entity_id: alarm_control_panel.blink_my_sync_module
-```
-
-### Disarm Blink when home
-
-Similar to the previous example, this automation will disarm blink when arriving home.
-
-```yaml
-- alias: "Disarm Blink When Home"
-  triggers:
-    - trigger: state
-      entity_id: all
-      to: "home"
-  actions:
-    - action: alarm_control_panel.alarm_disarm
-      target:
-        entity_id: alarm_control_panel.blink_my_sync_module
-```
-
 ### Save most recent video locally when motion detected
 
 When motion is detected, you can use the Blink Home Assistant integration to save the last recorded video locally, rather than relying on Blink's servers to save your data.
@@ -162,3 +128,12 @@ The file name of the downloaded video file is not configurable.
       data:
         file_path: /tmp/videos
 ```
+
+
+## Blink automation examples
+
+### Automation: Arm and disarm Blink based on presence
+
+Arm your Blink system when everyone leaves home and disarm it when someone returns.
+
+{% blueprint_example blueprint="blink/arm_by_presence.yaml" %}
