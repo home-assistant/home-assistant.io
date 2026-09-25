@@ -85,6 +85,8 @@ The Brother integration provides the following entities.
   - **Description**: Percentage of cyan ink remaining
 - **Cyan toner remaining**
   - **Description**: Percentage of cyan toner remaining
+- **Device status**
+  - **Description**: Current device status or condition
 - **Drum page counter**
   - **Description**: Total number of pages printed using the main drum
 - **Drum remaining lifetime**
@@ -95,6 +97,8 @@ The Brother integration provides the following entities.
   - **Description**: Total number of pages printed using the duplex unit
 - **Fuser remaining lifetime**
   - **Description**: Remaining lifetime percentage of the fuser unit
+- **Ink capture box remaining lifetime**
+  - **Description**: Remaining lifetime percentage of the ink capture box
 - **Laser remaining lifetime**
   - **Description**: Remaining lifetime percentage of the laser unit
 - **Uptime**
@@ -116,8 +120,11 @@ The Brother integration provides the following entities.
   - **Description**: Remaining lifetime percentage of paper feed kit 1
 - **PF Kit MP remaining lifetime**
   - **Description**: Remaining lifetime percentage of multipurpose tray feed kit
+- **Printer status**
+ - **Description**: Current printer status as a normalized value (`idle`, `printing`, `warmup`, or `other`)
 - **Status**
-  - **Description**: Current printer status or condition
+- **Description**: Raw printer status text reported by the device
+  - **Remarks**: This entity is disabled by default. Replaced by **Printer status**, which reports a fixed set of states
 - **Yellow drum page counter**
   - **Description**: Total number of pages printed with the yellow drum
 - **Yellow drum remaining lifetime**
