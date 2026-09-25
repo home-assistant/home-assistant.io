@@ -1,6 +1,6 @@
 ---
 title: Sofar
-description: Instructions on how to integrate a Sofar solar inverter with Home Assistant over Modbus TCP.
+description: Instructions on how to integrate a Sofar solar inverter with Home Assistant over Modbus TCP or a serial RS485 connection.
 ha_category:
   - Energy
 ha_release: 2026.9
@@ -20,7 +20,7 @@ ha_integration_type: device
 ha_quality_scale: platinum
 ---
 
-The **Sofar** {% term integration %} connects Home Assistant to a Sofar Solar inverter over Modbus TCP, either directly to an inverter with a network port, or through a Modbus TCP bridge for inverters that only expose RS485.
+The **Sofar** {% term integration %} connects Home Assistant to a Sofar Solar inverter over Modbus. You can reach the inverter over the network (Modbus TCP), either directly or through a Modbus TCP bridge, or over a serial port wired to its RS485 terminals (Modbus RTU).
 
 ## Use cases
 
@@ -53,30 +53,45 @@ Older Sofar inverters that use the legacy Modbus register map aren't supported. 
 
 ## Prerequisites
 
-- The inverter needs to be reachable over the network from Home Assistant, either because it has its own Modbus TCP port, or because it's connected through a Modbus TCP bridge (for example, a serial-to-network adapter wired to its RS485 port).
-- Modbus needs to be enabled on the inverter, if it has a setting for this.
+Depending on how you connect the inverter, you need one of the following:
+
+- **Network (Modbus TCP)**: The inverter has its own Modbus TCP port, or its RS485 port is wired to a Modbus TCP bridge or a data logger stick that speaks Modbus TCP.
+- **Serial port (Modbus RTU)**: The inverter's RS485 terminals are wired to a USB-to-RS485 adapter on your Home Assistant host. Alternatively, an ESPHome serial proxy with an RS485 interface can share the port with Home Assistant over the network. To set one up, refer to [Setting up an ESPHome serial proxy](/integrations/serial/#setting-up-an-esphome-serial-proxy).
+
+Modbus also needs to be enabled on the inverter, if it has a setting for this.
 
 {% include integrations/config_flow.md %}
 
+When you add the integration, choose how the inverter is reached: **Network (Modbus TCP)** or **Serial port (Modbus RTU)**. The settings that follow depend on your choice.
+
 {% configuration_basic %}
 Host:
-  description: "The hostname or IP address of the inverter, or of the Modbus TCP bridge it's connected through."
+  description: "The hostname or IP address of the inverter, or of the Modbus TCP bridge it's connected through. Only shown for a network connection."
 Port:
-  description: "The Modbus TCP port to connect to. The default is `502`."
+  description: "The Modbus TCP port to connect to. The default is `502`. Only shown for a network connection."
+Serial port:
+  description: "The serial port the inverter's RS485 bus is wired to. Ports shared over the network by an ESPHome serial proxy are listed alongside the local ones. Only shown for a serial connection."
+Baud rate:
+  description: "The speed of the RS485 bus, as set on the inverter. The default is `9600`, which matches the Sofar default. Only shown for a serial connection."
 Modbus unit ID:
   description: "The inverter's Modbus unit ID, also called its Modbus device address. The default is `1`."
 {% endconfiguration_basic %}
+
+{% note %}
+Home Assistant can share a Modbus connection between integrations when their connection settings are compatible. If another integration already uses the same serial port or bridge with different settings, such as another baud rate, setup fails with a connection error.
+{% endnote %}
 
 During setup, the integration also detects whether the inverter has EPS (Emergency Power Supply) wiring for an off-grid backup output, and polls its registers only if it does.
 
 ## Reconfiguration
 
-If the inverter becomes reachable somewhere else on the network, for example after a DHCP lease change or when you replace the Modbus TCP bridge it's connected through, you can update the connection settings without removing and re-adding the integration:
+If the inverter becomes reachable somewhere else, for example after a DHCP lease change, when you replace the Modbus TCP bridge it's connected through, when you rewire it to another serial port, or when you move it between a network and a serial connection, you can update the connection settings without removing and re-adding the integration:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and find the **Sofar** integration.
 2. Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reconfigure**.
-3. Update the **Host**, **Port**, or **Modbus unit ID** as needed.
-4. Select **Submit** to save the new settings.
+3. Choose how the inverter is reached from now on: **Network (Modbus TCP)** or **Serial port (Modbus RTU)**.
+4. Enter the connection settings. For a network connection, these are the **Host**, **Port**, and **Modbus unit ID**. For a serial connection, these are the **Serial port**, **Baud rate**, and **Modbus unit ID**. If you keep the same connection type, the current settings are filled in for you.
+5. Select **Submit** to save the new settings.
 
 The integration reads the serial number again and only accepts the new settings if they lead to the same inverter, so reconfiguring can't accidentally point an entry at a different device and take its history with it.
 
@@ -238,7 +253,7 @@ The **Sofar** {% term integration %} {% term polling polls %} the inverter's liv
 
 ## Known limitations
 
-- Only Modbus TCP connections are supported. Direct serial (RTU) connections aren't supported yet.
+- Serial connections use 8 data bits, no parity, and 1 stop bit (8N1), which is what Sofar inverters use on their RS485 port. Only the baud rate can be changed.
 
 ## Troubleshooting
 
@@ -246,10 +261,11 @@ If these steps don't help, [open an issue on GitHub](https://github.com/home-ass
 
 ### Cannot connect to the inverter
 
-1. Make sure the inverter (or the Modbus TCP bridge it's connected through) is powered on and reachable on the network.
-2. Confirm the host and port are correct, and that nothing else is holding open the same Modbus connection.
-3. Check that Modbus is enabled on the inverter, if it has a setting for this.
-4. If it still fails, include the host, port, and Modbus unit ID in the issue report. If the integration is already added, also enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), reproduce the failure, and include the log.
+1. Make sure the inverter is powered on. If it's connected through a Modbus TCP bridge or an ESPHome serial proxy, make sure that device is also powered on and reachable on your network.
+2. For a network connection, confirm the host and port are correct, and that nothing else is holding open the same Modbus connection.
+3. For a serial connection, confirm the serial port is correct and the baud rate matches the one set on the inverter. Check the RS485 wiring: if A and B are swapped, the inverter doesn't answer.
+4. Check that Modbus is enabled on the inverter, if it has a setting for this.
+5. If it still fails, include the connection type, the connection settings, and the Modbus unit ID in the issue report. If the integration is already added, also enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), reproduce the failure, and include the log.
 
 ### Inverter isn't recognized
 
