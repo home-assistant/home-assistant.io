@@ -62,10 +62,10 @@ You can configure additional behavior by clicking on **Options** in the relevant
 {% configuration_basic %}
 Parse new to-do list items:
   description: >-
-    When enabled, new to-do list items are parsed by Mealie for matches in your food items and identify quantities and units. If a confident match is found, the food item, unit, and quantity are added to Mealie separately. Otherwise, the item is added as a note.
+    When enabled, Mealie parses new to-do list items to find matches in your food items and identify quantities and units. If a confident match is found, the food item, unit, and quantity are added to Mealie separately. Otherwise, the item is added as a note.
 Parse edited to-do list items:
   description: >-
-    When enabled, edited to-do list items are parsed by Mealie for matches in your food items and identify quantities and units. If a confident match is found, the food item, unit, and quantity are updated in Mealie. If disabled, the item is updated as entered.
+    When enabled, Mealie parses edited to-do list items to find matches in your food items and identify quantities and units. If a confident match is found, the food item, unit, and quantity are updated in Mealie. If disabled, the item is updated as entered.
 Mealie parser:
   description: Select the parser to use. If you select OpenAI, you must set up an API key in Mealie.
 {% endconfiguration_basic %}
