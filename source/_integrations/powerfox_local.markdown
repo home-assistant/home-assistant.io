@@ -68,7 +68,27 @@ This integration does not provide additional actions.
 
 Use this automation to keep an eye on sudden peaks in your electricity usage. When the Poweropti sensor reports more than 4 kW for two minutes, Home Assistant sends a notification so you can react quickly (for example by switching off large loads).
 
-{% blueprint_example blueprint="powerfox_local/high_power_usage.yaml" %}
+{% details "Example YAML automation" %}
+```yaml
+alias: "Powerfox high usage alert"
+description: "Notify me when the Poweropti meter reports sustained high power draw."
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.poweropti_power
+    above: 4000
+    for:
+      minutes: 2
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      title: "High consumption detected"
+      message: "Poweropti currently reports {{ states('sensor.poweropti_power') }} W."
+```
+{% enddetails %}
+
+Replace the threshold value and the `notify` target with the entities that exist in your installation.
 
 ## Supported functionality
 
