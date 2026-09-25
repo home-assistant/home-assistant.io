@@ -72,7 +72,7 @@ The switch platform allows you to control your outlets, light switches, and sele
 - Camera Eyes
 - Camera 360
 
-A Motion Detector II also gets a **Pet immunity** switch.
+A Motion Detector II also gets a **Pet immunity** switch. A Smart Plug or Smart Plug Compact that supports energy-saving mode also includes an **Energy-saving mode** switch. It is a configuration entity, so it appears under the device's configuration controls rather than with the main controls.
 
 ### Valve
 
