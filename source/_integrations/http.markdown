@@ -136,7 +136,7 @@ If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, Home 
 
 After a ban is added, a persistent notification appears in the Home Assistant frontend.
 
-To clear an IP ban, you can either:
+IP bans do not expire automatically. To clear an IP ban, you can either:
 
 - Remove the specific IP entry from `ip_bans.yaml`.
 - Delete the entire `ip_bans.yaml` file. It will be recreated automatically the next time a ban occurs.
