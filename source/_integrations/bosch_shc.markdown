@@ -50,6 +50,10 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 
 The cover platform allows you to control your covers. Cover devices are added for each Shutter Control device.
 
+### Number
+
+The number platform lets you fine-tune numeric device settings. A Micromodule Relay configured in impulse-switch mode gets a **Pulse length** number, controlling how long the relay stays closed for each trigger.
+
 ### Sensors
 
 The sensor platform allows you to monitor the states of your temperature, humidity, purity, air quality, power, energy, and valve motor status sensors. Sensor devices are added for each of the following devices:
