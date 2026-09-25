@@ -96,10 +96,17 @@ For the quickest way to get your local Assist pipeline started, follow these ste
    - Under **Speech-to-text**, select the speech-to-text engine you choose in the previous step (either **Whisper** or **Speech-to-Phrase**). Select the language.
    - Under **Text-to-speech**, select **Piper**. Select the language.
      - Depending on your language, you may be able to select different language variants.
+   - Optionally, under **Acts as user**, select the person this assistant speaks for. Refer to [letting an assistant act as a user](#letting-an-assistant-act-as-a-user).
 
 3. That's it. You ensured your voice commands can be processed locally on your device.
 4. If you haven't done so yet, [expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices).
-   - Otherwise you won't be able to control them by voice.
+   - Otherwise, you won't be able to control them by voice.
+
+## Letting an assistant act as a user
+
+A voice request has no user of its own: when you speak to a voice satellite, Home Assistant cannot tell whose request it is. Integrations that link a Home Assistant user to an account of their own are then unable to pick the right account.
+
+Under **Acts as user**, select the person an assistant speaks for. What the assistant does then happens on behalf of that user, and an integration that knows their linked account uses it: [Music Assistant](/integrations/music_assistant/), for example, plays from that person's own streaming account or calendar appointments could be fetched depending on the user.
 
 ## Fine-tuning Whisper and Piper for your setup
 
