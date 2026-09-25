@@ -3,6 +3,7 @@ title: Flow-it
 description: Instructions on how to integrate Flow-it ventilation systems into Home Assistant.
 ha_category:
   - Fan
+  - Sensor
   - Switch
 ha_release: 2026.9
 ha_iot_class: Local Push
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: flow_it
 ha_platforms:
   - fan
+  - sensor
   - switch
 ha_integration_type: device
 ha_quality_scale: bronze
@@ -23,7 +25,7 @@ related:
 
 The **Flow-it** {% term integration %} lets you monitor and control your Flow-it ventilation system in Home Assistant.
 
-You can control the fan speed, turn intake and exhaust airflow on or off, activate preset modes like Auto or Boost, and automate your Flow-it ventilation system alongside other smart home devices.
+You can control the fan speed, turn intake and exhaust airflow on or off, activate preset modes like Auto or Boost, monitor air quality, temperature, humidity, and filter status, and automate your Flow-it ventilation system alongside other smart home devices.
 
 ## Supported devices
 
@@ -62,6 +64,31 @@ The **Flow-it** integration provides the following entities.
 - **Fan**
   - **Description**: Controls the fan state, speed (levels 1 through 5), and preset modes.
   - **Presets**: `Auto`, `Boost`.
+
+### Sensors
+
+- **G4 filter status**
+  - **Description**: Shows the status of the G4 filter.
+  - **Entity category**: Diagnostic.
+  - **Options**: `Clean`, `0%`, `25%`, `50%`, `75%`.
+- **HEPA filter status**
+  - **Description**: Shows the status of the HEPA filter.
+  - **Entity category**: Diagnostic.
+  - **Options**: `Clean`, `0%`, `25%`, `50%`, `75%`.
+- **Indoor air humidity**
+  - **Description**: Measures the relative humidity of the indoor air.
+- **Indoor air pressure**
+  - **Description**: Measures the air pressure of the indoor airflow.
+- **Indoor air quality**
+  - **Description**: Measures the indoor air quality (CO₂ concentration).
+- **Indoor air temperature**
+  - **Description**: Measures the temperature of the indoor air.
+- **Outdoor air humidity**
+  - **Description**: Measures the relative humidity of the outdoor air.
+- **Outdoor air pressure**
+  - **Description**: Measures the air pressure of the outdoor airflow.
+- **Outdoor air temperature**
+  - **Description**: Measures the temperature of the outdoor air.
 
 ### Switches
 
