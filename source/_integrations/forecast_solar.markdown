@@ -126,17 +126,40 @@ The Energy dashboard now overlays the expected production on your solar graph.
 
 ## Examples
 
-### Run actions when tomorrow's solar forecast is high
+### Automation: Act on a high solar forecast for tomorrow
 
-Run actions when tomorrow's estimated solar production rises above a chosen threshold.
+This example sends a notification when the estimated energy production for tomorrow rises above 10 kWh.
 
-{% blueprint_example blueprint="forecast_solar/tomorrow_energy_threshold.yaml" %}
+```yaml
+alias: "High solar forecast tomorrow"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.energy_production_tomorrow
+    above: 10
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "More than 10 kWh of solar production is forecast for tomorrow."
+```
 
-### Run actions at the solar production peak
+### Automation: Act at the solar production peak
 
-Run actions when the Forecast.Solar highest-power-peak timestamp is reached.
+This example sends a notification at today's forecast highest-power-peak time.
 
-{% blueprint_example blueprint="forecast_solar/peak_time.yaml" %}
+```yaml
+alias: "Forecast.Solar production peak"
+triggers:
+  - trigger: time
+    at: sensor.power_highest_peak_time_today
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "The forecast solar production peak has started."
+```
 
 ## Data updates
 
