@@ -69,6 +69,12 @@ automation:
 
 - Ethernet status
 
+## Sensor
+
+- Arm status: Reports whether arming the alarm requires bypassing a device (for example, an open door or window).
+  The state is `ready` when you can arm without bypassing and `bypass_needed` when bypassing is required.
+  Use it in an automation to notify you before you leave or to prevent an arm attempt when bypassing would be required.
+
 ## Lock
 
 | method state attribute | Description |
