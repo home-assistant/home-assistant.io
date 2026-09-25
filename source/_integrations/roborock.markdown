@@ -345,6 +345,11 @@ Roborock Zeo One currently exposes some entities through an MQTT connection - it
 - **Error**
   - **Description**: The current error of the Zeo, if one exists.
 
+#### Number
+
+- **Delay start**
+  - **Description**: Sets the delayed start timer, in minutes, for the washing machine. The delayed start is armed on the appliance itself; this entity only sets the timer value.
+
 {% include integrations/actions.md %}
 
 ## Removing the integration
