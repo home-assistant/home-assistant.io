@@ -996,10 +996,21 @@ Run script with script name, or _"turn on"_ utterance. Deactivate a running scri
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-Only temperature sensors are configured.
+Sensors with a [`device_class`](/integrations/sensor/#device-class) of `temperature` or `humidity` are supported. Other sensor types have no matching Alexa interface and are not exposed.
+
+| `device_class` | Unit | Alexa interface |
+| -------------- | ---- | --------------- |
+| `temperature`  | `°C` or `°F` | `Alexa.TemperatureSensor` |
+| `humidity`     | `%`  | `Alexa.HumiditySensor` |
+
+Temperature sensors can be queried by voice:
 
 - _"Alexa, what's the temperature in the kitchen?"_
 - _"Alexa, what's the upstairs temperature?"_
+
+{% note %}
+Humidity sensors cannot be queried by voice. Amazon documents that the [`Alexa.HumiditySensor`](https://developer.amazon.com/docs/device-apis/alexa-humiditysensor.html) interface has no user utterances. The value is shown in the Alexa app, and the sensor can be used as a condition in Alexa Routines.
+{% endnote %}
 
 ### Switch, Input Boolean
 
