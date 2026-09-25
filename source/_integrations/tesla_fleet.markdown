@@ -304,6 +304,8 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Sensor | State       | Yes     |
 | Sensor | Vehicle     | Yes     |
 
+{% include integrations/actions.md %}
+
 ## Vehicle sleep
 
 Constant API {% term polling %} will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping. The {% term integration %} automatically stops {% term polling %} these vehicles for 15 minutes after inactivity. You can call the `homeassistant.update_entity` {% term action %} to force {% term polling %}, which will reset the timer.
