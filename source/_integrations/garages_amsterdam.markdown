@@ -48,17 +48,41 @@ Each parking garage also has a binary sensor, which indicates whether there are 
 
 ## Examples
 
-### Run actions when parking availability is low
+### Automation: Act when parking availability is low
 
-Run actions when the number of free spaces in an Amsterdam parking garage drops below a chosen threshold.
+This example sends a notification when fewer than 25 short-term parking spaces are available.
 
-{% blueprint_example blueprint="garages_amsterdam/low_availability.yaml" %}
+```yaml
+alias: "Parking garage availability is low"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.garage_free_space_short
+    below: 25
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "Fewer than 25 short-term parking spaces are available."
+```
 
-### Run actions when garage data has a problem
+### Automation: Act when garage data has a problem
 
-Run actions when the selected Garages Amsterdam problem sensor turns on.
+This example sends a notification when the garage data problem sensor turns on.
 
-{% blueprint_example blueprint="garages_amsterdam/data_problem.yaml" %}
+```yaml
+alias: "Parking garage data problem"
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.garage_data_problem
+    to: "on"
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "The parking garage data may be outdated or unreliable."
+```
 
 ## Removing the integration
 
