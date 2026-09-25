@@ -55,17 +55,15 @@ Verify SSL certificate:
   description: Enable this unless you are using a self-signed certificate on your Mealie installation.
 {% endconfiguration_basic %}
 
-## Options
-
-You can configure additional behavior by clicking on **Options** in the relevant box in the Integration panel:
+{% include integrations/option_flow.md %}
 
 {% configuration_basic %}
 Parse new to-do list items:
   description: >-
-    When enabled, Mealie parses new to-do list items to find matches in your food items and identify quantities and units. If a confident match is found, the food item, unit, and quantity are added to Mealie separately. Otherwise, the item is added as a note.
+    When enabled, Mealie parses new to-do list items to find matches in your food items and identify quantities and units. If a confident match is found, the food item, unit, and quantity are added to Mealie separately. Otherwise, the item is added as a note. Enabled by default.
 Parse edited to-do list items:
   description: >-
-    When enabled, Mealie parses edited to-do list items to find matches in your food items and identify quantities and units. If a confident match is found, the food item, unit, and quantity are updated in Mealie. If disabled, the item is updated as entered.
+    When enabled, Mealie parses edited to-do list items to find matches in your food items and identify quantities and units. If a confident match is found, the food item, unit, and quantity are updated in Mealie. If disabled, the item is updated as entered. Enabled by default.
 Mealie parser:
   description: Select the parser to use. If you select OpenAI, you must set up an API key in Mealie.
 {% endconfiguration_basic %}
@@ -86,7 +84,7 @@ The integration will create a {% term calendar %} for every type of meal plan, w
 
 The integration will create a to-do list for every Mealie shopping list, which are updated every 5 minutes.
 
-If enabled within Options, items added to a to-do list, or updated are parsed by Mealie and if a confident match is found, the item is added as a Mealie food item with separate quantity and units.
+When enabled in the options, items added to or edited in a to-do list are parsed by Mealie. If a confident match to an existing food is found, the item is added to or updated as a Mealie food item with separate quantity and unit.
 
 ## Sensors
 
