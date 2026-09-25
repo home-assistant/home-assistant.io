@@ -177,6 +177,7 @@ The integration will create the following sensors:
 - Error. For example: *Mower tilted*, *outside geofence*.
 - Downtime (if available)
 - Inactive reason (if available). For example: *Searching for satellites* or *planning*.
+- Manufacture date. The mower's manufacture year and ISO week, decoded from its serial number.
 - Remaining charging time
 - Restricted reason. For example: *Week schedule*, *frost*, or *daily limit*.
 - Mode
