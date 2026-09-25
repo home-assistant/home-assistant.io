@@ -25,6 +25,16 @@ Your device must be on and broadcasting in range before adding it to Home Assist
 
 There are two common representations for encoding an IRK - base64 encoding or hex encoding. This integration supports both.
 
+## Changing a device's IRK
+
+A device's Identity Resolving Key (IRK) changes when you reset it, sign out of its Apple Account and sign back in, or move it to a new phone. Give the existing device its new IRK instead of removing and re-adding it, which keeps its entity IDs, history, automations, and dashboards.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Private BLE Device** integration card.
+2. Next to the device, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Reconfigure**.
+3. Enter the new IRK.
+
+As when adding a device, it must be on and broadcasting in range, and the IRK must not already belong to another Private BLE Device.
+
 ## Getting your Identity Resolving Key (IRK)
 
 ### On macOS
