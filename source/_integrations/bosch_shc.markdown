@@ -81,6 +81,10 @@ Shutter Control and Micromodule Shutter Control devices support opening, closing
 - A Smoke Detector gets an event entity that fires whenever its alarm state changes.
 - A Smoke Detection System gets an event entity that fires whenever its alarm state changes: **Idle** (`alarm_off`), **Alarm** (`alarm_on`), or **Alarm muted** (`alarm_muted`).
 
+### Number
+
+The number platform lets you fine-tune numeric device settings. A Micromodule Relay configured in impulse-switch mode gets a **Pulse length** number, controlling how long the relay stays closed for each trigger.
+
 ### Sensors
 
 The sensor platform allows you to monitor the states of your temperature, humidity, purity, air quality, power, energy, and valve motor status sensors. Sensor devices are added for each of the following devices:
