@@ -55,6 +55,21 @@ Verify SSL certificate:
   description: Enable this unless you are using a self-signed certificate on your Mealie installation.
 {% endconfiguration_basic %}
 
+## Options
+
+You can configure additional behavior by clicking on **Options** in the relevant box in the Integration panel:
+
+{% configuration_basic %}
+Parse new to-do list items:
+  description: >-
+    When enabled, new to-do list items are parsed by Mealie for matches in your food items and identify quantities and units. If a confident match is found, the food item, unit, and quantity are added to Mealie separately. Otherwise, the item is added as a note.
+Parse edited to-do list items:
+  description: >-
+    When enabled, edited to-do list items are parsed by Mealie for matches in your food items and identify quantities and units. If a confident match is found, the food item, unit, and quantity are updated in Mealie. If disabled, the item is updated as entered.
+Mealie parser:
+  description: Select the parser to use. If you select OpenAI, you must set up an API key in Mealie.
+{% endconfiguration_basic %}
+
 ## Available calendars
 
 The integration will create a {% term calendar %} for every type of meal plan, which are updated once an hour:
@@ -71,6 +86,8 @@ The integration will create a {% term calendar %} for every type of meal plan, w
 
 The integration will create a to-do list for every Mealie shopping list, which are updated every 5 minutes.
 
+If enabled within Options, items added to a to-do list, or updated are parsed by Mealie and if a confident match is found, the item is added as a Mealie food item with separate quantity and units.
+
 ## Sensors
 
 The integration provides the following sensors for the statistics, which are updated every 15 minutes:
@@ -85,7 +102,7 @@ The integration provides the following sensors for the statistics, which are upd
 
 ## Known limitations
 
-- When editing a food item within the shopping list the item will be converted to a note style item.
+- When you edit a food item in a shopping list, it is converted to a note if parsing does not find a confident match or if **Parse edited to-do list items** is disabled.
 
 ## Troubleshooting
 
