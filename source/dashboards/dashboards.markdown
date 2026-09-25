@@ -339,6 +339,20 @@ dashboards:
       default: false
 {% endconfiguration %}
 
+You can also add YAML dashboards when your main dashboard is UI configured:
+```yaml
+lovelace:
+  mode: storage
+  # Add yaml dashboards
+  dashboards:
+    yaml:
+      mode: yaml
+      title: YAML
+      icon: mdi:script
+      show_in_sidebar: true
+      filename: lovelace.yaml
+```
+
 ### Refreshing a YAML dashboard
 
 After changing the YAML file of a dashboard that uses `mode: yaml`, or a file it loads with `!include`, open the dashboard, select the three dots {% icon "mdi:dots-vertical" %} menu (top-right), and select **Refresh** to reload its configuration. Reloading the page in your browser does not always pick up these changes.
