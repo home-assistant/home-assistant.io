@@ -6,6 +6,7 @@ ha_category:
   - Cover
   - Event
   - Hub
+  - Number
   - Sensor
   - Switch
   - Valve
@@ -20,6 +21,7 @@ ha_platforms:
   - binary_sensor
   - cover
   - event
+  - number
   - sensor
   - switch
   - valve
