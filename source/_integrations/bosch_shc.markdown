@@ -50,6 +50,10 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 
 The cover platform allows you to control your covers. Cover devices are added for each Shutter Control device.
 
+### Select
+
+The select platform lets you choose between a set of predefined options. An Outdoor Siren gets a **Siren volume** select entity, letting you choose between reduced, medium, or loud.
+
 ### Sensors
 
 The sensor platform allows you to monitor the states of your temperature, humidity, purity, air quality, power, energy, and valve motor status sensors. Sensor devices are added for each of the following devices:
