@@ -7,6 +7,7 @@ ha_category:
   - Event
   - Hub
   - Number
+  - Select
   - Sensor
   - Switch
   - Valve
@@ -22,6 +23,7 @@ ha_platforms:
   - cover
   - event
   - number
+  - select
   - sensor
   - switch
   - valve
