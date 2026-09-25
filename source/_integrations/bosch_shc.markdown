@@ -4,6 +4,7 @@ description: Integrate Bosch SHC.
 ha_category:
   - Binary sensor
   - Cover
+  - Event
   - Hub
   - Sensor
   - Switch
@@ -18,6 +19,7 @@ ha_domain: bosch_shc
 ha_platforms:
   - binary_sensor
   - cover
+  - event
   - sensor
   - switch
   - valve
@@ -32,6 +34,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Binary sensors](#binary-sensors)
 - [Covers](#covers)
+- [Event](#event)
 - [Sensors](#sensors)
 - [Switches](#switches)
 - [Valve](#valve)
