@@ -96,12 +96,12 @@ The table below shows which {% term entity %} domains are available in each mode
 | Binary sensor       |     ✅      |                —                |
 | Button              |     ✅      |                —                |
 | Camera              |     ✅      | ✅ (streams and snapshots only) |
-| Event               |     ✅      |                —                |
+| Event               |     ✅      | ✅ (public API detections only) |
 | Light               |     ✅      |               ✅                |
 | Media player        |     ✅      |                —                |
 | Number              |     ✅      |  ✅ (public API settings only)  |
-| Select              |     ✅      |                —                |
-| Sensor              |     ✅      |                —                |
+| Select              |     ✅      |  ✅ (public API settings only)  |
+| Sensor              |     ✅      |   ✅ (public API values only)   |
 | Siren               |     ✅      |               ✅                |
 | Switch              |     ✅      |  ✅ (public API settings only)  |
 | Text                |     ✅      |                —                |
@@ -109,6 +109,12 @@ The table below shows which {% term entity %} domains are available in each mode
 In API key only mode, switches are limited to the settings the public API can change: the camera status light, high FPS mode, overlay and smart detection toggles, the floodlight status light, the smart sensor detection toggles, and the relay outputs.
 
 Numbers are limited in the same way: the camera microphone level, the floodlight motion sensitivity and auto-shutoff duration, and the smart sensor motion sensitivity.
+
+Selects are limited in the same way: the camera HDR mode, the floodlight light mode, and the alarm profile.
+
+Sensors are limited in the same way: the smart sensor battery, light, humidity and temperature readings with their trip timestamps, and the floodlight last motion.
+
+Events are limited in the same way: the camera motion, smart detection, sound detection and package events, and the key fob buttons. The doorbell ring, NFC, fingerprint and vehicle events need full access.
 
 {% note %}
 This table reflects the entities currently supported by this {% term integration %}. The UniFi Protect public Integration API is actively growing, and this {% term integration %} is being incrementally migrated to use it, so expect more domains to become available in API key only mode over time.
@@ -188,16 +194,16 @@ and in many cases, get a read-only sensor instead of an editable switch/select/n
 
 The table below shows, per device type, which connection mode is required. See [Connection modes](#connection-modes) for what each mode provides.
 
-| Device type  | Full access |                API key only                |
-| ------------ | :---------: | :----------------------------------------: |
-| Camera       |     ✅      | ✅ (streams, snapshots, switches, numbers) |
-| Floodlight   |     ✅      |       ✅ (light, switches, numbers)        |
-| Smart sensor |     ✅      |         ✅ (switches and numbers)          |
-| Viewer       |     ✅      |                     —                      |
-| Smart chime  |     ✅      |                     —                      |
-| Relay        |     ✅      |                     ✅                     |
-| Siren        |     ✅      |                     ✅                     |
-| NVR          |     ✅      |          ✅ (Alarm Manager only)           |
+| Device type  | Full access |                        API key only                         |
+| ------------ | :---------: | :---------------------------------------------------------: |
+| Camera       |     ✅      | ✅ (streams, snapshots, switches, numbers, selects, events) |
+| Floodlight   |     ✅      |       ✅ (light, switches, numbers, selects, sensors)       |
+| Smart sensor |     ✅      |               ✅ (switches, numbers, sensors)               |
+| Viewer       |     ✅      |                              —                              |
+| Smart chime  |     ✅      |                              —                              |
+| Relay        |     ✅      |                             ✅                              |
+| Siren        |     ✅      |                             ✅                              |
+| NVR          |     ✅      |                   ✅ (Alarm Manager only)                   |
 
 ### UniFi Protect cameras
 
