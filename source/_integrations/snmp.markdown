@@ -13,9 +13,10 @@ ha_platforms:
   - device_tracker
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@nmaggioni'
+  - '@IsaccoBenedetti'
 ha_quality_scale: legacy
 ---
 
@@ -24,6 +25,10 @@ Many routers, Wi-Fi access points, printers, and other network-connected devices
 There is currently support for the following device types within Home Assistant:
 
 - [Presence detection](#presence-detection)
+  - [SNMP v1 and v2c configuration](#snmp-v1-and-v2c-configuration)
+  - [SNMP v3 configuration](#snmp-v3-configuration)
+  - [YAML v1/v2c configuration (deprecated)](#yaml-v1v2c-configuration-deprecated)
+  - [YAML migration](#yaml-migration)
 - [Sensor](#sensor)
   - [Finding OIDs](#finding-oids)
   - [Examples](#examples)
@@ -32,6 +37,10 @@ There is currently support for the following device types within Home Assistant:
 
 {% important %}
 This device tracker needs SNMP to be enabled on the target network device. It could be that you need to install SNMP support manually on your router, switch, server, or any other device that you will be trying to extract information from.
+{% endimportant %}
+
+{% important %}
+Due to SNMP limitations, it is impossible to reliably fetch a stable MAC address from the server. Because of this, the integration cannot follow Home Assistant best practices when it comes to using the MAC address or some other unique reliable string as a `unique_id`. For this reason, you should make sure to set up a static IP address or a DHCP reservation.
 {% endimportant %}
 
 ## Presence detection
@@ -57,8 +66,31 @@ The following OIDs refer to the current MAC Address table from various common ro
 | TP-Link  | Archer VR600                     | `1.3.6.1.2.1.3.1.1.2`                           |
 | Ubiquiti | Edgerouter Lite v1.9.0           | `1.3.6.1.2.1.4.22.1.2`                          |
 
-To use SNMP version 1 or 2c in your installation, add the following to your `configuration.yaml` file:
+The **device_tracker** platform can be configured directly through the Home Assistant user interface.
 
+{% include integrations/config_flow.md %}
+
+During the setup, you will be asked for:
+
+- **Host**: The IP address or hostname of your SNMP device.
+- **Port**: The SNMP port (default is `161`).
+- **SNMP Version**: Choose between `1`, `2c`, or `3`.
+- **Base OID**: The OID prefix where wireless client registrations can be found, usually vendor-specific. Use numerical notation. To find this base OID, check vendor documentation or the MIB file for your device (for example, `1.3.6.1.2.1.3.1.1.2`).
+
+### SNMP v1 and v2c configuration
+
+- **Community**: The SNMP community which is set for the device. Most devices have a default community set to `public` with read-only permission (which is sufficient for most purposes).
+
+### SNMP v3 configuration
+If you choose version 3, you will also need to provide:
+
+- **Username**
+- **Authentication Key** and **Protocol** (such as MD5 or SHA)
+- **Privacy Key** and **Protocol** (such as DES or AES)
+- **Context Name** (optional)
+
+### YAML v1/v2c configuration (deprecated)
+Alternatively, you can still use the deprecated YAML configuration:
 ```yaml
 # Example configuration.yaml entry for SNMP version 1 or 2c
 device_tracker:
@@ -68,45 +100,17 @@ device_tracker:
     baseoid: 1.3.6.1.4.1.14988.1.1.1.2.1.1
 ```
 
-If your network device supports SNMP version 3 and is configured appropriately, you can enable encryption by adding `auth_key` and `priv_key` variables. Example configuration:
+See the [device tracker integration page](/integrations/device_tracker/) for instructions on how to configure the people to be tracked.
 
-```yaml
-# Example configuration.yaml entry for SNMP version 3
-device_tracker:
-  - platform: snmp
-    host: 192.168.1.1
-    community: USERNAME
-    auth_key: AUTHPASS
-    priv_key: PRIVPASS
-    baseoid: 1.3.6.1.4.1.14988.1.1.1.2.1.1
-```
+### YAML migration
 
-{% configuration %}
-host:
-  description: The IP address of the router, e.g., 192.168.1.1.
-  required: true
-  type: string
-community:
-  description: The SNMP community which is set for the device. Most devices have a default community set to `public` with read-only permission (which is sufficient for most purposes).
-  required: true
-  type: string
-baseoid:
-  description: The OID prefix where wireless client registrations can be found, usually vendor specific. It's advised to use the numerical notation. To find this base OID, check vendor documentation or check the MIB file for your device.
-  required: true
-  type: string
-auth_key:
-  description: "Authentication key for SNMPv3. Variable `priv_key` must also be set."
-  required: inclusive
-  type: string
-priv_key:
-  description: "Privacy key SNMPv3. Variable `auth_key` must also be set."
-  required: inclusive
-  type: string
-{% endconfiguration %}
+While you can still use the old YAML configuration, it is now getting deprecated. If you have an existing configuration in your `configuration.yaml`, Home Assistant will automatically import it into a new config entry upon the first restart of Home Assistant after updating. 
 
-See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
+Once the migration is complete, a repair message will appear in your Home Assistant settings, prompting you to safely remove the legacy SNMP section from your YAML files.
 
-{% include integrations/using_templates.md %}
+{% note %}
+Only the `device_tracker` platform is automatically migrated. Sensors and switches will continue to function from YAML. However, a bug in the legacy implementation caused some binary and string MAC addresses to generate incorrectly named entities. This has been fixed, which may result in new entities being created for some devices. If this happens, you'll need to enable the new entities and update any associated automations. Old entities will remain in the system but will consistently show as `not_home`. These can be safely deleted from `known_devices.yaml` once you've migrated to the new entities.
+{% endnote %}
 
 ## Sensor
 
@@ -139,7 +143,7 @@ auth_protocol:
   type: string
   default: 'none'
 baseoid:
-  description: The OID where the information is located. It's advised to use the numerical notation.
+  description: The OID where the information is located. Use numerical notation.
   required: true
   type: string
 community:
@@ -156,7 +160,7 @@ device_class:
   required: false
   type: string
 host:
-  description: The IP address of your host, e.g., `192.168.1.32`.
+  description: The IP address of your host (for example, `192.168.1.32`).
   required: false
   type: string
   default: 'localhost'
@@ -215,6 +219,8 @@ version:
   type: string
   default: '1'
 {% endconfiguration %}
+
+{% include integrations/using_templates.md %}
 
 Valid values for `auth_protocol`:
 
