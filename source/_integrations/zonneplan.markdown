@@ -36,6 +36,9 @@ The Zonneplan integration retrieves data from the Zonneplan cloud API on a regul
 The following sensors are provided by this integration:
 
 - **Current electricity price**: The electricity price for the current hour.
+- **Next hour electricity price**: The electricity price for the next hour.
+- **Current electricity tariff group**: How Zonneplan classifies the price of the current hour: Low, Normal, or High.
+- **Current sustainability score**: Zonneplan's score, from 0 to 100%, for how sustainable the electricity supplied in the current hour is.
 - **Lowest electricity price today**: The lowest electricity price for today.
 - **Highest electricity price today**: The highest electricity price for today.
 - **Lowest electricity price tomorrow**: The lowest electricity price for tomorrow, once published (typically around 13:00 CET/CEST).
