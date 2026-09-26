@@ -15,6 +15,7 @@ ha_platforms:
   - number
   - sensor
   - switch
+  - time
 ha_integration_type: hub
 ha_quality_scale: platinum
 ha_category:
@@ -104,7 +105,7 @@ Enable cover sensor:
 
 ## Supported functionality
 
-The integration exposes the controller's runtime state as sensor and binary sensor entities, plus an optional light entity for the pool light relay. It also adds number entities for the controller's writable setpoints and configuration values, switch entities for filtration, backwash, the auxiliary relays, and the controller's configuration flags, and button entities for device maintenance actions.
+The integration exposes the controller's runtime state as sensor and binary sensor entities, plus an optional light entity for the pool light relay. It also adds number entities for the controller's writable setpoints and configuration values, switch entities for filtration, backwash, the auxiliary relays, and the controller's configuration flags, time entities for the daily timer schedules, and button entities for device maintenance actions.
 
 {% note %}
 Only entities backed by a detected hardware module or an enabled controller option are registered. The rest stay hidden until the module or option becomes available. Each bullet below lists the specific requirement for that entity.
@@ -167,6 +168,54 @@ Only entities backed by a detected hardware module or an enabled controller opti
 - **Intelligent-mode intervals** and **time to next interval**: scheduling data for Intelligent mode (when a heating relay and temperature sensor are configured).
 - **Backwash remaining**: time remaining in the active backwash cycle (when a Besgo automatic filter valve is configured).
 - **Cell runtime counters**: five diagnostic counters tracking wear on the electrolytic cell (when the hydrolysis module is present), total runtime, runtime since last reset, runtime in polarity 1 and 2, and polarity-change count. All five are diagnostic and disabled by default; enable them in the entity registry if you want to track cell wear over time.
+
+### Times
+
+The controller stores a daily start and stop time for each of its timer blocks. These entities let you read and change that schedule from Home Assistant. Setting a value writes it back to the controller. The controller only follows a timer's schedule while the matching filtration or relay is in an automatic mode. In a manual mode the schedule is ignored, but the times remain readable and editable.
+
+- **Filtration timers 1 to 3**: the start and stop times of the three filtration schedules. The first timer's entities are enabled by default. The second and third timers' entities are disabled by default because most pools use a single schedule. Enable them in the entity registry if your controller uses more than one.
+- **Auxiliary relay timers 1 to 4**: the start and stop times of each auxiliary relay's schedule. Added for each auxiliary relay enabled in the integration options. Each relay has a second schedule whose entities are disabled by default. Enable them in the entity registry if you use the relay's second daily period.
+- **Pool light timer**: the start and stop times of the pool light schedule. Added when the pool light relay is enabled in the integration options.
+
+{% include integrations/actions.md %}
+
+The action that changes the controller (**Set device time**) requires a Home Assistant administrator account. The read-only action (**Get device time**) is available to any user.
+
+## NeoPool automation examples
+
+The actions let you keep the controller in step with Home Assistant. Here is an example to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Keep the controller clock in sync
+
+The controller's real-time clock can drift over time. Instead of a fixed daily overwrite, this automation checks the drift once an hour and only corrects the clock when it exceeds a threshold you choose. The `neopool.get_device_time` action returns the drift, and the automation acts on it.
+
+{% details "YAML example for keeping the clock in sync" %}
+
+{% example %}
+automation: |
+  alias: "NeoPool - keep the controller clock in sync"
+  triggers:
+    - trigger: time_pattern
+      hours: "/1"
+  actions:
+    - action: neopool.get_device_time
+      data:
+        device_id: abc123device456
+      response_variable: pool_time
+    - if:
+        - condition: template
+          value_template: "{{ pool_time.drift_seconds | abs > 120 }}"
+      then:
+        - action: neopool.set_device_time
+          data:
+            device_id: abc123device456
+{% endexample %}
+
+{% enddetails %}
+
+Replace `abc123device456` with the device ID of your controller. If you only have one NeoPool controller, you can leave the `device_id` out of both actions. Raise or lower the `120` in the template to change how much drift you tolerate before the clock is corrected.
 
 ## Data updates
 
