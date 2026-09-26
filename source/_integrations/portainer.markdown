@@ -53,6 +53,7 @@ There is currently support for the following device types within Home Assistant:
 ### Binary sensors
 
 - **Status**: Reports whether a container is running.
+- **Out of memory killed**: Reports a problem when Docker killed the container because it ran out of memory. It resets when the container starts again.
 
 ### Buttons
 
