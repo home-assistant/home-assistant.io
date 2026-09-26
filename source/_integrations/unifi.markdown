@@ -54,6 +54,13 @@ It is recommended to run latest stable versions of UniFi Network and UniFi OS.
 Using Early Access Release Candidate versions of UniFi Network or UniFi OS can bring unexpected changes. If you choose to opt into either the Early Access or the Release Candidate release channel and anything breaks in Home Assistant, you will need to wait until that version goes to the official Stable Release channel before it is expected to work.
 {% endimportant %}
 
+### Connection modes
+
+The {% term integration %} connects in one of two ways. You choose when you add it.
+
+- **Local user (full access)**: uses a local user of the UniFi OS Console and gives you every entity described on this page that the user's permissions allow; an administrator gets all of them, a read-only user fewer. This is the recommended option where a local user can be created.
+- **API key only (limited feature set)**: uses an API key of the UniFi Network application and no local user. It works on consoles that cannot have local users, such as members of a UniFi fabric, but provides a subset of the entities. See [API key](#api-key).
+
 ### Local user
 
 You need a local user created in your UniFi OS Console. Ubiquiti SSO cloud users will **not** work. Using an administrator or a user with full read/write access is recommended to get the most out of the integration, but it is not required. The entities that are created automatically adjust based on the permissions of the user you use.
@@ -70,6 +77,28 @@ You need a local user created in your UniFi OS Console. Ubiquiti SSO cloud users
     - Set the first privilege level (**Network**) to **Full Management**.
     - Set the second privilege level (**OS Settings**) to **None**.
 5. In the bottom right, select **Create**.
+
+### API key
+
+A console that is a member of a UniFi fabric cannot have local users: its **Admins & Users** page says **Manage People in Site Manager** and has no **Create New** button. Use an API key there, or anywhere you prefer not to create a user. The key carries the permissions of the administrator who creates it.
+
+1. Sign in to your UniFi OS device with an administrator account and open the **Network** application.
+2. Go to **Settings** > **Control Plane** > **Integrations**, or go directly to `https://[IP address]/network/default/integrations`.
+3. Select **Create New API Key**, enter a name like "Home Assistant" and copy the key. It is shown only once.
+4. When you add the {% term integration %}, select **API key only (limited feature set)** and enter the key.
+
+With an API key, the {% term integration %} uses only the UniFi Network Integration API, which provides these entities:
+
+| Platform | Entities |
+| --- | --- |
+| Presence detection | Network clients and UniFi devices |
+| Sensor | Device state and client uptime |
+| Button | Restart UniFi device and WLAN regenerate password |
+| Switch | Control WLAN availability and zone-based firewall policies |
+
+The other entities on this page, the actions, and the SSID filter need a local user. The Integration API has no push connection, so Home Assistant {% term polling polls %} it every 10 seconds. It also lists connected clients only, so the {% term integration %} remembers the clients it has seen: their trackers show as away after a restart, and a client not seen for 30 days is removed together with its device.
+
+If the key is revoked, Home Assistant asks for a new one. To move an existing entry to a key, remove it and add the {% term integration %} again: the two modes identify a site differently.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -88,9 +117,11 @@ There is currently support for the following device types within Home Assistant:
 Host:
   description: "The hostname or IP address of your UniFi Network application."
 Username:
-  description: "The username of the local UniFi Network user."
+  description: "The username of the local UniFi Network user. Local user mode only."
 Password:
-  description: "The password of the local UniFi Network user."
+  description: "The password of the local UniFi Network user. Local user mode only."
+API key:
+  description: "An API key created in the UniFi Network application. API key mode only; see [API key](#api-key)."
 Port:
   description: "The port your UniFi Network application is running on. Defaults to `443`."
 Verify SSL:
@@ -298,9 +329,11 @@ The UniFi Network {% term integration %} uses a local push connection (WebSocket
 
 If the WebSocket connection is lost, the integration automatically tries to reconnect. While disconnected, entities are marked as unavailable until the connection is restored.
 
+An entry set up with an [API key](#api-key) has no WebSocket. It polls the UniFi Network Integration API every 10 seconds instead.
+
 ## Known limitations
 
-- **Ubiquiti SSO cloud users are not supported.** You must create a local user in your UniFi OS Console. See the [Local user](#local-user) section for instructions.
+- **Ubiquiti SSO cloud users are not supported.** You must create a local user in your UniFi OS Console, or use an API key on a console that cannot have one. See the [Local user](#local-user) and [API key](#api-key) sections for instructions.
 - **Early Access and Release Candidate versions of UniFi Network and UniFi OS are not supported.** Only the official Stable Release channel is expected to work with this integration.
 - **Presence detection is not compatible with MAC Address Randomization**, which is enabled by default on most modern smartphones. This feature must be disabled per network on the client device.
 - **Changes to LED control** on access points may take over 5 seconds to apply because the device must adopt a new configuration first.
