@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Cover
   - Hub
+  - Number
   - Sensor
   - Switch
   - Valve
@@ -18,6 +19,7 @@ ha_domain: bosch_shc
 ha_platforms:
   - binary_sensor
   - cover
+  - number
   - sensor
   - switch
   - valve
@@ -32,6 +34,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Binary sensors](#binary-sensors)
 - [Covers](#covers)
+- [Number](#number)
 - [Sensors](#sensors)
 - [Switches](#switches)
 - [Valve](#valve)
@@ -49,6 +52,10 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 ### Covers
 
 The cover platform allows you to control your covers. Cover devices are added for each Shutter Control device.
+
+### Number
+
+The number platform lets you fine-tune numeric device settings. A Micromodule Relay configured in impulse-switch mode gets a **Pulse length** number, controlling how long the relay stays closed for each trigger.
 
 ### Sensors
 
