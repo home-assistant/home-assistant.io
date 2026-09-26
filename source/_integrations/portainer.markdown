@@ -61,6 +61,7 @@ There is currently support for the following device types within Home Assistant:
 - **Resume container**: Resumes the container.
 - **Recreate container**: Recreates the container by pulling the latest tagged image.
 - **Prune unused images**: Removes unused Docker images from the endpoint.
+- **Update stack**: Pulls the latest images and redeploys the stack. Stacks deployed from a Git repository are redeployed from that repository. The stack's environment variables and settings are kept. Not available for Kubernetes stacks.
 
 ### Events
 
@@ -149,7 +150,7 @@ Each Docker container is a child device under its endpoint or stack. Container d
 
 ### Stacks
 
-Each Docker Compose or Swarm stack is a child device under its endpoint. Stack devices expose a status sensor, a type sensor, a container count sensor, and a switch to start or stop the entire stack.
+Each Docker Compose or Swarm stack is a child device under its endpoint. Stack devices expose a status sensor, a type sensor, a container count sensor, a switch to start or stop the entire stack, and a button to update it.
 
 Docker API Engine needs to be equal to or above version 1.44. Older versions are [deprecated](https://docs.docker.com/reference/api/engine/#deprecated-api-versions). 
 
