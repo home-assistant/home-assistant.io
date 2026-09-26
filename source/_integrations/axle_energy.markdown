@@ -2,6 +2,7 @@
 title: Axle Energy
 description: Instructions on how to use Axle Energy grid event schedules in Home Assistant.
 ha_category:
+  - Binary sensor
   - Energy
   - Sensor
 ha_release: '2026.10'
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@Herbertmt978'
 ha_domain: axle_energy
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: service
 ha_quality_scale: bronze
@@ -40,8 +42,9 @@ API key:
 
 ## Supported functionality
 
-Each configured feed creates one service device with three sensor entities:
+Each configured feed creates one service device with the following entities:
 
+- **Event in progress** is on from the start of a participating import or export event until its end. It is off before and after the event, when no event is scheduled, or when you have opted out.
 - **Event type** shows whether the published event requests import from or export to the grid.
 - **Event start** shows when the event starts.
 - **Event end** shows when the event ends.
@@ -113,15 +116,17 @@ automation: |
 
 ## Data updates
 
-The integration {% term polling polls %} Axle every 10 minutes. All three sensors use the same update. Changes to the published schedule appear after the next successful update.
+The integration {% term polling polls %} Axle every 10 minutes. All entities use the same update. Changes to the published schedule appear after the next successful update.
 
-When Axle returns an empty schedule, the sensors show an unknown state. Events you have opted out of are excluded. If a request fails because of a temporary connection or service error, the sensors become unavailable and recover after a successful update. Authentication failures stop polling; follow the steps in [Authentication fails](#authentication-fails) to replace the token.
+**Event in progress** changes at the scheduled start and end times without waiting for the next update or making another request to Axle. It uses the latest schedule received, so a changed or canceled event is reflected after the next successful update.
+
+When Axle returns an empty schedule, **Event in progress** is off and the three event detail sensors show an unknown state. Events you have opted out of are excluded. If a request fails because of a temporary connection or service error, all entities become unavailable and recover after a successful update. Authentication failures stop polling; follow the steps in [Authentication fails](#authentication-fails) to replace the token.
 
 ## Known limitations
 
 - Each entry uses its own Axle API key. You can add another feed with a different key.
 - The integration reads the event schedule. It does not control your battery or inverter, or change your Axle participation mode.
-- Countdown, event activity, and calendar entities are not provided.
+- Countdown and calendar entities are not provided.
 - The event information depends on Axle's cloud service and may change between updates.
 
 ## Troubleshooting
