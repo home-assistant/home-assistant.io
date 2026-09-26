@@ -8,6 +8,7 @@ ha_category:
   - Climate
   - Cover
   - Device tracker
+  - Event
   - Fan
   - Hub
   - Light
@@ -36,6 +37,7 @@ ha_platforms:
   - cover
   - device_tracker
   - diagnostics
+  - event
   - fan
   - light
   - lock
@@ -59,6 +61,7 @@ This {% term integration %} currently supports the following device types within
 - [Climate](/integrations/climate/) (beta)
 - [Cover](/integrations/cover/)
 - [Device tracker](/integrations/device_tracker/)
+- [Event](/integrations/event/)
 - [Fan](/integrations/fan/)
 - [Light](/integrations/light/)
 - [Lock](/integrations/lock/)
