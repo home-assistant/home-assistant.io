@@ -10,6 +10,7 @@ ha_codeowners:
   - '@erwindouna'
 ha_domain: zonneplan
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: hub
 ---
@@ -43,7 +44,11 @@ The following sensors are provided by this integration:
 - **Electricity prices tomorrow status**: Indicates whether tomorrow's electricity prices are already `available`, or still `incoming`.
 - **Gas price daily**: The gas price for today.
 
-The lowest and highest electricity price sensors also expose `start` and `end` timestamp attributes, marking the block of consecutive hours around that day's extreme price. This lets you build automations that act on the entire block of cheap or expensive hours instead of a single hour.
+The **Electricity price low today start time** and **Electricity price low today end time** sensors mark the block of consecutive hours around today's lowest price. The matching **tomorrow** sensors do the same for tomorrow, once its prices are published. This lets you build automations that act on the entire block of cheap hours instead of a single hour.
+
+### Binary sensors
+
+- **Electricity price low**: On while the current hour falls in today's block of cheapest hours, the same block as the low price start and end time sensors. Off at all other hours. The state updates at the start of every hour.
 
 ## Known limitations
 
