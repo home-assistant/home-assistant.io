@@ -41,10 +41,12 @@ unique_id:
   type: string
 code:
   description: >
-    If defined, specifies a code to enable or disable the alarm in the frontend.
+    If defined, specifies the code or codes that enable or disable the alarm in the frontend.
+    A single code can be given as a string, several codes as a list of strings or as a mapping of a name to a code.
+    Any of the configured codes is accepted, and the name or list index of the used code is reported by the [`manual_alarm_code_used`](#event-manual-alarm-code-used) event, so the codes must be unique.
     Only one of **code** and **code_template** can be specified.
   required: exclusive
-  type: string
+  type: [string, list, map]
 code_template:
   description: >
     If defined, returns a code to enable or disable the alarm in the frontend; an empty string disables checking the code.
@@ -128,6 +130,37 @@ automation:
             while attempting to set state {{ trigger.event.data.target_state }}.
 ```
 
+### Event: Manual alarm code used
+
+The `manual_alarm_code_used` event is fired when the state of a manual alarm control panel is changed with a valid code. It is not fired when no code is required for the requested state change.
+
+#### Event data
+
+- **entity_id** (string): The entity ID of the alarm control panel (for example, `alarm_control_panel.my_alarm`).
+- **target_state** (string): The target state (for example, `disarmed`, `armed_away`, `armed_home`).
+- **user_id** (string): The user ID who initiated the action (if available).
+- **code_id** (string or `null`): The name of the used code when **code** is a mapping, or its index when **code** is a list. It is `null` when a single code or **code_template** is configured, because there is nothing to tell the codes apart by.
+
+Example automation trigger:
+
+```yaml
+automation:
+  - alias: "Log who disarmed the alarm"
+    triggers:
+      - trigger: event
+        event_type: manual_alarm_code_used
+    conditions:
+      - condition: template
+        value_template: "{{ trigger.event.data.target_state == 'disarmed' }}"
+    actions:
+      - action: logbook.log
+        data:
+          name: Alarm
+          message: >
+            Disarmed with the code of
+            {{ trigger.event.data.code_id | default("an unnamed user", true) }}
+```
+
 ## State machine
 
 The state machine of the manual alarm integration is complex but powerful. The
@@ -195,6 +228,36 @@ alarm_control_panel:
 ```
 
 In the rest of this section, you find some real-life examples on how to use this panel.
+
+### Multiple codes
+
+Every member of the household can get their own code, so that they do not have to share a single one.
+
+```yaml
+# Example configuration.yaml entry
+alarm_control_panel:
+  - platform: manual
+    name: Home Alarm
+    code: !secret alarm_codes
+```
+
+```yaml
+# Example secrets.yaml entry
+alarm_codes:
+  alice: "1111"
+  bob: "2222"
+  charlie: "3333"
+```
+
+The name of the used code is available in the `manual_alarm_code_used` event as `code_id`, which makes it possible to record who armed or disarmed the alarm. When the names are not needed, the codes can also be given as a plain list:
+
+```yaml
+# Example secrets.yaml entry
+alarm_codes:
+  - "1111"
+  - "2222"
+  - "3333"
+```
 
 ### Sensors
 
