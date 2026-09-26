@@ -75,7 +75,7 @@ Your power station is added as a single device.
 - **Inverter status**: The inverter's current status.
 - **Inverter voltage**, **Inverter current**, **Total inverter power**: The inverter's output. The power is negative while the inverter charges the battery.
 
-The following are added as diagnostic entities: **Battery SoH**, **Battery type**, **Battery cycle count**, **Cell count**, **Temperature sensor count**, **Inverter type**, **Inverter count**, **PV 1 input type** to **PV 4 input type**, **DC PV input count**, **AC PV input count**.
+The following are added as diagnostic entities: **Battery SoH**, **Battery type**, **Battery cycle count**, **Cell count**, **Temperature sensor count**, **Inverter type**, **Inverter count**, **PV 1 input type** to **PV 4 input type**, **DC PV input count**.
 
 The device's charge limits (max charge / min discharge SoC) and its AC output, grid charging, and grid feed-in switches are not exposed by this integration yet, not even as read-only entities. See [Known limitations](#known-limitations) for the full list.
 
