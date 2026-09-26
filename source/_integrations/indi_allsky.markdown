@@ -3,6 +3,7 @@ title: INDI Allsky
 description: Instructions on how to integrate INDI Allsky with Home Assistant.
 ha_category:
   - Camera
+  - Image
   - Sensor
 ha_release: "2026.10"
 ha_iot_class: Local Push
@@ -13,6 +14,7 @@ ha_domain: indi_allsky
 ha_integration_type: service
 ha_platforms:
   - camera
+  - image
   - sensor
 ha_quality_scale: bronze
 ---
@@ -42,7 +44,12 @@ The **INDI Allsky** {% term integration %} provides the following entities:
 
 ### Camera
 
-- **Camera**: Provides the latest image from your INDI Allsky server.
+- **Latest capture**: Provides the latest image from your INDI Allsky server.
+
+### Image
+
+- **Latest keogram**: Displays the most recently generated keogram image composite.
+- **Latest star trail**: Displays the most recently generated star trail image composite.
 
 ### Sensors
 
