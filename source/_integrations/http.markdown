@@ -105,6 +105,16 @@ The **Trust X-Forwarded-For** and **Trusted proxies** settings only apply when H
 
 {% endnote %}
 
+### Caching behind a reverse proxy or CDN
+
+If your reverse proxy or content delivery network (CDN) caches responses, set it up so your browser always gets the current Home Assistant frontend after an update:
+
+- Do not cache HTML pages, such as the main app page (`index.html`).
+- Do not cache `404` (not found) responses.
+- You can cache files under `/frontend_latest/`, `/frontend_es5/`, and `/static/`. Home Assistant already tells browsers to cache these for up to a month.
+
+Most reverse proxies and CDNs, such as NGINX and Cloudflare, do not cache HTML by default. You only need to check this if you added your own caching rules.
+
 ## APIs
 
 On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest/), [Python API](https://developers.home-assistant.io/docs/api_lib_index/) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket/) available.
