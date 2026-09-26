@@ -58,7 +58,7 @@ Using Early Access Release Candidate versions of UniFi Network or UniFi OS can b
 
 The {% term integration %} connects in one of two ways. You choose when you add it.
 
-- **Local user (full access)**: uses a local user of the UniFi OS Console and gives you every entity described on this page. This is the recommended option where a local user can be created.
+- **Local user (full access)**: uses a local user of the UniFi OS Console and gives you every entity described on this page that the user's permissions allow; an administrator gets all of them, a read-only user fewer. This is the recommended option where a local user can be created.
 - **API key only (limited feature set)**: uses an API key of the UniFi Network application and no local user. It works on consoles that cannot have local users, such as members of a UniFi fabric, but provides a subset of the entities. See [API key](#api-key).
 
 ### Local user
@@ -80,7 +80,7 @@ You need a local user created in your UniFi OS Console. Ubiquiti SSO cloud users
 
 ### API key
 
-A console that is a member of a UniFi fabric cannot have local users: its **Admins & Users** page says *Manage People in Site Manager* and has no **Create New** button. Use an API key there, or anywhere you prefer not to create a user. The key carries the permissions of the administrator who creates it.
+A console that is a member of a UniFi fabric cannot have local users: its **Admins & Users** page says **Manage People in Site Manager** and has no **Create New** button. Use an API key there, or anywhere you prefer not to create a user. The key carries the permissions of the administrator who creates it.
 
 1. Sign in to your UniFi OS device with an administrator account and open the **Network** application.
 2. Go to **Settings** > **Control Plane** > **Integrations**, or go directly to `https://[IP address]/network/default/integrations`.
@@ -96,7 +96,7 @@ With an API key, the {% term integration %} uses only the UniFi Network Integrat
 | Button | Restart UniFi device and WLAN regenerate password |
 | Switch | Control WLAN availability and zone-based firewall policies |
 
-The other entities on this page, the actions, and the SSID filter need a local user. The Integration API has no push connection, so Home Assistant {% term polling %} it every 10 seconds. It also lists connected clients only, so the {% term integration %} remembers the clients it has seen: their trackers show as away after a restart, and a client not seen for 30 days is removed together with its device.
+The other entities on this page, the actions, and the SSID filter need a local user. The Integration API has no push connection, so Home Assistant {% term polling polls %} it every 10 seconds. It also lists connected clients only, so the {% term integration %} remembers the clients it has seen: their trackers show as away after a restart, and a client not seen for 30 days is removed together with its device.
 
 If the key is revoked, Home Assistant asks for a new one. To move an existing entry to a key, remove it and add the {% term integration %} again: the two modes identify a site differently.
 
