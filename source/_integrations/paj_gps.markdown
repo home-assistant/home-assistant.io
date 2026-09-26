@@ -62,7 +62,7 @@ The PAJ GPS {% term integration %} will track the location of each device regist
 - **Battery level**
   - **Description**: Remaining battery charge (0–100%) for PAJ GPS devices that have a built-in battery. Devices that are powered by the vehicle's electrical system, such as OBD, USB, or hardwired trackers, usually do not have this sensor.
 - **Voltage**
-  - **Description**: The voltage available from the external power source, such as the vehicle battery powering a hardwired PAJ GPS device.
+  - **Description**: The voltage reported by the PAJ GPS device's voltage sensor, displayed in volts.
 
 ## Examples
 
