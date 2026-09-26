@@ -1,28 +1,20 @@
 <!--  Left column begins -->
 <div class="grid__item one-third lap-one-half palm-one-whole">
 
-  {% assign video_id = "XyAL1to3Lm4" %}
-  {% assign show_livestream = false %}
-
-  {% if show_livestream %}
-  <a href="https://www.youtube.com/watch?v={{ video_id }}" class="material-card livestream-card" target="_blank" rel="noopener noreferrer" style="
-      background-image: url(/images/frontpage/sotoh-2026-stream.webp);
-      aspect-ratio: 16/9;
-    " aria-label="Watch the State of the Open Home 2026 livestream on YouTube">
-    <div class="livestream-card-embed"
-      style="position: absolute; pointer-events: none; inset: 0; opacity: 0; transition: opacity 1s; overflow: hidden; border-style: none;">
-      <iframe
-        style="aspect-ratio: 16/9; position: absolute; top:0; left: 50%; transform: translateX(-50%); height: 100%; border: 0; object-fit: cover;"
-        data-src="https://www.youtube-nocookie.com/embed/{{ video_id }}?autoplay=1&mute=1&fs=0&controls=0&modestbranding=1"></iframe>
+  {% assign livestream_channel = "home-assistant" %}
+  <a class="material-card livestream-card" data-livestream-channel="{{ livestream_channel }}" data-state="loading"
+    target="_blank" rel="noopener noreferrer" aria-label="Watch our livestream on YouTube">
+    <div class="livestream-card-embed">
+      <iframe title="Livestream" allow="autoplay; encrypted-media; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin" tabindex="-1" aria-hidden="true" loading="lazy"></iframe>
     </div>
     <div class="livestream-card-banner">
       <div>
-        <strong class="livestream-card-status">Live soon!</strong> <span class="livestream-card-subtitle">Join the stream</span>
+        <strong class="livestream-card-status"></strong> <span class="livestream-card-subtitle"></span>
       </div>
     </div>
   </a>
-  {% endif %}
-  
+
   <!-- SOTOH card (currently hidden)
   <a href="https://sotoh.openhomefoundation.org/" class="material-card picture-promo" style="
         background-image: url(/images/frontpage/sotoh-2026.webp);
@@ -294,26 +286,256 @@
 
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    let loaded = false;
-    const lazyLoadYouTube = () => {
-      if (loaded) return; // Prevent multiple loads
-      loaded = true;
-      const iframes = document.querySelectorAll('.livestream-card iframe[data-src]');
-      iframes.forEach(iframe => {
-        iframe.src = iframe.getAttribute('data-src');
-        iframe.removeAttribute('data-src');
-        setTimeout(() => {
-          iframe.parentElement.style.opacity = 1;
-        }, 500);
-      });
+  (function () {
+    const API_BASE = '/livestream-api';
+    const CACHE_TTL_MS = 60 * 1000;
+    const REFRESH_INTERVAL_MS = 60 * 1000;
+    const timers = new WeakMap();
+    const players = new WeakMap();
+    const thumbs = new WeakMap();
+    const pending = new WeakMap();
+    const refreshedAt = new WeakMap();
+
+    const UPCOMING_WINDOW_MS = 48 * 60 * 60 * 1000;
+    const PAST_WINDOW_MS = 12 * 60 * 60 * 1000;
+
+    const STATUS_LABEL = {
+      live: 'Live now!',
+      upcoming: 'Live soon!',
+      past: 'Our latest stream',
     };
 
-    document.addEventListener('scroll', lazyLoadYouTube, { once: true });
-    document.addEventListener('click', lazyLoadYouTube, { once: true });
-    document.addEventListener('mousemove', lazyLoadYouTube, { once: true });
-    document.addEventListener('touchstart', lazyLoadYouTube, { once: true });
-    document.addEventListener('touchmove', lazyLoadYouTube, { once: true });
-  });
+    function resolveState(info, now) {
+      if (!info) return 'none';
+
+      if (info.status === 'live') return 'live';
+
+      if (info.status === 'upcoming') {
+        if (!info.startTime) return 'upcoming';
+        const start = Date.parse(info.startTime);
+        if (isNaN(start)) return 'upcoming';
+        return start - now <= UPCOMING_WINDOW_MS ? 'upcoming' : 'none';
+      }
+
+      if (info.status === 'past') {
+        const updated = Date.parse(info.updatedAt);
+        if (isNaN(updated)) return 'none';
+        return now - updated <= PAST_WINDOW_MS ? 'past' : 'none';
+      }
+
+      return 'none';
+    }
+
+    function youtubeId(url) {
+      if (!url) return null;
+      try {
+        const parsed = new URL(url);
+        if (parsed.hostname === 'youtu.be') {
+          return parsed.pathname.slice(1) || null;
+        }
+        const v = parsed.searchParams.get('v');
+        if (v) return v;
+        const parts = parsed.pathname.split('/').filter(Boolean);
+        const idx = parts.findIndex((part) => part === 'embed' || part === 'live' || part === 'shorts');
+        if (idx >= 0 && parts[idx + 1]) return parts[idx + 1];
+        return null;
+      } catch (err) {
+        return null;
+      }
+    }
+
+    function embedUrl(id) {
+      const params = new URLSearchParams({
+        autoplay: '1',
+        mute: '1',
+        controls: '0',
+        modestbranding: '1',
+        playsinline: '1',
+        rel: '0',
+        loop: '1',
+        playlist: id,
+        iv_load_policy: '3',
+        disablekb: '1',
+        fs: '0',
+      });
+      return 'https://www.youtube-nocookie.com/embed/' + id + '?' + params.toString();
+    }
+
+    function setThumbnail(card, id) {
+      const apply = (url) => {
+        card.style.backgroundImage = 'url(' + url + ')';
+      };
+      const maxres = 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg';
+      const probe = new Image();
+      probe.onload = () => apply(maxres);
+      probe.onerror = () => apply('https://i.ytimg.com/vi/' + id + '/hqdefault.jpg');
+      probe.src = maxres;
+    }
+
+    function formatCountdown(startMs, now) {
+      let secs = Math.floor((startMs - now) / 1000);
+      if (secs <= 0) return 'Live soon!';
+
+      const days = Math.floor(secs / 86400);
+      secs -= days * 86400;
+      const hours = Math.floor(secs / 3600);
+      secs -= hours * 3600;
+      const mins = Math.floor(secs / 60);
+      secs -= mins * 60;
+
+      if (days > 0) return 'Live in ' + days + 'd ' + hours + 'h';
+      if (hours >= 12) return 'Live in ' + hours + 'h';
+      if (hours > 0) return 'Live in ' + hours + 'h ' + mins + 'm';
+      if (mins > 0) return 'Live in ' + mins + 'm ' + secs + 's';
+      return 'Live in ' + secs + 's';
+    }
+
+    function formatLocalStartTime(startTime) {
+      const start = Date.parse(startTime);
+      if (isNaN(start)) return '';
+      return new Date(start).toLocaleString(undefined, {
+        weekday: 'short',
+        hour: 'numeric',
+        minute: '2-digit',
+      });
+    }
+
+    function armPlayer(card, id) {
+      const embed = card.querySelector('.livestream-card-embed');
+      const iframe = embed && embed.querySelector('iframe');
+      if (!iframe || players.get(card) === id) return;
+      players.set(card, id);
+
+      const events = ['scroll', 'click', 'mousemove', 'touchstart', 'touchmove'];
+      let loaded = false;
+      const start = () => {
+        if (loaded) return;
+        loaded = true;
+        events.forEach((event) => document.removeEventListener(event, start));
+        if (players.get(card) !== id) return;
+        iframe.src = embedUrl(id);
+        setTimeout(() => embed.classList.add('livestream-card-embed--visible'), 500);
+      };
+      events.forEach((event) => document.addEventListener(event, start, { once: true, passive: true }));
+    }
+
+    function clearPlayer(card) {
+      const embed = card.querySelector('.livestream-card-embed');
+      const iframe = embed && embed.querySelector('iframe');
+      players.delete(card);
+      if (iframe) iframe.removeAttribute('src');
+      if (embed) embed.classList.remove('livestream-card-embed--visible');
+    }
+
+    function stopCountdown(card) {
+      const timer = timers.get(card);
+      if (timer !== undefined) {
+        clearInterval(timer);
+        timers.delete(card);
+      }
+    }
+
+    function refresh(card) {
+      if (pending.has(card)) return;
+      const wait = Math.max(0, REFRESH_INTERVAL_MS - (Date.now() - (refreshedAt.get(card) || 0)));
+      pending.set(card, setTimeout(() => {
+        pending.delete(card);
+        refreshedAt.set(card, Date.now());
+        load(card, true);
+      }, wait));
+    }
+
+    function render(card, info) {
+      const state = resolveState(info, Date.now());
+      const id = youtubeId(info && info.url);
+
+      stopCountdown(card);
+      if (state !== 'live') clearPlayer(card);
+
+      card.dataset.state = state;
+      if (state === 'none') {
+        thumbs.delete(card);
+        card.style.backgroundImage = '';
+        return;
+      }
+
+      const status = card.querySelector('.livestream-card-status');
+      const subtitle = card.querySelector('.livestream-card-subtitle');
+
+      if (info.url) card.href = info.url;
+      card.setAttribute('aria-label', (info.title || info.channelName) + ' on YouTube');
+      if (subtitle) subtitle.textContent = info.title || info.channelName;
+
+      if (state === 'upcoming' && info.startTime) {
+        const startMs = Date.parse(info.startTime);
+        if (subtitle) subtitle.textContent = formatLocalStartTime(info.startTime);
+        const tick = () => {
+          if (status) status.textContent = formatCountdown(startMs, Date.now());
+          if (startMs - Date.now() > 0) return;
+          stopCountdown(card);
+          refresh(card);
+        };
+        timers.set(card, setInterval(tick, 1000));
+        tick();
+      } else if (status) {
+        status.textContent = STATUS_LABEL[state];
+      }
+
+      if (id) {
+        if (thumbs.get(card) !== id) {
+          thumbs.set(card, id);
+          setThumbnail(card, id);
+        }
+        if (state === 'live') armPlayer(card, id);
+      }
+    }
+
+    function readCache(channel) {
+      try {
+        const raw = sessionStorage.getItem('livestream:' + channel);
+        if (!raw) return null;
+        const entry = JSON.parse(raw);
+        if (Date.now() - entry.at > CACHE_TTL_MS) return null;
+        return entry.info;
+      } catch (err) {
+        return null;
+      }
+    }
+
+    function writeCache(channel, info) {
+      try {
+        sessionStorage.setItem('livestream:' + channel, JSON.stringify({ at: Date.now(), info: info }));
+      } catch (err) {
+      }
+    }
+
+    async function load(card, force) {
+      const channel = card.dataset.livestreamChannel;
+      if (!channel) return;
+
+      const cached = force ? null : readCache(channel);
+      if (cached) {
+        render(card, cached);
+        return;
+      }
+
+      try {
+        const response = await fetch(API_BASE + '/' + encodeURIComponent(channel));
+        if (!response.ok) return;
+        const info = await response.json();
+        writeCache(channel, info);
+        render(card, info);
+      } catch (err) {
+      }
+    }
+
+    const cards = document.querySelectorAll('.livestream-card[data-livestream-channel]');
+    cards.forEach((card) => load(card));
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) return;
+      cards.forEach((card) => load(card));
+    });
+  })();
 </script>
 <!-- Right content ends -->

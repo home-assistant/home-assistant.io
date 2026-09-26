@@ -7,6 +7,7 @@ layout: null
 {% assign release_notes = site.categories['Release-Notes'] %}
 
 # General use redirects
+/livestream-api/* https://web-api.openhomefoundation.org/livestream/:splat 200
 /join-chat https://discord.gg/home-assistant
 /twitter https://twitter.com/home_assistant/
 /mastodon https://fosstodon.org/@homeassistant
