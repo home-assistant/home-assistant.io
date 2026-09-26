@@ -3,6 +3,7 @@ title: Arris TG2492LG
 description: Instructions on how to integrate Arris TG2492LG routers into Home Assistant.
 ha_category:
   - Presence detection
+ha_config_flow: true
 ha_release: 0.109
 ha_domain: arris_tg2492lg
 ha_codeowners:
@@ -12,8 +13,8 @@ ha_platforms:
   - device_tracker
 ha_integration_type: hub
 related:
-  - docs: /docs/configuration/
-    title: Configuration file
+  - docs: /integrations/device_tracker/
+    title: Device tracker
 ha_quality_scale: legacy
 ---
 
@@ -28,25 +29,22 @@ This is one of the routers provided by:
 The router prevents the admin user from logging in twice. This can cause problems with accessing the router's configuration pages while this platform is active.
 {% endwarning %}
 
-To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-device_tracker:
-  - platform: arris_tg2492lg
-    password: YOUR_ADMIN_PASSWORD
-```
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your Arris TG2492LG router (default: 192.168.178.1)."
+Password:
+  description: "The password of the admin account of your router."
+{% endconfiguration_basic %}
 
-{% configuration %}
-host:
-  description: The IP address of your router. The default value is `192.168.178.1`.
-  required: false
-  type: string
-password:
-  description: The password for your admin account.
-  required: true
-  type: string
-{% endconfiguration %}
+## Migrating from YAML configuration
+
+If you previously configured the integration through your {% term "`configuration.yaml`" %} file, the configuration is imported automatically at startup, so your existing setup keeps working without any changes.
+
+A repair issue in {% my integrations title="**Settings** > **Devices & services**" %} is created to guide you through the migration:
+
+1. Remove the `arris_tg2492lg` entry under `device_tracker:` from your {% term "`configuration.yaml`" %} file.
+2. Restart Home Assistant.
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
