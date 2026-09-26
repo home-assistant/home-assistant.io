@@ -99,7 +99,7 @@ The table below shows which {% term entity %} domains are available in each mode
 | Event               |     ✅      |                —                |
 | Light               |     ✅      |               ✅                |
 | Media player        |     ✅      |                —                |
-| Number              |     ✅      |                —                |
+| Number              |     ✅      |  ✅ (public API settings only)  |
 | Select              |     ✅      |                —                |
 | Sensor              |     ✅      |                —                |
 | Siren               |     ✅      |               ✅                |
@@ -107,6 +107,8 @@ The table below shows which {% term entity %} domains are available in each mode
 | Text                |     ✅      |                —                |
 
 In API key only mode, switches are limited to the settings the public API can change: the camera status light, high FPS mode, overlay and smart detection toggles, the floodlight status light, the smart sensor detection toggles, and the relay outputs.
+
+Numbers are limited in the same way: the camera microphone level, the floodlight motion sensitivity and auto-shutoff duration, and the smart sensor motion sensitivity.
 
 In API key only mode, binary sensors are limited to the states the public API reports: camera motion and smart detections other than package, which is an event {% term entity %} and not available in this mode; floodlight "Is Dark" and motion; and smart sensor contact, motion, leak, tamper, and low battery. The doorbell chime binary sensor and the read-only mirrors of settings are not created, as the switch or light {% term entity %} already exposes the setting.
 
@@ -188,16 +190,16 @@ and in many cases, get a read-only sensor instead of an editable switch/select/n
 
 The table below shows, per device type, which connection mode is required. See [Connection modes](#connection-modes) for what each mode provides.
 
-| Device type  | Full access |                   API key only                    |
-| ------------ | :---------: | :-----------------------------------------------: |
-| Camera       |     ✅      | ✅ (streams, snapshots, switches, binary sensors) |
-| Floodlight   |     ✅      |       ✅ (light, switches, binary sensors)        |
-| Smart sensor |     ✅      |         ✅ (switches and binary sensors)          |
-| Viewer       |     ✅      |                         —                         |
-| Smart chime  |     ✅      |                         —                         |
-| Relay        |     ✅      |                        ✅                         |
-| Siren        |     ✅      |                        ✅                         |
-| NVR          |     ✅      |              ✅ (Alarm Manager only)              |
+| Device type  | Full access |                        API key only                        |
+| ------------ | :---------: | :--------------------------------------------------------: |
+| Camera       |     ✅      | ✅ (streams, snapshots, switches, numbers, binary sensors) |
+| Floodlight   |     ✅      |       ✅ (light, switches, numbers, binary sensors)        |
+| Smart sensor |     ✅      |         ✅ (switches, numbers, and binary sensors)         |
+| Viewer       |     ✅      |                             —                              |
+| Smart chime  |     ✅      |                             —                              |
+| Relay        |     ✅      |                             ✅                             |
+| Siren        |     ✅      |                             ✅                             |
+| NVR          |     ✅      |                  ✅ (Alarm Manager only)                   |
 
 ### UniFi Protect cameras
 

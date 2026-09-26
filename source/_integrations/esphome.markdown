@@ -71,7 +71,7 @@ ESPHome supports a variety of microcontrollers beyond just the ESP family. These
 
 For a list of officially supported microcontrollers and devices, refer to the [ESPHome device database](https://devices.esphome.io/). Keep in mind that this database represents only a portion of the ecosystem—many other devices and peripherals are supported but may not appear in the database.
 
-For inspiration and examples of complete, ready-to-use configurations, check out the [ESPHome ready-made projects](https://esphome.io/projects/). These include setups like [Bluetooth proxies](https://esphome.io/components/bluetooth_proxy/), which can extend the [Bluetooth](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) range of Home Assistant.
+For inspiration and examples of complete, ready-to-use configurations, check out the [ESPHome ready-made projects](https://esphome.io/projects/). These include proxies, which extend what Home Assistant can reach. For more details, refer to [ESPHome remote adapters (proxies)](#about-esphome-remote-adapters-proxies).
 
 If you're looking for pre-built solutions, the [Voice PE](/voice-pe/) is an excellent example. It's a pre-built voice assistant device powered by ESPHome, offering an easy way to integrate voice control into your Home Assistant system. Many pre-built solutions, like the Voice PE, are open-source and can be customized, giving you flexibility to adapt them to your needs.
 
@@ -112,6 +112,25 @@ Subscribe to logs from the device:
 ## Supported devices
 
 The ESPHome {% term integration %} works with devices that run ESPHome firmware and expose their functionality through the [native ESPHome API](https://esphome.io/components/api/). This API is designed for tight, efficient integration with Home Assistant, enabling ESPHome devices to push updates directly to Home Assistant in **near real time**.
+
+## About ESPHome remote adapters (proxies)
+
+An ESPHome device can act as a remote adapter, also called a proxy. It picks up a signal or a connection where your device is, and makes it available to Home Assistant over your network. This way, you can use devices that are nowhere near the system that runs Home Assistant.
+
+An ESPHome device can provide capabilities to the following integrations:
+
+- **Bluetooth** integration: extends the range of Home Assistant, so that it can see and connect to Bluetooth devices all over your home. For more details, refer to the [Bluetooth](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) integration.
+- **Infrared** integration: sends commands to infrared-controlled devices, such as TVs and air conditioners, and receives signals from handheld remotes. For more details, refer to the [Infrared](/integrations/infrared/) integration.
+- **Radio frequency** integration: sends commands to devices that use sub-GHz radio frequencies, such as remote outlets and string lights. For more details, refer to the [Radio frequency](/integrations/radio_frequency/) integration.
+- **Serial** integration: shares one of the serial ports of the ESPHome device over your network, so that integrations can reach a serial-connected device such as an AV receiver or an energy meter. For more details, refer to the [Serial](/integrations/serial/) integration.
+
+Once you add the ESPHome device to Home Assistant, its proxy capabilities become available to the related integrations. You still need to configure the integration that uses the capability, such as selecting the shared serial port.
+
+To set up a proxy, add the matching component to the configuration of your ESPHome device:
+
+- [Bluetooth proxy](https://esphome.io/components/bluetooth_proxy/), which also has [ready-made projects](https://esphome.io/projects/?type=bluetooth) that you can install from your browser
+- [Infrared and radio frequency proxy](https://esphome.io/components/ir_rf_proxy/), which also has [ready-made projects](https://esphome.io/projects/?type=irrf)
+- [Serial proxy](https://esphome.io/components/serial_proxy/), which also has [ready-made projects](https://esphome.io/projects/?type=serial)
 
 ## Updating data
 
