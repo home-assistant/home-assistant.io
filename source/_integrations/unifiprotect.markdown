@@ -177,7 +177,7 @@ If you switch from full access to API key only, the entities that are no longer 
 
 ## Device support
 
-All known UniFi Protect devices should be supported. Each UniFi Protect device will get a variety of entities added for
+This {% term integration %} supports the device types in the table below. Other UniFi Protect devices, such as the AI Port and standalone speakers, are not supported. Each supported device gets a variety of entities added for
 each of the different {% term entity %} platforms.
 
 {% note %}
@@ -202,12 +202,7 @@ The table below shows, per device type, which connection mode is required. See [
 ### UniFi Protect cameras
 
 {% note %}
-**Smart Detections**: The following cameras have Smart Detections:
-
-- All "AI" series cameras. This includes the [AI 360](https://store.ui.com/collections/unifi-protect/products/unifi-protect-ai-360) and the [AI Bullet](https://store.ui.com/collections/unifi-protect/products/uvc-ai-bullet).
-- All "G4" series cameras. This includes the [G4 Doorbell](https://store.ui.com/collections/unifi-protect/products/uvc-g4-doorbell), [G4 Bullet](https://store.ui.com/collections/unifi-protect/products/uvc-g4-bullet), [G4 Pro](https://store.ui.com/collections/unifi-protect/products/uvc-g4-pro) and [G4 Instant](https://store.ui.com/collections/unifi-protect/products/camera-g4-instant).
-
-G3 Series cameras do _not_ have Smart detections.
+**Smart Detections**: Smart detections depend on the camera. Home Assistant creates the detection entities for the detection types your camera reports as supported in UniFi Protect.
 {% endnote %}
 
 Each UniFi Protect camera will get a device in Home Assistant with the following:
@@ -246,6 +241,8 @@ Each UniFi Protect floodlight will get a device in Home Assistant with the follo
 UniFi Protect smart sensors are a bit different than normal sensors. They are a multi-sensor that can act as a contact sensor (door/window), a motion detector, a light level detector, a humidity sensor, a temperature level sensor, an alarm sound sensor, and/or a leak detector. Each sensor function can be enabled or disabled dynamically. Disabled sensors will be marked as "unavailable".
 
 UniFi Protect reports each sensor's capabilities, and entities are only created for the functions the device actually supports. This enables proper support for newer sensor models: for example, an entry sensor (USL Entry) gets contact and tamper entities, an environmental sensor (USL Environmental) gets temperature, humidity, light level, and leak entities, and a glass break sensor (USL GlassBreak) gets motion and tamper entities.
+
+The UP Air Quality is listed as a device, but UniFi Protect does not report any sensor capabilities for it, so it only gets its battery and general device entities.
 
 The USL GlassBreak detects motion as well as glass break acoustically, but only its motion detection is supported. The public API carries a setting for glass break, without a capability or a state to read, so there is nothing to build an entity from. To act on glass break, configure it in the UniFi Protect Alarm Manager. Adopting a sensor switches the Alarm Manager to _Global_ mode; set it back to _Local_ for the alarm entities to appear. See [NVR](#nvr).
 
