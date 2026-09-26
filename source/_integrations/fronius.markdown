@@ -183,7 +183,7 @@ On a hybrid inverter, the `AC power limit` does not restrict **charging** the ba
 
 A setpoint stays on the inverter until it is changed, including while Home Assistant is shut down or unreachable. Removing the integration leaves it behind as well, with nothing left to take it back. To have the inverter recover on its own instead, turn on **Revert the AC power limit if Home Assistant stops**. It is offered when the integration is set up, and can be changed later: go to **Settings** > **Devices & services** > **Fronius**, select the three dots menu {% icon "mdi:dots-vertical" %} next to the entry, and choose **Reconfigure**.
 
-The inverter then drops the `AC power limit` an hour after it last received it, and hands control back to its own priority list. Home Assistant sends the limit again every 15 minutes, so the hour only ever runs out once Home Assistant has really stopped - a restart or a short outage has plenty of room. An inverter held at `30 %` runs unrestricted an hour after the Home Assistant host dies.
+The inverter then drops the `AC power limit` an hour after it last received it, and hands control back to its own priority list. Home Assistant sends the limit again every 15 minutes, so the hour only ever runs out once Home Assistant has really stopped - a restart or a short outage has plenty of room. An inverter held at `30 %` runs unrestricted an hour after Home Assistant stops sending updates.
 
 This applies to the `AC power limit` only. Fronius documents no timeout for the battery setpoints, so those keep their value and switch state whatever happens to Home Assistant.
 
