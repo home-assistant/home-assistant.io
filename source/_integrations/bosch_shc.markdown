@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Cover
   - Hub
+  - Select
   - Sensor
   - Switch
   - Valve
@@ -18,6 +19,7 @@ ha_domain: bosch_shc
 ha_platforms:
   - binary_sensor
   - cover
+  - select
   - sensor
   - switch
   - valve
@@ -32,6 +34,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Binary sensors](#binary-sensors)
 - [Covers](#covers)
+- [Select](#select)
 - [Sensors](#sensors)
 - [Switches](#switches)
 - [Valve](#valve)
@@ -49,6 +52,10 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 ### Covers
 
 The cover platform allows you to control your covers. Cover devices are added for each Shutter Control device.
+
+### Select
+
+The select platform lets you choose between a set of predefined options. An Outdoor Siren gets a **Siren volume** select entity, letting you choose between reduced, medium, or loud.
 
 ### Sensors
 
