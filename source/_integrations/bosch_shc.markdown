@@ -185,35 +185,53 @@ If the connection to the controller drops, for example because of a network hicc
 
 ## Troubleshooting
 
-### The integration can't connect to the controller
+{% details "The integration can't connect to the controller" %}
 
 #### Symptom
 
 Setup reports that Home Assistant cannot connect to the controller.
 
+#### Description
+
+Home Assistant cannot establish a connection to the Bosch Smart Home Controller over the local network.
+
 #### Resolution
 
 Make sure the controller is powered on and reachable from your Home Assistant instance over the local network. If you entered the address manually, verify that the IP address or hostname is correct.
 
-### Setup fails with a pairing error
+{% enddetails %}
+
+{% details "Setup fails with a pairing error" %}
 
 #### Symptom
 
 Setup reports a pairing or registration error after entering the system password.
 
+#### Description
+
+The Bosch Smart Home Controller only accepts new client registrations while it is in pairing mode.
+
 #### Resolution
 
-The controller only accepts new client registrations while it is in pairing mode. Press and hold the button on the controller until the LED starts flashing, then try again.
+Press and hold the button on the controller until the LED starts flashing, then try again.
 
-### Setup fails with an authentication error
+{% enddetails %}
+
+{% details "Setup fails with an authentication error" %}
 
 #### Symptom
 
 Setup reports that authentication failed after entering the system password.
 
+#### Description
+
+Home Assistant could not authenticate with the Bosch Smart Home Controller using the provided credentials.
+
 #### Resolution
 
 Verify that you entered the system password configured for the Bosch Smart Home Controller. If an existing integration needs new credentials, follow the reauthentication flow shown by Home Assistant to register the controller again.
+
+{% enddetails %}
 
 ## Removing the integration
 
