@@ -18,6 +18,7 @@ ha_platforms:
   - number
   - sensor
   - switch
+  - water_heater
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -94,6 +95,15 @@ The following controls are available:
 
 - **Frost protection**: minimum and maximum temperatures for the frost protection, if the enabled.
 - **Overheat protection**: minimum and maximum temperatures for the overheaet protection, if the enabled.
+
+### Water heater
+
+Air-to-Water units with a hot water tank get a **Hot water** water heater:
+
+- **Target temperature**: The tank water temperature to heat to, within the limits reported by the unit.
+- **Operation mode**: **Heat pump** for normal operation, or **High demand** to force hot water, which heats the tank with priority over the heating zones.
+
+The water heater shows as off while the unit is powered off or in standby. It can't turn the unit on or off, as that would also affect the heating zones.
 
 ## Data updates
 
