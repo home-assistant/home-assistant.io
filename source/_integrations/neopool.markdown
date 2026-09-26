@@ -15,6 +15,7 @@ ha_platforms:
   - number
   - sensor
   - switch
+  - time
 ha_integration_type: hub
 ha_quality_scale: platinum
 ha_category:
@@ -104,7 +105,7 @@ Enable cover sensor:
 
 ## Supported functionality
 
-The integration exposes the controller's runtime state as sensor and binary sensor entities, plus an optional light entity for the pool light relay. It also adds number entities for the controller's writable setpoints and configuration values, switch entities for filtration, backwash, the auxiliary relays, and the controller's configuration flags, and button entities for device maintenance actions.
+The integration exposes the controller's runtime state as sensor and binary sensor entities, plus an optional light entity for the pool light relay. It also adds number entities for the controller's writable setpoints and configuration values, switch entities for filtration, backwash, the auxiliary relays, and the controller's configuration flags, time entities for the daily timer schedules, and button entities for device maintenance actions.
 
 {% note %}
 Only entities backed by a detected hardware module or an enabled controller option are registered. The rest stay hidden until the module or option becomes available. Each bullet below lists the specific requirement for that entity.
@@ -167,6 +168,14 @@ Only entities backed by a detected hardware module or an enabled controller opti
 - **Intelligent-mode intervals** and **time to next interval**: scheduling data for Intelligent mode (when a heating relay and temperature sensor are configured).
 - **Backwash remaining**: time remaining in the active backwash cycle (when a Besgo automatic filter valve is configured).
 - **Cell runtime counters**: five diagnostic counters tracking wear on the electrolytic cell (when the hydrolysis module is present), total runtime, runtime since last reset, runtime in polarity 1 and 2, and polarity-change count. All five are diagnostic and disabled by default; enable them in the entity registry if you want to track cell wear over time.
+
+### Times
+
+The controller stores a daily start and stop time for each of its timer blocks. These entities let you read and change that schedule from Home Assistant. Setting a value writes it back to the controller. The controller only follows a timer's schedule while the matching filtration or relay is in an automatic mode. In a manual mode the schedule is ignored, but the times remain readable and editable.
+
+- **Filtration timers 1 to 3**: the start and stop times of the three filtration schedules. The first timer's entities are enabled by default. The second and third timers' entities are disabled by default because most pools use a single schedule. Enable them in the entity registry if your controller uses more than one.
+- **Auxiliary relay timers 1 to 4**: the start and stop times of each auxiliary relay's schedule. Added for each auxiliary relay enabled in the integration options. Each relay has a second schedule whose entities are disabled by default. Enable them in the entity registry if you use the relay's second daily period.
+- **Pool light timer**: the start and stop times of the pool light schedule. Added when the pool light relay is enabled in the integration options.
 
 {% include integrations/actions.md %}
 
