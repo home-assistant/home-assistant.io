@@ -13,11 +13,30 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: service
+ha_config_flow: true
 ---
 
 The **RESTful** {% term integration %} is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
 
-[RESTful Sensor](/integrations/sensor.rest) and [RESTful Binary Sensor](/integrations/binary_sensor.rest) can also be set up as platforms if there is only a single sensor per endpoint.
+Both UI and [YAML setup](#yaml-configuration) are supported.
+
+[RESTful Sensor](/integrations/sensor.rest) and [RESTful Binary Sensor](/integrations/binary_sensor.rest) can also be set up as platforms in the [YAML Configuration](#yaml-configuration) if there will be only a single sensor configured per endpoint.
+
+{% include integrations/config_flow.md %}
+
+{% note %}
+
+RESTful uses configuration subentries for configuring the sensors.
+
+1. Set up the resource configuration once per resource or endpoint.
+2. Create a subentry for each sensor you want to derive from the endpoint.
+
+{% endnote %}
+
+## YAML Configuration
+
+To enable this {% term integration %} using YAML, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -187,8 +206,9 @@ binary_sensor:
 {% endconfiguration %}
 
 {% important %}
-Use either `resource` or `resource_template`.
+Use either `resource` or `resource_template` in YAML configurations.
 {% endimportant %}
 
+## Templates
 
 {% include integrations/using_templates.md %}
