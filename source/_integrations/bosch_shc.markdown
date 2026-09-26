@@ -7,6 +7,7 @@ ha_category:
   - Hub
   - Sensor
   - Switch
+  - Valve
 ha_release: 2021.6
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -19,6 +20,7 @@ ha_platforms:
   - cover
   - sensor
   - switch
+  - valve
 ha_zeroconf: true
 ha_integration_type: hub
 ---
@@ -28,14 +30,15 @@ Use case: combine your door and window contacts with your covers and switches to
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary sensor](#binary-sensor)
-- [Cover](#cover)
-- [Sensor](#sensor)
-- [Switch](#switch)
+- [Binary sensors](#binary-sensors)
+- [Covers](#covers)
+- [Sensors](#sensors)
+- [Switches](#switches)
+- [Valve](#valve)
 
 {% include integrations/config_flow.md %}
 
-### Binary sensor
+### Binary sensors
 
 The binary sensor platform allows you to monitor the states of your shutter contact and battery sensors. Binary sensor devices are added for each of the following devices:
 
@@ -43,13 +46,13 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 - Shutter Contact II
 - Battery powered devices
 
-### Cover
+### Covers
 
 The cover platform allows you to control your covers. Cover devices are added for each Shutter Control device.
 
-### Sensor
+### Sensors
 
-The sensor platform allows you to monitor the states of your temperature, humidity, purity, air quality, power, energy, and valve tappet sensors. Sensor devices are added for each of the following devices:
+The sensor platform allows you to monitor the states of your temperature, humidity, purity, air quality, power, energy, and valve motor status sensors. Sensor devices are added for each of the following devices:
 
 - Thermostat
 - Wall Thermostat
@@ -57,7 +60,9 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 - Smart Plug
 - Smart Plug Compact
 
-### Switch
+In addition, a single **Open doors and windows** sensor is added for the whole home, not tied to a specific device. Its state is the total number of currently open doors, windows, and other openings, with the name of each open item listed in the `open_doors`, `open_windows`, and `open_others` state attributes.
+
+### Switches
 
 The switch platform allows you to control your outlets, light switches, and select camera functions. Switches are added for each of the following devices:
 
@@ -66,6 +71,12 @@ The switch platform allows you to control your outlets, light switches, and sele
 - Smart Plug Compact
 - Camera Eyes
 - Camera 360
+
+A Motion Detector II also gets a **Pet immunity** switch. A Motion Detector II that supports it also includes an **Automatic sensitivity** switch. A Shutter Contact II also has two **Break function** switches: one to exclude the contact from the intrusion alarm, and one to prevent that exclusion from expiring automatically. A Smoke Detector II gets an **Intrusion alarm** switch to sound or clear its own alarm. A thermostat that supports silent operation also gets a **Whisper mode** switch. A Thermostat Gen2 or Room Thermostat 2 that supports this feature also includes a **Humidity warning** switch. A Smart Plug or Smart Plug Compact that supports energy-saving mode also includes an **Energy-saving mode** switch. A Twinguard that supports this feature also includes a **Heartbeat** switch, which enables or disables its nightly self-test notification. These are configuration entities, so they appear under the device's configuration controls rather than with the main controls.
+
+### Valve
+
+The valve platform shows the position of your thermostat's valve. A valve entity is added for each Thermostat.
 
 ## Client registration
 
@@ -136,7 +147,7 @@ automation: |
 
 The Bosch Smart Home Controller pushes state changes to Home Assistant as they happen, over a persistent local connection. This means entities update in near real time and Home Assistant doesn't need to regularly check in with the controller for most of them.
 
-Camera-related switches are the exception: they're checked periodically instead, since the controller doesn't push their state changes.
+Camera-related switches and the **Open doors and windows** sensor are the exception: they're checked periodically instead, since the controller doesn't push their state changes.
 
 If the connection to the controller drops, for example because of a network hiccup or a controller restart, Home Assistant reconnects automatically once the controller is reachable again.
 

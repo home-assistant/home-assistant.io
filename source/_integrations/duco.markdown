@@ -8,6 +8,7 @@ ha_category:
   - Number
   - Select
   - Sensor
+  - Switch
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -20,6 +21,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - switch
 ha_integration_type: hub
 ha_quality_scale: platinum
 ha_dhcp: true
@@ -120,6 +122,10 @@ Home Assistant only shows the options advertised by your Duco system for that sp
 Some Duco systems expose bypass supply target temperatures. When available, Home Assistant creates a number entity for each zone reported by your Duco system. You can use these entities to view and set the target temperature in your configured temperature unit. The available range and increment come from your Duco system.
 
 If your Duco system does not expose a target for a zone, Home Assistant does not create the related number entity.
+
+### Switch
+
+The **Identify** switch lets you activate or deactivate identification for a specific Duco node. Home Assistant creates this switch only for nodes that advertise an on/off identification action through the Duco API.
 
 ### Sensors
 
@@ -405,11 +411,11 @@ This can happen when your system uses an older Communication Board V1, or when t
 4. If your system does not meet these requirements, Home Assistant cannot set up a new integration for that system.
 5. If your system should be supported, collect diagnostics and open an issue in Home Assistant Core with your Duco model, board details, and firmware information.
 
-### Failed to set ventilation state (rate limit)
+### Failed to control a Duco device (rate limit)
 
 #### Symptom
 
-Setting the fan speed or preset mode fails with a notification in the Home Assistant UI:
+Changing a Duco control, such as the fan speed or an **Identify** switch, fails with a notification in the Home Assistant UI:
 
 > The Duco device has reached its daily write limit. Try again tomorrow.
 
@@ -419,12 +425,12 @@ The Duco box enforces a daily API write limit of 200 write requests. When the li
 
 #### Resolution
 
-1. Check if the daily write limit has been reached. 
+1. Check if the daily write limit has been reached.
    - Under **Settings** > **System** > **Repairs**, open the {% icon "mdi:dots-vertical" %} menu in the top-right corner.
    - Select **System information**.
    - In the Duco section, you should see if the daily write limit has been reached.
 2. If the limit has been reached, wait until shortly after midnight for the quota to reset.
-3. To avoid hitting the limit again, reduce the frequency of automations that change the ventilation state.
+3. To avoid hitting the limit again, reduce the frequency of automations that send commands to your Duco system.
 
 ## Reconfiguring the integration
 
