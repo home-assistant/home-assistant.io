@@ -115,7 +115,8 @@ Removing the Teslemetry integration doesn't revoke the access key from your Powe
 ## Entities
 
 These are the entities available in the Teslemetry integration. Not all entities are enabled by default, and not all values are always available.
-Entities in the device tracker platform specifically require the `Vehicle location` scope, and will appear unavailable otherwise. 
+Entities in the device tracker platform specifically require the `Vehicle location` scope, and will appear unavailable otherwise.
+The **Charge on solar** switch and **Charge on solar lower limit** number are part of a Labs preview feature and only appear once you enable it, as described in [Charge on solar](#charge-on-solar) below.
 
 ### Vehicles
 
@@ -209,6 +210,7 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 |Media player|Media player|Yes|Both|Yes|
 |Number|Charge current|Yes|Both|Yes|
 |Number|Charge limit|Yes|Both|Yes|
+|Number|Charge on solar lower limit|Yes|Both|No|
 |Select|Seat cooler front left|Yes|Both|Yes|
 |Select|Seat cooler front right|Yes|Both|Yes|
 |Select|Seat heater front left|Yes|Both|Yes|
@@ -315,6 +317,7 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 |Switch|Auto seat climate right|Yes|Both|Yes|
 |Switch|Auto steering wheel heater|Yes|Both|Yes|
 |Switch|Charge|Yes|Both|Yes|
+|Switch|Charge on solar|Yes|Both|No|
 |Switch|Defrost|Yes|Both|Yes|
 |Switch|Guest mode|Yes|Streaming|Yes|
 |Switch|Sentry mode|Yes|Both|Yes|
@@ -383,6 +386,21 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 
 {% include integrations/actions.md %}
 
+## Charge on solar
+
+{% labs %}
+Requires the **Charge on solar** Labs preview feature. Enable it at {% my labs title="**Settings** > **System** > **Labs**" %}.
+{% endlabs %}
+
+Charge on solar lets your Tesla vehicle keep charging while your home has excess solar power, and pause again once that excess runs out. Enabling the **Charge on solar** Labs preview feature adds two entities for each vehicle that has granted the `Vehicle commands` scope:
+
+- A **Charge on solar** switch to turn the mode on or off.
+- A **Charge on solar lower limit** number for the battery percentage the vehicle keeps charging to even without solar, so it doesn't sit too low.
+
+There's no separate upper limit entity for charge on solar. It reuses the vehicle's existing **Charge limit** number as the upper bound, so the lower limit can never be set above it. If you lower the charge limit below the current lower limit, the lower limit follows it down.
+
+If you disable the Labs preview feature, or the `Vehicle commands` scope is no longer granted, both entities are removed until they become available again.
+
 ## Energy dashboard
 
 The Tesla Fleet API only provides power data for Powerwall and Solar products. This means they cannot be used on the energy dashboard directly.
@@ -417,6 +435,7 @@ Energy sites are cloud-polled: live status and site information every 30 seconds
 -   **Vehicle Sleep:** The integration will not actively wake a vehicle to fetch data. However, sending commands (such as locking, unlocking, or climate control) will wake the vehicle.
 -   **Rate Limits:** While Teslemetry handles upstream rate limiting with Tesla, excessive polling or command usage from aggressive automations may encounter temporary API limits.
 -   **Virtual Key:** See [Prerequisites](#prerequisites) for when a virtual key is needed. To set one up, follow the instructions on the [Teslemetry Console](https://teslemetry.com/console).
+-   **Charge on solar assumed state:** Tesla's API doesn't currently report charge on solar's status back from the vehicle, so the **Charge on solar** switch and its lower limit number show the state of the last command you sent rather than confirmed feedback from the vehicle.
 
 ## Troubleshooting
 
