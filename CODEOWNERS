@@ -1096,6 +1096,7 @@ source/_integrations/tellduslive.markdown @fredrike
 source/_integrations/teltonika.markdown @karlbeecken
 source/_integrations/temperature.markdown @home-assistant/core
 source/_integrations/template.markdown @Petro31 @home-assistant/core
+source/_integrations/terrestream_local.markdown @Xynergi
 source/_integrations/tesla_fleet.markdown @Bre77
 source/_integrations/tesla_wall_connector.markdown @einarhauks @sarabveer
 source/_integrations/teslemetry.markdown @Bre77
