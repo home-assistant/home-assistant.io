@@ -89,6 +89,7 @@ This integration provides {% term sensors %} for the following information from 
 ## Example automations
 
 {% details "Send a push notification if a new document is available" %}
+
 ```yaml
 alias: New document push notification
 description: Sends a push notification if a new document is available
