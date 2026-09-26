@@ -308,6 +308,7 @@ Follow these steps if you have added a Matter device to Home Assistant and you w
 3. Select **Share device**, then in the dialog, select **Share device** again.
    - There is no need to press a hardware button on the device to set it to commissioning mode.
 4. To join the device to the other platform, in their app, scan the QR code or enter the sharing code.
+   - In the Home Assistant Companion app, you can instead select **Add to Apple Home** (iOS) or **Add to Google Home or another app** (Android), if shown. This adds the device directly, with its Home Assistant name.
 5. Follow the instructions in their app. Once the process is complete, you can see that the device is shared in Home Assistant:
    - Next to the **Share device** button, select the three dots {% icon "mdi:dots-vertical" %} menu, then **Manage fabrics**.
    - In the list there, the new platform should be listed.
