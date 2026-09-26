@@ -102,7 +102,18 @@ The switch platform allows you to control your outlets, light switches, and sele
 
 Devices can also expose configuration switches for supported features. These include **Child lock** for thermostats and supported switches and micromodules, **Routing** for Smart Plugs, and **Presence simulation** for the controller.
 
-A Motion Detector II also gets **Pet immunity** and **Sabotage detection** switches. A Motion Detector II that supports it also includes an **Automatic sensitivity** switch. A Door/Window Contact II Plus also gets a **Vibration detection** switch. A Shutter Contact II also has two **Break function** switches: one to exclude the contact from the intrusion alarm, and one to prevent that exclusion from expiring automatically. A Smoke Detector II gets an **Intrusion alarm** switch to sound or clear its own alarm. A thermostat that supports silent operation also gets a **Whisper mode** switch. A Thermostat Gen2 or Room Thermostat 2 that supports this feature also includes a **Humidity warning** switch. A Smart Plug or Smart Plug Compact that supports energy-saving mode also includes an **Energy-saving mode** switch. A Twinguard that supports this feature also includes a **Heartbeat** switch, which enables or disables its nightly self-test notification. These are configuration entities, so they appear under the device's configuration controls rather than with the main controls.
+Additional configuration switches are available depending on the device and its supported capabilities:
+
+- **Motion Detector II**: Pet immunity, Sabotage detection, and, when supported, Automatic sensitivity.
+- **Door/Window Contact II Plus**: Vibration detection.
+- **Shutter Contact II**: Break function switches to exclude the contact from the intrusion alarm and to prevent that exclusion from expiring automatically.
+- **Smoke Detector II**: Intrusion alarm, to sound or clear the device's alarm.
+- **Thermostat**: Whisper mode when silent operation is supported.
+- **Thermostat Gen2 and Room Thermostat 2**: Humidity warning when supported.
+- **Smart Plug and Smart Plug Compact**: Energy-saving mode when supported.
+- **Twinguard**: Heartbeat when supported, which enables or disables the nightly self-test notification.
+
+These are configuration entities, so they appear under the device's configuration controls rather than with the main controls.
 
 ### Valve
 
@@ -185,53 +196,47 @@ If the connection to the controller drops, for example because of a network hicc
 
 ## Troubleshooting
 
-{% details "The integration can't connect to the controller" %}
+### The integration can't connect to the controller
 
-### Symptom
+#### Symptom
 
 Setup reports that Home Assistant cannot connect to the controller.
 
-### Description
+#### Description
 
 Home Assistant cannot establish a connection to the Bosch Smart Home Controller over the local network.
 
-### Resolution
+#### Resolution
 
 Make sure the controller is powered on and reachable from your Home Assistant instance over the local network. If you entered the address manually, verify that the IP address or hostname is correct.
 
-{% enddetails %}
+### Setup fails with a pairing error
 
-{% details "Setup fails with a pairing error" %}
-
-### Symptom
+#### Symptom
 
 Setup reports a pairing or registration error after entering the system password.
 
-### Description
+#### Description
 
 The Bosch Smart Home Controller only accepts new client registrations while it is in pairing mode.
 
-### Resolution
+#### Resolution
 
 Press and hold the button on the controller until the LED starts flashing, then try again.
 
-{% enddetails %}
+### Setup fails with an authentication error
 
-{% details "Setup fails with an authentication error" %}
-
-### Symptom
+#### Symptom
 
 Setup reports that authentication failed after entering the system password.
 
-### Description
+#### Description
 
 Home Assistant could not authenticate with the Bosch Smart Home Controller using the provided credentials.
 
-### Resolution
+#### Resolution
 
 Verify that you entered the system password configured for the Bosch Smart Home Controller. If an existing integration needs new credentials, follow the reauthentication flow shown by Home Assistant to register the controller again.
-
-{% enddetails %}
 
 ## Removing the integration
 
