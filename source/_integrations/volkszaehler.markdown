@@ -8,74 +8,32 @@ ha_release: 0.78
 ha_domain: volkszaehler
 ha_platforms:
   - sensor
-ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
+ha_integration_type: device
 ha_quality_scale: legacy
+ha_config_flow: true
 ---
 
 The **Volkszaehler** {% term integration %} is consuming the system information provided by the [Volkszaehler](https://wiki.volkszaehler.org/) API.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable the Volkszaehler {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+The following configuration options are available:
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: volkszaehler
-    uuid: DEVICE_UUID
-```
+{% configuration_basic %}
+Host:
+  description: The IP address or hostname of the Volkszaehler server. For example, `192.168.1.100` or `volkszaehler.local`.
+Port:
+  description: The port number of the Volkszaehler server. The default is `80`.
+UUID:
+  description: The UUID of the channel to monitor. In the Volkszaehler Web UI, select the information icon next to the channel to find it.
+{% endconfiguration_basic %}
 
-{% configuration %}
-uuid:
-  description: The UUID of the device to track.
-  required: true
-  type: string
-host:
-  description: The IP address of the host where Volkszaehler is running.
-  required: false
-  type: string
-  default: localhost
-port:
-  description: The port where Volkszaehler is listening.
-  required: false
-  type: integer
-  default: 80
-name:
-  description: The prefix for the sensors.
-  required: false
-  type: string
-  default: Volkszaehler
-monitored_conditions:
-  description: Entries to monitor.
-  required: false
-  type: list
-  default: average
-  keys:
-    average:
-      description: The average power.
-    consumption:
-      description: The power consumption.
-    max:
-      description: The maximum power.
-    min:
-      description: The minimum power.
-{% endconfiguration %}
+Each channel adds sensors for average power, consumption, maximum power, and minimum power. To monitor another channel, select **Add channel** to add it as a subentry of the Volkszaehler integration.
 
-## Full examples
+## Migrating from YAML configuration
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: volkszaehler
-    host: demo.volkszaehler.org
-    uuid: "57acbef0-88a9-11e4-934f-6b0f9ecd95a8"
-    monitored_conditions:
-      - average
-      - consumption
-      - min
-      - max
-```
+If you previously configured this integration in {% term "`configuration.yaml`" %}, the configuration is imported automatically when Home Assistant starts. A repair issue is created to remind you that YAML configuration is deprecated.
+
+The `monitored_conditions` setting is not imported. The config flow creates all four sensors for each channel.
+
+After the import, remove the Volkszaehler sensor configuration from {% term "`configuration.yaml`" %} and restart Home Assistant.

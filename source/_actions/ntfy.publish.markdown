@@ -55,7 +55,7 @@ Attachment URL:
   description: Attach images or other files by URL.
   required: false
 Attach local file:
-  description: Attach images or other files by uploading from a local file, camera, or image media source. When selecting a camera entity, a snapshot of the current view will be captured and attached to the notification.
+  description: Attach images or other files by uploading from a local file, camera, text-to-speech, or image media source. When selecting a camera entity, a snapshot of the current view will be captured and attached to the notification.
   required: false
 Attachment filename:
   description: Specify a custom filename for the attachment, including the file extension (for example, `snapshot.jpg`). If not provided, the filename defaults to _attachment_ (for example, `attachment.jpg`).
@@ -232,7 +232,7 @@ attach:
   type: string
 attach_file:
   description: >
-     Attach images or other files by uploading from a local file or camera media source.
+    Attach images or other files by uploading from a local file, camera, text-to-speech, or image media source. When selecting a camera entity, a snapshot of the current view will be captured and attached to the notification.
   required: false
   type: map
 filename:

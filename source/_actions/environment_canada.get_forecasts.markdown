@@ -5,6 +5,7 @@ domain: environment_canada
 description: "Retrieves the raw daily and hourly forecast data from Environment Canada."
 related_actions:
   - environment_canada.get_alerts
+  - environment_canada.get_precipitation_forecast
   - environment_canada.set_radar_type
 ---
 

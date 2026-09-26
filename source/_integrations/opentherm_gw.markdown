@@ -77,6 +77,10 @@ The integration adds the following buttons to your Home Assistant instance:
 
 Pressing this button, which can be found on the `OpenTherm Thermostat` device, cancels an active room setpoint override. Note that it does not change the target temperature, it only returns control to the thermostat.
 
+#### Heat hot water once
+
+Pressing this button, which can be found on the `OpenTherm Boiler` device, triggers a hot water `push` if this functionality is supported on your device (PIC16F1847 firmware only). The boiler will heat its hot water supply once.
+
 #### Restart
 
 The restart button on the `OpenTherm Gateway` device can be used to restart the OpenTherm Gateway.

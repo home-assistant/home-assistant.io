@@ -2,6 +2,7 @@
 title: NexBlue
 description: Instructions for integrating NexBlue EV chargers with Home Assistant.
 ha_category:
+  - Binary sensor
   - Car
   - Energy
   - Sensor
@@ -13,6 +14,7 @@ ha_codeowners:
   - '@nexblue-maintainer'
 ha_domain: nexblue
 ha_platforms:
+  - binary_sensor
   - sensor
   - switch
 ha_integration_type: hub
@@ -46,7 +48,7 @@ Password:
 
 ## Supported functionality
 
-The NexBlue integration provides sensor entities and a charging switch for each charger in your account.
+The NexBlue integration provides sensor entities, binary sensor entities, and a charging switch for each charger in your account.
 
 ### Sensors
 
@@ -59,7 +61,14 @@ The integration provides the following charger information:
 - **Current and voltage**: Measurements for L1, L2, and L3 when reported by the charger.
 - **Current limit**: The configured charging current limit.
 - **Cable rating** and **circuit fuse**: Electrical limits reported by the charger.
-- **Charger diagnostics**: Cable lock state and mode, access level, charging phase, network status, and LED brightness.
+- **Charger diagnostics**: Cable lock mode, access level, charging phase, network status, and LED brightness.
+
+### Binary sensors
+
+The integration provides the following binary sensors:
+
+- **Cable lock state**: Whether the charging cable is locked by the charger.
+- **Charging enabled**: Whether charging is enabled on the charger.
 
 ### Switches
 

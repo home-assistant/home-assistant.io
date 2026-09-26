@@ -174,7 +174,7 @@ target:
 
 ### Create a "Last Called" sensor
 
-The integration exposes an event entity for each Alexa device that records voice interactions. Each voice interaction updates the corresponding event entity. The following state-based template sensor tracks the Alexa device that most recently received a voice command and exposes related entities and attributes for use in automations.
+The integration exposes an event entity for each Alexa device that records voice interactions. Each voice interaction updates the corresponding event entity with details such as the recognized intent, the spoken command, and Alexa's reply. When Alexa's Voice ID recognizes the speaker, the event also includes the person's first name and type (for example, `ADULT` or `CHILD`). The following state-based template sensor tracks the Alexa device that most recently received a voice command and exposes related entities and attributes for use in automations.
 
 {% details "Template sensor" %}
 
@@ -209,6 +209,12 @@ template:
       
         voice_reply: >
           {{ state_attr(this.attributes.event_entity, 'voice_reply') }}
+      
+        person_first_name: >
+          {{ state_attr(this.attributes.event_entity, 'person_first_name') }}
+      
+        person_type: >
+          {{ state_attr(this.attributes.event_entity, 'person_type') }}
       
         notify_announce: >
           {% set event_entity = this.attributes.event_entity %}
@@ -261,7 +267,7 @@ This sensor automatically tracks all Alexa devices in the integration and does n
 
 #### Attributes
 
-The sensor exposes `media_player`, `notify_speak`, `notify_announce`, `voice_command`, `voice_reply`, and device metadata `device_id`, `serial_number`, and `event_entity` as attributes for use in automations.
+The sensor exposes `media_player`, `notify_speak`, `notify_announce`, `voice_command`, `voice_reply`, `person_first_name`, `person_type`, and device metadata `device_id`, `serial_number`, and `event_entity` as attributes for use in automations. The `person_first_name` and `person_type` attributes are only populated when Alexa's Voice ID recognizes the speaker.
 
 {% details "Example: Reply to the last Alexa device used" %}
 
