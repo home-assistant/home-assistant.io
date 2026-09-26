@@ -3,6 +3,7 @@ title: Samsung TV via ExLink
 description: Instructions on how to integrate Samsung TVs via their ExLink (RS-232) serial port into Home Assistant.
 ha_category:
   - Media player
+  - Serial devices
 ha_iot_class: Local Polling
 ha_release: 2026.9
 ha_codeowners:
@@ -15,7 +16,7 @@ ha_integration_type: device
 ha_quality_scale: silver
 ---
 
-The **Samsung TV via ExLink** {% term integration %} lets you control Samsung consumer TVs by connecting to their RS-232 serial port, which Samsung markets as **ExLink** (also written EX-Link or EXT Link). By connecting the TV to your Home Assistant server using a serial cable, an ESPHome-based serial proxy, or a USB-to-serial adapter, you get local control of the TV.
+The **Samsung TV via ExLink** {% term integration %} lets you control Samsung consumer TVs by connecting to their RS-232 serial port, which Samsung markets as **ExLink** (also written EX-Link or EXT Link). Because Home Assistant talks straight to the TV, control is local and fast, and it also works on TVs that lack smart features or a network connection.
 
 Controlling a TV over ExLink is more reliable and responsive than using the TV's network or IR interfaces. It also allows you to control TVs that do not have smart features or network connectivity.
 
@@ -41,14 +42,16 @@ Samsung TVs expose ExLink in one of two ways:
 
 ## Prerequisites
 
-- A physical serial connection between your TV and the system running Home Assistant. This can be a direct serial cable into the ExLink jack, the Samsung USB-to-ExLink dongle, or an [ESPHome]({% link _integrations/esphome.markdown %})-based serial proxy. Serial settings are 9600&nbsp;baud, 8 data bits, no parity, and 1 stop bit (8N1).
+{% include integrations/serial_connected.md %}
+
+- On Samsung TVs, connect a serial cable into the ExLink jack, or use the Samsung USB-to-ExLink dongle. Serial settings are 9600&nbsp;baud, 8 data bits, no parity, and 1 stop bit (8N1).
 - On TVs that use the USB-to-ExLink dongle, **EXT Link Support** and **USB Serial** must be enabled in the TV's hidden service menu. To open it, with the TV off, press **Mute → 1 → 8 → 2 → Power** on the IR remote. The exact location of these settings varies by model, so consult your TV's documentation.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Serial port:
-    description: "The serial port the TV is connected to. This can be a local device path or a remote serial proxy URL. For example, `/dev/ttyUSB0` (USB adapter) or `esphome://esphome-device.local/?port_name=uart` (ESPHome serial proxy)."
+Port:
+    description: "The serial port the TV is connected to. Select it from the list of ports that Home Assistant found, which includes the ports shared by your serial proxies. For a port on another system, select **Enter manually** and enter its URL, such as `socket://192.168.1.10:4001`."
 TV generation:
     description: "Optional. Select your TV's generation so Home Assistant can translate the active input back into a named source (for example, `HDMI 1`). Samsung encodes this read-back value differently per generation. Leave it empty if your model is not listed; you can still switch sources, but the currently active input is then tracked only from the commands Home Assistant sends."
 {% endconfiguration_basic %}

@@ -3,6 +3,7 @@ title: Tonewinner
 description: Instructions on how to integrate Tonewinner processors and receivers into Home Assistant.
 ha_category:
   - Media player
+  - Serial devices
 ha_codeowners:
   - '@emma-sg'
 ha_config_flow: true
@@ -15,7 +16,7 @@ ha_release: '2026.9'
 ha_quality_scale: silver
 ---
 
-The **Tonewinner** {% term integration %} allows you to control [Tonewinner](https://en.tonewinner.com/) AV processors, receivers, and amps from Home Assistant over an RS-232 serial connection via a USB-to-serial adapter or with an [ESPHome]({% link _integrations/esphome.markdown %})-based serial proxy.
+The **Tonewinner** {% term integration %} allows you to control [Tonewinner](https://en.tonewinner.com/) AV processors, receivers, and amps from Home Assistant over an RS-232 serial connection.
 
 ## Supported devices
 
@@ -23,14 +24,15 @@ The integration is known to work with the AT-500, but should work with other Ton
 
 ## Prerequisites
 
+{% include integrations/serial_connected.md %}
+
 - A Tonewinner processor or receiver with an RS-232 serial port.
-- A serial connection between the receiver and the machine running Home Assistant. If your machine does not have a serial port, a USB-to-serial adapter can be used.
-- The receiver communicates at 9600 baud. If you use an ESPHome-based serial proxy, configure its UART for 9600 baud.
+- The receiver communicates at 9600 baud. If you use a serial proxy, configure its UART for 9600 baud.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Serial port:
+Port:
   description: >-
     The serial port the receiver is connected to, for example, `/dev/ttyUSB0`.
     The list shows the serial ports detected by Home Assistant, including

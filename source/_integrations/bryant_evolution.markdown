@@ -3,6 +3,7 @@ title: Bryant Evolution
 description: Instructions for how to integrate a Bryant Evolution HVAC system using a System Access Module.
 ha_category:
   - Climate
+  - Serial devices
 featured: false
 ha_release: 2024.8
 ha_iot_class: Local Polling
