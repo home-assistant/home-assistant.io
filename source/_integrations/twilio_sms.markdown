@@ -16,6 +16,10 @@ The **Twilio SMS** {% term integration %} enables sending notifications via SMS,
 
 The requirement is that you have set up [Twilio](/integrations/twilio/).
 
+{% note %}
+If you plan to send messages to US recipients, review [Twilio's current messaging registration requirements](https://www.twilio.com/docs/messaging/compliance/a2p-10dlc) before setting up this integration. Twilio does not accept personal-use messaging programs, such as messages only to yourself, family, or friends, for A2P 10DLC registration or Toll-Free Verification. See [Twilio's personal-use limitation](https://www.twilio.com/docs/api/errors/30532) for details.
+{% endnote %}
+
 ## Configuration
 
 To use this notification platform in your installation, add the following to your {% term "`configuration.yaml`" %} file:
