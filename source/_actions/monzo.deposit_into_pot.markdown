@@ -83,7 +83,7 @@ amount:
 
 Use the target-balance blueprint to deposit excess money into a pot and withdraw money when the account is below its target. It reacts when the account balance changes and checks the balance every 15 minutes as a fallback.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/monzo_keep_account_at_target.yaml" %}
+{% blueprint_example blueprint="monzo/keep_account_at_target.yaml" %}
 
 ### Automation: deposit a fixed amount each week
 
