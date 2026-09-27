@@ -17,7 +17,7 @@ ha_quality_scale: bronze
 
 The **Profalux Neosol** {% term integration %} lets you control Profalux Neosol roller shutters from Home Assistant. It talks to the shutters through the 868 MHz USB dongle sold for them, plugged directly into the machine that runs Home Assistant.
 
-Everything stays in your home: the dongle transmits over radio to the motors, so no Calyps'HOME box, manufacturer account, or cloud service is involved. Once set up, you can open, close, and stop each paired shutter, put them in scenes and scripts, and automate them alongside the rest of your home.
+After pairing, everything stays in your home: the dongle transmits over radio to the motors, so no Calyps'HOME box, manufacturer account, or cloud service is involved during normal operation. Once set up, you can open, close, and stop each paired shutter, put them in scenes and scripts, and automate them alongside the rest of your home.
 
 This is an independent integration. It isn't affiliated with, endorsed by, or supported by Profalux or Stella Advanced Technology.
 
