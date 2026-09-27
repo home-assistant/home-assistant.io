@@ -6,7 +6,7 @@ ha_category:
 ha_domain: libresync
 ha_ssdp: true
 ha_integration_type: device
-ha_release: 2026.11
+ha_release: '2026.11'
 ha_codeowners:
   - '@drsound'
 ha_config_flow: true
@@ -16,7 +16,7 @@ ha_iot_class: Local Push
 ha_quality_scale: bronze
 ---
 
-The **LibreSync** {% term integration %} lets you control audio hubs built on the Libre Wireless LibreSync platform over your local network, such as the Platin Stereo Hub. It needs no cloud account, and the vendor's app only for the hub's initial setup.
+The **LibreSync** {% term integration %} lets you control audio hubs built on the Libre Wireless LibreSync platform over your local network, such as the Platin Stereo Hub. It needs no cloud account, and the vendor's app is only needed for the hub's initial setup.
 
 ## Use cases
 
@@ -31,7 +31,7 @@ The integration has been tested with:
 
 - Platin Stereo Hub, firmware 1.52
 
-The same hardware and software is sold under other brands, and is expected to work, but has not been tested: System Audio Stereo Hub, Buchardt Audio Stereo Hub, Econik Stereo Hub, and Triangle Compact Stereo Hub.
+The same hardware and software are sold under other brands, and are expected to work, but have not been tested: System Audio Stereo Hub, Buchardt Audio Stereo Hub, Econik Stereo Hub, and Triangle Compact Stereo Hub.
 
 The Platin Stereo Hub HT (New Generation, model PTX3) uses a different chipset and has not been tested.
 
@@ -58,6 +58,59 @@ The hub is represented by a media player entity, which provides:
 - Volume control.
 - Play, pause, stop, next track, and previous track, for content streamed to the hub.
 - The title, artist, album, artwork, duration, and position of the current track.
+
+## LibreSync automation examples
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Switch to the TV input when the TV turns on
+
+The sound of the TV comes out of the speakers as soon as the TV is on, with no need to change the input by hand.
+
+- **Trigger**: State: the TV turns on
+- **Action**: Media player: select source HDMI on the hub
+
+{% details "YAML example for switching to the TV input" %}
+
+{% example %}
+automation: |
+  alias: "Switch the hub to the TV input"
+  triggers:
+    - trigger: state
+      entity_id: media_player.living_room_tv
+      to: "on"
+  actions:
+    - action: media_player.select_source
+      target:
+        entity_id: media_player.stereo_hub
+      data:
+        source: HDMI
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Lower the volume in the evening
+
+- **Trigger**: Time: 22:00
+- **Action**: Media player: set the hub's volume to 20%
+
+{% details "YAML example for lowering the volume in the evening" %}
+
+{% example %}
+automation: |
+  alias: "Lower the hub volume in the evening"
+  triggers:
+    - trigger: time
+      at: "22:00:00"
+  actions:
+    - action: media_player.volume_set
+      target:
+        entity_id: media_player.stereo_hub
+      data:
+        volume_level: 0.2
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 
