@@ -1,0 +1,55 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", "helpers:pinGitHubActionDigests"],
+
+  "baseBranchPatterns": ["current"],
+  "enabledManagers": ["bundler", "github-actions", "npm", "ruby-version"],
+
+  "minimumReleaseAge": "3 days",
+
+  "semanticCommits": "disabled",
+  "labels": ["dependencies"],
+
+  "lockFileMaintenance": {
+    "description": "Refresh the indirect dependencies in the lock files in one weekly PR, instead of a PR per transitive bump",
+    "enabled": true,
+    "schedule": ["before 8am on monday"]
+  },
+
+  "packageRules": [
+    {
+      "description": "Label updates per ecosystem, like Dependabot did",
+      "matchManagers": ["bundler", "ruby-version"],
+      "addLabels": ["ruby"]
+    },
+    {
+      "description": "Label updates per ecosystem, like Dependabot did",
+      "matchManagers": ["npm"],
+      "addLabels": ["javascript"]
+    },
+    {
+      "description": "Label updates per ecosystem, like Dependabot did",
+      "matchManagers": ["github-actions"],
+      "addLabels": ["github_actions"]
+    },
+    {
+      "description": "Leave runner labels and action version inputs alone, Dependabot never updated those",
+      "matchManagers": ["github-actions"],
+      "matchDepTypes": ["github-runner", "uses-with"],
+      "enabled": false
+    },
+    {
+      "description": "Our own actions that follow a branch (like home-assistant/actions@master) float on purpose. Pinning them would open a digest PR in every repository for each change to them. Our own actions on a version tag are pinned like any other.",
+      "matchManagers": ["github-actions"],
+      "matchPackageNames": ["home-assistant/**"],
+      "matchCurrentValue": "/^(dev|main|master)$/",
+      "pinDigests": false
+    },
+    {
+      "description": "Only patch releases of Ruby. The devcontainer image is pinned to the 3.4 line, so moving to a new Ruby series is a deliberate change.",
+      "matchManagers": ["ruby-version"],
+      "matchUpdateTypes": ["major", "minor"],
+      "enabled": false
+    }
+  ]
+}
