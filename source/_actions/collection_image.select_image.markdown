@@ -63,4 +63,35 @@ image:
 
 {% include actions/try_it.md %}
 
+{% include actions/more_examples.md %}
+
+### Automation: show a holiday image on New Year's Eve
+
+Show a festive picture on your dashboard on December 31. This example uses the **Date** sensor from the [Time & Date](/integrations/time_date/) integration, and a picture stored in a **holidays** folder in your [local media](/integrations/media_source/#local-media).
+
+- **Trigger**: Template, {% raw %}`{{ states('sensor.date').endswith('-12-31') }}`{% endraw %}
+- **Action**: Select image
+  - **Target**: My photos (`image.my_photos`)
+  - **Image**: `holidays/happy_new_year.jpg`
+
+{% details "YAML example for showing a holiday image on New Year's Eve" %}
+
+{% example %}
+automation: |
+  alias: "Show a New Year's image on December 31"
+  triggers:
+    - trigger: template
+      value_template: "{{ states('sensor.date').endswith('-12-31') }}"
+  actions:
+    - action: collection_image.select_image
+      target:
+        entity_id: image.my_photos
+      data:
+        image:
+          media_content_id: "media-source://media_source/local/holidays/happy_new_year.jpg"
+          media_content_type: "image/jpeg"
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
