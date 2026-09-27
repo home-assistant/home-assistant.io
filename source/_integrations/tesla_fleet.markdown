@@ -142,6 +142,8 @@ The {% term integration %} {% term polling polls %} each vehicle every 10 minute
 
 If you need different polling intervals, you can [define a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval).
 
+For energy sites with a battery or solar, the integration also imports [long-term energy statistics](#long-term-energy-statistics) when it starts, and then every hour. Energy for the current hour can take up to an hour to appear in these statistics.
+
 ## Command signing
 
 Certain vehicles, including all vehicles manufactured since late 2023, require vehicle commands to be signed with a private key. All {% term actions %} on vehicle {% term entities %} will fail with an error if this is required and the key has not been set up correctly.
@@ -304,6 +306,34 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Sensor | State       | Yes     |
 | Sensor | Vehicle     | Yes     |
 
+## Long-term energy statistics
+
+For energy sites with a battery or solar, the integration imports Tesla's energy history as hourly {% term "long-term statistics" %}. Energy is recorded in the hour it was measured. Sites with only a Wall Connector don't have these statistics.
+
+The statistics cover the same fields as the energy history sensors, such as grid imported, solar generated, and home usage. To find them, go to {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %} and search for `tesla_fleet:`.
+
+- Each statistic ID uses the format `tesla_fleet:<energy_site_id>_<field>`, for example `tesla_fleet:123456_grid_energy_imported`.
+- Each name is your site name followed by the field, for example **My Home grid energy imported**.
+- Values are in watt-hours (Wh).
+
+The integration imports history as follows:
+
+- The first time it imports statistics for a site, it starts at midnight today in your energy site's time zone. It doesn't import earlier history.
+- After Home Assistant has been offline, it fills in the missed hours, starting from the last hour it imported, as far back as Tesla still provides the data.
+- Hours around midnight and daylight saving time changes are placed correctly, based on your energy site's time zone.
+- Missing readings are left empty, not filled with zeros.
+
+### Use the statistics in the Energy dashboard
+
+Your energy sensors keep working as before, and their existing statistics don't change. The [Energy dashboard](/docs/energy/) doesn't switch to the new statistics automatically. To see energy in the hour it was measured, including hours filled in after Home Assistant was offline, select the Tesla Fleet statistics instead of the sensors:
+
+1. Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}.
+2. Add or edit your grid, solar, or battery source.
+3. Select the matching Tesla Fleet statistic instead of the sensor. For example, select **My Home grid energy imported** instead of the **Grid imported** sensor.
+4. Save your changes.
+
+The statistics start on the day they're first imported, so the Energy dashboard doesn't show earlier days for these sources.
+
 {% include integrations/actions.md %}
 
 ## Tesla Fleet automation examples
@@ -400,3 +430,4 @@ If you have an error with your credentials, you can delete them in the {% my app
 {% include integrations/remove_device_service.md %}
 
 - Removing the {% term integration %} does not delete your Tesla Developer Application - you can remove it manually from the [Tesla Developer Dashboard](https://developer.tesla.com/dashboard) if no longer needed.
+- Removing the {% term integration %} also deletes its [long-term energy statistics](#long-term-energy-statistics), unless another Tesla Fleet integration instance still uses the same energy site.
