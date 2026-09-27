@@ -137,7 +137,8 @@ Additionally the following diagnostic sensors are available:
 
 ## Event entities
 
-The WeatherFlow Tempest station also sends event triggers when it starts raining and when there is a lightning strike nearby.
+WeatherFlow devices also send events when it starts raining and when they detect a lightning strike. Each device only gets the event entities for the events it sends: a Tempest gets both, an AIR only gets **Lightning strike**, a SKY only gets **Precipitation start**, and the hub doesn't get any.
+
 This {% term integration %} will expose these {% term event %} {% term entities %} and can be used for automations. The following entities will be exposed:
 
 - **Lightning strike**
