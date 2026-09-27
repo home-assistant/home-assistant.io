@@ -202,11 +202,12 @@ To resolve this issue, try the following steps:
 
 #### Symptom: The charger rejected the PIN
 
-During setup, Home Assistant reports that the charger rejected the PIN.
+During setup, Home Assistant reports that the charger rejected the PIN. If the PIN is changed on the charger after setup, Home Assistant detects the rejected PIN and starts a reauthentication flow. The charger's entities stay unavailable, and the integration stops reconnecting until you enter the current PIN.
 
 #### Resolution
 
-Remove and add the integration again with the current 6-digit PIN.
+- During setup, enter the current 6-digit PIN.
+- If Home Assistant asks you to reauthenticate, follow the reauthentication notification and enter the current 6-digit PIN. Home Assistant checks the PIN with the charger and reloads the integration without removing your entities or automations.
 
 ## Removing the integration
 
