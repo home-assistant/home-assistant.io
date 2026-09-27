@@ -125,7 +125,7 @@ It fires every time a charging session is started with an RFID card, and carries
 - `started_at`: When the charger started the session, by its own clock.
 
 {% note %}
-The **Session authorization** entity is only available on Peblar chargers that have an RFID reader. It stays empty on a charger set to charge without authentication, since no card is shown in that case.
+The **Session authorization** entity is only available on Peblar chargers equipped with an RFID reader. When the charger is set to charge without authentication, no new session authorization event is reported because no card is shown.
 
 A session that was already running when Home Assistant started is not reported. It was authorized before Home Assistant was watching, and reporting it then would give it the wrong time.
 {% endnote %}
@@ -324,7 +324,7 @@ automation:
             the update.
 ```
 
-### Notify who started charging
+### Automation: notify who started charging
 
 The following example sends a notification naming the person whose card started the charging session. The card names come from the charger's own authorization list.
 
@@ -332,8 +332,12 @@ The following example sends a notification naming the person whose card started 
 automation:
   - alias: "Peblar charging session started"
     triggers:
-      - trigger: state
-        entity_id: event.peblar_ev_charger_session_authorization
+      - trigger: event.received
+        target:
+          entity_id: event.peblar_ev_charger_session_authorization
+        options:
+          event_type:
+            - session_authorized
 
     actions:
       - action: notify.send_message
