@@ -104,9 +104,9 @@ For the quickest way to get your local Assist pipeline started, follow these ste
 
 ## Letting an assistant act as a user
 
-A voice request has no user of its own: when you speak to a voice satellite, Home Assistant cannot tell whose request it is. Integrations that link a Home Assistant user to an account of their own are then unable to pick the right account.
+A voice request has no user of its own. When you speak to a voice satellite, Home Assistant cannot tell whose request it is, so integrations that link a Home Assistant user to an external account cannot automatically pick the right account.
 
-Under **Acts as user**, select the person an assistant speaks for. What the assistant does then happens on behalf of that user, and an integration that knows their linked account uses it: [Music Assistant](/integrations/music_assistant/), for example, plays from that person's own streaming account or calendar appointments could be fetched depending on the user.
+Under **Acts as user**, select the person the assistant should speak for. The assistant will then act on behalf of that user, including using their linked accounts. For example, [Music Assistant](/integrations/music_assistant/) can play from that person's streaming account. The assistant can only do what that user is allowed to do in Home Assistant.
 
 ## Fine-tuning Whisper and Piper for your setup
 
