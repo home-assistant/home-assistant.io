@@ -21,7 +21,6 @@ The **LibreSync** {% term integration %} lets you control audio hubs built on th
 ## Use cases
 
 - Show what the hub is playing, and from which source, on a dashboard.
-- Switch the hub to the TV input when the TV turns on.
 - Lower the volume in the evening from an automation.
 - Pause playback when a call comes in.
 
@@ -63,32 +62,6 @@ The hub is represented by a media player entity, which provides:
 
 {% include docs/paste_yaml_tip.md %}
 
-### Automation: Switch to the TV input when the TV turns on
-
-The sound of the TV comes out of the speakers as soon as the TV is on, with no need to change the input by hand.
-
-- **Trigger**: State: the TV turns on
-- **Action**: Media player: select source HDMI on the hub
-
-{% details "YAML example for switching to the TV input" %}
-
-{% example %}
-automation: |
-  alias: "Switch the hub to the TV input"
-  triggers:
-    - trigger: state
-      entity_id: media_player.living_room_tv
-      to: "on"
-  actions:
-    - action: media_player.select_source
-      target:
-        entity_id: media_player.stereo_hub
-      data:
-        source: HDMI
-{% endexample %}
-
-{% enddetails %}
-
 ### Automation: Lower the volume in the evening
 
 - **Trigger**: Time: 22:00
@@ -108,6 +81,30 @@ automation: |
         entity_id: media_player.stereo_hub
       data:
         volume_level: 0.2
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Pause playback when a call comes in
+
+This example uses the phone state sensor of the Home Assistant Companion app for Android. Pausing works for content streamed to the hub, not for a physical input.
+
+- **Trigger**: State: the phone starts ringing
+- **Action**: Media player: pause the hub
+
+{% details "YAML example for pausing playback on an incoming call" %}
+
+{% example %}
+automation: |
+  alias: "Pause the hub on an incoming call"
+  triggers:
+    - trigger: state
+      entity_id: sensor.phone_phone_state
+      to: "ringing"
+  actions:
+    - action: media_player.media_pause
+      target:
+        entity_id: media_player.stereo_hub
 {% endexample %}
 
 {% enddetails %}
