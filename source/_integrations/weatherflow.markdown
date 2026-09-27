@@ -150,9 +150,15 @@ This {% term integration %} will expose these {% term event %} {% term entities 
 
 ## Known limitations
 
-- The sensor doesn't detect every lightning strike, and electrical interference near the station can cause false detections. The station broadcasts every strike it detects, and this {% term integration %} uses those broadcasts directly. WeatherFlow checks the strikes against other sources, so the WeatherFlow app and the [WeatherFlow Cloud](/integrations/weatherflow_cloud/) {% term integration %} can show a different number of strikes and different distances.
-- The sensor estimates the distance to the nearest edge of the storm from the strikes it detected recently. The estimate changes gradually as a storm approaches or moves away, so it can differ from the distance to the most recent strike. The sensor reports the distance in steps of 1 (overhead), 5, 6, 8, 10, 12, 14, 17, 20, 24, 27, 31, 34, 37, and 40 km.
-- A distance of 63 km means that the strike was out of range and the sensor couldn't estimate its distance. The **Lightning average distance** includes these values, so it's too high for a minute with an out-of-range strike.
+### Lightning detection
+
+The sensor doesn't detect every lightning strike, and electrical interference near the station can cause false detections. The station broadcasts every strike it detects, and this {% term integration %} uses those broadcasts directly. WeatherFlow checks the strikes against other sources, so the WeatherFlow app and the [WeatherFlow Cloud](/integrations/weatherflow_cloud/) {% term integration %} can show a different number of strikes and different distances.
+
+### Lightning distance
+
+The sensor estimates the distance to the nearest edge of the storm from the strikes it detected recently. The estimate changes gradually as a storm approaches or moves away, so it can differ from the distance to the most recent strike. The sensor reports the distance in steps of 1 (overhead), 5, 6, 8, 10, 12, 14, 17, 20, 24, 27, 31, 34, 37, and 40 km.
+
+A distance of 63 km means that the strike was out of range and the sensor couldn't estimate its distance. The **Lightning average distance** includes these values, so it's too high for a minute with an out-of-range strike.
 
 ## Networking notes
 
