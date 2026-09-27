@@ -164,7 +164,12 @@ The following options are available:
 - **Fast solar** ({% term state %}: `fast_solar`): The charger will fast charge the electric vehicle with the overproduction of solar energy, but will also use grid power if the solar production is not sufficient.
 - **Smart solar** ({% term state %}: `smart_solar`): The charger will charge the electric vehicle with the overproduction of solar energy, but will also use grid power if the solar production is not sufficient.
 - **Pure solar** ({% term state %}: `pure_solar`): The charger will only charge the electric vehicle with the overproduction of solar energy.
+- **Custom solar** ({% term state %}: `custom_solar`): The charger will charge the electric vehicle on solar energy, using the thresholds and grid power target you set on the charger itself.
 - **Scheduled** ({% term state %}: `scheduled`): The charger will charge the electric vehicle according to the schedule configured on the charger.
+
+{% note %}
+**Custom solar** is only offered by chargers running firmware 1.10 or later, and only when the charger has a power meter configured. The thresholds it uses are set in the charger's own web interface; Home Assistant selects the mode but does not change those settings.
+{% endnote %}
 
 ### Sensors
 
