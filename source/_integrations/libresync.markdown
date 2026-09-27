@@ -38,7 +38,7 @@ The Platin Stereo Hub HT (New Generation, model PTX3) uses a different chipset a
 ## Prerequisites
 
 - The hub must be connected to the same network as Home Assistant, and set up in the vendor's app.
-- Home Assistant must be able to reach the hub on TCP ports 50006 and 7777.
+- Home Assistant must be able to reach the hub on TCP ports 50006 and 7777, which control it, and on TCP port 38400, where the hub describes itself when it is added.
 
 {% include integrations/config_flow.md %}
 
@@ -74,7 +74,7 @@ The hub pushes changes to volume, source, playback state, and track information 
 
 ### The hub cannot be added
 
-If setup reports that the hub does not identify itself, unplug the hub from the mains, plug it back in, wait a minute, and try again. A hub identifies itself by its factory serial number or, if it has none, through a network service that occasionally stops on its own.
+If setup reports that the hub does not identify itself, check that nothing blocks TCP port 38400 between Home Assistant and the hub. If the port is open, unplug the hub from the mains, plug it back in, wait a minute, and try again. The hub identifies itself through its UPnP service on that port, which can stop responding while the rest of the hub keeps working; restarting the hub brings it back.
 
 ### The hub is unavailable
 
