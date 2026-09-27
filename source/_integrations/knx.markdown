@@ -1472,9 +1472,9 @@ The KNX light integration is used as an interface to control KNX actuators for l
 
 Light entities can be created from the frontend in the KNX panel or via YAML.
 
-When an incoming telegram changes a light between on and off, **Activity** shows the sender's KNX individual address. If you have imported an ETS project, it also shows the device name. This applies to lights with an on/off group address, including dimmable lights.
+For lights with an on/off group address, **Activity** shows the KNX individual address of the device whose telegram changed the light's on/off state. If you have imported an ETS project, the device name is also shown.
 
-The sender is the device that sent the telegram used for the update. For a status telegram from an actuator, the actuator is shown. That telegram does not identify the original wall switch or scene. Brightness and color changes, including on/off changes derived from individual color channels, do not receive this attribution.
+If the update comes from an actuator's status telegram, **Activity** identifies the actuator, which may differ from the wall switch that initiated the change. Sender information is not shown for brightness or color updates.
 
 {% details "Configuration of KNX light entities via YAML" %}
 
