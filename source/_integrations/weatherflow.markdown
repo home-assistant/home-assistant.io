@@ -106,7 +106,9 @@ This {% term integration %} will expose the following sensors:
   - **Description**: Energy estimate for the most recent detected lightning strike, as reported by the station.
 
 - **Lightning last strike**
-  - **Description**: Timestamp of the most recent detected lightning strike; unlike the `Lightning strike` event entity below, this sensor stores the last recorded strike time.
+  - **Description**: Timestamp of the most recent detected lightning strike.
+
+The **Lightning last distance**, **Lightning last energy**, and **Lightning last strike** sensors keep their values when Home Assistant restarts, so they show the most recent strike even if it happened before the restart.
 
 ### Solar and light sensors
 
