@@ -3,7 +3,14 @@
   "extends": ["config:recommended", "helpers:pinGitHubActionDigests"],
 
   "baseBranchPatterns": ["current"],
-  "enabledManagers": ["bundler", "github-actions", "npm", "ruby-version"],
+  "enabledManagers": [
+    "bundler",
+    "dockerfile",
+    "github-actions",
+    "npm",
+    "nvm",
+    "ruby-version"
+  ],
 
   "minimumReleaseAge": "3 days",
 
@@ -31,6 +38,18 @@
       "description": "Label updates per ecosystem, like Dependabot did",
       "matchManagers": ["github-actions"],
       "addLabels": ["github_actions"]
+    },
+    {
+      "description": "The devcontainer image moves within its 3.4-trixie line: the image definition version is updated, while Ruby and Debian stay as pinned (see the comment in the Dockerfile). MCR returns no release timestamps, so it's exempt from the minimum release age.",
+      "matchManagers": ["dockerfile"],
+      "matchPackageNames": ["mcr.microsoft.com/devcontainers/ruby"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(?<compatibility>3\\.4-trixie)$",
+      "minimumReleaseAge": null
+    },
+    {
+      "description": "Label Node.js updates",
+      "matchManagers": ["nvm"],
+      "addLabels": ["javascript"]
     },
     {
       "description": "Leave runner labels and action version inputs alone, Dependabot never updated those",
