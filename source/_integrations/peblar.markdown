@@ -125,9 +125,9 @@ It fires every time a charging session is started with an RFID card, and carries
 - `started_at`: When the charger started the session, by its own clock.
 
 {% note %}
-The **Session authorization** entity is only available on Peblar chargers equipped with an RFID reader. When the charger is set to charge without authentication, no new session authorization event is reported because no card is shown.
+The **Session authorization** entity is only available on Peblar chargers equipped with an RFID reader. When the charger is set to charge without authentication, it reports no new session authorization event because no card is shown.
 
-A session that was already running when Home Assistant started is not reported. It was authorized before Home Assistant was watching, and reporting it then would give it the wrong time.
+Home Assistant doesn't report a session that was already running when it started. It was authorized before Home Assistant was watching, and reporting it then would give it the wrong time.
 {% endnote %}
 
 ### Numbers
