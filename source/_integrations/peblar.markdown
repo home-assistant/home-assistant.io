@@ -168,7 +168,7 @@ The following options are available:
 - **Scheduled** ({% term state %}: `scheduled`): The charger will charge the electric vehicle according to the schedule configured on the charger.
 
 {% note %}
-**Custom solar** is only offered by chargers running firmware 1.10 or later, and only when the charger has a power meter configured. The thresholds it uses are set in the charger's own web interface; Home Assistant selects the mode but does not change those settings.
+**Custom solar** is only offered by chargers running firmware 1.10 or later, and only when the charger has a power meter configured. The thresholds are set in the charger's web interface. Home Assistant selects the mode but doesn't change those settings.
 {% endnote %}
 
 ### Sensors
