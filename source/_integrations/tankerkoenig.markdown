@@ -85,7 +85,7 @@ The following state attributes are available for the `Status` binary sensor in a
 
 | Attribute | Description |
 | --- | --- |
-| `opening_times` | A list of opening time periods, each with `start`, `end`, and `text`. A station that is open 24 hours a day has a single period with `text` `Mo-So`, `start` `00:00:00`, and `end` `24:00:00`. |
+| `opening_times` | A list of opening time periods, each with `days`, `start_time`, and `end_time`. A station that is open 24 hours a day has a single period with `days` `Mo-So`, `start_time` `00:00:00`, and `end_time` `23:59:59`. |
 | `latitude` | Latitude of the station (only available if **Show stations on map** is enabled). |
 | `longitude` | Longitude of the station (only available if **Show stations on map** is enabled). |
 
