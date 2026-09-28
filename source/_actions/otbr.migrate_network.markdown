@@ -29,7 +29,7 @@ To migrate a Thread network from an automation or a script:
 Dataset:
   description: The credentials of the network to move to, as Thread operational dataset TLVs in hexadecimal, describing the network completely (channel, channel mask, PAN ID, extended PAN ID, mesh-local prefix, network name, network key, PSKC, and security policy). A partial dataset is refused, because the border router would fill in the missing settings with random ones. If you leave this empty, the preferred network from your Thread settings is used.
 Delay:
-  description: How long devices wait before switching, in seconds. A longer delay gives battery-powered devices more time to hear about the change. If you leave this empty, five minutes is used.
+  description: How long devices wait before switching, in seconds. A longer delay gives battery-powered devices more time to hear about the change. If you leave this empty, five minutes is used. Moving to another network replaces the network key, and the Thread network's leader does not accept less than five minutes for that, so a shorter delay is raised to five minutes.
 Border router:
   description: The border router to migrate. You only need to pick one if you have more than one border router set up.
 {% endoptions_ui %}
@@ -53,7 +53,7 @@ dataset:
   required: false
   type: string
 delay:
-  description: How long devices wait before switching, in seconds, between 30 and 3600.
+  description: How long devices wait before switching, in seconds, between 30 and 3600. Raised to 300 when the dataset replaces the network key, which moving to another network does.
   required: false
   type: integer
   default: 300
@@ -87,7 +87,8 @@ status: already_on_network
 - There is no undo. Once the network has moved, bringing it back means running this action again with the previous credentials.
 - If another radio in your system pins the Thread channel, a migration onto a different channel is refused.
 - If you have more than one border router set up, you are asked which one to migrate.
-- If the network you migrate away from is your preferred Thread network, the network you move to becomes the preferred one, so credential sharing and new border routers follow the migration.
+- If the network you migrate away from is your preferred Thread network, the network you move to becomes the preferred one, so credential sharing and new border routers follow the migration. The same happens if no preferred network was set yet.
+- The preferred network changes as soon as the migration starts, not when the delay expires. Credentials shared during the delay are for the new network, which is not running yet, so wait for the delay to pass before adding devices.
 - You can also use this action to change the credentials of the network you are already on, by giving it a dataset that keeps the same extended PAN ID but carries a new network key. Every device picks up the new credentials when the delay expires, the same way a migration works.
 
 {% include actions/try_it.md %}
