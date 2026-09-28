@@ -93,6 +93,8 @@ The Rain Bird integration provides the following entities.
   - **Description**: The irrigation schedule {% term calendar %}
     entity is created for each schedule configured in the Rain Bird app. You can view the program schedule
     in the Home Assistant calendar UI, or trigger other automations based on the irrigation start or end time.
+    Each event's description lists the zones the program waters and each zone's run time in minutes, for
+    example `Zone 1: 25 min`. In automations, it is available as `trigger.calendar_event.description`.
   - **Available for devices**: Only available for Rain Bird devices irrigation schedules.
 
 #### Number
