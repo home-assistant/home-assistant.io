@@ -340,6 +340,7 @@ dashboards:
 {% endconfiguration %}
 
 You can also add YAML dashboards when your main dashboard is configured in the UI:
+
 ```yaml
 lovelace:
   mode: storage
