@@ -365,7 +365,7 @@ Some inverters do not give Home Assistant access to their battery over Modbus, w
 
 Check whether the inverter has a **Storage state of charge** sensor instead. That is the fallback described under [storage state of charge](#storage-state-of-charge), and a state of charge is all of the battery that such an inverter reports.
 
-If that sensor is missing too, the inverter is not reporting its storage at all. Ask your installer whether it can run a grid profile that supports IEEE 1547-2018, which is what makes those registers appear.
+If that sensor is missing too, first check whether the battery was at 0% when the integration started. In that case, reload the integration after the battery has charged. Otherwise, ask your installer whether the inverter can run a grid profile that supports IEEE 1547-2018, which makes those registers available.
 
 ### Getting to what the inverter reports
 
