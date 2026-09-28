@@ -58,14 +58,14 @@ Verify SSL certificate:
 {% include integrations/option_flow.md %}
 
 {% configuration_basic %}
-Parse new to-do list items:
+Recognize food in new items:
   description: >-
-    When enabled, Mealie parses new to-do list items to find matches in your food items and identify quantities and units. If a confident match is found, the food item, unit, and quantity are added to Mealie separately. Otherwise, the item is added as a note. Enabled by default.
-Parse edited to-do list items:
+    When enabled, Mealie checks new to-do list items to find matches in your food items and identify quantities and units. If a finds a confident match, Mealie adds the food item, unit, and quantity are added to Mealie separately. Otherwise, the item is added as a note. Enabled by default.
+Recognize food in edited items:
   description: >-
-    When enabled, Mealie parses edited to-do list items to find matches in your food items and identify quantities and units. If a confident match is found, the food item, unit, and quantity are updated in Mealie. If disabled, the item is updated as entered. Enabled by default.
-Mealie parser:
-  description: Select the parser to use. If you select OpenAI, you must set up an API key in Mealie.
+    When enabled, Mealie checks edited to-do list items to find matches in your food items and identify quantities and units. If it finds a confident match, Mealie updates the food item, unit, and quantity are updated in Mealie. If disabled, the item is updated as entered. Enabled by default.
+Recognition method:
+  description: The method to use for processing to-do list items. If you select OpenAI, you must set up an API key in Mealie.
 {% endconfiguration_basic %}
 
 ## Available calendars
