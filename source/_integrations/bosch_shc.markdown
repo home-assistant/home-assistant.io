@@ -108,22 +108,19 @@ The switch platform allows you to control your outlets, light switches, and sele
 - Camera Eyes
 - Camera 360
 
-Devices can also expose configuration switches for supported features. These include **Child lock** for thermostats and supported switches and micromodules, **Routing** for Smart Plugs, and **Presence simulation** for the controller.
+Some devices also get an additional, device-specific switch. These are configuration entities, so they appear under the device's configuration controls rather than with the main controls:
 
-Additional configuration switches are available depending on the device and its supported capabilities:
-
-- Camera Eyes: a **Camera light** switch to turn its built-in light on or off.
-- Motion Detector II: **Pet immunity**, **Sabotage detection**, and, when supported, **Automatic sensitivity**.
-- Door/Window Contact II Plus: **Vibration detection**.
-- Shutter Contact II: **Break function** switches to exclude the contact from the intrusion alarm and to prevent that exclusion from expiring automatically.
-- Smoke Detector II: **Intrusion alarm**, to sound or clear the device's alarm.
-- Thermostat: **Whisper mode** when silent operation is supported.
-- Thermostat Gen2 and Room Thermostat 2: **Humidity warning** when supported.
-- Smart Plug and Smart Plug Compact: **Energy-saving mode** when supported.
-- Twinguard: **Heartbeat** when supported, which enables or disables the nightly self-test notification.
-- Micromodule Relay with switch configuration support: **Swap inputs** and **Swap outputs**.
-
-These are configuration entities, so they appear under the device's configuration controls rather than with the main controls.
+- Camera Eyes: a **Camera light** switch to turn its built-in light on or off
+- Motion Detector II: **Pet immunity**, and **Sabotage detection**
+- Motion Detector II that supports it: **Automatic sensitivity**
+- Door/Window Contact II Plus: **Vibration detection**
+- Shutter Contact II: two **Break function** switches, one to exclude the contact from the intrusion alarm, and one to prevent that exclusion from expiring automatically
+- Smoke Detector II: **Intrusion alarm**, to sound or clear its own alarm
+- Thermostat that supports silent operation: **Whisper mode**
+- Thermostat Gen2 or Room Thermostat 2 that supports this feature: **Humidity warning**
+- Smart Plug or Smart Plug Compact that supports energy-saving mode: **Energy-saving mode**
+- Twinguard that supports this feature: **Heartbeat**, which enables or disables its nightly self-test notification
+- Micromodule Relay that supports switch configuration: **Swap inputs** and **Swap outputs**
 
 ### Valve
 
