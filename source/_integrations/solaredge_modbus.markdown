@@ -173,6 +173,18 @@ A battery attached to the inverter gets a device named after its place on it, **
 - **Maximum charge power** and **Maximum discharge power**, and their peak counterparts: What the battery allows, continuously and in bursts.
 - **Temperature** and **Maximum temperature**: How warm the pack is on average, and the warmest cell in it.
 
+### Storage state of charge
+
+Not every inverter lets Home Assistant read its battery over Modbus. A number of Home Hub inverters keep those registers to themselves, so no battery device appears for them. Some of those do report their storage a second way, and then a single sensor is added to the inverter itself:
+
+- **Storage state of charge**: How full the attached storage is, as a percentage.
+
+This is all that is available that way. There is no capacity, health, or power to go with it, because the inverter does not report those here.
+
+It only appears when your installer has set the inverter to a grid profile that supports IEEE 1547-2018, and when no battery device was found. Where there is a battery device, that one is used instead: it reports far more, and it is tied to the battery's own serial number.
+
+An inverter with no battery attached reports 0% here, so the sensor is left out when that is what the inverter says at startup.
+
 ### Binary sensors
 
 - **Problem**: On when the inverter reports a fault, so an automation can tell you the same day rather than at the end of the month.
@@ -317,6 +329,7 @@ If part of the installation does not answer a poll, only its {% term entity enti
 - SolarEdge does not document the control registers, and not every firmware exposes them the same way. What a setting does is the inverter's business, and it will refuse a value it does not accept.
 - A meter or battery wired in or out while Home Assistant runs takes up to 15 minutes to appear or disappear, since that is how often the inverter is asked what is attached. Picking it up reloads the integration, so its entities are briefly unavailable. Reloading it yourself is quicker if you cannot wait.
 - Modbus gives you what the inverter itself measures. Data per optimizer or per panel is only available through SolarEdge's cloud service, which the [SolarEdge](/integrations/solaredge/) integration uses.
+- The **Storage state of charge** sensor is decided on at startup. A battery that reads exactly 0% right then is indistinguishable from an inverter with no battery at all, so the sensor is left out. Reload the integration once the battery has charged to add it.
 - An inverter accepts a limited number of Modbus TCP connections at the same time. If another system on your network already polls the inverter, Home Assistant may not be able to connect.
 
 ## Troubleshooting
@@ -345,6 +358,14 @@ Home Assistant recognizes your inverter by its serial number. This message means
 
 1. Look up the inverter's current address, and give it a fixed address while you are there.
 2. Select **Reconfigure** on the integration entry and enter the new address.
+
+### My inverter has a battery, but there is no battery device
+
+Some inverters do not give Home Assistant access to their battery over Modbus, whatever is wired to them. There is nothing to configure around that; the registers are not served.
+
+Check whether the inverter has a **Storage state of charge** sensor instead. That is the fallback described under [storage state of charge](#storage-state-of-charge), and a state of charge is all of the battery that such an inverter reports.
+
+If that sensor is missing too, the inverter is not reporting its storage at all. Ask your installer whether it can run a grid profile that supports IEEE 1547-2018, which is what makes those registers appear.
 
 ### Getting to what the inverter reports
 
