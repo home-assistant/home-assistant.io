@@ -14,11 +14,11 @@ ha_quality_scale: legacy
 
 The **Twilio SMS** {% term integration %} enables sending notifications via SMS, powered by [Twilio](https://twilio.com).
 
-The requirement is that you have set up [Twilio](/integrations/twilio/).
 
-{% note %}
-If you plan to send messages to US recipients, review [Twilio's current messaging registration requirements](https://www.twilio.com/docs/messaging/compliance/a2p-10dlc) before setting up this integration. Twilio does not accept personal-use messaging programs, such as messages only to yourself, family, or friends, for A2P 10DLC registration or Toll-Free Verification. See [Twilio's personal-use limitation](https://www.twilio.com/docs/api/errors/30532) for details.
-{% endnote %}
+## Prerequisites
+
+- Set up the [Twilio](/integrations/twilio/) integration first.
+- If you plan to send messages to US recipients, review [Twilio's messaging registration requirements](https://www.twilio.com/docs/messaging/compliance/a2p-10dlc) before you set up this integration. Twilio does not accept personal-use messaging programs, such as messages only to yourself, family, or friends, for A2P 10DLC registration or Toll-Free Verification. For details, see [Twilio's personal-use limitation](https://www.twilio.com/docs/api/errors/30532).
 
 ## Configuration
 
