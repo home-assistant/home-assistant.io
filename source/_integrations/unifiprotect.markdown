@@ -177,7 +177,7 @@ If you switch from full access to API key only, the entities that are no longer 
 
 ## Device support
 
-This {% term integration %} supports the device types in the table below. Other UniFi Protect devices, such as the AI Port and standalone speakers, are not supported. Each supported device gets a variety of entities added for
+This {% term integration %} supports the device types documented below. Other UniFi Protect devices, such as the AI Port and standalone speakers, are not supported. Each supported device gets a variety of entities added for
 each of the different {% term entity %} platforms.
 
 {% note %}
