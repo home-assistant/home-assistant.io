@@ -95,14 +95,6 @@ The following controls are available:
 - **Frost protection**: minimum and maximum temperatures for the frost protection, if the enabled.
 - **Overheat protection**: minimum and maximum temperatures for the overheaet protection, if the enabled.
 
-### Switches
-
-The following switches are available for both Air-to-Air and Air-to-Water units:
-
-- **Frost protection**: Turns the frost protection on or off.
-- **Overheat protection**: Turns the overheat protection on or off.
-- **Standby**: Puts the unit in or out of standby mode. Only created for units that support standby.
-
 ## Data updates
 
 The integration {% term polling polls %} the MELCloud Home API every 60 seconds.
