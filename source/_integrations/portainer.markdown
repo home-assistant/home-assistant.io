@@ -77,7 +77,7 @@ There is currently support for the following device types within Home Assistant:
 - **Memory usage percentage**: Memory usage as a percentage of the container's limit.
 - **Memory limit**: Memory limit configured for the container.
 - **Started**: When the container was last started.
-- **Restart count**: How often Docker restarted the container, for example because of its restart policy.
+- **Restart count**: How often Docker restarted the container, for example, because of its restart policy.
 
 #### Endpoint sensors
 
