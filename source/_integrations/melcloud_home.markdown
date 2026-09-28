@@ -93,7 +93,7 @@ The following extra sensors are only applicable for the Air-to-Water units:
 
 The following controls are available:
 
-- **Frost protection**: minimum and maximum temperatures for the frost protection, if the enabled.
+- **Frost protection**: minimum and maximum temperatures for frost protection, if enabled.
 - **Overheat protection**: minimum and maximum temperatures for overheat protection, if enabled.
 
 ### Water heater
