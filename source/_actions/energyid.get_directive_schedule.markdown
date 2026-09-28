@@ -22,7 +22,9 @@ To get a directive schedule from an automation or a script:
 7. In the **Response variable** field, enter a name to store the data in, such as `schedule`.
 8. Select **Save**.
 
-This action has no options.
+### Options in the UI
+
+This action has no options. You only choose the directive sensors to read.
 
 {% include actions/yaml_header.md %}
 
@@ -38,6 +40,10 @@ action: |
 
 This stores the schedule of `sensor.my_home_energy_planner` in `schedule`.
 
+### Options in YAML
+
+This action has no options besides the target.
+
 {% include actions/targets.md domain="sensor" %}
 
 ## Response data
@@ -47,7 +53,7 @@ The response contains one entry per targeted entity, keyed by entity ID. Each en
 - `title`: The name of the directive.
 - `description`: The description of the directive as published by its provider.
 - `interval`: The length of one schedule slot as an ISO 8601 duration, such as `PT15M`.
-- `provider`: The provider of the directive, with its `id`, `display_name`, and `logo_url`.
+- `provider`: The provider of the directive, with its `id`, `display_name`, and `logo_url`. The logo URL is empty when the provider has no logo.
 - `data`: The schedule slots. Each slot has a `timestamp`, the `signal` (`--`, `-`, `0`, `+`, or `++`), the `color` suggested by the provider, and the `raw_value` the signal was derived from.
 
 ```yaml
@@ -58,7 +64,7 @@ sensor.my_home_energy_planner:
   provider:
     id: energyid
     display_name: EnergyID
-    logo_url: null
+    logo_url:
   data:
     - timestamp: "2026-09-28T10:00:00+00:00"
       signal: "++"
