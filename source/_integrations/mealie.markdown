@@ -60,7 +60,7 @@ Verify SSL certificate:
 {% configuration_basic %}
 Recognize food in new items:
   description: >-
-    When enabled, Mealie checks new to-do list items to find matches in your food items and identify quantities and units. If a finds a confident match, Mealie adds the food item, unit, and quantity separately. Otherwise, the item is added as a note. Enabled by default.
+    When enabled, Mealie checks new to-do list items to find matches in your food items and identify quantities and units. If it finds a confident match, Mealie adds the food item, unit, and quantity separately. Otherwise, the item is added as a note. Enabled by default.
 Recognize food in edited items:
   description: >-
     When enabled, Mealie checks edited to-do list items to find matches in your food items and identify quantities and units. If it finds a confident match, Mealie updates the food item, unit, and quantity. If disabled, the item is updated as entered. Enabled by default.
