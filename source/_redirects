@@ -732,6 +732,7 @@ layout: null
 /integrations/zengge /integrations/led_ble 301
 /integrations/google_gemini /integrations/google_generative_ai_conversation 301
 /integrations/qube_heatpump /integrations/hr_energy_qube 301
+/integrations/oru /integrations/opower 301
 /components/zwave /integrations/zwave_js
 
 # Lovelace images
