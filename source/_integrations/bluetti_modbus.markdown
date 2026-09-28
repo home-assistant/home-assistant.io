@@ -22,7 +22,7 @@ The **BLUETTI Modbus** {% term integration %} connects Home Assistant to your [B
 
 This integration has been tested with, or reported to work on, the following power stations:
 
-- Balco260
+- Balco 260
 
 During setup, the integration checks the model the device reports and refuses any other.
 
@@ -63,8 +63,8 @@ Your power station is added as a single device.
 
 ### Sensors
 
-- **Battery voltage**, **Total battery voltage**: The battery's voltage.
-- **Battery current**, **Total battery current**: The battery's current. The device only reports its magnitude, so it reads the same whether the battery is charging or discharging.
+- **Battery voltage**: The battery's voltage.
+- **Battery current**: The battery's current. The device only reports its magnitude, so it reads the same whether the battery is charging or discharging.
 - **Battery SoC**: The battery's present charge level.
 - **Total battery charged energy**, **Total battery discharged energy**: Lifetime battery energy counters, in Wh.
 - **AC output power**, **AC output voltage**, **AC output current**, **Total AC output energy**: What the device is feeding to AC loads.
@@ -79,7 +79,7 @@ The following are added as diagnostic entities: **Battery SoH**, **Battery type*
 
 The device's charge limits (max charge / min discharge SoC) and its AC output, grid charging, and grid feed-in switches are not exposed by this integration yet, not even as read-only entities. See [Known limitations](#known-limitations) for the full list.
 
-The serial number appears on the device's info page too, alongside the ARM, DSP, and IoT module firmware versions ({% my integrations title="**Settings** > **Devices & services**" %}, select the integration entry, then the device) - neither is a sensor.
+The device page links to the power station's own web interface. The serial number appears on the device's info page too, alongside the ARM, DSP, and IoT module firmware versions ({% my integrations title="**Settings** > **Devices & services**" %}, select the integration entry, then the device) - neither is a sensor.
 
 ## Data updates
 
@@ -94,7 +94,7 @@ Home Assistant keeps one Modbus connection per address and shares it between the
 - Grid, AC output, and inverter voltage and current are only provided for the first phase.
 - The device is not discovered automatically yet; add it by its address.
 - There is no way yet to change a device's address, port, or device ID without removing and re-adding the integration.
-- Home Assistant identifies the device by its serial number: if the address ends up reassigned to a different physical unit, entities go unavailable instead of silently showing the wrong device's data.
+- Home Assistant identifies the device by its serial number: if the address ends up reassigned to a different physical unit, entities go unavailable instead of silently showing the wrong device's data, and a repair issue explains what happened.
 - A device accepts a limited number of Modbus TCP connections at the same time. If another system on your network already polls the device, Home Assistant may not be able to connect.
 
 ## Troubleshooting
@@ -114,7 +114,15 @@ About once an hour, the device drops its Modbus connection or answers a request 
 
 ### The device is not a supported model
 
-Setup stops with this error when the device at that address does not report itself as a Balco260. Check the address and device ID, and see [Supported devices](#supported-devices).
+Setup stops with this error when the device at that address does not report itself as a Balco 260. Check the address and device ID, and see [Supported devices](#supported-devices).
+
+### The device reports no serial number
+
+Setup stops with this error when the device answers but reports no serial number, which Home Assistant needs to tell your power station apart from any other. Restart the power station and try again.
+
+### A different device answers at the address
+
+If a repair issue says a different BLUETTI device answers at the address, the power station this entry was set up for has moved or been replaced. Its entities stay unavailable until it answers at that address again. If it has moved, remove the integration entry and add the power station again at its new address.
 
 ## Removing the integration
 
