@@ -28,6 +28,8 @@ The integration supports the following Victron device types:
 - **DC-DC Converter** (Orion TR Smart)
 - **DC Energy Meter**
 - **Inverter/Charger** (MultiPlus, Quattro, Inverter RS via VE.Bus)
+- **Lithium Superpack NG**
+- **Lynx Smart BMS**
 - **Smart Battery Protect**
 - **Smart Lithium**
 - **Solar Charger** (SmartSolar, BlueSolar MPPT)
@@ -37,7 +39,6 @@ The integration supports the following Victron device types:
 The following device types are not yet supported:
 
 - **Inverter RS** (standalone, non-VE.Bus mode)
-- **Lynx Smart BMS**
 - **Multi RS**
 - **Orion XS**
 
