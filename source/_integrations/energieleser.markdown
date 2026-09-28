@@ -6,8 +6,8 @@ ha_category:
   - Energy
   - Sensor
 ha_codeowners:
-  - '@AjinkyaGokhale'
-  - '@amitkio'
+  - "@AjinkyaGokhale"
+  - "@amitkio"
 ha_quality_scale: platinum
 ha_domain: energieleser
 ha_integration_type: device
@@ -17,6 +17,7 @@ ha_zeroconf: true
 ha_platforms:
   - diagnostics
   - sensor
+  - update
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
@@ -48,12 +49,12 @@ For detailed hardware setup instructions, refer to the [energieleser documentati
 
 {% configuration_basic %}
 IP address:
-  description: "The IP address of your energieleser device. For example, `192.168.178.100`."
+description: "The IP address of your energieleser device. For example, `192.168.178.100`."
 {% endconfiguration_basic %}
 
 ## Supported functionality
 
-The energieleser integration primarily provides the following features based on the connected device type.
+The energieleser integration provides the following features, depending on the connected device type.
 
 ### stromleser.one
 
@@ -103,17 +104,23 @@ The energieleser integration primarily provides the following features based on 
 
 - **Signal strength**: Wi-Fi signal strength of the device (dBm). Disabled by default.
 
+### Firmware update
+
+Each device has a **Firmware** update entity that shows whether a newer firmware version is available for it. Home Assistant cannot install the update; please update your device using the energieleser app.
+
 ## Data updates
 
-The integration {% term polling polls %} data from the device every 10 seconds over your local network.
+The integration {% term polling polls %} data from the device every 10 seconds over your local network. To use a different update interval, you can disable polling in the system options and use the [update entity](/actions/homeassistant.update_entity/) action to define your own update frequency.
+
+Every 6 hours, the integration checks the energieleser server for the latest firmware version of each device type. This is the only data it requests from the internet.
 
 ## Use cases
 
-You can use the energieleser integration for a variety of smart home scenarios, such as:
+You can use the energieleser integration for various smart home scenarios, such as:
 
-- Monitoring your energy consumption: Add the sensors to the Home Assistant Energy dashboard to track your daily, monthly, and yearly consumption of electricity, gas, water, or heat.
-- Automation based on usage: Trigger automations when electricity consumption goes above or below certain thresholds (for example, turn on appliances when excess solar power is being exported).
-- Detection of leaks and anomalies: Create alerts for continuous water flow or unusual gas usage patterns to detect potential leaks.
+- Monitoring your energy consumption: Add sensors to the Home Assistant Energy dashboard to track daily, monthly, and yearly consumption of electricity, gas, water, or heat.
+- Automation based on usage: Trigger automations when electricity consumption rises above or falls below certain thresholds, for example, turn on appliances when excess solar power is exported.
+- Detection of leaks and anomalies: Create alerts for continuous water flow or unusual gas usage to detect potential leaks.
 
 ## Automation examples
 
@@ -140,6 +147,8 @@ automation:
 ## Known limitations
 
 Rate limits: The energieleser devices can be overwhelmed by excessive HTTP requests. If you configure multiple apps or integrations to poll the same device simultaneously, the device may reach a rate limit or become temporarily unresponsive.
+
+Firmware updates: The firmware update entity only shows when an update is available. Installing it from Home Assistant is not supported yet, use the energieleser app instead.
 
 ## Troubleshooting
 
