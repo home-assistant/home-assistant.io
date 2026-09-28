@@ -61,7 +61,7 @@ There is currently support for the following device types within Home Assistant:
 - **Resume container**: Resumes the container.
 - **Recreate container**: Recreates the container by pulling the latest tagged image.
 - **Prune unused images**: Removes unused Docker images from the endpoint.
-- **Update stack**: Pulls the latest images and redeploys the stack. Stacks deployed from a Git repository are redeployed from that repository. The stack's environment variables and settings are kept. Not available for Kubernetes stacks.
+- **Update stack**: Pulls the latest images and redeploys the stack. Stacks deployed from a Git repository are redeployed from that repository. The stack keeps its environment variables and settings. Not available for Kubernetes stacks.
 
 ### Events
 
