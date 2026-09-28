@@ -37,7 +37,7 @@ Modbus TCP has to be enabled on the charger:
 1. Open the charger's administration interface in your browser. Its address is the one you will enter in Home Assistant.
 2. Go to **Protocols** and enable **Modbus TCP**.
 
-The charger listens on port `502`. Giving it a fixed address in your router keeps Home Assistant pointed at the right device.
+The charger listens on port `30502`. Giving it a fixed address in your router keeps Home Assistant pointed at the right device.
 
 {% include integrations/config_flow.md %}
 
@@ -45,7 +45,7 @@ The charger listens on port `502`. Giving it a fixed address in your router keep
 Host:
   description: "The hostname or IP address of your IONT charger. For example, `192.168.1.60`."
 Port:
-  description: "The port the charger listens on for Modbus requests. The default is `502`."
+  description: "The port the charger listens on for Modbus requests. The default is `30502`."
 {% endconfiguration_basic %}
 
 The above configuration can also be adjusted later via {% my integrations title="**Settings** > **Devices & services**" %}, select {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
@@ -165,7 +165,7 @@ Home Assistant keeps one Modbus connection per address and shares it between the
 
 1. Make sure the charger is powered on and reachable on your network, for example by opening its administration interface.
 2. Check that Modbus TCP is still enabled on the charger.
-3. Check the port. The charger uses `502` unless it was changed.
+3. Check the port. The charger uses `30502` unless it was changed.
 
 ### Setup says the device does not answer as an IONT charger
 
