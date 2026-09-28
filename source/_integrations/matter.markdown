@@ -364,7 +364,7 @@ Notification of an OTA update for a Matter device
 </p>
 
 {% note %}
-The Home Assistant Matter updates currently do not work for Thread devices on a Thread network with (any) Apple border routers. Typically you'll see "Target node did not process the update file" error instead. The Apple border routers do not forward the necessary mDNS packets which allow to discover the update provider on Home Assistant end. The Apple Home ecosystem might offer updates from their end as an alternative (e.g. for Eve devices).
+Home Assistant Matter updates currently don't work for Thread devices on a Thread network with (any) Apple border routers. Instead, you'll typically see a "Target node did not process the update file" error. Apple border routers don't forward the mDNS packets needed to discover the update provider on the Home Assistant end. The Apple Home ecosystem might offer updates from their end as an alternative (for example, for Eve devices).
 {% endnote %}
 
 {% include integrations/actions.md %}

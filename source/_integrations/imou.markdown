@@ -23,7 +23,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically.
@@ -112,10 +112,16 @@ When the cloud API reports that the toggle is supported for a device, the integr
 
 ### Selects
 
-When the cloud API reports that the option is supported for a device, the integration exposes the following select entities (device settings, configuration category):
+When the cloud API reports that the option is supported for a device, the integration exposes the following select entities:
+
+Device settings (**Configuration** category):
 
 - **Night vision mode**: Choose the night vision mode on supported cameras.
 - **Volume**: Choose mute, low, medium, or high volume on supported devices.
+
+On supported PTZ cameras with saved presets:
+
+- **Go to collection point**: Choose a preset to move the camera to that position. After the move, the select returns to its prompt option so you can pick another preset.
 
 ### Binary sensors
 

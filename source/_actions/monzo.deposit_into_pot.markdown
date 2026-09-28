@@ -77,6 +77,47 @@ amount:
 
 {% include actions/try_it.md %}
 
+{% include actions/more_examples.md %}
+
+### Automation: keep an account at a target balance
+
+Use the target-balance blueprint to deposit excess money into a pot and withdraw money when the account is below its target. It reacts when the account balance changes and checks the balance every 15 minutes as a fallback.
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/monzo_keep_account_at_target.yaml" %}
+
+### Automation: deposit a fixed amount each week
+
+This automation deposits 25 into a savings pot every Friday. The amount uses the selected account's currency.
+
+- **Trigger**: Time: 18:00
+- **Condition**: Day of the week is Friday
+- **Action**: Deposit into pot
+  - **From account**: Current account
+  - **To pot**: Savings
+  - **Amount**: 25
+
+{% details "YAML example for a weekly pot deposit" %}
+
+{% example %}
+automation: |
+  alias: "Deposit into savings every Friday"
+  triggers:
+    - trigger: time
+      at: "18:00:00"
+  conditions:
+    - condition: time
+      weekday:
+        - fri
+  actions:
+    - action: monzo.deposit_into_pot
+      data:
+        account: 0123456789abcdef0123456789abcdef
+        pot: fedcba9876543210fedcba9876543210
+        amount: 25
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}

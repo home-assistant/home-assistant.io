@@ -21,6 +21,7 @@ The **Opower** {% term integration %} allows you to get energy information from 
 
 More than 175 utilities use Opower. Currently only the following utilities are supported by this integration:
 
+- AES Indiana
 - American Electric Power (AEP) subsidiaries
   - AEP Ohio
   - AEP Texas
@@ -45,11 +46,6 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - PECO Energy Company (PECO)
   - Potomac Electric Power Company (Pepco)
 - Glendale Water and Power (GWP)
-- National Grid US subsidiaries
-  - National Grid Massachusetts
-  - National Grid NY Long Island
-  - National Grid NY Metro
-  - National Grid NY Upstate
 - Northern Indiana Public Service Company (NIPSCO)
 - Pacific Gas & Electric (PG&E)
 - Puget Sound Energy (PSE)
@@ -103,6 +99,14 @@ You will be asked to re-authenticate via MFA periodically.
 
 The integration properly supports Multi-Factor Authentication (MFA) for PG&E via either email or phone.
 You will be asked to re-authenticate via MFA every 180 days.
+
+### Southwest Gas
+
+Use your **Energy Savings Portal** (Opower) credentials when you set up the integration. These are different from your Southwest Gas **MyAccount** credentials.
+
+If you do not have an Energy Savings Portal account yet, create one at the [Southwest Gas Energy Savings Portal](https://swg.opower.com/). You will need your utility account number and full name exactly as they appear on your energy bill.
+
+If you see **Invalid authentication**, but you can still sign in to the Southwest Gas **MyAccount** portal, you are likely entering your **MyAccount** credentials instead of your **Energy Savings Portal** credentials.
 
 {% include integrations/config_flow.md %}
 
@@ -229,13 +233,14 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 - For some utilities, there are no usage/cost sensors added by this integration, or they may constantly show a value of `0`. This is expected and fine; you should use the statistics instead.
 - For some utilities, the usage/cost sensors might disappear or become unavailable at the beginning of your bill period.
 - Sensors for typical monthly usage and cost are not populated for accounts younger than a year.
-- Many utilities provide granular usage (for example, daily or hourly) but not cost. They only provide cost for billing periods (for example, month). This results in showing 0 for cost.
+- Many utilities provide granular usage (for example, daily or hourly) but not cost. They only provide cost for billing periods (for example, a month). This means daily and hourly cost statistics show `0`. This has been reported with Consolidated Edison (ConEd) electricity and gas, Puget Sound Energy (PSE) gas, and AEP Ohio. In that case, monthly totals still appear when you view the **Energy** dashboard in the yearly view.
 - Per rate period statistics (time-of-use periods or tiers) are only created for utilities whose data includes the breakdown. Monthly bill data has no breakdown, and a read whose breakdown does not add up to the read contributes `0` to every period. On net metered accounts the account totals use the meter's import and export registers where the utility provides them, while the periods only have the net per period, so the periods can sum slightly below the totals.
 - For some utilities, the account number displayed in Home Assistant might not match the account number on your utility bill or web portal. This is expected behavior. The integration uses an internal identifier from the Opower system (`preferredUtilityAccountId`), which can differ from your public billing account number (`accountName`). It does not mean you are connected to anyone else's account or that you are seeing someone else's statistics.
 
 ## Troubleshooting
 
 - If your usage or cost sensors are completely missing or showing `0`, this may be expected behavior; see **Known limitations** above.
+- If consumption works but daily cost statistics show `0` while monthly totals still appear when you view the Energy dashboard by year, your utility only provides billing period cost. This is expected behavior, and you do not need to open an issue.
 - If the account number shown in Home Assistant doesn't match the one on your bill, this is normal and does not mean you are connected to someone else's account; see [Known limitations](#known-limitations) above.
 - Before opening an issue, ensure you can access the energy usage section/dashboard on your utility website and verify that the data is up-to-date there.
 - When configuring the Energy dashboard in Home Assistant, use the statistics as described in **Known limitations** above.

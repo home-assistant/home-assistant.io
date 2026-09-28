@@ -1,6 +1,6 @@
 ---
 title: "Battery level crossed threshold"
-trigger: battery.level_crossed
+trigger: battery.level_crossed_threshold
 domain: battery
 description: "Triggers after one or more battery level readings cross a threshold."
 related_triggers:
@@ -52,17 +52,19 @@ Trigger when:
     - **All**: fires only after every targeted entity crosses the threshold.
 
     This corresponds to the `behavior` field in YAML. Default is **Each**.
+  required: false
+  default: Each
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. Useful to avoid triggering on brief fluctuations. For example, set it to `0:30:00` to fire only after the reading has stayed past the threshold for 30 minutes. Default is `0` (fires immediately).
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
 
-In YAML, **Battery level crossed threshold** is referred to as `battery.level_crossed`. A basic example looks like this:
+In YAML, **Battery level crossed threshold** is referred to as `battery.level_crossed_threshold`. A basic example looks like this:
 
 {% example %}
 trigger: |
-  trigger: battery.level_crossed
+  trigger: battery.level_crossed_threshold
   target:
     entity_id: sensor.hallway_motion_sensor_battery
   options:
@@ -78,7 +80,7 @@ To fire when a device charges back into a safe range:
 
 {% example %}
 trigger: |
-  trigger: battery.level_crossed
+  trigger: battery.level_crossed_threshold
   target:
     entity_id:
       - sensor.hallway_motion_sensor_battery
@@ -99,7 +101,7 @@ To use a number helper as a dynamic threshold you can adjust without editing the
 
 {% example %}
 trigger: |
-  trigger: battery.level_crossed
+  trigger: battery.level_crossed_threshold
   target:
     label_id: critical_sensors
   options:
@@ -185,7 +187,7 @@ Smoke detector batteries failing silently is a safety risk. This automation send
 automation: |
   alias: "Alert when smoke detector battery is critical"
   triggers:
-    - trigger: battery.level_crossed
+    - trigger: battery.level_crossed_threshold
       target:
         label_id: smoke_detectors
       options:
@@ -221,7 +223,7 @@ The robot vacuum takes a while to charge. This automation sends a notification a
 automation: |
   alias: "Notify when robot vacuum is fully charged"
   triggers:
-    - trigger: battery.level_crossed
+    - trigger: battery.level_crossed_threshold
       target:
         entity_id: sensor.robot_vacuum_battery
       options:
@@ -256,7 +258,7 @@ Use a number helper so you can change the alert threshold from the UI without ed
 automation: |
   alias: "Garden camera low battery alert"
   triggers:
-    - trigger: battery.level_crossed
+    - trigger: battery.level_crossed_threshold
       target:
         entity_id: sensor.garden_camera_battery
       options:

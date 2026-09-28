@@ -1,0 +1,6 @@
+# pnpm settings for the Astro workspace (not a multi-package
+# workspace; this file is where pnpm reads its configuration).
+
+# Dependencies allowed to run their install scripts.
+allowBuilds:
+  esbuild: true
