@@ -30,6 +30,7 @@ There is currently support for the following device types within Home Assistant:
 - [Binary sensor](#binary-sensor)
 - [Calendar](#calendar)
 - [Number](#number)
+- [Sensor](#sensor)
 - [Switch](#switch)
 
 Home Assistant allows you to control the irrigation values, log details about
@@ -73,7 +74,8 @@ Default irrigation time:
 
 The Rain Bird integration fetches available irrigation zones once, then polls
 every minute to check the current state of each valve. The irrigation schedule
-calendar is only fetched every 15 minutes.
+is only fetched every 15 minutes, and only while the calendar or a program next run
+sensor is enabled.
 
 ## Supported functionality
 
@@ -102,6 +104,15 @@ The Rain Bird integration provides the following entities.
     been delayed due to rain. You may use the number entity with an automation such as increasing the number
     of days to delay irrigation when combined with another weather forecast integration in Home Assistant.
   - **Available for devices**: Only available for Rain Bird devices irrigation schedules.
+
+#### Sensor
+
+- **Program next run**
+  - **Description**: One sensor per program (for example, **PGM A next run**) with the next time the
+    program is scheduled to start, taking any rain delay into account. It moves on to the following
+    run as soon as a run starts. The sensor is unknown if the program has no start times or zones.
+    These sensors are disabled by default. To use one, enable it from the controller's device page.
+  - **Available for devices**: Only available for Rain Bird devices with irrigation programs.
 
 #### Switch
 
