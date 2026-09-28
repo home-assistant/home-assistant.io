@@ -3,7 +3,7 @@ title: Tonewinner
 description: Instructions on how to integrate Tonewinner processors and receivers into Home Assistant.
 ha_category:
   - Media player
-  - Serial-connected
+  - Serial-controlled
 ha_codeowners:
   - '@emma-sg'
 ha_config_flow: true
