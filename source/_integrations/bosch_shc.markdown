@@ -55,7 +55,9 @@ The cover platform allows you to control your covers. Cover devices are added fo
 
 ### Event
 
-A Motion Detector or Motion Detector II gets an event entity that fires whenever the device detects motion.
+- A Motion Detector or Motion Detector II gets an event entity that fires whenever the device detects motion.
+- A Smoke Detector gets an event entity that fires whenever its alarm state changes.
+- A Smoke Detection System gets an event entity that fires whenever its alarm state changes: **Idle** (`alarm_off`), **Alarm** (`alarm_on`), or **Alarm muted** (`alarm_muted`).
 
 ### Sensors
 
