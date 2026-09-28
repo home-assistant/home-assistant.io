@@ -47,7 +47,13 @@ In addition, you will see a {% term Matter %} or Apple HomeKit logo on the packa
 
 ## Adding a Thread-based device to Home Assistant
 
-How a Thread-based device is added to Home Assistant depends on the home automation standard it uses.
+A Thread-based device needs a Thread border router to reach Home Assistant. The border router can be Home Assistant itself, running on a Connect ZBT-1, Connect ZBT-2, or Home Assistant Yellow, or a device from another vendor, such as a Google Nest Hub or an Apple HomePod. Thread only carries the traffic: once your Thread network is ready, you add the device with Matter or Apple HomeKit, depending on the logo on its packaging.
+
+The diagram shows the path from a new Thread-based device to a working device in Home Assistant.
+
+<object type="image/svg+xml" data="/images/integrations/thread/thread-add-device-workflow.svg" style="width: 100%; height: auto;" aria-label="Workflow for adding a Thread-based device to Home Assistant"></object>
+
+To add the device, follow the procedure described for its standard:
 
 1. If you see the {% term Matter %} logo on your device packaging, follow the procedure [adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant).
 
@@ -56,6 +62,7 @@ How a Thread-based device is added to Home Assistant depends on the home automat
 2. If you see the Apple HomeKit logo on your device packaging, follow the procedure [adding a HomeKit device to Home Assistant](/integrations/homekit_controller/#adding-a-homekit-device-through-thread).
 
    <img src="/images/integrations/thread/apple-works-with-homekit-logo.png"  width="200">
+
 
 ## About Thread
 
