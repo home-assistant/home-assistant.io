@@ -55,7 +55,7 @@ The cover platform allows you to control your covers. Cover devices are added fo
 
 ### Event
 
-A Motion Detector gets an event entity that fires whenever the device detects motion.
+A Motion Detector or Motion Detector II gets an event entity that fires whenever the device detects motion.
 
 ### Sensors
 
