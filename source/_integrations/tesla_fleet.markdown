@@ -318,7 +318,8 @@ The statistics cover the same fields as the energy history sensors, such as grid
 
 The integration imports history as follows:
 
-- The first time it imports statistics for a site, it starts at midnight today in your energy site's time zone. It doesn't import earlier history.
+- The first time it imports statistics for a site, each statistic starts with the existing history of the matching energy sensor. Tesla's data continues from there, including any hours missed since the sensor last recorded history. Hours copied from the sensor keep their original timing. For example, energy recorded after a past outage stays in the hour Home Assistant came back online.
+- If an energy sensor has no history, for example because it's disabled, its statistic starts at midnight today in your energy site's time zone.
 - After Home Assistant has been offline, it fills in the missed hours, starting from the last hour it imported, as far back as Tesla still provides the data.
 - Hours around midnight and daylight saving time changes are placed correctly, based on your energy site's time zone.
 - Missing readings are left empty, not filled with zeros.
@@ -332,7 +333,7 @@ Your energy sensors keep working as before, and their existing statistics don't 
 3. Select the matching Tesla Fleet statistic instead of the sensor. For example, select **My Home grid energy imported** instead of the **Grid imported** sensor.
 4. Save your changes.
 
-The statistics start on the day they're first imported, so the Energy dashboard doesn't show earlier days for these sources.
+Earlier days stay in the Energy dashboard after you switch, because each statistic starts with the matching sensor's history.
 
 {% include integrations/actions.md %}
 
