@@ -339,18 +339,18 @@ dashboards:
       default: false
 {% endconfiguration %}
 
-You can also add YAML dashboards when your main dashboard is UI configured:
+You can also add YAML dashboards when your main dashboard is configured in the UI:
 ```yaml
 lovelace:
   mode: storage
-  # Add yaml dashboards
+  # Add YAML dashboards
   dashboards:
-    yaml:
+    yaml-dashboard: # Needs to contain a hyphen (-)
       mode: yaml
       title: YAML
       icon: mdi:script
       show_in_sidebar: true
-      filename: lovelace.yaml
+      filename: yaml-dashboard.yaml
 ```
 
 ### Refreshing a YAML dashboard
