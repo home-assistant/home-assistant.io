@@ -1356,7 +1356,7 @@ fields:
   required: false
   keys:
     default:
-      description: The default value applied to the field's selector.
+      description: The value used to pre-populate this field when adding a new object.
       required: false
       type: any
     label:
