@@ -29,14 +29,22 @@ For detailed configuration instructions, refer to the [Client configuration](#cl
 
 {% include integrations/config_flow.md %}
 
+When you set up the integration, it exposes all LLM APIs and requires an administrator account. To change this, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Model Context Protocol Server**, and then select **Configure**.
+
 ## Configuration options
 
 The integration provides the following configuration options:
 
 {% configuration_basic %}
+Expose all LLM APIs:
+  description: If MCP clients can use every LLM API, including LLM APIs that are added
+    later. This option is turned on by default. If you set up the integration before this option
+    existed, it stays turned off so that your clients keep the LLM APIs you selected. Turn it off
+    to select individual LLM APIs.
 Control Home Assistant:
-  description: If MCP clients are allowed to control Home Assistant. Clients can only
-    control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
+  description: The LLM APIs that MCP clients can use when **Expose all LLM APIs** is turned off.
+    Clients can only control or provide information about entities that are
+    [exposed](/voice_control/voice_remote_expose_devices/) to them.
 Require an administrator account:
   description: If only administrator accounts are allowed to use the `/api/mcp` endpoint. This
     option is turned on by default. If you set up the integration before this option existed,
@@ -73,9 +81,9 @@ client to provide an authentication token.
 
 ### Exposing a specific LLM API
 
-The `/api/mcp` endpoint serves the LLM API you select when you set up the
-integration. If you have more than one LLM API available, you can also connect a
-client to a specific one by adding its ID to the URL:
+The `/api/mcp` endpoint serves all LLM APIs, or the LLM APIs you select in the
+[configuration options](#configuration-options). If you have more than one LLM API
+available, you can also connect a client to a specific one by adding its ID to the URL:
 
 `/api/mcp/<api_id>`
 
