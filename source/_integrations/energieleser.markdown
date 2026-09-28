@@ -110,7 +110,7 @@ Each device has a **Firmware** update entity that shows whether a newer firmware
 
 ## Data updates
 
-The integration {% term polling polls %} data from the device every 10 seconds over your local network. To use a different update interval, you can disable polling in the system options and use the [update entity](/actions/homeassistant.update_entity/) action to define your own update frequency.
+The integration {% term polling polls %} data from the device every 10 seconds over your local network. To use a different update interval, disable polling in the system options and create a custom polling automation using the [update entity](/actions/homeassistant.update_entity/) action.
 
 Every 6 hours, the integration checks the energieleser server for the latest firmware version of each device type. This is the only data it requests from the internet.
 
