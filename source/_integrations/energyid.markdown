@@ -63,11 +63,13 @@ Home Assistant sensor:
 
 When you select a sensor, its `object_id` (the part of the entity ID after the dot) will be used as the **EnergyID Metric Key**. For example, mapping `sensor.total_active_power` will send data to EnergyID with the key `total_active_power`.
 
+{% include integrations/option_flow.md %}
+
 ## Receiving directives
 
 EnergyID records can be granted access to **directives** that tell you when it is a good or bad moment to consume electricity.
 
-When directives are enabled in the integration's options, every directive authorized for your record is discovered automatically, including directives granted later, and exposed as a sensor. The sensor state is one of five moments: _Very bad moment_, _Bad moment_, _Neutral_, _Good moment_, or _Very good moment_. The `next_change` and `next_state` attributes tell you when the signal will change next and to what, which makes them convenient automation triggers.
+When **Receive EnergyID directives** is enabled in the options, every directive authorized for your record is discovered automatically, including directives granted later, and exposed as a sensor. The sensor state is one of five moments: _Very bad moment_, _Bad moment_, _Neutral_, _Good moment_, or _Very good moment_. The `next_change` and `next_state` attributes tell you when the signal will change next and to what, which makes them convenient automation triggers.
 
 What a directive means for your installation is decided by its provider. Check the directive's description in EnergyID before you base an automation on it.
 
@@ -91,7 +93,7 @@ Start the dishwasher when the planner turns to a very good moment.
 - **Trigger**: State
   - **Entity**: Home energy planner
   - **To**: Very good moment
-- **Action**: Turn on
+- **Action**: Turn on switch
   - **Target**: Dishwasher
 
 {% details "YAML example for running the dishwasher at a very good moment" %}

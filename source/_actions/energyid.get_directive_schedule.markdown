@@ -83,4 +83,84 @@ sensor.my_home_energy_planner:
 
 {% include actions/try_it.md %}
 
+{% include actions/more_examples.md %}
+
+### Automation: announce the first very good moment of the day
+
+Every morning, read the schedule and send a notification with the time of the first very good moment, so you know when to run the washing machine.
+
+- **Trigger**: Time is 07:00
+- **Action**: EnergyID: Get directive schedule
+  - **Target**: Home energy planner
+  - **Response variable**: `schedule`
+- **Action**: Send a notification
+  - **Message**: a template that picks the first `++` slot from the response
+
+{% details "YAML example for announcing the first very good moment" %}
+
+{% example %}
+automation: |
+  alias: "Announce the first very good moment"
+  triggers:
+    - trigger: time
+      at: "07:00:00"
+  actions:
+    - action: energyid.get_directive_schedule
+      target:
+        entity_id: sensor.my_home_energy_planner
+      response_variable: schedule
+    - action: notify.mobile_app_phone
+      data:
+        message: >
+          {% raw %}
+          {% set slots = schedule['sensor.my_home_energy_planner'].data
+             | selectattr('signal', 'eq', '++') | list %}
+          {% if slots %}
+          First very good moment today: {{ as_timestamp(slots[0].timestamp) | timestamp_custom('%H:%M') }}.
+          {% else %}
+          No very good moment planned today.
+          {% endif %}
+          {% endraw %}
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: store the next very good moment in a helper
+
+Keep the start of the next very good moment in a date and time {% term helper %}, so other automations can wait for it. Create the helper separately before you use this automation.
+
+- **Trigger**: State of the directive sensor changes
+- **Action**: EnergyID: Get directive schedule
+  - **Target**: Home energy planner
+  - **Response variable**: `schedule`
+- **Action**: Set the date and time of the helper to the first upcoming `++` slot
+
+{% details "YAML example for storing the next very good moment" %}
+
+{% example %}
+automation: |
+  alias: "Store the next very good moment"
+  triggers:
+    - trigger: state
+      entity_id: sensor.my_home_energy_planner
+  actions:
+    - action: energyid.get_directive_schedule
+      target:
+        entity_id: sensor.my_home_energy_planner
+      response_variable: schedule
+    - action: input_datetime.set_datetime
+      target:
+        entity_id: input_datetime.next_very_good_moment
+      data:
+        datetime: >
+          {% raw %}
+          {% set upcoming = schedule['sensor.my_home_energy_planner'].data
+             | selectattr('signal', 'eq', '++')
+             | selectattr('timestamp', 'gt', now().isoformat()) | list %}
+          {{ (upcoming[0].timestamp if upcoming else now().isoformat()) | as_datetime | as_local }}
+          {% endraw %}
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
