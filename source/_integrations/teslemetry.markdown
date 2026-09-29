@@ -410,7 +410,7 @@ The integration does not wake a sleeping vehicle to fetch data. Updates pause un
 
 ### Energy site data
 
-Energy sites are cloud-polled: live status and site information every 30 seconds, and energy history every 60 seconds.
+Energy site live status, site information, tariffs, and energy history arrive through the Teslemetry data stream. If you've paired a Powerwall for [local control](#local-powerwall-control), Home Assistant also reads its live values directly over your local network every 5 seconds, and its backup reserve and operation mode every 30 seconds. Whenever your Powerwall can't be reached, Home Assistant uses the cloud values instead. Entity availability still follows the Teslemetry data stream.
 
 ## Known limitations
 
