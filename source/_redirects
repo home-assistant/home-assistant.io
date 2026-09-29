@@ -850,6 +850,12 @@ layout: null
 /docs/configuration/templating/#comparing-numbers /docs/templating/patterns/
 /docs/configuration/templating/#best-practices /docs/templating/debugging/
 
+# Apps were called add-ons, the old action names still work
+/actions/hassio.addon_restart /actions/hassio.app_restart/ 301
+/actions/hassio.addon_start /actions/hassio.app_start/ 301
+/actions/hassio.addon_stdin /actions/hassio.app_stdin/ 301
+/actions/hassio.addon_stop /actions/hassio.app_stop/ 301
+
 # Template function category pages merged into index
 /template-functions/category/area/ /template-functions/#area
 /template-functions/category/collection/ /template-functions/#collection
@@ -897,3 +903,7 @@ layout: null
 /actions/tts.microsoft_say /actions/tts.say/ 301
 /actions/tts.voicerss_say /actions/tts.say/ 301
 /actions/tts.yandextts_say /actions/tts.say/ 301
+
+# Any action without its own page shows an explanation instead of a plain 404.
+# Keep this rule last, so the specific action redirects above it keep working.
+/actions/* /more-info/unknown-action/ 404
