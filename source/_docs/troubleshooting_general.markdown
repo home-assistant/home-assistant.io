@@ -24,7 +24,7 @@ Your dashboard shows a **Recovery mode activated** card instead of your usual ca
 
 ### Description
 
-Home Assistant starts in recovery mode when it can't load your configuration. This usually happens because a {% term YAML %} file, such as {% term "configuration.yaml" %}, contains an error.
+Home Assistant starts in recovery mode when an issue prevents it from starting normally. A common cause is an error in a {% term YAML %} file, such as {% term "configuration.yaml" %}.
 
 In recovery mode, Home Assistant ignores your configuration and loads only a minimal set of integrations. Your devices and automations aren't running, but you can still open the user interface, read the logs, edit files with an app, and restore a backup.
 
