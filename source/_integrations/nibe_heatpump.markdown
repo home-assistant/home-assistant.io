@@ -3,6 +3,7 @@ title: Nibe Heat Pump
 description: Instructions on how to integrate a Nibe Heat Pump into Home Assistant.
 ha_category:
   - Climate
+  - Modbus-controlled
 ha_release: '2022.10'
 ha_iot_class: Local Polling
 ha_config_flow: true
