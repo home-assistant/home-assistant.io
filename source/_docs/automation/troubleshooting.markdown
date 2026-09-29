@@ -54,7 +54,7 @@ If you are writing automations in YAML, it is also useful to go to {% my server_
 
 ## Traces
 
-Every time an {% term automation %} runs, Home Assistant records a trace: a step-by-step record of what happened. The trace shows which {% term trigger %} started the automation, whether each {% term condition %} passed, what each {% term action %} did, and which variables changed. If you ran the actions manually, the trace only shows the steps that ran, without a trigger or conditions. Use it to find out why an automation did not do what you expected.
+Every time an {% term automation %} runs, Home Assistant records a trace: a step-by-step record of what happened. The trace shows which {% term trigger %} started the automation, whether each {% term condition %} passed, what each {% term action %} did, and which variables changed. If you ran the actions manually, the trace has no trigger, and the conditions of the automation are skipped. Conditions within the actions, such as in an **If-then** or **Choose** block, still run and are shown. Use it to find out why an automation did not do what you expected.
 
 Home Assistant keeps the last 5 traces of each automation. Some triggers also record a trace when they notice a relevant change but do not start the automation. These traces are marked **Did not trigger**. They are kept separately, so they never replace the traces of real runs.
 
