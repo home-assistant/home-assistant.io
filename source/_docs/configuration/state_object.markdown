@@ -46,7 +46,7 @@ These common attributes may be present, depending on the entity domain:
 - `supported_features`: A number that stands for the features the entity supports. For covers, for example, these features include opening, closing, stopping, and setting a position. For media players, they include play, pause, stop, and volume control.
 - `restored`: `true` if the integration of the entity has not set it up, for example, because the integration failed to load or was unloaded. The state is then `unavailable`, and the other attributes are taken from the entity registry. Only present when this is the case.
 
-In templates, you can read an attribute by its name, for example, `state.attributes.assumed_state`. When an attribute name contains spaces, use the [`state_attr`](/template-functions/state_attr/) function: `state_attr('sensor.livingroom', 'Battery numeric')`.
+In templates, you can read an attribute by its name, for example, `states.light.kitchen.attributes.assumed_state`. When an attribute name contains spaces, use the [`state_attr`](/template-functions/state_attr/) function: `state_attr('sensor.livingroom', 'Battery numeric')`.
 
 ## Using states in automations
 
