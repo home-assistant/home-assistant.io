@@ -1,7 +1,7 @@
 ---
 title: Hardkernel
 description: Shows information about your Hardkernel ODROID board in Home Assistant.
-ha_release: 2022.7
+ha_release: 2022.6
 ha_category:
   - Other
 ha_codeowners:
@@ -27,7 +27,7 @@ The integration recognizes these boards when they run Home Assistant Operating S
 - ODROID-C2
 - ODROID-XU4
 
-Which boards Home Assistant Operating System supports is listed in the [installation guide](/installation/odroid/). Older boards may still be recognized, even when they are no longer supported.
+The [installation guide](/installation/odroid/) lists the boards currently supported by Home Assistant Operating System. Older boards may still be recognized, even when they are no longer supported.
 
 ## Configuration
 

@@ -4,6 +4,7 @@ description: Shows information about your Raspberry Pi in Home Assistant and kee
 ha_release: 2022.6
 ha_category:
   - Other
+  - Update
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: raspberry_pi
@@ -27,7 +28,7 @@ The integration recognizes these boards when they run Home Assistant Operating S
 - Raspberry Pi 3
 - Raspberry Pi 2
 
-Which boards Home Assistant Operating System supports is listed in the [installation guide](/installation/raspberrypi/). Older boards may still be recognized, even when they are no longer supported.
+The [installation guide](/installation/raspberrypi/) lists the boards currently supported by Home Assistant Operating System. Older boards may still be recognized, even when they are no longer supported.
 
 ## Configuration
 
@@ -41,7 +42,7 @@ Go to {% my hardware title="**Settings** > **System** > **Hardware**" %} to see 
 
 ### Firmware updates
 
-On a Raspberry Pi 4 or 5, the integration adds a **Firmware** update entity for the board's bootloader firmware. When a new version is available, it shows up under {% my updates title="**Settings** > **System** > **Updates**" %}, like any other update.
+On a Raspberry Pi 5, or a Raspberry Pi 4 booting from an SD card, the integration adds a **Firmware** update entity for the board's bootloader firmware. This requires Home Assistant Operating System 18 or newer. When a new version is available, it shows up under {% my updates title="**Settings** > **System** > **Updates**" %}, like any other update.
 
 To install a firmware update:
 
