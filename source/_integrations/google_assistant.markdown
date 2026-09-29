@@ -82,7 +82,8 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     9. Enable the HomeGraph API.
 
 4. Add the `google_assistant` integration configuration to your {% term "`configuration.yaml`" %} file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
-5. Add services in the Google Home App (note that app versions may be slightly different).
+5. Choose which entities to expose to Google Assistant. See [Expose entities](#expose-entities) below.
+6. Add services in the Google Home App (note that app versions may be slightly different).
     1. Open the Google Home app.
     2. Select the Devices tab at the bottom and select the `+ Add` button on the bottom right corner.
     3. In the **Choose a device** screen, select **Works with Google Home**. You should have `[test] <Action Name>` listed under **Add new**. Selecting that should lead you to a browser to log in to your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
@@ -242,6 +243,14 @@ entity_config:
           type: string
 {% endconfiguration %}
 
+### Expose entities
+
+Choose which entities are available to Google Assistant from {% my voice_assistants title="**Settings** > **Voice assistants**" %}, then open the **Expose** tab. See [Exposing entities to Assist](/voice_control/voice_remote_expose_devices/) for the full walkthrough.
+
+{% note %}
+If you configure exposure in YAML (`expose_by_default`, `exposed_domains`, or `entity_config`), those settings take precedence over what you select on the **Expose** tab. To manage exposure for all your entities from the UI, set `expose_by_default: false` in your YAML configuration.
+{% endnote %}
+
 ### Available domains
 
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
@@ -365,4 +374,4 @@ If you're having trouble with _Account linking failed_ after you unlinked your s
 
 ### Failed linking - Could not update the setting. Please check your connection
 
-If you're having trouble linking your account, with the error message `Could not update the setting. Please check your connection` after logging into your Home Assistant instance, try setting `expose_by_default: false` then exposing a single simple device (light or switch preferably). It is also worth checking if any home ad blocker is disabled if you are having issues.
+If you're having trouble linking your account, with the error message `Could not update the setting. Please check your connection` after logging into your Home Assistant instance, try setting `expose_by_default: false` in your YAML configuration, then [expose](#expose-entities) a single simple device (light or switch preferably). It is also worth checking whether a home network ad blocker is enabled and temporarily disabling it if you are having issues.
