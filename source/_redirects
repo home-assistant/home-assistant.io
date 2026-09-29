@@ -281,6 +281,8 @@ layout: null
 /docs/assist/voice_remote_local_assistant/ /voice_control/voice_remote_local_assistant/
 /skyconnect /connectzbt1#from-skyconnect
 /glossary/ /docs/glossary/
+/docs/automation/services /docs/automation/automation_integration_actions/
+/docs/automation/services/ /docs/automation/automation_integration_actions/
 
 # Redirect for the QR Codes on the S3 Box
 /s3-box-no-wifi /voice_control/troubleshooting_the_s3_box/#error-unable-to-connect-to-wi-fi
@@ -832,3 +834,15 @@ layout: null
 /triggers/vacuum.docked /triggers/vacuum.returned_to_dock/ 301
 /conditions/climate.target_humidity /conditions/climate.is_target_humidity/ 301
 /conditions/climate.target_temperature /conditions/climate.is_target_temperature/ 301
+
+# Legacy text-to-speech platforms register their own <platform>_say action
+/actions/tts.amazon_polly_say /actions/tts.say/ 301
+/actions/tts.baidu_say /actions/tts.say/ 301
+/actions/tts.demo_say /actions/tts.say/ 301
+/actions/tts.cloud_say /actions/tts.say/ 301
+/actions/tts.google_cloud_say /actions/tts.say/ 301
+/actions/tts.google_translate_say /actions/tts.say/ 301
+/actions/tts.marytts_say /actions/tts.say/ 301
+/actions/tts.microsoft_say /actions/tts.say/ 301
+/actions/tts.voicerss_say /actions/tts.say/ 301
+/actions/tts.yandextts_say /actions/tts.say/ 301

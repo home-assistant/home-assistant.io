@@ -80,6 +80,10 @@ For an overview of every trigger across all integrations, see the [triggers refe
 
 For setup steps, YAML options, and examples for the event trigger, see [Event trigger](/triggers/event/).
 
+### Geolocation trigger
+
+The geolocation trigger fires when an entity that is created by a [Geolocation](/integrations/geo_location/) platform appears in or disappears from a zone. For setup steps, YAML options, and examples for the geolocation trigger, see [Geolocation trigger](/integrations/geo_location/#geolocation-trigger).
+
 ### Home Assistant trigger
 
 For setup steps, YAML options, and examples for the Home Assistant trigger, see [Home Assistant trigger](/triggers/homeassistant/).
@@ -386,20 +390,6 @@ automation:
 ## Unavailable and unknown state behavior in triggers
 
 Most triggers that have an entity as the target do not fire when an entity transitions _from_ an `unavailable` or `unknown` state. For example, if a light goes offline and comes back on, the `light.turned_on` trigger does not fire for that recovery.
-
-{% tip %}
-This isn't for use with `device_tracker` entities. For those look above at the `zone` trigger.
-{% endtip %}
-
-```yaml
-automation:
-  triggers:
-    - trigger: geo_location
-      source: nsw_rural_fire_service_feed
-      zone: zone.bushfire_alert_zone
-      # Event is either enter or leave
-      event: enter # or "leave"
-```
 
 ## Multiple triggers
 
