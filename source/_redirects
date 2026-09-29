@@ -865,6 +865,11 @@ layout: null
 /template-functions/category/strings/ /template-functions/#strings
 /template-functions/category/type/ /template-functions/#type
 
+# Notify actions named after a device, platform, or group, like notify.mobile_app_<device>
+/actions/notify /integrations/notify/ 301
+/actions/notify.mobile_app_* /integrations/notify/#companion-app-notifications 301
+/actions/notify.* /integrations/notify/ 301
+
 # Renamed entity triggers and conditions (consistent keys)
 /triggers/battery.low /triggers/battery.became_low/ 301
 /triggers/battery.not_low /triggers/battery.no_longer_low/ 301
