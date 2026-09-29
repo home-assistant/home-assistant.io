@@ -104,8 +104,8 @@ To avoid this:
      - Changing the state here doesn't change the device. It only changes the state that Home Assistant shows, so that the trigger reacts. After the test, the state shown may be wrong until the device reports its state again.
      - Result: Every automation with a trigger on that state change starts, with the trigger data of the simulated change. The actions of the automation run for real.
    - To simulate an event, go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
-     - If you don't know what the event data looks like, first [listen to the real event](/docs/tools/dev-tools/#subscribe-to-an-event) to see it.
-     - Enter the same **Event type** and **Event data** as in the trigger of your automation, and select **Fire event**. For details, refer to [Fire an event](/docs/tools/dev-tools/#fire-an-event).
+     - If you don't know what the event data looks like, first [listen to the real event](/docs/tools/dev-tools/#listening-to-events) to see it.
+     - Enter the same **Event type** and **Event data** as in the trigger of your automation, and select **Fire event**. For details, refer to [Firing an event](/docs/tools/dev-tools/#firing-an-event).
      - Result: Every automation with a trigger on that event starts, with the trigger data of the simulated event. The actions of the automation run for real.
 2. To see what the automation did, open its [trace](#traces).
 
