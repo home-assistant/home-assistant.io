@@ -49,7 +49,7 @@ The first time you open it, the Marketplace shows the warning above. Read it, se
 
 Everything in the Marketplace comes from a repository on GitHub, which is where most community projects publish their work. Each repository is one of these types:
 
-- **Integration**: Adds support for devices and services, like the integrations that come with Home Assistant. It is downloaded to the `custom_components` folder in your configuration folder. After downloading it, restart Home Assistant, then add it under {% my integrations title="**Settings** > **Devices & services**" %}.
+- **Integration**: Adds support for devices and services, like the integrations that come with Home Assistant. It is downloaded to the `custom_components` folder in your configuration folder. After downloading it, you add it under {% my integrations title="**Settings** > **Devices & services**" %}. Some integrations need a restart of Home Assistant first; the Marketplace tells you when.
 - **Dashboard**: A card, a card feature, or another addition to your dashboards. It is downloaded to `www/community` in your configuration folder, and the Marketplace adds it as a dashboard resource for you. You can then use it on your dashboards.
 - **Theme**: Changes how Home Assistant looks. It is downloaded to the `themes` folder in your configuration folder. You can then pick it in your user profile.
 - **Template**: Reusable template macros. They are downloaded to the `custom_templates` folder in your configuration folder, where your templates can import them.
@@ -70,7 +70,7 @@ If you use your dashboards in YAML mode, the Marketplace cannot add dashboard re
 The Marketplace opens on a list of everything it knows. To find what you are looking for:
 
 - Use **Search** to look for a name, a description, or the name of a repository.
-- Use **Filters** to show only one type, or only what you have downloaded.
+- Use **Filters** to show only some types, or only what you have downloaded.
 - Use **Group by** and **Sort by** to order the list, for example by the number of stars on GitHub or by recent activity.
 
 Select a repository to open its page. It shows the description the author wrote, the available version, who made it, and links to its source code and to its issue tracker. Take a moment here: the page is the best place to decide whether you trust a project.
@@ -81,16 +81,20 @@ Repositories that recently joined the catalog are marked as new. To clear that m
 
 1. Open the page of the repository you want.
 2. Select **Download**.
-3. The dialog shows the version it downloads and where it puts it.
-   - To pick another version, expand **Need a different version?** and select a release. Do not use this to roll back after a bad update; restore a backup instead.
-   - The first time you download a repository, the dialog reminds you that it is not reviewed or supported by the Home Assistant project.
+3. The dialog tells you which version it downloads. The first time you download a repository, it also reminds you that it is not reviewed or supported by the Home Assistant project.
 4. Select **Download**.
 
 What happens next depends on the type:
 
-- **Integration**: Home Assistant needs a restart before it loads the new integration. A repair shows up under {% my repairs title="**Settings** > **System** > **Repairs**" %} to remind you, and it can restart Home Assistant for you. After the restart, add the integration under {% my integrations title="**Settings** > **Devices & services**" %}.
+- **Integration**: When Home Assistant can load it right away, the Marketplace asks whether you want to set it up. Select **Set up** to add it now, or add it later under {% my integrations title="**Settings** > **Devices & services**" %}. Some integrations can only be loaded after a restart, for example when they are set up in YAML. A repair then shows up under {% my repairs title="**Settings** > **System** > **Repairs**" %} to remind you, and it can restart Home Assistant for you.
 - **Dashboard**: Reload your browser, so it picks up the new resource.
 - **Theme** and **Template**: These are reloaded for you and are ready to use.
+
+### Downloading another version
+
+To download a version other than the newest, open the menu in the top right corner of the repository page and select **Download another version**. The dialog then lists the versions to choose from. Do not use this to roll back after a bad update; restore a backup instead.
+
+When the newest version needs a newer version of Home Assistant than you have, the download dialog lists the earlier versions on its own, so you can pick one that works.
 
 ### When a download replaces a built-in integration
 
@@ -105,6 +109,8 @@ To go back to the built-in integration, remove the download and restart Home Ass
 Every repository you download gets an [update entity](/integrations/update/). When a new version is available, it shows up under {% my updates title="**Settings** > **Updates**" %}, together with the updates of Home Assistant itself. From there, you can read the release notes and install the update. Because they are ordinary update entities, you can also update from an automation, as long as someone has accepted the warning.
 
 The Marketplace checks the catalog for new versions every 6 hours.
+
+An update of an integration takes effect after a restart of Home Assistant. A repair reminds you, and it can restart Home Assistant for you.
 
 By default, the Marketplace offers stable releases only. To also get pre-releases of a repository, enable its **Pre-release** switch. You find it on the device of the repository, under {% my integration domain="marketplace" title="**Settings** > **Devices & services** > **Marketplace**" %}. The switch is disabled by default; enable the entity first to use it.
 
