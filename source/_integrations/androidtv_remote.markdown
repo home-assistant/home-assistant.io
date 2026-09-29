@@ -51,11 +51,13 @@ Examples of deep links for popular applications:
 | App | Deep link |
 | --- | --- |
 | YouTube | `https://www.youtube.com` or `vnd.youtube://` or `vnd.youtube.launch://`
-| Netflix | `https://www.netflix.com/title` or `netflix://`
+| Netflix | `https://www.netflix.com/title/<title ID>?source=30` or `netflix://`
 | Prime Video | `https://app.primevideo.com`
 | Disney+ | `https://www.disneyplus.com`
 | Plex | `plex://`
 | Twitch | `twitch://home` `[home, stream, game, video, clip, search, browse, channel, user]`
+
+The Netflix app opens a specific title only when the link ends with `?source=30`. Without it, the app opens, but shows or resumes the last watched title. The title ID is the number in the title's address on netflix.com.
 
 Example:
 
