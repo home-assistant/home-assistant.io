@@ -81,9 +81,14 @@ The automation runs without trigger data, so there is no [trigger ID](/docs/auto
 
 To test an automation whose conditions or actions depend on which trigger started it, run it with a simulated trigger. You cause the change that the trigger reacts to by simulating a state change or an event. The automation then runs from the start, with real trigger data, including the [trigger ID](/docs/automation/trigger/#trigger-id).
 
-{% caution %}
-Simulating a state change or firing an event can start every matching automation. Any actions that run affect real devices and services, so review or disable unrelated matching automations before continuing.
-{% endcaution %}
+{% note %}
+Risk of unintended device actions
+
+Simulating a state change or firing an event triggers every automation that matches it. Those automations control real devices and services.
+
+- Before you continue, review which automations match this state or event.
+- Turn off any matching automations you don't want to run.
+{% endnote %}
 
 1. Do one of the following:
    - To simulate a state change, go to {% my developer_states title="**Settings** > **Tools** > **States**" %}.
