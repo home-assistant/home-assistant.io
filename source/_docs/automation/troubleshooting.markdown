@@ -13,7 +13,7 @@ Many automations can be tested directly in the automation editor UI.
 
 ### Checking the state of a condition
 
-While the automation is open in the automation editor, you can see whether each condition passes right now. Home Assistant checks the condition again every second, so you can watch it change when the situation changes, for example, when a door opens. It is also checked again when you edit the condition.
+While the automation is open in the automation editor, you can see whether each condition passes at every moment. Home Assistant checks the condition again every second, so you can watch it change when the situation changes, for example, when a door opens. It is also checked again when you edit the condition.
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
 2. Hover over the state indicator circle on the left side of the condition row.
@@ -23,7 +23,7 @@ While the automation is open in the automation editor, you can see whether each 
      - **Invalid condition configuration**: the condition has an invalid input value for an option, for example.
      - **Condition state unknown**: the condition state can't be checked due to a missing input value for an option, for example.
 
-### Testing a single condition
+### Testing a condition
 
 You can test each {% term condition %} of an automation on its own.
 
@@ -36,7 +36,7 @@ You can test each {% term condition %} of an automation on its own.
      - If the condition is not met, the condition row displays the message **Condition did not pass**.
      - If all conditions of the automation pass, the automation runs its actions when it is triggered.
 
-### Running a single action manually
+### Testing an action
 
 To test a single {% term action %} of an automation, you can run it manually.
 
@@ -46,7 +46,7 @@ To test a single {% term action %} of an automation, you can run it manually.
    - Result: The action runs immediately. For a few seconds, the action row displays the message **Action ran successfully** or **Error running action**.
 3. If the action failed, select the message while it is shown to see more information about the error.
 
-### Running all actions manually
+### Testing all the actions
 
 To test the full sequence of {% term actions %} of an automation, you can run all of them manually at once. This skips the {% term triggers %} and {% term conditions %} of the automation.
 
@@ -70,7 +70,7 @@ The automation runs without trigger data, so there is no [trigger ID](/docs/auto
 {% endnote %}
 
 1. Go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
-2. In the **Action** drop-down, select **Trigger automation**, with **Automation** next to it.
+2. In the **Action** dropdown list, select **Trigger automation**, with **Automation** next to it.
 3. Select **Add target**, and then select the automation you are testing.
 4. To check the conditions, turn off **Skip conditions**. To skip them, leave it on.
 5. Optional: To pass variables for testing, switch to **YAML mode**, and add them under `variables` in the `data` of the action.
@@ -104,8 +104,8 @@ To avoid this:
      - Changing the state here doesn't change the device. It only changes the state that Home Assistant shows, so that the trigger reacts. After the test, the state shown may be wrong until the device reports its state again.
      - Result: Every automation with a trigger on that state change starts, with the trigger data of the simulated change. The actions of the automation run for real.
    - To simulate an event, go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
-     - If you don't know what the event data looks like, first [listen to the real event](/docs/tools/dev-tools/#listening-to-events) to see it.
-     - Enter the same **Event type** and **Event data** as in the trigger of your automation, and select **Fire event**. For details, refer to [Firing an event](/docs/tools/dev-tools/#firing-an-event).
+     - If you don't know what the event data looks like, first [listen to the real event](/docs/tools/dev-tools/#subscribe-to-an-event) to see it.
+     - Enter the same **Event type** and **Event data** as in the trigger of your automation, and select **Fire event**. For details, refer to [Firing an event](/docs/tools/dev-tools/#fire-an-event).
      - Result: Every automation with a trigger on that event starts, with the trigger data of the simulated event. The actions of the automation run for real.
 2. To see what the automation did, open its [trace](#traces).
 
