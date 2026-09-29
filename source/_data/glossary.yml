@@ -178,8 +178,10 @@
     Better known as: Integrations. Integrations used to be known as components.
 - term: Condition
   definition: >-
-    Conditions are an optional part of an automation that stop the actions from
-    running if they are not met.
+    Conditions check whether something is true at that moment, for example,
+    whether a door is closed. You can use them in automations and scripts. If a
+    condition is not met, the automation or script stops, and the actions after
+    the condition do not run.
   link: /docs/scripts/conditions/
   aliases:
     - conditions
