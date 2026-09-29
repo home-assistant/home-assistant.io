@@ -278,7 +278,7 @@
     - entities
 - term: Event
   definition: >-
-    Every time something happens in Home Assistant, an event is fired. Different types of events are fired when, for example, an entity's state changes, an action is performed, or Home Assistant starts. All entities produce state change events. Every time the state or the attributes of an entity change, a state change event is produced. Events can be used to trigger automations. For example, you can trigger an automation to turn on a speaker in a room when a light in that room turns on.
+    Every time something happens in Home Assistant, an event is fired. Different types of events are fired when, for example, an entity's state changes, an action such as `light.turn_on` is performed, or Home Assistant starts. All entities produce state change events. Every time the state or the attributes of an entity change, a state change event is produced. Events can be used to trigger automations. For example, you can trigger an automation to turn on a speaker in a room when a light in that room turns on.
   link: /docs/configuration/events/
   aliases:
     - events
