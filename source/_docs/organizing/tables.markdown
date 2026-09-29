@@ -16,7 +16,7 @@ related:
     title: Enabling or disabling entities and automations
 ---
 
-Many pages under **Settings** show their items in a table, such as your devices, entities, automations, and integrations. These tables share the same tools: you can search, filter, group, and sort the items, select several items at once, and choose which columns to show.
+Many pages under **Settings** show their items in a table, such as your devices, entities, automations, and helpers. Depending on the table, you can search, filter, group, sort, select several items at once, and choose which columns to show.
 
 If you have [organized](/docs/organizing/) your items into floors, areas, labels, or categories, you can use those to filter and group the table.
 
@@ -69,7 +69,7 @@ Grouping puts related items together under a shared heading. Unlike filtering, i
 You can choose which columns a table shows, and in which order.
 
 1. Above the table, select the {% icon "mdi:table-cog" %} **Customize table** button.
-2. To hide or show a column, select the {% icon "mdi:eye" %} eye icon next to it.
+2. To hide or show a column, select the {% icon "mdi:eye" %} or {% icon "mdi:eye-off" %} icon next to it.
 3. To change the order, drag a column by its {% icon "mdi:drag-horizontal-variant" %} handle to a new position.
 4. To go back to the original layout, select **Restore defaults**.
 
