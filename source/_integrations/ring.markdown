@@ -99,7 +99,9 @@ The event entity captures events like doorbell rings, motion alerts, and interco
 
 ### Sensor
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently, it supports battery level and Wi-Fi signal.
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently, it supports battery level, Wi-Fi signal, and the last recording timestamp for subscribed video devices.
+
+The `last_recording` timestamp sensor is disabled by default. When enabled, it shows when Ring created the latest ready recording. Its state is `unknown` until Home Assistant retrieves recording history.
 
 The volume sensors are being replaced with the number entity, which allows setting the volume. You should migrate any automations using the volume sensors to the number entity by release 2025.4.0.
 

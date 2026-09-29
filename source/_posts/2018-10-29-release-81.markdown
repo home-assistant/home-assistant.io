@@ -15,12 +15,7 @@ This release is a major milestone – 100 contributors have contributed over the
 
 To go with the configuration entry support, MQTT also now also integrates with the device registry. Not to be left out, LIFX, SimpliSafe, and Z-Wave have all gained both device registry support, and configuration entry support.
 
-Lovelace has another three new cards, the alarm panel, the button card, and the thermostat card:
-
-<p class='img'>
-  <img src='/images/dashboards/lovelace_thermostat_card.gif' alt='Screenshot of the thermostat card'>
-  Screenshot of the thermostat card.
-</p>
+Lovelace has another three new cards, the alarm panel, the button card, and the thermostat card.
 
 The glance card, and the button card can also be themed now, and the way the columns in the glance card has changed. There's also long press support, custom UI support, and more (yes, Lovelace is feeling the love this release).
 

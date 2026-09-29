@@ -572,6 +572,7 @@ layout: null
 /integrations/dominos /more-info/removed-integration 301
 /integrations/dovado /more-info/removed-integration 301
 /integrations/dte_energy_bridge /more-info/removed-integration 301
+/integrations/dublin_bus_transport /more-info/removed-integration 301
 /integrations/duke_energy /more-info/removed-integration 301
 /integrations/dweet /more-info/removed-integration 301
 /integrations/dyson /more-info/removed-integration 301
@@ -664,6 +665,7 @@ layout: null
 /integrations/permobil /more-info/removed-integration 301
 /integrations/ptvsd /more-info/removed-integration 301
 /integrations/pushetta /more-info/removed-integration 301
+/integrations/raincloud /more-info/removed-integration 301
 /integrations/raspihats /more-info/removed-integration 301
 /integrations/rpi_camera /more-info/removed-integration 301
 /integrations/rpi_gpio /more-info/removed-integration 301
@@ -677,6 +679,7 @@ layout: null
 /integrations/sensehat /more-info/removed-integration 301
 /integrations/shiftr /more-info/removed-integration 301
 /integrations/sht31 /more-info/removed-integration 301
+/integrations/sigfox /more-info/removed-integration 301
 /integrations/simple_alarm /more-info/removed-integration 301
 /integrations/simulated /more-info/removed-integration 301
 /integrations/smarthab /more-info/removed-integration 301
@@ -684,6 +687,7 @@ layout: null
 /integrations/snips /more-info/removed-integration 301
 /integrations/sochain /more-info/removed-integration 301
 /integrations/socialblade /more-info/removed-integration 301
+/integrations/solaredge_local /more-info/removed-integration 301
 /integrations/somfy /more-info/removed-integration 301
 /integrations/spider /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
@@ -702,6 +706,7 @@ layout: null
 /integrations/tof /more-info/removed-integration 301
 /integrations/tplink_lte /more-info/removed-integration 301
 /integrations/trackr /more-info/removed-integration 301
+/integrations/travisci /more-info/removed-integration 301
 /integrations/ubee /more-info/removed-integration 301
 /integrations/uber /more-info/removed-integration 301
 /integrations/ue_smart_radio /more-info/removed-integration 301
@@ -726,9 +731,11 @@ layout: null
 /integrations/xfinity /more-info/removed-integration 301
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
+/integrations/zestimate /more-info/removed-integration 301
 /integrations/zengge /integrations/led_ble 301
 /integrations/google_gemini /integrations/google_generative_ai_conversation 301
 /integrations/qube_heatpump /integrations/hr_energy_qube 301
+/integrations/oru /integrations/opower 301
 /components/zwave /integrations/zwave_js
 
 # Lovelace images
@@ -823,6 +830,7 @@ layout: null
 # Renamed entity triggers and conditions (consistent keys)
 /triggers/battery.low /triggers/battery.became_low/ 301
 /triggers/battery.not_low /triggers/battery.no_longer_low/ 301
+/triggers/battery.level_crossed /triggers/battery.level_crossed_threshold/ 301
 /triggers/lawn_mower.docked /triggers/lawn_mower.returned_to_dock/ 301
 /triggers/schedule.turned_off /triggers/schedule.block_ended/ 301
 /triggers/schedule.turned_on /triggers/schedule.block_started/ 301
@@ -831,3 +839,4 @@ layout: null
 /triggers/vacuum.docked /triggers/vacuum.returned_to_dock/ 301
 /conditions/climate.target_humidity /conditions/climate.is_target_humidity/ 301
 /conditions/climate.target_temperature /conditions/climate.is_target_temperature/ 301
+/integrations/axle /integrations/axle_energy 301
