@@ -57,27 +57,43 @@ The attribute filter supports separate filters for attribute names and values, s
 
 ## Actions tab
 
-This section is used to perform actions that are available in Home Assistant.
+The **Actions** tab lets you perform any {% term action %} available in Home Assistant, without creating an {% term automation %} or a {% term script %}. Use it to control a {% term device %} directly, to try out an action and its options before you use it in an automation, or to see the data that an action returns.
 
-The list of actions in the **Actions** dropdown are automatically populated based on the integrations that are found in the configuration, automation and script files. If a desired action does not exist, it means either the integration is not configured properly or not defined in the configuration, automation or script files.
+The list of actions contains the actions of all {% term integrations %} that are set up, and your scripts. If an action is missing, the integration that provides it is not set up, or not set up correctly.
 
-When an action is selected, and if that action requires an `entity_id` to be passed, the **Entity** dropdown will automatically be populated with corresponding entities.
+Most actions work on a target, such as an {% term entity %}, a device, or an {% term area %}. If you don't select a target, the action does not control anything.
 
-An action may also require additional input to be passed. It is commonly referred to as “action data”. The action data is accepted in YAML format, and it may be optional depending on the action.
+### Performing an action
 
-When an entity is selected from the Entity dropdown, it automatically populates action data with the corresponding `entity_id`. The action data YAML can then be modified to pass additional \[optional\] parameters. The following is an illustration on how to perform a `light.turn_on` action.
+1. Go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
+2. In the **Action** drop-down, select the action. The list shows the name of each action, with its integration on the right. For example, to turn on a light, select **Turn on**, with **Light** next to it. You can also search by name, integration, or action ID, such as `light.turn_on`.
+   - Result: The options of the action are shown.
+3. If the action accepts a target, select **Add target**, and then select what you want to control, for example, an entity or an area.
+4. Fill in the options that you need.
+5. Select **Perform action**.
+   - Result: The action runs. If the action returns data, the data is shown under **Response**. To use the data in a template, select **Copy to clipboard as template**.
 
-To turn on a light bulb, use the following steps:
+### Performing an action in YAML mode
 
-1.	Select `light.turn_on` from the **Action** dropdown.
-2.	Select the entity (typically the light bulb) from the Entity dropdown (if no entity_id is selected, it turns on ALL lights)
-3.	If an entity is selected, the action data is populated with basic YAML that will be passed to the action. Additional data can also be passed by updating the YAML as below.
+Some options, and {% term templates %}, are only available in YAML mode. In UI mode, these options are listed under **Parameters only available in YAML mode**.
 
-```yaml
-entity_id: light.bedroom
-brightness: 255
-rgb_color: [255, 0, 0]
-```
+1. Go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}, and select the action in the **Action** drop-down.
+2. Select **YAML mode**.
+   - Result: The action is shown in YAML. Below it, **All available parameters** lists all options of the action.
+3. Edit the YAML. To fill in example values, select **Fill example data**.
+   - For example, to turn on a light at full brightness in red:
+
+     ```yaml
+     action: light.turn_on
+     target:
+       entity_id: light.bedroom
+     data:
+       brightness: 255
+       rgb_color: [255, 0, 0]
+     ```
+
+4. Select **Perform action**.
+   - Result: The action runs. If the action returns data, the data is shown under **Response**.
 
 ## Template editor tab
 
