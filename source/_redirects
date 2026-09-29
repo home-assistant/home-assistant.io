@@ -496,6 +496,9 @@ layout: null
 # This is a 200 so /tag/anything is a valid URL
 /tag/* /tag 200
 
+# HACS has its own website (temporary, we plan to change this)
+/integrations/hacs https://hacs.xyz/ 302
+
 # Lovelace documentation
 /lovelace/entity-button /dashboards/button
 /lovelace/views /dashboards/views/
