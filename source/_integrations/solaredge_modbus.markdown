@@ -154,25 +154,36 @@ The following sensors are added, but disabled. They are useful for troubleshooti
 
 An energy meter measures what passes through it, which is what the inverter cannot see: what your home takes from the grid, and what it sends back. Every meter attached to the inverter gets a device named after its place on it, **Meter 1** through **Meter 3**, with its own sensors.
 
-- **Power**, **Apparent power**, **Reactive power**, and **Power factor**: What the meter measures right now, and how that relates to the grid.
+- **Power**: What the meter measures right now.
 - **Energy imported** and **Energy exported**: The totals since the meter was installed. These are the sensors for the grid on the [Energy dashboard](#energy-dashboard).
-- **Current** and **Frequency**: The current through the meter, and the frequency of the grid it sits on.
-- **Per phase**: Power, current, imported and exported energy for each phase the meter measures. A split-phase meter has two phases rather than three.
+- **Current**: The current through the meter.
+- **Per phase**: Power and current for each phase the meter measures. A split-phase meter has two phases rather than three.
 
-The voltages a meter reports are added but disabled, the same way the inverter's are. Which of them exist depends on the meter: a delta meter has no neutral, so it measures nothing against one.
+The following sensors are added, but disabled, the same way the inverter's are. To use one, enable it in the entity's settings.
+
+- **Voltage**, and per phase **Voltage phase A-N**, **Voltage phase B-N**, **Voltage phase C-N**, **Voltage phase A-B**, **Voltage phase B-C**, and **Voltage phase C-A**: The AC voltage. Which of these exist depends on the meter: a delta meter has no neutral, so it measures nothing against one.
+- **Frequency**: The frequency of the grid the meter sits on.
+- **Apparent power**, **Reactive power**, and **Power factor**: How what the meter measures relates to the grid.
+- **Energy imported** and **Energy exported** per phase: The totals for each phase the meter measures.
 
 ### Battery sensors
 
 A battery attached to the inverter gets a device named after its place on it, **Battery 1** through **Battery 3**, with what it holds and what it is doing with it.
 
 - **State of energy**: How full the battery is, as a percentage.
-- **Available energy**, **Usable capacity**, and **Rated energy**: What is in the battery right now, what it can hold as configured, and what it was rated for when it was built.
+- **Available energy**: What is in the battery right now.
 - **Energy imported** and **Energy exported**: The totals charged into and discharged from the battery. These are the sensors for the battery on the [Energy dashboard](#energy-dashboard).
 - **Status**: What the battery is doing: **Off**, **Standby**, **Initializing**, **Charging**, **Discharging**, **Fault**, **Preserving charge**, **Idle**, or **Power saving**.
 - **State of health**: What is left of the battery's original capacity, as a percentage.
-- **DC power**, **DC voltage**, and **DC current**: What flows between the battery and the inverter. Negative while it is charging.
+- **DC power** and **DC current**: What flows between the battery and the inverter. Negative while it is charging.
+- **Temperature**: How warm the pack is on average.
+
+The following sensors are added, but disabled. To use one, enable it in the entity's settings.
+
+- **Usable capacity** and **Rated energy**: What the battery can hold as configured, and what it was rated for when it was built.
+- **DC voltage**: The voltage between the battery and the inverter.
 - **Maximum charge power** and **Maximum discharge power**, and their peak counterparts: What the battery allows, continuously and in bursts.
-- **Temperature** and **Maximum temperature**: How warm the pack is on average, and the warmest cell in it.
+- **Maximum temperature**: The warmest cell in the pack.
 
 ### Storage state of charge
 
