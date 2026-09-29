@@ -51,3 +51,5 @@ Once activated, go to the configuration panel in Home Assistant, create an accou
 ```yaml
 config:
 ```
+
+{% include integrations/actions.md %}
