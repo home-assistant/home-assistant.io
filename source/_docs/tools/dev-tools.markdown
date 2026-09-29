@@ -167,7 +167,7 @@ The following automation reacts to that event:
 
 ### Listening to events
 
-Use this to see which events happen, and what data they contain. For example, to find out which event a button sends when you press it, so you can set up a trigger that reacts to it. Listening doesn't change anything in Home Assistant.
+Use this to see which events happen and what data they contain. For example, listen for events to find out which event a button sends when you press it, so you can set up a trigger that reacts to it. Listening doesn't change anything in Home Assistant.
 
 1. Go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
 2. Under **Listen to events**, in **Event to subscribe to**, enter the event type.
