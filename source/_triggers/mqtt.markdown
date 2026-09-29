@@ -110,7 +110,7 @@ qos:
 - `value_template` is evaluated for every incoming message on the topic.
 - The UI shows **Topic** and **Payload**. To use `value_template`, `encoding`, or `qos`, edit the trigger in YAML.
 
-{% include triggers/try_it.md %}
+## Try it yourself
 
 For this trigger, there is no target entity to change. To test it, publish a message to the topic. You can do this from the MQTT integration: go to {% my integrations title="**Settings** > **Devices & services**" %}, select **MQTT**, and select {% icon "mdi:cog-outline" %} **Configure** next to your broker. Under **Publish a packet**, enter the topic and payload, and select **Publish**.
 
