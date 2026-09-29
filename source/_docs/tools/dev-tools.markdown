@@ -120,18 +120,39 @@ For more information about Jinja2, visit [Jinja2 documentation](https://jinja.pa
 
 ## Events tab
 
-In the Events section, you can either fire an event on the event bus or subscribe to an event type in order to view the event data JSON.
+{% term Events %} are how Home Assistant announces that something has happened. In the **Events** tab, you can fire an event yourself, or listen to events to see what happens and which data an event contains. For more information about events, refer to [Events](/docs/configuration/events/).
 
-### Fire an event
+- Fire an event to test an {% term automation %} with a [**Manual event received**](/triggers/event/) {% term trigger %}, without waiting for the event to happen.
+- Listen to an event to find out its event type and data, so you can set up a trigger that reacts to it. Many integrations describe their events in their documentation.
 
-To fire an event, simply type the name of the event, and pass the event data in JSON format.
-For example, to fire a custom event, enter the `event_type` as `event_light_state_changed` and the event data JSON as
+### Firing an event
+
+Use this to test how automations react to an event, without waiting for the event to happen.
+
+{% note %}
+**Risk of unintended device actions**
+
+Firing an event starts every automation with a trigger on that event. Those automations control real devices and services.
+
+To avoid this:
+
+- Before you fire the event, check which automations react to it.
+- Turn off any of these automations that you don't want to run.
+{% endnote %}
+
+1. Go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
+2. Under **Event type**, enter the event type. You can also select an event type under **Active listeners**. This list shows the event types that something in Home Assistant is listening to.
+3. Optional: Under **Event data (YAML, optional)**, enter the data of the event. To test a trigger that filters on event data, enter at least the same data as in the trigger. Additional data does not matter.
+4. Select **Fire event**.
+   - Result: Home Assistant fires the event, and automations with a trigger on that event start.
+
+For example, to fire a custom event, enter the event type `event_light_state_changed` and the following event data:
 
 ```yaml
 state: on
 ```
 
-If there is an automation that handles that event, it will be automatically triggered. See below:
+The following automation reacts to that event:
 
 ```yaml
 - alias: "Capture Event"
@@ -144,30 +165,37 @@ If there is an automation that handles that event, it will be automatically trig
         message: "Light is turned {{ trigger.event.data.state }}"
 ```
 
-### Subscribe to an event
+### Listening to events
 
-To subscribe to an event, enter the event type under **Listen to events** and select **Start listening**. Some events types are listed in the **Events** section under **Active listeners**. You can usually find information about event types for a particular integration in its documentation. You can then examine the event data JSON to find the correct parameters for your automations.
+Use this to see which events happen and what data they contain. For example, listen for events to find out which event a button sends when you press it, so you can set up a trigger that reacts to it. Listening doesn't change anything in Home Assistant.
 
-For example, subscribing to the event type `shelly.click` of the Shelly integration, returns event data JSON similar to the following on a button press.
+1. Go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
+2. Under **Listen to events**, in **Event to subscribe to**, enter the event type.
+   - If you don't know the event type, enter `*` to listen to all events. This shows many events, and only the latest 100 are kept, so use **Filter events** in the next step to narrow them down.
+   - You can also find event types under **Active listeners**, on the [events page](/docs/configuration/events/), or in the documentation of the integration.
+3. Optional: To only capture events that contain a certain text, enter it under **Filter events**, for example, the name of the device. The filter is case-sensitive, and matches both the names and the values in the event. This is useful when you want to listen to all events.
+4. Select **Start listening**.
+5. Make the event happen, for example, by pressing the button.
+   - Result: Each event that happens is shown in YAML, with its event type and data. The list keeps the latest 100 events. To move between events, use the buttons next to the event.
+6. To stop, select **Stop listening**. To remove the events from the list, select **Clear events**.
 
-```json
-Event 0 fired 9:53 AM:
-{
-    "event_type": "shelly.click",
-    "data": {
-        "device_id": "e09c64a22553484d804353ef97f6fcd6",
-        "device": "shellybutton1-A4C12A45174",
-        "channel": 1,
-        "click_type": "single"
-    },
-    "origin": "LOCAL",
-    "time_fired": "2021-04-28T08:53:12.755729+00:00",
-    "context": {
-        "id": "e0f379706563aaa0c2c1fda5174b5a0e",
-        "parent_id": null,
-        "user_id": null
-    }
-}
+#### Listening to events: example
+
+For example, listening to the event type `shelly.click` of the Shelly integration shows data similar to the following when you press a button:
+
+```yaml
+event_type: shelly.click
+data:
+  device_id: e09c64a22553484d804353ef97f6fcd6
+  device: shellybutton1-A4C12A45174
+  channel: 1
+  click_type: single
+origin: LOCAL
+time_fired: "2021-04-28T08:53:12.755729+00:00"
+context:
+  id: e0f379706563aaa0c2c1fda5174b5a0e
+  parent_id: null
+  user_id: null
 ```
 
 ## Statistics tab
