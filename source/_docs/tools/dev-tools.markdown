@@ -61,7 +61,7 @@ The **Actions** tab lets you perform any {% term action %} available in Home Ass
 
 The list of actions contains the actions of all {% term integrations %} that are set up, and your scripts. If an action is missing, the integration that provides it is not set up, or not set up correctly.
 
-Most actions work on a target, such as an {% term entity %}, a device, or an {% term area %}. If you don't select a target, the action does not control anything.
+Most actions work on a target, such as an {% term entity %}, a device, or an {% term area %}. Check the action's options before omitting the target because some actions target all supported entities when no target is selected.
 
 ### Performing an action
 
