@@ -602,6 +602,14 @@
     light is on or off. Each entity has exactly one state and the state only
     holds one value at a time. However, entities can store attributes related to
     that state such as brightness, color, or a unit of measurement.
+- term: State object
+  definition: >-
+    The state object is a snapshot of an entity at a specific moment. It holds
+    the state, the attributes, the entity ID, three timestamps, and the context.
+    Templates, automations, and the frontend all read the state object.
+  link: /docs/configuration/state_object/
+  aliases:
+    - state objects
 - term: Switch
   definition: >-
     Switches are things that have two states you can select between, such as
