@@ -21,7 +21,7 @@ Pico TTS is a powerful open-source engine that runs locally (cloudless) so it ca
 
 {% configuration_basic %}
 Language:
-  description: "The language to use. Supported languages are `en-US`, `en-GB`, `de-DE`, `es-ES`, `fr-FR` and `it-IT`."
+  description: "The language to use. Supported languages are `en-US`, `en-GB`, `de-DE`, `es-ES`, `fr-FR`, and `it-IT`."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -38,7 +38,6 @@ action: |
   target:
     entity_id: tts.pico_tts_en_us
   data:
-    cache: true
     media_player_entity_id: media_player.living_room
     message: "The frogs have escaped from their containment!"
 {% endexample %}
