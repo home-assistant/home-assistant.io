@@ -14,6 +14,10 @@ The **MQTT message received** trigger fires an automation when Home Assistant re
 This trigger listens directly to an MQTT topic. It is different from [MQTT device triggers](/integrations/device_trigger.mqtt/), which are discovered as part of an MQTT device and appear as device triggers in the automation editor.
 {% endnote %}
 
+## Prerequisites
+
+The [MQTT integration](/integrations/mqtt/) must be set up and connected to your MQTT broker.
+
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
