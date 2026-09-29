@@ -25,7 +25,7 @@ The state holds the main piece of information about an entity. For example, `on`
 
 Two states have a special meaning:
 
-- `unavailable`: Home Assistant cannot reach the device or service.
+- `unavailable`: The entity cannot provide its state right now. For example, Home Assistant cannot reach the device or service, or the integration of the entity has not been set up.
 - `unknown`: The entity has no value for its state.
 
 ## Attributes
