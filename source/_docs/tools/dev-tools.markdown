@@ -128,11 +128,29 @@ Some options, and {% term templates %}, are only available in **YAML mode**. In 
 
 ## Template editor tab
 
-The template editor provides a way to quickly test templates prior to placing them into automations and scripts. A code editor is on the left side and your real-time output is displayed in the preview on the right side.
+{% term Templates %} let you create dynamic content from your Home Assistant data, for example, a notification that lists which lights are on. In the **Template** tab, you can write a template and see its result right away, based on the current {% term states %} of your {% term entities %}. Use it to try out a template before you use it in an {% term automation %}, a {% term script %}, or a template entity. For an introduction to templates, refer to [Templating](/docs/templating/).
 
-By default, this will contain sample code that illustrates how templates can be written and tested. This sample code can be removed and replaced with your own. You can restore the default example by pressing the **Reset to Demo Template** button beneath the code editor.
+The result updates while you type, and when the states that the template uses change. Below the result the editor shows when the template updates:
 
-For more information about Jinja2, visit [Jinja2 documentation](https://jinja.palletsprojects.com/en/latest/templates/), and also read templating document [here](/docs/templating).
+- At the start of each minute, if the template uses the current time.
+- When one of the listed entities or domains changes.
+- When any state changes, if the template uses all states.
+- Not at all, if the template does not use any states.
+
+Your template is kept in your browser, so it is still there the next time you open the tab.
+
+### Testing a template
+
+Use this to check that a template gives the result you expect, before you use it elsewhere.
+
+1. Go to {% my developer_template title="**Settings** > **Tools** > **Template**" %}.
+2. In the **Template editor**, enter your template.
+   - The editor starts with a demo template. To start with an empty editor, in the toolbar of the editor, select **Clear** {% icon "mdi:trash-can-outline" %}. To go back to the demo template, select **Reset to demo template** {% icon "mdi:restore" %}.
+   - To get suggestions, for example, for entity IDs, place the cursor inside a function that supports it, and press <kbd>Ctrl</kbd>+<kbd>Space</kbd>.
+3. If your template uses variables that only exist when it runs in an automation or an integration, such as `trigger`, `this`, or `value_json`, at the top of the template, define them yourself with `{% set %}`. To see an example, refer to [testing an incoming-data template](/docs/templating/where-to-use/#testing-an-incoming-data-template).
+4. Under **Result**, check the output.
+   - Result: The output of your template is shown, with its **Result type**. If the template has an error, the error message is shown instead. For help with errors, refer to [Debugging templates](/docs/templating/debugging/).
+5. When the template works, in the toolbar, select **Copy to clipboard** {% icon "mdi:content-copy" %}. Then paste the template into your automation, script, or template entity.
 
 ## Events tab
 
