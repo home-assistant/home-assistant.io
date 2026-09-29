@@ -93,3 +93,23 @@ If your automation uses [templates](/docs/templating/) in any part, you can do t
 2. Create all variables (sources) required for your template as described at the end of [this](/docs/templating/where-to-use/#processing-incoming-data) paragraph.
 3. Copy your template code and paste it in Template editor straight after your variables.
 4. If necessary, change your sources' value and check if the template works as you want and does not generate any errors.
+
+## My automation doesn't appear in the UI
+
+### Symptom
+
+You created an automation in the automation editor or from a blueprint, but it doesn't appear in the list of automations.
+
+### Cause
+
+Your {% term "`configuration.yaml`" %} no longer includes the `automations.yaml` file. The automation editor saves your automations in `automations.yaml`, and Home Assistant only loads that file when {% term "`configuration.yaml`" %} includes it. The default configuration includes it, but the line may have been removed when the file was edited.
+
+### Remedy
+
+Add this line from the default configuration back to your {% term "`configuration.yaml`" %}:
+
+```yaml
+automation: !include automations.yaml
+```
+
+{% include integrations/restart_ha_after_config_inclusion.md %}
