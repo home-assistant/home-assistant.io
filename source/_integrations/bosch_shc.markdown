@@ -85,7 +85,10 @@ Shutter Control and Micromodule Shutter Control devices support opening, closing
 
 ### Number
 
-The number platform lets you fine-tune numeric device settings. A Micromodule Relay configured in impulse-switch mode gets a **Pulse length** number, controlling how long the relay stays closed for each trigger.
+The number platform lets you fine-tune numeric device settings:
+
+- A Micromodule Relay configured in impulse-switch mode gets a **Pulse length** number, controlling how long the relay stays closed for each trigger.
+- A Shutter Contact II gets a **Break function timeout** number (1 to 15 minutes), controlling how long an active break function stays in effect before it expires automatically. It has no effect while the break function is set to never expire.
 
 ### Sensors
 
