@@ -56,6 +56,7 @@ The following selectors are currently available:
 - [Time selector](#time-selector)
 - [Trigger selector](#trigger-selector)
   - [Example - Merging with existing triggers](#example---merging-with-existing-triggers)
+- [Unit of measurement selector](#unit-of-measurement-selector)
 
 Interactive demos of each of these selectors can be found on the
 [Home Assistant Design portal](https://design.home-assistant.io/#components/ha-selector).
@@ -1958,4 +1959,51 @@ triggers:
   - triggers: !input my_trigger_input
   - platform: numeric_state
   [...]
+```
+
+## Unit of measurement selector
+
+The unit of measurement selector lets you select a unit of measurement, such as `°C` or `kWh`.
+The selector returns a single unit of measurement, or no value if no unit is selected.
+
+This selector shows all available units, and also accepts a custom unit:
+
+```yaml
+unit_of_measurement:
+```
+
+This selector limits selectable units to the units of the `temperature` sensor device class.
+
+```yaml
+unit_of_measurement:
+  device_classes:
+    - temperature
+```
+
+{% configuration unit_of_measurement %}
+device_classes:
+  description: >
+    Limits the selectable units to the units supported by the
+    [sensor device classes](/integrations/sensor/#device-class) supplied.
+    A device class that does not use a unit, such as `date` or `enum`, only
+    allows selecting no unit. When not configured, or when a device class does
+    not limit its units, such as `monetary`, any unit is selectable.
+  type: [string, list]
+  required: false
+state_classes:
+  description: >
+    Limits the selectable units to the units supported by the
+    [sensor state classes](#state-class-selector) supplied. When combined with
+    `device_classes`, only units that match both are selectable. When not
+    configured, or when a state class does not limit its units, such as
+    `measurement` or `total`, any unit is selectable.
+  type: [string, list]
+  required: false
+{% endconfiguration %}
+
+The output of this selector is the unit of measurement.
+
+```yaml
+# Example unit of measurement selector output result
+°C
 ```
