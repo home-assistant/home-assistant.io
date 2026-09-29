@@ -312,3 +312,5 @@ alert:
 ```
 
 [template]: /docs/templating/
+
+{% include integrations/actions.md %}
