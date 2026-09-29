@@ -4,6 +4,7 @@ description: Instructions on how to configure OPNsense integration
 ha_category:
   - Hub
   - Presence detection
+  - Update
 ha_release: 0.105
 ha_codeowners:
   - '@HarlemSquirrel'
@@ -12,6 +13,7 @@ ha_domain: opnsense
 ha_iot_class: Local Polling
 ha_platforms:
   - device_tracker
+  - update
 ha_integration_type: hub
 ha_quality_scale: legacy
 ha_config_flow: true
@@ -55,4 +57,4 @@ This platform allows you to detect presence by looking at devices connected to a
 
 ## Update
 
-Notifications of new releases of OPNsense are shown using an Update entity.
+Notifications of new releases of OPNsense are shown using an update entity.
