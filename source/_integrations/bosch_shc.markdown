@@ -6,6 +6,7 @@ ha_category:
   - Cover
   - Event
   - Hub
+  - Number
   - Sensor
   - Switch
   - Valve
@@ -20,6 +21,7 @@ ha_platforms:
   - binary_sensor
   - cover
   - event
+  - number
   - sensor
   - switch
   - valve
@@ -80,6 +82,10 @@ Shutter Control and Micromodule Shutter Control devices support opening, closing
 - A Motion Detector or Motion Detector II gets an event entity that fires whenever the device detects motion.
 - A Smoke Detector gets an event entity that fires whenever its alarm state changes.
 - A Smoke Detection System gets an event entity that fires whenever its alarm state changes: **Idle** (`alarm_off`), **Alarm** (`alarm_on`), or **Alarm muted** (`alarm_muted`).
+
+### Number
+
+The number platform lets you fine-tune numeric device settings. A Micromodule Relay configured in impulse-switch mode gets a **Pulse length** number, controlling how long the relay stays closed for each trigger.
 
 ### Sensors
 
