@@ -173,7 +173,7 @@ Use this to see which events happen and what data they contain. For example, lis
 2. Under **Listen to events**, in **Event to subscribe to**, enter the event type.
    - If you don't know the event type, enter `*` to listen to all events. This shows many events, and only the latest 100 are kept, so use **Filter events** in the next step to narrow them down.
    - You can also find event types under **Active listeners**, on the [events page](/docs/configuration/events/), or in the documentation of the integration.
-3. Optional: To only capture events that contain a certain text, enter it under **Filter events**, for example, the name of the device. The filter is case-sensitive, and matches both the names and the values in the event. This is useful when you listen to all events.
+3. Optional: To only capture events that contain a certain text, enter it under **Filter events**, for example, the name of the device. The filter is case-sensitive, and matches both the names and the values in the event. This is useful when you want to listen to all events.
 4. Select **Start listening**.
 5. Make the event happen, for example, by pressing the button.
    - Result: Each event that happens is shown in YAML, with its event type and data. The list keeps the latest 100 events. To move between events, use the buttons next to the event.
