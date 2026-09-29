@@ -77,7 +77,7 @@ These are the properties available for an [Event trigger](/docs/automation/trigg
 
 ### Geolocation
 
-These are the properties available for a [Geolocation trigger](/docs/automation/trigger/#geolocation-trigger). 
+These are the properties available for a [Geolocation trigger](/integrations/geo_location/#geolocation-trigger). 
 
 | Template variable | Data |
 | ---- | ---- |
