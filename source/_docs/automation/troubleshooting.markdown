@@ -59,7 +59,7 @@ The actions run without trigger data, so there is no [trigger ID](/docs/automati
    - In the automation list, select **Overflow menu** {% icon "mdi:dots-vertical" %} next to the automation.
    - Open the automation, and in the top bar of the automation editor, select **Menu** {% icon "mdi:dots-vertical" %}.
 3. Select **Run actions**.
-   - Result: All actions run, as if the automation was triggered and all conditions were true.
+   - Result: The actions run in order, as if the automation was triggered and all its conditions were met. Conditions within the actions still apply, so a condition step can stop the actions that follow it.
 
 ### Triggering an automation manually
 
@@ -73,7 +73,7 @@ The automation runs without trigger data, so there is no [trigger ID](/docs/auto
 2. In the **Action** drop-down, select **Trigger automation**, with **Automation** next to it.
 3. Select **Add target**, and then select the automation you are testing.
 4. To check the conditions, turn off **Skip conditions**. To skip them, leave it on.
-5. Optional: To pass variables for testing, switch to **YAML mode** and add them under `variables`.
+5. Optional: To pass variables for testing, switch to **YAML mode**, and add them under `variables` in the `data` of the action.
 6. Select **Perform action**.
    - Result: The automation runs. If **Skip conditions** is off, the automation checks the conditions first.
 
@@ -96,7 +96,11 @@ To avoid this:
 
 1. Do one of the following:
    - To simulate a state change, go to {% my developer_states title="**Settings** > **Tools** > **States**" %}.
-     - Under **Entity**, select the entity. Use **Set state** to reproduce the transition configured by the trigger, including its **From** and **To** values. If the entity already has the **To** state, set it to a different state first. Setting the same state again is not a state change, so the trigger does not react. For details, refer to [Setting the state of an entity](/docs/tools/dev-tools/#setting-the-state-of-an-entity).
+     - Under **Entity**, select the entity. Then use **Set state** to reproduce the change that your trigger reacts to:
+       - For a **State** trigger, set the state from its **From** value to its **To** value. If the entity already has the **To** state, set it to a different state first. Setting the same state again is not a state change, so the trigger does not react.
+       - For a **Numeric state** trigger, set a value that crosses its **Above** or **Below** threshold. If the value is already past the threshold, first set a value on the other side.
+       - For a trigger on an attribute, change that attribute under **State attributes (YAML, optional)**.
+     - For details, refer to [Setting the state of an entity](/docs/tools/dev-tools/#setting-the-state-of-an-entity).
      - Changing the state here doesn't change the device. It only changes the state that Home Assistant shows, so that the trigger reacts. After the test, the state shown may be wrong until the device reports its state again.
      - Result: Every automation with a trigger on that state change starts, with the trigger data of the simulated change. The actions of the automation run for real.
    - To simulate an event, go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
