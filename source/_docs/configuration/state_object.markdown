@@ -56,7 +56,7 @@ Behind the scenes, every change to a state or its attributes fires a [`state_cha
 
 ## State object
 
-The state object holds everything Home Assistant knows about an entity at a specific moment: the state, the attributes, the entity ID, the timestamps of the last changes, and the context. Templates, automations, and the frontend all read the state object.
+The state object is a snapshot of an entity at a specific moment. It holds the state, the attributes, the entity ID, the timestamps of the last changes, and the context. Other information about the entity, such as its device and area, is not part of the state object. Templates, automations, and the frontend all read the state object.
 
 In templates, the `state` prefix shows that a field belongs to the state object. For example, `state.state` is the state of the entity, and `state.attributes` are its attributes.
 
