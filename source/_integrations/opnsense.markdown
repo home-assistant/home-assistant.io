@@ -22,6 +22,7 @@ and routing platform. There is currently support for the following device types
 within Home Assistant:
 
 - [Presence detection](#presence-detection)
+- [Update](#update)
 
 {% include integrations/config_flow.md %}
 
@@ -51,3 +52,7 @@ The API user requires the following privileges:
 ## Presence detection
 
 This platform allows you to detect presence by looking at devices connected to an OPNsense router.
+
+## Update
+
+Notifications of new releases of OPNsense are shown using an Update entity.
