@@ -3,7 +3,7 @@ title: EcoSpar
 description: Connect and control your EcoSpar pellet stove using the Fumis integration
 ha_category:
   - Climate
-ha_release: 2026.10
+ha_release: '2026.10'
 ha_domain: ecospar
 ha_integration_type: virtual
 ha_supporting_domain: fumis
