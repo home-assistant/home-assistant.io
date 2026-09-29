@@ -768,13 +768,12 @@ seconds: 15 # Only when enable_second is set to true (default)
 milliseconds: 500 # Only when enable_millisecond was set to true
 ```
 
-With the `signed` and `offset` modes, the time values stay positive. A `negative` key set to `true` means that the duration is negative, or that the offset lies before the event. For a positive duration, or an offset after the event, the key is left out. Choosing **No offset** gives a duration of zero.
+With the `signed` and `offset` modes, a negative duration, or an offset before the event, has negative values. Choosing **No offset** gives a duration of zero.
 
 ```yaml
 # Example output for 30 minutes before the event
-negative: true
 hours: 0
-minutes: 30
+minutes: -30
 seconds: 0
 ```
 
