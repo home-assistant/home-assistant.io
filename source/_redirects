@@ -894,3 +894,7 @@ layout: null
 /actions/tts.microsoft_say /actions/tts.say/ 301
 /actions/tts.voicerss_say /actions/tts.say/ 301
 /actions/tts.yandextts_say /actions/tts.say/ 301
+
+# Any action without its own page shows an explanation instead of a plain 404.
+# Keep this rule last, so the specific action redirects above it keep working.
+/actions/* /more-info/unknown-action/ 404
