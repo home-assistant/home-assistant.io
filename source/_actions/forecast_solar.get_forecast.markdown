@@ -38,7 +38,7 @@ End:
   description: The time the forecast should stop at. Periods starting at or after this time are left out. If you leave it empty, the forecast runs until the end of the available data.
   required: false
 Resolution:
-  description: "How detailed the forecast is. **Native (15-minute or hourly, depending on account)** uses the periods Forecast.Solar provides: 15 minutes with a paid account, one hour with a free account. **Aggregated to whole hours** combines them into hourly periods."
+  description: "How detailed the forecast is. **Native (15-minute or hourly, depending on account)** uses the periods Forecast.Solar provides: 15 minutes with a paid account, one hour with a free account. **Aggregated to whole hours** combines them into hourly periods. If you leave it empty, **Native** is used."
   required: false
 {% endoptions_ui %}
 
@@ -50,7 +50,7 @@ In YAML, refer to this action as `forecast_solar.get_forecast`. Because this act
 action: |
   action: forecast_solar.get_forecast
   data:
-    config_entry: 1b4a46c6d0f3406c80d275f5b0c6483b
+    config_entry: YOUR_CONFIG_ENTRY_ID
     start: "2026-09-30 06:00:00"
     end: "2026-09-30 20:00:00"
     resolution: hourly
@@ -83,7 +83,7 @@ resolution:
 
 ## Response data
 
-The response contains two lists of values, each keyed by the start time of a period:
+The response contains two mappings, each keyed by the start time of a period:
 
 - `watts`: The estimated power at that time, in watts. With `hourly`, this is the average for the hour.
 - `wh_period`: The estimated energy produced during the period that starts at that time, in watt-hours. With `hourly`, this is the total for the hour.
@@ -108,6 +108,93 @@ wh_period:
 - If you added more than one plane, the forecast combines all of them, just like the forecast sensors do.
 
 {% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
+
+### Automation: tell me the sunniest hour of tomorrow
+
+Every evening, get tomorrow's forecast and send the hour with the most expected solar power to your phone. Use it to plan when to run the washing machine or charge your car.
+
+- **Trigger**: Time
+  - **At time**: 20:00
+- **Action**: Forecast.Solar: Get forecast
+  - **Forecast.Solar entry**: Your Forecast.Solar setup
+  - **Start**: Tomorrow at 00:00
+  - **End**: The day after tomorrow at 00:00
+  - **Resolution**: Aggregated to whole hours
+  - **Response variable**: `solar_forecast`
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for sending the sunniest hour of tomorrow" %}
+
+{% example %}
+automation: |
+  alias: "Send the sunniest hour of tomorrow"
+  triggers:
+    - trigger: time
+      at: "20:00:00"
+  actions:
+    - action: forecast_solar.get_forecast
+      data:
+        config_entry: YOUR_CONFIG_ENTRY_ID
+        start: "{{ today_at() + timedelta(days=1) }}"
+        end: "{{ today_at() + timedelta(days=2) }}"
+        resolution: hourly
+      response_variable: solar_forecast
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >
+          {% set best = solar_forecast.watts
+            | dictsort(false, 'value') | last %}
+          Tomorrow's sunniest hour starts at
+          {{ as_datetime(best[0]).strftime('%H:%M') }}.
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: start the dishwasher when enough sun is coming
+
+At noon, check how much solar energy is expected in the next three hours. If it's at least 2 kWh, turn on the dishwasher, which is plugged into a smart plug.
+
+- **Trigger**: Time
+  - **At time**: 12:00
+- **Action**: Forecast.Solar: Get forecast
+  - **Forecast.Solar entry**: Your Forecast.Solar setup
+  - **Start**: Now
+  - **End**: Three hours from now
+  - **Response variable**: `solar_forecast`
+- **Condition**: Template
+  - The total of `wh_period` is 2000 Wh or more
+- **Action**: Turn on switch
+  - **Target**: Dishwasher plug (`switch.dishwasher_plug`)
+
+{% details "YAML example for starting the dishwasher on sunshine" %}
+
+{% example %}
+automation: |
+  alias: "Start the dishwasher when enough sun is coming"
+  triggers:
+    - trigger: time
+      at: "12:00:00"
+  actions:
+    - action: forecast_solar.get_forecast
+      data:
+        config_entry: YOUR_CONFIG_ENTRY_ID
+        start: "{{ now() }}"
+        end: "{{ now() + timedelta(hours=3) }}"
+      response_variable: solar_forecast
+    - condition: template
+      value_template: >
+        {{ solar_forecast.wh_period.values() | sum >= 2000 }}
+    - action: switch.turn_on
+      target:
+        entity_id: switch.dishwasher_plug
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 
