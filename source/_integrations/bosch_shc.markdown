@@ -4,6 +4,7 @@ description: Integrate Bosch SHC.
 ha_category:
   - Binary sensor
   - Cover
+  - Event
   - Hub
   - Sensor
   - Switch
@@ -18,6 +19,7 @@ ha_domain: bosch_shc
 ha_platforms:
   - binary_sensor
   - cover
+  - event
   - sensor
   - switch
   - valve
@@ -28,17 +30,38 @@ ha_integration_type: hub
 The **Bosch SHC** {% term integration %} allows you to connect your [Bosch Smart Home Controller](https://www.bosch-smarthome.com) to Home Assistant to control and monitor your Bosch Smart Home devices.
 Use case: combine your door and window contacts with your covers and switches to build a home security and comfort setup that reacts to what's actually happening in your home.
 
-There is currently support for the following device types within Home Assistant:
+## Supported devices
 
-- [Binary sensor](#binary-sensor)
-- [Cover](#cover)
-- [Sensor](#sensor)
-- [Switch](#switch)
-- [Valve](#valve)
+The integration supports devices connected to a Bosch Smart Home Controller, including:
+
+- Door/Window Contacts and Door/Window Contact II
+- Motion Detectors
+- Smoke Detectors
+- Thermostats and Room Thermostats
+- Twinguard
+- Smart Plugs and Smart Plug Compact
+- Light Switches
+- Shutter Controls
+- Micromodule Shutter Controls and Micromodule Blinds
+- Bosch Smart Home cameras (selected controls only)
+
+The entities available for a device depend on the capabilities reported by the controller.
+
+## Prerequisites
+
+Before setting up the integration:
+
+1. Make sure the Bosch Smart Home Controller and Home Assistant are on the same local network.
+2. Have the system password of your controller available. This is the password created during the initial setup of the controller.
+3. When Home Assistant asks for the password, press and hold the button on the controller until the LED starts flashing to allow client registration.
+
+During registration, Home Assistant generates a client certificate and key and registers them with the controller.
 
 {% include integrations/config_flow.md %}
 
-### Binary sensor
+## Supported functionality
+
+### Binary sensors
 
 The binary sensor platform allows you to monitor the states of your shutter contact and battery sensors. Binary sensor devices are added for each of the following devices:
 
@@ -46,11 +69,19 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 - Shutter Contact II
 - Battery powered devices
 
-### Cover
+### Covers
 
-The cover platform allows you to control your covers. Cover devices are added for each Shutter Control device.
+The cover platform allows you to control shutters, awnings, and blinds.
 
-### Sensor
+Shutter Control and Micromodule Shutter Control devices support opening, closing, stopping, and setting the position. Micromodule Blinds additionally support opening, closing, and setting the tilt position.
+
+### Event
+
+- A Motion Detector or Motion Detector II gets an event entity that fires whenever the device detects motion.
+- A Smoke Detector gets an event entity that fires whenever its alarm state changes.
+- A Smoke Detection System gets an event entity that fires whenever its alarm state changes: **Idle** (`alarm_off`), **Alarm** (`alarm_on`), or **Alarm muted** (`alarm_muted`).
+
+### Sensors
 
 The sensor platform allows you to monitor the states of your temperature, humidity, purity, air quality, power, energy, and valve motor status sensors. Sensor devices are added for each of the following devices:
 
@@ -59,10 +90,15 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 - Twinguard
 - Smart Plug
 - Smart Plug Compact
+- Light Switch
+- Micromodule Shutter Control
+- Micromodule Blinds
+
+Smart Plug Compact devices also provide a communication quality sensor. Thermostats provide diagnostic valve position and valve motor status sensors; the legacy raw valve position sensor is disabled by default because the valve entity provides the position directly.
 
 In addition, a single **Open doors and windows** sensor is added for the whole home, not tied to a specific device. Its state is the total number of currently open doors, windows, and other openings, with the name of each open item listed in the `open_doors`, `open_windows`, and `open_others` state attributes.
 
-### Switch
+### Switches
 
 The switch platform allows you to control your outlets, light switches, and select camera functions. Switches are added for each of the following devices:
 
@@ -72,15 +108,23 @@ The switch platform allows you to control your outlets, light switches, and sele
 - Camera Eyes
 - Camera 360
 
-A Motion Detector II also gets a **Pet immunity** switch.
+Some devices also get an additional, device-specific switch. These are configuration entities, so they appear under the device's configuration controls rather than with the main controls:
+
+- Camera Eyes: a **Camera light** switch to turn its built-in light on or off
+- Motion Detector II: **Pet immunity**, and **Sabotage detection**
+- Motion Detector II that supports it: **Automatic sensitivity**
+- Door/Window Contact II Plus: **Vibration detection**
+- Shutter Contact II: two **Break function** switches, one to exclude the contact from the intrusion alarm, and one to prevent that exclusion from expiring automatically
+- Smoke Detector II: **Intrusion alarm**, to sound or clear its own alarm
+- Thermostat that supports silent operation: **Whisper mode**
+- Thermostat Gen2 or Room Thermostat 2 that supports this feature: **Humidity warning**
+- Smart Plug or Smart Plug Compact that supports energy-saving mode: **Energy-saving mode**
+- Twinguard that supports this feature: **Heartbeat**, which enables or disables its nightly self-test notification
+- Micromodule Relay that supports switch configuration: **Swap inputs** and **Swap outputs**
 
 ### Valve
 
-The valve platform shows the position of your thermostat's valve. A valve entity is added for each Thermostat.
-
-## Client registration
-
-To start the client registration, press and hold the button on the controller until the LED starts flashing. During configuration, a client SSL cert/key pair is generated and registered on the controller. For this step, the system password of your controller is needed, which was created upon initial setup of the controller.
+The valve platform provides a diagnostic entity showing the current valve position of each Thermostat, from fully closed (0%) to fully open (100%).
 
 ## Bosch SHC automation examples
 
@@ -153,23 +197,53 @@ If the connection to the controller drops, for example because of a network hicc
 
 ## Known limitations
 
-- The integration only works on your local network. Controlling your Bosch Smart Home devices from outside your home requires a VPN or a similar way to reach your home network.
+- The Bosch Smart Home Controller communicates with Home Assistant over the local network. The controller itself does not need to be reachable from the internet.
 - Devices you pair with the controller after setting up the integration don't appear automatically. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Bosch SHC**, and select **Reload** to pick up new devices.
-- If your controller's client certificate expires or its network details change, remove the integration and set it up again to generate a new certificate.
+- If authentication with the controller fails, Home Assistant starts reauthentication so the controller can be registered again. If the controller's IP address changes and it is discovered through Zeroconf, Home Assistant updates the configured address automatically.
 
 ## Troubleshooting
 
 ### The integration can't connect to the controller
 
-Make sure the IP address of the controller is correct and reachable from your Home Assistant instance. Check your router or the controller's settings if you're unsure of its current address.
+#### Symptom
+
+Setup reports that Home Assistant cannot connect to the controller.
+
+#### Description
+
+Home Assistant cannot establish a connection to the Bosch Smart Home Controller over the local network.
+
+#### Resolution
+
+Make sure the controller is powered on and reachable from your Home Assistant instance over the local network. If you entered the address manually, verify that the IP address or hostname is correct.
 
 ### Setup fails with a pairing error
 
-The controller only accepts new client registrations while it's in pairing mode. Press and hold the button on the controller until the LED starts flashing, then try adding the integration again.
+#### Symptom
 
-### Setup fails with a session or authentication error
+Setup reports a pairing or registration error after entering the system password.
 
-This usually means the system password you entered doesn't match the one set up in the Bosch Smart Home app, or the client certificate was rejected. Double-check the password, and remove and re-add the integration if the problem continues.
+#### Description
+
+The Bosch Smart Home Controller only accepts new client registrations while it is in pairing mode.
+
+#### Resolution
+
+Press and hold the button on the controller until the LED starts flashing, then try again.
+
+### Setup fails with an authentication error
+
+#### Symptom
+
+Setup reports that authentication failed after entering the system password.
+
+#### Description
+
+Home Assistant could not authenticate with the Bosch Smart Home Controller using the provided credentials.
+
+#### Resolution
+
+Verify that you entered the system password configured for the Bosch Smart Home Controller. If an existing integration needs new credentials, follow the reauthentication flow shown by Home Assistant to register the controller again.
 
 ## Removing the integration
 

@@ -74,7 +74,7 @@ To learn how to use {% term scenes %}, refer to the [scene](/integrations/scene/
 
 ## Apps
 
-Apps are third-party applications that provide additional functionality in Home Assistant. Apps run directly alongside Home Assistant, whereas {% term integrations %} connect Home Assistant to other apps. Apps are only [supported](/installation/#about-installation-types) when using {% term "Home Assistant Operating System" %}.
+Apps are third-party applications that extend Home Assistant with additional functionality. They run alongside Home Assistant on the same system and are installed and managed from Home Assistant. Apps are only [supported](/installation/#about-installation-types) when using {% term "Home Assistant Operating System" %}.
 
 Apps are installed from the app store under {% my supervisor title="**Settings** > **Apps**" %}. If you are curious now and feel like installing every app that looks interesting: beware that apps can use quite a bit of resources in terms of disk space, memory, and additional load on the processor.
 

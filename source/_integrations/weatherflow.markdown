@@ -93,17 +93,19 @@ This {% term integration %} will expose the following sensors:
 
 ### Lightning sensors
 
+The station detects lightning with an [AS3935 lightning sensor](https://www.sciosense.com/as3935-franklin-lightning-sensor-ic/). The distances it reports are estimates of how far away the storm is, not measurements of each strike. For details, refer to [Known limitations](#known-limitations).
+
 - **Lightning average distance**
-  - **Description**: Average distance of recently detected lightning strikes.
+  - **Description**: Average of the estimated distances reported with the lightning strikes detected in the past minute.
 
 - **Lightning count**
-  - **Description**: Count of lightning strikes in the past minute.
+  - **Description**: Number of lightning strikes detected in the past minute.
 
 - **Lightning last distance**
-  - **Description**: Distance to the most recent detected lightning strike.
+  - **Description**: Estimated distance to the storm, as reported with the most recent detected lightning strike.
 
 - **Lightning last energy**
-  - **Description**: Energy estimate for the most recent detected lightning strike, as reported by the station.
+  - **Description**: Value the sensor reports for the most recent detected lightning strike. It has no unit and, according to the sensor's manufacturer, no physical meaning.
 
 - **Lightning last strike**
   - **Description**: Timestamp of the most recent detected lightning strike; unlike the `Lightning strike` event entity below, this sensor stores the last recorded strike time.
@@ -141,11 +143,25 @@ The WeatherFlow Tempest station also sends event triggers when it starts raining
 This {% term integration %} will expose these {% term event %} {% term entities %} and can be used for automations. The following entities will be exposed:
 
 - **Lightning strike**
-  - **Description**: Fires when lightning strikes within range of station.
+  - **Description**: Fires when the station detects a lightning strike.
     
 - **Precipitation start**
   - **Description**: Fires when precipitation starts at the station.
 
+## Known limitations
+
+### Lightning detection
+
+The sensor doesn't detect every lightning strike, and electrical interference near the station can cause false detections. The station broadcasts every strike it detects, and this {% term integration %} uses those broadcasts directly. WeatherFlow checks the strikes against other sources, so the WeatherFlow app and the [WeatherFlow Cloud](/integrations/weatherflow_cloud/) {% term integration %} can show a different number of strikes and different distances.
+
+### Lightning distance
+
+The sensor estimates the distance to the nearest edge of the storm from the strikes it detected recently. The estimate changes gradually as a storm approaches or moves away, so it can differ from the distance to the most recent strike. The sensor reports the distance in steps of 1 (overhead), 5, 6, 8, 10, 12, 14, 17, 20, 24, 27, 31, 34, 37, and 40 km.
+
+A distance of 63 km means that the strike was out of range and the sensor couldn't estimate its distance. The **Lightning average distance** includes these values, so it's too high for a minute with an out-of-range strike.
+
 ## Networking notes
 
 This {% term integration %} relies on the ability of Home Assistant to receive `UDP` traffic on port `50222`. You may run into trouble if you have a more complex network setup utilizing either VLANs or multiple subnets.
+
+The hub broadcasts each update once and doesn't resend it. If Home Assistant is connected over Wi-Fi, it can occasionally miss an update. A wired connection is more reliable.

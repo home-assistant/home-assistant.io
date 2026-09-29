@@ -2,6 +2,7 @@
 title: De Dietrich
 description: Instructions on how to monitor and control a De Dietrich Diematic boiler in Home Assistant using Modbus RTU over TCP.
 ha_category:
+  - Modbus-controlled
   - Sensor
 ha_release: '2026.10'
 ha_iot_class: Local Polling

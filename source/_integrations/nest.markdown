@@ -290,8 +290,6 @@ See [Troubleshooting](#troubleshooting) below for steps to resolve the common mi
 
 11.  If all went well, you are ready to go!
 
-    ![Screenshot of success](/images/integrations/nest/finished.png)
-
 {% enddetails %}
 
 ## Climate

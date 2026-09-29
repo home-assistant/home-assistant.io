@@ -3,6 +3,7 @@ title: KACO Modbus
 description: Instructions on how to integrate a KACO solar inverter with Home Assistant over Modbus TCP.
 ha_category:
   - Energy
+  - Modbus-controlled
 ha_release: '2026.10'
 ha_iot_class: Local Polling
 ha_codeowners:

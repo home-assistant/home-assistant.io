@@ -55,6 +55,8 @@ API key:
   description: "API key from OpenAI for authentication."
 {% endconfiguration_basic %}
 
+To change the API key after setup, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the three dots {% icon "mdi:dots-vertical" %} menu on the OpenAI integration entry, then select **Reconfigure**.
+
 {% include integrations/option_flow.md %}
 
 The integration provides the following types of subentries:

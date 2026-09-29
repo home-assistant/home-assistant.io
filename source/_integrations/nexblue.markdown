@@ -46,6 +46,14 @@ Password:
   description: The password for your NexBlue account.
 {% endconfiguration_basic %}
 
+## Local Modbus TCP
+
+Compatible NexBlue chargers can also be configured locally using Home Assistant's built-in [Modbus](/integrations/modbus/) integration. This is a separate YAML configuration and does not add local control or discovery to the NexBlue cloud integration.
+
+For supported models, firmware requirements, setup instructions, and the configuration example, refer to the [NexBlue Modbus TCP YAML example](https://github.com/NexBlue-AB/home-assistant-nexblue/tree/main/examples/modbus).
+
+For multiple chargers, use a reserved IP address for each charger instead of relying on automatically assigned mDNS hostname suffixes.
+
 ## Supported functionality
 
 The NexBlue integration provides sensor entities, binary sensor entities, and a charging switch for each charger in your account.
