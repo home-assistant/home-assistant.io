@@ -14,7 +14,10 @@ You can also browse all [documented triggers](/triggers/), or search the documen
 
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function () {
-  if (typeof window.plausible === "function") {
+  if (
+    typeof window.plausible === "function" &&
+    window.location.pathname.startsWith("/triggers/")
+  ) {
     window.plausible("Unknown trigger", { props: { path: window.location.pathname } });
   }
 });

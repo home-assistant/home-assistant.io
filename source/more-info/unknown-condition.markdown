@@ -14,7 +14,10 @@ You can also browse all [documented conditions](/conditions/), or search the doc
 
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function () {
-  if (typeof window.plausible === "function") {
+  if (
+    typeof window.plausible === "function" &&
+    window.location.pathname.startsWith("/conditions/")
+  ) {
     window.plausible("Unknown condition", { props: { path: window.location.pathname } });
   }
 });
