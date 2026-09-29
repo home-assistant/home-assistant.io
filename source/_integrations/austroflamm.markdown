@@ -3,7 +3,7 @@ title: Austroflamm
 description: Connect and control your Austroflamm pellet stove using the Fumis integration
 ha_category:
   - Climate
-ha_release: 2026.10
+ha_release: '2026.10'
 ha_domain: austroflamm
 ha_integration_type: virtual
 ha_supporting_domain: fumis
