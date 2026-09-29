@@ -278,17 +278,17 @@
     - entities
 - term: Event
   definition: >-
-    Every time something happens in Home Assistant, an event is fired. There are different types of events, such as state change events, when an action was performed, or when Home Assistant started. All entities produce state change events. Every time the state or the attributes of an entity change, a state change event is produced. Events can be used to trigger automations. For example, you can trigger an automation when a light is turned on, then a speaker turns on in that room.
+    Every time something happens in Home Assistant, an event is fired. Different types of events are fired when, for example, an entity's state changes, an action is performed, or Home Assistant starts. All entities produce state change events. Every time the state or the attributes of an entity change, a state change event is produced. Events can be used to trigger automations. For example, you can trigger an automation to turn on a speaker in a room when a light in that room turns on.
   link: /docs/configuration/events/
   aliases:
     - events
 - term: Event entity
   definition: >-
-    An event entity represents something that happens in the physical world
-    without a lasting state, for example, when a user presses a doorbell or a
-    button on a remote control. Instead of a state such as on or off, the event
-    entity keeps track of when the last event was detected and its event type,
-    such as a single press or a long press.
+    An event entity represents a momentary occurrence without a lasting state,
+    for example, when you press a doorbell or a button on a remote control.
+    Instead of a state such as on or off, the event entity keeps track of when
+    the last event was detected and its event type, such as a single press or a
+    long press.
   link: /integrations/event/
 - term: Floor
   definition: >-
@@ -594,7 +594,7 @@
     at a time. However, entities can store attributes related to that state. For example,
     the state of a light is _on_, and the related state attributes could be its
     current brightness and color values. To start an automation when a state changes, use
-    the State trigger. The current state can be used in conditions.
+    the [**State** trigger](/triggers/state/). The current state can be used in conditions.
   link: /docs/configuration/state_object/
   aliases:
     - states
