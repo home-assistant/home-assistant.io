@@ -59,18 +59,18 @@ Behind the scenes, every change to a state or its attributes fires a [`state_cha
 
 The state object is a snapshot of an entity at a specific moment. It holds the state, the attributes, the entity ID, three timestamps, and the context. Other information about the entity, such as its device and area, is not part of the state object. Templates, automations, and the frontend all read the state object.
 
-In templates, the `state` prefix shows that a field belongs to the state object. For example, `state.state` is the state of the entity, and `state.attributes` are its attributes.
+In this list, `state` stands for the state object of an entity. In templates, you get the state object with `states.` followed by the entity ID. For example, `states.light.kitchen.state` is the state of the light, and `states.light.kitchen.attributes` are its attributes.
 
 - `state.state`: The current state of the entity, as text. Example: `off`.
 - `state.entity_id`: Entity ID. Format: `<domain>.<object_id>`. Example: `light.kitchen`.
 - `state.domain`: Domain of the entity. Example: `light`.
 - `state.object_id`: Object ID of the entity. Example: `kitchen`.
-- `state.name`: Name of the entity. This is the `friendly_name` attribute. If the entity has no `friendly_name`, it is the object ID with underscores replaced by spaces. Example: `Kitchen ceiling`.
+- `state.name`: Name of the entity. This is the `friendly_name` attribute. Example: `Kitchen ceiling`. If the entity has no `friendly_name`, it is the object ID with underscores replaced by spaces. For example, `light.kitchen_ceiling` becomes `kitchen ceiling`.
 - `state.last_changed`: When the state last changed, in UTC. Not updated when only the attributes change. Example: `2013-09-17 07:32:51.715874+00:00`.
 - `state.last_updated`: When the state or the attributes last changed, in UTC. Not updated when neither the state nor the attributes changed. Example: `2013-09-17 07:32:51.715874+00:00`.
 - `state.last_reported`: When the entity last reported its state, in UTC. Updated even when neither the state nor the attributes changed. Example: `2013-09-17 07:32:51.715874+00:00`.
 - `state.attributes`: A dictionary with the [attributes](#attributes) of the entity.
-- `state.context`: The [context](#context) of the state. In templates, you read its fields directly, for example, `state.context.id`.
+- `state.context`: The [context](#context) of the state. In templates, you read its fields directly, for example, `states.light.kitchen.context.id`.
 
 Some entities force an update, for example, MQTT sensors with force update turned on, or some KNX sensors. For these entities, every report counts as a change. `last_changed` and `last_updated` are updated, and a [`state_changed` event](/docs/configuration/events/#state_changed) is fired, even when the state and the attributes are the same as before.
 
