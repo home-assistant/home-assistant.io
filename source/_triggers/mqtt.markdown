@@ -155,12 +155,9 @@ If a device publishes JSON data, this automation uses a value template to read t
 
 - **Trigger**: MQTT message received
   - **Topic**: `living_room/remote`
-  - **Value template**: `{{ value_json.action }}`
   - **Payload**: `single`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
-
-{% details "YAML example for notifying from a JSON MQTT message" %}
 
 <!-- Disable terminology test, because the MQTT trigger key is lowercase. -->
 <!-- textlint-disable terminology -->
@@ -182,8 +179,6 @@ automation: |
 {% endexample %}
 
 <!-- textlint-enable terminology -->
-
-{% enddetails %}
 
 {% include triggers/stuck.md %}
 
