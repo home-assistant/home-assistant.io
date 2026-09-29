@@ -180,8 +180,9 @@
   definition: >-
     Conditions check whether something is true at that moment, for example,
     whether a door is closed. You can use them in automations and scripts. If a
-    condition is not met, the automation or script stops, and the actions after
-    the condition do not run.
+    condition is not met, the actions that come after it in the same sequence do
+    not run. At the top level of an automation or script, this stops the
+    automation or script.
   link: /docs/scripts/conditions/
   aliases:
     - conditions
