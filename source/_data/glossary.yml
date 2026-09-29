@@ -22,7 +22,9 @@
     used on the dashboard, for example as tap or hold action on a UI element.
     When triggered, the action performs another action. Home Assistant provides a series of predefined actions,
     such as `homeassistant.turn_on`, `homeassistant.toggle`, or
-    `homeassistant.reload`.
+    `homeassistant.reload`. An action makes something happen, while an event
+    tells you that something happened. For more information, refer to
+    [events and actions](/docs/configuration/events/#events-and-actions).
   aliases:
     - actions
   link: /docs/automation/action/
@@ -176,8 +178,8 @@
     Better known as: Integrations. Integrations used to be known as components.
 - term: Condition
   definition: >-
-    Conditions are an optional part of an automation that will prevent an action
-    from firing if they are not met.
+    Conditions are an optional part of an automation that stop the actions from
+    running if they are not met.
   link: /docs/scripts/conditions/
   aliases:
     - conditions
