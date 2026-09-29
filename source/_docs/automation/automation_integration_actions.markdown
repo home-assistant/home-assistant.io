@@ -1,6 +1,6 @@
 ---
-title: "Automation actions"
-description: "Reference for the actions you can call from an automation, including how to pass data, target a specific entity, and chain multiple actions together."
+title: "Actions of the automation integration"
+description: "Actions to turn automations on and off, toggle them, run them right away, or reload them."
 ---
 
 The automation {% term integration %} provides actions to control your automations, such as turning them on and off. This is useful when you want one automation to enable or disable another one.
