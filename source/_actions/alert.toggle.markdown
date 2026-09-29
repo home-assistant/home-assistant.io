@@ -18,8 +18,8 @@ To toggle an alert from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the alert.
-6. From the actions shown for that target, select **Toggle**.
+5. From the search box, search for and select **Toggle**.
+6. Select what you want to control. Under **By target** (see [Targets](#targets)), select the alert. You can also select an area, a device, or a label.
 7. Select **Save**.
 
 ### Options in the UI
@@ -39,6 +39,10 @@ action: |
 
 This toggles the `alert.garage_door` alert.
 
+### Options in YAML
+
+This action has no additional options in YAML.
+
 {% include actions/targets.md %}
 
 ## Good to know
@@ -47,6 +51,61 @@ This toggles the `alert.garage_door` alert.
 - If the alert is set up with `can_acknowledge: false`, toggling it to acknowledged fails with an error.
 
 {% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
+
+### Automation: toggle an alert with an NFC tag
+
+Place an NFC tag next to your front door. Scanning it acknowledges the garage door alert, and scanning it again turns the alert back on.
+
+- **Trigger**: Tag
+  - **Tag**: Front door tag
+- **Action**: Toggle
+  - **Target**: Garage door alert
+
+{% details "YAML example for toggling an alert with an NFC tag" %}
+
+{% example %}
+automation: |
+  alias: "Toggle the garage door alert with the front door tag"
+  triggers:
+    - trigger: tag
+      tag_id: "A7-6B-90-5F"
+  actions:
+    - action: alert.toggle
+      target:
+        entity_id: alert.garage_door
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: toggle an alert from a phone notification
+
+Your alert notification has a button with the ID `TOGGLE_LEAK_ALERT`. Selecting it switches the water leak alert between acknowledged and active.
+
+- **Trigger**: Manual event received
+  - **Event type**: `mobile_app_notification_action`
+  - **Event data**: `action: TOGGLE_LEAK_ALERT`
+- **Action**: Toggle
+  - **Target**: Water leak alert
+
+{% details "YAML example for toggling an alert from a phone notification" %}
+
+{% example %}
+automation: |
+  alias: "Toggle the water leak alert from my phone"
+  triggers:
+    - trigger: event
+      event_type: mobile_app_notification_action
+      event_data:
+        action: TOGGLE_LEAK_ALERT
+  actions:
+    - action: alert.toggle
+      target:
+        entity_id: alert.water_leak
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 

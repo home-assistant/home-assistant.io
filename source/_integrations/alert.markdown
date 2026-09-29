@@ -314,3 +314,66 @@ alert:
 [template]: /docs/templating/
 
 {% include integrations/actions.md %}
+
+## Alert automation examples
+
+Alerts keep reminding you until a problem is solved. With the alert actions, you decide when those reminders stop and start again.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: acknowledge an alert from a phone notification
+
+Your alert sends a notification with an **Acknowledge** button to your phone. When you select the button, this automation acknowledges the alert, so you don't get more reminders.
+
+- **Trigger**: Manual event received
+  - **Event type**: `mobile_app_notification_action`
+  - **Event data**: `action: ACKNOWLEDGE_GARAGE`
+- **Action**: Turn off
+  - **Target**: Garage door alert
+
+{% details "YAML example for acknowledging an alert from a phone notification" %}
+
+{% example %}
+automation: |
+  alias: "Acknowledge the garage door alert from my phone"
+  triggers:
+    - trigger: event
+      event_type: mobile_app_notification_action
+      event_data:
+        action: ACKNOWLEDGE_GARAGE
+  actions:
+    - action: alert.turn_off
+      target:
+        entity_id: alert.garage_door
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: turn the alert back on when you leave
+
+You acknowledged the garage door alert while you were home. When you leave, you want reminders again if the door is still open.
+
+- **Trigger**: Zone
+  - **Entity with location**: You (`person.you`)
+  - **Zone**: Home
+  - **Event**: Leave
+- **Action**: Turn on
+  - **Target**: Garage door alert
+
+{% details "YAML example for turning an alert back on when you leave" %}
+
+{% example %}
+automation: |
+  alias: "Turn the garage door alert back on when I leave"
+  triggers:
+    - trigger: zone
+      entity_id: person.you
+      zone: zone.home
+      event: leave
+  actions:
+    - action: alert.turn_on
+      target:
+        entity_id: alert.garage_door
+{% endexample %}
+
+{% enddetails %}
