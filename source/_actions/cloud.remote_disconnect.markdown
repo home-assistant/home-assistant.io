@@ -37,6 +37,10 @@ action: |
   action: cloud.remote_disconnect
 {% endexample %}
 
+### Options in YAML
+
+This action has no additional options in YAML.
+
 ## Good to know
 
 - You need to be signed in to [Home Assistant Cloud](/integrations/cloud/) for remote access to work.
@@ -45,6 +49,56 @@ action: |
 - To turn remote access on again, use [Enable Home Assistant Cloud remote access](/actions/cloud.remote_connect/).
 
 {% include actions/try_it.md %}
+
+{% include actions/more_examples.md %}
+
+### Automation: turn off remote access when you get home
+
+When you're home, you reach Home Assistant on your local network. This automation turns remote access off when you arrive.
+
+- **Trigger**: Zone
+  - **Entity with location**: You (`person.you`)
+  - **Zone**: Home
+  - **Event**: Enter
+- **Action**: Home Assistant Cloud: Disable Home Assistant Cloud remote access
+
+{% details "YAML example for turning off remote access when you get home" %}
+
+{% example %}
+automation: |
+  alias: "Turn off remote access when I get home"
+  triggers:
+    - trigger: zone
+      entity_id: person.you
+      zone: zone.home
+      event: enter
+  actions:
+    - action: cloud.remote_disconnect
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: turn off remote access at night
+
+Turn off remote access every night at midnight. Pair it with an automation that turns it back on in the morning.
+
+- **Trigger**: Time
+  - **At time**: 00:00
+- **Action**: Home Assistant Cloud: Disable Home Assistant Cloud remote access
+
+{% details "YAML example for turning off remote access at night" %}
+
+{% example %}
+automation: |
+  alias: "Turn off remote access at night"
+  triggers:
+    - trigger: time
+      at: "00:00:00"
+  actions:
+    - action: cloud.remote_disconnect
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 

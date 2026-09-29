@@ -53,3 +53,61 @@ config:
 ```
 
 {% include integrations/actions.md %}
+
+## Home Assistant Cloud automation examples
+
+With the remote access actions, you decide when your Home Assistant is reachable from outside your home.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: turn on remote access when you leave home
+
+Only open up remote access when you actually need it. This automation turns it on when you leave home.
+
+- **Trigger**: Zone
+  - **Entity with location**: You (`person.you`)
+  - **Zone**: Home
+  - **Event**: Leave
+- **Action**: Home Assistant Cloud: Enable Home Assistant Cloud remote access
+
+{% details "YAML example for turning on remote access when you leave" %}
+
+{% example %}
+automation: |
+  alias: "Turn on remote access when I leave"
+  triggers:
+    - trigger: zone
+      entity_id: person.you
+      zone: zone.home
+      event: leave
+  actions:
+    - action: cloud.remote_connect
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: turn off remote access when you get home
+
+When you're home, you reach Home Assistant on your local network. This automation turns remote access off when you arrive.
+
+- **Trigger**: Zone
+  - **Entity with location**: You (`person.you`)
+  - **Zone**: Home
+  - **Event**: Enter
+- **Action**: Home Assistant Cloud: Disable Home Assistant Cloud remote access
+
+{% details "YAML example for turning off remote access when you get home" %}
+
+{% example %}
+automation: |
+  alias: "Turn off remote access when I get home"
+  triggers:
+    - trigger: zone
+      entity_id: person.you
+      zone: zone.home
+      event: enter
+  actions:
+    - action: cloud.remote_disconnect
+{% endexample %}
+
+{% enddetails %}
