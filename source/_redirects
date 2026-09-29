@@ -836,6 +836,7 @@ layout: null
 # Legacy text-to-speech platforms register their own <platform>_say action
 /actions/tts.amazon_polly_say /actions/tts.say/ 301
 /actions/tts.baidu_say /actions/tts.say/ 301
+/actions/tts.demo_say /actions/tts.say/ 301
 /actions/tts.cloud_say /actions/tts.say/ 301
 /actions/tts.google_cloud_say /actions/tts.say/ 301
 /actions/tts.google_translate_say /actions/tts.say/ 301
