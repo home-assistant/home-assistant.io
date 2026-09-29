@@ -141,7 +141,7 @@ If you write a template that does not read any state or use `now()`, it runs _on
 
 The **Template editor** shows the result of your template right away. It updates the result while you type, and when the states that the template uses change. That makes it great for testing, but a template that works in the editor does not always work in an automation.
 
-{% details "Template with `this` or `trigger` shows an error in the editor" %}
+{% details "Template with `this` or `trigger` shows an error or an empty result in the editor" %}
 
 ### Symptom: the editor shows an error or an empty result for a template that uses `this` or `trigger`
 
