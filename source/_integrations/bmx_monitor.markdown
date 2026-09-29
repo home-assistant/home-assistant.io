@@ -4,7 +4,7 @@ description: Read a BM2 battery monitor over Bluetooth.
 ha_category: Sensor
 ha_platforms:
   - sensor
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_quality_scale: bronze
 ha_config_flow: true
 ha_bluetooth: true
