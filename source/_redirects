@@ -744,6 +744,37 @@ layout: null
 /blog/2025/03/05/music-assistants-next-big-hit/ https://www.music-assistant.io/blog/2025/03/05/music-assistants-next-big-hit/ 301!
 /blog/2024/05/09/music-assistant-2/ https://www.music-assistant.io/blog/2024/05/09/music-assistant-2/ 301!
 
+# Misspelled or guessed installation URLs
+/instalation /installation/ 301
+/instalation/* /installation/:splat 301
+/intallation /installation/ 301
+/intallation/* /installation/:splat 301
+/istallation /installation/ 301
+/istallation/* /installation/:splat 301
+/installations /installation/ 301
+/installations/* /installation/:splat 301
+/install /installation/ 301
+/install/* /installation/:splat 301
+/installation/generic /installation/generic-x86-64/ 301
+/installation/generic-86-64 /installation/generic-x86-64/ 301
+/installation/generic-x-86-64 /installation/generic-x86-64/ 301
+/installation/generic-x84-64 /installation/generic-x86-64/ 301
+/installation/generic-x86 /installation/generic-x86-64/ 301
+/installation/generic-x86-x64 /installation/generic-x86-64/ 301
+/installation/genericx86-64 /installation/generic-x86-64/ 301
+/installation/x86 /installation/generic-x86-64/ 301
+/installation/x86-64 /installation/generic-x86-64/ 301
+/installation/raspberry-pi /installation/raspberrypi/ 301
+/installation/proxmox /installation/ 301
+/installation/virtual-machine /installation/ 301
+/installation/virtualbox /installation/ 301
+/installation/vmware /installation/ 301
+/installation/container /installation/linux/#install-home-assistant-container 301
+/installation/docker /installation/linux/#install-home-assistant-container 301
+/docs/installation/hassbian/* /installation/ 301
+/getting-started/installation-raspberry-pi-image /installation/raspberrypi/ 301
+/getting-started/installation-synology /installation/ 301
+
 # Other blog redirects
 /blog/2017/02/22/home-assistant-tshirts-have-arrived/ /blog/2026/02/19/open-home-foundation-merch-store-announcement/ 301!
 
