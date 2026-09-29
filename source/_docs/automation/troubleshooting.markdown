@@ -54,7 +54,7 @@ If you are writing automations in YAML, it is also useful to go to {% my server_
 
 ## Traces
 
-Every time an {% term automation %} runs, Home Assistant records a trace: a step-by-step record of what happened. The trace shows which {% term trigger %} started the automation, whether each {% term condition %} passed, what each {% term action %} did, and which variables changed. Use it to find out why an automation did not do what you expected.
+Every time an {% term automation %} runs, Home Assistant records a trace: a step-by-step record of what happened. The trace shows which {% term trigger %} started the automation, whether each {% term condition %} passed, what each {% term action %} did, and which variables changed. If you ran the actions manually, the trace only shows the steps that ran, without a trigger or conditions. Use it to find out why an automation did not do what you expected.
 
 Home Assistant keeps the last 5 traces of each automation. Some triggers also record a trace when they notice a relevant change but do not start the automation. These traces are marked **Did not trigger**. They are kept separately, so they never replace the traces of real runs.
 
@@ -66,9 +66,11 @@ Do this when an automation did not run as expected, to see which path it took an
 
 1. Do one of the following:
    - Go to {% my automations title="**Settings** > **Automations & scenes**" %}. In the automation list, select **Overflow menu** {% icon "mdi:dots-vertical" %} next to the automation, and then select **Traces**.
+     - Result: The trace of the latest run opens.
    - In the automation editor, select **Traces** in the top bar. On narrow screens, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Traces**.
+     - Result: The trace of the latest run opens.
    - In **Activity**, select **View trace** next to an entry of the automation.
-   - Result: The trace of the latest run opens.
+     - Result: The trace of the run that created this entry opens.
 2. To see another run, select it under **Select trace**, or select **Older trace** {% icon "mdi:ray-start-arrow" %} or **Newer trace** {% icon "mdi:ray-end-arrow" %}.
    - The list shows when each run started and how it ended, for example, **Stopped because a condition failed**.
 
