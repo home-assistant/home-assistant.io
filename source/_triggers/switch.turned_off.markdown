@@ -2,14 +2,12 @@
 title: "Switch turned off"
 trigger: switch.turned_off
 domain: switch
-description: "Triggers after one or more switches turn off."
+description: "Triggers when one or more switches turn off."
 related_triggers:
   - switch.turned_on
 ---
 
 The **Switch turned off** trigger is useful when you want to react after a switch is deactivated. Use it to end a related routine, restore another device to its normal state, or send a reminder if a switch shuts down when you did not expect it to.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

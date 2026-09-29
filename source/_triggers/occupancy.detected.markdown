@@ -2,7 +2,7 @@
 title: "Occupancy detected"
 trigger: occupancy.detected
 domain: occupancy
-description: "Triggers after one or more occupancy sensors detect that a space is occupied."
+description: "Triggers when one or more occupancy sensors start detecting occupancy."
 related_triggers:
   - occupancy.cleared
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Occupancy detected** trigger fires when one or more occupancy sensors report that a space is now occupied.
 
 Use it to automate actions, such as turning on lights, adjusting climate, or sending notifications, when a room or area becomes occupied. Use a single sensor for a specific room and a group of sensors for larger spaces.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

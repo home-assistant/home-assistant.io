@@ -10,8 +10,6 @@ related_conditions:
 
 The **Volatile organic compounds ratio value** condition passes when a <abbr title="volatile organic compounds">VOC</abbr> ratio sensor's reading meets a specific level. Some sensors express VOC levels as a ratio or index rather than an absolute concentration, which makes it easier to compare readings across different environments. This condition lets your automation act on that relative reading, for example sending a reminder to open a window in the bedroom when the VOC ratio climbs after a room has been closed up all day.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

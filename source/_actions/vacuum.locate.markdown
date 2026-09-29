@@ -15,7 +15,7 @@ To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
-3. Add an action and search for **Vacuum: Locate vacuum cleaner**.
+3. Add an action and search for **Locate vacuum cleaner**.
 4. Select one or more vacuums, area, or group.
 5. Select **Save**.
 

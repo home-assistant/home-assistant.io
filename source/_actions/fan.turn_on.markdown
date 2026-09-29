@@ -10,8 +10,6 @@ related_actions:
 
 The **Turn on fan** action is useful when you want to start airflow right away. You can simply turn the fan on, or turn it on with a specific speed or preset mode in the same step.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action in an automation or script:

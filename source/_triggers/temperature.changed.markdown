@@ -2,7 +2,7 @@
 title: "Temperature changed"
 trigger: temperature.changed
 domain: temperature
-description: "Triggers after one or more temperature readings change."
+description: "Triggers when one or more temperature readings change."
 related_triggers:
   - temperature.crossed_threshold
 ---
@@ -11,43 +11,25 @@ The **Temperature changed** trigger fires after a temperature reading changes. T
 
 Use **Temperature changed** to log temperature trends, trigger heating or cooling when the temperature in a room changes noticeably, or alert you when a sensor reading shifts in a way that might signal a problem.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
-To use **Temperature changed** in an automation:
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation, or select **Create automation** > **Create new automation**.
-3. In the **When** section, select **Add trigger**.
-4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your temperature sensor is in (like your bedroom or living room). You can also select a device, a specific entity, or a label.
-5. From the triggers shown for that target, select **Temperature changed**.
-6. Under **Threshold type**, configure what kind of change fires the trigger:
-   - Select **Any change** to fire on any change, regardless of direction or new value.
-   - Select **Above** or **Below** and enter a value to fire only when the new reading is above or below that value.
-   - Select **In range** and enter a lower and upper bound to fire only when the new reading falls inside the range.
-   - Select **Outside range** and enter a lower and upper bound to fire only when the new reading is outside the range.
-   - For each option, you can enter a fixed temperature, pick a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold.
-     - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
-7. Under **Unit**, select the temperature unit (°C or °F) to use for the threshold comparison.
-8. Select **Save**.
+{% include triggers/threshold_changed_steps.md
+   title="Temperature changed"
+   sensor="temperature sensor"
+   areas="bedroom or living room"
+   unit_phrase_ui="a fixed temperature"
+   has_unit="true"
+   unit_label="temperature unit"
+   unit_options="°C or °F" %}
 
 ### Options in the UI
 
-{% options_ui %}
-Threshold type:
-  description: |
-    Controls which changes fire the trigger:
-
-    - **Any change**: fires on any change, regardless of direction or new value.
-    - **Above** or **Below** (exclusive): fires only when the new reading is strictly above or below the threshold. A reading equal to the threshold does not fire the trigger.
-    - **In range** (exclusive): fires only when the new reading is strictly between the two bounds. A reading equal to either bound does not fire the trigger.
-    - **Outside range** (inclusive): fires when the new reading is at or below the lower bound, or at or above the upper bound. A reading equal to either bound fires the trigger.
-
-    For each mode you can enter a fixed temperature or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
-Unit:
-  description: The temperature unit to use for threshold comparison. Accepts `°C` or `°F`. Required when using numerical thresholds (not required when using entity references). Default is `°C`.
-{% endoptions_ui %}
+{% include triggers/threshold_changed_options_ui.md
+   unit_phrase_ui="a fixed temperature"
+   has_unit="true"
+   unit_label="temperature unit"
+   unit_options_code="`°C` or `°F`"
+   unit_default="°C" %}
 
 {% include triggers/yaml_header.md %}
 
@@ -108,45 +90,24 @@ trigger: |
 
 YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
-{% options_yaml %}
-threshold:
-  description: |
-    A mapping that defines which kind of change fires the trigger:
-
-    - `type: any`: Fires on any temperature change (no additional keys needed).
-    - `type: above` (exclusive): Sets a minimum. Fires when the reading is strictly above `value`. A reading equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: below` (exclusive): Sets a maximum. Fires when the reading is strictly below `value`. A reading equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: between` (exclusive): Defines a range. Fires when the reading is strictly between `value_min` and `value_max`. Readings equal to either bound do not fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: outside` (inclusive): Defines an outside-range. Fires when the reading is at or below `value_min`, or at or above `value_max`. Readings equal to either bound fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-
-    When using the `number` key, you must also include `unit_of_measurement` to specify the temperature unit (`°C` or `°F`). When using the `entity` key, the unit is taken from the entity itself, or assumed to be the system temperature unit if the entity has no unit.
-
-    For example:
-
-    ```yaml
-    threshold:
-      type: outside
-      value_min:
-        entity: input_number.comfort_temperature_min
-      value_max:
-        number: 24
-        unit_of_measurement: °C
-    ```
-
-    A `sensor` or `number` entity's current value is used as the threshold, which lets you compare two temperature readings dynamically.
-  required: true
-  type: map
-{% endoptions_yaml %}
+{% include triggers/threshold_changed_options_yaml.md
+   unit_phrase_yaml="literal number"
+   has_unit="true"
+   unit_label="temperature unit"
+   unit_options_code="`°C` or `°F`"
+   unit_default="°C"
+   unit_example_entity="input_number.comfort_temperature_min"
+   unit_example_value="24" %}
 
 {% include triggers/targets.md %}
 
 ## Good to know
 
+- Use a target that provides a current temperature. Climate, water heater, and weather entities must expose a current temperature attribute. Entities without a valid temperature value are excluded automatically.
+- You can also use a sensor with the temperature device class.
 - The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when temperature first crosses a specific level, use [Temperature crossed threshold](/triggers/temperature.crossed_threshold/) instead.
-- The trigger works with [climate](/integrations/climate/) entities, [water heater](/integrations/water_heater/) entities, [weather](/integrations/weather/) entities, and sensors with the temperature device class.
-- Climate, water heater, and weather entities that don't report a current temperature attribute are automatically excluded from the trigger. Only entities with a valid temperature value can fire the trigger.
 - All temperature values are automatically converted to the unit you specify. For example, if your sensor reports in Fahrenheit but you configure the trigger in Celsius, the conversion happens automatically.
 
 {% include triggers/try_it.md %}

@@ -135,7 +135,7 @@ verify_ssl:
   description: Whether to verify the SSL certificate of the endpoint.
   required: false
   type: boolean
-  default: True
+  default: true
 ssl_cipher_list:
   description: The list of SSL ciphers to be accepted from this endpoint. `python_default` (_default_), `modern` or `intermediate` (_inspired by [Mozilla Security/Server Side TLS](https://wiki.mozilla.org/Security/Server_Side_TLS)_).
   required: false

@@ -147,7 +147,7 @@ tags_attributes:
   default: 0
 ignore_attributes:
   type: [string, list]
-  description: The list of attribute names to ignore when reporting to InfluxDB. This can be used to filter out attributes that either don't change or don't matter to you in order to reduce the amount of data stored in InfluxDB. Please be aware of the underlying InfluxDB mechanism that converts non-string attributes to strings and adds a `_str` suffix to the attribute name in this case. It means that when you want to ignore, for example, the `icon_str` attribute that shows in your InfluxDB instance, you need to provide `icon` to `ignore_attributes`.
+  description: The list of attribute names to ignore when reporting to InfluxDB. This can be used to filter out attributes that either don't change or don't matter to you to reduce the amount of data stored in InfluxDB. Please be aware of the underlying InfluxDB mechanism that converts non-string attributes to strings and adds a `_str` suffix to the attribute name in this case. It means that when you want to ignore, for example, the `icon_str` attribute that shows in your InfluxDB instance, you need to provide `icon` to `ignore_attributes`.
   required: false
 component_config:
   type: string
@@ -492,7 +492,7 @@ queries_flux:
       default: Home Assistant
     imports:
       type: [string, list]
-      description: Libraries to import in order to execute your query. Ex. `strings`, `date`, `experimental/query`, etc.
+      description: Libraries to import to execute your query. For example, `strings`, `date`, or `experimental/query`.
       required: false
 {% endconfiguration %}
 

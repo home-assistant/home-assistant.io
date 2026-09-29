@@ -38,7 +38,7 @@ Coordinates | API calls per month
 Consider each restart of Home Assistant is an additional API call, per coordinate/entry.
 
 You can set up a [budget](https://cloud.google.com/billing/docs/how-to/budgets) for your billing account. This does not limit your costs, but you can get an alert when you reach the budget.
-You may want to setup [disable billing with notifications](https://cloud.google.com/billing/docs/how-to/disable-billing-with-notifications). This can still produce costs between incurring costs and receiving budget notifications.
+You may want to set up [disable billing with notifications](https://cloud.google.com/billing/docs/how-to/disable-billing-with-notifications). This can still produce costs between incurring costs and receiving budget notifications.
 
 Make sure to monitor the cost. If you make too many requests, you will be charged for it. The integration cannot monitor it for you.
 {% endimportant %}

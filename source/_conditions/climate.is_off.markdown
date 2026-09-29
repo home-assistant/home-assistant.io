@@ -12,8 +12,6 @@ The **Thermostat is off** condition passes when a thermostat {% term entity %} i
 
 When you target more than one thermostat, the condition's **behavior** option controls how the check combines results. You can require any targeted thermostat to be off, or demand that all of them are.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

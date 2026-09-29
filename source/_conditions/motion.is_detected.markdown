@@ -9,8 +9,6 @@ related_conditions:
 
 The **Motion is detected** condition passes when one or more motion sensors are detecting motion. Use it in an automation for turning devices on or off, running security checks or sending alerts if motion is detected.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

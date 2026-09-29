@@ -13,8 +13,6 @@ The **Humidifier is off** condition passes when a humidifier {% term entity %} i
 
 When you target more than one humidifier, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted humidifier to be off, or demand that all of them are.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Humidifier is off** in an automation:

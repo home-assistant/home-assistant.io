@@ -12,8 +12,6 @@ The **Media player is muted** condition passes when the selected media player is
 
 Use **Media player is muted** to avoid sending spoken announcements over a muted speaker, to change lighting only during quiet listening, or to branch into a different action when a TV is muted.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Media player is muted** in an automation:

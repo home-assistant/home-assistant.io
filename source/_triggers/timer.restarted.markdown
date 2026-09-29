@@ -10,8 +10,6 @@ related_triggers:
 
 The **Timer restarted** trigger fires when you start a timer that is already active or paused. Use it when you want a different response for restarting a timer than for starting a new one.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -30,6 +28,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple timers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted timer is restarted, **First** to fire only for the first restarted timer, or **All** to fire only after all targeted timers are restarted.
+  required: false
 For at least:
   description: How long the timer must remain restarted before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}

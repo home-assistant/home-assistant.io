@@ -23,7 +23,6 @@ ha_integration_type: service
 
 The **Jellyfin** {% term integration %} exposes a [Jellyfin](https://jellyfin.org/) server as a media source in Home Assistant. This integration has been tested with Jellyfin server version 10.6.4 and later.
 
-
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -46,14 +45,14 @@ Audio Codec:
 
 ### Media player entities
 
-This integration sets up every media session connected to the Jellyfin server as a media player in Home Assistant. These entities will display media information, playback progress, and playback controls. Browsing media inside Home Assistant in a player's context provides all supported library types.
+This integration sets up every media session connected to the Jellyfin server as a [media player](/integrations/media_player/) in Home Assistant. These entities display media information, playback progress, and playback controls.
 
 ### Remote entities
 
 This integration also creates a `remote` {% term entity %} for sending [Jellyfin remote commands](https://github.com/jellyfin/jellyfin/blob/master/MediaBrowser.Model/Session/GeneralCommandType.cs) to each client, if supported. For example, the following script can be used to tell the client to navigate right twice, down once, and select the focused item:
 
-```yaml
-jellyfin_remote_script:
+{% example %}
+script: |
   alias: "Jellyfin Remote Script"
   sequence:
     - action: remote.send_command
@@ -66,174 +65,82 @@ jellyfin_remote_script:
           - MoveRight
           - MoveDown
           - Select
-```
+{% endexample %}
 
-## Actions
+{% include integrations/actions.md %}
 
-### Action browse_media
+Jellyfin media player entities also support the following shared [media player actions](/integrations/media_player/#list-of-actions), depending on the capabilities of the Jellyfin client:
 
-You can use the `media_player.browse_media` action to step through your Jellyfin library to find media you want to play. An `entity_id` must be passed so that Jellyfin knows what content the player is authorized to view and is capable of playing (e.g., so that speakers will not attempt to play video).
+- [Browse media](/actions/media_player.browse_media/)
+- [Search media](/actions/media_player.search_media/)
+- [Play specified media](/actions/media_player.play_media/)
+- [Play media](/actions/media_player.media_play/)
+- [Pause media](/actions/media_player.media_pause/)
+- [Play/Pause media](/actions/media_player.media_play_pause/)
+- [Stop media](/actions/media_player.media_stop/)
+- [Seek media](/actions/media_player.media_seek/)
+- [Set media player volume](/actions/media_player.volume_set/), if the client supports setting the volume
+- [Turn up media player volume](/actions/media_player.volume_up/) and [Turn down media player volume](/actions/media_player.volume_down/), if the client supports setting the volume
+- [Mute/unmute media player](/actions/media_player.volume_mute/), if the client supports muting and unmuting
 
-- Data attribute: `media_content_id`
-  - Optional: Yes.
-  - Description: Unique identifier of the content into which you want to browse. If unset, you will begin browsing at the root node.
-  - Example: `a656b907eb3a73532e40e44b968d0225`
+Jellyfin supports the `next` and `add` enqueue options for the [Play specified media](/actions/media_player.play_media/) action. The `play` and `replace` options replace the current play queue, as if `enqueue` was not set. The selection of `media_content_type` is generally inconsequential to Jellyfin, and any string can be supplied here to pass validation.
 
-#### Examples:
-```yaml
-action: media_player.browse_media
-target:
-  entity_id: media_player.jellyfin
-data:
-  media_content_id: a656b907eb3a73532e40e44b968d0225
-```
+To find the `media_content_id` of the content you want to play, browse or search your library with the [Browse media](/actions/media_player.browse_media/) and [Search media](/actions/media_player.search_media/) actions.
 
-#### Response
-```yaml
-media_player.jellyfin:
-  title: Series
-  media_class: directory
-  media_content_type: None
-  media_content_id: a656b907eb3a73532e40e44b968d0225
-  children_media_class: directory
-  can_play: false
-  can_expand: true
-  can_search: false
-  thumbnail: >-
-    https://jellyfin
-  not_shown: 0
-  children:
-    - title: "Tales of the Jedi"
-      media_class: directory
-      media_content_type: tvshow
-      media_content_id: 34361f3855c9c0ac39b0f7503fe86be0
-      children_media_class: null
-      can_play: false
-      can_expand: true
-      can_search: false
-      thumbnail: >-
-        https://jellyfin
-```
+## Jellyfin automation examples
 
-### Action search_media
+The following examples show actions you can add to an automation or script to play Jellyfin media. Replace the `media_content_id` values with IDs from your own Jellyfin library.
 
-You can use the `media_player.search_media` action to find media you want to play. As with browsing, an `entity_id` is required.
+{% include docs/paste_yaml_tip.md %}
 
-- Data attribute: `search_query`
-  - Optional: No.
-  - Description: The term for which to search.
+### Automation: Play a movie
 
-#### Examples:
+Play a movie on a Jellyfin client that supports playback.
 
-```yaml
-action: media_player.search_media
-target:
-  entity_id:
-    - media_player.jellyfin
-data:
-  search_query: star
-```
-#### Response
-```yaml
-media_player.jellyfin:
-  version: 1
-  result:
-    - title: Star Wars
-      media_class: directory
-      media_content_type: Video
-      media_content_id: 895dc4e1066da92847d48f9be28eb77c
-      children_media_class: null
-      can_play: false
-      can_expand: false
-      can_search: false
-      thumbnail: >-
-        https://jellyfin
-      not_shown: 0
-      children: []
-    - title: Star Trek
-      media_class: directory
-      media_content_type: Video
-      media_content_id: 5ae55567cae75c26671a0a6b027bdd5b
-      children_media_class: null
-      can_play: false
-      can_expand: false
-      can_search: false
-      thumbnail: >-
-        https://jellyfin
-      not_shown: 0
-      children: []
-```
-### Action play_media
+- **Action**: Play media
+  - **Target**: Living room (`media_player.living_room`)
+  - **Media content ID**: `a982a31451450daeda02c89952e6d7cf`
+  - **Media content type**: `movie`
 
-To play media on any player you first need to find the `media_content_id` of the content you want to play, through either [browsing to the media](#action-browse_media) or [searching media](#action-search_media). An `entity_id` target is required.
+{% details "YAML example for playing a movie" %}
 
-- Data attribute: `media_content_id`
-  - Optional: No.
-  - Description: Unique identifier of the content you want to play.
-  - Example: `a982a31451450daeda02c89952e6d7cf`
-- Data attribute: `media_content_type`
-  - Optional: No.
-  - Description: The type of content you are playing, one of "episode", "season", "tvshow", "movie", or "music".
-  - Example: `tvshow`
-- Data attribute: `enqueue`
-  - Optional: Yes.
-  - Description: When set, queue up the media as described. Select one of "next" to play the content after the current media is finished, or "add" to append the media to the end of the current play queue. When unset, the current play queue will be replaced with the selected content.
-  - Example: `next`
+{% example %}
+action: |
+  action: media_player.play_media
+  target:
+    entity_id: media_player.living_room
+  data:
+    media_content_id: a982a31451450daeda02c89952e6d7cf
+    media_content_type: movie
+{% endexample %}
 
-#### Examples:
+{% enddetails %}
 
-Play a movie on one of the Jellyfin clients that supports playback.
+### Automation: Queue an episode
 
-```yaml
-action: media_player.play_media
-target:
-  entity_id:
-    - media_player.living_room
-data:
-  media_content_id: a982a31451450daeda02c89952e6d7cf
-  media_content_type: movie
-```
+Add a TV episode to play next on a Jellyfin client.
 
-Add a TV episode to the play queue on a Jellyfin client that supports playback.
+- **Action**: Play media
+  - **Target**: Living room (`media_player.living_room`)
+  - **Media content ID**: `5ae55567cae75c26671a0a6b027bdd5b`
+  - **Media content type**: `episode`
+  - **Enqueue**: `next`
 
-```yaml
-action: media_player.play_media
-target:
-  entity_id:
-    - media_player.living_room
-data:
-  media_content_id: 5ae55567cae75c26671a0a6b027bdd5b
-  media_content_type: episode
-  enqueue: next
-```
+{% details "YAML example for queueing an episode" %}
 
-### Action jellyfin.play_media_shuffle
+{% example %}
+action: |
+  action: media_player.play_media
+  target:
+    entity_id: media_player.living_room
+  data:
+    media_content_id: 5ae55567cae75c26671a0a6b027bdd5b
+    media_content_type: episode
+    enqueue: next
+{% endexample %}
 
-The Jellyfin API supports shuffling of a directory (series/tvshow or season) when beginning playback. This is enabled through a separate {% term service %} to [play_media](#action-play_media). This will immediately replace the current play queue of the client with the shuffled media. An `entity_id` target is required.
-
-- Data attribute: `media_content_id`
-  - Optional: No.
-  - Description: Unique identifier of the content you want to play.
-  - Example: `895dc4e1066da92847d48f9be28eb77c`
-
-#### Examples:
-
-Shuffle play a full season of a TV show on a Jellyfin client.
-
-```yaml
-action: jellyfin.play_media_shuffled
-target:
-  entity_id:
-    - media_player.chrome
-data:
-  media_content_id: 34361f3855c9c0ac39b0f7503fe86be0
-```
-
-## Notes
-
-- The [player](#action-play_media) supports the enqueue options "next" and "add" only. The options "play" and "replace" will act as if the `enqueue` key was not set, and will replace the current play queue.
-- The selection of `media_content_type` is generally inconsequential to Jellyfin, and any string can be supplied here to pass validation.
+{% enddetails %}
 
 ## Known limitations
 
-- Support is currently limited to music, movie and TV show libraries only. Other libraries will not appear in the media browser.
+- Support is currently limited to music, movie, and TV show libraries only. Other libraries do not appear in the media browser.

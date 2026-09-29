@@ -7,8 +7,6 @@ description: "Tests if one or more calendars have an active event."
 
 The **Calendar event is active** condition passes when a calendar {% term entity %} has an active event. Use it to gate an automation so it only runs when a specific calendar event has started and not yet ended.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

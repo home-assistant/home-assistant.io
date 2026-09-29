@@ -13,8 +13,6 @@ The **Humidifier is drying** condition passes when a humidifier {% term entity %
 
 When you target more than one humidifier, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted device to be actively drying, or demand that all of them are.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Humidifier is drying** in an automation:
@@ -89,7 +87,7 @@ When the basement dehumidifier is actively removing moisture, open the basement 
 - **Condition**: Humidifier is drying
   - **Target**: Basement dehumidifier
   - **Condition passes if**: Any
-- **Action**: Cover: Open cover
+- **Action**: Open cover
 
 {% details "YAML example for opening a vent while the dehumidifier is active" %}
 

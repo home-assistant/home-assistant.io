@@ -16,74 +16,35 @@ ha_codeowners:
 ha_integration_type: device
 ---
 
-The **LG Netcast** {% term integration %} allows you to control a LG Smart TV running NetCast 3.0 (LG Smart TV models released in 2012) and NetCast 4.0 (LG Smart TV models released in 2013). For the new LG WebOS TV's use the [webostv](/integrations/webostv#media-player) platform.
+The **LG Netcast** {% term integration %} allows you to control a LG Smart TV running NetCast 3.0 (LG Smart TV models released in 2012) and NetCast 4.0 (LG Smart TV models released in 2013).
+For the new LG webOS TV's use the [LG webOS TV](/integrations/webostv#media-player) platform.
 
 {% include integrations/config_flow.md %}
 
-## Turn on action
-
-Home Assistant can turn on an LG Netcast TV if you specify an action provided by an {% term integration %} like [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/).
-
-1. To create an automation, go to {% my integrations title="**Settings** > **Devices & services**" %} and open the device page.
-2. Under **Automations**, select the + icon to create an automation with that device.
-3. In the dialog, select the **Device is requested to turn on** automation.
-
-Automations can also be created using an automation action:
-
-The example below shows how you can use the `turn_on_action` with the [`wake_on_lan` integration](/integrations/wake_on_lan/).
-
-```yaml
-# Example configuration.yaml entry
-wake_on_lan: # enables `wake_on_lan` integration
-
-# Enables the `lg_netcast` media player
-automation:
-  - alias: "Turn On Living Room TV with WakeOnLan"
-    triggers:
-      - trigger: lg_netcast.turn_on
-        entity_id: media_player.lg_netcast_smart_tv
-    actions:
-      - action: wake_on_lan.send_magic_packet
-        data:
-          mac: AA-BB-CC-DD-EE-FF
-          broadcast_address: 11.22.33.44
-```
-
-Any other [actions](/docs/automation/action/) to power on the device can be configured.
-
-## Change channel through play_media action
-
-The `play_media` action can be used in a script to switch to the specified TV channel. It selects the major channel number according to the `media_content_id` parameter:
-
-```yaml
-# Example action entry in script to switch to channel number 15
-action: media_player.play_media
-target:
-  entity_id: media_player.lg_tv
-data:
-  media_content_id: 15
-  media_content_type: channel
-```
+{% include integrations/triggers.md %}
 
 ## Remote
 
-The LG Netcast remote platform creates a `Remote` entity for each configured TV. This entity allows you to send remote control commands. To power on the TV, use the turn on automation trigger described above.
+The LG Netcast integration creates a media player entity and a remote entity for each configured TV.
 
-### Action: Send command
+To change channels from an automation or script, use the [**Play specified media**](/actions/media_player.play_media/) action and select your LG Netcast media player entity as the target. Set **Media content ID** to the channel number and **Media content type** to `channel`.
 
-The `remote.send_command` action sends one or more remote commands to the TV.
+To send remote control commands, use the `remote.send_command` action provided by the [Remote](/integrations/remote/) integration and select your LG Netcast remote entity as the target.
 
-- **Data attribute**: `command`
-  - **Description**: Command, or list of commands, to send. See the list below.
-  - **Optional**: No
+### Sending remote commands in automations
 
-- **Data attribute**: `num_repeats`
-  - **Description**: Number of times to repeat the command sequence. The default is `1`.
-  - **Optional**: Yes
+To send a remote command from an automation or a script:
 
-- **Data attribute**: `delay_secs`
-  - **Description**: Delay in seconds between commands and repeats.
-  - **Optional**: Yes
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you are setting up a new automation, add a trigger in the **When** section. Scripts do not need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Select what you want to control. Under **By target**, select your LG Netcast remote entity.
+6. From the actions shown for that target, select **Send remote command**.
+7. Enter the **Command** to send.
+8. Select **Save**.
+
+Supported commands include:
 
 {% details "Full key code list" %}
 
@@ -154,27 +115,4 @@ The `remote.send_command` action sends one or more remote commands to the TV.
 
 {% enddetails %}
 
-### Examples
-
-Send a single command:
-
-```yaml
-action: remote.send_command
-target:
-  entity_id: remote.lg_tv
-data:
-  command: HOME_MENU
-```
-
-Send repeated commands with a delay:
-
-```yaml
-action: remote.send_command
-target:
-  entity_id: remote.lg_tv
-data:
-  command:
-    - VOLUME_UP
-  num_repeats: 5
-  delay_secs: 0.3
-```
+To power on the TV, use the [Device is requested to turn on](/triggers/lg_netcast.turn_on/) trigger.

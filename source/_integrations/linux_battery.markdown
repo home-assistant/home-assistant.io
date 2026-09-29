@@ -19,7 +19,7 @@ ha_quality_scale: legacy
 
 The **Linux Battery** {% term integration %} is using the information stored in `/sys/class/power_supply/` on your local Linux system to display details about the current state of your battery.
 
-To setup a battery sensor to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To set up a battery sensor to your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml

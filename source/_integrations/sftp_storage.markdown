@@ -39,11 +39,11 @@ Username:
   required: true
   type: string
 Password:
-  description: Password to authenticate with. Provide this or a private key file.
+  description: Password to authenticate with. Provide this or `Private Key File`.
   required: true
   type: string
 Private Key File:
-  description: Upload a private key file used for authentication. Provide this or password.
+  description: Upload a private key file used for authentication. The key must not be protected by a passphrase. Provide this or `Password`.
   required: true
   type: selector
 Remote path:
@@ -52,7 +52,7 @@ Remote path:
   type: string
 {% endconfiguration_basic %}
 
-If both `Password` and `Private Key File` are provided, service will try to login with private key first, then fallback to password-based authentication if private key authentication fails.
+If both `Password` and `Private Key File` are provided, service will try to log in with private key first, then fallback to password-based authentication if private key authentication fails.
 
 ## Removing the integration
 

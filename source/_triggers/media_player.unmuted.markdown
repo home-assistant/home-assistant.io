@@ -2,7 +2,7 @@
 title: "Media player unmuted"
 trigger: media_player.unmuted
 domain: media_player
-description: "Triggers after one or more media players are unmuted."
+description: "Triggers when one or more media players are unmuted."
 related_triggers:
   - media_player.muted
   - media_player.started_playing
@@ -11,8 +11,6 @@ related_triggers:
 The **Media player unmuted** trigger fires when a media player stops being muted. Use it when you want Home Assistant to react as soon as sound is available again.
 
 Use **Media player unmuted** to restore lighting, resume a routine that depends on audio, or send a notification when a shared media player is ready to play sound again.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -37,6 +35,7 @@ Trigger when:
     - **Each**: Fires every time any targeted media player is unmuted (default).
     - **First**: Fires when the first targeted media player is unmuted.
     - **All**: Fires when every targeted media player is unmuted.
+  required: false
 For at least:
   description: How long the media player must stay unmuted before the trigger fires. The default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -62,7 +61,7 @@ trigger: |
   target:
     area_id: downstairs
   options:
-    behavior: last
+    behavior: all
     for: "00:01:00"
 {% endexample %}
 
@@ -73,12 +72,12 @@ behavior:
   description: |
     When multiple media players are targeted, controls how the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted media player is unmuted.
-    - `first` (**First** in the UI): fires when the first targeted media player is unmuted.
-    - `last` (**All** in the UI): fires when every targeted media player is unmuted.
+    - `each` (default): fires every time any targeted media player is unmuted.
+    - `first`: fires when the first targeted media player is unmuted.
+    - `all`: fires when every targeted media player is unmuted.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: How long the media player must stay unmuted before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
   required: false

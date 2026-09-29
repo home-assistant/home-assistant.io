@@ -59,44 +59,13 @@ The date platform allows you to set the filter change date.
 
 For convenient switching of ventilation profiles in the GUI, just click on the `Vallox` fan {% term entity %} to get a drop-down menu to select from. Alternatively, the action `fan/set_preset_mode` can be used.
 
-The four standard Vallox profiles are supported:
+The following Vallox profiles are supported. Availability depends on the connected unit and the presets it exposes, so some profiles may not appear on all devices:
 
 - `Home`
 - `Away`
 - `Boost`
 - `Fireplace`
+- `Extra` (available on devices/firmware that expose this preset)
+- `Auto` (available on devices/firmware that expose this preset; requires firmware v3.1.4 or newer)
 
-## Fan actions
-
-### Action: Set profile fan speed home
-
-The `vallox.set_profile_fan_speed_home` action sets the fan speed of the `Home` profile.
-
-| Data attribute | Optional | Description                                     |
-|------------------------|----------|-------------------------------------------------|
-| `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
-
-### Action: Set profile fan speed away
-
-The `vallox.set_profile_fan_speed_away` action sets the fan speed of the `Away` profile.
-
-| Data attribute | Optional | Description                                     |
-|------------------------|----------|-------------------------------------------------|
-| `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
-
-### Action: Set profile fan speed boost
-
-The `vallox.set_profile_fan_speed_boost` action sets the fan speed of the `Boost` profile.
-
-| Data attribute | Optional | Description                                     |
-|------------------------|----------|-------------------------------------------------|
-| `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
-
-### Action: Set profile
-
-The `vallox.set_profile` action sets the profile, and optionally a duration for the profile to be active.
-
-| Data attribute | Optional | Description                                                                                                                                                                           |
-|----------------|---------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `profile`      |       no | Profile to set, one of `home`, `away`, `boost`, `fireplace`, or `extra`.                                                                                                              |
-| `duration`     |      yes | Duration to activate the profile for; in minutes. `Integer` between 1 and 65535. Only applies to  `boost`, `fireplace` or `extra` profiles. 65535 sets the profile without a timeout. |
+{% include integrations/actions.md %}

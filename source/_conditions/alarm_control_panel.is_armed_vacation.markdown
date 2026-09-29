@@ -10,8 +10,6 @@ related_conditions:
 
 The **Alarm is armed vacation** condition passes when one or more alarm control panel {% term entities %} are armed in vacation mode. Use it to skip daily routines that make no sense while you are away, like stopping the morning wake-up automation from turning on lights and heating in an empty house. You could also use it the other way around: only run vacation-specific automations (like randomly toggling lights to simulate occupancy) while the alarm is in vacation mode.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -86,11 +84,11 @@ Every evening, toggle the living room lamp on or off to make the house look live
 
 Don't forget to pair it with an automation to turn the lamp off, or you'll come back from vacation to a high energy bill!
 
-- **Trigger**: Time: 20:30
+- **Trigger**: Time
+  - **At time**: 08:30:00 PM
 - **Condition**: Alarm is armed vacation
-- **Target**: Hallway alarm panel
-- **Condition passes if**: Any
-- **Action**: Light: Toggle
+  - **Target**: Hallway alarm panel
+- **Action**: Toggle light
 
 {% details "YAML example for an evening lamp toggle on vacation" %}
 
@@ -104,8 +102,6 @@ automation: |
     - condition: alarm_control_panel.is_armed_vacation
       target:
         entity_id: alarm_control_panel.hallway
-      options:
-        behavior: any
   actions:
     - action: light.toggle
       target:

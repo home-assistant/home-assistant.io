@@ -88,7 +88,7 @@ automation:
     actions:
       - action: homeassistant.turn_on
         target:
-          entity_id: group.lights_livingroom
+          entity_id: light.living_room
 ```
 
 Event data:

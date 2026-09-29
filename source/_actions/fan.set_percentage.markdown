@@ -10,8 +10,6 @@ related_actions:
 
 The **Set fan speed** action is useful when you know the exact speed you want. Use it to move a fan to a specific level, like 25% for quiet airflow or 100% for fast cooling.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action in an automation or script:

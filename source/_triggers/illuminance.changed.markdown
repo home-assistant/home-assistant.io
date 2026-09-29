@@ -2,7 +2,7 @@
 title: "Illuminance changed"
 trigger: illuminance.changed
 domain: illuminance
-description: "Triggers after one or more illuminance values change."
+description: "Triggers when one or more illuminance values change."
 related_triggers:
   - illuminance.crossed_threshold
   - illuminance.detected
@@ -11,11 +11,9 @@ related_triggers:
 
 The **Illuminance changed** trigger fires after a light level reading changes. The morning sun shining into a bedroom, a desk lamp switching on, or clouds shading a patio all show up as illuminance changes. Use the threshold type to filter which changes matter to your automation.
 
-The threshold type controls where the new reading must land for the trigger to fire. You can require the new value to be above a level, below a level, within a range, or outside a range. You can also select **Any change** to fire on any change at all.
+The threshold type controls where the new reading must land for the trigger to fire. You can require the new value to be above a level, below a level, within a range, or outside a range. The entity that changes must be an illuminance sensor. You can use a number entity with the illuminance device class as the threshold value.
 
 Use **Illuminance changed** to log light trends, react when a room becomes noticeably brighter or darker, or coordinate shades and lighting based on ambient conditions.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -31,7 +29,7 @@ To use **Illuminance changed** in an automation:
    - Select **Above** or **Below** and enter a value to fire only when the new reading is above or below that value.
    - Select **In range** and enter a lower and upper bound to fire only when the new reading falls inside the range.
    - Select **Outside range** and enter a lower and upper bound to fire only when the new reading is outside the range.
-   - For each option, you can enter a fixed value in lux, pick a sensor entity, or pick a [number helper](/integrations/input_number/) entity as the threshold.
+   - For each option, you can enter a fixed value in lux, pick a sensor entity, pick a number entity, or pick a [number helper](/integrations/input_number/) entity as the threshold.
      - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
 7. Select **Save**.
 
@@ -47,7 +45,7 @@ Threshold type:
     - **In range** (exclusive): fires only when the new reading is strictly between the two bounds. A reading equal to either bound does not fire the trigger.
     - **Outside range** (inclusive): fires when the new reading is at or below the lower bound, or at or above the upper bound. A reading equal to either bound fires the trigger.
 
-    For each mode you can enter a fixed value in lux or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
+    For each mode you can enter a fixed value in lux or reference a sensor entity, number entity, or [number helper](/integrations/input_number/) entity.
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -124,11 +122,12 @@ threshold:
 
 ## Good to know
 
+- Use a sensor with the illuminance device class.
 - Illuminance is measured in lux (lx). For reference: a brightly lit office is around 500 lx, indirect daylight is several thousand lx, and direct sunlight can exceed 100,000 lx.
+- Number entity support applies to threshold values, not to the target being checked. The number entity must use the illuminance device class.
 - The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when an illuminance reading first crosses a specific level, use [Illuminance crossed threshold](/triggers/illuminance.crossed_threshold/) instead.
-- The trigger works with sensors that have the illuminance device class, and with number entities that use lux as the unit of measurement.
 
 {% include triggers/try_it.md %}
 

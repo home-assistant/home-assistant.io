@@ -2,7 +2,7 @@
 title: "Counter reached maximum"
 trigger: counter.maximum_reached
 domain: counter
-description: "Triggers after one or more counters reach their maximum value."
+description: "Triggers when one or more counters reach their maximum value."
 related_triggers:
   - counter.incremented
   - counter.minimum_reached
@@ -11,8 +11,6 @@ related_triggers:
 
 The **Counter reached maximum** trigger fires when a counter {% term helper %} reaches its configured maximum value.
 Use it when you want Home Assistant to react when a running count has hit its limit, like sending a reminder, stopping a repeating task, or resetting a user-created counter for the next cycle.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -32,6 +30,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple counters are targeted, controls whether the trigger fires for **Each** counter, only the **First** counter, or after **All** targeted counters reach their maximum value. Default is **Each**.
+  required: false
 For at least:
   description: How long the counter must stay at its maximum before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}

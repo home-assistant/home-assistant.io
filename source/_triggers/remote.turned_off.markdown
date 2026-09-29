@@ -9,8 +9,6 @@ related_triggers:
 
 The **Remote turned off** trigger fires after a remote {% term entity %} turns off. Use it to react when a media remote, IR blaster, or RF bridge stops being active, for example to clean up a related scene or shut down other devices.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -34,6 +32,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted remote turns off.
     - **First**: fires only when the first of a group turns off.
     - **All**: fires only after every targeted remote is off.
+  required: false
 For at least:
   description: How long the remote must stay off before the trigger fires. Default is zero (fires immediately).
 {% endoptions_ui %}

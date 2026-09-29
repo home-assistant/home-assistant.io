@@ -11,6 +11,7 @@ ha_codeowners:
   - '@gresrun'
 ha_domain: centriconnect
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: device
 ha_quality_scale: bronze

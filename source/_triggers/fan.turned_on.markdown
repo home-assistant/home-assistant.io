@@ -2,14 +2,12 @@
 title: "Fan turned on"
 trigger: fan.turned_on
 domain: fan
-description: "Triggers after one or more fans turn on."
+description: "Triggers when one or more fans turn on."
 related_triggers:
   - fan.turned_off
 ---
 
 The **Fan turned on** trigger is useful when you want something else to happen as soon as a fan starts running. Use it to send a reminder, start a related device, or begin a timed routine after a fan has been on for a while.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

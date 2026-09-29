@@ -131,12 +131,12 @@ data:
   source: "Denon AVR-X2000"
 ```
 
-The Spotify API cannot initiate playback to a device not already known to the Spotify API. The source list of available devices can be found in the Details section of the Spotify Media Player Control and the `source_list` attribute in the {% my developer_states title="**Settings** > **Developer Tools** > **States**" %}.
+The Spotify API cannot initiate playback to a device not already known to the Spotify API. The source list of available devices can be found in the Details section of the Spotify Media Player Control and the `source_list` attribute in the {% my developer_states title="**Settings** > **Tools** > **States**" %}.
 
 ## Playing Spotify playlists
 
 You can send playlists to Spotify using the `"media_content_type": "playlist"`, which is part of the
-[media_player.play_media](/integrations/media_player/#action-media_playerplay_media) action, for example:
+[media_player.play_media](/integrations/media_player/#action-play-media) action, for example:
 
 ```yaml
 # Example script to play playlist

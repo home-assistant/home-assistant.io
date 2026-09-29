@@ -88,7 +88,7 @@ The primary purpose of this sensor is to use a simple time range definition inst
 
 The sensor state is ON when this condition `after` + `after_offset` <= `current time` < `before` + `before_offset`.
 
-If `after` time is later than `before` then the next day is considered, i.e.:
+If `after` time is later than `before` then the next day is considered, that is:
 
 ```yaml
 binary_sensor:

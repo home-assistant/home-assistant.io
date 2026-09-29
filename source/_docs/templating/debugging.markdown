@@ -22,7 +22,7 @@ Every template author has stared at a template that refuses to work and wondered
 
 ## The template editor
 
-Home Assistant has a built-in template editor that shows the result of a template while you type. Open it from {% my developer_template title="**Settings** > **Developer tools** > **Template**" %}.
+Home Assistant has a built-in template editor that shows the result of a template while you type. Open it from {% my developer_template title="**Settings** > **Tools** > **Template**" %}.
 
 The editor is the fastest feedback loop you have. It:
 
@@ -137,7 +137,7 @@ A common source of confusion is "why isn't my template updating?", or the opposi
 
 If you write a template that does not read any state or use `now()`, it runs _once_ at startup and never again. That is fine for constant values, but it's a common trap when you want a template to react to something.
 
-### Why does it work in Developer Tools but not in my automation?
+### Why does it work in Tools but not in my automation?
 
 The **Template editor** runs your template once, right when you open it, and shows the result. There is no ongoing re-evaluation. That makes it great for testing, but a working template in the editor does not guarantee it works in an automation.
 
@@ -183,7 +183,7 @@ The Home Assistant community is quick to help: join [Discord](https://discord.gg
 - The template you are using (copied from the editor, where you can see what it runs against).
 - What you expected the result to be.
 - What the actual result or error was.
-- The entity IDs involved (from {% my developer_states title="**Settings** > **Developer tools** > **States**" %}).
+- The entity IDs involved (from {% my developer_states title="**Settings** > **Tools** > **States**" %}).
 
 {% tip %}
 AI assistants like ChatGPT or Claude can also explain or fix templates when you describe what you want in plain language.

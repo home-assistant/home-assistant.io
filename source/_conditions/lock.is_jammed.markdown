@@ -9,8 +9,6 @@ related_conditions:
 
 The **Lock is jammed** condition helps you check whether a lock is currently stuck. Use it when you want an automation to react only while the problem is still present, like sending repeated reminders or turning on more light at the door.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

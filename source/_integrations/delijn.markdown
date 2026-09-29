@@ -81,4 +81,4 @@ sensor:
 
 ## Custom dashboard card
 
-Works best with the following custom dashboard card: <https://github.com/bollewolle/delijn-card>
+Works best with the following custom dashboard card: [delijn-card](https://github.com/bollewolle/delijn-card)

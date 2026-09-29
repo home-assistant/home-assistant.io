@@ -2,7 +2,7 @@
 title: "Moisture content changed"
 trigger: moisture.changed
 domain: moisture
-description: "Triggers after one or more moisture content values change."
+description: "Triggers when one or more moisture content values change."
 related_triggers:
   - moisture.crossed_threshold
   - moisture.detected
@@ -12,8 +12,6 @@ related_triggers:
 The **Moisture content changed** trigger fires after a moisture reading changes. Soil moisture in a plant pot drops slowly as the soil dries out, climbs after watering, or hovers in a target zone when conditions are stable. Use the threshold type to filter which changes matter to your automation.
 
 Use **Moisture content changed** to log soil moisture trends, trigger plant watering when the soil becomes too dry, or alert you when a reading shifts in a way that might signal a problem.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

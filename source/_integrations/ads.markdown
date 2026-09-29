@@ -69,24 +69,7 @@ ip_address:
   type: string
 {% endconfiguration %}
 
-<!-- omit in toc -->
-## Actions
-
-The ADS integration registers the `ads.write_data_by_name` action, allowing you to write a value to a variable on your ADS device.
-
-```json
-{
-    "adsvar": ".myvariable",
-    "adstype": "int",
-    "value": 123
-}
-```
-
-Action parameters:
-
-- **adsvar**: Name of the variable on the ADS device. To access global variables on *TwinCAT2*, use a prepending dot (`.myvariable`). For TwinCAT3, use `GBL.myvariable`.
-- **adstype**: Specify the type of the variable. Use one of the following: `bool`, `byte`, `dint`, `int`, `udint`, or `uint`.
-- **value**: The value to write to the variable.
+{% include integrations/actions.md %}
 
 ## Binary sensor
 

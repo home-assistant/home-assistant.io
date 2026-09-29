@@ -1,6 +1,6 @@
 ---
 title: Device tracker
-description: Instructions on how to setup device tracking within Home Assistant.
+description: Instructions on how to set up device tracking within Home Assistant.
 ha_category:
   - Presence detection
 ha_release: 0.7
@@ -9,13 +9,18 @@ ha_domain: device_tracker
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - docs: /integrations/person/
+    title: Person
+  - docs: /integrations/zone/
+    title: Zone
 ---
 
 The device tracker allows you to track devices in Home Assistant. This can happen by querying your wireless router or by having applications push location info.
 
 {% include integrations/building_block_integration.md %}
 
-To set up device tracking, add an integration that provides `device_tracker` entities, like the [Home Assistant Companion app](/integrations/mobile_app/) for phone-based location tracking or a router-based integration such as [Ubiquiti UniFi](/integrations/unifi/).
+To set up device tracking, add an integration that provides `device_tracker` entities, like the [Home Assistant Companion app](/integrations/mobile_app/) for phone-based location tracking or a router-based integration such as [Ubiquiti UniFi](/integrations/unifi/). You can connect device trackers to [person](/integrations/person/) entities and use them with [zones](/integrations/zone/) for automations that react when people or tracked devices enter or leave a place.
 
 ## The state of a tracked device
 
@@ -53,6 +58,15 @@ Device trackers that track whether a device is connected to a fixed device have 
 Some integrations provide an older device tracker model which do not have the `tracking_type` or `in_zones` state attributes. These device trackers are scheduled for removal in the first half of 2027.
 
 <p class='img'>
-<img src='/images/integrations/device_tracker/state_device_tracker.png' alt='Screenshot showing the state of a device tracker entity in the developer tools' />
-Screenshot showing the state of a device tracker entity in the developer tools.
+<img src='/images/integrations/device_tracker/state_device_tracker.png' alt='Screenshot showing the state of a device tracker entity in Settings > Tools > States' />
+<img src='/images/integrations/device_tracker/state_device_tracker.png' alt='Screenshot showing the state of a device tracker entity in the States tab of Tools.' />
+Screenshot showing the state of a device tracker entity in {% my developer_states title="Settings > Tools > States" %}
 </p>
+
+## Automating tracked devices
+
+The recommended path for presence automations is to connect tracked devices to [person](/integrations/person/) entities and use [zone triggers](/integrations/zone/#list-of-triggers). A person can combine multiple trackers, such as a phone and a router-based tracker, into one presence state.
+
+Zone triggers can also target a device tracker entity directly, such as `device_tracker.phone`. They can run an automation when a person or tracked device enters or leaves a zone. For example, you can turn on lights when you arrive home or send a notification when a tracked device leaves a school zone.
+
+If you need to react to the raw state of one device tracker entity, use a [state trigger](/triggers/state/). Device tracker states depend on the integration that provides the entity. GPS-based trackers can report zones or custom location names, while router-based trackers usually report `home` or `not_home`.

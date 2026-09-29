@@ -18,7 +18,7 @@ An alternative setup is to use the `url_topic` option to receive an image URL fo
 
 ## Configuration
 
-To use an MQTT image entity in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+To use an MQTT image entity in your installation, [add an MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -28,7 +28,7 @@ mqtt:
       url_topic: mynas/status/url
 ```
 
-Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
+Alternatively, you can set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -73,7 +73,7 @@ content_type:
   type: string
   default: image/jpeg
 default_entity_id:
-  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `image.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `image.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available. If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
@@ -183,6 +183,11 @@ url_topic:
   description: The MQTT topic to subscribe to receive an image URL. A `url_template` option can extract the URL from the message. The `content_type` will be derived from the image when downloaded. This option cannot be used together with the `image_topic` option, but at least one of these options is required.
   required: exclusive
   type: string
+visible_by_default:
+  description: Control whether this entity is visible by default. When set to false, the entity is hidden and does not appear on dashboards until you manually make it visible in its settings.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ### Example receiving images from a URL

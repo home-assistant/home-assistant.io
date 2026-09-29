@@ -57,6 +57,14 @@ ha_quality_scale: bronze
 
 [SmartThings](https://www.samsung.com/smartthings/) is a home automation platform for connecting with Samsung or third-party devices.
 
+{% warning %}
+**Upcoming breaking API change (October 2026).**
+
+Samsung has announced that free access to the SmartThings API will be phased out starting in **October 2026**. After this date, the SmartThings API access will require a paid Personal Plan subscription ($4.99/month).
+
+If you use this integration, you will need to either subscribe to Samsung's Personal Plan or migrate your devices (like local Zigbee/Z-Wave devices) before October 2026 to avoid a service disruption. For full details, see the [SmartThings community announcement](https://community.smartthings.com/t/a-new-enhanced-smartthings-api-experience/309947).
+{% endwarning %}
+
 ## Prerequisites
 
 - You need a Samsung account and account credentials.

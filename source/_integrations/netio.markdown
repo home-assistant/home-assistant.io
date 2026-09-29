@@ -1,6 +1,6 @@
 ---
 title: Netio
-description: Instructions on how to integrate Netio switches into Home Assistant.
+description: Instructions on how to integrate Netio smart power sockets into Home Assistant.
 ha_category:
   - Switch
 ha_iot_class: Local Polling
@@ -8,17 +8,69 @@ ha_release: 0.24
 ha_domain: netio
 ha_platforms:
   - switch
-ha_integration_type: integration
+ha_integration_type: device
+ha_codeowners:
+  - '@agners'
+ha_config_flow: true
+ha_quality_scale: legacy
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
-The **Netio** {% term integration %} allows you to control your [Netio](https://www.netio-products.com/en/overview/) Netio4, Netio4 All, and Netio 230B. These are smart outlets controllable through Ethernet and/or Wi-Fi that reports consumptions (Netio4all). This integration requires Telnet to be enabled on the Netio device.
+The **Netio** {% term integration %} allows you to control and monitor [NETIO](https://www.netio-products.com/en/) smart power sockets, power strips, and power distribution units (PDUs). The device outputs are exposed as {% term switch %} entities in Home Assistant.
 
-To use Netio devices in your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+The integration communicates with the device locally using the JSON version of the NETIO machine-to-machine (M2M) API, which is available on all current NETIO devices (such as PowerCable, PowerBox, PowerPDU, and PowerDIN) as well as on the older Netio4 family.
+
+## Prerequisites
+
+The JSON M2M API must be enabled on the device before setting up the integration:
+
+1. Open the web interface of your NETIO device.
+2. Go to **Settings** > **M2M API Protocols** > **JSON API**.
+3. Enable the JSON API and create an account with **read-write** access.
+4. Take note of the username and password of this account; they are required when setting up the integration. Note that these credentials are separate from the credentials used to sign in to the web interface.
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+  description: The hostname or IP address of your NETIO device.
+Port:
+  description: The port of the JSON API web server on the device.
+Username:
+  description: The username of the device account with read-write access to the JSON API.
+Password:
+  description: The password of the device account.
+Uses an SSL certificate:
+  description: Connect to the device using HTTPS.
+Verify SSL certificate:
+  description: Verify the SSL certificate of the device when using HTTPS.
+{% endconfiguration_basic %}
+
+## Provided entities
+
+The integration provides a switch entity for every output of the device, allowing you to switch the output on and off. The entities are named after the output names configured on the device.
+
+## Data updates
+
+The integration polls the device every 30 seconds.
+
+## Remove the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
+
+The JSON API account can afterwards be removed from the device web interface.
+
+## Legacy YAML configuration (deprecated)
+
+The previous version of this integration used the Telnet-based (KSHELL) M2M API and was configured through YAML. This configuration method is deprecated and will be removed in Home Assistant 2027.3.0. Set up the integration through the UI as described above instead.
+
+Note that the older Koukaam NETIO-230x devices do not provide the JSON API and are only supported through the deprecated YAML configuration.
+
+{% details "Deprecated YAML configuration" %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -81,3 +133,5 @@ local qs = table.concat(output, '&')
 local url = string.format('http://%s%s?%s', address, path, qs)
 devices.system.CustomCGI{url=url}
 ```
+
+{% enddetails %}

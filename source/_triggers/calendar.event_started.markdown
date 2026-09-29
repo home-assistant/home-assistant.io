@@ -2,7 +2,7 @@
 title: "Calendar event started"
 trigger: calendar.event_started
 domain: calendar
-description: "Triggers when a calendar event starts."
+description: "Triggers when one or more calendar events start."
 related_triggers:
   - calendar.event_ended
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Calendar event started** trigger fires when a calendar event starts. You can also set up the trigger to fire before or after the start of the event.
 
 Use it to automate actions based on the start of a calendar event.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

@@ -99,7 +99,7 @@ Valid sensor_types:
 
 ## Example
 
-In order to get two sensors reporting CPU fan speed and Ambient Inlet Temperature, as well as a dump of `server_health` on a HP Microserver Gen8, you could use the following in your {% term "`configuration.yaml`" %} file
+To get two sensors reporting CPU fan speed and Ambient Inlet Temperature, as well as a dump of `server_health` on a HP Microserver Gen8, you could use the following in your {% term "`configuration.yaml`" %} file
 
 ```yaml
 sensor:

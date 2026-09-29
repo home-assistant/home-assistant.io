@@ -37,7 +37,7 @@ This integration uses the whoami service from [home-assistant/services.home-assi
 
 #### Unusable TLDs
 
-Due to a limitation in the Cloudflare API, you can not use this integration with any of the following TLD's:
+Due to a limitation in the Cloudflare API, you cannot use this integration with any of the following TLD's:
 
 - `.cf`
 - `.ga`

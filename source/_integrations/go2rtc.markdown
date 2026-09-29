@@ -1,6 +1,6 @@
 ---
 title: go2rtc
-description: Instructions on how to setup go2rtc in Home Assistant.
+description: Instructions on how to set up go2rtc in Home Assistant.
 ha_category:
   - Camera
 ha_release: 2024.11

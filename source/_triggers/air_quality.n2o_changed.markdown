@@ -2,7 +2,7 @@
 title: "Nitrous oxide level changed"
 trigger: air_quality.n2o_changed
 domain: air_quality
-description: "Triggers after one or more nitrous oxide levels change."
+description: "Triggers when one or more nitrous oxide levels change."
 related_triggers:
   - air_quality.n2o_crossed_threshold
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Nitrous oxide level changed** trigger fires after the nitrous oxide (N2O) reading on one or more air quality sensors changes by a meaningful amount. Nitrous oxide is a potent greenhouse gas produced by agricultural activities, industrial processes, and combustion of fossil fuels. While it is less commonly monitored at home than other pollutants, specialized sensors track it in greenhouses, workshops near agricultural operations, and laboratory or medical settings.
 
 Imagine your greenhouse ventilation fans spinning up automatically when N2O shifts after a round of fertilizing, keeping the growing environment healthy without an extra trip outside. Use this trigger to log environmental data, activate ventilation, or send alerts whenever your N2O sensor reports a significant shift.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

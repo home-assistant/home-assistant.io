@@ -14,7 +14,7 @@ ha_config_flow: true
 
 The **EDL21** {% term integration %} lets you read German EDL21 smart meters using [SML](https://de.wikipedia.org/wiki/Smart_Message_Language) from Home Assistant.
 
-In order to connect to the smart meter, an infrared transceiver is required.
+To connect to the smart meter, an infrared transceiver is required.
 
 Compatible transceivers:
 

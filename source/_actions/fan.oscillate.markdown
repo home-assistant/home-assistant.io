@@ -10,8 +10,6 @@ related_actions:
 
 The **Oscillate fan** action is useful when you want to spread airflow across a wider area. Use it to turn oscillation on when more people are in the room, or turn it off when you want air aimed in one direction.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include actions/ui_header.md %}
 
 To use this action in an automation or script:

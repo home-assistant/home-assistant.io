@@ -11,8 +11,6 @@ related_conditions:
 
 The **Nitrogen dioxide value** condition passes when a nitrogen dioxide (NO2) sensor's reading meets a specific level. NO2 is a reddish-brown gas that comes from traffic and combustion, and elevated levels irritate the airways. This condition helps your automation make informed decisions about outdoor air, for example holding off on opening the windows during rush hour or sending you a notification recommending indoor exercise when NO2 is too high.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

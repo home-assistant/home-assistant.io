@@ -1,6 +1,6 @@
 ---
 title: Image processing
-description: Instructions on how to setup image processing with Home Assistant.
+description: Instructions on how to set up image processing with Home Assistant.
 ha_category:
   - Image processing
 ha_release: 0.36
@@ -77,14 +77,16 @@ sensor:
   scan_interval: 10000
 ...
 automation:
-- alias: "Scan for faces when motion detected"
+- alias: "Scan for faces when motion is detected"
   triggers:
-    - trigger: state
-      entity_id: sensor.door_motion_sensor
-      to: "on"
+    - trigger: motion.detected
+      target:
+        entity_id: binary_sensor.door_motion_sensor
   actions:
     - action: image_processing.scan
       target:
         entity_id: image_processing.door
 ...
 ```
+
+{% include integrations/actions.md %}

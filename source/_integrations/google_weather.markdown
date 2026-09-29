@@ -50,7 +50,7 @@ The `weather.get_forecasts` action uses the cached forecast data and will not is
 
 ## Troubleshooting
 
-- [Enable debug logging](https://www.home-assistant.io/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) and attach logs before opening an issue.
+- [Enable debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) and attach logs before opening an issue.
 
 
 ## Removing the integration

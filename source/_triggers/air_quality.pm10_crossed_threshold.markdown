@@ -2,7 +2,7 @@
 title: "PM10 level crossed threshold"
 trigger: air_quality.pm10_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more PM10 levels cross a threshold."
+description: "Triggers when one or more PM10 levels cross a threshold."
 related_triggers:
   - air_quality.pm10_changed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **PM10 level crossed threshold** trigger fires when the PM10 (particulate matter 10 micrometers or smaller) reading on one or more air quality sensors crosses a specific level. PM10 includes coarser particles like dust, pollen, and mold spores that irritate the nose, throat, and airways. Levels tend to spike during construction work, dry windy days, and seasonal pollen peaks.
 
 Get a heads-up on your phone the moment outdoor PM10 crosses 50, so you know to keep the windows shut on a high-pollen day. Or have your smart windows close automatically when a dust storm rolls in. This trigger is especially helpful during allergy season, letting your home shield you from airborne irritants before they become a problem.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -34,6 +32,8 @@ Threshold type:
   description: The PM10 concentration the reading has to cross for the trigger to fire. Can be a fixed number, or reference a helper entity that provides the value.
 Trigger when:
   description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted sensors have crossed the threshold.
+  required: false
+  default: Each
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}
@@ -67,7 +67,7 @@ threshold:
 behavior:
   description: >
     When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:

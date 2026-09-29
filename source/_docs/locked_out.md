@@ -148,13 +148,3 @@ For Windows or macOS you will need third party software. Below are some options.
 
 - Windows: <https://www.diskinternals.com/linux-reader/> (read-only access to the SD)
 - macOS: <https://osxfuse.github.io/>
-
-## Deleting a user
-
-You need to be an owner or have administrator rights to delete a user.
-
-1. Go to {% my people title="**Settings** > **People**" %} and select the person which you want to delete.
-   - Note: you cannot delete the owner.
-2. At the bottom of the dialog box, select **Delete**.
-   - A confirmation dialog box will be displayed.
-3. To confirm, select **OK**.

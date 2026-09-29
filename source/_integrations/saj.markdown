@@ -5,12 +5,14 @@ ha_category:
   - Energy
 ha_iot_class: Local Polling
 ha_release: '0.100'
+ha_config_flow: true
 ha_codeowners:
   - '@fredericvl'
+  - '@edurenye'
 ha_domain: saj
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -22,48 +24,31 @@ The **SAJ Solar Inverter** {% term integration %} will poll a [SAJ](https://www.
 This sensor uses the web interface and to use it, you have to be able to connect to the solar inverter from your favorite web browser.
 Not all inverters appear to support the local interface.
 
-There is a difference between inverters that are connected via an ethernet module and those connected via a Wi-Fi module.
-The Wi-Fi module requires a username and password for authentication where the ethernet module does not.
+There is a difference between inverters that are connected via an Ethernet module and those connected via a Wi-Fi module.
+The Wi-Fi module requires a username and password for authentication where the Ethernet module does not.
 
 ## Configuration
 
-To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: saj
-    host: IP_ADDRESS_OF_DEVICE
-```
-
-{% configuration %}
+{% configuration_basic %}
 host:
   description: "The IP address of the SAJ Solar Inverter."
-  required: true
-  type: string
-name:
-  description: "An optional name for your SAJ Solar Inverter."
-  required: false
-  type: string
 type:
-  description: "Type of connection module: 'ethernet' or 'wifi'"
-  required: false
-  default: ethernet
-  type: string
+  description: "Type of connection module: 'ethernet' or 'wifi'. Default: 'ethernet'."
 username:
-  description: "Username for logging in to SAJ Solar Inverter (only used when type is 'wifi' but can be skipped if the inverter still has the default credentials set: admin/admin)"
-  required: false
-  type: string
+  description: "Username for logging in to SAJ Solar Inverter (only used when type is 'wifi' but can be skipped if the inverter still has the default credentials, which may be empty)."
 password:
-  description: "Password for logging in to SAJ Solar Inverter (only used when type is 'wifi' but can be skipped if the inverter still has the default credentials set: admin/admin)"
-  required: false
-  type: string
-{% endconfiguration %}
+  description: "Password for logging in to SAJ Solar Inverter (only used when type is 'wifi' but can be skipped if the inverter still has the default credentials, which may be empty)."
+{% endconfiguration_basic %}
+
+During setup, you will be prompted to select the connection type (Ethernet or Wi-Fi) and provide the necessary information. Wi-Fi connections may require username and password.
 
 ## Sensors
 
-Sensors available in the library:
+### Energy sensors
+
+The integration provides the following energy-related sensors:
 
 | name              | Unit | Description                                                                |
 | ----------------- | ---- | :------------------------------------------------------------------------- |
@@ -77,14 +62,26 @@ Sensors available in the library:
 | temperature       | °C   | Temperature of the inverter.                                               |
 | state             | N/A  | Live state of the inverter.                                                |
 
-## Full configuration example for Wi-Fi inverters
+### Diagnostic sensors
 
-```yaml
-sensor:
-  - platform: saj
-    name: MY_INVERTER_NAME
-    host: IP_ADDRESS_OF_DEVICE
-    type: wifi
-    username: USERNAME
-    password: PASSWORD
-```
+The integration also provides diagnostic sensors that help you understand and troubleshoot the connection to your inverter.
+
+The diagnostic sensors are:
+
+- **Inverter IP address**
+  - **Unit**: None
+  - **Description**: Shows the IP address that Home Assistant currently uses to connect to the inverter, which is useful when your router assigns dynamic IP addresses
+
+- **Connection type**
+  - **Unit**: None
+  - **Description**: Indicates whether the integration is using the Ethernet module or the Wi-Fi module to communicate with the inverter
+
+- **Serial number**
+  - **Unit**: None
+  - **Description**: Displays the inverter serial number as reported by the device, which can help you match the device in Home Assistant with labels on the physical inverter or with entries in the SAJ web interface
+
+## Troubleshooting
+
+This integration does not support automatic discovery. Set it up manually by entering the inverter IP address or hostname.
+
+For Wi-Fi connections, ensure you're using the correct credentials.

@@ -13,7 +13,6 @@ ha_integration_type: hub
 ha_quality_scale: internal
 ha_platforms:
   - assist_satellite
-  - binary_sensor
   - select
   - switch
 ha_config_flow: true

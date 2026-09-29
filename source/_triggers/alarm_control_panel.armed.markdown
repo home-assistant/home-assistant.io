@@ -2,7 +2,7 @@
 title: "Alarm armed"
 trigger: alarm_control_panel.armed
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become armed, regardless of the mode."
+description: "Triggers when one or more alarms become armed, regardless of the mode."
 related_triggers:
   - alarm_control_panel.armed_away
   - alarm_control_panel.armed_home
@@ -11,8 +11,6 @@ related_triggers:
 ---
 
 The **Alarm armed** trigger fires after an alarm control panel {% term entity %} becomes armed, regardless of the arming mode. It covers away, home, night, vacation, and any other armed state your alarm supports. Use it when you want a single automation to respond the moment the house is secured, like turning off all the lights, locking the front door, or sending a quick confirmation to your phone that the alarm is set.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -32,6 +30,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple alarm panels are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted panel arms, **First** to fire only when the first panel in a group arms, or **All** to fire only after every targeted panel is armed.
+  required: false
+  default: Each
 For at least:
   description: How long the alarm must stay armed before the trigger fires. Set to zero to fire immediately.
 {% endoptions_ui %}

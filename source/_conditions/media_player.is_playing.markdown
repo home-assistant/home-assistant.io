@@ -12,8 +12,6 @@ The **Media player is playing** condition passes when the selected media player 
 
 Use **Media player is playing** to send reminders only while something is on, to adjust lighting for movie watching, or to stop another routine from interrupting playback.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Media player is playing** in an automation:

@@ -1,6 +1,6 @@
 ---
 title: Home Assistant WebSocket API
-description: Instructions on how to setup the WebSocket API within Home Assistant.
+description: Instructions on how to set up the WebSocket API within Home Assistant.
 ha_category:
   - Other
 ha_release: 0.34

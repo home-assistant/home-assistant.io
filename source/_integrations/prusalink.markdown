@@ -25,7 +25,7 @@ related:
 
 The **PrusaLink** {% term integration %} allows you to monitor your [Prusa 3D printer](https://www.prusa3d.com) and its progress with your Home Assistant installation. This integration works with Prusa MINI/MINI+, Prusa MK3.9/MK4, Prusa XL, Prusa CORE One, and with the older Raspberry Pi-based Prusa MK2.5/MK3.
 
-This integration has been updated to utilize the latest v1 API endpoints, which require firmware version 4.7.0 or later. If you own a Prusa MINI/MINI+, please make sure your printer is running firmware 5.1.0 or a more recent version. Firmware versions 4.7.x and 5.0.x are not available for this model. The Prusa CORE One works with its default firmware. For Prusa MK2.5/MK3, this integration requires PrusaLink version 0.7.2 or later.
+This integration has been updated to use the latest v1 API endpoints, which require firmware version 4.7.0 or later. If you own a Prusa MINI/MINI+, please make sure your printer is running firmware 5.1.0 or a more recent version. Firmware versions 4.7.x and 5.0.x are not available for this model. The Prusa CORE One works with its default firmware. For Prusa MK2.5/MK3, this integration requires PrusaLink version 0.7.2 or later.
 
 Firmware update guides can be found here:
 

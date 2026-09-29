@@ -34,7 +34,7 @@ host:
   required: true
   type: string
 username:
-  description: The username to login into the router (user should have read access to the web interface of the router). Usually "cusadmin".
+  description: The username to log in to the router (user should have read access to the web interface of the router). Usually "cusadmin".
   required: true
   type: string
 password:

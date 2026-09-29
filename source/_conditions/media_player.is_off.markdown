@@ -12,8 +12,6 @@ The **Media player is off** condition passes when the selected media player is t
 
 Use **Media player is off** to avoid powering on related equipment too early, to run quiet-time routines only when a TV is off, or to decide whether another action still needs to happen.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Media player is off** in an automation:

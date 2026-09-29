@@ -63,42 +63,4 @@ upgrade your firmware from Bond app before adding this integration.
 Firmware version 2.10.8 or newer is required for push updates. The integration
 will fallback to polling for 2.10.x versions lower than .8
 
-### Action `bond.set_fan_speed_tracked_state`
-
-Sets the tracked fan speed for a bond fan.
-Calling this action will change the tracked speed of the fan but not transmit any signal to make the device change speed.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings of `entity_id`s.
-| `speed` | no | Speed as a percentage.
-
-### Action `bond.set_switch_power_tracked_state`
-
-Sets the tracked power state of a bond switch.
-Calling this action will change the tracked power state of any bond switch but not transmit any signal to make the device change its state.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings of `entity_id`s.
-| `power_state` | no | Boolean power state.
-
-### Action `bond.set_light_power_tracked_state`
-
-Sets the tracked power state of a bond light.
-Calling this {% term action %} will change the tracked power state of any bond light but not transmit any signal to make the device change its state.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings of `entity_id`s.
-| `power_state` | no | Boolean power state.
-
-### Action `bond.set_light_brightness_tracked_state`
-
-Sets the tracked brightness state of a bond light
-Calling this {% term action %} will change the tracked brightness state of any bond light but not transmit any signal to make the device change its state.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings of `entity_id`s.
-| `brightness` | no | brightness as an integer between 0 and 255
+{% include integrations/actions.md %}

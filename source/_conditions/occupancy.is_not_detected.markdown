@@ -9,8 +9,6 @@ related_conditions:
 
 The **Occupancy is not detected** condition passes when one or more occupancy sensors are reporting a space as not occupied. Use it in an automation to only run actions when a room or area is empty, like turning off devices or starting a clean-up routine.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

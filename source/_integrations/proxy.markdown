@@ -22,7 +22,7 @@ The current proxy capabilities are intended to reduce the camera bandwidth for s
 
 ## Configuration
 
-To enable this camera in your installation, you must first have an existing working camera configured in Home Assistant.  Next, add the following to your {% term "`configuration.yaml`" %} file.
+To enable this camera in your installation, you must first have an existing working camera configured in Home Assistant. Next, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml

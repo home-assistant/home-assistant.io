@@ -10,8 +10,6 @@ related_conditions:
 
 The **Alarm is armed home** condition passes when one or more alarm control panel {% term entities %} are armed in home mode. Use it to gate automations to your nighttime or stay-at-home routine, for example, keeping exterior motion lights active while interior motion sensors stay quiet.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -84,11 +82,12 @@ for:
 
 When an exterior motion sensor detects movement, turn on the porch and driveway lights, but only while the alarm is armed in home mode. During the day when the alarm is disarmed, you probably don't need those lights.
 
-- **Trigger**: State: Exterior motion sensor detects motion
+- **Trigger**: State
+  - **Entity**: Exterior motion sensor
+  - **To**: On
 - **Condition**: Alarm is armed home
-- **Target**: Hallway alarm panel
-- **Condition passes if**: Any
-- **Action**: Light: Turn on (porch, driveway)
+  - **Target**: Hallway alarm panel
+- **Action**: Turn on light (porch, driveway)
 
 {% details "YAML example for exterior motion lights when armed home" %}
 
@@ -103,8 +102,6 @@ automation: |
     - condition: alarm_control_panel.is_armed_home
       target:
         entity_id: alarm_control_panel.hallway
-      options:
-        behavior: any
   actions:
     - action: light.turn_on
       target:

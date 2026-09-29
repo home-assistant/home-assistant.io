@@ -112,6 +112,11 @@ state_content:
   description: >
     Content to display for the state. Can be `state`, `last_changed`, `last_updated`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
   type: [string, list]
+time_format:
+  required: false
+  description: >
+    Controls how timestamps in `state_content` are formatted. Valid values are `relative`, `total`, `date`, `time`, and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`).
+  type: [string, map]
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.

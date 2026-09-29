@@ -1,6 +1,6 @@
 ---
 title: Cloudflare R2
-description: Instructions on how to setup Cloudflare R2 bucket to be used as a backup location.
+description: Instructions on how to set up Cloudflare R2 bucket to be used as a backup location.
 ha_release: 2026.2
 ha_category:
   - Backup

@@ -19,7 +19,7 @@ The **KWB Easyfire** {% term integration %} integrates the sensors of KWB Easyfi
 
 Direct connection via serial (RS485) or via telnet terminal server is supported. The serial cable has to be attached to the control unit port 25 (which is normally used for detached control terminals).
 
-Since this serial protocol is proprietary and closed, only most temperature sensors and a few control relays are supported, the rest is still WIP (see <https://www.mikrocontroller.net/topic/274137>).
+Since this serial protocol is proprietary and closed, only most temperature sensors and a few control relays are supported, the rest is still WIP (see [this mikrocontroller.net forum thread](https://www.mikrocontroller.net/topic/274137)).
 
 To enable the KWB Easyfire {% term integration %}, add it to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

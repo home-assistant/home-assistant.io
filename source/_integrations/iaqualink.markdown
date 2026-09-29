@@ -16,6 +16,7 @@ ha_domain: iaqualink
 ha_platforms:
   - binary_sensor
   - climate
+  - diagnostics
   - light
   - sensor
   - switch

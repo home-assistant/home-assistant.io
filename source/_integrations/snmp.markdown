@@ -296,7 +296,7 @@ baseoid:
   required: true
   type: string
 command_oid:
-  description: The SNMP OID which to set in order to turn the switch on and off, if different from `baseoid`.
+  description: The SNMP OID which to set to turn the switch on and off, if different from `baseoid`.
   required: false
   type: string
 host:

@@ -75,6 +75,13 @@ It is now time to speak to your device.
 
 To talk to Assist, you can either use your phone or a custom device (and use their microphone and speaker). Check here how to do it on [Android](/voice_control/android/) or [Apple](/voice_control/apple/) devices.
 
+### Exposing scripts to LLMs
+
+When using an LLM-based conversation agent (such as OpenAI, Google Generative AI, or a local model capable to using tools), Home Assistant scripts are not exposed as entities — they are converted into tools that the LLM can call directly. This is more powerful than entity exposure, but it requires a bit more care: without a good description, the LLM will simply not know the script exists or when to use it.
+
+Find out [how to write these descriptions](/voice_control/exposing_scripts_to_llms/) when you're ready to expose scripts to LLMs.
+
+
 ### Some examples to get you started
 
 There are a few example commands to help you get started in [our Sentences starter pack](/voice_control/builtin_sentences/).

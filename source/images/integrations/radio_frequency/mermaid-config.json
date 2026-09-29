@@ -1,0 +1,16 @@
+{
+  "theme": "default",
+  "themeVariables": {
+    "fontSize": "36px"
+  },
+  "flowchart": {
+    "diagramPadding": 20,
+    "nodeSpacing": 30,
+    "rankSpacing": 200,
+    "padding": 30,
+    "subGraphTitleMargin": {
+      "top": 60,
+      "bottom": 60
+    }
+  }
+}

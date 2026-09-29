@@ -2,14 +2,12 @@
 title: "Carbon monoxide cleared"
 trigger: air_quality.co_cleared
 domain: air_quality
-description: "Triggers after one or more carbon monoxide sensors stop detecting carbon monoxide."
+description: "Triggers when one or more carbon monoxide sensors stop detecting carbon monoxide."
 related_triggers:
   - air_quality.co_detected
 ---
 
 The **Carbon monoxide cleared** trigger fires after a carbon monoxide sensor {% term entity %} stops detecting carbon monoxide, confirming that the air in your home is safe again. After the urgency of a CO alarm, knowing exactly when the danger has passed brings real peace of mind. Use this trigger to silence a siren, send an all-clear notification to everyone in the household, or restore your home to its normal state so you and your family feel safe resuming everyday life.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -29,6 +27,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor clears, **First** to fire only when the first sensor in a group clears, or **All** to fire only after every targeted sensor has cleared.
+  required: false
+  default: Each
 For at least:
   description: How long the sensor must stay in the cleared state before the trigger fires. Set to zero to fire immediately.
 {% endoptions_ui %}
@@ -54,7 +54,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:

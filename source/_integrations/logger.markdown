@@ -138,37 +138,7 @@ logger:
 To learn more about Regular Expression, see the [Python documentation](https://docs.python.org/3/library/re.html)
 {% endnote %}
 
-## Actions
-
-### Action: Set default level
-
-The `logger.set_default_level` action alters the default log level (for integrations without a specified log
-level).
-
-An example call might look like this:
-
-```yaml
-action: logger.set_default_level
-data:
-  level: info
-```
-
-### Action: Set level
-
-The `logger.set_level` action alters the log level for one or several integrations.
-It accepts the same format as `logs` in the configuration.
-
-An example call might look like this:
-
-```yaml
-action: logger.set_level
-data:
-  homeassistant.core: fatal
-  homeassistant.components.mqtt: warning
-  homeassistant.components.smartthings.light: info
-  custom_components.my_integration: debug
-  aiohttp: error
-```
+{% include integrations/actions.md %}
 
 ## Viewing logs
 
@@ -196,3 +166,5 @@ Or read the file directly:
 ```bash
 tail -f /config/home-assistant.log
 ```
+
+To rely only on the container runtime logs and prevent Home Assistant from writing `home-assistant.log`, set the `HA_DISABLE_LOG_FILE` environment variable to `1` (or `true`). When the log file is disabled, `/config/home-assistant.log` is not available, and you cannot enable **Show raw logs** or download the log file in the Home Assistant UI.

@@ -9,8 +9,6 @@ related_triggers:
 
 The **Remote turned on** trigger fires after a remote {% term entity %} turns on. Use it to start an automation when a media remote, IR blaster, or RF bridge becomes active, whether that happened from the UI, an action call, or a physical button.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -34,6 +32,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted remote turns on.
     - **First**: fires only when the first of a group turns on.
     - **All**: fires only after every targeted remote is on.
+  required: false
 For at least:
   description: How long the remote must stay on before the trigger fires. Default is zero (fires immediately).
 {% endoptions_ui %}

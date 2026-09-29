@@ -10,8 +10,6 @@ related_triggers:
 
 The **Timer paused** trigger fires when a running timer is paused. Use it when you want to react to an interrupted countdown, like dimming a light, pausing a script, or sending a reminder.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include triggers/ui_header.md %}
 
 To use this trigger in an automation:
@@ -30,6 +28,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple timers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted timer is paused, **First** to fire only for the first paused timer, or **All** to fire only after all targeted timers are paused.
+  required: false
 For at least:
   description: How long the timer must remain paused before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}

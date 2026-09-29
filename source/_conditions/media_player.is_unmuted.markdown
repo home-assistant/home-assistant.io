@@ -12,8 +12,6 @@ The **Media player is not muted** condition passes when the selected media playe
 
 Use **Media player is not muted** to send spoken announcements, start audio-related routines, or avoid relying on a speaker that is currently muted.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use **Media player is not muted** in an automation:

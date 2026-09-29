@@ -42,7 +42,7 @@ map to the following human-friendly ratings:
 ## Understanding Asthma Allergens
 
 Several asthma-related sensors carry information regarding the top three
-"asthma allergens" (i.e., irritants that may exacerbate asthma symptoms).
+"asthma allergens" (that is, irritants that may exacerbate asthma symptoms).
 Example values include:
 
 | Pollutant               | Symbol | More Info                                                                              |

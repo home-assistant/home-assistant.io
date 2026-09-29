@@ -4,13 +4,11 @@ trigger: timer.finished
 domain: timer
 description: "Triggers when one or more timers finish."
 related_triggers:
-  - timer.time_remaining
+  - timer.remaining_time_reached
   - timer.cancelled
 ---
 
 The **Timer finished** trigger fires when a timer reaches zero or is ended early with the **Finish timer** action. Use it when you want something to happen at the end of a countdown, like turning off a fan, locking a door, or sending a reminder.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -30,6 +28,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple timers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted timer finishes, **First** to fire only for the first finished timer, or **All** to fire only after all targeted timers finish.
+  required: false
 For at least:
   description: How long ago the timer must have finished before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}

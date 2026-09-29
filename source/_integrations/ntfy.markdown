@@ -240,7 +240,7 @@ The integration retrieves data from **ntfy.sh** (or your own ntfy instance) ever
 
 ## Known limitations
 
-**ntfy** imposes various rate and usage limits. The official [ntfy.sh](https://ntfy.sh/) service allows up to **60 messages in a burst**, with a **replenishment rate of one message every 5 seconds** (i.e., the full 60-message capacity refills in 5 minutes).
+**ntfy** imposes various rate and usage limits. The official [ntfy.sh](https://ntfy.sh/) service allows up to **60 messages in a burst**, with a **replenishment rate of one message every 5 seconds** (that is, the full 60-message capacity refills in 5 minutes).
 
 Additional usage limits depend on your account tier. To view your current limits, go to [**Account → Usage**](https://ntfy.sh/account).
 

@@ -2,7 +2,7 @@
 title: "Motion detected"
 trigger: motion.detected
 domain: motion
-description: "Triggers after one or more motion sensors start detecting motion."
+description: "Triggers when one or more motion sensors start detecting motion."
 related_triggers:
   - motion.cleared
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Motion detected** trigger fires when one or more motion sensors start detecting motion.
 
 Use it to automate actions, such as turning devices on or off, or sending notifications, based on motion detection in an area of the house. Use a single motion sensor to detect motion in specific spots and a group of sensors for larger areas.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

@@ -1,6 +1,6 @@
 ---
 title: Alert
-description: Instructions on how to setup automatic alerts within Home Assistant.
+description: Instructions on how to set up automatic alerts within Home Assistant.
 ha_category:
   - Automation
 ha_release: 0.38
@@ -34,8 +34,8 @@ possible states:
 
 ### Basic example
 
-The `alert` integration makes use of any of the `notification` integrations. To
-setup the `alert` integration, first, you must set up a [notification integration](/integrations/notify).
+The `alert` integration uses any of the `notification` integrations. To
+set up the `alert` integration, first, you must set up a [notification integration](/integrations/notify).
 Then, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
@@ -215,7 +215,7 @@ Now the first message will be sent after a 15 minute delay, the second will be
 sent 30 minutes after that, and a 60 minute delay will fall between every
 following notification.
 For example, if the garage door opens at 2:00, a notification will be
-sent at 2:15, 2:45, 3:45, 4:45, etc., continuing every 60 minutes.
+sent at 2:15, 2:45, 3:45, 4:45, and so on, continuing every 60 minutes.
 
 ### Message templates
 

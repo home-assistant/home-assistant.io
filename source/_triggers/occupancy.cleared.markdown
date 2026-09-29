@@ -2,7 +2,7 @@
 title: "Occupancy cleared"
 trigger: occupancy.cleared
 domain: occupancy
-description: "Triggers after one or more occupancy sensors report that a space is no longer occupied."
+description: "Triggers when one or more occupancy sensors stop detecting occupancy."
 related_triggers:
   - occupancy.detected
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Occupancy cleared** trigger fires when one or more occupancy sensors report that a space is no longer occupied.
 
 Use it to automate actions, such as turning off lights, lowering the heating, or running a clean-up routine, when a room or area becomes empty. Use a single sensor for a specific room and a group of sensors for larger spaces.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

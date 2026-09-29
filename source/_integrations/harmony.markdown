@@ -55,7 +55,7 @@ Turn off all devices that were switched on from the start of the current activit
 
 ### Action `remote.turn_on`
 
-Start an activity. Will start the default `activity` from {% term "`configuration.yaml`" %} if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/).
+Start an activity. Will start the default `activity` from {% term "`configuration.yaml`" %} if no activity is specified. The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/).
 
 | Data attribute | Optional | Description                            |
 | ---------------------- | -------- | -------------------------------------- |
@@ -153,32 +153,7 @@ data:
   delay_secs: 0.6
 ```
 
-### Action: Change channel
-
-The `harmony.change_channel` action sends the change channel command to the Harmony Hub.
-
-| Data attribute | Optional | Description                 |
-| ---------------------- | -------- | --------------------------- |
-| `entity_id`            | no       | Entity ID to target.        |
-| `channel`              | no       | Channel number to change to |
-
-A typical action for changing the channel would be::
-
-```yaml
-action: harmony.change_channel
-target:
-  entity_id: remote.tv_room
-data:
-  channel: 200
-```
-
-### Action: Sync
-
-The `harmony.sync` action forces synchronization between the Harmony device and the Harmony cloud.
-
-| Data attribute | Optional | Description          |
-| ---------------------- | -------- | -------------------- |
-| `entity_id`            | no       | Entity ID to target. |
+{% include integrations/actions.md %}
 
 ### Examples
 

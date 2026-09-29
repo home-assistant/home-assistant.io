@@ -24,7 +24,7 @@ Many Nuki Smart Locks also support [local integrations](#local-integration-alter
 
 ## Prerequisites
 
-To add a Nuki bridge to your installation, you need to connect the device to wifi, enable developer mode and define a port and an access token. This can be achieved using the [Android app](https://play.google.com/store/apps/details?id=io.nuki) or [iPhone app](https://apps.apple.com/app/id1044998081). Go to manage my devices, and select the bridge or wifi enabled smart lock and connect to the device. Turn on the HTTP API and check the details in the screen. Please note that the API token should be 6-20 characters long, even though the app allows you to set a longer one.
+To add a Nuki bridge to your installation, you need to connect the device to wifi, enable developer mode and define a port and an access token. This can be achieved using the [Android app](https://play.google.com/store/apps/details?id=io.nuki) or [iPhone app](https://apps.apple.com/app/id1044998081). Go to manage my devices, and select the bridge or wifi enabled smart lock and connect to the device. Turn on the HTTP API and check the details in the screen. The API token should be 6-20 characters long, even though the app allows you to set a longer one.
 For faster updates, the callback function of the Nuki bridge can be used. This requires your Home Assistant to be reachable via HTTP by the Nuki bridge, as HTTPS is not supported by the Nuki bridge.
 
 {% include integrations/config_flow.md %}
@@ -40,26 +40,7 @@ Use an encrypted token for authentication:
   description: Use an encrypted token for API calls to the bridge. This should only be deactivated if you experience issues with the API (authentication, etc). The default is `True`.
 {% endconfiguration_basic %}
 
-## Actions
-
-### Action `nuki.lock_n_go`
-
-This will first unlock, wait a few seconds (20 by default) then re-lock. The wait period can be customized through the app.
-See the [Nuki Website](https://nuki.io/en/support/smart-lock/sl-features/locking-with-the-smart-lock/) for more details about this feature.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.
-| `unlatch` | yes | Boolean - Whether to unlatch the door when first opening it.
-
-### Action `nuki.set_continuous_mode`
-
-This action allows you to enable or disable the "Continuous Mode" feature of Nuki Openers. This is similar to the Ring-to-Open feature that is mapped to "lock/unlock", except that it doesn't have a time limit - as long as this mode is enabled, the door will open when the buzzer button is pressed, similar to how it works at e.g. a doctor's office or other business during the day. On other Nuki products, this action is a no-op.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`s Nuki Locks.
-| `enabled` | yes | Boolean - Set to `true` to enable Continuous Mode, or `false` to disable.
+{% include integrations/actions.md %}
 
 ## Events
 

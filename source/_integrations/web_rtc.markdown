@@ -13,7 +13,7 @@ ha_integration_type: system
 
 The **WebRTC** {% term integration %} is an internal integration that provides WebRTC functionality for camera streaming in Home Assistant. It is automatically set up when needed and does not require any manual configuration.
 
-## Advanced configuration
+## Configuration of STUN and TURN servers
 
 To configure your own <abbr title="session traversal utilities for NAT">STUN</abbr> and <abbr title="traversal using relays around NAT">TURN</abbr> servers, add the following to your {% term "`configuration.yaml`" %} file:
 

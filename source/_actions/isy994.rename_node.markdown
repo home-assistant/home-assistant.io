@@ -1,0 +1,78 @@
+---
+title: Rename node
+action: isy994.rename_node
+domain: isy994
+description: "Renames a node or scene on the ISY."
+related_actions:
+  - isy994.send_node_command
+  - isy994.send_program_command
+---
+
+With this action, you can rename a node or group (scene) on the ISY.
+
+This does not automatically change the Home Assistant entity name or entity ID to match. The entity name and ID only update after you reload the integration or restart Home Assistant, and only if you have not already customized the name within Home Assistant.
+
+{% include actions/ui_header.md %}
+
+To use this action in an automation or script:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
+3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
+4. In the **Then do** section, select **Add action**.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the ISY entity you want to rename.
+6. From the actions shown for that target, select **ISY: Rename node**.
+7. In the **Name** field, enter the new name.
+8. Select **Save**.
+
+### Options in the UI
+
+{% options_ui %}
+Name:
+  description: The new name to use within the ISY.
+{% endoptions_ui %}
+
+{% include actions/yaml_header.md %}
+
+In YAML, refer to this action as `isy994.rename_node`. A basic example looks like this:
+
+{% example %}
+action: |
+  action: isy994.rename_node
+  target:
+    entity_id: light.front_porch
+  data:
+    name: "Front porch light"
+{% endexample %}
+
+This renames the node behind `light.front_porch` to "Front porch light" within the ISY.
+
+### Options in YAML
+
+{% options_yaml %}
+name:
+  description: The new name to use within the ISY.
+  required: true
+  type: string
+{% endoptions_yaml %}
+
+<a id="targets"></a>
+<a id="targets-of-the-action"></a>
+
+## Targets of the action
+
+This action requires a target. The target is the object of the action. You can point the action at a single {% term entity %}, a device, an area, a floor, or a label, and Home Assistant runs the action on every matching ISY entity behind that target.
+
+- **Entity**: one specific ISY entity, such as `light.front_porch`.
+- **Device**: every ISY entity that belongs to a device.
+- **Area**: every ISY entity in a room or area.
+- **Floor**: every ISY entity on a floor.
+- **Label**: every ISY entity that shares a label.
+
+You can also select different target types in one action. For example, you can add a specific entity and an area as targets in the same action to run the action on both of them at once.
+
+{% include actions/try_it.md %}
+
+{% include actions/stuck.md %}
+
+{% include actions/related.md %}

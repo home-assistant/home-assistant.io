@@ -47,7 +47,7 @@ Examples of some `Deep Links` for popular applications:
 
 | App       | URL                                                                   |
 | --------- | --------------------------------------------------------------------- |
-| YouTube   | youtube://www.youtube.com/watch?v=dQw4w9WgXcQ                         |
+| YouTube   | youtube://watch/dQw4w9WgXcQ                                          |
 | Netflix   | https://www.netflix.com/title/80234304                                |
 | Disney+   | https://www.disneyplus.com/series/the-beatles-get-back/7DcWEeWVqrkE   |
 | Apple TV+ | https://tv.apple.com/show/severance/umc.cmc.1srk2goyh2q2zdxcx605w8vtx |
@@ -77,7 +77,7 @@ target:
 action: media_player.play_media
 data:
   media_content_type: url
-  media_content_id: youtube://www.youtube.com/watch?v=dQw4w9WgXcQ
+  media_content_id: youtube://watch/dQw4w9WgXcQ
 target:
   entity_id: media_player.living_room_apple_tv
 ```
@@ -95,6 +95,9 @@ The following commands are currently available:
 - `home`
 - `top_menu`
 - `menu`
+- `control_center`
+- `turn_on`
+- `turn_off`
 - `select`
 - `play`
 - `pause`
@@ -194,45 +197,14 @@ triggers:
     from: "off"
     to: "on"
 actions:
-  - action: apple_tv.clear_search_text
-    target:
-      entity_id: remote.my_apple_tv_remote
+  - action: apple_tv.clear_keyboard_text
+    data:
+      config_entry_id: YOUR_CONFIG_ENTRY_ID
 ```
 
-Three actions are available for sending text to the focused input field. These
-require that the keyboard is currently focused on the device.
+Three actions are available for sending text to the focused input field: [Set keyboard text](/actions/apple_tv.set_keyboard_text/), [Append keyboard text](/actions/apple_tv.append_keyboard_text/), and [Clear keyboard text](/actions/apple_tv.clear_keyboard_text/). They require that the keyboard is currently focused on the device.
 
-### Action `apple_tv.set_keyboard_text`
-
-Sets the text in the currently focused text input field, replacing any existing text.
-
-- **Data attribute**: `config_entry_id`
-  - **Description**: The config entry ID of the Apple TV.
-  - **Optional**: No
-- **Data attribute**: `text`
-  - **Description**: The text to set.
-  - **Optional**: No
-
-### Action `apple_tv.append_keyboard_text`
-
-Appends text to the currently focused text input field without clearing existing text.
-
-- **Data attribute**: `config_entry_id`
-  - **Description**: The config entry ID of the Apple TV.
-  - **Optional**: No
-- **Data attribute**: `text`
-  - **Description**: The text to append.
-  - **Optional**: No
-
-### Action `apple_tv.clear_keyboard_text`
-
-Clears the text in the currently focused text input field.
-
-- **Data attribute**: `config_entry_id`
-  - **Description**: The config entry ID of the Apple TV.
-  - **Optional**: No
-
-The `config_entry_id` can be found under {% my integrations title="**Settings** > **Devices & services**" %} > **Apple TV** > your device — it is the last part of the URL when viewing the device page.
+The `config_entry_id` can be found under {% my integrations title="**Settings** > **Devices & services**" %} > **Apple TV** > your device. It is the last part of the URL when viewing the device page.
 
 ### Examples
 
@@ -253,6 +225,8 @@ actions:
       config_entry_id: YOUR_CONFIG_ENTRY_ID
       text: "Severance"
 ```
+
+{% include integrations/actions.md %}
 
 ## FAQ
 

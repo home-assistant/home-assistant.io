@@ -25,7 +25,7 @@ You need to configure developer credentials to allow Home Assistant to access yo
 1. Your Fitbit account must be registered as a Developer account at the [Fitbit Developer Portal](https://dev.fitbit.com), and have a verified email address. 
 2. Visit [Register an application](https://dev.fitbit.com/apps/new).
 3. Enter an **Application Name** of your choosing, for example **Home Assistant**.
-4. Since we are creating a *Personal* registration, the details for **Description**, **Application Website URL**, **Organization**, etc. must be filled in. However, the contents do not matter and will only be shown to you on the authorization page later.
+4. Since we are creating a *Personal* registration, the details for **Description**, **Application Website URL**, and **Organization** must be filled in. However, the contents do not matter and will only be shown to you on the authorization page later.
 5. Set **OAuth 2.0 Application Type** to **Personal**.
 6. Under **Redirect URL**, add `https://my.home-assistant.io/redirect/oauth`.
 7. You can leave **Default Access Type** as **Read Only**.

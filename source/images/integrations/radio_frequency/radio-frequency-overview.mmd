@@ -1,0 +1,23 @@
+flowchart LR
+    subgraph HA["Home Assistant"]
+        subgraph DEV["Integration of the RF-controlled device"]
+            HONEYWELL["Honeywell String Lights"]
+            NOVY["Novy Cooker Hood"]
+            OTHER["Other RF integrations ..."]
+        end
+
+        RFINT["Radio frequency integration"]
+
+        PROXYINT["Remote adapter (Proxy) integration<br/>(ESPHome, Broadlink, ...)"]
+    end
+
+    subgraph ADAPTER["Radio frequency remote adapter (proxy)"]
+        TX["Radio frequency transmitter<br/>(radio frequency entity)"]
+    end
+
+    DEVICE["RF-controlled device<br/>(remote outlet, garage door)"]
+
+    DEV --> RFINT
+    RFINT --> PROXYINT
+    PROXYINT --> TX
+    TX -->|"RF"| DEVICE

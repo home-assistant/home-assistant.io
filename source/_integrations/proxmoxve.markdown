@@ -17,6 +17,7 @@ ha_platforms:
   - button
   - diagnostics
   - sensor
+  - update
 ha_integration_type: service
 related:
   - docs: /docs/configuration/
@@ -166,6 +167,8 @@ To create a token:
 
 ## Entities
 
+Some entities are not enabled by default, you can enable them via the device page.
+
 ### Sensor
 
 - **CPU**: Percentage of CPU usage.
@@ -202,14 +205,55 @@ To create a token:
 **Restart** and **Stop**/**Stop all** will stop a running system immediately. In other words, it is like pulling the power plug of a running computer.
 {% endnote %}
 
+### Update
+
+For each node in your Proxmox VE environment, the update entity shows whether the node is up to date or if a new version is available, including any pending package updates.
+
+## Data updates
+
+Data is {% term polling polled %} from devices every 60 seconds.
+
+## Examples
+
+### Alert for offline VM
+
+This example automation will alert you if a critical VM is  offline beyond a reasonable time.
+
+{% example %}
+automation: |
+  alias: "Proxmox Database VM Offline Alert"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.databaseserver_status
+      from: "on"
+      to: "off"
+      for:
+        minutes: 15
+  actions:
+    - action: notify.send_message
+      metadata: {}
+      data:
+        message: "The Database Server VM has been offline for over 15 minutes."
+      target:
+        entity_id: notify.notifier
+{% endexample %}
+
+## Known limitations
+
+Unfortunately not all storage types and data are exposed fully via the ProxmoxVE API.
+
 ## Troubleshooting
 
 ### Buttons not working
 
 If you want to use the `button` entities to perform actions on your node(s), additional privileges may be required:
-- For actions related to power, such as start, stop or reboot, the Proxmox VE user must have the power-management privilege `VM.PowerManagemt`, or role `PVEVMUser`.
+- For actions related to power, such as start, stop, or reboot, the Proxmox VE user must have the power-management privilege `VM.PowerMgmt`, or role `PVEVMUser`.
 - To create snapshots, the privilege `VM.Snapshot` is required, or role `PVEVMAdmin`.
-If monitoring works (e.g. sensors provide relevant information) but button presses fail, assign a more permissive role or create a custom role and try again.
+If monitoring works (for example, sensors provide relevant information) but button presses fail, assign a more permissive role or create a custom role and try again.
+
+### Update unavailable
+
+If the update entity for any of your nodes shows **Unavailable**, make sure your Proxmox VE user has the `Sys.Modify` privilege or the `PVEAdmin` role.
 
 ### Diagnostic data
 

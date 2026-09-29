@@ -86,72 +86,7 @@ To use the **Total Energy** sensor, [enable the entity](/common-tasks/general/#e
 The **Total Energy** sensor is not real-time. It updates in 1 kWh steps, so the value changes only after another 1 kWh has been used.
 {% endnote %}
 
-## Actions
-
-The integration provides the following actions.
-
-### Action: Set hot water schedule
-
-The `bsblan.set_hot_water_schedule` action allows you to set the hot water heating schedule for your BSB-LAN device. Each day of the week can have one or more time slots when hot water heating should be active.
-
-- **Target**: `device_id`
-  - **Description**: The BSB-LAN device to configure.
-  - **Required**: Yes
-- **Data attributes**:
-  - **`monday_slots`**: List of time slots for Monday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`tuesday_slots`**: List of time slots for Tuesday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`wednesday_slots`**: List of time slots for Wednesday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`thursday_slots`**: List of time slots for Thursday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`friday_slots`**: List of time slots for Friday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`saturday_slots`**: List of time slots for Saturday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`sunday_slots`**: List of time slots for Sunday. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-  - **`standard_values_slots`**: List of standard/default time slots. Each slot contains `start_time` and `end_time`.
-    - **Optional**: Yes
-
-Time slots are defined using time pickers for easy configuration without manual formatting. You only need to specify the days you want to configure.
-
-### Action `bsblan.sync_time`
-
-Synchronize Home Assistant time to the BSB-LAN device. Only updates if device time differs from Home Assistant time.
-
-- **Target**: `device_id`
-  - **Description**: The BSB-LAN device to sync time for.
-  - **Required**: Yes
-
-#### Examples
-
-Sync time for all BSB-LAN devices:
-
-```yaml
-action: bsblan.sync_time
-```
-
-Sync time for a specific device:
-
-```yaml
-action: bsblan.sync_time
-target:
-  device_id: "your_device_id"
-```
-
-Use in an automation to sync time daily:
-
-```yaml
-automation:
-  - alias: "Sync BSB-LAN time daily"
-    triggers:
-      - trigger: time
-        at: "03:00:00"
-    actions:
-      - action: bsblan.sync_time
-```
+{% include integrations/actions.md %}
 
 ## Examples
 

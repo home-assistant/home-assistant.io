@@ -2,7 +2,7 @@
 title: "Media player started playing"
 trigger: media_player.started_playing
 domain: media_player
-description: "Triggers after one or more media players start playing."
+description: "Triggers when one or more media players start playing."
 related_triggers:
   - media_player.paused_playing
   - media_player.stopped_playing
@@ -11,8 +11,6 @@ related_triggers:
 The **Media player started playing** trigger fires when a media player starts playback. Use it when you want Home Assistant to react as soon as music, video, or radio begins.
 
 Use **Media player started playing** to dim lights, close blinds, or start another device that should run while audio or video is playing.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -37,6 +35,7 @@ Trigger when:
     - **Each**: Fires every time any targeted media player starts playing (default).
     - **First**: Fires when the first targeted media player starts playing.
     - **All**: Fires when every targeted media player starts playing.
+  required: false
 For at least:
   description: How long playback must continue before the trigger fires. The default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -62,7 +61,7 @@ trigger: |
   target:
     area_id: downstairs
   options:
-    behavior: last
+    behavior: all
     for: "00:00:30"
 {% endexample %}
 
@@ -73,12 +72,12 @@ behavior:
   description: |
     When multiple media players are targeted, controls how the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted media player starts playing.
-    - `first` (**First** in the UI): fires when the first targeted media player starts playing.
-    - `last` (**All** in the UI): fires when every targeted media player starts playing.
+    - `each` (default): fires every time any targeted media player starts playing.
+    - `first`: fires when the first targeted media player starts playing.
+    - `all`: fires when every targeted media player starts playing.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: How long playback must continue before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
   required: false

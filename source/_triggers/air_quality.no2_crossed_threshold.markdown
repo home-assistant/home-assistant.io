@@ -2,7 +2,7 @@
 title: "Nitrogen dioxide level crossed threshold"
 trigger: air_quality.no2_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more nitrogen dioxide levels cross a threshold."
+description: "Triggers when one or more nitrogen dioxide levels cross a threshold."
 related_triggers:
   - air_quality.no2_changed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Nitrogen dioxide level crossed threshold** trigger fires when the nitrogen dioxide (NO2) reading on one or more air quality sensors crosses a specific level. Nitrogen dioxide is a reddish-brown gas with a sharp odor, produced primarily by vehicle traffic and gas appliances. Elevated NO2 irritates the airways and worsens respiratory conditions like asthma, so the WHO recommends keeping short-term exposure below 25 micrograms per cubic meter.
 
 If you live near a busy road, this trigger is a game-changer. Have your ventilation system close its fresh-air intake automatically when street-side NO2 rises past your limit, keeping traffic pollution out of the house. Or get an alert on your phone during rush hour so you know to keep the kids inside until levels drop. Your home watches the air for you and reacts the instant conditions change.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -34,6 +32,8 @@ Threshold type:
   description: The nitrogen dioxide concentration the reading has to cross for the trigger to fire. Can be a fixed number, or reference a helper entity that provides the value.
 Trigger when:
   description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted sensors have crossed the threshold.
+  required: false
+  default: Each
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}
@@ -67,7 +67,7 @@ threshold:
 behavior:
   description: >
     When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:

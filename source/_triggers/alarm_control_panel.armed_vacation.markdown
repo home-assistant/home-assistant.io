@@ -2,15 +2,13 @@
 title: "Alarm armed vacation"
 trigger: alarm_control_panel.armed_vacation
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become armed in vacation mode."
+description: "Triggers when one or more alarms become armed in vacation mode."
 related_triggers:
   - alarm_control_panel.armed
   - alarm_control_panel.disarmed
 ---
 
 The **Alarm armed vacation** trigger fires after an alarm control panel {% term entity %} switches to the armed vacation state. Vacation mode is for extended absences when you want maximum protection and the appearance that someone is still home. Use this trigger to start routines that simulate occupancy, like cycling lights on and off on a random schedule, pausing mail delivery notifications, or lowering the thermostat to save energy while you are away for days or weeks.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -30,6 +28,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple alarm panels are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted panel arms vacation, **First** to fire only when the first panel in a group arms vacation, or **All** to fire only after every targeted panel is armed vacation.
+  required: false
+  default: Each
 For at least:
   description: How long the alarm must stay armed vacation before the trigger fires. Set to zero to fire immediately.
 {% endoptions_ui %}

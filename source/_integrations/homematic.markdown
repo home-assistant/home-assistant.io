@@ -46,7 +46,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
-Device support is available for most of the wired and wireless devices, as well as a lot of IP devices. If you have a setup with mixed protocols, you have to configure additional [interfaces](/integrations/homematic#interfaces) with the appropriate ports. The default is using port 2001, which are wireless devices. Wired devices usually are available through port 2000 and IP devices through port 2010. The virtual thermostatgroups the CCU provides use port 9292 **and** require you to set the `path` setting to `/groups`. When using SSL on a CCU3, by default the same ports as usual with a prepended 4 are available. So 2001 becomes 42001, 2010 becomes 42010 etc..
+Device support is available for most of the wired and wireless devices, as well as a lot of IP devices. If you have a setup with mixed protocols, you have to configure additional [interfaces](/integrations/homematic#interfaces) with the appropriate ports. The default is using port 2001, which are wireless devices. Wired devices usually are available through port 2000 and IP devices through port 2010. The virtual thermostatgroups the CCU provides use port 9292 **and** require you to set the `path` setting to `/groups`. When using SSL on a CCU3, by default the same ports as usual with a prepended 4 are available. So 2001 becomes 42001, 2010 becomes 42010, and so on.
 
 {% important %}
 Since CCU Version 3, the internal firewalls are enabled by default. You have to grant full access for the `XML-RPC API` or specify the IP-address of the Home Assistant instance and allowlist it, inside the CCU's security settings.
@@ -113,11 +113,11 @@ verify_ssl:
   required: false
   type: boolean
 callback_ip:
-  description: Set this, if Home Assistant is reachable under a different IP from the CCU (NAT, Docker etc.).
+  description: Set this, if Home Assistant is reachable under a different IP from the CCU (such as NAT or Docker).
   required: false
   type: string
 callback_port:
-  description: Set this, if Home Assistant is reachable under a different port from the CCU (NAT, Docker etc.).
+  description: Set this, if Home Assistant is reachable under a different port from the CCU (such as NAT or Docker).
   required: false
   type: integer
 resolvenames:
@@ -203,15 +203,15 @@ homematic:
 
 We use three approaches to fetch the names of devices. Each assumes you have properly named your devices in your existing Homematic setup. As a general advice: Use ASCII for your devices names. Home Assistant won't include non-ASCII characters in entity-names.
 
-1. `json`: The CCU allows to fetch details of the paired devices via JSON-RPC. For this to work, you need to add valid credentials to your integration configuration. Guest-access is sufficient to query for device names.
-2. `xml`: If you use a CCU, there is a Home Assistant app called the "XML-API". With it installed, you are able to fetch all kinds of information from you CCU using XML-RPC. We can leverage this and fetch the names of devices set within the CCU. We don't support authentication with this method. The `json` method should be preferred over `xml`. Support for the XML-API is only available for downwards compatibility and may be disabled in a future release.
+1. `json`: The CCU allows you to fetch details of the paired devices via JSON-RPC. For this to work, you need to add valid credentials to your integration configuration. Guest-access is sufficient to query for device names.
+2. `xml`: If you use a CCU, there is a Home Assistant app called the "XML-API". With it installed, you can fetch all kinds of information from you CCU using XML-RPC. We can leverage this and fetch the names of devices set within the CCU. We don't support authentication with this method. The `json` method should be preferred over `xml`. Support for the XML-API is only available for downwards compatibility and may be disabled in a future release.
 3. `metadata`: Homegear provides device-names through the metadata devices internally have. When using an HM-CFG-LAN interface, you typically use a configuration software ("HomeMatic-Komponenten konfigurieren" is the name of the shortcut on your desktop by default) to pair and configure your devices. If you have paired devices, you'll see them listed in a table. The leftmost column (Name) is prefilled with default names. You can click such a name and enter whatever you like.
 
 Resolving names can take some time. So when you start Home Assistant you won't see you devices at first. For a setup with 20+ devices it can take up to a minute until all devices show up in the UI.
 
 ### Multiple hosts
 
-In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and IP), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.
+To allow communication with multiple hosts or different protocols in parallel (wireless, wired and IP), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.
 Using multiple hosts has the drawback, that the actions (explained below) may not work as expected. Only one connection can be used for actions, which limits the devices/variables an action can use to the scope/protocol of the host.
 This does *not* affect the entities in Home Assistant. They all use their own connection and work as expected.
 
@@ -228,7 +228,7 @@ template:
 
 ### Variables
 
-It is possible to read and set values of system variables you have setup on the CCU/Homegear. The supported types for setting values are float- and bool-variables. With the CCU a user with Admin-access is required.
+It is possible to read and set values of system variables you have set up on the CCU/Homegear. The supported types for setting values are float- and bool-variables. With the CCU a user with Admin-access is required.
 The states of the variables are available through the attributes of your hub entity (e.g., `homematic.ccu2`). Use templates (as mentioned above) to make your variables available to automations or as entities.
 The values of variables are polled from the CCU/Homegear in an interval of 30 seconds. Setting the value of a variable happens instantly and is directly pushed.
 
@@ -289,155 +289,9 @@ To get the `homematic.keypress` event for some Homematic IP devices like WRC2 / 
 8. When your channel is working now, you can edit it to select the other channels one by one
 9. At the end, you can delete this program from the CCU
 
-### Actions
+{% include integrations/actions.md %}
 
-- *homematic.virtualkey*: Simulate a keypress (or other valid action) on CCU/Homegear with device or virtual keys.
-- *homematic.reconnect*: Reconnect to CCU/Homegear without restarting Home Assistant (useful when CCU has been restarted)
-- *homematic.set_variable_value*: Set the value of a system variable.
-- *homematic.set_device_value*: Control a device manually (even devices without support). Equivalent to setValue-method from XML-RPC.
-- *homematic.put_paramset*: Manually change a device's paramset (even devices without support). Equivalent to putParamset-method from XML-RPC.
-
-#### Examples
-
-Simulate a button being pressed:
-
-```yaml
-...
-actions:
-  - action: homematic.virtualkey
-    data:
-      address: "BidCoS-RF"
-      channel: 1
-      param: PRESS_LONG
-```
-
-Open KeyMatic:
-
-```yaml
-...
-actions:
-  - action: homematic.virtualkey
-    data:
-      address: "LEQ1234567"
-      channel: 1
-      param: OPEN
-```
-
-Set boolean variable to true:
-
-```yaml
-...
-actions:
-  - action: homematic.set_variable_value
-    target:
-      entity_id: homematic.ccu2
-    data:
-      name: "Variablename"
-      value: true
-```
-
-#### Advanced examples
-
-If you are familiar with the internals of Homematic devices, you can manually set values on the devices. This can serve as a workaround if support for a device is currently not available, or only limited functionality has been implemented.
-Using this action provides you direct access to the setValue-method of the primary connection. If you have multiple hosts, you may select the one hosting a specific device by providing the proxy-parameter with a value equivalent to the name you have chosen. In the example configuration from above, `rf`, `wired`, and `ip` would be valid values.
-
-Manually turn on a switch actor:
-
-```yaml
-...
-actions:
-  - action: homematic.set_device_value
-    data:
-      address: "LEQ1234567"
-      channel: 1
-      param: STATE
-      value: true
-```
-
-Manually set temperature on thermostat:
-
-```yaml
-...
-actions:
-  - action: homematic.set_device_value
-    data:
-      address: "LEQ1234567"
-      channel: 4
-      param: SET_TEMPERATURE
-      value: 23.0
-```
-
-Manually set the active profile on thermostat:
-
-```yaml
-...
-actions:
-  - action: homematic.set_device_value
-    data:
-      address: "LEQ1234567"
-      channel: 1
-      param: ACTIVE_PROFILE
-      value: 1
-      value_type: int
-```
-
-Set the week program of a wall thermostat:
-
-```yaml
-...
-actions:
-  - action: homematic.put_paramset
-    data:
-      interface: wireless
-      address: "LEQ1234567"
-      paramset_key: MASTER
-      paramset:
-        WEEK_PROGRAM_POINTER: 1
-```
-
-Set the week program of a wall thermostat with explicit `rx_mode` (BidCos-RF only):
-
-```yaml
-...
-actions:
-  - action: homematic.put_paramset
-    data:
-      interface: wireless
-      address: "LEQ1234567"
-      paramset_key: MASTER
-      rx_mode: WAKEUP
-      paramset:
-        WEEK_PROGRAM_POINTER: 1
-```
-
-BidCos-RF devices have an optional parameter for put_paramset which defines the way the configuration data is sent to the device.
-
-`rx_mode` `BURST`, which is the default value, will wake up every device when submitting the configuration data and hence makes all devices use some battery. It is instant, i.e. the data is sent almost immediately.
-
-`rx_mode` `WAKEUP` will send the configuration data only after a device submitted updated values to CCU, which usually happens every 3 minutes. It will not wake up every device and thus saves devices battery.
-
-Manually set lock on KeyMatic devices:
-
-```yaml
-...
-actions:
-  - action: lock.lock
-    target:
-      entity_id: lock.leq1234567
-```
-
-Manually set unlock on KeyMatic devices:
-
-```yaml
-...
-actions:
-  - action: lock.unlock
-    target:
-      entity_id: lock.leq1234567
-```
-
-
-#### Integrating HMIP-DLD
+## Integrating HMIP-DLD
 
 There is no available default integration for HMIP Doorlock (HMIP-DLD) in the current `pyhomematic` implementation.
 A workaround is to define a template lock in your configuration:
@@ -464,9 +318,9 @@ lock:
         value: 1
 ```
 
-#### Detecting lost connections
+## Detecting lost connections
 
-When the connection to your Homematic CCU or Homegear is lost, Home Assistant will stop getting updates from devices. This may happen after rebooting the CCU for example. Due to the nature of the communication protocol this cannot be handled automatically, so you must call *homematic.reconnect* in this case. That's why it is usually a good idea to check if your Homematic integrations are still updated properly, in order to detect connection losses. This can be done in several ways through an automation:
+When the connection to your Homematic CCU or Homegear is lost, Home Assistant will stop getting updates from devices. This may happen after rebooting the CCU for example. Due to the nature of the communication protocol this cannot be handled automatically, so you must call *homematic.reconnect* in this case. That's why it is usually a good idea to check if your Homematic integrations are still updated properly, to detect connection losses. This can be done in several ways through an automation:
 
 - If you have a sensor which you know will be updated frequently (e.g., an outdoor temperature sensor, voltage sensor or light sensor) you could set up a helper binary sensor and an automation like this:
 
@@ -586,7 +440,7 @@ Only the `data` part of the event payload is processed. This part can specify or
 }
 ```
 
-It is possible to provide a template in order to compute the value:
+It is possible to provide a template to compute the value:
 
 {% raw %}
 
@@ -625,4 +479,4 @@ alert:
       - group_hm
 ```
 
-Please note that the first `data` element belongs to the `my_hm` action, while the second one belongs to the event payload.
+The first `data` element belongs to the `my_hm` action, while the second one belongs to the event payload.

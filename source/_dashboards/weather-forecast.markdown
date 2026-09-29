@@ -10,6 +10,10 @@ related:
     title: Dashboard cards
   - docs: /dashboards/naming/
     title: Card naming
+  - docs: /integrations/weather/
+    title: Weather integration
+  - docs: /integrations/#weather
+    title: List of weather integrations
 ---
 
 The weather forecast card displays the weather. This card is particularly useful on wall-mounted displays.
@@ -117,7 +121,7 @@ entity: weather.openweathermap
 forecast_type: daily
 ```
 
-### Advanced
+### Using icons
 
 #### Themeable icons
 

@@ -93,7 +93,7 @@ If you have a {% term group %} of sensors, expand the group and find the smalles
 {% example %}
 template: |
   {{
-    expand("group.indoor_temperatures")
+    expand("sensor.indoor_temperatures")
     | map(attribute="state")
     | map("float")
     | list

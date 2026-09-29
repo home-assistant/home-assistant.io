@@ -75,9 +75,9 @@ Determine which {% term entities %} appear in two different groups.
 
 {% example %}
 template: |
-  {% set group_a = expand("group.downstairs_lights")
+  {% set group_a = expand("light.downstairs_lights")
      | map(attribute="entity_id") | list %}
-  {% set group_b = expand("group.automated_lights")
+  {% set group_b = expand("light.automated_lights")
      | map(attribute="entity_id") | list %}
   {{ intersect(group_a, group_b) }}
 type: list

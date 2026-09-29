@@ -2,7 +2,7 @@
 title: "Carbon monoxide level crossed threshold"
 trigger: air_quality.co_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more carbon monoxide levels cross a threshold."
+description: "Triggers when one or more carbon monoxide levels cross a threshold."
 related_triggers:
   - air_quality.co_changed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Carbon monoxide level crossed threshold** trigger fires when a carbon monoxide (CO) reading on one or more air quality sensors crosses a specific level. Carbon monoxide is a colorless, odorless gas produced by incomplete combustion of fuels, and it is life-threatening at elevated concentrations. Most residential CO alarms activate around 35 to 70 ppm, but you deserve to know the moment levels start climbing, not just when an alarm goes off.
 
 Imagine getting an urgent alert on your phone the second CO reaches a dangerous level in the garage, even in the middle of the night. Or having your exhaust fan kick on automatically when a sensor detects rising CO while you are away. This trigger gives you that early warning, so your home protects your family before a situation becomes critical.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -34,6 +32,8 @@ Threshold type:
   description: The carbon monoxide level (in ppm) the reading has to cross for the trigger to fire. Can be a fixed number, or reference a helper entity that provides the value.
 Trigger when:
   description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted sensors have crossed the threshold.
+  required: false
+  default: Each
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}
@@ -67,7 +67,7 @@ threshold:
 behavior:
   description: >
     When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:

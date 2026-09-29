@@ -2,7 +2,7 @@
 title: "Media player paused playing"
 trigger: media_player.paused_playing
 domain: media_player
-description: "Triggers after one or more media players pause playing."
+description: "Triggers when one or more media players pause playing."
 related_triggers:
   - media_player.started_playing
   - media_player.stopped_playing
@@ -11,8 +11,6 @@ related_triggers:
 The **Media player paused playing** trigger fires when playback pauses on a media player. Use it when you want Home Assistant to react during a break without waiting for playback to stop completely.
 
 Use **Media player paused playing** to raise the lights, lower background noise, or send a reminder when something has been left paused for a while.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -37,6 +35,7 @@ Trigger when:
     - **Each**: Fires every time any targeted media player pauses (default).
     - **First**: Fires when the first targeted media player pauses.
     - **All**: Fires when every targeted media player pauses.
+  required: false
 For at least:
   description: How long playback must stay paused before the trigger fires. The default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -72,12 +71,12 @@ behavior:
   description: |
     When multiple media players are targeted, controls how the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted media player pauses.
-    - `first` (**First** in the UI): fires when the first targeted media player pauses.
-    - `last` (**All** in the UI): fires when every targeted media player pauses.
+    - `each` (default): fires every time any targeted media player pauses.
+    - `first`: fires when the first targeted media player pauses.
+    - `all`: fires when every targeted media player pauses.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: How long playback must stay paused before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
   required: false

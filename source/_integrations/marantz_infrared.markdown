@@ -2,6 +2,7 @@
 title: Marantz Infrared
 description: Integration to control Marantz amplifiers using an infrared transmitter.
 ha_category:
+  - Infrared-controlled
   - Media player
 ha_release: 2026.6
 ha_iot_class: Assumed State
@@ -22,7 +23,9 @@ Because the integration communicates over infrared, it operates in a one-way, fi
 
 ## Prerequisites
 
-Before setting up the Marantz Infrared integration, you need a working infrared transmitter set up in Home Assistant that exposes an [Infrared](/integrations/infrared/) entity. For example, you can use an ESPHome device with an IR LED pointed at your Marantz amplifier.
+{% include integrations/infrared_controlled.md %}
+
+For example, you can use an ESPHome device with an IR LED pointed at your Marantz amplifier.
 
 {% include integrations/config_flow.md %}
 

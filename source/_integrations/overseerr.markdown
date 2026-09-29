@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@joostlek'
   - '@AmGarera'
+  - '@felixschndr'
 ha_domain: overseerr
 ha_integration_type: service
 ha_platforms:
@@ -82,23 +83,7 @@ There are sensors for:
  - Audio issues
  - Subtitle issues
 
-## Actions
-
-The Seerr integration has the following actions:
-
-### Request actions
-
-- `seerr.get_requests` - Get a list of media requests
-
-### Get requests
-
-Get a list of media requests using the `seerr.get_requests` action.
-
-- **config_entry_id** (*Required*): The ID of the Seerr config entry to get data from.
-- **status** (*Optional*): The status to filter the results on.
-- **sort_order** (*Optional*): The sort order to sort the results in (`added`/`modified`).
-- **requested_by** (*Optional*): Filter the requests based on the user ID of the requester.
-
+{% include integrations/actions.md %}
 
 ## Use cases
 
@@ -256,5 +241,5 @@ This integration follows standard integration removal, no extra steps are requir
 
 {% details "Failed to register Seerr webhook" %}
 
-Make sure your Seerr instance is able to reach your Home Assistant instance.
+Make sure your Seerr instance can reach your Home Assistant instance.
 {% enddetails %}

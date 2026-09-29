@@ -2,7 +2,7 @@
 title: "Media player volume changed"
 trigger: media_player.volume_changed
 domain: media_player
-description: "Triggers after the volume of one or more media players changes."
+description: "Triggers when the volume of one or more media players changes."
 related_triggers:
   - media_player.volume_crossed_threshold
   - media_player.started_playing
@@ -11,8 +11,6 @@ related_triggers:
 The **Media player volume changed** trigger fires when a media player's volume changes and the new value matches the threshold rule you set. Use it when you want to react to a new volume level, not just to playback starting or stopping.
 
 Use **Media player volume changed** to adjust lights when volume gets high, send a notification when volume drops too low, or react to any change for logging and other routines.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

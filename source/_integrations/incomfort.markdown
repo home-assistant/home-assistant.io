@@ -40,7 +40,7 @@ The V3 version (EAN: 8718556040273) of the Intergas LAN2RF Gateway is not suppor
 
 The boiler is represented as a **Water heater** device. It will report the boiler's `state` and `current_temperature`. The gateway does not expose any means to directly control the boiler or change its configuration.
 
-Note that the `current_temperature` will switch between the CV (circulating volume) and Tap temperatures according to the current operating mode of the boiler.  If the boiler is neither pumping nor tapping, it will be reported as the higher of the two.
+Note that the `current_temperature` will switch between the CV (circulating volume) and Tap temperatures according to the current operating mode of the boiler. If the boiler is neither pumping nor tapping, it will be reported as the higher of the two.
 
 ### Rooms
 

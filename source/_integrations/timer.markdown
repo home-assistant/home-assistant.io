@@ -93,64 +93,7 @@ Use a timer when you want a countdown that can be started, paused, changed, canc
 
 {% include integrations/conditions.md %}
 
-## Actions
-
-### Action: Start
-
-The `timer.start` action starts or restarts a timer with the provided duration. If no duration is given, it will either restart with its initial value, or continue a paused timer with the remaining duration. If a new duration is provided, this will be the duration for the timer until it finishes or is canceled, which then will reset the duration back to the original configured value. The duration can be specified as a number of seconds or the easier to read `01:23:45` format.
-You can also use `entity_id: all` and all active timers will be started.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
-| `duration`             |      yes | Duration in seconds or `01:23:45` format until the timer finishes. |
-
-### Action: Change
-
-The `timer.change` action changes an active timer. This changes the duration of the timer with the duration given. You can also use `entity_id: all` and all active timers will be changed. You cannot extend the duration beyond that set by `timer.start`.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
-| `duration`             |      no  | Duration in seconds or `00:00:00` to add or subtract from the running timer. |
-
-### Action: Pause
-
-The `timer.pause` action pauses a running timer. This will retain the remaining duration for later continuation. To resume a timer use the `timer.start` action without passing a duration. You can also use `entity_id: all` and all active timers will be paused.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
-
-### Action: Cancel
-
-The `timer.cancel` action cancels a running or paused timer. This resets the duration to the last known initial value without firing the `timer.finished` event. You can also use `entity_id: all` and all active and paused timers will be canceled.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
-
-### Action: Finish
-
-The `timer.finish` action manually finishes a running or paused timer earlier than scheduled. You can also use `entity_id: all` and all active and paused timers will be finished.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
-
-### Action: Reload
-
-The `timer.reload` action reloads `timer`'s configuration without restarting Home Assistant itself. This action takes no data attributes.
-
-{% important %}
-The **Reload timers** action applies only to timers configured in YAML.
-When you run it, Home Assistant re-reads the timers from your YAML configuration and applies changes there.
-Timers created from the UI are stored in Home Assistant, so reload does not add, update, or remove them.
-{% endimportant %}
-
-### Using the action
-
-Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %} and select the `timer.start` action, then click the **Fill Example Data** button. Now change the `entity_id` and `duration` and select **Perform action** button.
+{% include integrations/actions.md %}
 
 ## Timer automation examples
 
@@ -198,7 +141,7 @@ Get a reminder shortly before a timer finishes, like when laundry or cooking tim
 automation: |
   alias: "Notify when five minutes remain on the laundry timer"
   triggers:
-    - trigger: timer.time_remaining
+    - trigger: timer.remaining_time_reached
       target:
         entity_id: timer.laundry
       options:

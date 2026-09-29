@@ -2,7 +2,7 @@
 title: "Ozone level crossed threshold"
 trigger: air_quality.ozone_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more ozone levels cross a threshold."
+description: "Triggers when one or more ozone levels cross a threshold."
 related_triggers:
   - air_quality.ozone_changed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Ozone level crossed threshold** trigger fires when the ozone (O3) reading on one or more air quality sensors crosses a specific level. Ground-level ozone forms when sunlight reacts with pollutants from vehicles and industry, and it tends to peak on hot, sunny afternoons. High ozone levels irritate the lungs and are especially risky during outdoor exercise.
 
 Imagine getting a notification before your afternoon run telling you ozone is too high to exercise outside today. Or having your ventilation system close its fresh-air intake automatically when ozone spikes, so your indoor air stays clean without you thinking about it. This trigger watches the sky for you and lets your home take action the instant conditions become unhealthy.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -34,6 +32,8 @@ Threshold type:
   description: The ozone concentration the reading has to cross for the trigger to fire. Can be a fixed number, or reference a helper entity that provides the value.
 Trigger when:
   description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted sensors have crossed the threshold.
+  required: false
+  default: Each
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}
@@ -67,7 +67,7 @@ threshold:
 behavior:
   description: >
     When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:

@@ -9,8 +9,6 @@ The **Counter value** condition passes when a counter {% term helper %} matches 
 You can check whether a counter is above, below, within, or outside a range of values.
 Use it when you want an automation to continue only while a count stays under a limit, reaches a target, or falls within a range you set.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

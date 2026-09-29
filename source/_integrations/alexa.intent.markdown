@@ -85,7 +85,7 @@ Next you need to create a Lambda function.
 
 ### Account linking
 
-Alexa can link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa requests are actioned. In order to link the account, you have to make sure your Home Assistant instance can be accessed from the Internet.
+Alexa can link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa requests are actioned. To link the account, you have to make sure your Home Assistant instance can be accessed from the Internet.
 
 - Log in to the [Amazon developer console][amazon-dev-console]
 - Go to the `Alexa Skills` page.

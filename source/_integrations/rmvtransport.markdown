@@ -21,7 +21,7 @@ The **RMV** {% term integration %} will give you the departure time of the next 
 
 ## Setup
 
-Visit the [RMV OpenData web site](https://opendata.rmv.de) to find a list of valid station IDs. You will need to use the "HAFAS_ID".
+Visit the [RMV OpenData website](https://opendata.rmv.de) to find a list of valid station IDs. You will need to use the "HAFAS_ID".
 
 ## Configuration
 

@@ -2,7 +2,7 @@
 title: "Counter reached minimum"
 trigger: counter.minimum_reached
 domain: counter
-description: "Triggers after one or more counters reach their minimum value."
+description: "Triggers when one or more counters reach their minimum value."
 related_triggers:
   - counter.decremented
   - counter.maximum_reached
@@ -11,8 +11,6 @@ related_triggers:
 
 The **Counter reached minimum** trigger fires when a counter {% term helper %} reaches its configured minimum value.
 Use it when you want an automation to react when a count has run all the way down, like stopping a routine, turning something off, or sending a message that a user-created tally has reached its floor.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -32,6 +30,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple counters are targeted, controls whether the trigger fires for **Each** counter, only the **First** counter, or after **All** targeted counters reach their minimum value. Default is **Each**.
+  required: false
 For at least:
   description: How long the counter must stay at its minimum before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}

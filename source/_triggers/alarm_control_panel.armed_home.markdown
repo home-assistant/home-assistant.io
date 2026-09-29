@@ -2,15 +2,13 @@
 title: "Alarm armed home"
 trigger: alarm_control_panel.armed_home
 domain: alarm_control_panel
-description: "Triggers after one or more alarms become armed in home mode."
+description: "Triggers when one or more alarms become armed in home mode."
 related_triggers:
   - alarm_control_panel.armed
   - alarm_control_panel.disarmed
 ---
 
 The **Alarm armed home** trigger fires after an alarm control panel {% term entity %} switches to the armed home state. Home mode typically activates perimeter sensors (doors and windows) while leaving interior motion sensors inactive, so you move around freely inside. Use this trigger to run automations that should start when you are home but want the exterior secured, like locking exterior doors, dimming the porch lights, or sending a confirmation that the perimeter is protected.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -30,6 +28,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple alarm panels are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted panel arms home, **First** to fire only when the first panel in a group arms home, or **All** to fire only after every targeted panel is armed home.
+  required: false
+  default: Each
 For at least:
   description: How long the alarm must stay armed home before the trigger fires. Set to zero to fire immediately.
 {% endoptions_ui %}

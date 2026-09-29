@@ -11,7 +11,7 @@ related_conditions:
 
 The **Battery is charging** condition passes when a battery-powered device is actively charging. A device is charging when it is connected to a power source, such as a charger, dock, or USB cable. Use **Battery is charging** to run an automation only while a device is plugged in, for example to delay noisy actions until a phone is on its charger, or to confirm a vacuum is docked and topping up before starting another routine.
 
-{% include integrations/labs_entity_triggers_note.md %}
+For a visual overview of all battery statuses, open {% my maintenance title="**Maintenance** dashboard" %}.
 
 {% include conditions/ui_header.md %}
 
@@ -43,10 +43,10 @@ In YAML, **Battery is charging** is referred to as `battery.is_charging`. A basi
 condition: |
   condition: battery.is_charging
   target:
-    entity_id: sensor.phone_battery
+    entity_id: binary_sensor.phone_battery_charging
 {% endexample %}
 
-This passes when `sensor.phone_battery` is charging.
+This passes when `binary_sensor.phone_battery_charging` is charging.
 
 ### Options in YAML
 
@@ -71,7 +71,7 @@ for:
 
 ## Good to know
 
-- The condition works with sensors and devices that report a charging state, such as devices that expose a battery charging attribute.
+- The target must be a binary sensor with the battery charging device class.
 - Devices that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
 - To check the opposite state, use [Battery is not charging](/conditions/battery.is_not_charging/).
 - To check the battery percentage instead, use [Battery level](/conditions/battery.is_level/).
@@ -101,7 +101,7 @@ automation: |
   conditions:
     - condition: battery.is_charging
       target:
-        entity_id: sensor.laptop_battery
+        entity_id: binary_sensor.laptop_battery_charging
   actions:
     - action: script.run_nightly_backup
 {% endexample %}

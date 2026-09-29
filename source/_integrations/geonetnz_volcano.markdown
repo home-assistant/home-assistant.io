@@ -22,7 +22,7 @@ location.
 
 Entities are generated and updated automatically with each update 
 from the feed. Each entity defines the [volcanic alert level](https://www.geonet.org.nz/about/volcano/val) 
-as its state.  Latitude and longitude of the volcano are included as attributes 
+as its state. Latitude and longitude of the volcano are included as attributes 
 to show on the default map automatically.
 
 The data is updated every 5 minutes.

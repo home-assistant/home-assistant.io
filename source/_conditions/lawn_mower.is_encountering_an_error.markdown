@@ -8,8 +8,6 @@ description: "Tests if one or more lawn mowers are encountering an error."
 The **Lawn mower is encountering an error** condition passes when one or more targeted mowers are currently in an error state.
 Use it when you want an automation to continue only while the problem is still active, like when you send repeated reminders or keep a warning light on.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -124,7 +122,7 @@ If you are checking the mower after dark, this automation keeps the porch light 
 - **Condition**: Lawn mower is encountering an error
   - **Target**: Backyard mower
   - **For at least**: 00:00:30
-- **Condition**: Sun: after sunset
+- **Condition**: Sun is set
 - **Action**: Turn on light
 
 {% details "YAML example for keeping the porch light on" %}
@@ -141,8 +139,7 @@ automation: |
         entity_id: lawn_mower.backyard
       options:
         for: "00:00:30"
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

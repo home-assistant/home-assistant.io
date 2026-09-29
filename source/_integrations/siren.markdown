@@ -29,43 +29,7 @@ In addition, the entity can have the following states:
 
 {% include integrations/conditions.md %}
 
-## Actions
-
-### Siren actions
-
-Available {% term actions %}: `siren.turn_on`, `siren.turn_off`, `siren.toggle`
-
-### Action: Turn on
-
-The `siren.turn_on` action turns the siren on.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of sirens to control.
-
-There are three optional input parameters that can be passed into the action depending on whether or not your device supports them. Check the device's integration documentation for more details.
-
-| Parameter Name  | Input Type              | Notes                                                                               |
-|---------------- |-------------------------|-------------------------------------------------------------------------------------|
-| `tone`          | `string` or `integer`   | When the `available_tones` property is a map, either the key or value can be used.  |
-| `duration`      | `integer`               |                                                                                     |
-| `volume_level`  | `float` between 0 and 1 |                                                                                     |
-
-### Action: Turn off
-
-The `siren.turn_off` action turns the siren off.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of sirens to control.
-
-### Action: Toggle
-
-The `siren.toggle` action toggles the siren on or off.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of sirens to control.
+{% include integrations/actions.md %}
 
 ## Siren automation examples
 

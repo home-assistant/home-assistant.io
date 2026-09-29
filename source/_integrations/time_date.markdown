@@ -19,20 +19,49 @@ The **Time & Date** {% term integration %} provides sensors for the current date
 
 {% include integrations/config_flow.md %}
 
-During setup, select the display option for the sensor you want to create. The integration creates one sensor in the selected format.
+## Configuration options
+
+During setup, select the sensor type. The integration creates one sensor in the selected format.
 
 {% configuration_basic %}
-Display option:
-  description: "The date or time format for the sensor. Available options:"
+Sensor type:
+  description: "The date, time, or date and time sensor with data in a given format."
 {% endconfiguration_basic %}
 
+The available options are:
+
+- **Time**: The current local time, for example, `14:30`.
 - **Date**: The current date, for example, `2026-04-12`.
 - **Date & Time**: The current date and time, for example, `2026-04-12, 14:30`.
-- **Date & Time (ISO)**: The current date and time in ISO 8601 format, for example, `2026-04-12T14:30:00`.
 - **Date & Time (UTC)**: The current date and time in UTC, for example, `2026-04-12, 12:30`.
-- **Time**: The current local time, for example, `14:30`.
+- **Date & Time (ISO)**: The current date and time in ISO 8601 format, for example, `2026-04-12T14:30:00`.
 - **Time & Date**: The current time and date (reversed order), for example, `14:30, 2026-04-12`.
 - **Time (UTC)**: The current time in UTC, for example, `12:30`.
+
+## Supported functionality
+
+The **Time & Date** integration provides the following entity.
+
+### Sensor
+
+Depending on the sensor type selected during configuration, one of the following sensors is available.
+
+- **Time**
+  - **Description**: The current local time, in the format `HH:MM`.
+- **Date**
+  - **Description**: The current date, in the format `YYYY-MM-DD`.
+- **Date & Time**
+  - **Description**: The current date and time, in the format `YYYY-MM-DD, HH:MM`.
+- **Date & Time (UTC)**
+  - **Description**: The current date and time in UTC, in the format `YYYY-MM-DD, HH:MM`.
+- **Date & Time (ISO)**
+  - **Description**: The current date and time, in the ISO 8601 format `YYYY-MM-DDTHH:MM:SS`.
+- **Time & Date**
+  - **Description**: The current time and date (reversed order), in the format `HH:MM, YYYY-MM-DD`.
+- **Time (UTC)**
+  - **Description**: The current time in UTC, in the format `HH:MM`.
+
+You can display the data of the sensor entity in a dashboard view by following the [instructions on how to add a card from a view](/dashboards/cards/#to-add-a-card-from-a-view).
 
 ## Data updates
 
@@ -44,7 +73,7 @@ Sensors that include the time update every minute. The date-only sensor updates 
 
 ## Creating a custom time and date sensor
 
-If you want a sensor with a custom date or time format, you can create a [template sensor](/integrations/template/) in your {% term "`configuration.yaml`" %} file. The example below uses the sensor created by the **Date & Time (ISO)** display option as the source and reformats it with [`timestamp_custom()`](/template-functions/timestamp_custom/) using standard [Python datetime formatting](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).
+If you want a sensor with a custom date or time format, you can create a [template sensor](/integrations/template/) in your {% term "`configuration.yaml`" %} file. The example below uses the sensor created using the **Date & Time (ISO)** sensor type as the source and reformats it with [`timestamp_custom()`](/template-functions/timestamp_custom/) using standard [Python datetime formatting](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).
 
 Add the following to your {% term "`configuration.yaml`" %}:
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -61,7 +90,7 @@ template:
         icon: "mdi:calendar-clock"
 ```
 
-This requires the **Date & Time (ISO)** display option to be set up in this integration.
+This requires the **Date & Time (ISO)** sensor type to be set up in this integration.
 
 ## More time-related resources
 

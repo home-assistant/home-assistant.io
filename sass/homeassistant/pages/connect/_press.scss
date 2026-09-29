@@ -1,0 +1,55 @@
+// Shared styling for the custom/press.html include on connect product pages.
+// Product pages include this via `@include press-section(...)` and layer
+// their own spacing/typography overrides through the mixin's content block.
+@mixin press-section($padding-block: 64px, $content-gap: 0.5rem) {
+    padding: $padding-block 0;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+
+    .content-intro {
+        gap: $content-gap;
+        margin-bottom: 2.5rem;
+
+        .sub-title {
+            margin-bottom: 0 !important;
+        }
+
+        p {
+            margin: 0 !important;
+            display: block;
+            color: var(--typography-paragraph-color);
+        }
+    }
+
+    .masonry {
+        .community-card {
+            --background-color: rgba(255, 255, 255, 0.1);
+
+            &:hover {
+                border-color: var(--connect-line-blue);
+            }
+
+            &--video {
+                background-color: transparent;
+            }
+
+            &--quote {
+                .community-card__content:before {
+                    opacity: 0.25;
+                }
+            }
+
+            &__content p {
+                font-weight: 600;
+                color: #fff;
+            }
+
+            &__meta span {
+                font-weight: 400;
+                font-size: 0.75rem;
+            }
+        }
+    }
+
+    @content;
+}

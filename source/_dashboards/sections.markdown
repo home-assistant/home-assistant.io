@@ -81,12 +81,23 @@ The view comes with one section to which you can directly add a card.
 
 You can add a colored background to individual sections. This is a great way to visually group related cards or highlight important sections on your dashboard.
 
+The background is applied to the section itself, not to the cards inside it. The cards keep their own background.
+
 1. To edit your dashboard, in the top right corner, select the edit {% icon "mdi:edit" %} button.
 2. Select the edit {% icon "mdi:edit" %} button on the section you want to customize.
 3. Enable the **Background** toggle.
 4. To change the background color and opacity, expand **Background options**.
-   - Pick a color from the predefined list, or enter a custom hex color code.
+   - Select **Default** to use the background color from your theme.
+   - Alternatively, pick a color from the predefined list, or enter a custom hex color code.
    - Use the **Opacity** slider to adjust the transparency of the background.
+
+If you have sections side by side on the same row, sections without a background automatically align with those that have one, keeping the row looking tidy.
+
+{% note %}
+If the cards in a section appear to take on the background color, your theme most likely uses a transparent card background. Set a card background color in your theme to keep the cards visually distinct.
+
+You can customize the default background color and the section corner rounding in a [custom theme](/integrations/frontend/#defining-themes) using the `ha-section-background-color` and `ha-section-border-radius` variables.
+{% endnote %}
 
 ## Deleting a section
 

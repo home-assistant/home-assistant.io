@@ -1,6 +1,6 @@
 ---
 title: Awair
-description: Instructions on how to setup Awair devices in Home Assistant.
+description: Instructions on how to set up Awair devices in Home Assistant.
 ha_category:
   - Health
 ha_config_flow: true

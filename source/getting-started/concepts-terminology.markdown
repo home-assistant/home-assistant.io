@@ -30,7 +30,7 @@ Devices and entities are used throughout Home Assistant. To name a few examples:
 
 - [Dashboards](/getting-started/onboarding_dashboard/) can show a state of an {% term entity %}. For example, if a light is on or off.
 - An [automation](#automations) can be triggered from a state change on an {% term entity %}. For example, a motion sensor entity detects motion and triggers a light to turn on.
-- A predefined color and brightness setting for a light saved as a [scene](#scenes).
+- A predefined color and brightness setting for a light can be saved as a [scene](#scenes).
 
 ![Home Assistant device](/images/getting-started/home-assistant-device_02.png)
 
@@ -42,7 +42,7 @@ Entities are the basic building blocks to hold data in Home Assistant. An {% ter
 
 ## Areas
 
-An area in Home Assistant is a logical grouping of {% term devices %} and {% term entities %} that are meant to match areas (or rooms) in the physical world: your home. For example, the `living room` area groups devices and entities in your living room. Areas allow you to target service calls at an entire group of devices. For example, turning off all the lights in the living room.
+An area in Home Assistant is a logical grouping of {% term devices %} and {% term entities %} that are meant to match areas (or rooms) in the physical world: your home. For example, the `living room` area groups devices and entities in your living room. Areas allow you to target actions at an entire group of devices. For example, turning off all the lights in the living room.
 These are locations within your home, such as the living room or the dance floor. Areas can be assigned to {% term floors %}.
 Areas can also be used for automatically generated cards, such as the [Area card](/dashboards/area/).
 
@@ -74,7 +74,7 @@ To learn how to use {% term scenes %}, refer to the [scene](/integrations/scene/
 
 ## Apps
 
-Apps are third-party applications that provide additional functionality in Home Assistant. Apps run directly alongside Home Assistant, whereas {% term integrations %} connect Home Assistant to other apps. Apps are only [supported](/installation/#about-installation-types) when using {% term "Home Assistant Operating System" %}.
+Apps are third-party applications that extend Home Assistant with additional functionality. They run alongside Home Assistant on the same system and are installed and managed from Home Assistant. Apps are only [supported](/installation/#about-installation-types) when using {% term "Home Assistant Operating System" %}.
 
 Apps are installed from the app store under {% my supervisor title="**Settings** > **Apps**" %}. If you are curious now and feel like installing every app that looks interesting: beware that apps can use quite a bit of resources in terms of disk space, memory, and additional load on the processor.
 

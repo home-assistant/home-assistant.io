@@ -11,13 +11,14 @@ limited: false
 since: "2024.11"
 related_functions:
   - time_until
+  - timedelta_string
   - relative_time
   - now
   - as_datetime
   - as_timestamp
 ---
 
-The `time_since` template function returns a human-readable string describing how much time has elapsed since a given {% term datetime %}. Give it a datetime in the past, and it returns something like "2 hours" or "3 days and 5 hours" instead of a raw number of seconds.
+The `time_since` template function returns a human-readable string describing how much time has elapsed since a given {% term datetime %}. Give it a datetime in the past, and it returns something like "2 hours" or "3 days 5 hours" instead of a raw number of seconds.
 
 This is useful whenever you want to display elapsed time in a natural, readable format. For example, showing "last seen 45 minutes ago" on a dashboard, displaying how long a door has been open, or reporting how long ago a sensor last updated. The function only works with datetimes in the past. For future datetimes, use [`time_until`](/template-functions/time_until/) instead. You can control the level of detail with the optional precision parameter, which determines how many time components (years, months, days, hours, minutes, seconds) to include.
 
@@ -55,7 +56,7 @@ value:
   type: datetime
 precision:
   description: >
-    The number of time components to include in the output, from 1 to 6. A precision of 1 might return "2 hours", while a precision of 2 might return "2 hours and 30 minutes". Higher precision gives more detail.
+    The number of time components to include in the output, from 1 to 6. A precision of 1 might return "2 hours", while a precision of 2 might return "2 hours 30 minutes". Higher precision gives more detail.
   required: false
   default: "1"
   type: integer
@@ -74,7 +75,7 @@ output: "2 hours"
 {% example %}
 template: '{{ time_since(states.binary_sensor.front_door.last_changed, 3) }}'
 type: string
-output: "2 hours, 30 minutes and 15 seconds"
+output: "2 hours 30 minutes 15 seconds"
 {% endexample %}
 
 ## Good to know

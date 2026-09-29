@@ -14,7 +14,7 @@ items:
   - question: Does Connect ZBT-2 work with Matter?
     answer: 'Yes, Home Assistant is officially Matter certified, and always works to support the latest versions, giving it great device compatibility. Some Matter devices use Wi-Fi, while others may use Thread (specifically battery-powered devices), and that’s when Connect ZBT-2 steps in to help you connect Matter devices. If you’re looking to add Matter devices that use Thread, follow our instructions to <a href="https://support.nabucasa.com/hc/articles/31347057208989" target="_blank">dedicate your device to Thread</a>.'
   - question: Can Connect ZBT-2 be used as a repeater?
-    answer: 'No, at the moment Connect ZBT-2 does not have this capability. This is technically possible, and we’ll explore enabling this, but there is no guarantee that this will happen.'
+    answer: 'Yes, experimental firmware can turn your Connect ZBT-2 into a powerful repeater. Just connect a 5V/1A USB-A power supply and flash the repeater firmware from the <a href="https://toolbox.openhomefoundation.org/home-assistant-connect-zbt-2/" target="_blank" rel="noopener">Open Home Foundation toolbox website</a>. It cannot act as a coordinator until it is reflashed with the stock firmware.'
   - question: Can I use Connect ZBT-2 as a Thread border router separately from Home Assistant?
     answer: 'No, this capability is not built into Connect ZBT-2. There are several technical hurdles that would make this complex to implement, and more research is needed to see if this is possible.'
   - question: Why is Connect ZBT-2 so big?

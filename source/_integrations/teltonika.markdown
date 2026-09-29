@@ -27,13 +27,16 @@ The **Teltonika** {% term integration %} integrates [Teltonika Networks](https:/
 
 Most Teltonika routers running RutOS are supported, including:
 
-- RUT series (RUT240, RUT950, RUT955, etc.)
-- RUTX series (RUTX08, RUTX09, RUTX11, RUTX50, etc.)
-- TRB series (TRB140, TRB245, TRB500, etc.)
+- RUT series (such as RUT240, RUT950, and RUT955)
+- RUTX series (such as RUTX08, RUTX09, RUTX11, and RUTX50)
+- TRB series (such as TRB140, TRB245, and TRB500)
 
 ## Prerequisites
 
-You need the IP address and login credentials for your router's web interface.
+- The IP address of your router.
+- Login credentials for your router's web interface.
+
+To improve security, create a dedicated user and user group in RutOS for Home Assistant instead of using an account with broad access. The group needs read permissions for device, system, and modem information. If some sensors are missing, check the group's read permissions in RutOS.
 
 {% include integrations/config_flow.md %}
 

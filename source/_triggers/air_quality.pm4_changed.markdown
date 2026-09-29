@@ -2,7 +2,7 @@
 title: "PM4 level changed"
 trigger: air_quality.pm4_changed
 domain: air_quality
-description: "Triggers after one or more PM4 levels change."
+description: "Triggers when one or more PM4 levels change."
 related_triggers:
   - air_quality.pm4_crossed_threshold
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **PM4 level changed** trigger fires after the PM4 (particulate matter 4 micrometers or smaller) reading on one or more air quality sensors changes by a meaningful amount. PM4 particles come from sources like pollen, mold spores, dust, and certain industrial processes. They sit between the finer PM2.5 and the coarser PM10 range, giving you an additional view of the particles floating in your air. If you deal with seasonal allergies or live near a dusty road, tracking PM4 helps you spot irritants before your nose does.
 
 Imagine your home office air purifier starting as soon as pollen counts shift on a spring afternoon, so you stay focused instead of reaching for tissues. Use this trigger to start filtration, log changes, or notify household members whenever PM4 readings shift noticeably.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

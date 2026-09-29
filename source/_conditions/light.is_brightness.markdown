@@ -12,8 +12,6 @@ The **Light brightness** condition passes when a light {% term entity %}'s brigh
 
 When you target more than one light, the condition's **behavior** option controls how the check combines. You can require any targeted light's brightness to match, or demand that all of them do.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -21,7 +19,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Light: Light brightness**.
+4. From the search box, search for and select **Light brightness**.
 5. Under **Targets**, select the light entity, an area, a floor, or a label.
 6. Under **Threshold type**, set the brightness percentage the condition checks against.
 7. Under **Condition passes if**, pick **Any** or **All**.

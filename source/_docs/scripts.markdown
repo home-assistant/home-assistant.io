@@ -42,7 +42,7 @@ Performing an action can be done in various ways. For all the different possibil
 - alias: "Bedroom lights on"
   action: light.turn_on
   target:
-    entity_id: group.bedroom
+    entity_id: light.bedroom
   data:
     brightness: 100
 ```
@@ -142,7 +142,7 @@ The `condition` {% term action %} only stops executing the current sequence bloc
 
 ```yaml
 - alias: "Check if Paulus ishome AND temperature is below 20"
-  conditions:
+  condition:
     - condition: state
       entity_id: "device_tracker.paulus"
       state: "home"
@@ -222,12 +222,24 @@ This {% term action %} can use the same triggers that are available in an automa
   wait_for_trigger:
     - trigger: event
       event_type: MY_EVENT
+      id: my_trigger
     - trigger: state
       entity_id: light.LIGHT
       to: "on"
       for: 10
 ```
 
+You can assign an `id` to each trigger, just like you would do in an automation's `trigger` section, but you won't find it inside the `trigger` condition, which only lists the main automation triggers. You can however find it in a template as `wait.trigger.id`:
+
+```yaml
+- if:
+    - condition: template
+      value_template: "{{ wait.trigger.id == 'my_trigger' }}"
+  then:
+    - action: light.turn_on
+      target:
+        entity_id: light.living_room_table
+```
 
 ### Wait timeout
 

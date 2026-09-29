@@ -1,0 +1,140 @@
+blueprint:
+  name: Lyngdorf cinema mode
+  description: >
+    Switch a Lyngdorf processor to a chosen RoomPerfect voicing while a chosen
+    source is selected, the processor is on, and it is actually receiving both
+    video and audio. Return to another voicing as soon as any of that stops
+    being true. Because it waits for a detected signal, the voicing follows what
+    is really on screen rather than merely which input is selected.
+  domain: automation
+  author: fishloa
+
+  input:
+    media_player_entity:
+      name: Media player
+      description: The Lyngdorf zone to watch.
+      selector:
+        entity:
+          filter:
+            - integration: lyngdorf
+              domain: media_player
+    source_name:
+      name: Source
+      description: >
+        The source used for watching, as named on the processor, for example
+        Sky.
+      selector:
+        text:
+    video_information_entity:
+      name: Video information
+      description: The video information sensor, used to detect a video signal.
+      selector:
+        entity:
+          filter:
+            - integration: lyngdorf
+              domain: sensor
+    audio_information_entity:
+      name: Audio information
+      description: The audio information sensor, used to detect an audio signal.
+      selector:
+        entity:
+          filter:
+            - integration: lyngdorf
+              domain: sensor
+    voicing_entity:
+      name: Voicing
+      description: The RoomPerfect voicing select.
+      selector:
+        entity:
+          filter:
+            - integration: lyngdorf
+              domain: select
+    voicing_active:
+      name: Voicing while watching
+      description: >
+        The voicing to select while that source is playing, for example
+        Action+Movie. It must be one of the options the voicing select offers.
+      selector:
+        text:
+    voicing_inactive:
+      name: Voicing otherwise
+      description: >
+        The voicing to return to the rest of the time, for example Neutral.
+      selector:
+        text:
+    no_video_values:
+      name: No video
+      description: >
+        What the video information sensor reports when nothing is arriving.
+        Matched if the sensor value contains any of these.
+      default:
+        - No video
+      selector:
+        text:
+          multiple: true
+    no_audio_values:
+      name: No audio
+      description: >
+        What the audio information sensor reports when nothing is arriving.
+        Matched if the sensor value contains any of these.
+      default:
+        - No Information
+      selector:
+        text:
+          multiple: true
+
+mode: single
+
+triggers:
+  - trigger: state
+    entity_id: !input media_player_entity
+  - trigger: state
+    entity_id: !input video_information_entity
+  - trigger: state
+    entity_id: !input audio_information_entity
+
+variables:
+  media_player_entity: !input media_player_entity
+  source_name: !input source_name
+  video_information_entity: !input video_information_entity
+  audio_information_entity: !input audio_information_entity
+  voicing_entity: !input voicing_entity
+  voicing_active: !input voicing_active
+  voicing_inactive: !input voicing_inactive
+  no_video_values: !input no_video_values
+  no_audio_values: !input no_audio_values
+  video_state: "{{ states(video_information_entity) }}"
+  audio_state: "{{ states(audio_information_entity) }}"
+  has_video: >
+    {{ video_state not in ['unknown', 'unavailable']
+       and no_video_values | select('in', video_state) | list | count == 0 }}
+  has_audio: >
+    {{ audio_state not in ['unknown', 'unavailable']
+       and no_audio_values | select('in', audio_state) | list | count == 0 }}
+  watching: >
+    {{ states(media_player_entity) not in ['off', 'unknown', 'unavailable']
+       and state_attr(media_player_entity, 'source') == source_name
+       and has_video and has_audio }}
+
+actions:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ watching and states(voicing_entity) != voicing_active }}
+        sequence:
+          - action: select.select_option
+            target:
+              entity_id: !input voicing_entity
+            data:
+              option: !input voicing_active
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ not watching and states(voicing_entity) != voicing_inactive }}
+        sequence:
+          - action: select.select_option
+            target:
+              entity_id: !input voicing_entity
+            data:
+              option: !input voicing_inactive

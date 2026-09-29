@@ -26,7 +26,7 @@ A blueprint is a {% term script %}, {% term automation %}, or [template entity](
 
 Imagine you want to turn on a light when motion is detected. A blueprint provides the generic automation, while letting you select _which_ motion sensor and _which_ light. You can use that same blueprint twice, once for the hallway and once for the bathroom, and end up with two completely independent automations that each behave the way you configured them.
 
-Automations inherit from the blueprint they were built on, so if the blueprint is updated, all automations using it pick up the change the next time Home Assistant reloads them. To reload manually, go to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and reload the automations.
+Automations inherit from the blueprint they were built on, so if the blueprint is updated, all automations using it pick up the change the next time Home Assistant reloads them. To reload manually, go to {% my server_controls title="**Settings** > **Tools** > **YAML**" %} and reload the automations.
 
 Blueprints are shared by the community in the [blueprint community forum][blueprint-forums].
 

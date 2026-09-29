@@ -2,14 +2,12 @@
 title: "Smoke cleared"
 trigger: air_quality.smoke_cleared
 domain: air_quality
-description: "Triggers after one or more smoke sensors stop detecting smoke."
+description: "Triggers when one or more smoke sensors stop detecting smoke."
 related_triggers:
   - air_quality.smoke_detected
 ---
 
 The **Smoke cleared** trigger fires after a smoke sensor {% term entity %} stops detecting smoke, letting your home confirm that the danger has passed and it is safe to breathe easy again. After the chaos of a smoke alarm, an automatic all-clear brings real relief. Use this trigger to re-lock doors that were unlocked during evacuation, send a reassuring notification to your family, or restore your home to its normal routine.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -29,6 +27,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor clears, **First** to fire only when the first sensor in a group clears, or **All** to fire only after every targeted sensor has cleared.
+  required: false
+  default: Each
 For at least:
   description: How long the sensor must stay in the cleared state before the trigger fires. Set to zero to fire immediately.
 {% endoptions_ui %}
@@ -54,7 +54,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:

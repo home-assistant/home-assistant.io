@@ -6,7 +6,6 @@ date: 2024-05-09 00:00:01
 date_formatted: "May 9, 2024"
 author: Marcel van der Veldt
 comments: true
-categories: Music-Assistant
 og_image: /images/blog/2024-05-music-assistant/art.jpg
 ---
 <p><img src='/images/blog/2024-05-music-assistant/art.jpg' class='no-shadow' /></p>

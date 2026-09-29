@@ -12,6 +12,7 @@ ha_category:
   - Humidifier
   - Light
   - Lock
+  - Number
   - Sensor
   - Switch
 ha_release: 0.68
@@ -134,7 +135,7 @@ This section describes how to add it via Home Assistant's preferred {% term Thre
 
 - A HomeKit device which supports {% term Thread %}. This is indicated by the Thread label on the packaging.
 - Make sure the HomeKit device has been [joined using Bluetooth](#adding-a-homekit-device-through-bluetooth).
-- **Thread network**: In order to use HomeKit over Thread, you need a working border router.
+- **Thread network**: To use HomeKit over Thread, you need a working border router.
   - Make sure your Home Assistant device is on the same network (LAN) as the border router.
   - Make sure the {% term Thread %} network you'd like to use is known by Home Assistant and marked as **Preferred network** in the {% term Thread %} configuration.
   - If you have a Home Assistant Yellow, Connect&nbsp;ZBT-1, or Connect&nbsp;ZBT-2, you can enable Thread to set up an Open Thread border router and with that a {% term Thread %} network.
@@ -199,7 +200,8 @@ There is currently support for the following device types (also called *domains*
 - Light (HomeKit lights)
 - Lock (HomeKit lock)
 - Switch (HomeKit switches, outlets and valves)
-- Binary sensor (HomeKit motion, contact, occupancy, carbon monoxide and smoke sensors)
+- Number (HomeKit valve duration controls)
+- Binary sensor (HomeKit motion, contact, occupancy, carbon monoxide, smoke, low battery, and fault sensors)
 - Sensor (HomeKit humidity, temperature, co2 and light level sensors)
 - Fan
 - Air quality
@@ -306,7 +308,7 @@ You may say a log entry that looks like this:
 HomeKit device update skipped as previous poll still in flight
 ```
 
-In these cases it's unlikely that the integration itself is directly responsible. This is a safety feature to avoid overloading your Home Assistant instance. It means that Home Assistant tried to poll your accessory but the previous poll was still happening. This means it is taking over 1 minute to poll your accessory. This could be caused by a number of things:
+In these cases it's unlikely that the integration itself is directly responsible. This is a safety feature to avoid overloading your Home Assistant instance. It means that Home Assistant tried to poll your accessory but the previous poll was still happening. This means it is taking over 1 minute to poll your accessory. This could be caused by several things:
 
 - You have too many blocking synchronous integrations for your Home Assistant instance. All synchronous integrations share a thread pool, and if there are lots of tasks to run on it they will queued, which will cause delays. In the worst cases this queue can build up faster than it can be emptied. Faster hardware may help, but you may need to disable some integrations.
 - Your network connection to an accessory is poor and the integration is unable to reach the accessory reliably. This will likely require a change to your network setup to improve Wi-Fi coverage or replace damaged cabling.
@@ -316,7 +318,7 @@ In these cases, the integration will skip polling to avoid a buildup of back pre
 
 ### I can't see any events generated for "stateless" accessories
 
-This is expected. The only way to use stateless accessories like some doorbells, buttons or remotes with Home Assistant is through device automations. Home Assistant doesn't create duplicate events for device automation triggers, so for example you won't be able to watch them with the events developer tools.
+This is expected. The only way to use stateless accessories like some doorbells, buttons or remotes with Home Assistant is through device automations. Home Assistant doesn't create duplicate events for device automation triggers, so for example you won't be able to watch them in {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
 
 ### Home Assistant can't see my Homebridge device(s)
 

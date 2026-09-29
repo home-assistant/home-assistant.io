@@ -2,21 +2,30 @@
 title: Vistapool
 description: Monitor and control Vistapool-compatible pool controllers via the Vistapool cloud API.
 ha_category:
-  - Light
+  - Binary sensor
   - Button
+  - Light
   - Number
+  - Select
   - Sensor
+  - Switch
+  - Time
 ha_release: 2026.6
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
-  - "@fdebrus"
+  - '@fdebrus'
 ha_domain: vistapool
 ha_platforms:
-  - light
+  - binary_sensor
   - button
+  - diagnostics
+  - light
   - number
+  - select
   - sensor
+  - switch
+  - time
 ha_integration_type: hub
 ha_dhcp: true
 ha_quality_scale: bronze
@@ -39,6 +48,13 @@ When your pool controller's Wi-Fi module joins your network, Home Assistant dete
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Vistapool Username:
+  description: "The email address of your Vistapool cloud account. All pools linked to this account are added automatically."
+Password:
+  description: "The password of your Vistapool cloud account."
+{% endconfiguration_basic %}
+
 ## Prerequisites
 
 - A supported Vistapool-compatible pool controller
@@ -58,7 +74,28 @@ Any pool controller compatible with the Vistapool cloud platform, including:
 
 ## Supported functionality
 
-The **Vistopool** integration provides the following entities.
+The **Vistapool** integration provides the following entities.
+
+### Switches
+
+The integration provides the following switch {% term entities %}, grouped by what they control.
+
+#### Pool equipment
+
+- **Filtration**: toggle the filtration pump on or off.
+- **Relay 1**, **Relay 2**, **Relay 3**, **Relay 4**: toggle the four generic relay outputs on the controller. The switch reads as on when the controller is currently driving the relay, even if the toggle was last set the other way. This is useful for automations that need to reflect the actual relay state, not just the last command sent.
+
+#### Electrolysis / hydrolysis cell
+
+These are available if your controller has a hydrolysis or electrolysis module installed.
+
+- **Electrolysis cover**: enable cover-mode production reduction (lowers cell output while the pool cover is closed).
+- **Electrolysis boost**: enable boost dosing for shock chlorination.
+
+#### Mode toggles
+
+- **Heating climate**: switch heating into climate mode. Available only if your controller supports Heat mode.
+- **Smart mode freeze**: enable freeze protection in Smart filtration mode. Available only if your controller supports Smart mode.
 
 ### Buttons
 
@@ -135,11 +172,49 @@ The integration provides the following sensors:
 - **Filtration intel time**: daily runtime in Intel mode
 - **Wi-Fi signal strength**: controller RSSI (diagnostic, disabled by default)
 
+### Binary sensors
+
+The integration provides the following binary sensors, grouped by what they report.
+
+#### State of pool equipment
+
+- **Filtration**: whether the filtration pump is running
+- **Backwash**: whether a backwash cycle is in progress
+- **Heating**: whether the heating relay is on
+- **pH acid pump**: whether the acid dosing pump is currently active (if pH module installed)
+- **pH base pump**: whether the base dosing pump is currently active (if pH module installed)
+- **Chlorine pump**: whether the chlorine dosing pump is currently active (if chlorine module installed)
+- **Redox pump**: whether the redox dosing pump is currently active (if redox module installed)
+- **Hidro cover reduction**: whether the cell is running at reduced output because the cover is closed (if hydrolysis/electrolysis module installed)
+
+#### Alarms and faults
+
+- **pH pump alarm**: pH pump dosing alarm (if pH module installed)
+- **Hidro flow**: flow alarm on the cell (if hydrolysis/electrolysis module installed)
+- **Hidro FL2**: secondary flow alarm reported by the chlorine module (if hydrolysis/electrolysis and chlorine modules are installed)
+- **Electrolysis low** / **Hydrolysis low**: production has dropped below the configured threshold. The name reflects which cell technology your controller reports (if hydrolysis/electrolysis module installed)
+- **Dosing tank**: at least one installed dosing tank reports a low level (if any chemical dosing module is installed)
+
+#### Diagnostic entities
+
+These {% term entities %} are disabled by default and let you template against which modules are installed on the controller.
+
+- **Conductivity module**
+- **Chlorine module**
+- **Redox module**
+- **pH module**
+- **Hidro module**
+- **IO module**
+
+To use any of the diagnostic entities, enable them in {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
+
 ## Light
 
 The integration exposes the pool light wired through the controller as a standard Home Assistant {% term entity %}, so you can switch it from any dashboard, voice assistant, or automation. The controller treats the light as a simple on/off output. Brightness and color are not reported by the API and aren't exposed.
 
 - **Pool light**: turn the pool light on or off.
+
+If your controller supports light scheduling, you can also let it run the light on a schedule. See **Light mode** under [Selects](#selects).
 
 ### Numbers
 
@@ -157,6 +232,42 @@ The integration provides the following adjustable values, grouped by what they c
 - **Intel temperature**: target temperature used by INTEL filtration mode (5–40 °C).
 - **Heating minimum temperature**, **Heating maximum temperature**: lower and upper bounds of the HEAT mode temperature range (5–40 °C each). Available only if your controller supports HEAT mode.
 - **Smart minimum temperature**, **Smart maximum temperature**: lower and upper bounds of the SMART mode temperature range (5–40 °C each). Available only if your controller supports SMART mode.
+
+### Selects
+
+The integration provides the following select {% term entities %}, grouped by what they control. Each is exposed as a configuration {% term entity %}, so they appear under the **Configuration** section of the device page rather than in the main controls.
+
+#### Filtration mode and speed
+
+- **Pump mode**: how the filtration pump decides when to run. Options are `manual`, `auto`, `heat` (run while heating is active), `smart` (Smart filtration mode), and `intel` (Intel filtration mode).
+- **Pump speed**: speed used when the pump is running in manual mode. Options are `slow`, `medium`, and `high`.
+
+#### Timer speeds
+
+The controller has three independent timer slots. Each slot lets you choose the speed the pump should use when that slot is active.
+
+- **Filtration timer speed 1**: speed used for the first timer slot. Options are `slow`, `medium`, and `high`.
+- **Filtration timer speed 2**: same, for the second slot.
+- **Filtration timer speed 3**: same, for the third slot.
+
+#### Light schedule
+
+If your controller supports light scheduling, you can let it run the pool light on its own schedule instead of switching the light manually.
+
+- **Light mode**: how the pool light is driven. Choose `off` or `on` to control it directly, or `auto` to hand control back to the controller's schedule.
+- **Light schedule frequency**: how often the schedule repeats. Options are `daily` and `weekly`.
+
+### Times
+
+Each of the three timer slots described above runs between a start time and an end time. These time {% term entities %} let you adjust that filtration schedule directly from Home Assistant, so you can shift the slots around without opening the Vistapool app. Each is exposed as a configuration {% term entity %}, so they appear under the **Configuration** section of the device page rather than in the main controls.
+
+- **Filtration interval 1 start**, **Filtration interval 1 end**: start and end time of the first timer slot.
+- **Filtration interval 2 start**, **Filtration interval 2 end**: same, for the second slot.
+- **Filtration interval 3 start**, **Filtration interval 3 end**: same, for the third slot.
+
+If your controller supports light scheduling, two more time entities set the window the pool light runs in when **Light mode** is set to `auto`.
+
+- **Light schedule start**, **Light schedule end**: start and end time of the light schedule. The window can cross midnight, for example from 22:00 to 01:00.
 
 ## Data updates
 

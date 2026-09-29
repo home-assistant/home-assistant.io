@@ -1,6 +1,6 @@
 ---
 title: IFTTT
-description: Instructions on how to setup IFTTT within Home Assistant.
+description: Instructions on how to set up IFTTT within Home Assistant.
 ha_category:
   - Automation
 ha_iot_class: Cloud Push
@@ -78,7 +78,7 @@ ifttt:
 
 ### Testing your trigger
 
-You can use **Developer tools** to test your [Webhooks](https://ifttt.com/maker_webhooks) trigger. To do this, go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. Select `IFTTT: Trigger` as the action and fill in the following values:
+You can use **Tools** to test your [Webhooks](https://ifttt.com/maker_webhooks) trigger. To do this, go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}. Select `IFTTT: Trigger` as the action and fill in the following values:
 
 {% configuration_basic %}
 event:
@@ -117,8 +117,8 @@ Choose *Webhooks* service.
 Select *Receive a web request*.
 ![Receive a web request.](/images/integrations/ifttt/choose_webhook_trigger.png)
 
-You need to setup a unique trigger for each event you sent to IFTTT.
-![You need to setup a unique trigger for each event you sent to IFTTT.](/images/integrations/ifttt/setup_trigger.png)
+You need to set up a unique trigger for each event you sent to IFTTT.
+![You need to set up a unique trigger for each event you sent to IFTTT.](/images/integrations/ifttt/setup_trigger.png)
 
 Add the *Then That* action. The below example sends a notification to the IFTTT mobile app and adds `value1` to the message:
 ![Example notification "then that" action.](/images/integrations/ifttt/setup_then_that.png)

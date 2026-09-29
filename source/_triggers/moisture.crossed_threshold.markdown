@@ -2,7 +2,7 @@
 title: "Moisture content crossed threshold"
 trigger: moisture.crossed_threshold
 domain: moisture
-description: "Triggers after one or more moisture content values cross a threshold."
+description: "Triggers when one or more moisture content values cross a threshold."
 related_triggers:
   - moisture.changed
   - moisture.detected
@@ -12,8 +12,6 @@ related_triggers:
 The **Moisture content crossed threshold** trigger fires when a moisture reading crosses into a zone you define. A soil sensor dipping below a "water me" level, a sensor entering a healthy range after watering, or a reading escaping that range are all supported.
 
 Use **Moisture content crossed threshold** to automate watering, alert you when a plant or material drifts out of its target range, or coordinate devices that respond to specific moisture levels.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -56,6 +54,7 @@ Trigger when:
     - **All**: fires only after every targeted entity crosses the threshold.
 
     This corresponds to the `behavior` field in YAML. Default is **Each**.
+  required: false
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. Useful to avoid triggering on brief fluctuations. For example, set it to `00:05:00` to fire only after the reading has stayed past the threshold for 5 minutes. Default is `0` (fires immediately).
 {% endoptions_ui %}

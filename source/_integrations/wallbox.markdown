@@ -64,7 +64,7 @@ The number {% term entity %} is only loaded if the supplied username has suffici
 
 ## Lock
 
-The {% term integration %} adds a lock {% term entity %}, allowing you to lock the charger. Please note, this only works with a user with admin rights.
+The {% term integration %} adds a lock {% term entity %}, allowing you to lock the charger. This only works with a user with admin rights.
 
 ## Select
 

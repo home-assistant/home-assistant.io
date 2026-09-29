@@ -2,7 +2,7 @@
 title: "Humidifier turned on"
 trigger: humidifier.turned_on
 domain: humidifier
-description: "Triggers after one or more humidifiers turn on."
+description: "Triggers when one or more humidifiers turn on."
 related_triggers:
   - humidifier.turned_off
   - humidifier.started_humidifying
@@ -12,8 +12,6 @@ related_triggers:
 The **Humidifier turned on** trigger fires after a humidifier {% term entity %} turns on. Use it to start an automation the moment the device powers up, whether you turned it on manually, through the app, or via another automation.
 
 When you target more than one humidifier, the **Trigger when** option controls when it fires. You can have it fire the first time any targeted humidifier turns on, only after all targeted humidifiers have turned on, or every single time any of them turn on.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -38,6 +36,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted humidifier turns on.
     - **First**: fires only when the first of a group turns on.
     - **All**: fires only after every targeted humidifier is on.
+  required: false
 For at least:
   description: How long the humidifier must stay on before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -98,9 +97,9 @@ When the bedroom humidifier turns on, start a low-speed fan to help distribute t
 
 - **Trigger**: Humidifier turned on
   - **Target**: Bedroom humidifier
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
-- **Action**: Fan: Turn on
+- **Action**: Turn on fan
+  - **Target**: Bedroom fan
+  - **Percentage**: `30`%
 
 {% details "YAML example for running a fan when the humidifier turns on" %}
 
@@ -111,9 +110,6 @@ automation: |
     - trigger: humidifier.turned_on
       target:
         entity_id: humidifier.bedroom
-      options:
-        behavior: each
-        for: "00:00:00"
   actions:
     - action: fan.turn_on
       target:

@@ -14,8 +14,6 @@ only if a device or service still has an update ready to install.
 This condition is useful for scheduled maintenance automations, reminders, and
 checks you want to run before installing an update.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

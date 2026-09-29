@@ -2,7 +2,7 @@
 title: "Moisture cleared"
 trigger: moisture.cleared
 domain: moisture
-description: "Triggers after one or more moisture sensors stop detecting moisture."
+description: "Triggers when one or more moisture sensors stop detecting moisture."
 related_triggers:
   - moisture.detected
   - moisture.changed
@@ -10,8 +10,6 @@ related_triggers:
 ---
 
 The **Moisture cleared** trigger fires when one or more moisture binary sensors stop detecting water. Use it to know when a leak has dried up, when a freshly mopped floor is dry again, or to reset a warning after a wet area returns to normal.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 

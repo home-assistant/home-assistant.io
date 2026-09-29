@@ -2,7 +2,7 @@
 title: "Water heater target temperature changed"
 trigger: water_heater.target_temperature_changed
 domain: water_heater
-description: "Triggers after the temperature setpoint of one or more water heaters changes."
+description: "Triggers when the temperature setpoint of one or more water heaters changes."
 related_triggers:
   - water_heater.target_temperature_crossed_threshold
   - water_heater.operation_mode_changed
@@ -11,8 +11,6 @@ related_triggers:
 The **Water heater target temperature changed** trigger fires when the target temperature setting of a water heater {% term entity %} changes. The target temperature is the setpoint you want the water heater to maintain, not the current measured water temperature. Use this trigger when you want to react to any meaningful setpoint change, like sending an alert when someone raises the target temperature higher than usual.
 
 Use the threshold type to decide which changes matter. You can fire on any change, only when the new setpoint is above or below a value, or only when it lands inside or outside a range.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -101,7 +99,7 @@ threshold:
 
     For `type: above` and `type: below`, use `value` with either `number` and `unit_of_measurement`, or `entity`. For `type: between` and `type: outside`, use `value_min` and `value_max`, each with either `number` and `unit_of_measurement`, or `entity`.
 
-    The `entity` value can reference an `input_number`, `sensor`, or `number` entity. When you use a helper, create the {% term helper %} separately before using it here.
+    The `entity` value can reference an input number, sensor, or number entity. When you use a helper, create the {% term helper %} separately before using it here.
   required: true
   type: map
 {% endoptions_yaml %}
@@ -110,10 +108,11 @@ threshold:
 
 ## Good to know
 
+- The target water heater entity must expose a target temperature attribute.
 - This trigger watches the target temperature setpoint, not the current measured water temperature.
 - To react only when the setpoint crosses a threshold boundary, use [Water heater target temperature crossed threshold](/triggers/water_heater.target_temperature_crossed_threshold/).
+- Threshold entities must provide temperature values. Supported threshold sources are temperature sensors, temperature number entities, and input number helpers.
 - When you use an entity as the threshold, Home Assistant uses that entity's current value when the setpoint changes.
-- The threshold entities must provide temperature values. Supported threshold sources are temperature sensors, temperature number entities, and `input_number` helpers.
 
 {% include triggers/try_it.md %}
 

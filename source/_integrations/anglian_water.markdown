@@ -32,9 +32,9 @@ The following devices are not supported by the integration:
 
 {% configuration_basic %}
 Username:
-    description: "The username / email used to login to your Anglian Water account."
+    description: "The username / email used to log in to your Anglian Water account."
 Password:
-    description: "The password used to login to your Anglian Water account."
+    description: "The password used to log in to your Anglian Water account."
 Account number:
     description: "If a valid smart meter is not associated with the default billing account linked to your Anglian Water login, please have your latest bill handy. You will be asked to provide the account number found at the top."
 {% endconfiguration_basic %}

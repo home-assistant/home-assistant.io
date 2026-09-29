@@ -2,7 +2,7 @@
 title: "Volatile organic compounds level crossed threshold"
 trigger: air_quality.voc_crossed_threshold
 domain: air_quality
-description: "Triggers after one or more volatile organic compounds levels cross a threshold."
+description: "Triggers when one or more volatile organic compounds levels cross a threshold."
 related_triggers:
   - air_quality.voc_changed
 ---
@@ -10,8 +10,6 @@ related_triggers:
 The **Volatile organic compounds level crossed threshold** trigger fires when the <abbr title="volatile organic compounds">VOC</abbr> reading on one or more air quality sensors crosses a specific level. VOCs are invisible gases released by paints, cleaning products, new furniture, adhesives, and many everyday household items. When VOC levels climb above comfortable limits, you might notice headaches, eye irritation, or a general feeling that something is "off" about the air.
 
 With this trigger, your ventilation starts automatically the moment VOC readings cross your chosen limit, whether that spike comes from mopping the floor or painting a room. You also get a notification on your phone right away, so you know exactly when to step outside for fresh air. Your home takes care of indoor air quality in the background, so you do not have to keep checking a sensor yourself.
-
-{% include integrations/labs_entity_triggers_note.md %}
 
 {% include triggers/ui_header.md %}
 
@@ -34,6 +32,8 @@ Threshold type:
   description: The VOC concentration the reading has to cross for the trigger to fire. Can be a fixed number, or reference a helper entity that provides the value.
 Trigger when:
   description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted sensors have crossed the threshold.
+  required: false
+  default: Each
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}
@@ -67,7 +67,7 @@ threshold:
 behavior:
   description: >
     When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:

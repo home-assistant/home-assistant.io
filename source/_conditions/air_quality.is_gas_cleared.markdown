@@ -9,8 +9,6 @@ related_conditions:
 
 The **Gas cleared** condition passes when one or more gas sensors are no longer detecting gas. After a gas event, you want to be sure the air is truly safe before your automation reopens a shut-off valve or sends an all-clear notification. This condition acts as that safeguard, preventing your automation from acting too early while a reading persists in another room.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:

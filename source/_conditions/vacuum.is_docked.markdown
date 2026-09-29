@@ -1,5 +1,5 @@
 ---
-title: Vacuum is docked
+title: Vacuum cleaner is docked
 condition: vacuum.is_docked
 domain: vacuum
 description: "Passes when the vacuum cleaner is docked."
@@ -9,8 +9,6 @@ The **Vacuum cleaner is docked** condition passes when one or more targeted vacu
 
 Use this when you want to continue only if the robot is safely parked, like before turning off a light near the charger, starting maintenance, or sending a reminder that the cleaning cycle is complete.
 
-{% include integrations/labs_entity_triggers_note.md %}
-
 {% include conditions/ui_header.md %}
 
 To use this condition in an automation:
@@ -18,7 +16,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Vacuum: Vacuum cleaner is docked**.
+4. From the search box, search for and select **Vacuum cleaner is docked**.
 5. Under **Targets**, select the vacuum entity, an area, a floor, or a label.
 6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 7. Under **For at least**, enter how long the vacuum must stay docked before the condition passes.
@@ -89,7 +87,7 @@ for:
 At bedtime, this automation checks whether the vacuum is already docked. If it is, the light near the charging station turns off.
 
 - **Trigger**: Time: 23:00
-- **Condition**: Vacuum is docked
+- **Condition**: Vacuum cleaner is docked
 - **Target**: Laundry room vacuum
 - **Action**: Turn off light
 

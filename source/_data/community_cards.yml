@@ -7,7 +7,6 @@ cards:
     video_poster: /images/frontpage/nc-card.webp
   - href: "https://www.reddit.com/r/homeassistant/comments/1h3hqfr/home_assistant_saved_my_house_thanks/"
     text: "Home Assistant saved my house. Thanks!"
-    blue: true
     author_image: "/images/community-cards/reddit-logo.webp"
     author_image_alt: "Reddit logo"
     author: "ightfoot_labs"
@@ -71,7 +70,6 @@ cards:
     video: /video/frontpage/shs-card.webm
     video_poster: /images/frontpage/shs-card.webp
   - href: "https://www.howtogeek.com/how-a-local-llm-fixed-my-biggest-smart-home-privacy-problem/"
-    blue: true
     text: 'I ditched cloud voice assistants for a local LLM and my smart home finally feels private'
     author_image: "/images/community-cards/how-to-geek.webp"
     author_image_alt: "How-To Geek logo"

@@ -19,7 +19,7 @@ The **HaveIBeenPwned** {% term integration %} creates sensors that check for bre
 
 ## Configuration
 
-In order to use this integration you need to purchase an API key. Visit the [API key page](https://haveibeenpwned.com/API/Key) on the HIBP website to purchase one.
+To use this integration you need to purchase an API key. Visit the [API key page](https://haveibeenpwned.com/API/Key) on the HIBP website to purchase one.
 
 ## Configuration
 
