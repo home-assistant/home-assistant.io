@@ -39,11 +39,12 @@ These common attributes may be present, depending on the entity domain:
 - `friendly_name`: Name of the entity. Example: `Kitchen ceiling`.
 - `icon`: Icon to use for the entity in the frontend. Example: `mdi:home`.
 - `entity_picture`: URL to a picture that is shown instead of the domain icon. Example: `http://example.com/picture.jpg`.
-- `assumed_state`: `true` if the current state is an assumption. For more information, refer to [classifying the Internet of Things](/blog/2016/02/12/classifying-the-internet-of-things/#classifiers).
+- `assumed_state`: `true` if the current state is an assumption. Only present when this is the case. For more information, refer to [classifying the Internet of Things](/blog/2016/02/12/classifying-the-internet-of-things/#classifiers).
 - `unit_of_measurement`: The unit the state is expressed in. Used for grouping graphs or understanding the entity. Example: `°C`.
 - `attribution`: The provider of the data. Example: `Data provided by openSenseMap`.
 - `device_class`: The type of device that an entity represents. Used to show device-specific information in the UI.
 - `supported_features`: A number that stands for the features the entity supports. For covers, for example, these features include opening, closing, stopping, and setting a position. For media players, they include play, pause, stop, and volume control.
+- `restored`: `true` if the integration of the entity has not set it up, for example, because the integration failed to load or was unloaded. The state is then `unavailable`, and the other attributes are taken from the entity registry. Only present when this is the case.
 
 In templates, you can read an attribute by its name, for example, `state.attributes.assumed_state`. When an attribute name contains spaces, use the [`state_attr`](/template-functions/state_attr/) function: `state_attr('sensor.livingroom', 'Battery numeric')`.
 
@@ -70,6 +71,10 @@ In templates, the `state` prefix shows that a field belongs to the state object.
 - `state.last_reported`: When the entity last reported its state, in UTC. Updated even when neither the state nor the attributes changed. Example: `2013-09-17 07:32:51.715874+00:00`.
 - `state.attributes`: A dictionary with the [attributes](#attributes) of the entity.
 - `state.context`: The [context](#context) of the state. In templates, you read its fields directly, for example, `state.context.id`.
+
+Some entities force an update, for example, MQTT sensors with force update turned on, or some KNX sensors. For these entities, every report counts as a change. `last_changed` and `last_updated` are updated, and a [`state_changed` event](/docs/configuration/events/#state_changed) is fired, even when the state and the attributes are the same as before.
+
+`last_reported` is only updated when the integration writes the state again. Some integrations, such as MQTT, only write the state when something has changed, unless force update is turned on. For their entities, `last_reported` does not change when the device sends the same value again. For more information, refer to [the last reported state attribute](/integrations/mqtt/#the-last-reported-state-attribute) on the MQTT integration page.
 
 ## Context
 
