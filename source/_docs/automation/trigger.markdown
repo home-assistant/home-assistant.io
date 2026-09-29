@@ -387,20 +387,6 @@ automation:
 
 Most triggers that have an entity as the target do not fire when an entity transitions _from_ an `unavailable` or `unknown` state. For example, if a light goes offline and comes back on, the `light.turned_on` trigger does not fire for that recovery.
 
-{% tip %}
-This isn't for use with `device_tracker` entities. For those look above at the `zone` trigger.
-{% endtip %}
-
-```yaml
-automation:
-  triggers:
-    - trigger: geo_location
-      source: nsw_rural_fire_service_feed
-      zone: zone.bushfire_alert_zone
-      # Event is either enter or leave
-      event: enter # or "leave"
-```
-
 ## Multiple triggers
 
 It is possible to specify multiple triggers for the same rule. To do so just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, processing of your automation rule begins.
