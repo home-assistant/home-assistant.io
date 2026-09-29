@@ -46,14 +46,45 @@ For configuration changes to become effective, the configuration must be reloade
 
 ## States tab
 
-This section shows all the available entities, their corresponding state and the attribute values. The state and the attribute information is what Home Assistant sees at run time. To update the entity with a new state, or a new attribute value, select the entity, scroll to the top, and modify the values, and select the **SET STATE** button.
+The **States** tab lists all your {% term entities %}, with their current {% term state %} and attributes. This is what Home Assistant sees at that moment.
 
-Note that this is the state representation of a device within Home Assistant. That means, it is what Home Assistant sees, and it does not communicate with the actual device in any manner. The updated information can still be used to trigger events, and state changes. To communicate with the actual device, it is recommended to perform actions in the **Actions** section above, instead of updating state.
+You can also set the state of an entity here. This only changes what Home Assistant shows. It does not control the {% term device %}. For example, setting `light.bedroom` from `off` to `on` does not turn on the light. {% term Automations %} with a {% term trigger %} on that state change still start, though, which makes this useful for testing. The change is temporary: the next time the device reports its state, Home Assistant shows the real state again. To control a device, perform an {% term action %} in the [Actions tab](#actions-tab) instead.
 
-For example, changing the `light.bedroom` state from `off` to `on` does not turn on the light. If there is an automation that triggers on the `state` change of the `light.bedroom`, it will be triggered – even though the actual bulb has not turned on. Also, when the bulb state changes – the state information will be overridden (the refresh icon can be used to retrieve the latest information that Home Assistant has). In other words, the changes that are made through the **States** section are temporary, and are recommended to use for testing purposes only.
+### Filtering the list of entities
 
-The table containing all entities can be filtered for each column. The used search is a wildcard search meaning that if you input "office" in the entity column filter, every entity whose ID matches "\*office\*" will be shown. You can also add your own wildcards in the search input (such as "office\*light").
-The attribute filter supports separate filters for attribute names and values, separated by a colon ":". So the filter "location:3" will result in the table showing all entities that have an attribute name that contains "location" and whose attribute value contains "3".
+The list can contain hundreds of {% term entities %}. To find the entity you are looking for, or to check which entities have a certain {% term state %} or attribute, filter the list. For example, you can show all {% term lights %} that are on, or all entities in one {% term area %}.
+
+1. Go to {% my developer_states title="**Settings** > **Tools** > **States**" %}.
+2. Optional: To show more columns, select **Device**, **Area**, or **Attributes** above the list. These options are not shown on narrow screens.
+3. In the filter field above a column, enter the text you are looking for.
+   - The filters are not case-sensitive and match any part of the text. To use a wildcard, enter `*`, for example, `office*light`.
+   - **Filter entities** matches the entity ID and the name of the entity.
+   - **Filter attributes** matches the names and the values of attributes. To filter for a specific attribute, enter its name and value separated by a colon. For example, `location:3` shows the entities with an attribute whose name contains `location` and whose value contains `3`.
+   - Result: The list only shows the entities that match all filters.
+
+### Setting the state of an entity
+
+Use this to test how automations react to a state change, without changing the device.
+
+{% note %}
+**Risk of unintended device actions**
+
+Setting a state starts every automation with a trigger on that state change. Those automations control real devices and services.
+
+To avoid this:
+
+- Before you set the state, check which automations react to this entity.
+- Turn off any of these automations that you don't want to run.
+{% endnote %}
+
+1. Go to {% my developer_states title="**Settings** > **Tools** > **States**" %}.
+2. In the list, select the entity ID. Or, in the **Set state** section at the top, select **Select an entity** and choose the entity.
+   - Result: The **Set state** section shows the current state and attributes of the entity.
+3. Under **State**, enter the new state. To test a trigger, reproduce the change it reacts to, as set in its **From** and **To** options. If the entity already has the new state, set it to a different state first. Setting the same state again is not a state change, so the trigger does not react.
+4. Optional: Under **State attributes (YAML, optional)**, change the attributes.
+5. Select **Set state**.
+   - Result: Home Assistant shows the new state, and automations with a trigger on that state change start. The device does not change.
+6. Optional: To load the current state of the entity into the form again, select **Refresh** {% icon "mdi:refresh" %}.
 
 ## Actions tab
 
