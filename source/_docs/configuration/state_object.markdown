@@ -56,7 +56,7 @@ Behind the scenes, every change to a state or its attributes fires a [`state_cha
 
 ## State object
 
-The state object is a snapshot of an entity at a specific moment. It holds the state, the attributes, the entity ID, the timestamps of the last changes, and the context. Other information about the entity, such as its device and area, is not part of the state object. Templates, automations, and the frontend all read the state object.
+The state object is a snapshot of an entity at a specific moment. It holds the state, the attributes, the entity ID, three timestamps, and the context. Other information about the entity, such as its device and area, is not part of the state object. Templates, automations, and the frontend all read the state object.
 
 In templates, the `state` prefix shows that a field belongs to the state object. For example, `state.state` is the state of the entity, and `state.attributes` are its attributes.
 
@@ -69,11 +69,13 @@ In templates, the `state` prefix shows that a field belongs to the state object.
 - `state.last_updated`: When the state or the attributes last changed, in UTC. Not updated when neither the state nor the attributes changed. Example: `2013-09-17 07:32:51.715874+00:00`.
 - `state.last_reported`: When the entity last reported its state, in UTC. Updated even when neither the state nor the attributes changed. Example: `2013-09-17 07:32:51.715874+00:00`.
 - `state.attributes`: A dictionary with the [attributes](#attributes) of the entity.
-- `state.context`: A dictionary with the [context](#context) of the state.
+- `state.context`: The [context](#context) of the state. In templates, you read its fields directly, for example, `state.context.id`.
 
 ## Context
 
-The context links states and {% term events %} that belong together. When you or an {% term automation %} make something happen, Home Assistant creates a new context. Every event and state change that results from it carries the same context. This way, you can tell what caused a change, for example, whether a person or an automation turned on a light.
+The context links states and {% term events %} that belong together. When you or an {% term automation %} make something happen, Home Assistant creates a new context. The events and state changes that result from it carry this context. This way, you can tell what caused a change, for example, whether a person or an automation turned on a light.
+
+When an automation is triggered, it gets a new context of its own. The `parent_id` of this context points to the context of the trigger. To follow a chain of changes through an automation, follow the `parent_id` rather than comparing only the `id`.
 
 - `id`: Unique identifier for the context.
 - `user_id`: Identifier of the user who started the change. `None` if no user started it, for example, when an automation did.
