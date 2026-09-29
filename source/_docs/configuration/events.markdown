@@ -25,7 +25,7 @@ In an automation, an event can be the {% term trigger %}, but not a {% term cond
 2. Condition (optional): The automation checks whether it should continue, for example, based on the data in the event.
 3. Action: The automation makes something happen.
 
-When an action runs, it creates events of its own: a `call_service` event for the action itself, and a `state_changed` event when the light turns on. To fire an event from an automation or script, use the [**Fire manual event**](/docs/scripts/#fire-an-event) action.
+Actions can create events of their own. When an action such as `light.turn_on` is performed, Home Assistant fires a `call_service` event. If the light then turns on, a `state_changed` event follows. Other steps in an automation, such as a delay or a condition, do not fire these events. To fire an event from an automation or script, use the [**Fire manual event**](/docs/scripts/#fire-an-event) action.
 
 Most triggers in the automation editor are built on events. For example, the [**State**](/triggers/state/) trigger listens for `state_changed` events for the entities you select. When something has a state, such as a light, a door sensor, or the location of a person, use the **State** trigger. It is easier to set up than listening for the event yourself.
 
