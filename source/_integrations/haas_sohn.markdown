@@ -3,7 +3,7 @@ title: HAAS+SOHN
 description: Connect and control your HAAS+SOHN pellet stove using the Fumis integration
 ha_category:
   - Climate
-ha_release: '2026.10?'
+ha_release: '2026.10'
 ha_domain: haas_sohn
 ha_integration_type: virtual
 ha_supporting_domain: fumis
