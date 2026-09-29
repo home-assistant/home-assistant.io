@@ -79,11 +79,15 @@ The automation runs without trigger data, so there is no [trigger ID](/docs/auto
 
 ### Using a simulated trigger to test an automation
 
-To test an automation whose conditions or actions depend on which trigger started it, run it with a simulated trigger. You cause the change that the trigger reacts to, by simulating a state change or an event. The automation then runs from the start, with real trigger data, including the [trigger ID](/docs/automation/trigger/#trigger-id).
+To test an automation whose conditions or actions depend on which trigger started it, run it with a simulated trigger. You cause the change that the trigger reacts to by simulating a state change or an event. The automation then runs from the start, with real trigger data, including the [trigger ID](/docs/automation/trigger/#trigger-id).
+
+{% caution %}
+Simulating a state change or firing an event can start every matching automation. Any actions that run affect real devices and services, so review or disable unrelated matching automations before continuing.
+{% endcaution %}
 
 1. Do one of the following:
    - To simulate a state change, go to {% my developer_states title="**Settings** > **Tools** > **States**" %}.
-     - Under **Entity**, select the entity. Under **State**, enter the state that your trigger reacts to. You can find it in your automation, in the **To** option of the trigger. Then select **Set state**. For details, refer to the [States tab](/docs/tools/dev-tools/#states-tab).
+     - Under **Entity**, select the entity. Use **Set state** to reproduce the transition configured by the trigger, including its **From** and **To** values. If the entity already has the **To** state, set it to a different state first; setting the same state again does not fire a state-change trigger. For details, refer to the [States tab](/docs/tools/dev-tools/#states-tab).
      - Changing the state here doesn't change the device. It only changes the state that Home Assistant shows, so that the trigger reacts. After the test, the state shown may be wrong until the device reports its state again.
      - Result: Every automation with a trigger on that state change starts, with the trigger data of the simulated change. The actions of the automation run for real.
    - To simulate an event, go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
