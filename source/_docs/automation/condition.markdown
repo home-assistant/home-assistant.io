@@ -6,7 +6,7 @@ toc: false
 
 Conditions are an optional part of an automation rule. They can be used to prevent the automation's actions from being run. After a {% term trigger %} occurred, all conditions will be checked. The automation will be executed if all conditions return `true`. If any of the conditions returns `false`, the automation won't start.
 
-A condition checks the state at the moment the automation runs, not at the moment of the trigger. For an example, refer to [how automations react to changes](/docs/automation/basics/#how-automations-react-to-changes).
+A condition checks the state at the moment the automation runs, not at the moment of the trigger. For an example, refer to [how automations react to changes](/docs/automation/how-automations-react-to-changes/#conditions-check-the-current-state).
 
 The available conditions for an automation are the same as for the script syntax so see that page for a [full list of available conditions](/docs/scripts/conditions/).
 

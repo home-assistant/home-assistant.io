@@ -29,22 +29,6 @@ The second part of an automation has the [condition](/docs/automation/condition/
 
 The last part of an automation has the [action](/docs/automation/action/). The action part will be performed only if the trigger and condition parts are met. Some examples of actions are: turn on a light, set the temperature on a thermostat or activate a scene.
 
-## How automations react to changes
-
-A trigger reacts to a change, such as a light turning on or the sun setting. An automation does not keep checking whether something is true. It waits for the change and then starts. Behind the scenes, these changes are [events](/docs/configuration/events/), and most of them are changes to the [state](/docs/configuration/state_object/) of an entity.
-
-For example, a **Numeric state** trigger for "above 25 °C" does not react when you save the automation while the temperature is already 26 °C. It reacts the next time the temperature rises above 25 °C.
-
-A condition checks the state at the moment the automation runs, not at the moment of the trigger. For example, if a switch is turned on and quickly off again, the automation starts, but a condition that checks whether the switch is on is not met anymore.
-
-Sometimes you want an automation to run as soon as two things are both true, for example, when Paulus is home and the sun has set. A trigger only reacts to one change, so the example on this page only works if Paulus comes home after sunset. If Paulus comes home before sunset, nothing happens when the sun sets. To cover both cases, add a trigger for each change and a condition for each situation:
-
-```text
-(triggers)    When Paulus enters home, or when the sun sets
-(conditions)  and Paulus is home, and it is after sunset
-(action)      turn on the lights in the living room
-```
-
 ## Creating automations
 
 Now that you've got a sneak peek of what is possible, it's time to get your feet wet and create your first automation.
@@ -80,9 +64,9 @@ By default, to create automations, use the [automation editor](/docs/automation/
         - Select entities, devices or services in an area, floor or with a certain label to monitor a group of them.
      2. You can add more targets by selecting **Add target** again.
    - Under **Behavior**, you can decide how the automation starts by selecting one of the options there.
-     - **First**: if monitoring multiple targets, the automation only starts the first time the trigger is verified for a target.
-     - **Last**: if monitoring multiple targets, the automation only starts after the trigger is verified for all targets.
-     - **Any**: the automation starts whenever a trigger of a monitored target is verified.
+     - **First**: if monitoring multiple targets, the automation only fires on the first time the trigger is verified for a target.
+     - **Last**: if monitoring multiple targets, the automation only fires after the trigger is verified for all targets.
+     - **Any**: the automation fires whenever a trigger of a monitored target is verified.
 4. Select **Save**.
 
 ### Adding a condition
