@@ -107,6 +107,7 @@ The switch platform allows you to control your outlets, light switches, and sele
 - Smart Plug Compact
 - Camera Eyes
 - Camera 360
+- Camera Outdoor Gen2
 
 Some devices also get an additional, device-specific switch. These are configuration entities, so they appear under the device's configuration controls rather than with the main controls:
 
