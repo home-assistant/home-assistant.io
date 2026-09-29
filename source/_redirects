@@ -130,7 +130,7 @@ layout: null
 /components/device_tracker.mqtt /integrations/device_tracker.mqtt
 /components/device_tracker.mysensors /integrations/mysensors#device-tracker
 /components/fan.mqtt /integrations/fan.mqtt
-/components/fan.template /integrations/cover.template
+/components/fan.template /integrations/template/#fan
 /integrations/fan.template /integrations/template/#fan
 /components/light.group /integrations/light.group
 /components/light.mqtt /integrations/light.mqtt
@@ -166,7 +166,7 @@ layout: null
 /integrations/binary_sensor.modbus /integrations/modbus/#configuring-binary-sensor-entities
 /integrations/binary_sensor.mysensors /integrations/mysensors#binary-sensor
 /integrations/binary_sensor.rflink /integrations/rflink/#binary-sensor
-/integrations/binary_sensor.template /integrations/template/#binary_sensor
+/integrations/binary_sensor.template /integrations/template/#binary-sensor
 /integrations/binary_sensor.xiaomi_aqara/ /integrations/xiaomi_aqara/#binary-sensor
 /integrations/climate.knx /integrations/knx#climate
 /integrations/climate.modbus/ /integrations/modbus/#configuring-climate-entities
@@ -496,8 +496,8 @@ layout: null
 
 # Lovelace documentation
 /lovelace/entity-button /dashboards/button
-/lovelace/views /dashboards/dashboards-and-views
-/lovelace/yaml-mode /dashboards/dashboards-and-views
+/lovelace/views /dashboards/views/
+/lovelace/yaml-mode /dashboards/dashboards/#adding-yaml-dashboards
 /lovelace/calendar-card /dashboards/calendar
 /integrations/lovelace /dashboards
 /lovelace/* /dashboards/:splat
@@ -733,6 +733,18 @@ layout: null
 
 # Lovelace images
 /images/dashboards/lovelace_* /images/dashboards/:splat
+
+# Old URLs that still get visitors
+/addons /apps/ 301
+/hassio/getting-started/* /getting-started/:splat 301
+/common-tasks/core /installation/ 301
+/common-tasks/supervised /installation/ 301
+/dashboards/dashboards-and-views /dashboards/dashboards/ 301
+/dashboards/yaml-mode /dashboards/dashboards/#adding-yaml-dashboards 301
+/docs/organizing/filtering /docs/organizing/tables/#filtering-items-in-a-table 301
+/integrations/alarm_control_panel.template /integrations/template/#alarm-control-panel 301
+/integrations/climate.template /integrations/template/ 301
+/integrations/weather.template /integrations/template/#weather 301
 
 # Unsupported reasons that are also unhealthy
 /more-info/unsupported/privileged /more-info/unhealthy/privileged
