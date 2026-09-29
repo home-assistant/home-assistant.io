@@ -80,6 +80,10 @@ For an overview of every trigger across all integrations, see the [triggers refe
 
 For setup steps, YAML options, and examples for the event trigger, see [Event trigger](/triggers/event/).
 
+### Geolocation trigger
+
+The geolocation trigger fires when an entity that is created by a [Geolocation](/integrations/geo_location/) platform appears in or disappears from a zone. For setup steps, YAML options, and examples for the geolocation trigger, see [Geolocation trigger](/integrations/geo_location/#geolocation-trigger).
+
 ### Home Assistant trigger
 
 For setup steps, YAML options, and examples for the Home Assistant trigger, see [Home Assistant trigger](/triggers/homeassistant/).
