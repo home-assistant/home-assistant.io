@@ -126,4 +126,4 @@ If you want to change a note on a trigger, condition, or action:
 
 ## Troubleshooting missing automations
 
-If your automation doesn't appear in the UI, refer to [My automation doesn't appear in the UI](/docs/automation/troubleshooting/#my-automation-doesnt-appear-in-the-ui).
+If you can't see your automation, refer to [My automation doesn't appear in the UI](/docs/automation/troubleshooting/#my-automation-doesnt-appear-in-the-ui).
