@@ -70,7 +70,7 @@ The automation runs without trigger data, so there is no [trigger ID](/docs/auto
 {% endnote %}
 
 1. Go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
-2. In the **Action** drop-down, select **Automation: Trigger automation**.
+2. In the **Action** drop-down, select **Trigger automation**, with **Automation** next to it.
 3. Select **Add target**, and then select the automation you are testing.
 4. To check the conditions, turn off **Skip conditions**. To skip them, leave it on.
 5. Optional: To pass variables for testing, switch to **YAML mode** and add them under `variables`.
@@ -82,17 +82,19 @@ The automation runs without trigger data, so there is no [trigger ID](/docs/auto
 To test an automation whose conditions or actions depend on which trigger started it, run it with a simulated trigger. You cause the change that the trigger reacts to by simulating a state change or an event. The automation then runs from the start, with real trigger data, including the [trigger ID](/docs/automation/trigger/#trigger-id).
 
 {% note %}
-Risk of unintended device actions
+**Risk of unintended device actions**
 
-Simulating a state change or firing an event triggers every automation that matches it. Those automations control real devices and services.
+Simulating a state change or firing an event starts every automation with a trigger that reacts to it. Those automations control real devices and services.
 
-- Before you continue, review which automations match this state or event.
-- Turn off any matching automations you don't want to run.
+To avoid this:
+
+- Before you continue, review which automations react to this state change or event.
+- Turn off any of these automations that you don't want to run.
 {% endnote %}
 
 1. Do one of the following:
    - To simulate a state change, go to {% my developer_states title="**Settings** > **Tools** > **States**" %}.
-     - Under **Entity**, select the entity. Use **Set state** to reproduce the transition configured by the trigger, including its **From** and **To** values. If the entity already has the **To** state, set it to a different state first; setting the same state again does not fire a state-change trigger. For details, refer to the [States tab](/docs/tools/dev-tools/#states-tab).
+     - Under **Entity**, select the entity. Use **Set state** to reproduce the transition configured by the trigger, including its **From** and **To** values. If the entity already has the **To** state, set it to a different state first; setting the same state again does not fire a state-change trigger. For details, refer to [Setting the state of an entity](/docs/tools/dev-tools/#setting-the-state-of-an-entity).
      - Changing the state here doesn't change the device. It only changes the state that Home Assistant shows, so that the trigger reacts. After the test, the state shown may be wrong until the device reports its state again.
      - Result: Every automation with a trigger on that state change starts, with the trigger data of the simulated change. The actions of the automation run for real.
    - To simulate an event, go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
