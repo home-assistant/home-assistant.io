@@ -604,9 +604,11 @@
     that state such as brightness, color, or a unit of measurement.
 - term: State object
   definition: >-
-    The state object is a snapshot of an entity at a specific moment. It holds
-    the state, the attributes, the entity ID, three timestamps, and the context.
-    Templates, automations, and the frontend all read the state object.
+    The state object is a snapshot of the state of an entity at a specific
+    moment. It holds the state, the attributes, the entity ID, three timestamps,
+    and the context. Other information about the entity, such as its device and
+    area, is not part of it. Templates, automations, and the frontend can access
+    the state object.
   link: /docs/configuration/state_object/
   aliases:
     - state objects
