@@ -5,7 +5,9 @@ description: "Use the Tools in Home Assistant to check your configuration, look 
 
 **Tools** let you look at what is happening in Home Assistant and try things out, without creating an {% term automation %} or a dashboard first. For example, you can check the current {% term state %} of an {% term entity %}, control a {% term device %}, test a {% term template %}, or see which {% term events %} happen. Tools are useful for everyone, not only for developers.
 
-Tools are only available to administrators. To open Tools, go to {% my tools_yaml title="**Settings** > **Tools**" %}.
+Tools are only available to administrators.
+
+To open Tools, go to {% my tools_yaml title="**Settings** > **Tools**" %}.
 
 <p class='img'>
 <img src='/images/screenshots/tools.png' alt='Screenshot showing the Tools page in Home Assistant' />
@@ -14,13 +16,13 @@ Screenshot of Home Assistant's tools.
 
 Tools has the following tabs:
 
-- Check your configuration, reload YAML configuration, and restart Home Assistant in the [**YAML** tab](#yaml-tab).
-- See the current state and attributes of your entities, and set a state to test automations, in the [**States** tab](#states-tab).
-- Perform any {% term action %}, for example, to control a device, in the [**Actions** tab](#actions-tab).
-- Write a template and see its result right away in the [**Template** tab](#template-editor-tab).
-- Fire an event, or listen to events to see what happens, in the [**Events** tab](#events-tab).
-- Find, fix, and adjust {% term "long-term statistics" %} in the [**Statistics** tab](#statistics-tab).
-- Test how Assist understands a sentence in the [**Assist** tab](#assist-tab).
+- [**YAML** tab](#yaml-tab): Check your configuration, reload YAML configuration, and restart Home Assistant.
+- [**States** tab](#states-tab): See the current state and attributes of your entities, and set a state to test automations.
+- [**Actions** tab](#actions-tab): Perform any {% term action %}, for example, to control a device.
+- [**Template** tab](#template-editor-tab): Write a template and see its result right away.
+- [**Events** tab](#events-tab): Fire an event, or listen to events to see what happens.
+- [**Statistics** tab](#statistics-tab): Find, fix, and adjust {% term "long-term statistics" %}.
+- [**Assist** tab](#assist-tab): Test how Assist understands a sentence.
 
 ## YAML tab
 
