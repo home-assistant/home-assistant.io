@@ -158,7 +158,7 @@ The sensor doesn't detect every lightning strike, and electrical interference ne
 
 The sensor estimates the distance to the nearest edge of the storm from the strikes it detected recently. The estimate changes gradually as a storm approaches or moves away, so it can differ from the distance to the most recent strike. The sensor reports the distance in steps of 1 (overhead), 5, 6, 8, 10, 12, 14, 17, 20, 24, 27, 31, 34, 37, and 40 km.
 
-When a strike is out of range, the sensor can't estimate its distance, and **Lightning last distance** shows unknown. Some Tempest firmware versions, including 181, still count such a strike as 63 km in the **Lightning average distance**, so the average is too high for a minute with an out-of-range strike.
+When a strike is out of range, the sensor can't estimate its distance, and **Lightning last distance** shows as unknown. Some Tempest firmware versions, including 181, still count such a strike as 63 km in the **Lightning average distance**, so the average is too high for a minute with an out-of-range strike.
 
 ## Networking notes
 
