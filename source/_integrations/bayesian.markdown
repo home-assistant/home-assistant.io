@@ -279,3 +279,5 @@ binary_sensor:
       prob_given_false: 0.84 # All the prob_given_false should add to 1
       to_state: "not due"
 ```
+
+{% include integrations/actions.md %}

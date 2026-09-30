@@ -3709,6 +3709,8 @@ The blueprint can now be used for creating template entities.
 
 [blueprint-forums]: /get-blueprints
 
+{% include integrations/actions.md %}
+
 ## Event `event_template_reloaded`
 
 Event `event_template_reloaded` is fired when Template entities have been reloaded and entities thus might have changed.
