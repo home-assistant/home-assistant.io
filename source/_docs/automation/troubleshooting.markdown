@@ -99,6 +99,109 @@ Triggers react to a change. They don't keep checking whether something is still 
 
 {% enddetails %}
 
+## My automation triggered, but nothing happened
+
+{% details "The automation started, but its actions didn't run" %}
+
+<h3 class="no_toc">Symptom</h3>
+
+The trace shows that the automation started, but the device didn't change.
+
+#### Description
+
+A condition of the automation was not met, so the automation stopped before its actions. In the list of traces, the run is marked **Stopped because a condition failed**.
+
+#### Resolution
+
+1. [Open the trace](/docs/automation/testing/#viewing-the-traces-of-an-automation) of the run.
+2. In the graph, select the condition that ends the path.
+   - Result: **Step details** shows the result of the condition.
+3. Adjust the condition. To check it, [test the condition](/docs/automation/testing/#testing-a-condition) in the editor.
+
+{% enddetails %}
+
+{% details "The automation stopped at an action" %}
+
+<h3 class="no_toc">Symptom</h3>
+
+The trace shows that the automation started, but it stopped at an action. In the list of traces, the run is marked **Stopped on error**, with the error.
+
+#### Description
+
+The action failed, for example, because an option has a wrong value, or the device returned an error.
+
+#### Resolution
+
+1. [Open the trace](/docs/automation/testing/#viewing-the-traces-of-an-automation) of the run.
+2. In the graph, select the action that failed.
+   - Result: **Step details** shows the error.
+3. Fix the action. To check it, [test the action](/docs/automation/testing/#testing-an-action) in the editor.
+
+{% enddetails %}
+
+{% details "The automation finished, but an action didn't do anything" %}
+
+<h3 class="no_toc">Symptom</h3>
+
+The trace shows that the automation finished, but one of its actions didn't have an effect.
+
+#### Description
+
+The action failed, but **Continue on error** is turned on for it. The automation then continues with the next action, and the run still finishes. The error is shown in the trace and in the logs. In the automation editor, the action shows {% icon "mdi:alert-circle-check" %}, with the tooltip **If this action fails, the next action will still run.**
+
+#### Resolution
+
+1. [Open the trace](/docs/automation/testing/#viewing-the-traces-of-an-automation) of the run, and select the action.
+   - Result: **Step details** shows the error.
+2. Fix the action. If the automation should stop when this action fails, in the **Menu** {% icon "mdi:dots-vertical" %} of the action, turn off [**Continue on error**](/docs/automation/editor/#continuing-after-an-action-fails).
+
+{% enddetails %}
+
+{% details "The action ran without an error, but no device changed" %}
+
+<h3 class="no_toc">Symptom</h3>
+
+The trace shows that the action ran without an error, but no device changed.
+
+#### Description
+
+The target of the action, such as an {% term area %}, a {% term device %}, or a label, contains no entities that the action can control. For example, you turn on the lights in an area that has no lights. Home Assistant then skips the action without an error.
+
+#### Resolution
+
+1. [Open the trace](/docs/automation/testing/#viewing-the-traces-of-an-automation) of the run, and select the action.
+   - Result: **Step details** shows the target.
+2. Check that the target contains entities of the right type, for example, lights for a **Turn on light** action.
+
+{% enddetails %}
+
+{% details "The device didn't change, and the logs say that the entity is unavailable" %}
+
+<h3 class="no_toc">Symptom</h3>
+
+The trace shows that the action ran, but the device didn't change.
+
+#### Description
+
+The device is offline, so its entity is unavailable. Home Assistant skips unavailable entities, and the logs show a warning like `Referenced entities light.kitchen are missing or not currently available`. Some integrations send the command anyway, and show an error when the device doesn't respond.
+
+#### Resolution
+
+1. Go to {% my logs title="**Settings** > **System** > **Logs**" %} and look for the warning or error.
+2. Check the state of the entity. If it is **Unavailable**, check that the device has power and a connection.
+
+{% enddetails %}
+
+{% details "The automation didn't run while it was still running" %}
+
+<h3 class="no_toc">Symptom</h3>
+
+The automation started while a previous run was still running, for example, during a delay, and the new run didn't start. In the list of traces, the new run is marked **Stopped because only a single execution is allowed** or **Stopped because maximum number of parallel runs reached**.
+
+For the description and the resolution, refer to [I see an 'Already running' warning in the logs](#i-see-an-already-running-warning-in-the-logs).
+
+{% enddetails %}
+
 ## My automation stopped working after an update
 
 {% details "An automation that was waiting didn't finish" %}
@@ -318,6 +421,85 @@ The automation uses the **Restart** [mode](/docs/automation/modes/). When the au
 #### Resolution
 
 If the running delay or wait should finish, [change the mode](/docs/automation/editor/#changing-the-mode-of-an-automation), for example, to **Single** to ignore new starts while the automation is running.
+
+{% enddetails %}
+
+## My automation runs too often or twice
+
+{% details "The automation starts although the state didn't change" %}
+
+<h3 class="no_toc">Symptom</h3>
+
+The automation has a **State changed** trigger, and it starts more often than the state changes.
+
+#### Description
+
+The trigger has no **From** and no **To** state. Then it reacts to every change of the entity, including changes of its attributes, such as the brightness of a light or the battery level of a sensor.
+
+#### Resolution
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
+2. In the **State changed** trigger, under **To**, select the state that the automation should react to. To react to every state change, but not to attribute changes, select **Any state (ignoring attribute changes)**.
+3. Select **Save**.
+
+{% enddetails %}
+
+{% details "The automation runs twice at the same moment" %}
+
+<h3 class="no_toc">Symptom</h3>
+
+The list of traces shows two or more runs at almost the same time.
+
+#### Description
+
+The automation has several triggers, or a trigger with several entities, that react to the same change. For example, a trigger on a light and a trigger on the group that contains the light both react when the light turns on. Each trigger that reacts starts the automation.
+
+#### Resolution
+
+1. [Open the traces](/docs/automation/testing/#viewing-the-traces-of-an-automation) of the runs.
+   - Result: At the top of each trace, **Triggered by the** shows the trigger that started the run.
+2. Remove the trigger or the entity that you don't need, or add a condition to ignore one of them.
+
+{% enddetails %}
+
+{% details "The automation starts many times in a short time" %}
+
+<h3 class="no_toc">Symptom</h3>
+
+The automation starts again and again, for example, every few seconds.
+
+#### Description
+
+The entity in the trigger changes back and forth quickly, for example, a motion sensor that switches between detected and clear, or a power sensor near the threshold. Each change starts the automation.
+
+#### Resolution
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
+2. In the trigger, set **For at least** to a duration, for example, 1 minute.
+   - The trigger then only reacts when the entity has kept the new state for that time.
+3. Select **Save**.
+
+{% enddetails %}
+
+## I see an 'Already running' warning in the logs
+
+{% details "The automation didn't start while it was still running" %}
+
+<h3 class="no_toc">Symptom</h3>
+
+The automation started while a previous run was still running, for example, during a delay, and the new run didn't start. You see one or both of the following:
+
+- The logs show a warning with the name of your automation and `Already running`, or `Maximum number of runs exceeded`.
+- In the list of traces, the new run is marked **Stopped because only a single execution is allowed** or **Stopped because maximum number of parallel runs reached**.
+
+#### Description
+
+The [mode](/docs/automation/modes/) of the automation decides what happens when it starts while it is still running. In the default mode, **Single**, Home Assistant doesn't start the new run, and logs the warning `Already running`. In the **Queued** and **Parallel** modes, it logs `Maximum number of runs exceeded` when the maximum number of runs is reached. This is how the modes work, not an error.
+
+#### Resolution
+
+- If the automation should also handle the new start, [change the mode](/docs/automation/editor/#changing-the-mode-of-an-automation), for example, to **Restart**. For **Queued** and **Parallel**, you can also [raise the maximum number of runs](/docs/automation/modes/#setting-the-maximum-number-of-runs).
+- If the automation should skip the new start, and you don't want the warning, [change the warning in the logs](/docs/automation/modes/#changing-the-warning-in-the-logs), for example, to `silent`.
 
 {% enddetails %}
 
@@ -588,6 +770,26 @@ The automation works when you select **Run actions**, but not when the trigger h
 
 {% enddetails %}
 
+## My automation fails when I run it manually
+
+{% details "The automation fails or behaves differently when I run it manually" %}
+
+<h3 class="no_toc">Symptom</h3>
+
+The automation works when the trigger happens, but it shows an error or does something else when you select **Run actions**, or use the **Automation: Trigger** action.
+
+#### Description
+
+When you run the automation manually, there is no trigger, so there is no trigger data. Templates that use `trigger`, such as `{{ trigger.to_state.state }}`, have no value, and a **Triggered by** condition doesn't pass because there is no trigger ID.
+
+#### Resolution
+
+Make the real trigger happen, or [use a simulated trigger](/docs/automation/testing/#using-a-simulated-trigger-to-test-an-automation) to test the automation with real trigger data.
+
+The **Automation: Trigger** action can't pass trigger data, so it doesn't help to test templates that use `trigger`.
+
+{% enddetails %}
+
 ## My condition doesn't behave as expected
 
 {% details "The condition becomes true later, but the automation doesn't start" %}
@@ -821,210 +1023,5 @@ This is one of the few cases where you need to edit {% term "`configuration.yaml
 3. [Check the configuration](/docs/configuration/#validating-the-configuration).
 4. [Reload the configuration](/docs/configuration/#reloading-the-configuration-to-apply-changes) of the automations, or restart Home Assistant.
    - Result: Your automations appear in the list of automations. If you set an area, category, or labels when you saved an automation, set them again. They were not saved.
-
-{% enddetails %}
-
-## My automation triggered, but nothing happened
-
-{% details "The automation started, but its actions didn't run" %}
-
-<h3 class="no_toc">Symptom</h3>
-
-The trace shows that the automation started, but the device didn't change.
-
-#### Description
-
-A condition of the automation was not met, so the automation stopped before its actions. In the list of traces, the run is marked **Stopped because a condition failed**.
-
-#### Resolution
-
-1. [Open the trace](/docs/automation/testing/#viewing-the-traces-of-an-automation) of the run.
-2. In the graph, select the condition that ends the path.
-   - Result: **Step details** shows the result of the condition.
-3. Adjust the condition. To check it, [test the condition](/docs/automation/testing/#testing-a-condition) in the editor.
-
-{% enddetails %}
-
-{% details "The automation stopped at an action" %}
-
-<h3 class="no_toc">Symptom</h3>
-
-The trace shows that the automation started, but it stopped at an action. In the list of traces, the run is marked **Stopped on error**, with the error.
-
-#### Description
-
-The action failed, for example, because an option has a wrong value, or the device returned an error.
-
-#### Resolution
-
-1. [Open the trace](/docs/automation/testing/#viewing-the-traces-of-an-automation) of the run.
-2. In the graph, select the action that failed.
-   - Result: **Step details** shows the error.
-3. Fix the action. To check it, [test the action](/docs/automation/testing/#testing-an-action) in the editor.
-
-{% enddetails %}
-
-{% details "The automation finished, but an action didn't do anything" %}
-
-<h3 class="no_toc">Symptom</h3>
-
-The trace shows that the automation finished, but one of its actions didn't have an effect.
-
-#### Description
-
-The action failed, but **Continue on error** is turned on for it. The automation then continues with the next action, and the run still finishes. The error is shown in the trace and in the logs. In the automation editor, the action shows {% icon "mdi:alert-circle-check" %}, with the tooltip **If this action fails, the next action will still run.**
-
-#### Resolution
-
-1. [Open the trace](/docs/automation/testing/#viewing-the-traces-of-an-automation) of the run, and select the action.
-   - Result: **Step details** shows the error.
-2. Fix the action. If the automation should stop when this action fails, in the **Menu** {% icon "mdi:dots-vertical" %} of the action, turn off [**Continue on error**](/docs/automation/editor/#continuing-after-an-action-fails).
-
-{% enddetails %}
-
-{% details "The action ran without an error, but no device changed" %}
-
-<h3 class="no_toc">Symptom</h3>
-
-The trace shows that the action ran without an error, but no device changed.
-
-#### Description
-
-The target of the action, such as an {% term area %}, a {% term device %}, or a label, contains no entities that the action can control. For example, you turn on the lights in an area that has no lights. Home Assistant then skips the action without an error.
-
-#### Resolution
-
-1. [Open the trace](/docs/automation/testing/#viewing-the-traces-of-an-automation) of the run, and select the action.
-   - Result: **Step details** shows the target.
-2. Check that the target contains entities of the right type, for example, lights for a **Turn on light** action.
-
-{% enddetails %}
-
-{% details "The device didn't change, and the logs say that the entity is unavailable" %}
-
-<h3 class="no_toc">Symptom</h3>
-
-The trace shows that the action ran, but the device didn't change.
-
-#### Description
-
-The device is offline, so its entity is unavailable. Home Assistant skips unavailable entities, and the logs show a warning like `Referenced entities light.kitchen are missing or not currently available`. Some integrations send the command anyway, and show an error when the device doesn't respond.
-
-#### Resolution
-
-1. Go to {% my logs title="**Settings** > **System** > **Logs**" %} and look for the warning or error.
-2. Check the state of the entity. If it is **Unavailable**, check that the device has power and a connection.
-
-{% enddetails %}
-
-{% details "The automation didn't run while it was still running" %}
-
-<h3 class="no_toc">Symptom</h3>
-
-The automation started while a previous run was still running, for example, during a delay. In the list of traces, the new run is marked **Stopped because only a single execution is allowed** or **Stopped because maximum number of parallel runs reached**.
-
-#### Description
-
-The [mode](/docs/automation/modes/) of the automation decides what happens when it starts while it is still running. In the default mode, **Single**, the new run doesn't start, and the logs show the warning `Already running`.
-
-#### Resolution
-
-[Change the mode](/docs/automation/editor/#changing-the-mode-of-an-automation) to one that fits your automation, for example, **Restart** to stop the previous run and start again.
-
-{% enddetails %}
-
-## My automation runs too often or twice
-
-{% details "The automation starts although the state didn't change" %}
-
-<h3 class="no_toc">Symptom</h3>
-
-The automation has a **State changed** trigger, and it starts more often than the state changes.
-
-#### Description
-
-The trigger has no **From** and no **To** state. Then it reacts to every change of the entity, including changes of its attributes, such as the brightness of a light or the battery level of a sensor.
-
-#### Resolution
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
-2. In the **State changed** trigger, under **To**, select the state that the automation should react to. To react to every state change, but not to attribute changes, select **Any state (ignoring attribute changes)**.
-3. Select **Save**.
-
-{% enddetails %}
-
-{% details "The automation runs twice at the same moment" %}
-
-<h3 class="no_toc">Symptom</h3>
-
-The list of traces shows two or more runs at almost the same time.
-
-#### Description
-
-The automation has several triggers, or a trigger with several entities, that react to the same change. For example, a trigger on a light and a trigger on the group that contains the light both react when the light turns on. Each trigger that reacts starts the automation.
-
-#### Resolution
-
-1. [Open the traces](/docs/automation/testing/#viewing-the-traces-of-an-automation) of the runs.
-   - Result: At the top of each trace, **Triggered by the** shows the trigger that started the run.
-2. Remove the trigger or the entity that you don't need, or add a condition to ignore one of them.
-
-{% enddetails %}
-
-{% details "The automation starts many times in a short time" %}
-
-<h3 class="no_toc">Symptom</h3>
-
-The automation starts again and again, for example, every few seconds.
-
-#### Description
-
-The entity in the trigger changes back and forth quickly, for example, a motion sensor that switches between detected and clear, or a power sensor near the threshold. Each change starts the automation.
-
-#### Resolution
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
-2. In the trigger, set **For at least** to a duration, for example, 1 minute.
-   - The trigger then only reacts when the entity has kept the new state for that time.
-3. Select **Save**.
-
-{% enddetails %}
-
-## I see an 'Already running' warning in the logs
-
-{% details "The logs show the warning 'Already running'" %}
-
-<h3 class="no_toc">Symptom</h3>
-
-The logs show a warning with the name of your automation and `Already running`.
-
-#### Description
-
-The automation started while a previous run was still running, for example, during a delay. The automation uses the default [mode](/docs/automation/modes/), **Single**, so Home Assistant didn't start the new run, and logged the warning. This is how **Single** mode works, not an error.
-
-#### Resolution
-
-- If the automation should also handle the new start, [change the mode](/docs/automation/editor/#changing-the-mode-of-an-automation), for example, to **Restart**.
-- If the automation should skip the new start, and you don't want the warning, [change the warning in the logs](/docs/automation/modes/#changing-the-warning-in-the-logs), for example, to `silent`.
-
-{% enddetails %}
-
-## My automation fails when I run it manually
-
-{% details "The automation fails or behaves differently when I run it manually" %}
-
-<h3 class="no_toc">Symptom</h3>
-
-The automation works when the trigger happens, but it shows an error or does something else when you select **Run actions**, or use the **Automation: Trigger** action.
-
-#### Description
-
-When you run the automation manually, there is no trigger, so there is no trigger data. Templates that use `trigger`, such as `{{ trigger.to_state.state }}`, have no value, and a **Triggered by** condition doesn't pass because there is no trigger ID.
-
-#### Resolution
-
-Make the real trigger happen, or [use a simulated trigger](/docs/automation/testing/#using-a-simulated-trigger-to-test-an-automation) to test the automation with real trigger data.
-
-The **Automation: Trigger** action can't pass trigger data, so it doesn't help to test templates that use `trigger`.
 
 {% enddetails %}
