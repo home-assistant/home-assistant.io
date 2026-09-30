@@ -498,7 +498,7 @@ There are two types of events that are fired, notification events and value noti
 
 Check the [Z-Wave JS notification event documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) for an explanation of the notification event data. These events fire with the `zwave_js_notification` event type.
 
-Notification event data can be used to trigger automations, both in the automation UI and in YAML, using the event platform. Check the details of an event by subscribing to the zwave_js_notification event in [Tools](/docs/tools/dev-tools/#subscribe-to-an-event).
+Notification event data can be used to trigger automations, both in the automation UI and in YAML, using the event platform. Check the details of an event by subscribing to the zwave_js_notification event in [Tools](/docs/tools/dev-tools/#listening-to-events).
 
 ```yaml
 # Fires whenever the lock is unlocked by the keypad.

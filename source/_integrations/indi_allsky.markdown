@@ -2,6 +2,7 @@
 title: INDI Allsky
 description: Instructions on how to integrate INDI Allsky with Home Assistant.
 ha_category:
+  - Binary sensor
   - Camera
   - Sensor
 ha_release: "2026.10"
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: indi_allsky
 ha_integration_type: service
 ha_platforms:
+  - binary_sensor
   - camera
   - sensor
 ha_quality_scale: bronze
@@ -40,12 +42,17 @@ Verify SSL:
 
 The **INDI Allsky** {% term integration %} provides the following entities:
 
+### Binary sensor
+
+- **Night**: Indicates whether the latest capture occurred during nighttime.
+
 ### Camera
 
 - **Camera**: Provides the latest image from your INDI Allsky server.
 
 ### Sensors
 
+- **Camera sensor temperature**: Camera sensor temperature (in °C).
 - **Camera SQM**: Sky Quality Meter magnitude calculated from camera exposures.
 - **Camera SQM ADU**: Camera SQM raw Analog-to-Digital Unit (ADU) count.
 - **Device SQM**: Sky Quality Meter magnitude reading from a dedicated hardware SQM device.
@@ -61,7 +68,9 @@ The **INDI Allsky** {% term integration %} provides the following entities:
 - **Wind direction**: Measured wind direction (in degrees).
 
 - **Binning mode** (disabled by default): The binning mode used for capture.
+- **Camera ID** (disabled by default): The identifier of the camera.
 - **CPU temperature** (disabled by default): Server host CPU temperature (in °C).
+- **Exposure creation time** (disabled by default): Timestamp when the exposure was created.
 - **Filename** (disabled by default): The filename of the latest captured image.
 - **Gain** (disabled by default): The camera gain setting.
 

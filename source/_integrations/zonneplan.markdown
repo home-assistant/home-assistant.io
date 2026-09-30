@@ -10,6 +10,7 @@ ha_codeowners:
   - '@erwindouna'
 ha_domain: zonneplan
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: hub
 ---
@@ -36,6 +37,9 @@ The Zonneplan integration retrieves data from the Zonneplan cloud API on a regul
 The following sensors are provided by this integration:
 
 - **Current electricity price**: The electricity price for the current hour.
+- **Next hour electricity price**: The electricity price for the next hour.
+- **Current electricity tariff group**: How Zonneplan classifies the price of the current hour: Low, Normal, or High.
+- **Current sustainability score**: Zonneplan's score, from 0 to 100%, for how sustainable the electricity supplied in the current hour is.
 - **Lowest electricity price today**: The lowest electricity price for today.
 - **Highest electricity price today**: The highest electricity price for today.
 - **Lowest electricity price tomorrow**: The lowest electricity price for tomorrow, once published (typically around 13:00 CET/CEST).
@@ -43,7 +47,11 @@ The following sensors are provided by this integration:
 - **Electricity prices tomorrow status**: Indicates whether tomorrow's electricity prices are already `available`, or still `incoming`.
 - **Gas price daily**: The gas price for today.
 
-The lowest and highest electricity price sensors also expose `start` and `end` timestamp attributes, marking the block of consecutive hours around that day's extreme price. This lets you build automations that act on the entire block of cheap or expensive hours instead of a single hour.
+The **Electricity price low today start time** and **Electricity price low today end time** sensors mark the block of consecutive hours around today's lowest price. The matching **tomorrow** sensors do the same for tomorrow, once its prices are published. This lets you build automations that act on the entire block of cheap hours instead of a single hour.
+
+### Binary sensors
+
+- **Electricity price low**: On while the current hour falls in today's block of cheapest hours, the same block as the low price start and end time sensors. Off at all other hours. The state updates at the start of every hour.
 
 ## Known limitations
 

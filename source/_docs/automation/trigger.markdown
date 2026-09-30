@@ -80,55 +80,17 @@ For an overview of every trigger across all integrations, see the [triggers refe
 
 For setup steps, YAML options, and examples for the event trigger, see [Event trigger](/triggers/event/).
 
+### Geolocation trigger
+
+The geolocation trigger fires when an entity that is created by a [Geolocation](/integrations/geo_location/) platform appears in or disappears from a zone. For setup steps, YAML options, and examples for the geolocation trigger, see [Geolocation trigger](/integrations/geo_location/#geolocation-trigger).
+
 ### Home Assistant trigger
 
 For setup steps, YAML options, and examples for the Home Assistant trigger, see [Home Assistant trigger](/triggers/homeassistant/).
 
 ### MQTT trigger
 
-Fires when a specific message is received on given MQTT topic. Optionally can match on the payload being sent over the topic. The default payload encoding is 'utf-8'. For images and other byte payloads use `encoding: ''` to disable payload decoding completely.
-
-```yaml
-automation:
-  triggers:
-    - trigger: mqtt
-      topic: "living_room/switch/ac"
-      # Optional
-      payload: "on"
-      encoding: "utf-8"
-```
-
-The `payload` option can be combined with a `value_template` to process the message received on the given MQTT topic before matching it with the payload.
-The trigger in the example below will trigger only when the message received on `living_room/switch/ac` is valid JSON, with a key `state` which has the value `"on"`.
-
-```yaml
-automation:
-  triggers:
-    - trigger: mqtt
-      topic: "living_room/switch/ac"
-      payload: "on"
-      value_template: "{{ value_json.state }}"
-```
-
-It's also possible to use [limited templates](/docs/templating/where-to-use/#limited-templates) in the `topic` and `payload` options.
-
-{% note %}
-The `topic` and `payload` templates are only evaluated when setting up the trigger, they will not be re-evaluated for every incoming MQTT message.
-{% endnote %}
-
-```yaml
-automation:
-  trigger_variables:
-    room: "living_room"
-    node: "ac"
-    value: "on"
-  triggers:
-    - trigger: mqtt
-      topic: "{{ room ~ '/switch/' ~ node}}"
-      # Optional
-      payload: "{{ 'state:' ~ value }}"
-      encoding: "utf-8"
-```
+For setup steps, YAML options, and examples for the MQTT trigger, see [MQTT trigger](/triggers/mqtt/).
 
 ### Numeric state trigger
 
@@ -386,20 +348,6 @@ automation:
 ## Unavailable and unknown state behavior in triggers
 
 Most triggers that have an entity as the target do not fire when an entity transitions _from_ an `unavailable` or `unknown` state. For example, if a light goes offline and comes back on, the `light.turned_on` trigger does not fire for that recovery.
-
-{% tip %}
-This isn't for use with `device_tracker` entities. For those look above at the `zone` trigger.
-{% endtip %}
-
-```yaml
-automation:
-  triggers:
-    - trigger: geo_location
-      source: nsw_rural_fire_service_feed
-      zone: zone.bushfire_alert_zone
-      # Event is either enter or leave
-      event: enter # or "leave"
-```
 
 ## Multiple triggers
 

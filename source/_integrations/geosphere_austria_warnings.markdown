@@ -47,12 +47,36 @@ Each entry adds one service {% term device %} named after the monitored municipa
 
 ### Sensors
 
+GeoSphere Austria publishes each warning with a start and an end time. A warning that has already started counts as *active*. A warning that GeoSphere Austria has issued but that starts later counts as an *advance* warning, so you can prepare before it takes effect.
+
 - **Warning level**
   - **Description**: The highest severity level of all currently active warnings.
   - **Possible states**: No warning, Yellow, Orange, Red.
 - **Active warnings**
   - **Description**: The number of currently active warnings.
   - **Unit**: warnings
+- **Advance warning level**
+  - **Description**: The highest severity level of all warnings that start later.
+  - **Possible states**: No warning, Yellow, Orange, Red.
+- **Advance warnings**
+  - **Description**: The number of warnings that start later.
+  - **Unit**: warnings
+
+#### Warning details
+
+**Warning level** and **Advance warning level** add attributes describing one selected warning out of the warnings behind their state.
+
+The selection prefers warnings you can act on right now: heat and cold warnings rank one severity tier below storm, rain, snow, black ice, and thunderstorm warnings, because they describe an ambient condition rather than a sudden event. Among equally ranked warnings, the one that ends first is selected. The sensor state itself always reports the true highest severity and is never lowered by this ranking.
+
+Both sensors provide the following attributes:
+
+- `type`: The kind of weather event. One of `storm`, `rain`, `snow`, `black_ice`, `thunderstorm`, `heat`, or `cold`.
+- `start`: When the warning starts, in ISO 8601 format.
+- `end`: When the warning ends, in ISO 8601 format.
+- `warning_id`: The identifier GeoSphere Austria assigns to the warning.
+- `level`: The severity of the selected warning. One of `yellow`, `orange`, or `red`. This can be lower than the sensor state when a lower ranked warning of higher severity is present.
+
+When there is no warning, the sensor state is **No warning** and these attributes are not set.
 
 ## Automation examples
 
@@ -98,6 +122,45 @@ automation: |
           Warning level {{ states('sensor.innsbruck_warning_level') }}
           with {{ states('sensor.innsbruck_active_warnings') }}
           active warning(s) for Innsbruck.
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: preparing before a severe warning starts
+
+Get a notification when GeoSphere Austria issues an orange or red warning that starts later, together with the type of weather event and when it begins.
+
+- **Trigger**: State
+  - **Entity**: Innsbruck advance warning level (`sensor.innsbruck_advance_warning_level`)
+  - **To**: Orange
+  - **To**: Red
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: `{{ state_attr('sensor.innsbruck_advance_warning_level', 'type') }} warning for Innsbruck starts at {{ state_attr('sensor.innsbruck_advance_warning_level', 'start') | as_datetime | as_local }}.`
+  - **Title**: `Weather warning ahead`
+
+{% details "YAML example for notifying before a warning starts" %}
+
+{% example %}
+automation: |
+  alias: "Notify before a severe warning starts"
+  triggers:
+    - trigger: state
+      entity_id: sensor.innsbruck_advance_warning_level
+      to:
+        - orange
+        - red
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Weather warning ahead"
+        message: >-
+          {{ state_attr('sensor.innsbruck_advance_warning_level', 'type') }}
+          warning for Innsbruck starts at
+          {{ state_attr('sensor.innsbruck_advance_warning_level', 'start')
+             | as_datetime | as_local }}.
 {% endexample %}
 
 {% enddetails %}
