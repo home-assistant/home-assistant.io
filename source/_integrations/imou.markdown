@@ -11,6 +11,7 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 2026.7
 ha_config_flow: true
+ha_dhcp: true
 ha_domain: imou
 ha_codeowners:
   - '@Imou-OpenPlatform'
@@ -22,7 +23,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically.
@@ -47,6 +48,8 @@ Before using the Imou integration, create an Imou Open Platform application:
 ## Configuration
 
 {% include integrations/config_flow.md %}
+
+Home Assistant can discover Imou and Lechange devices on the local network from their MAC address. Opening a discovered Imou integration shows the same setup form as adding it manually: enter your Imou Open Platform App ID, App secret, and server region. The discovered device is not added to your account automatically.
 
 {% configuration_basic %}
 App ID:
@@ -109,10 +112,16 @@ When the cloud API reports that the toggle is supported for a device, the integr
 
 ### Selects
 
-When the cloud API reports that the option is supported for a device, the integration exposes the following select entities (device settings, configuration category):
+When the cloud API reports that the option is supported for a device, the integration exposes the following select entities:
+
+Device settings (**Configuration** category):
 
 - **Night vision mode**: Choose the night vision mode on supported cameras.
 - **Volume**: Choose mute, low, medium, or high volume on supported devices.
+
+On supported PTZ cameras with saved presets:
+
+- **Go to collection point**: Choose a preset to move the camera to that position. After the move, the select returns to its prompt option so you can pick another preset.
 
 ### Binary sensors
 
@@ -149,6 +158,8 @@ This integration communicates with Imou cloud services. Device control commands 
 ### Invalid App ID or App secret
 
 Verify that **App ID**, **App secret**, and **Server region** match your Imou Open Platform application and account region.
+
+If you changed the **App secret**, Home Assistant will ask you to reauthenticate the Imou integration. Enter the new **App secret**; you do not need to remove the integration.
 
 ### API quota is used quickly
 

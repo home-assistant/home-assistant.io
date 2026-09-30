@@ -8,8 +8,10 @@ ha_category:
   - Climate
   - Cover
   - Device tracker
+  - Event
   - Fan
   - Hub
+  - Infrared
   - Light
   - Lock
   - Number
@@ -18,6 +20,7 @@ ha_category:
   - Siren
   - Switch
   - Update
+  - Valve
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true
@@ -36,7 +39,9 @@ ha_platforms:
   - cover
   - device_tracker
   - diagnostics
+  - event
   - fan
+  - infrared
   - light
   - lock
   - number
@@ -45,6 +50,7 @@ ha_platforms:
   - siren
   - switch
   - update
+  - valve
 ha_zeroconf: true
 ha_integration_type: hub
 ---
@@ -59,7 +65,9 @@ This {% term integration %} currently supports the following device types within
 - [Climate](/integrations/climate/) (beta)
 - [Cover](/integrations/cover/)
 - [Device tracker](/integrations/device_tracker/)
-- [Fan](/integrations/fan/)
+- [Event](/integrations/event/)
+- [Fan](/integrations/fan/) 
+- [Infrared](/integrations/infrared/)
 - [Light](/integrations/light/)
 - [Lock](/integrations/lock/)
 - [Number](/integrations/number/) (analog input/output)
@@ -68,6 +76,7 @@ This {% term integration %} currently supports the following device types within
 - [Siren](/integrations/siren/)
 - [Switch](/integrations/switch/)
 - [Update](/integrations/update/)
+- [Valve](/integrations/valve/)
 
 ## Introduction
 
@@ -212,7 +221,7 @@ It is strongly encouraged to review the guidance for [Zigbee interference avoida
     - Select **Submit** to proceed to the next step.
 5. Enter the **Serial device path**:
     - Most devices need at the very least the serial device path, such as `/dev/ttyUSB0`, but it is recommended to use the device path from the `/dev/serial/by-id` folder (for example, `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`).
-    - A list of available device paths can be found in {% my hardware title="Settings > System > Hardware" %} > **dot menu** > **All Hardware**.
+    - To look up the device path, go to **Settings** > **Connectivity** > **Serial**. Next to the port of your radio, select **Port information** {% icon "mdi:information-outline" %}, and copy the **Device** field. For more details, refer to [Viewing your serial ports](/integrations/serial/#viewing-your-serial-ports).
 6. Set the **Port speed** (not applicable for all radios).
 7. Set the **Data flow control** (not applicable for all radios).
 8. Press **Submit**.
@@ -235,7 +244,7 @@ If you use a ZiGate or Sonoff ZBBridge device, you need additional configuration
 
 ### Global options
 
-There are a few global options available once ZHA has been configured. To access these settings, go to {% my config_zha title="**Settings** > **Zigbee**" %} and select **Options**.
+There are a few global options available once ZHA has been configured. To access these settings, go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %} and select **Options**.
 
 The options are as follows:
 
@@ -260,7 +269,7 @@ Refresh mains-powered devices state on startup:
 
 ### About network information
 
-The network information page provides details about your Zigbee network and coordinator. To open it, go to {% my config_zha title="**Settings** > **Zigbee**" %} and select **Network information**.
+The network information page provides details about your Zigbee network and coordinator. To open it, go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %} and select **Network information**.
 
 The following information is shown:
 
@@ -290,7 +299,7 @@ These sections both provide helpful advice on improving your Zigbee network perf
 
 #### To change the Zigbee channel
 
-1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+1. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}.
 2. Select **Network information**.
 3. To edit the Zigbee channel, select the pencil {% icon "mdi:edit" %}.
 4. Select the desired Zigbee channel from the dropdown menu.
@@ -369,7 +378,7 @@ These sections both provide helpful advice on improving your Zigbee network perf
 
 **To add a new Zigbee device:**
 
-1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+1. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}.
 2. To start a scan for new devices, on the bottom right corner of the screen, select **Add device**.
 3. Reset your Zigbee devices to factory default settings according to the device instructions provided by the manufacturer (for example, turn lights on and off up to 10 times; switches usually have a reset button or pin). It might take a few seconds for the devices to appear. You can select **Show logs** for more verbose output.
 4. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
@@ -477,7 +486,7 @@ While using a native Zigbee group instead of Home Assistant's [Group](/integrati
 
 #### To create a Zigbee group
 
-1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+1. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}.
 2. Choose **Groups** and select the **Create group** button.
 3. Enter a name for the group.
 4. Select which devices to include in the group:
@@ -507,7 +516,7 @@ This section only outlines how to manage bindings in general. It will not cover 
 Prerequisites and steps can vary depending on the device type, manufacturer, and your desired end result.
 {% endnote %}
 
-1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+1. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}.
 2. Select **Devices**, then select the device you want to manage bindings for.
 3. In the three dots {% icon "mdi:dots-vertical" %} menu next to the **Reconfigure** button, select **Manage Zigbee device**.
 4. In the pop-up dialog, select the **Bindings** tab.
@@ -548,7 +557,7 @@ You will not be able to control your existing Zigbee devices until they join the
 If some existing devices do not resume normal functions after some time, try power-cycling them to attempt rejoining to the network.
 {% endimportant %}
 
-1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+1. Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}.
 2. Select **Migrate**.
 3. Plug in the new Zigbee adapter.
    - To minimize interference:
@@ -785,7 +794,7 @@ Be aware that OTAU (Over-The-Air Upgrade) of Zigbee devices typically takes arou
 
 ### Visualization of the Zigbee network topology and device links
 
-To visualize device links in your Zigbee network topology, go to {% my config_zha title="**Settings** > **Zigbee**" %} and select **Show map**.
+To visualize device links in your Zigbee network topology, go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %} and select **Show map**.
 
 The network visualization can help to identify devices with poor connection (that is, low values on the link). You will need to look at the ZHA logs to find more detailed information required for troubleshooting.
 
@@ -848,7 +857,7 @@ When reporting potential bugs related to the ZHA integration on the issues track
 1. Debug logs for the issue, see [debug logging](#debug-logging).
 2. Exact model and firmware of the Zigbee radio (Zigbee Coordinator adapter) being used.
 3. If the issue is related to a specific Zigbee device, provide both the **Zigbee Device Signature** and the **Diagnostics** information.
-     - Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+     - Go to {% my config_zha title="**Settings** > **Connectivity** > **Zigbee**" %}.
         1. Select **Devices** and from the list, select your device.
         2. In the three dots {% icon "mdi:dots-vertical" %} menu next to the **Reconfigure** button, select **Download diagnostics**.
         3. In the three dots {% icon "mdi:dots-vertical" %} menu next to the **Reconfigure** button, select **Manage Zigbee device**.

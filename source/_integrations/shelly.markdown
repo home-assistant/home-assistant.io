@@ -73,13 +73,13 @@ Bluetooth scanner mode:
 
 There are four generations of devices and all generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
 
-Shelly BLU series devices (e.g. Shelly BLU H&T) are not supported; please use BTHome integration to configure such devices with Home Assistant. The exception to this is Shelly BLU TRV, which is supported by this integration via Shelly BLU Gateway Gen3.
+Shelly BLU series devices (e.g. Shelly BLU H&T) are not supported; please use BTHome integration to configure such devices with Home Assistant. The exception to this is Shelly BLU TRV, which is supported by this integration via Shelly BLU Gateway Gen3 or any other generation 2+ device running firmware 2.1.0 or later.
 
 ## Shelly Enhanced Security
 
-Enhanced Security is a firmware 2.0.0 feature for Gen2+ devices that enables additional security measures required for compliance with the Radio Equipment Directive (RED). When enabled, the device uses HTTPS and enforces secure communication. Devices shipped from factory with firmware 2.0.0+ come with HTTPS already enabled using certificates issued by Shelly's internal PKI. Devices that were updated to firmware 2.0.0+ (but not originally shipped with it) do not have factory-provisioned certificates and serve only plain HTTP by default, so you must upload your own certificate before using this feature. See [the official guide](https://shelly-api-docs.shelly.cloud/gen2/General/CustomHTTPSCertificates/) for instructions on creating and installing a certificate.
+Enhanced Security is a firmware 2.0.0 feature for Gen2+ devices that enables additional security measures required for compliance with the European Union's Radio Equipment Directive (RED). When enabled, the device uses HTTPS and enforces secure communication. Devices shipped from factory with firmware 2.0.0+ come with HTTPS already enabled using certificates issued by Shelly's internal PKI. Devices that were updated to firmware 2.0.0+ (but not originally shipped with it) do not have factory-provisioned certificates and serve only plain HTTP by default, so you must enable Enhanced Security manually and upload your own certificate to enable HTTPS. See [the official guide](https://shelly-api-docs.shelly.cloud/gen2/General/CustomHTTPSCertificates/) for instructions on creating and installing a certificate. Enhanced Security can also be enabled without uploading a HTTPS certificate, allowing you to preserve compatibility with 3rd-party HTTP-only integrations.
 
-The Shelly integration automatically detects whether Enhanced Security is enabled on the device and always communicates with that device over HTTPS using port 443. If you uploaded a certificate signed by a certificate authority your Home Assistant instance trusts, enable **Verify SSL**; otherwise, leave it disabled.
+The Shelly integration automatically detects whether HTTPS is configured on the device and always communicates with that device over HTTPS using port 443. If you uploaded a certificate signed by a certificate authority your Home Assistant instance trusts, enable **Verify SSL**; otherwise, leave it disabled.
 
 ## Data updates
 

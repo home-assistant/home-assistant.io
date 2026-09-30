@@ -14,6 +14,7 @@ ha_codeowners:
 ha_domain: watergate
 ha_platforms:
   - event
+  - number
   - sensor
   - switch
   - valve

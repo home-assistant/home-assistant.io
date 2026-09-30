@@ -101,9 +101,20 @@ When a network mask is provided, you must use the network address (for example, 
 
 {% note %}
 
-The **Trust X-Forwarded-For** and **Trusted proxies** settings only apply when Home Assistant is behind a traditional reverse proxy, such as NGINX, Caddy, Traefik, or HAProxy. If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, requests arrive through a secure tunnel without `X-Forwarded-*` headers containing the original client IP address. For cloud connections, these settings have no effect, and all requests appear as coming from `127.0.0.1`.
+The **Trust X-Forwarded-For** and **Trusted proxies** settings only apply when Home Assistant is behind a traditional reverse proxy, such as NGINX, Caddy, Traefik, or HAProxy. If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, requests arrive through a secure tunnel instead of a reverse proxy. These settings have no effect on cloud connections, and you do not need to configure them for remote access.
 
 {% endnote %}
+
+### Caching behind a reverse proxy or CDN
+
+If your reverse proxy or content delivery network (CDN) caches responses, set it up so your browser always gets the current Home Assistant frontend after an update:
+
+- Do not cache `404` (not found) responses.
+- Do not cache HTML pages, such as the main app page (`index.html`), or the service worker files (`/sw-modern.js` and `/sw-legacy.js`). A cached service worker keeps serving the old frontend after an update.
+- Do not cache responses from `/api/` or `/auth/`. These contain live data and login pages, and caching them can show outdated states or break signing in.
+- You can cache files under `/frontend_latest/`, `/frontend_es5/`, and `/static/`. Home Assistant already tells browsers to cache these for up to a month.
+
+Most reverse proxies and CDNs, such as NGINX and Cloudflare, do not cache HTML by default. You only need to check this if you added your own caching rules.
 
 ## APIs
 
@@ -115,7 +126,7 @@ The `http` platforms are not real platforms within the meaning of the terminolog
 
 To use an HTTP [sensor](#sensor) or [binary sensor](#binary-sensor), you do not need to configure anything in Home Assistant. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity is created after the first message arrives.
 
-If you want to use an HTTP sensor, create a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) in the Home Assistant UI in the **Security** section of your {% my profile title="**User profile**" %} page.
+If you want to use an HTTP sensor, create a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) on your {% my profile_security title="**User profile** > **Security**" %} page.
 
 All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistatesentity_id) need to be sent to the endpoint of the device and use **POST**.
 
@@ -125,18 +136,18 @@ If you want to apply additional IP filtering and automatically ban brute force a
 
 {% note %}
 
-If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, all cloud connections appear with the IP address `127.0.0.1`. This means IP-based banning does not distinguish between individual remote clients connecting through the cloud. Banning `127.0.0.1` would block _all_ cloud connections.
+If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, Home Assistant sees the source IP address of the remote client. A ban applies only to that IP address and leaves other cloud connections unaffected.
 
 {% endnote %}
 
 ```yaml
-127.0.0.1:
+203.0.113.42:
   banned_at: "2016-11-16T19:20:03"
 ```
 
 After a ban is added, a persistent notification appears in the Home Assistant frontend.
 
-To clear an IP ban, you can either:
+IP bans do not expire automatically. To clear an IP ban, you can either:
 
 - Remove the specific IP entry from `ip_bans.yaml`.
 - Delete the entire `ip_bans.yaml` file. It will be recreated automatically the next time a ban occurs.
