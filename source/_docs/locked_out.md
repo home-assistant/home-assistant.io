@@ -44,7 +44,7 @@ You are the owner or administrator of Home Assistant and forgot your password.
 
 ### Resolution
 
-If you are the owner or have administrator, there are different methods to reset a password, depending on your situation:
+If you are the owner or have administrator rights, there are different methods to reset a password, depending on your situation:
 
 - [Reset a password while still logged in](#to-reset-a-password-while-still-logged-in)
 - [Reset an owner's password when logged out](#to-reset-an-owners-password-via-console)
