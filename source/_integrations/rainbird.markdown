@@ -3,6 +3,7 @@ title: Rain Bird
 description: Instructions on how to integrate your Rain Bird LNK WiFi Module within Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Calendar
   - Irrigation
   - Sensor
@@ -16,6 +17,7 @@ ha_codeowners:
 ha_domain: rainbird
 ha_platforms:
   - binary_sensor
+  - button
   - calendar
   - number
   - sensor
@@ -28,6 +30,7 @@ The **Rain Bird** {% term integration %} allows interacting with [LNK WiFi](http
 There is currently support for the following device types within Home Assistant:
 
 - [Binary sensor](#binary-sensor)
+- [Button](#button)
 - [Calendar](#calendar)
 - [Number](#number)
 - [Switch](#switch)
@@ -86,6 +89,16 @@ The Rain Bird integration provides the following entities.
 - **Rain sensor**
   - **Description**: The rain sensor will tell if you if the device has detected rain. 
   - **Available for devices**: The rain sensor is an optional add-on for the device purchased from Rain Bird.
+
+#### Button
+
+- **Run program**
+  - **Description**: A button is created for each program the controller supports
+    (Run PGM A, Run PGM B, and so on). Pressing it starts that program right away,
+    using the zones and run times stored on the controller, the same as starting the program
+    manually at the controller. You can use it in automations with the `button.press` action.
+  - **Available for devices**: All. The number of buttons depends on how many programs your
+    controller model supports.
 
 #### Calendar
 

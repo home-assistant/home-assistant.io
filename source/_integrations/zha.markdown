@@ -8,6 +8,7 @@ ha_category:
   - Climate
   - Cover
   - Device tracker
+  - Event
   - Fan
   - Hub
   - Light
@@ -18,6 +19,7 @@ ha_category:
   - Siren
   - Switch
   - Update
+  - Valve
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true
@@ -36,6 +38,7 @@ ha_platforms:
   - cover
   - device_tracker
   - diagnostics
+  - event
   - fan
   - light
   - lock
@@ -45,6 +48,7 @@ ha_platforms:
   - siren
   - switch
   - update
+  - valve
 ha_zeroconf: true
 ha_integration_type: hub
 ---
@@ -59,6 +63,7 @@ This {% term integration %} currently supports the following device types within
 - [Climate](/integrations/climate/) (beta)
 - [Cover](/integrations/cover/)
 - [Device tracker](/integrations/device_tracker/)
+- [Event](/integrations/event/)
 - [Fan](/integrations/fan/)
 - [Light](/integrations/light/)
 - [Lock](/integrations/lock/)
@@ -68,6 +73,7 @@ This {% term integration %} currently supports the following device types within
 - [Siren](/integrations/siren/)
 - [Switch](/integrations/switch/)
 - [Update](/integrations/update/)
+- [Valve](/integrations/valve/)
 
 ## Introduction
 

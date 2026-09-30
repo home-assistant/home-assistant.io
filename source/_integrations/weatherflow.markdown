@@ -1,6 +1,6 @@
 ---
 title: WeatherFlow
-description: Instructions on how to integrate your WeatherFlow tempest into Home Assistant.
+description: Instructions on how to integrate your WeatherFlow Tempest into Home Assistant over your local network.
 ha_release: '2023.10'
 ha_category:
   - Environment
@@ -17,19 +17,19 @@ ha_domain: weatherflow
 ha_integration_type: hub
 ---
 
-The **WeatherFlow** {% term integration %} is a local-only {% term integration %} that reads weather data from all [WeatherFlow Tempest](https://weatherflow.com/tempest-weather-system/) compatible weather station on the local network.
+The **WeatherFlow** {% term integration %} is a local-only {% term integration %} that reads weather data from all [WeatherFlow Tempest](https://tempest.earth/tempest-home-weather-system/)-compatible weather stations on the local network.
 
 {% note %}
-You may see slight deviations between the values reported in Home Assistant and the values in the WeatherFlow App. This is because the WeatherFlow app considers both forecasts and neighboring weather stations in addition to the local data used in this {% term integration %}.
+You may see slight deviations between the values reported in Home Assistant and the values in the WeatherFlow app. This is because the WeatherFlow app considers both forecasts and neighboring weather stations in addition to the local data used in this {% term integration %}.
 {% endnote %}
 
-### Which integration(s) should I use
+## Which integration should I use?
 
 There are two integrations for WeatherFlow devices, and you are not limited to selecting just one.
 
-- [WeatherFlow](/integrations/weatherflow) is a *local only* `UDP`-based integration that will read data directly from the device. This integration does require the Home Assistant server and the WeatherFlow device to be on the same subnet.
+- [WeatherFlow](/integrations/weatherflow/) is a local-only, UDP-based integration that reads data directly from the device. This integration requires the Home Assistant server and the WeatherFlow device to be on the same subnet.
 
-- [WeatherFlow Cloud](/integrations/weatherflow_cloud) is a *cloud*-based integration that closely mirrors the data available via the Weatherflow Tempest mobile applications and is likely a good starting place for most users as it provides both **Forecast** and **Sensor** data. 
+- [WeatherFlow Cloud](/integrations/weatherflow_cloud/) is a cloud-based integration that closely mirrors the data available in the Tempest app and is likely a good starting place for most users as it provides both forecast and sensor data.
 
 {% include integrations/config_flow.md %}
 
@@ -69,13 +69,13 @@ This {% term integration %} will expose the following sensors:
   - **Description**: Wind direction relative to the station direction.
 
 - **Wind direction average**
-  - **Description**: Wind direction average.
+  - **Description**: Average wind direction over the past minute.
 
 - **Wind gust**
-  - **Description**: Wind gusts over a maximum 3 second sample.
+  - **Description**: Highest 3-second wind speed in the past minute.
 
 - **Wind lull**
-  - **Description**: Wind lull over a minimum 3 second sample.
+  - **Description**: Lowest 3-second wind speed in the past minute.
 
 - **Wind speed**
   - **Description**: Wind speed at the station.
@@ -96,7 +96,7 @@ This {% term integration %} will expose the following sensors:
 The station detects lightning with an [AS3935 lightning sensor](https://www.sciosense.com/as3935-franklin-lightning-sensor-ic/). The distances it reports are estimates of how far away the storm is, not measurements of each strike. For details, refer to [Known limitations](#known-limitations).
 
 - **Lightning average distance**
-  - **Description**: Average of the estimated distances reported with the lightning strikes detected in the past minute.
+  - **Description**: Average of the estimated distances reported with the lightning strikes detected in the past minute. Unknown when no strikes were detected.
 
 - **Lightning count**
   - **Description**: Number of lightning strikes detected in the past minute.
@@ -108,7 +108,9 @@ The station detects lightning with an [AS3935 lightning sensor](https://www.scio
   - **Description**: Value the sensor reports for the most recent detected lightning strike. It has no unit and, according to the sensor's manufacturer, no physical meaning.
 
 - **Lightning last strike**
-  - **Description**: Timestamp of the most recent detected lightning strike; unlike the `Lightning strike` event entity below, this sensor stores the last recorded strike time.
+  - **Description**: Timestamp of the most recent detected lightning strike.
+
+The **Lightning last distance**, **Lightning last energy**, and **Lightning last strike** sensors keep their values when Home Assistant restarts, so they show the most recent strike even if it happened before the restart.
 
 ### Solar and light sensors
 
@@ -123,19 +125,19 @@ The station detects lightning with an [AS3935 lightning sensor](https://www.scio
 
 ### Diagnostic sensors
 
-Additionally the following diagnostic sensors are available:
+Additionally, the following diagnostic sensors are available:
 
 - **Battery (percentage)**
   - **Description**: Station battery (percentage).
 
 - **Battery voltage**
-  - **Description**: Battery voltage of station.
+  - **Description**: Battery voltage of the station.
 
 - **Signal strength**
-  - **Description**: Signal strength between station and hub.
+  - **Description**: Signal strength between the station and the hub.
 
 - **Uptime**
-  - **Description**: Uptime of station.
+  - **Description**: Uptime of the station.
 
 ## Event entities
 
@@ -158,10 +160,10 @@ The sensor doesn't detect every lightning strike, and electrical interference ne
 
 The sensor estimates the distance to the nearest edge of the storm from the strikes it detected recently. The estimate changes gradually as a storm approaches or moves away, so it can differ from the distance to the most recent strike. The sensor reports the distance in steps of 1 (overhead), 5, 6, 8, 10, 12, 14, 17, 20, 24, 27, 31, 34, 37, and 40 km.
 
-A distance of 63 km means that the strike was out of range and the sensor couldn't estimate its distance. The **Lightning average distance** includes these values, so it's too high for a minute with an out-of-range strike.
+When a strike is out of range, the sensor can't estimate its distance, and **Lightning last distance** shows as unknown. Some Tempest firmware versions, including 181, still count such a strike as 63 km in the **Lightning average distance**, so the average is too high for a minute with an out-of-range strike.
 
 ## Networking notes
 
-This {% term integration %} relies on the ability of Home Assistant to receive `UDP` traffic on port `50222`. You may run into trouble if you have a more complex network setup utilizing either VLANs or multiple subnets.
+This {% term integration %} relies on the ability of Home Assistant to receive UDP traffic on port `50222`. You may run into trouble if you have a more complex network setup using either VLANs or multiple subnets.
 
 The hub broadcasts each update once and doesn't resend it. If Home Assistant is connected over Wi-Fi, it can occasionally miss an update. A wired connection is more reliable.
