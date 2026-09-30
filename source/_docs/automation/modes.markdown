@@ -29,7 +29,7 @@ The following diagram shows an automation with 8 actions. It starts a second tim
 
 ## Setting the maximum number of runs
 
-For the **Queued** and **Parallel** modes, you can set how many runs there can be at the same time. This includes the run that is running and the runs that are waiting in the queue. The default is 10, and the minimum is 2.
+For the **Queued** and **Parallel** modes, you can set the maximum number of runs. In **Queued** mode, the limit includes the run that is executing and the runs waiting in the queue. In **Parallel** mode, it includes all runs executing at the same time. The default is 10, and the minimum is 2.
 
 To set it in the UI, use **Queue length** or **Max number of parallel runs** when you [change the mode](/docs/automation/editor/#changing-the-mode-of-an-automation). In YAML, use the `max` option.
 
