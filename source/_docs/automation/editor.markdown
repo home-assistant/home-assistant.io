@@ -61,7 +61,7 @@ Automations that use a blueprint don't have the mode option.
 3. Select a mode:
    - **Single**: Doesn't start a new run while the automation is running, and logs a warning. This is the default.
    - **Restart**: Stops the current run, and starts a new one.
-   - **Queued**: Starts the new run after the running runs have finished. Under **Queue length**, set how many runs can wait. The default is 10.
+   - **Queued**: Starts each new run after earlier runs finish. Under **Queue length**, set the maximum number of running and queued runs combined. The default is 10.
    - **Parallel**: Starts the new run right away, next to the running runs. Under **Max number of parallel runs**, set how many runs can run at the same time. The default is 10.
 4. Select **Change mode**, and then save the automation.
 
@@ -76,6 +76,8 @@ Open the automation, and in the top bar, select **Menu** {% icon "mdi:dots-verti
 ## Working with triggers, conditions, and actions
 
 Each trigger, condition, and action has its own **Menu** {% icon "mdi:dots-vertical" %} on the right side of its row.
+
+After changing a trigger, condition, or action, select **Save** to apply your changes to the automation.
 
 ### Renaming a trigger, condition, or action
 
@@ -100,7 +102,7 @@ To try an automation without one of its triggers, conditions, or actions, turn i
 
 ### Continuing after an action fails
 
-By default, an automation stops when an action fails. To continue with the next action instead, in the **Menu** {% icon "mdi:dots-vertical" %} of the action, select **Continue on error**. The action then shows {% icon "mdi:alert-circle-check" %}. Only use this for actions whose failure doesn't matter for the rest of the automation.
+By default, an automation stops when an action fails. To continue with the next action after an error Home Assistant can handle, in the **Menu** {% icon "mdi:dots-vertical" %} of the action, select **Continue on error**. The action then shows {% icon "mdi:alert-circle-check" %}. This option does not ignore misconfiguration or errors Home Assistant cannot handle. Only use it for actions whose failure does not matter for the rest of the automation.
 
 ### Deleting a trigger, condition, or action
 
