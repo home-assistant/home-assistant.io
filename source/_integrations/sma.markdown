@@ -41,11 +41,37 @@ Not all inverters, energy meters and batteries from SMA are supported.
 
 The integration uses the device's web interface (called webconnect). Before you start, make sure you can connect to the solar inverter from your favorite web browser. Devices with the ennexos operating system (like the Tripower X series) and all Energy Meters (SMA Energy Meter and SMA Sunny Home Manager) are not supported.
 
+## Modbus
+
+The sensors come from the web interface. To control the inverter, Home Assistant also needs Modbus TCP with SunSpec, which runs on the same inverter. Modbus is optional and off by default: without it, the integration works as before, but without the switch.
+
+To enable Modbus on the inverter:
+
+1. Log in to the inverter's web interface with the **Installer** login.
+2. Go to **Device configuration** > **Modbus**.
+3. Enable the **Modbus TCP server**, and enable **SunSpec** if it is shown as a separate option.
+4. Note the port, which is `502` unless it was changed.
+5. Save the settings.
+
+Then turn on Modbus in the options of the integration, described below.
+
+{% include integrations/option_flow.md %}
+
+- **Use Modbus**: Connect to the inverter over Modbus as well, which adds the controls described under [Switch](#switch).
+- **Port**: The Modbus TCP port of the inverter. The default is `502`.
+- **Unit ID**: The SMA unit ID of the inverter, between `3` and `123`. The default of `3` is correct for a single inverter. Home Assistant derives the SunSpec unit ID from it (unit ID + 123).
+
+When you turn on Modbus, Home Assistant first tests the connection. If it can't connect, the form shows the error and nothing is saved. After saving, the integration reloads.
+
 ## Switch
 
-The following switch is available:
+With Modbus turned on, the following switch is available:
 
-- **Inverter enabled**: turn on and off the inverter.
+- **Inverter enabled**: Connects the inverter to the grid (on) or disconnects it (off). The state follows the operating status that the inverter reports. The switch is only created when the inverter supports it (SunSpec model 123).
+
+{% warning %}
+Turning off **Inverter enabled** stops the inverter from feeding power into the grid until you turn it on again.
+{% endwarning %}
 
 ## Sensors
 
@@ -191,3 +217,23 @@ The SMA WebConnect module supports a wide variety of sensors, but not all of the
 | battery_discharge_b | kWh | Discharge battery A |
 | battery_discharge_c | kWh | Discharge battery A |
 | inverter_power_limit | W | Power limit of the Inverter |
+
+## Troubleshooting
+
+### The Inverter enabled switch is missing
+
+If Modbus is turned on but the inverter doesn't answer over Modbus when the integration starts, the sensors keep working, but the **Inverter enabled** switch is not created and a warning is written to the log.
+
+Check that:
+
+- The Modbus TCP server is still enabled on the inverter.
+- The port and unit ID in the [options](#options) match the Modbus settings of the inverter. Saving the options tests the connection again.
+- Nothing on the network blocks the Modbus port between Home Assistant and the inverter.
+
+After fixing the cause, reload the integration to connect to Modbus again.
+
+## Known limitations
+
+- Modbus has no authentication. Anyone on your network who can reach the Modbus port can control the inverter. Only enable the Modbus TCP server on a network you trust.
+- Modbus uses the same host as the web interface; a separate Modbus address is not supported.
+- **Inverter enabled** is the only control for now. Battery controls over SunSpec are not supported.
