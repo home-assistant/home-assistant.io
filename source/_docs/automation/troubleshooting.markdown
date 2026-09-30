@@ -310,7 +310,7 @@ The automation uses the **Restart** [mode](/docs/automation/modes/). When the au
 
 #### Resolution
 
-If the running delay or wait should finish, change the mode. Open the automation, select **Menu** {% icon "mdi:dots-vertical" %}, select **Change mode**, and then select another mode, for example, **Single** to ignore new starts while the automation is running.
+If the running delay or wait should finish, [change the mode](/docs/automation/editor/#changing-the-mode-of-an-automation), for example, to **Single** to ignore new starts while the automation is running.
 
 {% enddetails %}
 
@@ -742,7 +742,7 @@ You renamed the automation, but its entity ID is still the old one.
 
 #### Description
 
-**Rename** only changes the name of the automation, not its entity ID.
+[**Rename**](/docs/automation/editor/#renaming-an-automation-and-adding-details) only changes the name of the automation, not its entity ID.
 
 #### Resolution
 
@@ -831,7 +831,7 @@ The action failed, but **Continue on error** is turned on for it. The automation
 
 1. [Open the trace](/docs/automation/testing/#viewing-the-traces-of-an-automation) of the run, and select the action.
    - Result: **Step details** shows the error.
-2. Fix the action. If the automation should stop when this action fails, in the **Menu** {% icon "mdi:dots-vertical" %} of the action, turn off **Continue on error**.
+2. Fix the action. If the automation should stop when this action fails, in the **Menu** {% icon "mdi:dots-vertical" %} of the action, turn off [**Continue on error**](/docs/automation/editor/#continuing-after-an-action-fails).
 
 {% enddetails %}
 
@@ -882,9 +882,7 @@ The [mode](/docs/automation/modes/) of the automation decides what happens when 
 
 #### Resolution
 
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
-2. Select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Change mode**.
-3. Select the mode that fits your automation, for example, **Restart** to stop the previous run and start again.
+[Change the mode](/docs/automation/editor/#changing-the-mode-of-an-automation) to one that fits your automation, for example, **Restart** to stop the previous run and start again.
 
 {% enddetails %}
 
@@ -954,7 +952,7 @@ The automation started while a previous run was still running, for example, duri
 
 #### Resolution
 
-- If the automation should also handle the new start, change the mode. Open the automation, select **Menu** {% icon "mdi:dots-vertical" %}, select **Change mode**, and then select another mode, for example, **Restart**.
+- If the automation should also handle the new start, [change the mode](/docs/automation/editor/#changing-the-mode-of-an-automation), for example, to **Restart**.
 - If the automation should skip the new start, and you don't want the warning, add `max_exceeded: silent` to the automation in YAML:
 
   ```yaml
