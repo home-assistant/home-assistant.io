@@ -9,6 +9,8 @@ Most problems show up in the [trace](/docs/automation/testing/#traces) of the au
 
 ## My automation doesn't trigger
 
+<a id="the-automation-doesnt-start-at-all"></a>
+
 {% details "The automation doesn't start at all" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -25,6 +27,8 @@ The automation is turned off. A turned-off automation doesn't react to its trigg
 2. If the editor shows **Automation is disabled**, select **Enable**.
 
 {% enddetails %}
+
+<a id="a-numeric-state-crossed-threshold-trigger-doesnt-react"></a>
 
 {% details "A Numeric state crossed threshold trigger doesn't react" %}
 
@@ -43,6 +47,8 @@ The trigger only reacts when the value crosses the threshold. If the value was a
 
 {% enddetails %}
 
+<a id="a-state-changed-trigger-doesnt-react-to-the-state-i-see"></a>
+
 {% details "A State changed trigger doesn't react to the state I see" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -60,6 +66,8 @@ The UI shows a state in a readable form, for example, **Open** for a door sensor
 2. In the trigger, select the state from the list, or enter the raw state.
 
 {% enddetails %}
+
+<a id="a-state-changed-trigger-with-a-from-state-doesnt-react"></a>
 
 {% details "A State changed trigger with a From state doesn't react" %}
 
@@ -82,6 +90,8 @@ If the automation should react no matter what the previous state was, remove the
 
 {% enddetails %}
 
+<a id="the-automation-doesnt-start-while-something-is-true"></a>
+
 {% details "The automation doesn't start while something is true" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -100,6 +110,8 @@ Triggers react to a change. They don't keep checking whether something is still 
 {% enddetails %}
 
 ## My automation triggered, but nothing happened
+
+<a id="the-automation-started-but-its-actions-didnt-run"></a>
 
 {% details "The automation started, but its actions didn't run" %}
 
@@ -120,6 +132,8 @@ A condition of the automation was not met, so the automation stopped before its 
 
 {% enddetails %}
 
+<a id="the-automation-stopped-at-an-action"></a>
+
 {% details "The automation stopped at an action" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -139,6 +153,8 @@ The action failed, for example, because an option has a wrong value, or the devi
 
 {% enddetails %}
 
+<a id="the-automation-finished-but-an-action-didnt-do-anything"></a>
+
 {% details "The automation finished, but an action didn't do anything" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -156,6 +172,8 @@ The action failed, but **Continue on error** is turned on for it. The automation
 2. Fix the action. If the automation should stop when this action fails, in the **Menu** {% icon "mdi:dots-vertical" %} of the action, turn off [**Continue on error**](/docs/automation/editor/#continuing-after-an-action-fails).
 
 {% enddetails %}
+
+<a id="the-action-ran-without-an-error-but-no-device-changed"></a>
 
 {% details "The action ran without an error, but no device changed" %}
 
@@ -175,6 +193,8 @@ The target of the action, such as an {% term area %}, a {% term device %}, or a 
 
 {% enddetails %}
 
+<a id="the-device-didnt-change-and-the-logs-say-that-the-entity-is-unavailable"></a>
+
 {% details "The device didn't change, and the logs say that the entity is unavailable" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -192,6 +212,8 @@ The device is offline, so its entity is unavailable. Home Assistant skips unavai
 
 {% enddetails %}
 
+<a id="the-automation-didnt-run-while-it-was-still-running"></a>
+
 {% details "The automation didn't run while it was still running" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -203,6 +225,8 @@ For the description and the resolution, refer to [I see an 'Already running' war
 {% enddetails %}
 
 ## My automation stopped working after an update
+
+<a id="an-automation-that-was-waiting-didnt-finish"></a>
 
 {% details "An automation that was waiting didn't finish" %}
 
@@ -219,6 +243,8 @@ When Home Assistant restarts, it stops the automations that are running. A delay
 For long waits, don't use a delay. Instead, use a trigger for the moment that the automation should continue, for example, a **Time** trigger. To also handle a restart, add a **Home Assistant** trigger set to **Start**, and a condition that checks whether the automation still needs to run.
 
 {% enddetails %}
+
+<a id="the-automation-doesnt-react-to-an-entity-or-doesnt-control-it"></a>
 
 {% details "The automation doesn't react to an entity, or doesn't control it" %}
 
@@ -238,6 +264,8 @@ The entity ID changed, for example, because you renamed it. Home Assistant doesn
 
 {% enddetails %}
 
+<a id="the-automation-is-unavailable-and-a-repair-mentions-the-device"></a>
+
 {% details "The automation is unavailable, and a repair mentions the device" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -256,6 +284,8 @@ A **Device** trigger, condition, or action refers to the device by an internal I
 4. Select **Save**.
 
 {% enddetails %}
+
+<a id="after-an-update-the-automation-is-unavailable"></a>
 
 {% details "After an update, the automation is unavailable" %}
 
@@ -278,6 +308,8 @@ The update changed or removed something that the automation uses, for example, a
 
 ## I can't find my device or button as a trigger
 
+<a id="the-device-trigger-shows-no-triggers"></a>
+
 {% details "The Device trigger shows No triggers" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -298,6 +330,8 @@ Use a trigger on an {% term entity %} of the device instead:
 3. Select the trigger that fits.
 
 {% enddetails %}
+
+<a id="the-button-presses-are-not-shown-as-triggers"></a>
 
 {% details "The button presses are not shown as triggers" %}
 
@@ -320,6 +354,8 @@ For more information, refer to the [**Event received** trigger](/triggers/event.
 
 {% enddetails %}
 
+<a id="the-device-or-entity-is-not-in-the-list"></a>
+
 {% details "The device or entity is not in the list" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -341,6 +377,8 @@ The device or entity is disabled. Disabled devices and entities are not shown wh
 
 ## My "Wait", "Delay", or "For at least" duration doesn't work as expected
 
+<a id="the-trigger-reacts-later-than-the-for-at-least-duration"></a>
+
 {% details "The trigger reacts later than the For at least duration" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -357,6 +395,8 @@ The **For at least** timer stops as soon as the entity leaves the state in the t
 2. If the entity changes back and forth, choose a shorter duration, or use an entity that changes less often.
 
 {% enddetails %}
+
+<a id="the-automation-stays-at-a-wait-for-a-trigger-action"></a>
 
 {% details "The automation stays at a Wait for a trigger action" %}
 
@@ -375,6 +415,8 @@ The trace shows that the automation is waiting at a **Wait for a trigger** actio
 
 {% enddetails %}
 
+<a id="the-automation-continues-although-nothing-happened"></a>
+
 {% details "The automation continues although nothing happened" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -392,6 +434,8 @@ The automation has a **Wait for a trigger** or **Wait for a template** action wi
 
 {% enddetails %}
 
+<a id="the-automation-doesnt-wait-at-a-wait-for-a-template-action"></a>
+
 {% details "The automation doesn't wait at a Wait for a template action" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -407,6 +451,8 @@ If the template is already true when the wait starts, **Wait for a template** co
 To wait for a change, use **Wait for a trigger** instead. It only continues when something changes after the wait starts.
 
 {% enddetails %}
+
+<a id="the-automation-stops-during-a-delay-or-wait-and-starts-again"></a>
 
 {% details "The automation stops during a delay or wait, and starts again" %}
 
@@ -426,6 +472,8 @@ If the running delay or wait should finish, [change the mode](/docs/automation/e
 
 ## My automation runs too often or twice
 
+<a id="the-automation-starts-although-the-state-didnt-change"></a>
+
 {% details "The automation starts although the state didn't change" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -444,6 +492,8 @@ The trigger has no **From** and no **To** state. Then it reacts to every change 
 
 {% enddetails %}
 
+<a id="the-automation-runs-twice-at-the-same-moment"></a>
+
 {% details "The automation runs twice at the same moment" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -461,6 +511,8 @@ The automation has several triggers, or a trigger with several entities, that re
 2. Remove the trigger or the entity that you don't need, or add a condition to ignore one of them.
 
 {% enddetails %}
+
+<a id="the-automation-starts-many-times-in-a-short-time"></a>
 
 {% details "The automation starts many times in a short time" %}
 
@@ -483,6 +535,8 @@ The entity in the trigger changes back and forth quickly, for example, a motion 
 
 ## I see an 'Already running' warning in the logs
 
+<a id="the-automation-didnt-start-while-it-was-still-running"></a>
+
 {% details "The automation didn't start while it was still running" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -504,6 +558,8 @@ The [mode](/docs/automation/modes/) of the automation decides what happens when 
 {% enddetails %}
 
 ## Something turned on or off and I don't know why
+
+<a id="an-entity-changed-and-i-dont-know-why"></a>
 
 {% details "An entity changed, and I don't know why" %}
 
@@ -528,6 +584,8 @@ An automation, a script, a scene, a person, an integration, or the device itself
 
 {% enddetails %}
 
+<a id="the-activity-details-show-no-cause"></a>
+
 {% details "The Activity details show no cause" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -547,6 +605,8 @@ Home Assistant didn't record what caused the change. Often, the change came from
 
 ## My automation runs at the wrong time
 
+<a id="time-based-triggers-run-hours-too-early-or-too-late"></a>
+
 {% details "Time-based triggers run hours too early or too late" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -564,6 +624,8 @@ Time triggers use the time zone of Home Assistant. If it is set to another time 
 3. Select **Save**.
 
 {% enddetails %}
+
+<a id="a-time-pattern-trigger-runs-less-often-than-expected"></a>
 
 {% details "A Time pattern trigger runs less often than expected" %}
 
@@ -583,6 +645,8 @@ A number on its own means that exact value. **Minutes** set to `5` runs at 5 min
 3. Select **Save**.
 
 {% enddetails %}
+
+<a id="a-sunrise-or-sunset-automation-runs-too-early-or-too-late"></a>
 
 {% details "A sunrise or sunset automation runs too early or too late" %}
 
@@ -604,6 +668,8 @@ The offset is set to before the event. In the **Sunrise** and **Sunset** trigger
 
 {% enddetails %}
 
+<a id="sunrise-and-sunset-automations-are-off-by-minutes-or-hours"></a>
+
 {% details "Sunrise and sunset automations are off by minutes or hours" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -620,6 +686,8 @@ Home Assistant calculates sunrise and sunset from the location of your home. If 
 2. On the **Location** card, select **Edit**, and then set the location of your home.
 
 {% enddetails %}
+
+<a id="a-time-trigger-with-a-date-and-time-helper-runs-at-midnight"></a>
 
 {% details "A Time trigger with a date and time helper runs at midnight" %}
 
@@ -641,6 +709,8 @@ The date and time helper only has a date, no time. The trigger then runs at midn
 
 {% enddetails %}
 
+<a id="a-time-trigger-with-a-helper-or-sensor-doesnt-run"></a>
+
 {% details "A Time trigger with a helper or sensor doesn't run" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -657,6 +727,8 @@ The date and time of the entity has already passed, or the sensor is unavailable
 2. If the date and time has passed, set a new one. If the sensor is unavailable, check the device or the integration that provides it.
 
 {% enddetails %}
+
+<a id="on-the-day-daylight-saving-time-starts-a-time-trigger-doesnt-run"></a>
 
 {% details "On the day daylight saving time starts, a Time trigger doesn't run" %}
 
@@ -677,6 +749,8 @@ If the automation must run every day, choose a time outside the hours when the c
 3. Select **Save**.
 
 {% enddetails %}
+
+<a id="on-the-day-daylight-saving-time-ends-a-time-trigger-runs-twice"></a>
 
 {% details "On the day daylight saving time ends, a Time trigger runs twice" %}
 
@@ -700,6 +774,8 @@ If the automation must run only once, choose a time outside the hours when the c
 
 ## I get an error when I save my automation
 
+<a id="saving-shows-message-malformed"></a>
+
 {% details "Saving shows Message malformed" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -717,6 +793,8 @@ Home Assistant checks the automation when you save it. Something in it is not va
 
 {% enddetails %}
 
+<a id="saving-in-yaml-mode-shows-an-error-about-the-yaml"></a>
+
 {% details "Saving in YAML mode shows an error about the YAML" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -732,6 +810,8 @@ The YAML is not valid, for example, because of wrong indentation, or a missing s
 Fix the line that the error names, and save again. If you're not sure what is wrong, switch back to the visual editor, and make the change there.
 
 {% enddetails %}
+
+<a id="saving-shows-cannot-save-automation-without-a-name"></a>
 
 {% details "Saving shows Cannot save automation without a name" %}
 
@@ -751,6 +831,8 @@ In the save dialog, enter a name, and then save again.
 
 ## My automation behaves differently when I run it manually
 
+<a id="the-actions-work-when-i-run-them-but-not-when-the-trigger-happens"></a>
+
 {% details "The actions work when I run them, but not when the trigger happens" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -769,6 +851,8 @@ The automation works when you select **Run actions**, but not when the trigger h
 - If the run is marked **Stopped because a condition failed**, check the causes under [My automation triggered, but nothing happened](#my-automation-triggered-but-nothing-happened).
 
 {% enddetails %}
+
+<a id="the-automation-fails-when-i-run-it-but-works-when-the-trigger-happens"></a>
 
 {% details "The automation fails when I run it, but works when the trigger happens" %}
 
@@ -790,6 +874,8 @@ The **Automation: Trigger** action can't pass trigger data, so it doesn't help t
 
 ## My condition doesn't behave as expected
 
+<a id="the-condition-becomes-true-later-but-the-automation-doesnt-start"></a>
+
 {% details "The condition becomes true later, but the automation doesn't start" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -808,6 +894,8 @@ Conditions are only checked once, right after a trigger reacts. They don't start
    - Result: The automation also starts at that moment, and checks its conditions again.
 
 {% enddetails %}
+
+<a id="the-automation-only-runs-when-every-condition-is-met"></a>
 
 {% details "The automation only runs when every condition is met" %}
 
@@ -829,6 +917,8 @@ To run the automation when at least one condition is met, put the conditions in 
 4. Select **Save**.
 
 {% enddetails %}
+
+<a id="a-numeric-state-condition-doesnt-pass-at-the-threshold"></a>
 
 {% details "A Numeric state condition doesn't pass at the threshold" %}
 
@@ -852,6 +942,8 @@ For a sensor with decimals, use a **Template** condition that compares with `>=`
 
 {% enddetails %}
 
+<a id="a-numeric-state-condition-doesnt-pass-while-the-entity-is-unavailable"></a>
+
 {% details "A Numeric state condition doesn't pass while the entity is unavailable" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -869,6 +961,8 @@ A **Numeric state** condition doesn't pass when the value is unavailable or unkn
 
 {% enddetails %}
 
+<a id="after-a-restart-a-state-condition-with-for-at-least-doesnt-pass"></a>
+
 {% details "After a restart, a State condition with For at least doesn't pass" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -884,6 +978,8 @@ After a restart, Home Assistant counts the time that an entity has had its state
 Wait until the duration has passed after the restart, or choose a shorter duration.
 
 {% enddetails %}
+
+<a id="a-time-condition-across-midnight-doesnt-pass-after-midnight"></a>
 
 {% details "A Time condition across midnight doesn't pass after midnight" %}
 
@@ -903,6 +999,8 @@ The automation has a **Time** condition with **Days of the week**, and a time ra
 
 {% enddetails %}
 
+<a id="a-template-condition-doesnt-pass-although-the-template-gives-a-result"></a>
+
 {% details "A Template condition doesn't pass although the template gives a result" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -918,6 +1016,8 @@ A **Template** condition only passes when the template gives `true`. Any other r
 Change the template so that it gives `true` or `false`, for example, with a comparison such as `==` or `>`. To check the result, [test the template](/docs/tools/dev-tools/#testing-a-template) in the template editor.
 
 {% enddetails %}
+
+<a id="a-condition-doesnt-pass-and-the-logs-show-an-error"></a>
 
 {% details "A condition doesn't pass, and the logs show an error" %}
 
@@ -938,6 +1038,8 @@ The condition couldn't be checked, for example, because the entity doesn't exist
 
 ## I can't edit, delete, or rename my automation
 
+<a id="the-automation-cant-be-edited-or-deleted-in-the-ui"></a>
+
 {% details "The automation can't be edited or deleted in the UI" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -954,6 +1056,8 @@ The automation is set up in YAML, outside the `automations.yaml` file, or it has
 - To delete the automation, remove it from your YAML configuration, and then reload the automations or restart Home Assistant.
 
 {% enddetails %}
+
+<a id="i-can-only-change-the-blueprint-inputs"></a>
 
 {% details "I can only change the blueprint inputs" %}
 
@@ -976,6 +1080,8 @@ To change the automation itself, turn it into a regular automation:
 
 {% enddetails %}
 
+<a id="after-renaming-the-automation-still-has-its-old-entity-id"></a>
+
 {% details "After renaming, the automation still has its old entity ID" %}
 
 <h3 class="no_toc">Symptom</h3>
@@ -996,6 +1102,8 @@ If other automations, scripts, or dashboards use the old entity ID, update them 
 {% enddetails %}
 
 ## My automation doesn't appear in the UI
+
+<a id="the-automation-is-not-in-the-list-of-automations"></a>
 
 {% details "The automation is not in the list of automations" %}
 
