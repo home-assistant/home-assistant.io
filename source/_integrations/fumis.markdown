@@ -130,14 +130,6 @@ Some additional sensors are available but disabled by default because they are p
 - **Power level**: Set the stove's heating power from level 1 (lowest) to 5 (highest). A higher power level means more pellets are fed into the combustion chamber, producing more heat. The actual thermal output in kilowatts adjusts gradually after changing the power level.
 - **Fan speed**: Adjust the fan speed from 0 to 5. This controls the airflow through the stove and should typically not need to be changed. This entity is disabled by default and only available on stoves with a controllable fan.
 
-### Triggers
-
-Besides the triggers Home Assistant offers for the entities of your stove, like when the climate entity turns on or starts heating, the **Fumis** integration provides its own trigger.
-
-- **Fuel became low**: Triggers when your stove reports that its fuel is running low, using the low fuel level alert (A001). You select one or more stoves when you add the trigger to an automation. This works on every stove that raises this alert, including stoves without a fuel level sensor.
-
-Your stove shows only one alert at a time, so another alert, like the door being open, can hide the low fuel alert. The trigger takes this into account. It fires once when the fuel becomes low, and doesn't fire again when another alert comes and goes while the fuel is still low.
-
 ### Alert codes
 
 The alert sensor shows the currently active alert on your stove. Alerts are less critical than errors and typically indicate something that needs your attention. The following alert codes are recognized:
@@ -166,6 +158,8 @@ The error sensor shows the currently active error on your stove. When an error o
 - **Flue gas overtemperature** (E113): The flue gas temperature is too high. Clean the chimney or heat exchanger.
 - **Fuel ignition timeout** (E114): The fuel did not ignite in time. The burning pot may be empty, or the pellet tank needs refilling.
 - **General error** (E115): A general error has occurred. Contact your service technician.
+
+{% include integrations/triggers.md %}
 
 ## Examples
 
@@ -220,30 +214,9 @@ Why heat an empty house? This automation turns off your stove when the last pers
         entity_id: climate.pellet_stove
 ```
 
-### Getting a notification when your stove reports low fuel
+### Getting a notification when fuel is running low
 
-Never run out of pellets unexpectedly. Your stove knows when its pellet tank is running low, and this automation passes that on to your phone, so you can refill the hopper before the fire goes out.
-
-You can set this up in the automation editor by adding the **Fuel became low** trigger and selecting your stove. The editor fills in the device ID of your stove for you. In YAML, it looks like this:
-
-```yaml
-- alias: "Notify when the stove reports low fuel"
-  triggers:
-    - trigger: fumis.fuel_became_low
-      options:
-        device_id: 0123456789abcdef0123456789abcdef
-  actions:
-    - action: notify.send_message
-      target:
-        entity_id: notify.my_device
-      data:
-        title: "Pellet stove"
-        message: "The stove reports its fuel is running low. Time to refill the hopper."
-```
-
-### Getting a notification at your own fuel level
-
-If your stove has a fuel level sensor, you can also pick your own moment. This automation sends you a notification when the fuel level drops below 20%, giving you plenty of time to refill the hopper.
+Never run out of pellets unexpectedly. This automation sends you a notification when the fuel level drops below 20%, giving you plenty of time to refill the hopper.
 
 ```yaml
 - alias: "Notify when pellet fuel is running low"
