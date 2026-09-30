@@ -1440,6 +1440,10 @@ fields:
   type: map
   required: false
   keys:
+    default:
+      description: The value used to pre-populate this field when adding a new object.
+      required: false
+      type: any
     label:
       description: The label of the field
       required: false

@@ -5,7 +5,7 @@ ha_category:
   - Climate
   - Infrared
   - Light
-  - Radio Frequency
+  - Radio frequency
   - Remote
   - Sensor
   - Switch

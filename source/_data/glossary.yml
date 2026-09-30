@@ -22,7 +22,9 @@
     used on the dashboard, for example as tap or hold action on a UI element.
     When triggered, the action performs another action. Home Assistant provides a series of predefined actions,
     such as `homeassistant.turn_on`, `homeassistant.toggle`, or
-    `homeassistant.reload`.
+    `homeassistant.reload`. An action makes something happen, while an event
+    tells you that something happened. For more information, refer to
+    [events and actions](/docs/configuration/events/#events-and-actions).
   aliases:
     - actions
   link: /docs/automation/action/
@@ -176,8 +178,11 @@
     Better known as: Integrations. Integrations used to be known as components.
 - term: Condition
   definition: >-
-    Conditions are an optional part of an automation that will prevent an action
-    from firing if they are not met.
+    Conditions check whether something is true at that moment, for example,
+    whether a door is closed. You can use them in automations and scripts. If a
+    condition is not met, the actions that come after it in the same sequence do
+    not run. At the top level of an automation or script, this stops the
+    automation or script.
   link: /docs/scripts/conditions/
   aliases:
     - conditions
@@ -278,16 +283,18 @@
     - entities
 - term: Event
   definition: >-
-    Every time something happens in Home Assistant, an event is fired. There are different types of events, such as state change events, when an action was triggered, or the time changed. All entities produce state change events. Every time a state changes, a state change event is produced. Events can be used to trigger automations or scripts. For example, you can trigger an automation when a light is turned on, then a speaker turns on in that room. Events can also be used to trigger actions in the frontend. For example, you can trigger an action when a button is pressed.
+    Every time something happens in Home Assistant, an event is fired. Different types of events are fired when, for example, an entity's state changes, an action such as `light.turn_on` is performed, or Home Assistant starts. All entities produce state change events. Every time the state or the attributes of an entity change, a state change event is produced. Events can be used to trigger automations. For example, you can trigger an automation to turn on a speaker in a room when a light in that room turns on.
   link: /docs/configuration/events/
   aliases:
     - events
 - term: Event entity
   definition: >-
-    Events are signals that are emitted when something happens, for example,
-    when a user presses a physical button like a doorbell or when a button on a
-    remote control is pressed.
-  link: /integrations/event
+    An event entity represents a momentary occurrence without a lasting state,
+    for example, when you press a doorbell or a button on a remote control.
+    Instead of a state such as on or off, the event entity keeps track of when
+    the last event was detected and its event type, such as a single press or a
+    long press.
+  link: /integrations/event/
 - term: Floor
   definition: >-
     A floor in Home Assistant is a [logical grouping](/docs/organizing/) of areas that are meant to
@@ -586,14 +593,13 @@
 - term: State
   definition: |-
     The state holds the information of interest of an entity. For example, if a
-    light is on or off, the current temperature, or the amount of energy used. Entities store 3
-    timestamps related to the state: `last_updated`, `last_changed`, and `last_reported`. Each
-    entity has exactly one state and the state only holds one value at a time.
-    However, entities can store attributes related to that state. For example,
+    light is on or off, the current temperature, or the amount of energy used. The state
+    object stores 3 timestamps related to the state: `last_updated`, `last_changed`, and
+    `last_reported`. Each entity has exactly one state and the state only holds one value
+    at a time. However, entities can store attributes related to that state. For example,
     the state of a light is _on_, and the related state attributes could be its
-    current brightness and color values. State change events can be used as triggers.
-    The current state can be used in conditions.
-
+    current brightness and color values. To start an automation when a state changes, use
+    the [**State** trigger](/triggers/state/). The current state can be used in conditions.
   link: /docs/configuration/state_object/
   aliases:
     - states
@@ -602,6 +608,16 @@
     light is on or off. Each entity has exactly one state and the state only
     holds one value at a time. However, entities can store attributes related to
     that state such as brightness, color, or a unit of measurement.
+- term: State object
+  definition: >-
+    The state object is a record of the state and other data of an entity at a specific
+    moment. It holds the state, the attributes, the entity ID, three timestamps,
+    and the context. Other information about the entity, such as its device and
+    area, is not part of it. Templates, automations, and the frontend can access
+    the state object.
+  link: /docs/configuration/state_object/
+  aliases:
+    - state objects
 - term: Switch
   definition: >-
     Switches are things that have two states you can select between, such as

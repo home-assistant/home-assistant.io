@@ -3,6 +3,7 @@ title: Modbus
 description: Instructions on how to manually register Modbus entities and platforms.
 ha_category:
   - Hub
+  - Modbus
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: modbus
