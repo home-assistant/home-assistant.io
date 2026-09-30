@@ -3,9 +3,11 @@ title: "Troubleshooting automations"
 description: "Find out why an automation doesn't trigger, runs at the wrong time, or doesn't do what you expect, and how to fix it."
 ---
 
-When an automation doesn't do what you expect, find the symptom below. Each entry explains a possible cause and how to fix it.
+<a id="troubleshooting-your-automation"></a>When an automation doesn't do what you expect, find the symptom below. Each entry explains a possible cause and how to fix it.
 
 Most problems show up in the [trace](/docs/automation/testing/#traces) of the automation, so open the trace first. To test an automation or parts of it, refer to [Testing automations](/docs/automation/testing/).
+
+<a id="testing-your-automation"></a><a id="checking-the-state-of-a-condition"></a><a id="testing-a-condition"></a><a id="testing-an-action"></a><a id="testing-all-the-actions"></a><a id="triggering-an-automation-manually"></a><a id="using-a-simulated-trigger-to-test-an-automation"></a><a id="checking-what-triggered-an-automation"></a><a id="checking-your-yaml-configuration"></a><a id="traces"></a><a id="viewing-the-traces-of-an-automation"></a><a id="parts-of-a-trace"></a><a id="changing-the-number-of-stored-traces"></a><a id="testing-templates"></a>Testing your automation, traces, and testing templates have moved to [Testing automations](/docs/automation/testing/).
 
 ## My automation doesn't trigger
 
@@ -762,10 +764,10 @@ When the clocks go forward, some times don't exist on that day, for example, 02:
 
 #### Resolution
 
-If the automation must run every day, choose a time outside the hours when the clocks change:
+If the automation must run every day, choose a time when the clocks don't change:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
-2. In the **Time** trigger, set the time to before 01:00 or after 04:00.
+2. In the **Time** trigger, set a time outside the night hours when the clocks change in your time zone, for example, a time during the day.
 3. Select **Save**.
 
 {% enddetails %}
@@ -784,10 +786,10 @@ When the clocks go back, some times happen twice, for example, 02:30. A trigger 
 
 #### Resolution
 
-If the automation must run only once, choose a time outside the hours when the clocks change:
+If the automation must run only once, choose a time when the clocks don't change:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
-2. In the **Time** trigger, set the time to before 01:00 or after 04:00.
+2. In the **Time** trigger, set a time outside the night hours when the clocks change in your time zone, for example, a time during the day.
 3. Select **Save**.
 
 {% enddetails %}
@@ -1019,9 +1021,15 @@ The automation has a **Time** condition with **Days of the week**, and a time ra
 
 #### Resolution
 
+To cover exactly one night, for example, from Friday 22:00 to Saturday 06:00, split the range into two **Time** conditions in an **Or** building block:
+
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
-2. In the **Time** condition, under **Days of the week**, also select the next day, for example, Saturday for a range that starts on Friday evening.
-3. Select **Save**.
+2. Under **And if**, select **Add building block**, and then select **Or**.
+3. In the **Or** building block, add two **Time** conditions:
+   - One with **After** set to 22:00, and **Days of the week** set to Friday.
+   - One with **Before** set to 06:00, and **Days of the week** set to Saturday.
+4. Remove the old **Time** condition.
+5. Select **Save**.
 
 {% enddetails %}
 
