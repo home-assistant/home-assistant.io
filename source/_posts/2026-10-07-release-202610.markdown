@@ -79,7 +79,6 @@ Enjoy the (beta) release!
   - [Redesigned markers](#redesigned-markers)
   - [An overview for the Map dashboard](#an-overview-for-the-map-dashboard)
   - [Zones on the new map](#zones-on-the-new-map)
-  - [Mapping the way ahead](#mapping-the-way-ahead)
 - [A tidier profile page](#a-tidier-profile-page)
 - [The best automation feature you never used](#the-best-automation-feature-you-never-used)
 - [Integrations](#integrations)
@@ -116,8 +115,6 @@ Swapping out the map underneath opened a lot of doors. This release walks throug
 
 The map is drawn entirely on your device, as vectors, instead of being stitched together from pictures. Streets and labels stay sharp at any zoom level, and zooming in and out is smooth. The map also has a dedicated dark style, with colors designed for dark mode. Older devices that can't render vector maps, like the old tablet on your wall, automatically fall back to the classic map.
 
-The tiles follow [Shortbread](https://shortbread-tiles.org/), an open specification that packages a selection of OpenStreetMap’s geographic data into compact tiles. Its [schema](https://shortbread-tiles.org/schema/1.1/) defines which features and attributes are included, from roads and buildings to waterways and points of interest. Home Assistant then draws those features using [VersaTiles](https://versatiles.org/versatiles-style/) styles.
-
 <p class='img'><video src='/images/blog/2026-10/map-zoom.mp4' aria-label='Screen recording of the Map dashboard zooming out from Amsterdam to Europe and back, with the markers of people merging into shared bubbles as the map zooms out.' autoplay muted loop playsinline></video></p>
 
 ### Redesigned markers
@@ -140,23 +137,12 @@ The zone editor in {% my zones title="**Settings** > **Areas, labels & zones**" 
 
 <img src='/images/blog/2026-10/map-zone-editor.png' alt='Screenshot of the zone editor on the new map, with the list of zones sorted alphabetically and Home at the top.' class='no-shadow' />
 
-### Mapping the way ahead
 
-This is only the start. The redesign follows an [Open Home Foundation design concept](https://github.com/OpenHomeFoundation/ux-design/discussions/68) for a vector map with redesigned people and zones, and there is more of it to come. 
+The redesign follows an [Open Home Foundation design concept](https://github.com/OpenHomeFoundation/ux-design/discussions/68) for the Map dashboard.
 
-Because roads, buildings, and labels arrive as separate features, Home Assistant can control their colors, prominence, and visibility. The same tiles can support quite different maps without the server having to generate a new set of images.
+Thanks to [@maartenla], [@matthiasdebaat], [@bramkragten], and [@bgoncal]; [@grischard] for initiating vector maps on the OpenStreetMap side and for assisting us; and Paul Norman ([@pnorman]) for developing [Tilekiln](https://github.com/pnorman/tilekiln) and the tile service. Thanks also to the [OpenStreetMap Foundation](https://osmfoundation.org/) and the [MapLibre](https://maplibre.org/), [Shortbread](https://shortbread-tiles.org/), and [VersaTiles](https://versatiles.org/) communities.
 
-Vector maps offer many possibilities: maps that follow your theme and language, styles that emphasize railways and cycleways, or de-emphasize roads, and selectable buildings and places. Automations based on mapped parks, shops, or charging stations would require additional data handling and backend work, but the release-party discussion showed plenty of interest. These are ideas to explore together, rather than a promised feature list.
-
-Thanks, [@maartenla], [@matthiasdebaat], [@bramkragten], and [@bgoncal]!
-
-Thanks also to the communities behind [MapLibre](https://maplibre.org/), our map renderer; [Shortbread](https://shortbread-tiles.org/), the tile specification; and [VersaTiles](https://versatiles.org/), whose map styles give the new map its appearance. Thanks to Guillaume Rischard ([@grischard]) for initiating and leading the OpenStreetMap Foundation’s vector-tile project and working with our developers to implement vector maps in Home Assistant. A special thanks to Paul Norman ([@pnorman]) for developing [Tilekiln](https://github.com/pnorman/tilekiln), the software that generates and serves the tiles, and for his work bringing the OpenStreetMap Foundation’s vector-tile service into production.
-
-Last but definitely not least: a big shout-out to the [OpenStreetMap Foundation](https://osmfoundation.org/). 💚 OpenStreetMap is a map of the world built by millions of volunteers, and it's open data, owned by no single company. The foundation behind it is a nonprofit that keeps it all running, including the tile servers every Home Assistant map now draws from. They developed this service as shared infrastructure for applications to build on. Home Assistant can draw on a continuously updated map of the world while concentrating its own development effort on what makes that map useful in your home.
-
-This fits our approach to building in the open: the geographic data, tile specification, renderer, and styles are all open to inspection and improvement. Ideas developed in Home Assistant can also help the mapping projects improve the infrastructure we share.
-
-And just like Home Assistant, OpenStreetMap is made by people like you. Spot something in your neighborhood that's missing or out of date? You can [leave a note or edit the map yourself](https://wiki.openstreetmap.org/wiki/Getting_Involved).
+Like Home Assistant, [OpenStreetMap](https://openstreetmap.org) is built in the open by people like you. Spot something in your neighborhood that's missing or out of date? You can [leave a note or edit the map yourself](https://wiki.openstreetmap.org/wiki/Getting_Involved).
 
 [@pnorman]: https://github.com/pnorman
 
