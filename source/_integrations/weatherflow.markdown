@@ -96,7 +96,7 @@ This {% term integration %} will expose the following sensors:
 The station detects lightning with an [AS3935 lightning sensor](https://www.sciosense.com/as3935-franklin-lightning-sensor-ic/). The distances it reports are estimates of how far away the storm is, not measurements of each strike. For details, refer to [Known limitations](#known-limitations).
 
 - **Lightning average distance**
-  - **Description**: Average of the estimated distances reported with the lightning strikes detected in the past minute.
+  - **Description**: Average of the estimated distances reported with the lightning strikes detected in the past minute. Unknown when no strikes were detected.
 
 - **Lightning count**
   - **Description**: Number of lightning strikes detected in the past minute.
@@ -158,7 +158,7 @@ The sensor doesn't detect every lightning strike, and electrical interference ne
 
 The sensor estimates the distance to the nearest edge of the storm from the strikes it detected recently. The estimate changes gradually as a storm approaches or moves away, so it can differ from the distance to the most recent strike. The sensor reports the distance in steps of 1 (overhead), 5, 6, 8, 10, 12, 14, 17, 20, 24, 27, 31, 34, 37, and 40 km.
 
-A distance of 63 km means that the strike was out of range and the sensor couldn't estimate its distance. The **Lightning average distance** includes these values, so it's too high for a minute with an out-of-range strike.
+When a strike is out of range, the sensor can't estimate its distance, and **Lightning last distance** shows as unknown. Some Tempest firmware versions, including 181, still count such a strike as 63 km in the **Lightning average distance**, so the average is too high for a minute with an out-of-range strike.
 
 ## Networking notes
 
