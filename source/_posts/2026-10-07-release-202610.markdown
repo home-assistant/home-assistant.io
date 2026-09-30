@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2026.10 Beta: You are here 📍"
-description: "A whole new map with redesigned markers and an overview of where everyone's been, a profile page that's yours, trigger IDs anyone can use, dashboard visibility that speaks the same language as automations, a panel for your Modbus connections, one-click AI connections, and 14 new integrations!"
+description: "A whole new map with redesigned markers and an overview of where everyone's been, a profile page that's yours, trigger IDs anyone can use, dashboard visibility that speaks the same language as automations, a panel for your Modbus connections, one-click AI connections, and 15 new integrations!"
 date: 2026-09-30 00:00:00
 date_formatted: "October 7, 2026"
 author: Franck Nijhof
@@ -236,6 +236,9 @@ We welcome the following new integrations in this release:
 - **[Threema]**, added by [@LukasQ]  
   Send end-to-end encrypted messages from your automations to people on [Threema](https://threema.ch), the privacy-focused messenger that doesn't need a phone number. It uses the Threema Gateway service, and each person you add as a recipient gets their own notify entity.
 
+- **[Vitesy]**, added by [@chemelli74]  
+  Connect the [Vitesy](https://vitesy.com/) Shelfy, an air purifier that lives in your refrigerator. See the air quality and temperature inside your fridge, how often the door was opened, and when the filter needs cleaning or replacing. You can even switch the purifier mode, for example to boost it after a grocery run.
+
 - **[Willow]**, added by [@PaxPrz]  
   Keep an eye on the health of your indoor plants with Willow sensors. Temperature, humidity, soil moisture, and light levels come from the Willow cloud into Home Assistant, ready for your dashboards and automations. Your plants can't tell you they're thirsty, but now Home Assistant can.
 
@@ -266,6 +269,7 @@ We welcome the following new integrations in this release:
 [Sunsynk]: /integrations/sunsynk
 [Theben Conexa Smart Meter Gateway]: /integrations/theben_conexa
 [Threema]: /integrations/threema
+[Vitesy]: /integrations/vitesy
 [Willow]: /integrations/willow
 [Zonneplan]: /integrations/zonneplan
 
@@ -604,6 +608,10 @@ It also works the other way around. Apps that run their own <abbr title="Model C
 And your AI got a lot better at finding music. Ask it to play something, and instead of blindly playing the first search result, it now gets a list of results and picks the best match. It can even search inside an artist, album, or playlist to find that one specific song. Search itself improved along the way: artists, albums, and playlists from [Music Assistant](https://www.music-assistant.io/) can now be searched inside, just like results from [Jellyfin](/integrations/jellyfin/) and [Squeezebox](/integrations/squeezebox/), [local media](/integrations/media_source/) now finds matching folders too, and [Radio Browser](/integrations/radio_browser/) puts the 100 most popular stations first.
 
 Thanks, [@balloob]!
+
+If your home runs on [KNX](/integrations/knx/), your AI can now dig into that too. The KNX integration brings its own set of AI tools, which you can hand to your conversation agent, or to your AI app through the Model Context Protocol server. Ask about the group addresses, devices, and functions in your ETS project, go through the history of telegrams on your bus, or decode a value you don't recognize. It can even read and write values on the bus directly. Thanks, [@martinhoefling]!
+
+[@martinhoefling]: https://github.com/martinhoefling
 
 ### Name an entity after its device
 
