@@ -714,7 +714,7 @@ You can show the hue, the saturation, or both. When both are shown, select the s
 ```yaml
 features:
   - type: "light-color"
-    controls: "hue_saturation"
+    controls: "hue"
 ```
 
 {% configuration features %}
