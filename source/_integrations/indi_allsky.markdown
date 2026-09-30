@@ -64,7 +64,6 @@ The **INDI Allsky** {% term integration %} provides the following entities:
 - **Heat index**: Calculated heat index temperature (in °C).
 - **Sky quality**: Sky Quality Meter (SQM) reading.
 - **Stars**: The number of stars detected in the latest image.
-- **Temperature**: Camera sensor temperature (in °C).
 - **Wind direction**: Measured wind direction (in degrees).
 
 - **Binning mode** (disabled by default): The binning mode used for capture.
