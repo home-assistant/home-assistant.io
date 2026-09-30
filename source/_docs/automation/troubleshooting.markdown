@@ -750,13 +750,13 @@ The date and time of the entity has already passed, or the sensor is unavailable
 
 {% enddetails %}
 
-<a id="time-trigger-doesnt-run-on-the-day-daylight-saving-time-starts"></a>
+<a id="time-trigger-in-the-skipped-hour-doesnt-run-on-the-day-daylight-saving-time-starts"></a>
 
-{% details "Time trigger doesn't run on the day daylight saving time starts" %}
+{% details "Time trigger in the skipped hour doesn't run on the day daylight saving time starts" %}
 
 <h3 class="no_toc">Symptom</h3>
 
-On the day that the clocks go forward, an automation with a **Time** trigger doesn't run.
+On the day that the clocks go forward, an automation with a **Time** trigger doesn't run. The time of the trigger falls in the hour that is skipped, for example, 02:30. Triggers at other times run as usual.
 
 #### Description
 
@@ -772,13 +772,13 @@ If the automation must run every day, choose a time when the clocks don't change
 
 {% enddetails %}
 
-<a id="time-trigger-runs-twice-on-the-day-daylight-saving-time-ends"></a>
+<a id="time-trigger-in-the-repeated-hour-runs-twice-on-the-day-daylight-saving-time-ends"></a>
 
-{% details "Time trigger runs twice on the day daylight saving time ends" %}
+{% details "Time trigger in the repeated hour runs twice on the day daylight saving time ends" %}
 
 <h3 class="no_toc">Symptom</h3>
 
-On the day that the clocks go back, an automation with a **Time** trigger runs twice.
+On the day that the clocks go back, an automation with a **Time** trigger runs twice. The time of the trigger falls in the hour that happens twice, for example, 02:30. Triggers at other times run once, as usual.
 
 #### Description
 
