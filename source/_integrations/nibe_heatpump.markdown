@@ -34,7 +34,7 @@ Supported devices:
 - S320/S325
 - S330/S332
 - F370
-- F375
+- F372
 - F470
 - F730
 - S735
