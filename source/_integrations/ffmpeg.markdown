@@ -87,3 +87,69 @@ Stream mapping:
 Press [q] to stop, [?] for help
 frame=  223 fps= 40 q=-1.0 Lsize=   16709kB time=00:00:07.40 bitrate=18497.5kbits/s dup=58 drop=0 speed=1.32x
 ```
+
+{% include integrations/actions.md %}
+
+## FFmpeg automation examples
+
+With the FFmpeg actions, you decide when your FFmpeg motion and noise sensors analyze their streams.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: start motion analysis when you leave
+
+When nobody is home, you want to know about motion on the driveway camera. This automation starts the FFmpeg motion sensor when you leave.
+
+- **Trigger**: Zone
+  - **Entity with location**: You (`person.you`)
+  - **Zone**: Home
+  - **Event**: Leave
+- **Action**: Start
+  - **Entity**: Driveway motion (`binary_sensor.driveway_motion`)
+
+{% details "YAML example for starting motion analysis when you leave" %}
+
+{% example %}
+automation: |
+  alias: "Start driveway motion analysis when I leave"
+  triggers:
+    - trigger: zone
+      entity_id: person.you
+      zone: zone.home
+      event: leave
+  actions:
+    - action: ffmpeg.start
+      data:
+        entity_id: binary_sensor.driveway_motion
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: stop motion analysis when you get home
+
+When you're home, you don't need motion alerts from the driveway camera. Stopping the sensor also saves the processing power FFmpeg uses.
+
+- **Trigger**: Zone
+  - **Entity with location**: You (`person.you`)
+  - **Zone**: Home
+  - **Event**: Enter
+- **Action**: Stop
+  - **Entity**: Driveway motion (`binary_sensor.driveway_motion`)
+
+{% details "YAML example for stopping motion analysis when you get home" %}
+
+{% example %}
+automation: |
+  alias: "Stop driveway motion analysis when I get home"
+  triggers:
+    - trigger: zone
+      entity_id: person.you
+      zone: zone.home
+      event: enter
+  actions:
+    - action: ffmpeg.stop
+      data:
+        entity_id: binary_sensor.driveway_motion
+{% endexample %}
+
+{% enddetails %}
