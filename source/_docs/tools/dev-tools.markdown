@@ -246,9 +246,12 @@ To avoid this:
 2. In the row of the statistic with the issue, select **Fix issue**. If Home Assistant can't fix the issue for you, the button is called **Info** instead.
    - Result: A dialog explains the issue and what you can do about it.
    ![Statistics issue message](/images/docs/developer-tools/statistics_issue.png)
-3. Follow the instructions in the dialog. Depending on the issue, you can:
-   - Delete the old statistics of the entity, so Home Assistant can start over.
-   - If the unit changed, update the unit of the old statistics without converting the values, or delete the old statistics.
+3. Follow the instructions in the dialog. What you can do depends on the issue:
+   - If the unit changed, update the unit of the old statistics without converting the values. Or delete the old statistics, so Home Assistant can start over.
+   - If the mean type changed, delete the old statistics, so Home Assistant can start over.
+   - If the entity has no state, for example, because you removed its device, you can delete its old statistics.
+   - If the entity is not recorded, or no longer recorded, include it in the [Recorder](/integrations/recorder/) again, so Home Assistant can keep statistics for it. If the entity is no longer recorded and you don't need its old statistics, you can delete them.
+   - If the entity no longer has a state class, Home Assistant can't keep statistics for it until the state class is back. If you set the state class yourself, correct it. If the integration provided it, report an issue to the integration. If you no longer need the old statistics, you can delete them.
    - Result: The issue is no longer shown in the list. After you delete statistics, it can take a moment for the issue to disappear.
 
 ### Adjusting a statistic
