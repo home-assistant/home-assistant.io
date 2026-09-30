@@ -274,7 +274,7 @@ The automation has a trigger, condition, or action of the **Device** type. After
 
 #### Description
 
-A **Device** trigger, condition, or action refers to the device by an internal ID. If you add the same device again, Home Assistant keeps its ID. But the device gets a new ID when it is a different device, for example, a replacement for a broken one, or when you add it again more than 30 days after you removed its integration. The automation then refers to a device that no longer exists.
+A **Device** trigger, condition, or action refers to the device by an internal ID. If you add the same device again, Home Assistant keeps its ID. But the device gets a new ID when it is a different device, for example, a replacement for a broken one. It can also get a new ID when you add it again more than 30 days after you removed its integration, because Home Assistant only keeps removed devices for 30 days. The automation then refers to a device that no longer exists.
 
 #### Resolution
 
