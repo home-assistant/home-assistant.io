@@ -56,7 +56,7 @@ In some situations, some of the features may require a subscription such as the 
 
 ## Charging schedule action
 
-For vehicles that report charge schedules, use the **Get charge schedules** action to retrieve the current charging schedules. The response includes the number of schedules, the number of active schedules, and the schedules keyed by local weekday. Each weekday contains a list of entries with a local `HH:MM` start time and duration. A list preserves all entries when timezone conversion maps more than one source weekday to the same local weekday.
+For vehicles that report charge schedules, use the **Get charge schedules** action to retrieve the current charging schedules. The response includes the number of schedules, the number of active schedules, and the schedules keyed by local weekday. Each weekday contains a list of entries with a local `HH:MM` start time and duration. A list preserves all entries when timezone conversion maps more than one source weekday to the same local weekday. Weekdays and times are calculated from the current week, so they may differ before and after daylight saving time changes.
 
 ## Battery charge limits
 
