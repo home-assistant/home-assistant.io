@@ -145,7 +145,7 @@ The **Template editor** shows the result of your template right away. It updates
 
 {% details "Template with `this` or `trigger` shows an error or an empty result in the editor" %}
 
-### Symptom
+### Symptom 1
 
 Your template uses `this` or `trigger`, for example, `{{ trigger.to_state.state }}`. In the **Template editor**, it shows an error, or a warning and an empty result.
 
@@ -163,7 +163,7 @@ The editor does not have the variables `this` and `trigger`. Home Assistant only
 
 {% details "Template trigger does not react" %}
 
-### Symptom
+### Symptom 2
 
 In the **Template editor**, the result of your template is true, but the automation with the template trigger does not start.
 
