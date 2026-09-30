@@ -113,17 +113,19 @@ Swapping out the map underneath opened a lot of doors. This release walks throug
 
 The map is now drawn entirely on your device, as vectors, instead of being stitched together from pictures. Streets and labels stay sharp at any zoom level, and zooming in and out is smooth. Older devices that can't handle this, like the old tablet on your wall, automatically fall back to the classic map.
 
+<p class='img'><video src='/images/blog/2026-10/map-zoom.mp4' aria-label='Screen recording of the Map dashboard zooming out from Amsterdam to Europe and back, with the markers of people merging into shared bubbles as the map zooms out.' autoplay muted loop playsinline></video></p>
+
 ### Redesigned markers
 
 The markers on the map got a complete redesign. People show up with their picture, {% term zones %} get a marker with their icon in their own color, and everyone in the same zone shares a single bubble on that zone, instead of a pile of markers stacked on top of each other. Zoom out far enough, and bubbles that would overlap merge into one.
 
-<img src='/images/blog/2026-10/temp-map-markers.png' alt='Screenshot of the map with the redesigned markers, showing a person with their picture, two people sharing a bubble on the Home zone, and another zone with its icon.' class='no-shadow' />
+<img src='/images/blog/2026-10/map-markers.png' alt='Screenshot of the map with the redesigned markers, showing a person with their picture, two people sharing a bubble on the Home zone, and the Supermarket zone with its icon, next to the overview listing everyone on the People tab.' class='no-shadow' />
 
 ### An overview for the Map dashboard
 
 The [Map dashboard](/dashboards/dashboards/#map-dashboard) now comes with an overview, next to the map on a desktop and as a sheet you pull up on your phone. It has three tabs: **People**, **Devices**, and **Zones**. Select someone to see their recent activity, with each stop colored by the zone they were in. Select a zone to see who's there. On a phone, the map now also fills the whole screen, edge to edge.
 
-<img src='/images/blog/2026-10/temp-map-activity.png' alt='Screenshot of the recent activity of a person in the map overview, with each entry marked in the color of its zone.' class='no-shadow' />
+<img src='/images/blog/2026-10/map-activity.png' alt='Screenshot of the recent activity of a person in the map overview, with each entry marked in the color of its zone.' class='no-shadow' />
 
 The same overview shows up when you put a [map card](/dashboards/map/) in a panel view on your own dashboard.
 
@@ -131,7 +133,7 @@ The same overview shows up when you put a [map card](/dashboards/map/) in a pane
 
 The zone editor in {% my zones title="**Settings** > **Areas, labels & zones**" %} now uses the same new map. Your zones are sorted alphabetically, with Home always at the top, and they show the same icons and colors you see on the map.
 
-<img src='/images/blog/2026-10/temp-map-zone-editor.png' alt='Screenshot of the zone editor on the new map, with the list of zones sorted alphabetically and Home at the top.' class='no-shadow' />
+<img src='/images/blog/2026-10/map-zone-editor.png' alt='Screenshot of the zone editor on the new map, with the list of zones sorted alphabetically and Home at the top.' class='no-shadow' />
 
 This is only the start. It all follows an [Open Home Foundation design concept](https://github.com/OpenHomeFoundation/ux-design/discussions/68) for a vector map with redesigned people and zones, and there is more of it to come. Thanks, [@maartenla], [@matthiasdebaat], [@bramkragten], and [@bgoncal]!
 
@@ -152,13 +154,13 @@ The profile page is now an overview, using the same kind of navigation you alrea
 
 Nothing was taken away. Every setting is still there, grouped so you can find what you came for. Thanks, [@pcan08] and [@maartenla]!
 
-<img src='/images/blog/2026-10/temp-profile-page.png' alt='Screenshot of the redesigned user profile page, showing the account card, the theme picker, and the Appearance, Localization, This browser, and Security sections.' class='no-shadow' />
+<img src='/images/blog/2026-10/profile-page.png' alt='Screenshot of the redesigned user profile page, showing the account card, the theme picker, and the Appearance, Localization, and This browser sections.' class='no-shadow' />
 
 That account card at the top learned a new trick, too. Until now, your own name and picture weren't actually yours to change. Only an administrator could set them, tucked away in the person settings. Not an administrator, but wanted a nicer picture of yourself in the sidebar? You had to go ask whoever runs your Home Assistant. A bit odd, for something that is literally your face.
 
 Every user, administrator or not, now has an **Edit profile** button right next to **Log out**. Upload and crop a picture, change your name, and save. Your name is used for both your user and the [person](/integrations/person/) linked to it, so it's the same everywhere you show up, from the sidebar to your dashboards and [Assist](/voice_control/). Your new picture shows up in the sidebar right away.
 
-<img src='/images/blog/2026-10/temp-profile-edit.png' alt='Screenshot of the Edit profile dialog, with a round profile picture and a field to change your name.' class='no-shadow' />
+<img src='/images/blog/2026-10/profile-edit.png' alt='Screenshot of the Edit profile dialog, with the profile picture, a button to clear it, and a field to change your name.' class='no-shadow' />
 
 [@bgoncal]: https://github.com/bgoncal
 [@bramkragten]: https://github.com/bramkragten
@@ -174,15 +176,15 @@ Home Assistant has had a way to combine those into one for years. Give each {% t
 
 Not anymore. Add a **Triggered by** condition, and you check the triggers it should match. You see the triggers themselves, not some ID you made up, and each one is numbered by its position in your list, with the same number shown next to the trigger itself. So you always know which one is which. There are no IDs to come up with at all. Home Assistant takes care of those behind the scenes, and cleans up after itself when you remove a trigger.
 
-<img src='/images/blog/2026-10/temp-automation-triggered-by.png' alt='Screenshot of the automation editor with two numbered triggers, and a Triggered by condition where the first trigger, Smoke detected, is checked.' class='no-shadow' />
+<img src='/images/blog/2026-10/automation-triggered-by.png' alt='Screenshot of the automation editor with two numbered triggers, Motion detected and Motion cleared, and a Triggered by condition where the first trigger, Motion detected, is checked.' class='no-shadow' />
 
 If you set your trigger IDs yourself in {% term YAML %}, those keep working exactly as they did, and you can keep setting them there. If a condition points to a trigger that no longer exists, the editor now flags it, so you can clear it. And if several triggers share the same ID, the editor warns you and offers a **Fix** that gives each trigger its own ID and updates your conditions to match.
 
 This completes [an Open Home Foundation roadmap opportunity](https://github.com/OpenHomeFoundation/roadmap/issues/66) to make referencing triggers in automations a lot easier. Thanks, [@jpbede], [@wendevlin], [@marcinbauer-ohf], and [@nielsrowinbik]!
 
-While you're in the automation editor, you'll notice your triggers, conditions, and actions tell you a bit more at a glance. Each row now shows the details that used to be hidden until you opened it: the threshold a trigger or condition checks for, like "above 12 °C", how long something needs to stay that way, the offset on a sunrise or sunset, and how long a wait action waits before it gives up. Thanks, [@wendevlin] and [@MindFreeze]!
+While you're in the automation editor, you'll notice your triggers, conditions, and actions tell you a bit more at a glance. Each row now shows the details that used to be hidden until you opened it: the threshold a trigger or condition checks for, like "above 10 °C", how long something needs to stay that way, the offset on a sunrise or sunset, and how long a wait action waits before it gives up. Thanks, [@wendevlin] and [@MindFreeze]!
 
-<img src='/images/blog/2026-10/temp-automation-row-details.png' alt='Screenshot of a trigger row in the automation editor reading: Temperature crossed threshold, above 12 °C, for 12m, for the Air temperature entity of the HeatPump device.' class='no-shadow' />
+<img src='/images/blog/2026-10/automation-row-details.png' alt='Screenshot of triggers and a condition in the automation editor, each showing its details in the row: 10m before sunset, temperature above 10 °C for 5m, light brightness between 10 and 20%, and illuminance above 50 lx for 10m.' class='no-shadow' />
 
 [@jpbede]: https://github.com/jpbede
 [@marcinbauer-ohf]: https://github.com/marcinbauer-ohf
@@ -540,7 +542,7 @@ There is even more packed into this release. Here are some of the other changes 
 - **Templates** gained a [`timedelta_string`](/template-functions/timedelta_string/) function, which turns a duration into readable text like "1 hour 30 minutes", the same way [`time_since`](/template-functions/time_since/) and [`time_until`](/template-functions/time_until/) do. Thanks, [@cnotin]!
 - **[Automation traces](/docs/automation/troubleshooting/#traces)** got a fresh look that matches the automation editor, with the real icon for each trigger, condition, and action, and a clear view of branches that didn't finish. Drag the divider to give the graph or the details more room, the step buttons now float on top of the graph, and screen readers describe each step. Thanks, [@jpbede]!
 - The **[Z-Wave]** network map can now show the real mesh. Turn on the new neighbors toggle, and it draws the connections between your devices, not just the routes they use. It's off by default, because large networks get busy fast. Thanks, [@MindFreeze]!
-- **[Calendar]** events from [CalDAV](/integrations/caldav/), [Local calendar](/integrations/local_calendar/), and [Google Calendar](/integrations/google/) now include whether they are confirmed or tentative, so your automations can tell the difference. [Remote calendar](/integrations/remote_calendar/) now also leaves out cancelled events. Thanks, [@1358]!
+- **[Calendar]** events from [CalDAV](/integrations/caldav/), [Local calendar](/integrations/local_calendar/), and [Google Calendar](/integrations/google/) now include whether they are confirmed or tentative, so your automations can tell the difference. [Remote calendar](/integrations/remote_calendar/) now also leaves out canceled events. Thanks, [@1358]!
 - **[Climate]** fan modes can now be set by voice, through a conversation agent, like "set the fan mode to auto". Thanks, [@synesthesiam]!
 - **Units** keep growing: atmospheres (atm) for pressure, and therms (thm) for energy, the unit many US utilities bill natural gas in. Weather entities can now also report pressure in kilopascals (kPa), which most weather services in Canada use. Thanks, [@Bre77], [@virtitnerd], and [@RussellAult]!
 - **Password managers**, including the one built into Firefox, can fill in your details on the Home Assistant login page again. Thanks, [@MindFreeze]!
@@ -574,7 +576,7 @@ This release, the **Visibility** tab offers the same conditions as the automatio
 
 And no more guessing why a card is hiding. The top of the **Visibility** tab tells you whether the card is visible right now, and each condition shows whether it currently passes. Thanks, [@MindFreeze] and [@timmo001]!
 
-<img src='/images/blog/2026-10/temp-visibility-conditions.png' alt='Screenshot of the Visibility tab of a card, showing that the card is currently visible because all conditions are met, a check mark on each condition, and the list of conditions to add, including Template, Sun, Zone, and Device.' class='no-shadow' />
+<img src='/images/blog/2026-10/visibility-conditions.png' alt='Screenshot of the Visibility tab of a tile card, showing that the card is currently visible because all conditions are met, with a check mark on each condition: a template, a zone, a device, and the sun.' class='no-shadow' />
 
 ### A panel for your Modbus connections
 
@@ -582,7 +584,7 @@ Last release, we started [modernizing Modbus](/blog/2026/09/02/release-20269/#mo
 
 The new **Modbus** panel under **Settings** > **Connectivity** fixes that. It lists every Modbus connection Home Assistant has, serial ports and network gateways alike, along with the {% term devices %} on it and the integrations using them. Connections set up in YAML show up here too. A connection that's closed isn't a problem, by the way. It opens again the next time an integration needs it. The **Serial** panel links straight to it for ports that carry Modbus. Thanks, [@balloob]!
 
-<img src='/images/blog/2026-10/temp-modbus-panel.png' alt='Screenshot of the Modbus panel, listing a serial port shared by a Flexit and a SolarEdge device, and two network connections to Fronius inverters.' class='no-shadow' />
+<img src='/images/blog/2026-10/modbus-panel.png' alt='Screenshot of the Modbus panel, listing a serial port shared by a Flexit and a SolarEdge device, and a network connection to a Fronius inverter.' class='no-shadow' />
 
 The list of integrations built this way keeps growing. This release adds two new ones: **[SolarEdge Modbus]**, launching straight at platinum, and **[KACO Modbus]**, thanks to [@g4bri3lDev]. **[STIEBEL ELTRON]** now shares its connection through the [Modbus integration](/integrations/modbus/) as well, and **[Sofar]** climbed all the way to platinum, thanks to [@darkrain-nl].
 
@@ -595,7 +597,7 @@ Home Assistant can act as a [Model Context Protocol](/integrations/mcp_server/) 
 
 The **AI tasks** page under **Settings** > **System** is now called **AI**, and it gained a **Model Context Protocol** card. Turn the server on in a single click, and the card lists the URLs to paste into your AI app, each with a button to copy it. New setups expose everything Home Assistant has to offer, including anything added later, and only allow administrator accounts to connect. You can change both whenever you like, without removing and re-adding the integration.
 
-<img src='/images/blog/2026-10/temp-ai-settings-mcp.png' alt='Screenshot of the AI settings page, with the AI suggestions card and the new Model Context Protocol card listing the URLs to add to your AI agent.' class='no-shadow' />
+<img src='/images/blog/2026-10/ai-settings-mcp.png' alt='Screenshot of the AI settings page with the new Model Context Protocol card, listing the URLs to add to your AI agent, each with a button to copy it.' class='no-shadow' />
 
 It also works the other way around. Apps that run their own <abbr title="Model Context Protocol">MCP</abbr> server are now discovered automatically by the [Model Context Protocol](/integrations/mcp/) integration, so connecting Home Assistant to them only takes a confirmation.
 
@@ -609,17 +611,17 @@ Some {% term entities %} are the whole point of their {% term device %}. Calling
 
 The entity settings now have a **Use device name** switch. Turn it on, and the entity goes by the name of its device. The switch also shows you what that device name is, with a link to rename the device if you'd like. Turn it off, and you're back to the entity's own name, filled in with the default from the integration. If you change your mind, a restore button takes you back to the default. Thanks, [@piitaya] and [@matthiasdebaat]!
 
-<img src='/images/blog/2026-10/temp-entity-use-device-name.png' alt='Screenshot of the entity settings for a smoke detector, with the Use device name switch turned on and the name field hidden.' class='no-shadow' />
+<img src='/images/blog/2026-10/entity-use-device-name.png' alt='Screenshot of the entity settings for a smoke detector, with the Use device name switch turned on and the name field hidden.' class='no-shadow' />
 
 [@piitaya]: https://github.com/piitaya
 
 ### Timers, one tap away
 
-[Timer](/integrations/timer/) {% term helpers %} are now a lot easier to control from your dashboard. [Tile cards](/dashboards/tile/) have two new features for them: **[Timer actions](/dashboards/features/#timer-actions)** adds buttons to start, pause, and cancel a timer (and optionally finish it), and **[Timer presets](/dashboards/features/#timer-presets)** starts a timer with a preset duration in a single tap. Presets show up as a row of buttons, or as a dropdown if you have a longer list. You manage the presets from the timer itself: open its more info dialog and select **Edit presets** from the menu.
+[Timer](/integrations/timer/) {% term helpers %} are now a lot easier to control from your dashboard. [Tile cards](/dashboards/tile/) have two new features for them: **[Timer actions](/dashboards/features/#timer-actions)** adds buttons to start, pause, and cancel a timer (and optionally finish it), and **[Timer presets](/dashboards/features/#timer-presets)** starts a timer with a preset duration in a single tap. Presets show up as a row of buttons, or as a dropdown, handy for a longer list. You manage the presets from the timer itself: open its more info dialog and select **Edit presets** from the menu.
 
 That more info dialog got a fresh look too, and when a timer finishes, you'll see a small animation. Thanks, [@maartenla]!
 
-<img src='/images/blog/2026-10/temp-timer-tile-features.png' alt='Screenshot of four tile cards for a timer, showing the timer actions buttons, a row of preset buttons for 1, 5, and 10 minutes, and a presets dropdown.' class='no-shadow' />
+<img src='/images/blog/2026-10/timer-tile-features.png' alt='Screenshot of two tile cards for a timer, one with the timer actions buttons to start, pause, and cancel it, and one with a row of preset buttons for 2, 5, and 10 minutes.' class='no-shadow' />
 
 ## Need help? Join the community
 
