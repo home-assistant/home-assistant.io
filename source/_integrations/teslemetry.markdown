@@ -392,12 +392,12 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 Requires the **Charge on solar** Labs preview feature. Enable it at {% my labs title="**Settings** > **System** > **Labs**" %}.
 {% endlabs %}
 
-Charge on solar lets your Tesla vehicle keep charging while your home has excess solar power, and pause again once that excess runs out. Enabling the **Charge on solar** Labs preview feature adds two entities for each vehicle that has granted the `Vehicle commands` scope:
+Charge on solar lets your Tesla vehicle keep charging while your home has excess solar power, and pause again once that excess runs out. Enabling the **Charge on solar** Labs preview feature adds two entities to each vehicle when your Teslemetry account has granted the `Vehicle commands` scope:
 
 - A **Charge on solar** switch to turn the mode on or off.
 - A **Charge on solar lower limit** number for the battery percentage the vehicle keeps charging to even without solar, so it doesn't sit too low.
 
-There's no separate upper limit entity for charge on solar. It reuses the vehicle's existing **Charge limit** number as the upper bound, so the lower limit can never be set above it. If you lower the charge limit below the current lower limit, the lower limit follows it down.
+There's no separate upper limit entity for charge on solar. It reuses the vehicle's existing **Charge limit** number as the upper bound, so the lower limit can never be set above it. If you lower the charge limit below the current lower limit, the lower limit follows it down on the next update from the vehicle.
 
 If you disable the Labs preview feature, or the `Vehicle commands` scope is no longer granted, both entities are removed until they become available again.
 
