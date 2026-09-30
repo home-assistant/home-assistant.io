@@ -170,7 +170,7 @@ The connection asks GitHub for no extra permissions. The Marketplace can read pu
 
 The Marketplace uses GitHub's device sign-in. You never enter your GitHub password in Home Assistant.
 
-1. When the Marketplace needs a connection, it shows a code and a link to GitHub.
+1. When the Marketplace needs a connection, it first explains what connecting does. Select **Continue** to get a code and a link to GitHub.
 2. Open the link, sign in to GitHub if needed, and enter the code.
 3. Approve the connection on GitHub.
 4. Return to Home Assistant. The Marketplace finishes the connection on its own.
