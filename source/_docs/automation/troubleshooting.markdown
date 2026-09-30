@@ -749,7 +749,7 @@ In the save dialog, enter a name, and then save again.
 
 {% enddetails %}
 
-## The action works manually but not in my automation
+## My automation behaves differently when I run it manually
 
 {% details "The actions work when I run them, but not when the trigger happens" %}
 
@@ -770,9 +770,7 @@ The automation works when you select **Run actions**, but not when the trigger h
 
 {% enddetails %}
 
-## My automation fails when I run it manually
-
-{% details "The automation fails or behaves differently when I run it manually" %}
+{% details "The automation fails when I run it, but works when the trigger happens" %}
 
 <h3 class="no_toc">Symptom</h3>
 
