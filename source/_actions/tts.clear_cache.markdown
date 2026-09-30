@@ -25,7 +25,7 @@ To clear the cache from an automation or a script:
 
 {% options_ui %}
 Days unused:
-  description: Only removes files that haven't been used for this many days. For example, a value of 30 keeps every message played in the last 30 days. If omitted, all cached files are removed.
+  description: Only removes files that haven't been used for this many days, from 1 to 3650. For example, a value of 30 keeps every message played in the last 30 days. If omitted, all cached files are removed.
   required: false
 {% endoptions_ui %}
 
@@ -44,7 +44,7 @@ action: |
 
 {% options_yaml %}
 days:
-  description: Only removes files that haven't been used for this many days. For example, a value of 30 keeps every message played in the last 30 days. If omitted, all cached files are removed.
+  description: Only removes files that haven't been used for this many days, from 1 to 3650. For example, a value of 30 keeps every message played in the last 30 days. If omitted, all cached files are removed.
   required: false
   type: integer
 {% endoptions_yaml %}
