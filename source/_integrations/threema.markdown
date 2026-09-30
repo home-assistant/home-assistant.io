@@ -48,8 +48,6 @@ This is why the config flow only ever asks for a public key to double-check what
 
 {% enddetails %}
 
-If your API secret is later revoked or changed on the Threema Gateway side, Home Assistant asks you to re-authenticate. You don't need to remove and add the integration again. For the steps, refer to [Home Assistant asks you to re-authenticate](#home-assistant-asks-you-to-re-authenticate).
-
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -62,6 +60,8 @@ Private key:
 Public key:
   description: "Optional. Used once to verify it matches the private key; it is never stored."
 {% endconfiguration_basic %}
+
+If your API secret is revoked or changed on the Threema Gateway side, you can re-authenticate without removing the integration. Refer to [Home Assistant asks you to re-authenticate](#home-assistant-asks-you-to-re-authenticate).
 
 ## Recipients
 
@@ -117,14 +117,26 @@ action: |
 
 Double-check that your Gateway ID starts with `*` and is exactly 8 characters. Verify the API secret matches what is shown on the [Threema Gateway dashboard](https://gateway.threema.ch). If you entered both a private and a public key, make sure they belong to the same key pair. Otherwise, setup fails with a key mismatch error.
 
-### Home Assistant asks you to re-authenticate
+<a id="home-assistant-asks-you-to-re-authenticate"></a>
 
-If your API secret is changed or revoked on the Threema Gateway side, Home Assistant detects it when it starts, or the next time a message fails to send. It then asks you to re-authenticate.
+{% details "Home Assistant asks you to re-authenticate" %}
+
+### Symptom
+
+Under **Settings** > **Devices & services**, Home Assistant asks you to re-authenticate the Threema integration. Sending messages fails.
+
+#### Description
+
+Your API secret was changed or revoked on the Threema Gateway side. Home Assistant detects this when it starts, or the next time a message fails to send.
+
+#### Resolution
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Under **Attention required**, find the Threema integration, and select **Reconfigure**.
 3. In the **Re-authenticate Threema** dialog, enter the new API secret from [gateway.threema.ch](https://gateway.threema.ch), and select **Submit**.
    - Result: The integration works again with the new API secret.
+
+{% enddetails %}
 
 ### Messages not arriving
 
