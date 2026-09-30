@@ -114,7 +114,7 @@ Swapping out the map underneath opened a lot of doors. This release walks throug
 
 ### Crisp at every zoom level
 
-The map is drawn entirely on your device, as vectors, instead of being stitched together from pictures. Streets and labels stay sharp at any zoom level, and zooming in and out is smooth. The map also has a dedicated dark style, with colours designed for dark mode. Older devices that can't render vector maps, like the old tablet on your wall, automatically fall back to the classic map.
+The map is drawn entirely on your device, as vectors, instead of being stitched together from pictures. Streets and labels stay sharp at any zoom level, and zooming in and out is smooth. The map also has a dedicated dark style, with colors designed for dark mode. Older devices that can't render vector maps, like the old tablet on your wall, automatically fall back to the classic map.
 
 The tiles follow [Shortbread](https://shortbread-tiles.org/), an open specification that packages a selection of OpenStreetMap’s geographic data into compact tiles. Its [schema](https://shortbread-tiles.org/schema/1.1/) defines which features and attributes are included, from roads and buildings to waterways and points of interest. Home Assistant then draws those features using [VersaTiles](https://versatiles.org/versatiles-style/) styles.
 
