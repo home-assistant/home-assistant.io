@@ -95,6 +95,10 @@ The following controls are available:
 - **Frost protection**: minimum and maximum temperatures for the frost protection, if the enabled.
 - **Overheat protection**: minimum and maximum temperatures for the overheaet protection, if the enabled.
 
+### Switches
+
+- **Standby**: Turns standby mode on or off, if supported by the unit.
+
 ## Data updates
 
 The integration {% term polling polls %} the MELCloud Home API every 60 seconds.
