@@ -63,10 +63,10 @@ By default, to create automations, use the [automation editor](/docs/automation/
         - Select an entity, device or service to monitor a specific one.
         - Select entities, devices or services in an area, floor or with a certain label to monitor a group of them.
      2. You can add more targets by selecting **Add target** again.
-   - Under **Behavior**, you can decide how the automation starts by selecting one of the options there.
-     - **First**: if monitoring multiple targets, the automation only fires on the first time the trigger is verified for a target.
-     - **Last**: if monitoring multiple targets, the automation only fires after the trigger is verified for all targets.
-     - **Any**: the automation fires whenever a trigger of a monitored target is verified.
+   - Under **Trigger when**, if you monitor more than one target, you can decide when the automation starts:
+     - **Each**: Every time one of the targets changes.
+     - **First**: The first time any of the targets changes.
+     - **All**: Once all targets have changed.
 4. Select **Save**.
 
 ### Adding a condition
