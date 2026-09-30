@@ -16,13 +16,13 @@ An automation waits for something to change, then checks its conditions, and the
 
 A trigger reacts to a change, such as a light turning on or the sun setting. An automation does not keep checking whether something is true. It waits for the change and then starts. Behind the scenes, these changes are [events](/docs/configuration/events/), and most of them are changes to the [state](/docs/configuration/state_object/) of an entity.
 
-For example, a **Numeric state crossed threshold** trigger with **Above** set to 25 °C does not react when you save the automation while the temperature is already 26 °C. It reacts the next time the temperature rises above 25 °C.
+For example, a **Temperature crossed threshold** trigger with **Threshold type** set to **Above** and a threshold of 25 °C does not react when you save the automation while the temperature is already 26 °C. It reacts the next time the temperature rises above 25 °C.
 
 ## What counts as a change
 
 Not every update of an entity starts an automation:
 
-- A [**State changed** trigger](/triggers/state/) without a **From** or **To** state also reacts when only an attribute changes, such as the brightness of a light. The trigger page explains how to react only to changes of the state itself.
+- A [**State** trigger](/triggers/state/) without a **From** or **To** state also reacts when only an attribute changes, such as the brightness of a light. The trigger page explains how to react only to changes of the state itself.
 - Setting an entity to the state it already has is not a change, so the trigger does not react.
 - Most triggers for a specific kind of entity, such as [**Light turned on**](/triggers/light.turned_on/), do not react when an entity comes back from `unavailable` or `unknown`. For details, refer to [unavailable and unknown states](/docs/automation/trigger/#unavailable-and-unknown-state-behavior-in-triggers).
 - With **For at least**, a change only counts when the new state has lasted for that time. A restart resets the waiting. For details, refer to the [**State changed** trigger](/triggers/state/).
