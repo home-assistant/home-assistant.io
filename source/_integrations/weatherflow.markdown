@@ -108,7 +108,9 @@ The station detects lightning with an [AS3935 lightning sensor](https://www.scio
   - **Description**: Value the sensor reports for the most recent detected lightning strike. It has no unit and, according to the sensor's manufacturer, no physical meaning.
 
 - **Lightning last strike**
-  - **Description**: Timestamp of the most recent detected lightning strike; unlike the `Lightning strike` event entity below, this sensor stores the last recorded strike time.
+  - **Description**: Timestamp of the most recent detected lightning strike.
+
+The **Lightning last distance**, **Lightning last energy**, and **Lightning last strike** sensors keep their values when Home Assistant restarts, so they show the most recent strike even if it happened before the restart.
 
 ### Solar and light sensors
 
