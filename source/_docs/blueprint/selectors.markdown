@@ -1999,7 +1999,50 @@ state_classes:
     `measurement` or `total`, any unit is selectable.
   type: [string, list]
   required: false
+context:
+  description: >
+    Limits the selectable units based on the value of another input in the
+    same blueprint or form. Each key refers to the name of that input.
+  type: map
+  required: false
+  keys:
+    filter_device_class:
+      description: >
+        The name of an input that uses a [device class selector](#device-class-selector).
+        The selectable units are limited to the units of the selected device class.
+      type: string
+      required: false
+    filter_state_class:
+      description: >
+        The name of an input that uses a [state class selector](#state-class-selector).
+        The selectable units are limited to the units of the selected state class.
+      type: string
+      required: false
 {% endconfiguration %}
+
+This blueprint example limits the selectable units to the device class and
+state class selected in the other inputs of the blueprint:
+
+```yaml
+blueprint:
+  input:
+    device_class:
+      name: Device class
+      selector:
+        device_class:
+          domain: sensor
+    state_class:
+      name: State class
+      selector:
+        state_class:
+    unit:
+      name: Unit of measurement
+      selector:
+        unit_of_measurement:
+          context:
+            filter_device_class: device_class
+            filter_state_class: state_class
+```
 
 The output of this selector is the unit of measurement.
 
