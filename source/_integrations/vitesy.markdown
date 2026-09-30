@@ -2,6 +2,7 @@
 title: Vitesy
 description: Instructions on how to integrate Vitesy devices into Home Assistant.
 ha_category:
+  - Binary sensor
   - Health
   - Sensor
 ha_release: '2026.10'
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@chemelli74'
 ha_domain: vitesy
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -18,7 +20,7 @@ ha_quality_scale: bronze
 
 The **Vitesy** {% term integration %} connects Home Assistant to your [Vitesy](https://vitesy.com/) air quality devices through the Vitesy Hub cloud service.
 
-Vitesy makes smart air purifiers and air quality monitors. This integration reads the air quality score, environmental measurements, battery level, and maintenance schedule that each device in your Vitesy Hub account reports to the cloud.
+Vitesy makes smart air purifiers and air quality monitors. This integration reads the air quality score, environmental measurements, battery level and charging state, and maintenance schedule that each device in your Vitesy Hub account reports to the cloud.
 
 ## Use cases
 
@@ -52,7 +54,7 @@ Password:
 
 ## Supported functionality
 
-Each device in your Vitesy Hub account is added as a separate device in Home Assistant, with the following sensors.
+Each device in your Vitesy Hub account is added as a separate device in Home Assistant, with the following entities.
 
 ### Sensors
 
@@ -74,6 +76,12 @@ Each device in your Vitesy Hub account is added as a separate device in Home Ass
   - **Description**: Date the purification filter is next due to be cleaned or replaced. Shown as diagnostic information on the device page.
 - **Fridge cleaning due**
   - **Description**: Date the refrigerator is next due to be cleaned. Shown as diagnostic information on the device page.
+  - **Available for**: Shelfy
+
+### Binary sensors
+
+- **Charging**
+  - **Description**: Shows whether the battery is currently charging. Shown as diagnostic information on the device page.
   - **Available for**: Shelfy
 
 ## Data updates
