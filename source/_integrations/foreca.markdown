@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@EetuPelkonen'
+  - '@hyvatti-foreca'
 ha_domain: foreca
 ha_platforms:
   - weather
