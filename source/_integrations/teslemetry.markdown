@@ -74,6 +74,13 @@ You only need to do this once per vehicle. If Home Assistant's key is later remo
 
 When the vehicle is within Bluetooth range, its commands use the local connection first, with an automatic fallback to the cloud when needed. This can make commands like locking, unlocking, or flashing the lights feel noticeably faster. When the vehicle is away, its commands use the cloud, and it switches back to Bluetooth on its own when it returns.
 
+### Bluetooth connectivity sensors
+
+Each vehicle paired for Bluetooth control gets two diagnostic binary sensors. Vehicles without Bluetooth control don't have them.
+
+- **Bluetooth**: On when a Home Assistant Bluetooth adapter can currently see the vehicle, meaning the car is in range and reachable over Bluetooth. It does not mean Home Assistant is connected to the vehicle. It only listens for the vehicle's Bluetooth broadcasts, so it never connects to or wakes the car. When the vehicle leaves range, it can take up to about 195 seconds for its broadcasts to be considered stale, plus up to 300 seconds for Home Assistant's next check, before this sensor turns off.
+- **Bluetooth session**: On while Home Assistant has an open Bluetooth connection to the vehicle. A connection is only held while a command is being sent, so this sensor is off most of the time. It is disabled by default.
+
 ### Removing Bluetooth control
 
 Removing the Teslemetry integration, or the pairing for a single vehicle, stops Home Assistant from routing that vehicle's commands over Bluetooth and forgets the stored Bluetooth address. It does not revoke Home Assistant's virtual key from the vehicle itself. That key stays authorized on the car until you remove it there.
@@ -122,7 +129,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 The **Bluetooth** column marks entities whose commands can control the vehicle over Bluetooth when it's paired and within range of a Home Assistant Bluetooth adapter. See [Bluetooth vehicle control](#bluetooth-vehicle-control) for setup and requirements.
 
 {% note %}
-Only vehicle controls send commands over Bluetooth. Reading state, and the updated state that follows a command, always comes through Teslemetry's cloud connection or data stream, even for an entity marked **Yes**. When the vehicle is out of Bluetooth range, its commands use the cloud, and individual commands the local connection can't complete fall back to the cloud automatically. Energy site and Wall Connector entities are not controlled over vehicle Bluetooth.
+Only vehicle controls send commands over Bluetooth. Reading state, and the updated state that follows a command, always comes through Teslemetry's cloud connection or data stream, even for an entity marked **Yes**. The exceptions are the [Bluetooth connectivity sensors](#bluetooth-connectivity-sensors), which come from Home Assistant's own Bluetooth adapters. When the vehicle is out of Bluetooth range, its commands use the cloud, and individual commands the local connection can't complete fall back to the cloud automatically. Energy site and Wall Connector entities are not controlled over vehicle Bluetooth.
 {% endnote %}
 
 |Domain|Name|Enabled|Data|Bluetooth|
@@ -131,6 +138,8 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 |Binary sensor|Automatic emergency braking off|No|Streaming|No|
 |Binary sensor|Battery heater|No|Both|No|
 |Binary sensor|Blind spot collision warning chime|No|Streaming|No|
+|Binary sensor|Bluetooth|Yes|Bluetooth|No|
+|Binary sensor|Bluetooth session|No|Bluetooth|No|
 |Binary sensor|BMS full charge|No|Streaming|No|
 |Binary sensor|Brake pedal|No|Streaming|No|
 |Binary sensor|Cabin overheat protection actively cooling|No|Polling|No|
