@@ -135,7 +135,7 @@ The result updates while you type, and when the states that the template uses ch
 - At the start of each minute, if the template uses the current time.
 - When one of the listed entities or domains changes.
 - When any state changes, if the template uses all states.
-- Not at all, if the template does not use any states.
+- Not automatically, if the template does not use any states or the current time.
 
 Your template is kept in your browser, so it is still there the next time you open the tab.
 
@@ -147,10 +147,11 @@ Use this to check that a template gives the result you expect, before you use it
 2. In the **Template editor**, enter your template.
    - The editor starts with a demo template. To start with an empty editor, in the toolbar of the editor, select **Clear** {% icon "mdi:trash-can-outline" %}. To go back to the demo template, select **Reset to demo template** {% icon "mdi:restore" %}.
    - To get suggestions, for example, for entity IDs, place the cursor inside a function that supports it, and press <kbd>Ctrl</kbd>+<kbd>Space</kbd>.
-3. If your template uses variables that only exist when it runs in an automation or an integration, such as `trigger`, `this`, or `value_json`, at the top of the template, define them yourself with `{% set %}`. If you don't, the editor shows an error, or a warning and an empty result. To see an example, refer to [testing an incoming-data template](/docs/templating/where-to-use/#testing-an-incoming-data-template). For details, refer to [Why does it work in Tools but not in my automation?](/docs/templating/debugging/#why-does-it-work-in-tools-but-not-in-my-automation).
+3. If your template uses variables that only exist when it runs in an automation or an integration, such as `trigger`, `this`, or `value_json`, at the top of the template, define them yourself with `{% set %}`. If you don't, the editor shows an error, or a warning and an empty result. To see an example, refer to [testing an incoming-data template](/docs/templating/where-to-use/#testing-an-incoming-data-template). For details, refer to [Why does my template behave differently in Tools?](/docs/templating/debugging/#why-does-it-work-in-tools-but-not-in-my-automation).
 4. Under **Result**, check the output.
    - Result: The output of your template is shown, with its **Result type**. If the template has an error, the error message is shown instead. For warnings and other problems, refer to [Debugging templates](/docs/templating/debugging/).
-5. When the template works, in the toolbar, select **Copy to clipboard** {% icon "mdi:content-copy" %}. Then paste the template into your automation, script, or template entity.
+5. When the template works, remove the variables you defined in step 3, if any. They would replace the real values when the template runs.
+6. In the toolbar, select **Copy to clipboard** {% icon "mdi:content-copy" %}. Then paste the template into your automation, script, or template entity.
 
 ## Events tab
 
