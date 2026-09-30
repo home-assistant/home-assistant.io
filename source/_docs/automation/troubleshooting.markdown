@@ -220,7 +220,7 @@ The device is offline, so its entity is unavailable. Home Assistant skips unavai
 
 The automation started while a previous run was still running, for example, during a delay, and the new run didn't start. In the list of traces, the new run is marked **Stopped because only a single execution is allowed** or **Stopped because maximum number of parallel runs reached**.
 
-For the description and the resolution, refer to [I see an 'Already running' warning in the logs](#i-see-an-already-running-warning-in-the-logs).
+For the description and the resolution, refer to [I see an "Already running" warning in the logs](#i-see-an-already-running-warning-in-the-logs).
 
 {% enddetails %}
 
@@ -535,7 +535,7 @@ The entity in the trigger changes back and forth quickly, for example, a motion 
 
 {% enddetails %}
 
-## I see an 'Already running' warning in the logs
+## I see an "Already running" warning in the logs
 
 <a id="the-automation-didnt-start-while-it-was-still-running"></a>
 
