@@ -144,9 +144,9 @@ The zone editor in {% my zones title="**Settings** > **Areas, labels & zones**" 
 
 This is only the start. The redesign follows an [Open Home Foundation design concept](https://github.com/OpenHomeFoundation/ux-design/discussions/68) for a vector map with redesigned people and zones, and there is more of it to come. 
 
-Because roads, buildings, and labels arrive as separate features, Home Assistant can control their colours, prominence, and visibility. The same tiles can support quite different maps without the server having to generate a new set of images.
+Because roads, buildings, and labels arrive as separate features, Home Assistant can control their colors, prominence, and visibility. The same tiles can support quite different maps without the server having to generate a new set of images.
 
-Vector maps offer many possibilities: maps that follow your theme and language, styles that emphasise railways and cycleways, or de-emphasise roads, and selectable buildings and places. Automations based on mapped parks, shops, or charging stations would require additional data handling and backend work, but the release-party discussion showed plenty of interest. These are ideas to explore together, rather than a promised feature list.
+Vector maps offer many possibilities: maps that follow your theme and language, styles that emphasize railways and cycleways, or de-emphasize roads, and selectable buildings and places. Automations based on mapped parks, shops, or charging stations would require additional data handling and backend work, but the release-party discussion showed plenty of interest. These are ideas to explore together, rather than a promised feature list.
 
 Thanks, [@maartenla], [@matthiasdebaat], [@bramkragten], and [@bgoncal]!
 
