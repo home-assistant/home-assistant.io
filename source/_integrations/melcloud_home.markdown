@@ -88,6 +88,7 @@ The following extra sensors are only applicable for the Air-to-Water units:
 
 - **Room zone temperature 1 & 2**: Either one or the two room temperatures are returned, if applicable for the setup.
 - **Tank water temperature**: The current measured tank water temperature.
+- **Operation status**: What the heat pump is doing: **Idle**, **Heating water**, **Heating zones**, or **Cooling**.
 
 ### Number
 
@@ -103,7 +104,7 @@ Air-to-Water units with a hot water tank get a **Hot water** water heater:
 - **Target temperature**: The tank water temperature to heat to, within the limits reported by the unit.
 - **Operation mode**: **Heat pump** for normal operation, or **High demand** to force hot water, which heats the tank with priority over the heating zones.
 
-The water heater shows as off while the unit is powered off or in standby. It can't turn the unit on or off, as that would also affect the heating zones.
+The water heater shows as off while the unit is powered off or in standby. It can't turn the unit on or off, as that would also affect the heating zones. To see whether the tank is being heated right now, use the **Operation status** sensor.
 
 ### Switches
 
