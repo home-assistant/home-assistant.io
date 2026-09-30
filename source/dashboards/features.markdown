@@ -700,6 +700,35 @@ type:
   type: string
 {% endconfiguration %}
 
+## Light color
+
+Widget that displays controls to select the color for a [light](/integrations/light).
+
+You can show the hue, the saturation, or both. When both are shown, select the small button next to the control to switch between them.
+
+<p class='img'>
+  <img src='/images/dashboards/features/light_color.png' alt='Screenshot of the tile card with the light color feature'>
+  Screenshot of the tile card with the light color feature
+</p>
+
+```yaml
+features:
+  - type: "light-color"
+    controls: "hue_saturation"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`light-color`"
+  type: string
+controls:
+  required: false
+  description: "Which controls to display. It can be `hue`, `saturation`, or `hue_saturation`."
+  type: string
+  default: hue
+{% endconfiguration %}
+
 ## Light color favorites
 
 Widget that displays a set of buttons to select a color for a [light](/integrations/light) from a list of favorites.
