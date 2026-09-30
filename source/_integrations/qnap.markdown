@@ -33,6 +33,7 @@ The QNAP integration will add the following sensors:
 
 This integration works with most (but not all) QNAP devices. A complete, up-to-date [list of compatible devices can be found here](https://github.com/colinodell/python-qnapstats#device-support).
 
+Two-factor authentication is not supported for the QNAP account used by Home Assistant. If two-factor authentication is enabled for that account, the integration cannot authenticate.
 
 In the case of QTS 5, the QNAP account that is being used by Home Assistant needs the following:
 - Make sure you log into the device's web interface and complete any agreements, warnings, wizards, or setup steps, as the QNAP API may block requests until those are completed.
