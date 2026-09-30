@@ -10,9 +10,10 @@ ha_codeowners:
   - '@allenporter'
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: service
-ha_quality_scale: gold
+ha_quality_scale: platinum
 api: Google Health API
 api_link: https://console.cloud.google.com/apis/library/health.googleapis.com
 related:

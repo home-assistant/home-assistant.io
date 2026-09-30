@@ -19,9 +19,7 @@ ha_domain: broadlink
 ha_config_flow: true
 ha_platforms:
   - climate
-  - infrared
   - light
-  - radio_frequency
   - remote
   - select
   - sensor
