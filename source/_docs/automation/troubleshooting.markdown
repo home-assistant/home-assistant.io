@@ -9,9 +9,9 @@ Most problems show up in the [trace](/docs/automation/testing/#traces) of the au
 
 ## My automation doesn't trigger
 
-<a id="the-automation-doesnt-start-at-all"></a>
+<a id="the-automation-is-turned-off-disabled"></a>
 
-{% details "The automation doesn't start at all" %}
+{% details "The automation is turned off (disabled)" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -28,9 +28,9 @@ The automation is turned off. A turned-off automation doesn't react to its trigg
 
 {% enddetails %}
 
-<a id="a-numeric-state-crossed-threshold-trigger-doesnt-react"></a>
+<a id="a-temperature-or-other-value-is-already-past-the-threshold-but-the-automation-doesnt-trigger"></a>
 
-{% details "A Numeric state crossed threshold trigger doesn't react" %}
+{% details "A temperature or other value is already past the threshold, but the automation doesn't trigger" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -47,9 +47,9 @@ The trigger only reacts when the value crosses the threshold. If the value was a
 
 {% enddetails %}
 
-<a id="a-state-changed-trigger-doesnt-react-to-the-state-i-see"></a>
+<a id="the-automation-doesnt-trigger-for-open-or-detected-the-raw-state-is-on"></a>
 
-{% details "A State changed trigger doesn't react to the state I see" %}
+{% details "The automation doesn't trigger for “Open” or “Detected”: the raw state is “on”" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -67,9 +67,9 @@ The UI shows a state in a readable form, for example, **Open** for a door sensor
 
 {% enddetails %}
 
-<a id="a-state-changed-trigger-with-a-from-state-doesnt-react"></a>
+<a id="the-automation-doesnt-trigger-after-the-device-was-unavailable"></a>
 
-{% details "A State changed trigger with a From state doesn't react" %}
+{% details "The automation doesn't trigger after the device was unavailable" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -173,9 +173,9 @@ The action failed, but **Continue on error** is turned on for it. The automation
 
 {% enddetails %}
 
-<a id="the-action-ran-without-an-error-but-no-device-changed"></a>
+<a id="the-action-targets-an-area-floor-or-label-with-no-matching-devices"></a>
 
-{% details "The action ran without an error, but no device changed" %}
+{% details "The action targets an area, floor, or label with no matching devices" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -244,9 +244,9 @@ For long waits, don't use a delay. Instead, use a trigger for the moment that th
 
 {% enddetails %}
 
-<a id="the-automation-doesnt-react-to-an-entity-or-doesnt-control-it"></a>
+<a id="referenced-entities-are-missing-or-not-currently-available-after-renaming-an-entity"></a>
 
-{% details "The automation doesn't react to an entity, or doesn't control it" %}
+{% details "“Referenced entities … are missing or not currently available” after renaming an entity" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -285,9 +285,9 @@ A **Device** trigger, condition, or action refers to the device by an internal I
 
 {% enddetails %}
 
-<a id="after-an-update-the-automation-is-unavailable"></a>
+<a id="automation-is-unavailable-or-failed-to-set-up-after-an-update"></a>
 
-{% details "After an update, the automation is unavailable" %}
+{% details "“Automation is unavailable” or “failed to set up” after an update" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -398,9 +398,9 @@ The **For at least** timer stops as soon as the entity leaves the state in the t
 
 {% enddetails %}
 
-<a id="the-automation-stays-at-a-wait-for-a-trigger-action"></a>
+<a id="wait-for-a-trigger-never-finishes-or-always-waits-for-the-timeout"></a>
 
-{% details "The automation stays at a Wait for a trigger action" %}
+{% details "Wait for a trigger never finishes, or always waits for the timeout" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -417,9 +417,9 @@ The trace shows that the automation is waiting at a **Wait for a trigger** actio
 
 {% enddetails %}
 
-<a id="the-automation-continues-although-nothing-happened"></a>
+<a id="wait-for-a-trigger-or-template-continues-after-the-timeout"></a>
 
-{% details "The automation continues although nothing happened" %}
+{% details "Wait for a trigger or template continues after the timeout" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -454,9 +454,9 @@ To wait for a change, use **Wait for a trigger** instead. It only continues when
 
 {% enddetails %}
 
-<a id="the-automation-stops-during-a-delay-or-wait-and-starts-again"></a>
+<a id="the-delay-is-cut-short-because-the-automation-restarts-restart-mode"></a>
 
-{% details "The automation stops during a delay or wait, and starts again" %}
+{% details "The delay is cut short because the automation restarts (Restart mode)" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -561,9 +561,9 @@ The [mode](/docs/automation/modes/) of the automation decides what happens when 
 
 ## Something turned on or off and I don't know why
 
-<a id="an-entity-changed-and-i-dont-know-why"></a>
+<a id="a-light-or-switch-turns-on-or-off-by-itself-find-what-changed-it"></a>
 
-{% details "An entity changed, and I don't know why" %}
+{% details "A light or switch turns on or off by itself: find what changed it" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -1019,9 +1019,9 @@ Change the template so that it gives `true` or `false`, for example, with a comp
 
 {% enddetails %}
 
-<a id="a-condition-doesnt-pass-and-the-logs-show-an-error"></a>
+<a id="error-evaluating-condition-in-the-logs"></a>
 
-{% details "A condition doesn't pass, and the logs show an error" %}
+{% details "“Error evaluating condition” in the logs" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -1040,9 +1040,9 @@ The condition couldn't be checked, for example, because the entity doesn't exist
 
 ## I can't edit, delete, or rename my automation
 
-<a id="the-automation-cant-be-edited-or-deleted-in-the-ui"></a>
+<a id="this-automation-cannot-be-edited-from-the-ui"></a>
 
-{% details "The automation can't be edited or deleted in the UI" %}
+{% details "“This automation cannot be edited from the UI”" %}
 
 <h3 class="no_toc">Symptom</h3>
 
