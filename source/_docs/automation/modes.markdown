@@ -5,9 +5,9 @@ description: "Automation modes define what happens when an automation starts whi
 
 Sometimes an automation starts again before it has finished its previous run, for example, while it waits in a delay. The mode of the automation tells Home Assistant what to do in that situation: ignore the new start, start over, queue it up, or run another copy in parallel.
 
-Most of the time, the default **Single** mode is exactly what you want. The other modes are there for special cases, like a notification automation that should run a fresh copy for every event, or a long-running sequence that should restart from the top whenever something changes.
+Most of the time, the default **Single** mode is what you want. The other modes are there for special cases, like a notification automation that should run a fresh copy for every event, or a long-running sequence that should restart from the top whenever something changes.
 
-To change the mode of an automation, in the automation editor, select **Menu** {% icon "mdi:dots-vertical" %} > **Change mode**. For the steps, refer to [changing the mode of an automation](/docs/automation/editor/#changing-the-mode-of-an-automation).
+To change the mode of an automation, in the automation editor, select **Menu** {% icon "mdi:dots-vertical" %} > **Change mode**. For detailed steps, refer to [changing the mode of an automation](/docs/automation/editor/#changing-the-mode-of-an-automation).
 
 ## The modes
 
@@ -15,6 +15,13 @@ To change the mode of an automation, in the automation editor, select **Menu** {
 - **Restart** (`restart`): Stops the current run, including a delay or a wait that is running, and starts a new run. The automation only restarts if its conditions are met.
 - **Queued** (`queued`): Starts the new run after all previous runs have finished. The runs start in the order in which the automation was started. A new run only joins the queue if the conditions of the automation are met at the moment it starts.
 - **Parallel** (`parallel`): Starts a new, independent run right away, next to the previous runs.
+
+The following diagram shows an automation with 8 actions. It starts a second time when its first run has just finished action 3. Depending on the mode, the following happens:
+
+- **Single**: The first run continues with actions 4 to 8. The second start doesn't run, and Home Assistant logs a warning.
+- **Restart**: The first run stops after action 3. A new run starts right away with action 1, and runs all 8 actions.
+- **Queued**: The first run continues with actions 4 to 8. When it has finished, the second run starts with action 1, and runs all 8 actions.
+- **Parallel**: The first run continues with actions 4 to 8. At the same time, a second run starts with action 1, and runs all 8 actions.
 
 <p class='img'>
   <img src='/images/integrations/script/script_modes.jpg' alt='Diagram of what happens to a second start in each mode: single ignores it with a warning, restart stops the first run and starts over, queued runs it after the first run, and parallel runs both at the same time.'>
@@ -58,7 +65,8 @@ automation:
     actions:
       - ...
       # Wait 5 minutes before the automation can run again
-      - delay: 300
+      - delay:
+          minutes: 5
 ```
 
 ## Example: queued automation
