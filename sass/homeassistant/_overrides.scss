@@ -939,6 +939,48 @@ a.material-card:hover {
   .links li {
     display: inline;
   }
+
+  .page-rating {
+    margin: 24px 0;
+  }
+
+  .page-rating-ask {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .page-rating-button {
+    cursor: pointer;
+    font: inherit;
+    padding: 4px 16px;
+    color: $link-color;
+    background-color: #e8edf0;
+    border: none;
+    border-radius: 16px;
+
+    &:hover {
+      background-color: #d9e1e6;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $link-color;
+      outline-offset: 2px;
+    }
+  }
+
+  .page-rating-thanks {
+    margin: 0;
+
+    &:empty {
+      display: none;
+    }
+  }
 }
 
 .installation-survey {
