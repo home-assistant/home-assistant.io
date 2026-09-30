@@ -8,7 +8,7 @@ ha_release: 2022.8
 ha_domain: bluetooth
 ha_quality_scale: internal
 ha_codeowners:
-  - "@bdraco"
+  - '@bdraco'
 ha_integration_type: integration
 ha_config_flow: true
 ha_platforms:

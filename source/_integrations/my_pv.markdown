@@ -8,12 +8,14 @@ ha_category:
 ha_release: '2026.10'
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@my-PV'
+  - '@my-pv'
   - '@rrooggiieerr'
 ha_domain: my_pv
 ha_platforms:
   - button
   - number
+  - select
+  - sensor
   - switch
   - water_heater
 ha_integration_type: device

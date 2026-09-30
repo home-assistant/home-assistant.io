@@ -15,6 +15,7 @@ ha_domain: alexa_devices
 ha_config_flow: true
 ha_codeowners:
   - '@chemelli74'
+  - '@jamesonuk'
 ha_iot_class: Cloud Polling
 ha_platforms:
   - binary_sensor

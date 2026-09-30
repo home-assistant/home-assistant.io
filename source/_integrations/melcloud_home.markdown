@@ -20,7 +20,7 @@ ha_platforms:
   - switch
   - water_heater
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **MELCloud Home** {% term integration %} connects Home Assistant to [MELCloud Home](https://www.melcloudhome.com/), Mitsubishi Electric's cloud service for managing their air conditioning and heat pump products.

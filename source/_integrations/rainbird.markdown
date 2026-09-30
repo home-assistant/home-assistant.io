@@ -19,6 +19,7 @@ ha_platforms:
   - binary_sensor
   - button
   - calendar
+  - diagnostics
   - number
   - sensor
   - switch

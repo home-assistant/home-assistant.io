@@ -10,6 +10,8 @@ ha_config_flow: true
 ha_platforms:
   - notify
 ha_integration_type: service
+ha_codeowners:
+  - '@tr4nt0r'
 ---
 
 The **SMTP** {% term integration %} allows you to deliver notifications from Home Assistant to an email recipient.

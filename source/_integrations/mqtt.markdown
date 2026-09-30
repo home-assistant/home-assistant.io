@@ -28,7 +28,6 @@ ha_platforms:
   - fan
   - humidifier
   - image
-  - infrared
   - lawn_mower
   - light
   - lock
