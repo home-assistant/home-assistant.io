@@ -82,7 +82,7 @@ If the vehicle stops accepting Home Assistant's key, for example because the key
 2. Make sure the vehicle is within Bluetooth range, then select **Submit**. Home Assistant checks the key over Bluetooth, which works even while the vehicle is asleep. If the vehicle accepts the key again, the repair is resolved.
 3. If the vehicle still rejects the key, Home Assistant continues into the vehicle's Bluetooth reconfiguration. Approve the key by placing your key card against the center console card reader of the vehicle.
 
-You can also start the reconfiguration yourself: go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Teslemetry** integration, and on the vehicle's Bluetooth entry, select the three dots {% icon "mdi:dots-vertical" %} menu and then **Reconfigure**.
+You can also start the reconfiguration yourself: go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Teslemetry** integration, and on the vehicle's Bluetooth entry, select the cogwheel {% icon "mdi:cog-outline" %} (**Reconfigure local vehicle**).
 
 ### Removing Bluetooth control
 
