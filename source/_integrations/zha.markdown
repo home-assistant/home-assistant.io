@@ -11,6 +11,7 @@ ha_category:
   - Event
   - Fan
   - Hub
+  - Infrared
   - Light
   - Lock
   - Number
@@ -40,6 +41,7 @@ ha_platforms:
   - diagnostics
   - event
   - fan
+  - infrared
   - light
   - lock
   - number
@@ -64,7 +66,8 @@ This {% term integration %} currently supports the following device types within
 - [Cover](/integrations/cover/)
 - [Device tracker](/integrations/device_tracker/)
 - [Event](/integrations/event/)
-- [Fan](/integrations/fan/)
+- [Fan](/integrations/fan/) 
+- [Infrared](/integrations/infrared/)
 - [Light](/integrations/light/)
 - [Lock](/integrations/lock/)
 - [Number](/integrations/number/) (analog input/output)
