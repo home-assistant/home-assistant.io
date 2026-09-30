@@ -3,7 +3,7 @@ title: "Tools"
 description: "Use the Tools in Home Assistant to check your configuration, look at the states of your entities, and test actions, templates, events, and Assist sentences."
 ---
 
-**Tools** let you look at what is happening in Home Assistant and try things out, without creating an {% term automation %} or a dashboard first. For example, you can check the current {% term state %} of an {% term entity %}, control a {% term device %}, test a {% term template %}, or see which {% term events %} happen. Tools are useful for everyone, not only for developers.
+**Tools** let you look at what is happening in Home Assistant and try things out, without creating an {% term automation %} or a dashboard first. For example, you can check the current {% term state %} of an {% term entity %}, control a {% term device %}, test a {% term template %}, or see which {% term events %} happen. Tools are useful to all administrators, not only those who are developers.
 
 Tools are only available to administrators.
 
@@ -14,7 +14,7 @@ To open Tools, go to {% my tools_yaml title="**Settings** > **Tools**" %}.
 Screenshot of Home Assistant's tools.
 </p>
 
-Tools has the following tabs:
+The Tools page has the following tabs:
 
 - [**YAML** tab](#yaml-tab): Check your configuration, reload YAML configuration, and restart Home Assistant.
 - [**States** tab](#states-tab): See the current state and attributes of your entities, and set a state to test automations.
