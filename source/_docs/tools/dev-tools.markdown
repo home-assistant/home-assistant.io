@@ -17,7 +17,7 @@ Screenshot of Home Assistant's tools.
 | Actions    | Performs actions from integrations                                  |
 | Template   | Renders templates                                                   |
 | Events     | Fires events                                                        |
-| Statistics | Lists long-term statistics, and lets you fix and adjust them        |
+| Statistics | Lists long-term statistics and lets you fix and adjust them         |
 | Assist     | Lets you see how Home Assistant Assist processes a sentence         |
 
 ## What can I do with Home Assistant's Tools?
@@ -262,7 +262,7 @@ Sometimes a statistic has a wrong value at one point in time, for example, after
    - Result: The **Adjust a statistic** dialog shows the changes around the current time.
 3. Find the wrong value:
    - To see the 10 largest changes in the history of the statistic, select **Outliers**. A spike is usually one of them.
-   - To look at a specific moment, under **Pick a time**, enter the date and time. The dialog shows the changes from 2 hours before until 3 hours after that time.
+   - To look at a specific moment, under **Pick a time**, enter the date and time. The dialog shows up to five changes around that time.
    ![Screenshot showing the dialog to adjust a statistic where the time, date and value to adjust can be selected](/images/docs/developer-tools/adjust-statistics.png)
 4. Select the wrong value.
 5. Under **New value**, enter the correct value, for example, `0` for a spike after a meter reset.
