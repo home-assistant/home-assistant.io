@@ -347,11 +347,12 @@ In the **Activity details** of the change, Home Assistant shows **No cause was r
 
 #### Description
 
-The change didn't come from Home Assistant. For example, someone used a button on the device, the app of the manufacturer, a schedule on the device itself, or another system that controls the device.
+Home Assistant didn't record what caused the change. Often, the change came from outside Home Assistant, for example, from a button on the device, the app of the manufacturer, a schedule on the device itself, or another system that controls the device. An {% term integration %} can also report a change without a cause.
 
 #### Resolution
 
-Check the device and the app of the manufacturer for schedules, scenes, or automations that control the device.
+- Check the device and the app of the manufacturer for schedules, scenes, or automations that control the device.
+- Check the documentation of the integration, and the logs under {% my logs title="**Settings** > **System** > **Logs**" %}, for changes that the integration made.
 
 {% enddetails %}
 
@@ -608,7 +609,7 @@ The automation has a **Numeric state** condition. The value is exactly at the th
 
 #### Resolution
 
-Adjust the threshold, for example, set **Above** to 19.9 to include 20.
+If the value can be exactly at the threshold, and it should pass, set the threshold a little lower, matching the precision of the sensor. For example, for a sensor that reports whole numbers, set **Above** to 19 to include 20. For a sensor with decimals, use a **Template** condition that compares with `>=` instead.
 
 {% enddetails %}
 
