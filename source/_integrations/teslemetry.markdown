@@ -74,6 +74,17 @@ You only need to do this once per vehicle.
 
 When the vehicle is within Bluetooth range, its commands use the local connection first, with an automatic fallback to the cloud when needed. This can make commands like locking, unlocking, or flashing the lights feel noticeably faster. When the vehicle is away, its commands use the cloud, and it switches back to Bluetooth on its own when it returns.
 
+### Reconfiguring Bluetooth control
+
+To pair a vehicle again without removing it, for example after its Bluetooth address has changed or after Home Assistant's virtual key was removed from the vehicle, reconfigure it:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Teslemetry** integration.
+2. Next to the vehicle under **Bluetooth vehicle**, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
+3. Home Assistant looks for that vehicle over Bluetooth again. Make sure the vehicle is within range, then continue.
+4. If Home Assistant's virtual key is no longer on the vehicle, approve it again as you did during setup.
+
+Home Assistant then stores the vehicle's current Bluetooth address and reloads the integration so it takes effect.
+
 ### Removing Bluetooth control
 
 Removing the Teslemetry integration, or the pairing for a single vehicle, stops Home Assistant from routing that vehicle's commands over Bluetooth and forgets the stored Bluetooth address. It does not revoke Home Assistant's virtual key from the vehicle itself. That key stays authorized on the car until you remove it there.
