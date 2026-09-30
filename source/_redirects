@@ -360,7 +360,7 @@ layout: null
 /integrations/auth /docs/authentication
 /integrations/automation /docs/automation
 /integrations/blueprint /docs/automation/using_blueprints
-/integrations/trace /docs/automation/troubleshooting
+/integrations/trace /docs/automation/testing/#traces
 /integrations/hassio /hassio
 /integrations/cloud.alexa /cloud/alexa
 /integrations/imap_email_content /integrations/imap/#using-events
