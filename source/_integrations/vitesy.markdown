@@ -4,6 +4,7 @@ description: Instructions on how to integrate Vitesy devices into Home Assistant
 ha_category:
   - Binary sensor
   - Health
+  - Select
   - Sensor
 ha_release: '2026.10'
 ha_iot_class: Cloud Polling
@@ -13,6 +14,7 @@ ha_codeowners:
 ha_domain: vitesy
 ha_platforms:
   - binary_sensor
+  - select
   - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -26,6 +28,7 @@ Vitesy makes smart air purifiers and air quality monitors. This integration read
 
 - Keep an eye on the air quality inside your refrigerator and get notified when it drops.
 - Track how often and how long the refrigerator door is opened.
+- Switch the purifier mode from Home Assistant, for example to boost after a grocery run.
 - Get a reminder when the purification filter is due to be cleaned or replaced.
 
 ## Supported devices
@@ -82,6 +85,12 @@ Each device in your Vitesy Hub account is added as a separate device in Home Ass
 
 - **Charging**
   - **Description**: Shows whether the battery is currently charging. Shown as diagnostic information on the device page.
+  - **Available for**: Shelfy
+
+### Selects
+
+- **Mode**
+  - **Description**: Operating mode of the purifier: **Eco**, **Shelf**, or **Boost**. The device applies a new mode the next time it wakes up, which can take a few minutes. Until then, the select already shows the mode you chose.
   - **Available for**: Shelfy
 
 ## Data updates
@@ -155,7 +164,7 @@ automation: |
 ## Known limitations
 
 - Only the Vitesy Shelfy is supported. Other Vitesy devices are not exposed yet.
-- The integration is read-only. Operating programs and maintenance resets must be changed in the Vitesy Hub app.
+- Maintenance resets must be done in the Vitesy Hub app.
 - The integration relies on the Vitesy Hub cloud service and needs an active internet connection.
 
 ## Troubleshooting
