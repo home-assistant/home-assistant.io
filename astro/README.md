@@ -21,7 +21,11 @@ at `/astro-preview/` — for example,
 It is not linked from anywhere, and the website's `_headers` file
 marks the whole path `noindex` so it never appears in search engines.
 Internal links on those pages point at the site root, so following
-them leads back to the Jekyll-built pages.
+them leads back to the Jekyll-built pages. The build's bundled
+stylesheets, scripts and images are the one exception: pages link
+them at the root-absolute `/_astro/` path, so the deploy also
+publishes that directory at the site root (content-hashed file
+names, no clash with Jekyll's output).
 
 Standalone deploys of `astro/dist` as a site root are covered by
 their own noindex rule: `astro/public/` ships a `_headers` file that
@@ -54,6 +58,19 @@ Run these from the `astro/` directory:
 | `npx pnpm run dev`     | Start the dev server at `localhost:4321` |
 | `npx pnpm run build`   | Build the site to `astro/dist/`          |
 | `npx pnpm run preview` | Serve the built site locally             |
+
+## Brand assets
+
+Logos come from the [Open Home Foundation brand assets
+API](https://ohf-brands.netlify.app/api/), the stable, CI-validated
+source for every Open Home Foundation mark. Pages never link the API
+directly: `integrations/brand-assets.mjs` downloads the marks listed
+in `astro.config.mjs` into `src/assets/brands/` (gitignored) when the
+build or the dev server starts, and components import them from there
+like any other local file. To use another mark, add its API endpoint
+to that list and import the file. If the API cannot be reached, the
+build keeps the copy from the previous build and warns; with no copy
+to fall back on, it fails rather than ship broken images.
 
 ## Component previews
 
@@ -90,7 +107,10 @@ registry to update. Each tile links to a full-screen stage
 (`/astro-preview/component-preview/<name>/` on the deployed site)
 where the variants render at true viewport width, which is how
 full-width components such as the header and footer are best
-reviewed. Fixtures are pure data on purpose (no
+reviewed. Mark such a fixture `wide: true` so its tile spans a whole
+row of the browser and the demo comes close to the width of the
+window, which its media queries are written for. Fixtures are pure
+data on purpose (no
 `.astro` imports): the optional `liquid` field holds the equivalent
 Jekyll source, so the same variants can drive the Jekyll/Astro
 golden-output parity tests. The browser pages are a development aid

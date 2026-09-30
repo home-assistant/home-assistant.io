@@ -3,6 +3,7 @@ title: Sofar
 description: Instructions on how to integrate a Sofar solar inverter with Home Assistant over Modbus TCP.
 ha_category:
   - Energy
+  - Modbus-controlled
 ha_release: 2026.9
 ha_iot_class: Local Polling
 ha_codeowners:

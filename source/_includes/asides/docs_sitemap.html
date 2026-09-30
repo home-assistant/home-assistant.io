@@ -1,18 +1,42 @@
+{%- comment -%}
+  The automation branch stays open on the trigger, condition, and action
+  reference pages, so you keep the automation context when you browse them.
+{%- endcomment -%}
+{%- assign in_automation_reference = false -%}
+{%- if root == 'triggers' or root == 'conditions' or root == 'actions' -%}
+  {%- assign in_automation_reference = true -%}
+{%- endif -%}
+
 <li>
   <iconify-icon icon="mdi:robot-happy"></iconify-icon> {% active_link /docs/automation/ Automations %}
-  {% if doc == 'automation' or doc == 'blueprint' or doc == 'scripts' or doc == 'scene' or include.docs_index %}
+  {% if doc == 'automation' or doc == 'blueprint' or doc == 'scripts' or doc == 'scene' or in_automation_reference or include.docs_index %}
   <ul>
     <li>
       {% icon "mdi:robot-happy" %} {% active_link /docs/automation/basics/ Understanding automations %}
-      {% if doc == 'automation' or include.docs_index %}
+      {% if doc == 'automation' or in_automation_reference or include.docs_index %}
       <ul>
         <li>{% active_link /docs/automation/using_blueprints/ Using automation blueprints %}</li>
         <li>{% active_link /docs/automation/editor/ Editor %}</li>
-        <li>{% active_link /docs/automation/trigger/ Triggers %}</li>
-        <li>{% active_link /docs/automation/condition/ Conditions %}</li>
-        <li>{% active_link /docs/automation/action/ Actions %}</li>
+        <li>
+          {% active_link /docs/automation/trigger/ Triggers %}
+          <ul>
+            <li>{% active_link /triggers/ All triggers %}</li>
+          </ul>
+        </li>
+        <li>
+          {% active_link /docs/automation/condition/ Conditions %}
+          <ul>
+            <li>{% active_link /conditions/ All conditions %}</li>
+          </ul>
+        </li>
+        <li>
+          {% active_link /docs/automation/action/ Actions %}
+          <ul>
+            <li>{% active_link /actions/ All actions %}</li>
+          </ul>
+        </li>
         <li>{% active_link /docs/automation/modes/ Run modes %}</li>
-        <li>{% active_link /docs/automation/services/ Automation actions %}</li>
+        <li>{% active_link /docs/automation/automation_integration_actions/ Actions of the automation integration %}</li>
         <li>{% active_link /docs/automation/templating/ Templates %}</li>
         <li>{% active_link /docs/automation/yaml/ YAML %}</li>
         <li>{% active_link /docs/automation/troubleshooting/ Testing and troubleshooting automations %}</li>
@@ -66,7 +90,7 @@
         <li>{% active_link /dashboards/badges/ Badges %}</li>
       </ul>
     </li>
-  
+
     <li>
       <iconify-icon icon="mdi:view-dashboard"></iconify-icon> View types
       <ul>
@@ -77,7 +101,7 @@
         {% endfor %}
       </ul>
     </li>
-  
+
     <li>
       {% icon "mdi:card-multiple" %} Card types
       <ul>
@@ -88,7 +112,7 @@
         {% endfor %}
       </ul>
     </li>
-  
+
     <li>
       {% icon "mdi:cog" %} Dashboard configuration
       <ul>
@@ -96,7 +120,7 @@
         <li>{% active_link /dashboards/header-footer/ Card headers & footers %}</li>
         <li>{% active_link /dashboards/actions/ Dashboard actions %}</li>
         <li><a
-            class="external-link" 
+            class="external-link"
             href="https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card/"
             >Developing custom cards
                      </a></li>
@@ -121,7 +145,7 @@
       <ul>
         <li>{% active_link /voice_control/voice_remote_expose_devices/ Exposing entities to Assist %}</li>
         <li>{% active_link /voice_control/assign_areas_floors/ Assigning areas to floors and an area to a device %}</li>
-        <li>{% active_link /voice_control/aliases/ Aliases for entities, areas and floors %}</li> 
+        <li>{% active_link /voice_control/aliases/ Aliases for entities, areas and floors %}</li>
         <li>{% active_link /voice_control/exposing_scripts_to_llms/ Exposing scripts to LLMs %}</li>
         <li>{% active_link /voice_control/builtin_sentences/ Talking to Assist - Sentences starter pack %}</li>
       </ul>
@@ -274,7 +298,7 @@
 </li>
 
 <li>
-  {% icon "bitcoin-icons:node-hardware-filled" %} Official hardware
+  {% icon "bitcoin-icons:node-hardware-filled" %} {% active_link /hardware/ Official hardware %}
   <ul>
     <li><a href="https://support.nabucasa.com/hc/categories/24638797677853">Home Assistant Green</a></li>
     <li><a href="https://support.nabucasa.com/hc/categories/24734620813469">Home Assistant Connect ZBT-1</a></li>

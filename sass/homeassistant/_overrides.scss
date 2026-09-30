@@ -191,6 +191,16 @@ h1.title.indent {
         }
       }
 
+      // Keep the single "All actions/triggers/..." sub-lists tight to their parent.
+      ul ul ul {
+        margin-top: 4px;
+        margin-bottom: 4px;
+
+        li {
+          margin: 4px 0;
+        }
+      }
+
       &>ul {
         margin: 16px 0 8px 28px;
       }
@@ -2236,13 +2246,13 @@ h6 {
         overflow: hidden;
         text-wrap: balance;
       }
-      
+
       .community-card__meta .meta-link{
         position: absolute;
         bottom: 0;
         right: 0;
       }
-      
+
       video{
         position: absolute;
         inset: 0;
