@@ -108,11 +108,37 @@ To go back to the built-in integration, uninstall it and restart Home Assistant.
 
 Every repository you install gets an [update entity](/integrations/update/). When a new version is available, it shows up under {% my updates title="**Settings** > **Updates**" %}, together with the updates of Home Assistant itself. From there, you can read the release notes and install the update. Because they are ordinary update entities, you can also update from an automation, as long as someone has accepted the warning.
 
-The Marketplace checks the catalog for new versions every 6 hours.
+The Marketplace checks the catalog for new versions every 6 hours. When it cannot reach the catalog, or GitHub for something you added from a link, the update entities that depend on it show as unavailable until it can again. What you installed keeps working in the meantime.
 
 An update of an integration takes effect after a restart of Home Assistant. A repair reminds you, and it can restart Home Assistant for you.
 
 By default, the Marketplace offers stable releases only. To also get pre-releases of a repository, enable its **Pre-release** switch. You find it on the device of the repository, under {% my integration domain="marketplace" title="**Settings** > **Devices & services** > **Marketplace**" %}. The switch is disabled by default; enable the entity first to use it.
+
+## Example automations
+
+{% details "Get a notification when an update is available" %}
+
+Replace `update.card_mod` with the update entity of the repository you want to hear about. You find it on the device of the repository, under {% my integration domain="marketplace" title="**Settings** > **Devices & services** > **Marketplace**" %}.
+
+```yaml
+alias: "Marketplace update available"
+description: "Tell me when a new version of a repository is available"
+triggers:
+  - trigger: state
+    entity_id:
+      - update.card_mod
+    from: "off"
+    to: "on"
+actions:
+  - action: persistent_notification.create
+    data:
+      title: "Marketplace update"
+      message: >-
+        Version {{ state_attr(trigger.entity_id, 'latest_version') }} of
+        {{ state_attr(trigger.entity_id, 'friendly_name') }} is available.
+```
+
+{% enddetails %}
 
 ## Uninstalling
 
@@ -215,24 +241,34 @@ What you installed keeps working while the Marketplace is disabled, but it no lo
 
 ## Troubleshooting
 
-### The Marketplace is not available
+{% details "The Marketplace is not available" %}
 
 The Marketplace does not load in recovery mode. It also shows this when it could not start; the Home Assistant logs tell you why.
 
-### GitHub limit reached
+{% enddetails %}
+
+{% details "GitHub limit reached" %}
 
 Without a GitHub connection, the Marketplace shares a small hourly limit with everything else on your internet connection that uses GitHub. Wait for the limit to reset, or [connect GitHub](#connecting-github) for a higher limit.
 
-### A repository was removed from the Marketplace
+{% enddetails %}
+
+{% details "A repository was removed from the Marketplace" %}
 
 The catalog sometimes removes a repository, for example when its author stopped maintaining it. When that happens to something you installed, a repair under {% my repairs title="**Settings** > **System** > **Repairs**" %} tells you why. What you installed keeps working, but it no longer gets updates. Uninstall it when you can.
 
-### A repository was removed because it is critical
+{% enddetails %}
+
+{% details "A repository was removed because it is critical" %}
 
 Rarely, a repository turns out to be harmful, for example because an update deletes data or does something its users did not expect. The catalog then marks it as critical. If you installed it, the Marketplace uninstalls it right away and restarts Home Assistant. A repair explains which repository was removed and why, with a link to more information. Check whether anything that depended on it needs your attention, then confirm the repair.
 
-### Something you installed does not work
+{% enddetails %}
 
-The Marketplace installs what the author published; it does not know how their project works. Open the page of the repository and select **Open issue** to report the problem to its author. The Home Assistant project cannot help with problems in community content.
+{% details "Something you installed does not work" %}
+
+The Marketplace installs what the author published; it does not know how their project works. Open the page of the repository and select **Issue tracker** to report the problem to its author. The Home Assistant project cannot help with problems in community content.
 
 If an installation itself fails, the Marketplace shows why. The Home Assistant logs have more details.
+
+{% enddetails %}
