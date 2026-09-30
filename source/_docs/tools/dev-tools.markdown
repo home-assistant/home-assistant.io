@@ -1,28 +1,28 @@
 ---
 title: "Tools"
-description: "Description of the Home Assistant tools."
+description: "Use the Tools in Home Assistant to check your configuration, look at the states of your entities, and test actions, templates, events, and Assist sentences."
 ---
 
-Home Assistant contains a section called **Tools**. In the left sidebar, go to **Settings** > **Tools** to open it.
+**Tools** let you look at what is happening in Home Assistant and try things out, without creating an {% term automation %} or a dashboard first. For example, you can check the current {% term state %} of an {% term entity %}, control a {% term device %}, test a {% term template %}, or see which {% term events %} happen. Tools are useful to all administrators, not only those who are developers.
+
+Tools are only available to administrators.
+
+To open Tools, go to {% my tools_yaml title="**Settings** > **Tools**" %}.
 
 <p class='img'>
 <img src='/images/screenshots/tools.png' alt='Screenshot showing the Tools page in Home Assistant' />
 Screenshot of Home Assistant's tools.
 </p>
 
-| Section    | Description                                                         |
-| ---------- | ------------------------------------------------------------------- |
-| YAML       | Lets you validate the configuration and trigger a reload or restart |
-| States     | Sets the representation of an entity                                |
-| Actions    | Performs actions from integrations                                  |
-| Template   | Renders templates                                                   |
-| Events     | Fires events                                                        |
-| Statistics | Shows a list of long-term statistic entities                        |
-| Assist     | Lets you see how Home Assistant Assist processes a sentence         |
+The Tools page has the following tabs:
 
-## What can I do with Home Assistant's Tools?
-
-The available tools are meant for _all_ (not just for the developers) to quickly try out things, such as performing actions, updating states, raising events, and publishing messages in MQTT). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the sections in detail.
+- [**YAML** tab](#yaml-tab): Check your configuration, reload YAML configuration, and restart Home Assistant.
+- [**States** tab](#states-tab): See the current state and attributes of your entities, and set a state to test automations.
+- [**Actions** tab](#actions-tab): Perform any {% term action %}, for example, to control a device.
+- [**Template** tab](#template-editor-tab): Write a template and see its result right away.
+- [**Events** tab](#events-tab): Fire an event, or listen to events to see what happens.
+- [**Statistics** tab](#statistics-tab): Find, fix, and adjust {% term "long-term statistics" %}.
+- [**Assist** tab](#assist-tab): Test how Assist understands a sentence.
 
 ## YAML tab
 
@@ -128,11 +128,30 @@ Some options, and {% term templates %}, are only available in **YAML mode**. In 
 
 ## Template editor tab
 
-The template editor provides a way to quickly test templates prior to placing them into automations and scripts. A code editor is on the left side and your real-time output is displayed in the preview on the right side.
+{% term Templates %} let you create dynamic content from your Home Assistant data, for example, a notification that lists which lights are on. In the **Template** tab, you can write a template and see its result right away, based on the current {% term states %} of your {% term entities %}. Use it to try out a template before you use it in an {% term automation %}, a {% term script %}, or a template entity. For an introduction to templates, refer to [Templating](/docs/templating/).
 
-By default, this will contain sample code that illustrates how templates can be written and tested. This sample code can be removed and replaced with your own. You can restore the default example by pressing the **Reset to Demo Template** button beneath the code editor.
+The result updates while you type, and when the states that the template uses change. Below the result the editor shows when the template updates:
 
-For more information about Jinja2, visit [Jinja2 documentation](https://jinja.palletsprojects.com/en/latest/templates/), and also read templating document [here](/docs/templating).
+- At the start of each minute, if the template uses the current time.
+- When one of the listed entities or domains changes.
+- When any state changes, if the template uses all states.
+- Not automatically, if the template does not use any states or the current time.
+
+Your template is kept in your browser, so it is still there the next time you open the tab.
+
+### Testing a template
+
+Use this to check that a template gives the result you expect, before you use it elsewhere.
+
+1. Go to {% my developer_template title="**Settings** > **Tools** > **Template**" %}.
+2. In the **Template editor**, enter your template.
+   - The editor starts with a demo template. To start with an empty editor, in the toolbar of the editor, select **Clear** {% icon "mdi:trash-can-outline" %}. To go back to the demo template, select **Reset to demo template** {% icon "mdi:restore" %}.
+   - To get suggestions, for example, for entity IDs, place the cursor inside a function that supports it, and press <kbd>Ctrl</kbd>+<kbd>Space</kbd>.
+3. If your template uses variables that only exist when it runs in an automation or an integration, such as `trigger`, `this`, or `value_json`, at the top of the template, define them yourself with `{% set %}`. If you don't, the editor shows an error, or a warning and an empty result. To see an example, refer to [testing an incoming-data template](/docs/templating/where-to-use/#testing-an-incoming-data-template). For details, refer to [Why does my template behave differently in Tools?](/docs/templating/debugging/#why-does-it-work-in-tools-but-not-in-my-automation).
+4. Under **Result**, check the output.
+   - Result: The output of your template is shown, with its **Result type**. If the template has an error, the error message is shown instead. For warnings and other problems, refer to [Debugging templates](/docs/templating/debugging/).
+5. When the template works, remove the variables you defined in step 3, if any. They would replace the real values when the template runs.
+6. In the toolbar, select **Copy to clipboard** {% icon "mdi:content-copy" %}. Then paste the template into your automation, script, or template entity.
 
 ## Events tab
 
@@ -216,28 +235,109 @@ context:
 
 ## Statistics tab
 
-The **Statistics** tab shows a list of long-term statistic entities. If the long term statistics is not working for an entity, a **Fix issue** link is shown. Select it to view a description of the issue. There might also be an option to fix the issue.
+Home Assistant keeps {% term "long-term statistics" %} for sensors that measure something over time, such as temperature or energy use. Some {% term integrations %} also add statistics directly, without a sensor, for example, the energy use that your utility reports. Home Assistant stores statistics in its database, which the [Recorder](/integrations/recorder/) maintains. History graphs, statistics cards, and the Energy dashboard use these statistics. The **Statistics** tab lists all long-term statistics, with their name, statistic ID, unit, source, and any issue.
 
-![Statistics issue message](/images/docs/developer-tools/statistics_issue.png)
+Use the **Statistics** tab to:
 
-Another use of the {% my developer_statistics title="statistics tool" %} is to correct any measurements. Select the
-<svg width="24" height="24" viewBox="0 0 24 24"><path d="M22,13V22H2V19L22,13M21.68,7.06L16.86,4.46L17.7,7.24L7.58,10.24C6.63,8.95 4.82,8.67 3.53,9.62C2.24,10.57 1.96,12.38 2.91,13.67C3.85,14.97 5.67,15.24 6.96,14.29C7.67,13.78 8.1,12.97 8.14,12.09L18.26,9.09L19.1,11.87L21.68,7.06Z" /></svg>
-icon. Use the date and time fields to search for the incorrect data point and select it to adjust the value.
+- Find the statistics that an {% term integration %} created, for example, to use them in the Energy dashboard.
+- Fix an issue that stops Home Assistant from keeping statistics for an entity.
+- Correct a wrong value, for example, a spike in your energy use.
+- Delete statistics that you no longer need.
 
-![Screenshot showing the dialog to adjust a statistic where the time, date and value to adjust can be selected](/images/docs/developer-tools/adjust-statistics.png)
+### Fixing a statistics issue
 
-![Screenshot showing the dialog to adjust a previous selected statistic value](/images/docs/developer-tools/adjust-statistic-value.png)
+If Home Assistant can't keep statistics for an entity, the **Issue** column shows why. For example, the entity is no longer recorded, or its unit changed.
+
+{% important %}
+**Risk of data loss**
+
+Some fixes delete the statistics of the entity. Deleted statistics can't be restored, except from a backup.
+
+To avoid this:
+
+- Read the dialog carefully before you select **Delete**.
+- Before you delete statistics, [create a backup](/common-tasks/general/#creating-a-manual-backup).
+{% endimportant %}
+
+#### To fix a statistics issue
+
+1. Go to {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}.
+2. In the row of the statistic with the issue, select **Fix issue**. If Home Assistant can't fix the issue for you, the button is called **Info** instead.
+   - Result: A dialog explains the issue and what you can do about it.
+   ![Statistics issue message](/images/docs/developer-tools/statistics_issue.png)
+3. Follow the instructions in the dialog. What you can do depends on the issue:
+   - If the unit changed, update the unit of the old statistics without converting the values. Or delete the old statistics, so Home Assistant can start over.
+   - If the mean type changed, delete the old statistics, so Home Assistant can start over.
+   - If the entity has no state, for example, because you removed its device, you can delete its old statistics.
+   - If the entity is not recorded, or no longer recorded, include it in the [Recorder](/integrations/recorder/) again, so Home Assistant can keep statistics for it. If the entity is no longer recorded and you don't need its old statistics, you can delete them.
+   - If the entity no longer has a state class, Home Assistant can't keep statistics for it until the state class is back. If you set the state class yourself, correct it. If the integration provided it, report an issue to the integration. If you no longer need the old statistics, you can delete them.
+   - Result: The issue is no longer shown in the list. After you delete statistics, it can take a moment for the issue to disappear.
+
+### Adjusting a statistic
+
+Sometimes a statistic has a wrong value at one point in time, for example, after a meter resets, or when a sensor reports a wrong reading. This shows up as a spike in graphs and in the Energy dashboard. You can correct the value. This works for statistics that add up over time, such as energy or water use.
+
+#### To adjust a statistic
+
+1. Go to {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}.
+2. In the row of the statistic, select **Adjust sum** {% icon "mdi:slope-uphill" %}. If this button is not shown, the statistic can't be adjusted.
+   - Result: The **Adjust a statistic** dialog shows the changes around the current time.
+3. Find the wrong value:
+   - To see the 10 largest changes in the history of the statistic, select **Outliers**. A spike is usually one of them.
+   - To look at a specific moment, under **Pick a time**, enter the date and time. The dialog shows up to five changes around that time.
+   ![Screenshot showing the dialog to adjust a statistic where the time, date and value to adjust can be selected](/images/docs/developer-tools/adjust-statistics.png)
+4. Select the wrong value.
+5. Under **New value**, enter the correct change for that period, not the meter reading. For example, enter `0` for a spike after a meter reset.
+   ![Screenshot showing the dialog to adjust a previous selected statistic value](/images/docs/developer-tools/adjust-statistic-value.png)
+6. Select **Adjust**.
+   - Result: The value is corrected, and the graphs show the new value.
+
+### Deleting statistics
+
+Use this to remove statistics that you no longer need, for example, of a device or an integration that you removed.
+
+{% important %}
+**Risk of data loss**
+
+Deleted statistics can't be restored, except from a backup.
+
+To avoid this:
+
+- Check that you selected the right statistics.
+- Before you delete statistics, [create a backup](/common-tasks/general/#creating-a-manual-backup).
+{% endimportant %}
+
+#### To delete statistics
+
+1. Go to {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}.
+2. Next to the search field, select **Enter selection mode** {% icon "mdi:format-list-checks" %}.
+3. Select the statistics that you want to delete. To select all statistics with an issue, open the selection menu and select **Select all with issues**.
+4. Select **Delete selected statistics**, and then select **Delete**.
+   - Result: The statistics are deleted from the database.
 
 ## Assist tab
 
-The **Assist** tab lets you see how Home Assistant's Assist processes a sentence.
+The **Assist** tab lets you test how Assist understands a sentence, without running anything. Home Assistant checks the sentence against the [built-in sentences](/voice_control/builtin_sentences/), your [custom sentences](/integrations/conversation/#adding-custom-sentences), and the [sentence triggers](/docs/automation/trigger/#sentence-trigger) of your {% term automations %}, and shows what matches. No {% term action %} runs, and no automation starts. Use it to find out why Assist doesn't understand a sentence, or to check a new sentence before you use it.
 
-If no matching intent is found, then Assist is unable to interpret the sentence. If a matching intent was found, information is provided on the action that will be performed on which entities. The example below shows how the following sentence was parsed: *what lights are on in the office*.
+The **Assist** tab only tests the built-in Home Assistant conversation agent. If your assistant uses another conversation agent, such as an AI agent, [test the sentence in the debug view](/voice_control/troubleshooting/#test-a-sentence-per-assistant-without-voice-while-executing-the-commands) instead.
 
-- Assist found a matching intent: *HassGetState*.
-- It found entities matching the domain: *lights*.
-- The lights have the state *on*.
-- The lights are in the area *office*.
-- The targets are the narrowed-down entities in scope.
+### Testing a sentence
+
+1. Go to {% my developer_assist title="**Settings** > **Tools** > **Assist**" %}.
+2. Under **Language**, select the language of the sentence.
+3. Under **Sentences**, enter the sentence. To test several sentences at once, enter each sentence on its own line. To start a new line, press <kbd>Shift</kbd>+<kbd>Enter</kbd>.
+   - The **Assist** tab doesn't know which device you're talking to. If a sentence relies on the area of your voice assistant, such as _turn on the lights_, add the area, for example, _turn on the lights in the kitchen_.
+4. Select **Parse sentences**, or press <kbd>Enter</kbd>.
+   - Result: The result of each sentence is shown, with the newest on top. If Assist doesn't understand a sentence at all, **No intent matched** is shown. Otherwise, the details are shown in YAML.
+5. Check the details of the result:
+   - `match`: `true` if Assist understands the whole sentence. `false` if the sentence is close to a known sentence, but a part of it doesn't match, for example, the name of an entity or an area. In that case, `unmatched_slots` shows which part doesn't match. The ✅ next to the sentence only means that a result was found, so always check `match`.
+   - `source`: Where the matching sentence comes from: `builtin` for the built-in sentences, `custom` for your custom sentences, with the `file` they are in, or `trigger` for a sentence trigger of an automation.
+   - `intent`: The name of the intent that the sentence matches, for example, `HassTurnOn`.
+   - `slots` and `details`: The parts of the sentence that Assist recognized, such as the name of an area or an entity.
+   - `targets`: The entities that the sentence is about. For a question, such as _what lights are on_, `matched: true` marks the entities whose state fits the question.
+   - `sentence_template`: The sentence pattern that matches your sentence.
+6. Optional: To save the results as a file, select **Download results**. To remove the results, select **Clear**.
+
+For example, for the sentence _what lights are on in the office_, Assist matches the intent `HassGetState`, recognizes the domain `light`, the state `on`, and the area `office`, and lists the lights in that area as targets. The lights that are on are marked with `matched: true`.
 
 ![Example use of assist tools](/images/docs/developer-tools/Assist.png)

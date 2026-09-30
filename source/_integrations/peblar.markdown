@@ -114,6 +114,22 @@ to enable them first. See the [enabling or disabling entities](/common-tasks/gen
 documentation for information on how to do this.
 {% endimportant %}
 
+### Events
+
+This integration provides a single event entity: **Session authorization**.
+
+It fires every time a charging session is started with an RFID card, and carries the following attributes:
+
+- `token`: The name the card was given on the charger, so you can tell one person from another.
+- `session_number`: The charger's own number for the session, counting up with every session.
+- `started_at`: When the charger started the session, by its own clock.
+
+{% note %}
+The **Session authorization** entity is only available on Peblar chargers equipped with an RFID reader. When the charger is set to charge without authentication, it reports no new session authorization event because no card is shown.
+
+Home Assistant doesn't report a session that was already running when it started. It was authorized before Home Assistant was watching, and reporting it then would give it the wrong time.
+{% endnote %}
+
 ### Numbers
 
 This integration provides a single number entity: **Charge limit**.
@@ -311,6 +327,32 @@ automation:
             There is a software update available for your Peblar charger.
             Please log in to the charger's local web interface to install
             the update.
+```
+
+### Automation: notify who started charging
+
+The following example sends a notification naming the person whose card started the charging session. The card names come from the charger's own authorization list.
+
+```yaml
+automation:
+  - alias: "Peblar charging session started"
+    triggers:
+      - trigger: event.received
+        target:
+          entity_id: event.peblar_ev_charger_session_authorization
+        options:
+          event_type:
+            - session_authorized
+
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
+        data:
+          title: "Charging started"
+          message: >
+            {{ state_attr('event.peblar_ev_charger_session_authorization', 'token') }}
+            started charging.
 ```
 
 ### Notify when an issue is detected
