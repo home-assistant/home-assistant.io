@@ -1,6 +1,6 @@
 ---
 title: "Troubleshooting automations"
-description: "Find out why an automation doesn't trigger, runs at the wrong time, or doesn't do what you expect, and how to fix it."
+description: "Find out why an automation doesn't trigger or fire, runs twice, runs at the wrong time, or doesn't do what you expect, and how to fix it."
 ---
 
 <a id="troubleshooting-your-automation"></a>When an automation doesn't do what you expect, find the symptom below. Each entry explains a possible cause and how to fix it.
