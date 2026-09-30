@@ -808,7 +808,7 @@ For the full list of available conditions and its details, refer to the [To-do l
 
 The **Triggered by** condition tests whether a specific trigger started the automation.
 
-In the visual automation editor, add a **Triggered by** condition and select one or more triggers. Home Assistant creates and manages the trigger IDs needed for your selections.
+In the visual automation editor, add a **Triggered by** condition and select one or more triggers. Home Assistant creates and manages the trigger IDs needed for your selections. It removes IDs it created when no **Triggered by** condition uses them.
 
 If the editor shows a **Missing trigger** warning, the condition references a trigger that no longer exists. Clear the selection to remove the reference.
 
