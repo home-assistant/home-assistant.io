@@ -18,7 +18,7 @@ Screenshot of Home Assistant's tools.
 | Template   | Renders templates                                                   |
 | Events     | Fires events                                                        |
 | Statistics | Shows a list of long-term statistic entities                        |
-| Assist     | Lets you see how Home Assistant Assist processes a sentence         |
+| Assist     | Tests how Assist understands a sentence, without running anything   |
 
 ## What can I do with Home Assistant's Tools?
 
@@ -230,14 +230,27 @@ icon. Use the date and time fields to search for the incorrect data point and se
 
 ## Assist tab
 
-The **Assist** tab lets you see how Home Assistant's Assist processes a sentence.
+The **Assist** tab lets you test how Assist understands a sentence, without running anything. Home Assistant checks the sentence against the [built-in sentences](/voice_control/builtin_sentences/), your [custom sentences](/integrations/conversation/#adding-custom-sentences), and the [sentence triggers](/docs/automation/trigger/#sentence-trigger) of your {% term automations %}, and shows what matches. No {% term action %} runs, and no automation starts. Use it to find out why Assist doesn't understand a sentence, or to check a new sentence before you use it.
 
-If no matching intent is found, then Assist is unable to interpret the sentence. If a matching intent was found, information is provided on the action that will be performed on which entities. The example below shows how the following sentence was parsed: *what lights are on in the office*.
+The **Assist** tab only tests the built-in Home Assistant conversation agent. If your assistant uses another conversation agent, such as an AI agent, [test the sentence in the debug view](/voice_control/troubleshooting/#test-a-sentence-per-assistant-without-voice-while-executing-the-commands) instead.
 
-- Assist found a matching intent: *HassGetState*.
-- It found entities matching the domain: *lights*.
-- The lights have the state *on*.
-- The lights are in the area *office*.
-- The targets are the narrowed-down entities in scope.
+### Testing a sentence
+
+1. Go to {% my developer_assist title="**Settings** > **Tools** > **Assist**" %}.
+2. Under **Language**, select the language of the sentence.
+3. Under **Sentences**, enter the sentence. To test several sentences at once, enter each sentence on its own line. To start a new line, press <kbd>Shift</kbd>+<kbd>Enter</kbd>.
+   - The **Assist** tab doesn't know which device you're talking to. If a sentence relies on the area of your voice assistant, such as _turn on the lights_, add the area, for example, _turn on the lights in the kitchen_.
+4. Select **Parse sentences**, or press <kbd>Enter</kbd>.
+   - Result: The result of each sentence is shown, with the newest on top. If Assist doesn't understand a sentence at all, **No intent matched** is shown. Otherwise, the details are shown in YAML.
+5. Check the details of the result:
+   - `match`: `true` if Assist understands the whole sentence. `false` if the sentence is close to a known sentence, but a part of it doesn't match, for example, the name of an entity or an area. In that case, `unmatched_slots` shows which part doesn't match. The ✅ next to the sentence only means that a result was found, so always check `match`.
+   - `source`: Where the matching sentence comes from: `builtin` for the built-in sentences, `custom` for your custom sentences, with the `file` they are in, or `trigger` for a sentence trigger of an automation.
+   - `intent`: The name of the intent that the sentence matches, for example, `HassTurnOn`.
+   - `slots` and `details`: The parts of the sentence that Assist recognized, such as the name of an area or an entity.
+   - `targets`: The entities that the sentence is about. For a question, such as _what lights are on_, `matched: true` marks the entities whose state fits the question.
+   - `sentence_template`: The sentence pattern that matches your sentence.
+6. Optional: To save the results as a file, select **Download results**. To remove the results, select **Clear**.
+
+For example, for the sentence _what lights are on in the office_, Assist matches the intent `HassGetState`, recognizes the domain `light`, the state `on`, and the area `office`, and lists the lights in that area as targets. The lights that are on are marked with `matched: true`.
 
 ![Example use of assist tools](/images/docs/developer-tools/Assist.png)
