@@ -11,6 +11,7 @@ ha_category:
   - Event
   - Fan
   - Hub
+  - Infrared
   - Light
   - Lock
   - Number
@@ -39,6 +40,7 @@ ha_platforms:
   - diagnostics
   - event
   - fan
+  - infrared
   - light
   - lock
   - number
