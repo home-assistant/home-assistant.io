@@ -808,11 +808,11 @@ For the full list of available conditions and its details, refer to the [To-do l
 
 The **Triggered by** condition tests whether a specific trigger started the automation.
 
-In the visual automation editor, add a **Triggered by** condition and select one or more triggers. Home Assistant creates and manages the trigger IDs needed for your selections. It removes IDs it created when no **Triggered by** condition uses them.
+In the visual automation editor, add a **Triggered by** condition and select one or more triggers. Home Assistant creates and manages the trigger IDs needed for your selections. It removes IDs it created when no **Triggered by** condition uses them. If you use `trigger.id` directly in a template or action data, assign and maintain an ID in YAML instead.
 
-If the editor shows a **Missing trigger** warning, the condition references a trigger that no longer exists. Clear the selection to remove the reference.
+If the editor shows a **Missing trigger** warning, the condition references an ID it cannot match to a trigger. This can happen if you delete a trigger or change its ID in YAML. If the trigger still exists, check the YAML configuration and reselect the trigger before clearing the reference.
 
-If the editor warns that triggers share the same ID, select **Fix** to give each referenced trigger its own ID and update the affected triggered by conditions. Review any templates or action data that use `trigger.id` directly, because Home Assistant does not update them.
+If the editor warns that triggers share the same ID, select **Fix** to open a confirmation dialog. It gives each trigger that shares an ID used by a trigger condition its own ID, removes duplicate IDs that trigger conditions do not use, and updates the affected trigger conditions. Review any templates or action data that use `trigger.id` directly, because Home Assistant does not update them.
 
 In YAML, the condition identifies the trigger by its ID:
 
