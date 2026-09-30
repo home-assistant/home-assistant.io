@@ -42,7 +42,7 @@ The integration does not retrieve data from your cameras yet.
 
 ## Known limitations
 
-- Camera entities, streaming and other features are not available yet.
+- Camera entities, streaming, and other features are not available yet.
 - A cloud connection is required.
 
 ## Troubleshooting
@@ -55,7 +55,7 @@ After signing in, you are not sent back to Home Assistant.
 
 #### Resolution
 
-1. Make sure your Home Assistant instance is reachable through [My Home Assistant](https://my.home-assistant.io/).
+1. Make sure [My Home Assistant](https://my.home-assistant.io/) is configured with your instance URL in the same browser you use to sign in.
 2. Start the setup again from **Settings** > **Devices & services**.
 
 ## Removing the integration
