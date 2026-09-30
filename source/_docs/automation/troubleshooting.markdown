@@ -11,9 +11,9 @@ Most problems show up in the [trace](/docs/automation/testing/#traces) of the au
 
 Use this section if your automation doesn't start, doesn't run, or ignores its trigger.
 
-<a id="the-automation-is-turned-off-disabled"></a>
+<a id="automation-doesnt-trigger-because-it-is-turned-off-disabled"></a>
 
-{% details "The automation is turned off (disabled)" %}
+{% details "Automation doesn't trigger because it is turned off (disabled)" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -30,9 +30,9 @@ The automation is turned off. A turned-off automation doesn't react to its trigg
 
 {% enddetails %}
 
-<a id="a-temperature-or-other-value-is-already-past-the-threshold-but-the-automation-doesnt-trigger"></a>
+<a id="automation-with-a-numeric-state-crossed-threshold-trigger-doesnt-trigger-when-the-value-is-already-past-the-threshold"></a>
 
-{% details "A temperature or other value is already past the threshold, but the automation doesn't trigger" %}
+{% details "Automation with a Numeric state crossed threshold trigger doesn't trigger when the value is already past the threshold" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -49,9 +49,9 @@ The trigger only reacts when the value crosses the threshold. If the value was a
 
 {% enddetails %}
 
-<a id="the-automation-doesnt-trigger-for-open-or-detected-the-raw-state-is-on"></a>
+<a id="automation-with-a-state-changed-trigger-doesnt-trigger-for-open-or-detected-because-the-raw-state-is-on"></a>
 
-{% details "The automation doesn't trigger for “Open” or “Detected”: the raw state is “on”" %}
+{% details "Automation with a State changed trigger doesn't trigger for “Open” or “Detected” because the raw state is “on”" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -69,9 +69,9 @@ The UI shows a state in a readable form, for example, **Open** for a door sensor
 
 {% enddetails %}
 
-<a id="the-automation-doesnt-trigger-after-the-device-was-unavailable"></a>
+<a id="automation-with-a-state-changed-trigger-and-a-from-state-doesnt-trigger-after-the-device-was-unavailable"></a>
 
-{% details "The automation doesn't trigger after the device was unavailable" %}
+{% details "Automation with a State changed trigger and a From state doesn't trigger after the device was unavailable" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -92,9 +92,9 @@ If the automation should react no matter what the previous state was, remove the
 
 {% enddetails %}
 
-<a id="the-automation-doesnt-start-while-something-is-true"></a>
+<a id="automation-doesnt-start-while-something-stays-true-because-triggers-only-react-to-changes"></a>
 
-{% details "The automation doesn't start while something is true" %}
+{% details "Automation doesn't start while something stays true, because triggers only react to changes" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -115,9 +115,9 @@ Triggers react to a change. They don't keep checking whether something is still 
 
 Use this section if the automation starts, but the lights, devices, or notifications don't respond.
 
-<a id="the-automation-started-but-its-actions-didnt-run"></a>
+<a id="automation-triggered-but-its-actions-didnt-run-stopped-because-a-condition-failed"></a>
 
-{% details "The automation started, but its actions didn't run" %}
+{% details "Automation triggered, but its actions didn't run: “Stopped because a condition failed”" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -136,9 +136,9 @@ A condition of the automation was not met, so the automation stopped before its 
 
 {% enddetails %}
 
-<a id="the-automation-stopped-at-an-action"></a>
+<a id="automation-stopped-at-an-action-stopped-on-error"></a>
 
-{% details "The automation stopped at an action" %}
+{% details "Automation stopped at an action: “Stopped on error”" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -157,9 +157,9 @@ The action failed, for example, because an option has a wrong value, or the devi
 
 {% enddetails %}
 
-<a id="the-automation-finished-but-an-action-didnt-do-anything"></a>
+<a id="automation-finished-but-an-action-with-continue-on-error-didnt-do-anything"></a>
 
-{% details "The automation finished, but an action didn't do anything" %}
+{% details "Automation finished, but an action with Continue on error didn't do anything" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -177,9 +177,9 @@ The action failed, but **Continue on error** is turned on for it. The automation
 
 {% enddetails %}
 
-<a id="the-action-targets-an-area-floor-or-label-with-no-matching-devices"></a>
+<a id="automation-action-ran-without-an-error-but-its-area-floor-or-label-target-has-no-matching-devices"></a>
 
-{% details "The action targets an area, floor, or label with no matching devices" %}
+{% details "Automation action ran without an error, but its area, floor, or label target has no matching devices" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -197,9 +197,9 @@ The target of the action, such as an {% term area %}, a {% term device %}, or a 
 
 {% enddetails %}
 
-<a id="the-device-didnt-change-and-the-logs-say-that-the-entity-is-unavailable"></a>
+<a id="automation-action-doesnt-change-an-offline-device-because-its-entity-is-unavailable"></a>
 
-{% details "The device didn't change, and the logs say that the entity is unavailable" %}
+{% details "Automation action doesn't change an offline device, because its entity is unavailable" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -216,9 +216,9 @@ The device is offline, so its entity is unavailable. Home Assistant skips unavai
 
 {% enddetails %}
 
-<a id="the-automation-didnt-run-while-it-was-still-running"></a>
+<a id="automation-didnt-run-while-it-was-still-running-stopped-because-only-a-single-execution-is-allowed"></a>
 
-{% details "The automation didn't run while it was still running" %}
+{% details "Automation didn't run while it was still running: “Stopped because only a single execution is allowed”" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -232,9 +232,9 @@ For the description and the resolution, refer to [I see an "Already running" war
 
 Use this section if an automation that used to work broke after you updated or restarted Home Assistant, or after you replaced or renamed a device.
 
-<a id="an-automation-that-was-waiting-didnt-finish"></a>
+<a id="automation-that-was-waiting-in-a-delay-wait-or-for-at-least-duration-didnt-finish-after-a-restart"></a>
 
-{% details "An automation that was waiting didn't finish" %}
+{% details "Automation that was waiting in a delay, wait, or For at least duration didn't finish after a restart" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -250,9 +250,9 @@ For long waits, don't use a delay. Instead, use a trigger for the moment that th
 
 {% enddetails %}
 
-<a id="referenced-entities-are-missing-or-not-currently-available-after-renaming-an-entity"></a>
+<a id="automation-stopped-working-after-renaming-an-entity-referenced-entities-are-missing-or-not-currently-available"></a>
 
-{% details "“Referenced entities … are missing or not currently available” after renaming an entity" %}
+{% details "Automation stopped working after renaming an entity: “Referenced entities … are missing or not currently available”" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -270,9 +270,9 @@ The entity ID changed, for example, because you renamed it. Home Assistant doesn
 
 {% enddetails %}
 
-<a id="the-automation-is-unavailable-and-a-repair-mentions-the-device"></a>
+<a id="automation-with-a-device-trigger-condition-or-action-is-unavailable-after-replacing-the-device-unknown-device"></a>
 
-{% details "The automation is unavailable, and a repair mentions the device" %}
+{% details "Automation with a Device trigger, condition, or action is unavailable after replacing the device: “Unknown device”" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -291,9 +291,9 @@ A **Device** trigger, condition, or action refers to the device by an internal I
 
 {% enddetails %}
 
-<a id="automation-is-unavailable-or-failed-to-set-up-after-an-update"></a>
+<a id="automation-is-unavailable-after-an-update-automation-is-unavailable-or-failed-to-set-up"></a>
 
-{% details "“Automation is unavailable” or “failed to set up” after an update" %}
+{% details "Automation is unavailable after an update: “Automation is unavailable” or “failed to set up”" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -316,9 +316,9 @@ The update changed or removed something that the automation uses, for example, a
 
 Use this section if a device, remote, or button doesn't show up, or shows no triggers, when you add a trigger.
 
-<a id="the-device-trigger-shows-no-triggers"></a>
+<a id="automation-device-trigger-shows-no-triggers-for-a-device"></a>
 
-{% details "The Device trigger shows No triggers" %}
+{% details "Automation Device trigger shows “No triggers” for a device" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -339,9 +339,9 @@ Use a trigger on an {% term entity %} of the device instead:
 
 {% enddetails %}
 
-<a id="the-button-presses-are-not-shown-as-triggers"></a>
+<a id="button-or-remote-presses-arent-shown-as-automation-triggers-because-the-button-is-an-event-entity"></a>
 
-{% details "The button presses are not shown as triggers" %}
+{% details "Button or remote presses aren't shown as automation triggers, because the button is an event entity" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -362,9 +362,9 @@ For more information, refer to the [**Event received** trigger](/triggers/event.
 
 {% enddetails %}
 
-<a id="the-device-or-entity-is-not-in-the-list"></a>
+<a id="device-or-entity-isnt-in-the-list-when-adding-an-automation-trigger-because-it-is-disabled"></a>
 
-{% details "The device or entity is not in the list" %}
+{% details "Device or entity isn't in the list when adding an automation trigger, because it is disabled" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -387,11 +387,11 @@ The device or entity is disabled. Disabled devices and entities are not shown wh
 
 Use this section if a delay, wait, or timeout is cut short, never ends, or doesn't wait at all.
 
-If Home Assistant restarted while the automation was waiting, refer to [An automation that was waiting didn't finish](#an-automation-that-was-waiting-didnt-finish).
+If Home Assistant restarted while the automation was waiting, refer to [An automation that was waiting didn't finish](#automation-that-was-waiting-in-a-delay-wait-or-for-at-least-duration-didnt-finish-after-a-restart).
 
-<a id="the-trigger-reacts-later-than-the-for-at-least-duration"></a>
+<a id="automation-trigger-with-for-at-least-reacts-later-than-the-duration-or-not-at-all"></a>
 
-{% details "The trigger reacts later than the For at least duration" %}
+{% details "Automation trigger with For at least reacts later than the duration, or not at all" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -408,9 +408,9 @@ The **For at least** timer stops as soon as the entity leaves the state in the t
 
 {% enddetails %}
 
-<a id="wait-for-a-trigger-never-finishes-or-always-waits-for-the-timeout"></a>
+<a id="automation-wait-for-a-trigger-action-never-finishes-or-always-waits-for-the-timeout"></a>
 
-{% details "Wait for a trigger never finishes, or always waits for the timeout" %}
+{% details "Automation Wait for a trigger action never finishes, or always waits for the timeout" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -427,9 +427,9 @@ The trace shows that the automation is waiting at a **Wait for a trigger** actio
 
 {% enddetails %}
 
-<a id="wait-for-a-trigger-or-template-continues-after-the-timeout"></a>
+<a id="automation-wait-for-a-trigger-or-wait-for-a-template-action-continues-after-the-timeout"></a>
 
-{% details "Wait for a trigger or template continues after the timeout" %}
+{% details "Automation Wait for a trigger or Wait for a template action continues after the timeout" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -446,9 +446,9 @@ The automation has a **Wait for a trigger** or **Wait for a template** action wi
 
 {% enddetails %}
 
-<a id="the-automation-doesnt-wait-at-a-wait-for-a-template-action"></a>
+<a id="automation-wait-for-a-template-action-doesnt-wait"></a>
 
-{% details "The automation doesn't wait at a Wait for a template action" %}
+{% details "Automation Wait for a template action doesn't wait" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -464,9 +464,9 @@ To wait for a change, use **Wait for a trigger** instead. It only continues when
 
 {% enddetails %}
 
-<a id="the-delay-is-cut-short-because-the-automation-restarts-restart-mode"></a>
+<a id="automation-delay-or-wait-is-cut-short-in-restart-mode"></a>
 
-{% details "The delay is cut short because the automation restarts (Restart mode)" %}
+{% details "Automation delay or wait is cut short in Restart mode" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -486,9 +486,9 @@ If the running delay or wait should finish, [change the mode](/docs/automation/e
 
 Use this section if the automation runs twice, runs multiple times, or keeps repeating.
 
-<a id="the-automation-starts-although-the-state-didnt-change"></a>
+<a id="automation-with-a-state-changed-trigger-starts-although-the-state-didnt-change-because-an-attribute-changed"></a>
 
-{% details "The automation starts although the state didn't change" %}
+{% details "Automation with a State changed trigger starts although the state didn't change, because an attribute changed" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -506,9 +506,9 @@ The trigger has no **From** and no **To** state. Then it reacts to every change 
 
 {% enddetails %}
 
-<a id="the-automation-runs-twice-at-the-same-moment"></a>
+<a id="automation-runs-twice-at-the-same-moment-because-several-triggers-react-to-the-same-change"></a>
 
-{% details "The automation runs twice at the same moment" %}
+{% details "Automation runs twice at the same moment, because several triggers react to the same change" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -526,9 +526,9 @@ The automation has several triggers, or a trigger with several entities, that re
 
 {% enddetails %}
 
-<a id="the-automation-starts-many-times-in-a-short-time"></a>
+<a id="automation-starts-many-times-in-a-short-time-because-the-sensor-changes-back-and-forth"></a>
 
-{% details "The automation starts many times in a short time" %}
+{% details "Automation starts many times in a short time, because the sensor changes back and forth" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -551,9 +551,9 @@ The entity in the trigger changes back and forth quickly, for example, a motion 
 
 Use this section if the logs show `Already running` or `Maximum number of runs exceeded`.
 
-<a id="the-automation-didnt-start-while-it-was-still-running"></a>
+<a id="automation-didnt-start-while-it-was-still-running-already-running-or-maximum-number-of-runs-exceeded"></a>
 
-{% details "The automation didn't start while it was still running" %}
+{% details "Automation didn't start while it was still running: “Already running” or “Maximum number of runs exceeded”" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -577,9 +577,9 @@ The [mode](/docs/automation/modes/) of the automation decides what happens when 
 
 Use this section if a light, switch, or other device turns on or off by itself, and you want to know what changed it.
 
-<a id="a-light-or-switch-turns-on-or-off-by-itself-find-what-changed-it"></a>
+<a id="light-or-switch-turns-on-or-off-by-itself-find-the-automation-or-other-cause"></a>
 
-{% details "A light or switch turns on or off by itself: find what changed it" %}
+{% details "Light or switch turns on or off by itself: find the automation or other cause" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -602,9 +602,9 @@ An automation, a script, a scene, a person, an integration, or the device itself
 
 {% enddetails %}
 
-<a id="the-activity-details-show-no-cause"></a>
+<a id="activity-details-show-no-cause-was-recorded-for-this-activity-for-a-device-change"></a>
 
-{% details "The Activity details show no cause" %}
+{% details "Activity details show “No cause was recorded for this activity” for a device change" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -625,9 +625,9 @@ Home Assistant didn't record what caused the change. Often, the change came from
 
 Use this section if a time, sunrise, or sunset automation runs too early, too late, twice, or not at all.
 
-<a id="time-based-triggers-run-hours-too-early-or-too-late"></a>
+<a id="automation-time-or-time-pattern-trigger-runs-hours-too-early-or-too-late-because-the-time-zone-is-wrong"></a>
 
-{% details "Time-based triggers run hours too early or too late" %}
+{% details "Automation Time or Time pattern trigger runs hours too early or too late, because the time zone is wrong" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -645,9 +645,9 @@ Time triggers use the time zone of Home Assistant. If it is set to another time 
 
 {% enddetails %}
 
-<a id="a-time-pattern-trigger-runs-less-often-than-expected"></a>
+<a id="automation-time-pattern-trigger-runs-once-an-hour-instead-of-every-few-minutes"></a>
 
-{% details "A Time pattern trigger runs less often than expected" %}
+{% details "Automation Time pattern trigger runs once an hour instead of every few minutes" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -666,9 +666,9 @@ A number on its own means that exact value. **Minutes** set to `5` runs at 5 min
 
 {% enddetails %}
 
-<a id="a-sunrise-or-sunset-automation-runs-too-early-or-too-late"></a>
+<a id="automation-sunrise-or-sunset-trigger-with-an-offset-runs-too-early-or-too-late"></a>
 
-{% details "A sunrise or sunset automation runs too early or too late" %}
+{% details "Automation Sunrise or Sunset trigger with an offset runs too early or too late" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -688,9 +688,9 @@ The offset is set to before the event. In the **Sunrise** and **Sunset** trigger
 
 {% enddetails %}
 
-<a id="sunrise-and-sunset-automations-are-off-by-minutes-or-hours"></a>
+<a id="automation-sun-triggers-are-off-by-minutes-or-hours-because-the-home-location-is-wrong"></a>
 
-{% details "Sunrise and sunset automations are off by minutes or hours" %}
+{% details "Automation sun triggers are off by minutes or hours, because the home location is wrong" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -707,9 +707,9 @@ Home Assistant calculates sunrise and sunset from the location of your home. If 
 
 {% enddetails %}
 
-<a id="a-time-trigger-with-a-date-and-time-helper-runs-at-midnight"></a>
+<a id="automation-time-trigger-with-a-date-and-time-helper-runs-at-midnight"></a>
 
-{% details "A Time trigger with a date and time helper runs at midnight" %}
+{% details "Automation Time trigger with a date and time helper runs at midnight" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -729,9 +729,9 @@ The date and time helper only has a date, no time. The trigger then runs at midn
 
 {% enddetails %}
 
-<a id="a-time-trigger-with-a-helper-or-sensor-doesnt-run"></a>
+<a id="automation-time-trigger-with-a-helper-or-timestamp-sensor-doesnt-run"></a>
 
-{% details "A Time trigger with a helper or sensor doesn't run" %}
+{% details "Automation Time trigger with a helper or timestamp sensor doesn't run" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -748,9 +748,9 @@ The date and time of the entity has already passed, or the sensor is unavailable
 
 {% enddetails %}
 
-<a id="on-the-day-daylight-saving-time-starts-a-time-trigger-doesnt-run"></a>
+<a id="automation-time-trigger-doesnt-run-on-the-day-daylight-saving-time-starts"></a>
 
-{% details "On the day daylight saving time starts, a Time trigger doesn't run" %}
+{% details "Automation Time trigger doesn't run on the day daylight saving time starts" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -770,9 +770,9 @@ If the automation must run every day, choose a time outside the hours when the c
 
 {% enddetails %}
 
-<a id="on-the-day-daylight-saving-time-ends-a-time-trigger-runs-twice"></a>
+<a id="automation-time-trigger-runs-twice-on-the-day-daylight-saving-time-ends"></a>
 
-{% details "On the day daylight saving time ends, a Time trigger runs twice" %}
+{% details "Automation Time trigger runs twice on the day daylight saving time ends" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -796,9 +796,9 @@ If the automation must run only once, choose a time outside the hours when the c
 
 Use this section if saving the automation fails, or shows an error such as `Message malformed`.
 
-<a id="saving-shows-message-malformed"></a>
+<a id="saving-an-automation-shows-message-malformed"></a>
 
-{% details "Saving shows Message malformed" %}
+{% details "Saving an automation shows “Message malformed”" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -815,9 +815,9 @@ Home Assistant checks the automation when you save it. Something in it is not va
 
 {% enddetails %}
 
-<a id="saving-in-yaml-mode-shows-an-error-about-the-yaml"></a>
+<a id="saving-an-automation-in-yaml-mode-shows-a-yaml-error"></a>
 
-{% details "Saving in YAML mode shows an error about the YAML" %}
+{% details "Saving an automation in YAML mode shows a YAML error" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -833,9 +833,9 @@ Fix the line that the error names, and save again. If you're not sure what is wr
 
 {% enddetails %}
 
-<a id="saving-shows-cannot-save-automation-without-a-name"></a>
+<a id="saving-a-new-automation-shows-cannot-save-automation-without-a-name"></a>
 
-{% details "Saving shows Cannot save automation without a name" %}
+{% details "Saving a new automation shows “Cannot save automation without a name”" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -855,9 +855,9 @@ In the save dialog, enter a name, and then save again.
 
 Use this section if the automation works when you select **Run actions**, but not when the trigger happens, or the other way around.
 
-<a id="the-actions-work-when-i-run-them-but-not-when-the-trigger-happens"></a>
+<a id="automation-actions-work-with-run-actions-but-not-when-the-trigger-happens"></a>
 
-{% details "The actions work when I run them, but not when the trigger happens" %}
+{% details "Automation actions work with Run actions, but not when the trigger happens" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -876,9 +876,9 @@ The automation works when you select **Run actions**, but not when the trigger h
 
 {% enddetails %}
 
-<a id="the-automation-fails-when-i-run-it-but-works-when-the-trigger-happens"></a>
+<a id="automation-fails-with-run-actions-but-works-when-the-trigger-happens-because-there-is-no-trigger-data"></a>
 
-{% details "The automation fails when I run it, but works when the trigger happens" %}
+{% details "Automation fails with Run actions, but works when the trigger happens, because there is no trigger data" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -900,9 +900,9 @@ The **Automation: Trigger** action can't pass trigger data, so it doesn't help t
 
 Use this section if a condition doesn't pass although it should, or passes although it shouldn't.
 
-<a id="the-condition-becomes-true-later-but-the-automation-doesnt-start"></a>
+<a id="automation-doesnt-start-when-its-condition-becomes-true-later"></a>
 
-{% details "The condition becomes true later, but the automation doesn't start" %}
+{% details "Automation doesn't start when its condition becomes true later" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -921,9 +921,9 @@ Conditions are only checked once, right after a trigger reacts. They don't start
 
 {% enddetails %}
 
-<a id="the-automation-only-runs-when-every-condition-is-met"></a>
+<a id="automation-only-runs-when-all-its-conditions-are-met-instead-of-any-of-them"></a>
 
-{% details "The automation only runs when every condition is met" %}
+{% details "Automation only runs when all its conditions are met, instead of any of them" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -944,9 +944,9 @@ To run the automation when at least one condition is met, put the conditions in 
 
 {% enddetails %}
 
-<a id="a-numeric-state-condition-doesnt-pass-at-the-threshold"></a>
+<a id="automation-numeric-state-condition-doesnt-pass-when-the-value-is-exactly-at-the-threshold"></a>
 
-{% details "A Numeric state condition doesn't pass at the threshold" %}
+{% details "Automation Numeric state condition doesn't pass when the value is exactly at the threshold" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -968,9 +968,9 @@ For a sensor with decimals, use a **Template** condition that compares with `>=`
 
 {% enddetails %}
 
-<a id="a-numeric-state-condition-doesnt-pass-while-the-entity-is-unavailable"></a>
+<a id="automation-numeric-state-condition-doesnt-pass-while-the-entity-is-unavailable"></a>
 
-{% details "A Numeric state condition doesn't pass while the entity is unavailable" %}
+{% details "Automation Numeric state condition doesn't pass while the entity is unavailable" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -987,9 +987,9 @@ A **Numeric state** condition doesn't pass when the value is unavailable or unkn
 
 {% enddetails %}
 
-<a id="after-a-restart-a-state-condition-with-for-at-least-doesnt-pass"></a>
+<a id="automation-state-condition-with-for-at-least-doesnt-pass-after-a-restart"></a>
 
-{% details "After a restart, a State condition with For at least doesn't pass" %}
+{% details "Automation State condition with For at least doesn't pass after a restart" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -1005,9 +1005,9 @@ Wait until the duration has passed after the restart, or choose a shorter durati
 
 {% enddetails %}
 
-<a id="a-time-condition-across-midnight-doesnt-pass-after-midnight"></a>
+<a id="automation-time-condition-across-midnight-doesnt-pass-after-midnight-because-of-days-of-the-week"></a>
 
-{% details "A Time condition across midnight doesn't pass after midnight" %}
+{% details "Automation Time condition across midnight doesn't pass after midnight, because of Days of the week" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -1025,9 +1025,9 @@ The automation has a **Time** condition with **Days of the week**, and a time ra
 
 {% enddetails %}
 
-<a id="a-template-condition-doesnt-pass-although-the-template-gives-a-result"></a>
+<a id="automation-template-condition-doesnt-pass-although-the-template-gives-a-result"></a>
 
-{% details "A Template condition doesn't pass although the template gives a result" %}
+{% details "Automation Template condition doesn't pass although the template gives a result" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -1043,9 +1043,9 @@ Change the template so that it gives `true` or `false`, for example, with a comp
 
 {% enddetails %}
 
-<a id="error-evaluating-condition-in-the-logs"></a>
+<a id="automation-condition-doesnt-pass-error-evaluating-condition-in-the-logs"></a>
 
-{% details "“Error evaluating condition” in the logs" %}
+{% details "Automation condition doesn't pass: “Error evaluating condition” in the logs" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -1066,9 +1066,9 @@ The condition couldn't be checked, for example, because the entity doesn't exist
 
 Use this section if the automation is read-only, can't be deleted, or keeps its old entity ID after renaming.
 
-<a id="this-automation-cannot-be-edited-from-the-ui"></a>
+<a id="automation-cant-be-edited-or-deleted-this-automation-cannot-be-edited-from-the-ui"></a>
 
-{% details "“This automation cannot be edited from the UI”" %}
+{% details "Automation can't be edited or deleted: “This automation cannot be edited from the UI”" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -1085,9 +1085,9 @@ The automation is set up in YAML, outside the `automations.yaml` file, or it has
 
 {% enddetails %}
 
-<a id="i-can-only-change-the-blueprint-inputs"></a>
+<a id="automation-created-from-a-blueprint-i-can-only-change-the-blueprint-inputs"></a>
 
-{% details "I can only change the blueprint inputs" %}
+{% details "Automation created from a blueprint: I can only change the blueprint inputs" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -1108,9 +1108,9 @@ To change the automation itself, turn it into a regular automation:
 
 {% enddetails %}
 
-<a id="after-renaming-the-automation-still-has-its-old-entity-id"></a>
+<a id="automation-keeps-its-old-entity-id-after-renaming"></a>
 
-{% details "After renaming, the automation still has its old entity ID" %}
+{% details "Automation keeps its old entity ID after renaming" %}
 
 <h3 class="no_toc">Symptom</h3>
 
@@ -1133,9 +1133,9 @@ If other automations, scripts, or dashboards use the old entity ID, update them 
 
 Use this section if a new or existing automation is missing from the list of automations.
 
-<a id="the-automation-is-not-in-the-list-of-automations"></a>
+<a id="automation-is-missing-from-the-list-of-automations-new-automation-setup-timed-out"></a>
 
-{% details "The automation is not in the list of automations" %}
+{% details "Automation is missing from the list of automations: “New automation setup timed out”" %}
 
 <h3 class="no_toc">Symptom</h3>
 
