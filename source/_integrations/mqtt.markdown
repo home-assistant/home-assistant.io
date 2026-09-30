@@ -1476,6 +1476,8 @@ Because MQTT state updates are often repeated frequently, even when no actual ch
 
 MQTT devices often continuously generate numerous state updates. MQTT does not update `last_reported` to avoid impacting system stability unless `force_update` is set. Alternatively, an MQTT sensor can be created to measure the last update.
 
+{% include integrations/triggers.md %}
+
 ## Using Templates
 
 The MQTT integration supports templating. Read more [about using templates with the MQTT integration](/docs/templating/where-to-use/#mqtt).
