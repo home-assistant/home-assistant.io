@@ -113,7 +113,7 @@ Swapping out the map underneath opened a lot of doors. This release walks throug
 
 The map is now drawn entirely on your device, as vectors, instead of being stitched together from pictures. Streets and labels stay sharp at any zoom level, and zooming in and out is smooth. Older devices that can't handle this, like the old tablet on your wall, automatically fall back to the classic map.
 
-<p class='img'><video src='/images/blog/2026-10/map-zoom.webm' aria-label='Screen recording of the Map dashboard zooming out from Amsterdam to Europe and back, with the markers of people merging into shared bubbles as the map zooms out.' autoplay muted loop playsinline></video></p>
+<p class='img'><video src='/images/blog/2026-10/map-zoom.mp4' aria-label='Screen recording of the Map dashboard zooming out from Amsterdam to Europe and back, with the markers of people merging into shared bubbles as the map zooms out.' autoplay muted loop playsinline></video></p>
 
 ### Redesigned markers
 
