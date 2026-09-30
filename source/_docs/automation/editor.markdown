@@ -42,7 +42,7 @@ On narrow screens, **Undo** and **Redo** are in the **Menu** {% icon "mdi:dots-v
 
 ## Renaming an automation and adding details
 
-When you save a new automation, you give it a name. You can change the name later, and add a description, an icon, a [category](/docs/organizing/categories/), [labels](/docs/organizing/labels/), and an [area](/docs/organizing/areas/).
+When you save a new automation, you give it a name. You can change the name later, and add a description, a [category](/docs/organizing/categories/), [labels](/docs/organizing/labels/), and an [area](/docs/organizing/areas/).
 
 1. Open the automation.
 2. In the top bar, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Rename**.
