@@ -43,13 +43,13 @@ You use everything you install from the Marketplace at your own risk. Before you
 
 To open the Marketplace, go to **Settings** > **Marketplace**. The Marketplace is available to administrators only.
 
-The first time you open it, the Marketplace shows the warning above. Read it, select **I understand the risks**, and select **Continue**. Every user of your Home Assistant who opens the Marketplace reads the warning once for themselves, and it comes back every 90 days as a reminder. Until someone has accepted the warning, nothing can be installed or updated, not even by an automation.
+The first time you open it, the Marketplace shows the warning above. Read it, select **I understand the risks, remind me again in 90 days**, and select **Continue**. Every user of your Home Assistant who opens the Marketplace reads the warning once for themselves. Until someone has accepted the warning, nothing can be installed or updated, not even by an automation.
 
 ## What you can install
 
 Everything in the Marketplace comes from a repository on GitHub, which is where most community projects publish their work. Each repository is one of these types:
 
-- **Integration**: Adds support for devices and services, like the integrations that come with Home Assistant. It is installed in the `custom_components` folder in your configuration folder. After installing it, you add it under {% my integrations title="**Settings** > **Devices & services**" %}. Some integrations need a restart of Home Assistant first; the Marketplace tells you when.
+- **Integration**: Adds support for devices and services, like the integrations that come with Home Assistant. It is installed in the `custom_components` folder in your configuration folder. Most integrations are then added under {% my integrations title="**Settings** > **Devices & services**" %}, some are set up in YAML instead, as their documentation describes. Some need a restart of Home Assistant first; the Marketplace tells you when.
 - **Dashboard**: A card, a card feature, or another addition to your dashboards. It is installed in `www/community` in your configuration folder, and the Marketplace adds it as a dashboard resource for you. You can then use it on your dashboards.
 - **Theme**: Changes how Home Assistant looks. It is installed in the `themes` folder in your configuration folder. You can then pick it in your user profile.
 - **Template**: Reusable template macros. They are installed in the `custom_templates` folder in your configuration folder, where your templates can import them.
@@ -62,7 +62,7 @@ frontend:
   themes: !include_dir_merge_named themes
 ```
 
-If you use your dashboards in YAML mode, the Marketplace cannot add dashboard resources for you. The install dialog then shows the resource to add yourself.
+If you manage your dashboard resources in YAML, the Marketplace cannot add them for you. The install dialog then shows the resource to add yourself.
 {% endnote %}
 
 ## Finding something to install
@@ -87,7 +87,7 @@ Repositories that recently joined the catalog are marked as new. To clear that m
 What happens next depends on the type:
 
 - **Integration**: When Home Assistant can load it right away, its setup opens as soon as the installation is done. If you close it, add the integration later under {% my integrations title="**Settings** > **Devices & services**" %}. Some integrations can only be loaded after a restart, for example when they are set up in YAML. A repair then shows up under {% my repairs title="**Settings** > **System** > **Repairs**" %} to remind you, and it can restart Home Assistant for you.
-- **Dashboard**: Reload your browser, so it picks up the new resource.
+- **Dashboard**: Reload your browser, so it picks up the new resource. If your configuration folder had no `www` folder when Home Assistant started, a repair asks you to restart Home Assistant first.
 - **Theme** and **Template**: These are reloaded for you and are ready to use.
 
 ### Installing another version
@@ -120,7 +120,7 @@ By default, the Marketplace offers stable releases only. To also get pre-release
 2. Open the menu in the top right corner and select **Uninstall**.
 3. Confirm.
 
-The Marketplace deletes the installed files, and for a dashboard card also its dashboard resource. When an integration you uninstalled is still running, a repair under {% my repairs title="**Settings** > **System** > **Repairs**" %} asks you to restart Home Assistant, and it can do that for you.
+The Marketplace deletes the installed files. For a dashboard card, it also removes its dashboard resource, unless you manage your resources in YAML: then remove it there yourself. When an integration you uninstalled is still running, a repair under {% my repairs title="**Settings** > **System** > **Repairs**" %} asks you to restart Home Assistant, and it can do that for you.
 
 An integration that is still set up cannot be uninstalled as it is: the setup runs on the files the Marketplace installed, and without them it would fail to load and leave its devices and entities behind. The Marketplace then shows what is set up. Select **View integration** to delete it yourself, or **Delete and uninstall** to have the Marketplace delete it and uninstall the integration in one go. It asks once more first: deleting the setup also deletes its devices and entities.
 
@@ -197,6 +197,15 @@ A few things work differently now:
 - **AppDaemon apps and Python scripts** are no longer managed. Their files stay where they are and keep working, but they no longer get updates from the Marketplace. A repair tells you which ones this concerns.
 - **Dashboard resources** are served from `/local/community/` now. The old `/hacsfiles/` addresses keep working. If you configured resources in YAML, a repair reminds you to change them to the new address.
 - **Options** of HACS, like its sidebar title and icon, are gone. The Marketplace lives under **Settings** and shows all types.
+
+### What changes for automations and tools
+
+The update entities keep their entity IDs, so automations and dashboards that use them keep working. A few things that pointed at HACS itself do change:
+
+- **Entities of the integration**: The entities now belong to the Marketplace integration. A template that uses `integration_entities('hacs')` finds nothing anymore: use `integration_entities('marketplace')` instead.
+- **Restart after an update**: HACS put a restart message in the `release_summary` attribute of its update entities. The Marketplace tells you with a repair under {% my repairs title="**Settings** > **System** > **Repairs**" %} instead. The attribute stays empty.
+- **The WebSocket API**: Tools that called the `hacs/` commands of HACS, like `hacs/repositories/list`, get an unknown command. The Marketplace has its own commands under `marketplace/`, with a different shape.
+- **Links and icons**: Links to the integration page of HACS, and the `hacs:hacs` icon on dashboards, now lead to and show the Marketplace.
 
 ## Turning off the Marketplace
 
