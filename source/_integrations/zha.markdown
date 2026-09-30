@@ -19,6 +19,7 @@ ha_category:
   - Siren
   - Switch
   - Update
+  - Valve
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true
@@ -47,6 +48,7 @@ ha_platforms:
   - siren
   - switch
   - update
+  - valve
 ha_zeroconf: true
 ha_integration_type: hub
 ---
@@ -71,6 +73,7 @@ This {% term integration %} currently supports the following device types within
 - [Siren](/integrations/siren/)
 - [Switch](/integrations/switch/)
 - [Update](/integrations/update/)
+- [Valve](/integrations/valve/)
 
 ## Introduction
 
