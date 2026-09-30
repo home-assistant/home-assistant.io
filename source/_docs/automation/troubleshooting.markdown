@@ -953,11 +953,7 @@ The automation started while a previous run was still running, for example, duri
 #### Resolution
 
 - If the automation should also handle the new start, [change the mode](/docs/automation/editor/#changing-the-mode-of-an-automation), for example, to **Restart**.
-- If the automation should skip the new start, and you don't want the warning, add `max_exceeded: silent` to the automation in YAML:
-
-  ```yaml
-  max_exceeded: silent
-  ```
+- If the automation should skip the new start, and you don't want the warning, [change the warning in the logs](/docs/automation/modes/#changing-the-warning-in-the-logs), for example, to `silent`.
 
 {% enddetails %}
 
