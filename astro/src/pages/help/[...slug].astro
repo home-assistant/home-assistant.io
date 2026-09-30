@@ -1,0 +1,21 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+// Mirrors Jekyll's URLs for this section: source/help/index.markdown
+// becomes /help/, every other file becomes /help/<name>/.
+export async function getStaticPaths() {
+  const pages = await getCollection("help");
+  return pages.map((page) => ({
+    params: { slug: page.id === "index" ? undefined : page.id },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+---
+
+<Base title={page.data.title} description={page.data.description}>
+  <Content />
+</Base>

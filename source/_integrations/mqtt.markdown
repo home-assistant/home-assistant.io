@@ -948,6 +948,8 @@ support_url:
     'stat_tpl':            'state_template',
     'stat_val_tpl':        'state_value_template',
     'step':                'step',
+    'stop_cmd_t':          'stop_command_topic',
+    'stop_cmd_tpl':        'stop_command_template',
     'stype':               'subtype',
     'sug_dsp_prc':         'suggested_display_precision',
     'sup_clrm':            'supported_color_modes',
@@ -1475,6 +1477,8 @@ Note that MQTT device payloads often contain information for updating multiple e
 Because MQTT state updates are often repeated frequently, even when no actual changes exist, it is up to the MQTT subscriber to determine whether a status update was received. If the latest update is missed, it might take some time before the next one arrives. If a retained payload exists at the broker, that value will be replayed first, but it will be an update of a previous last state.
 
 MQTT devices often continuously generate numerous state updates. MQTT does not update `last_reported` to avoid impacting system stability unless `force_update` is set. Alternatively, an MQTT sensor can be created to measure the last update.
+
+{% include integrations/triggers.md %}
 
 ## Using Templates
 
