@@ -10,17 +10,17 @@ related:
     title: State and state object
 ---
 
-An automation waits for something to change, then checks its conditions, and then performs its actions. This page explains what that means when you set up triggers and conditions. For the parts of an automation, refer to [Understanding automations](/docs/automation/basics/).
+An automation waits for something to change, then checks its conditions, and then performs its actions. This page explains what that means when you set up triggers and conditions. For the parts of an automation, refer to [Understanding automations](/docs/automation/basics/). If an automation doesn't do what you expect, refer to [Troubleshooting automations](/docs/automation/troubleshooting/).
 
 ## Triggers react to changes
 
 A trigger reacts to a change, such as a light turning on or the sun setting. An automation does not keep checking whether something is true. It waits for the change and then starts. Behind the scenes, these changes are [events](/docs/configuration/events/), and most of them are changes to the [state](/docs/configuration/state_object/) of an entity.
 
-For example, a **Numeric state** trigger for "above 25 °C" does not react when you save the automation while the temperature is already 26 °C. It reacts the next time the temperature rises above 25 °C.
+For example, a **Numeric state crossed threshold** trigger with **Above** set to 25 °C does not react when you save the automation while the temperature is already 26 °C. It reacts the next time the temperature rises above 25 °C.
 
 ## Conditions check the current state
 
-A condition checks the state at the moment the automation runs, not at the moment of the trigger. For example, if a switch is turned on and quickly off again, the automation starts, but a condition that checks whether the switch is on is not met anymore.
+A condition checks the current state when the automation checks its conditions, right after a trigger reacts. By then, the state may already be different from the change that started the automation. For example, if a switch is turned on and quickly off again, the automation starts, but a condition that checks whether the switch is on is not met anymore.
 
 ## When two things must both be true
 
