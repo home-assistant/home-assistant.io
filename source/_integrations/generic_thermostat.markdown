@@ -177,3 +177,5 @@ climate:
     away_temp: 16
     precision: 0.1
 ```
+
+{% include integrations/actions.md %}
