@@ -31,10 +31,10 @@ To start the Color Sweep effect from an automation or a script:
 
 {% options_ui %}
 Speed:
-  description: How long, in seconds, one sweep through the palette takes. Choose a whole number between 0 and 25. At 0, which is the default, the Mirror sweeps once across the whole duration.
+  description: How long, in seconds, one sweep through the palette takes. Choose a whole number between 0 and 25. At 0, which is the default, the Mirror sweeps once across the whole duration, which then has to be above 0.
   required: false
 Duration:
-  description: How long, in seconds, the effect runs. Choose a whole number between 0 and 3600. Defaults to 30 seconds. At 0, the effect runs until you stop it.
+  description: How long, in seconds, the effect runs. Choose a whole number between 0 and 3600. Defaults to 30 seconds. At 0, the effect runs until you stop it, which needs a **Speed** above 0.
   required: false
 Palette:
   description: A list of 2 to 16 colors to sweep through, each as hue (0-360), saturation (0-100), brightness (0-100), and Kelvin (1500-9000). Defaults to full-brightness white at 1500 Kelvin and at 6500 Kelvin, which sweeps across the color temperature range.
@@ -63,12 +63,12 @@ This sweeps the bathroom Mirror once across the color temperature range, taking 
 
 {% options_yaml %}
 speed:
-  description: How long, in seconds, one sweep through the palette takes. Accepts a whole number between 0 and 25. At 0, the Mirror sweeps once across the whole duration.
+  description: How long, in seconds, one sweep through the palette takes. Accepts a whole number between 0 and 25. At 0, the Mirror sweeps once across the whole duration, which then has to be above 0.
   required: false
   type: integer
   default: 0
 duration:
-  description: How long, in seconds, the effect runs. Accepts a whole number between 0 and 3600. At 0, the effect runs until you stop it.
+  description: How long, in seconds, the effect runs. Accepts a whole number between 0 and 3600. At 0, the effect runs until you stop it, which needs a `speed` above 0.
   required: false
   type: integer
   default: 30
@@ -90,7 +90,7 @@ power_on:
 
 - Only the LIFX Mirror runs the Color Sweep effect. If your target also covers other LIFX lights, those lights are skipped and the rest of the action still runs.
 - When you target lights by entity and none of them is a LIFX light, the action fails with the message "The targets of action lifx.effect_colorsweep include no LIFX light". If they include LIFX lights but no Mirror, it fails with "The targets of action lifx.effect_colorsweep include no LIFX Mirror". When you target an area, floor, device, or label instead, lights the effect cannot run on are left alone and no error is returned.
-- With the default **Speed** of 0, the Mirror sweeps through the palette once, spread across the whole **Duration**. Set **Speed** above 0 to repeat the sweep instead, with each sweep taking that many seconds, until the duration is up.
+- With the default **Speed** of 0, the Mirror sweeps through the palette once, spread across the whole **Duration**. Set **Speed** above 0 to repeat the sweep instead, with each sweep taking that many seconds, until the duration is up. Speed 0 with a duration of 0 fails with an error, because the effect would otherwise run at a default speed instead.
 - **Power on** is on by default, so a Mirror that is off is turned on before the effect starts.
 - To stop the effect before the duration is up, use [Stop effect](/actions/lifx.effect_stop/).
 - You can also start this effect with default options by calling [Turn on a light](/actions/light.turn_on/) with the effect set to `effect_colorsweep`.
