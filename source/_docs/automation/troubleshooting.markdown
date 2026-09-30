@@ -9,6 +9,8 @@ Most problems show up in the [trace](/docs/automation/testing/#traces) of the au
 
 ## My automation doesn't trigger
 
+Use this section if your automation doesn't start, doesn't run, or ignores its trigger.
+
 <a id="the-automation-is-turned-off-disabled"></a>
 
 {% details "The automation is turned off (disabled)" %}
@@ -110,6 +112,8 @@ Triggers react to a change. They don't keep checking whether something is still 
 {% enddetails %}
 
 ## My automation triggered, but nothing happened
+
+Use this section if the automation starts, but the lights, devices, or notifications don't respond.
 
 <a id="the-automation-started-but-its-actions-didnt-run"></a>
 
@@ -226,6 +230,8 @@ For the description and the resolution, refer to [I see an "Already running" war
 
 ## My automation stopped working after an update
 
+Use this section if an automation that used to work broke after you updated or restarted Home Assistant, or after you replaced or renamed a device.
+
 <a id="an-automation-that-was-waiting-didnt-finish"></a>
 
 {% details "An automation that was waiting didn't finish" %}
@@ -308,6 +314,8 @@ The update changed or removed something that the automation uses, for example, a
 
 ## I can't find my device or button as a trigger
 
+Use this section if a device, remote, or button doesn't show up, or shows no triggers, when you add a trigger.
+
 <a id="the-device-trigger-shows-no-triggers"></a>
 
 {% details "The Device trigger shows No triggers" %}
@@ -376,6 +384,8 @@ The device or entity is disabled. Disabled devices and entities are not shown wh
 {% enddetails %}
 
 ## My "Wait", "Delay", or "For at least" duration doesn't work as expected
+
+Use this section if a delay, wait, or timeout is cut short, never ends, or doesn't wait at all.
 
 If Home Assistant restarted while the automation was waiting, refer to [An automation that was waiting didn't finish](#an-automation-that-was-waiting-didnt-finish).
 
@@ -474,6 +484,8 @@ If the running delay or wait should finish, [change the mode](/docs/automation/e
 
 ## My automation runs too often or twice
 
+Use this section if the automation runs twice, runs multiple times, or keeps repeating.
+
 <a id="the-automation-starts-although-the-state-didnt-change"></a>
 
 {% details "The automation starts although the state didn't change" %}
@@ -537,6 +549,8 @@ The entity in the trigger changes back and forth quickly, for example, a motion 
 
 ## I see an "Already running" warning in the logs
 
+Use this section if the logs show `Already running` or `Maximum number of runs exceeded`.
+
 <a id="the-automation-didnt-start-while-it-was-still-running"></a>
 
 {% details "The automation didn't start while it was still running" %}
@@ -560,6 +574,8 @@ The [mode](/docs/automation/modes/) of the automation decides what happens when 
 {% enddetails %}
 
 ## Something turned on or off and I don't know why
+
+Use this section if a light, switch, or other device turns on or off by itself, and you want to know what changed it.
 
 <a id="a-light-or-switch-turns-on-or-off-by-itself-find-what-changed-it"></a>
 
@@ -606,6 +622,8 @@ Home Assistant didn't record what caused the change. Often, the change came from
 {% enddetails %}
 
 ## My automation runs at the wrong time
+
+Use this section if a time, sunrise, or sunset automation runs too early, too late, twice, or not at all.
 
 <a id="time-based-triggers-run-hours-too-early-or-too-late"></a>
 
@@ -776,6 +794,8 @@ If the automation must run only once, choose a time outside the hours when the c
 
 ## I get an error when I save my automation
 
+Use this section if saving the automation fails, or shows an error such as `Message malformed`.
+
 <a id="saving-shows-message-malformed"></a>
 
 {% details "Saving shows Message malformed" %}
@@ -833,6 +853,8 @@ In the save dialog, enter a name, and then save again.
 
 ## My automation behaves differently when I run it manually
 
+Use this section if the automation works when you select **Run actions**, but not when the trigger happens, or the other way around.
+
 <a id="the-actions-work-when-i-run-them-but-not-when-the-trigger-happens"></a>
 
 {% details "The actions work when I run them, but not when the trigger happens" %}
@@ -875,6 +897,8 @@ The **Automation: Trigger** action can't pass trigger data, so it doesn't help t
 {% enddetails %}
 
 ## My condition doesn't behave as expected
+
+Use this section if a condition doesn't pass although it should, or passes although it shouldn't.
 
 <a id="the-condition-becomes-true-later-but-the-automation-doesnt-start"></a>
 
@@ -1040,6 +1064,8 @@ The condition couldn't be checked, for example, because the entity doesn't exist
 
 ## I can't edit, delete, or rename my automation
 
+Use this section if the automation is read-only, can't be deleted, or keeps its old entity ID after renaming.
+
 <a id="this-automation-cannot-be-edited-from-the-ui"></a>
 
 {% details "“This automation cannot be edited from the UI”" %}
@@ -1104,6 +1130,8 @@ If other automations, scripts, or dashboards use the old entity ID, update them 
 {% enddetails %}
 
 ## My automation doesn't appear in the UI
+
+Use this section if a new or existing automation is missing from the list of automations.
 
 <a id="the-automation-is-not-in-the-list-of-automations"></a>
 
