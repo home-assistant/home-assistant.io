@@ -1,28 +1,28 @@
 ---
 title: "Tools"
-description: "Description of the Home Assistant tools."
+description: "Use the Tools in Home Assistant to check your configuration, look at the states of your entities, and test actions, templates, events, and Assist sentences."
 ---
 
-Home Assistant contains a section called **Tools**. In the left sidebar, go to **Settings** > **Tools** to open it.
+**Tools** let you look at what is happening in Home Assistant and try things out, without creating an {% term automation %} or a dashboard first. For example, you can check the current {% term state %} of an {% term entity %}, control a {% term device %}, test a {% term template %}, or see which {% term events %} happen. Tools are useful to all administrators, not only those who are developers.
+
+Tools are only available to administrators.
+
+To open Tools, go to {% my tools_yaml title="**Settings** > **Tools**" %}.
 
 <p class='img'>
 <img src='/images/screenshots/tools.png' alt='Screenshot showing the Tools page in Home Assistant' />
 Screenshot of Home Assistant's tools.
 </p>
 
-| Section    | Description                                                         |
-| ---------- | ------------------------------------------------------------------- |
-| YAML       | Lets you validate the configuration and trigger a reload or restart |
-| States     | Sets the representation of an entity                                |
-| Actions    | Performs actions from integrations                                  |
-| Template   | Renders templates                                                   |
-| Events     | Fires events                                                        |
-| Statistics | Shows a list of long-term statistic entities                        |
-| Assist     | Tests how Assist understands a sentence, without running anything   |
+The Tools page has the following tabs:
 
-## What can I do with Home Assistant's Tools?
-
-The available tools are meant for _all_ (not just for the developers) to quickly try out things, such as performing actions, updating states, raising events, and publishing messages in MQTT). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the sections in detail.
+- [**YAML** tab](#yaml-tab): Check your configuration, reload YAML configuration, and restart Home Assistant.
+- [**States** tab](#states-tab): See the current state and attributes of your entities, and set a state to test automations.
+- [**Actions** tab](#actions-tab): Perform any {% term action %}, for example, to control a device.
+- [**Template** tab](#template-editor-tab): Write a template and see its result right away.
+- [**Events** tab](#events-tab): Fire an event, or listen to events to see what happens.
+- [**Statistics** tab](#statistics-tab): Find, fix, and adjust {% term "long-term statistics" %}.
+- [**Assist** tab](#assist-tab): Test how Assist understands a sentence.
 
 ## YAML tab
 
@@ -128,11 +128,30 @@ Some options, and {% term templates %}, are only available in **YAML mode**. In 
 
 ## Template editor tab
 
-The template editor provides a way to quickly test templates prior to placing them into automations and scripts. A code editor is on the left side and your real-time output is displayed in the preview on the right side.
+{% term Templates %} let you create dynamic content from your Home Assistant data, for example, a notification that lists which lights are on. In the **Template** tab, you can write a template and see its result right away, based on the current {% term states %} of your {% term entities %}. Use it to try out a template before you use it in an {% term automation %}, a {% term script %}, or a template entity. For an introduction to templates, refer to [Templating](/docs/templating/).
 
-By default, this will contain sample code that illustrates how templates can be written and tested. This sample code can be removed and replaced with your own. You can restore the default example by pressing the **Reset to Demo Template** button beneath the code editor.
+The result updates while you type, and when the states that the template uses change. Below the result the editor shows when the template updates:
 
-For more information about Jinja2, visit [Jinja2 documentation](https://jinja.palletsprojects.com/en/latest/templates/), and also read templating document [here](/docs/templating).
+- At the start of each minute, if the template uses the current time.
+- When one of the listed entities or domains changes.
+- When any state changes, if the template uses all states.
+- Not automatically, if the template does not use any states or the current time.
+
+Your template is kept in your browser, so it is still there the next time you open the tab.
+
+### Testing a template
+
+Use this to check that a template gives the result you expect, before you use it elsewhere.
+
+1. Go to {% my developer_template title="**Settings** > **Tools** > **Template**" %}.
+2. In the **Template editor**, enter your template.
+   - The editor starts with a demo template. To start with an empty editor, in the toolbar of the editor, select **Clear** {% icon "mdi:trash-can-outline" %}. To go back to the demo template, select **Reset to demo template** {% icon "mdi:restore" %}.
+   - To get suggestions, for example, for entity IDs, place the cursor inside a function that supports it, and press <kbd>Ctrl</kbd>+<kbd>Space</kbd>.
+3. If your template uses variables that only exist when it runs in an automation or an integration, such as `trigger`, `this`, or `value_json`, at the top of the template, define them yourself with `{% set %}`. If you don't, the editor shows an error, or a warning and an empty result. To see an example, refer to [testing an incoming-data template](/docs/templating/where-to-use/#testing-an-incoming-data-template). For details, refer to [Why does my template behave differently in Tools?](/docs/templating/debugging/#why-does-it-work-in-tools-but-not-in-my-automation).
+4. Under **Result**, check the output.
+   - Result: The output of your template is shown, with its **Result type**. If the template has an error, the error message is shown instead. For warnings and other problems, refer to [Debugging templates](/docs/templating/debugging/).
+5. When the template works, remove the variables you defined in step 3, if any. They would replace the real values when the template runs.
+6. In the toolbar, select **Copy to clipboard** {% icon "mdi:content-copy" %}. Then paste the template into your automation, script, or template entity.
 
 ## Events tab
 
