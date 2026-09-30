@@ -23,7 +23,7 @@ The [trigger](/docs/automation/trigger/) belongs to the first part of the automa
 
 ### Condition part
 
-The second part of an automation has the [condition](/docs/automation/condition/). If the condition is verified, the action part takes place. In the example of the automation above, the lights in the living room will turn on only if the sun has set.
+The second part of an automation has the [condition](/docs/automation/condition/). If the condition is verified, the action part takes place. In the example of the automation above, the lights in the living room will turn on only if the sun has set. If Paulus comes home before sunset, nothing happens when the sun sets later. For why, and how to cover both cases, refer to [how automations react to changes](/docs/automation/how-automations-react-to-changes/#when-two-things-must-both-be-true).
 
 ### Action part
 

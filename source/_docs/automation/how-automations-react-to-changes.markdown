@@ -18,9 +18,20 @@ A trigger reacts to a change, such as a light turning on or the sun setting. An 
 
 For example, a **Numeric state crossed threshold** trigger with **Above** set to 25 °C does not react when you save the automation while the temperature is already 26 °C. It reacts the next time the temperature rises above 25 °C.
 
+## What counts as a change
+
+Not every update of an entity starts an automation:
+
+- A [**State changed** trigger](/triggers/state/) without a **From** or **To** state also reacts when only an attribute changes, such as the brightness of a light. The trigger page explains how to react only to changes of the state itself.
+- Setting an entity to the state it already has is not a change, so the trigger does not react.
+- Most triggers for a specific kind of entity, such as [**Light turned on**](/triggers/light.turned_on/), do not react when an entity comes back from `unavailable` or `unknown`. For details, refer to [unavailable and unknown states](/docs/automation/trigger/#unavailable-and-unknown-state-behavior-in-triggers).
+- With **For at least**, a change only counts when the new state has lasted for that time. A restart resets the waiting. For details, refer to the [**State changed** trigger](/triggers/state/).
+
 ## Conditions check the current state
 
 A condition checks the current state when the automation checks its conditions, right after a trigger reacts. By then, the state may already be different from the change that started the automation. For example, if a switch is turned on and quickly off again, the automation starts, but a condition that checks whether the switch is on is not met anymore.
+
+Actions that wait follow the same difference: [**Wait for a trigger**](/docs/scripts/#wait-for-a-trigger) reacts to a change, like a trigger, and [**Wait for a template**](/docs/scripts/#wait-for-a-template) checks the current state first, like a condition.
 
 ## When two things must both be true
 
