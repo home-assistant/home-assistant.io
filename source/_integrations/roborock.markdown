@@ -286,7 +286,11 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 
 #### Button
 
-There are currently four buttons that allow you to reset the various maintenance items on your vacuum. Pressing the button cannot be undone. For this reason, the buttons are disabled by default to make sure they are not pressed unintentionally.
+- **Resolve error**
+  - **Availability**: Enabled by default on supported docks that provide a **Dock error** sensor.
+  - **Description**: After fixing the cause of a dock error, such as refilling an empty clean water tank, press this button to acknowledge the current dock error. Home Assistant then refreshes the dock status. If no dock error is reported, pressing the button does nothing. Whether an interrupted cleaning job resumes depends on the device. The button only acknowledges dock errors.
+
+The following maintenance buttons allow you to reset the various maintenance items on your vacuum. Pressing a maintenance button cannot be undone. For this reason, the maintenance buttons are disabled by default to make sure they are not pressed unintentionally.
 
 - **Reset sensor consumable**
   - **Description**: The sensors on your vacuum are expected to be cleaned after 30 hours of use.
