@@ -115,6 +115,7 @@ qos:
 - The `topic` and `payload` options support [limited templates](/docs/templating/where-to-use/#limited-templates). These templates are evaluated when the trigger is set up. They are not re-evaluated for each incoming MQTT message.
 - By default, MQTT payloads are decoded as `utf-8`. If the payload is binary data, such as an image or another byte payload, set `encoding` to an empty string in YAML.
 - If the incoming payload contains valid JSON, the trigger data includes `trigger.payload_json`.
+
 ## Try it yourself
 
 For this trigger, there is no target entity to change. To test it, publish a message to the topic. You can do this from the MQTT integration: go to {% my integrations title="**Settings** > **Devices & services**" %}, select **MQTT**, and select {% icon "mdi:cog-outline" %} **Configure** next to your broker. Under **Publish a packet**, enter the topic and payload, and select **Publish**.
