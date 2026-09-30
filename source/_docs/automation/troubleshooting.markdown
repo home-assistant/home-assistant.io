@@ -127,36 +127,75 @@ If you are writing automations in YAML, check your configuration for syntax erro
 
 ## Traces
 
-When an {% term automation %} is run, all steps are recorded and a trace is made. To open the automation editor, go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+Every time an {% term automation %} runs, Home Assistant records a trace: a step-by-step record of what happened. The trace shows which {% term trigger %} started the automation, whether each {% term condition %} passed, what each {% term action %} did, and which variables changed. If you ran the actions manually, the trace has no trigger, and the conditions of the automation are skipped. Conditions within the actions, such as in an **If-then** or **Choose** block, still run and are shown. Use it to find out why an automation did not do what you expected.
 
-From the automation editor UI, or in the automations list in the three dots menu, select **Traces**. Alternatively, select an automation entry shown under **Activity**.
+Home Assistant keeps the last 5 traces of each automation. Some triggers also record a trace when they notice a relevant change but do not start the automation. These traces are marked **Did not trigger**. They are kept separately, so they never replace the traces of real runs.
 
-![Automation tracing example](/images/integrations/automation/automation-tracing.png)
+Automations created in YAML must have an [`id`](/docs/automation/yaml/#migrating-your-yaml-automations-to-automationsyaml) for their traces to be available.
 
-The above screenshot shows a previous run of an automation. The automation is displayed using an interactive graph, highlighting which path the automation took. Each node in the graph can be selected to view the details on what happened with the automation during that specific step. It traces the complete run of an automation.
+### Viewing the traces of an automation
 
-The right side of the trace screen has tabs with more information:
+Do this when an automation did not run as expected, to see which path it took and where it stopped. You can open the traces from the automation list, the automation editor, or **Activity**.
 
-- **Step Details** shows data and results of the step that is currently highlighted.
-- **Automation Config** shows the full YAML configuration at the time the automation was run.
-- **Trace Timeline**, shown in the screenshot above, lists the steps that were executed and their timing.
-- **Related activity**, shows the activity for all the entries related to the specific trace.
-- **Blueprint Config** will only be shown if the automation was created from a {% term blueprint %}.
+1. Do one of the following:
+   - Go to {% my automations title="**Settings** > **Automations & scenes**" %}. In the automation list, select **Overflow menu** {% icon "mdi:dots-vertical" %} next to the automation, and then select **Traces**.
+     - Result: The trace of the latest run opens.
+   - In the automation editor, select **Traces** in the top bar. On narrow screens, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Traces**.
+     - Result: The trace of the latest run opens.
+   - In **Activity**, select an entry that the automation caused. In the dialog that opens, select **View trace** next to the automation.
+     - Result: The trace of the run that caused this entry opens.
+2. To see another run, select it under **Select trace**, or select **Older trace** {% icon "mdi:ray-start-arrow" %} or **Newer trace** {% icon "mdi:ray-end-arrow" %}.
+   - The list shows when each run started and how it ended, for example, **Stopped because a condition failed**.
 
-The top bar shows the date and time the automation was triggered. Use the left and right arrows to view previous runs of the automation.
+### Parts of a trace
 
-Automations created in YAML must have an [`id`](/docs/automation/yaml/#migrating-your-yaml-automations-to-automationsyaml) assigned in order for debugging traces to be stored.
+The graph shows the path that the automation took. To see what happened in a step, select it in the graph.
 
-### Trace configuration
+Triggers, conditions, and actions are shown with the icon of their type. Common triggers and conditions use the following icons:
 
-The last 5 traces are recorded for all automations. It is possible to change this by adding the following code to your automation.
+- {% icon "mdi:state-machine" %} **State changed** trigger and **State** condition.
+- {% icon "mdi:numeric" %} **Numeric state crossed threshold** trigger and **Numeric state** condition.
+- {% icon "mdi:clock-outline" %} **Time** trigger and condition.
+- {% icon "mdi:av-timer" %} **Time pattern** trigger.
+- {% icon "mdi:weather-sunny" %} **Sun** trigger and condition.
+- {% icon "mdi:gesture-double-tap" %} **Manual event received** trigger.
+- {% icon "mdi:map-marker-radius" %} **Zone** trigger and condition.
 
+Building blocks use the following icons:
 
-```yaml
-trace:
-  stored_traces: 20
-```
+- {% icon "mdi:arrow-decision" %} **Choose**. Each option shows {% icon "mdi:checkbox-marked-outline" %} if the automation took it, and {% icon "mdi:checkbox-blank-outline" %} if it did not.
+- {% icon "mdi:call-split" %} **If-then**, with {% icon "mdi:call-received" %} for **Then** and {% icon "mdi:call-missed" %} for **Else**.
+- {% icon "mdi:refresh" %} **Repeat**.
+- {% icon "mdi:format-list-numbered" %} **Run in sequence**.
+- {% icon "mdi:shuffle-disabled" %} **Run in parallel**.
+- {% icon "mdi:timer-outline" %} **Wait for time to pass (delay)**.
+- {% icon "mdi:code-braces" %} **Wait for a template**.
+- {% icon "mdi:traffic-light" %} **Wait for a trigger**.
+- {% icon "mdi:close" %} The end of the path when a condition is not met.
 
+The tabs next to the graph show more information:
+
+- **Step details**: The configuration and the result of the selected step. Within this tab, **Changed variables** shows the variables that the step changed.
+- **Trace timeline**: The steps that ran, and when they ran.
+- **Related activity**: The activity related to this run of the automation.
+- **Automation config**: The configuration of the automation at the time it ran.
+- **Blueprint config**: Only shown if the automation was created from a {% term blueprint %}.
+
+### Changing the number of stored traces
+
+By default, Home Assistant keeps the last 5 traces of each automation. To keep more, add the `trace` option to the automation. The visual editor has no field for this option, so you add it in YAML.
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
+2. Select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Edit in YAML**.
+3. Add the following option, with the number of traces that you want to keep:
+
+   ```yaml
+   trace:
+     stored_traces: 20
+   ```
+
+4. Select **Save**.
+   - Result: Home Assistant keeps up to this number of traces of runs, and the same number of **Did not trigger** traces.
 
 ## Testing templates
 

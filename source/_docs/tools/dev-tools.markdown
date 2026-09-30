@@ -17,7 +17,7 @@ Screenshot of Home Assistant's tools.
 | Actions    | Performs actions from integrations                                  |
 | Template   | Renders templates                                                   |
 | Events     | Fires events                                                        |
-| Statistics | Shows a list of long-term statistic entities                        |
+| Statistics | Lists long-term statistics and lets you fix and adjust them         |
 | Assist     | Lets you see how Home Assistant Assist processes a sentence         |
 
 ## What can I do with Home Assistant's Tools?
@@ -216,17 +216,85 @@ context:
 
 ## Statistics tab
 
-The **Statistics** tab shows a list of long-term statistic entities. If the long term statistics is not working for an entity, a **Fix issue** link is shown. Select it to view a description of the issue. There might also be an option to fix the issue.
+Home Assistant keeps {% term "long-term statistics" %} for sensors that measure something over time, such as temperature or energy use. Some {% term integrations %} also add statistics directly, without a sensor, for example, the energy use that your utility reports. Home Assistant stores statistics in its database, which the [Recorder](/integrations/recorder/) maintains. History graphs, statistics cards, and the Energy dashboard use these statistics. The **Statistics** tab lists all long-term statistics, with their name, statistic ID, unit, source, and any issue.
 
-![Statistics issue message](/images/docs/developer-tools/statistics_issue.png)
+Use the **Statistics** tab to:
 
-Another use of the {% my developer_statistics title="statistics tool" %} is to correct any measurements. Select the
-<svg width="24" height="24" viewBox="0 0 24 24"><path d="M22,13V22H2V19L22,13M21.68,7.06L16.86,4.46L17.7,7.24L7.58,10.24C6.63,8.95 4.82,8.67 3.53,9.62C2.24,10.57 1.96,12.38 2.91,13.67C3.85,14.97 5.67,15.24 6.96,14.29C7.67,13.78 8.1,12.97 8.14,12.09L18.26,9.09L19.1,11.87L21.68,7.06Z" /></svg>
-icon. Use the date and time fields to search for the incorrect data point and select it to adjust the value.
+- Find the statistics that an {% term integration %} created, for example, to use them in the Energy dashboard.
+- Fix an issue that stops Home Assistant from keeping statistics for an entity.
+- Correct a wrong value, for example, a spike in your energy use.
+- Delete statistics that you no longer need.
 
-![Screenshot showing the dialog to adjust a statistic where the time, date and value to adjust can be selected](/images/docs/developer-tools/adjust-statistics.png)
+### Fixing a statistics issue
 
-![Screenshot showing the dialog to adjust a previous selected statistic value](/images/docs/developer-tools/adjust-statistic-value.png)
+If Home Assistant can't keep statistics for an entity, the **Issue** column shows why. For example, the entity is no longer recorded, or its unit changed.
+
+{% important %}
+**Risk of data loss**
+
+Some fixes delete the statistics of the entity. Deleted statistics can't be restored, except from a backup.
+
+To avoid this:
+
+- Read the dialog carefully before you select **Delete**.
+- Before you delete statistics, [create a backup](/common-tasks/general/#creating-a-manual-backup).
+{% endimportant %}
+
+#### To fix a statistics issue
+
+1. Go to {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}.
+2. In the row of the statistic with the issue, select **Fix issue**. If Home Assistant can't fix the issue for you, the button is called **Info** instead.
+   - Result: A dialog explains the issue and what you can do about it.
+   ![Statistics issue message](/images/docs/developer-tools/statistics_issue.png)
+3. Follow the instructions in the dialog. What you can do depends on the issue:
+   - If the unit changed, update the unit of the old statistics without converting the values. Or delete the old statistics, so Home Assistant can start over.
+   - If the mean type changed, delete the old statistics, so Home Assistant can start over.
+   - If the entity has no state, for example, because you removed its device, you can delete its old statistics.
+   - If the entity is not recorded, or no longer recorded, include it in the [Recorder](/integrations/recorder/) again, so Home Assistant can keep statistics for it. If the entity is no longer recorded and you don't need its old statistics, you can delete them.
+   - If the entity no longer has a state class, Home Assistant can't keep statistics for it until the state class is back. If you set the state class yourself, correct it. If the integration provided it, report an issue to the integration. If you no longer need the old statistics, you can delete them.
+   - Result: The issue is no longer shown in the list. After you delete statistics, it can take a moment for the issue to disappear.
+
+### Adjusting a statistic
+
+Sometimes a statistic has a wrong value at one point in time, for example, after a meter resets, or when a sensor reports a wrong reading. This shows up as a spike in graphs and in the Energy dashboard. You can correct the value. This works for statistics that add up over time, such as energy or water use.
+
+#### To adjust a statistic
+
+1. Go to {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}.
+2. In the row of the statistic, select **Adjust sum** {% icon "mdi:slope-uphill" %}. If this button is not shown, the statistic can't be adjusted.
+   - Result: The **Adjust a statistic** dialog shows the changes around the current time.
+3. Find the wrong value:
+   - To see the 10 largest changes in the history of the statistic, select **Outliers**. A spike is usually one of them.
+   - To look at a specific moment, under **Pick a time**, enter the date and time. The dialog shows up to five changes around that time.
+   ![Screenshot showing the dialog to adjust a statistic where the time, date and value to adjust can be selected](/images/docs/developer-tools/adjust-statistics.png)
+4. Select the wrong value.
+5. Under **New value**, enter the correct change for that period, not the meter reading. For example, enter `0` for a spike after a meter reset.
+   ![Screenshot showing the dialog to adjust a previous selected statistic value](/images/docs/developer-tools/adjust-statistic-value.png)
+6. Select **Adjust**.
+   - Result: The value is corrected, and the graphs show the new value.
+
+### Deleting statistics
+
+Use this to remove statistics that you no longer need, for example, of a device or an integration that you removed.
+
+{% important %}
+**Risk of data loss**
+
+Deleted statistics can't be restored, except from a backup.
+
+To avoid this:
+
+- Check that you selected the right statistics.
+- Before you delete statistics, [create a backup](/common-tasks/general/#creating-a-manual-backup).
+{% endimportant %}
+
+#### To delete statistics
+
+1. Go to {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}.
+2. Next to the search field, select **Enter selection mode** {% icon "mdi:format-list-checks" %}.
+3. Select the statistics that you want to delete. To select all statistics with an issue, open the selection menu and select **Select all with issues**.
+4. Select **Delete selected statistics**, and then select **Delete**.
+   - Result: The statistics are deleted from the database.
 
 ## Assist tab
 
