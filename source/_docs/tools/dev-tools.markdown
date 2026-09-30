@@ -216,7 +216,7 @@ context:
 
 ## Statistics tab
 
-Home Assistant keeps {% term "long-term statistics" %} for sensors that measure something over time, such as temperature or energy use. It stores them in its database, which the [Recorder](/integrations/recorder/) maintains. History graphs, statistics cards, and the Energy dashboard use these statistics. The **Statistics** tab lists all long-term statistics, with their name, statistic ID, unit, source, and any issue.
+Home Assistant keeps {% term "long-term statistics" %} for sensors that measure something over time, such as temperature or energy use. Some {% term integrations %} also add statistics directly, without a sensor, for example, the energy use that your utility reports. Home Assistant stores statistics in its database, which the [Recorder](/integrations/recorder/) maintains. History graphs, statistics cards, and the Energy dashboard use these statistics. The **Statistics** tab lists all long-term statistics, with their name, statistic ID, unit, source, and any issue.
 
 Use the **Statistics** tab to:
 
@@ -272,7 +272,7 @@ Sometimes a statistic has a wrong value at one point in time, for example, after
 
 ### Deleting statistics
 
-Use this to remove statistics that you no longer need, for example, of a device that you removed.
+Use this to remove statistics that you no longer need, for example, of a device or an integration that you removed.
 
 {% important %}
 **Risk of data loss**
