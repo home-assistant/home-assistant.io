@@ -339,7 +339,7 @@ The device or entity is disabled. Disabled devices and entities are not shown wh
 
 {% enddetails %}
 
-## My wait, delay, or for doesn't work as expected
+## My "Wait", "Delay", or "For at least" duration doesn't work as expected
 
 {% details "The trigger reacts later than the For at least duration" %}
 
