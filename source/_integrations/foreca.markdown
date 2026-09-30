@@ -84,7 +84,7 @@ The `weather.get_forecasts` action reads the forecast the integration has alread
 
 - Check that the API key was copied in full from the **My API** page.
 - Confirm that your subscription is still active in your [Foreca developer account](https://developer.foreca.com).
-- Free plans require a verified email address before an API key works.
+- If using a free plan, make sure that you create an account with a verified email address before configuring the integration.
 - A Freemium key that has gone 30 days without any requests is deactivated. Create a new key on the **My API** page.
 
 {% enddetails %}
