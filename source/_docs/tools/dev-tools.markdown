@@ -265,7 +265,7 @@ Sometimes a statistic has a wrong value at one point in time, for example, after
    - To look at a specific moment, under **Pick a time**, enter the date and time. The dialog shows up to five changes around that time.
    ![Screenshot showing the dialog to adjust a statistic where the time, date and value to adjust can be selected](/images/docs/developer-tools/adjust-statistics.png)
 4. Select the wrong value.
-5. Under **New value**, enter the correct value, for example, `0` for a spike after a meter reset.
+5. Under **New value**, enter the correct change for that period, not the meter reading. For example, enter `0` for a spike after a meter reset.
    ![Screenshot showing the dialog to adjust a previous selected statistic value](/images/docs/developer-tools/adjust-statistic-value.png)
 6. Select **Adjust**.
    - Result: The value is corrected, and the graphs show the new value.
