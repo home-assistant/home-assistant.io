@@ -43,7 +43,7 @@ You use everything you install from the Marketplace at your own risk. Before you
 
 To open the Marketplace, go to **Settings** > **Marketplace**. The Marketplace is available to administrators only.
 
-The first time you open it, the Marketplace shows the warning above. Read it, select **I understand the risks, remind me again in 90 days**, and select **Continue**. Every user of your Home Assistant who opens the Marketplace reads the warning once for themselves. Until someone has accepted the warning, nothing can be installed or updated, not even by an automation.
+The first time you open it, the Marketplace shows the warning above. Read it and select **I understand the risks**. **Continue** becomes available after 30 seconds, which gives you the time to read the warning. Every user of your Home Assistant who opens the Marketplace reads the warning once for themselves, and it is not shown to them again. Until someone has accepted the warning, nothing can be installed or updated, not even by an automation.
 
 ## What you can install
 
