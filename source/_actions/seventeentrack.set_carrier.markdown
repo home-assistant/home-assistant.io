@@ -10,7 +10,7 @@ related_actions:
 
 The **Set carrier** action changes the carrier 17Track uses to track a package in your 17Track account.
 
-17Track detects the carrier automatically when a package is added, but sometimes picks the wrong one. For example, a Swiss Post tracking number whose events are only available from Cainiao. Setting the carrier fixes the tracking data for that package.
+17Track detects the carrier automatically when a package is added, but sometimes picks the wrong one. For example, it can detect Swiss Post for a tracking number whose events are only available from Cainiao. Setting the carrier fixes the tracking data for that package.
 
 Carriers are identified by their 17Track carrier code. You can look up codes in the [17Track carrier list](https://res.17track.net/asset/carrier/info/apicarrier.all.json), where the code is the `key` field.
 
@@ -54,7 +54,7 @@ action: |
   action: seventeentrack.set_carrier
   data:
     config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
-    package_tracking_number: LW240952645CH
+    package_tracking_number: "LW240952645CH"
     first_carrier: 190271
 {% endexample %}
 
@@ -107,12 +107,12 @@ script: |
     - action: seventeentrack.add_package
       data:
         config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
-        package_tracking_number: LW240952645CH
+        package_tracking_number: "LW240952645CH"
         package_friendly_name: "Camera part"
     - action: seventeentrack.set_carrier
       data:
         config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
-        package_tracking_number: LW240952645CH
+        package_tracking_number: "LW240952645CH"
         first_carrier: 190271
 {% endexample %}
 
