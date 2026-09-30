@@ -137,9 +137,11 @@ A common source of confusion is "why isn't my template updating?", or the opposi
 
 If you write a template that does not read any state or use `now()`, it runs _once_ at startup and never again. That is fine for constant values, but it's a common trap when you want a template to react to something.
 
-## Why does it work in Tools but not in my automation?
+<a id="why-does-it-work-in-tools-but-not-in-my-automation"></a>
 
-The **Template editor** shows the result of your template right away. It updates the result while you type, and when the states that the template uses change. That makes it great for testing, but a template that works in the editor does not always work in an automation.
+## Why does my template behave differently in Tools?
+
+The **Template editor** shows the result of your template right away. It updates the result while you type, and when the states that the template uses change. That makes it great for testing, but the editor does not run your template the same way as an automation or a template entity. A template can work in the editor and not in your automation, or the other way around.
 
 {% details "Template with `this` or `trigger` shows an error or an empty result in the editor" %}
 
@@ -149,7 +151,7 @@ Your template uses `this` or `trigger`, for example, `{{ trigger.to_state.state 
 
 #### Cause
 
-The editor does not have the variables `this` and `trigger`. They only exist when the template runs in an automation or a template entity.
+The editor does not have the variables `this` and `trigger`. Home Assistant only provides them when the template runs in certain places, such as an automation or a template entity.
 
 #### Resolution
 
