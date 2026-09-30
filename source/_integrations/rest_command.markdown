@@ -6,15 +6,61 @@ ha_category:
 ha_release: 0.36
 ha_iot_class: Local Push
 ha_domain: rest_command
-ha_integration_type: integration
+ha_config_flow: true
+ha_integration_type: service
 ha_codeowners:
   - '@jpbede'
 ---
 
-This {% term integration %} can expose regular REST commands as actions. Actions can be called from a [script] or in [automation].
+The **RESTful Command** {% term integration %} sends HTTP requests from Home Assistant. You can configure named endpoints in the UI or define templated REST commands in YAML. Both configuration methods expose actions that can be called from a [script] or in an [automation].
 
 [script]: /integrations/script/
 [automation]: /getting-started/automation/
+
+{% include integrations/config_flow.md %}
+
+Each UI-managed entry represents one outbound endpoint. Home Assistant initially names the entry after the endpoint's hostname. You can rename the entry after setup.
+
+{% configuration_basic %}
+URL:
+    description: HTTP or HTTPS URL to call. Do not include a username or password in the URL. Use the authentication fields instead.
+HTTP method:
+    description: HTTP method used for the request. Select GET, PATCH, POST, PUT, or DELETE. The default is GET.
+Authentication:
+    description: Authentication method used by the endpoint. Select None, Basic, Digest, or Bearer token. The default is None.
+Username:
+    description: Username used for Basic or Digest authentication.
+Password:
+    description: Password used for Basic or Digest authentication.
+Bearer token:
+    description: Token used for Bearer authentication.
+Default payload:
+    description: >
+      Request body sent when an action does not provide a payload. The
+      prefilled value is `{"message": "The event occurred"}`.
+Content type:
+    description: Content-Type header sent with the request. The default is `application/json`.
+Timeout:
+    description: Maximum number of seconds to wait for the endpoint. The default is 10 seconds.
+Verify SSL certificate:
+    description: Verify the endpoint's TLS certificate. This is enabled by default.
+Use legacy TLS ciphers:
+    description: Allow legacy TLS ciphers. This is disabled by default. Enable it only when the endpoint cannot use modern ciphers.
+Skip URL encoding:
+    description: Send the URL without applying URL encoding. This is disabled by default.
+{% endconfiguration_basic %}
+
+Passwords and Bearer tokens are stored in the config entry. They are not included in action data. When you reconfigure an endpoint, leave the password or token empty to retain the stored value.
+
+Use the **Send request** (`rest_command.call_endpoint`) action to call a UI-managed endpoint. Select the endpoint in the action editor. The payload is optional: when omitted, the endpoint's default payload is sent.
+
+The payload must be a string. If the endpoint expects JSON, provide JSON-encoded text instead of a YAML mapping. An action payload overrides the default payload for that call.
+
+The action can return a response containing `status`, `content`, and `headers`. To use it in an automation, set `response_variable`.
+
+UI-managed endpoints use static URLs and payloads. To template a URL, headers, or payload, or to send arbitrary request headers, use YAML configuration.
+
+## YAML configuration
 
 To use this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -26,9 +72,13 @@ rest_command:
     url: "http://example.com/"
 ```
 
+The command name becomes an action in the form `rest_command.<command_name>`. The name `reload` is reserved and cannot be used for a YAML command.
+
+For backward compatibility, an existing YAML command named `call_endpoint` takes precedence over the action for UI-managed endpoints. While that YAML command is configured, UI-managed endpoints cannot be called. Rename the YAML command, then reload the YAML configuration or restart Home Assistant to make the **Send request** action available.
+
 {% configuration %}
 service_name:
-  description: The name used to expose the action. E.g., in the above example, it would be 'rest_command.example_request'.
+  description: The name used to expose the action. For example, the configuration above creates `rest_command.example_request`.
   required: true
   type: map
   keys:
@@ -53,7 +103,6 @@ service_name:
       description: Type of HTTP authentication. Either `basic` or `digest`.
       required: false
       type: string
-      default: basic
     username:
       description: The username for HTTP authentication.
       required: false
@@ -65,7 +114,7 @@ service_name:
     timeout:
       description: Timeout for requests in seconds.
       required: false
-      type: string
+      type: integer
       default: 10
     content_type:
       description: Content type for the request.
@@ -88,20 +137,81 @@ service_name:
       default: false
 {% endconfiguration %}
 
-## Examples
+{% include integrations/actions.md %}
+
+## RESTful Command automation examples
+
+Use RESTful Command actions to send events to an HTTP endpoint or use an HTTP response in later automation steps.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: send a JSON message when a door opens
+
+Configure a UI-managed endpoint to use POST and the `application/json` content type. Then use **Send request** when a door opens.
+
+- **Trigger**: Front door opened
+- **Action**: Send request
+  - **Endpoint**: Home events
+  - **Payload**: `{"title": "Front door", "message": "The door opened"}`
+
+{% details "YAML example for sending a JSON message" %}
+
+{% example %}
+automation: |
+  alias: "Send a message when the front door opens"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.front_door
+      to: "on"
+  actions:
+    - action: rest_command.call_endpoint
+      data:
+        config_entry_id: REST_COMMAND_CONFIG_ENTRY_ID
+        payload: >-
+          {"title": "Front door", "message": "The door opened"}
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: use a YAML-defined REST command
+
+Call a templated YAML-defined command when the alarm control panel is armed away.
+
+- **Trigger**: Alarm control panel armed away
+- **Action**: Send the alarm state to an endpoint
+
+{% details "YAML example for calling a YAML-defined REST command" %}
+
+{% example %}
+automation: |
+  alias: "Send the alarm state to an endpoint"
+  triggers:
+    - trigger: state
+      entity_id: alarm_control_panel.home
+      to: armed_away
+  actions:
+    - action: rest_command.my_request
+      data:
+        status: "{{ trigger.to_state.state }}"
+        emoji: ":house:"
+{% endexample %}
+
+{% enddetails %}
+
+## YAML configuration examples
 
 ### Basic example which uses PUT method and payload encoded as form data
 
-This example implements 2 REST commands to add actions for the missing shuffle functionality of the iTunes integration.
+This example implements two REST commands to add actions for the missing shuffle functionality of the iTunes integration.
 
 ```yaml
 rest_command:
-  shuffle_on: 
+  shuffle_on:
     url: "http://YOUR_ITUNES-API_SERVER_IP:8181/shuffle"
     method: put
     content_type: "application/x-www-form-urlencoded"
     payload: "mode=songs"
-  shuffle_off: 
+  shuffle_off:
     url: "http://YOUR_ITUNES-API_SERVER_IP:8181/shuffle"
     method: put
     content_type: "application/x-www-form-urlencoded"
@@ -118,13 +228,14 @@ rest_command:
     url: "http://example.com/api/secure-endpoint"
     method: post
     authentication: digest
-    username: "your_username"
-    password: "your_password"
-    payload: '{"data": "example"}'
+    username: "USERNAME"
+    password: "PASSWORD"
+    payload: >-
+      {"data": "example"}
     content_type: "application/json"
 ```
 
-### Using REST command Response in automations
+### Using REST command response in automations
 
 REST commands provide an action response in a dictionary containing `status` (containing the HTTP response code), `content` containing the response body as text or JSON and `headers` containing the response headers.
 This response can be accessed in automations using [`response_variable`](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
@@ -136,7 +247,8 @@ The following example shows how the REST command response may be used in automat
 automation:
   - alias: "Check API response"
     triggers:
-      - ...
+      - trigger: time
+        at: "07:00:00"
     actions:
       - action: rest_command.traefik_get_rawdata
         response_variable: traefik_response
@@ -148,10 +260,10 @@ automation:
               router_errors: >
                 {%- for router in routers -%}
                   {%- if 'error' in routers[router] -%}
-                    {{router}}: {{ routers[router]['error'] }}
+                    {{ router }}: {{ routers[router]['error'] }}
                   {% endif -%}
                 {%- endfor -%}
-              got_errors: "{{ router_errors|length > 0 }}"
+              got_errors: "{{ router_errors | length > 0 }}"
           - if: "{{ got_errors }}"
             then:
               - action: notify.send_message
@@ -166,12 +278,12 @@ automation:
               entity_id: notify.my_device
             data:
               title: "Could not reach Traefik"
-              message: "HTTP code: {{ traefik_response['returncode'] }}"
+              message: "HTTP code: {{ traefik_response['status'] }}"
 
 rest_command:
   traefik_get_rawdata:
-    url: http://127.0.0.1:8080/api/rawdata
-    method: GET
+    url: "http://127.0.0.1:8080/api/rawdata"
+    method: get
 ```
 
 ### Using templates to change the payload based on entities
@@ -184,15 +296,15 @@ This example uses [templates](/docs/templating/) for dynamic parameters.
 # Example configuration.yaml entry
 rest_command:
   my_request:
-    url: https://slack.com/api/users.profile.set
-    method: POST
+    url: "https://slack.com/api/users.profile.set"
+    method: post
     headers:
       authorization: !secret rest_headers_secret
       accept: "application/json, text/html"
-      user-agent: 'Mozilla/5.0 {{ useragent }}'
-    payload: '{"profile":{"status_text": "{{ status }}","status_emoji": "{{ emoji }}"}}'
-    content_type:  'application/json; charset=utf-8'
-    verify_ssl: true
+      user-agent: "Mozilla/5.0 {{ useragent }}"
+    payload: >-
+      {"profile":{"status_text":"{{ status }}","status_emoji":"{{ emoji }}"}}
+    content_type: "application/json; charset=utf-8"
 ```
 
 ### How to test your new REST command
@@ -201,8 +313,8 @@ Call the new action from [Tools](/docs/tools/dev-tools/) in the sidebar with som
 
 ```json
 {
-  "status":"My Status Goes Here",
-  "emoji":":plex:"
+  "status": "My status goes here",
+  "emoji": ":plex:"
 }
 ```
 
@@ -210,15 +322,15 @@ Call the new action from [Tools](/docs/tools/dev-tools/) in the sidebar with som
 
 ```yaml
 automation:
-- alias: "Arrive at Work"
-  triggers:
-    - trigger: zone
-      entity_id: device_tracker.my_device
-      zone: zone.work
-      event: enter
-  actions:
-    - action: rest_command.my_request
-      data:
-        status: "At Work"
-        emoji: ":calendar:"
+  - alias: "Arrive at work"
+    triggers:
+      - trigger: zone
+        entity_id: device_tracker.my_device
+        zone: zone.work
+        event: enter
+    actions:
+      - action: rest_command.my_request
+        data:
+          status: "At work"
+          emoji: ":calendar:"
 ```
