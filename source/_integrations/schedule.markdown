@@ -92,6 +92,38 @@ schedule:
           color_temp: 2500
 ```
 
+Alternatively, you can use `blocks` to apply each time block to multiple days. If you omit `days`, the block applies every day:
+
+```yaml
+schedule:
+  weekly_routine:
+    name: "Weekly routine"
+    blocks:
+      - from: "00:00:00"
+        to: "06:00:00"
+        data:
+          activity: "Sleep"
+      - days:
+          - saturday
+          - sunday
+        from: "09:00:00"
+        to: "12:00:00"
+        data:
+          activity: "Weekend activity"
+      - days:
+          - monday
+          - tuesday
+          - wednesday
+          - thursday
+          - friday
+        from: "09:00:00"
+        to: "17:00:00"
+        data:
+          activity: "Work"
+```
+
+Different blocks can include the same day if their times do not overlap. You cannot combine `blocks` with weekday keys in the same schedule.
+
 {% configuration %}
 schedule:
   description: Alias for the schedule. Multiple entries are allowed.
@@ -112,6 +144,29 @@ schedule:
       type: list
       default: []
       keys:
+        from:
+          description: The start time to mark the schedule as active/on.
+          required: true
+          type: time
+        to:
+          description: The end time to mark as inactive/off again.
+          required: true
+          type: time
+        data:
+          description: A mapping of attribute names to values, which will be added to the entity's attributes when the block is active.
+          required: false
+          type: map
+          default: {}
+    blocks:
+      description: Time blocks that apply to one or more days of the week. You cannot combine `blocks` with weekday keys in the same schedule.
+      required: false
+      type: list
+      keys:
+        days:
+          description: Days of the week to which the time block applies. Accepted values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, and `sunday`. The list must contain at least one value and cannot contain duplicates.
+          required: false
+          type: list
+          default: Every day
         from:
           description: The start time to mark the schedule as active/on.
           required: true
