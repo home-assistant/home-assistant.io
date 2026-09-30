@@ -867,7 +867,7 @@ The automation works when you select **Run actions**, but not when the trigger h
 
 #### Description
 
-**Run actions** skips the triggers and the conditions. If the actions work this way, the problem is in a trigger or a condition.
+**Run actions** skips the triggers and the conditions. If the actions work this way, the problem is usually in a trigger or a condition. It can also be an action that behaves differently in a real run, for example, because it uses `trigger` data, or because an entity has another state at that moment.
 
 #### Resolution
 
@@ -875,6 +875,7 @@ The automation works when you select **Run actions**, but not when the trigger h
 
 - If the list of traces has no run for that moment, the trigger didn't react. Check the causes under [My automation doesn't trigger](#my-automation-doesnt-trigger).
 - If the run is marked **Stopped because a condition failed**, check the causes under [My automation triggered, but nothing happened](#my-automation-triggered-but-nothing-happened).
+- If the run is marked **Stopped on error**, or it finished, but an action didn't have an effect, select that action in the graph. **Step details** shows the error or the values it used. For the causes, refer to [Automation stopped at an action](#automation-stopped-at-an-action-stopped-on-error), and to the other causes under [My automation triggered, but nothing happened](#my-automation-triggered-but-nothing-happened).
 
 {% enddetails %}
 
