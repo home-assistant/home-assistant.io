@@ -97,15 +97,15 @@ To avoid this:
 1. Do one of the following:
    - To simulate a state change, go to {% my developer_states title="**Settings** > **Tools** > **States**" %}.
      - Under **Entity**, select the entity. Then use **Set state** to reproduce the change that your trigger reacts to:
-       - For a **State** trigger, set the state from its **From** value to its **To** value. If the entity already has the **To** state, set it to a different state first. Setting the same state again is not a state change, so the trigger does not react.
-       - For a **Numeric state** trigger, set a value that crosses its **Above** or **Below** threshold. If the value is already past the threshold, first set a value on the other side.
+       - For a state trigger, set the **State** from its **From** value to its **To** value. If the entity already has the **To** state, set it to a different state first. Setting the same state again is not a state change, so the trigger does not react.
+       - For a numeric state trigger, set a value in **State** that crosses its **Above** or **Below** threshold. If the value is already past the threshold, first set a value on the other side.
        - For a trigger on an attribute, change that attribute under **State attributes (YAML, optional)**.
      - For details, refer to [Setting the state of an entity](/docs/tools/dev-tools/#setting-the-state-of-an-entity).
      - Changing the state here doesn't change the device. It only changes the state that Home Assistant shows, so that the trigger reacts. After the test, the state shown may be wrong until the device reports its state again.
      - Result: Every automation with a trigger on that state change starts, with the trigger data of the simulated change. The actions of the automation run for real.
    - To simulate an event, go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
      - If you don't know what the event data looks like, first [listen to the real event](/docs/tools/dev-tools/#subscribe-to-an-event) to see it.
-     - Enter the same **Event type** and **Event data** as in the trigger of your automation, and select **Fire event**. For details, refer to [Firing an event](/docs/tools/dev-tools/#fire-an-event).
+     - Enter the same **Event type** and **Event data (YAML, optional)** as in the trigger of your automation, and select **Fire event**. For details, refer to [Firing an event](/docs/tools/dev-tools/#fire-an-event).
      - Result: Every automation with a trigger on that event starts, with the trigger data of the simulated event. The actions of the automation run for real.
 2. To see what the automation did, open its [trace](#traces).
 
