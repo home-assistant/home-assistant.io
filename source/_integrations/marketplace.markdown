@@ -86,7 +86,7 @@ Repositories that recently joined the catalog are marked as new. To clear that m
 
 What happens next depends on the type:
 
-- **Integration**: When Home Assistant can load it right away, the Marketplace asks whether you want to set it up. Select **Set up** to add it now, or add it later under {% my integrations title="**Settings** > **Devices & services**" %}. Some integrations can only be loaded after a restart, for example when they are set up in YAML. A repair then shows up under {% my repairs title="**Settings** > **System** > **Repairs**" %} to remind you, and it can restart Home Assistant for you.
+- **Integration**: When Home Assistant can load it right away, its setup opens as soon as the installation is done. If you close it, add the integration later under {% my integrations title="**Settings** > **Devices & services**" %}. Some integrations can only be loaded after a restart, for example when they are set up in YAML. A repair then shows up under {% my repairs title="**Settings** > **System** > **Repairs**" %} to remind you, and it can restart Home Assistant for you.
 - **Dashboard**: Reload your browser, so it picks up the new resource.
 - **Theme** and **Template**: These are reloaded for you and are ready to use.
 
@@ -120,7 +120,11 @@ By default, the Marketplace offers stable releases only. To also get pre-release
 2. Open the menu in the top right corner and select **Uninstall**.
 3. Confirm.
 
-The Marketplace deletes the installed files, and for a dashboard card also its dashboard resource. An integration that is still set up cannot be uninstalled: delete it under {% my integrations title="**Settings** > **Devices & services**" %} first. After uninstalling an integration, restart Home Assistant.
+The Marketplace deletes the installed files, and for a dashboard card also its dashboard resource. When an integration you uninstalled is still running, a repair under {% my repairs title="**Settings** > **System** > **Repairs**" %} asks you to restart Home Assistant, and it can do that for you.
+
+An integration that is still set up cannot be uninstalled as it is: the setup runs on the files the Marketplace installed, and without them it would fail to load and leave its devices and entities behind. The Marketplace then shows what is set up. Select **View integration** to delete it yourself, or **Delete and uninstall** to have the Marketplace delete it and uninstall the integration in one go. It asks once more first: deleting the setup also deletes its devices and entities.
+
+The other way around works too. When you delete the last entry of an integration from the Marketplace under {% my integrations title="**Settings** > **Devices & services**" %}, Home Assistant asks whether you want to uninstall it as well.
 
 ## Custom repositories
 
