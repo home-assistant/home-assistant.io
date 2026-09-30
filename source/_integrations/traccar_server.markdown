@@ -255,51 +255,12 @@ In this section you will find some example automations that you can use to get s
 
 #### Do something when a device enters a geofence
 
-The allows you to do something when the device "Millennium Falcon" enters the defined geofence.
+This automation allows you to do something when the device "Millennium Falcon" enters the defined geofence.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/traccar_server_device_enter_geofence.yaml" %}
-
-{% details "Show me the YAML!" %}
-
-```yaml
-triggers:
-  - trigger: state
-    entity_id: sensor.millennium_falcon_geofence
-    to: 'Tatooine'
-actions:
-  ...
-```
-
-{% enddetails %}
+{% blueprint_example blueprint="traccar_server/device_enter_geofence.yaml" %}
 
 #### Do something when a device is speeding
 
 The allows you to do something when the device "Millennium Falcon" exceeds a defined speed.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/traccar_server_device_speed_limit.yaml" %}
-
-{% details "Show me the YAML!" %}
-
-```yaml
-triggers:
-  - trigger: numeric_state
-    entity_id: sensor.millennium_falcon_speed
-    above: 1337
-actions:
-  ...
-```
-
-If you want to include the speed in a notification, you can use the `{{ trigger.to_state.state }}` template.
-
-Partial example:
-
-```yaml
-triggers:
-  ...
-actions:
-  - action: notify.notify
-    data:
-      message: "The current speed of the Millennium falcon is {{ trigger.to_state.state }}!"
-```
-
-{% enddetails %}
+{% blueprint_example blueprint="traccar_server/device_speed_limit.yaml" %}

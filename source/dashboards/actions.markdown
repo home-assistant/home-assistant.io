@@ -65,7 +65,7 @@ tap_action:
       default: none
     navigation_replace:
       required: false
-      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      description: "Whether to replace the current page in the history with the new URL when the `action` is defined as `navigate`"
       type: boolean
       default: none
     url_path:
@@ -137,7 +137,7 @@ hold_action:
       default: none
     navigation_replace:
       required: false
-      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      description: "Whether to replace the current page in the history with the new URL when the `action` is defined as `navigate`"
       type: boolean
       default: none
     url_path:
@@ -209,7 +209,7 @@ double_tap_action:
       default: none
     navigation_replace:
       required: false
-      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      description: "Whether to replace the current page in the history with the new URL when the `action` is defined as `navigate`"
       type: boolean
       default: none
     url_path:

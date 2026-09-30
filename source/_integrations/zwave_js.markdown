@@ -498,7 +498,7 @@ There are two types of events that are fired, notification events and value noti
 
 Check the [Z-Wave JS notification event documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) for an explanation of the notification event data. These events fire with the `zwave_js_notification` event type.
 
-Notification event data can be used to trigger automations, both in the automation UI and in YAML, using the event platform. Check the details of an event by subscribing to the zwave_js_notification event in [Tools](/docs/tools/dev-tools/#subscribe-to-an-event).
+Notification event data can be used to trigger automations, both in the automation UI and in YAML, using the event platform. Check the details of an event by subscribing to the zwave_js_notification event in [Tools](/docs/tools/dev-tools/#listening-to-events).
 
 ```yaml
 # Fires whenever the lock is unlocked by the keypad.
@@ -617,7 +617,7 @@ Value Notification example:
 
 ### Value updated events
 
-Due to some devices not following the Z-Wave Specification, there are scenarios where a device will send a value update but a state change won't be detected in Home Assistant. To address the gap, the `zwave_js_value_updated` event can be listened to to capture any value updates that are received by an affected entity. This event is **enabled on a per device and per entity domain basis**, and the entities will have `assumed_state` set to `true`. This change will affect how the UI for these entities look; if you'd like the UI to match other entities of the same type where `assumed_state` is not set to `true`, you can override the setting via [entity customization](/docs/configuration/customizing-devices/#assumed_state).
+Due to some devices not following the Z-Wave Specification, there are scenarios where a device will send a value update but a state change won't be detected in Home Assistant. To address the gap, the `zwave_js_value_updated` event can be listened to in order to capture any value updates that are received by an affected entity. This event is **enabled on a per device and per entity domain basis**, and the entities will have `assumed_state` set to `true`. This change will affect how the UI for these entities look; if you'd like the UI to match other entities of the same type where `assumed_state` is not set to `true`, you can override the setting via [entity customization](/docs/configuration/customizing-devices/#assumed_state).
 
 The following devices currently support this event:
 
@@ -668,6 +668,8 @@ actions:
 <a id="zwave_jsevent-trigger"></a>
 
 {% include integrations/triggers.md %}
+
+{% include integrations/conditions.md %}
 
 {% include integrations/actions.md %}
 
