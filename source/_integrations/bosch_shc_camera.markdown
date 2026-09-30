@@ -13,7 +13,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Bosch Smart Home Camera** {% term integration %} connects your Bosch SingleKey ID account to Home Assistant. Camera entities for your Bosch Smart Home cameras will be added in a later release.
+The **Bosch Smart Home Camera** {% term integration %} connects your Bosch SingleKey ID account to Home Assistant and lists your Bosch Smart Home cameras.
 
 ## Supported devices
 
@@ -34,15 +34,17 @@ You are redirected to the Bosch login page to sign in with your SingleKey ID. On
 
 ## Supported functionality
 
-This release only sets up the account connection. No entities are created yet.
+### Cameras
+
+The integration creates one camera {% term entity %} for each camera in your account. Each camera appears as a {% term device %} that shows the manufacturer, model, name, and firmware version. Cameras that you add to or remove from your account appear or disappear without a reload. The camera entities do not provide a picture or a stream yet.
 
 ## Data updates
 
-The integration does not retrieve data from your cameras yet.
+The integration polls the Bosch cloud every 5 minutes for the list of cameras in your account.
 
 ## Known limitations
 
-- Camera entities, streaming, and other features are not available yet.
+- Streaming and snapshots are not available yet.
 - A cloud connection is required.
 
 ## Troubleshooting
