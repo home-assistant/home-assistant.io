@@ -2,10 +2,12 @@ blueprint:
   name: Run a LIFX Clean cycle overnight
   description: >
     Start a Clean cycle using the HEV LEDs on one or more LIFX Clean lights
-    at the same time every night, while nobody is using the room.
+    at the same time every night. The default start time of 2:00 AM is when
+    rooms are most likely to be empty. If your schedule is different, adjust
+    the start time.
 
-    Only LIFX Clean lights have HEV LEDs. Run each Clean cycle for at least
-    2 continuous hours.
+    Only LIFX Clean lights have HEV LEDs. We strongly recommend running each
+    Clean cycle for at least 2 continuous hours.
   domain: automation
   author: Djelibeybi
   homeassistant:
@@ -34,7 +36,7 @@ blueprint:
     cycle_duration:
       name: Cycle duration
       description: >
-        How long the Clean cycle runs. Use at least 120 minutes.
+        How long the Clean cycle runs. We strongly recommend at least 120 minutes.
       default: 120
       selector:
         number:

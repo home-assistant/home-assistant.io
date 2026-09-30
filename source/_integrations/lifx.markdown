@@ -109,7 +109,7 @@ The **LIFX** integration provides the following entities.
 
 #### Ceiling and Mirror components
 
-By default, the LIFX Ceiling and LIFX Mirror each show as a single light. Each also has two components that you can enable and control separately. The main light entity always controls the whole light. Enabling or disabling one component's light entity does the same to the other. Home Assistant needs to know the state of each component when it controls the other, for example to decide whether turning one off should power off the whole light.
+By default, the LIFX Ceiling and LIFX Mirror each show as a single light. Each also has two components that you can enable and control separately. The main light entity always controls the whole light. Enabling or disabling one component's light entity does the same to the other. Home Assistant needs to know the state of each component when it controls the other, for example to decide whether turning one off should power off the whole light. Disabling the main light entity also disables its components, and enabling a component also enables the main light entity.
 
 - Turning off one component leaves the other as is. If one component is off and the other is turned off, the main light entity will be powered off instead.
 - Home Assistant tries to turn a component back on with the color and brightness it had when it was turned off, even after a restart. This is not always possible. If the color was changed in the LIFX app in the meantime, the component turns on with the new color. If Home Assistant does not know the brightness, it uses the brightness of the other component. If that is not possible, it sets the component to 80% brightness.
@@ -266,7 +266,7 @@ Use the blueprint to choose the lights, the sky type, the speed, and how long af
 
 ### Automation: Run an HEV cycle overnight
 
-Start a two-hour HEV cycle on a LIFX Clean light at 2 AM every night. It runs from 2 AM to 4 AM, while nobody is using the room. Run each cycle for at least two continuous hours.
+Start a two-hour HEV cycle on a LIFX Clean light at 2 AM every night. The example runs from 2 AM to 4 AM, when rooms are most likely to be empty. If your schedule is different, adjust the start time. We strongly recommend running each cycle for at least two continuous hours.
 
 - **Trigger**: Time: 02:00
 - **Action**: Set HEV cycle state
