@@ -377,6 +377,8 @@ The device or entity is disabled. Disabled devices and entities are not shown wh
 
 ## My "Wait", "Delay", or "For at least" duration doesn't work as expected
 
+If Home Assistant restarted while the automation was waiting, refer to [An automation that was waiting didn't finish](#an-automation-that-was-waiting-didnt-finish).
+
 <a id="the-trigger-reacts-later-than-the-for-at-least-duration"></a>
 
 {% details "The trigger reacts later than the For at least duration" %}
