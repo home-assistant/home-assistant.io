@@ -16,7 +16,7 @@ An automation waits for something to change, then checks its conditions, and the
 
 A trigger reacts to a change, such as a light turning on or the sun setting. An automation does not keep checking whether something is true. It waits for the change and then starts. Behind the scenes, these changes are [events](/docs/configuration/events/), and most of them are changes to the [state](/docs/configuration/state_object/) of an entity.
 
-For example, a **Temperature crossed threshold** trigger with **Threshold type** set to **Above** and a threshold of 25 °C does not react when you save the automation while the temperature is already 26 °C. It reacts the next time the temperature rises above 25 °C.
+For example, a **Temperature crossed threshold** trigger with **Threshold type** set to **Above** and a threshold of 25 °C does not react when you save the automation while the temperature is already 26 °C. It reacts only after the temperature drops to 25 °C or below and then rises above 25 °C again.
 
 ## What counts as a change
 
