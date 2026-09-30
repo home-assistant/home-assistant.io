@@ -73,7 +73,12 @@ The entity was unavailable in between, for example, because the device lost its 
 
 #### Resolution
 
-If the automation should react no matter what the previous state was, clear **From**. The trigger then also reacts when the entity comes back from unavailable.
+If the automation should react no matter what the previous state was, remove the **From** state:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
+2. In the **State changed** trigger, clear **From**.
+   - The trigger then also reacts when the entity comes back from unavailable.
+3. Select **Save**.
 
 {% enddetails %}
 
@@ -224,8 +229,10 @@ The device or entity is disabled. Disabled devices and entities are not shown wh
 
 #### Resolution
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and open the **Devices** or **Entities** tab.
-2. Find the device or entity, and enable it.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Do one of the following:
+   - For a device, open the **Devices** tab, and select the device. Select **Edit settings** {% icon "mdi:pencil" %}, turn on **Enable device**, and select **Update**.
+   - For an entity, open the **Entities** tab, and select the entity. You might need to change the filters of the list to show disabled entities. Select **Settings** {% icon "mdi:cog-outline" %}, turn on **Enabled**, and select **Update**.
 
 {% enddetails %}
 
@@ -388,7 +395,10 @@ A number on its own means that exact value. **Minutes** set to `5` runs at 5 min
 
 #### Resolution
 
-Set **Minutes** to `/5`. The `/` counts from the clock, so `/5` runs at 0, 5, 10 minutes past the hour, and so on. Use a value that divides 60 evenly, such as `/5`, `/10`, or `/15`, to get even intervals.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
+2. In the **Time pattern** trigger, set **Minutes** to `/5`.
+   - The `/` counts from the clock, so `/5` runs at 0, 5, 10 minutes past the hour, and so on. Use a value that divides 60 evenly, such as `/5`, `/10`, or `/15`, to get even intervals.
+3. Select **Save**.
 
 {% enddetails %}
 
@@ -404,8 +414,11 @@ The offset is set to before the event. In the **Sunrise** and **Sunset** trigger
 
 #### Resolution
 
-- In the **Sunrise** or **Sunset** trigger, set **Offset type** to **After** to run after the event.
-- In the **Sun** trigger, remove the `-` from the offset to run after the event.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
+2. In the trigger, set the offset to after the event:
+   - In the **Sunrise** or **Sunset** trigger, set **Offset type** to **After**.
+   - In the **Sun** trigger, remove the `-` from the offset.
+3. Select **Save**.
 
 {% enddetails %}
 
@@ -438,7 +451,11 @@ The date and time helper only has a date, no time. The trigger then runs at midn
 
 #### Resolution
 
-Set the helper to have a date and a time, or only a time, and set the time.
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} and select the date and time helper.
+2. Select **Settings** {% icon "mdi:cog-outline" %}.
+3. Under **What do you want to input**, select **Date and time**, or **Time**, and then select **Update**.
+4. Set the time of the helper.
+   - Result: The trigger runs at the time of the helper.
 
 {% enddetails %}
 
@@ -471,7 +488,11 @@ When the clocks go forward, some times don't exist on that day, for example, 02:
 
 #### Resolution
 
-If the automation must run every day, choose a time outside the hours when the clocks change, for example, before 01:00 or after 04:00.
+If the automation must run every day, choose a time outside the hours when the clocks change:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
+2. In the **Time** trigger, set the time to before 01:00 or after 04:00.
+3. Select **Save**.
 
 {% enddetails %}
 
@@ -487,7 +508,11 @@ When the clocks go back, some times happen twice, for example, 02:30. A trigger 
 
 #### Resolution
 
-If the automation must run only once, choose a time outside the hours when the clocks change, for example, before 01:00 or after 04:00.
+If the automation must run only once, choose a time outside the hours when the clocks change:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
+2. In the **Time** trigger, set the time to before 01:00 or after 04:00.
+3. Select **Save**.
 
 {% enddetails %}
 
@@ -577,7 +602,10 @@ Conditions are only checked once, right after a trigger reacts. They don't start
 
 #### Resolution
 
-Add a trigger for the change that makes the condition true, so the automation also starts at that moment. The conditions are then checked again.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
+2. Under **When**, select **Add trigger**, and add a trigger for the change that makes the condition true.
+3. Select **Save**.
+   - Result: The automation also starts at that moment, and checks its conditions again.
 
 {% enddetails %}
 
@@ -593,7 +621,12 @@ The automation only runs when all its conditions are met.
 
 #### Resolution
 
-To run the automation when at least one condition is met, add an **Or** building block, and move the conditions into it.
+To run the automation when at least one condition is met, put the conditions in an **Or** building block:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
+2. Under **And if**, select **Add building block**, and then select **Or**.
+3. Drag the conditions into the **Or** building block by their handle {% icon "mdi:drag-horizontal-variant" %}.
+4. Select **Save**.
 
 {% enddetails %}
 
@@ -609,7 +642,13 @@ The automation has a **Numeric state** condition. The value is exactly at the th
 
 #### Resolution
 
-If the value can be exactly at the threshold, and it should pass, set the threshold a little lower, matching the precision of the sensor. For example, for a sensor that reports whole numbers, set **Above** to 19 to include 20. For a sensor with decimals, use a **Template** condition that compares with `>=` instead.
+If the value can be exactly at the threshold, and it should pass, set the threshold a little lower, matching the precision of the sensor:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
+2. In the **Numeric state** condition, change the threshold. For example, for a sensor that reports whole numbers, set **Above** to 19 to include 20.
+3. Select **Save**.
+
+For a sensor with decimals, use a **Template** condition that compares with `>=` instead.
 
 {% enddetails %}
 
@@ -625,7 +664,8 @@ A **Numeric state** condition doesn't pass when the value is unavailable or unkn
 
 #### Resolution
 
-Check the state of the entity, and of the threshold entity, if you use one. If it is unavailable, check that the device has power and a connection.
+1. Go to {% my developer_states title="**Settings** > **Tools** > **States**" %} and check the state of the entity, and of the threshold entity, if you use one.
+2. If it is unavailable, check that the device has power and a connection.
 
 {% enddetails %}
 
@@ -657,7 +697,9 @@ The automation has a **Time** condition with **Days of the week**, and a time ra
 
 #### Resolution
 
-Also select the next day under **Days of the week**, for example, Saturday for a range that starts on Friday evening.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
+2. In the **Time** condition, under **Days of the week**, also select the next day, for example, Saturday for a range that starts on Friday evening.
+3. Select **Save**.
 
 {% enddetails %}
 
@@ -905,7 +947,9 @@ The trigger has no **From** and no **To** state. Then it reacts to every change 
 
 #### Resolution
 
-In the trigger, under **To**, select the state that the automation should react to. To react to every state change, but not to attribute changes, select **Any state (ignoring attribute changes)**.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
+2. In the **State changed** trigger, under **To**, select the state that the automation should react to. To react to every state change, but not to attribute changes, select **Any state (ignoring attribute changes)**.
+3. Select **Save**.
 
 {% enddetails %}
 
@@ -939,7 +983,10 @@ The entity in the trigger changes back and forth quickly, for example, a motion 
 
 #### Resolution
 
-In the trigger, set **For at least** to a duration, for example, 1 minute. The trigger then only reacts when the entity has kept the new state for that time.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
+2. In the trigger, set **For at least** to a duration, for example, 1 minute.
+   - The trigger then only reacts when the entity has kept the new state for that time.
+3. Select **Save**.
 
 {% enddetails %}
 
