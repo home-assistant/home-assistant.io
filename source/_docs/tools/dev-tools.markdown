@@ -1,28 +1,26 @@
 ---
 title: "Tools"
-description: "Description of the Home Assistant tools."
+description: "Use the Tools in Home Assistant to check your configuration, look at the states of your entities, and test actions, templates, events, and Assist sentences."
 ---
 
-Home Assistant contains a section called **Tools**. In the left sidebar, go to **Settings** > **Tools** to open it.
+**Tools** let you look at what is happening in Home Assistant and try things out, without creating an {% term automation %} or a dashboard first. For example, you can check the current {% term state %} of an {% term entity %}, control a {% term device %}, test a {% term template %}, or see which {% term events %} happen. Tools are useful for everyone, not only for developers.
+
+Tools are only available to administrators. To open Tools, go to {% my tools_yaml title="**Settings** > **Tools**" %}.
 
 <p class='img'>
 <img src='/images/screenshots/tools.png' alt='Screenshot showing the Tools page in Home Assistant' />
 Screenshot of Home Assistant's tools.
 </p>
 
-| Section    | Description                                                         |
-| ---------- | ------------------------------------------------------------------- |
-| YAML       | Lets you validate the configuration and trigger a reload or restart |
-| States     | Sets the representation of an entity                                |
-| Actions    | Performs actions from integrations                                  |
-| Template   | Renders templates                                                   |
-| Events     | Fires events                                                        |
-| Statistics | Shows a list of long-term statistic entities                        |
-| Assist     | Lets you see how Home Assistant Assist processes a sentence         |
+Tools has the following tabs:
 
-## What can I do with Home Assistant's Tools?
-
-The available tools are meant for _all_ (not just for the developers) to quickly try out things, such as performing actions, updating states, raising events, and publishing messages in MQTT). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the sections in detail.
+- Check your configuration, reload YAML configuration, and restart Home Assistant in the [**YAML** tab](#yaml-tab).
+- See the current state and attributes of your entities, and set a state to test automations, in the [**States** tab](#states-tab).
+- Perform any {% term action %}, for example, to control a device, in the [**Actions** tab](#actions-tab).
+- Write a template and see its result right away in the [**Template** tab](#template-editor-tab).
+- Fire an event, or listen to events to see what happens, in the [**Events** tab](#events-tab).
+- Find, fix, and adjust {% term "long-term statistics" %} in the [**Statistics** tab](#statistics-tab).
+- Test how Assist understands a sentence in the [**Assist** tab](#assist-tab).
 
 ## YAML tab
 
