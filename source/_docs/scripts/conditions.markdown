@@ -806,7 +806,15 @@ For the full list of available conditions and its details, refer to the [To-do l
 
 ### Triggered by condition
 
-The triggered by condition can test if an automation was triggered by a certain trigger, identified by the trigger's `id`.
+The **Triggered by** condition tests whether a specific trigger started the automation.
+
+In the visual automation editor, add a **Triggered by** condition and select one or more triggers. Home Assistant creates and manages the trigger IDs needed for your selections.
+
+If the editor shows a **Missing trigger** warning, the condition references a trigger that no longer exists. Clear the selection to remove the reference.
+
+If the editor warns that triggers share the same ID, select **Fix** to give each referenced trigger its own ID and update the affected triggered by conditions. Review any templates or action data that use `trigger.id` directly, because Home Assistant does not update them.
+
+In YAML, the condition identifies the trigger by its ID:
 
 ```yaml
 conditions:
