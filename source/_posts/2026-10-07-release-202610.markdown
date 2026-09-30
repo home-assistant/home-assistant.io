@@ -137,6 +137,8 @@ This is only the start. It all follows an [Open Home Foundation design concept](
 
 Last but definitely not least: a big shout-out to the [OpenStreetMap Foundation](https://osmfoundation.org/). 💚 OpenStreetMap is a map of the world built by millions of volunteers, and it's open data, owned by no single company. The foundation behind it is a nonprofit that keeps it all running, including the tile servers every Home Assistant map now draws from. That fits the Open Home like a glove!
 
+And just like Home Assistant, OpenStreetMap is made by people like you. Spot something in your neighborhood that's missing or out of date? You can [leave a note or edit the map yourself](https://wiki.openstreetmap.org/wiki/Getting_Involved).
+
 ## A tidier profile page
 
 Select your name at the bottom of the sidebar, and you land on your {% my profile title="**User profile**" %}. Over the years, that page quietly turned into a bit of a junk drawer. Language, theme, date formats, sidebar order, push notifications, keyboard shortcuts: all stacked in one long **General** tab, with **Security** as its only neighbor. Everything was there. You just had to scroll past most of it to find the one thing you came for.
