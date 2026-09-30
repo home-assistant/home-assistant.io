@@ -15,11 +15,11 @@ or need to recover your data.
 
 ## Forgot username
 
-### Symptom: I'm the owner and I forgot my username
+### Symptom
 
 You are the **owner** of the Home Assistant server and you cannot login because you forgot your username.
 
-#### Remedy
+#### Resolution
 
 1. Check if the following conditions are met:
    - you are using the {% term "Home Assistant Operating System" %}
@@ -38,11 +38,11 @@ You are the **owner** of the Home Assistant server and you cannot login because 
 
 ## Forgot password
 
-### Symptom: I'm the owner and I forgot my password
+### Symptom
 
 You are the owner or administrator of Home Assistant and forgot your password.
 
-### Remedy: resetting an owner's password
+### Resolution
 
 If you are the owner or have administrator, there are different methods to reset a password, depending on your situation:
 
