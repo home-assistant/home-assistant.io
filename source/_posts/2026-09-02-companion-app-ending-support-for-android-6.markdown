@@ -26,7 +26,7 @@ Using Android 7.0 as our minimum requirement still reaches 99.2% of active Andro
 
 ## What this means for you
 
-A overview of what’s changing:
+An overview of what’s changing:
 
 - The last Companion app update for Android 6.0 will be version 2026.8.4.
 - From version 2026.9.0 onward, the minimum supported version will be Android 7.0.
