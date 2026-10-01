@@ -167,8 +167,8 @@ The **Set conversation response** action sets what Assist says, or shows, when a
 
 ### Adding Set conversation response in the editor
 
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
-2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation that has the sentence trigger.
+2. In the **Then do** section, select **Add action**.
 3. Search for and select **Set conversation response**.
 4. In **Set conversation response**, enter the response. You can use a template, for example, to include the state of an entity.
 5. Select **Save**.
@@ -218,6 +218,7 @@ set_conversation_response:
 
 - Assist uses the response when the automation finishes. If the automation sets the response more than once, the last one is used.
 - If the automation didn't start from a conversation, for example, from a time trigger, the response isn't used.
+- Set the response in the automation itself. If the automation runs a script, a response that the script sets doesn't reach Assist. To use data from a script, let the script [return a response](#examples-of-stop) with **Stop**, and use that data in the automation's **Set conversation response**.
 
 ### Examples of Set conversation response
 
@@ -640,16 +641,16 @@ script: |
         - variables:
             people: "{{ people + 1 }}"
             paulus_home: true
-        # "There are 1 people home"
+        # "People at home: 1"
         - action: notify.notify
           data:
-            message: "There are {{ people }} people home"
+            message: "People at home: {{ people }}"
     # Variable value is now updated
-    # "There are 1 people home (including Paulus)"
+    # "People at home: 1 (including Paulus)"
     - action: notify.notify
       data:
         message: >
-          There are {{ people }} people home
+          People at home: {{ people }}
           {% if paulus_home is defined %}(including Paulus){% endif %}
 {% endexample %}
 
