@@ -13,8 +13,8 @@
     An action makes Home Assistant do something, for example, turn on a light,
     send a notification, or activate a scene. Automations and scripts run a
     list of actions. Dashboards use actions too, for example, when you tap a
-    card. An action makes something happen, while an event tells you that
-    something happened. For more information, refer to [events and
+    card. Events are different: an event tells you that something happened.
+    For more information, refer to [events and
     actions](/docs/configuration/events/#events-and-actions).
   aliases:
     - actions
