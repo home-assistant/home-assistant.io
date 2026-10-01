@@ -4,6 +4,7 @@ action: portainer.prune_images
 domain: portainer
 description: "Removes unused images from a Portainer endpoint."
 related_actions:
+  - portainer.prune_build_cache
   - portainer.recreate_container
 ---
 
