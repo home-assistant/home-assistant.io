@@ -667,7 +667,6 @@
   definition: >-
     A trigger is the part of an automation that makes the automation run when
     a specific change happens, for example, when the sun sets or a door opens.
-    A trigger reacts at the moment of the change.
   link: /docs/automation/trigger/
   aliases:
     - triggers
