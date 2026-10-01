@@ -75,8 +75,12 @@ The buttons can be used in automations like any other entity. Here is an example
 
 Start the pre-wash as soon as someone closes the bathroom door, so the bowl is ready by the time it is used.
 
-- **Trigger**: Entity: bathroom door sensor changes from **Open** to **Closed**
-- **Action**: Button: press **Stop (hold)**
+- **Trigger**: State
+  - **Entity**: Bathroom door sensor (`binary_sensor.bathroom_door`)
+  - **From**: `on`
+  - **To**: `off`
+- **Action**: Press button
+  - **Target**: Alpha Bidet JX2 Stop (hold) (`button.alpha_bidet_jx2_stop_hold`)
 
 {% details "YAML example for a pre-wash when the door closes" %}
 
@@ -99,7 +103,7 @@ automation: |
 ## Known limitations
 
 - The integration uses assumed state, meaning Home Assistant cannot read the actual state of the bidet. Changes made with the physical remote or the bidet's control panel are not tracked.
-- Water and seat temperature cannot be set from Home Assistant yet.
+- Water and seat temperature cannot be set from Home Assistant.
 - Water pressure, dryer temperature, and nozzle position can only be stepped up or down, because the remote sends those keys as relative steps. Home Assistant cannot set them to a specific level or tell which level is active.
 - Functions that are only on the bidet's control panel, such as power, the nightlight, power saving, quiet mode, and nozzle cleaning, have no infrared code and cannot be controlled.
 - The infrared transmitter needs a clear line of sight to the bidet's receiver. A blocked or missed command is not reported.
