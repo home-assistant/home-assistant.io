@@ -80,7 +80,7 @@ Don't manually delete or rename the files in the backup path on the NAS. This co
 
 ### Example
 
-Assume there is a shared folder called `HA Backup`, with two directories in it `production_instance` and `test_instance`.
+Assume there is a shared folder called `HA Backup`, with two directories in it: `production_instance` and `test_instance`.
 
 #### Use an existing path
 
