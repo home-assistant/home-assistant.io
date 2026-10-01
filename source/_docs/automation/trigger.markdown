@@ -1,6 +1,6 @@
 ---
 title: "Automation triggers"
-description: "Triggers start an automation when something changes, such as a sensor changing state, a time of day, the sun setting, or a person arriving home."
+description: "Triggers start an automation when something they watch changes, such as a sensor changing state, a time of day, the sun setting, or a person arriving home."
 related:
   - docs: /voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation
     title: Adding a custom sentence to trigger an automation
