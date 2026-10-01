@@ -4,7 +4,7 @@ description: "Automations result in action."
 toc: false
 ---
 
-The action of an automation is what is being executed when an automation fires. The action part follows the [script syntax](/docs/scripts/) which can be used to interact with anything via other actions or events.
+The actions of an automation make something happen, for example, turn on a light or send a notification. They run after a trigger has started the automation and the conditions are met. The action part follows the [script syntax](/docs/scripts/) which can be used to interact with anything via other actions or events.
 
 For actions, you can specify the `entity_id` that it should apply to and optional parameters (to specify for example the brightness).
 
