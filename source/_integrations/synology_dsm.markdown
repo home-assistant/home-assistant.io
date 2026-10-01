@@ -80,15 +80,13 @@ Don't manually delete or rename the files in the backup path on the NAS. This co
 
 ### Example
 
-Assume there is a shared folder called `HA Backup`, with two directories in it `productive_instance` and `test_instance`.
-
-<img src="/images/integrations/synology_dsm/synology_file_station.png" />
+Assume there is a shared folder called `HA Backup`, with two directories in it `production_instance` and `test_instance`.
 
 #### Use an existing path
 
 1. Select `HA Backup` as shared folder.
-2. Define `productive_instance` as backup path (_without trailing slash_).
-    - **Result**: The existing `productive_instance` will be used as backup location.
+2. Define `production_instance` as backup path (_without trailing slash_).
+    - **Result**: The existing `production_instance` will be used as backup location.
 
 #### Use a non-existing path
 
