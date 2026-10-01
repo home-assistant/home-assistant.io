@@ -12,7 +12,7 @@ related:
     title: Statistics graph card
 ---
 
-Home Assistant saves every state change of your entities in its database, but only for a limited time, by default 10 days. For many sensors, it also saves statistics, of two kinds: short-term statistics every 5 minutes, and long-term statistics every hour. Short-term statistics are deleted together with the state history. Long-term statistics are kept for as long as you use Home Assistant. With them, you can look back at your energy use or the temperature in your home over months and years.
+Home Assistant saves every state change of your entities in its database, but only for a limited time, by default 10 days. For many sensors, it also saves statistics, of two kinds: short-term statistics every 5 minutes, and long-term statistics every hour. Short-term statistics are deleted together with the state history. Long-term statistics are never deleted automatically. With them, you can look back at your energy use or the temperature in your home over months and years.
 
 You don't have to set anything up. Home Assistant creates both kinds automatically for the sensors that support them. On this page, "statistics" means both kinds. Where only one kind applies, the page says which.
 
@@ -51,19 +51,33 @@ Short-term and long-term statistics contain the same values, for a period of 5 m
 
 - **Measurement**
   - The average, the lowest, and the highest value in each period.
+  - The average is weighted by time: a value that stays the same for 4 minutes counts four times as much as a value that lasts 1 minute. So a sensor that updates unevenly still gets a correct average.
 - **Measurement angle**
-  - The average angle in each period. Home Assistant calculates the average so that, for example, 350° and 10° give 0°, not 180°.
+  - The average angle in each period, also weighted by time. Home Assistant calculates the average so that, for example, 350° and 10° give 0°, not 180°.
 - **Total** and **Total increasing**
   - The sum: how much the value has changed since Home Assistant started keeping statistics for the sensor. The first value it sees is the starting point.
   - The last value in each period.
 
-For **Total increasing**, a drop of more than 10% counts as a reset, for example, when a meter starts again from zero. The sum then continues from where it was, so the reset doesn't count as a negative amount. For **Total**, the sum can also go down.
+For **Total increasing**, what happens when the value drops depends on how much it drops:
+
+- A drop of more than 10% counts as a reset, for example, when a meter starts again from zero.
+  - The sum continues from where it was, so the reset doesn't count as a negative amount.
+- A smaller drop doesn't count as a reset.
+  - The sum goes down by that amount.
+  - Home Assistant can log a warning that the state of the sensor isn't strictly increasing.
+- A negative value is skipped, and Home Assistant logs a warning.
+
+For **Total**, the sum can go up and down. A reset works differently:
+
+- The integration signals a reset with the `last_reset` attribute of the sensor, which holds the time of the last reset.
+  - When `last_reset` changes, Home Assistant starts a new cycle. The sum keeps what was counted so far, and the new value counts from zero.
+- If the sensor has no `last_reset` attribute, Home Assistant doesn't detect resets. The sum follows the value up and down.
 
 ## Where statistics are used
 
 Home Assistant uses statistics in these places:
 
-- The [Energy dashboard](/docs/energy/) uses the long-term statistics of your energy, gas, and water sensors. For power graphs of a period up to 8 days, it uses the short-term statistics.
+- The [Energy dashboard](/docs/energy/) uses the long-term statistics of your energy, gas, and water sensors. For power graphs of short periods, about a week or less, it uses the short-term statistics.
 - The [Statistics graph card](/dashboards/statistics-graph/) shows statistics for the period that you choose. With **5 minutes**, it shows the short-term statistics. With **Hour** or longer, it shows the long-term statistics.
 - The [Statistic card](/dashboards/statistic/) shows one value, such as the average temperature today. It combines both kinds, so the value is exact for the period you choose.
 - The [History graph card](/dashboards/history-graph/) and the **History** panel show the state history. For older periods, when the state history has already been deleted, they show the long-term statistics instead.
@@ -76,13 +90,18 @@ Some {% term integrations %} add long-term statistics directly, without a sensor
 
 Both kinds of statistics only work if the values stay comparable over time. Home Assistant checks this every 5 minutes, when it saves the short-term statistics. The long-term statistics are calculated from them, so if the short-term statistics stop, the long-term statistics stop too:
 
-- If the unit of a sensor changes to another unit of the same kind, for example, from W to kW, Home Assistant converts the values, and the statistics continue.
+- If the unit of a sensor changes to another unit of the same kind, for example, from W to kW, the statistics continue.
+  - Home Assistant keeps saving the statistics in the original unit, W in this example, and converts the new values to it.
+  - The [Statistics graph card](/dashboards/statistics-graph/) shows the statistics in the current unit of the sensor, kW in this example.
 - If the unit changes to a unit that can't be converted, for example, from kWh to m³, Home Assistant stops the statistics for the sensor until you fix it.
 - If the sensor no longer has a state class, Home Assistant stops the statistics for it.
+- If the state class changes between **Measurement** and **Measurement angle**, Home Assistant stops the statistics for the sensor, because it calculates the average differently. The statistics continue when the state class changes back, or after you delete the old statistics.
 
 In these cases, an issue appears in {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}, and often also under {% my repairs title="**Settings** > **System** > **Repairs**" %}. For how to fix it, refer to [Fixing a statistics issue](/docs/tools/dev-tools/#fixing-a-statistics-issue).
 
 ## Good to know
 
+- If you delete a sensor, its long-term statistics stay. The **Statistics** tab shows the issue "There is no state available for this entity.", and you can delete the statistics there.
+- If you change the entity ID of a sensor, its statistics move to the new entity ID. Changing the name of a sensor doesn't affect its statistics.
 - If you exclude an entity from the recorder later, its existing long-term statistics stay. You can delete them in the [**Statistics** tab](/docs/tools/dev-tools/#deleting-statistics).
 - To correct a wrong value, for example, a spike in your energy use, refer to [Adjusting a statistic](/docs/tools/dev-tools/#adjusting-a-statistic).
