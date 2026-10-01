@@ -45,7 +45,6 @@ The integration does not connect to your vehicle directly. It uses the telemetry
 
 - Non-electric vehicles.
 - Vehicles that are not added to your ABRP garage.
-- Vehicles that are in your ABRP garage but have not sent telemetry yet.
 
 ## Prerequisites
 
