@@ -62,7 +62,7 @@ For **Total increasing**, what happens when the value drops depends on how much 
 
 - A drop of more than 10% counts as a reset, for example, when a meter starts again from zero.
   - The sum continues from where it was, so the reset doesn't count as a negative amount.
-- A smaller drop doesn't count as a reset.
+- A drop of 10% or less doesn't count as a reset.
   - The sum goes down by that amount.
   - Home Assistant can log a warning that the state of the sensor isn't strictly increasing.
 - A negative value is skipped, and Home Assistant logs a warning.
