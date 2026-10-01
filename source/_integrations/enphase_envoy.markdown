@@ -460,6 +460,7 @@ Data for an installed Enphase Enpower off-grid enabling switch is available in v
 
 #### Enpower binary sensor entities
 
+- **Enpower <abbr title="Enpower serial number">SN</abbr> Communicating**: Communication status of enpower switch, Connected / Disconnected. This is a diagnostics entity.
 - **Enpower <abbr title="Enpower serial number">SN</abbr> Grid status**: status of the grid.
 
 #### Enpower number entities
@@ -474,7 +475,7 @@ Data for an installed Enphase Enpower off-grid enabling switch is available in v
 
 - **Enpower <abbr title="Enpower serial number">SN</abbr> Temperature**: Current temperature in degrees C or F, based on your localization.
 - **Enpower <abbr title="Enpower serial number">SN</abbr> Last reported**: Time when Envoy received last update from the enpower device.
-- **Enpower <abbr title="Enpower serial number">SN</abbr> Communicating**: Communication status of enpower switch, Connected / Disconnected. This is a diagnostics entity.
+
 - **Enpower <abbr title="Enpower serial number">SN</abbr> Communication level 2.4 GHz**: Communication level of the wireless 2.4 GHz channel on a scale from 0 to 5. This diagnostic entity is disabled by default.
 - **Enpower <abbr title="Enpower serial number">SN</abbr> Communication level sub-GHz**: Communication level of the sub-GHz channel on a scale from 0 to 5. This diagnostic entity is disabled by default.
 
