@@ -130,31 +130,44 @@ After you update an integration, restart Home Assistant to apply the update. A r
 
 By default, the Marketplace offers stable releases only. To also get pre-releases of a repository, enable its **Pre-release** switch. You can find it on the repository's Marketplace device page, under {% my integration domain="marketplace" title="**Settings** > **Devices & services** > **Marketplace**" %}. The **Pre-release** entity is disabled by default. Enable the entity, then turn on the switch.
 
-## Example automations
+## Marketplace automation examples
 
-You can create an automation that displays a persistent notification when an update is available.
+Marketplace update entities can help you stay informed about available updates. Here is an example to get you started.
 
-### Get a notification when an update is available
+{% include docs/paste_yaml_tip.md %}
 
-Replace `update.card_mod` with the update entity ID for the repository for which you want notifications. You can find it on the repository's Marketplace device page, under {% my integration domain="marketplace" title="**Settings** > **Devices & services** > **Marketplace**" %}.
+### Automation: show a notification when an update is available
 
-```yaml
-alias: "Marketplace update available"
-description: "Tell me when a new version of a repository is available"
-triggers:
-  - trigger: state
-    entity_id:
-      - update.card_mod
-    from: "off"
-    to: "on"
-actions:
-  - action: persistent_notification.create
-    data:
-      title: "Marketplace update"
-      message: >-
-        Version {{ state_attr(trigger.entity_id, 'latest_version') }} of
-        {{ state_attr(trigger.entity_id, 'friendly_name') }} is available.
-```
+When a new version is available for a Marketplace repository, this automation creates a notification in Home Assistant. Replace `update.card_mod` with the update entity ID for the repository. You can find it on the repository's Marketplace device page, under {% my integration domain="marketplace" title="**Settings** > **Devices & services** > **Marketplace**" %}.
+
+- **Trigger**: State changed
+  - **Entity**: Marketplace repository update (`update.card_mod`)
+  - **To**: Update available
+- **Action**: Create persistent notification
+  - **Title**: Marketplace update
+  - **Message**: A new version is available for the Marketplace repository.
+
+{% details "YAML example for a Marketplace update notification" %}
+
+{% example %}
+automation: |
+  alias: "Marketplace update available"
+  description: "Tell me when a new version of a repository is available"
+  triggers:
+    - trigger: state
+      entity_id: update.card_mod
+      from: "off"
+      to: "on"
+  actions:
+    - action: persistent_notification.create
+      data:
+        title: "Marketplace update"
+        message: >-
+          Version {{ state_attr(trigger.entity_id, 'latest_version') }} of
+          {{ state_attr(trigger.entity_id, 'friendly_name') }} is available.
+{% endexample %}
+
+{% enddetails %}
 
 ## Uninstalling a repository
 
