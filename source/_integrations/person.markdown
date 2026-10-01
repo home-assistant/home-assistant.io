@@ -41,7 +41,7 @@ You can manage persons {% my people title="via the UI from the person page insid
 
 Person entities work with the [Zone entered](/triggers/zone.entered/) and [Zone left](/triggers/zone.left/) triggers, so you can run automations when a person enters or leaves a zone. This is useful for presence automations such as turning on lights when you arrive home or sending a notification when someone leaves a place.
 
-You can also use a [state trigger](/triggers/state/) to react to the state of a person entity, such as `home`, `not_home`, or the name of a zone.
+You can also use a [State changed trigger](/triggers/state/) to react to the state of a person entity, such as `home`, `not_home`, or the name of a zone.
 
 ## Adding a person to Home Assistant
 

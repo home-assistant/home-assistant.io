@@ -124,7 +124,7 @@ You can use this integration to create automations that send a notification to y
 
 This automation sends a notification message to an email address when the front door opens.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Front door binary sensor
   - **To**: On
 - **Action**: Send a notification message

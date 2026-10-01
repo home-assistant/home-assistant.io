@@ -57,7 +57,7 @@ This action has no additional YAML options beyond the target.
 
 Send the mower back to its dock when rain is detected while it is mowing.
 
-- **Trigger**: State: Rain sensor turns on
+- **Trigger**: State changed: Rain sensor turns on
 - **Condition**: Lawn mower is mowing
 - **Action**: Return lawn mower to dock
   - **Target**: Backyard mower

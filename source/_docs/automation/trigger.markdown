@@ -16,7 +16,7 @@ After you select **Add trigger** in the automation editor, Home Assistant shows 
 
 These specific triggers handle Home Assistant details for you. Measurement triggers, such as temperature and power triggers, compare compatible units automatically. For example, a temperature sensor can report in Fahrenheit while the trigger threshold is set in Celsius.
 
-General triggers, such as **State** and **Numeric state**, are still available. Use them when you need to watch an exact state, use an attribute, work with a trigger that does not have a more specific option, or edit existing YAML.
+General triggers, such as **State changed** and **Numeric state crossed threshold**, are still available. Use them when you need to watch an exact state, use an attribute, work with a trigger that does not have a more specific option, or edit existing YAML.
 
 ## Elements of a trigger in YAML
 
@@ -92,9 +92,11 @@ For setup steps, YAML options, and examples for the Home Assistant trigger, see 
 
 For setup steps, YAML options, and examples for the MQTT trigger, see [MQTT trigger](/triggers/mqtt/).
 
-### Numeric state trigger
+<a id="numeric-state-trigger"></a>
 
-For setup steps, YAML options, and examples for the numeric state trigger, see [Numeric state trigger](/triggers/numeric_state/).
+### Numeric state crossed threshold trigger
+
+For setup steps, YAML options, and examples for the **Numeric state crossed threshold** trigger, see [Numeric state crossed threshold trigger](/triggers/numeric_state/).
 
 ### Sentence trigger
 
@@ -104,9 +106,11 @@ For setup steps, YAML options, and examples of a sentence trigger, see [Sentence
 
 For wildcard syntax and examples, see [Sentence wildcards](/integrations/conversation/#sentence-wildcards).
 
-### State trigger
+<a id="state-trigger"></a>
 
-For setup steps, YAML options, and examples for the state trigger, see [State trigger](/triggers/state/).
+### State changed trigger
+
+For setup steps, YAML options, and examples for the **State changed** trigger, see [State changed trigger](/triggers/state/).
 
 ### Sun trigger
 

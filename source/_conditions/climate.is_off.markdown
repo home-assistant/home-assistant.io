@@ -75,7 +75,7 @@ behavior:
 
 When the outdoor temperature drops below 10°C during winter, automatically turn on any thermostats that are off and set them to heat mode. This prevents the home from getting too cold if heating was accidentally turned off.
 
-- **Trigger**: Numeric state: Temperature below 10°C
+- **Trigger**: Numeric state crossed threshold: Temperature below 10°C
 - **Condition**: State: Season is winter
 - **Condition**: Thermostat is off
   - **Target**: All thermostats

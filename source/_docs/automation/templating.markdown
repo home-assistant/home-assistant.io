@@ -110,7 +110,7 @@ These are the properties available for an [MQTT trigger](/docs/automation/trigge
 
 ### Numeric state
 
-These are the properties available for a [numeric state trigger](/docs/automation/trigger/#numeric-state-trigger).
+These are the properties available for a [Numeric state crossed threshold trigger](/docs/automation/trigger/#numeric-state-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -137,7 +137,7 @@ These are the properties available for a [Sentence trigger](/docs/automation/tri
 
 ### State
 
-These are the properties available for a [State trigger](/docs/automation/trigger/#state-trigger).
+These are the properties available for a [State changed trigger](/docs/automation/trigger/#state-trigger).
 
 | Template variable | Data |
 | ---- | ---- |

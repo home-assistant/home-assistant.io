@@ -58,7 +58,7 @@ Notifications are most useful when Home Assistant sends them at the right moment
 
 This automation sends a message to your phone when the garage door has been open for 10 minutes.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Garage door (`binary_sensor.garage_door`)
   - **To**: On
   - **For**: 00:10:00
@@ -91,7 +91,7 @@ automation: |
 
 This automation shows a notification in the Home Assistant interface when a leak sensor detects moisture.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Kitchen leak sensor (`binary_sensor.kitchen_leak`)
   - **To**: On
 - **Action**: Send a persistent notification

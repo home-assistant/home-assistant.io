@@ -119,7 +119,7 @@ This passes when the living room temperature sensor reads between 20 and 22°C.
 
 This automation runs a fan only when the bedroom temperature is above 24°C, helping you save energy by avoiding unnecessary cooling.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Bedroom fan
   - **To**: Off
 - **Condition**: Temperature value

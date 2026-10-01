@@ -73,7 +73,7 @@ automation: |
 
 If rain starts while the mower is active, you can stop the run early and send it back to the dock.
 
-- **Trigger**: State: Rain sensor turned on
+- **Trigger**: State changed: Rain sensor turned on
 - **Condition**: Lawn mower is mowing
   - **Target**: Backyard mower
 - **Action**: Return lawn mower to dock

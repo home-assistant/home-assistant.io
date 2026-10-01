@@ -63,7 +63,7 @@ event_type:
 - Use an event entity that supports the event type you want to select.
 - This trigger fires only when the entity receives one of the specified event types. Changes to **Unavailable** or **Unknown** do not fire the trigger.
 - You can select multiple event types in a single trigger to react to any of them.
-- To trigger on any event type from an entity, use the [**State** trigger](/docs/automation/trigger/#state-trigger) instead.
+- To trigger on any event type from an entity, use the [**State changed** trigger](/docs/automation/trigger/#state-trigger) instead.
 
 {% include triggers/try_it.md %}
 

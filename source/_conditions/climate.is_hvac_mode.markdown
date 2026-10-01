@@ -107,7 +107,7 @@ for:
 
 When the outdoor temperature rises above 28°C during the day, close the living room blinds to help the air conditioner, but only if the thermostat is already set to cool mode.
 
-- **Trigger**: Numeric state: Outdoor temperature above 28°C
+- **Trigger**: Numeric state crossed threshold: Outdoor temperature above 28°C
 - **Condition**: Sun elevation above horizon
 - **Condition**: Thermostat is in HVAC mode
   - **HVAC mode**: Cool
