@@ -50,7 +50,7 @@ task :generate do
   abort("Generating allowed referrers data failed") unless success
   success = system "rake meetups_data"
   abort("Generating community meetups data failed") unless success
-  success = system "jekyll build"
+  success = system "jekyll build --future"
   abort("Generating site failed") unless success
   # The Astro build runs on every deploy so both stacks stay buildable
   # (see astro/README.md). Every website route is still produced by
