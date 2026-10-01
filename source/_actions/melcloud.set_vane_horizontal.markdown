@@ -18,7 +18,7 @@ To set the horizontal vane position from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **MELCloud: Set vane horizontal**.
+5. From the search box, search for and select **Set vane horizontal**.
 6. Select what you want to control. Under **By target** (see [Targets](#targets)), select the air conditioner. You can also select an area, a device, or a label.
 7. In **Position**, enter the position, such as `auto` or `swing`.
 8. Select **Save**.
@@ -70,10 +70,8 @@ position:
 
 When the air conditioner starts cooling, let the vanes swing from side to side, so the cool air spreads through the whole room.
 
-- **Trigger**: State changed
-  - **Entity**: Living room air conditioner (`climate.living_room`)
-  - **To**: Cool
-- **Action**: MELCloud: Set vane horizontal
+- **Trigger**: State: Living room air conditioner started cooling
+- **Action**: Set vane horizontal
   - **Target**: Living room air conditioner (`climate.living_room`)
   - **Position**: `swing`
 
@@ -85,7 +83,8 @@ automation: |
   triggers:
     - trigger: state
       entity_id: climate.living_room
-      to: "cool"
+      attribute: hvac_action
+      to: "cooling"
   actions:
     - action: melcloud.set_vane_horizontal
       target:

@@ -188,10 +188,8 @@ With the vane actions, you decide where the air from your air conditioner goes.
 
 When the air conditioner starts cooling, let the vanes swing from side to side, so the cool air spreads through the whole room.
 
-- **Trigger**: State changed
-  - **Entity**: Living room air conditioner (`climate.living_room`)
-  - **To**: Cool
-- **Action**: MELCloud: Set vane horizontal
+- **Trigger**: State: Living room air conditioner started cooling
+- **Action**: Set vane horizontal
   - **Target**: Living room air conditioner (`climate.living_room`)
   - **Position**: `swing`
 
@@ -203,7 +201,8 @@ automation: |
   triggers:
     - trigger: state
       entity_id: climate.living_room
-      to: "cool"
+      attribute: hvac_action
+      to: "cooling"
   actions:
     - action: melcloud.set_vane_horizontal
       target:
