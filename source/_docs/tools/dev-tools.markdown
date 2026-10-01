@@ -235,7 +235,7 @@ context:
 
 ## Statistics tab
 
-Home Assistant keeps {% term "long-term statistics" %} for sensors that measure something over time, such as temperature or energy use. Some {% term integrations %} also add statistics directly, without a sensor, for example, the energy use that your utility reports. Home Assistant stores statistics in its database, which the [Recorder](/integrations/recorder/) maintains. History graphs, statistics cards, and the Energy dashboard use these statistics. The **Statistics** tab lists all long-term statistics, with their name, statistic ID, unit, source, and any issue.
+Home Assistant keeps {% term "long-term statistics" %} for sensors that measure something over time, such as temperature or energy use. Some {% term integrations %} also add statistics directly, without a sensor, for example, the energy use that your utility reports. Home Assistant stores statistics in its database, which the [Recorder](/integrations/recorder/) maintains. History graphs, statistics cards, and the Energy dashboard use these statistics. The **Statistics** tab lists all long-term statistics, with their name, statistic ID, unit, source, and any issue. For how statistics work, refer to [Long-term statistics](/docs/configuration/statistics/).
 
 Use the **Statistics** tab to:
 
