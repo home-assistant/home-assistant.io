@@ -37,7 +37,7 @@ General triggers, such as **State changed** and **Numeric state crossed threshol
 
 ## Using several triggers
 
-An automation can have more than one trigger. It starts each time any of them reacts. To do different things depending on which trigger reacted, give each trigger an ID, and check it with a **Triggered by** condition. For the steps, refer to [Doing different things depending on the trigger](#doing-different-things-depending-on-the-trigger).
+An automation can have more than one trigger. It starts each time any of them reacts. To do different things depending on which trigger reacted, give each trigger an ID, and check it with a **Triggered by** condition. For the steps, refer to [Creating an automation with actions that depend on different triggers](#creating-an-automation-with-actions-that-depend-on-different-triggers).
 
 One trigger can also watch several targets, for example, all lights in a room. Its **Trigger when** option decides whether it reacts for each target, for the first one, or only when all of them have changed. For details, refer to [Understanding automations](/docs/automation/basics/).
 
@@ -80,7 +80,7 @@ The main elements of a trigger that are defined in the `configuration.yaml` file
 
 All triggers can be assigned an optional `id`. If the ID is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from [trigger conditions and actions](/docs/scripts/conditions/#trigger-condition). The `id` does not have to be unique for each trigger, and it can be used to group similar triggers for use later in the automation (such as several triggers of different types that should all turn some entity on).
 
-Trigger IDs also allow you to set up an automation with many actions, each action depending on a different trigger. An action is connected to a trigger through the trigger ID, and only runs if that trigger reacted. For the steps in the editor, refer to [Doing different things depending on the trigger](#doing-different-things-depending-on-the-trigger).
+Trigger IDs also allow you to set up an automation with many actions, each action depending on a different trigger. An action is connected to a trigger through the trigger ID, and only runs if that trigger reacted. For the steps in the editor, refer to [Creating an automation with actions that depend on different triggers](#creating-an-automation-with-actions-that-depend-on-different-triggers).
 
 #### YAML example
 
@@ -477,19 +477,19 @@ triggers:
 
 This blueprint automation can then be triggered either by the fixed manual_event trigger, or additionally by any triggers selected in the trigger selector. This is also applicable for `wait_for_trigger` action.
 
-<a id="creating-an-automation-with-actions-that-depend-on-different-triggers"></a>
+## Creating an automation with actions that depend on different triggers
 
-## Doing different things depending on the trigger
+Instead of creating many automations for different groups of related triggers and actions, you can build a single one in the visual editor of the UI by following the steps below.
 
-Instead of creating a separate automation for each trigger, you can create one automation that does something different for each of its triggers. To do this, give each trigger an ID, and check the ID in a **Choose** building block.
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}, and select **Create automation** > **Create new automation**.
-2. In the **When** section, select **Add trigger**, and select the trigger.
-3. Select **Menu** {% icon "mdi:dots-vertical" %} > **Edit ID**, and enter an ID for the trigger, for example, `door_opened`.
-4. Repeat steps 2 and 3 for each trigger, each with its own ID.
-5. In the **Then do** section, select **Add action** > **Blocks** > **Choose**.
-6. Under **Option 1**, select **Add condition**, and select the **Triggered by** condition.
-   - Select the ID of the first trigger.
-7. Under the same option, select **Add action**, and add the actions that should run for this trigger.
-8. To add the actions for another trigger, select **Add option**, and repeat steps 6 and 7 with the ID of that trigger.
-9. Select **Save**.
+1. Go to **Settings** > **Automations & scenes**.
+2. In the lower right corner, select **Create automation** > **Create new automation**.
+3. In the **When** section, select **Add trigger**.
+4. Search for the trigger using the search box, for example, and then select it.
+5. In the trigger window on the right, edit the **Trigger ID** by going to the three dots {% icon "mdi:dots-vertical" %} menu > **Edit ID**.
+6. In the **Then do** section, select **Add action** and then select the **Choose** block.
+7. Expand the option section, select **Add condition** and, from the **By type** list, select the **Triggered by** condition.
+8. In the condition window on the right, select the trigger ID that you added in step 5 and then **Save**.
+9. In the section of the same option, select **Add action** and choose the action that runs for the related trigger.
+10. In the action window on the right, select the target or group of targets, input any other requested data and select **Save**.
+11. You can add more conditions and actions to that option by repeating steps 6 to 10.
+12. Repeat steps 3 to 11 to add another trigger and related option for the new condition and action.
