@@ -67,7 +67,7 @@ entity_id:
 
 ### Automation: start motion analysis when you leave
 
-When nobody is home, you want to know about motion on the driveway camera. This automation starts the FFmpeg motion sensor when you leave.
+When you leave home, you want to know about motion on the driveway camera. This automation starts the FFmpeg motion sensor when you leave.
 
 - **Trigger**: Zone
   - **Entity with location**: You (`person.you`)
