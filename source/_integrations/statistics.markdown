@@ -26,10 +26,6 @@ The statistics sensor can use either the numeric sensor or binary_sensor as its 
 
 Assuming the [`recorder`](/integrations/recorder/) integration is running, historical sensor data is read from the database on startup and is available immediately after a restart of the platform. If the [`recorder`](/integrations/recorder/) integration is *not* running, it can take some time for the sensor to start reporting data because some characteristics calculations require more than one source sensor value.
 
-{% tip %}
-The statistics integration is different from {% term "Long-term statistics" %}.
-{% endtip %}
-
 The statistics sensor has an internal buffer that stores the values it needs for the computation of the various functions (for example, average step). The sensor is updated whenever new values are added to the buffer or when elements are removed. This is triggered either by a change of the source sensor (which may or may not change its actual value) or by values expiring (in cases where max age was specified). This means that the buffer can hold a sequence of identical values in cases where values are not changing over time.
 
 When using a time-based buffer (by providing a max-age), it is recommended that the buffer contains at least a decent number of values spanning the full range of time. For sensors that don't change much, this can be achieved by using a template sensor with a time-based trigger as input. If the input values don't cover most of the time range, the computed output values could lead to unexpected results.

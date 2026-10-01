@@ -12,7 +12,7 @@ related:
     title: Statistics graph card
 ---
 
-Home Assistant saves every state change of your entities in its database, but only for a limited time, by default 10 days. For many sensors, it also saves statistics, of two kinds: short-term statistics every 5 minutes, and long-term statistics every hour. Short-term statistics are deleted together with the state history. Long-term statistics are never deleted automatically. With them, you can look back at your energy use or the temperature in your home over months and years.
+By default, Home Assistant saves every state change of your entities in its database, and keeps it for 10 days. For many sensors, it also saves statistics, of two kinds: short-term statistics every 5 minutes, and long-term statistics every hour. Short-term statistics are deleted together with the state history. Long-term statistics are never deleted automatically. With them, you can look back at your energy use or the temperature in your home over months and years.
 
 You don't have to set anything up. Home Assistant creates both kinds automatically for the sensors that support them. On this page, "statistics" means both kinds. Where only one kind applies, the page says which.
 
@@ -26,7 +26,7 @@ Home Assistant keeps statistics for a sensor when all of the following are true:
   - **Measurement**: A value right now, for example, a temperature or the current power use.
   - **Measurement angle**: An angle right now, for example, the wind direction.
   - **Total**: An amount that can go up and down, for example, the energy you put into and take out of a home battery.
-  - **Total increasing**: An amount that only goes up, until it starts again from zero, for example, an energy meter.
+  - **Total increasing**: An amount that only goes up, except when it's reset, for example, an energy meter.
 - The state of the sensor is a number.
 - The sensor is recorded. If you [exclude an entity from the recorder](/integrations/recorder/#configure-filter), Home Assistant doesn't keep statistics for it.
 
