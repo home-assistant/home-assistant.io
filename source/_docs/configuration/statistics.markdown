@@ -34,7 +34,7 @@ Only sensor entities get statistics this way. Other entities, such as lights or 
 
 To find out whether a sensor has a state class, go to {% my developer_states title="**Settings** > **Tools** > **States**" %}, and look for the `state_class` attribute of the sensor. If a sensor that you create yourself, such as a [template sensor](/integrations/template/), has no state class, you can set one in its options. For a sensor that an integration provides, the integration has to set it.
 
-## Short-term and long-term statistics
+## About short-term and long-term statistics
 
 Home Assistant saves statistics at two levels:
 
@@ -68,7 +68,7 @@ Home Assistant uses statistics in these places:
 - The [Statistic card](/dashboards/statistic/) shows one value, such as the average temperature today.
 - The [History graph card](/dashboards/history-graph/) and the **History** panel show the state history. For older periods, when the state history has already been deleted, they show the hourly statistics instead.
 
-## Statistics from integrations
+## About statistics from integrations
 
 Some {% term integrations %} add statistics directly, without a sensor, for example, the hourly energy use that they get from your energy provider. These statistics have an ID with a colon instead of a dot. The part before the colon is the integration, for example, `opower:` for the Opower integration. You can use them in the Energy dashboard and in statistics cards, like the statistics of a sensor. To find them, go to {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}.
 
