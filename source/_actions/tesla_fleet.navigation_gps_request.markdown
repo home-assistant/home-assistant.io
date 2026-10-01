@@ -20,7 +20,7 @@ To send a destination from an automation or a script:
 5. From the search box, search for and select **Tesla Fleet: Navigate to coordinates**.
 6. Select the **Vehicle** to send the destination to.
 7. Set the **Location** to the coordinates you want to navigate to.
-8. _Optional_: set the **Order** to choose how the destination is added to the trip.
+8. _Optional_: set the **Order** if you are sending more than one destination.
 9. Select **Save**.
 
 ### Options in the UI
@@ -31,7 +31,7 @@ Vehicle:
 Location:
   description: The location to navigate to, as a latitude and longitude.
 Order:
-  description: How to add this destination to the trip. `1` replaces the trip, `2` adds it as the next stop, and `3` adds it as the last stop. Defaults to `1`.
+  description: The order for this destination when you send multiple destinations.
   required: false
 {% endoptions_ui %}
 
@@ -64,10 +64,9 @@ gps:
   type: map
 order:
   description: >
-    How to add this destination to the trip. `1` replaces the trip, `2` adds it as the next stop, and `3` adds it as the last stop.
+    The order for this destination when you send multiple destinations.
   required: false
   type: integer
-  default: 1
 {% endoptions_yaml %}
 
 ## Good to know
@@ -106,29 +105,29 @@ automation: |
 
 {% enddetails %}
 
-### Automation: add a stop on the way
+### Automation: navigate to a charger when the battery is low
 
-Press a button on your dashboard to add a regular stop, such as a grocery store, as the next stop on the current trip. The button is an [input button](/integrations/input_button/) {% term helper %} that you create separately.
+When the battery level drops below 20%, send the location of your preferred charger to the car. The charger location is a [zone](/integrations/zone/) that you create separately.
 
-- **Trigger**: Input button: pressed
-- **Action**: Navigate to coordinates, with **Order** set to `2`
+- **Trigger**: Numeric state: the battery level sensor goes below 20
+- **Action**: Navigate to coordinates, with the location of your charger zone
 
-{% details "YAML example for adding a stop on the way" %}
+{% details "YAML example for navigating to a charger when the battery is low" %}
 
 {% example %}
 automation: |
-  alias: "Add grocery store as next stop"
+  alias: "Navigate to charger when battery is low"
   triggers:
-    - trigger: state
-      entity_id: input_button.add_grocery_stop
+    - trigger: numeric_state
+      entity_id: sensor.my_tesla_battery_level
+      below: 20
   actions:
     - action: tesla_fleet.navigation_gps_request
       data:
         device_id: 0d462c0c4c0b064b1a91cdbd1ffcbd31
         gps:
-          latitude: "{{ state_attr('zone.grocery_store', 'latitude') }}"
-          longitude: "{{ state_attr('zone.grocery_store', 'longitude') }}"
-        order: 2
+          latitude: "{{ state_attr('zone.charger', 'latitude') }}"
+          longitude: "{{ state_attr('zone.charger', 'longitude') }}"
 {% endexample %}
 
 {% enddetails %}
