@@ -659,8 +659,8 @@
     - Thread border routers
 - term: Trigger
   definition: >-
-    A trigger is a set of values or conditions of a platform that are defined to
-    cause an automation to run.
+    A trigger is the part of an automation that makes the automation run when
+    a specific change happens, for example, when the sun sets or a door opens.
   link: /docs/automation/trigger/
   aliases:
     - triggers
