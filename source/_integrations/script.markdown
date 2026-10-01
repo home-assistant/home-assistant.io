@@ -24,7 +24,7 @@ A script is useful when you want to use the same steps more than once, or contro
 - Starting the same steps from several places
   - For example, an automation at 7:00, a button on a dashboard, and Assist can all start the same morning routine. You only maintain the steps in one place.
 - Using different values each time
-  - With [fields](#fields), one script covers several cases, for example, waiting 5 minutes on weekdays and 20 minutes at the weekend.
+  - With [fields](#fields), one script covers several cases, for example, waiting 5 minutes on weekdays and 20 minutes on weekends.
 - Stopping the steps separately
   - You can stop a running script with [**Turn off script**](/actions/script.turn_off/), without changing the automation that started it.
 - Getting a result back
