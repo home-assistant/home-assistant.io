@@ -665,23 +665,9 @@
     - Thread border routers
 - term: Trigger
   definition: >-
-    A trigger starts an automation when something that it watches changes, for
-    example, when the sun sets, a door opens, or a person arrives home.
-    Starting means that the automation checks its conditions, and runs its
-    actions if they're met. A trigger reacts once, at the moment of the
-    change. For example, a trigger for a door that opens reacts when the door
-    goes from closed to open. It doesn't react again while the door stays
-    open, and it doesn't react just because the door is already open when you
-    save the automation. An automation can have several triggers and starts
-    as soon as any of them reacts. If one trigger watches several targets, its
-    **Trigger when** option decides whether it reacts for each of them, for
-    the first one, or only when all of them have changed. For more
-    information, refer to [how automations react to
-    changes](/docs/automation/how-automations-react-to-changes/).
-  excerpt: >-
-    A trigger starts an automation when something that it watches changes, for
-    example, when the sun sets, a door opens, or a person arrives home. A
-    trigger reacts once, at the moment of the change.
+    A trigger is the part of an automation that makes the automation run when
+    a specific change happens, for example, when the sun sets or a door opens.
+    A trigger reacts at the moment of the change.
   link: /docs/automation/trigger/
   aliases:
     - triggers
