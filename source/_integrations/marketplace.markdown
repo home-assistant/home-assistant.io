@@ -160,21 +160,22 @@ A custom repository has to meet the same requirements as the ones in the catalog
 
 - It is a public repository on GitHub.
 - It includes a `hacs.json` file that describes it. Most community projects already have one.
-- Its content fits the type you add it as.
+- It holds an integration, a dashboard, a theme, or a template, laid out the way the Marketplace installs it.
 
 Adding a custom repository needs a [GitHub connection](#connecting-github). If you have not connected GitHub yet, the Marketplace asks you to do so when you add the repository.
 
 To add a custom repository:
 
 1. Go to **Settings** > **Marketplace**.
-2. Open the menu in the top right corner and select **Custom repositories**.
-3. Under **Repository**, enter the repository, either as its full address, like `https://github.com/owner/repository`, or as `owner/repository`.
-4. Under **Type**, select what the repository holds.
-5. Select **Add**.
+2. In the top right corner, select **Add from link**.
+3. Under **GitHub link**, enter the repository, either as its full address, like `https://github.com/owner/repository`, or as `owner/repository`.
+4. Select **Add**.
+
+The Marketplace looks at the repository to find out what it holds. When it cannot tell, or the repository holds more than one kind of thing, it asks you: select it under **Type**, and select **Add** again.
 
 The repository then appears in the list, where you can open it and install it. If the Marketplace cannot add it, the dialog tells you why. For example, when the repository is already in the Marketplace, or when it holds apps, which the Marketplace does not install.
 
-To remove a custom repository from the list, open **Custom repositories** and select the remove button next to it. A repository you have installed stays in the list until you uninstall it.
+To remove a custom repository from the list, select **Add from link** and select the remove button next to it under **Added from links**. A repository you have installed stays in the list until you uninstall it.
 
 When the catalog later starts listing a custom repository, the Marketplace notices and treats it as a regular catalog repository from then on. You do not have to do anything.
 
