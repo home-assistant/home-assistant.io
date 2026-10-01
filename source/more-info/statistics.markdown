@@ -5,6 +5,8 @@ description: "More information on if your expected data source is not listed."
 
 You're configuring a statistic but you couldn't find your source in the dropdown?
 
+Home Assistant only keeps statistics for some sensors. For which ones, refer to [Long-term statistics](/docs/configuration/statistics/).
+
 Check that it hasn't been excluded in the [Recorder](/integrations/recorder/) configuration.
 
 Make sure the entity uses the same unit as the already selected sensors for that statistics graph. Because the graph uses a single Y axis, you cannot mix units (for example, °C and %, or kW and W) in the same graph.

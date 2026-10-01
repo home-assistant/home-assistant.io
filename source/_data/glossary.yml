@@ -707,8 +707,12 @@
     - zones
 - term: Long-term statistics
   definition: >-
-    Home Assistant saves long-term statistics for a sensor if the entity has a state_class of measurement, total, or total_increasing. For short-term statistics, a snapshot is taken every 5 minutes. For long-term statistics, an hourly aggregate is stored of the short-term statistics. Short-term statistics are automatically purged after a predefined period (default is 10 days). Long-term statistics are never purged.
-  link: /blog/2021/08/04/release-20218/#long-term-statistics
+    Home Assistant keeps statistics for sensors that have a state class, such
+    as measurement, total, or total increasing. Every 5 minutes, it saves
+    short-term statistics, which are deleted after 10 days by default. Every
+    hour, it saves long-term statistics, which are never deleted
+    automatically. The Energy dashboard and statistics cards use them.
+  link: /docs/configuration/statistics/
 - term: boolean
   definition: >-
     A value that is either true or false. Used for on/off states, yes/no conditions, and similar binary choices.
