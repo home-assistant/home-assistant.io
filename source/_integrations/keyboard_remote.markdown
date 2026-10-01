@@ -11,7 +11,7 @@ ha_codeowners:
   - '@lanrat'
 ha_domain: keyboard_remote
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: legacy
 ---
 
 The **Keyboard Remote** {% term integration %} lets you use a USB or Bluetooth keyboard, remote control, or any Linux `evdev`-compatible input device to trigger automations in Home Assistant. Instead of creating entities, the integration fires events whenever a key is pressed, released, or held down. You can listen for these events in your automations to control lights, media players, or anything else in your smart home.
@@ -32,7 +32,7 @@ Before setting up the integration, make sure you meet the following requirements
 
 {% configuration_basic %}
 Input device:
-  description: "The input device to use. The dropdown lists all devices detected under `/dev/input/by-id/`, shown as `Device Name (device-filename)`. If your device is not listed, make sure it is connected, then restart the setup. Add a separate integration entry for each device you want to use."
+  description: "The input device to use. The dropdown lists the connected devices that can send key events and are not set up yet. A device with a `/dev/input/by-id/` link is shown as `Device Name (link-name)` and is identified by that link. A device without one, such as a Bluetooth remote or a PS/2 keyboard, is shown as `Device Name (address)`, or as `Device Name (eventN)` if it reports no address, and is identified by its address and name. If your device is not listed, see [Device not listed during setup](#device-not-listed-during-setup). Add a separate integration entry for each device you want to use."
 {% endconfiguration_basic %}
 
 ## Configuration options
@@ -67,7 +67,7 @@ The `keyboard_remote_command_received`event is fired whenever a key event occurs
 - `device_descriptor` — The configured path of the device
 - `device_name` — The human-readable name of the device
 
-For a device set up through the UI, `device_descriptor` is the `/dev/input/by-id/` path you selected, not a bare `/dev/input/event*` path. A bare path appears only for a YAML configuration that was imported by device name. Copy the exact value from **Developer tools** > **Events** when matching on it in an automation.
+For a device set up through the UI with a `/dev/input/by-id/` link, `device_descriptor` is that link. For a device without one, it is the `/dev/input/event*` node the device is connected on, which can change when the device reconnects, so match on `device_name` instead. An entry imported from YAML reports the `device_descriptor` from your YAML configuration, or the node the device is connected on if it was configured by `device_name`. Copy the exact value from **Developer tools** > **Events** when matching on it in an automation.
 
 ### Keyboard remote connected
 
@@ -160,6 +160,8 @@ To complete the migration:
 
 Your automations do not need to change, because the events fired by the integration remain the same.
 
+If a hold timing in your YAML configuration is outside the range the options accept, it is adjusted to fit, and an empty `type` list uses `key_up`. Home Assistant logs a warning when it does either.
+
 The following reference shows the previous YAML configuration options:
 
 {% configuration %}
@@ -173,8 +175,9 @@ device_name:
   type: string
 type:
   description: "Key event types to listen for. Possible values are `key_up`, `key_down`, and `key_hold`. Can be a single value or a list."
-  required: true
-  type: string
+  required: false
+  type: [string, list]
+  default: key_up
 emulate_key_hold:
   description: "Emulate key hold events when a key is held down. Some input devices do not send these natively."
   required: false
@@ -199,12 +202,14 @@ emulate_key_hold_repeat:
 If the device dropdown during setup is empty or does not include your device, try the following:
 
 1. Make sure the device is physically connected to your system. For Bluetooth devices, make sure they are paired and active.
-2. Check that the device appears under `/dev/input/by-id/`. You can verify this by running `ls /dev/input/by-id/` on your host system.
+2. Make sure the device can send key events. Devices that only report movement or switches, such as a mouse or a lid switch, are not listed.
 3. Restart the setup flow after connecting the device.
 
-udev creates the `/dev/input/by-id/` directory along with the symlinks inside it, so on a system with no input device connected the directory does not exist at all. Setup reports that no devices were found in both cases, whether the directory is missing or simply holds no matching device.
+Devices on the system's own bus, such as the power button, the lid switch, or GPIO buttons and IR receivers, are not listed either, because taking them over would stop them from working for the system. A YAML configuration for such a device is still imported.
 
-Note that not every input device gets a `by-id` symlink. Devices connected over USB or Bluetooth do, while some built-in devices, such as PS/2 keyboards, do not, and those cannot be selected during setup.
+### Identical USB devices
+
+USB devices without a serial number, such as two keyboards of the same model, share a single `/dev/input/by-id/` link, which points at the one connected last. The other one is listed by its name instead. You can set up both, but which physical device each entry uses can swap when they reconnect. Bluetooth devices are told apart by their address, so this does not affect them.
 
 ### Permission denied errors
 
