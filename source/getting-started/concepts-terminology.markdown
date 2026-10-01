@@ -60,7 +60,7 @@ To learn the basics about {% term automations %}, refer to the [automation basic
 
 ## Scripts
 
-A script is a saved list of {% term actions %} that runs when you start it, for example, from a button on a dashboard, with Assist, or from an {% term automation %}. Unlike an automation, a script has no triggers, so it doesn't start by itself. Scripts are useful when you want to start the same actions from several places, or give them different values each time. To learn how to create and use scripts, refer to [Scripts](/integrations/script/).
+A script is a saved list of {% term actions %} that runs when you start it, for example, from a button on a dashboard, with Assist, or from an {% term automation %}. Unlike an automation, a script has no triggers, so it doesn't start by itself. Scripts are useful when you want to start the same actions from several places, or pass different values to the scripts each time. To learn how to create and use scripts, refer to [Scripts](/integrations/script/).
 
 ![Scripts](/images/getting-started/script_01.png)
 
