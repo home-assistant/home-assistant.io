@@ -48,7 +48,7 @@ Password:
 
 Each account gets one device tracker entity. It uses GPS as its source type and reports `home`, `not_home`, or a zone name based on the device's GPS coordinates.
 
-Besides the location, the tracker exposes the following attributes when the device reports them: battery level, GPS accuracy, altitude, speed, and heading, as well as the time the fix was recorded on the device.
+Besides the location, the tracker exposes the following attributes when the device reports them: `battery`, GPS accuracy, altitude, speed, and heading, as well as the time the fix was recorded on the device. A dedicated battery sensor is not supported yet.
 
 ## FMD automation examples
 
@@ -97,7 +97,7 @@ automation: |
   triggers:
     - trigger: numeric_state
       entity_id: device_tracker.fmd_my_phone
-      attribute: battery_level
+      attribute: battery
       below: 20
   conditions:
     - condition: state
@@ -105,7 +105,7 @@ automation: |
       state: not_home
   actions:
     - action: notify.mobile_app_my_phone
-      message: "Phone battery is at {{ states('device_tracker.fmd_my_phone') }}%, please charge it."
+      message: "Phone battery is at {{ state_attr('device_tracker.fmd_my_phone', 'battery') }}%, please charge it."
 {% endexample %}
 
 {% enddetails %}
@@ -117,6 +117,7 @@ The integration polls your FMD server every 30 minutes by default. Each poll fet
 ## Known limitations
 
 - The integration currently tracks a single device per account (the device paired with that account's app).
+- Battery level is only exposed as an attribute of the device tracker; a dedicated battery sensor entity is not supported yet.
 - Location fixes are only as fresh as the last upload from the device. Requesting an on-demand location from the device is not supported yet.
 - Remote commands (ringing the device, taking a photo, and so on) are not supported yet.
 - Each account/server combination requires its own config entry.
