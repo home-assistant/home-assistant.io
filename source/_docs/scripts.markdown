@@ -1589,7 +1589,7 @@ Duration:
 
 In YAML, use `delay`. You can enter the duration in several formats:
 
-- A number of seconds, for example, `5` to wait 5 seconds.
+- A number of seconds, for example, `5` to wait 5 seconds, or `1.5` to wait 1.5 seconds.
 - A time in `HH:MM` format, for example, `"01:00"` to wait 1 hour.
 - A time in `HH:MM:SS` format, for example, `"00:01:30"` to wait 1 minute and 30 seconds.
 - A mapping with `days`, `hours`, `minutes`, `seconds`, and `milliseconds`. You can combine them, and you need at least one.
@@ -1621,7 +1621,7 @@ action: |
 delay:
   description: How long to wait. Use a number of seconds, a time in `HH:MM` or `HH:MM:SS` format, or a mapping with `days`, `hours`, `minutes`, `seconds`, and `milliseconds`. All formats accept templates.
   required: true
-  type: [integer, string, map, template]
+  type: [integer, float, string, map, template]
 {% endoptions_yaml %}
 
 ### Good to know about Wait for time to pass (delay)
@@ -1741,7 +1741,7 @@ wait_template:
 timeout:
   description: The longest time to wait. Uses the same formats as [Wait for time to pass (delay)](#wait-for-time-to-pass-delay), including templates.
   required: false
-  type: [string, integer, map, template]
+  type: [string, integer, float, map, template]
 continue_on_timeout:
   description: If `true`, the next steps run when the timeout ends. If `false`, the automation or script stops.
   required: false
@@ -1886,7 +1886,7 @@ wait_for_trigger:
 timeout:
   description: The longest time to wait. Uses the same formats as [Wait for time to pass (delay)](#wait-for-time-to-pass-delay), including templates.
   required: false
-  type: [string, integer, map, template]
+  type: [string, integer, float, map, template]
 continue_on_timeout:
   description: If `true`, the next steps run when the timeout ends. If `false`, the automation or script stops.
   required: false
