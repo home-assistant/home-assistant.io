@@ -20,7 +20,7 @@ ha_integration_type: helper
 
 The **Statistics** {% term integration %} observes the state of a source sensor and provides aggregated statistical characteristics about its recent past. This integration can be useful in automation, for example, to trigger an action when the air humidity in the bathroom settles after a hot shower or when the number of brewed coffees over a day gets too high.
 
-This integration is different from the [long-term statistics](/docs/configuration/statistics/) that Home Assistant keeps automatically for many sensors.
+This integration is different from the [long-term statistics](/docs/configuration/long-term-statistics/) that Home Assistant keeps automatically for many sensors.
 
 The statistics sensor can use either the numeric sensor or binary_sensor as its input. The configuration must include the time period and/or a number of recent state changes that should be considered. Check the configuration section below for details.
 
