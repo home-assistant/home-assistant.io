@@ -153,7 +153,7 @@ Check whether Axle has scheduled an event for your account and whether you have 
 
 ### Download diagnostics
 
-If you report a problem, [download diagnostics](/integrations/diagnostics/) from the Axle Energy integration. The file contains the latest saved event data and whether the last update succeeded. Your API key is redacted. Downloading diagnostics does not request another update from Axle. Review the file before sharing it.
+If you report a problem, [download diagnostics](/integrations/diagnostics/) from the Axle Energy integration. The file contains the latest saved event data and whether the last update succeeded. Your API key is not included. Downloading diagnostics does not request another update from Axle. Review the file before sharing it.
 
 ## Removing the integration
 
