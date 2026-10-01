@@ -36,7 +36,7 @@ The following connection modules are known to work with this integration when th
 
 The following connection modules are not supported by this integration:
 
-- **AIO3** and similar newer modules that do not expose a local web interface. These modules typically expose only Modbus (port 502) and cannot be used with this integration.
+- **AIO3**. This module does not expose the local web interface required by this integration.
 
 ## Configuration
 
