@@ -712,7 +712,7 @@
     short-term statistics, which are deleted after 10 days by default. Every
     hour, it saves long-term statistics, which are never deleted
     automatically. The Energy dashboard and statistics cards use them.
-  link: /docs/configuration/statistics/
+  link: /docs/configuration/long-term-statistics/
 - term: boolean
   definition: >-
     A value that is either true or false. Used for on/off states, yes/no conditions, and similar binary choices.
