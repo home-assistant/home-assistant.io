@@ -24,7 +24,7 @@ related:
     title: Themes
 ---
 
-The **Marketplace** {% term integration %} lets you find and install things the Home Assistant community has made: integrations for devices and services Home Assistant does not support yet, cards for your dashboards, themes, and templates. Thousands of them are listed, and the Marketplace keeps the ones you install up to date.
+The **Marketplace** {% term integration %} lets you find and install things the Home Assistant community has made: integrations for devices and services Home Assistant does not support yet, cards for your dashboards, themes, and templates. Thousands of them are listed, and the Marketplace checks for updates to the ones you install.
 
 The Marketplace comes with Home Assistant and is always set up. There is nothing to install or configure before you can use it.
 
@@ -71,7 +71,7 @@ The Marketplace opens on a list of everything it knows. To find what you are loo
 
 - Use **Search** to look for a name, a description, or the name of a repository.
 - Use **Filters** to show only some types, or only what you have installed.
-- Use **Group by** and **Sort by** to order the list, for example by the number of stars on GitHub or by recent activity.
+- Use **Sort by** to order the list, for example by the number of stars on GitHub or by recent activity.
 
 Select a repository to open its page. It shows the description the author wrote, the available version, who made it, and links to its source code and to its issue tracker. Take a moment here: the page is the best place to decide whether you trust a project.
 
@@ -98,7 +98,7 @@ When the newest version needs a newer version of Home Assistant than you have, t
 
 ### When an installation replaces a built-in integration
 
-Some community integrations use the same name as an integration that comes with Home Assistant. They do so on purpose, often to offer a newer or different version of it. Home Assistant supports this, but it has consequences, so the install dialog shows a warning and asks you to confirm it.
+Some community integrations use the same domain, the internal identifier, as an integration that comes with Home Assistant. They do so on purpose, often to offer a newer or different version of it. Home Assistant supports this, but it has consequences, so the install dialog shows a warning and asks you to confirm it.
 
 Once you install such an integration and restart, Home Assistant loads the installed one instead of the built-in one, for everything you set up with it. Devices and services you already set up may stop working. Fixes and improvements to the built-in integration no longer reach you with Home Assistant updates, and the Home Assistant project cannot help with problems it causes.
 
@@ -233,6 +233,7 @@ The update entities keep their entity IDs, so automations and dashboards that us
 - **Restart after an update**: HACS put a restart message in the `release_summary` attribute of its update entities. The Marketplace tells you with a repair under {% my repairs title="**Settings** > **System** > **Repairs**" %} instead. The attribute stays empty.
 - **The WebSocket API**: Tools that called the `hacs/` commands of HACS, like `hacs/repositories/list`, get an unknown command. The Marketplace has its own commands under `marketplace/`, with a different shape.
 - **Links and icons**: Links to the integration page of HACS, and the `hacs:hacs` icon on dashboards, now lead to and show the Marketplace.
+- **Custom integrations that read HACS**: HACS is removed on the first start. A custom integration that reads the `hacs.*` files in `.storage`, uses `hass.data["hacs"]`, or listens to the `hacs_dispatch_*` signals finds nothing anymore. The update entities of the Marketplace tell the same, with their installed and latest version.
 
 ## Turning off the Marketplace
 
@@ -254,7 +255,7 @@ Without a GitHub connection, the Marketplace shares a small hourly limit with ev
 
 {% enddetails %}
 
-{% details "A repository was removed from the Marketplace" %}
+{% details "A repository was removed from the catalog" %}
 
 The catalog sometimes removes a repository, for example when its author stopped maintaining it. When that happens to something you installed, a repair under {% my repairs title="**Settings** > **System** > **Repairs**" %} tells you why. What you installed keeps working, but it no longer gets updates. Uninstall it when you can.
 
