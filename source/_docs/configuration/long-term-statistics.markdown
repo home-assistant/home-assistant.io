@@ -53,7 +53,7 @@ Short-term and long-term statistics contain the same values, for a period of 5 m
   - The average, the lowest, and the highest value in each period.
   - The average is weighted by time: a value that stays the same for 4 minutes counts four times as much as a value that lasts 1 minute. So a sensor that updates unevenly still gets a correct average.
 - **Measurement angle**
-  - The average angle in each period, also weighted by time. Home Assistant calculates the average so that, for example, 350° and 10° give 0°, not 180°.
+  - The average angle in each period, also weighted by time. Home Assistant calculates the average so that, for example, 350° and 10° for the same amount of time give 0°, not 180°.
 - **Total** and **Total increasing**
   - The sum: how much the value has changed since Home Assistant started keeping statistics for the sensor. The first value it sees is the starting point.
   - The last value in each period.
@@ -79,7 +79,7 @@ Home Assistant uses statistics in these places:
 
 - The [Energy dashboard](/docs/energy/) uses the long-term statistics of your energy, gas, and water sensors. For power graphs of short periods, about a week or less, it uses the short-term statistics.
 - The [Statistics graph card](/dashboards/statistics-graph/) shows statistics for the period that you choose. With **5 minutes**, it shows the short-term statistics. With **Hour** or longer, it shows the long-term statistics.
-- The [Statistic card](/dashboards/statistic/) shows one value, such as the average temperature today. It combines both kinds, so the value is exact for the period you choose.
+- The [Statistic card](/dashboards/statistic/) shows one value, such as the average temperature today. It combines both kinds, so the period can start and end at any 5-minute mark, not only on the full hour.
 - The [History graph card](/dashboards/history-graph/) and the **History** panel show the state history. For older periods, when the state history has already been deleted, they show the long-term statistics instead.
 
 ## About long-term statistics from integrations
