@@ -11,8 +11,6 @@ categories: Announcements
 To build a better [Home Assistant Companion app](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android) for everyone, we’re updating which Android versions the app supports. Openness is core to how we operate, so we want to be clear about what’s changing and what it means for users.
 
 Starting with version 2026.9.0 of the Companion app, we will no longer support Android 6.0. The last supported version for Android 6.0 will be 2026.8.4.
-
-
 Here’s everything you need to know:
 
 ## Why we’re making the change
