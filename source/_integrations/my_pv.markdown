@@ -14,6 +14,7 @@ ha_domain: my_pv
 ha_platforms:
   - button
   - number
+  - sensor
   - switch
   - water_heater
 ha_integration_type: device
