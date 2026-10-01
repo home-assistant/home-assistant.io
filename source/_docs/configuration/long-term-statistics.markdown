@@ -12,11 +12,11 @@ related:
     title: Statistics graph card
 ---
 
-Home Assistant saves every state change of your entities in its database, but only for a limited time, by default 10 days. For many sensors, it also saves statistics: averages and totals for every 5 minutes and every hour. The hourly statistics are kept for as long as you use Home Assistant. With them, you can look back at your energy use or the temperature in your home over months and years.
+Home Assistant saves every state change of your entities in its database, but only for a limited time, by default 10 days. For many sensors, it also saves statistics, of two kinds: short-term statistics every 5 minutes, and long-term statistics every hour. Short-term statistics are deleted together with the state history. Long-term statistics are kept for as long as you use Home Assistant. With them, you can look back at your energy use or the temperature in your home over months and years.
 
-You don't have to set anything up. Home Assistant creates statistics automatically for the sensors that support them.
+You don't have to set anything up. Home Assistant creates both kinds automatically for the sensors that support them. On this page, "statistics" means both kinds. Where only one kind applies, the page says which.
 
-Long-term statistics are different from the [**Statistics**](/integrations/statistics/) integration. That integration is a helper that creates a new sensor, for example, the average of another sensor over the last hour.
+Both kinds are different from the [**Statistics**](/integrations/statistics/) integration. That integration is a helper that creates a new sensor, for example, the average of another sensor over the last hour.
 
 ## Which sensors have statistics
 
@@ -36,7 +36,7 @@ To find out whether a sensor has a state class, go to {% my developer_states tit
 
 ## About short-term and long-term statistics
 
-Home Assistant saves statistics at two levels:
+The two kinds differ in how often Home Assistant saves them, and how long it keeps them:
 
 - Short-term statistics
   - Saved every 5 minutes.
@@ -47,7 +47,7 @@ Home Assistant saves statistics at two levels:
 
 ## What the statistics contain
 
-What Home Assistant saves depends on the state class:
+Short-term and long-term statistics contain the same values, for a period of 5 minutes or of 1 hour. Which values Home Assistant saves depends on the state class:
 
 - **Measurement**
   - The average, the lowest, and the highest value in each period.
@@ -63,18 +63,18 @@ For **Total increasing**, a drop of more than 10% counts as a reset, for example
 
 Home Assistant uses statistics in these places:
 
-- The [Energy dashboard](/docs/energy/) uses the statistics of your energy, gas, and water sensors.
-- The [Statistics graph card](/dashboards/statistics-graph/) shows statistics over a period that you choose, from 5 minutes to a year.
-- The [Statistic card](/dashboards/statistic/) shows one value, such as the average temperature today.
-- The [History graph card](/dashboards/history-graph/) and the **History** panel show the state history. For older periods, when the state history has already been deleted, they show the hourly statistics instead.
+- The [Energy dashboard](/docs/energy/) uses the long-term statistics of your energy, gas, and water sensors. For power graphs of a period up to 8 days, it uses the short-term statistics.
+- The [Statistics graph card](/dashboards/statistics-graph/) shows statistics for the period that you choose. With **5 minutes**, it shows the short-term statistics. With **Hour** or longer, it shows the long-term statistics.
+- The [Statistic card](/dashboards/statistic/) shows one value, such as the average temperature today. It combines both kinds, so the value is exact for the period you choose.
+- The [History graph card](/dashboards/history-graph/) and the **History** panel show the state history. For older periods, when the state history has already been deleted, they show the long-term statistics instead.
 
-## About statistics from integrations
+## About long-term statistics from integrations
 
-Some {% term integrations %} add statistics directly, without a sensor, for example, the hourly energy use that they get from your energy provider. These statistics have an ID with a colon instead of a dot. The part before the colon is the integration, for example, `opower:` for the Opower integration. You can use them in the Energy dashboard and in statistics cards, like the statistics of a sensor. To find them, go to {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}.
+Some {% term integrations %} add long-term statistics directly, without a sensor, for example, the hourly energy use that they get from your energy provider. These statistics have an ID with a colon instead of a dot. The part before the colon is the integration, for example, `opower:` for the Opower integration. You can use them in the Energy dashboard and in statistics cards, like the statistics of a sensor. To find them, go to {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}.
 
 ## When the unit or the state class changes
 
-Statistics only work if the values stay comparable over time:
+Both kinds of statistics only work if the values stay comparable over time. Home Assistant checks this every 5 minutes, when it saves the short-term statistics. The long-term statistics are calculated from them, so if the short-term statistics stop, the long-term statistics stop too:
 
 - If the unit of a sensor changes to another unit of the same kind, for example, from W to kW, Home Assistant converts the values, and the statistics continue.
 - If the unit changes to a unit that can't be converted, for example, from kWh to m³, Home Assistant stops the statistics for the sensor until you fix it.
@@ -84,5 +84,5 @@ In these cases, an issue appears in {% my developer_statistics title="**Settings
 
 ## Good to know
 
-- If you exclude an entity from the recorder later, its existing statistics stay. You can delete them in the [**Statistics** tab](/docs/tools/dev-tools/#deleting-statistics).
+- If you exclude an entity from the recorder later, its existing long-term statistics stay. You can delete them in the [**Statistics** tab](/docs/tools/dev-tools/#deleting-statistics).
 - To correct a wrong value, for example, a spike in your energy use, refer to [Adjusting a statistic](/docs/tools/dev-tools/#adjusting-a-statistic).
