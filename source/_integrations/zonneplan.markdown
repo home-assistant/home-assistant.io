@@ -54,13 +54,29 @@ The following sensors are provided by this integration:
 
 The **Electricity price low today start time** and **Electricity price low today end time** sensors mark the block of consecutive hours around today's lowest price. The matching **tomorrow** sensors do the same for tomorrow, once its prices are published. This lets you build automations that act on the entire block of cheap hours instead of a single hour.
 
+#### Home battery
+
+If your account has a Zonneplan home battery, the integration adds a device for each battery with these sensors:
+
+- **Battery**: The state of charge, in %.
+- **Power**: The power the battery delivers, in W. Positive while discharging, negative while charging.
+- **Battery state**: Whether the battery is `Charging`, `Discharging`, or `Operative`.
+- **Inverter state**: Whether the battery inverter is `Charging`, `Discharging`, or `Operative`.
+- **Total earned**: What the battery has earned in total since it was installed.
+- **Earned today**: What the battery has earned so far today. This can be negative.
+- **Energy charged today**: The energy charged into the battery so far today, in kWh.
+- **Energy discharged today**: The energy discharged from the battery so far today, in kWh.
+- **Charge cycles**: The number of full charge cycles.
+- **Backup power capacity** (diagnostic): The most energy that can be reserved for backup power, in Wh.
+- **Last measurement** (diagnostic): When the battery last reported its status to Zonneplan.
+
 ### Binary sensors
 
 - **Electricity price low**: On while the current hour falls in today's block of cheapest hours, the same block as the low price start and end time sensors. Off at all other hours. The state updates at the start of every hour.
 
 #### Home battery
 
-If your account has a Zonneplan home battery, the integration adds a device for each battery with these binary sensors:
+Each home battery device also has these binary sensors:
 
 - **Home optimization active**: On while home optimization is actively steering the battery.
 - **Grid congestion**: On while grid congestion is limiting the battery.
@@ -69,7 +85,7 @@ If your account has a Zonneplan home battery, the integration adds a device for 
 
 ## Known limitations
 
-The integration does not yet expose entities for Zonneplan EV charge points or solar panels. For home batteries, only the binary sensors listed above are available.
+The integration does not yet expose entities for Zonneplan EV charge points or solar panels. Home batteries can't be controlled yet; only the sensors and binary sensors listed above are available.
 
 Zonneplan receives usage data from your grid operator a day or more after the fact, so the monthly usage and cost sensors lag behind, and a day's values can still change afterwards. They stay unknown until the month has data. Because of this delay, these sensors are not suitable for the energy dashboard.
 
