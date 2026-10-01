@@ -11,9 +11,9 @@ ha_domain: script
 ha_integration_type: system
 ---
 
-A {% term script %} is a saved list of steps that Home Assistant runs when you start it. For example, a "Good morning" script can turn on the lights, start the coffee machine, and read out the weather. Unlike an {% term automation %}, a script has no triggers, and no conditions that are checked before it starts. It runs its steps as soon as you start it: from a dashboard, with Assist, from an automation, or from another script. If a script should only continue in certain situations, it can check a condition as one of its steps, with the [**Condition**](/docs/scripts/#test-a-condition) building block.
+A {% term script %} is a saved list of steps that Home Assistant runs when you start it. For example, a "Good morning" script can turn on the lights, start the coffee machine, and read out the weather. Unlike an {% term automation %}, a script has no triggers, and no conditions that are checked before it starts. It runs its steps as soon as you start it: from a dashboard, with Assist, from an automation, or from another script. If a script should only continue in certain situations, it can check a condition as one of its steps, with the [**Condition**](/docs/scripts/#condition) building block.
 
-The **Scripts** {% term integration %} creates an {% term entity %} for each script, and makes each script available as an action. The steps of a script are the same actions and building blocks you use in automations. The integration also provides actions that control scripts as a whole, for example, to start or stop them. They are listed under [List of actions](#list-of-actions).
+The **Scripts** {% term integration %} creates an {% term entity %} for each script, and makes each script available as an action. The steps of a script are the same actions and building blocks you use in automations. For all steps you can use, refer to [Building blocks and actions](/docs/scripts/). The integration also provides actions that control scripts as a whole, for example, to start or stop them. They are listed under [List of actions](#list-of-actions).
 
 {% my scripts badge %}
 
@@ -201,9 +201,9 @@ script: |
 
 ### Returning a response
 
-A script can return data to the automation or script that started it. In the script, add a [**Stop**](/docs/scripts/#stopping-a-script-sequence) building block, and enter the name of the variable to return in **The name of the variable to use as response**. In the automation, run the script itself, and enter a name in **Response variable**. The automation can then use the data in templates.
+A script can return data to the automation or script that started it. In the script, add a [**Stop**](/docs/scripts/#stop) building block, and enter the name of the variable to return in **The name of the variable to use as response**. In the automation, run the script itself, and enter a name in **Response variable**. The automation can then use the data in templates.
 
-The variable that the script returns must contain keys and values.
+The variable that the script returns must contain keys and values. For an example, refer to [Examples of Stop](/docs/scripts/#examples-of-stop).
 
 ## The script entity
 
