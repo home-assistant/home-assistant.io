@@ -49,7 +49,7 @@ Avoid:
   description: A route feature to avoid, either tolls, highways, ferries, or indoor.
   required: false
 Travel routing preference:
-  description: Factors to take into consideration when calculating the route, corresponding to the [RoutingPreference](https://developers.google.com/maps/documentation/routes/reference/rest/v2/RoutingPreference). The default is traffic-aware optimal for the highest quality travel times. Traffic-unaware uses the Calculate Routes Essentials API, which has a higher free usage limit.
+  description: Factors to take into consideration when calculating the route, corresponding to the [RoutingPreference](https://developers.google.com/maps/documentation/routes/reference/rest/v2/RoutingPreference). The default is traffic-aware optimal for the highest quality travel times. Traffic-unaware routing uses the Compute Routes Essentials SKU, which has a higher free usage limit.
   required: false
 Traffic model:
   description: The traffic model to use when calculating driving routes, either best guess, pessimistic, or optimistic.
@@ -121,6 +121,7 @@ travel_routing_preference:
     `traffic_aware_optimal`, `traffic_aware`, or `traffic_unaware`.
   required: false
   type: string
+  default: traffic_aware_optimal
 traffic_model:
   description: >
     The traffic model to use when calculating driving routes. One of
