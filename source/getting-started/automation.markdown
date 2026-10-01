@@ -50,7 +50,7 @@ This tutorial assumes the following:
 6. To save the automation, select **Save**. Give the automation a name, add a **Description**, and **Save** again.
    - When choosing a name, be specific, so that you can find it even when you have many automations. For example, `Turn on living room table light at sunset`.
    - Now wait until it's 30 minutes before sunset and see your automation magic!
-   - Or follow these steps to [test your automation](/docs/automation/troubleshooting/#testing-your-automation) right away.
+   - Or follow these steps to [test your automation](/docs/automation/testing/#testing-your-automation) right away.
 
 ## Dimming the lights the night before a workday
 
@@ -101,7 +101,7 @@ This tutorial assumes the following:
     ![Screenshot showing the then section of an if-then action](/images/getting-started/automation_if-then-action_then.png)
 
 6. To save the automation, select **Save**. Give the automation a name (for example, `dim living room table light night before workday`), add a **Description**, and **Save** again.
-7. [Test your automation](/docs/automation/troubleshooting/#testing-your-automation).
+7. [Test your automation](/docs/automation/testing/#testing-your-automation).
 
 {% include getting-started/next_step.html step="Presence detection" link="/getting-started/presence-detection/" %}
 
