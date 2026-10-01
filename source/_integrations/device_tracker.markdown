@@ -60,7 +60,7 @@ Some integrations provide an older device tracker model which do not have the `t
 <p class='img'>
 <img src='/images/integrations/device_tracker/state_device_tracker.png' alt='Screenshot showing the state of a device tracker entity in Settings > Tools > States' />
 <img src='/images/integrations/device_tracker/state_device_tracker.png' alt='Screenshot showing the state of a device tracker entity in the States tab of Tools.' />
-Screenshot showing the state of a device tracker entity in {% my developer_states title="Settings > Tools > States" %}
+Screenshot showing the state of a device tracker entity in {% my tools_states title="Settings > Tools > States" %}
 </p>
 
 ## Automating tracked devices
@@ -69,4 +69,4 @@ The recommended path for presence automations is to connect tracked devices to [
 
 Zone triggers can also target a device tracker entity directly, such as `device_tracker.phone`. They can run an automation when a person or tracked device enters or leaves a zone. For example, you can turn on lights when you arrive home or send a notification when a tracked device leaves a school zone.
 
-If you need to react to the raw state of one device tracker entity, use a [state trigger](/triggers/state/). Device tracker states depend on the integration that provides the entity. GPS-based trackers can report zones or custom location names, while router-based trackers usually report `home` or `not_home`.
+If you need to react to the raw state of one device tracker entity, use a [State changed trigger](/triggers/state/). Device tracker states depend on the integration that provides the entity. GPS-based trackers can report zones or custom location names, while router-based trackers usually report `home` or `not_home`.

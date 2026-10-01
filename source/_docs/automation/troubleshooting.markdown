@@ -65,7 +65,7 @@ The UI shows a state in a readable form, for example, **Open** for a door sensor
 
 #### Resolution
 
-1. Go to {% my developer_states title="**Settings** > **Tools** > **States**" %} and find the entity.
+1. Go to {% my tools_states title="**Settings** > **Tools** > **States**" %} and find the entity.
    - Result: The **State** column shows the raw state.
 2. In the trigger, select the state from the list, or enter the raw state.
 
@@ -745,7 +745,7 @@ The date and time of the entity has already passed, or the sensor is unavailable
 
 #### Resolution
 
-1. Go to {% my developer_states title="**Settings** > **Tools** > **States**" %} and check the state of the entity.
+1. Go to {% my tools_states title="**Settings** > **Tools** > **States**" %} and check the state of the entity.
 2. If the date and time has passed, set a new one. If the sensor is unavailable, check the device or the integration that provides it.
 
 {% enddetails %}
@@ -987,7 +987,7 @@ A **Numeric state** condition doesn't pass when the value is unavailable or unkn
 
 #### Resolution
 
-1. Go to {% my developer_states title="**Settings** > **Tools** > **States**" %} and check the state of the entity, and of the threshold entity, if you use one.
+1. Go to {% my tools_states title="**Settings** > **Tools** > **States**" %} and check the state of the entity, and of the threshold entity, if you use one.
 2. If it is unavailable, check that the device has power and a connection.
 
 {% enddetails %}

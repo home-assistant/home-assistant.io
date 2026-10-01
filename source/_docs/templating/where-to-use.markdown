@@ -220,7 +220,7 @@ Remember: `value` is always text, so convert with `| float(0)` or `| int(0)` bef
 
 ### Testing an incoming-data template
 
-The {% my developer_template title="template editor" %} does not know what `value_json` or `value` would be in a real incoming payload, because there is no live payload at that moment. To test a template that uses these variables, define them yourself at the top with `{% set %}`:
+The {% my tools_template title="template editor" %} does not know what `value_json` or `value` would be in a real incoming payload, because there is no live payload at that moment. To test a template that uses these variables, define them yourself at the top with `{% set %}`:
 
 {% example %}
 template: |
