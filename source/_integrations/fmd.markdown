@@ -15,14 +15,14 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **FMD** {% term integration %} connects Home Assistant to a self-hosted [FMD (Find My Device)](https://fmd-foss.org) server. FMD is an open-source, privacy-focused alternative to commercial device tracking services, built by the [FMD-FOSS](https://fmd-foss.org) project ([source](https://gitlab.com/fmd-foss/fmd-server)).
+The **FMD** {% term integration %} connects Home Assistant to an [FMD (Find My Device)](https://fmd-foss.org) server. FMD is an open-source, privacy-focused alternative to commercial device tracking services, built by the [FMD-FOSS](https://fmd-foss.org) project ([source](https://gitlab.com/fmd-foss/fmd-server)).
 
 A device running the [FMD Android app](https://gitlab.com/fmd-foss/fmd-android) periodically reports encrypted location fixes to your FMD server. This integration logs in to the server with your account credentials, fetches the latest location data, and decrypts it locally on your Home Assistant instance. Location fixes are stored on the server in encrypted form and decrypted locally by this integration using your account credentials.
 
 ## Prerequisites
 
-- A running FMD server that you control (for example, self-hosted via Docker or a VPS). For more information, refer to the [FMD server documentation](https://gitlab.com/fmd-foss/fmd-server).
-- An FMD account on that server (created in the FMD Android app or via the server's web interface).
+- A running FMD server: either your own (self-hosted via Docker or a VPS), or the project's free hosted instance at [server.fmd-foss.org](https://server.fmd-foss.org). For more information, refer to the [FMD server documentation](https://fmd-foss.org/docs/fmd-server/overview).
+- An FMD account on that server, created in the FMD Android app. This integration cannot create an account; it can only use an existing one.
 - At least one device running the FMD Android app, paired with your account.
 
 ## Supported devices
@@ -116,10 +116,9 @@ The integration polls your FMD server every 30 minutes by default. Each poll fet
 
 ## Known limitations
 
-- Requires a self-hosted FMD server. There is no official public FMD cloud.
 - The integration currently tracks a single device per account (the device paired with that account's app).
-- Location fixes are only as fresh as the last upload from the device. The integration cannot request an on-demand GPS fix.
-- The integration does not support remote commands (no ringing, photo, or wipe commands).
+- Location fixes are only as fresh as the last upload from the device. Requesting an on-demand location from the device is not supported yet.
+- Remote commands (ringing the device, taking a photo, and so on) are not supported yet.
 - Each account/server combination requires its own config entry.
 
 ## Troubleshooting
