@@ -1416,6 +1416,12 @@ a.material-card:hover {
       border: 0;
       border-radius: 0;
       box-shadow: none;
+
+      &.sponsor-logo-wide {
+        @media screen and (min-width: 768px) {
+          max-width: 240px;
+        }
+      }
     }
 
     &-title {
