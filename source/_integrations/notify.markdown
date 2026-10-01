@@ -24,7 +24,7 @@ The state of a notify entity is the date and time when a message was last sent.
 <p class='img'>
 <img src='/images/integrations/notify/state_notify.png' alt='Screenshot showing the state of a notify entity in Settings > Tools > States' />
 <img src='/images/integrations/notify/state_notify.png' alt='Screenshot showing the state of a notify entity in the States tab of Tools.' />
-Screenshot showing the state of a notify entity in {% my developer_states title="Settings > Tools > States" %}
+Screenshot showing the state of a notify entity in {% my tools_states title="Settings > Tools > States" %}
 </p>
 
 In addition, the entity can have the following states:
@@ -120,7 +120,7 @@ automation: |
 
 After you set up a [notifier](/integrations/#notifications), test its action in **Tools**.
 
-1. Go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
+1. Go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}.
 2. From the **Action** dropdown menu, choose the action you want to test, such as **Send a notification message** or **Send a persistent notification**.
 3. If you are testing `notify.send_message`, select one or more targets using **Entity**, **Device**, **Area**, **Floor**, or **Label**.
 4. In **Message**, enter the notification text.

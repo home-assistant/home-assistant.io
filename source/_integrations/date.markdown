@@ -23,7 +23,7 @@ The state of a date entity is the actual date value.
 
 <p class='img'>
 <img src='/images/integrations/date/state_date.png' alt='Screenshot showing the state of a date in the States tab of Tools.' />
-Screenshot showing the state of a date in {% my developer_states title="Settings > Tools > States" %}. In the example shown, the state is January 1, 2020; in the format YYYY-MM-DD.
+Screenshot showing the state of a date in {% my tools_states title="Settings > Tools > States" %}. In the example shown, the state is January 1, 2020; in the format YYYY-MM-DD.
 </p>
 
 In addition, the entity can have the following states:

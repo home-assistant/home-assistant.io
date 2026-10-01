@@ -69,7 +69,7 @@ To test the conditions and the actions together, without waiting for a real trig
 The automation runs without trigger data, so there is no [trigger ID](/docs/automation/trigger/#trigger-id). A **Triggered by** condition is never met, and a template that uses `trigger` data has nothing to read. If your conditions or actions depend on the trigger, [run the automation with a simulated trigger](#using-a-simulated-trigger-to-test-an-automation) instead.
 {% endnote %}
 
-1. Go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
+1. Go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}.
 2. In the **Action** dropdown list, select **Trigger automation**, with **Automation** next to it.
 3. Select **Add target**, and then select the automation you are testing.
 4. To check the conditions, turn off **Skip conditions**. To skip them, leave it on.
@@ -95,7 +95,7 @@ To avoid this:
 {% endnote %}
 
 1. Do one of the following:
-   - To simulate a state change, go to {% my developer_states title="**Settings** > **Tools** > **States**" %}.
+   - To simulate a state change, go to {% my tools_states title="**Settings** > **Tools** > **States**" %}.
      - Under **Entity**, select the entity. Then use **Set state** to reproduce the change that your trigger reacts to:
        - For a **State changed** trigger, set the **State** from its **From** value to its **To** value. If the entity already has the **To** state, set it to a different state first. Setting the same state again is not a state change, so the trigger does not react.
        - For a **Numeric state crossed threshold** trigger, set a value in **State** that crosses its **Above** or **Below** threshold. If the value is already past the threshold, first set a value on the other side.
@@ -103,7 +103,7 @@ To avoid this:
      - For details, refer to [Setting the state of an entity](/docs/tools/dev-tools/#setting-the-state-of-an-entity).
      - Changing the state here doesn't change the device. It only changes the state that Home Assistant shows, so that the trigger reacts. After the test, the state shown may be wrong until the device reports its state again.
      - Result: Every automation with a trigger on that state change starts, with the trigger data of the simulated change. The actions of the automation run for real.
-   - To simulate an event, go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
+   - To simulate an event, go to {% my tools_events title="**Settings** > **Tools** > **Events**" %}.
      - If you don't know what the event data looks like, first [listen to the real event](/docs/tools/dev-tools/#subscribe-to-an-event) to see it.
      - Enter the same **Event type** and **Event data (YAML, optional)** as in the trigger of your automation, and select **Fire event**. For details, refer to [Firing an event](/docs/tools/dev-tools/#fire-an-event).
      - Result: Every automation with a trigger on that event starts, with the trigger data of the simulated event. The actions of the automation run for real.
@@ -121,7 +121,7 @@ While the automation is open in the automation editor, you can see when a trigge
 
 If you are writing automations in YAML, check your configuration for syntax errors before restarting Home Assistant.
 
-1. Go to {% my server_controls title="**Settings** > **Tools** > **YAML**" %}.
+1. Go to {% my tools_yaml title="**Settings** > **Tools** > **YAML**" %}.
 2. In the **Check and restart** section, select **Check configuration**.
    - Result: Home Assistant shows whether the configuration is valid, and lists any errors or warnings.
 
@@ -201,7 +201,7 @@ By default, Home Assistant keeps the last 5 traces of each automation. To keep m
 
 If your automation uses [templates](/docs/templating/) in any part, you can do the following to make sure it works as expected:
 
-1. Go to {% my developer_template title="**Settings** > **Tools** > **Template**" %} tab.
+1. Go to {% my tools_template title="**Settings** > **Tools** > **Template**" %} tab.
 2. Create all variables (sources) required for your template as described at the end of [this](/docs/templating/where-to-use/#processing-incoming-data) paragraph.
 3. Copy your template code and paste it in Template editor straight after your variables.
 4. If necessary, change your sources' value and check if the template works as you want and does not generate any errors.

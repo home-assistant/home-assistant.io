@@ -122,7 +122,7 @@ It leverages `select_source` action from the [Media player](/integrations/media_
 
 To find available sources for your TV
 
-1. Go to {% my developer_states title="**Settings** > **Tools** > **States**" %}.
+1. Go to {% my tools_states title="**Settings** > **Tools** > **States**" %}.
 2. Find your TV's media_player entity.
 3. Look for the `source_list` attribute which contains all available sources.
 

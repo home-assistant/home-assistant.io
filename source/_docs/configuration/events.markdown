@@ -13,7 +13,7 @@ Events are how Home Assistant announces that something has happened. For example
 You can use events in two ways:
 
 - To start an automation when a specific event happens, use the [**Manual event received**](/triggers/event/) trigger. For many common events, a more specific trigger is easier to set up. For example, use the [**State changed**](/triggers/state/) trigger when a light turns on, or the [**Home Assistant**](/triggers/homeassistant/) trigger when Home Assistant starts.
-- To watch events as they happen, or to fire an event yourself, go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}. For details, refer to the [Events tab](/docs/tools/dev-tools/#events-tab).
+- To watch events as they happen, or to fire an event yourself, go to {% my tools_events title="**Settings** > **Tools** > **Events**" %}. For details, refer to the [Events tab](/docs/tools/dev-tools/#events-tab).
 
 ## Events and actions
 
