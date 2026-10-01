@@ -1,12 +1,12 @@
 ---
 title: "Automation editors"
-description: "Create and edit automations from the Home Assistant user interface with the visual editor, that walks you through choosing triggers, conditions, and actions and where no code is needed. To edit YAML code use the YAML editor."
+description: "Create and edit automations from the Home Assistant user interface. Use the visual editor to choose triggers, conditions, and actions without writing code, or use the YAML editor to edit the automation's YAML."
 related:
   - docs: /getting-started/automation/
     title: "Tutorial: Create your first automation"
 ---
 
-The automation editors let you create and edit automations. You can do it directly from the Home Assistant user interface in the visual editor or using YAML code in the YAML editor. The visual editor walks you through choosing a trigger, optional conditions, and the actions to run.
+The automation editors let you create and edit automations. You can do it directly from the Home Assistant user interface without writing any YAML in the visual editor, or in the YAML editor. The visual editor walks you through choosing a trigger, optional conditions, and the actions to run.
 
 If you're new to automations, start with the [Tutorial: Create your first automation](/getting-started/automation/). It walks you through creating your first automations in the visual editor, step by step.
 
