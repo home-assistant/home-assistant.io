@@ -126,7 +126,7 @@ task :preview, :listen do |t, args|
   system "rake wwha_data"
   system "rake allowed_referrers_data"
   system "rake meetups_data"
-  jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
+  jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental --future")
   sassPid = Process.spawn("#{sass_compile} --watch")
   rackupPid = Process.spawn("rackup --port #{server_port} --host #{listen_addr}")
 
