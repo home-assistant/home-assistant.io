@@ -12,7 +12,7 @@ Events are how Home Assistant announces that something has happened. For example
 
 You can use events in two ways:
 
-- To start an automation when a specific event happens, use the [**Manual event received**](/triggers/event/) trigger. For many common events, a more specific trigger is easier to set up. For example, use the [**State**](/triggers/state/) trigger when a light turns on, or the [**Home Assistant**](/triggers/homeassistant/) trigger when Home Assistant starts.
+- To start an automation when a specific event happens, use the [**Manual event received**](/triggers/event/) trigger. For many common events, a more specific trigger is easier to set up. For example, use the [**State changed**](/triggers/state/) trigger when a light turns on, or the [**Home Assistant**](/triggers/homeassistant/) trigger when Home Assistant starts.
 - To watch events as they happen, or to fire an event yourself, go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}. For details, refer to the [Events tab](/docs/tools/dev-tools/#events-tab).
 
 ## Events and actions
@@ -27,7 +27,7 @@ In an automation, an event can be the {% term trigger %}, but not a {% term cond
 
 Actions can create events of their own. When an action such as `light.turn_on` is performed, Home Assistant fires a `call_service` event. If the light then turns on, a `state_changed` event follows. Other steps in an automation, such as a delay or a condition, do not fire these events. To fire an event from an automation or script, use the [**Fire manual event**](/docs/scripts/#fire-an-event) action.
 
-Most triggers in the automation editor are built on events. For example, the [**State**](/triggers/state/) trigger listens for `state_changed` events for the entities you select. When something has a state, such as a light, a door sensor, or the location of a person, use the **State** trigger. It is easier to set up than listening for the event yourself.
+Most triggers in the automation editor are built on events. For example, the [**State changed**](/triggers/state/) trigger listens for `state_changed` events for the entities you select. When something has a state, such as a light, a door sensor, or the location of a person, use the **State changed** trigger. It is easier to set up than listening for the event yourself.
 
 Use the [**Manual event received**](/triggers/event/) trigger when there is no state to watch:
 

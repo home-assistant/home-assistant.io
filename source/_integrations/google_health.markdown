@@ -140,7 +140,7 @@ automation: |
 
 Notify you if your daily resting heart rate goes above a certain threshold (for example, 80 bpm), which could indicate fatigue or stress.
 
-- **Trigger**: State: resting heart rate sensor state changes
+- **Trigger**: State changed: resting heart rate sensor state changes
 - **Condition**: Numeric state: resting heart rate is above 80 bpm
 - **Action**: Send a notification
 

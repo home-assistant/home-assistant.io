@@ -211,7 +211,7 @@ Here is an idea to get you started.
 
 This automation turns the TV on and launches an app when you start movie night. It is triggered by a toggle {% term helper %} named **Movie night**, which you need to create separately under {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Movie night (`input_boolean.movie_night`)
   - **To**: On
 - **Action**: Turn on media player

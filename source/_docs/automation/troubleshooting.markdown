@@ -81,7 +81,7 @@ The automation runs without trigger data, so there is no [trigger ID](/docs/auto
 
 To test an automation whose conditions or actions depend on which trigger started it, run it with a simulated trigger. You cause the change that the trigger reacts to by simulating a state change or an event. The automation then runs from the start, with real trigger data, including the [trigger ID](/docs/automation/trigger/#trigger-id).
 
-This works for triggers that react to a state change or to an event, such as the **State**, **Numeric state**, and **Manual event received** triggers. For other triggers, such as a time or an MQTT trigger, cause the real thing the trigger reacts to instead, for example, by publishing the MQTT message.
+This works for triggers that react to a state change or to an event, such as the **State changed**, **Numeric state crossed threshold**, and **Manual event received** triggers. For other triggers, such as a time or an MQTT trigger, cause the real thing the trigger reacts to instead, for example, by publishing the MQTT message.
 
 {% note %}
 **Risk of unintended device actions**
@@ -97,8 +97,8 @@ To avoid this:
 1. Do one of the following:
    - To simulate a state change, go to {% my developer_states title="**Settings** > **Tools** > **States**" %}.
      - Under **Entity**, select the entity. Then use **Set state** to reproduce the change that your trigger reacts to:
-       - For a state trigger, set the **State** from its **From** value to its **To** value. If the entity already has the **To** state, set it to a different state first. Setting the same state again is not a state change, so the trigger does not react.
-       - For a numeric state trigger, set a value in **State** that crosses its **Above** or **Below** threshold. If the value is already past the threshold, first set a value on the other side.
+       - For a **State changed** trigger, set the **State** from its **From** value to its **To** value. If the entity already has the **To** state, set it to a different state first. Setting the same state again is not a state change, so the trigger does not react.
+       - For a **Numeric state crossed threshold** trigger, set a value in **State** that crosses its **Above** or **Below** threshold. If the value is already past the threshold, first set a value on the other side.
        - For a trigger on an attribute, change that attribute under **State attributes (YAML, optional)**.
      - For details, refer to [Setting the state of an entity](/docs/tools/dev-tools/#setting-the-state-of-an-entity).
      - Changing the state here doesn't change the device. It only changes the state that Home Assistant shows, so that the trigger reacts. After the test, the state shown may be wrong until the device reports its state again.

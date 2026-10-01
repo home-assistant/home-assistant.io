@@ -26,10 +26,10 @@ This is why:
 
 Not every update of an entity starts an automation:
 
-- A [**State** trigger](/triggers/state/) without a **From** or **To** state also reacts when only an attribute changes, such as the brightness of a light. The trigger page explains how to react only to changes of the state itself.
+- A [**State changed** trigger](/triggers/state/) without a **From** or **To** state also reacts when only an attribute changes, such as the brightness of a light. The trigger page explains how to react only to changes of the state itself.
 - Normally, setting an entity to the state it already has does not produce a state change event, so the trigger does not react. Some entities can be configured to emit updates even when their value has not changed.
-- Most triggers for a specific kind of entity, such as [**Light turned on**](/triggers/light.turned_on/), do not react when an entity comes back from `unavailable` or `unknown`. The **State** trigger does react to that change, for example, from `unavailable` to `on`. If the **State** trigger has a **From** state, such as `off`, that change doesn't match. For details, refer to [unavailable and unknown states](/docs/automation/trigger/#unavailable-and-unknown-state-behavior-in-triggers).
-- With **For at least**, a change only counts when the new state has lasted for that time. A restart resets the waiting. For details, refer to the [**State** trigger](/triggers/state/).
+- Most triggers for a specific kind of entity, such as [**Light turned on**](/triggers/light.turned_on/), do not react when an entity comes back from `unavailable` or `unknown`. The **State changed** trigger does react to that change, for example, from `unavailable` to `on`. If the **State changed** trigger has a **From** state, such as `off`, that change doesn't match. For details, refer to [unavailable and unknown states](/docs/automation/trigger/#unavailable-and-unknown-state-behavior-in-triggers).
+- With **For at least**, a change only counts when the new state has lasted for that time. A restart resets the waiting. For details, refer to the [**State changed** trigger](/triggers/state/).
 
 ## Conditions check the current state
 

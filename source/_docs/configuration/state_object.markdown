@@ -7,7 +7,7 @@ related:
   - docs: /docs/configuration/events/
     title: Events
   - docs: /triggers/state/
-    title: State trigger
+    title: State changed trigger
 ---
 
 Every {% term entity %} in Home Assistant has a state. The state tells you what the entity is doing right now, for example, whether a light is on or what the current temperature is. An entity can also have attributes with more details, such as the brightness and color of a light. Home Assistant keeps the state and the attributes together in a _state object_.
@@ -50,7 +50,7 @@ In templates, you can read an attribute by its name, for example, `states.light.
 
 ## Using states in automations
 
-- To start an automation when the state or an attribute of an entity changes, use the [**State**](/triggers/state/) trigger.
+- To start an automation when the state or an attribute of an entity changes, use the [**State changed**](/triggers/state/) trigger.
 - To check the current state before an automation continues, use the [state condition](/docs/scripts/conditions/#state-condition).
 
 Behind the scenes, every change to a state or its attributes fires a [`state_changed` event](/docs/configuration/events/#state_changed).
