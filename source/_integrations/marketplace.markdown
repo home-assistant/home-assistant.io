@@ -263,36 +263,26 @@ Installed Marketplace content continues to work while the Marketplace is disable
 
 ## Troubleshooting
 
-{% details "The Marketplace is not available" %}
+### The Marketplace is not available
 
 The Marketplace does not load in recovery mode. This message also appears if the Marketplace could not start. Check the Home Assistant logs for details.
 
-{% enddetails %}
-
-{% details "GitHub limit reached" %}
+### GitHub limit reached
 
 Without a GitHub connection, the Marketplace shares GitHub's hourly request limit with other devices on your internet connection. Wait for the limit to reset, then try again, or [connect GitHub](#connecting-github) for a higher limit.
 
-{% enddetails %}
-
-{% details "A repository was removed from the catalog" %}
+### A repository was removed from the catalog
 
 The catalog sometimes removes a repository, for example if its author no longer maintains it. When that happens to installed content, a repair under {% my repairs title="**Settings** > **System** > **Repairs**" %} tells you why. Installed content continues to work, but it no longer receives updates. Uninstall it if you no longer use it.
 
-{% enddetails %}
-
-{% details "A repository was removed because it is critical" %}
+### A repository was removed because it is critical
 
 Rarely, a repository is harmful, for example because an update deletes data or has unexpected behavior. The catalog then marks it as critical. If you installed the repository, the Marketplace uninstalls it immediately and restarts Home Assistant.
 
 A repair explains which repository was removed and why, with a link to more information. Check any automations, dashboards, or other Home Assistant features that used the repository, then confirm the repair.
 
-{% enddetails %}
-
-{% details "Something you installed does not work" %}
+### Something you installed does not work
 
 The Marketplace installs the content published by the project author, but does not provide support for that content. Open the repository page and select **Issue tracker** to report the problem to the project author. The Home Assistant project cannot help with problems in community content.
 
 If an installation fails, the Marketplace shows why. Check the Home Assistant logs for more details.
-
-{% enddetails %}
