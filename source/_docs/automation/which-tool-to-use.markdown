@@ -23,7 +23,7 @@ Home Assistant has five tools for making your home do things: automations, scrip
 - Use it when
   - Something should happen in response to a change in your home.
 - Not for
-  - Steps that you want to start yourself, for example, from a button on a dashboard. Use a script for that.
+  - Steps that you mainly want to start yourself, for example, from a button on a dashboard. You can run the actions of an automation yourself, but a script is a better fit.
 
 For details, refer to [Understanding automations](/docs/automation/basics/).
 
@@ -58,7 +58,7 @@ For details, refer to [Scenes](/docs/scene/).
   - You need the same automation for several rooms or devices.
   - You want to use an automation that someone in the community has already made.
 - Not for
-  - An automation that you only need once. Create it directly instead.
+  - Writing your own blueprint for an automation that you only need once. Create the automation directly instead.
 
 For details, refer to [About blueprints](/docs/blueprint/).
 
@@ -68,10 +68,11 @@ For details, refer to [About blueprints](/docs/blueprint/).
   - An {% term entity %} that you create yourself.
   - Some helpers store a value or a state, for example, a toggle, a timer, a schedule, or a dropdown.
   - Others calculate a value from other entities, for example, the minimum of several sensors.
+  - A few combine or control other entities, for example, a group of lights that you control as one light.
 - Use it when
   - An automation needs to remember something, or you want to change how an automation behaves without editing it.
 - Not for
-  - Controlling devices. A helper holds or calculates a value. An automation or a script uses it to do something.
+  - Reacting to changes or doing steps one after the other. Use an automation or a script for that, and let it use the helper.
 
 You create helpers in {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}. For all helpers you can create, refer to the [list of helpers](/integrations/#helper).
 
