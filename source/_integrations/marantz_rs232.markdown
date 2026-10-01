@@ -15,7 +15,9 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Marantz RS-232** {% term integration %} lets you control a Marantz receiver through its RS-232 serial port. It provides local control and receives state changes from the receiver over the serial connection.
+The **Marantz RS-232** {% term integration %} lets you control a [Marantz](https://www.marantz.com/) receiver through its RS-232 serial port. It provides local control and receives state changes from the receiver over the serial connection.
+
+With it, you can include the receiver in a movie-night scene that selects the TV input and sets the listening volume, control the multi-room output independently from the main listening area, or put an output in standby at bedtime so it isn't left on overnight.
 
 _This integration currently only supports the 2007 Marantz protocol._
 
@@ -52,12 +54,6 @@ Both entities support:
 - Setting the volume and stepping it up or down.
 - Muting and unmuting.
 - Selecting an input source.
-
-## Use cases
-
-- Include the receiver in a movie-night scene that selects the TV input and sets the listening volume.
-- Control the multi-room output independently from the main listening area.
-- Put an output in standby at bedtime to avoid leaving it on overnight.
 
 ## Data updates
 
