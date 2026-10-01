@@ -216,8 +216,8 @@ The entity has these attributes:
 
 - `last_triggered`: When the script was last started.
 - `mode`: The [mode](#script-modes) of the script.
-- `current`: How many runs are active right now.
-- `max`: How many runs can be active at the same time. Only for the **Queued** and **Parallel** modes.
+- `current`: How many runs there are right now. In the **Queued** mode, this includes the runs that are waiting in the queue.
+- `max`: How many runs there can be at the same time, including runs that are waiting. Only for the **Queued** and **Parallel** modes.
 - `last_action`: The step that is running right now, while the script runs.
 
 <a id="configuration"></a>
@@ -456,7 +456,7 @@ automation: |
 
 {% details "Script can't be edited in the editor" %}
 
-<h3 class="no_toc">Symptom</h3>
+### Symptom
 
 When you open the script, the editor shows "This script cannot be edited from the UI, because it is not stored in the 'scripts.yaml' file."
 
@@ -478,7 +478,7 @@ The script is not in the `scripts.yaml` file, for example, because it's written 
 
 {% details "Script is unavailable" %}
 
-<h3 class="no_toc">Symptom</h3>
+### Symptom
 
 The script entity shows as **Unavailable**, and the script doesn't run.
 
