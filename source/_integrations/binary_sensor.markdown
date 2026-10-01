@@ -29,9 +29,9 @@ or using an [input boolean helper](/integrations/input_boolean).
 
 {% include integrations/building_block_integration.md %}
 
-## The state of binary sensor
+## Binary sensor states
 
-A binary sensor can have two states: **on** or **off**. However, in the frontend, they might not be called **on** or **off**, but use an alternative term to be more meaningful in context. For example, hot/cold, locked/unlocked. The meaning of an **on** or **off** state depends on the device class.
+A binary sensor has two states: `on` or `off`. In the Home Assistant interface, its device class determines the icon and the label shown for each state. For example, a lock binary sensor shows **Unlocked** when its state is `on` and **Locked** when its state is `off`.
 
 In addition, the entity can have the following states:
 
@@ -42,44 +42,97 @@ In addition, the entity can have the following states:
 
 {% include integrations/device_class_intro.md %}
 
-The screenshot shows a few examples of different device classes for binary sensors:
+The following device classes are supported for binary sensors. Each item shows how the `on` and `off` states appear in the Home Assistant interface.
 
-![List of binary sensors](/images/screenshots/binary_sensor_classes_icons.png)
-
-Example of various device classes icons in `on` and `off` state. The on image
-in this example has `state_color: true` specified in the entities card
-configuration to receive the icon coloring.
-
-The following device classes are supported for binary sensors:
-
-- **None**: Generic on/off. This is the default and doesn't need to be set.
-- **battery**: `on` means low, `off` means normal
-- **battery_charging**: `on` means charging, `off` means not charging
-- **carbon_monoxide**: `on` means carbon monoxide detected, `off` no carbon monoxide (clear)
-- **cold**: `on` means cold, `off` means normal
-- **connectivity**: `on` means connected, `off` means disconnected
-- **door**: `on` means open, `off` means closed
-- **garage_door**: `on` means open, `off` means closed
-- **gas**: `on` means gas detected, `off` means no gas (clear)
-- **heat**: `on` means hot, `off` means normal
-- **light**: `on` means light detected, `off` means no light
-- **lock**: `on` means open (unlocked), `off` means closed (locked)
-- **moisture**: `on` means moisture detected (wet), `off` means no moisture (dry)
-- **motion**: `on` means motion detected, `off` means no motion (clear)
-- **moving**: `on` means moving, `off` means not moving (stopped)
-- **occupancy**: `on` means occupied (detected), `off` means not occupied (clear)
-- **opening**: `on` means open, `off` means closed
-- **plug**: `on` means device is plugged in, `off` means device is unplugged
-- **power**: `on` means power detected, `off` means no power
-- **presence**: `on` means home, `off` means away
-- **problem**: `on` means problem detected, `off` means no problem (OK)
-- **running**: `on` means running, `off` means not running
-- **safety**: `on` means unsafe, `off` means safe
-- **smoke**: `on` means smoke detected, `off` means no smoke (clear)
-- **sound**: `on` means sound detected, `off` means no sound (clear)
-- **tamper**: `on` means tampering detected, `off` means no tampering (clear)
-- **update**: `on` means update available, `off` means up-to-date
-- **vibration**: `on` means vibration detected, `off` means no vibration (clear)
-- **window**: `on` means open, `off` means closed
+- **None**: Generic on/off. This is the default and does not need to be set.
+  - `on`: **On**
+  - `off`: **Off**
+- **battery**
+  - `on`: **Low**
+  - `off`: **Normal**
+- **battery_charging**
+  - `on`: **Charging**
+  - `off`: **Not charging**
+- **carbon_monoxide**
+  - `on`: **Detected**
+  - `off`: **Clear**
+- **cold**
+  - `on`: **Cold**
+  - `off`: **Normal**
+- **connectivity**
+  - `on`: **Connected**
+  - `off`: **Disconnected**
+- **door**
+  - `on`: **Open**
+  - `off`: **Closed**
+- **garage_door**
+  - `on`: **Open**
+  - `off`: **Closed**
+- **gas**
+  - `on`: **Detected**
+  - `off`: **Clear**
+- **glass_break**
+  - `on`: **Glass break detected**
+  - `off`: **Clear**
+- **heat**
+  - `on`: **Hot**
+  - `off`: **Normal**
+- **light**
+  - `on`: **Light detected**
+  - `off`: **No light**
+- **lock**
+  - `on`: **Unlocked**
+  - `off`: **Locked**
+- **moisture**
+  - `on`: **Wet**
+  - `off`: **Dry**
+- **motion**
+  - `on`: **Detected**
+  - `off`: **Clear**
+- **moving**
+  - `on`: **Moving**
+  - `off`: **Not moving**
+- **occupancy**
+  - `on`: **Detected**
+  - `off`: **Clear**
+- **opening**
+  - `on`: **Open**
+  - `off`: **Closed**
+- **plug**
+  - `on`: **Plugged in**
+  - `off`: **Unplugged**
+- **power**
+  - `on`: **On**
+  - `off`: **Off**
+- **presence**
+  - `on`: **Home**
+  - `off`: **Away**
+- **problem**
+  - `on`: **Problem**
+  - `off`: **OK**
+- **running**
+  - `on`: **Running**
+  - `off`: **Not running**
+- **safety**
+  - `on`: **Unsafe**
+  - `off`: **Safe**
+- **smoke**
+  - `on`: **Detected**
+  - `off`: **Clear**
+- **sound**
+  - `on`: **Detected**
+  - `off`: **Clear**
+- **tamper**
+  - `on`: **Tampering detected**
+  - `off`: **Clear**
+- **update**
+  - `on`: **Update available**
+  - `off`: **Up-to-date**
+- **vibration**
+  - `on`: **Detected**
+  - `off`: **Clear**
+- **window**
+  - `on`: **Open**
+  - `off`: **Closed**
 
 For comparison, here are the [device classes](/integrations/sensor#device-class) for analog sensors.
