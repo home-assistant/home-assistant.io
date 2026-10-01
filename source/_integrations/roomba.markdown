@@ -73,19 +73,22 @@ This method uses the third-party [`dorita980` tool](https://github.com/koalazak/
 To retrieve the credentials with `dorita980`:
 
 1. On your computer, install [Node.js](https://nodejs.org/en/download), which includes `npm`.
-2. Open a terminal on that computer and install `dorita980`:
+2. Open a Bash or Zsh terminal on that computer and install `dorita980` version 4.0.0 or later. Earlier versions cannot retrieve credentials from the current iRobot cloud service:
 
    ```shell
-   npm install -g dorita980
+   npm install -g dorita980@4.0.0
    ```
 
-3. Run the cloud retrieval command, replacing `IROBOT_EMAIL` and `IROBOT_PASSWORD` with the email address and password you use to sign in to your iRobot account:
+3. Enter the email address and password you use to sign in to your iRobot account when prompted by these commands:
 
    ```shell
-   get-roomba-password-cloud IROBOT_EMAIL IROBOT_PASSWORD
+   printf 'iRobot account email: '; read -r IROBOT_EMAIL
+   printf 'iRobot account password: '; read -rs IROBOT_PASSWORD; printf '\n'
+   get-roomba-password-cloud "$IROBOT_EMAIL" "$IROBOT_PASSWORD"
+   unset IROBOT_PASSWORD
    ```
 
-   This command passes your iRobot account password to `dorita980` and may save it in your terminal history. Only run it on a computer you trust.
+   The password is not shown as you type it or saved in your terminal history. It is passed to `dorita980` as a command argument, which may be visible to other processes on your computer. Only run it on a computer you trust.
 4. Find your robot in the output. It will show lines similar to these:
 
    ```text
