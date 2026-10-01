@@ -4,18 +4,22 @@ description: "Wait, repeat, choose, and perform steps at the same time in your a
 toc: true
 ---
 
-This page describes the steps of automations and scripts. It first covers how to add actions, including two with their own YAML syntax: firing an event and setting a conversation response. Then it describes each building block, how to write steps in YAML, and options that apply to any step, such as continuing when a step fails.
-
-## How automations and scripts run their steps
-
-When an automation starts, it first checks its conditions under **And if**. If they are met, it goes through the list of steps under **Then do**. A script has no conditions section, so it goes through its list of steps right away. Each step is an action or a building block:
+When an automation or script runs, it goes through a list of steps. Each step is an action or a building block:
 
 - An **action** makes something happen, for example, turning on a light or sending a notification. Home Assistant performs the action on the targets you choose. For a list of all actions, refer to the [actions reference](/actions/).
 - A **building block** controls whether, when, and in which order the other steps run. It can check a condition, wait, repeat steps, choose between steps, or perform steps at the same time.
 
-Automations and scripts use the same building blocks. The difference is when they run: an automation runs by itself when one of its triggers reacts, and a script runs when you start it, for example, from a dashboard, from an automation, or with Assist. For more about the difference, refer to [Concepts and terminology](/getting-started/concepts-terminology/#scripts).
+Automations and scripts use the same actions and building blocks.
 
-In an automation, you add building blocks under **Then do**. In a script, you add them under **Sequence**. In the editor, select **Add action**, then select **Blocks**. In YAML, you write building blocks in the list of actions, the same way as actions. For details, refer to [Writing steps in YAML](#writing-steps-in-yaml). For how to create scripts, pass them variables, and wait for them to finish, refer to the [Scripts integration](/integrations/script/).
+## How automations and scripts run their steps
+
+When an automation starts, it first checks its conditions under **And if**. If they are met, it goes through the steps under **Then do**, from top to bottom. A script has no conditions section, so it goes through its steps under **Sequence** right away.
+
+The difference is when they run: an automation runs by itself when one of its triggers reacts, and a script runs when you start it, for example, from a dashboard, from an automation, or with Assist. For more about the difference, refer to [Concepts and terminology](/getting-started/concepts-terminology/#scripts).
+
+To add a step in the editor, select **Add action**. To add a building block, select **Blocks** in that dialog. In YAML, you write actions and building blocks in the same list. For details, refer to [Writing steps in YAML](#writing-steps-in-yaml).
+
+For how to create scripts, pass them variables, and wait for them to finish, refer to the [Scripts integration](/integrations/script/).
 
 <a id="perform-an-action"></a>
 
