@@ -16,6 +16,8 @@ Home Assistant has five tools for making your home do things: automations, scrip
 
 ## The five tools
 
+For each tool, this section says what it is, when to use it, and when another tool fits better. If you're not sure where to start: most things that you want to happen in your home start with an automation. Add the other tools when your automation needs them.
+
 ### Automation
 
 - What it is
