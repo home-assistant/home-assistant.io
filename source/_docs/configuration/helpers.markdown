@@ -79,7 +79,9 @@ To change a helper later, select it in the list of helpers, and change its setti
 
 Helpers that store a value keep it when Home Assistant restarts, with these differences:
 
-- **Toggle**, **Number**, **Dropdown**, **Text**, and **Date and/or time**
+- **Toggle**
+  - Gets its last state back. To start on or off after every restart instead, change **Each time Home Assistant starts** in the settings of the toggle.
+- **Number**, **Dropdown**, **Text**, and **Date and/or time**
   - Get their last value back.
   - If the last value is no longer valid, for example, a number outside the range or an option you removed, **Number** starts at its minimum, and **Dropdown** at its first option.
   - In YAML, you can set an `initial` value. The helper then starts with that value after every restart, instead of its last value.
