@@ -558,10 +558,10 @@
 - term: Script
   definition: >-
     A script is a saved list of actions that Home Assistant runs when you start
-    it, for example, from a dashboard, with Assist, or from an automation.
+    the script from a dashboard, with Assist, or from an automation, for example.
     Unlike an automation, a script has no triggers, so it doesn't start by
     itself. Scripts are useful when you want to start the same actions from
-    several places, or give them different values each time.
+    several places, or pass different values to the script each time, such as a message or a brightness level.
   link: /integrations/script/
   aliases:
     - scripts
