@@ -1,14 +1,16 @@
 ---
 title: "Automation triggers"
-description: "Triggers are the events that start an automation, such as a sensor changing state, a time of day, the sun setting, or a person arriving home."
+description: "Triggers start an automation when something changes, such as a sensor changing state, a time of day, the sun setting, or a person arriving home."
 related:
   - docs: /voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation
     title: Adding a custom sentence to trigger an automation
 ---
 
-A trigger is what wakes an automation up. Until something triggers it, an automation just sits there quietly, waiting. The moment a trigger fires, Home Assistant checks any [conditions](/docs/automation/condition/) you set, and if they pass, it runs the [actions](/docs/automation/action/).
+A trigger is what wakes an automation up. Until something triggers it, an automation just sits there quietly, waiting. The moment a trigger reacts, Home Assistant checks any [conditions](/docs/automation/condition/) you set, and if they pass, it runs the [actions](/docs/automation/action/).
 
-Triggers can be almost anything that happens in your home or in Home Assistant itself. A motion sensor detecting movement. The sun going down. A specific time of day. A person arriving home. A button on a remote being pressed. Even a voice command spoken to Assist. You can give a single automation more than one trigger, and the automation will start as soon as _any_ of them fires.
+A trigger reacts to a change. It doesn't start the automation just because something is already true. For details, refer to [how automations react to changes](/docs/automation/how-automations-react-to-changes/).
+
+Triggers can be almost anything that happens in your home or in Home Assistant itself. A motion sensor detecting movement. The sun going down. A specific time of day. A person arriving home. A button on a remote being pressed. Even a voice command spoken to Assist. You can give a single automation more than one trigger, and the automation will start as soon as _any_ of them reacts.
 
 ## Choosing a trigger
 
