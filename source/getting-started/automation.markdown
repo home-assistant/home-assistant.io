@@ -86,7 +86,7 @@ This tutorial assumes the following:
    - Under **Entity**, enter `workd` and select your workday sensor.
    - Under **State**, select **On**.
 4. Next, we want to make sure the light is only dimmed when it is actually on. No reason to do this if the light is not on.
-   - To achieve this, we use an **If-then** action. Select **Add action** > **Building blocks** > **If-then**.
+   - To achieve this, we use an **If-then** action. Select **Add action** > **Blocks** > **If-then**.
    - You now get a block called **Conditionally execute an action**. From the **Entity** list, select your light.
    - Under **If**, select **Add condition** > **Entity** > **State**.
    - Under **State**, select **On**.
