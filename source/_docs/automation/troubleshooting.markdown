@@ -42,7 +42,7 @@ The automation has a **Numeric state crossed threshold** trigger. The value is a
 
 #### Description
 
-The trigger only reacts when the value crosses the threshold. If the value was already past the threshold when the automation was turned on or Home Assistant started, the trigger waits until the value goes back and crosses the threshold again.
+The trigger only reacts when the value crosses the threshold. If the value was already past the threshold when the automation was turned on or Home Assistant started, the trigger waits until the value goes back and crosses the threshold again. For details, refer to [Triggers react to changes](/docs/automation/how-automations-react-to-changes/#triggers-react-to-changes).
 
 #### Resolution
 

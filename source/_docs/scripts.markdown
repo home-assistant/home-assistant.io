@@ -1434,7 +1434,7 @@ The **Stop** building block stops the automation or script. The next steps don't
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
 3. Select **Blocks**, then select **Stop**.
-4. Optional: In **Reason for stopping**, enter why the run stops. The reason is shown in the logs and in the [trace](/docs/automation/troubleshooting/#traces).
+4. Optional: In **Reason for stopping**, enter why the run stops. The reason is shown in the logs and in the [trace](/docs/automation/testing/#traces).
 5. Optional: To return a response from a script, in **The name of the variable to use as response**, enter the name of the variable that holds the response.
 6. Optional: To mark the run as failed, turn on **Stop because of an unexpected error**.
 7. Select **Save**.
