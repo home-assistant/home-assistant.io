@@ -12,8 +12,10 @@
   definition: >-
     An action makes Home Assistant do something, for example, turn on a light,
     send a notification, or activate a scene. Automations and scripts run a
-    list of actions. Dashboards use actions too, for example, when you tap a
-    card. Events are different: an event tells you that something happened.
+    list of actions. A dashboard card can also perform an action when you tap
+    it. This is one of several [dashboard actions](/dashboards/actions/), next
+    to others like opening another dashboard. Events are different: an event
+    tells you that something happened.
     For more information, refer to [events and
     actions](/docs/configuration/events/#events-and-actions).
   aliases:
