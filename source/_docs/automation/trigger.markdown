@@ -37,16 +37,16 @@ General triggers, such as **State changed** and **Numeric state crossed threshol
 
 ## Using several triggers
 
-An automation can have more than one trigger. It starts each time any of them reacts. To do different things depending on which trigger reacted, give each trigger an ID, and check it with a **Triggered by** condition. For the steps, refer to [Creating an automation with actions that depend on different triggers](#creating-an-automation-with-actions-that-depend-on-different-triggers).
+An automation can have more than one trigger. Any of them can start the automation. If the automation is still running when a trigger reacts, its [mode](/docs/automation/modes/) decides what happens. To do different things depending on which trigger reacted, give each trigger an ID, and check it with a **Triggered by** condition. For the steps, refer to [Creating an automation with actions that depend on different triggers](#creating-an-automation-with-actions-that-depend-on-different-triggers).
 
-One trigger can also watch several targets, for example, all lights in a room. Its **Trigger when** option decides whether it reacts for each target, for the first one, or only when all of them have changed. For details, refer to [Understanding automations](/docs/automation/basics/).
+One trigger can also watch several targets, for example, all lights in a room. Its **Trigger when** option decides whether it reacts each time one of the targets changes, only for the first one, until all targets have changed back, or once all targets have made the change. For details, refer to [Understanding automations](/docs/automation/basics/).
 
 To start an automation only when two things are both true, add a trigger for each change, and a condition for each of the two things. For an example, refer to [when two things must both be true](/docs/automation/how-automations-react-to-changes/#when-two-things-must-both-be-true).
 
 <a id="multiple-triggers"></a>
 <a id="multiple-entity-ids-for-the-same-trigger"></a>
 
-In YAML, list each trigger under `triggers`. The automation starts when any of them reacts:
+In YAML, list each trigger under `triggers`. Any of them can start the automation:
 
 ```yaml
 automation:
