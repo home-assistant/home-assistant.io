@@ -84,7 +84,7 @@ Start recording the driveway camera on your QVR Pro server as soon as the motion
 - **Trigger**: State changed
   - **Entity**: Driveway motion (`binary_sensor.driveway_motion`)
   - **To**: Detected
-- **Action**: QVR Pro: Start record
+- **Action**: Start record
   - **GUID**: The GUID of the driveway camera channel
 
 {% details "YAML example for recording when motion is detected" %}
@@ -112,7 +112,7 @@ Stop recording the driveway camera when the motion sensor has not detected motio
   - **Entity**: Driveway motion (`binary_sensor.driveway_motion`)
   - **To**: Clear
   - **For at least**: 2 minutes
-- **Action**: QVR Pro: Stop record
+- **Action**: Stop record
   - **GUID**: The GUID of the driveway camera channel
 
 {% details "YAML example for stopping the recording when it's quiet" %}

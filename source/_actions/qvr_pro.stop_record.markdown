@@ -70,7 +70,7 @@ Stop recording the driveway camera when the motion sensor has not detected motio
   - **Entity**: Driveway motion (`binary_sensor.driveway_motion`)
   - **To**: Clear
   - **For at least**: 2 minutes
-- **Action**: QVR Pro: Stop record
+- **Action**: Stop record
   - **GUID**: The GUID of the driveway camera channel
 
 {% details "YAML example for stopping the recording when it's quiet" %}
