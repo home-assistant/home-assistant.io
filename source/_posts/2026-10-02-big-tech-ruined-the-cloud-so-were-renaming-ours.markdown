@@ -2,7 +2,7 @@
 layout: post
 title: "Big Tech ruined the cloud, so we’re renaming ours"
 description: "We’ve renamed Home Assistant Cloud to Home Assistant Link. Here’s why the old name never did fit, and why this one finally does."
-date: 2026-10-01 00:00:01
+date: 2026-10-02 00:00:01
 date_formatted: "October 2, 2026"
 author: Carl Albertsson
 comments: true
