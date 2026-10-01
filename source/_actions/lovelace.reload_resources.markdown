@@ -52,7 +52,7 @@ This action has no additional options in YAML.
 
 ## Try it yourself
 
-To test this action, open {% my developer_services title="**Settings** > **Tools** > **Actions**" %}, search for **Reload dashboard resources**, and select **Perform action**. Refresh your browser to load the reloaded resources.
+To test this action, open {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}, search for **Reload dashboard resources**, and select **Perform action**. Refresh your browser to load the reloaded resources.
 
 {% include actions/stuck.md %}
 

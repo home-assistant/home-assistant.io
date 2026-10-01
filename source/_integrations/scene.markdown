@@ -25,7 +25,7 @@ Every scene entity keeps track of the timestamp of when it was last called, eith
 <p class='img'>
 <img src='/images/integrations/scene/state_scene.png' alt='Screenshot showing the state of a scene entity in Settings > Tools > States.' />
 <img src='/images/integrations/scene/state_scene.png' alt='Screenshot showing the state of a scene entity in the States tab of Tools.' />
-Screenshot showing the state of a scene entity in {% my developer_states title="Settings > Tools > States" %}
+Screenshot showing the state of a scene entity in {% my tools_states title="Settings > Tools > States" %}
 </p>
 
 In addition, the entity can have the following states:
@@ -92,7 +92,7 @@ entities:
 There are two ways to define the states of each `entity_id`:
 
 - Define the `state` directly with the entity. The `state` is required.
-- Define a complex state with its attributes. You can see all attributes available for a particular entity in {% my developer_states title="**Settings** > **Tools** > **States**" %}.
+- Define a complex state with its attributes. You can see all attributes available for a particular entity in {% my tools_states title="**Settings** > **Tools** > **States**" %}.
 
 Scenes can be activated using the `scene.turn_on` action (there is no `scene.turn_off` action).
 

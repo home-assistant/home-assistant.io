@@ -37,7 +37,7 @@ incomplete items in the list.
 
 <p class='img'>
 <img src='/images/integrations/todo/state_todo.png' alt='Screenshot showing the state of a to-do list entity in the States tab of Tools.' />
-Screenshot showing the state of a to-do list entity in {% my developer_states title="Settings > Tools > States" %}.
+Screenshot showing the state of a to-do list entity in {% my tools_states title="Settings > Tools > States" %}.
 </p>
 
 In addition, the entity can have the following states:

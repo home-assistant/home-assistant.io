@@ -12,7 +12,7 @@ related:
 
 Every {% term entity %} in Home Assistant has a state. The state tells you what the entity is doing right now, for example, whether a light is on or what the current temperature is. An entity can also have attributes with more details, such as the brightness and color of a light. Home Assistant keeps the state and the attributes together in a _state object_.
 
-You see states on your dashboards, and you can use them to start automations or to check conditions. To see the state and attributes of all your entities, go to {% my developer_states title="**Settings** > **Tools** > **States**" %}.
+You see states on your dashboards, and you can use them to start automations or to check conditions. To see the state and attributes of all your entities, go to {% my tools_states title="**Settings** > **Tools** > **States**" %}.
 
 <p class='img'>
   <img src='/images/integrations/light/state_light.png' alt='Screenshot of the States tab showing a light with the state on and its attributes, such as brightness and color'>

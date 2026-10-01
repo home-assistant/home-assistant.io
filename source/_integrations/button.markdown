@@ -30,7 +30,7 @@ The state of a button is a timestamp showing when the button was last pressed vi
 
 <p class='img'>
 <img src='/images/integrations/button/state_button.png' alt='Screenshot showing the state of a button entity in the States tab of Tools.' />
-Screenshot showing the state of a button entity in {% my developer_states title="Settings > Tools > States" %}
+Screenshot showing the state of a button entity in {% my tools_states title="Settings > Tools > States" %}
 </p>
 
 In addition, the entity can have the following states:

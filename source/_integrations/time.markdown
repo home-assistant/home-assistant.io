@@ -23,7 +23,7 @@ The state of a time {% term entity %} is a timestamp in the format HH:MM:SS.
 
 <p class='img'>
 <img src='/images/integrations/time/state_time.png' alt='Screenshot showing the state of a time entity in the States tab of Tools.' />
-Screenshot showing the state of a time entity in {% my developer_states title="Settings > Tools > States" %}
+Screenshot showing the state of a time entity in {% my tools_states title="Settings > Tools > States" %}
 </p>
 
 In addition, the entity can have the following states:

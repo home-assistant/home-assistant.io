@@ -37,7 +37,7 @@ The state of a text-to-speech {% term entity %} is a timestamp showing the date 
 
 <p class='img'>
 <img src='/images/integrations/tts/state_tts.png' alt='Screenshot showing the state of a text-to-speech entity in the States tab of Tools.' />
-Screenshot showing the state of a text-to-speech entity in {% my developer_states title="Settings > Tools > States" %}
+Screenshot showing the state of a text-to-speech entity in {% my tools_states title="Settings > Tools > States" %}
 </p>
 
 {% include integrations/actions.md %}
