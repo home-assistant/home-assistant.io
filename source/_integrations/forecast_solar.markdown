@@ -35,15 +35,14 @@ To create a forecast, the integration needs a few details about your solar setup
 
 Setup has two steps. In the first step, you choose where the location and the panel angles come from:
 
-- **Location**:
-  - **Enter fixed coordinates**: You enter the latitude and longitude of your panels. The forecast uses these coordinates, even if your Home Assistant home location changes.
-  - **Follow the Home Assistant location, for homes that move such as campers or boats**: The forecast uses your Home Assistant home location and follows it when that location changes. You don't need to enter any coordinates.
-- **Declination**:
-  - **Enter a fixed tilt**
-  - **Read the tilt from a sensor**
-- **Azimuth**:
-  - **Enter a fixed direction**
-  - **Read the direction from a sensor, such as a compass**
+{% configuration_basic %}
+Location:
+  description: "Where the location comes from. Select **Enter fixed coordinates** to enter the latitude and longitude of your panels. The forecast keeps using them even if your Home Assistant home location changes. Select **Follow the Home Assistant location, for homes that move such as campers or boats** to use your home location and follow it when it changes. You don't need to enter any coordinates."
+Declination:
+  description: "Where the tilt comes from. Select **Enter a fixed tilt** or **Read the tilt from a sensor**."
+Azimuth:
+  description: "Where the direction comes from. Select **Enter a fixed direction** or **Read the direction from a sensor, such as a compass**."
+{% endconfiguration_basic %}
 
 The second step asks only for what you chose in the first step. For each angle, you enter either a fixed value or a sensor, never both.
 
@@ -55,36 +54,28 @@ Longitude:
 Declination (0 = Horizontal, 90 = Vertical):
   description: "The tilt of your panels in degrees, from 0 (flat) to 90 (upright). Only asked for if you selected **Enter a fixed tilt**."
 Declination sensor:
-  description: "A sensor that reports the tilt of your panels. Only asked for if you selected **Read the tilt from a sensor**. The sensor must report a value from 0 to 90 degrees."
+  description: "A sensor that reports the tilt of your panels. Only asked for if you selected **Read the tilt from a sensor**. The sensor must report a value from 0 to 90. It doesn't need to use degrees as its unit."
 Azimuth (360 degrees, 0 = North, 90 = East, 180 = South, 270 = West):
   description: "The direction your panels face on a 360-degree scale. Only asked for if you selected **Enter a fixed direction**."
 Azimuth sensor:
-  description: "A sensor that reports the direction your panels face. Only asked for if you selected **Read the direction from a sensor, such as a compass**. The sensor can report a value from 0 to 360 degrees or from -180 to 180 degrees. Both are accepted."
+  description: "A sensor that reports the direction your panels face. Only asked for if you selected **Read the direction from a sensor, such as a compass**. The sensor can report a value from 0 to 360 or from -180 to 180. Both are accepted. It doesn't need to use degrees as its unit."
 Total Watt peak power of your solar modules:
   description: "The combined maximum power of all panels in this group, in Watt peak."
 {% endconfiguration_basic %}
 
-You can select any sensor entity, not only sensors that report in degrees.
+The form doesn't accept a sensor whose current state isn't a usable angle, such as a non-numeric or out-of-range value. A sensor that is `unavailable`, `unknown`, or has no state yet is accepted. When you reconfigure a plane, a sensor it already uses isn't checked again, so a sensor that is briefly unusable doesn't stop you from changing other settings.
 
-Sensor values and your Home Assistant home location are read at each scheduled forecast update, not the moment they change. That is every 30 minutes with a Forecast.Solar API key, and every hour without one. See [Data updates](#data-updates).
-
-### When a sensor can't be used
-
-A selected sensor is never replaced by a fixed value. If the sensor doesn't exist, is `unavailable` or `unknown`, reports something that isn't a number, or reports a value that is out of range, the forecast update fails with an error that names the sensor:
-
-- During setup, the integration shows the error as the reason it is retrying, and it keeps retrying.
-- After setup, the forecast entities become unavailable, and the error is logged.
-
-After setup, as soon as one of the plane sensors changes, the forecast refreshes right away, without waiting for the next scheduled update. During setup, Home Assistant keeps retrying on its own schedule instead.
-
-If you rename a sensor's entity ID, the plane keeps using it automatically. If you delete the sensor, forecast updates fail as described above until you reconfigure the plane with another sensor or a fixed value.
+If you rename a sensor's entity ID, the plane keeps using it automatically.
 
 ### Changing the location
 
-Reconfiguring the integration only changes the location. To change it, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Forecast.Solar** integration, and select **Reconfigure**. Then select one of the following:
+Reconfiguring the integration only changes the location. To change the location:
 
-- **Follow the Home Assistant location, for homes that move such as campers or boats**: Applies immediately.
-- **Enter fixed coordinates**: Shows the latitude and longitude, pre-filled with the current coordinates, so you can change them.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Forecast.Solar**.
+2. Select **Reconfigure**. Your current choice is already selected.
+3. Select one of the following, then select **Submit**:
+   - **Follow the Home Assistant location, for homes that move such as campers or boats**: Applies right away.
+   - **Enter fixed coordinates**: Shows the latitude and longitude, pre-filled with the current coordinates, so you can change them.
 
 To change the angles or power of a plane, reconfigure the plane instead. See [Reconfiguring a plane](#reconfiguring-a-plane).
 
@@ -109,7 +100,7 @@ A plane is a group of panels that share the same orientation. If your setup has 
 
 Adding more than one plane requires a paid Forecast.Solar account. See [Using a Forecast.Solar account](#using-a-forecastsolar-account). You can configure up to four planes, and the integration combines their data into a single set of sensors, taking your inverter size into account if you set one.
 
-Adding a plane uses the same two steps as setup, without the **Location** choice. When a plane uses a sensor, its title shows the sensor's name followed by "(sensor)", for example `30° / Roof azimuth (sensor) / 5100W`.
+Adding a plane uses the same two steps as setup, without the **Location** choice. When a plane uses a sensor, its title shows the sensor's entity ID, for example `30° / sensor.roof_azimuth / 5100W`. If you rename the sensor's entity ID, the title follows. If you give the plane your own title, it is kept.
 
 To add a plane:
 
@@ -184,7 +175,9 @@ How often the forecast {% term polling updates %} depends on your Forecast.Solar
 - Free accounts update every hour.
 - Accounts with an API key update every 30 minutes.
 
-Because Forecast.Solar limits how often the forecast can be requested, the integration reads your declination and azimuth sensors and your Home Assistant home location at each scheduled update, not the moment they change. The only exception is when a sensor couldn't be used after setup: as soon as one of the plane sensors changes, the forecast refreshes right away. See [When a sensor can't be used](#when-a-sensor-cant-be-used).
+Because Forecast.Solar limits how often the forecast can be requested, the integration reads your declination and azimuth sensors at each scheduled update, not the moment they change.
+
+When the integration follows your Home Assistant home location, a change to that location refreshes the forecast right away. To stay within the Forecast.Solar rate limit, a location that keeps changing, such as on a moving camper, refreshes the forecast at most once per update interval.
 
 The forecast always remains an estimate based on weather and historical data, not a measurement of the power your panels actually produce.
 
@@ -192,6 +185,25 @@ The forecast always remains an estimate based on weather and historical data, no
 
 - The free service offers a lower data resolution, updates less often, and supports only a single plane. More frequent updates and multiple planes require a paid Forecast.Solar account.
 - Your panel location must be covered by the EU Photovoltaic Geographical Information System.
+- Declination and azimuth sensors are read at each scheduled forecast update, not the moment they change. See [Data updates](#data-updates).
+- A selected sensor is never replaced by a fixed value. If a sensor can't be read after setup, the forecast keeps using its last reading and logs a warning once. When the sensor can be read again, the next forecast update uses its new value. The last reading isn't kept across a restart or a reload of the integration. If the sensor still can't be read at that point, setup retries. See [Setup keeps retrying because of a sensor](#setup-keeps-retrying-because-of-a-sensor).
+
+## Troubleshooting
+
+### Setup keeps retrying because of a sensor
+
+#### Symptom: setup retries with an error that names a sensor
+
+The integration shows that it is retrying setup, and the error names a declination or azimuth sensor.
+
+#### Description
+
+During setup, including after a restart or a reload of the integration, every selected sensor must be readable. A sensor can't be read if it doesn't exist, is `unavailable` or `unknown`, reports something that isn't a number, or reports a value that is out of range. The integration keeps retrying until the sensor can be read. If Home Assistant is still starting, it retries as soon as startup finishes.
+
+#### Resolution
+
+1. Check that the sensor named in the error exists and reports a number in the accepted range. Refer to the sensor descriptions under [Configuration](#configuration).
+2. If you deleted the sensor, reconfigure the plane and select another sensor or a fixed value. Refer to [Reconfiguring a plane](#reconfiguring-a-plane).
 
 ## Removing the integration
 
