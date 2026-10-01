@@ -1,6 +1,6 @@
 ---
 title: Marketplace
-description: Find and install integrations, dashboard cards, themes, and templates made by the Home Assistant community.
+description: Find and install community-created integrations, dashboard cards, themes, and templates.
 ha_category:
   - Other
 ha_release: 2026.11
@@ -24,101 +24,119 @@ related:
     title: Themes
 ---
 
-The **Marketplace** {% term integration %} lets you find and install things the Home Assistant community has made: integrations for devices and services Home Assistant does not support yet, cards for your dashboards, themes, and templates. Thousands of them are listed, and the Marketplace checks for updates to the ones you install.
+The **Marketplace** {% term integration %} lets you find and install community-created integrations, dashboard cards, themes, and templates. Integrations can add support for devices and services that Home Assistant does not include. The catalog contains thousands of projects, and the Marketplace checks for updates to the projects you install.
 
-The Marketplace comes with Home Assistant and is always set up. There is nothing to install or configure before you can use it.
+The Marketplace comes with Home Assistant and is ready to use. There is nothing to install or configure before you can use it.
 
 {% warning %}
-Everything in the Marketplace is made and published by the community, not by the Home Assistant project. What you install runs inside Home Assistant, with full access to your home, your data, and the system Home Assistant runs on.
+Everything in the Marketplace is made and published by the community, not by the Home Assistant project. Marketplace content runs in Home Assistant. It can access your home, your data, and the system that runs Home Assistant.
 
 - Nothing published in the Marketplace is tested, audited, or supported by the Home Assistant project.
-- It can compromise the security of Home Assistant, your home, and your network.
-- It can violate your privacy, for example by sending your data to others.
-- It can degrade the stability and performance of Home Assistant.
+- Marketplace content can compromise the security of Home Assistant, your home, and your network.
+- Marketplace content can violate your privacy, for example by sending your data to others.
+- Marketplace content can degrade the stability and performance of Home Assistant.
 
-You use everything you install from the Marketplace at your own risk. Before you install something, look at who made it, how active the project is, and what others say about it.
+You use everything you install from the Marketplace at your own risk. Before you install something, review its author, recent project activity, and community feedback.
 {% endwarning %}
 
 ## Opening the Marketplace
 
 To open the Marketplace, go to **Settings** > **Marketplace**. The Marketplace is available to administrators only.
 
-The first time you open it, the Marketplace shows the warning above. Read it and select **I understand the risks**. **Continue** becomes available after 30 seconds, which gives you the time to read the warning. Every user of your Home Assistant who opens the Marketplace reads the warning once for themselves, and it is not shown to them again. Until someone has accepted the warning, nothing can be installed or updated, not even by an automation.
+The first time you open it, the Marketplace shows the warning above.
+Until you accept the warning, Home Assistant cannot install or update Marketplace content, including from an automation.
 
 ## What you can install
 
-Everything in the Marketplace comes from a repository on GitHub, which is where most community projects publish their work. Each repository is one of these types:
+Marketplace projects are published in GitHub repositories. A repository is a project's source-code location on GitHub. The Marketplace includes the following content types.
 
-- **Integration**: Adds support for devices and services, like the integrations that come with Home Assistant. It is installed in the `custom_components` folder in your configuration folder. Most integrations are then added under {% my integrations title="**Settings** > **Devices & services**" %}, some are set up in YAML instead, as their documentation describes. Some need a restart of Home Assistant first; the Marketplace tells you when.
-- **Dashboard**: A card, a card feature, or another addition to your dashboards. It is installed in `www/community` in your configuration folder, and the Marketplace adds it as a dashboard resource for you. You can then use it on your dashboards.
-- **Theme**: Changes how Home Assistant looks. It is installed in the `themes` folder in your configuration folder. You can then pick it in your user profile.
-- **Template**: Reusable template macros. They are installed in the `custom_templates` folder in your configuration folder, where your templates can import them.
+### Integrations
+
+Integrations add support for devices and services, like the integrations included with Home Assistant. The Marketplace installs them in the `custom_components` folder in your configuration folder, which stores your Home Assistant configuration. You can add most integrations under {% my integrations title="**Settings** > **Devices & services**" %}. Some integrations use YAML configuration, as described in their documentation. Some require a Home Assistant restart before you can add them. The Marketplace tells you when this is needed.
+
+### Dashboards
+
+Dashboard content adds a card, card feature, or other item to your dashboards. The Marketplace installs it in the `www/community` folder in your configuration folder and adds it as a dashboard resource. You can then add it to a dashboard.
 
 {% note %}
-Themes are loaded from the themes folder by a line in your `configuration.yaml` file that Home Assistant adds for you when it creates the file. If you removed it, or your configuration predates it, add it back, as described in [defining themes](/integrations/frontend/#defining-themes):
+If you manage dashboard resources in YAML, the Marketplace cannot add dashboard resources automatically. The install dialog shows the resource that you need to add to your YAML configuration.
+{% endnote %}
+
+### Themes
+
+Themes change how Home Assistant looks. The Marketplace installs them in the `themes` folder in your configuration folder. You can then select a theme in your user profile.
+
+{% note %}
+Home Assistant normally loads Marketplace themes automatically. This requires the following line in your `configuration.yaml` file. Home Assistant adds it when it creates the file.
+
+If you removed this line, or your Home Assistant configuration was created before Home Assistant added it automatically, add it back. For more information, refer to [defining themes](/integrations/frontend/#defining-themes):
 
 ```yaml
 frontend:
   themes: !include_dir_merge_named themes
 ```
-
-If you manage your dashboard resources in YAML, the Marketplace cannot add them for you. The install dialog then shows the resource to add yourself.
 {% endnote %}
+
+### Templates
+
+Templates provide reusable template macros. The Marketplace installs them in the `custom_templates` folder in your configuration folder. You can then import the macros into your templates.
 
 ## Finding something to install
 
-The Marketplace opens on a list of everything it knows. To find what you are looking for:
+The Marketplace opens to the catalog. To find a project:
 
 - Use **Search** to look for a name, a description, or the name of a repository.
-- Use **Filters** to show only some types, or only what you have installed.
-- Use **Sort by** to order the list, for example by the number of stars on GitHub or by recent activity.
+- Use **Filters** to show specific content types or only installed projects.
+- Use **Sort by** to order the list, for example by the number of GitHub stars or by recent activity.
 
-Select a repository to open its page. It shows the description the author wrote, the available version, who made it, and links to its source code and to its issue tracker. Take a moment here: the page is the best place to decide whether you trust a project.
+Select a repository to open its page. It shows the project description, available version, author, and links to the source code and issue tracker. Use this information to decide whether you trust the project.
 
-Repositories that recently joined the catalog are marked as new. To clear that mark for all of them, open the menu in the top right corner and select **Dismiss new repositories**.
+Repositories that recently joined the catalog are marked as new. To clear that mark for all of them, select the three dots {% icon "mdi:dots-vertical" %} menu in the upper-right corner, then select **Dismiss new repositories**.
 
-## Installing
+## Installing a repository
 
 1. Open the page of the repository you want.
 2. Select **Install**.
-3. The dialog tells you which version it installs. The first time you install a repository, it also reminds you that it is not reviewed or supported by the Home Assistant project.
+3. Review the version shown in the dialog. The first time you install a repository, the dialog also reminds you that it is not reviewed or supported by the Home Assistant project.
 4. Select **Install**.
 
 What happens next depends on the type:
 
-- **Integration**: When Home Assistant can load it right away, its setup opens as soon as the installation is done. If you close it, add the integration later under {% my integrations title="**Settings** > **Devices & services**" %}. Some integrations can only be loaded after a restart, for example when they are set up in YAML. A repair then shows up under {% my repairs title="**Settings** > **System** > **Repairs**" %} to remind you, and it can restart Home Assistant for you.
-- **Dashboard**: Reload your browser, so it picks up the new resource. If your configuration folder had no `www` folder when Home Assistant started, a repair asks you to restart Home Assistant first.
-- **Theme** and **Template**: These are reloaded for you and are ready to use.
+- **Integration**: When Home Assistant can load it immediately, the integration setup page opens after the installation is complete. If you close it, add the integration later under {% my integrations title="**Settings** > **Devices & services**" %}. Some integrations can only load after a restart, for example when they use YAML configuration. A repair under {% my repairs title="**Settings** > **System** > **Repairs**" %} reminds you when a restart is needed and can restart Home Assistant for you.
+- **Dashboard**: Reload your browser to load the new dashboard resource. If your configuration folder did not contain a `www` folder when Home Assistant started, a repair asks you to restart Home Assistant first.
+- **Theme** and **Template**: Home Assistant reloads these automatically, and they are ready to use.
 
 ### Installing another version
 
-To install a version other than the newest, open the menu in the top right corner of the repository page and select **Install another version**. The dialog then lists the versions to choose from. Do not use this to roll back after a bad update; restore a backup instead.
+To install a version other than the latest, select the three dots {% icon "mdi:dots-vertical" %} menu in the upper-right corner of the repository page, then select **Install another version**. The dialog lists the available versions. Do not use this option to return to an earlier version after an update. Restore a backup instead.
 
-When the newest version needs a newer version of Home Assistant than you have, the install dialog lists the earlier versions on its own, so you can pick one that works.
+When the latest version requires a newer version of Home Assistant than you have, the install dialog lists earlier versions automatically, so you can select one that works.
 
 ### When an installation replaces a built-in integration
 
-Some community integrations use the same domain, the internal identifier, as an integration that comes with Home Assistant. They do so on purpose, often to offer a newer or different version of it. Home Assistant supports this, but it has consequences, so the install dialog shows a warning and asks you to confirm it.
+Some community integrations use the same domain as an integration included with Home Assistant. A domain is the integration's internal identifier. This can provide a newer or different implementation. Home Assistant supports this, but the install dialog shows a warning because it has consequences.
 
-Once you install such an integration and restart, Home Assistant loads the installed one instead of the built-in one, for everything you set up with it. Devices and services you already set up may stop working. Fixes and improvements to the built-in integration no longer reach you with Home Assistant updates, and the Home Assistant project cannot help with problems it causes.
+After you install such an integration and restart Home Assistant, it loads the installed integration instead of the built-in integration for existing and future setups that use that domain. Devices and services that you already set up may stop working. Fixes and improvements to the built-in integration no longer arrive with Home Assistant updates. The Home Assistant project cannot help with problems caused by the installed integration.
 
-To go back to the built-in integration, uninstall it and restart Home Assistant.
+To use the built-in integration again, uninstall the community integration and restart Home Assistant.
 
 ## Keeping installations up to date
 
-Every repository you install gets an [update entity](/integrations/update/). When a new version is available, it shows up under {% my updates title="**Settings** > **Updates**" %}, together with the updates of Home Assistant itself. From there, you can read the release notes and install the update. Because they are ordinary update entities, you can also update from an automation, as long as someone has accepted the warning.
+For each installed repository, the Marketplace creates an [update entity](/integrations/update/). When a new version is available, it appears under {% my updates title="**Settings** > **Updates**" %}, with Home Assistant updates. From there, you can read the release notes and install the update. You can also use an automation to install updates after someone accepts the Marketplace warning.
 
-The Marketplace checks the catalog for new versions every 6 hours. When it cannot reach the catalog, or GitHub for something you added from a link, the update entities that depend on it show as unavailable until it can again. What you installed keeps working in the meantime.
+The Marketplace checks the catalog for new versions every 6 hours. If it cannot reach the catalog or GitHub for a repository that you added from a link, the affected update entities are unavailable until the Marketplace can reach it again. Installed content keeps working in the meantime.
 
-An update of an integration takes effect after a restart of Home Assistant. A repair reminds you, and it can restart Home Assistant for you.
+After you update an integration, restart Home Assistant to apply the update. A repair reminds you and can restart Home Assistant for you.
 
-By default, the Marketplace offers stable releases only. To also get pre-releases of a repository, enable its **Pre-release** switch. You find it on the device of the repository, under {% my integration domain="marketplace" title="**Settings** > **Devices & services** > **Marketplace**" %}. The switch is disabled by default; enable the entity first to use it.
+By default, the Marketplace offers stable releases only. To also get pre-releases of a repository, enable its **Pre-release** switch. You can find it on the repository's Marketplace device page, under {% my integration domain="marketplace" title="**Settings** > **Devices & services** > **Marketplace**" %}. The **Pre-release** entity is disabled by default. Enable the entity, then turn on the switch.
 
 ## Example automations
 
-{% details "Get a notification when an update is available" %}
+You can create an automation that displays a persistent notification when an update is available.
 
-Replace `update.card_mod` with the update entity of the repository you want to hear about. You find it on the device of the repository, under {% my integration domain="marketplace" title="**Settings** > **Devices & services** > **Marketplace**" %}.
+### Get a notification when an update is available
+
+Replace `update.card_mod` with the update entity ID for the repository for which you want notifications. You can find it on the repository's Marketplace device page, under {% my integration domain="marketplace" title="**Settings** > **Devices & services** > **Marketplace**" %}.
 
 ```yaml
 alias: "Marketplace update available"
@@ -138,139 +156,143 @@ actions:
         {{ state_attr(trigger.entity_id, 'friendly_name') }} is available.
 ```
 
-{% enddetails %}
-
-## Uninstalling
+## Uninstalling a repository
 
 1. Open the page of the repository.
-2. Open the menu in the top right corner and select **Uninstall**.
+2. Select the three dots {% icon "mdi:dots-vertical" %} menu in the upper-right corner, then select **Uninstall**.
 3. Confirm.
 
-The Marketplace deletes the installed files. For a dashboard card, it also removes its dashboard resource, unless you manage your resources in YAML: then remove it there yourself. When an integration you uninstalled is still running, a repair under {% my repairs title="**Settings** > **System** > **Repairs**" %} asks you to restart Home Assistant, and it can do that for you.
+The Marketplace deletes the installed files. For a dashboard card, it also removes its dashboard resource unless you manage resources in YAML. In that case, remove the resource from your YAML configuration.
 
-An integration that is still set up cannot be uninstalled as it is: the setup runs on the files the Marketplace installed, and without them it would fail to load and leave its devices and entities behind. The Marketplace then shows what is set up. Select **View integration** to delete it yourself, or **Delete and uninstall** to have the Marketplace delete it and uninstall the integration in one go. It asks once more first: deleting the setup also deletes its devices and entities.
+When an integration that you uninstall is still running, a repair under {% my repairs title="**Settings** > **System** > **Repairs**" %} asks you to restart Home Assistant and can do that for you.
 
-The other way around works too. When you delete the last entry of an integration from the Marketplace under {% my integrations title="**Settings** > **Devices & services**" %}, Home Assistant asks whether you want to uninstall it as well.
+An integration cannot be uninstalled while it is still configured in Home Assistant. Its setup uses the files that the Marketplace installed. Without those files, the integration would fail to load and leave its devices and entities behind. The Marketplace shows the existing integration setups. Select **View integration** to remove the integration setup yourself, or **Delete and uninstall** to remove the setup and uninstall the integration in one step. The Marketplace asks you to confirm because removing the setup also deletes its devices and entities.
+
+You can also remove the last Marketplace integration setup from {% my integrations title="**Settings** > **Devices & services**" %}. Home Assistant then asks whether you want to uninstall it.
 
 ## Custom repositories
 
-Not every community project is listed in the catalog. If you want something the Marketplace does not list, you can add its repository yourself. The Marketplace then treats it like any other repository: you can install it and keep it up to date.
+Not every community project is listed in the catalog. If a community project is not in the catalog, you can add its repository yourself. The Marketplace then treats it like any other repository: you can install it and keep it up to date.
 
-A custom repository has to meet the same requirements as the ones in the catalog:
+A custom repository must meet the same requirements as the repositories in the catalog:
 
 - It is a public repository on GitHub.
 - It includes a `hacs.json` file that describes it. Most community projects already have one.
-- It holds an integration, a dashboard, a theme, or a template, laid out the way the Marketplace installs it.
+- It holds an integration, dashboard, theme, or template and uses the folder structure required for its content type.
 
-Adding a custom repository needs a [GitHub connection](#connecting-github). If you have not connected GitHub yet, the Marketplace asks you to do so when you add the repository.
+To add a custom repository, [connect GitHub](#connecting-github). If you have not connected GitHub yet, the Marketplace asks you to do so when you add the repository.
 
 To add a custom repository:
 
 1. Go to **Settings** > **Marketplace**.
-2. In the top right corner, select **Add from link**.
-3. Under **GitHub link**, enter the repository, either as its full address, like `https://github.com/owner/repository`, or as `owner/repository`.
+2. In the upper-right corner, select **Add from link**.
+3. Under **GitHub link**, enter the repository as a full GitHub URL, such as `https://github.com/owner/repository`, or as `owner/repository`.
 4. Select **Add**.
 
-The Marketplace looks at the repository to find out what it holds. When it cannot tell, or the repository holds more than one kind of thing, it asks you: select it under **Type**, and select **Add** again.
+The Marketplace checks the repository to identify its content type. If it cannot identify the type, or if the repository holds more than one type of content, select the type under **Type**, then select **Add** again.
 
-The repository then appears in the list, where you can open it and install it. If the Marketplace cannot add it, the dialog tells you why. For example, when the repository is already in the Marketplace, or when it holds apps, which the Marketplace does not install.
+The repository then appears in the list. Select the repository to open its page, then install it. If the Marketplace cannot add it, the dialog tells you why. For example, the repository may already be in the Marketplace or contain apps, which the Marketplace does not install.
 
 To remove a custom repository from the list, select **Add from link** and select the remove button next to it under **Added from links**. A repository you have installed stays in the list until you uninstall it.
 
 When the catalog later starts listing a custom repository, the Marketplace notices and treats it as a regular catalog repository from then on. You do not have to do anything.
 
-Some project pages have a button to open the project in your Home Assistant. Buttons made for HACS keep working and open the repository in the Marketplace.
-
 ## Connecting GitHub
 
-You can use most of the Marketplace without a GitHub account. Browsing the catalog, installing from it, and updating what you installed from it all work without one.
+You can browse the catalog, install catalog content, and update catalog content without connecting a GitHub account.
 
 A GitHub connection is needed for:
 
-- **Adding custom repositories**. The Marketplace reads them straight from GitHub.
-- **Keeping custom repositories up to date**. With a connection, the Marketplace checks them for new versions every 48 hours.
-- **A higher limit**. Without an account, GitHub allows only a small number of requests per hour from your internet connection. Browsing and installing from the catalog mostly stay clear of that limit, but when you look at many repositories in a short time, you can reach it. The Marketplace then tells you, and you can try again later or connect GitHub. With a connection, the limit is much higher.
+- **Adding custom repositories**. The Marketplace reads them directly from GitHub.
+- **Keeping custom repositories up to date**. With a connection, the Marketplace checks for new versions every 48 hours.
+- **A higher request limit**. Without a connection, GitHub limits how often Home Assistant can request information. If you reach this limit, wait for it to reset or connect GitHub. A GitHub connection provides a higher limit.
 
-The connection asks GitHub for no extra permissions. The Marketplace can read public information only, the same as anyone without an account. It cannot see your private repositories, and it cannot change anything on GitHub.
+The connection does not request access to private repositories or permission to make changes on GitHub. The Marketplace can read only the public information available without signing in.
 
-### How connecting works
+### Connecting your GitHub account
 
-The Marketplace uses GitHub's device sign-in. You never enter your GitHub password in Home Assistant.
+The Marketplace uses GitHub's device sign-in method. You approve the connection in GitHub rather than entering your password in Home Assistant.
 
-1. When the Marketplace needs a connection, it first explains what connecting does. Select **Continue** to get a code and a link to GitHub.
+1. When the Marketplace needs a connection, it explains what connecting does. Select **Continue**. The Marketplace displays a code and a link to GitHub.
 2. Open the link, sign in to GitHub if needed, and enter the code.
 3. Approve the connection on GitHub.
-4. Return to Home Assistant. The Marketplace finishes the connection on its own.
+4. Return to Home Assistant. The Marketplace finishes the connection automatically.
 
-GitHub gives the Marketplace a token, which Home Assistant stores. If the connection does not complete, try again; a new code is created every time.
+GitHub gives Home Assistant an access token, which it stores to maintain the connection. If the connection does not complete, try again. GitHub creates a new code each time.
 
-To connect GitHub before you need it, or to connect another account, go to {% my integration domain="marketplace" title="**Settings** > **Devices & services** > **Marketplace**" %}, open the menu of the entry, and select **Reconfigure**.
+To connect GitHub before you need it, or to connect a different GitHub account, go to {% my integration domain="marketplace" title="**Settings** > **Devices & services** > **Marketplace**" %}. Open the three dots {% icon "mdi:dots-vertical" %} menu of the **Marketplace** integration entry, then select **Reconfigure**.
 
-### Revoking the connection
+### Revoking the GitHub connection
 
-You can revoke the connection at any time, in your GitHub account settings under **Applications** > **Authorized OAuth Apps**. The Marketplace then notices that the token no longer works and asks you to connect again. Until you do, the parts that need GitHub stop working.
+You can revoke the connection at any time in your GitHub account settings under **Applications** > **Authorized OAuth Apps**. The Marketplace then notices that the token no longer works and asks you to connect again. Until you do, Marketplace features that require GitHub become unavailable.
 
 ## Coming from HACS
 
-The Marketplace is what HACS became when it moved into Home Assistant itself. If you used HACS, the first start of this Home Assistant version takes it over for you:
+The Marketplace replaces the Home Assistant Community Store (HACS) in Home Assistant. If you used HACS, the Marketplace migrates your HACS content automatically when Home Assistant starts after the update.
 
-- Everything you installed with HACS stays installed and keeps getting updates. The exception is a custom repository without a `hacs.json` file: it stays installed, but the Marketplace cannot update it.
-- Your custom repositories, your update entities, and the names, areas, and labels you gave them carry over.
+Buttons made for HACS still work and open the repository in the Marketplace.
+
+During the migration:
+
+- Everything you installed with HACS stays installed and continues to receive updates. A custom repository without a `hacs.json` file stays installed, but the Marketplace cannot update it.
+- Your custom repositories and update entities carry over with their names, areas, and labels.
 - The HACS integration is removed, together with its files.
 - Bookmarks to `/hacs` open the Marketplace.
 
-A few things work differently now:
+The following HACS features and paths change in the Marketplace:
 
-- **AppDaemon apps and Python scripts** are no longer managed. Their files stay where they are and keep working, but they no longer get updates from the Marketplace. A repair tells you which ones this concerns.
-- **Dashboard resources** are served from `/local/community/` now. The old `/hacsfiles/` addresses keep working. If you configured resources in YAML, a repair reminds you to change them to the new address.
-- **Options** of HACS, like its sidebar title and icon, are gone. The Marketplace lives under **Settings** and shows all types.
+- **AppDaemon apps and Python scripts** are no longer managed. Their files stay where they are and keep working, but they no longer receive updates from the Marketplace. A repair tells you which ones this concerns.
+- **Dashboard resources** are served from `/local/community/` now. The old `/hacsfiles/` paths keep working. If you configured resources in YAML, a repair reminds you to change them to the new path.
+- **HACS options**, including the sidebar title and icon, are unavailable. The Marketplace is under **Settings** and shows all content types.
 
-### What changes for automations and tools
+### Changes to automations, templates, and custom tools
 
-The update entities keep their entity IDs, so automations and dashboards that use them keep working. A few things that pointed at HACS itself do change:
+The update entities keep their entity IDs, so automations and dashboards that use them keep working. References to HACS itself change:
 
-- **Entities of the integration**: The entities now belong to the Marketplace integration. A template that uses `integration_entities('hacs')` finds nothing anymore: use `integration_entities('marketplace')` instead.
-- **Restart after an update**: HACS put a restart message in the `release_summary` attribute of its update entities. The Marketplace tells you with a repair under {% my repairs title="**Settings** > **System** > **Repairs**" %} instead. The attribute stays empty.
-- **The WebSocket API**: Tools that called the `hacs/` commands of HACS, like `hacs/repositories/list`, get an unknown command. The Marketplace has its own commands under `marketplace/`, with a different shape.
+- **Templates**: Templates that look up entities by the HACS integration must use the Marketplace integration name instead. A template that uses `integration_entities('hacs')` finds nothing. Use `integration_entities('marketplace')` instead.
+- **Restart after an update**: HACS stored restart information in the `release_summary` attribute of its update entities. The Marketplace creates a repair under {% my repairs title="**Settings** > **System** > **Repairs**" %} instead. The attribute remains empty.
+- **WebSocket API for custom tools**: Tools that call HACS `hacs/` commands, such as `hacs/repositories/list`, receive an unknown command. The Marketplace provides its own commands under `marketplace/`, with a different command format.
 - **Links and icons**: Links to the integration page of HACS, and the `hacs:hacs` icon on dashboards, now lead to and show the Marketplace.
-- **Custom integrations that read HACS**: HACS is removed on the first start. A custom integration that reads the `hacs.*` files in `.storage`, uses `hass.data["hacs"]`, or listens to the `hacs_dispatch_*` signals finds nothing anymore. The update entities of the Marketplace tell the same, with their installed and latest version.
+- **Custom integrations that use HACS data**: HACS is removed when Home Assistant first starts after the update. Custom integrations that read the `hacs.*` files in `.storage`, use `hass.data["hacs"]`, or listen to `hacs_dispatch_*` signals no longer find that data. Marketplace update entities provide the same installed-version and latest-version information.
 
-## Turning off the Marketplace
+## Disabling the Marketplace
 
-If you do not want to use the Marketplace, you can disable it. Go to {% my integration domain="marketplace" title="**Settings** > **Devices & services** > **Marketplace**" %}, open the menu of the entry, and select **Disable**.
+If you do not want to use the Marketplace, you can disable it. Go to {% my integration domain="marketplace" title="**Settings** > **Devices & services** > **Marketplace**" %}. Open the three dots {% icon "mdi:dots-vertical" %} menu of the **Marketplace** integration entry, then select **Disable**.
 
-What you installed keeps working while the Marketplace is disabled, but it no longer gets updates. Deleting the entry does not turn the Marketplace off: it is set up again the next time Home Assistant starts.
+Installed Marketplace content continues to work while the Marketplace is disabled, but it no longer receives updates. Deleting the integration entry does not disable the Marketplace. Home Assistant sets it up again the next time it starts.
 
 ## Troubleshooting
 
 {% details "The Marketplace is not available" %}
 
-The Marketplace does not load in recovery mode. It also shows this when it could not start; the Home Assistant logs tell you why.
+The Marketplace does not load in recovery mode. This message also appears if the Marketplace could not start. Check the Home Assistant logs for details.
 
 {% enddetails %}
 
 {% details "GitHub limit reached" %}
 
-Without a GitHub connection, the Marketplace shares a small hourly limit with everything else on your internet connection that uses GitHub. Wait for the limit to reset, or [connect GitHub](#connecting-github) for a higher limit.
+Without a GitHub connection, the Marketplace shares GitHub's hourly request limit with other devices on your internet connection. Wait for the limit to reset, then try again, or [connect GitHub](#connecting-github) for a higher limit.
 
 {% enddetails %}
 
 {% details "A repository was removed from the catalog" %}
 
-The catalog sometimes removes a repository, for example when its author stopped maintaining it. When that happens to something you installed, a repair under {% my repairs title="**Settings** > **System** > **Repairs**" %} tells you why. What you installed keeps working, but it no longer gets updates. Uninstall it when you can.
+The catalog sometimes removes a repository, for example if its author no longer maintains it. When that happens to installed content, a repair under {% my repairs title="**Settings** > **System** > **Repairs**" %} tells you why. Installed content continues to work, but it no longer receives updates. Uninstall it if you no longer use it.
 
 {% enddetails %}
 
 {% details "A repository was removed because it is critical" %}
 
-Rarely, a repository turns out to be harmful, for example because an update deletes data or does something its users did not expect. The catalog then marks it as critical. If you installed it, the Marketplace uninstalls it right away and restarts Home Assistant. A repair explains which repository was removed and why, with a link to more information. Check whether anything that depended on it needs your attention, then confirm the repair.
+Rarely, a repository is harmful, for example because an update deletes data or has unexpected behavior. The catalog then marks it as critical. If you installed the repository, the Marketplace uninstalls it immediately and restarts Home Assistant.
+
+A repair explains which repository was removed and why, with a link to more information. Check any automations, dashboards, or other Home Assistant features that used the repository, then confirm the repair.
 
 {% enddetails %}
 
 {% details "Something you installed does not work" %}
 
-The Marketplace installs what the author published; it does not know how their project works. Open the page of the repository and select **Issue tracker** to report the problem to its author. The Home Assistant project cannot help with problems in community content.
+The Marketplace installs the content published by the project author, but does not provide support for that content. Open the repository page and select **Issue tracker** to report the problem to the project author. The Home Assistant project cannot help with problems in community content.
 
-If an installation itself fails, the Marketplace shows why. The Home Assistant logs have more details.
+If an installation fails, the Marketplace shows why. Check the Home Assistant logs for more details.
 
 {% enddetails %}
