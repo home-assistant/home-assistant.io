@@ -1,24 +1,24 @@
 ---
 title: "Automation triggers"
-description: "Triggers start an automation when something they watch changes, such as a sensor changing state, a time of day, the sun setting, or a person arriving home."
+description: "Triggers start an automation when something specific happens, such as a door opening, a time of day, the sun setting, or a person arriving home."
 related:
   - docs: /voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation
     title: Adding a custom sentence to trigger an automation
 ---
 
-A trigger is the part of an automation that makes the automation start when a specific change happens, for example, when the sun sets or a door opens. You add triggers in the **When** section of the automation editor.
+A trigger is the part of an automation that makes the automation start when something specific happens, for example, when the sun sets, a door opens, or a button is pressed. You add triggers in the **When** section of the automation editor.
 
 When a trigger reacts, the automation starts: Home Assistant checks the [conditions](/docs/automation/condition/), and if they are met, performs the [actions](/docs/automation/action/). Each run is recorded in a [trace](/docs/automation/troubleshooting/#traces), which shows which trigger started it.
 
-## Triggers react to a change
+## Triggers react at a specific moment
 
-A trigger reacts at the moment something changes, not while something is true. For example, a trigger for a door that opens reacts when the door goes from closed to open. It doesn't react again while the door stays open. If the door is already open when you save the automation, the trigger doesn't react until the door closes and opens again.
+A trigger reacts at a specific moment, not while something is true. For example, a trigger for a door that opens reacts when the door goes from closed to open. It doesn't react again while the door stays open. If the door is already open when you save the automation, the trigger doesn't react until the door closes and opens again.
 
 If an automation should only do something while something is true, combine a trigger for the change with a condition for the situation. For examples, refer to [Triggers react to changes](/docs/automation/how-automations-react-to-changes/#triggers-react-to-changes). For which changes count, refer to [What counts as a change](/docs/automation/how-automations-react-to-changes/#what-counts-as-a-change).
 
 ## What can trigger an automation
 
-Almost anything that changes in your home or in Home Assistant can be a trigger, for example:
+Almost anything that happens in your home or in Home Assistant can be a trigger, for example:
 
 - A device or entity changes: a door opens, motion is detected, a temperature rises above a value.
 - Time passes: a specific time of day, a repeating interval, sunrise, or sunset.
