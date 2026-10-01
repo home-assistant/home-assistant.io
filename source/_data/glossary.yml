@@ -326,7 +326,7 @@
     A helper is a virtual entity you create inside Home Assistant. It is not backed by a physical device. Helpers store values, track state, or do calculations that your automations and dashboards need.
   aliases:
     - helpers
-  link: /integrations/#helper
+  link: /docs/configuration/helpers/
 - term: HASS
   definition: >-
     HASS is an abbreviation for Home Assistant that was commonly used in the past.
