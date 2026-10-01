@@ -156,8 +156,9 @@ automation: |
           {% raw %}
           {% set upcoming = schedule['sensor.my_home_energy_planner'].data
              | selectattr('signal', 'eq', '++')
-             | selectattr('timestamp', 'gt', now().isoformat()) | list %}
-          {{ (upcoming[0].timestamp if upcoming else now().isoformat()) | as_datetime | as_local }}
+             | map(attribute='timestamp') | map('as_datetime')
+             | select('gt', now()) | list %}
+          {{ (upcoming[0] if upcoming else now()) | as_local }}
           {% endraw %}
 {% endexample %}
 
