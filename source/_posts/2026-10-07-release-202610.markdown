@@ -417,7 +417,8 @@ One thing we are incredibly proud of in Home Assistant is our [integration quali
 
 This release, we celebrate several {% term integrations %} that have improved their quality scale:
 
-- **10 integrations reached platinum** 🏆
+- **11 integrations reached platinum** 🏆
+  - [Besen], thanks to [@moryoav]
   - [Dropbox], thanks to [@bdr99]
   - [easyEnergy], thanks to [@klaasnicolaas]
   - [Google Assistant SDK], thanks to [@tronikos]
@@ -435,9 +436,8 @@ This release, we celebrate several {% term integrations %} that have improved th
   - [Proxmox VE], thanks to [@erwindouna]
   - [WattWächter Plus], thanks to [@smartcircuits]
 
-- **7 integrations reached silver** 🥈
+- **6 integrations reached silver** 🥈
   - [Airly], thanks to [@bieniu]
-  - [Besen], thanks to [@moryoav]
   - [Collection image], thanks to [@karwosts]
   - [Imou], thanks to [@Imou-OpenPlatform]
   - [LibreNMS], thanks to [@mib1185]
