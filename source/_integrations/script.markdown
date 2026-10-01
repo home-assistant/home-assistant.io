@@ -137,7 +137,7 @@ There are two ways to start a script from an automation or another script. They 
 
 If a script has fields, or uses variables in its templates, you give it the values when you start it. In the editor, fill in the script's fields in the action. Nothing is passed automatically: the script doesn't see the variables or the trigger data of the automation that started it. If the script needs them, pass them as values.
 
-In YAML, when you run the script itself, every value in the `data` of the action becomes a variable in the script, also if the script has no field for it:
+In YAML, when you run the script itself, every value in the `data` of the action becomes a variable in the script, even if the script has no field for it:
 
 {% example %}
 automation: |
@@ -218,7 +218,7 @@ The entity has these attributes:
 - `mode`: The [mode](#script-modes) of the script.
 - `current`: How many runs there are right now. In the **Queued** mode, this includes the runs that are waiting in the queue.
 - `max`: How many runs there can be at the same time, including runs that are waiting. Only for the **Queued** and **Parallel** modes.
-- `last_action`: The step that is running right now, while the script runs.
+- `last_action`: The name of the step that started most recently. It's only there while the script runs.
 
 <a id="configuration"></a>
 
