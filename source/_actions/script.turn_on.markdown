@@ -27,7 +27,7 @@ To run a script from an automation or a script:
 
 ### Options in the UI
 
-This action has no additional options beyond the target.
+This action has no additional options beyond the target. To pass values to the script from the UI, add the script itself as an action instead. Its [fields](/integrations/script/#fields) then appear as inputs. In YAML, you can pass values with `variables`, as shown below.
 
 {% include actions/yaml_header.md %}
 
