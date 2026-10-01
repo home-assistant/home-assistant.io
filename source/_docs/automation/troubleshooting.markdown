@@ -81,7 +81,7 @@ The automation has a **State changed** trigger with a **From** state, for exampl
 
 #### Description
 
-The entity was unavailable in between, for example, because the device lost its connection. The change was from `unavailable` to `on`, not from `off` to `on`, so the **From** state doesn't match.
+The entity was unavailable in between, for example, because the device lost its connection. The change was from `unavailable` to `on`, not from `off` to `on`, so the **From** state doesn't match. For details, refer to [What counts as a change](/docs/automation/how-automations-react-to-changes/#what-counts-as-a-change).
 
 #### Resolution
 
@@ -104,7 +104,7 @@ You expect the automation to start while something is true, for example, while a
 
 #### Description
 
-Triggers react to a change. They don't keep checking whether something is still true. For example, a **Numeric state crossed threshold** trigger reacts once, when the value crosses the threshold.
+Triggers react to a change. They don't keep checking whether something is still true. For example, a **Numeric state crossed threshold** trigger reacts once, when the value crosses the threshold. For details, refer to [Triggers react to changes](/docs/automation/how-automations-react-to-changes/#triggers-react-to-changes).
 
 #### Resolution
 
@@ -913,7 +913,7 @@ When the trigger reacted, the condition was not met. Later, the condition is met
 
 #### Description
 
-Conditions are only checked once, right after a trigger reacts. They don't start the automation when they become true later.
+Conditions are only checked once, right after a trigger reacts. They don't start the automation when they become true later. For details, refer to [Conditions check the current state](/docs/automation/how-automations-react-to-changes/#conditions-check-the-current-state).
 
 #### Resolution
 
@@ -921,6 +921,8 @@ Conditions are only checked once, right after a trigger reacts. They don't start
 2. Under **When**, select **Add trigger**, and add a trigger for the change that makes the condition true.
 3. Select **Save**.
    - Result: The automation also starts at that moment, and checks its conditions again.
+
+For an example, refer to [When two things must both be true](/docs/automation/how-automations-react-to-changes/#when-two-things-must-both-be-true).
 
 {% enddetails %}
 
