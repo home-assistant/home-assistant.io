@@ -2286,7 +2286,7 @@ Unit of measurement:
 Device class:
   description: The [device class](/integrations/sensor/#device-class) used to pick display formatting and the icon.
 State class:
-  description: The [state class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes), which controls number formatting and whether the sensor's history is kept as long-term statistics.
+  description: The [state class](/integrations/sensor/#state-class), which controls whether the sensor's history is kept as long-term statistics.
 Device:
   description: An existing device to attach this helper to.
 Availability:
