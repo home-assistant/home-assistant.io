@@ -56,9 +56,9 @@ The following parameters can be controlled for the `climate` platform entities:
 
 #### Controlling vanes
 
-The horizontal and vertical vane positions can be controlled using the corresponding `melcloud.set_vane_horizontal` and `melcloud.set_vane_vertical` actions.
+The horizontal and vertical vane positions can be controlled using the [Set vane horizontal](/actions/melcloud.set_vane_horizontal/) and [Set vane vertical](/actions/melcloud.set_vane_vertical/) actions.
 
-Swing mode can also be used to control vertical vane position.
+The swing mode of the climate entity also controls the vertical vane position, and the horizontal swing mode controls the horizontal vane position.
 
 ### Sensor
 
@@ -175,3 +175,71 @@ The following parameters can be controlled for the `water_heater` platform entit
 |Attribute|Description|Example|
 |---------|-----------|-------|
 |`status` |Current operation status|`heat`|
+
+{% include integrations/actions.md %}
+
+## MELCloud automation examples
+
+With the vane actions, you decide where the air from your air conditioner goes.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: swing the air from side to side while cooling
+
+When the air conditioner starts cooling, let the vanes swing from side to side, so the cool air spreads through the whole room.
+
+- **Trigger**: State changed
+  - **Entity**: Living room air conditioner (`climate.living_room`)
+  - **To**: Cool
+- **Action**: MELCloud: Set vane horizontal
+  - **Target**: Living room air conditioner (`climate.living_room`)
+  - **Position**: `swing`
+
+{% details "YAML example for swinging the air while cooling" %}
+
+{% example %}
+automation: |
+  alias: "Swing the air from side to side while cooling"
+  triggers:
+    - trigger: state
+      entity_id: climate.living_room
+      to: "cool"
+  actions:
+    - action: melcloud.set_vane_horizontal
+      target:
+        entity_id: climate.living_room
+      data:
+        position: swing
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: swing the air up and down while heating
+
+Warm air rises. When the air conditioner starts heating, let the vanes swing up and down, so the warm air mixes better with the air in the room.
+
+- **Trigger**: State changed
+  - **Entity**: Living room air conditioner (`climate.living_room`)
+  - **To**: Heat
+- **Action**: MELCloud: Set vane vertical
+  - **Target**: Living room air conditioner (`climate.living_room`)
+  - **Position**: `swing`
+
+{% details "YAML example for swinging the air while heating" %}
+
+{% example %}
+automation: |
+  alias: "Swing the air up and down while heating"
+  triggers:
+    - trigger: state
+      entity_id: climate.living_room
+      to: "heat"
+  actions:
+    - action: melcloud.set_vane_vertical
+      target:
+        entity_id: climate.living_room
+      data:
+        position: swing
+{% endexample %}
+
+{% enddetails %}
