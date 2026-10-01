@@ -1,10 +1,10 @@
 ---
 title: "Navigate to destination"
-action: tesla_fleet.navigation_request
+action: tesla_fleet.navigate_to_destination
 domain: tesla_fleet
 description: "Sets the vehicle's navigation to an address, place name, or map link."
 related_actions:
-  - tesla_fleet.navigation_gps_request
+  - tesla_fleet.navigate_to_coordinates
 ---
 
 The **Navigate to destination** action sends an address, place name, or map link to your Tesla vehicle's navigation, the same as sharing a location to the car from your phone.
@@ -33,11 +33,11 @@ Destination:
 
 {% include actions/yaml_header.md %}
 
-In YAML, refer to this action as `tesla_fleet.navigation_request`. A basic example looks like this:
+In YAML, refer to this action as `tesla_fleet.navigate_to_destination`. A basic example looks like this:
 
 {% example %}
 action: |
-  action: tesla_fleet.navigation_request
+  action: tesla_fleet.navigate_to_destination
   data:
     device_id: 0d462c0c4c0b064b1a91cdbd1ffcbd31
     destination: "1600 Amphitheatre Parkway, Mountain View, CA"
@@ -88,7 +88,7 @@ automation: |
     - condition: template
       value_template: "{{ trigger.calendar_event.location | default('', true) != '' }}"
   actions:
-    - action: tesla_fleet.navigation_request
+    - action: tesla_fleet.navigate_to_destination
       data:
         device_id: 0d462c0c4c0b064b1a91cdbd1ffcbd31
         destination: "{{ trigger.calendar_event.location }}"
@@ -115,7 +115,7 @@ automation: |
     - condition: template
       value_template: "{{ trigger.to_state.state not in ['', 'unknown', 'unavailable'] }}"
   actions:
-    - action: tesla_fleet.navigation_request
+    - action: tesla_fleet.navigate_to_destination
       data:
         device_id: 0d462c0c4c0b064b1a91cdbd1ffcbd31
         destination: "{{ trigger.to_state.state }}"

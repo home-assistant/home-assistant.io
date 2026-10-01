@@ -334,7 +334,7 @@ automation: |
     - condition: template
       value_template: "{{ trigger.calendar_event.location | default('', true) != '' }}"
   actions:
-    - action: tesla_fleet.navigation_request
+    - action: tesla_fleet.navigate_to_destination
       data:
         device_id: 0d462c0c4c0b064b1a91cdbd1ffcbd31
         destination: "{{ trigger.calendar_event.location }}"
@@ -360,7 +360,7 @@ automation: |
       zone: zone.work
       event: leave
   actions:
-    - action: tesla_fleet.navigation_gps_request
+    - action: tesla_fleet.navigate_to_coordinates
       data:
         device_id: 0d462c0c4c0b064b1a91cdbd1ffcbd31
         gps:

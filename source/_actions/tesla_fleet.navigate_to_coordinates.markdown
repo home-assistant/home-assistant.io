@@ -1,10 +1,10 @@
 ---
 title: "Navigate to coordinates"
-action: tesla_fleet.navigation_gps_request
+action: tesla_fleet.navigate_to_coordinates
 domain: tesla_fleet
 description: "Sets the vehicle's navigation to a specific latitude and longitude."
 related_actions:
-  - tesla_fleet.navigation_request
+  - tesla_fleet.navigate_to_destination
 ---
 
 The **Navigate to coordinates** action sends a latitude and longitude to your Tesla vehicle's navigation. Use it when you need an exact location rather than an address.
@@ -20,8 +20,7 @@ To send a destination from an automation or a script:
 5. From the search box, search for and select **Tesla Fleet: Navigate to coordinates**.
 6. Select the **Vehicle** to send the destination to.
 7. Set the **Location** to the coordinates you want to navigate to.
-8. _Optional_: set the **Order** if you are sending more than one destination.
-9. Select **Save**.
+8. Select **Save**.
 
 ### Options in the UI
 
@@ -30,18 +29,15 @@ Vehicle:
   description: The vehicle to send the destination to.
 Location:
   description: The location to navigate to, as a latitude and longitude.
-Order:
-  description: The order for this destination when you send multiple destinations.
-  required: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
 
-In YAML, refer to this action as `tesla_fleet.navigation_gps_request`. A basic example looks like this:
+In YAML, refer to this action as `tesla_fleet.navigate_to_coordinates`. A basic example looks like this:
 
 {% example %}
 action: |
-  action: tesla_fleet.navigation_gps_request
+  action: tesla_fleet.navigate_to_coordinates
   data:
     device_id: 0d462c0c4c0b064b1a91cdbd1ffcbd31
     gps:
@@ -62,11 +58,6 @@ gps:
     The location to navigate to, as a mapping with `latitude` and `longitude` in degrees.
   required: true
   type: map
-order:
-  description: >
-    The order for this destination when you send multiple destinations.
-  required: false
-  type: integer
 {% endoptions_yaml %}
 
 ## Good to know
@@ -95,7 +86,7 @@ automation: |
       zone: zone.work
       event: leave
   actions:
-    - action: tesla_fleet.navigation_gps_request
+    - action: tesla_fleet.navigate_to_coordinates
       data:
         device_id: 0d462c0c4c0b064b1a91cdbd1ffcbd31
         gps:
@@ -122,7 +113,7 @@ automation: |
       entity_id: sensor.my_tesla_battery_level
       below: 20
   actions:
-    - action: tesla_fleet.navigation_gps_request
+    - action: tesla_fleet.navigate_to_coordinates
       data:
         device_id: 0d462c0c4c0b064b1a91cdbd1ffcbd31
         gps:
