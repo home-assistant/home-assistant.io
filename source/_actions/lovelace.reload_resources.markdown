@@ -50,7 +50,9 @@ This action has no additional options in YAML.
 - If your YAML configuration can't be loaded, nothing is reloaded and the action fails with an error. Check the logs to see what went wrong.
 - After the reload, refresh your browser to load the new resources in an open dashboard.
 
-{% include actions/try_it.md %}
+## Try it yourself
+
+To test this action, open {% my developer_services title="**Settings** > **Tools** > **Actions**" %}, search for **Reload dashboard resources**, and select **Perform action**. Refresh your browser to load the reloaded resources.
 
 {% include actions/stuck.md %}
 
