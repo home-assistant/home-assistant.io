@@ -68,7 +68,6 @@ If your account has a Zonneplan home battery, the integration adds a device for 
 - **Energy discharged today**: The energy discharged from the battery so far today, in kWh.
 - **Charge cycles**: The number of full charge cycles.
 - **Backup power capacity** (diagnostic): The most energy that can be reserved for backup power, in Wh.
-- **Last measurement** (diagnostic): When the battery last reported its status to Zonneplan.
 
 ### Binary sensors
 
