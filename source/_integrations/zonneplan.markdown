@@ -16,7 +16,7 @@ ha_integration_type: hub
 ---
 
 The **Zonneplan** {% term integration %} lets you retrieve electricity and gas price information from [Zonneplan](https://www.zonneplan.nl/), a Dutch provider of dynamic energy contracts and energy services, including home batteries and EV charge points.
-This integration currently provides electricity and gas price entities, and your electricity and gas usage and costs for the current month.
+This integration currently provides electricity and gas price entities, your electricity and gas usage and costs for the current month, and the status of your Zonneplan home battery.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ During setup, you are asked for the email address linked to your Zonneplan accou
 
 ## Data updates
 
-The Zonneplan integration retrieves data from the Zonneplan cloud API on a regular interval, every 15 minutes.
+The Zonneplan integration retrieves data from the Zonneplan cloud API on a regular interval: prices and usage every 15 minutes, and the status of each home battery every 5 minutes.
 
 ## Supported functionality
 
@@ -54,13 +54,37 @@ The following sensors are provided by this integration:
 
 The **Electricity price low today start time** and **Electricity price low today end time** sensors mark the block of consecutive hours around today's lowest price. The matching **tomorrow** sensors do the same for tomorrow, once its prices are published. This lets you build automations that act on the entire block of cheap hours instead of a single hour.
 
+#### Home battery
+
+If your account has a Zonneplan home battery, the integration adds a device for each battery with these sensors:
+
+- **Battery**: The state of charge, in %.
+- **Power**: The power the battery delivers, in W. Positive while discharging, negative while charging.
+- **Battery state**: Whether the battery is `Charging`, `Discharging`, or `Operative`.
+- **Inverter state**: Whether the battery inverter is `Charging`, `Discharging`, or `Operative`.
+- **Total earned**: What the battery has earned in total since it was installed.
+- **Earned today**: What the battery has earned so far today. This can be negative.
+- **Energy charged today**: The energy charged into the battery so far today, in kWh.
+- **Energy discharged today**: The energy discharged from the battery so far today, in kWh.
+- **Charge cycles**: The number of full charge cycles.
+- **Backup power capacity** (diagnostic): The most energy that can be reserved for backup power, in Wh.
+
 ### Binary sensors
 
 - **Electricity price low**: On while the current hour falls in today's block of cheapest hours, the same block as the low price start and end time sensors. Off at all other hours. The state updates at the start of every hour.
 
+#### Home battery
+
+Each home battery device also has these binary sensors:
+
+- **Home optimization active**: On while home optimization is actively steering the battery.
+- **Grid congestion**: On while grid congestion is limiting the battery.
+- **Load balancing overload**: On while dynamic load balancing is limiting the battery to prevent overloading your grid connection.
+- **Backup power active**: On while the battery supplies backup power to your home.
+
 ## Known limitations
 
-Zonneplan also offers home batteries and EV charge points as part of its product line, but this integration does not yet expose entities for them. Only electricity and gas prices and usage are currently supported.
+The integration does not yet expose entities for Zonneplan EV charge points or solar panels. Home batteries can't be controlled yet; only the sensors and binary sensors listed above are available.
 
 Zonneplan receives usage data from your grid operator a day or more after the fact, so the monthly usage and cost sensors lag behind, and a day's values can still change afterwards. They stay unknown until the month has data. Because of this delay, these sensors are not suitable for the energy dashboard.
 
