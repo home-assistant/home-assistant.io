@@ -19,7 +19,7 @@ To push an alarm state from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **IFTTT: Push alarm state**.
+5. From the search box, search for and select **Push alarm state**.
 6. In **Entity ID**, select the IFTTT alarm control panel.
 7. In **State**, enter the new state, such as `armed_away`.
 8. Select **Save**.

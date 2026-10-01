@@ -19,7 +19,7 @@ To send an event to IFTTT from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **IFTTT: Trigger**.
+5. From the search box, search for and select **Trigger**.
 6. In **Event**, enter the name of the event your IFTTT applet listens for.
 7. Optional: Enter up to three values in **Value 1**, **Value 2**, and **Value 3**.
 8. Select **Save**.
@@ -99,7 +99,7 @@ Send an event to IFTTT every time Home Assistant starts. In IFTTT, an applet wit
 
 - **Trigger**: Home Assistant
   - **Event**: Start
-- **Action**: IFTTT: Trigger
+- **Action**: Trigger
   - **Event**: `home_assistant_started`
   - **Value 1**: `Home Assistant is up and running`
 

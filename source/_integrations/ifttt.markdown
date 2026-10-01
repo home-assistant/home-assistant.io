@@ -174,7 +174,7 @@ Send an event to IFTTT every time Home Assistant starts. In IFTTT, an applet wit
 
 - **Trigger**: Home Assistant
   - **Event**: Start
-- **Action**: IFTTT: Trigger
+- **Action**: Trigger
   - **Event**: `home_assistant_started`
   - **Value 1**: `Home Assistant is up and running`
 
