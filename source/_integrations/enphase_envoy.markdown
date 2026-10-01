@@ -359,6 +359,8 @@ For each IQ Battery, an Encharge device is created, linked to the Envoy parent d
 - **Encharge <abbr title="Encharge serial number">SN</abbr> Apparent Power**: Current apparent power in VA
 - **Encharge <abbr title="Encharge serial number">SN</abbr> Temperature**: Current temperature in degrees C or F, based on your localization.
 - **Encharge <abbr title="Encharge serial number">SN</abbr> Last reported**: Time when Envoy received last update from the battery.
+- **Encharge <abbr title="Encharge serial number">SN</abbr> Communication level 2.4 GHz**: Communication level of the wireless 2.4 Ghz channel. A 0-5 signal quality scale. This is a diagnostics entity and disabled by default.
+- **Encharge <abbr title="Encharge serial number">SN</abbr> Communication level sub-GHz**: Communication level of the sub-GHz radio channel. A 0-5 signal quality scale. This is a diagnostics entity and disabled by default.
 
 ##### Individual IQ battery binary sensor entities
 
@@ -472,7 +474,9 @@ Data for an installed Enphase Enpower off-grid enabling switch is available in v
 
 - **Enpower <abbr title="Enpower serial number">SN</abbr> Temperature**: Current temperature in degrees C or F, based on your localization.
 - **Enpower <abbr title="Enpower serial number">SN</abbr> Last reported**: Time when Envoy received last update from the enpower device.
-- **Enpower <abbr title="Encharge serial number">SN</abbr> Communicating**: Communication status of enpower switch, Connected / Disconnected. This is a diagnostics entity.
+- **Enpower <abbr title="Enpower serial number">SN</abbr> Communicating**: Communication status of enpower switch, Connected / Disconnected. This is a diagnostics entity.
+- **Enpower <abbr title="Enpower serial number">SN</abbr> Communication level 2.4 GHz**: Communication level of the wireless 2.4 Ghz channel. A 0-5 signal quality scale. This is a diagnostics entity and disabled by default.
+- **Enpower <abbr title="Enpower serial number">SN</abbr> Communication level sub-GHz**: Communication level of the sub-GHz radio channel. A 0-5 signal quality scale. This is a diagnostics entity and disabled by default.
 
 #### Enpower switch entities
 
