@@ -460,7 +460,7 @@ Data for an installed Enphase Enpower off-grid enabling switch is available in v
 
 #### Enpower binary sensor entities
 
-- **Enpower <abbr title="Enpower serial number">SN</abbr> Communicating**: Communication status of enpower switch, Connected / Disconnected. This is a diagnostics entity.
+- **Enpower <abbr title="Enpower serial number">SN</abbr> Communicating**: Communication status of the Enpower switch: connected or disconnected. This is a diagnostic entity.
 - **Enpower <abbr title="Enpower serial number">SN</abbr> Grid status**: status of the grid.
 
 #### Enpower number entities
