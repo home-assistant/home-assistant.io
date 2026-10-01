@@ -45,7 +45,7 @@ This action has no additional options in YAML.
 
 ## Good to know
 
-- Changing `project_id` still requires a restart.
+- Changing `project_id` or `service_account` still requires a restart.
 - Google uses the `room` hint only when it first adds a device, so changing it doesn't move a device that's already in Google Home.
 - If your YAML configuration is invalid, Home Assistant shows the error and keeps the current Google Assistant configuration.
 - If you remove `google_assistant` from your YAML configuration, reloading stops exposing entities to Google. To remove the integration completely, restart Home Assistant.

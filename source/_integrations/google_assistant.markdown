@@ -242,7 +242,7 @@ entity_config:
           type: string
 {% endconfiguration %}
 
-To apply changes to this configuration without restarting Home Assistant, use the [`google_assistant.reload`](/actions/google_assistant.reload/) action. Changing `project_id` still requires a restart.
+To apply changes to this configuration without restarting Home Assistant, use the [`google_assistant.reload`](/actions/google_assistant.reload/) action. Changing `project_id` or `service_account` still requires a restart.
 
 ### Available domains
 
