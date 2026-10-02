@@ -62,7 +62,7 @@ device_id:
   required: true
   type: string
 all:
-  description: If true, prune all unused build cache. If false, only prune dangling build cache.
+  description: If true (default), prune all unused build cache. If false, only prune dangling build cache.
   required: false
   default: true
   type: boolean
