@@ -1513,7 +1513,7 @@ error:
 
 The script `get_outdoor_temperature` puts the outdoor temperature in a variable, and returns it with **Stop**. The automation calls the script every morning, receives the response in its own variable, and sends it in a notification.
 
-To receive a response, the automation must call the script directly, as `script.get_outdoor_temperature`. The `script.turn_on` action doesn't wait for the script and doesn't return a response. For details, refer to [Waiting for a script to complete](/integrations/script/#waiting-for-a-script-to-complete).
+To receive a response, the automation must call the script directly, as `script.get_outdoor_temperature`. The `script.turn_on` action doesn't wait for the script and doesn't return a response. For details, refer to [Waiting for a script to complete](/docs/script/#waiting-for-a-script-to-complete).
 
 - **Script**: Get outdoor temperature
   - **Action**: Define variables, with `result` set to the temperature
