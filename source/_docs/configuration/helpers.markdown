@@ -18,7 +18,7 @@ You create and manage helpers in {% my helpers title="**Settings** > **Devices &
 
 Most automations don't need a helper. You need one when Home Assistant has to remember something, when you want to set something yourself that an automation then uses, or when you want a sensor that calculates its value from other entities. For example:
 
-- You want to pause an automation without editing it, for example, while you're on holiday.
+- You want to pause an automation without editing it, for example, while you're on vacation.
   - Create a **Toggle**. The automation only runs while the toggle is on. To pause the automation, turn the toggle off on your dashboard.
 - You want to choose a value on your dashboard, and let automations use it.
   - Create a **Number**, for example, for the temperature the heating should reach, or a **Dropdown**, for example, for the mode of your home: Home, Away, or Night.
@@ -95,7 +95,7 @@ Some helpers do more than store or calculate a value. For example:
 
 Some places let you create a helper right where you need it. For example, if a field asks for a toggle, a number, or a dropdown, the list of entities offers to create a new helper of that type.
 
-To change a helper later, select it in the list of helpers, and change its settings. Helpers that you set up in YAML can't be changed in the UI. Their settings show "The settings of this entity cannot be edited from the UI."
+To change a helper later, select it in the list of helpers, and change its settings. Helpers that you set up in YAML can't be changed in the UI. Their settings show **The settings of this entity cannot be edited from the UI. Only entities set up from the UI are configurable from the UI.**
 
 ## What happens to the value after a restart
 
