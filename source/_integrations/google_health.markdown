@@ -188,7 +188,7 @@ The integration updates sensors on different intervals based on the data type:
 
 {% details "Configuration is broken or incorrect" %}
 
-### Symptom
+### Symptom: Integration doesn't work as expected
 
 The Google Health integration was set up with incorrect settings, for example, the wrong client ID or client secret, and does not work as expected.
 
@@ -205,7 +205,7 @@ Home Assistant stores the credentials you entered during the initial setup as ap
 
 {% details "Connection failed after authorization" %}
 
-### Symptom
+### Symptom: Home Assistant returns an error
 
 The authorization appears to succeed, but Home Assistant returns a connection error.
 
