@@ -249,12 +249,6 @@ automation: |
 
 {% enddetails %}
 
-## Video tutorial
-
-This video tutorial explains how scenes work, and how to create scenes while Home Assistant is running:
-
-<lite-youtube videoid="JW9PC6ptXcM" videotitle="Scenes on Steroids in Home Assistant - How To - Tutorial" posterquality="maxresdefault"></lite-youtube>
-
 ## Troubleshooting
 
 <a id="scene-cant-be-edited-in-the-scene-editor"></a>
