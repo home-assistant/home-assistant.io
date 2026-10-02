@@ -44,14 +44,10 @@ The integration that provides the sensor usually sets the state class. There are
 
 - **Measurement**
   - A value right now, for example, a temperature or the current power use.
-- **Measurement angle**
-  - An angle right now, in degrees, for example, the wind direction.
-- **Total**
-  - An amount that can go up and down, for example, the energy you put into and take out of a home battery.
-- **Total increasing**
-  - An amount that only goes up, except when it's reset, for example, an energy meter.
-
-To see the state class of a sensor, go to {% my tools_states title="**Settings** > **Tools** > **States**" %}, and look for the `state_class` attribute. For a sensor that you create yourself, such as a [template sensor](/integrations/template/), you can set the state class in its options.
+- **Measurement**: A value right now, for example, a temperature or the current power use.
+- **Measurement angle**: An angle right now, in degrees, for example, the wind direction.
+- **Total**: An amount that can go up and down, for example, the energy you put into and take out of a home battery.
+- **Total increasing**: An amount that only goes up, except when it's reset, for example, an energy meter.
 
 ## Device class
 
