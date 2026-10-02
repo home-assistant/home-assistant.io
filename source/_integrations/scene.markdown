@@ -114,21 +114,26 @@ There are two ways to define the state of an entity:
 
 If you wrote a scene in another YAML file, for example, directly in your {% term "`configuration.yaml`" %} file, you can move it to `scenes.yaml`, so you can edit it in the scene editor. Your `configuration.yaml` file loads `scenes.yaml` with `scene: !include scenes.yaml`. This line is there by default.
 
-When you move the scene, give it an `id`. The `id` can be any text, as long as no other scene uses it:
+1. Copy the scene from its old file to `scenes.yaml`.
+   - `scenes.yaml` is a list, so each scene starts with `-`.
+2. Give the scene an `id`. The `id` can be any text, as long as no other scene uses it:
 
-```yaml
-# Example scenes.yaml entry
-- id: romantic
-  name: Romantic
-  entities:
-    light.tv_back_light: "on"
-    light.ceiling:
-      state: "on"
-      xy_color: [0.33, 0.66]
-      brightness: 200
-```
+   ```yaml
+   # Example scenes.yaml entry
+   - id: romantic
+     name: Romantic
+     entities:
+       light.tv_back_light: "on"
+       light.ceiling:
+         state: "on"
+         xy_color: [0.33, 0.66]
+         brightness: 200
+   ```
 
-Then [reload the scenes](#reloading-scenes), so the scene editor finds the scene.
+3. Remove the scene from its old file.
+   - If you leave it there, Home Assistant loads both copies, and you have the scene twice.
+4. [Reload the scenes](#reloading-scenes).
+   - Result: The scene shows up in the scene editor, and you can edit it there.
 
 {% note %}
 When you save a scene in the editor, the comments in `scenes.yaml` are lost.
@@ -318,7 +323,7 @@ You run the **Create scene** action, but the scene isn't created or changed. The
 
 #### Description
 
-A scene with that ID already exists, for example, from the scene editor, from YAML, or from another integration. **Create scene** only replaces scenes that it created itself.
+A scene with that ID already exists in the scene editor or in YAML. **Create scene** only replaces scenes that it created itself.
 
 #### Resolution
 
