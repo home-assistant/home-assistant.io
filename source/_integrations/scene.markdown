@@ -24,7 +24,7 @@ To create a scene, use the [scene editor](/docs/scene/editor/). To learn what sc
 
 ## Scenes from other integrations
 
-Some integrations, such as [Philips Hue](/integrations/hue/), [MQTT](/integrations/mqtt/), and [KNX](/integrations/knx/), provide their own scenes. These scenes are also scene entities, and you activate them in the same way. The states that these scenes set are stored in the device or service, so you can't change them in the scene editor. How you set up these scenes depends on the integration. For example, you create [Hue scenes](/integrations/hue/#scenes) in the Hue app, [KNX scenes](/integrations/knx/#scene) in the KNX panel or in YAML, and [MQTT scenes](/integrations/scene.mqtt/) in YAML or with MQTT discovery.
+Some integrations, such as [Philips Hue](/integrations/hue/), [MQTT](/integrations/mqtt/), and [KNX](/integrations/knx/), provide their own scenes. These scenes are also scene entities, and you activate them in the same way. When you activate one, Home Assistant tells the integration to activate it, and the integration or the device decides what changes. That's why you can't change these scenes in the scene editor. You manage them where the integration manages its scenes. For example, you create [Hue scenes](/integrations/hue/#scenes) in the Hue app, [KNX scenes](/integrations/knx/#scene) in the KNX panel or in YAML, and [MQTT scenes](/integrations/scene.mqtt/) in YAML or with MQTT discovery.
 
 ## The state of a scene
 
