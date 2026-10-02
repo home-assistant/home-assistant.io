@@ -103,15 +103,17 @@ _A huge thank you to all the contributors who made this release possible! And a 
 
 ## A whole new map
 
-Last release, something changed underneath every map in Home Assistant, and we barely mentioned it in the release notes. The map provider we relied on started stamping an "API key required" message across its map images, breaking every map in Home Assistant at once. Instead of hunting for yet another free provider, we moved to [OpenStreetMap](https://www.openstreetmap.org/). The map is now drawn from vector tiles served by the OpenStreetMap Foundation, fetched through the new [Map tiles](/integrations/map_tiles/) integration. Your browser never talks to a third party directly, and recently used tiles are cached, so the map keeps working through a short internet hiccup.
+Last release, something changed underneath every map in Home Assistant, and we barely mentioned it in the release notes. The map provider we relied on started stamping an "API key required" message across its map images, breaking every map in Home Assistant at once. Instead of hunting for another free tile provider, we switched from pre-rendered map images to vector tiles generated and served by the OpenStreetMap Foundation. Both maps use [OpenStreetMap](https://www.openstreetmap.org/) data, but your device now draws the map itself. The new [Map tiles](/integrations/map_tiles/) integration fetches and caches the tiles through your Home Assistant instance, so your browser does not contact external tile servers directly. Recently viewed parts of the map remain available through a short internet hiccup.
 
-We did talk about it during the [2026.9 release party](https://www.youtube.com/watch?v=TgGiUchnmDw), where a guest from OpenStreetMap joined us. 🗺️
+Guillaume Rischard ([@grischard]), the former chair of the OpenStreetMap Foundation who initiated and led its vector-tile initiative, joined us during the [2026.9 release party](https://www.youtube.com/watch?v=TgGiUchnmDw).
 
 Swapping out the map underneath opened a lot of doors. This release walks through the first few.
 
+[@grischard]: https://github.com/grischard
+
 ### Crisp at every zoom level
 
-The map is now drawn entirely on your device, as vectors, instead of being stitched together from pictures. Streets and labels stay sharp at any zoom level, and zooming in and out is smooth. Older devices that can't handle this, like the old tablet on your wall, automatically fall back to the classic map.
+The map is drawn entirely on your device, as vectors, instead of being stitched together from pictures. Streets and labels stay sharp at any zoom level, and zooming in and out is smooth. The map also has a dedicated dark style, with colors designed for dark mode. Older devices that can't render vector maps, like the old tablet on your wall, automatically fall back to the classic map.
 
 <p class='img'><video src='/images/blog/2026-10/map-zoom.mp4' aria-label='Screen recording of the Map dashboard zooming out from Amsterdam to Europe and back, with the markers of people merging into shared bubbles as the map zooms out.' autoplay muted loop playsinline></video></p>
 
@@ -135,11 +137,14 @@ The zone editor in {% my zones title="**Settings** > **Areas, labels & zones**" 
 
 <img src='/images/blog/2026-10/map-zone-editor.png' alt='Screenshot of the zone editor on the new map, with the list of zones sorted alphabetically and Home at the top.' class='no-shadow' />
 
-This is only the start. It all follows an [Open Home Foundation design concept](https://github.com/OpenHomeFoundation/ux-design/discussions/68) for a vector map with redesigned people and zones, and there is more of it to come. Thanks, [@maartenla], [@matthiasdebaat], [@bramkragten], and [@bgoncal]!
 
-Last but definitely not least: a big shout-out to the [OpenStreetMap Foundation](https://osmfoundation.org/). 💚 OpenStreetMap is a map of the world built by millions of volunteers, and it's open data, owned by no single company. The foundation behind it is a nonprofit that keeps it all running, including the tile servers every Home Assistant map now draws from. That fits the Open Home like a glove!
+The redesign follows an [Open Home Foundation design concept](https://github.com/OpenHomeFoundation/ux-design/discussions/68) for the Map dashboard.
 
-And just like Home Assistant, OpenStreetMap is made by people like you. Spot something in your neighborhood that's missing or out of date? You can [leave a note or edit the map yourself](https://wiki.openstreetmap.org/wiki/Getting_Involved).
+Thanks to [@maartenla], [@matthiasdebaat], [@bramkragten], and [@bgoncal]; [@grischard] for initiating vector maps on the OpenStreetMap side and for assisting us; and Paul Norman ([@pnorman]) for developing [Tilekiln](https://github.com/pnorman/tilekiln) and the tile service. Thanks also to the [OpenStreetMap Foundation](https://osmfoundation.org/) and the [MapLibre](https://maplibre.org/), [Shortbread](https://shortbread-tiles.org/), and [VersaTiles](https://versatiles.org/) communities.
+
+Like Home Assistant, [OpenStreetMap](https://openstreetmap.org) is built in the open by people like you. Spot something in your neighborhood that's missing or out of date? You can [leave a note or edit the map yourself](https://wiki.openstreetmap.org/wiki/Getting_Involved).
+
+[@pnorman]: https://github.com/pnorman
 
 ## A tidier profile page
 
