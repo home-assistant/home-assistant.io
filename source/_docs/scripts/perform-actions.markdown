@@ -71,7 +71,7 @@ You can use [templating] support to dynamically choose which action to perform. 
 
 ```yaml
 action: >
-  {% if states('sensor.temperature') | float > 15 %}
+  {% if states('sensor.temperature') | float(15) > 15 %}
     switch.turn_on
   {% else %}
     switch.turn_off
@@ -110,7 +110,7 @@ You can use a template returning a native dictionary as well, which is useful if
 ```yaml
 action: climate.set_temperature
 data: >
-  {% if states('sensor.temperature_living') | float < 19 %}
+  {% if states('sensor.temperature_living') | float(19) < 19 %}
     {"hvac_mode": "heat", "temperature": 19 }
   {% else %}
     {"hvac_mode": "auto" }
