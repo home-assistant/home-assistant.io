@@ -6,7 +6,7 @@ related:
     title: Which tool to use
   - docs: /docs/configuration/entities_domains/
     title: Entities and domains
-  - url: /integrations/#helper
+  - docs: /integrations/#helper
     title: List of helpers
 ---
 
@@ -109,8 +109,9 @@ Most helpers keep their value after a restart, so usually you don't need to do a
   - By default, a toggle keeps its state. If it should always be on, or always off, after a restart, change **Each time Home Assistant starts** in the settings of the toggle.
 - A counter that should start again from its initial value
   - By default, a counter keeps its value. To start at its initial value after every restart, turn off **Restore the last known value when Home Assistant starts** in the settings of the counter.
-- A number or a dropdown that you changed
-  - If you changed the range of a number, or removed an option from a dropdown, the helper can't use its last value anymore. A number then starts at its minimum, and a dropdown at its first option.
+- A number or a dropdown whose settings you changed
+  - If you change the range of a number, its value moves to the nearest new limit. For example, if the value is 30 and you change the maximum to 25, the value becomes 25. If you change the range in YAML instead, and the last value is outside the new range, the number starts at its minimum after the restart.
+  - If you remove the option that a dropdown is set to, the dropdown shows as unknown until you select another option. After a restart, it starts at its first option.
 
 In YAML, a number, dropdown, text, or date and time helper can have an `initial` value. It then starts with that value after every restart, instead of its last value.
 
