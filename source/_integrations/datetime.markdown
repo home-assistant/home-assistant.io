@@ -23,7 +23,7 @@ The state of a date/time entity is the actual date and time value.
 
 <p class='img'>
 <img src='/images/integrations/datetime/state_datetime.png' alt='Screenshot showing the state of a date/time entity in the States tab of Tools.' />
-Screenshot showing the state of a date/time entity in {% my developer_states title="Settings > Tools > States" %}. In the example shown, the state is January 1, 2020 at 12:00 in the format YYYY-MM-DD T HH:MM:SS.
+Screenshot showing the state of a date/time entity in {% my tools_states title="Settings > Tools > States" %}. In the example shown, the state is January 1, 2020 at 12:00 in the format YYYY-MM-DD T HH:MM:SS.
 </p>
 
 In addition, the entity can have the following states:

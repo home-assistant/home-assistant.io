@@ -27,7 +27,7 @@ This action does not support targets. You choose the camera channel with the **G
 
 {% options_ui %}
 GUID:
-  description: The GUID of the camera channel to start recording. Each QVR Pro camera in Home Assistant shows its GUID in the `qvr_guid` attribute. You can find it under {% my developer_states title="**Settings** > **Tools** > **States**" %}.
+  description: The GUID of the camera channel to start recording. Each QVR Pro camera in Home Assistant shows its GUID in the `qvr_guid` attribute. You can find it under {% my tools_states title="**Settings** > **Tools** > **States**" %}.
   required: true
 {% endoptions_ui %}
 

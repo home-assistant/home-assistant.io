@@ -550,10 +550,11 @@
     - scenes
 
 - term: Script
-  definition: >
-    Scripts are components that allow you to specify a sequence of actions to
-    be executed by Home Assistant when turned on.
-  link: /docs/scripts/
+  definition: >-
+    A script is a saved list of steps that runs when you start it, for
+    example, from a dashboard, with Assist, or from an automation. Unlike an
+    automation, a script has no triggers, so it doesn't start by itself.
+  link: /integrations/script/
   aliases:
     - scripts
 - term: Sensor
@@ -659,8 +660,8 @@
     - Thread border routers
 - term: Trigger
   definition: >-
-    A trigger is a set of values or conditions of a platform that are defined to
-    cause an automation to run.
+    A trigger is the part of an automation that makes the automation run when
+    a specific change happens, for example, when the sun sets or a door opens.
   link: /docs/automation/trigger/
   aliases:
     - triggers

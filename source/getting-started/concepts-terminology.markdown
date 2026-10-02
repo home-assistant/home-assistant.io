@@ -60,7 +60,7 @@ To learn the basics about {% term automations %}, refer to the [automation basic
 
 ## Scripts
 
-Similar to {% term automations %}, scripts are repeatable {% term actions %} that can be run. The difference between {% term scripts %} and {% term automations %} is that {% term scripts %} do not have triggers. This means that {% term scripts %} cannot automatically run unless they are used in {% term automations %}. Scripts are particularly useful if you perform the same {% term actions %} in different {% term automations %} or trigger them from a dashboard. For information on how to create {% term scripts %}, refer to the [scripts](/integrations/script/) documentation.
+A script is a saved list of steps that runs when you start it, for example, from a button on a dashboard, with Assist, or from an {% term automation %}. A step can be an {% term action %}, such as turning on a light, or a building block, such as waiting a few seconds. Unlike an automation, a script has no triggers, so it doesn't start by itself. Scripts are useful when you want to start the same steps from several places, or pass different values to the script each time, such as a message or a brightness level. To learn how to create and use scripts, refer to [Scripts](/integrations/script/).
 
 ![Scripts](/images/getting-started/script_01.png)
 

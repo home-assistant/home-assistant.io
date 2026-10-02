@@ -26,7 +26,7 @@ The state of a sensor entity is its currently detected value, which can be eithe
 
 <p class='img'>
 <img src='/images/integrations/sensor/state_sensor.png' alt='Screenshot showing the state of a sensor entity in the States tab of Tools.' />
-Screenshot showing the state of a sensor entity in {% my developer_states title="Settings > Tools > States"%}
+Screenshot showing the state of a sensor entity in {% my tools_states title="Settings > Tools > States"%}
 </p>
 
 In addition, the entity can have the following states:
