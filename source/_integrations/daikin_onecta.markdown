@@ -1,6 +1,7 @@
 ---
 title: Daikin Onecta
 description: Instructions for integrating Daikin Onecta devices into Home Assistant.
+ha_release: 2026.11
 ha_category:
   - Climate
   - Energy
@@ -39,13 +40,9 @@ When creating the OAuth client, add this redirect URI:
 https://my.home-assistant.io/redirect/oauth
 ```
 
-Record the client ID and client secret. You need both when adding the application credentials to Home Assistant.
+If you have disabled [My Home Assistant](/integrations/my/), use `<HOME_ASSISTANT_URL>/auth/external/callback` instead. Replace `<HOME_ASSISTANT_URL>` with the external URL of your Home Assistant instance.
 
-## Configuration
-
-1. Add the client ID and client secret as [application credentials](/integrations/application_credentials/#manual-setup) for **Daikin Onecta**.
-2. Add the **Daikin Onecta** integration.
-3. Sign in to Daikin Onecta and authorize Home Assistant.
+Record the client ID and client secret, then add them as [application credentials](/integrations/application_credentials/#manual-setup) for **Daikin Onecta** in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -65,17 +62,20 @@ The integration {% term polling polls %} the Daikin Onecta cloud service. After 
 
 ## Options
 
-The integration provides the following options:
+To change these options, go to **Settings** > **Devices & services**, select **Daikin Onecta**, then select **Configure**.
 
-- **High and low polling intervals** and the start time for each interval.
-- **Delay after a setting change** before background polling resumes.
-- **HomeKit fan-speed aliases** for devices that expose fixed fan speeds.
+- **High frequency period update interval**: The polling interval, in minutes, from the high-frequency start time until the low-frequency start time. The default is 10 minutes; valid values are 5 to 240 minutes.
+- **Low frequency period update interval**: The polling interval, in minutes, outside the high-frequency period. The default is 30 minutes; valid values are 10 to 240 minutes.
+- **High frequency period start time**: The time at which high-frequency polling begins. The default is 07:00.
+- **Low frequency period start time**: The time at which low-frequency polling begins. The default is 22:00. With the default times, Home Assistant polls every 10 minutes from 07:00 to 22:00 and every 30 minutes from 22:00 to 07:00.
+- **Number of seconds that a data refresh is ignored after a command**: The time Home Assistant waits after a successful setting change before resuming background polling. The default is 30 seconds; valid values are 20 to 300 seconds. Use the refresh button to request an update immediately.
+- **Expose HomeKit compatible fan speed aliases**: Enables HomeKit-compatible names for fixed fan speeds when your device supports them. Disabled by default.
 
 ## Troubleshooting
 
 ### Authentication or setup fails
 
-Verify that the client ID and client secret in Home Assistant match the OAuth client in the Daikin Developer Portal. Confirm that the redirect URI is exactly `https://my.home-assistant.io/redirect/oauth`.
+Verify that the client ID and client secret in Home Assistant match the OAuth client in the Daikin Developer Portal. Confirm that the redirect URI is `https://my.home-assistant.io/redirect/oauth`, or `<HOME_ASSISTANT_URL>/auth/external/callback` when My Home Assistant is disabled.
 
 If authentication expires or is revoked, Home Assistant starts a reauthentication flow. Complete it from **Settings** > **Devices & services** to restore access.
 
