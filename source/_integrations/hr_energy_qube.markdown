@@ -4,6 +4,7 @@ description: Instructions on how to integrate your Qube heat pump with Home Assi
 ha_release: 2026.4
 ha_category:
   - Binary sensor
+  - Modbus-controlled
   - Select
   - Sensor
   - Switch
@@ -20,7 +21,7 @@ ha_platforms:
   - switch
   - water_heater
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Qube heat pump** {% term integration %} allows you to monitor and control [Qube](https://www.hr-energy.com/nl/pvt-systemen/onderdelen/qube-warmtepomp/) heat pumps via the Modbus TCP protocol.

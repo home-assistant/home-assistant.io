@@ -130,7 +130,7 @@ layout: null
 /components/device_tracker.mqtt /integrations/device_tracker.mqtt
 /components/device_tracker.mysensors /integrations/mysensors#device-tracker
 /components/fan.mqtt /integrations/fan.mqtt
-/components/fan.template /integrations/cover.template
+/components/fan.template /integrations/template/#fan
 /integrations/fan.template /integrations/template/#fan
 /components/light.group /integrations/light.group
 /components/light.mqtt /integrations/light.mqtt
@@ -166,7 +166,7 @@ layout: null
 /integrations/binary_sensor.modbus /integrations/modbus/#configuring-binary-sensor-entities
 /integrations/binary_sensor.mysensors /integrations/mysensors#binary-sensor
 /integrations/binary_sensor.rflink /integrations/rflink/#binary-sensor
-/integrations/binary_sensor.template /integrations/template/#binary_sensor
+/integrations/binary_sensor.template /integrations/template/#binary-sensor
 /integrations/binary_sensor.xiaomi_aqara/ /integrations/xiaomi_aqara/#binary-sensor
 /integrations/climate.knx /integrations/knx#climate
 /integrations/climate.modbus/ /integrations/modbus/#configuring-climate-entities
@@ -281,6 +281,8 @@ layout: null
 /docs/assist/voice_remote_local_assistant/ /voice_control/voice_remote_local_assistant/
 /skyconnect /connectzbt1#from-skyconnect
 /glossary/ /docs/glossary/
+/docs/automation/services /docs/automation/automation_integration_actions/
+/docs/automation/services/ /docs/automation/automation_integration_actions/
 
 # Redirect for the QR Codes on the S3 Box
 /s3-box-no-wifi /voice_control/troubleshooting_the_s3_box/#error-unable-to-connect-to-wi-fi
@@ -494,10 +496,13 @@ layout: null
 # This is a 200 so /tag/anything is a valid URL
 /tag/* /tag 200
 
+# HACS has its own website (temporary, we plan to change this)
+/integrations/hacs https://hacs.xyz/ 302
+
 # Lovelace documentation
 /lovelace/entity-button /dashboards/button
-/lovelace/views /dashboards/dashboards-and-views
-/lovelace/yaml-mode /dashboards/dashboards-and-views
+/lovelace/views /dashboards/views/
+/lovelace/yaml-mode /dashboards/dashboards/#adding-yaml-dashboards
 /lovelace/calendar-card /dashboards/calendar
 /integrations/lovelace /dashboards
 /lovelace/* /dashboards/:splat
@@ -561,6 +566,7 @@ layout: null
 /integrations/crimereports /more-info/removed-integration 301
 /integrations/cups /more-info/removed-integration 301
 /integrations/darksky /more-info/removed-integration 301
+/integrations/de_dietrich /more-info/removed-integration 301
 /integrations/decora /more-info/removed-integration 301
 /integrations/deutsche_bahn /more-info/removed-integration 301
 /integrations/device_tracker.trackr /more-info/removed-integration 301
@@ -572,6 +578,7 @@ layout: null
 /integrations/dominos /more-info/removed-integration 301
 /integrations/dovado /more-info/removed-integration 301
 /integrations/dte_energy_bridge /more-info/removed-integration 301
+/integrations/dublin_bus_transport /more-info/removed-integration 301
 /integrations/duke_energy /more-info/removed-integration 301
 /integrations/dweet /more-info/removed-integration 301
 /integrations/dyson /more-info/removed-integration 301
@@ -584,6 +591,7 @@ layout: null
 /integrations/envirophat /more-info/removed-integration 301
 /integrations/epsonworkforce /more-info/removed-integration 301
 /integrations/essent /more-info/removed-integration 301
+/integrations/etherscan /more-info/removed-integration 301
 /integrations/facebox /more-info/removed-integration 301
 /integrations/fedex /more-info/removed-integration 301
 /integrations/flick_electric /more-info/removed-integration 301
@@ -664,6 +672,7 @@ layout: null
 /integrations/permobil /more-info/removed-integration 301
 /integrations/ptvsd /more-info/removed-integration 301
 /integrations/pushetta /more-info/removed-integration 301
+/integrations/raincloud /more-info/removed-integration 301
 /integrations/raspihats /more-info/removed-integration 301
 /integrations/rpi_camera /more-info/removed-integration 301
 /integrations/rpi_gpio /more-info/removed-integration 301
@@ -677,6 +686,7 @@ layout: null
 /integrations/sensehat /more-info/removed-integration 301
 /integrations/shiftr /more-info/removed-integration 301
 /integrations/sht31 /more-info/removed-integration 301
+/integrations/sigfox /more-info/removed-integration 301
 /integrations/simple_alarm /more-info/removed-integration 301
 /integrations/simulated /more-info/removed-integration 301
 /integrations/smarthab /more-info/removed-integration 301
@@ -684,6 +694,7 @@ layout: null
 /integrations/snips /more-info/removed-integration 301
 /integrations/sochain /more-info/removed-integration 301
 /integrations/socialblade /more-info/removed-integration 301
+/integrations/solaredge_local /more-info/removed-integration 301
 /integrations/somfy /more-info/removed-integration 301
 /integrations/spider /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
@@ -702,6 +713,7 @@ layout: null
 /integrations/tof /more-info/removed-integration 301
 /integrations/tplink_lte /more-info/removed-integration 301
 /integrations/trackr /more-info/removed-integration 301
+/integrations/travisci /more-info/removed-integration 301
 /integrations/ubee /more-info/removed-integration 301
 /integrations/uber /more-info/removed-integration 301
 /integrations/ue_smart_radio /more-info/removed-integration 301
@@ -726,13 +738,27 @@ layout: null
 /integrations/xfinity /more-info/removed-integration 301
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
+/integrations/zestimate /more-info/removed-integration 301
 /integrations/zengge /integrations/led_ble 301
 /integrations/google_gemini /integrations/google_generative_ai_conversation 301
 /integrations/qube_heatpump /integrations/hr_energy_qube 301
+/integrations/oru /integrations/opower 301
 /components/zwave /integrations/zwave_js
 
 # Lovelace images
 /images/dashboards/lovelace_* /images/dashboards/:splat
+
+# Old URLs that still get visitors
+/addons /apps/ 301
+/hassio/getting-started/* /getting-started/:splat 301
+/common-tasks/core /installation/ 301
+/common-tasks/supervised /installation/ 301
+/dashboards/dashboards-and-views /dashboards/dashboards/ 301
+/dashboards/yaml-mode /dashboards/dashboards/#adding-yaml-dashboards 301
+/docs/organizing/filtering /docs/organizing/tables/#filtering-items-in-a-table 301
+/integrations/alarm_control_panel.template /integrations/template/#alarm-control-panel 301
+/integrations/climate.template /integrations/template/ 301
+/integrations/weather.template /integrations/template/#weather 301
 
 # Unsupported reasons that are also unhealthy
 /more-info/unsupported/privileged /more-info/unhealthy/privileged
@@ -741,6 +767,37 @@ layout: null
 /blog/2025/12/17/music-assistant-2-7/ https://www.music-assistant.io/blog/2025/12/17/music-assistant-2-7/ 301!
 /blog/2025/03/05/music-assistants-next-big-hit/ https://www.music-assistant.io/blog/2025/03/05/music-assistants-next-big-hit/ 301!
 /blog/2024/05/09/music-assistant-2/ https://www.music-assistant.io/blog/2024/05/09/music-assistant-2/ 301!
+
+# Misspelled or guessed installation URLs
+/instalation /installation/ 301
+/instalation/* /installation/:splat 301
+/intallation /installation/ 301
+/intallation/* /installation/:splat 301
+/istallation /installation/ 301
+/istallation/* /installation/:splat 301
+/installations /installation/ 301
+/installations/* /installation/:splat 301
+/install /installation/ 301
+/install/* /installation/:splat 301
+/installation/generic /installation/generic-x86-64/ 301
+/installation/generic-86-64 /installation/generic-x86-64/ 301
+/installation/generic-x-86-64 /installation/generic-x86-64/ 301
+/installation/generic-x84-64 /installation/generic-x86-64/ 301
+/installation/generic-x86 /installation/generic-x86-64/ 301
+/installation/generic-x86-x64 /installation/generic-x86-64/ 301
+/installation/genericx86-64 /installation/generic-x86-64/ 301
+/installation/x86 /installation/generic-x86-64/ 301
+/installation/x86-64 /installation/generic-x86-64/ 301
+/installation/raspberry-pi /installation/raspberrypi/ 301
+/installation/proxmox /installation/ 301
+/installation/virtual-machine /installation/ 301
+/installation/virtualbox /installation/ 301
+/installation/vmware /installation/ 301
+/installation/container /installation/linux/#install-home-assistant-container 301
+/installation/docker /installation/linux/#install-home-assistant-container 301
+/docs/installation/hassbian/* /installation/ 301
+/getting-started/installation-raspberry-pi-image /installation/raspberrypi/ 301
+/getting-started/installation-synology /installation/ 301
 
 # Other blog redirects
 /blog/2017/02/22/home-assistant-tshirts-have-arrived/ /blog/2026/02/19/open-home-foundation-merch-store-announcement/ 301!
@@ -802,6 +859,12 @@ layout: null
 /docs/configuration/templating/#comparing-numbers /docs/templating/patterns/
 /docs/configuration/templating/#best-practices /docs/templating/debugging/
 
+# Apps were called add-ons, the old action names still work
+/actions/hassio.addon_restart /actions/hassio.app_restart/ 301
+/actions/hassio.addon_start /actions/hassio.app_start/ 301
+/actions/hassio.addon_stdin /actions/hassio.app_stdin/ 301
+/actions/hassio.addon_stop /actions/hassio.app_stop/ 301
+
 # Template function category pages merged into index
 /template-functions/category/area/ /template-functions/#area
 /template-functions/category/collection/ /template-functions/#collection
@@ -820,6 +883,11 @@ layout: null
 /template-functions/category/strings/ /template-functions/#strings
 /template-functions/category/type/ /template-functions/#type
 
+# Notify actions named after a device, platform, or group, like notify.mobile_app_<device>
+/actions/notify /integrations/notify/ 301
+/actions/notify.mobile_app_* /integrations/notify/#companion-app-notifications 301
+/actions/notify.* /integrations/notify/ 301
+
 # Renamed entity triggers and conditions (consistent keys)
 /triggers/battery.low /triggers/battery.became_low/ 301
 /triggers/battery.not_low /triggers/battery.no_longer_low/ 301
@@ -833,3 +901,24 @@ layout: null
 /conditions/climate.target_humidity /conditions/climate.is_target_humidity/ 301
 /conditions/climate.target_temperature /conditions/climate.is_target_temperature/ 301
 /integrations/axle /integrations/axle_energy 301
+
+# Any trigger or condition without its own page shows an explanation instead of a plain 404.
+# Keep these rules below all other /triggers/ and /conditions/ redirects.
+/triggers/* /more-info/unknown-trigger/ 404
+/conditions/* /more-info/unknown-condition/ 404
+
+# Legacy text-to-speech platforms register their own <platform>_say action
+/actions/tts.amazon_polly_say /actions/tts.say/ 301
+/actions/tts.baidu_say /actions/tts.say/ 301
+/actions/tts.demo_say /actions/tts.say/ 301
+/actions/tts.cloud_say /actions/tts.say/ 301
+/actions/tts.google_cloud_say /actions/tts.say/ 301
+/actions/tts.google_translate_say /actions/tts.say/ 301
+/actions/tts.marytts_say /actions/tts.say/ 301
+/actions/tts.microsoft_say /actions/tts.say/ 301
+/actions/tts.voicerss_say /actions/tts.say/ 301
+/actions/tts.yandextts_say /actions/tts.say/ 301
+
+# Any action without its own page shows an explanation instead of a plain 404.
+# Keep this rule last, so the specific action redirects above it keep working.
+/actions/* /more-info/unknown-action/ 404

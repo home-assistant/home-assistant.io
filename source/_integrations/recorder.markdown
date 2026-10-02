@@ -98,7 +98,7 @@ recorder:
       default: true
       type: boolean
     auto_repack:
-      description: Automatically repack the database every second sunday after the auto purge. Without a repack, the database may not decrease in size even after purging, which takes up disk space and can make Home Assistant slow. If you disable `auto_repack` it is recommended that you create an automation to call the [`recorder.purge`](#action-purge) periodically. This flag has no effect if `auto_purge` is disabled.
+      description: Automatically repack the database on the second Sunday of each month, after the auto purge. Without a repack, the database may not decrease in size even after purging, which takes up disk space and can make Home Assistant slow. If you disable `auto_repack` it is recommended that you create an automation to call the [`recorder.purge`](#action-purge) periodically. This flag has no effect if `auto_purge` is disabled.
       required: false
       default: true
       type: boolean

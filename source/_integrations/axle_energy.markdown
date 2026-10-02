@@ -128,7 +128,19 @@ When Axle returns an empty schedule, the sensors show an unknown state. Events y
 
 ### Authentication fails
 
-Check that you copied the full token from the **Home Assistant** section of your Axle account. Enter only the token in **API key**, without a `Bearer ` prefix. If the token has been revoked, generate a new one in Axle. Remove the affected Axle Energy entry from {% my integrations title="**Settings** > **Devices & services**" %}, then add it again with the new token. Check the entity IDs used in your automations after adding it again.
+Check that you copied the full token from the **Home Assistant** section of your Axle account. Enter only the token in **API key**, without a `Bearer ` prefix.
+
+If Axle rejects the token for an existing feed, Home Assistant asks you to authenticate again:
+
+1. Open the [**Home Assistant** section of your Axle account](https://vpp.axle.energy/app/account/home-assistant) and copy the displayed token. If **Generate Token** is available, select it first.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Reconfigure** on the authentication notification for the affected Axle Energy entry.
+3. Enter the copied token in **API key** and submit the form.
+
+Home Assistant validates the token and resumes updates. Your existing sensors and their entity IDs are preserved, so automations can continue using them. Each configured feed needs its own token.
+
+If the token is already used by another entry, the form stays open so you can enter a different token.
+
+If Axle still rejects the token from your account, contact [Axle support](https://help.axle.energy/). You can also contact support for guidance on revoking an existing token.
 
 ### The sensors are unavailable
 
