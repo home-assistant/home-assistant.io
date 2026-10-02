@@ -195,6 +195,13 @@ If the Google Health integration was initially configured incorrectly, you can d
 If authorization appears to succeed but Home Assistant returns a connection error, check the following:
 
 - Verify that you granted the required **Profile** permission. Home Assistant requires the profile scope to verify your account identity and set up the integration.
+### Symptom
+
+The authorization appears to succeed but Home Assistant returns a connection error.
+
+### Resolution
+
+- Verify that you granted the required **Profile** permission. Home Assistant requires the profile scope to verify your account identity and set up the integration.
 - Verify that you selected the correct Google Account and that this account is set up in Google Health. If the account is not linked to Google Health, the Home Assistant logs show the message `The account is not linked to Google Health`.
 
 ## Removing the integration
