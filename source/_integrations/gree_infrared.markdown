@@ -58,7 +58,7 @@ A climate entity is created for each Gree air conditioner device you set up.
 
 ### Remote models
 
-Select the remote profile during setup. **Generic Gree** matches existing setups. **YAP1F / YAP1FB** matches Cooper&Hunter units with a YAP1F or YAP1FB remote and enables extra options.
+Select the remote profile during setup. **Generic Gree** matches existing setups. **YAP1F / YAP1FB** matches Cooper&Hunter units with a YAP1F or YAP1FB remote and enables extra options. The YAP1FB remote is the same as the YAP1F, but its screen has a backlight; both use the same profile.
 
 ### Switches
 
