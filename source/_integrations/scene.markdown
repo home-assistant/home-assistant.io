@@ -318,7 +318,7 @@ Home Assistant reads the scenes from YAML when it starts or when you reload the 
 
 ### Symptom
 
-You run the **Create scene** action, but no scene is created. There is no error. The logs show **Empty scenes are not allowed**, often after one or more warnings like **Entity light.ceiling_lights does not exist and therefore cannot be snapshotted**.
+You run the **Create scene** action, but no scene is created. There is no error. The logs show `Empty scenes are not allowed`, often after one or more warnings like `Entity light.ceiling_lights does not exist and therefore cannot be snapshotted`.
 
 #### Description
 
@@ -339,7 +339,7 @@ If only some of the entities don't exist, the scene is created without them.
 
 ### Symptom
 
-You run the **Create scene** action, but the scene isn't created or changed. The logs show **The scene scene.my_scene already exists**.
+You run the **Create scene** action, but the scene isn't created or changed. The logs show `The scene scene.my_scene already exists`.
 
 #### Description
 
