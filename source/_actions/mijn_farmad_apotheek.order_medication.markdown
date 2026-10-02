@@ -9,7 +9,7 @@ related_actions:
 
 The **Order medication** action places an order for one product at a Farmad pharmacy. The order is paid at pickup. Only users with administrator rights can run this action.
 
-Give the product as a CNK code, a seven digit code that identifies a product. Use the [Search medication](/actions/mijn_farmad_apotheek.search_medication/) action to find the CNK code of a product. A CNK code that already appears in your order history can be ordered without a search.
+Give the product as a CNK code, a seven-digit code that identifies a product. Use the [Search medication](/actions/mijn_farmad_apotheek.search_medication/) action to find the CNK code of a product. A CNK code that already appears in your order history can be ordered without a search.
 
 This action does not support targets. You select the pharmacy through the **Pharmacy** field instead of choosing an area, device, entity, or label.
 
@@ -37,7 +37,7 @@ To order a product from an automation or a script:
 
 {% options_ui %}
 Product:
-  description: The CNK code of the product to order. Use the search_medication action to find the CNK code of a product.
+  description: The CNK code of the product to order. Use the Search medication action to find the CNK code of a product.
   required: true
 Quantity:
   description: The number of packages to order. The default is 1.
@@ -82,7 +82,7 @@ quantity:
   default: 1
 apb:
   description: >
-    The apb number of the pharmacy to order from. Required when your account is
+    The APB number of the pharmacy to order from. Required when your account is
     linked to more than one pharmacy. The list of pharmacies refreshes when the
     integration reloads.
   required: false
@@ -137,6 +137,32 @@ automation: |
         product: "3093242"
         quantity: 2
         comment: "For monthly pickup"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: order a product when the supply runs low
+
+This automation orders a known product when a supply you track in Home Assistant runs low. Create a number {% term helper %} first, for example `input_number.paracetamol_boxes`, and set it to the number of packages you have left. Lower the number every time you take a package. When it reaches zero, the automation orders a new package.
+
+- **Trigger**: Numeric state: Paracetamol boxes below 1
+- **Action**: Mijn Farmad Apotheek: Order medication
+  - **Product**: 3093242
+
+{% details "YAML example for ordering when the supply runs low" %}
+
+{% example %}
+automation: |
+  alias: "Order a product when the supply runs low"
+  description: "Orders a new package when the supply reaches zero."
+  triggers:
+    - trigger: numeric_state
+      entity_id: input_number.paracetamol_boxes
+      below: 1
+  actions:
+    - action: mijn_farmad_apotheek.order_medication
+      data:
+        product: "3093242"
 {% endexample %}
 
 {% enddetails %}

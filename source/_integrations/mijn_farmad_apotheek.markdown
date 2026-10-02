@@ -50,44 +50,6 @@ Password:
 
 {% include docs/paste_yaml_tip.md %}
 
-### Automation: order a product by name
-
-You do not need to know the CNK code of a product by heart. This automation searches the catalog for a product name and orders the first match that needs no prescription. It runs when an input button {% term helper %} is pressed. Create the helper yourself first.
-
-- **Trigger**: State changed
-  - **Entity**: Order medication button (`input_button.order_medication`)
-- **Action**: Mijn Farmad Apotheek: Search medication
-  - **Search term**: paracetamol 500 mg
-- **Action**: Mijn Farmad Apotheek: Order medication
-  - **Product**: The CNK code of the first match that needs no prescription
-
-{% details "YAML example for ordering a product by name" %}
-
-{% example %}
-automation: |
-  alias: "Order a product by name"
-  description: "Orders the first match that needs no prescription."
-  triggers:
-    - trigger: state
-      entity_id: input_button.order_medication
-  actions:
-    - action: mijn_farmad_apotheek.search_medication
-      data:
-        query: "paracetamol 500 mg"
-      response_variable: search_result
-    - action: mijn_farmad_apotheek.order_medication
-      data:
-        product: >-
-          {{
-            search_result.products
-            | rejectattr('is_on_prescription')
-            | map(attribute='cnk')
-            | first
-          }}
-{% endexample %}
-
-{% enddetails %}
-
 ### Automation: order a product every month
 
 This automation orders a known product on a monthly schedule. Create a schedule {% term helper %} with a monthly rule first, for example, on the first day of the month at 09:00. To find the CNK code of your product, use the [Search medication](/actions/mijn_farmad_apotheek.search_medication/) action.
@@ -201,13 +163,12 @@ The stored login is no longer accepted by Farmad, and the integration cannot sig
 
 {% enddetails %}
 
-If your problem is not listed here, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) for the `aiofarmad` logger and check the logs:
+If your problem is not listed here, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) and check the logs:
 
-```yaml
-logger:
-  logs:
-    aiofarmad: debug
-```
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select Mijn Farmad Apotheek.
+3. Open the three-dots menu in the top right and select **Enable debug logging**.
+4. Run the action that gave you the error, then open the same menu, select **Disable debug logging**, and download the log file.
 
 ## Removing the integration
 

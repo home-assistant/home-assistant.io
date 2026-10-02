@@ -62,7 +62,7 @@ query:
   type: string
 apb:
   description: >
-    The apb number of the pharmacy to search in. Required when your account is
+    The APB number of the pharmacy to search in. Required when your account is
     linked to more than one pharmacy. The list of pharmacies refreshes when the
     integration reloads.
   required: false
@@ -106,7 +106,7 @@ products:
 
 ### Automation: check the price and stock of a product
 
-Each week, this automation looks up a product at your pharmacy and sends the price and the stock of the first match to a phone. It uses a schedule {% term helper %}: create the helper with a weekly rule first.
+Each week, this automation looks up a product at your pharmacy and sends the price and the stock of the first match to a phone. When the search returns no product, or when the price or the stock is unknown, the message says so. It uses a schedule {% term helper %}: create the helper with a weekly rule first.
 
 - **Trigger**: Schedule
   - **Entity**: Weekly price check (`schedule.weekly_price_check`)
@@ -120,7 +120,7 @@ Each week, this automation looks up a product at your pharmacy and sends the pri
 {% example %}
 automation: |
   alias: "Check the price and stock of a product"
-  description: "Sends the price and the stock of a product to a phone."
+  description: "Sends the price and the stock of the first match to a phone."
   triggers:
     - trigger: schedule
       entity_id: schedule.weekly_price_check
@@ -134,9 +134,56 @@ automation: |
         entity_id: notify.my_device
       data:
         message: >-
-          {{ search_result.products[0].description }} costs
-          {{ search_result.products[0].price }} euro.
-          {{ search_result.products[0].stock }} in stock.
+          {% if search_result.products %}
+          {% set product = search_result.products[0] %}
+          {{ product.description }} costs
+          {{ product.price | default("an unknown price", true) }}.
+          Stock: {{ product.stock | default("unknown", true) }}.
+          {% else %}
+          No product found.
+          {% endif %}
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: get a message when a product is back in stock
+
+Each day, this automation looks up a product at your pharmacy by its CNK code. When the product is back in stock, it sends a message to a phone.
+
+- **Trigger**: Time: 09:00
+- **Action**: Mijn Farmad Apotheek: Search medication
+  - **Search term**: 3093242
+- **Action**: If-then
+  - **If**: The product has more than zero items in stock
+  - **Then**: Send a notification message
+    - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for a back-in-stock alert" %}
+
+{% example %}
+automation: |
+  alias: "Get a message when a product is back in stock"
+  description: "Sends a message when a product is back in stock."
+  triggers:
+    - trigger: time
+      at: "09:00:00"
+  actions:
+    - action: mijn_farmad_apotheek.search_medication
+      data:
+        query: "3093242"
+      response_variable: search_result
+    - if:
+        - >-
+          {{ search_result.products | length > 0
+          and search_result.products[0].stock | default(0, true) > 0 }}
+      then:
+        - action: notify.send_message
+          target:
+            entity_id: notify.my_device
+          data:
+            message: >-
+              {{ search_result.products[0].description }} is back in stock
+              at your pharmacy.
 {% endexample %}
 
 {% enddetails %}
