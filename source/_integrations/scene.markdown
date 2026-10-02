@@ -369,9 +369,9 @@ Remove the entity from one of the two fields.
 
 {% enddetails %}
 
-<a id="delete-scene-fails"></a>
+<a id="delete-scene-fails-not-created-with-create-scene"></a>
 
-{% details "Delete scene fails" %}
+{% details "Delete scene fails: the scene wasn't created with Create scene" %}
 
 ### Symptom
 
@@ -379,12 +379,29 @@ The **Delete scene** action fails with **The scene scene.my_scene is not created
 
 #### Description
 
-**Delete scene** only removes scenes that were created with the **Create scene** action. Scenes from YAML, the scene editor, or other integrations can't be deleted this way.
+**Delete scene** only removes scenes that were created with the **Create scene** action. This scene comes from the scene editor or from YAML.
 
 #### Resolution
 
 - For a scene from the scene editor, delete it in the scene editor.
 - For a scene in YAML, remove it from the YAML file, and then [reload the scenes](#reloading-scenes).
-- For a scene from another integration, delete it where that integration manages its scenes, for example, in the Hue app.
+
+{% enddetails %}
+
+<a id="delete-scene-fails-scene-from-another-integration"></a>
+
+{% details "Delete scene fails: the scene is from another integration" %}
+
+### Symptom
+
+The **Delete scene** action fails with **scene.my_scene is not a valid entity ID of a scene.**
+
+#### Description
+
+The scene comes from another integration, such as Hue, KNX, or MQTT. **Delete scene** only removes scenes that were created with the **Create scene** action.
+
+#### Resolution
+
+Delete the scene where that integration manages its scenes, for example, in the Hue app. For details, refer to [Scenes from other integrations](#scenes-from-other-integrations).
 
 {% enddetails %}
