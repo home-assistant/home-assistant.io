@@ -38,10 +38,8 @@ The **ecobee** {% term integration %} lets you control and view sensor data from
 
 ## Prerequisites
 
-- Username and password for [ecobee.com](https://ecobee.com). 
-   - You will need it when adding the integration to set up a connection between the integration and Home Assistant. 
-- Have the devices connected to your ecobee.com account.
-   - You can add devices either before or after you configure the service in Home Assistant, but having them connected to your ecobee.com account ahead of time is recommended to confirm that they are picked up by the service correctly.
+- Your username and password for [ecobee.com](https://ecobee.com).
+- Devices registered to your ecobee account. You can add devices before or after setting up the integration, but registering them first helps you confirm that Home Assistant detects them.
 
 {% note %}
 Since version 2026.3, it is no longer required to get a [developer API key](https://www.ecobee.com/developers/) to use this integration. Existing API keys will continue to function. If you revoke your existing key in the ecobee portal, the integration will fail, and you will need to remove the service in Home Assistant and set it up again.
@@ -51,20 +49,27 @@ Since version 2026.3, it is no longer required to get a [developer API key](http
 
 {% configuration_basic %}
 API key:
-  description: If you have a developer API key, use this field and ignore the others. If you are logging in without an API key, leave this field blank and use username and password.
-username:
+  description: Leave this field blank to sign in with your username and password. If you have an existing developer API key, you can enter it instead and leave the username and password fields blank.
+Username:
   description: The email address you use to sign in to [ecobee.com](https://ecobee.com).
-password:
-  description: The password for the above account.
+Password:
+  description: Your ecobee account password.
 {% endconfiguration_basic %}
 
 ## Multi-factor authentication (MFA)
 
-When signing in with your ecobee username and password, if your ecobee account has multi-factor authentication (MFA) enabled with a time-based one-time password (TOTP) from an authenticator app, Home Assistant will prompt you for the 6-digit code after you submit your credentials. The integration captures a refresh token after the initial login, so subsequent token refreshes happen without prompting you for the code again.
+When you sign in with your ecobee username and password, Home Assistant asks for an MFA code if your account has multi-factor authentication enabled. The integration supports the following methods:
 
-If the refresh token is ever invalidated (for example, after a password change on ecobee.com), Home Assistant will start a reauthentication flow. It will ask you for your password and the MFA code, if your account still has MFA enabled.
+- Authenticator app: Enter the current six-digit time-based one-time password (TOTP) from your authenticator app.
+- SMS: Enter the code ecobee sends to the phone number registered for MFA on your account.
 
-Other MFA methods (push, SMS, email) are not currently supported.
+Enter the code in **MFA code** and select **Submit**. If ecobee does not accept the code, try again with the latest code from your authenticator app or SMS message.
+
+After you sign in, Home Assistant stores a refresh token. Routine token refreshes do not require you to enter another MFA code.
+
+If ecobee requires you to sign in again, Home Assistant asks you to reauthenticate. Enter your current ecobee password and, if prompted, a new MFA code. For example, you may need to reauthenticate after changing your ecobee password.
+
+Push notifications and email codes are not supported.
 
 ## Notifications
 
