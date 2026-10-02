@@ -794,7 +794,7 @@ Changes for things like sensors or thermostat temperature set points should be i
   2. Click the Home Assistant device access project
   3. Verify the *Pub/Sub topic* is *Enabled*. If not, follow the integration configuration instructions.
   4. If the Pub/Sub topic starts with `projects/<your cloud project>/topics/home-assistant-` then you are using a topic created by Home Assistant. You may follow the steps in the next section to verify the topic.
-  5. If the Pub/Sub topic starts with `projects/sdm-prod/topics`, you are using a legacy Google-hosted topic. Google will stop publishing events to these topics after November 30, 2026. Follow the [Enable events and Pub/Sub topic](#configuration) setup instructions above to create a topic in your own Google Cloud project, then disable the legacy topic and re-enable events with the new topic in the Device Access Console. For more information, refer to Google's [event migration instructions](https://developers.google.com/nest/device-access/subscribe-to-events#enable_events).
+  5. If the Pub/Sub topic starts with `projects/sdm-prod/topics`, you are using a legacy Google-hosted topic. Google will stop publishing events to these topics after November 30, 2026. Follow the **Enable events and Pub/Sub topic** setup instructions above to create a topic in your own Google Cloud project, then disable the legacy topic and re-enable events with the new topic in the Device Access Console. For more information, refer to Google's [event migration instructions](https://developers.google.com/nest/device-access/subscribe-to-events#enable_events).
 
 - **(Optional) Verify topic message publishing.**
 
