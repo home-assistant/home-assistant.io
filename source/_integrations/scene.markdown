@@ -112,7 +112,7 @@ There are two ways to define the state of an entity:
 
 ### Editing a YAML scene in the scene editor
 
-If you wrote a scene in another YAML file, for example, directly in your {% term "`configuration.yaml`" %} file, you can move it to `scenes.yaml`, so you can edit it in the scene editor. Your `configuration.yaml` file loads `scenes.yaml` with `scene: !include scenes.yaml`. This line is there by default.
+If you wrote a scene in another YAML file, for example, directly in your {% term "`configuration.yaml`" %} file, you can move it to `scenes.yaml`, so you can edit it in the scene editor. Your `configuration.yaml` file loads `scenes.yaml` with `scene: !include scenes.yaml`. This line is there by default. Check that your `configuration.yaml` file has it, and if it's missing, add it. If your `configuration.yaml` file already has a `scene:` section for other scenes, give that section a label, for example, `scene manual:`, because each key can only be used once.
 
 1. Copy the scene from its old file to `scenes.yaml`.
    - `scenes.yaml` is a list, so each scene starts with `-`.
