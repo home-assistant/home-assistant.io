@@ -56,7 +56,7 @@ Under `entities`, you list the states that the entities should have, not the act
 ```yaml
 # Example configuration.yaml entry
 scene:
-  - name: Romantic
+  - name: "Romantic"
     icon: "mdi:flower-tulip"
     entities:
       light.tv_back_light: "on"
@@ -65,7 +65,7 @@ scene:
         brightness: 200
         color_mode: "xy"
         xy_color: [0.33, 0.66]
-  - name: Movies
+  - name: "Movies"
     entities:
       light.tv_back_light:
         state: "on"
@@ -74,7 +74,7 @@ scene:
       media_player.sony_bravia_tv:
         state: "on"
         source: "HDMI 1"
-  - name: Standard
+  - name: "Standard"
     entities:
       light.tv_back_light:
         state: "off"
@@ -120,14 +120,15 @@ If you wrote a scene in another YAML file, for example, directly in your {% term
 
    ```yaml
    # Example scenes.yaml entry
-   - id: romantic
-     name: Romantic
+   - id: "romantic"
+     name: "Romantic"
      entities:
        light.tv_back_light: "on"
        light.ceiling:
          state: "on"
-         xy_color: [0.33, 0.66]
          brightness: 200
+         color_mode: "xy"
+         xy_color: [0.33, 0.66]
    ```
 
 3. Remove the scene from its old file.
@@ -173,19 +174,19 @@ When Sweetheart comes home, this automation activates the Romantic scene. The li
 
 {% example %}
 automation: |
-  alias: "Activate the romantic scene when Sweetheart comes home"
-  triggers:
-    - trigger: zone.entered
-      target:
-        entity_id: device_tracker.sweetheart
-      options:
-        zone: zone.home
-  actions:
-    - action: scene.turn_on
-      target:
-        entity_id: scene.romantic
-      data:
-        transition: 2.5
+  - alias: "Activate the romantic scene when Sweetheart comes home"
+    triggers:
+      - trigger: zone.entered
+        target:
+          entity_id: device_tracker.sweetheart
+        options:
+          zone: zone.home
+    actions:
+      - action: scene.turn_on
+        target:
+          entity_id: scene.romantic
+        data:
+          transition: 2.5
 {% endexample %}
 
 {% enddetails %}
@@ -247,6 +248,8 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+## Video tutorial
 
 This video tutorial explains how scenes work, and how to create scenes while Home Assistant is running:
 
