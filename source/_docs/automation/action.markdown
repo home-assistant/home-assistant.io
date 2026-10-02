@@ -4,13 +4,13 @@ description: "Actions are what an automation does, for example, turning on a lig
 toc: false
 ---
 
-The actions of an automation make something happen, for example, turning on a light or sending a notification. Usually, they run after a trigger has started the automation and the conditions are met. In the automation editor, the actions are in the **Then do** section. You can also run them directly from there, for example, with **Run actions**.
+The actions of an automation make something happen, for example, turning on a light or sending a notification. Usually, they run after a trigger has started the automation and the conditions are met. In the automation editor, the actions are in the **Then do** section. You can also run them directly from there, for example, with **Run actions**. This skips the triggers and the conditions.
 
 An automation can also use building blocks. Building blocks control whether, when, and in which order the actions run, for example, to wait a few seconds or to repeat steps. For all building blocks, refer to [Building blocks and actions](/docs/scripts/). For all actions that you can use, refer to the [list of available actions](/actions/).
 
 Many actions have a target, for example, the lights to turn on, and options, for example, the brightness.
 
-An action can also activate a [scene](/docs/scene/), which sets several devices to saved states in one step.
+An action can also activate a [scene](/docs/scene/), which sets its devices and entities to saved states in one step.
 
 The following examples show two automations. The first changes two lights at sunset. The second sends notifications before and after sunset and uses a variable to set the `action:` value for the first notification.
 
