@@ -9,6 +9,8 @@ related_actions:
 
 The **Prune unused images** action removes unused images from a Portainer endpoint to free up disk space. You can limit the cleanup to images that have been unused for at least a certain time, or to dangling images only.
 
+Only administrators can run this action.
+
 {% include actions/ui_header.md %}
 
 To prune images from an automation or a script:
