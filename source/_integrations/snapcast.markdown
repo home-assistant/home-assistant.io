@@ -18,4 +18,12 @@ The **Snapcast** {% term integration %} allows you to control [Snapcast](https:/
 
 {% include integrations/config_flow.md %}
 
+## Playback controls
+
+Snapcast media player entities can expose playback controls for the player providing the currently selected Snapcast stream.
+
+When the stream is configured with a Snapcast control plugin, such as `meta_mopidy.py` or `meta_mpd.py`, Home Assistant can provide the playback controls supported by that stream. Depending on the player, these can include play, pause, stop, next track, and previous track.
+
+Streams without playback control support continue to provide the standard Snapcast volume, source selection, and grouping controls.
+
 {% include integrations/actions.md %}
