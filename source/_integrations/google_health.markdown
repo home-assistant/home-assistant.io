@@ -190,7 +190,7 @@ The integration updates sensors on different intervals based on the data type:
 
 If the Google Health integration was initially configured incorrectly, you can delete the credentials in the [Application Credentials](/integrations/application_credentials/) user interface and start the setup again.
 
-### Connection failed after authorization
+{% details "Connection failed after authorization" %}
 
 If authorization appears to succeed but Home Assistant returns a connection error, check the following:
 
