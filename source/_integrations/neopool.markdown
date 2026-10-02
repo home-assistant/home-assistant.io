@@ -13,6 +13,7 @@ ha_platforms:
   - diagnostics
   - light
   - number
+  - select
   - sensor
   - switch
   - time
@@ -106,7 +107,7 @@ Enable cover sensor:
 
 ## Supported functionality
 
-The integration exposes the controller's runtime state as sensor and binary sensor entities, plus an optional light entity for the pool light relay. It also adds number entities for the controller's writable setpoints and configuration values, switch entities for filtration, backwash, the auxiliary relays, and the controller's configuration flags, time entities for the daily timer schedules, and button entities for device maintenance actions.
+The integration exposes the controller's runtime state as sensor and binary sensor entities, plus an optional light entity for the pool light relay. For control, it adds switch entities for filtration, backwash, the auxiliary relays, and the controller's configuration flags. For configuration, it adds number entities for the controller's writable setpoints and values, select entities for its enumerated settings such as filtration mode and the timer periods and modes, and time entities for the daily timer schedules. Button entities cover device maintenance actions.
 
 {% note %}
 Only entities backed by a detected hardware module or an enabled controller option are registered. The rest stay hidden until the module or option becomes available. Each bullet below lists the specific requirement for that entity.
@@ -177,6 +178,21 @@ The controller stores a daily start and stop time for each of its timer blocks. 
 - **Filtration timers 1 to 3**: the start and stop times of the three filtration schedules. The first timer's entities are enabled by default. The second and third timers' entities are disabled by default because most pools use a single schedule. Enable them in the entity registry if your controller uses more than one.
 - **Auxiliary relay timers 1 to 4**: the start and stop times of each auxiliary relay's schedule. Added for each auxiliary relay enabled in the integration options. Each relay has a second schedule whose entities are disabled by default. Enable them in the entity registry if you use the relay's second daily period.
 - **Pool light timer**: the start and stop times of the pool light schedule. Added when the pool light relay is enabled in the integration options.
+
+### Selects
+
+These entities expose the controller's enumerated settings. The available options are narrowed to the hardware the controller reports, so an option only appears when the matching module or feature is present.
+
+- **Filtration mode**: the active filtration mode (Manual, Automatic, Heating, Smart, Intelligent). The Heating and Smart options are offered only when the controller has a heating relay and a temperature sensor. Backwash is a display-only mode, shown only while the controller already reports it.
+- **Filtration speed**: the live variable-speed level (Low, Medium, High) for a variable-speed pump. Can be changed only while the controller is in manual filtration mode. Added when the controller reports a variable-speed pump.
+- **Filtration timer speed 1 to 3**: the stored speed for each filtration schedule, written to that timer's own slot so it does not change the running pump speed. The first timer's entity is enabled by default; the second and third are disabled by default. Added when the controller reports a variable-speed pump.
+- **Boost mode**: the hydrolysis chlorine-shock mode (Inactive, Active, Active with Redox control). The Redox-control option is dropped when no Redox module is detected. Added when the hydrolysis module is present and disabled by default.
+- **Backwash valve mode**: switches a Besgo automatic filter valve between automatic and manual operation. Added when a filter valve is configured.
+- **Backwash duration** and **Backwash repeat interval**: how long a backwash runs and how often it repeats. Added when a filter valve is configured.
+- **Intelligent: minimum filtration time**: the minimum daily runtime for Intelligent mode. Added when the controller has a heating relay and a temperature sensor.
+- **pH pump activation delay**: the delay before the pH dosing relay activates. Added when the pH module is present.
+- **Relay modes**: switches each auxiliary relay and the pool light between automatic (timer-driven) and manual operation. Added for each auxiliary relay or the pool light enabled in the integration options.
+- **Timer periods**: how often each filtration, auxiliary relay, and pool light schedule repeats. Added for each schedule, following the same option gating as the matching timer.
 
 {% include integrations/actions.md %}
 
