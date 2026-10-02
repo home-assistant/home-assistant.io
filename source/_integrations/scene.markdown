@@ -287,9 +287,30 @@ Home Assistant reads the scenes from YAML when it starts or when you reload the 
 
 {% enddetails %}
 
-<a id="create-scene-does-nothing"></a>
+<a id="create-scene-does-nothing-scene-would-be-empty"></a>
 
-{% details "Create scene does nothing" %}
+{% details "Create scene does nothing: the scene would be empty" %}
+
+### Symptom
+
+You run the **Create scene** action, but no scene is created. There is no error. The logs show **Empty scenes are not allowed**, often after one or more warnings like **Entity light.ceiling_lights does not exist and therefore cannot be snapshotted**.
+
+#### Description
+
+**Create scene** skips each entity in **Entities snapshot** that doesn't exist, for example, because of a typo in the entity ID, or because the entity was renamed or removed. If no entities are left, and **Entity states** is empty, the scene would be empty, so the action doesn't create it.
+
+If only some of the entities don't exist, the scene is created without them.
+
+#### Resolution
+
+1. Check the entity IDs in **Entities snapshot**. To find the current entity IDs, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
+2. Fix the entity IDs in the action, and run it again.
+
+{% enddetails %}
+
+<a id="create-scene-does-nothing-scene-already-exists"></a>
+
+{% details "Create scene does nothing: the scene already exists" %}
 
 ### Symptom
 
