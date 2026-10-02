@@ -33,7 +33,7 @@ trigger: |
     entity_id: scene.movie_night
 {% endexample %}
 
-This fires every time `scene.movie_night` is activated.
+This reacts every time `scene.movie_night` is activated.
 
 ### Options in YAML
 
@@ -43,8 +43,8 @@ This trigger has no additional YAML options beyond the target.
 
 ## Good to know
 
-- This trigger fires every time the scene is activated.
-- A scene entity is stateless. It does not have an `on` or `off` state, but it does track the timestamp of when it was last activated. This trigger fires when that timestamp updates.
+- This trigger reacts every time the scene is activated, also when you activate the same scene several times in a row.
+- A scene doesn't have an `on` or `off` state. Its state is the date and time when it was last activated. This trigger reacts when that time changes, including the first activation of a new scene.
 - Changes to `unavailable` or `unknown` do not count as scene activations.
 - If you only need to activate a scene from an automation, use the related [**Activate scene**](/actions/scene.turn_on/) action instead.
 
@@ -54,11 +54,13 @@ This trigger has no additional YAML options beyond the target.
 
 ### Automation: switch the TV to the movie source when the movie night scene is activated
 
-When you activate the movie night scene, also switch the living room TV to the HDMI input your media player is on. TV inputs are not typically captured in a scene, so a trigger-based automation is a good way to handle them.
+When you activate the movie night scene, this automation also switches the living room TV to the HDMI input that your media player is on. This is useful when the TV isn't part of the scene, for example, because other scenes or people use the TV too.
 
 - **Trigger**: Scene activated
   - **Target**: Movie night scene
-- **Action**: Select source on the living room TV
+- **Action**: Select media player source
+  - **Target**: Living room TV
+  - **Source**: HDMI 1
 
 {% details "YAML example for switching TV input with a scene" %}
 
