@@ -14,7 +14,7 @@ related:
     title: Scenes
 ---
 
-The **Scenes** {% term integration %} lets you use {% term scenes %} in Home Assistant. A scene stores the states that you want for a group of {% term entities %}, and sets them again in one step when you activate it. For example, a "Movie night" scene can dim the TV back light, turn off the ceiling light, and switch the TV to the right input.
+The **Scenes** {% term integration %} lets you use {% term scenes %} in Home Assistant. A scene stores the states that you want for a group of {% term entities %}, and sets them again in one step when you activate it. For example, a "Movie night" scene can dim the TV backlight, turn off the ceiling light, and switch the TV to the right input.
 
 Each scene is an {% term entity %}, for example, `scene.movie_night`. You can activate it from a dashboard, an automation, or a script, and start an automation when it's activated.
 
