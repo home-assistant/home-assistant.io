@@ -554,7 +554,7 @@
     A script is a saved list of steps that runs when you start it, for
     example, from a dashboard, with Assist, or from an automation. Unlike an
     automation, a script has no triggers, so it doesn't start by itself.
-  link: /integrations/script/
+  link: /docs/script/
   aliases:
     - scripts
 - term: Sensor
