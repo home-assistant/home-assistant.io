@@ -148,9 +148,9 @@ automation: |
 
 {% enddetails %}
 
-### Automation: get a message when a product is back in stock
+### Automation: get a daily message when a product is in stock
 
-Each day, this automation looks up a product at your pharmacy by its CNK code. When the product is back in stock, it sends a message to a phone.
+Each day, this automation looks up a product at your pharmacy by its CNK code. When the product is in stock, it sends a message to a phone. The message repeats every day while the product stays in stock.
 
 - **Trigger**: Time: 09:00
 - **Action**: Mijn Farmad Apotheek: Search medication
@@ -160,12 +160,12 @@ Each day, this automation looks up a product at your pharmacy by its CNK code. W
   - **Then**: Send a notification message
     - **Target**: My Device (`notify.my_device`)
 
-{% details "YAML example for a back-in-stock alert" %}
+{% details "YAML example for a daily in-stock message" %}
 
 {% example %}
 automation: |
-  alias: "Get a message when a product is back in stock"
-  description: "Sends a message when a product is back in stock."
+  alias: "Get a message when a product is in stock"
+  description: "Sends a message when a product is in stock."
   triggers:
     - trigger: time
       at: "09:00:00"
@@ -184,7 +184,7 @@ automation: |
             entity_id: notify.my_device
           data:
             message: >-
-              {{ search_result.products[0].description }} is back in stock
+              {{ search_result.products[0].description }} is in stock
               at your pharmacy.
 {% endexample %}
 
