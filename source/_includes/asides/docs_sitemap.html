@@ -9,7 +9,7 @@
 
 <li>
   <iconify-icon icon="mdi:robot-happy"></iconify-icon> {% active_link /docs/automation/ Automations %}
-  {% if doc == 'automation' or doc == 'blueprint' or doc == 'scripts' or doc == 'scene' or in_automation_reference or include.docs_index %}
+  {% if doc == 'automation' or doc == 'blueprint' or doc == 'scripts' or doc == 'script' or doc == 'scene' or in_automation_reference or include.docs_index %}
   <ul>
     <li>
       {% icon "mdi:robot-happy" %} {% active_link /docs/automation/basics/ Understanding automations %}
@@ -53,6 +53,9 @@
         <li>{% active_link /docs/scene/editor/ Editor %}</li>
       </ul>
       {% endif %}
+    </li>
+    <li>
+      {% icon "mdi:script-text-play" %} {% active_link /docs/script/ Scripts %}
     </li>
     <li>
       {% icon "mdi:palette-swatch" %} {% active_link /docs/blueprint/ Blueprints %}
