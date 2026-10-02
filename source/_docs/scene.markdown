@@ -84,6 +84,24 @@ Some integrations, such as [Philips Hue](/integrations/hue/), provide their own 
 
 An automation or a script can create a scene while it runs, with the [**Create scene**](/actions/scene.create/) action. For example, it can save the current states of some devices, change them, and restore them later. The scene is removed again when you reload the scenes or restart Home Assistant.
 
+## Activating a scene
+
+When you activate a scene, Home Assistant sets each of its devices and entities to the state stored in the scene. You can activate a scene in several ways:
+
+- From the list of scenes
+  - Go to {% my scenes title="**Settings** > **Automations & scenes** > **Scenes**" %}. In the row of the scene, select **Menu** {% icon "mdi:dots-vertical" %} > **Apply**.
+- From the scene editor
+  - Open the scene, and select **Menu** {% icon "mdi:dots-vertical" %} > **Apply**.
+  - **Apply** is only available in **Review Mode**, for a scene that you already saved. In **Live Edit**, the scene is already applied.
+- From a dashboard
+  - Add the scene to a card, for example, an [Entities card](/dashboards/entities/), and select **Activate**.
+- With Assist
+  - [Expose the scene to Assist](/voice_control/voice_remote_expose_devices/), and say, for example, "Activate movie night scene".
+- From an automation or a script
+  - Use the [**Activate scene**](/actions/scene.turn_on/) action.
+
+To start an automation when a scene is activated, use the [**Scene activated**](/triggers/scene.activated/) trigger.
+
 ## Editing a scene
 
 To add or remove devices, or to change the states that a scene stores, edit the scene in **Live Edit**. While you edit, the scene is applied to your devices.
@@ -128,21 +146,3 @@ If you don't need a scene anymore, you can delete it. Automations, scripts, and 
 3. To confirm, select **Delete**.
 
 You can only delete scenes that you can edit in the scene editor. To remove a scene from another YAML file, remove it from that file, and then [reload the scenes](/integrations/scene/#reloading-scenes). To remove a scene from another integration, delete it where that integration manages its scenes. To remove a temporary scene, use the [**Delete scene**](/actions/scene.delete/) action.
-
-## Activating a scene
-
-When you activate a scene, Home Assistant sets each of its devices and entities to the state stored in the scene. You can activate a scene in several ways:
-
-- From the list of scenes
-  - Go to {% my scenes title="**Settings** > **Automations & scenes** > **Scenes**" %}. In the row of the scene, select **Menu** {% icon "mdi:dots-vertical" %} > **Apply**.
-- From the scene editor
-  - Open the scene, and select **Menu** {% icon "mdi:dots-vertical" %} > **Apply**.
-  - **Apply** is only available in **Review Mode**, for a scene that you already saved. In **Live Edit**, the scene is already applied.
-- From a dashboard
-  - Add the scene to a card, for example, an [Entities card](/dashboards/entities/), and select **Activate**.
-- With Assist
-  - [Expose the scene to Assist](/voice_control/voice_remote_expose_devices/), and say, for example, "Activate movie night scene".
-- From an automation or a script
-  - Use the [**Activate scene**](/actions/scene.turn_on/) action.
-
-To start an automation when a scene is activated, use the [**Scene activated**](/triggers/scene.activated/) trigger.
