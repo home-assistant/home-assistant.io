@@ -529,6 +529,21 @@ This integration adds the Blebox device as a sensor entity and a binary sensor e
 - An option to change the detection mode is available in the wBox app.
 - After changing settings, the device needs to be reloaded.
 
+### tankSensor
+
+This integration adds the Blebox device as 4 sensor entities to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of tank fill level
+- Periodic read of liquid height
+- Periodic read of gauge pressure
+- Periodic read of liquid volume
+
+{% note %}
+Depending on the device configuration, some of the readings may be unavailable. If the probe is not configured, Home Assistant shows a repair. For details, see [tankSensor probe is not configured](#tanksensor-probe-is-not-configured).
+{% endnote %}
+
 ### energyMeter DIN
 
 This integration adds the Blebox device as multiple sensor entities to Home Assistant.
@@ -1243,6 +1258,23 @@ The device's IP address has likely changed due to a DHCP lease renewal.
 1. Check the current IP address of the device in your router's DHCP client list or in the wBox app.
 2. To prevent this from happening again, assign a static IP address or a DHCP reservation to the device in your router settings.
 3. If the IP address has changed, remove the existing integration entry and add it again with the new IP address.
+
+### tankSensor probe is not configured
+
+#### Symptom
+
+A tankSensor entity shows as unavailable, and a repair named **_Device_: _Sensor_ probe not configured** appears in {% my repairs title="**Settings** > **System** > **Repairs**" %}.
+
+#### Description
+
+The device reports that the probe for this sensor is not configured, so it cannot provide a reading. Home Assistant raises one repair for each affected sensor.
+
+#### Resolution
+
+1. Open the wBox app and go to the settings of your tankSensor.
+2. Configure the probe.
+
+When the probe is configured, the sensor starts reporting readings again and the repair disappears on its own. You don't need to change anything in Home Assistant.
 
 ## Known limitations
 
