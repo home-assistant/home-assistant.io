@@ -137,6 +137,7 @@ When you activate a scene, Home Assistant sets each of its devices and entities 
   - Go to {% my scenes title="**Settings** > **Automations & scenes** > **Scenes**" %}. In the row of the scene, select **Menu** {% icon "mdi:dots-vertical" %} > **Apply**.
 - From the scene editor
   - Open the scene, and select **Menu** {% icon "mdi:dots-vertical" %} > **Apply**.
+  - **Apply** is only available in **Review Mode**, for a scene that you already saved. In **Live Edit**, the scene is already applied.
 - From a dashboard
   - Add the scene to a card, for example, an [Entities card](/dashboards/entities/), and select **Activate**.
 - With Assist
