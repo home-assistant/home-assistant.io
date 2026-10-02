@@ -22,7 +22,7 @@ A scene sets states. It doesn't run steps, and it doesn't remember what came bef
 
 This is why:
 
-- All devices in the scene change at the same time. A scene can't wait, or change things in a specific order. For that, use a [script](/integrations/script/).
+- A scene sets all its states in one go. It can't wait, or change things in a specific order. For that, use a [script](/integrations/script/).
 - A scene always sets the same states. It doesn't check anything first. If the states should depend on something, for example, whether someone is home, use an [automation](/docs/automation/).
 - A scene doesn't have an on or off state. To go back to how things were, activate another scene. Or save the current states first, with the [**Create scene**](/actions/scene.create/) action, and activate that scene later.
 
