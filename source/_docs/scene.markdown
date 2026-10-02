@@ -104,7 +104,7 @@ To start an automation when a scene is activated, use the [**Scene activated**](
 
 ## Editing a scene
 
-To add or remove devices, or to change the states that a scene stores, edit the scene in **Live Edit**. While you edit, the scene is applied to your devices.
+To add devices, or to change the states that a scene stores, edit the scene in **Live Edit**. While you edit, the scene is applied to your devices. To only remove devices or entities, you don't need **Live Edit**: you can remove them in **Review Mode**, and select **Save**.
 
 You can edit all scenes that you create in the editor. Scenes from other YAML files, from other integrations, or from the **Create scene** action can't be edited in the editor. For what you can do instead, refer to [Scene doesn't open in the scene editor](/integrations/scene/#scene-doesnt-open-in-the-scene-editor).
 
@@ -112,7 +112,7 @@ You can edit all scenes that you create in the editor. Scenes from other YAML fi
    - The editor opens in **Review Mode**.
 2. Select **Live Edit**.
    - The scene is applied to your devices. If you have unsaved changes, select **Save and Live Edit**.
-3. Add or remove devices and entities, or change their states.
+3. Add devices and entities, or change their states.
 4. Select **Save**.
 
 ### Editing a scene in the YAML editor
@@ -134,6 +134,8 @@ You can change the name of a scene, and its icon, area, category, and labels, wi
 2. Select **Menu** {% icon "mdi:dots-vertical" %} > **Rename**.
 3. Change the **Name**, and the other details that you want to change.
 4. Select **Rename**.
+5. To keep the changes, select **Save**.
+   - **Rename** only changes the scene in the editor. If you leave the editor without saving, it asks whether you want to leave, and the changes are lost.
 
 Renaming a scene doesn't change its entity ID, for example, `scene.movie_night`. To change the entity ID, refer to [Changing the attributes of an entity](/docs/configuration/customizing-devices/#changing-the-attributes-of-an-entity).
 
