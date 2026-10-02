@@ -86,7 +86,7 @@ scene:
 
 {% configuration %}
 id:
-  description: A unique ID for the scene. Scenes that you create in the scene editor get one automatically. Without an ID, you can't change the settings of the scene entity in the UI, for example, its area or category.
+  description: A unique ID for the scene. Scenes that you create in the scene editor get one automatically. Without an ID, you can't edit the scene in the scene editor, or change the settings of the scene entity in the UI, for example, its area or category.
   required: false
   type: string
 name:
@@ -224,7 +224,7 @@ automation: |
     actions:
       - action: scene.create
         data:
-          scene_id: before
+          scene_id: "before"
           snapshot_entities:
             - climate.ecobee
             - light.ceiling_lights
@@ -251,6 +251,26 @@ automation: |
 
 ## Troubleshooting
 
+<a id="scene-doesnt-open-in-the-scene-editor"></a>
+
+{% details "Scene doesn't open in the scene editor" %}
+
+### Symptom
+
+In {% my scenes title="**Settings** > **Automations & scenes** > **Scenes**" %}, selecting the scene does nothing. The row shows {% icon "mdi:pencil-off" %}, with **Only scenes defined in scenes.yaml are editable.**, and **Rename**, **Duplicate**, and **Delete** in its menu are grayed out.
+
+#### Description
+
+The scene has no `id`, so the scene editor can't open it. This is the case for scenes in YAML without an `id`, scenes from another integration, and temporary scenes from the **Create scene** action.
+
+#### Resolution
+
+- For a scene in YAML, move it to `scenes.yaml`, and give it an `id`. For the steps, refer to [Editing a YAML scene in the scene editor](#editing-a-yaml-scene-in-the-scene-editor).
+- For a scene from another integration, change it where that integration manages its scenes, for example, in the Hue app or the KNX panel. For details, refer to [Scenes from other integrations](#scenes-from-other-integrations).
+- A temporary scene from **Create scene** can't be edited. To change it, run **Create scene** again with the same **Scene entity ID**.
+
+{% enddetails %}
+
 <a id="scene-cant-be-edited-in-the-scene-editor"></a>
 
 {% details "Scene can't be edited in the scene editor" %}
@@ -261,13 +281,12 @@ When you open the scene, the scene editor shows **Only scenes in scenes.yaml are
 
 #### Description
 
-The scene is not in the `scenes.yaml` file, for example, because it's written directly in your `configuration.yaml` file, or another integration provides it. The scene editor can only edit scenes in `scenes.yaml`.
+The scene has an `id`, but it's not in the `scenes.yaml` file, for example, because it's written directly in your `configuration.yaml` file. The scene editor can only edit scenes in `scenes.yaml`.
 
 #### Resolution
 
-- For a scene in YAML, change it in the YAML file, and then [reload the scenes](#reloading-scenes).
-  - To edit it in the scene editor instead, move it to `scenes.yaml`. For the steps, refer to [Editing a YAML scene in the scene editor](#editing-a-yaml-scene-in-the-scene-editor).
-- For a scene from another integration, change it where that integration manages its scenes, for example, in the Hue app or the KNX panel. For details, refer to [Scenes from other integrations](#scenes-from-other-integrations).
+- To edit the scene in the scene editor, move it to `scenes.yaml`. For the steps, refer to [Editing a YAML scene in the scene editor](#editing-a-yaml-scene-in-the-scene-editor).
+- To keep the scene in its file, change it there, and then [reload the scenes](#reloading-scenes).
 
 {% enddetails %}
 
@@ -362,5 +381,6 @@ The **Delete scene** action fails with **The scene scene.my_scene is not created
 
 - For a scene from the scene editor, delete it in the scene editor.
 - For a scene in YAML, remove it from the YAML file, and then [reload the scenes](#reloading-scenes).
+- For a scene from another integration, delete it where that integration manages its scenes, for example, in the Hue app.
 
 {% enddetails %}
