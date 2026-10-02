@@ -252,3 +252,156 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+## Troubleshooting
+
+<a id="scene-doesnt-open-in-the-scene-editor"></a>
+
+{% details "Scene doesn't open in the scene editor" %}
+
+### Symptom
+
+In {% my scenes title="**Settings** > **Automations & scenes** > **Scenes**" %}, selecting the scene does nothing. The row shows {% icon "mdi:pencil-off" %}, with **Only scenes defined in scenes.yaml are editable.**, and **Rename**, **Duplicate**, and **Delete** in its menu are grayed out.
+
+#### Description
+
+The scene has no `id`, so the scene editor can't open it. This is the case for scenes in YAML without an `id`, scenes from another integration, and temporary scenes from the **Create scene** action.
+
+#### Resolution
+
+- For a scene in YAML, move it to `scenes.yaml`, and give it an `id`. For the steps, refer to [Editing a YAML scene in the scene editor](#editing-a-yaml-scene-in-the-scene-editor).
+- For a scene from another integration, change it where that integration manages its scenes, for example, in the Hue app or the KNX panel. For details, refer to [Scenes from other integrations](#scenes-from-other-integrations).
+- A temporary scene from **Create scene** can't be edited. To change it, run **Create scene** again with the same **Scene entity ID**.
+
+{% enddetails %}
+
+<a id="scene-cant-be-edited-in-the-scene-editor"></a>
+
+{% details "Scene can't be edited in the scene editor" %}
+
+### Symptom
+
+When you open the scene, the scene editor shows **Only scenes in scenes.yaml are editable.**
+
+#### Description
+
+The scene has an `id`, but it's not in the `scenes.yaml` file, for example, because it's written directly in your `configuration.yaml` file. The scene editor can only edit scenes in `scenes.yaml`.
+
+#### Resolution
+
+- To edit the scene in the scene editor, move it to `scenes.yaml`. For the steps, refer to [Editing a YAML scene in the scene editor](#editing-a-yaml-scene-in-the-scene-editor).
+- To keep the scene in its file, change it there, and then [reload the scenes](#reloading-scenes).
+
+{% enddetails %}
+
+<a id="scene-changes-in-yaml-dont-take-effect"></a>
+
+{% details "Changes to a scene in YAML don't take effect" %}
+
+### Symptom
+
+You changed a scene in YAML, but activating the scene still sets the old states.
+
+#### Description
+
+Home Assistant reads the scenes from YAML when it starts or when you reload the scenes.
+
+#### Resolution
+
+[Reload the scenes](#reloading-scenes), or restart Home Assistant.
+
+{% enddetails %}
+
+<a id="create-scene-does-nothing-scene-would-be-empty"></a>
+
+{% details "Create scene does nothing: the scene would be empty" %}
+
+### Symptom
+
+You run the **Create scene** action, but no scene is created. There is no error. The logs show **Empty scenes are not allowed**, often after one or more warnings like **Entity light.ceiling_lights does not exist and therefore cannot be snapshotted**.
+
+#### Description
+
+**Create scene** skips each entity in **Entities snapshot** that doesn't exist, for example, because of a typo in the entity ID, or because the entity was renamed or removed. If no entities are left, and **Entity states** is empty, the scene would be empty, so the action doesn't create it.
+
+If only some of the entities don't exist, the scene is created without them.
+
+#### Resolution
+
+1. Check the entity IDs in **Entities snapshot**. To find the current entity IDs, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
+2. Fix the entity IDs in the action, and run it again.
+
+{% enddetails %}
+
+<a id="create-scene-does-nothing-scene-already-exists"></a>
+
+{% details "Create scene does nothing: the scene already exists" %}
+
+### Symptom
+
+You run the **Create scene** action, but the scene isn't created or changed. The logs show **The scene scene.my_scene already exists**.
+
+#### Description
+
+A scene with that ID already exists in the scene editor or in YAML. **Create scene** only replaces scenes that it created itself.
+
+#### Resolution
+
+Use a different **Scene entity ID**.
+
+{% enddetails %}
+
+<a id="create-scene-fails-entities-overlap"></a>
+
+{% details "Create scene fails: entities and snapshot_entities must not overlap" %}
+
+### Symptom
+
+The **Create scene** action fails, and the error message says **entities and snapshot_entities must not overlap**.
+
+#### Description
+
+The same entity is in both **Entity states** and **Entities snapshot**. A scene can only store one state for each entity.
+
+#### Resolution
+
+Remove the entity from one of the two fields.
+
+{% enddetails %}
+
+<a id="delete-scene-fails-not-created-with-create-scene"></a>
+
+{% details "Delete scene fails: the scene wasn't created with Create scene" %}
+
+### Symptom
+
+The **Delete scene** action fails with **The scene scene.my_scene is not created with action `scene.create`.**
+
+#### Description
+
+**Delete scene** only removes scenes that were created with the **Create scene** action. This scene comes from the scene editor or from YAML.
+
+#### Resolution
+
+- For a scene from the scene editor, delete it in the scene editor.
+- For a scene in YAML, remove it from the YAML file, and then [reload the scenes](#reloading-scenes).
+
+{% enddetails %}
+
+<a id="delete-scene-fails-scene-from-another-integration"></a>
+
+{% details "Delete scene fails: the scene is from another integration" %}
+
+### Symptom
+
+The **Delete scene** action fails with **scene.my_scene is not a valid entity ID of a scene.**
+
+#### Description
+
+The scene comes from another integration, such as Hue, KNX, or MQTT. **Delete scene** only removes scenes that were created with the **Create scene** action.
+
+#### Resolution
+
+Delete the scene where that integration manages its scenes, for example, in the Hue app. For details, refer to [Scenes from other integrations](#scenes-from-other-integrations).
+
+{% enddetails %}
