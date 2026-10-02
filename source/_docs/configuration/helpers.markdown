@@ -38,11 +38,11 @@ There are three kinds of helpers:
 
 - [Helpers that store a value](#helpers-that-store-a-value), for example, a toggle or a timer
 - [Helpers that calculate a value](#helpers-that-calculate-a-value) from other entities, for example, the average of several sensors
-- [Other helpers](#other-helpers), for example, a group of lights or a schedule
+- [Other helpers](#other-helpers), which combine or control other entities, for example, a group of lights
 
 ### Helpers that store a value
 
-You or an automation set the value of these helpers, and they keep it:
+These helpers keep what you or an automation set: a value, like the state of a toggle, or settings, like the time blocks of a schedule.
 
 - [**Toggle**](/integrations/input_boolean/)
   - An on/off switch, for example, to pause an automation or to show that a guest is staying over.
@@ -60,6 +60,8 @@ You or an automation set the value of these helpers, and they keep it:
   - A whole number that goes up, goes down, or starts again from its initial value, for example, how many times a door opened today.
 - [**Timer**](/integrations/timer/)
   - Counts down a time that you set. You can start, pause, cancel, finish, or change it.
+- [**Schedule**](/integrations/schedule/)
+  - Turns on during time blocks that you set for each day of the week, for example, the hours when the heating should be on.
 
 ### Helpers that calculate a value
 
@@ -82,7 +84,6 @@ Some helpers do more than store or calculate a value. For example:
 - [**Generic thermostat**](/integrations/generic_thermostat/): Turns a heater or a cooler on and off, based on a temperature sensor.
 - [**Group**](/integrations/group/): Combines several entities into one, for example, all lights in a room.
 - [**Change device type of a switch**](/integrations/switch_as_x/): Shows a switch as another type of device, for example, as a light.
-- [**Schedule**](/integrations/schedule/): Turns on and off by itself during time blocks that you set for each day of the week, for example, the hours when the heating should be on.
 
 ## Creating a helper
 
