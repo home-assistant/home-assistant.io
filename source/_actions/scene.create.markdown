@@ -94,8 +94,8 @@ snapshot_entities:
 ## Good to know
 
 - Set at least one of `entities` or `snapshot_entities`. You can also combine them, for example, to store the current state of some entities and pick specific states for others. The same entity can't be in both, or the action fails with **entities and snapshot_entities must not overlap**.
-- If a scene with the same ID was created with this action before, it is overwritten. If a scene with that ID comes from the scene editor or from YAML, nothing happens, and the logs show **The scene scene.my_scene already exists**.
-- Entities in `snapshot_entities` that don't exist are left out of the scene, and the logs show a warning for each of them. If no entities are left, no scene is created, and there is no error. The logs then show **Empty scenes are not allowed**.
+- If a scene with the same ID was created with this action before, it is overwritten. If a scene with that ID comes from the scene editor or from YAML, nothing happens, and the logs show `The scene scene.my_scene already exists`.
+- Entities in `snapshot_entities` that don't exist are left out of the scene, and the logs show a warning for each of them. If no entities are left, no scene is created, and there is no error. The logs then show `Empty scenes are not allowed`.
 - Scenes created with this action are removed again by [Reload scenes](/actions/scene.reload/) or by a restart. To remove one on demand, use [Delete scene](/actions/scene.delete/).
 
 {% include actions/try_it.md %}

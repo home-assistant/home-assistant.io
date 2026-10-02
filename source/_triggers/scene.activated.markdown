@@ -54,7 +54,7 @@ This trigger has no additional YAML options beyond the target.
 
 ### Automation: switch the TV to the movie source when the movie night scene is activated
 
-When you activate the movie night scene, this automation also switches the living room TV to the HDMI input that your media player is on. This is useful when the TV isn't part of the scene, for example, because other scenes or people use the TV too.
+When you activate the movie night scene, this automation also switches the living room TV to the HDMI 1 input. This is useful when the TV isn't part of the scene, for example, because other scenes or people use the TV too.
 
 - **Trigger**: Scene activated
   - **Target**: Movie night scene
