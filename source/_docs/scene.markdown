@@ -61,12 +61,16 @@ In the scene editor, you add the devices that belong in the scene, and set them 
 
 To create a scene that is similar to one you already have, duplicate it, and change the copy.
 
-1. Go to {% my scenes title="**Settings** > **Automations & scenes** > **Scenes**" %}, and open the scene.
-2. Select **Menu** {% icon "mdi:dots-vertical" %} > **Duplicate scene**.
-   - A copy opens as a new scene, named after the original with "(Duplicate)" at the end.
-3. Change the devices, entities, or states.
-4. Select **Save**.
-5. Change the **Name**, and select **Save**.
+The copy takes the devices and entities of the original, but not its states. When you save the copy, it stores the states that your devices have at that moment. That's why you apply the original scene first.
+
+1. Go to {% my scenes title="**Settings** > **Automations & scenes** > **Scenes**" %}.
+2. In the row of the original scene, select **Menu** {% icon "mdi:dots-vertical" %} > **Apply**.
+   - Your devices change to the states of the original scene.
+3. Open the original scene, and select **Menu** {% icon "mdi:dots-vertical" %} > **Duplicate scene**.
+   - A copy opens as a new scene in **Live Edit**, named after the original with "(Duplicate)" at the end.
+4. Change the devices, entities, or states.
+5. Select **Save**.
+6. Change the **Name**, and select **Save**.
 
 ### Creating a scene in YAML
 
@@ -92,6 +96,17 @@ You can edit all scenes that you create in the editor. Scenes from other YAML fi
    - The scene is applied to your devices. If you have unsaved changes, select **Save and Live Edit**.
 3. Add or remove devices and entities, or change their states.
 4. Select **Save**.
+
+### Editing a scene in the YAML editor
+
+In the YAML editor, you see and change the YAML of the scene directly, for example, to change a value, or to paste entities from another scene. The YAML editor doesn't apply the scene to your devices.
+
+1. Go to {% my scenes title="**Settings** > **Automations & scenes** > **Scenes**" %}, and open the scene.
+2. Select **Menu** {% icon "mdi:dots-vertical" %} > **Edit in YAML**.
+   - If the editor was in **Live Edit**, your devices go back to the states they had before.
+3. Change the YAML, and select **Save**.
+4. To go back to the visual editor, select **Menu** {% icon "mdi:dots-vertical" %} > **Edit in visual editor**.
+   - The editor switches to **Review Mode**.
 
 ### Renaming a scene
 
