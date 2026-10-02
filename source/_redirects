@@ -334,7 +334,7 @@ layout: null
 /docs/mqtt/logging /integrations/mqtt/#logging
 /docs/mqtt/service /integrations/mqtt/#publish--dump-services
 /docs/mqtt/testing /integrations/mqtt/#testing-your-setup
-/docs/script/editor /docs/scripts/editor
+/docs/script/editor /docs/script/
 /docs/z-wave /integrations/zwave_js
 /docs/z-wave/adding /integrations/zwave_js#how-can-i-add-include-a-new-device-to-my-z-wave-network
 /docs/z-wave/control-panel /integrations/zwave_js#using-z-wave-js
@@ -519,7 +519,7 @@ layout: null
 /docs/tools/keyring/ /docs/configuration/secrets
 /docs/tools/credstash/ /docs/configuration/secrets
 /docs/tools/quick-bar/ /docs/tools/quick-search
-/docs/scripts/editor/ /docs/scripts
+/docs/scripts/editor/ /docs/script/
 /getting-started/devices /integrations
 /integrations/map /dashboards/map/
 
