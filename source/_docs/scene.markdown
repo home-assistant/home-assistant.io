@@ -74,7 +74,7 @@ You can also write a scene in YAML, for example, in your {% term "`configuration
 
 ### Creating a scene from another integration
 
-Some integrations, such as [Philips Hue](/integrations/hue/), provide their own scenes. You create these scenes in the app or the configuration of that integration, and they show up in Home Assistant as scene entities. For details, refer to [Scenes from other integrations](/integrations/scene/#scenes-from-other-integrations).
+Some integrations, such as [Philips Hue](/integrations/hue/), provide their own scenes. How you set up these scenes depends on the integration, for example, in the Hue app or in the KNX panel. They show up in Home Assistant as scene entities. For details, refer to [Scenes from other integrations](/integrations/scene/#scenes-from-other-integrations).
 
 ### Creating a temporary scene from an automation
 
@@ -84,7 +84,7 @@ An automation or a script can create a scene while it runs, with the [**Create s
 
 To add or remove devices, or to change the states that a scene stores, edit the scene in **Live Edit**. While you edit, the scene is applied to your devices.
 
-You can edit all scenes that you create in the editor. Scenes from YAML, from other integrations, or from the **Create scene** action can't be edited in the editor. For details, refer to [Editing a YAML scene in the scene editor](/integrations/scene/#editing-a-yaml-scene-in-the-scene-editor).
+You can edit all scenes that you create in the editor. Scenes from other YAML files, from other integrations, or from the **Create scene** action can't be edited in the editor. For details, refer to [Editing a YAML scene in the scene editor](/integrations/scene/#editing-a-yaml-scene-in-the-scene-editor).
 
 1. Go to {% my scenes title="**Settings** > **Automations & scenes** > **Scenes**" %}, and open the scene.
    - The editor opens in **Review Mode**.
