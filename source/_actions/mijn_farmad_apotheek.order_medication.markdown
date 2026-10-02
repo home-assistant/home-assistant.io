@@ -113,10 +113,10 @@ The action returns:
 
 ### Automation: order a product every month
 
-This automation orders a known product on a monthly schedule, with a comment for the pharmacist. Create a schedule {% term helper %} with a monthly rule first, for example, on the first day of the month at 09:00.
+This automation orders a known product on a monthly schedule, with a comment for the pharmacist. Create a calendar first, for example with the [Local Calendar](/integrations/local_calendar/) integration, and add an event that repeats on the first day of every month at 09:00.
 
-- **Trigger**: Schedule block started
-  - **Target**: Monthly medication order (`schedule.monthly_medication_order`)
+- **Trigger**: Calendar event starts
+  - **Calendar**: Medication orders (`calendar.medication_orders`)
 - **Action**: Mijn Farmad Apotheek: Order medication
   - **Product**: 3093242
   - **Quantity**: 2
@@ -129,9 +129,9 @@ automation: |
   alias: "Order a product every month"
   description: "Orders two packages of a known product every month."
   triggers:
-    - trigger: schedule.block_started
-      target:
-        entity_id: schedule.monthly_medication_order
+    - trigger: calendar
+      entity_id: calendar.medication_orders
+      event: start
   actions:
     - action: mijn_farmad_apotheek.order_medication
       data:
