@@ -43,7 +43,7 @@ This trigger has no additional YAML options beyond the target.
 
 ## Good to know
 
-- This trigger reacts every time the scene is activated, also when you activate the same scene several times in a row.
+- This trigger reacts every time the scene is activated, including when you activate the same scene several times in a row.
 - A scene doesn't have an `on` or `off` state. Its state is the date and time when it was last activated. This trigger reacts when that time changes, including the first activation of a new scene.
 - Changes to `unavailable` or `unknown` do not count as scene activations.
 - If you only need to activate a scene from an automation, use the related [**Activate scene**](/actions/scene.turn_on/) action instead.
