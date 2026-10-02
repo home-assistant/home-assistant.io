@@ -1,14 +1,16 @@
 ---
 title: "Automation actions"
-description: "Automations result in action."
+description: "Actions are what an automation does, for example, turning on a light or sending a notification. Building blocks control whether, when, and in which order the actions run."
 toc: false
 ---
 
-The actions of an automation make something happen, for example, turn on a light or send a notification. Usually, they run after a trigger has started the automation and the conditions are met. You can also run them directly, for example, with **Run actions** in the automation editor. The action part follows the [script syntax](/docs/scripts/) which can be used to interact with anything via other actions or events.
+The actions of an automation make something happen, for example, turning on a light or sending a notification. Usually, they run after a trigger has started the automation and the conditions are met. In the automation editor, the actions are in the **Then do** section. You can also run them directly from there, for example, with **Run actions**.
 
-For actions, you can specify the `entity_id` that it should apply to and optional parameters (to specify for example the brightness).
+An automation can also use building blocks. Building blocks control whether, when, and in which order the actions run, for example, to wait a few seconds or to repeat steps. For all building blocks, refer to [Building blocks and actions](/docs/scripts/). For all actions that you can use, refer to the [list of available actions](/actions/).
 
-You can also perform the action to activate [a scene](/integrations/scene/) which will allow you to define how you want your devices to be and have Home Assistant perform the right action.
+Many actions have a target, for example, the lights to turn on, and options, for example, the brightness.
+
+An action can also activate a [scene](/docs/scene/), which sets several devices to saved states in one step.
 
 The following examples show two automations. The first changes two lights at sunset. The second sends notifications before and after sunset and uses a variable to set the `action:` value for the first notification.
 
@@ -49,9 +51,9 @@ automation:
           message: "Oh wow you really missed something great."
 ```
 
-Conditions can also be steps in an action sequence. You can combine action and condition steps in one sequence, and Home Assistant processes them in the order you put them in. If a condition evaluates to false, the sequence stops there, so later actions are not executed.
+Conditions can also be steps in an action sequence. You can combine action and condition steps in one sequence, and Home Assistant processes them in the order you put them in. If a condition evaluates to false, the sequence stops there, so the actions after it don't run.
 
-In the following example, the `or` condition lets the remaining actions run when either the sun is low enough or the office illuminance is below 10. If neither condition is true, the automation stops before activating the scene, lights, and switches. For more information about the available condition types and their syntax, see [conditions](/docs/scripts/conditions/).
+In the following example, the `or` condition lets the remaining actions run when either the sun is low enough or the office illuminance is below 10. If neither condition is true, the automation stops before activating the scene, lights, and switches. For more information about the available condition types and their syntax, refer to [Conditions](/docs/scripts/conditions/).
 
 ```yaml
 automation:
