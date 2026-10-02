@@ -137,8 +137,9 @@ automation: |
           {% if search_result.products %}
           {% set product = search_result.products[0] %}
           {{ product.description }} costs
-          {{ product.price | default("an unknown price", true) }}.
-          Stock: {{ product.stock | default("unknown", true) }}.
+          {{ product.price if product.price is not none else 'an unknown price' }}.
+          Stock:
+          {{ product.stock if product.stock is not none else 'unknown' }}.
           {% else %}
           No product found.
           {% endif %}
