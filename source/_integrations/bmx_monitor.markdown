@@ -1,13 +1,16 @@
 ---
 title: BM2 battery monitor
 description: Read a BM2 battery monitor over Bluetooth.
-ha_category: Sensor
-ha_platforms: Sensor
+ha_category:
+  - Sensor
+ha_platforms:
+  - Sensor
 ha_iot_class: Local Push
 ha_quality_scale: bronze
 ha_config_flow: true
 ha_bluetooth: true
-ha_codeowners: '@andystewart999'
+ha_codeowners:
+  - '@andystewart999'
 ha_domain: bmx_monitor
 ha_integration_type: device
 ha_release: 2026.11
@@ -19,7 +22,7 @@ The integration uses a Bluetooth connection for readings when one is available. 
 
 ## Supported devices
 
-This integration supports all known variants of the BM2 battery monitor. It checks the BM2 protocol when adding a device, so a Bluetooth name by itself is not enough to identify a supported monitor. The BM6 is not yet supported.
+This integration supports all known variants of the BM2 battery monitor. It checks the BM2 protocol when adding a device, so a Bluetooth name by itself is not enough to identify a supported monitor. Note that the BM6 is not yet supported.
 
 ## Before you begin
 
