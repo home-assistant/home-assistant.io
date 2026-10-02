@@ -108,8 +108,8 @@ products:
 
 Each week, this automation looks up a product at your pharmacy and sends the price and the stock of the first match to a phone. When the search returns no product, or when the price or the stock is unknown, the message says so. It uses a schedule {% term helper %}: create the helper with a weekly rule first.
 
-- **Trigger**: Schedule
-  - **Entity**: Weekly price check (`schedule.weekly_price_check`)
+- **Trigger**: Schedule block started
+  - **Target**: Weekly price check (`schedule.weekly_price_check`)
 - **Action**: Mijn Farmad Apotheek: Search medication
   - **Search term**: paracetamol 500 mg
 - **Action**: Send a notification message
@@ -122,8 +122,9 @@ automation: |
   alias: "Check the price and stock of a product"
   description: "Sends the price and the stock of the first match to a phone."
   triggers:
-    - trigger: schedule
-      entity_id: schedule.weekly_price_check
+    - trigger: schedule.block_started
+      target:
+        entity_id: schedule.weekly_price_check
   actions:
     - action: mijn_farmad_apotheek.search_medication
       data:

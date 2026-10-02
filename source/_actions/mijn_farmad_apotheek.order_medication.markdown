@@ -115,8 +115,8 @@ The action returns:
 
 This automation orders a known product on a monthly schedule, with a comment for the pharmacist. Create a schedule {% term helper %} with a monthly rule first, for example, on the first day of the month at 09:00.
 
-- **Trigger**: Schedule
-  - **Entity**: Monthly medication order (`schedule.monthly_medication_order`)
+- **Trigger**: Schedule block started
+  - **Target**: Monthly medication order (`schedule.monthly_medication_order`)
 - **Action**: Mijn Farmad Apotheek: Order medication
   - **Product**: 3093242
   - **Quantity**: 2
@@ -129,8 +129,9 @@ automation: |
   alias: "Order a product every month"
   description: "Orders two packages of a known product every month."
   triggers:
-    - trigger: schedule
-      entity_id: schedule.monthly_medication_order
+    - trigger: schedule.block_started
+      target:
+        entity_id: schedule.monthly_medication_order
   actions:
     - action: mijn_farmad_apotheek.order_medication
       data:
@@ -143,9 +144,10 @@ automation: |
 
 ### Automation: order a product when the supply runs low
 
-This automation orders a known product when a supply you track in Home Assistant runs low. Create a number {% term helper %} first, for example `input_number.paracetamol_boxes`, and set it to the number of packages you have left. Lower the number every time you take a package. When it reaches zero, the automation orders a new package.
+This automation orders a known product when a supply you track in Home Assistant runs low. Create a number {% term helper %} first, for example `input_number.paracetamol_boxes`, and set it to the number of packages you have left. Lower the number every time you take a package. When it reaches zero, the automation orders a new package. A condition keeps the automation from ordering again after a restart while the supply still reads zero.
 
 - **Trigger**: Numeric state: Paracetamol boxes below 1
+- **Condition**: The supply changed from a number, not from unavailable
 - **Action**: Mijn Farmad Apotheek: Order medication
   - **Product**: 3093242
 
@@ -159,6 +161,10 @@ automation: |
     - trigger: numeric_state
       entity_id: input_number.paracetamol_boxes
       below: 1
+  conditions:
+    - >-
+      {{ trigger.from_state is not none
+      and is_number(trigger.from_state.state) }}
   actions:
     - action: mijn_farmad_apotheek.order_medication
       data:

@@ -52,26 +52,31 @@ Password:
 
 ### Automation: order a product every month
 
-This automation orders a known product on a monthly schedule. Create a schedule {% term helper %} with a monthly rule first, for example, on the first day of the month at 09:00. To find the CNK code of your product, use the [Search medication](/actions/mijn_farmad_apotheek.search_medication/) action.
+This automation orders a known product on a monthly schedule, with a comment for the pharmacist. Create a schedule {% term helper %} with a monthly rule first, for example, on the first day of the month at 09:00. To find the CNK code of your product, use the [Search medication](/actions/mijn_farmad_apotheek.search_medication/) action.
 
-- **Trigger**: Schedule
-  - **Entity**: Monthly medication order (`schedule.monthly_medication_order`)
+- **Trigger**: Schedule block started
+  - **Target**: Monthly medication order (`schedule.monthly_medication_order`)
 - **Action**: Mijn Farmad Apotheek: Order medication
   - **Product**: 3093242
+  - **Quantity**: 2
+  - **Comment**: For monthly pickup
 
 {% details "YAML example for ordering a product every month" %}
 
 {% example %}
 automation: |
   alias: "Order a product every month"
-  description: "Orders one package of a known product every month."
+  description: "Orders two packages of a known product every month."
   triggers:
-    - trigger: schedule
-      entity_id: schedule.monthly_medication_order
+    - trigger: schedule.block_started
+      target:
+        entity_id: schedule.monthly_medication_order
   actions:
     - action: mijn_farmad_apotheek.order_medication
       data:
         product: "3093242"
+        quantity: 2
+        comment: "For monthly pickup"
 {% endexample %}
 
 {% enddetails %}
