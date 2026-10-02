@@ -38,8 +38,9 @@ The **ecobee** {% term integration %} lets you control and view sensor data from
 
 ## Prerequisites
 
-- Your username and password for [ecobee.com](https://ecobee.com).
-- Devices registered to your ecobee account. You can add devices before or after setting up the integration, but registering them first helps you confirm that Home Assistant detects them.
+- Either your username and password for [ecobee.com](https://ecobee.com) or an existing developer API key.
+
+Registering your devices to your ecobee account before setting up the integration helps you confirm that Home Assistant detects them, but you can also register them afterward.
 
 {% note %}
 Since version 2026.3, it is no longer required to get a [developer API key](https://www.ecobee.com/developers/) to use this integration. Existing API keys will continue to function. If you revoke your existing key in the ecobee portal, the integration will fail, and you will need to remove the service in Home Assistant and set it up again.
