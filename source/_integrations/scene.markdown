@@ -64,7 +64,9 @@ scene:
         state: "on"
         brightness: 200
         color_mode: "xy"
-        xy_color: [0.33, 0.66]
+        xy_color:
+          - 0.33
+          - 0.66
   - name: "Movies"
     entities:
       light.tv_back_light:
@@ -128,7 +130,9 @@ If you wrote a scene in another YAML file, for example, directly in your {% term
          state: "on"
          brightness: 200
          color_mode: "xy"
-         xy_color: [0.33, 0.66]
+         xy_color:
+           - 0.33
+           - 0.66
    ```
 
 3. Remove the scene from its old file.
