@@ -130,13 +130,13 @@ Only entities backed by a detected hardware module or an enabled controller opti
 
 ### Light
 
-- **Pool light**: switches the pool light relay on and off. Added when the pool light relay is enabled in the integration options, and the controller has a lighting relay configured. The entity state reflects the relay's actual state, regardless of whether the relay is in automatic or manual mode. Turning the light on or off is only possible when the light timer is set to manual mode. If the timer is in automatic mode, Home Assistant shows an error and does not change the relay, so it does not override the schedule. Change the timer mode to manual on the controller itself to control the light directly.
+- **Pool light**: switches the pool light relay on and off. Added when the pool light relay is enabled in the integration options, and the controller has a lighting relay configured. The entity state reflects the relay's actual state, regardless of whether the relay is in automatic or manual mode. Turning the light on or off is only possible when the light timer is set to manual mode. If the timer is in automatic mode, Home Assistant shows an error and does not change the relay, so it does not override the schedule. Set the **Light mode** select to manual to control the light directly.
 
 ### Switches
 
 - **Filtration**: Runs the filtration pump on or off. The entity state reflects the actual pump state, regardless of whether filtration is in automatic or manual mode. Turning it on or off is only possible while the controller is in manual filtration mode. If it is in another mode, or a hydrolysis boost is active, Home Assistant shows an error and does not change the pump, so it does not override the controller.
 - **Backwash**: Starts a backwash cycle for the configured duration, or stops a running one. The entity state reflects the remaining cycle time. Added when a Besgo automatic filter valve is configured. Backwash cannot be started while the filter valve is in an automatic mode.
-- **Auxiliary relays 1 to 4**: Switches an auxiliary relay on and off. Added for each auxiliary relay enabled in the integration options. Like the pool light, an auxiliary relay can only be switched while its timer is in a manual mode.
+- **Auxiliary relays 1 to 4**: Switches an auxiliary relay on and off. Added for each auxiliary relay enabled in the integration options. Like the pool light, an auxiliary relay can only be switched while its mode is manual. Set the relay's mode select to manual first.
 - **Configuration flags**: Toggles controller settings such as the climate mode for heating, UV mode, smart antifreeze, and hydrolysis shutdown on high temperature. Each flag is added when the controller reports the corresponding module.
 - **Enable cover reduction**: Toggles the cover-driven hydrolysis reduction. Added when the cover sensor is enabled in the integration options and the controller has a hydrolysis module.
 
@@ -269,9 +269,9 @@ The downloaded file includes the config entry, the latest data read from the con
 - The DISPLAY connector is reserved. The NeoPool controller exposes the same protocol on its `DISPLAY` connector as on `WIFI` / `EXTERNAL`, but the built-in LCD usually occupies it. Connecting to `DISPLAY` while the LCD is attached will result in collisions.
 - Variable-speed pump support depends on the controller firmware. The Filtration speed entity is registered only when the controller reports a variable-speed pump.
 - The pool light entity is opt-in. The controller does not report whether a physical light is wired to its lighting relay, so the entity is only registered after you enable it in the integration options.
-- The pool light cannot be controlled while its timer is in an automatic mode. Set the light timer to a manual mode first to turn the light on or off from Home Assistant.
+- The pool light cannot be controlled while its timer is in an automatic mode. Set the **Light mode** select to manual first to turn the light on or off from Home Assistant.
 - The auxiliary relay and cover reduction switches are opt-in. The controller does not report what is wired to each auxiliary relay or whether a cover sensor is present, so these switches are only registered after you enable them in the integration options.
-- Filtration and auxiliary relays can only be switched in a manual mode. Set the controller or the relay timer to a manual mode first. When it is in an automatic mode, Home Assistant shows an error rather than overriding the schedule.
+- Filtration and auxiliary relays can only be switched in a manual mode. Set the **Filtration mode** select, or the relay's mode select, to manual first. When it is in an automatic mode, Home Assistant shows an error rather than overriding the schedule.
 
 ## Troubleshooting
 
