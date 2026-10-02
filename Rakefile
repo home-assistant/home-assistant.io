@@ -50,7 +50,7 @@ task :generate do
   abort("Generating allowed referrers data failed") unless success
   success = system "rake meetups_data"
   abort("Generating community meetups data failed") unless success
-  success = system "jekyll build --future"
+  success = system "jekyll build"
   abort("Generating site failed") unless success
   # The Astro build runs on every deploy so both stacks stay buildable
   # (see astro/README.md). Every website route is still produced by
@@ -126,7 +126,7 @@ task :preview, :listen do |t, args|
   system "rake wwha_data"
   system "rake allowed_referrers_data"
   system "rake meetups_data"
-  jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental --future")
+  jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
   sassPid = Process.spawn("#{sass_compile} --watch")
   rackupPid = Process.spawn("rackup --port #{server_port} --host #{listen_addr}")
 
