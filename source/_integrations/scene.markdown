@@ -1,6 +1,6 @@
 ---
 title: Scenes
-description: Instructions on how to set up scenes within Home Assistant.
+description: Scenes set a group of entities to saved states in one step. Learn what the Scenes integration provides, how to define scenes in YAML, and how to use scenes in automations.
 ha_category:
   - Organization
 ha_release: 0.15
@@ -9,23 +9,34 @@ ha_codeowners:
   - '@home-assistant/core'
 ha_domain: scene
 ha_integration_type: entity
+related:
+  - docs: /docs/scene/
+    title: Scenes
 ---
 
-A scene entity can restore the state of a group of entities.
-You can define scenes yourself, or they can be provided by an integration.
+The **Scenes** {% term integration %} lets you use {% term scenes %} in Home Assistant. A scene stores the states that you want for a group of {% term entities %}, and sets them again in one step when you activate it. For example, a "Movie night" scene can dim the TV back light, turn off the ceiling light, and switch the TV to the right input.
+
+Each scene is an {% term entity %}, for example, `scene.movie_night`. You can activate it from a dashboard, an automation, or a script, and start an automation when it's activated.
+
+To create a scene, use the [scene editor](/docs/scene/editor/). To learn what scenes are and when to use them, refer to [Scenes](/docs/scene/).
+
+{% my scenes badge %}
 
 {% include integrations/building_block_integration.md %}
 
+## Scenes from other integrations
+
+Some integrations, such as [Philips Hue](/integrations/hue/), [MQTT](/integrations/mqtt/), and [KNX](/integrations/knx/), provide their own scenes. These scenes are also scene entities, and you activate them in the same way. The integration decides which states the scene sets, so you change these scenes in the app or the configuration of that integration, not in Home Assistant.
+
 ## The state of a scene
 
-The scene entity is stateless. Unlike a normal switch entity, it does not have an `on` or `off` state.
+A scene doesn't have an on or off state. Activating a scene sets the states of its entities, but there is nothing to turn off afterwards. To go back to the earlier states, activate another scene, or save the current states first with [**Create scene**](/actions/scene.create/).
 
-Every scene entity keeps track of the timestamp of when it was last called, either via the Home Assistant UI or via an action.
+The state of a scene entity is the date and time when the scene was last activated. Home Assistant keeps it after a restart.
 
 <p class='img'>
-<img src='/images/integrations/scene/state_scene.png' alt='Screenshot showing the state of a scene entity in Settings > Tools > States.' />
 <img src='/images/integrations/scene/state_scene.png' alt='Screenshot showing the state of a scene entity in the States tab of Tools.' />
-Screenshot showing the state of a scene entity in {% my tools_states title="Settings > Tools > States" %}
+Screenshot showing the state of a scene entity in {% my tools_states title="**Settings** > **Tools** > **States**" %}
 </p>
 
 In addition, the entity can have the following states:
@@ -33,15 +44,16 @@ In addition, the entity can have the following states:
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
 
-## Scenes created by integrations
+Scenes from the scene editor, from YAML, or from the **Create scene** action have these attributes:
 
-Some integrations such as [Philips Hue](/integrations/hue/), [MQTT](/integrations/mqtt/), and [KNX](/integrations/knx/) provide scenes. You can activate them from the Home Assistant UI or via an action. In this case, the integration provides the preferred states to restore.
+- `entity_id`: The entities in the scene.
+- `id`: The unique ID of the scene, if it has one.
 
-## Creating a scene
+## Defining scenes in YAML
 
-You can create scenes that capture the states you want for certain entities. For example, a scene can specify that light A should be turned on and light B should be bright red.
+Scenes that you create in the scene editor are stored in the `scenes.yaml` file. You can also write scenes in YAML yourself, for example, directly in your {% term "`configuration.yaml`" %} file. Only the scenes in `scenes.yaml` can be edited in the scene editor.
 
-You can create and manage scenes via the user interface using the [scene editor](/docs/scene/editor/). You can also configure them manually via {% term "`configuration.yaml`" %}. Note that entity data is not an action parameter; it's a representation of the desired state:
+Under `entities`, you list the states that the entities should have, not the actions to get there:
 
 ```yaml
 # Example configuration.yaml entry
@@ -75,6 +87,10 @@ scene:
 ```
 
 {% configuration %}
+id:
+  description: A unique ID for the scene. Scenes that you create in the scene editor get one automatically. Without an ID, you can't change the settings of the scene entity in the UI, for example, its area or category.
+  required: false
+  type: string
 name:
   description: Friendly name of the scene.
   required: true
@@ -86,66 +102,75 @@ icon:
 entities:
   description: Entities to control and their desired states.
   required: true
-  type: list
+  type: map
 {% endconfiguration %}
 
-There are two ways to define the states of each `entity_id`:
+There are two ways to define the state of an entity:
 
-- Define the `state` directly with the entity. The `state` is required.
-- Define a complex state with its attributes. You can see all attributes available for a particular entity in {% my tools_states title="**Settings** > **Tools** > **States**" %}.
+- Only the state
+  - For example, `light.tv_back_light: "on"`.
+- The state with attributes
+  - For example, the brightness and color of a light. Add `state` and the attributes below the entity. To find the attributes of an entity, go to {% my tools_states title="**Settings** > **Tools** > **States**" %}.
 
-Scenes can be activated using the `scene.turn_on` action (there is no `scene.turn_off` action).
+### Editing a YAML scene in the scene editor
+
+If you wrote a scene in another YAML file, for example, directly in your {% term "`configuration.yaml`" %} file, you can move it to `scenes.yaml`, so you can edit it in the scene editor. Your `configuration.yaml` file loads `scenes.yaml` with `scene: !include scenes.yaml`. This line is there by default.
+
+When you move the scene, give it an `id`. The `id` can be any text, as long as no other scene uses it:
 
 ```yaml
-# Example automation
-automation:
-  triggers:
-    - trigger: zone.entered
-      target:
-        entity_id: device_tracker.sweetheart
-      options:
-        zone: zone.home
-  actions:
-    - action: scene.turn_on
-      target:
-        entity_id: scene.romantic
+# Example scenes.yaml entry
+- id: romantic
+  name: Romantic
+  entities:
+    light.tv_back_light: "on"
+    light.ceiling:
+      state: "on"
+      xy_color: [0.33, 0.66]
+      brightness: 200
 ```
 
-## Applying a scene without defining it
+Then [reload the scenes](#reloading-scenes), so the scene editor finds the scene.
 
-With the `scene.apply` action, you can apply a scene without first defining it via configuration. Instead, you pass the states as part of the action data. The format of the data is the same as the `entities` field in a configuration.
+{% note %}
+When you save a scene in the editor, the comments in `scenes.yaml` are lost.
+{% endnote %}
 
-```yaml
-# Example automation
-automation:
-  triggers:
-    - trigger: zone.entered
-      target:
-        entity_id: device_tracker.sweetheart
-      options:
-        zone: zone.home
-  actions:
-    - action: scene.apply
-      data:
-        entities:
-          light.tv_back_light:
-            state: "on"
-            brightness: 100
-          light.ceiling: "off"
-          media_player.sony_bravia_tv:
-            state: "on"
-            source: "HDMI 1"
-```
+## Reloading scenes
 
-## Using scene transitions
+After you change scenes in YAML, you can apply the changes without restarting Home Assistant:
 
-Both the `scene.apply` and `scene.turn_on` actions support setting a transition to smooth the change into the scene.
+- Go to {% my tools_yaml title="**Settings** > **Tools** > **YAML**" %}, and under **YAML configuration reloading**, select **Scenes**.
+- In an automation or a script, use the [**Reload scenes**](/actions/scene.reload/) action.
 
-Here's an example automation that activates a romantic scene with a 2.5 second transition.
+Reloading also removes the scenes that you created with the **Create scene** action.
 
-```yaml
-# Example automation
-automation:
+{% include integrations/triggers.md %}
+
+{% include integrations/actions.md %}
+
+## Scene automation examples
+
+The following examples show how you can use scenes in automations.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: activate a scene slowly when someone comes home
+
+When Sweetheart comes home, this automation activates the Romantic scene. The lights change to their new states over 2.5 seconds, instead of all at once. Transitions only work for lights that support them. Other entities in the scene change right away.
+
+- **Trigger**: Zone entered
+  - **Target**: Sweetheart
+  - **Zone**: Home
+- **Action**: Activate scene
+  - **Target**: Romantic
+  - **Transition**: 2.5
+
+{% details "YAML example for activating a scene with a transition" %}
+
+{% example %}
+automation: |
+  alias: "Activate the romantic scene when Sweetheart comes home"
   triggers:
     - trigger: zone.entered
       target:
@@ -158,102 +183,163 @@ automation:
         entity_id: scene.romantic
       data:
         transition: 2.5
-```
+{% endexample %}
 
-Transitions are currently only supported by lights, and the lights themselves must also support them. However, the scene does not need to consist only of lights to have a transition set.
+{% enddetails %}
 
-## Reloading scenes
+### Automation: turn things off while a window is open, and restore them afterwards
 
-Whenever you make a change to your scene configuration, you can call the `scene.reload` action to reload the scenes.
+These two automations work together. When the window opens, the first one saves the current states of the thermostat and the ceiling lights in a new scene, and then turns them off. When the window closes, the second one activates that scene, so everything goes back to how it was.
 
-## Creating scenes on the fly
+- Automation 1
+  - **Trigger**: Window opened
+    - **Target**: Window
+  - **Action**: Create scene
+    - **Scene entity ID**: `before`
+    - **Entities snapshot**: Thermostat and ceiling lights
+  - **Action**: Turn off light
+    - **Target**: Ceiling lights
+  - **Action**: Set thermostat HVAC mode
+    - **Target**: Thermostat
+    - **HVAC mode**: Off
+- Automation 2
+  - **Trigger**: Window closed
+    - **Target**: Window
+  - **Action**: Activate scene
+    - **Target**: `scene.before`
 
-Create a new scene without having to configure it by calling the `scene.create` action. This scene will be discarded after reloading the configuration.
+{% details "YAML example for saving and restoring states with a window" %}
 
-You need to pass a `scene_id` in lowercase and with underscores instead of spaces. You may also want to specify the entities in the same format as when configuring the scene. You can also take a snapshot of the current state by using the `snapshot_entities` parameter. In this case, you have to specify the `entity_id` of all entities you want to take a snapshot of. `entities` and `snapshot_entities` can be combined, but you have to use at least one of them.
+{% example %}
+automation: |
+  - alias: "Window opened"
+    triggers:
+      - trigger: window.opened
+        target:
+          entity_id: binary_sensor.window
+    actions:
+      - action: scene.create
+        data:
+          scene_id: before
+          snapshot_entities:
+            - climate.ecobee
+            - light.ceiling_lights
+      - action: light.turn_off
+        target:
+          entity_id: light.ceiling_lights
+      - action: climate.set_hvac_mode
+        target:
+          entity_id: climate.ecobee
+        data:
+          hvac_mode: "off"
+  - alias: "Window closed"
+    triggers:
+      - trigger: window.closed
+        target:
+          entity_id: binary_sensor.window
+    actions:
+      - action: scene.turn_on
+        target:
+          entity_id: scene.before
+{% endexample %}
 
-If the scene was previously created by `scene.create`, it will be overwritten. If the scene was created by YAML, nothing happens and a warning appears in your log files.
+{% enddetails %}
 
-### Video tutorial
-
-This video tutorial explains how scenes work and how you can use scenes on the fly.
+This video tutorial explains how scenes work, and how to create scenes while Home Assistant is running:
 
 <lite-youtube videoid="JW9PC6ptXcM" videotitle="Scenes on Steroids in Home Assistant - How To - Tutorial" posterquality="maxresdefault"></lite-youtube>
 
-```yaml
-# Example automation using entities
-automation:
-  triggers:
-    - trigger: homeassistant
-      event: start
-  actions:
-    - action: scene.create
-      data:
-        scene_id: my_scene
-        entities:
-          light.tv_back_light:
-            state: "on"
-            brightness: 100
-          light.ceiling: "off"
-          media_player.sony_bravia_tv:
-            state: "on"
-            source: "HDMI 1"
-```
+## Troubleshooting
 
-## Deleting dynamically created scenes
+<a id="scene-cant-be-edited-in-the-scene-editor"></a>
 
-Any scene that you have created with the `scene.create` action can also be deleted on demand with the `scene.delete` action.
+{% details "Scene can't be edited in the scene editor" %}
 
-Target the scene you want to delete. As opposed to the `scene_id` used for creation, the entity ID must also include the `scene` domain.
+### Symptom
 
-If the scene was not previously created by `scene.create`, the action will fail and an error will appear in the logs.
+When you open the scene, the scene editor shows **Only scenes in scenes.yaml are editable.**
 
-```yaml
-# Example automation
-automation:
-  triggers:
-    - trigger: sun.sunset
-  actions:
-    - action: scene.delete
-      target:
-        entity_id: scene.my_scene
-```
+#### Description
 
-The following example turns off some entities as soon as a window opens. The states of the entities are restored after the window is closed again.
+The scene is not in the `scenes.yaml` file, for example, because it's written directly in your `configuration.yaml` file, or another integration provides it. The scene editor can only edit scenes in `scenes.yaml`.
 
-```yaml
-# Example automation using snapshot
-- alias: "Window opened"
-  triggers:
-    - trigger: window.opened
-      target:
-        entity_id: binary_sensor.window
-  actions:
-    - action: scene.create
-      data:
-        scene_id: before
-        snapshot_entities:
-          - climate.ecobee
-          - light.ceiling_lights
-    - action: light.turn_off
-      target:
-        entity_id: light.ceiling_lights
-    - action: climate.set_hvac_mode
-      target:
-        entity_id: climate.ecobee
-      data:
-        hvac_mode: "off"
-- alias: "Window closed"
-  triggers:
-    - trigger: window.closed
-      target:
-        entity_id: binary_sensor.window
-  actions:
-    - action: scene.turn_on
-      target:
-        entity_id: scene.before
-```
+#### Resolution
 
-{% include integrations/triggers.md %}
+- For a scene in YAML, change it in the YAML file, and then [reload the scenes](#reloading-scenes).
+  - To edit it in the scene editor instead, move it to `scenes.yaml`. For the steps, refer to [Editing a YAML scene in the scene editor](#editing-a-yaml-scene-in-the-scene-editor).
+- For a scene from another integration, change it in the app or the configuration of that integration.
 
-{% include integrations/actions.md %}
+{% enddetails %}
+
+<a id="scene-changes-in-yaml-dont-take-effect"></a>
+
+{% details "Changes to a scene in YAML don't take effect" %}
+
+### Symptom
+
+You changed a scene in YAML, but activating the scene still sets the old states.
+
+#### Description
+
+Home Assistant reads the scenes from YAML when it starts or when you reload the scenes.
+
+#### Resolution
+
+[Reload the scenes](#reloading-scenes), or restart Home Assistant.
+
+{% enddetails %}
+
+<a id="create-scene-does-nothing"></a>
+
+{% details "Create scene does nothing" %}
+
+### Symptom
+
+You run the **Create scene** action, but the scene isn't created or changed. The logs show **The scene scene.my_scene already exists**.
+
+#### Description
+
+A scene with that ID already exists, for example, from the scene editor, from YAML, or from another integration. **Create scene** only replaces scenes that it created itself.
+
+#### Resolution
+
+Use a different **Scene entity ID**.
+
+{% enddetails %}
+
+<a id="create-scene-fails-entities-overlap"></a>
+
+{% details "Create scene fails: entities and snapshot_entities must not overlap" %}
+
+### Symptom
+
+The **Create scene** action fails, and the error message says **entities and snapshot_entities must not overlap**.
+
+#### Description
+
+The same entity is in both **Entity states** and **Entities snapshot**. A scene can only store one state for each entity.
+
+#### Resolution
+
+Remove the entity from one of the two fields.
+
+{% enddetails %}
+
+<a id="delete-scene-fails"></a>
+
+{% details "Delete scene fails" %}
+
+### Symptom
+
+The **Delete scene** action fails with **The scene scene.my_scene is not created with action `scene.create`.**
+
+#### Description
+
+**Delete scene** only removes scenes that were created with the **Create scene** action. Scenes from YAML, the scene editor, or other integrations can't be deleted this way.
+
+#### Resolution
+
+- For a scene from the scene editor, delete it in the scene editor.
+- For a scene in YAML, remove it from the YAML file, and then [reload the scenes](#reloading-scenes).
+
+{% enddetails %}
