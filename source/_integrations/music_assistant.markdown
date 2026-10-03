@@ -12,9 +12,11 @@ ha_codeowners:
 ha_domain: music_assistant
 ha_platforms:
   - button
+  - image
   - media_player
   - number
   - select
+  - sensor
   - switch
   - text
 ha_zeroconf: true
@@ -22,7 +24,7 @@ ha_integration_type: service
 ha_quality_scale: bronze
 ---
 
-The **Music Assistant** (MA) {% term integration %} allows you to connect Home Assistant to a [Music Assistant Server](https://music-assistant.io/). Once configured, all [MA Players](https://music-assistant.io/player-support/) show up as Home Assistant [media player entities](/integrations/media_player/).  Media players will allow you to control media playback and see the currently playing item.
+The **Music Assistant** (MA) {% term integration %} allows you to connect Home Assistant to a [Music Assistant Server](https://music-assistant.io/). Once configured, all [MA Players](https://music-assistant.io/player-support/) show up as Home Assistant [media player entities](/integrations/media_player/). Media players allow you to control media playback and see the currently playing item.
 
 ## Prerequisites
 
@@ -41,7 +43,7 @@ There is currently support for the following Home Assistant Platforms:
 - [Media player](#media-player-entities)
 - [Button](#favorite-current-song-button)
 
-Depending on the player provider, additional platforms are supported: [Number, Select, Sensor, Switch, Text](#player-options).
+Depending on the player provider and active plugins, additional platforms are supported. See [Player options](#player-options) and [Party mode](#party-mode).
 
 
 All of the Home Assistant [Media Player Control Actions](/integrations/media_player/#media-control-actions) are supported.
@@ -72,6 +74,19 @@ The Music Assistant integration creates a button entity for each player to favor
 ### Player options
 
 If a player provider supports player options, the Music Assistant integration exposes additional entities. For example, you may have a number entity to adjust the media player's bass or treble value. Refer to the [Player documentation](https://www.music-assistant.io/player-support/) to see whether your player supports this.
+
+### Party mode
+
+If you use the Music Assistant Party Mode plugin, the integration automatically exposes its configuration options and status entities to Home Assistant. This allows you to view your guest QR code and control all party settings directly from your Home Assistant dashboards without opening the Music Assistant user interface.
+
+The integration creates the following entities for your party mode setup:
+
+- **Guest QR code**: An {% term image "image entity" %} (`image.party_mode_plugin_guest_qr_code`) that displays a QR code for your guests to scan. The guest URL is updated automatically in the background to ensure it does not expire.
+- **Guest URL**: A {% term sensor "sensor entity" %} (`sensor.party_mode_plugin_guest_url`) that contains the raw guest access URL. You can use this sensor to copy the URL or include it in your {% term automation automations %}.
+- **Switches**: Toggle settings like guest access, Karaoke mode, lyrics display, progress bar visibility, duplicate track prevention, and permissions for guests to add to queue, boost, or skip songs.
+- **Numbers**: Set rate limits and refill rates for guest actions like adding to queue, boosting, and skipping songs.
+- **Selects**: Choose request or boost badge colors, or select your party player from the list of available Music Assistant players.
+- **Texts**: Customize your party name and guest QR code text.
 
 {% include integrations/actions.md %}
 
