@@ -22,7 +22,7 @@ Home Assistant can give you an interface to control covers such as roller shutte
 
 ## Cover states
 
-A cover can have the following states. Each item shows the label used in the Home Assistant interface, followed by the state value.
+A cover can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. You use the stored state in templates and YAML automations.
 
 - **Opening** (`opening`): The cover is in the process of opening to reach a set position.
 - **Open** (`open`): The cover has reached the open position.
