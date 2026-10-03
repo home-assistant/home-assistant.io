@@ -39,21 +39,25 @@ You can use button entities in automations to react when a button is pressed, or
 
 ## Device class
 
-{% include integrations/device_class_intro.md %}
+The device class tells Home Assistant what a button does, such as restarting a device.
 
-The screenshot shows different icons representing different device classes for buttons:
+The device class makes a difference in the following places:
 
-<p class='img'>
-<img src='/images/screenshots/button_classes_icons.png' alt='Screenshot showing different button icons for the identify, restart, and update device classes.' />
-Example of device class icons.
-</p>
+- Icon and name: The icon matches what the button does. A button without a name of its own is named after its device class, such as **Restart**.
+- History and Activity: If you have buttons with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
 
-The following device classes are supported for buttons:
+The integration that provides the button sets the device class. When you create a button yourself with a [template helper](/integrations/template/), you choose it.
 
-- **None**: Generic button. This is the default and doesn't need to be set.
-- **identify**: The button is used to identify a device.
-- **restart**: The button restarts the device.
-- **update**: The button updates the software of the device.
+### List of available device classes
+
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
+
+- {% icon "mdi:button-pointer" %} No device class: A generic button.
+- {% icon "mdi:crosshairs-question" %} **Identify** (`identify`): The button is used to identify a device.
+- {% icon "mdi:restart" %} **Restart** (`restart`): The button restarts the device.
+- {% icon "mdi:package-up" %} **Update** (`update`): The button updates the software of the device.
+
+In templates, the device class is the `device_class` attribute of the entity. Use the stored value, such as `restart`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ## Button automation examples
 
