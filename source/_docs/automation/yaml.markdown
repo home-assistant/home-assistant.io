@@ -23,7 +23,7 @@ You can add as many labeled `automation` blocks as you want.
 
 {% configuration %}
 alias:
-  description: Friendly name for the automation.
+  description: Name of the automation.
   required: false
   type: string
 id:

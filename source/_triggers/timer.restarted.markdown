@@ -28,6 +28,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple timers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted timer is restarted, **First** to fire only for the first restarted timer, or **All** to fire only after all targeted timers are restarted.
+  required: false
 For at least:
   description: How long the timer must remain restarted before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}

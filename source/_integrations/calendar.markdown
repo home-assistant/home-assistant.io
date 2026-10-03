@@ -65,9 +65,8 @@ In addition, the entity can have the following states:
 ## Automation
 
 Calendar [Triggers](/docs/automation/trigger) enable {% term automation %} based on an
-event's start or end. Review the [Automating Home Assistant](/getting-started/automation/)
-getting started guide on automations or the [Automation](/docs/automation/)
-documentation for full details.
+event's start or end. Review the [Tutorial: Create your first automation](/getting-started/automation/)
+or the [Automation](/docs/automation/) documentation for full details.
 
 Calendar {% term triggers %} are the best way to automate based on calendar events.
 A calendar {% term entity %} can also be used to automate based on its state, but these are limited and attributes only represent the next event.

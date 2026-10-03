@@ -16,7 +16,7 @@ ha_integration_type: service
 ha_quality_scale: bronze
 ---
 
-The **Green Planet Energy** {% term integration %} provides real-time electricity pricing data from [Green Planet Energy](https://www.greenplanet.energy/), a German renewable energy provider. It fetches 15-minute electricity prices and exposes various sensors for energy monitoring and optimization. Use it to shift your power consumption to cheaper hours and make the most of a dynamic electricity tariff.
+The **Green Planet Energy** {% term integration %} provides real-time electricity pricing data from [Green Planet Energy](https://green-planet-energy.de/), a German renewable energy provider. It fetches 15-minute electricity prices and exposes various sensors for energy monitoring and optimization. Use it to shift your power consumption to cheaper hours and make the most of a dynamic electricity tariff.
 
 ## Prerequisites
 
