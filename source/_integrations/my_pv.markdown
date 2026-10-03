@@ -2,6 +2,8 @@
 title: my-PV
 description: Instructions on how to integrate my-PV devices into Home Assistant.
 ha_category:
+  - Number
+  - Switch
   - Water heater
 ha_release: '2026.10'
 ha_iot_class: Local Polling
@@ -11,6 +13,9 @@ ha_codeowners:
 ha_domain: my_pv
 ha_platforms:
   - button
+  - number
+  - sensor
+  - switch
   - water_heater
 ha_integration_type: device
 ha_config_flow: true

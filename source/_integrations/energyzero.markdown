@@ -108,6 +108,43 @@ For the dynamic gas prices, only entities are created that display the
 
 {% include integrations/actions.md %}
 
+## Examples
+
+### Automation: Run an action when the electricity price is low
+
+This example runs an action when the current electricity price drops below €0.10/kWh.
+
+```yaml
+alias: "EnergyZero low electricity price"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.energyzero_today_energy_current_hour_price
+    below: 0.10
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "The current electricity price is below €0.10/kWh."
+```
+
+### Automation: Run an action at the lowest price time
+
+This example runs an action when the lowest electricity price time for today is reached.
+
+```yaml
+alias: "EnergyZero lowest electricity price time"
+triggers:
+  - trigger: time
+    at: sensor.energyzero_today_energy_lowest_price_time
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "The lowest electricity price time for today has started."
+```
+
 ## Templates
 
 You can optionally create template sensors to display the prices in a chart or to calculate an electricity price using your own contract rates.

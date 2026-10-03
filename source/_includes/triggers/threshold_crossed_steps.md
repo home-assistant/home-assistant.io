@@ -2,7 +2,7 @@
 Reusable "To use ... in an automation" steps for entity triggers that use the
 threshold-mapping schema and fire when a reading crosses a threshold. Used by
 humidity.crossed_threshold; reusable by climate.target_humidity_crossed_threshold,
-light.brightness_crossed_threshold, battery.level_crossed, and similar.
+light.brightness_crossed_threshold, battery.level_crossed_threshold, and similar.
 
 Parameters:
   title           UI display name. For example: "Relative humidity crossed threshold".
