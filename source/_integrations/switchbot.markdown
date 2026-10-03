@@ -86,18 +86,23 @@ Before adding SwitchBot devices over Bluetooth, confirm whether your Bluetooth a
   - Devices cannot be discovered via local Bluetooth scanning and must be synchronized through your SwitchBot account.
   - To sync devices from your account, go to {% my integrations title="**Settings** > **Devices & services**" %}, open **Integrations**, select **SwitchBot**, select  the integration to open the login window, and sign in. If the local Bluetooth scan detects devices that are linked to your SwitchBot account and within range, you can add them after signing in.
 
+When signing in, select **Sign in with SwitchBot OAuth (recommended)**. Home Assistant opens the SwitchBot authorization page. After you authorize access, Home Assistant downloads device information to help discover supported Bluetooth devices. The OAuth token is used only during setup and is not saved.
+
 If you still cannot add a device, make sure it is powered on, within Bluetooth range, and not connected to another app. If necessary, follow the manufacturer's reset instructions or consult SwitchBot support.
 
 ### Adding encrypted SwitchBot devices
 
 Some types of the SwitchBot devices are encrypted for improved security. More types and models will be added as encrypted devices in the future.
 
-An encrypted SwitchBot device can be set up in Home Assistant in two different ways.
-You can enter the key ID and encryption key yourself, or Home Assistant can import them from your SwitchBot account.
+An encrypted SwitchBot device can be set up in Home Assistant in three different ways. You can authorize Home Assistant with SwitchBot OAuth, enter your SwitchBot username and password, or enter the key ID and encryption key manually.
 
-#### SwitchBot account (recommended)
+#### SwitchBot OAuth (recommended)
 
-Using this option you can provide your SwitchBot account login credentials and Home Assistant will import the appropriate encryption key from your account.
+Select **Sign in with SwitchBot OAuth (recommended)** to open the SwitchBot authorization page. After you authorize access, Home Assistant imports the encryption key for the device. The OAuth token is used only during setup and is not saved.
+
+#### SwitchBot username and password
+
+Using this option, you can provide your SwitchBot account login credentials, and Home Assistant imports the appropriate encryption key from your account. Your username and password are used only during setup and are not saved.
 
 {% configuration_basic %}
 Username:
@@ -107,7 +112,7 @@ Password:
 {% endconfiguration_basic %}
 
 {% important %}
-This integration doesn't support SSO accounts (such as Login with Google) only username and password accounts.
+Signing in with a username and password does not support single sign-on accounts, such as **Sign in with Google**. Use SwitchBot OAuth for these accounts.
 {% endimportant %}
 
 #### Enter the lock encryption key manually
