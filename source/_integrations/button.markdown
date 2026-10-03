@@ -24,9 +24,7 @@ Unlike a switch, a button has no `on` or `off` state. Instead, it remembers when
 
 ## Button states
 
-The button {% term entity %} is stateless. Unlike a normal switch entity, it does not have an `on` or `off` state.
-
-The state of a button is a timestamp showing when the button was last pressed from the Home Assistant interface or by an action. Home Assistant stores the timestamp in UTC, for example, `2026-01-01T12:00:00.123456+00:00`. The Home Assistant interface shows it in your local date and time format.
+The {% term state %} of a button is a timestamp showing when the button was last pressed from the Home Assistant interface or by an action. Home Assistant stores the timestamp in UTC, for example, `2026-01-01T12:00:00.123456+00:00`. The Home Assistant interface shows it in your local date and time format.
 
 In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
