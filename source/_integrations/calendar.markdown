@@ -52,7 +52,7 @@ The card shows upcoming events from one or more calendar entities and provides a
 
 ## Calendar states
 
-The state shows whether there is an active event. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. You use the stored state in templates and YAML automations.
+The state shows whether there is an active event. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
 
 - **On** (`on`): The calendar has an active event.
 - **Off** (`off`): The calendar does not have an active event.
