@@ -11,6 +11,7 @@ ha_codeowners:
   - '@Herbertmt978'
 ha_domain: axle_energy
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: service
 ha_quality_scale: bronze
@@ -149,6 +150,10 @@ Check your internet connection and whether you can access your Axle account. The
 ### The sensors show an unknown state
 
 Check whether Axle has scheduled an event for your account and whether you have opted out of it. An empty schedule is a valid response and does not indicate a connection failure.
+
+### Download diagnostics
+
+If you report a problem, [download diagnostics](/integrations/diagnostics/) from the Axle Energy integration. The file contains the latest saved event data and whether the last update succeeded. Your API key is not included. Downloading diagnostics does not request another update from Axle. Review the file before sharing it.
 
 ## Removing the integration
 
