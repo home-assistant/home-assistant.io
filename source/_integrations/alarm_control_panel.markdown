@@ -36,8 +36,8 @@ Each item shows the label used in the Home Assistant interface, followed by the 
 - **Pending** (`pending`): The alarm detected a sensor trip and is counting down its entry delay. You have a short window to disarm before the alarm triggers.
 - **Triggered** (`triggered`): The alarm has gone off. Sirens, notifications, and any other alert actions are active.
 - **Disarming** (`disarming`): The alarm is in the process of being disarmed.
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 ## Using an alarm PIN code in actions
 
