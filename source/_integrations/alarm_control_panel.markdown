@@ -20,22 +20,24 @@ The **Alarm control panel** {% term integration %} brings your home alarm system
 
 {% include integrations/building_block_integration.md %}
 
-## The state of an alarm panel entity
+## Alarm control panel states
 
 An alarm panel {% term entity %} reflects the current state of your alarm system. Not every alarm panel supports every state or every arming mode. Home Assistant shows only the modes your hardware provides.
 
-- **Disarmed**: the alarm is off. Sensors are not being monitored.
-- **Armed home**: perimeter protection while you are inside. Doors and windows are monitored, but interior motion sensors are ignored so you move freely around the house.
-- **Armed away**: full protection for when nobody is home. All sensors (perimeter and interior) are active.
-- **Armed night**: similar to home mode, but tuned for sleeping. Typically covers perimeter sensors and selected interior zones while leaving bedroom areas free.
-- **Armed vacation**: extended away protection for longer trips. Some systems enable additional monitoring or alerts in this mode.
-- **Armed custom bypass**: armed with one or more zones deliberately skipped. Useful when you want to leave a specific door or window open while arming the rest of the system.
-- **Arming**: the alarm is counting down its exit delay. You have a short window to leave the house before monitoring begins.
-- **Pending**: the alarm detected a sensor trip and is counting down its entry delay. You have a short window to disarm before the alarm triggers.
-- **Triggered**: the alarm has gone off. Sirens, notifications, and any other alert actions are active.
-- **Disarming**: the alarm is in the process of being disarmed.
-- **Unavailable**: the entity is currently unavailable.
-- **Unknown**: the state is not yet known.
+Each item shows the label used in the Home Assistant interface, followed by the state value.
+
+- **Disarmed** (`disarmed`): The alarm is off. Sensors are not being monitored.
+- **Armed home** (`armed_home`): Perimeter protection while you are inside. Doors and windows are monitored, but interior motion sensors are ignored so you move freely around the house.
+- **Armed away** (`armed_away`): Full protection for when nobody is home. All sensors (perimeter and interior) are active.
+- **Armed night** (`armed_night`): Similar to home mode, but tuned for sleeping. Typically covers perimeter sensors and selected interior zones while leaving bedroom areas free.
+- **Armed vacation** (`armed_vacation`): Extended away protection for longer trips. Some systems enable additional monitoring or alerts in this mode.
+- **Armed custom bypass** (`armed_custom_bypass`): Armed with one or more zones deliberately skipped. Useful when you want to leave a specific door or window open while arming the rest of the system.
+- **Arming** (`arming`): The alarm is counting down its exit delay. You have a short window to leave the house before monitoring begins.
+- **Pending** (`pending`): The alarm detected a sensor trip and is counting down its entry delay. You have a short window to disarm before the alarm triggers.
+- **Triggered** (`triggered`): The alarm has gone off. Sirens, notifications, and any other alert actions are active.
+- **Disarming** (`disarming`): The alarm is in the process of being disarmed.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Using an alarm PIN code in actions
 
