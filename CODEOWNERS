@@ -321,6 +321,7 @@ source/_integrations/esphome.markdown @jesserockz @kbx81 @bdraco
 source/_integrations/essent.markdown @jaapp
 source/_integrations/eufylife_ble.markdown @bdr99
 source/_integrations/eurotronic_cometblue.markdown @rikroe
+source/_integrations/eurotronic_comet_wifi.markdown @zerog981
 source/_integrations/event.markdown @home-assistant/core
 source/_integrations/event.mqtt.markdown @emontnemery @jbouwh @bdraco
 source/_integrations/evergy.markdown @tronikos
