@@ -30,7 +30,7 @@ Start:
   description: When the charger starts charging, at most 24 hours ahead. Leave empty to start now.
   required: false
 Duration:
-  description: How long the charger charges before it ends the session. Leave empty for no time limit.
+  description: How long the charger charges before it ends the session, in hours and minutes. Leave empty for no time limit.
   required: false
 {% endoptions_ui %}
 
@@ -65,8 +65,8 @@ start:
 duration:
   description: >
     How long the charger charges before it ends the session. Accepts a duration
-    object with `hours`, `minutes`, and `seconds` keys. The shortest duration is
-    1 minute. Leave it out for no time limit.
+    object with `hours` and `minutes` keys. The duration must be a whole number
+    of minutes, and at least 1 minute. Leave it out for no time limit.
   required: false
   type: time
 {% endoptions_yaml %}
