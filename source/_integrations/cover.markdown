@@ -28,8 +28,8 @@ A cover can have the following states. Each item shows the label used in the Hom
 - **Open** (`open`): The cover has reached the open position.
 - **Closing** (`closing`): The cover is in the process of closing to reach a set position.
 - **Closed** (`closed`): The cover has reached the closed position.
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 The device class of a cover determines the icon shown for each state. The state labels are the same for all device classes.
 
