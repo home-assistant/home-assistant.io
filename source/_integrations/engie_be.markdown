@@ -23,7 +23,7 @@ The integration makes it possible to retrieve the electricity and gas prices fro
 ## Use cases
 
 - Follow the current electricity and gas prices for each meter on a dashboard, and see them change whenever your tariff is revised.
-- Trigger automations from the off-peak price so appliances like the dishwasher, EV charger, or heat pump run on the cheaper rate.
+- Use the price sensors in automations that estimate the cost of running appliances.
 - Compare the offtake and injection prices to decide when it pays to use your solar production yourself instead of sending it back to the grid.
 
 ## Prerequisites
