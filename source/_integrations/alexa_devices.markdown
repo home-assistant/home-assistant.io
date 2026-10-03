@@ -284,20 +284,21 @@ automation:
 
 ## Data updates
 
-This integration {% term polling polls %} sensor data every five minutes by default. New devices are identified at start up and then once every 24 hours.
-The following items are updated through push events with changes reflected in Home Assistant without waiting for the polling interval:
+This integration {% term polling polls %} Amazon for sensor data every five minutes by default. It checks for new devices at startup and then once every 24 hours.
+
+The following items are updated through push events, so changes appear in Home Assistant without waiting for the polling interval:
 
 - To-do and shopping lists
 - Voice interaction history
-- Volume changes
-- Media State
-- Do Not Disturb status
+- Volume
+- Media state
+- Do not disturb status
 
 ## Known limitations
 
 - This integration requires multi-factor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
 - Reminders may not be added to the sensor if the configured account is linked to an Alexa Household.
-- `Failed to refresh communications settings` warning are logged.   This is down to Amazon rate limiting connections and is under investigation.   This means the communication, drop-in and announcement settings may not be up to date however as these rarely change, this should not cause issues and the warnings can be ignored.
+- You may see `Failed to refresh communications settings` warnings in the logs. These are caused by Amazon rate limiting connections, and the cause is under investigation. When this happens, the communication, drop-in, and announcement settings may be out of date. These settings rarely change, so you can safely ignore these warnings.
 
 ## Troubleshooting
 
@@ -307,36 +308,38 @@ The following items are updated through push events with changes reflected in Ho
 
 ##### Description
 
-You will see `MFA OTP code not found on login page` or `Cannot find "auth-mfa-otpcode" in html source` in the logs when trying to set up the integration.   This is because the authentication details are incorrect.
+You will see `MFA OTP code not found on login page` or `Cannot find "auth-mfa-otpcode" in html source` in the logs when trying to set up the integration. This means the authentication details are incorrect.
 
-You need to ensure you are:
+Make sure that:
 
-- using the right credentials (The ones you would use to log in to the Alexa app and Amazon shopping site)
-- set up to use app based 2FA
-- not set up to receive SMS 2FA codes
+- You are using the right credentials. These are the ones you use to log in to the Alexa app and the Amazon shopping site.
+- Your account is set up to use app-based 2FA.
+- Your account is not set up to receive 2FA codes by SMS.
 
-To test this you should log in to your local Amazon shopping site in incognito/private mode in your browser and check you are prompted for the OTP code from your authenticator app, and you can log in successfully.
+To test this, open your local Amazon shopping site in a private browser window and log in. Check that you are prompted for the OTP code from your authenticator app and that you can log in successfully.
 
-### Sensors unavailable
+### Sensors not updating
 
 #### Symptom: Data is stale or not updated
 
-You may notice that some sensors (illuminance and motion in particular) may show stale data.
+Some sensors, particularly illuminance and motion sensors, show stale data.
 
 ##### Description
 
-This happens as sometimes Amazon only sends updates when it recognises the sensor is being used within Alexa.  To trigger this you may need to create a routine in Alexa that triggers when occupancy is detected (It does not need to contain any actions) which will enable the feature and ensure sensors update.   See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GSR22RYDWS3KBUYW) for more information.
+Amazon sometimes only sends sensor updates when it detects that the sensor is used in Alexa.
+
+To fix this, in the Alexa app, create a routine that is triggered when occupancy is detected. The routine does not need any actions. This enables the feature and makes sure the sensors update. For more information, see [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=GSR22RYDWS3KBUYW).
+
+### Sensors unavailable
 
 #### Symptom: "Too many requests"
 
-You see something similar to
+You see messages similar to the following in the logs:
 
 - `Error retrieving devices state: Too many requests for path ['listEndpoints']`
 - `Error retrieving data: CannotRetrieveData('Request failed: Bad Request')`
 - `Failed to obtain notification data. Timers and alarms have not been updated`
 - `Failed to refresh communications settings for device XXXXXX, used cached values.`
-
-In logs.
 
 ##### Description
 
