@@ -284,13 +284,20 @@ automation:
 
 ## Data updates
 
-This integration {% term polling polls %} device data every five minutes by default. To-do and shopping list changes, voice interaction history, media state, and volume changes are received through push events and are reflected in Home Assistant without waiting for the polling interval.
+This integration {% term polling polls %} sensor data every five minutes by default. New devices are identified at start up and then once every 24 hours.
+The following items are updated through push events with changes reflected in Home Assistant without waiting for the polling interval:
+
+- To-do and shopping lists
+- Voice interaction history
+- Volume changes
+- Media State
+- Do Not Disturb status
 
 ## Known limitations
 
 - This integration requires multi-factor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
 - Reminders may not be added to the sensor if the configured account is linked to an Alexa Household.
-- [Amazon Japan](https://www.amazon.co.jp) appears to use a different login mechanism to other locations preventing setup of the integration.   This should be resolved in a future release.
+- `Failed to refresh communications settings` warning are logged.   This is down to Amazon rate limiting connections and is under investigation.   This means the communication, drop-in and announcement settings may not be up to date however as these rarely change, this should not cause issues and the warnings can be ignored.
 
 ## Troubleshooting
 
@@ -312,6 +319,14 @@ To test this you should log in to your local Amazon shopping site in incognito/p
 
 ### Sensors unavailable
 
+#### Symptom: Data is stale or not updated
+
+You may notice that some sensors (illuminance and motion in particular) may show stale data.
+
+##### Description
+
+This happens as sometimes Amazon only sends updates when it recognises the sensor is being used within Alexa.  To trigger this you may need to create a routine in Alexa that triggers when occupancy is detected (It does not need to contain any actions) which will enable the feature and ensure sensors update.   See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?ref_=hp_left_v4_sib&nodeId=GSR22RYDWS3KBUYW) for more information.
+
 #### Symptom: "Too many requests"
 
 You see something similar to
@@ -325,7 +340,7 @@ In logs.
 
 ##### Description
 
-This happens because of rate limits applied by Amazon. We are working to reduce these errors. If these errors are causing you issues, you can disable polling for the integration. Disabling polling will stop these errors, but it will also stop DND, sensors, and connectivity from being updated. However, speech, announcements, and text commands will continue to work.
+This happens because of rate limits applied by Amazon. We are working to reduce these errors.
 
 ## Removing the integration
 
