@@ -23,8 +23,8 @@ The {% term state %} of an AI task {% term entity %} is a timestamp showing the 
 
 In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 {% include integrations/actions.md %}
 
