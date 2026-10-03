@@ -17,7 +17,7 @@ The **Climate** {% term integration %} allows you to control and monitor HVAC (h
 
 ## Climate states
 
-A climate entity can have the following states, depending on the specific climate device and its capabilities. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. You use the stored state in templates and YAML automations.
+A climate entity can have the following states, depending on the specific climate device and its capabilities. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
 
 - **Off** (`off`): The device is turned off.
 - **Heat** (`heat`): The device is set to heat to a target temperature.
