@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The **Discord** {% term integration %} lets you send notifications from Home Assistant to [Discord](https://discord.com/) channels and users via a bot. You can send text messages, attach files, like images or videos, from local paths or remote URLs, and use Discord embeds for rich formatting.
+The **Discord** {% term integration %} lets you send notifications from Home Assistant to [Discord](https://discord.com/) channels and users via a bot. You can add channels or users as notification targets to send messages from the UI. You can use the notify action to attach files (such as images or videos) from local paths or remote URLs, and use Discord embeds for rich formatting.
 
 {% note %}
 This integration is for outgoing messages only. It cannot read incoming Discord messages or use them as triggers for automations.
@@ -67,7 +67,7 @@ After the bot has been added to your server, get the channel ID of the channel y
 2. Enable **Developer Mode**.
 3. Right-click the channel name and select **Copy Channel ID**.
 
-The channel ID, or a user ID for direct messages, is used as the target when calling the notification action. Multiple channel or user IDs can be specified across multiple servers or direct messages.
+The channel ID, or a user ID for direct messages, is used when adding a notification target or when calling the notification action.
 
 ## Add Discord integration to Home Assistant
 
@@ -75,9 +75,36 @@ The channel ID, or a user ID for direct messages, is used as the target when cal
 
 When adding the Discord integration, enter the **bot token** from the Discord application's **Bot** page when asked for the API key.
 
-## Test a Discord notification
+## Notification targets
 
-After setting up the integration, you can test it without creating an automation first:
+A notification target is a Discord channel, user, or direct message that the bot can send messages to. Each target you add becomes a {% term entity %} of the type `notify`, so you can send a message to it from the UI, an automation, or a script without needing the channel or user ID each time.
+
+### Add a notification target
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the Discord integration.
+2. Next to the Discord bot, select **Add target**.
+3. In **Target ID**, enter the ID of the channel, user, or direct message you want to send notifications to.
+4. Select **Submit**.
+
+Home Assistant creates a notify entity named after the channel or user. Repeat these steps to add more targets.
+
+### Test a notification target
+
+After adding a target, you can test it without creating an automation first:
+
+1. Go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
+2. Select the **Notify entity: Send a message** action.
+3. In **Target**, select the notify entity for your Discord target.
+4. Enter a message.
+5. Select **Perform action**.
+
+## Legacy notify action
+
+Discord also provides a `notify` action that matches the name of your Discord application. Use this action when you need Discord embeds or file attachments, which the notify entity does not support.
+
+### Test a Discord notification
+
+After setting up the integration, you can test the legacy action without creating an automation first:
 
 1. In Home Assistant, go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
 2. Select the `notify` action that matches the name of your Discord application, for example `notify.home_assistant_notifications`.
@@ -89,14 +116,14 @@ If the action does not appear, check that the Discord integration is configured 
 
 ## Use Discord in an automation
 
-To send a Discord notification from the automation editor:
+To send a message to a notification target from the automation editor:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and create or edit an automation.
-2. Add an action and search for the `notify` action that matches your Discord application.
-3. Enter the message and the Discord channel ID or user ID in **Target**.
+2. Add an action and select **Notify entity: Send a message**.
+3. In **Target**, select the notify entity for your Discord target and enter the message.
 4. Save the automation.
 
-The same action can also be written in YAML. The examples below show the available Discord-specific options.
+To use Discord embeds or file attachments, use the legacy `notify` action instead. The examples below show the available Discord-specific options.
 
 ## Set Message entry
 
