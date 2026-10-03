@@ -20,19 +20,18 @@ Sensors are a basic integration in Home Assistant. They monitor the states and c
 
 Some of these sensors are built-in to Home Assistant, some are created automatically when you add an integration (see this [list](/integrations/#sensor)), and some can be created manually. The [Statistics](/integrations/statistics) and [Template](/integrations/template) sensors are two examples of the last case.
 
-## The state of a sensor entity
+## Sensor states
 
-The state of a sensor entity is its currently detected value, which can be either text or a number.
+The {% term state %} of a sensor entity is its current value. The type of sensor determines how Home Assistant stores the value and how the interface shows it:
 
-<p class='img'>
-<img src='/images/integrations/sensor/state_sensor.png' alt='Screenshot showing the state of a sensor entity in the States tab of Tools.' />
-Screenshot showing the state of a sensor entity in {% my tools_states title="Settings > Tools > States"%}
-</p>
+- Numeric sensors store the number without its unit, for example, `21.5`. The interface shows the number in your local number format, with its unit if it has one, for example, **21.5 °C**.
+- Timestamp sensors store the date and time in UTC, for example, `2026-01-01T12:00:00+00:00`. The interface shows it in your local date and time format.
+- Other sensors store text. If the integration translates the possible values, the interface shows the translated label instead of the stored text.
 
-In addition, the entity can have the following states:
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 ## State class
 
