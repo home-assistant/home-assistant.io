@@ -20,18 +20,18 @@ Interacts with media players on your network.
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a media player
+## Media player states
 
-A media player can have the following states:
+A media player can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
 
-- **Off**: The media player is turned off and is not accepting commands until turned on.
-- **On**: The media player is turned on, but no details on its state are currently known.
-- **Idle**: The media player is turned on and accepting commands, but currently not playing any media. Possibly at some idle home screen.
-- **Playing**: The media player is currently playing media.
-- **Paused**: The media player has an active media and is currently paused
-- **Buffering**: The media player is preparing to start playback of media.
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Off** (`off`): The media player is turned off and is not accepting commands until turned on.
+- **On** (`on`): The media player is turned on, but no details on its state are currently known.
+- **Idle** (`idle`): The media player is turned on and accepting commands, but not playing any media. For example, it might show a home screen.
+- **Playing** (`playing`): The media player is currently playing media.
+- **Paused** (`paused`): The media player has media loaded and is paused.
+- **Buffering** (`buffering`): The media player is preparing to start playback of media.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 {% include integrations/triggers.md %}
 
