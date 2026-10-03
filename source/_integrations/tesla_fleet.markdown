@@ -219,6 +219,7 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Sensor         | Charge cable                               | No      |
 | Sensor         | Charge energy added                        | Yes     |
 | Sensor         | Charge rate                                | Yes     |
+| Sensor         | Charge schedules                           | Yes     |
 | Sensor         | Charger current                            | Yes     |
 | Sensor         | Charger power                              | Yes     |
 | Sensor         | Charger voltage                            | Yes     |
@@ -303,6 +304,8 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Sensor | Power       | Yes     |
 | Sensor | State       | Yes     |
 | Sensor | Vehicle     | Yes     |
+
+{% include integrations/actions.md %}
 
 ## Vehicle sleep
 
