@@ -108,18 +108,30 @@ automation: |
 
 ## Device class
 
-{% include integrations/device_class_intro.md %}
+The device class tells Home Assistant what kind of media player an entity is, such as a TV or a speaker.
 
-The media player entity will be represented by one of the following icons in the frontend, depending on the device class of the media player:
+The device class makes a difference in the following places:
 
-- {% icon "mdi:cast" %} `None`
-- {% icon "mdi:television" %} `tv`
-- {% icon "mdi:speaker" %} `speaker`
-- {% icon "mdi:audio-video" %} `receiver` (device that takes audio and video input and outputs to speakers and displays)
-- {% icon "mdi:projector" %} `projector`
+- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/), [Alexa](/integrations/alexa/), and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, show the media player as the matching type, for example, as a TV or a speaker.
+- Icon and name: The icon matches the type. TVs and speakers also show whether they're playing or paused.
+- History and Activity: If you have media players with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
 
-Some device classes also support additional icons based on their state:
+The integration that provides the media player sets the device class.
+
+### List of available device classes
+
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
+
+- {% icon "mdi:cast" %} No device class: A generic media player.
+- {% icon "mdi:television" %} **TV** (`tv`): A television.
+- {% icon "mdi:speaker" %} **Speaker** (`speaker`): A speaker.
+- {% icon "mdi:audio-video" %} **Receiver** (`receiver`): A device that takes audio and video input and outputs it to speakers and displays.
+- {% icon "mdi:projector" %} **Projector** (`projector`): A projector.
+
+Some device classes also show a different icon depending on the state:
 
 - Off: {% icon "mdi:cast-off" %} {% icon "mdi:television-off" %} {% icon "mdi:speaker-off" %} {% icon "mdi:audio-video-off" %} {% icon "mdi:projector-off" %}
 - Playing: {% icon "mdi:cast-connected" %} {% icon "mdi:television-play" %} {% icon "mdi:speaker-play" %}
 - Paused: {% icon "mdi:cast-connected" %} {% icon "mdi:television-pause" %} {% icon "mdi:speaker-pause" %}
+
+In templates, the device class is the `device_class` attribute of the entity. Use the stored value, such as `tv`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
