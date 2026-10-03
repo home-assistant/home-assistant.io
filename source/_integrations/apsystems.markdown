@@ -40,6 +40,7 @@ The **APsystems** {% term integration %} allows you to read the data from your [
 
 | Sensor ID  | Description
 |---|---|
+| inverter_connection_status | Indicates whether the inverter is reachable
 | off_grid_status | On when the inverter is not connected to the power grid
 | dc_1_short_circuit_error_status | Short circuit detected on first input
 | dc_2_short_circuit_error_status | Short circuit detected on second input
@@ -52,6 +53,21 @@ The **APsystems** {% term integration %} allows you to read the data from your [
 | inverter_status | switch | Enables or disables the inverter's output
 | output_limit | number | Sets the max output of the inverter
 
+
+## Nighttime offline behavior
+
+The APsystems EZ1 inverter automatically shuts down at night when there is no solar power. To handle this gracefully, the integration behaves as follows when the inverter is unreachable:
+
+- **Power sensors** are set to `0 W`, as the inverter is not producing any power.
+- **Energy sensors** retain their last known values, preventing false spikes in your energy statistics when the inverter comes back online in the morning.
+- **Entities remain available** instead of showing as `unavailable`, since being offline at night is expected behavior, not an error condition.
+- The **inverter connection status** binary sensor is `on` when the inverter is reachable and `off` when it is unreachable, allowing you to monitor its connectivity.
+
+When the inverter comes back online, all sensors will update with current values.
+
+{% note %}
+If you start Home Assistant when the inverter is offline (for example, if you restart at night), the energy sensors may show as `unknown` until the inverter comes back online and provides initial values.
+{% endnote %}
 
 ## Flash Endurance
 
