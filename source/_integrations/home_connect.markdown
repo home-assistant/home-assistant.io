@@ -894,6 +894,17 @@ This sensor will be available only if the program is running
 This sensor will be available only if the program is running
 {% endnote %}
 
+- **Active program**:
+  - **Description**: Represents the program that is currently running, including programs that can't be selected or started from Home Assistant, such as machine care or cleaning programs started by the appliance itself. The state is a readable name of the program, for example `Flat White`. The `raw_value` attribute contains the program key as reported by the API, for example `ConsumerProducts.CoffeeMaker.Program.CoffeeWorld.FlatWhite`.
+  - **Availability**: All the appliances with programs
+- **Selected program**:
+  - **Description**: Represents the program that is currently selected, including programs that can't be selected from Home Assistant. The state and the `raw_value` attribute work the same way as for the **Active program** sensor.
+  - **Availability**: All the appliances with programs
+
+{% important %}
+The **Active program** and **Selected program** sensors are disabled by default. Unlike the **Active program** and **Selected program** select entities, they report every program the appliance sends, so they are useful for automations based on programs that aren't listed in the select entities.
+{% endimportant %}
+
 - **Operation state**:
   - **Description**: Represents the current operation state of the device.
   - **Availability**: All the appliances with programs
@@ -1255,6 +1266,35 @@ actions:
 ```
 {% enddetails %}
 
+### React to a group of programs
+
+The program keys in the `raw_value` attribute of the **Active program** sensor are grouped by category, for example `ConsumerProducts.CoffeeMaker.Program.Beverage.Espresso` or `BSH.Common.Program.Favorite.001`. This automation turns on a light whenever the coffee maker starts any beverage or favorite program, without listing every program.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+alias: "Turn on the light when making coffee"
+triggers:
+  - trigger: state
+    entity_id: sensor.coffee_maker_active_program
+    attribute: raw_value
+conditions:
+  - condition: template
+    value_template: >
+      {% set key = state_attr('sensor.coffee_maker_active_program', 'raw_value') or '' %}
+      {{ '.Program.Beverage.' in key or '.Program.Favorite.' in key }}
+actions:
+  - action: light.turn_on
+    target:
+      entity_id: light.kitchen
+```
+
+{% endraw %}
+
+{% enddetails %}
+
 ## Data updates
 
 This integration uses server-sent events from the Home Connect API to receive live updates from the appliances.
@@ -1302,6 +1342,8 @@ If you see programs in the app or the physical device that are missing in the in
 ##### Solution
 
 The program key needs to be added to the integration. To help with that, you can open an issue at [aiohomeconnect](https://github.com/MartinHjelmare/aiohomeconnect) about the missing program key.
+
+Programs that can't be selected or started by the user, such as machine care programs, are intentionally not listed. To use them in automations, enable the **Active program** or **Selected program** sensor, which reports every program the appliance sends.
 
 #### Symptom: "the "active program" and "selected program" entities are not provided by the integration"
 
