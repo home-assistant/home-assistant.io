@@ -65,7 +65,7 @@ Recognize food in edited items:
   description: >-
     When enabled, Mealie checks edited to-do list items to find matches in your food items and identify quantities and units. If it finds a confident match, Mealie updates the food item, unit, and quantity. If disabled, the item is updated as entered. Enabled by default.
 Recognition method:
-  description: The method to use for processing to-do list items. If you select OpenAI, you must set up an API key in Mealie.
+  description: The method to use for processing to-do list items. The available methods are **Brute force**, **Natural language processing**, and **OpenAI**. The default is **Natural language processing**. If you select **OpenAI**, you must set up an API key in Mealie.
 {% endconfiguration_basic %}
 
 ## Available calendars
