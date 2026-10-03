@@ -679,6 +679,7 @@ source/_integrations/metoffice.markdown @MrHarcombe @avee87
 source/_integrations/microbees.markdown @microBeesTech
 source/_integrations/midea.markdown @chemelli74 @rokam @caibinqing
 source/_integrations/miele.markdown @astrandb
+source/_integrations/mijn_farmad_apotheek.markdown @DaanVervacke
 source/_integrations/mijndomein_energie.markdown @klaasnicolaas
 source/_integrations/mikrotik.markdown @engrbm87 @chemelli74
 source/_integrations/mill.markdown @danielhiversen
@@ -1757,6 +1758,8 @@ source/_actions/media_player.volume_up.markdown @home-assistant/core
 source/_actions/miele.get_programs.markdown @astrandb
 source/_actions/miele.set_program.markdown @astrandb
 source/_actions/miele.set_program_oven.markdown @astrandb
+source/_actions/mijn_farmad_apotheek.order_medication.markdown @DaanVervacke
+source/_actions/mijn_farmad_apotheek.search_medication.markdown @DaanVervacke
 source/_actions/mill.set_room_temperature.markdown @danielhiversen
 source/_actions/minio.get.markdown @tkislan
 source/_actions/minio.put.markdown @tkislan
