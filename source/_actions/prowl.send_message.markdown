@@ -16,12 +16,12 @@ To send a notification from an automation or a script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
-3. If you're setting up a new automation, add a trigger in the **When** section. Scripts do not need a trigger.
+3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Prowl: Send message**.
-6. Under **Target**, select the Prowl notifier to send the message to (see [Targets](#targets)).
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Prowl notify entity you want to send the message to.
+6. From the actions shown for that target, select **Send message**.
 7. In **Message**, enter a message for the notification.
-8. _Optional_: enter a **Title**, select a **Priority**, or enter a **URL**.
+8. Optionally, enter a **Title**, select a **Priority**, or enter a **URL**.
 9. Select **Save**.
 
 ### Options in the UI
@@ -34,7 +34,7 @@ Message:
   description: The message body of the notification.
   required: true
 Priority:
-  description: Priority of the notification. Possible values are **Very low**, **Moderate**, **Normal**, **High**, and **Emergency**. Emergency notifications may bypass quiet hours, depending on the settings in the Prowl app.
+  description: Priority of the notification. Possible values are **Very low**, **Moderate**, **Normal**, **High**, and **Emergency**. Defaults to **Normal**. Emergency notifications may bypass quiet hours, depending on the settings in the Prowl app.
   required: false
 URL:
   description: A URL that is opened when the notification is selected in the Prowl app.
@@ -72,7 +72,7 @@ message:
   type: string
 priority:
   description: >
-    Priority of the notification. Possible values are `very_low`, `moderate`, `normal`, `high`, and `emergency`. Emergency notifications may bypass quiet hours, depending on the settings in the Prowl app.
+    Priority of the notification. Possible values are `very_low`, `moderate`, `normal`, `high`, and `emergency`. Defaults to `normal`. Emergency notifications may bypass quiet hours, depending on the settings in the Prowl app.
   required: false
   type: string
 url:
@@ -92,9 +92,14 @@ url:
 
 When the front door opens, send a high-priority Prowl notification that links to your Home Assistant instance.
 
-- **Trigger**: Door opened (`door.opened`)
-- **Action**: Prowl: Send message (`prowl.send_message`)
+- **Trigger**: Door opened
+  - **Target**: Front door (`binary_sensor.front_door`)
+- **Action**: Send message
   - **Target**: Prowl (`notify.prowl`)
+  - **Priority**: High
+  - **URL**: `https://my.home-assistant.io/`
+
+{% details "Show example YAML" %}
 
 {% example %}
 automation: |
@@ -111,8 +116,42 @@ automation: |
         title: "Front door"
         message: "The front door was opened."
         priority: high
-        url: https://my.home-assistant.io/
+        url: "https://my.home-assistant.io/"
 {% endexample %}
+
+{% enddetails %}
+
+### Automation: send an emergency notification when water is detected
+
+When a leak sensor detects water, send an emergency Prowl notification. Depending on your Prowl app settings, emergency notifications can bypass quiet hours, so you are alerted even at night.
+
+- **Trigger**: State
+  - **Entity**: Kitchen leak sensor (`binary_sensor.kitchen_leak`)
+  - **To**: Wet
+- **Action**: Send message
+  - **Target**: Prowl (`notify.prowl`)
+  - **Priority**: Emergency
+
+{% details "Show example YAML" %}
+
+{% example %}
+automation: |
+  alias: "Prowl: water leak detected"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.kitchen_leak
+      to: "on"
+  actions:
+    - action: prowl.send_message
+      target:
+        entity_id: notify.prowl
+      data:
+        title: "Water leak"
+        message: "Water was detected by the kitchen leak sensor."
+        priority: emergency
+{% endexample %}
+
+{% enddetails %}
 
 {% include actions/stuck.md %}
 

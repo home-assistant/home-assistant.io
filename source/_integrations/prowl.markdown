@@ -46,40 +46,42 @@ action: |
 
 {% include integrations/actions.md %}
 
-## Legacy notify action (deprecated)
+## Prowl automation examples
 
-{% warning %}
-The legacy `notify.NOTIFIER_NAME` action that is set up with YAML in {% term "`configuration.yaml`" %} is deprecated and will be removed in Home Assistant 2027.5. When you use it, a repair issue is raised.
+You can use this integration to send a push notification to your iOS device when something happens in your home.
 
-To migrate, remove the Prowl notify configuration from your {% term "`configuration.yaml`" %} file, [set up the integration in the UI](#configuration), and update your automations and scripts to use the `notify.send_message` or [`prowl.send_message`](/actions/prowl.send_message/) action with the Prowl notify entity as target.
-{% endwarning %}
+{% include docs/paste_yaml_tip.md %}
 
-```yaml
-# Example configuration.yaml entry
-notify:
-  - name: NOTIFIER_NAME
-    platform: prowl
-    api_key: YOUR_API_KEY
-```
+### Automation: send a notification when the front door opens
 
-{% configuration %}
-name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
-  required: false
-  default: notify
-  type: string
-api_key:
-  description: The Prowl API key to use.
-  required: true
-  type: string
-{% endconfiguration %}
+This automation sends a high-priority notification when the front door opens.
 
-The following attributes can be placed in `data` of the legacy action for extended functionality.
+- **Trigger**: Door opened
+  - **Target**: Front door (`binary_sensor.front_door`)
+- **Action**: Send message
+  - **Target**: Prowl (`notify.prowl`)
+  - **Priority**: High
 
-| Data attribute | Optional | Default | Description                                                                                                     |
-| -------------- | -------- | ------- | --------------------------------------------------------------------------------------------------------------- |
-| `priority`     | yes      | 0       | Priority level, for more info refer to the [Prowl API documentation](https://www.prowlapp.com/api.php#add).     |
-| `url`          | yes      | n/a     | URL to be attached, for more info refer to the [Prowl API documentation](https://www.prowlapp.com/api.php#add). |
+{% details "YAML example for a notification when the front door opens" %}
+
+{% example %}
+automation: |
+  alias: "Prowl: front door opened"
+  triggers:
+    - trigger: door.opened
+      target:
+        entity_id: binary_sensor.front_door
+  actions:
+    - action: prowl.send_message
+      target:
+        entity_id: notify.prowl
+      data:
+        title: "Front door"
+        message: "The front door was opened."
+        priority: high
+{% endexample %}
+
+{% enddetails %}
 
 ## Removing the integration
 
