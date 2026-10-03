@@ -45,9 +45,10 @@ API key:
 
 You can recheck your existing Axle Energy token or replace it at any time:
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Axle Energy**.
-2. Open the three-dot menu for the entry you want to update and select **Reconfigure**.
-3. On the token page, enter a valid token from the [**Home Assistant** section of your Axle account](https://vpp.axle.energy/app/account/home-assistant) in **API key**, then select **Submit**. If **Generate Token** is available in your account, select it before copying the token. Enter the token without a `Bearer ` prefix.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Axle Energy**, and open the three-dot menu for the entry you want to update. Select **Reconfigure**.
+2. If you are replacing the token, open the [**Home Assistant** section of your Axle account](https://vpp.axle.energy/app/account/home-assistant). If **Generate Token** is available, select it, then copy the token.
+3. The **API key** field is prefilled with the current token. Leave it unchanged to recheck the token, or replace it with the token you copied. Do not include the `Bearer ` prefix.
+4. Select **Submit**.
 
 Home Assistant validates the token before updating the entry. If the token is invalid or is already used by another entry, an error is shown and the form stays open so you can enter a different token. Your saved token is unchanged. A successful update preserves the entry's sensors and entity IDs, so your automations can continue using them. Each configured feed needs its own token.
 
@@ -146,7 +147,7 @@ When Axle returns an empty schedule, **Event in progress** is off and the three 
 
 Check that you copied the full token from the **Home Assistant** section of your Axle account. Enter only the token in **API key**, without a `Bearer ` prefix.
 
-If Axle rejects the token for an existing feed, Home Assistant displays a notification asking you to authenticate again. Select **Reconfigure** on the notification and enter the existing token again to recheck it, or enter a replacement token.
+If Axle rejects the token for an existing feed, Home Assistant displays a notification asking you to authenticate again. Select **Reconfigure** on the notification. The authentication flow opens with a blank **API key** field. Before entering a token, open the [**Home Assistant** section of your Axle account](https://vpp.axle.energy/app/account/home-assistant). If **Generate Token** is available, select it, then copy the token. Enter a valid token without a `Bearer ` prefix, then select **Submit**.
 
 If Axle still rejects the token from your account, contact [Axle support](https://help.axle.energy/). You can also contact support for guidance on revoking an existing token.
 
