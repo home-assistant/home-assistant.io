@@ -74,6 +74,7 @@ Each air conditioner or heat pump indoor unit is exposed as a climate entity wit
 Each heating zone of an air-to-water heat pump is exposed as a separate climate entity. Zone 2 is only created when the unit reports zone 2 support.
 
 - **HVAC modes**: Off, Heat, Cool (if supported by the unit)
+- **HVAC action**: Heating, Cooling, Idle (while the unit is stopped or heating the hot water tank), or Off
 - **Target temperature** (per zone)
 - **Current room temperature** (per zone)
 
