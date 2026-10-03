@@ -39,13 +39,35 @@ In addition, the entity can have the following states:
 
 ## Device class
 
-{% include integrations/device_class_intro.md %}
+The device class tells Home Assistant whether a switch controls a power outlet.
 
- The following device classes are supported for switches:
+The device class makes a difference in the following places:
 
-- **None**: Generic switch. This is the default and doesn't need to be set.
-- **outlet**: A switch for a power outlet.
-- **switch**: A generic switch.
+- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/) and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, show an outlet as an outlet. [Alexa](/integrations/alexa/) shows it as a smart plug. Other switches show up as switches.
+- Icon and name: An outlet shows a plug {% icon "mdi:power-plug" %}. Other switches show a toggle {% icon "mdi:toggle-switch-variant" %}.
+- History and Activity: If you have switches with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
+
+The integration that provides the switch sets the device class.
+
+### List of available device classes
+
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
+
+- {% icon "mdi:toggle-switch-variant" %} No device class: A generic switch.
+- {% icon "mdi:power-plug" %} **Outlet** (`outlet`): A switch for a power outlet.
+- {% icon "mdi:toggle-switch-variant" %} **Switch** (`switch`): A generic switch.
+
+In templates, the device class is the `device_class` attribute of the entity. Use the stored value, such as `outlet`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
+
+### Changing the device class of a switch
+
+If a switch powers an outlet but shows up as a switch, or the other way around, you can change its device class. Under **Show as**, **Switch** and **Outlet** change the device class. The other options, such as **Light** or **Fan**, don't. Instead, Home Assistant creates a new entity of that type that controls the switch, and hides the switch. For details, refer to [Change device type of a switch](/integrations/switch_as_x/).
+
+1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the switch.
+2. In the top-right corner, select the cog {% icon "mdi:cog" %}.
+3. Under **Show as**, select **Switch** or **Outlet**.
+4. Select **Update**.
+   - Result: The switch shows the matching icon, and voice assistants show it as the new type.
 
 {% include integrations/triggers.md %}
 
