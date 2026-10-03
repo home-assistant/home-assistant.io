@@ -22,16 +22,11 @@ Unlike a switch, a button has no `on` or `off` state. Instead, it remembers when
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a button
+## Button states
 
 The button {% term entity %} is stateless. Unlike a normal switch entity, it does not have an `on` or `off` state.
 
-The state of a button is a timestamp showing when the button was last pressed via the Home Assistant UI or an action.
-
-<p class='img'>
-<img src='/images/integrations/button/state_button.png' alt='Screenshot showing the state of a button entity in the States tab of Tools.' />
-Screenshot showing the state of a button entity in {% my tools_states title="Settings > Tools > States" %}
-</p>
+The state of a button is a timestamp showing when the button was last pressed from the Home Assistant interface or by an action. The Home Assistant interface shows this timestamp in your local date and time format.
 
 In addition, the entity can have the following states:
 
