@@ -19,9 +19,9 @@ For each task, you can set a preferred AI task entity. This allows you to use di
 
 ## AI task states
 
-The {% term state %} of an AI task {% term entity %} is a timestamp showing the date and time when the AI task was last used. The Home Assistant interface shows this timestamp in your local date and time format.
+The {% term state %} of an AI task {% term entity %} is a timestamp showing the date and time when the AI task was last used. Home Assistant stores the timestamp in UTC, for example, `2026-01-01T12:00:00.123456+00:00`. The Home Assistant interface shows it in your local date and time format.
 
-In addition, the entity can have the following states:
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
 - **Unavailable** (`unavailable`): The entity is currently unavailable.
 - **Unknown** (`unknown`): The state is not yet known.
