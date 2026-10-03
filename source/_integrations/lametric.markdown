@@ -8,6 +8,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Time
   - Update
 ha_iot_class: Local Polling
 ha_release: 0.49
@@ -24,6 +25,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - time
   - update
 ha_integration_type: device
 ha_config_flow: true
@@ -110,6 +112,21 @@ During setup, you can choose between two methods:
 - **Bluetooth**
   - **Description**: Toggle the device's Bluetooth radio on or off.
   - **Entity category**: Configuration
+
+### Times
+
+- **Screensaver start time**
+  - **Description**: The time the time-based screensaver starts, in your Home Assistant time zone.
+  - **Entity category**: Configuration
+- **Screensaver end time**
+  - **Description**: The time the time-based screensaver ends, in your Home Assistant time zone.
+  - **Entity category**: Configuration
+
+Changing a time only changes the schedule. The screensaver mode that is active on the device, for example the one that turns on when it gets dark, stays active.
+
+The device only accepts both times together. If no screensaver times were ever set on the device, setting one time sets both to that time, until you set the other one as well.
+
+These entities are not available on the LaMetric SKY.
 
 ### Update
 
