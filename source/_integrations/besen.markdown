@@ -57,7 +57,7 @@ PIN:
 
 The {% term integration %} provides a **Charge** switch to start or stop charging.
 
-The switch state follows the charging state reported by the charger. It stays off while a scheduled start is pending. Turning the switch off cancels a scheduled start.
+The switch state follows the charging state reported by the charger. It stays off while a scheduled start is pending. To cancel a scheduled start, use the [**Turn off switch**](/actions/switch.turn_off/) action on the **Charge** switch. Because the switch is already off at that point, its toggle on a dashboard cannot send that command.
 
 ### Number
 
@@ -111,33 +111,59 @@ Use the standard entity actions to control the charger:
 
 {% include integrations/actions.md %}
 
-## Examples
+## Besen automation examples
 
-Start charging when an off-peak tariff starts:
+Charging when electricity is cheapest is a common use of this integration. Here are a few ideas to get you started. To let the charger start and stop by itself, see the examples for the [**Start charging**](/actions/besen.start_charging/) action.
 
-```yaml
-alias: Start EV charging off peak
-triggers:
-  - trigger: time
-    at: "23:00:00"
-actions:
-  - action: switch.turn_on
-    target:
-      entity_id: switch.besen_charge
-```
+{% include docs/paste_yaml_tip.md %}
 
-Stop charging before a peak tariff starts:
+### Automation: start charging when the off-peak tariff starts
 
-```yaml
-alias: Stop EV charging before peak tariff
-triggers:
-  - trigger: time
-    at: "17:00:00"
-actions:
-  - action: switch.turn_off
-    target:
-      entity_id: switch.besen_charge
-```
+Start charging every evening when your off-peak tariff begins.
+
+- **Trigger**: Time: 23:00
+- **Action**: Turn on switch
+  - **Target**: Charge switch of the charger (`switch.besen_charge`)
+
+{% details "YAML example for starting charging when the off-peak tariff starts" %}
+
+{% example %}
+automation: |
+  alias: "Start EV charging off peak"
+  triggers:
+    - trigger: time
+      at: "23:00:00"
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.besen_charge
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: stop charging before the peak tariff starts
+
+Stop charging every afternoon before your peak tariff begins.
+
+- **Trigger**: Time: 17:00
+- **Action**: Turn off switch
+  - **Target**: Charge switch of the charger (`switch.besen_charge`)
+
+{% details "YAML example for stopping charging before the peak tariff starts" %}
+
+{% example %}
+automation: |
+  alias: "Stop EV charging before peak tariff"
+  triggers:
+    - trigger: time
+      at: "17:00:00"
+  actions:
+    - action: switch.turn_off
+      target:
+        entity_id: switch.besen_charge
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 

@@ -44,21 +44,22 @@ action: |
   target:
     entity_id: switch.besen_charge
   data:
-    start: "2026-11-05 01:00:00"
+    start: "{{ (now() + timedelta(hours=2)).isoformat() }}"
     duration:
       hours: 3
 {% endexample %}
 
-This makes the charger start charging at 01:00 on November 5, 2026, and stop three hours later.
+This makes the charger start charging two hours from now and stop three hours after that.
 
 ### Options in YAML
 
 {% options_yaml %}
 start:
   description: >
-    When the charger starts charging, at most 24 hours ahead. A time without a
-    UTC offset, such as `2026-11-05 01:00:00`, is in the time zone of Home
-    Assistant. Leave it out to start now.
+    When the charger starts charging, at most 24 hours ahead. Accepts a date and
+    time in the format `YYYY-MM-DD HH:MM:SS`, or a template that returns one. A
+    time without a UTC offset is in the time zone of Home Assistant. Leave it
+    out to start now.
   required: false
   type: datetime
 duration:
@@ -76,7 +77,7 @@ duration:
 
 - The schedule is stored on the charger. The charger holds one schedule at a time, and you can schedule charging before the vehicle is plugged in.
 - While a start is scheduled, the **Charge** switch stays off and the **Charging message** sensor shows **Charging reservation**. The **Scheduled start** and **Charging time limit** sensors show what the charger accepted.
-- To cancel a scheduled start, turn the **Charge** switch off.
+- To cancel a scheduled start, use the [**Turn off switch**](/actions/switch.turn_off/) action on the **Charge** switch. The switch is already off while a start is scheduled, so its toggle on a dashboard cannot send that command.
 - The charger rejects a new start while a start is scheduled or a session is charging. Cancel the schedule or stop the session first.
 - With only a **Duration**, charging starts now, so the vehicle must be plugged in.
 - The session uses the current set by the **Charging current** number.
@@ -90,7 +91,7 @@ duration:
 
 Every evening, schedule charging for the start of the off-peak tariff and let the charger stop when the tariff ends.
 
-- **Trigger**: Time: at 20:00
+- **Trigger**: Time: 20:00
 - **Action**: Besen: Start charging
   - **Target**: Charge switch of the charger (`switch.besen_charge`)
   - **Start**: 23:30 today
@@ -120,7 +121,7 @@ automation: |
 
 Use the hours when your solar panels produce the most. Every day at noon, start charging and let the charger stop two hours later.
 
-- **Trigger**: Time: at 12:00
+- **Trigger**: Time: 12:00
 - **Action**: Besen: Start charging
   - **Target**: Charge switch of the charger (`switch.besen_charge`)
   - **Duration**: 2 hours
