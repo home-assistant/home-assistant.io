@@ -35,18 +35,25 @@ In addition, the entity can have the following states:
 
 ## Device class
 
-{% include integrations/device_class_intro.md %}
+The device class tells Home Assistant whether a device adds moisture to the air or removes it.
 
-The screenshot shows different text and UI for different device classes for humidifiers:
+The device class makes a difference in the following places:
 
-<p class='img'>
-<img src='/images/screenshots/humidifier_device_class.png' />
-Humidifier device classes.
-</p>
+- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/) and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, show the device as a humidifier or a dehumidifier. Without a device class, they show it as a humidifier.
+- Display: For a dehumidifier, the target humidity slider is filled from the high end.
+- Icon and name: Both device classes use the same icon.
+- History and Activity: If you have humidifiers with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
 
-The following device classes are supported for humidifiers:
+The integration that provides the humidifier sets the device class.
 
-- **Humidifier**: Adds humidity to the air around it.
-- **Dehumidifier**: Removes humidity from the air around it.
+### List of available device classes
+
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
+
+- No device class: The device works like a humidifier.
+- **Humidifier** (`humidifier`): Adds humidity to the air around it.
+- **Dehumidifier** (`dehumidifier`): Removes humidity from the air around it.
+
+In templates, the device class is the `device_class` attribute of the entity. Use the stored value, such as `dehumidifier`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 {% include integrations/triggers_conditions_actions.md %}
