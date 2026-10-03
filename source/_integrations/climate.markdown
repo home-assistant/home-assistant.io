@@ -26,8 +26,8 @@ A climate entity can have the following states, depending on the specific climat
 - **Auto** (`auto`): The device is set to a schedule, learned behavior, AI.
 - **Dry** (`dry`): The device is set to dry/humidity mode.
 - **Fan only** (`fan_only`): The device only has the fan on. No heating or cooling is taking place.
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 ## Attributes
 
