@@ -662,6 +662,10 @@ send_on_init:
 
 ## Entity platforms
 
+For lights, switches, and covers, **Activity** shows the KNX individual address of the device whose telegram changed the entity's state. If you have imported an ETS project, the device name is also shown.
+
+If the update comes from an actuator's status telegram, **Activity** identifies the actuator, which may differ from the wall switch that initiated the change. Updates that only change brightness, color, or cover position do not create additional Activity entries.
+
 ### Common entity configuration options
 
 All KNX entity platforms support the following common configuration options.
