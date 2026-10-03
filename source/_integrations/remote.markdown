@@ -30,13 +30,6 @@ In addition, the entity can have the following states:
 - **Unavailable** (`unavailable`): The entity is currently unavailable.
 - **Unknown** (`unknown`): The state is not yet known.
 
-## Good to know
-
-The entity can also have the following states:
-
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
-
 {% include integrations/triggers_conditions_actions.md %}
 
 ## Remote automation examples
