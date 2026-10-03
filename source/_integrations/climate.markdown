@@ -15,17 +15,17 @@ The **Climate** {% term integration %} allows you to control and monitor HVAC (h
 
 {% include integrations/building_block_integration.md %}
 
-## The state of an HVAC entity
+## Climate states
 
-An HVAC entity can have the following states, depending on the specific climate device and its capabilities.
+A climate entity can have the following states, depending on the specific climate device and its capabilities. Each item shows the label used in the Home Assistant interface, followed by the state value.
 
-- **Off**: The device is turned off.
-- **Heat**: The device is set to heat to a target temperature.
-- **Cool**: The device is set to cool to a target temperature.
-- **Heat/Cool**: The device is set to heat/cool to a target temperature range.
-- **Auto**: The device is set to a schedule, learned behavior, AI.
-- **Dry**: The device is set to dry/humidity mode.
-- **Fan only**: The device only has the fan on. No heating or cooling is taking place.
+- **Off** (`off`): The device is turned off.
+- **Heat** (`heat`): The device is set to heat to a target temperature.
+- **Cool** (`cool`): The device is set to cool to a target temperature.
+- **Heat/Cool** (`heat_cool`): The device is set to heat/cool to a target temperature range.
+- **Auto** (`auto`): The device is set to a schedule, learned behavior, AI.
+- **Dry** (`dry`): The device is set to dry/humidity mode.
+- **Fan only** (`fan_only`): The device only has the fan on. No heating or cooling is taking place.
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
 
