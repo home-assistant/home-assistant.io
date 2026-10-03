@@ -19,7 +19,7 @@ If you are looking for a way to create a similar entity, please take a look at t
 
 ## Time states
 
-The {% term state %} of a time {% term entity %} is a time, stored in the format HH:MM:SS, for example, `07:30:00`. The Home Assistant interface shows the time in your local time format.
+The {% term state %} of a time {% term entity %} is a time, stored in the format HH:MM:SS, for example, `07:30:00`. If the time includes fractions of a second, they follow the seconds, for example, `07:30:00.500000`. The Home Assistant interface shows the time in your local time format.
 
 In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
