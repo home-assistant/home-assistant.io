@@ -449,6 +449,8 @@ context: null
 For automation triggers, it is recommended to use the [knx.telegram](#telegram-trigger) trigger instead of `knx_event`.
 {% endtip %}
 
+Buttons created in the KNX panel can optionally send a pulse. Configure **Reset after** to send **Reset data** to the same group address after the selected delay. Leave **Reset after** disabled to send only the main button data.
+
 ```yaml
 knx:
   event:
