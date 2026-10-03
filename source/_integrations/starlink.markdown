@@ -69,6 +69,7 @@ The **Starlink** {% term integration %} allows you to integrate your [Starlink](
 
 - Stowed - Controls whether Dishy is stowed
 - Sleep schedule - Controls whether Starlink will enter a power-saving sleep mode at a predefined schedule
+- Use Starlink positioning exclusively - Controls whether Dishy determines its position using Starlink satellites only, without GPS. This is the same as the "Use Starlink positioning exclusively" setting in the Starlink app, and can help in areas where GPS is jammed or spoofed
 
 ### Device trackers
 
