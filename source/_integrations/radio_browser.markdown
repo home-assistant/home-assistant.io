@@ -81,7 +81,7 @@ Radio Browser does not poll in the background. The station directory is fetched 
 
 ### Cannot connect during setup
 
-If you see a "Cannot connect" error during setup, Home Assistant could not reach the Radio Browser service. Check that Home Assistant has a working internet connection, then try again. Radio Browser runs on community servers, so it can also be down for a while; in that case, try again later.
+If you see a "Failed to connect" error during setup, Home Assistant could not reach the Radio Browser service. Check that Home Assistant has a working internet connection, then try again. Radio Browser runs on community servers, so it may be down for a while. If it is, try again later.
 
 ### A station does not play
 
