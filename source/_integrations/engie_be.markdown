@@ -20,11 +20,7 @@ The **ENGIE Belgium** {% term integration %} integrates the [ENGIE Belgium](http
 
 The integration makes it possible to retrieve the electricity and gas prices from your ENGIE Belgium contracts, to gain insight into your rate and to adjust your consumption accordingly. It creates one set of price sensors per address (business agreement) on your account.
 
-## Use cases
-
-- Follow the current electricity and gas prices for each meter on a dashboard, and see them change whenever your tariff is revised.
-- Use the price sensors in automations that estimate the cost of running appliances.
-- Compare the offtake and injection prices to decide when it pays to use your solar production yourself instead of sending it back to the grid.
+Use case: Follow the current electricity and gas prices for each meter on a dashboard and see them change whenever your tariff is revised. Use the price sensors in automations that estimate the cost of running appliances. Compare the offtake and injection prices to decide when it pays to use your solar production yourself instead of sending it back to the grid.
 
 ## Prerequisites
 
@@ -50,7 +46,11 @@ Verification code:
 
 Once you are signed in, the integration finds every active business agreement (address) on the account. Each address becomes a device, and the meters (EANs) on that address get their price sensors.
 
-## Sensors
+## Supported functionality
+
+The **ENGIE Belgium** integration provides the following entities.
+
+### Sensors
 
 The integration looks at the contract on each meter and creates the price sensors that fit it. All prices are in EUR/kWh, shown with six decimals.
 
