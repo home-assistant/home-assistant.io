@@ -36,8 +36,8 @@ A camera can have the following states. Not all camera integrations support all 
 - **Streaming** (`streaming`): The camera transmits a live play-back of the video data it is recording.
 - **Recording** (`recording`): The camera is currently capturing video content.
 - **Idle** (`idle`): The camera is not currently capturing video content.
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 {% include integrations/actions.md %}
 
