@@ -902,7 +902,7 @@ This sensor will be available only if the program is running
   - **Availability**: All the appliances with programs
 
 {% important %}
-The **Active program** and **Selected program** sensors are disabled by default. Unlike the **Active program** and **Selected program** select entities, they report every program the appliance sends, so they are useful for automations based on programs that aren't listed in the select entities.
+The **Active program** and **Selected program** sensors are disabled by default. [Enable them in the entity settings](/common-tasks/general/#enabling-or-disabling-entities) before using them in an automation. Unlike the **Active program** and **Selected program** select entities, the sensors report every program the appliance sends, so they are useful for automations based on programs that aren't listed in the select entities.
 {% endimportant %}
 
 - **Operation state**:
