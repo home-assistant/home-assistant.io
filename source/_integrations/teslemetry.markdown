@@ -80,7 +80,7 @@ To pair a vehicle again without removing it, for example after its Bluetooth add
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Teslemetry** integration.
 2. Next to the vehicle under **Bluetooth vehicle**, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
-3. Home Assistant looks for that vehicle over Bluetooth again. Make sure the vehicle is within range, then continue.
+3. Home Assistant looks for that vehicle over Bluetooth again. Make sure the vehicle is within range and that fewer than three phone keys are nearby, then continue.
 4. If Home Assistant's virtual key is no longer on the vehicle, approve it again as you did during setup.
 
 Home Assistant then stores the vehicle's current Bluetooth address and reloads the integration so it takes effect.
