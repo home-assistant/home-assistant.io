@@ -24,16 +24,17 @@ add-ons or containers.
 
 For a list of {% term integrations %} offering update entities, on the integrations page, select the ["Update" category](/integrations/#update).
 
-## The state of an update entity
+## Update states
 
-The state of an update {% term entity %} reflects whether an update is available or not.
-When the state is **On**, it means there is an update available; when everything
-is up-to-date, the state is **Off**.
+The {% term state %} of an update {% term entity %} shows whether an update is available. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
+
+- **Update available** (`on`): A newer version is available.
+- **Up-to-date** (`off`): The installed version is the latest version, or you skipped the latest version.
 
 In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 The following state attributes are exposed to provide more
 information on the update state:
