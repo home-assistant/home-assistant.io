@@ -48,6 +48,9 @@ Use cases for this integration include:
 The following LaMetric devices are known to be supported:
 
 - [LaMetric TIME](https://lametric.com/)
+- [LaMetric SKY](https://lametric.com/)
+
+The screensaver time entities are not available on the LaMetric SKY. The volume and Bluetooth entities are only added when the device reports audio and Bluetooth support, which a LaMetric SKY on recent firmware does not.
 
 ## Prerequisites
 
