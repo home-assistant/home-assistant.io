@@ -17,18 +17,13 @@ a limited set of selectable options for the entity.
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a select entity
+## Select states
 
-The state of a select entity is the value of the currently selected option.
+The {% term state %} of a select entity is the currently selected option. The Home Assistant interface shows the label of that option. If the integration translates its options, the label can differ from the stored option. If you write templates or edit automations in YAML, use the stored option.
 
-<p class='img'>
-<img src='/images/integrations/select/state_select.png' alt='Screenshot showing the state of a select entity in the States tab of Tools.' />
-Screenshot showing the state of a select entity in {% my tools_states title="Settings > Tools > States" %}
-</p>
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
-In addition, the entity can have the following states:
-
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 {% include integrations/triggers_conditions_actions.md %}
