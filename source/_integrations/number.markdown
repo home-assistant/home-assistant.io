@@ -25,7 +25,7 @@ If you are looking for a way to create a number entity, please take a look at th
 
 ## Number states
 
-The state of a number entity is a number, stored without its unit, for example, `21.5`. The Home Assistant interface shows the number with its unit, in your local number format, for example, **21.5 °C**.
+The state of a number entity is a number, stored without its unit, for example, `21.5`. The Home Assistant interface shows the number in your local number format, with its unit if it has one, for example, **21.5 °C**.
 
 In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
