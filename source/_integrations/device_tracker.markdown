@@ -24,7 +24,7 @@ To set up device tracking, add an integration that provides `device_tracker` ent
 
 ## Device tracker states
 
-A device tracker can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. You use the stored state in templates and YAML automations.
+A device tracker can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
 
 - The name of the smallest [zone](/integrations/zone/) the device is currently in. The interface shows the same name.
 - **Home** (`home`): The device is in the [home zone](/integrations/zone#home-zone).
