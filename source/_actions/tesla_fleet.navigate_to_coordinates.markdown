@@ -19,7 +19,7 @@ To send a destination from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Tesla Fleet: Navigate to coordinates**.
 6. Select the **Vehicle** to send the destination to.
-7. Set the **Location** to the coordinates you want to navigate to.
+7. Set the **Location** by picking the place on the map.
 8. Select **Save**.
 
 ### Options in the UI
@@ -28,7 +28,7 @@ To send a destination from an automation or a script:
 Vehicle:
   description: The vehicle to send the destination to.
 Location:
-  description: The location to navigate to, as a latitude and longitude.
+  description: The location to navigate to, as a latitude and longitude. Pick it on the map.
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
