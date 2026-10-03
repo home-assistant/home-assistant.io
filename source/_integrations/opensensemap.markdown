@@ -4,6 +4,7 @@ description: Instructions on how to set up openSenseMap sensors in Home Assistan
 ha_category:
   - Health
   - Sensor
+  - Update
 ha_release: 0.85
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -11,6 +12,7 @@ ha_domain: opensensemap
 ha_platforms:
   - air_quality
   - sensor
+  - update
 ha_integration_type: service
 ha_quality_scale: bronze
 ha_codeowners:
