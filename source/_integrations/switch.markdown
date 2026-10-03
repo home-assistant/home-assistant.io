@@ -25,14 +25,17 @@ The **Switch** {% term integration %} manages the state of the switch entities a
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a switch entity
+## Switch states
 
-The state of a switch {% term entity %} can be either **On** or **Off**.
+A switch entity can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
+
+- **On** (`on`): The switch is turned on.
+- **Off** (`off`): The switch is turned off.
 
 In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 ## Device class
 
