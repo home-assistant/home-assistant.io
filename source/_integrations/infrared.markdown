@@ -115,17 +115,19 @@ The appliance you want to control, such as a TV, air conditioner, amplifier, or 
 
 The Home Assistant representation of a single emitter or receiver. This is what you select when configuring an integration for an infrared-controlled device.
 
-## About the state of an infrared entity
+## Infrared states
 
-The infrared entity is stateless in the traditional sense, as in, it cannot have a state like `on` or `off`. Instead, the state is a timestamp showing when the {% term entity %} was last active:
+An infrared entity has no `on` or `off` state. Its {% term state %} is a timestamp showing when the {% term entity %} was last active:
 
 - For an emitter, the state is the date and time the last IR command was sent.
 - For a receiver, the state is the date and time the last IR signal was received.
 
-In addition, the entity can have the following states:
+Home Assistant stores the timestamp in UTC, for example, `2026-01-01T12:00:00.123+00:00`. The Home Assistant interface shows it in your local date and time format.
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
+
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 Because the {% term state %} of an infrared entity is a timestamp, it changes every time the entity is used. This means you can use it to track when the emitter last sent a command, or when the receiver last picked up a signal. The logbook can also show context about which {% term integration %} or {% term action %} triggered the IR event.
 
