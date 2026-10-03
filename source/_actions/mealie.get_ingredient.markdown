@@ -21,7 +21,7 @@ To get an ingredient from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Mealie: Get meal plan**.
+5. From the search box, search for and select **Mealie: Get ingredient**.
 6. Select the **Mealie instance** you want to use, and enter the ingredient you want to get, such as `1 kg bananas`.
 7. In the **Response variable** field, enter a name to store the data in, such as `ingredient`.
 8. Select **Save**.
@@ -30,7 +30,7 @@ To get an ingredient from an automation or a script:
 
 {% options_ui %}
 Mealie instance:
-  description: The Mealie instance to delete the meal plan on.
+  description: The Mealie instance to get the ingredient on.
 Ingredient:
   description: The ingredient to find matches for in your food items and identify quantities and units.
   required: true
@@ -46,7 +46,7 @@ action: |
   data:
     config_entry_id: YOUR_MEALIE_CONFIG_ENTRY_ID
     ingredient: `1 kg bananas`
-    response_variable: ingredient
+  response_variable: ingredient
 {% endexample %}
 
 This gets the food, unit, and quantity that matches `1 kg bananas` with the confidence rating of matching accuracy and stores it in the `ingredient` response variable.
@@ -55,7 +55,7 @@ This gets the food, unit, and quantity that matches `1 kg bananas` with the conf
 
 {% options_yaml %}
 config_entry_id:
-  description: The ID of the Mealie config entry to search.
+  description: The ID of the Mealie config entry to get the ingredient on.
   required: true
   type: string
 ingredient:
@@ -66,9 +66,7 @@ ingredient:
 
 ## Response data
 
-The action returns the items on each shopping list you targeted, including structured data for labels, units, and food.
-
-{% include actions/targets.md domain="todo" %}
+The action returns structured data for the ingredient, confidence and original input.
 
 ## Good to know
 
