@@ -81,7 +81,7 @@ for:
 
 ## Good to know
 
-- The trigger fires when the valve reaches the **Closed** state. It does not fire during the transitional **Closing** state while the valve is still moving. You can check the available states in [The state of a valve entity](/integrations/valve/#the-state-of-a-valve-entity).
+- This trigger reacts when the valve reaches the **Closed** state. It does not react to the transitional **Closing** state while the valve is still moving. You can check the available states in [Valve states](/integrations/valve/#valve-states).
 - Valves that report position (0 to 100%) are considered closed only when their position reaches exactly 0.
 - Use the **For at least** option to avoid false alarms from brief or accidental closures, such as a momentary sensor glitch that causes a valve to flicker to closed and back.
 - This trigger works with any valve entity in Home Assistant, including water, gas, and air valves from integrations such as MQTT, Z-Wave, Zigbee, and ESPHome.
