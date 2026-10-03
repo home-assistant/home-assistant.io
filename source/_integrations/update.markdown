@@ -51,13 +51,23 @@ information on the update state:
 
 ## Device class
 
-{% include integrations/device_class_intro.md %}
+The device class tells Home Assistant whether an update is for the firmware of a device.
 
-The following device classes are supported for update entities:
+The device class makes a difference in the following places:
 
-- **`None`**: A generic software update. This is the default and doesn't need
-  to be set.
-- **`firmware`**: This update {% term integration %} provides firmwares.
+- Icon and name: The icon stays the same. An update entity without a name of its own is named after its device class: **Firmware**.
+- History and Activity: If you have update entities with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
+
+The integration that provides the update entity sets the device class. When you create an update entity yourself with a [template helper](/integrations/template/), you choose it.
+
+### List of available device classes
+
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
+
+- No device class: A generic software update.
+- **Firmware** (`firmware`): An update for the firmware of a device.
+
+In templates, the device class is the `device_class` attribute of the entity. Use the stored value, such as `firmware`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 {% include integrations/triggers.md %}
 
