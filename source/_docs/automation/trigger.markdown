@@ -27,9 +27,19 @@ The main elements of a trigger that are defined in the `configuration.yaml` file
 
 ### Trigger ID
 
-All triggers can be assigned an optional `id`. If the ID is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from [trigger conditions and actions](/docs/scripts/conditions/#trigger-condition). The `id` does not have to be unique for each trigger, and it can be used to group similar triggers for use later in the automation (such as several triggers of different types that should all turn some entity on).
+In the visual automation editor, select triggers directly when you add a **Triggered by** condition.
+Home Assistant creates and manages the trigger IDs needed for those selections.
 
-Trigger IDs also allow you to set up an automation with many actions, each action depending on a different trigger. An action will be connected to a trigger through the trigger ID and fires only if that trigger is verified. To know how to create an automation using trigger IDs, refer to [Creating an automation with actions that depend on different triggers](/docs/automation/trigger/#creating-an-automation-with-actions-that-depend-on-different-triggers).
+To set a specific trigger ID yourself, edit the automation in YAML.
+All triggers can be assigned an optional `id`.
+If the ID is omitted, Home Assistant uses the trigger's position in the trigger list.
+You can reference the `id` in [trigger conditions and actions](/docs/scripts/conditions/#triggered-by-condition).
+IDs do not have to be unique.
+You can use the same ID to group similar triggers, such as triggers of different types that should all turn an entity on.
+
+Trigger IDs allow you to set up an automation with many actions, each action depending on a different trigger.
+An action is connected to a trigger through the trigger ID and runs only if that trigger is verified.
+To learn how to create an automation using trigger IDs, see [Creating an automation with actions that depend on different triggers](#creating-an-automation-with-actions-that-depend-on-different-triggers).
 
 #### YAML example
 
@@ -80,55 +90,17 @@ For an overview of every trigger across all integrations, see the [triggers refe
 
 For setup steps, YAML options, and examples for the event trigger, see [Event trigger](/triggers/event/).
 
+### Geolocation trigger
+
+The geolocation trigger fires when an entity that is created by a [Geolocation](/integrations/geo_location/) platform appears in or disappears from a zone. For setup steps, YAML options, and examples for the geolocation trigger, see [Geolocation trigger](/integrations/geo_location/#geolocation-trigger).
+
 ### Home Assistant trigger
 
 For setup steps, YAML options, and examples for the Home Assistant trigger, see [Home Assistant trigger](/triggers/homeassistant/).
 
 ### MQTT trigger
 
-Fires when a specific message is received on given MQTT topic. Optionally can match on the payload being sent over the topic. The default payload encoding is 'utf-8'. For images and other byte payloads use `encoding: ''` to disable payload decoding completely.
-
-```yaml
-automation:
-  triggers:
-    - trigger: mqtt
-      topic: "living_room/switch/ac"
-      # Optional
-      payload: "on"
-      encoding: "utf-8"
-```
-
-The `payload` option can be combined with a `value_template` to process the message received on the given MQTT topic before matching it with the payload.
-The trigger in the example below will trigger only when the message received on `living_room/switch/ac` is valid JSON, with a key `state` which has the value `"on"`.
-
-```yaml
-automation:
-  triggers:
-    - trigger: mqtt
-      topic: "living_room/switch/ac"
-      payload: "on"
-      value_template: "{{ value_json.state }}"
-```
-
-It's also possible to use [limited templates](/docs/templating/where-to-use/#limited-templates) in the `topic` and `payload` options.
-
-{% note %}
-The `topic` and `payload` templates are only evaluated when setting up the trigger, they will not be re-evaluated for every incoming MQTT message.
-{% endnote %}
-
-```yaml
-automation:
-  trigger_variables:
-    room: "living_room"
-    node: "ac"
-    value: "on"
-  triggers:
-    - trigger: mqtt
-      topic: "{{ room ~ '/switch/' ~ node}}"
-      # Optional
-      payload: "{{ 'state:' ~ value }}"
-      encoding: "utf-8"
-```
+For setup steps, YAML options, and examples for the MQTT trigger, see [MQTT trigger](/triggers/mqtt/).
 
 ### Numeric state trigger
 
@@ -387,20 +359,6 @@ automation:
 
 Most triggers that have an entity as the target do not fire when an entity transitions _from_ an `unavailable` or `unknown` state. For example, if a light goes offline and comes back on, the `light.turned_on` trigger does not fire for that recovery.
 
-{% tip %}
-This isn't for use with `device_tracker` entities. For those look above at the `zone` trigger.
-{% endtip %}
-
-```yaml
-automation:
-  triggers:
-    - trigger: geo_location
-      source: nsw_rural_fire_service_feed
-      zone: zone.bushfire_alert_zone
-      # Event is either enter or leave
-      event: enter # or "leave"
-```
-
 ## Multiple triggers
 
 It is possible to specify multiple triggers for the same rule. To do so just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, processing of your automation rule begins.
@@ -511,11 +469,9 @@ Instead of creating many automations for different groups of related triggers an
 2. In the lower right corner, select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
 4. Search for the trigger using the search box, for example, and then select it.
-5. In the trigger window on the right, edit the **Trigger ID** by going to the three dots {% icon "mdi:dots-vertical" %} menu > **Edit ID**.
-6. In the **Then do** section, select **Add action** and then select the **Choose** block.
-7. Expand the option section, select **Add condition** and, from the **By type** list, select the **Triggered by** condition.
-8. In the condition window on the right, select the trigger ID that you added in step 5 and then **Save**.
-9. In the section of the same option, select **Add action** and choose the action that will be fired by the related trigger.
-10. In the action window on the right, select the target or group of targets, input any other requested data and select **Save**.
-11. You can add more conditions and actions to that option by repeating steps 6 to 10.
-12. Repeat steps 3 to 11 to add another trigger and related option for the new condition and action.
+5. In the **Then do** section, select **Add action** and then select the **Choose** block.
+6. Expand the option section, select **Add condition** and, from the **By type** list, select **Triggered by**.
+7. In the condition window on the right, select the trigger that you added in step 4, and then select **Save**. Home Assistant creates an ID for the trigger if needed.
+8. In the same option, select **Add action**, and choose the action that runs when the related trigger starts the automation.
+9. In the action window on the right, select the target or group of targets, enter any other requested data, and select **Save**.
+10. To add another trigger and related option, repeat steps 3 to 9.

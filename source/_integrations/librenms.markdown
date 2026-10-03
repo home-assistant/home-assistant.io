@@ -40,7 +40,7 @@ The integration polls data every 60 seconds.
 
 ## Binary sensors
 
-The following {% term binary_sensor %} entities are created.
+The following {% term "binary sensor" %} entities are created.
 
 | Entity | Description | Default enabled |
 | --- | --- | --- |

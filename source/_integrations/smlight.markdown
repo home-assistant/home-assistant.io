@@ -18,6 +18,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - infrared
   - light
   - sensor
   - switch

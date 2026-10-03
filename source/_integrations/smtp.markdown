@@ -14,9 +14,22 @@ ha_integration_type: service
 
 The **SMTP** {% term integration %} allows you to deliver notifications from Home Assistant to an email recipient.
 
+## About SMTP
+
+<abbr title="Simple Mail Transfer Protocol">SMTP</abbr> is a standard protocol used to send email messages between mail servers and email clients. An SMTP server is provided by your email service and handles the delivery of outgoing email messages.
+
+## How you can use the integration
+
+The SMTP integration allows Home Assistant to send email notifications through an SMTP server. You can use it in automations and scripts to send information, alerts, or other notifications by email.
+
+## Prerequisites
+
+You need an email account with SMTP access. Your email provider must allow you to connect to its SMTP server and authenticate with your account.
+
+Before setting up the SMTP integration, make sure you have the SMTP settings provided by your email provider. Most email providers list these settings on their help or support pages.
+
 {% include integrations/config_flow.md %}
 
-Check your email provider configuration or help pages to get the correct SMTP settings.
 {% configuration_basic %}
 Sender email:
     description: "Email address that will appear in the From field."

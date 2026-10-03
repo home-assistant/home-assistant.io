@@ -59,6 +59,10 @@ At the start of the integration, we fetch data from the remote. If the update fa
 
 The integration only supports reading a calendar. A calendar entity has a state and attributes that represent the next upcoming event (only). All the events of the calendar can be displayed in the Calendar dashboard.
 
+### Canceled events
+
+A calendar can keep a canceled event instead of deleting it. Home Assistant leaves it out: it doesn't appear in the calendar, doesn't change the state of the calendar entity, and doesn't trigger [calendar automations](/integrations/calendar/#automation).
+
 ## Calendar Event Automations
 
 Individual Calendar *Events* are what powers automations such as:

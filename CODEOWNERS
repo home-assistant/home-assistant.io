@@ -1424,6 +1424,7 @@ source/_actions/energyzero.get_energy_prices.markdown @klaasnicolaas
 source/_actions/energyzero.get_gas_prices.markdown @klaasnicolaas
 source/_actions/environment_canada.get_alerts.markdown @gwww @michaeldavie
 source/_actions/environment_canada.get_forecasts.markdown @gwww @michaeldavie
+source/_actions/environment_canada.get_precipitation_forecast.markdown @gwww @michaeldavie
 source/_actions/environment_canada.set_radar_type.markdown @gwww @michaeldavie
 source/_actions/eurotronic_cometblue.get_schedule.markdown @rikroe
 source/_actions/eurotronic_cometblue.set_holiday.markdown @rikroe
@@ -2257,7 +2258,7 @@ source/_triggers/assist_satellite.started_processing.markdown @home-assistant/co
 source/_triggers/assist_satellite.started_responding.markdown @home-assistant/core @synesthesiam @arturpragacz
 source/_triggers/battery.became_low.markdown @home-assistant/core
 source/_triggers/battery.level_changed.markdown @home-assistant/core
-source/_triggers/battery.level_crossed.markdown @home-assistant/core
+source/_triggers/battery.level_crossed_threshold.markdown @home-assistant/core
 source/_triggers/battery.no_longer_low.markdown @home-assistant/core
 source/_triggers/battery.started_charging.markdown @home-assistant/core
 source/_triggers/battery.stopped_charging.markdown @home-assistant/core

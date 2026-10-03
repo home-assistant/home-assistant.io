@@ -49,7 +49,7 @@ These are the properties available for a [Calendar trigger](/docs/automation/tri
 | `trigger.calendar_event.all_day`     | Indicates the event spans the entire day.
 | `trigger.calendar_event.description` | A detailed description of the calendar event, if available.
 | `trigger.calendar_event.location`    | Location information for the calendar event, if available. 
-| `trigger.calendar_event.status`      | The status of the calendar event, either `confirmed` or `tentative`, if available.
+| `trigger.calendar_event.status`      | The status of the calendar event, either `confirmed` or `tentative`, if available. This is the status of the event itself, not your reply to an invitation.
 | `trigger.offset`                     | Timedelta object with offset to the event, if any.
 
 ### Device
@@ -77,7 +77,7 @@ These are the properties available for an [Event trigger](/docs/automation/trigg
 
 ### Geolocation
 
-These are the properties available for a [Geolocation trigger](/docs/automation/trigger/#geolocation-trigger). 
+These are the properties available for a [Geolocation trigger](/integrations/geo_location/#geolocation-trigger). 
 
 | Template variable | Data |
 | ---- | ---- |

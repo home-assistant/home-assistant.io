@@ -1,5 +1,5 @@
 ---
-title: "Automating Home Assistant"
+title: "Tutorial: Create your first automation"
 description: "Build your first Home Assistant automations using the visual editor, no code required."
 ---
 

@@ -290,8 +290,6 @@ See [Troubleshooting](#troubleshooting) below for steps to resolve the common mi
 
 11.  If all went well, you are ready to go!
 
-    ![Screenshot of success](/images/integrations/nest/finished.png)
-
 {% enddetails %}
 
 ## Climate
@@ -376,7 +374,7 @@ without waiting for any media to be fetched. See Device Triggers for media suppo
 
 ## Device Triggers
 
-The Nest integration provides [device triggers](/docs/automation/trigger/#device-triggers) to enable automation in Home Assistant. You should review the [Automating Home Assistant](/getting-started/automation/) getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
+The Nest integration provides [device triggers](/docs/automation/trigger/#device-triggers) to enable automation in Home Assistant. You should review the [Tutorial: Create your first automation](/getting-started/automation/) or the [Automation](/docs/automation/) documentation for full details.
 
 Device triggers will wait to fire after any media associated with the event is downloaded. Use an
 event entity for immediate notifications without media.
