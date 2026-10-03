@@ -17,10 +17,42 @@ ha_config_flow: true
 
 The **Prowl** {% term integration %} uses [Prowl](https://www.prowlapp.com/) to deliver push notifications from Home Assistant to your iOS device.
 
+## Prerequisites
+
 Go to the [Prowl website](https://www.prowlapp.com/) and create a new API key.
 
-To add Prowl notifications to your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+API key:
+  description: "The Prowl API key to use."
+Name:
+  description: "The name of the notifier. This name is used for the notify entity that is created."
+{% endconfiguration_basic %}
+
+## Sending notifications
+
+The **Prowl** integration adds a notify {% term entity %} for each configured API key. To send a notification, you can use the **Send a notification message** (`notify.send_message`) {% term action %}. To set a priority or attach a URL, use the [**Prowl: Send message**](/actions/prowl.send_message/) (`prowl.send_message`) action instead.
+
+{% example %}
+action: |
+  action: notify.send_message
+  target:
+    entity_id: notify.prowl
+  data:
+    title: "Reminder"
+    message: "Have you considered frogs?"
+{% endexample %}
+
+{% include integrations/actions.md %}
+
+## Legacy notify action (deprecated)
+
+{% warning %}
+The legacy `notify.NOTIFIER_NAME` action that is set up with YAML in {% term "`configuration.yaml`" %} is deprecated and will be removed in Home Assistant 2027.5. When you use it, a repair issue is raised.
+
+To migrate, remove the Prowl notify configuration from your {% term "`configuration.yaml`" %} file, [set up the integration in the UI](#configuration), and update your automations and scripts to use the `notify.send_message` or [`prowl.send_message`](/actions/prowl.send_message/) action with the Prowl notify entity as target.
+{% endwarning %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -42,13 +74,15 @@ api_key:
   type: string
 {% endconfiguration %}
 
-### Prowl action data
-
-The following attributes can be placed `data` for extended functionality.
+The following attributes can be placed in `data` of the legacy action for extended functionality.
 
 | Data attribute | Optional | Default | Description                                                                                                     |
-| ---------------------- | -------- | ------- | --------------------------------------------------------------------------------------------------------------- |
-| `priority`             | yes      | 0       | Priority level, for more info refer to the [Prowl API documentation](https://www.prowlapp.com/api.php#add).     |
-| `url`                  | yes      | n/a     | URL to be attached, for more info refer to the [Prowl API documentation](https://www.prowlapp.com/api.php#add). |
+| -------------- | -------- | ------- | --------------------------------------------------------------------------------------------------------------- |
+| `priority`     | yes      | 0       | Priority level, for more info refer to the [Prowl API documentation](https://www.prowlapp.com/api.php#add).     |
+| `url`          | yes      | n/a     | URL to be attached, for more info refer to the [Prowl API documentation](https://www.prowlapp.com/api.php#add). |
 
-To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
