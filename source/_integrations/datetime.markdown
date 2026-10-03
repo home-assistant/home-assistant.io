@@ -21,7 +21,7 @@ If you are looking for a way to create a Date/Time entity, please take a look at
 
 The state of a date/time entity is the actual date and time value. The state value is in UTC, in the format YYYY-MM-DDTHH:MM:SS+00:00. For example, `2020-01-01T12:00:00+00:00`. The Home Assistant interface shows the date and time in your local date and time format.
 
-In addition, the entity can have the following states:
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
 - **Unavailable** (`unavailable`): The entity is currently unavailable.
 - **Unknown** (`unknown`): The state is not yet known.
