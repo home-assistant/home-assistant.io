@@ -24,7 +24,7 @@ The **Alarm control panel** {% term integration %} brings your home alarm system
 
 An alarm panel {% term entity %} reflects the current state of your alarm system. Not every alarm panel supports every state or every arming mode. Home Assistant shows only the modes your hardware provides.
 
-Each item shows the label used in the Home Assistant interface, followed by the state value.
+Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. You use the stored state in templates and YAML automations.
 
 - **Disarmed** (`disarmed`): The alarm is off. Sensors are not being monitored.
 - **Armed home** (`armed_home`): Perimeter protection while you are inside. Doors and windows are monitored, but interior motion sensors are ignored so you move freely around the house.
