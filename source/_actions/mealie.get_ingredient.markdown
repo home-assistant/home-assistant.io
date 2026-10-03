@@ -30,7 +30,7 @@ To get an ingredient from an automation or a script:
 
 {% options_ui %}
 Mealie instance:
-  description: The Mealie instance to get the ingredient on.
+  description: The Mealie instance to get the ingredient from.
 Ingredient:
   description: The ingredient to find matches for in your food items and identify quantities and units.
   required: true
@@ -55,7 +55,7 @@ This gets the food, unit, and quantity that matches `1 kg bananas` with the conf
 
 {% options_yaml %}
 config_entry_id:
-  description: The ID of the Mealie config entry to get the ingredient on.
+  description: The ID of the Mealie config entry to get the ingredient from.
   required: true
   type: string
 ingredient:
