@@ -57,7 +57,7 @@ PIN:
 
 The {% term integration %} provides a **Charge** switch to start or stop charging.
 
-The switch state follows the charging state reported by the charger.
+The switch state follows the charging state reported by the charger. It stays off while a scheduled start is pending. Turning the switch off cancels a scheduled start.
 
 ### Number
 
@@ -83,10 +83,10 @@ The following sensors are enabled by default:
 The following sensors are disabled by default:
 
 - **Session current limit**: Current limit recorded for the charging session in amperes (A). This usually matches the **Charging current** setting.
-- **Scheduled start**: Start time of a scheduled charging session. For a session that starts immediately, such as one started from Home Assistant, this is the time charging was requested.
-- **Charging time limit**: Time after which the charger ends the charging session in minutes (min). The value is unknown when no limit is set, which includes sessions started from Home Assistant.
+- **Scheduled start**: Start time of a scheduled charging session. For a session that starts immediately, such as one started with the **Charge** switch, this is the time charging was requested.
+- **Charging time limit**: Time after which the charger ends the charging session in minutes (min). The value is unknown when no limit is set, which includes sessions started with the **Charge** switch.
 
-Scheduled starts and charging time limits are set outside Home Assistant, for example in the charger's mobile app. The integration reports them but cannot change them.
+To set a scheduled start or a charging time limit from Home Assistant, use the [**Start charging** action](/actions/besen.start_charging/). The sensors also report values set elsewhere, for example in the charger's mobile app.
 
 The following diagnostic sensors are disabled by default:
 
@@ -102,12 +102,14 @@ To use an entity that is disabled by default, [enable the entity](/common-tasks/
 
 ## Actions
 
-The integration does not provide custom actions. Use the standard entity actions instead:
+Use the standard entity actions to control the charger:
 
 - `switch.turn_on` starts charging.
-- `switch.turn_off` stops charging.
+- `switch.turn_off` stops charging and cancels a scheduled start.
 - `number.set_value` sets the charging current.
 - `select.select_option` changes the temperature unit shown on the charger's screen.
+
+{% include integrations/actions.md %}
 
 ## Examples
 
