@@ -23,14 +23,14 @@ Keeps track on `number` entities in your environment, their state, and allows yo
 
 If you are looking for a way to create a number entity, please take a look at the [Number helper](/integrations/input_number).
 
-## The state of a number entity
+## Number states
 
-The state of a number entity is a number.
+The state of a number entity is a number, stored without its unit, for example, `21.5`. The Home Assistant interface shows the number with its unit, in your local number format, for example, **21.5 °C**.
 
-In addition, the entity can have the following states:
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 ## Device class
 
