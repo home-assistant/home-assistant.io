@@ -1,0 +1,34 @@
+---
+// Inline SVG icon. Path data lives in src/lib/icons.ts; this component
+// only wraps it in the markup: a 24x24 viewBox, `currentColor` fill so
+// the icon takes the text color around it, and `aria-hidden` because
+// icons here always sit next to a text label. By default it is one
+// em square, so it follows the surrounding text size; a parent can
+// size it with a `:global(.icon)` rule in its scoped styles (the
+// header does), or pass a class.
+import { icons, type IconName } from "../lib/icons";
+
+interface Props {
+  name: IconName;
+  class?: string;
+}
+
+const { name, class: className } = Astro.props;
+---
+
+<svg
+  class:list={["icon", className]}
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+  ><path fill="currentColor" d={icons[name]} /></svg
+>
+
+<style>
+  .icon {
+    display: inline-block;
+    flex: none;
+    height: 1em;
+    vertical-align: -0.125em;
+    width: 1em;
+  }
+</style>
