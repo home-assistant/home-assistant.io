@@ -20,18 +20,18 @@ Home Assistant can give you an interface to control covers such as roller shutte
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a cover
+## Cover states
 
-A cover can have the following states:
+A cover can have the following states. Each item shows the label used in the Home Assistant interface, followed by the state value.
 
-- **Opening**: The cover is in the process of opening to reach a set position.
-- **Open**: The cover has reached the open position.
-- **Closing**: The cover is in the process of closing to reach a set position.
-- **Closed**: The cover has reached the closed position.
+- **Opening** (`opening`): The cover is in the process of opening to reach a set position.
+- **Open** (`open`): The cover has reached the open position.
+- **Closing** (`closing`): The cover is in the process of closing to reach a set position.
+- **Closed** (`closed`): The cover has reached the closed position.
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
 
-How the state of a cover is represented in the frontend depends on the device class.
+The device class of a cover determines the icon shown for each state. The state labels are the same for all device classes.
 
 ## Device class
 
