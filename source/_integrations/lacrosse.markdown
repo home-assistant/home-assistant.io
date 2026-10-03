@@ -4,28 +4,32 @@ description: Instructions on how to integrate LaCrosse sensor data received from
 ha_category:
   - DIY
 ha_release: 0.58
-ha_iot_class: Local Polling
+ha_config_flow: true
+ha_iot_class: Local Push
 ha_domain: lacrosse
 ha_platforms:
   - sensor
-ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
+ha_integration_type: hub
 ha_quality_scale: legacy
 ---
 
-The **LaCrosse** {% term integration %} is using the data provided by a [Jeelink](https://www.digitalsmarties.net/products/jeelink) USB dongle or this [Arduino sketch](https://svn.fhem.de/trac/browser/trunk/fhem/contrib/arduino/36_LaCrosse-LaCrosseITPlusReader.zip).
+The **LaCrosse** {% term integration %} uses the [Jeelink](https://www.digitalsmarties.net/products/jeelink) USB dongle to receive sensor data. Alternatively, you can use an [Arduino sketch](https://svn.fhem.de/trac/browser/trunk/fhem/contrib/arduino/36_LaCrosse-LaCrosseITPlusReader.zip) to create your own receiver.
 
-## Tested devices
+This integration creates temperature, humidity, and battery level sensors for each configured LaCrosse sensor.
+
+## Supported devices
 
 - Technoline TX 29 IT (temperature only)
 - Technoline TX 29 DTH-IT (including humidity)
 - TFA Dostmann LaCrosse sensors (type 30.3147.IT)
 
+## Prerequisites
+
+You need a Jeelink USB receiver or an Arduino-based receiver to use this integration.
+
 ## Setup
 
-Since the sensor change their ID after each powercycle/battery change you can check what sensor IDs are available by using the command-line tool `pylacrosse` from the pylacrosse package.
+Since the sensors choose a new ID after each power cycle or battery change you can check what sensor IDs are available by using the command-line tool `pylacrosse` from the pylacrosse package.
 
 ```bash
 sudo pylacrosse -d /dev/ttyUSB0 scan
@@ -40,95 +44,105 @@ docker exec -it <containername> pylacrosse -d /dev/ttyUSB0 scan
 If you are using the Home Assistant OS, these methods are not available for you. The use of an additional computer to figure
 out the ID is advised.
 
-For TX 29 DTH-IT sensors you can also read the ID from the display and calculate the ID as followed: `hex2dec(ID_on_display) / 4`.
+For TX 29 DTH-IT sensors, you can also read the ID from the display and calculate it as follows: `hex2dec(ID_on_display) / 4`.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To use your `lacrosse` compatible sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+### Required manual input
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: lacrosse
-    sensors:
-      sensor_identifier:
-        type: SENSOR_TYPE
-        id: SENSOR_ID
-```
+After obtaining the sensor's ID you can start the configuration of the LaCrosse receiver.
+If your receiver is connected via USB, you can select it from the `device` dropdown. If autodetection does not find your receiver, you can manually enter the correct path. The default baud rate of 57600 works for most sensors, but you can optionally change it via the `baud` input.
 
-{% configuration %}
-  device:
-    description: The serial device.
-    required: true
-    type: string
-    default: /dev/ttyUSB0
-  baud:
-    description: The serial baudrate.
-    required: true
-    type: integer
-    default: 57600
-  led:
-    description: Activate or deactivate the Jeelink LED.
-    required: false
-    type: boolean
-    default: false
-  frequency:
-    description: Initial frequency in 5kHz steps.
-    required: false
-    type: integer
-  datarate:
-    description: "Set the data rate in kbps. Special values for well-known settings are: `0`: 17.241 kbps, `1`: 9.579 kbps, `2`: 8.842 kbps."
-    required: false
-    type: integer
-  toggle_mask:
-    description: "The following values can be combined bitwise: `1` = 17.241 kbps, `2` = 9.579 kbps, `4` = 8.842 kbps"
-    required: false
-    type: integer
-  toggle_interval:
-    description: Enable the toggle mode and set the interval in seconds.
-    required: false
-    type: integer
-  sensors:
-    description: A list of your sensors.
-    required: true
-    type: map
-    keys:
-      name:
-        description: The name of the sensor.
-        required: false
-        type: string
-      type:
-        description: "The type of the sensor. Options: `battery`, `humidity`, `temperature`"
-        required: true
-        type: string
-      id:
-        description: The LaCrosse Id of the sensor.
-        required: true
-        type: integer
-{% endconfiguration %}
+{% configuration_basic %}
+Device:
+   description: Select the Jeelink receiver connected via USB.
+Baud rate:
+   description: The serial baud rate.
+{% endconfiguration_basic %}
 
-## Examples
+### Optional input
 
-To set up a LaCrosse sensor with multiple sensors, add the following to your {% term "`configuration.yaml`" %} file:
+By default, the receiver uses an 868.95 MHz frequency with a 17.241 kbps data rate. Optionally, you can change the frequency in 5 kHz steps using **Frequency**.
+If you have LaCrosse sensors using a different data rate, you can configure the receiver to toggle between them every **Toggle interval** seconds by setting **Toggle mask** and **Toggle interval**.
+The LED of the receiver is off by default. If you want to enable it, select **LED**.
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: lacrosse
-    device: /dev/ttyUSB0
-    baud: 57600
-    sensors:
-      kitchen_humidity:
-        name: Kitchen Humidity
-        type: humidity
-        id: 72
-      kitchen_temperature:
-        name: Kitchen Temperature
-        type: temperature
-        id: 72
-      kitchen_lacrosse_battery:
-        name: Kitchen Sensor Battery
-        type: battery
-        id: 72
-```
+{% configuration_basic %}
+LED:
+  description: Activate or deactivate the Jeelink LED.
+Frequency:
+  description: Initial frequency of 868,9500Mhz. Can be changed in 5kHz steps.
+Data rate:
+  description: "Set the data rate in kbps. Special values for well-known settings are: `1`: 17.241 kbps, `2`: 9.579 kbps, `4`: 8.842 kbps."
+Toggle mask:
+  description: "The following values can be combined bitwise: `1` = 17.241 kbps, `2` = 9.579 kbps, `4` = 8.842 kbps"
+Toggle interval:
+  description: Enable the toggle mode and set the interval in seconds.
+{% endconfiguration_basic %}
+
+### Adding a sensor
+
+Once the receiver is configured, you can add one or more sensors either during setup or later. A sensor must report either humidity or temperature.
+ Optionally, it can report battery level. Battery level is limited to **new** and **low**, and it is not reported as a percentage.
+ If a sensor reports humidity as well as temperature, you can add the humidity sensor later and use the same sensor ID.
+
+{% configuration_basic %}
+ID:
+  description: "The LaCrosse Id of the sensor. Calculate the ID with: `hex2dec(ID_on_display) / 4` if the sensor has a display."
+Type:
+  description: "The type of the sensor. Options: `battery`, `humidity`, `temperature`. At least either `humidity`or `temperature` need to be selected."
+Name:
+  description: The name of the sensor.
+Expire after:
+  description: Timeout after which sensors are considered offline if no update telegram was received. If empty, the library default of 300 seconds is used.
+{% endconfiguration_basic %}
+
+## Reconfiguration and device replacement
+
+This integration supports reconfiguration, allowing you to make changes—such as updating the receiver path, adding more sensors or changing the sensor ID after a power cycle.
+
+## Supported functionality
+
+The **LaCrosse** integration provides the following entities:
+
+- **Temperature sensor**: Displays the temperature reading from the LaCrosse sensor.
+- **Humidity sensor**: Displays the humidity reading (available on compatible models like TX 29 DTH-IT).
+- **Battery sensor**: Displays the battery status as either **new** or **low**.
+
+## Known limitations
+
+The LaCrosse sensors randomly choose their ID when powered on or after a battery change. In some cases, a sensor may randomly select an ID that conflicts with another sensor. When this happens, you may receive readings from both sensors.
+
+{% tip %}
+To resolve ID conflicts, restart one of the sensors to force it to select a new ID.
+{% endtip %}
+
+## Troubleshooting
+
+### No sensors are discovered
+
+If your LaCrosse sensors are not being detected, verify the following:
+
+- Ensure the Jeelink receiver dongle is properly connected to your Home Assistant system.
+- Confirm the correct receiver device path is configured (usually `/dev/ttyUSB0` on Linux).
+- Check that your sensors are powered on and within range of the receiver.
+- Verify the baud rate setting matches your sensor's requirements (default is 57600).
+- Try scanning for available sensor IDs using the `pylacrosse` command-line tool before configuring the integration.
+
+### Sensors show offline
+
+If sensors appear offline in Home Assistant, they may not be transmitting data. Verify:
+
+- The sensor has fresh batteries and is powered on.
+- The sensor is within range of the Jeelink receiver.
+- The **Expire after** timeout is set appropriately (default is 300 seconds).
+- No interference is affecting the wireless signal.
+
+### ID conflicts between sensors
+
+If you have multiple sensors with the same ID, restart one of them to force it to select a new ID. See [known limitations](#known-limitations) for more information.
+
+## Removing the integration
+
+This integration follows the standard integration removal process; no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
