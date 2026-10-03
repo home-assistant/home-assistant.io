@@ -1,0 +1,119 @@
+blueprint:
+  name: "Sleep as Android: Trigger app actions"
+  description: >
+    Send commands to the Sleep as Android app on your selected mobile device via Home Assistant.
+    Requires the device to run the official Home Assistant companion app.
+  domain: script
+  author: tr4nt0r
+  input:
+    notify_device:
+      name: Target device
+      description: >
+        The mobile device running Sleep as Android. Must have the official
+        Home Assistant companion app installed and connected.
+      selector:
+        device:
+          filter:
+            - integration: mobile_app
+          multiple: false
+    sleep_action:
+      name: Action
+      description: >
+        The specific Sleep as Android command to trigger
+      selector:
+        select:
+          options:
+            - label: Start sleep tracking
+              value: com.urbandroid.sleep.alarmclock.START_SLEEP_TRACK
+            - label: Start sleep tracking + Set an alarm for ideal sleep length
+              value: com.urbandroid.sleep.alarmclock.START_SLEEP_TRACK_WITH_IDEAL_ALARM_ACTION
+            - label: Stop sleep tracking
+              value: com.urbandroid.sleep.alarmclock.STOP_SLEEP_TRACK
+            - label: Pause sleep tracking for 5 minutes
+              value: com.urbandroid.sleep.ACTION_PAUSE_TRACKING
+            - label: Snooze alarm
+              value: com.urbandroid.sleep.alarmclock.ALARM_SNOOZE
+            - label: Dismiss alarm
+              value: com.urbandroid.sleep.alarmclock.ALARM_DISMISS_CAPTCHA
+            - label: Stop lullaby
+              value: com.urbandroid.sleep.ACTION_LULLABY_STOP_PLAYBACK
+            - label: Request backup
+              value: com.urbandroid.sleep.REQUEST_SYNC
+            - label: Change alarm state (when not currently ringing)
+              value: com.urbandroid.sleep.alarmclock.ALARM_STATE_CHANGE
+    section_extra_snooze_time:
+      name: Snooze alarm extras
+      icon: mdi:alarm-snooze
+      collapsed: true
+      input:
+        extra_snooze_time:
+          name: Extra snooze time (optional)
+          description: >
+            Override the snooze duration for this alarm (1-60 minutes). 
+            Leave blank to use the default snooze time set in the Sleep as Android app.
+          selector:
+            number:
+              min: 1
+              max: 60
+              unit_of_measurement: minutes
+              mode: box
+          default: ""
+    section_alarm_state_change:
+      name: Change alarm state extras
+      icon: mdi:alarm
+      description: These settings are required when using the "Change alarm state" action.
+      collapsed: true
+      input:
+        alarm_label:
+          name: Alarm label
+          description: >
+            The label of the alarm to modify.
+            Must explicitly set **in the Sleep as Android app** for this action to work.  
+            If multiple alarms share this label, only one will be changed (no guarantee which).
+          selector:
+            text:
+          default: "Alarm"
+        alarm_state:
+          name: Enable or disable
+          description: >
+            Select whether the specified alarm should be turned on (enabled) or 
+            turned off (disabled).
+          selector:
+            boolean:
+          default: false
+    section_start_in_battery_saving_mode:
+      name: Start sleep tracking extras
+      icon: mdi:record-rec
+      collapsed: true
+      input:
+        start_in_battery_saving_mode:
+          name: Start in battery saving mode
+          description: Start sleep tracking with reduced power usage to save battery.
+          selector:
+            boolean:
+          default: false
+mode: parallel
+sequence:
+  - variables:
+      sleep_action: !input sleep_action
+      alarm_label: !input alarm_label
+      alarm_state: !input alarm_state
+      extra_snooze_time: !input extra_snooze_time
+      start_in_battery_saving_mode: !input start_in_battery_saving_mode
+
+  - alias: Send intent to Sleep as Android
+    domain: mobile_app
+    type: notify
+    device_id: !input notify_device
+    message: command_broadcast_intent
+    data:
+      intent_package_name: com.urbandroid.sleep
+      intent_action: !input sleep_action
+      intent_extras: >-
+        {% if sleep_action == 'com.urbandroid.sleep.alarmclock.ALARM_STATE_CHANGE' and alarm_label %}
+          alarm_label:{{ alarm_label }},alarm_enabled:{{ alarm_state }}
+        {% elif sleep_action == 'com.urbandroid.sleep.alarmclock.ALARM_SNOOZE' and extra_snooze_time %}
+          extra_snooze_time:{{ extra_snooze_time }}
+        {% elif sleep_action == 'com.urbandroid.sleep.alarmclock.START_SLEEP_TRACK' and start_in_battery_saving_mode %}
+          START_IN_BATTERY_SAVING_MODE:true
+        {% endif %}

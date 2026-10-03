@@ -34,6 +34,7 @@ Trigger when:
     - **Each** (default) fires every time any targeted valve closes.
     - **First** fires only when the first of a group closes.
     - **All** fires only after every targeted valve is closed.
+  required: false
 For at least:
   description: How long the valve must stay closed before the trigger fires. Default is 0 (fires immediately). Useful to ignore brief, momentary closures.
 {% endoptions_ui %}

@@ -162,6 +162,10 @@ verify_ssl:
 
 {% enddetails %}
 
+## Canceled events
+
+A CalDAV server keeps a canceled event in the calendar instead of deleting it. Home Assistant leaves it out: it doesn't appear in the calendar, doesn't change the state of the calendar entity, and doesn't trigger [calendar automations](/integrations/calendar/#automation).
+
 ## Calendar Event Automations
 
 Individual Calendar *Events* can power automations such as:
