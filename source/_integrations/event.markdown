@@ -28,19 +28,14 @@ The event entity captures these events from the physical world and makes them av
 
 {% include integrations/building_block_integration.md %}
 
-## The state of an event entity
+## Event states
 
-The event entity does not capture a state such as **On** or **Off**. Instead, an event entity keeps track of the timestamp when the emitted event was last detected.
+The {% term state %} of an event entity is a timestamp showing the date and time when the last event was detected. Home Assistant stores the timestamp in UTC, for example, `2026-01-01T12:00:00.123+00:00`. The Home Assistant interface shows it in your local date and time format.
 
-<p class='img'>
-  <img src='/images/integrations/event/event_timestamp.png' alt='Event entity with timestamp value in state and event type "pressed"'>
-  Event entity with a timestamp value in state and event type "pressed".
-</p>
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
-In addition, the entity can have the following states:
-
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 ## Event types
 
