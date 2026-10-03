@@ -22,7 +22,7 @@ Some of these sensors are built-in to Home Assistant, some are created automatic
 
 ## Sensor states
 
-The {% term state %} of a sensor entity is its current value. How Home Assistant stores the value, and how the interface shows it, depends on the type of sensor:
+The {% term state %} of a sensor entity is its current value. The type of sensor determines how Home Assistant stores the value and how the interface shows it:
 
 - Numeric sensors store the number without its unit, for example, `21.5`. The interface shows the number in your local number format, with its unit if it has one, for example, **21.5 °C**.
 - Timestamp sensors store the date and time in UTC, for example, `2026-01-01T12:00:00+00:00`. The interface shows it in your local date and time format.
