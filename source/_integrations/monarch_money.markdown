@@ -34,3 +34,17 @@ Each `account` is set up as a device in Home Assistant and contain the following
 |Balance|Account balance|
 |Age| This sensor shows when the data was retrieved by Monarch's back end |
 |Owner|Shows the institution owner in Monarch Money|
+
+### Budgets
+
+Each `budget` category is set up as a service device in Home Assistant and contains the following sensors for the current month:
+
+| Sensor | Description |
+|--------|-------------|
+| Budget actual | The actual amount recorded for the category. |
+| Budget planned | The amount budgeted for the category. |
+| Budget remaining | The remaining amount reported by Monarch Money, including rollover from previous months. |
+
+Budget data updates every four hours. New categories appear after the next update.
+
+If Monarch Money returns a category without current-month data, its device and sensors still appear, but the sensors are **Unavailable** until data is available. If current-month data is available but an individual amount is missing, that sensor shows as **Unknown**.
