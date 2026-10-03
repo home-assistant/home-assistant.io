@@ -17,14 +17,9 @@ The **Date** {% term integration %} is built for the controlling and monitoring 
 
 If you are looking for a way to create a similar entity, please take a look at the [Date/Time helper](/integrations/input_datetime).
 
-## The state of a date entity
+## Date states
 
-The state of a date entity is the actual date value.
-
-<p class='img'>
-<img src='/images/integrations/date/state_date.png' alt='Screenshot showing the state of a date in the States tab of Tools.' />
-Screenshot showing the state of a date in {% my tools_states title="Settings > Tools > States" %}. In the example shown, the state is January 1, 2020; in the format YYYY-MM-DD.
-</p>
+The state of a date entity is the actual date value, in the format YYYY-MM-DD. For example, `2020-01-01`. The Home Assistant interface shows the date in your local date format.
 
 In addition, the entity can have the following states:
 
