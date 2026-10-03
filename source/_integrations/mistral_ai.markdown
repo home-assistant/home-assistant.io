@@ -71,7 +71,7 @@ If you choose not to use the recommended settings, you can configure the followi
 
 {% configuration_basic %}
 Maximum Tokens to Return in Response:
-  description: The maximum number of words or "tokens" that the AI model should generate in its completion of the prompt.
+  description: The maximum number of tokens that the AI model can generate in its response.
 Temperature:
   description: A value that determines the level of creativity and risk-taking the model should use when generating text. A higher temperature means the model is more likely to generate unexpected results, while a lower temperature results in more deterministic results.
 Top P:
@@ -82,7 +82,7 @@ Top P:
 
 ### Models
 
-The integration supports the Mistral chat models (for example `mistral-small-latest`, `mistral-medium-latest` and `mistral-large-latest`). The available models are listed in the configuration flow based on your API key.
+The integration supports Mistral chat models, including `mistral-small-latest`, `mistral-medium-latest`, and `mistral-large-latest`. The available models are listed in the configuration flow based on your API key.
 
 ## Talking to the assistant
 
