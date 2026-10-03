@@ -38,3 +38,29 @@ When using a free account, the information provided by Tomorrow.io is limited to
 | `daily`       | Daily  forecasts for the next 14 days                                                                            |
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+API key:
+  description: "Your Tomorrow.io API key."
+{% endconfiguration_basic %}
+
+The integration creates one entry per API key. The places you want weather and air quality data for are added to that entry as locations.
+
+{% note %}
+If you set up Tomorrow.io before this version, your existing entries are migrated automatically: locations sharing an API key are collected under a single entry, and their entities, devices, and history are preserved.
+{% endnote %}
+
+## Adding a location
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Tomorrow.io** integration.
+2. Select **Add location**.
+3. Enter a name and pick the location on the map.
+4. Optionally adjust **Minutes between NowCast forecasts** (1, 5, 15, 30, or 60), which controls the granularity of the `nowcast` forecast.
+
+### Changing a location
+
+To change a location's name, coordinates, or NowCast timestep, select the three-dot menu next to the location and select **Reconfigure location**.
+
+## Data updates
+
+All of an API key's locations are {% term polling polled %} together in one cycle. The polling interval is calculated from your account's daily request limit and the number of configured locations, keeping usage at about 90% of the available daily requests.
