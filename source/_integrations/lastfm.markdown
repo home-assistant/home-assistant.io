@@ -19,18 +19,26 @@ The **Last.fm** {% term integration %} lets you monitor the listening activity o
 ## Prerequisites
 
 - A [Last.fm](https://www.last.fm/) account.
-- A Last.fm API key. You can create one by registering an [API account](https://www.last.fm/api/account/create) on the Last.fm website.
+- A Last.fm API key. You can create one by registering an [API account](https://www.last.fm/api/account/create) on the Last.fm website. The API secret shown on that page is only needed to read listening information hidden in the Last.fm privacy settings.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 API key:
   description: "The API key from your Last.fm API account."
+API secret:
+  description: "Optional. The API secret of your Last.fm API account. Needed to read listening information that is hidden in the Last.fm privacy settings."
 Last.fm username:
   description: "Your Last.fm username. This is the main user for the integration and is used to look up your friends list in the next step."
 {% endconfiguration_basic %}
 
 After entering your API key and Last.fm username, you are asked to select additional Last.fm users to track. Your friends list is shown for convenience, but you can also enter any Last.fm username manually.
+
+If you provided an API secret, the next step asks you to authorize Home Assistant with your Last.fm account. Open the shown link, select **Authorize** on Last.fm, and the setup continues automatically once the authorization is detected.
+
+{% note %}
+Last.fm only shares hidden listening data with the account that authorized the integration. If you have hidden your recent listening information in the [Last.fm privacy settings](https://www.last.fm/settings/privacy), authorize with the same account you want to track. Otherwise, the sensor state (currently playing track) and the `last_played` attribute are unavailable.
+{% endnote %}
 
 ## Configuration options
 
