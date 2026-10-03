@@ -8,6 +8,7 @@ ha_category:
   - Cover
   - Energy
   - Event
+  - Fan
   - Light
   - Media player
   - Number
@@ -36,6 +37,7 @@ ha_platforms:
   - cover
   - diagnostics
   - event
+  - fan
   - light
   - media_player
   - number
@@ -67,7 +69,23 @@ Verify SSL:
 {% configuration_basic %}
 Bluetooth scanner mode:
   description: "Pick how the Shelly scans for Bluetooth devices. <br> **Auto** is recommended for most setups. The Shelly listens passively and only briefly switches to active scanning when needed, saving around 95% of the scan related battery drain on your Bluetooth devices while still discovering devices and updates quickly. <br> **Active** continuously asks devices for full information. Updates are the fastest, but it uses more battery on the devices around you. <br> **Passive** only listens; never asks devices for extra information. Uses the least battery on your devices, but some details may be missing because some integrations need active scanning to work. <br> **Disabled** turns the Shelly Bluetooth scanner off."
+Use as fan:
+  description: "Available for supported 0–10 V dimmers. Enable this option to control the output as a fan with percentage speed control. The option is off by default. Changing it replaces the light or fan entity; update dashboards, groups, and automations that refer to the previous entity."
 {% endconfiguration_basic %}
+
+## Fans controlled by 0–10 V dimmers
+
+If your Shelly controls a fan through its 0–10 V output, enable **Use as fan** in the device's integration options. This creates a fan entity with on/off and percentage speed control. Turning the fan on without selecting a speed resumes the output's last level. A speed of 0 turns the output off. The percentage represents the requested output level, not a measured fan speed.
+
+This option is available for the following models:
+
+- Shelly Plus 10V
+- Shelly Plus 0–10V Dimmer
+- Shelly Pro Dimmer 0/1–10V PM
+- Shelly Dimmer 0/1–10V PM Gen3
+- Shelly Dimmer 0/1–10V PM Gen4
+
+The option is off by default and applies to all light outputs on the selected device. Disable it to use light entities again. Each change replaces the previous entities, so update dashboards, groups, and automations that refer to them. Custom names, icons, and labels are not transferred to the new entities. The device's output range and calibration remain unchanged.
 
 ## Shelly device generations
 
