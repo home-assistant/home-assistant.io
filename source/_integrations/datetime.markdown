@@ -17,14 +17,9 @@ The **Date/Time** {% term integration %} is built for the controlling and monito
 
 If you are looking for a way to create a Date/Time entity, please take a look at the [Date/Time helper](/integrations/input_datetime).
 
-## The state of a date/time entity
+## Date/time states
 
-The state of a date/time entity is the actual date and time value.
-
-<p class='img'>
-<img src='/images/integrations/datetime/state_datetime.png' alt='Screenshot showing the state of a date/time entity in the States tab of Tools.' />
-Screenshot showing the state of a date/time entity in {% my tools_states title="Settings > Tools > States" %}. In the example shown, the state is January 1, 2020 at 12:00 in the format YYYY-MM-DD T HH:MM:SS.
-</p>
+The state of a date/time entity is the actual date and time value. The state value is in UTC, in the format YYYY-MM-DDTHH:MM:SS+00:00. For example, `2020-01-01T12:00:00+00:00`. The Home Assistant interface shows the date and time in your local date and time format.
 
 In addition, the entity can have the following states:
 
