@@ -44,10 +44,11 @@ The device class tells Home Assistant what a binary sensor detects, such as an o
 
 The device class makes a difference in the following places:
 
-- Automations: Several types of binary sensors have their own triggers and conditions, such as [Door opened](/triggers/door.opened/), [Motion detected](/triggers/motion.detected/), or [Battery low](/triggers/battery.became_low/). There are also triggers and conditions for windows, garage doors, occupancy, moisture, vibration, light, carbon monoxide, gas, and smoke. They only list binary sensors with the matching device class.
+- Automations: Several types of binary sensors have their own triggers and conditions, such as [Door opened](/triggers/door.opened/), [Motion detected](/triggers/motion.detected/), or [Battery low](/triggers/battery.became_low/). There are also triggers and conditions for battery charging, windows, garage doors, occupancy, moisture, vibration, light, carbon monoxide, gas, and smoke. They only list binary sensors with the matching device class.
+- Assist: New door, garage door, lock, motion, opening, presence, and window sensors are [exposed to Assist](/voice_control/voice_remote_expose_devices/) by default. Other types aren't.
 - Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/), [Alexa](/integrations/alexa/), and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, show binary sensors as matching sensors, such as door and window sensors. Which device classes they support differs per voice assistant.
-- Dashboards: The [Security dashboard](/dashboards/dashboards/#security-dashboard) shows locks, doors, garage doors, windows, openings, and safety sensors, such as smoke, gas, carbon monoxide, moisture, and tamper sensors. The [Climate dashboard](/dashboards/dashboards/#home-assistant-built-in-dashboards) shows window sensors, and the [Maintenance dashboard](/dashboards/dashboards/#home-assistant-built-in-dashboards) shows battery sensors. The [area card](/dashboards/area/) shows an alert icon when motion or moisture is detected in an area.
-- Icon and name: The icon and the label for each state match the type. For example, a door sensor shows **Open** or **Closed** instead of **On** or **Off**. If the integration does not give the entity its own name, Home Assistant names it after the device class, such as **Door**.
+- Dashboards: The [Security dashboard](/dashboards/dashboards/#security-dashboard) shows locks, doors, garage doors, windows, openings, and safety sensors, such as smoke, gas, carbon monoxide, moisture, and tamper sensors. The [Climate dashboard](/dashboards/dashboards/#home-assistant-built-in-dashboards) shows window sensors, and the [Maintenance dashboard](/dashboards/dashboards/#home-assistant-built-in-dashboards) shows battery sensors. The [area card](/dashboards/area/) can show an alert icon for the types you choose under **Alert classes**. By default, these are motion and moisture.
+- Icon and name: The icon and the label for each state match the type. For example, a door sensor shows **Open** or **Closed** instead of **On** or **Off**. If the integration doesn't give the entity its own name, Home Assistant names it after the device class, such as **Door**.
 - History and Activity: If you have binary sensors with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
 
 The integration that provides the binary sensor sets the device class. When you create a binary sensor yourself with a [template helper](/integrations/template/), you choose it.
@@ -149,14 +150,14 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 
 In templates, the device class is the `device_class` attribute of the entity. Use the stored value, such as `door`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
-For comparison, here are the [device classes](/integrations/sensor#device-class) for analog sensors.
+For sensors that measure values, see the [sensor device classes](/integrations/sensor/#device-class).
 
 ### Changing the device class of a binary sensor
 
 If a binary sensor shows up as the wrong type, for example as an opening instead of a door, you can change its device class.
 
 1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the binary sensor.
-2. In the top-right corner, select the cog {% icon "mdi:cog" %}.
+2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
 3. Under **Show as**, select the type that matches your device.
 4. Select **Update**.
    - Result: The binary sensor shows up as the new type in triggers, dashboards, and voice assistants.
