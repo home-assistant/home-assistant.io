@@ -44,7 +44,7 @@ The device class tells Home Assistant whether a switch controls a power outlet.
 The device class makes a difference in the following places:
 
 - Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/) and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, show an outlet as an outlet. [Alexa](/integrations/alexa/) shows it as a smart plug. Other switches show up as switches.
-- Icon: An outlet shows a plug {% icon "mdi:power-plug" %}, or {% icon "mdi:power-plug-off" %} when it's off. Other switches show a toggle {% icon "mdi:toggle-switch-variant" %}, or {% icon "mdi:toggle-switch-variant-off" %} when they're off.
+- Icon: By default, an outlet shows a plug {% icon "mdi:power-plug" %}, or {% icon "mdi:power-plug-off" %} when it's off. Other switches show a toggle {% icon "mdi:toggle-switch-variant" %}, or {% icon "mdi:toggle-switch-variant-off" %} when they're off.
 - History and Activity: If you have switches with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
 
 The integration that provides the switch sets the device class.
@@ -70,7 +70,7 @@ You can only change the device class this way if the switch has a unique ID. Oth
 2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
 3. Under **Show as**, select **Switch** or **Outlet**.
 4. Select **Update**.
-   - Result: The switch shows the matching icon.
+   - Result: The switch shows the matching icon, unless you've set a custom icon for it.
 
 Google Assistant and Alexa through Home Assistant Cloud pick up the new type automatically. If you use Apple Home through the HomeKit Bridge, [reset the accessory](/actions/homekit.reset_accessory/) so Apple Home shows the new type. Apple Home then treats it as a new accessory, so you need to set up its name, group, room, scenes, and automations again. If you set up Google Assistant or Alexa without Home Assistant Cloud, ask your voice assistant to sync or discover devices again.
 
