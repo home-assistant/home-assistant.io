@@ -67,9 +67,6 @@ To add a speech-to-text service:
 2. Select **Add speech-to-text service**.
 3. Select the transcription model. The service appears as a speech-to-text entity that you can select in an [Assist pipeline](/integrations/assist_pipeline/).
 
-### Speech-to-text language
-
-The integration sends the language code without its regional part; for example, `en-US` is sent as `en`.
 
 ### Speech-to-text prompt and keywords
 
