@@ -22,8 +22,6 @@ The **Space API** {% term integration %} allow Hackerspaces and Makerspaces to e
 The configuration has been migrated to the UI existing YAML configuration were migrated automatically but need a manual cleanup of the configuration.yml file.
 
 {% configuration %}
-version:
-  description: dropdown to choose between v0.13 or v15
 space:
   description: Name of the Hackerspace.
   required: true
