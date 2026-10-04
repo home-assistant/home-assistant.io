@@ -55,7 +55,7 @@ The integration that provides the event entity sets the device class. When you c
 
 ### Device classes in automations and templates
 
-- Automations: The doorbell device class has its own trigger, **Doorbell rang**. The trigger only reacts to event entities with that device class. The other device classes don't change how an event entity works in automations.
+- Automations: The doorbell device class has its own trigger, [Doorbell rang](/triggers/doorbell.rang/). The trigger only reacts to event entities with that device class. The other device classes don't change how an event entity works in automations.
 - Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `doorbell`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
@@ -66,7 +66,7 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 
 - {% icon "mdi:gesture-tap-button" %} **Button** (`button`): For buttons, such as the buttons of a remote control.
 - {% icon "mdi:doorbell" %} **Doorbell** (`doorbell`): For buttons that are used as a doorbell.
-  - Trigger: **Doorbell rang**
+  - Trigger: [Doorbell rang](/triggers/doorbell.rang/)
 - {% icon "mdi:motion-sensor" %} **Motion** (`motion`): For motion detected by a motion sensor.
 
 {% include integrations/triggers.md %}
