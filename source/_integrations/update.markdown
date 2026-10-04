@@ -62,10 +62,9 @@ The integration that provides the update entity sets the device class. When you 
 
 ### List of available device classes
 
-An update entity without a device class is a generic software update.
-
 Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
 
+- No device class: A generic software update. This is the default.
 - **Firmware** (`firmware`): An update for the firmware of a device.
 
 {% include integrations/triggers.md %}
