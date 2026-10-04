@@ -59,13 +59,14 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 
 ### Changing the device class of a switch
 
-If a switch controls an outlet or a smart plug but shows up as a switch, or the other way around, you can change its device class. Under **Show as**, **Switch** and **Outlet** change the device class. The other options, such as **Light** or **Fan**, don't. Instead, Home Assistant creates a new entity of that type that controls the switch, and hides the switch. For details, refer to [Change device type of a switch](/integrations/switch_as_x/).
+If a switch controls an outlet or a smart plug but shows up as a switch, or the other way around, you can change its device class.
 
 You can only change the device class this way if the switch has a unique ID. Otherwise, the entity settings show that its settings can't be managed from the UI. In that case, you can change the device class in YAML with [customization](/docs/configuration/customizing-devices/#customizing-an-entity-in-yaml).
 
 1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the switch.
 2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
 3. Under **Show as**, select **Switch** or **Outlet**.
+   - The other options, such as **Light** or **Fan**, don't change the device class. Instead, Home Assistant creates a new entity of that type and hides the switch. For details, refer to [Change device type of a switch](/integrations/switch_as_x/).
 4. Select **Update**.
    - Result: The switch shows the matching icon, unless you've set a custom icon for it.
 
