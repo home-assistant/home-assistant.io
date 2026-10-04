@@ -43,7 +43,7 @@ The device class tells Home Assistant whether a switch controls a power outlet.
 
 The device class makes a difference in the following places:
 
-- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/) and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, show an outlet as an outlet. [Alexa](/integrations/alexa/) shows it as a smart plug.
+- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/) and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, show a switch with the outlet device class as an outlet. [Alexa](/integrations/alexa/) shows it as a smart plug.
 - Icon: By default, an outlet shows a plug {% icon "mdi:power-plug" %} and other switches show a toggle {% icon "mdi:toggle-switch-variant" %}. Both have a separate icon for off.
 - History and Activity: If you have switches with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
 
