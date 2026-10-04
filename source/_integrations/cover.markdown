@@ -39,11 +39,12 @@ The device class tells Home Assistant what kind of cover an entity is, such as a
 
 The device class makes a difference in the following places:
 
-- Automations: Each type of cover has its own triggers and conditions, such as [Garage door opened](/triggers/garage_door.opened/) or [Curtain is closed](/conditions/cover.curtain_is_closed/). They only list covers with the matching device class. Dampers have none.
+- Automations: Each type of cover has its own triggers and conditions, such as [Garage door opened](/triggers/garage_door.opened/) or [Curtain is closed](/conditions/cover.curtain_is_closed/). They only list covers with the matching device class. Dampers and covers without a device class have none.
 - Assist: You can say "open the curtains in the kitchen" or ask "are any windows open?". In English, [Assist](/voice_control/) knows awnings, blinds, curtains, doors, garage doors, gates, shades, shutters, and windows.
-- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/), [Alexa](/integrations/alexa/), and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, show a garage door as a garage door. Google Assistant only opens doors, garage doors, and gates after you confirm with a PIN.
+- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/), [Alexa](/integrations/alexa/), and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, show many types as a matching device, such as a garage door or a window. Alexa and Apple Home show gates as garage doors. Google Assistant only opens doors, garage doors, and gates after you confirm with a PIN.
 - Dashboards: The [Security dashboard](/dashboards/dashboards/#security-dashboard) shows doors, garage doors, gates, and windows. The [Climate dashboard](/dashboards/dashboards/#home-assistant-built-in-dashboards) shows awnings, blinds, curtains, shades, shutters, windows, and covers without a device class. The **Area controls** feature of the [area card](/dashboards/area/) can open or close all covers of one type in an area, such as all blinds.
-- Icon and name: The icon matches the type. For example, a garage door shows {% icon "mdi:garage-open" %} when it's open and {% icon "mdi:garage" %} when it's closed. Awnings, curtains, doors, and gates use left and right arrows on their open and close buttons. Other covers use up and down arrows.
+- Display: Awnings, curtains, doors, and gates use horizontal arrows on their open and close buttons. Other covers use up and down arrows.
+- Icon: The icon matches the type. For example, a garage door shows {% icon "mdi:garage-open" %} when it's open and {% icon "mdi:garage" %} when it's closed.
 - History and Activity: If you have covers with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
 
 The integration that provides the cover sets the device class. When you create a cover yourself with a [template helper](/integrations/template/), you choose it.
@@ -58,7 +59,7 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 - {% icon "mdi:curtains" %} **Curtain** (`curtain`): Curtains or drapes, which are often fabric hung above a window or door that can be drawn open.
 - {% icon "mdi:circle" %} **Damper** (`damper`): A mechanical damper that reduces airflow, sound, or light.
 - {% icon "mdi:door-open" %} **Door** (`door`): A door that provides access to an area.
-- {% icon "mdi:garage-open" %} **Garage door** (`garage`): A garage door that provides access to a garage.
+- {% icon "mdi:garage-open" %} **Garage** (`garage`): A garage door that provides access to a garage. Under **Show as**, this type is called **Garage door**.
 - {% icon "mdi:gate-open" %} **Gate** (`gate`): A gate. Gates are found outside of a structure and are typically part of a fence.
 - {% icon "mdi:roller-shade" %} **Shade** (`shade`): Shades, which are a continuous plane of material or connected cells that expand or collapse over an opening, such as window shades.
 - {% icon "mdi:window-shutter-open" %} **Shutter** (`shutter`): Shutters, which are linked slats that can be raised or lowered to cover an opening, such as window or door roller shutters. Some shutters, for example, some indoor or exterior window shutters, swing out or in to cover an opening or may be tilted to provide partial cover.
@@ -71,7 +72,7 @@ In templates, the device class is the `device_class` attribute of the entity. Us
 If a cover shows up as the wrong type, for example as a window instead of a garage door, you can change its device class.
 
 1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the cover.
-2. In the top-right corner, select the cog {% icon "mdi:cog" %}.
+2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
 3. Under **Show as**, select the type that matches your device.
 4. Select **Update**.
    - Result: The cover shows up as the new type in triggers, dashboards, and voice assistants.
