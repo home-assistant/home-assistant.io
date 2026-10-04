@@ -43,7 +43,7 @@ Quantity:
   description: The number of packages to order. The default is 1.
   required: false
 Pharmacy:
-  description: The pharmacy to order from. Required when your account is linked to more than one pharmacy. The list of pharmacies refreshes when the integration reloads.
+  description: The APB number of the pharmacy to order from, for example `343602`. Required when your account is linked to more than one pharmacy.
   required: false
 Comment:
   description: A comment for the pharmacist.
@@ -83,8 +83,7 @@ quantity:
 apb:
   description: >
     The APB number of the pharmacy to order from. Required when your account is
-    linked to more than one pharmacy. The list of pharmacies refreshes when the
-    integration reloads.
+    linked to more than one pharmacy.
   required: false
   type: string
 comment:
@@ -103,9 +102,9 @@ The action returns:
 
 ## Good to know
 
-- The action refuses to order when your draft basket at the pharmacy still holds products. Submit or clear the draft in the Mijn Farmad Apotheek app, then run the action again.
+- The action refuses to order when your draft basket at the pharmacy still holds products or a comment. Submit or clear the draft in the Mijn Farmad Apotheek app, then run the action again.
 - Each order holds one product. To order several products, call the action once per product.
-- To refresh the list of pharmacies, reload the integration from {% my integrations title="**Settings** > **Devices & services**" %}.
+- If you leave **Pharmacy** empty while your account is linked to more than one pharmacy, the error message lists each linked pharmacy with its APB number.
 
 {% include actions/try_it.md %}
 

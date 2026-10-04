@@ -124,7 +124,7 @@ The order action fails with the message that the draft basket at the pharmacy st
 
 #### Description
 
-The app keeps one draft basket per pharmacy. The order action refuses to order into a draft basket that already holds products or a comment, so it cannot overwrite a basket you started in the app. When an order fails, the integration removes the product it added to the draft basket, so a failed order does not block the next one.
+The app keeps one draft basket per pharmacy. The order action refuses to order into a draft basket that already holds products or a comment, so it cannot overwrite a basket you started in the app. When an order fails before it reaches the pharmacy, the integration removes the product it added to the draft basket. When an order could not be confirmed, the product can stay in the draft basket, because the pharmacy may already have accepted the order.
 
 #### Resolution
 

@@ -21,7 +21,7 @@ To search the catalog from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Mijn Farmad Apotheek: Search medication**.
 6. Under **Search term**, enter the product name or CNK code to search for.
-7. If your account is linked to more than one pharmacy, select the **Pharmacy** to search in. Otherwise the search runs at your linked pharmacy.
+7. If your account is linked to more than one pharmacy, enter its APB number under **Pharmacy**. Otherwise, leave **Pharmacy** empty to search at your linked pharmacy.
 8. In the **Response variable** field, enter a name to store the results in, such as `search_result`.
 9. Select **Save**.
 
@@ -32,7 +32,7 @@ Search term:
   description: The product name or CNK code to search for.
   required: true
 Pharmacy:
-  description: The pharmacy to search in. Required when your account is linked to more than one pharmacy. The list of pharmacies refreshes when the integration reloads.
+  description: The APB number of the pharmacy to search in, for example `343602`. Required when your account is linked to more than one pharmacy.
   required: false
 {% endoptions_ui %}
 
@@ -63,8 +63,7 @@ query:
 apb:
   description: >
     The APB number of the pharmacy to search in. Required when your account is
-    linked to more than one pharmacy. The list of pharmacies refreshes when the
-    integration reloads.
+    linked to more than one pharmacy.
   required: false
   type: string
 {% endoptions_yaml %}
@@ -98,7 +97,7 @@ products:
 
 - The search matches product names. A full CNK code matches its own product.
 - Product names in the results are in Dutch.
-- To refresh the list of pharmacies, reload the integration from {% my integrations title="**Settings** > **Devices & services**" %}.
+- If you leave **Pharmacy** empty while your account is linked to more than one pharmacy, the error message lists each linked pharmacy with its APB number.
 
 {% include actions/try_it.md %}
 
