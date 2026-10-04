@@ -132,7 +132,7 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 - {% icon "mdi:audio-video" %} **Receiver** (`receiver`): A device that takes audio and video input and outputs it to speakers and displays.
 - {% icon "mdi:projector" %} **Projector** (`projector`): A projector.
 
-Some device classes also show a different icon depending on the state:
+Media players also show a different icon depending on the state, with or without a device class:
 
 - Off: {% icon "mdi:cast-off" %} {% icon "mdi:television-off" %} {% icon "mdi:speaker-off" %} {% icon "mdi:audio-video-off" %} {% icon "mdi:projector-off" %}
 - Playing: {% icon "mdi:cast-connected" %} {% icon "mdi:television-play" %} {% icon "mdi:speaker-play" %}
