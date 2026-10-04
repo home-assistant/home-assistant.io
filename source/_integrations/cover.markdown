@@ -40,8 +40,8 @@ The device class tells Home Assistant what kind of cover an entity is, such as a
 The device class makes a difference in the following places:
 
 - Automations: Triggers and conditions such as [Garage door opened](/triggers/garage_door.opened/) or [Curtain is closed](/conditions/cover.curtain_is_closed/) only list covers with the matching device class.
-- Assist: [Assist](/voice_control/) knows the type, so you can say "open the curtains in the kitchen" or ask "are any windows open?".
-- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/), [Alexa](/integrations/alexa/), and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, show the cover as a matching device, such as a garage door or a window. Google Assistant treats doors, garage doors, and gates as [secure devices](/integrations/google_assistant/#secure-devices).
+- Assist: [Assist](/voice_control/) uses the device class to understand the type, so you can say "open the curtains in the kitchen" or ask "are any windows open?".
+- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/), [Alexa](/integrations/alexa/), and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, use the device class to decide what kind of device to show, such as a garage door or a window. Google Assistant treats doors, garage doors, and gates as [secure devices](/integrations/google_assistant/#secure-devices).
 - Dashboards: The [Security dashboard](/dashboards/dashboards/#security-dashboard) shows doors, garage doors, gates, and windows. The [Climate dashboard](/dashboards/dashboards/#home-assistant-built-in-dashboards) shows awnings, blinds, curtains, shades, shutters, and windows. The **Area controls** feature of the [area card](/dashboards/area/) controls covers by type, such as all blinds in an area.
 - Display: Awnings, curtains, doors, and gates use horizontal arrows on their open and close buttons. Other covers use up and down arrows.
 - Icon: The icon matches the type, such as {% icon "mdi:garage" %} for a garage door.
