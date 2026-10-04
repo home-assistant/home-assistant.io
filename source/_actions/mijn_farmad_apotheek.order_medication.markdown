@@ -114,9 +114,9 @@ The action returns:
 
 This automation orders a known product on a monthly schedule, with a comment for the pharmacist. Create a calendar first, for example with the [Local Calendar](/integrations/local_calendar/) integration, and add an event that repeats on the first day of every month at 09:00.
 
-- **Trigger**: Calendar event starts
+- **Trigger**: Calendar event started
   - **Calendar**: Medication orders (`calendar.medication_orders`)
-- **Action**: Mijn Farmad Apotheek: Order medication
+- **Action**: Order medication
   - **Product**: 3093242
   - **Quantity**: 2
   - **Comment**: For monthly pickup
@@ -128,9 +128,9 @@ automation: |
   alias: "Order a product every month"
   description: "Orders two packages of a known product every month."
   triggers:
-    - trigger: calendar
-      entity_id: calendar.medication_orders
-      event: start
+    - trigger: calendar.event_started
+      target:
+        entity_id: calendar.medication_orders
   actions:
     - action: mijn_farmad_apotheek.order_medication
       data:
@@ -147,7 +147,7 @@ This automation orders a known product when a supply you track in Home Assistant
 
 - **Trigger**: Numeric state: Paracetamol boxes below 1
 - **Condition**: The supply changed from a number, not from unavailable
-- **Action**: Mijn Farmad Apotheek: Order medication
+- **Action**: Order medication
   - **Product**: 3093242
 
 {% details "YAML example for ordering when the supply runs low" %}

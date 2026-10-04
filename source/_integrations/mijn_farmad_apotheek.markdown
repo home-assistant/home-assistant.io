@@ -2,7 +2,8 @@
 title: Mijn Farmad Apotheek
 description: Search and order medication at your Farmad-connected pharmacy in Home Assistant.
 ha_release: 2026.11
-ha_category: Health
+ha_category:
+  - Health
 ha_iot_class: Cloud Polling
 ha_domain: mijn_farmad_apotheek
 ha_integration_type: service
@@ -54,9 +55,9 @@ Password:
 
 This automation orders a known product on a monthly schedule, with a comment for the pharmacist. Create a calendar first, for example with the [Local Calendar](/integrations/local_calendar/) integration, and add an event that repeats on the first day of every month at 09:00. To find the CNK code of your product, use the [Search medication](/actions/mijn_farmad_apotheek.search_medication/) action.
 
-- **Trigger**: Calendar event starts
+- **Trigger**: Calendar event started
   - **Calendar**: Medication orders (`calendar.medication_orders`)
-- **Action**: Mijn Farmad Apotheek: Order medication
+- **Action**: Order medication
   - **Product**: 3093242
   - **Quantity**: 2
   - **Comment**: For monthly pickup
@@ -68,9 +69,9 @@ automation: |
   alias: "Order a product every month"
   description: "Orders two packages of a known product every month."
   triggers:
-    - trigger: calendar
-      entity_id: calendar.medication_orders
-      event: start
+    - trigger: calendar.event_started
+      target:
+        entity_id: calendar.medication_orders
   actions:
     - action: mijn_farmad_apotheek.order_medication
       data:
@@ -190,7 +191,7 @@ If your problem is not listed here, enable [debug logging](/docs/configuration/t
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select Mijn Farmad Apotheek.
-3. Open the three-dots menu in the top right and select **Enable debug logging**.
+3. In the top right of the page, open the three dots {% icon "mdi:dots-vertical" %} menu, and select **Enable debug logging**.
 4. Run the action that gave you the error, then open the same menu, select **Disable debug logging**, and download the log file.
 
 ## Removing the integration
