@@ -133,15 +133,14 @@ Because the {% term state %} of an infrared entity is a timestamp, it changes ev
 
 ## Device class
 
-The device class tells Home Assistant whether an infrared entity is an emitter or a receiver.
-
-The device class makes a difference in the following places:
-
-- Infrared panel: The [list of infrared remote adapters](#viewing-your-infrared-remote-adapters) uses the device class to show whether each adapter is an emitter, a receiver, or both.
-- Icon and name: Emitters and receivers have their own icon and default name.
-- History and Activity: If you have both emitters and receivers, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists them separately.
+The device class tells Home Assistant whether an infrared entity is an emitter or a receiver. Home Assistant uses it to choose the icon and the default name, and to show the type of each adapter in the [list of infrared remote adapters](#viewing-your-infrared-remote-adapters).
 
 Home Assistant sets the device class automatically, based on whether the entity sends or receives IR signals. You can't change it.
+
+### Device classes in automations and templates
+
+- Automations: The device class doesn't change how an infrared entity works in automations.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `emitter`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
 
@@ -149,8 +148,6 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 
 - **Infrared emitter** (`emitter`): Sends IR signals to an infrared-controlled device.
 - **Infrared receiver** (`receiver`): Receives IR signals, for example from a handheld remote.
-
-In templates, the device class is the `device_class` attribute of the entity. Use the stored value, such as `emitter`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ## Troubleshooting
 
