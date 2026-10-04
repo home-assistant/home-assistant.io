@@ -41,14 +41,14 @@ The integration that provides the cover sets the device class. When you create a
 
 ### Device classes in automations and templates
 
-- Automations: Most device classes have their own triggers and conditions, such as [Garage door opened](/triggers/garage_door.opened/). These triggers and conditions only list covers with that device class. The list below shows the triggers and conditions of each device class. Dampers and covers without a device class have none.
+- Automations: Most device classes have their own triggers and conditions, such as [Garage door opened](/triggers/garage_door.opened/). Of your covers, these triggers and conditions only list the ones with that device class. The list below shows the triggers and conditions of each device class. Dampers and covers without a device class have none.
 - Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `garage`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
 
 A cover without a device class is a generic cover and shows {% icon "mdi:window-open" %}.
 
-Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it. If the device class has its own triggers and conditions, they're listed below the item.
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it. The icons show an open cover. If the device class has its own triggers and conditions, they're listed below the item.
 
 - {% icon "mdi:window-open" %} **Awning** (`awning`): An awning, such as an exterior retractable window, door, or patio cover. Awnings use the same icon as a generic cover.
   - Triggers: [Awning closed](/triggers/cover.awning_closed/), [Awning opened](/triggers/cover.awning_opened/)
