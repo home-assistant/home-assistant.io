@@ -54,7 +54,7 @@ The device class tells Home Assistant what kind of signal an event entity report
 The device class makes a difference in the following places:
 
 - Automations: The **Doorbell rang** trigger only reacts to event entities with the doorbell device class.
-- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/) and [Alexa](/integrations/alexa/) can announce doorbell events. Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, uses them as the doorbell of a camera or lock.
+- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/) and [Alexa](/integrations/alexa/) can announce events with the doorbell device class. Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, uses these events as the doorbell of a camera or lock.
 - Display: Buttons and doorbells show readable [event type](#event-types) names, such as **Ring**.
 - Icon and name: The icon and the default name match the type, such as **Doorbell**.
 - History and Activity: If you have event entities with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
