@@ -39,8 +39,8 @@ The device class tells Home Assistant whether a device adds humidity to the air 
 
 The device class makes a difference in the following places:
 
-- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/) and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, show the device as a humidifier or a dehumidifier. Without a device class, they show it as a humidifier.
-- Display: For a dehumidifier, the target humidity slider in the humidifier card and the entity dialog is filled from the high end.
+- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/) and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, show the device as a humidifier or a dehumidifier.
+- Display: For a dehumidifier, the target humidity slider is filled from the high end.
 - History and Activity: If you have humidifiers with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
 
 The integration that provides the humidifier sets the device class.
