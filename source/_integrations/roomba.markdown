@@ -66,7 +66,9 @@ If automatic retrieval does not work, you can retrieve the credentials manually.
 For Home Assistant Container, the following command retrieves the password:
 
 ```shell
-docker exec -it CONTAINER_NAME_OR_ID python3 -c 'from roombapy import RoombaPassword; print("Password:", RoombaPassword("ROOMBA_IP").get_password())'
+docker exec -it CONTAINER_NAME_OR_ID python3 -c \
+  'from roombapy import RoombaPassword
+print("Password:", RoombaPassword("ROOMBA_IP").get_password())'
 ```
 
 {% note %}
