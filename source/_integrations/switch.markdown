@@ -51,9 +51,10 @@ The integration that provides the switch sets the device class.
 
 ### List of available device classes
 
+A switch without a device class is a generic switch and shows {% icon "mdi:toggle-switch-variant" %}.
+
 Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
 
-- {% icon "mdi:toggle-switch-variant" %} No device class: A generic switch.
 - {% icon "mdi:power-plug" %} **Outlet** (`outlet`): A switch for a power outlet.
 - {% icon "mdi:toggle-switch-variant" %} **Switch** (`switch`): A generic switch.
 
@@ -67,7 +68,9 @@ If a switch controls an outlet or a smart plug but shows up as a switch, or the 
 2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
 3. Under **Show as**, select **Switch** or **Outlet**.
 4. Select **Update**.
-   - Result: The switch shows the matching icon, and voice assistants show it as the new type.
+   - Result: The switch shows the matching icon.
+
+Google Assistant and Alexa through Home Assistant Cloud pick up the new type automatically. If you use Apple Home through the HomeKit Bridge, [reset the accessory](/actions/homekit.reset_accessory/) so Apple Home shows the new type. If you set up Google Assistant or Alexa without Home Assistant Cloud, ask your voice assistant to sync or discover devices again.
 
 {% include integrations/triggers.md %}
 
