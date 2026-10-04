@@ -55,11 +55,10 @@ The integration that provides the binary sensor sets the device class. When you 
 
 ### List of available device classes
 
+A binary sensor without a device class shows **On** and **Off** as its state labels.
+
 Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it. Below each item are the labels the interface shows for the `on` and `off` states.
 
-- No device class: A generic binary sensor.
-  - **On** (`on`)
-  - **Off** (`off`)
 - **Battery** (`battery`): Shows whether the battery is low.
   - **Low** (`on`)
   - **Normal** (`off`)
@@ -160,6 +159,8 @@ If a binary sensor shows up as the wrong type, for example as an opening instead
 2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
 3. Under **Show as**, select the type that matches your device.
 4. Select **Update**.
-   - Result: The binary sensor shows up as the new type in triggers, dashboards, and voice assistants.
+   - Result: The binary sensor shows up as the new type in triggers and dashboards.
+
+Google Assistant and Alexa through Home Assistant Cloud pick up the new type automatically. If you use Apple Home through the HomeKit Bridge, [reset the accessory](/actions/homekit.reset_accessory/) so Apple Home shows the new type. If you set up Google Assistant or Alexa without Home Assistant Cloud, ask your voice assistant to sync or discover devices again.
 
 If you created the binary sensor with a template helper, change the device class in the options of the template helper instead.
