@@ -35,13 +35,13 @@ The device class of a cover determines the icon shown for each state. The state 
 
 ## Device class
 
-The device class tells Home Assistant what kind of cover an entity is, such as a garage door or curtains. Home Assistant uses it to choose the icon and the arrows on the open and close buttons. It also decides where you can use the cover, such as in triggers and conditions, in [Assist](/voice_control/), on the [Security dashboard](/dashboards/dashboards/#security-dashboard), or in voice assistants. If a cover doesn't show up where you expect it, check its device class.
+The device class tells Home Assistant what kind of cover an entity is, such as a garage door or curtains. Home Assistant uses the device class to choose the icon and the arrows on the open and close buttons. The device class also decides where you can use the cover, such as in triggers and conditions, in [Assist](/voice_control/), on the [Security dashboard](/dashboards/dashboards/#security-dashboard), or in voice assistants. If a cover doesn't show up where you expect it, check its device class.
 
-The integration that provides the cover sets the device class. When you create a cover yourself with a [template helper](/integrations/template/), you choose it.
+The integration that provides the cover sets the device class. When you create a cover yourself with a [template helper](/integrations/template/), you choose the device class.
 
 ### Device classes in automations and templates
 
-- Automations: Most device classes have their own triggers and conditions, such as [Garage door opened](/triggers/garage_door.opened/). They only list covers with that device class. The list below shows the triggers and conditions of each device class. Dampers and covers without a device class have none.
+- Automations: Most device classes have their own triggers and conditions, such as [Garage door opened](/triggers/garage_door.opened/). These triggers and conditions only list covers with that device class. The list below shows the triggers and conditions of each device class. Dampers and covers without a device class have none.
 - Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `garage`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
@@ -83,7 +83,7 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 
 If a cover shows up as the wrong type, for example as a window instead of a garage door, you can change its device class.
 
-You can only change the device class in the UI if the cover has a unique ID. Otherwise, the entity settings show that its settings can't be managed from the UI. In that case, you can change the device class in YAML with [customization](/docs/configuration/customizing-devices/#customizing-an-entity-in-yaml).
+You can only change the device class in the UI if the cover has a unique ID. A cover without a unique ID shows a message in its entity settings instead. For such a cover, you can change the device class in YAML with [customization](/docs/configuration/customizing-devices/#customizing-an-entity-in-yaml).
 
 1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the cover.
 2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
@@ -91,7 +91,7 @@ You can only change the device class in the UI if the cover has a unique ID. Oth
 4. Select **Update**.
    - Result: The cover shows up as the new type in triggers and dashboards.
 
-Google Assistant and Alexa through Home Assistant Cloud pick up the new type automatically. If you use Apple Home through the HomeKit Bridge, [reset the accessory](/actions/homekit.reset_accessory/) so Apple Home shows the new type. Apple Home then treats it as a new accessory, so you need to set up its name, group, room, scenes, and automations again. If you set up Google Assistant or Alexa without Home Assistant Cloud, ask your voice assistant to sync or discover devices again.
+Google Assistant and Alexa through Home Assistant Cloud pick up the new type automatically. If you use Apple Home through the HomeKit Bridge, [reset the accessory](/actions/homekit.reset_accessory/) so Apple Home shows the new type. Apple Home then treats the accessory as new, so you need to set up its name, group, room, scenes, and automations again. If you set up Google Assistant or Alexa without Home Assistant Cloud, ask your voice assistant to sync or discover devices again.
 
 {% include integrations/triggers.md %}
 
