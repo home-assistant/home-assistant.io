@@ -35,15 +35,14 @@ In addition, the entity can have the following states:
 
 ## Device class
 
-The device class tells Home Assistant whether a device adds humidity to the air or removes it.
-
-The device class makes a difference in the following places:
-
-- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/) and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, use the device class to decide whether to show the device as a humidifier or a dehumidifier.
-- Display: For a dehumidifier, the target humidity slider is filled from the high end.
-- History and Activity: If you have humidifiers with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
+The device class tells Home Assistant whether a device adds humidity to the air or removes it. Google Assistant and Apple Home use it to show the device as a humidifier or a dehumidifier. For a dehumidifier, the target humidity slider is filled from the high end.
 
 The integration that provides the humidifier sets the device class.
+
+### Device classes in automations and templates
+
+- Automations: The device class doesn't change how a humidifier works in automations.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `dehumidifier`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
 
@@ -53,7 +52,5 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 
 - **Humidifier** (`humidifier`): Adds humidity to the air around it.
 - **Dehumidifier** (`dehumidifier`): Removes humidity from the air around it.
-
-In templates, the device class is the `device_class` attribute of the entity. Use the stored value, such as `dehumidifier`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 {% include integrations/triggers_conditions_actions.md %}
