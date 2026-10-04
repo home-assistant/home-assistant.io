@@ -54,7 +54,7 @@ The integration that provides the sensor sets the device class. When you create 
 
 ### Device classes in automations and templates
 
-- Automations: Some device classes have their own triggers and conditions, such as [Temperature changed](/triggers/temperature.changed/). These triggers and conditions only list sensors with that device class. The list below shows the triggers and conditions of each device class.
+- Automations: Some device classes have their own triggers and conditions, such as [Temperature changed](/triggers/temperature.changed/). Of your sensors, these triggers and conditions only list the ones with that device class. The list below shows the triggers and conditions of each device class.
 - Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `temperature`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
