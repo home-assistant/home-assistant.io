@@ -51,9 +51,10 @@ The integration that provides the cover sets the device class. When you create a
 
 ### List of available device classes
 
+A cover without a device class is a generic cover and shows {% icon "mdi:window-open" %}.
+
 Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
 
-- {% icon "mdi:window-open" %} No device class: A generic cover.
 - {% icon "mdi:window-open" %} **Awning** (`awning`): An awning, such as an exterior retractable window, door, or patio cover. Awnings use the same icon as a generic cover.
 - {% icon "mdi:blinds-horizontal" %} **Blind** (`blind`): Blinds, which are linked slats that expand or collapse to cover an opening or may be tilted to partially cover an opening, such as window blinds.
 - {% icon "mdi:curtains" %} **Curtain** (`curtain`): Curtains or drapes, which are often fabric hung above a window or door that can be drawn open.
@@ -75,7 +76,9 @@ If a cover shows up as the wrong type, for example as a window instead of a gara
 2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
 3. Under **Show as**, select the type that matches your device.
 4. Select **Update**.
-   - Result: The cover shows up as the new type in triggers, dashboards, and voice assistants.
+   - Result: The cover shows up as the new type in triggers and dashboards.
+
+Google Assistant and Alexa through Home Assistant Cloud pick up the new type automatically. If you use Apple Home through the HomeKit Bridge, [reset the accessory](/actions/homekit.reset_accessory/) so Apple Home shows the new type. If you set up Google Assistant or Alexa without Home Assistant Cloud, ask your voice assistant to sync or discover devices again.
 
 {% include integrations/triggers.md %}
 
