@@ -39,7 +39,7 @@ In addition, the entity can have the following states:
 
 ## Device class
 
-The device class tells Home Assistant whether a switch controls a power outlet. Home Assistant uses it to choose the icon. Google Assistant, Alexa, and Apple Home use it to show an outlet as an outlet or a smart plug.
+The device class tells Home Assistant whether a switch controls a power outlet. Home Assistant uses the device class to choose the icon. Google Assistant, Alexa, and Apple Home use the device class to show an outlet as an outlet or a smart plug.
 
 The integration that provides the switch sets the device class.
 
@@ -61,16 +61,16 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 
 If a switch controls an outlet or a smart plug but shows up as a switch, or the other way around, you can change its device class.
 
-You can only change the device class in the UI if the switch has a unique ID. Otherwise, the entity settings show that its settings can't be managed from the UI. In that case, you can change the device class in YAML with [customization](/docs/configuration/customizing-devices/#customizing-an-entity-in-yaml).
+You can only change the device class in the UI if the switch has a unique ID. A switch without a unique ID shows a message in its entity settings instead. For such a switch, you can change the device class in YAML with [customization](/docs/configuration/customizing-devices/#customizing-an-entity-in-yaml).
 
 1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the switch.
 2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
 3. Under **Show as**, select **Switch** or **Outlet**.
    - The other options, such as **Light** or **Fan**, don't change the device class. Instead, Home Assistant creates a new entity of that type and hides the switch. For details, refer to [Change device type of a switch](/integrations/switch_as_x/).
 4. Select **Update**.
-   - Result: The switch shows the matching icon, unless you've set a custom icon for it.
+   - Result: The switch shows the matching icon, unless you've set a custom icon for the switch.
 
-Google Assistant and Alexa through Home Assistant Cloud pick up the new type automatically. If you use Apple Home through the HomeKit Bridge, [reset the accessory](/actions/homekit.reset_accessory/) so Apple Home shows the new type. Apple Home then treats it as a new accessory, so you need to set up its name, group, room, scenes, and automations again. If you set up Google Assistant or Alexa without Home Assistant Cloud, ask your voice assistant to sync or discover devices again.
+Google Assistant and Alexa through Home Assistant Cloud pick up the new type automatically. If you use Apple Home through the HomeKit Bridge, [reset the accessory](/actions/homekit.reset_accessory/) so Apple Home shows the new type. Apple Home then treats the accessory as new, so you need to set up its name, group, room, scenes, and automations again. If you set up Google Assistant or Alexa without Home Assistant Cloud, ask your voice assistant to sync or discover devices again.
 
 {% include integrations/triggers.md %}
 
