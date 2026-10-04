@@ -123,9 +123,10 @@ The integration that provides the media player sets the device class.
 
 ### List of available device classes
 
+A media player without a device class is a generic media player and shows {% icon "mdi:cast" %}.
+
 Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
 
-- {% icon "mdi:cast" %} No device class: A generic media player.
 - {% icon "mdi:television" %} **TV** (`tv`): A television.
 - {% icon "mdi:speaker" %} **Speaker** (`speaker`): A speaker.
 - {% icon "mdi:audio-video" %} **Receiver** (`receiver`): A device that takes audio and video input and outputs it to speakers and displays.
