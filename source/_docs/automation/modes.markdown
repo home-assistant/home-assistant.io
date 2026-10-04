@@ -67,7 +67,7 @@ A run of an automation can stop before it reaches its last action, for example, 
 
 ## Replacing a long delay with a timer
 
-Because a restart stops all runs, a long delay inside an automation, for example, of several hours, can get lost. A timer helper keeps its remaining time across a restart. For a fixed time of day, you can instead use a [**Time**](/triggers/time/) trigger.
+Because a restart stops all runs, a long delay inside an automation, for example, of several hours, can get lost. A timer helper keeps its remaining time across a restart. This works when the automation waits only once at a time, and the actions after the delay don't need information from the trigger, such as which sensor started the automation. If the timer is already running, starting it again restarts the timer. For a fixed time of day, you can instead use a [**Time**](/triggers/time/) trigger.
 
 1. Create a timer:
    1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, select **Create helper**, and then select **Timer**.
