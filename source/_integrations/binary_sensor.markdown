@@ -40,34 +40,36 @@ In addition, the entity can have the following states. Each item shows the inter
 
 ## Device class
 
-The device class tells Home Assistant what a binary sensor detects, such as an open door or motion.
-
-The device class makes a difference in the following places:
-
-- Automations: Triggers and conditions such as [Door opened](/triggers/door.opened/) or [Motion detected](/triggers/motion.detected/) only list binary sensors with the matching device class.
-- Assist: The device class decides whether a new binary sensor is [exposed to Assist](/voice_control/voice_remote_expose_devices/) by default. Door, garage door, lock, motion, opening, presence, and window sensors are.
-- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/), [Alexa](/integrations/alexa/), and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, use the device class to decide what kind of sensor to show, such as a door or window sensor.
-- Dashboards: The [Security dashboard](/dashboards/dashboards/#security-dashboard) shows door, window, lock, and safety sensors, the [Climate dashboard](/dashboards/dashboards/#home-assistant-built-in-dashboards) shows window sensors, and the [Maintenance dashboard](/dashboards/dashboards/#home-assistant-built-in-dashboards) shows battery sensors. The [area card](/dashboards/area/) shows alerts for the types you select, by default motion and moisture.
-- Icon and name: The icon, the labels for `on` and `off`, such as **Open** and **Closed**, and the default name match the type.
-- History and Activity: If you have binary sensors with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
+The device class tells Home Assistant what a binary sensor detects, such as an open door or motion. Home Assistant uses it to choose the icon and the labels for `on` and `off`, such as **Open** and **Closed**. It also decides where you can use the binary sensor, such as in triggers and conditions, on the [Security dashboard](/dashboards/dashboards/#security-dashboard), or in voice assistants. If a binary sensor doesn't show up where you expect it, check its device class.
 
 The integration that provides the binary sensor sets the device class. When you create a binary sensor yourself with a [template helper](/integrations/template/), you choose it.
+
+### Device classes in automations and templates
+
+- Automations: Several device classes have their own triggers and conditions, such as [Door opened](/triggers/door.opened/). They only list binary sensors with that device class. The list below shows the triggers and conditions of each device class.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `door`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
 
 A binary sensor without a device class shows **On** and **Off** as its state labels.
 
-Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it. Below each item are the labels the interface shows for the `on` and `off` states.
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it. Below each item are the labels the interface shows for the `on` and `off` states, and the triggers and conditions of the device class, if it has any.
 
 - **Battery** (`battery`): Shows whether the battery is low.
   - **Low** (`on`)
   - **Normal** (`off`)
+  - Triggers: [Battery low](/triggers/battery.became_low/), [Battery not low](/triggers/battery.no_longer_low/)
+  - Conditions: [Battery is low](/conditions/battery.is_low/), [Battery is not low](/conditions/battery.is_not_low/)
 - **Charging** (`battery_charging`): Shows whether the battery is charging.
   - **Charging** (`on`)
   - **Not charging** (`off`)
+  - Triggers: [Battery started charging](/triggers/battery.started_charging/), [Battery stopped charging](/triggers/battery.stopped_charging/)
+  - Conditions: [Battery is charging](/conditions/battery.is_charging/), [Battery is not charging](/conditions/battery.is_not_charging/)
 - **Carbon monoxide** (`carbon_monoxide`): Shows whether carbon monoxide is detected.
   - **Detected** (`on`)
   - **Clear** (`off`)
+  - Triggers: [Carbon monoxide cleared](/triggers/air_quality.co_cleared/), [Carbon monoxide detected](/triggers/air_quality.co_detected/)
+  - Conditions: [Carbon monoxide cleared](/conditions/air_quality.is_co_cleared/), [Carbon monoxide detected](/conditions/air_quality.is_co_detected/)
 - **Cold** (`cold`): Shows whether something is cold.
   - **Cold** (`on`)
   - **Normal** (`off`)
@@ -77,33 +79,47 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 - **Door** (`door`): Shows whether a door is open.
   - **Open** (`on`)
   - **Closed** (`off`)
+  - Triggers: [Door closed](/triggers/door.closed/), [Door opened](/triggers/door.opened/)
+  - Conditions: [Door is closed](/conditions/door.is_closed/), [Door is open](/conditions/door.is_open/)
 - **Garage door** (`garage_door`): Shows whether a garage door is open.
   - **Open** (`on`)
   - **Closed** (`off`)
+  - Triggers: [Garage door closed](/triggers/garage_door.closed/), [Garage door opened](/triggers/garage_door.opened/)
+  - Conditions: [Garage door is closed](/conditions/garage_door.is_closed/), [Garage door is open](/conditions/garage_door.is_open/)
 - **Gas** (`gas`): Shows whether gas is detected.
   - **Detected** (`on`)
   - **Clear** (`off`)
+  - Triggers: [Gas cleared](/triggers/air_quality.gas_cleared/), [Gas detected](/triggers/air_quality.gas_detected/)
+  - Conditions: [Gas cleared](/conditions/air_quality.is_gas_cleared/), [Gas detected](/conditions/air_quality.is_gas_detected/)
 - **Heat** (`heat`): Shows whether something is hot.
   - **Hot** (`on`)
   - **Normal** (`off`)
 - **Light** (`light`): Shows whether light is detected.
   - **Light detected** (`on`)
   - **No light** (`off`)
+  - Triggers: [Light level cleared](/triggers/illuminance.cleared/), [Light level detected](/triggers/illuminance.detected/)
+  - Conditions: [Light level is detected](/conditions/illuminance.is_detected/), [Light level is not detected](/conditions/illuminance.is_not_detected/)
 - **Lock** (`lock`): Shows whether a lock is unlocked.
   - **Unlocked** (`on`)
   - **Locked** (`off`)
 - **Moisture** (`moisture`): Shows whether moisture is detected, such as a water leak.
   - **Wet** (`on`)
   - **Dry** (`off`)
+  - Triggers: [Moisture cleared](/triggers/moisture.cleared/), [Moisture detected](/triggers/moisture.detected/)
+  - Conditions: [Moisture is detected](/conditions/moisture.is_detected/), [Moisture is not detected](/conditions/moisture.is_not_detected/)
 - **Motion** (`motion`): Shows whether motion is detected.
   - **Detected** (`on`)
   - **Clear** (`off`)
+  - Triggers: [Motion cleared](/triggers/motion.cleared/), [Motion detected](/triggers/motion.detected/)
+  - Conditions: [Motion is detected](/conditions/motion.is_detected/), [Motion is not detected](/conditions/motion.is_not_detected/)
 - **Moving** (`moving`): Shows whether something is moving.
   - **Moving** (`on`)
   - **Not moving** (`off`)
 - **Occupancy** (`occupancy`): Shows whether a room or area is occupied.
   - **Detected** (`on`)
   - **Clear** (`off`)
+  - Triggers: [Occupancy cleared](/triggers/occupancy.cleared/), [Occupancy detected](/triggers/occupancy.detected/)
+  - Conditions: [Occupancy is detected](/conditions/occupancy.is_detected/), [Occupancy is not detected](/conditions/occupancy.is_not_detected/)
 - **Opening** (`opening`): Shows whether something is open, such as a cabinet or a drawer.
   - **Open** (`on`)
   - **Closed** (`off`)
@@ -128,6 +144,8 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 - **Smoke** (`smoke`): Shows whether smoke is detected.
   - **Detected** (`on`)
   - **Clear** (`off`)
+  - Triggers: [Smoke cleared](/triggers/air_quality.smoke_cleared/), [Smoke detected](/triggers/air_quality.smoke_detected/)
+  - Conditions: [Smoke cleared](/conditions/air_quality.is_smoke_cleared/), [Smoke detected](/conditions/air_quality.is_smoke_detected/)
 - **Sound** (`sound`): Shows whether sound is detected.
   - **Detected** (`on`)
   - **Clear** (`off`)
@@ -140,11 +158,13 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 - **Vibration** (`vibration`): Shows whether vibration is detected.
   - **Detected** (`on`)
   - **Clear** (`off`)
+  - Triggers: [Vibration cleared](/triggers/vibration.cleared/), [Vibration detected](/triggers/vibration.detected/)
+  - Conditions: [Vibration is detected](/conditions/vibration.is_detected/), [Vibration is not detected](/conditions/vibration.is_not_detected/)
 - **Window** (`window`): Shows whether a window is open.
   - **Open** (`on`)
   - **Closed** (`off`)
-
-In templates, the device class is the `device_class` attribute of the entity. Use the stored value, such as `door`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
+  - Triggers: [Window closed](/triggers/window.closed/), [Window opened](/triggers/window.opened/)
+  - Conditions: [Window is closed](/conditions/window.is_closed/), [Window is open](/conditions/window.is_open/)
 
 For sensors that measure values, see the [sensor device classes](/integrations/sensor/#device-class).
 
