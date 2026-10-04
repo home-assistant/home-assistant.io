@@ -70,8 +70,6 @@ You can only change the device class in the UI if the switch has a unique ID. A 
 4. Select **Update**.
    - Result: The switch shows the matching icon, unless you've set a custom icon for the switch.
 
-Google Assistant and Alexa through Home Assistant Cloud pick up the new type automatically. If you use Apple Home through the HomeKit Bridge, [reset the accessory](/actions/homekit.reset_accessory/) so Apple Home shows the new type. Apple Home then treats the accessory as new, so you need to set up its name, group, room, scenes, and automations again. If you set up Google Assistant or Alexa without Home Assistant Cloud, ask your voice assistant to sync or discover devices again.
-
 {% include integrations/triggers.md %}
 
 {% include integrations/conditions.md %}
