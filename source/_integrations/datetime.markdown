@@ -31,4 +31,6 @@ In addition, the entity can have the following states:
 - **Unavailable**: The entity is currently unavailable.
 - **Unknown**: The state is not yet known.
 
+{% include integrations/conditions.md %}
+
 {% include integrations/actions.md %}
