@@ -44,9 +44,10 @@ The integration that provides the valve sets the device class.
 
 ### List of available device classes
 
+A valve without a device class is a generic valve and shows the same icons as a water valve.
+
 Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
 
-- {% icon "mdi:valve-open" %} No device class: A generic valve.
 - {% icon "mdi:valve-open" %} **Water** (`water`): A valve that controls the flow of water through a system.
 - {% icon "mdi:meter-gas" %} **Gas** (`gas`): A valve that controls the flow of gas through a system.
 
