@@ -22,17 +22,13 @@ Both kinds are different from the [**Statistics**](/integrations/statistics/) in
 
 Home Assistant keeps statistics for a sensor when all of the following are true:
 
-- The sensor has a state class. The integration that provides the sensor sets it. The state class tells Home Assistant what kind of value the sensor has:
-  - **Measurement**: A value right now, for example, a temperature or the current power use.
-  - **Measurement angle**: An angle right now, for example, the wind direction.
-  - **Total**: An amount that can go up and down, for example, the energy you put into and take out of a home battery.
-  - **Total increasing**: An amount that only goes up, except when it's reset, for example, an energy meter.
+- The sensor has a [state class](/integrations/sensor/#state-class). The integration that provides the sensor usually sets the state class.
 - The state of the sensor is a number.
 - The sensor is recorded. If you [exclude an entity from the recorder](/integrations/recorder/#configure-filter), Home Assistant doesn't keep statistics for it.
 
 Only sensor entities get statistics this way. Other entities, such as lights or switches, don't.
 
-To find out whether a sensor has a state class, go to {% my developer_states title="**Settings** > **Tools** > **States**" %}, and look for the `state_class` attribute of the sensor. If a sensor that you create yourself, such as a [template sensor](/integrations/template/), has no state class, you can set one in its options. For a sensor that an integration provides, the integration has to set it.
+To find out whether a sensor has a state class, go to {% my tools_states title="**Settings** > **Tools** > **States**" %}, and look for the `state_class` attribute of the sensor. If a sensor that you create yourself, such as a [template sensor](/integrations/template/), has no state class, you can set one in its options.
 
 ## About short-term and long-term statistics
 
