@@ -41,7 +41,7 @@ Password:
 
 - The search action finds products in the catalog of a pharmacy by product name or CNK code, and returns up to 25 matches with price and stock.
 - The order action places an order for one product at a pharmacy. Orders are paid at pickup.
-- The **Pharmacy** field of both actions lists the pharmacies linked to your account. If your account is linked to a single pharmacy, you can leave the field empty. The list refreshes when the integration reloads.
+- The **Pharmacy** field of both actions takes the APB number of the pharmacy, for example `343602`. If your account is linked to a single pharmacy, leave the field empty and the integration uses that pharmacy. If your account is linked to several pharmacies, the field is required. Leave it empty once and the error message lists the APB number of each linked pharmacy.
 - Only users with administrator rights can run the order action.
 
 {% include integrations/actions.md %}
@@ -124,12 +124,30 @@ The order action fails with the message that the draft basket at the pharmacy st
 
 #### Description
 
-The app keeps one draft basket per pharmacy. The order action refuses to order into a draft basket that already holds products, so it cannot overwrite a basket you started in the app.
+The app keeps one draft basket per pharmacy. The order action refuses to order into a draft basket that already holds products, so it cannot overwrite a basket you started in the app. When an order fails, the integration removes the product it added to the draft basket, so a failed order does not block the next one.
 
 #### Resolution
 
 1. Open the Mijn Farmad Apotheek app.
 2. Submit or clear the draft basket at the pharmacy.
+3. Run the action again.
+
+{% enddetails %}
+
+{% details "Actions fail because your account is linked to several pharmacies" %}
+
+### Symptom
+
+The action fails with the message that your account is linked to several pharmacies.
+
+#### Description
+
+The action does not know which pharmacy to use. It only picks a pharmacy on its own when your account is linked to exactly one.
+
+#### Resolution
+
+1. Copy the APB number of the pharmacy you want from the error message. The message lists each linked pharmacy as name, city, and APB number.
+2. Enter that number in the **Pharmacy** field of the action.
 3. Run the action again.
 
 {% enddetails %}
@@ -154,7 +172,7 @@ Check the order history in the Mijn Farmad Apotheek app before running the actio
 
 ### Symptom
 
-The actions fail with the message that the Farmad session expired.
+The actions fail with the message that the Farmad session expired, or the integration shows a setup error with the same message after a restart.
 
 #### Description
 
