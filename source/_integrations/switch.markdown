@@ -39,15 +39,14 @@ In addition, the entity can have the following states:
 
 ## Device class
 
-The device class tells Home Assistant whether a switch controls a power outlet.
-
-The device class makes a difference in the following places:
-
-- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/) and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, show a switch with the outlet device class as an outlet. [Alexa](/integrations/alexa/) shows it as a smart plug.
-- Icon: By default, an outlet shows a plug {% icon "mdi:power-plug" %} and other switches show a toggle {% icon "mdi:toggle-switch-variant" %}. Both have a separate icon for off.
-- History and Activity: If you have switches with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
+The device class tells Home Assistant whether a switch controls a power outlet. Home Assistant uses it to choose the icon. Google Assistant, Alexa, and Apple Home use it to show an outlet as an outlet or a smart plug.
 
 The integration that provides the switch sets the device class.
+
+### Device classes in automations and templates
+
+- Automations: The device class doesn't change how a switch works in automations.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `outlet`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
 
@@ -57,8 +56,6 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 
 - {% icon "mdi:power-plug" %} **Outlet** (`outlet`): A switch for a power outlet.
 - {% icon "mdi:toggle-switch-variant" %} **Switch** (`switch`): A generic switch.
-
-In templates, the device class is the `device_class` attribute of the entity. Use the stored value, such as `outlet`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### Changing the device class of a switch
 
