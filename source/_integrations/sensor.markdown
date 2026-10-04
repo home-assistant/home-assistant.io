@@ -53,8 +53,8 @@ The device class tells Home Assistant what a sensor measures, such as temperatur
 The device class makes a difference in the following places:
 
 - Automations: Triggers and conditions such as [Temperature changed](/triggers/temperature.changed/) only list sensors with the matching device class. The [Time](/triggers/time/) trigger accepts sensors with the timestamp device class.
-- Assist: [Assist](/voice_control/) uses the temperature sensor of an area when you ask for the temperature there.
-- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/) and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, show temperature, humidity, and air quality sensors as matching sensors.
+- Assist: When you ask [Assist](/voice_control/) for the temperature in an area, it only uses sensors with the temperature device class.
+- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/) and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, use the device class to decide what kind of sensor to show, such as a temperature, humidity, or air quality sensor.
 - Dashboards: For gas, water, and home battery charge level, the [energy dashboard](/docs/energy/) only offers sensors with the matching device class. The [Maintenance dashboard](/dashboards/dashboards/#home-assistant-built-in-dashboards) shows battery sensors, and the [area card](/dashboards/area/) shows temperature and humidity.
 - Areas: Only temperature and humidity sensors can be selected as the temperature and humidity sensor of an [area](/docs/organizing/areas/). The [Climate dashboard](/dashboards/dashboards/#home-assistant-built-in-dashboards) shows these sensors.
 - Units: The device class decides which units you can select in the entity settings. Temperatures in °C or °F follow your unit system.
