@@ -131,6 +131,27 @@ In addition, the entity can have the following states. Each item shows the inter
 
 Because the {% term state %} of an infrared entity is a timestamp, it changes every time the entity is used. This means you can use it to track when the emitter last sent a command, or when the receiver last picked up a signal. The logbook can also show context about which {% term integration %} or {% term action %} triggered the IR event.
 
+## Device class
+
+The device class tells Home Assistant whether an infrared entity is an emitter or a receiver.
+
+The device class makes a difference in the following places:
+
+- Infrared panel: The [list of infrared remote adapters](#viewing-your-infrared-remote-adapters) uses the device class to show the type of each adapter: emitter, receiver, or both.
+- Icon and name: Emitters and receivers use different icons. If the integration does not give the entity its own name, Home Assistant names it **Infrared emitter** or **Infrared receiver**.
+- History and Activity: If you have both emitters and receivers, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists them separately.
+
+Home Assistant sets the device class automatically, based on whether the entity sends or receives IR signals. You cannot change it.
+
+### List of available device classes
+
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
+
+- **Infrared emitter** (`emitter`): Sends IR signals to an infrared-controlled device.
+- **Infrared receiver** (`receiver`): Receives IR signals, for example from a handheld remote.
+
+In templates, the device class is the `device_class` attribute of the entity. Use the stored value, such as `emitter`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
+
 ## Troubleshooting
 
 ### The device does not respond to commands
