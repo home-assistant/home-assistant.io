@@ -137,7 +137,7 @@ The device class tells Home Assistant whether an infrared entity is an emitter o
 
 The device class makes a difference in the following places:
 
-- Infrared panel: The [list of infrared remote adapters](#viewing-your-infrared-remote-adapters) shows whether each adapter is an emitter, a receiver, or both.
+- Infrared panel: The [list of infrared remote adapters](#viewing-your-infrared-remote-adapters) uses the device class to show whether each adapter is an emitter, a receiver, or both.
 - Icon and name: Emitters and receivers have their own icon and default name.
 - History and Activity: If you have both emitters and receivers, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists them separately.
 
