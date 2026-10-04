@@ -85,8 +85,8 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 
 The climate platform lets you monitor and control each room's climate control. The entity is named after the room and shows the current and target temperature.
 
-- **Modes**: Auto follows the schedule in the Bosch Smart Home app, Heat holds the manual target temperature, and Off switches the room off. Cool is only available in rooms that support cooling.
-- **Presets**: Boost and Eco override the current mode temporarily. A preset is only available if the room supports it.
+- **Modes**: **Auto** follows the schedule in the Bosch Smart Home app, **Heat** holds the manual target temperature, and **Off** switches the room off. **Cool** is only available in rooms that support cooling.
+- **Presets**: **Boost** and **Eco** override the current mode temporarily. A preset is only available if the room supports it.
 
 Setting a target temperature while a room is off has no effect. Turn the room on first, or set the mode in the same action.
 
