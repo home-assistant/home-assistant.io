@@ -35,7 +35,7 @@ In addition, the entity can have the following states:
 
 ## Device class
 
-The device class tells Home Assistant whether a device adds humidity to the air or removes it. Google Assistant and Apple Home use the device class to show the device as a humidifier or a dehumidifier. For a dehumidifier, the target humidity slider is filled from the high end.
+The device class tells Home Assistant whether a device adds humidity to the air or removes it. Google Assistant and Apple Home use the device class to show the device as a humidifier or a dehumidifier.
 
 The integration that provides the humidifier sets the device class.
 
