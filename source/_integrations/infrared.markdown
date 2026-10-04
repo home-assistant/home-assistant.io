@@ -133,9 +133,9 @@ Because the {% term state %} of an infrared entity is a timestamp, it changes ev
 
 ## Device class
 
-The device class tells Home Assistant whether an infrared entity is an emitter or a receiver. Home Assistant uses it to choose the icon and the default name, and to show the type of each adapter in the [list of infrared remote adapters](#viewing-your-infrared-remote-adapters).
+The device class tells Home Assistant whether an infrared entity is an emitter or a receiver. Home Assistant uses the device class to choose the icon and the default name, and to show the type of each adapter in the [list of infrared remote adapters](#viewing-your-infrared-remote-adapters).
 
-Home Assistant sets the device class automatically, based on whether the entity sends or receives IR signals. You can't change it.
+Home Assistant sets the device class automatically, based on whether the entity sends or receives IR signals. You can't change the device class.
 
 ### Device classes in automations and templates
 
