@@ -91,7 +91,7 @@ Injection sensors only appear when your contract includes injection, for example
 
 A dynamic tariff has no fixed or variable electricity prices: the EPEX day-ahead auction sets the price of every hour and quarter hour of the coming day. A dynamic address gets the sensors below instead of the prices above. Meters on a fixed or variable rate, like gas, keep their price sensors.
 
-The integration always creates both the hourly and the quarter-hourly sensors, whichever your contract bills you in. They sit on the same address device and follow the same entity ID pattern.
+The integration always creates both the hourly and the quarter-hourly sensors, regardless of the interval your contract bills you in. They sit on the same address device and follow the same entity ID pattern.
 
 - **EPEX current hour price**: price of the hour you are in
 - **EPEX next hour price**: price of the next hour
@@ -102,7 +102,7 @@ The integration always creates both the hourly and the quarter-hourly sensors, w
 - **EPEX lowest quarter-hourly price today**: today's cheapest quarter hour, its start and end are in the attributes
 - **EPEX highest quarter-hourly price today**: today's most expensive quarter hour, its start and end are in the attributes
 
-All EPEX prices are in EUR/kWh, shown with four decimals. They are the raw wholesale market prices, without VAT, taxes and levies, or network costs, so the price you pay per kWh is higher. Wholesale prices can be negative: when supply exceeds demand, you are paid to consume.
+All EPEX prices are in EUR/kWh, shown with four decimals. They are the raw wholesale market prices, without VAT, taxes and levies, or network costs, so the price you pay per kWh is higher. Wholesale prices can be negative: when supply exceeds demand, the raw price drops below zero.
 
 Tomorrow's prices are published in the early afternoon, Brussels time. Until they are in, the next price sensors have no value whenever the next hour or quarter hour falls on the unpublished day.
 
@@ -148,7 +148,7 @@ automation: |
   actions:
     - action: engie_be.get_epex_prices_for_date
       data:
-        config_entry: 01JQEPY7HH2G7Z9A3FTBW5XR8K
+        config_entry: YOUR_CONFIG_ENTRY_ID
         date: "{{ now().date() + timedelta(days=1) }}"
       response_variable: epex_tomorrow
     - action: notify.send_message
@@ -183,7 +183,7 @@ template: |
     actions:
       - action: engie_be.get_epex_prices_for_date
         data:
-          config_entry: 01JQEPY7HH2G7Z9A3FTBW5XR8K
+          config_entry: YOUR_CONFIG_ENTRY_ID
           date: "{{ now().date() + timedelta(days=1) }}"
         response_variable: epex_tomorrow
     sensor:

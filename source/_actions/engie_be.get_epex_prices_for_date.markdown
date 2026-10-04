@@ -7,7 +7,7 @@ related_actions:
   - nordpool.get_prices_for_date
 ---
 
-The **Get EPEX prices for date** action retrieves the Belgian EPEX day-ahead prices of today or tomorrow. The EPEX sensors only show the current, the next, and the day's extreme prices, so use this action when you need every hourly or quarter-hourly price of a day.
+The **Get EPEX prices for date** action retrieves the Belgian EPEX day-ahead prices for today or tomorrow. The EPEX sensors only show the current, the next, and the day's extreme prices, so use this action when you need every hourly or quarter-hourly price of a day.
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example in a trigger-based template sensor.
 
@@ -82,19 +82,21 @@ granularity:
 
 The response contains a `slots` list with one entry per price interval. Each entry has the following fields:
 
-- `start`: the start of the price interval, in the Brussels time zone.
-- `end`: the end of the price interval, in the Brussels time zone.
+- `start`: the start of the price interval, in UTC.
+- `end`: the end of the price interval, in UTC.
 - `value`: the EPEX day-ahead price of the interval, in EUR/kWh.
+
+The slots cover the requested Brussels day, so in summer the first slot starts at 22:00 UTC on the day before. In winter, it starts at 23:00 UTC.
 
 A shortened example of the response looks like this:
 
 ```yaml
 slots:
-  - start: "2026-10-04T00:00:00+02:00"
-    end: "2026-10-04T01:00:00+02:00"
+  - start: "2026-10-03T22:00:00+00:00"
+    end: "2026-10-03T23:00:00+00:00"
     value: 0.11042
-  - start: "2026-10-04T01:00:00+02:00"
-    end: "2026-10-04T02:00:00+02:00"
+  - start: "2026-10-03T23:00:00+00:00"
+    end: "2026-10-04T00:00:00+00:00"
     value: 0.10628
 ```
 
@@ -133,7 +135,7 @@ automation: |
   actions:
     - action: engie_be.get_epex_prices_for_date
       data:
-        config_entry: 01JQEPY7HH2G7Z9A3FTBW5XR8K
+        config_entry: YOUR_CONFIG_ENTRY_ID
         date: "{{ now().date() + timedelta(days=1) }}"
       response_variable: epex_tomorrow
     - action: notify.send_message
@@ -168,7 +170,7 @@ template: |
     actions:
       - action: engie_be.get_epex_prices_for_date
         data:
-          config_entry: 01JQEPY7HH2G7Z9A3FTBW5XR8K
+          config_entry: YOUR_CONFIG_ENTRY_ID
           date: "{{ now().date() + timedelta(days=1) }}"
         response_variable: epex_tomorrow
     sensor:
