@@ -50,7 +50,7 @@ The integration that provides the switch sets the device class.
 
 ### List of available device classes
 
-A switch without a device class is a generic switch and shows {% icon "mdi:toggle-switch-variant" %}.
+A switch without a device class is a generic switch and shows {% icon "mdi:toggle-switch-variant" %} by default.
 
 Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
 
