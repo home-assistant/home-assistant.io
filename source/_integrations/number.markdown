@@ -34,13 +34,13 @@ In addition, the entity can have the following states. Each item shows the inter
 
 ## Device class
 
-The device class tells Home Assistant what a number stands for, such as a temperature or a duration. Home Assistant uses it to choose the icon, the default name, the units you can select, and how the value is shown.
+The device class tells Home Assistant what a number stands for, such as a temperature or a duration. Home Assistant uses the device class to choose the icon, the default name, the units you can select, and how the value is shown.
 
-The integration that provides the number sets the device class, and you can't change it in the entity settings. When you create a number yourself with a [template helper](/integrations/template/), you choose it.
+The integration that provides the number sets the device class, and you can't change the device class in the entity settings. When you create a number yourself with a [template helper](/integrations/template/), you choose the device class.
 
 ### Device classes in automations and templates
 
-- Automations: In threshold triggers and conditions, such as [Temperature crossed threshold](/triggers/temperature.crossed_threshold/), you can use a number with the matching device class as the threshold. This works for temperature, power, battery, humidity, illuminance, moisture, and air quality.
+- Automations: Threshold triggers and conditions for temperature, power, battery, humidity, illuminance, moisture, and air quality, such as [Temperature crossed threshold](/triggers/temperature.crossed_threshold/), accept a number with the matching device class as the threshold.
 - Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `temperature`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
