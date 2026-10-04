@@ -48,27 +48,20 @@ The integration that provides the sensor usually sets the state class. There are
 
 ## Device class
 
-The device class tells Home Assistant what a sensor measures, such as temperature or energy.
-
-The device class makes a difference in the following places:
-
-- Automations: Triggers and conditions such as [Temperature changed](/triggers/temperature.changed/) only list sensors with the matching device class. The [Time](/triggers/time/) trigger accepts sensors with the timestamp device class.
-- Assist: When you ask [Assist](/voice_control/) for the temperature in an area, it only uses sensors with the temperature device class.
-- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/) and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, use the device class to decide what kind of sensor to show, such as a temperature, humidity, or air quality sensor.
-- Dashboards: For gas, water, and home battery charge level, the [energy dashboard](/docs/energy/) only offers sensors with the matching device class. The [Maintenance dashboard](/dashboards/dashboards/#home-assistant-built-in-dashboards) shows battery sensors, and the [area card](/dashboards/area/) shows temperature and humidity.
-- Areas: Only temperature and humidity sensors can be selected as the temperature and humidity sensor of an [area](/docs/organizing/areas/). The [Climate dashboard](/dashboards/dashboards/#home-assistant-built-in-dashboards) shows these sensors.
-- Units: The device class decides which units you can select in the entity settings. Temperatures in °C or °F follow your unit system.
-- Display: With the duration device class, durations in days, hours, or minutes are shown in two units, such as **2h 30m** instead of **2.5 h**. With the monetary device class, the value is shown as an amount of money. With the timestamp device class, the value is shown as a date and time or as a relative time, such as **3 minutes ago**.
-- Icon and name: The icon and the default name match what the sensor measures, such as **Temperature**.
-- History and Activity: If you have sensors with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
+The device class tells Home Assistant what a sensor measures, such as temperature or energy. Home Assistant uses it to choose the icon, the unit, and how the value is shown. It also decides where you can use the sensor, such as in triggers and conditions, on the [energy dashboard](/docs/energy/), or as the temperature sensor of an [area](/docs/organizing/areas/). If a sensor doesn't show up where you expect it, check its device class.
 
 The integration that provides the sensor sets the device class, and you can't change it in the entity settings. When you create a sensor yourself, for example with a [template helper](/integrations/template/), you choose it. Most device classes then need a number as the state. The date, timestamp, and uptime device classes need a date or time. The `enum` device class needs a list of possible states and isn't available in the template helper.
+
+### Device classes in automations and templates
+
+- Automations: Several device classes have their own triggers and conditions, such as [Temperature changed](/triggers/temperature.changed/). They only list sensors with that device class. The list below shows the triggers and conditions of each device class.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `temperature`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
 
 A sensor without a device class is a generic sensor.
 
-Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it. The description lists the units the device class supports.
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it. The description lists the units the device class supports. If the device class has its own triggers and conditions, they're listed below the item.
 
 - **Absolute humidity** (`absolute_humidity`): Amount of water vapor in the air, in g/m³ or mg/m³.
 - **Apparent power** (`apparent_power`): Apparent power, in mVA, VA, or kVA.
@@ -76,9 +69,15 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 - **Area** (`area`): Area, in m², cm², km², mm², in², ft², yd², mi², ac, or ha.
 - **Atmospheric pressure** (`atmospheric_pressure`): Atmospheric pressure, in mPa, Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, inH₂O, or psi.
 - **Battery** (`battery`): Battery level, in %.
+  - Triggers: [Battery level changed](/triggers/battery.level_changed/), [Battery level crossed threshold](/triggers/battery.level_crossed_threshold/)
+  - Condition: [Battery level](/conditions/battery.is_level/)
 - **Blood glucose concentration** (`blood_glucose_concentration`): Blood glucose concentration, in mg/dL or mmol/L.
 - **Carbon dioxide** (`carbon_dioxide`): Carbon dioxide (CO₂) concentration, in ppm.
+  - Triggers: [Carbon dioxide level changed](/triggers/air_quality.co2_changed/), [Carbon dioxide level crossed threshold](/triggers/air_quality.co2_crossed_threshold/)
+  - Condition: [Carbon dioxide value](/conditions/air_quality.is_co2_value/)
 - **Carbon monoxide** (`carbon_monoxide`): Carbon monoxide (CO) concentration, in ppb, ppm, μg/m³, or mg/m³.
+  - Triggers: [Carbon monoxide level changed](/triggers/air_quality.co_changed/), [Carbon monoxide level crossed threshold](/triggers/air_quality.co_crossed_threshold/)
+  - Condition: [Carbon monoxide value](/conditions/air_quality.is_co_value/)
 - **Conductivity** (`conductivity`): Electrical conductivity, in S/cm, mS/cm, or μS/cm.
 - **Current** (`current`): Electric current, in A, mA, or μA.
 - **Data rate** (`data_rate`): Data rate, in bit/s, kbit/s, Mbit/s, Gbit/s, B/s, kB/s, MB/s, GB/s, KiB/s, MiB/s, or GiB/s.
@@ -93,21 +92,45 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 - **Frequency** (`frequency`): Frequency, in mHz, Hz, kHz, MHz, or GHz.
 - **Gas** (`gas`): Gas volume, in L, m³, ft³, CCF, or MCF.
 - **Humidity** (`humidity`): Relative humidity of the air, in %.
+  - Triggers: [Relative humidity changed](/triggers/humidity.changed/), [Relative humidity crossed threshold](/triggers/humidity.crossed_threshold/)
+  - Condition: [Relative humidity](/conditions/humidity.is_value/)
 - **Illuminance** (`illuminance`): Light level, in lx.
+  - Triggers: [Illuminance changed](/triggers/illuminance.changed/), [Illuminance crossed threshold](/triggers/illuminance.crossed_threshold/)
+  - Condition: [Illuminance](/conditions/illuminance.is_value/)
 - **Irradiance** (`irradiance`): Irradiance, such as the power of sunlight on a surface, in W/m² or BTU/(h⋅ft²).
 - **Moisture** (`moisture`): Water content of a substance, such as soil, in %.
+  - Triggers: [Moisture content changed](/triggers/moisture.changed/), [Moisture content crossed threshold](/triggers/moisture.crossed_threshold/)
+  - Condition: [Moisture level](/conditions/moisture.is_value/)
 - **Monetary balance** (`monetary`): An amount of money, in a currency from [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes).
 - **Nitrogen dioxide** (`nitrogen_dioxide`): Nitrogen dioxide concentration, in ppb, ppm, or μg/m³.
+  - Triggers: [Nitrogen dioxide level changed](/triggers/air_quality.no2_changed/), [Nitrogen dioxide level crossed threshold](/triggers/air_quality.no2_crossed_threshold/)
+  - Condition: [Nitrogen dioxide value](/conditions/air_quality.is_no2_value/)
 - **Nitrogen monoxide** (`nitrogen_monoxide`): Nitrogen monoxide concentration, in ppb or μg/m³.
+  - Triggers: [Nitrogen monoxide level changed](/triggers/air_quality.no_changed/), [Nitrogen monoxide level crossed threshold](/triggers/air_quality.no_crossed_threshold/)
+  - Condition: [Nitrogen monoxide value](/conditions/air_quality.is_no_value/)
 - **Nitrous oxide** (`nitrous_oxide`): Nitrous oxide concentration, in μg/m³.
+  - Triggers: [Nitrous oxide level changed](/triggers/air_quality.n2o_changed/), [Nitrous oxide level crossed threshold](/triggers/air_quality.n2o_crossed_threshold/)
+  - Condition: [Nitrous oxide value](/conditions/air_quality.is_n2o_value/)
 - **Ozone** (`ozone`): Ozone concentration, in ppb, ppm, or μg/m³.
+  - Triggers: [Ozone level changed](/triggers/air_quality.ozone_changed/), [Ozone level crossed threshold](/triggers/air_quality.ozone_crossed_threshold/)
+  - Condition: [Ozone value](/conditions/air_quality.is_ozone_value/)
 - **pH** (`ph`): pH value of a water solution, without a unit.
 - **PM1** (`pm1`): Concentration of particulate matter smaller than 1 micrometer, in μg/m³.
+  - Triggers: [PM1 level changed](/triggers/air_quality.pm1_changed/), [PM1 level crossed threshold](/triggers/air_quality.pm1_crossed_threshold/)
+  - Condition: [PM1 value](/conditions/air_quality.is_pm1_value/)
 - **PM2.5** (`pm25`): Concentration of particulate matter smaller than 2.5 micrometers, in μg/m³.
+  - Triggers: [PM2.5 level changed](/triggers/air_quality.pm25_changed/), [PM2.5 level crossed threshold](/triggers/air_quality.pm25_crossed_threshold/)
+  - Condition: [PM2.5 value](/conditions/air_quality.is_pm25_value/)
 - **PM4** (`pm4`): Concentration of particulate matter smaller than 4 micrometers, in μg/m³.
+  - Triggers: [PM4 level changed](/triggers/air_quality.pm4_changed/), [PM4 level crossed threshold](/triggers/air_quality.pm4_crossed_threshold/)
+  - Condition: [PM4 value](/conditions/air_quality.is_pm4_value/)
 - **PM10** (`pm10`): Concentration of particulate matter smaller than 10 micrometers, in μg/m³.
+  - Triggers: [PM10 level changed](/triggers/air_quality.pm10_changed/), [PM10 level crossed threshold](/triggers/air_quality.pm10_crossed_threshold/)
+  - Condition: [PM10 value](/conditions/air_quality.is_pm10_value/)
 - **Power factor** (`power_factor`): Power factor, without a unit or in %.
 - **Power** (`power`): Power, in mW, W, kW, MW, GW, or TW.
+  - Triggers: [Power changed](/triggers/power.changed/), [Power crossed threshold](/triggers/power.crossed_threshold/)
+  - Condition: [Power value](/conditions/power.is_value/)
 - **Precipitation** (`precipitation`): Accumulated precipitation, in cm, in, or mm.
 - **Precipitation intensity** (`precipitation_intensity`): Precipitation intensity, in in/d, in/h, mm/d, or mm/h.
 - **Pressure** (`pressure`): Pressure, in mPa, Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, inH₂O, or psi.
@@ -118,12 +141,21 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 - **Sound pressure** (`sound_pressure`): Sound pressure, in dB or dBA.
 - **Speed** (`speed`): Speed, in Beaufort, ft/s, in/d, in/h, in/s, km/h, kn, m/min, m/s, mph, mm/d, mm/h, or mm/s.
 - **Sulphur dioxide** (`sulphur_dioxide`): Sulfur dioxide concentration, in ppb or μg/m³.
+  - Triggers: [Sulphur dioxide level changed](/triggers/air_quality.so2_changed/), [Sulphur dioxide level crossed threshold](/triggers/air_quality.so2_crossed_threshold/)
+  - Condition: [Sulphur dioxide value](/conditions/air_quality.is_so2_value/)
 - **Temperature** (`temperature`): Temperature, in °C, °F, or K.
+  - Triggers: [Temperature changed](/triggers/temperature.changed/), [Temperature crossed threshold](/triggers/temperature.crossed_threshold/)
+  - Condition: [Temperature value](/conditions/temperature.is_value/)
 - **Temperature delta** (`temperature_delta`): Difference between two temperatures, in °C, °F, or K.
 - **Timestamp** (`timestamp`): A date and time, such as when something happened.
+  - Trigger: [Time](/triggers/time/)
 - **Uptime** (`uptime`): The date and time a device last started.
 - **Volatile organic compounds** (`volatile_organic_compounds`): Concentration of volatile organic compounds, in μg/m³ or mg/m³.
+  - Triggers: [Volatile organic compounds level changed](/triggers/air_quality.voc_changed/), [Volatile organic compounds level crossed threshold](/triggers/air_quality.voc_crossed_threshold/)
+  - Condition: [Volatile organic compounds value](/conditions/air_quality.is_voc_value/)
 - **Volatile organic compounds parts** (`volatile_organic_compounds_parts`): Ratio of volatile organic compounds, in ppm or ppb.
+  - Triggers: [Volatile organic compounds ratio changed](/triggers/air_quality.voc_ratio_changed/), [Volatile organic compounds ratio crossed threshold](/triggers/air_quality.voc_ratio_crossed_threshold/)
+  - Condition: [Volatile organic compounds ratio value](/conditions/air_quality.is_voc_ratio_value/)
 - **Voltage** (`voltage`): Voltage, in V, mV, μV, kV, or MV.
 - **Volume** (`volume`): Volume, in L, mL, gal, fl. oz., m³, ft³, CCF, or MCF.
 - **Volume flow rate** (`volume_flow_rate`): Volume flow rate, in m³/h, m³/min, m³/s, ft³/min, L/h, L/min, L/s, gal/d, gal/h, gal/min, or mL/s.
@@ -133,4 +165,3 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 - **Wind direction** (`wind_direction`): Wind direction, in °.
 - **Wind speed** (`wind_speed`): Wind speed, in Beaufort, ft/s, in/s, km/h, kn, m/min, m/s, mm/s, or mph.
 
-In templates, the device class is the `device_class` attribute of the entity. Use the stored value, such as `temperature`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
