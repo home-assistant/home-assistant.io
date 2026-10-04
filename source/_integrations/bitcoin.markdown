@@ -135,6 +135,8 @@ To resolve this issue, try the following steps:
 
 Your existing sensors keep the entity IDs they already had, so dashboards and automations that use them keep working. You do get extra sensors: the YAML `display_options` setting is gone, because a config flow should not ask you to pick entities, so all 21 sensors are now created.
 
+Two of those sensors need a closer look. **Trade volume** and **Miners revenue** each exist once in BTC and once in USD, and the one created first gets the plain entity ID. If your YAML listed `trade_volume_usd` without `trade_volume_btc`, or `miners_revenue_btc` without `miners_revenue_usd`, that plain entity ID used to be yours and now belongs to the other currency. A repair issue tells you which entity ID this happened to and where your sensor moved, so you can point your dashboards and automations at the right one.
+
 ## Removing the integration
 
 This integration follows standard integration removal.
