@@ -119,7 +119,7 @@ The integration that provides the media player sets the device class.
 
 ### List of available device classes
 
-A media player without a device class is a generic media player and shows {% icon "mdi:cast" %}.
+A media player without a device class is a generic media player and shows {% icon "mdi:cast" %} by default.
 
 Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
 
