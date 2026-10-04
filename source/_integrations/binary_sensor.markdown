@@ -46,7 +46,7 @@ The integration that provides the binary sensor sets the device class. When you 
 
 ### Device classes in automations and templates
 
-- Automations: Several device classes have their own triggers and conditions, such as [Door opened](/triggers/door.opened/). They only list binary sensors with that device class. The list below shows the triggers and conditions of each device class.
+- Automations: Some device classes have their own triggers and conditions, such as [Door opened](/triggers/door.opened/). They only list binary sensors with that device class. The list below shows the triggers and conditions of each device class.
 - Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `door`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
