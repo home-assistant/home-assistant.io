@@ -50,9 +50,10 @@ The integration that provides the button sets the device class. When you create 
 
 ### List of available device classes
 
+A button without a device class is a generic button and shows {% icon "mdi:button-pointer" %}.
+
 Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
 
-- {% icon "mdi:button-pointer" %} No device class: A generic button.
 - {% icon "mdi:crosshairs-question" %} **Identify** (`identify`): The button is used to identify a device.
 - {% icon "mdi:restart" %} **Restart** (`restart`): The button restarts the device.
 - {% icon "mdi:package-up" %} **Update** (`update`): The button updates the software of the device.
