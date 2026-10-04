@@ -138,7 +138,7 @@ device:
       required: false
       type: string
 device_class:
-  description: Sets the [class of the device](/integrations/cover/#device-class), changing the device state and icon that is displayed on the frontend. The `device_class` can be `null`.
+  description: Sets the [device class](/integrations/cover/#device-class), which controls the icon and the arrows on the open and close buttons displayed in the UI. The `device_class` can be `null`.
   required: false
   type: string
 enabled_by_default:
