@@ -35,38 +35,49 @@ The device class of a cover determines the icon shown for each state. The state 
 
 ## Device class
 
-The device class tells Home Assistant what kind of cover an entity is, such as a garage door or curtains.
-
-The device class makes a difference in the following places:
-
-- Automations: Triggers and conditions such as [Garage door opened](/triggers/garage_door.opened/) or [Curtain is closed](/conditions/cover.curtain_is_closed/) only list covers with the matching device class.
-- Assist: [Assist](/voice_control/) uses the device class to understand the type, so you can say "open the curtains in the kitchen" or ask "are any windows open?".
-- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/), [Alexa](/integrations/alexa/), and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, use the device class to decide what kind of device to show, such as a garage door or a window. Google Assistant treats doors, garage doors, and gates as [secure devices](/integrations/google_assistant/#secure-devices).
-- Dashboards: The [Security dashboard](/dashboards/dashboards/#security-dashboard) shows doors, garage doors, gates, and windows. The [Climate dashboard](/dashboards/dashboards/#home-assistant-built-in-dashboards) shows awnings, blinds, curtains, shades, shutters, and windows. The **Area controls** feature of the [area card](/dashboards/area/) controls covers by type, such as all blinds in an area.
-- Display: Awnings, curtains, doors, and gates use horizontal arrows on their open and close buttons. Other covers use up and down arrows.
-- Icon: The icon matches the type, such as {% icon "mdi:garage" %} for a garage door.
-- History and Activity: If you have covers with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
+The device class tells Home Assistant what kind of cover an entity is, such as a garage door or curtains. Home Assistant uses it to choose the icon and the arrows on the open and close buttons. It also decides where you can use the cover, such as in triggers and conditions, in [Assist](/voice_control/), on the [Security dashboard](/dashboards/dashboards/#security-dashboard), or in voice assistants. If a cover doesn't show up where you expect it, check its device class.
 
 The integration that provides the cover sets the device class. When you create a cover yourself with a [template helper](/integrations/template/), you choose it.
+
+### Device classes in automations and templates
+
+- Automations: Most device classes have their own triggers and conditions, such as [Garage door opened](/triggers/garage_door.opened/). They only list covers with that device class. The list below shows the triggers and conditions of each device class. Dampers and covers without a device class have none.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `garage`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
 
 A cover without a device class is a generic cover and shows {% icon "mdi:window-open" %}.
 
-Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it. If the device class has its own triggers and conditions, they're listed below the item.
 
 - {% icon "mdi:window-open" %} **Awning** (`awning`): An awning, such as an exterior retractable window, door, or patio cover. Awnings use the same icon as a generic cover.
+  - Triggers: [Awning closed](/triggers/cover.awning_closed/), [Awning opened](/triggers/cover.awning_opened/)
+  - Conditions: [Awning is closed](/conditions/cover.awning_is_closed/), [Awning is open](/conditions/cover.awning_is_open/)
 - {% icon "mdi:blinds-horizontal" %} **Blind** (`blind`): Blinds, which are linked slats that expand or collapse to cover an opening or may be tilted to partially cover an opening, such as window blinds.
+  - Triggers: [Blind closed](/triggers/cover.blind_closed/), [Blind opened](/triggers/cover.blind_opened/)
+  - Conditions: [Blind is closed](/conditions/cover.blind_is_closed/), [Blind is open](/conditions/cover.blind_is_open/)
 - {% icon "mdi:curtains" %} **Curtain** (`curtain`): Curtains or drapes, which are often fabric hung above a window or door that can be drawn open.
+  - Triggers: [Curtain closed](/triggers/cover.curtain_closed/), [Curtain opened](/triggers/cover.curtain_opened/)
+  - Conditions: [Curtain is closed](/conditions/cover.curtain_is_closed/), [Curtain is open](/conditions/cover.curtain_is_open/)
 - {% icon "mdi:circle" %} **Damper** (`damper`): A mechanical damper that reduces airflow, sound, or light.
 - {% icon "mdi:door-open" %} **Door** (`door`): A door that provides access to an area.
+  - Triggers: [Door closed](/triggers/door.closed/), [Door opened](/triggers/door.opened/)
+  - Conditions: [Door is closed](/conditions/door.is_closed/), [Door is open](/conditions/door.is_open/)
 - {% icon "mdi:garage-open" %} **Garage** (`garage`): A garage door that provides access to a garage. Under **Show as**, this type is called **Garage door**.
+  - Triggers: [Garage door closed](/triggers/garage_door.closed/), [Garage door opened](/triggers/garage_door.opened/)
+  - Conditions: [Garage door is closed](/conditions/garage_door.is_closed/), [Garage door is open](/conditions/garage_door.is_open/)
 - {% icon "mdi:gate-open" %} **Gate** (`gate`): A gate. Gates are found outside of a structure and are typically part of a fence.
+  - Triggers: [Gate closed](/triggers/gate.closed/), [Gate opened](/triggers/gate.opened/)
+  - Conditions: [Gate is closed](/conditions/gate.is_closed/), [Gate is open](/conditions/gate.is_open/)
 - {% icon "mdi:roller-shade" %} **Shade** (`shade`): Shades, which are a continuous plane of material or connected cells that expand or collapse over an opening, such as window shades.
+  - Triggers: [Shade closed](/triggers/cover.shade_closed/), [Shade opened](/triggers/cover.shade_opened/)
+  - Conditions: [Shade is closed](/conditions/cover.shade_is_closed/), [Shade is open](/conditions/cover.shade_is_open/)
 - {% icon "mdi:window-shutter-open" %} **Shutter** (`shutter`): Shutters, which are linked slats that can be raised or lowered to cover an opening, such as window or door roller shutters. Some shutters, for example, some indoor or exterior window shutters, swing out or in to cover an opening or may be tilted to provide partial cover.
+  - Triggers: [Shutter closed](/triggers/cover.shutter_closed/), [Shutter opened](/triggers/cover.shutter_opened/)
+  - Conditions: [Shutter is closed](/conditions/cover.shutter_is_closed/), [Shutter is open](/conditions/cover.shutter_is_open/)
 - {% icon "mdi:window-open" %} **Window** (`window`): A physical window that opens and closes or may tilt.
-
-In templates, the device class is the `device_class` attribute of the entity. Use the stored value, such as `garage`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
+  - Triggers: [Window closed](/triggers/window.closed/), [Window opened](/triggers/window.opened/)
+  - Conditions: [Window is closed](/conditions/window.is_closed/), [Window is open](/conditions/window.is_open/)
 
 ### Changing the device class of a cover
 
