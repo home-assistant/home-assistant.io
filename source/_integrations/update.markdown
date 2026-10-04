@@ -51,9 +51,9 @@ information on the update state:
 
 ## Device class
 
-The device class tells Home Assistant whether an update is for the firmware of a device. Home Assistant uses it to choose the default name, **Firmware**.
+The device class tells Home Assistant whether an update is for the firmware of a device. Home Assistant uses the device class to choose the default name, **Firmware**.
 
-The integration that provides the update entity sets the device class. When you create an update entity yourself with a [template helper](/integrations/template/), you choose it.
+The integration that provides the update entity sets the device class. When you create an update entity yourself with a [template helper](/integrations/template/), you choose the device class.
 
 ### Device classes in automations and templates
 
