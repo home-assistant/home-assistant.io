@@ -95,7 +95,10 @@ The number platform lets you fine-tune numeric device settings:
 
 ### Select
 
-The select platform lets you choose between a set of predefined options. An Outdoor Siren gets a **Siren volume** select entity, letting you choose between reduced, medium, or loud.
+The select platform lets you choose between a set of predefined options. Select entities are added for the following devices:
+
+- Outdoor Siren: a **Siren volume** select, letting you choose between reduced, medium, or loud
+- Motion Detector II that supports it: a **Motion sensitivity** select, letting you choose between **high**, **medium**, or **low**. In YAML, the medium option is `middle`.
 
 ### Sensors
 
