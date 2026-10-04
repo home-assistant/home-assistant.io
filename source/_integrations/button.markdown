@@ -43,7 +43,7 @@ The device class tells Home Assistant what a button does, such as restarting a d
 
 The device class makes a difference in the following places:
 
-- Icon and name: The icon matches what the button does. If the integration doesn't give the entity its own name, Home Assistant names it after the device class, such as **Restart**.
+- Icon and name: The icon and the default name match what the button does, such as **Restart**.
 - History and Activity: If you have buttons with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
 
 The integration that provides the button sets the device class. When you create a button yourself with a [template helper](/integrations/template/), you choose it.
