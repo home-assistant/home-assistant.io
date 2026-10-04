@@ -39,9 +39,9 @@ You can use button entities in automations to react when a button is pressed, or
 
 ## Device class
 
-The device class tells Home Assistant what a button does, such as restarting a device. Home Assistant uses it to choose the icon and the default name.
+The device class tells Home Assistant what a button does, such as restarting a device. Home Assistant uses the device class to choose the icon and the default name.
 
-The integration that provides the button sets the device class. When you create a button yourself with a [template helper](/integrations/template/), you choose it.
+The integration that provides the button sets the device class. When you create a button yourself with a [template helper](/integrations/template/), you choose the device class.
 
 ### Device classes in automations and templates
 
