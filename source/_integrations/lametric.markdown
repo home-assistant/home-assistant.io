@@ -171,7 +171,7 @@ sound:
   type: string
   default: none
 sound_url:
-  description: "The URL of an MP3 file to play with the notification, instead of a built-in sound. When `sound` is given as well, that sound plays when the URL cannot be fetched."
+  description: "An MP3 file to play with the notification, instead of a built-in sound: a media source ID of a file in Home Assistant, or the URL of the file. When `sound` is given as well, that sound plays when the file cannot be fetched."
   required: false
   type: string
 {% endconfiguration %}
@@ -228,7 +228,7 @@ actions:
 
 ## Notification sounds
 
-The following notification sounds can be used with the `sound` parameter on the notify and action calls. To play your own sound instead, pass the URL of an MP3 file with the `sound_url` parameter; the device fetches and plays it.
+The following notification sounds can be used with the `sound` parameter on the notify and action calls. To play your own sound instead, use the `sound_url` parameter: pick an MP3 file from your media in Home Assistant, or enter the URL of one. The device fetches and plays it, so it must be able to reach Home Assistant, or the URL, on the network.
 
 - `alarm1`
 - `alarm2`
@@ -283,7 +283,7 @@ The following notification sounds can be used with the `sound` parameter on the 
 
 - The integration communicates with the LaMetric device over the local network. If the device is not reachable, its entities become unavailable.
 - When the LaMetric device is powered through a USB port on a computer, the display brightness is limited. For full brightness, use a proper USB charger.
-- The list of built-in sounds is fixed by the device firmware. To play another sound, use `sound_url` with an MP3 file the device can reach.
+- The list of built-in sounds is fixed by the device firmware. To play another sound, use `sound_url` with an MP3 file.
 
 ## Troubleshooting
 
