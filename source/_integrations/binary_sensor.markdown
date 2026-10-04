@@ -83,9 +83,6 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 - **Gas** (`gas`): Shows whether gas is detected.
   - **Detected** (`on`)
   - **Clear** (`off`)
-- **Glass break** (`glass_break`): Shows whether breaking glass is detected.
-  - **Glass break detected** (`on`)
-  - **Clear** (`off`)
 - **Heat** (`heat`): Shows whether something is hot.
   - **Hot** (`on`)
   - **Normal** (`off`)
