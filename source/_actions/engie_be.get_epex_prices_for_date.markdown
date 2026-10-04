@@ -20,7 +20,7 @@ To get the EPEX prices for a date from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **ENGIE Belgium: Get EPEX prices for date**.
-6. Select the **Config entry** and the **Date**. Optionally, set the **Granularity** to **QUARTER_HOURLY** to get quarter-hourly prices instead of hourly ones.
+6. Select the **Config entry** and the **Date**. Optionally, set the **Granularity** to **Quarter-hourly** to get quarter-hourly prices instead of hourly ones.
 7. In the **Response variable** field, enter a name to store the data in, such as `epex_prices`.
 8. Select **Save**.
 
@@ -36,7 +36,7 @@ Date:
   description: The day to get the prices for. Only today and tomorrow are allowed.
   required: true
 Granularity:
-  description: The price intervals to get. **HOURLY** returns one price per hour, **QUARTER_HOURLY** returns one price per quarter hour. Hourly prices are used when left empty.
+  description: The price intervals to get. **Hourly** returns one price per hour, **Quarter-hourly** returns one price per quarter hour. Hourly prices are used when left empty.
   required: false
 {% endoptions_ui %}
 
@@ -53,7 +53,7 @@ action: |
   response_variable: epex_prices
 {% endexample %}
 
-This fetches the hourly prices for tomorrow. Add `granularity: QUARTER_HOURLY` to the data to get the quarter-hourly prices instead.
+This fetches the hourly prices for tomorrow. Add `granularity: quarter_hourly` to the data to get the quarter-hourly prices instead.
 
 ### Options in YAML
 
@@ -71,11 +71,11 @@ date:
   type: date
 granularity:
   description: >
-    The price intervals to get. Accepts `HOURLY` for one price per hour, or
-    `QUARTER_HOURLY` for one price per quarter hour.
+    The price intervals to get. Accepts `hourly` for one price per hour, or
+    `quarter_hourly` for one price per quarter hour.
   required: false
   type: string
-  default: HOURLY
+  default: hourly
 {% endoptions_yaml %}
 
 ## Response data
