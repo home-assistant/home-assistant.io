@@ -48,7 +48,7 @@ In YAML, refer to this action as `engie_be.get_epex_prices_for_date`. Store the 
 action: |
   action: engie_be.get_epex_prices_for_date
   data:
-    config_entry: 01JQEPY7HH2G7Z9A3FTBW5XR8K
+    config_entry: YOUR_CONFIG_ENTRY_ID
     date: "{{ now().date() + timedelta(days=1) }}"
   response_variable: epex_prices
 {% endexample %}
