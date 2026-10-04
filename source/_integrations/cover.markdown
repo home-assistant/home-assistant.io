@@ -39,12 +39,12 @@ The device class tells Home Assistant what kind of cover an entity is, such as a
 
 The device class makes a difference in the following places:
 
-- Automations: Each type of cover has its own triggers and conditions, such as [Garage door opened](/triggers/garage_door.opened/) or [Curtain is closed](/conditions/cover.curtain_is_closed/). They only list covers with the matching device class. Dampers and covers without a device class have none.
-- Assist: You can say "open the curtains in the kitchen" or ask "are any windows open?". In English, [Assist](/voice_control/) knows awnings, blinds, curtains, doors, garage doors, gates, shades, shutters, and windows.
-- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/), [Alexa](/integrations/alexa/), and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, show many types as a matching device, such as a garage door or a window. Alexa and Apple Home show gates as garage doors. Google Assistant asks for a PIN before it opens doors, garage doors, and gates. For details, see [Secure devices](/integrations/google_assistant/#secure-devices).
-- Dashboards: The [Security dashboard](/dashboards/dashboards/#security-dashboard) shows doors, garage doors, gates, and windows. The [Climate dashboard](/dashboards/dashboards/#home-assistant-built-in-dashboards) shows awnings, blinds, curtains, shades, shutters, windows, and covers without a device class. The **Area controls** feature of the [area card](/dashboards/area/) can open or close all covers of one type in an area, such as all blinds.
+- Automations: Triggers and conditions such as [Garage door opened](/triggers/garage_door.opened/) or [Curtain is closed](/conditions/cover.curtain_is_closed/) only list covers with the matching device class.
+- Assist: [Assist](/voice_control/) knows the type, so you can say "open the curtains in the kitchen" or ask "are any windows open?".
+- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/), [Alexa](/integrations/alexa/), and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, show the cover as a matching device, such as a garage door or a window. Google Assistant treats doors, garage doors, and gates as [secure devices](/integrations/google_assistant/#secure-devices).
+- Dashboards: The [Security dashboard](/dashboards/dashboards/#security-dashboard) shows doors, garage doors, gates, and windows. The [Climate dashboard](/dashboards/dashboards/#home-assistant-built-in-dashboards) shows awnings, blinds, curtains, shades, shutters, and windows. The **Area controls** feature of the [area card](/dashboards/area/) controls covers by type, such as all blinds in an area.
 - Display: Awnings, curtains, doors, and gates use horizontal arrows on their open and close buttons. Other covers use up and down arrows.
-- Icon: The icon matches the type. For example, a garage door shows {% icon "mdi:garage-open" %} when it's open and {% icon "mdi:garage" %} when it's closed.
+- Icon: The icon matches the type, such as {% icon "mdi:garage" %} for a garage door.
 - History and Activity: If you have covers with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
 
 The integration that provides the cover sets the device class. When you create a cover yourself with a [template helper](/integrations/template/), you choose it.
