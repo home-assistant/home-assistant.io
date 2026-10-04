@@ -28,7 +28,7 @@ To order a product from an automation or a script:
 5. From the search box, search for and select **Mijn Farmad Apotheek: Order medication**.
 6. Under **Product**, enter the CNK code of the product to order.
 7. Set the **Quantity**, the number of packages to order.
-8. If your account is linked to more than one pharmacy, select the **Pharmacy** to order from. Otherwise the order goes to your linked pharmacy.
+8. If your account is linked to more than one pharmacy, enter its APB number under **Pharmacy**. Otherwise, leave **Pharmacy** empty to order from your linked pharmacy.
 9. Optionally, enter a **Comment** for the pharmacist.
 10. Optionally, in the **Response variable** field, enter a name to store the order details in, such as `order_result`.
 11. Select **Save**.
