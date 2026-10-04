@@ -41,7 +41,7 @@ The device class makes a difference in the following places:
 
 - Automations: Each type of cover has its own triggers and conditions, such as [Garage door opened](/triggers/garage_door.opened/) or [Curtain is closed](/conditions/cover.curtain_is_closed/). They only list covers with the matching device class. Dampers and covers without a device class have none.
 - Assist: You can say "open the curtains in the kitchen" or ask "are any windows open?". In English, [Assist](/voice_control/) knows awnings, blinds, curtains, doors, garage doors, gates, shades, shutters, and windows.
-- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/), [Alexa](/integrations/alexa/), and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, show many types as a matching device, such as a garage door or a window. Alexa and Apple Home show gates as garage doors. Google Assistant only opens doors, garage doors, and gates after you confirm with a PIN.
+- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/), [Alexa](/integrations/alexa/), and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, show many types as a matching device, such as a garage door or a window. Alexa and Apple Home show gates as garage doors. Google Assistant asks for a PIN before it opens doors, garage doors, and gates, and can't open them until a PIN is set up. For details, see [Secure devices](/integrations/google_assistant/#secure-devices). With Home Assistant Cloud, you can turn off **Ask for PIN** for each entity.
 - Dashboards: The [Security dashboard](/dashboards/dashboards/#security-dashboard) shows doors, garage doors, gates, and windows. The [Climate dashboard](/dashboards/dashboards/#home-assistant-built-in-dashboards) shows awnings, blinds, curtains, shades, shutters, windows, and covers without a device class. The **Area controls** feature of the [area card](/dashboards/area/) can open or close all covers of one type in an area, such as all blinds.
 - Display: Awnings, curtains, doors, and gates use horizontal arrows on their open and close buttons. Other covers use up and down arrows.
 - Icon: The icon matches the type. For example, a garage door shows {% icon "mdi:garage-open" %} when it's open and {% icon "mdi:garage" %} when it's closed.
@@ -71,6 +71,8 @@ In templates, the device class is the `device_class` attribute of the entity. Us
 ### Changing the device class of a cover
 
 If a cover shows up as the wrong type, for example as a window instead of a garage door, you can change its device class.
+
+You can only change the device class this way if the cover has a unique ID. Otherwise, the entity settings show that its settings can't be managed from the UI. In that case, you can change the device class in YAML with [customization](/docs/configuration/customizing-devices/#customizing-an-entity-in-yaml).
 
 1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the cover.
 2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
