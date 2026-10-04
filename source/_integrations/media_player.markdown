@@ -113,9 +113,9 @@ The device class tells Home Assistant what kind of media player an entity is, su
 The device class makes a difference in the following places:
 
 - Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/), [Alexa](/integrations/alexa/), and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, use the device class to decide what kind of device to show:
-  - Google Assistant shows TVs, speakers, and receivers as matching devices. It shows projectors as TVs.
+  - Google Assistant shows TVs, speakers, and receivers as matching devices. It shows projectors as TVs, and media players without a device class as set-top boxes.
   - Alexa shows speakers as speakers and all other media players as TVs.
-  - Apple Home shows TVs and projectors as TVs, and receivers as receivers. It has no speaker type.
+  - Apple Home shows TVs and projectors as TVs, and receivers as receivers. It has no speaker type. Speakers and media players without a device class show up as switches for their controls, such as on/off, play/pause, and mute.
 - Icon: The icon matches the type. TVs and speakers also show whether they're playing or paused.
 - History and Activity: If you have media players with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
 
