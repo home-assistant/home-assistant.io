@@ -69,14 +69,6 @@ Each item shows the name you see in the Home Assistant interface, followed by th
   - Trigger: **Doorbell rang**
 - {% icon "mdi:motion-sensor" %} **Motion** (`motion`): For motion detected by a motion sensor.
 
-### Video tutorial
-
-This video tutorial explains how events work in Home Assistant and how you can set up Emulated Roku to control a media player using a physical remote control.
-
-<lite-youtube videoid="nDHh1OjyuMA" videotitle="Event Triggers Unveiled: Control the Home Assistant Media Player with Your Remote Control!" posterquality="maxresdefault"></lite-youtube>
-
-{% include integrations/triggers.md %}
-
 ## Event automation examples
 
 ### Automation: send a notification when the doorbell rings
