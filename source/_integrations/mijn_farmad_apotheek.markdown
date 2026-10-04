@@ -120,11 +120,11 @@ For a connection error, check that Home Assistant can reach the internet and try
 
 ### Symptom
 
-The order action fails with the message that the draft basket at the pharmacy still has products.
+The order action fails with the message that the draft basket at the pharmacy still has products or a comment.
 
 #### Description
 
-The app keeps one draft basket per pharmacy. The order action refuses to order into a draft basket that already holds products, so it cannot overwrite a basket you started in the app. When an order fails, the integration removes the product it added to the draft basket, so a failed order does not block the next one.
+The app keeps one draft basket per pharmacy. The order action refuses to order into a draft basket that already holds products or a comment, so it cannot overwrite a basket you started in the app. When an order fails, the integration removes the product it added to the draft basket, so a failed order does not block the next one.
 
 #### Resolution
 
