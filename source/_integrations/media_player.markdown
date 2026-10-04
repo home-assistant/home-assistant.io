@@ -108,15 +108,14 @@ automation: |
 
 ## Device class
 
-The device class tells Home Assistant what kind of media player an entity is, such as a TV or a speaker.
-
-The device class makes a difference in the following places:
-
-- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/), [Alexa](/integrations/alexa/), and Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, use the device class to decide what kind of device to show, such as a TV.
-- Icon: The icon matches the type. TVs and speakers also show whether they're playing or paused.
-- History and Activity: If you have media players with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
+The device class tells Home Assistant what kind of media player an entity is, such as a TV or a speaker. Home Assistant uses it to choose the icon. Google Assistant, Alexa, and Apple Home use it to decide what kind of device to show.
 
 The integration that provides the media player sets the device class.
+
+### Device classes in automations and templates
+
+- Automations: The device class doesn't change how a media player works in automations.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `tv`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
 
@@ -135,4 +134,3 @@ Media players also show a different icon depending on the state, with or without
 - Playing: {% icon "mdi:cast-connected" %} {% icon "mdi:television-play" %} {% icon "mdi:speaker-play" %}
 - Paused: {% icon "mdi:cast-connected" %} {% icon "mdi:television-pause" %} {% icon "mdi:speaker-pause" %}
 
-In templates, the device class is the `device_class` attribute of the entity. Use the stored value, such as `tv`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
