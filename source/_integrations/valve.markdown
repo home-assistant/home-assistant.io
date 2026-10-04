@@ -37,7 +37,7 @@ The device class tells Home Assistant what flows through a valve, such as water 
 
 The device class makes a difference in the following places:
 
-- Icon and name: A gas valve shows {% icon "mdi:meter-gas" %} in every state. Other valves show {% icon "mdi:valve-open" %} when open and {% icon "mdi:valve-closed" %} when closed.
+- Icon: A gas valve shows {% icon "mdi:meter-gas" %} in every state. Other valves show {% icon "mdi:valve-open" %} when open and {% icon "mdi:valve-closed" %} when closed.
 - History and Activity: If you have valves with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
 
 The integration that provides the valve sets the device class.
