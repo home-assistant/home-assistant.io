@@ -34,17 +34,14 @@ In addition, the entity can have the following states. Each item shows the inter
 
 ## Device class
 
-The device class tells Home Assistant what a number stands for, such as a temperature or a duration.
-
-The device class makes a difference in the following places:
-
-- Automations: Threshold triggers and conditions, such as [Temperature crossed threshold](/triggers/temperature.crossed_threshold/), accept a number with the matching device class as the threshold.
-- Units: The device class decides which units you can select in the entity settings. Temperatures in °C or °F follow your unit system.
-- Display: With the duration device class, durations in days, hours, or minutes are shown in two units, such as **2h 30m** instead of **2.5 h**. With the monetary device class, the value is shown as an amount of money.
-- Icon and name: The icon and the default name match what the number stands for, such as **Temperature**.
-- History and Activity: If you have numbers with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
+The device class tells Home Assistant what a number stands for, such as a temperature or a duration. Home Assistant uses it to choose the icon, the default name, the units you can select, and how the value is shown.
 
 The integration that provides the number sets the device class, and you can't change it in the entity settings. When you create a number yourself with a [template helper](/integrations/template/), you choose it.
+
+### Device classes in automations and templates
+
+- Automations: In threshold triggers and conditions, such as [Temperature crossed threshold](/triggers/temperature.crossed_threshold/), you can use a number with the matching device class as the threshold. This works for temperature, power, battery, humidity, illuminance, moisture, and air quality.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `temperature`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
 
@@ -110,7 +107,5 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 - **Weight** (`weight`): Weight, in kg, g, mg, μg, oz, lb, or st.
 - **Wind direction** (`wind_direction`): Wind direction, in °.
 - **Wind speed** (`wind_speed`): Wind speed, in Beaufort, ft/s, in/s, km/h, kn, m/min, m/s, mm/s, or mph.
-
-In templates, the device class is the `device_class` attribute of the entity. Use the stored value, such as `temperature`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 {% include integrations/actions.md %}
