@@ -50,7 +50,7 @@ The integration that provides the sensor usually sets the state class. There are
 
 The device class tells Home Assistant what a sensor measures, such as temperature or energy. Home Assistant uses the device class to choose the icon, the unit, and how the value is shown. The device class also decides where you can use the sensor, such as in triggers and conditions, on the [energy dashboard](/docs/energy/), or as the temperature sensor of an [area](/docs/organizing/areas/). If a sensor doesn't show up where you expect it, check its device class.
 
-The integration that provides the sensor sets the device class, and you can't change the device class in the entity settings. When you create a sensor yourself, for example with a [template helper](/integrations/template/), you choose the device class. Most device classes then need a number as the state. The date, timestamp, and uptime device classes need a date or time. The `enum` device class needs a list of possible states and isn't available in the template helper.
+The integration that provides the sensor sets the device class. When you create a sensor yourself, for example with a [template helper](/integrations/template/), you choose the device class.
 
 ### Device classes in automations and templates
 
