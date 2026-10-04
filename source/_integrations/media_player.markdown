@@ -108,7 +108,7 @@ automation: |
 
 ## Device class
 
-The device class tells Home Assistant what kind of media player an entity is, such as a TV or a speaker. Home Assistant uses it to choose the icon. Google Assistant, Alexa, and Apple Home use it to decide what kind of device to show.
+The device class tells Home Assistant what kind of media player an entity is, such as a TV or a speaker. Home Assistant uses the device class to choose the icon. Google Assistant, Alexa, and Apple Home use the device class to decide what kind of device to show.
 
 The integration that provides the media player sets the device class.
 
