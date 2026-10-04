@@ -33,7 +33,7 @@ A valve {% term entity %} can have the following states. Each item shows the lab
 
 ## Device class
 
-The device class tells Home Assistant what flows through a valve, such as water or gas. Home Assistant uses it to choose the icon.
+The device class tells Home Assistant what flows through a valve, such as water or gas. Home Assistant uses the device class to choose the icon.
 
 The integration that provides the valve sets the device class.
 
