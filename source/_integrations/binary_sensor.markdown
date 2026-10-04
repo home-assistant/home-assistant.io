@@ -40,13 +40,13 @@ In addition, the entity can have the following states. Each item shows the inter
 
 ## Device class
 
-The device class tells Home Assistant what a binary sensor detects, such as an open door or motion. Home Assistant uses it to choose the icon and the labels for `on` and `off`, such as **Open** and **Closed**. It also decides where you can use the binary sensor, such as in triggers and conditions, on the [Security dashboard](/dashboards/dashboards/#security-dashboard), or in voice assistants. If a binary sensor doesn't show up where you expect it, check its device class.
+The device class tells Home Assistant what a binary sensor detects, such as an open door or motion. Home Assistant uses the device class to choose the icon and the labels for `on` and `off`, such as **Open** and **Closed**. The device class also decides where you can use the binary sensor, such as in triggers and conditions, on the [Security dashboard](/dashboards/dashboards/#security-dashboard), or in voice assistants. If a binary sensor doesn't show up where you expect it, check its device class.
 
-The integration that provides the binary sensor sets the device class. When you create a binary sensor yourself with a [template helper](/integrations/template/), you choose it.
+The integration that provides the binary sensor sets the device class. When you create a binary sensor yourself with a [template helper](/integrations/template/), you choose the device class.
 
 ### Device classes in automations and templates
 
-- Automations: Some device classes have their own triggers and conditions, such as [Door opened](/triggers/door.opened/). They only list binary sensors with that device class. The list below shows the triggers and conditions of each device class.
+- Automations: Some device classes have their own triggers and conditions, such as [Door opened](/triggers/door.opened/). These triggers and conditions only list binary sensors with that device class. The list below shows the triggers and conditions of each device class.
 - Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `door`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
@@ -172,7 +172,7 @@ For sensors that measure values, see the [sensor device classes](/integrations/s
 
 If a binary sensor shows up as the wrong type, for example as an opening instead of a door, you can change its device class.
 
-You can only change the device class in the UI if the binary sensor has a unique ID. Otherwise, the entity settings show that its settings can't be managed from the UI. In that case, you can change the device class in YAML with [customization](/docs/configuration/customizing-devices/#customizing-an-entity-in-yaml).
+You can only change the device class in the UI if the binary sensor has a unique ID. A binary sensor without a unique ID shows a message in its entity settings instead. For such a binary sensor, you can change the device class in YAML with [customization](/docs/configuration/customizing-devices/#customizing-an-entity-in-yaml).
 
 1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the binary sensor.
 2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
@@ -180,6 +180,6 @@ You can only change the device class in the UI if the binary sensor has a unique
 4. Select **Update**.
    - Result: The binary sensor shows up as the new type in triggers and dashboards.
 
-Google Assistant and Alexa through Home Assistant Cloud pick up the new type automatically. If you use Apple Home through the HomeKit Bridge, [reset the accessory](/actions/homekit.reset_accessory/) so Apple Home shows the new type. Apple Home then treats it as a new accessory, so you need to set up its name, group, room, scenes, and automations again. If you set up Google Assistant or Alexa without Home Assistant Cloud, ask your voice assistant to sync or discover devices again.
+Google Assistant and Alexa through Home Assistant Cloud pick up the new type automatically. If you use Apple Home through the HomeKit Bridge, [reset the accessory](/actions/homekit.reset_accessory/) so Apple Home shows the new type. Apple Home then treats the accessory as new, so you need to set up its name, group, room, scenes, and automations again. If you set up Google Assistant or Alexa without Home Assistant Cloud, ask your voice assistant to sync or discover devices again.
 
 If you created the binary sensor with a template helper, change the device class in the options of the template helper instead.
