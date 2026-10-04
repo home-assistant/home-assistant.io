@@ -47,9 +47,10 @@ The integration that provides the humidifier sets the device class.
 
 ### List of available device classes
 
+Without a device class, Home Assistant treats the device as a humidifier.
+
 Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
 
-- No device class: Home Assistant treats the device as a humidifier.
 - **Humidifier** (`humidifier`): Adds humidity to the air around it.
 - **Dehumidifier** (`dehumidifier`): Removes humidity from the air around it.
 
