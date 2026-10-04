@@ -4,6 +4,7 @@ description: Integrate Bosch SHC.
 ha_category:
   - Binary sensor
   - Button
+  - Climate
   - Cover
   - Event
   - Hub
@@ -22,6 +23,7 @@ ha_domain: bosch_shc
 ha_platforms:
   - binary_sensor
   - button
+  - climate
   - cover
   - event
   - number
@@ -78,6 +80,15 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 ### Buttons
 
 - A Smoke Detector gets a **Test alarm** button that starts the device's self-test.
+
+### Climate
+
+The climate platform lets you monitor and control each room's climate control. The entity is named after the room and shows the current and target temperature.
+
+- **Modes**: Auto follows the schedule in the Bosch Smart Home app, Heat holds the manual target temperature, and Off switches the room off. Cool is only available in rooms that support cooling.
+- **Presets**: Boost and Eco override the current mode temporarily. A preset is only available if the room supports it.
+
+Setting a target temperature while a room is off has no effect. Turn the room on first, or set the mode in the same action.
 
 ### Covers
 
