@@ -48,13 +48,13 @@ The integration that provides the sensor usually sets the state class. There are
 
 ## Device class
 
-The device class tells Home Assistant what a sensor measures, such as temperature or energy. Home Assistant uses it to choose the icon, the unit, and how the value is shown. It also decides where you can use the sensor, such as in triggers and conditions, on the [energy dashboard](/docs/energy/), or as the temperature sensor of an [area](/docs/organizing/areas/). If a sensor doesn't show up where you expect it, check its device class.
+The device class tells Home Assistant what a sensor measures, such as temperature or energy. Home Assistant uses the device class to choose the icon, the unit, and how the value is shown. The device class also decides where you can use the sensor, such as in triggers and conditions, on the [energy dashboard](/docs/energy/), or as the temperature sensor of an [area](/docs/organizing/areas/). If a sensor doesn't show up where you expect it, check its device class.
 
-The integration that provides the sensor sets the device class, and you can't change it in the entity settings. When you create a sensor yourself, for example with a [template helper](/integrations/template/), you choose it. Most device classes then need a number as the state. The date, timestamp, and uptime device classes need a date or time. The `enum` device class needs a list of possible states and isn't available in the template helper.
+The integration that provides the sensor sets the device class, and you can't change the device class in the entity settings. When you create a sensor yourself, for example with a [template helper](/integrations/template/), you choose the device class. Most device classes then need a number as the state. The date, timestamp, and uptime device classes need a date or time. The `enum` device class needs a list of possible states and isn't available in the template helper.
 
 ### Device classes in automations and templates
 
-- Automations: Some device classes have their own triggers and conditions, such as [Temperature changed](/triggers/temperature.changed/). They only list sensors with that device class. The list below shows the triggers and conditions of each device class.
+- Automations: Some device classes have their own triggers and conditions, such as [Temperature changed](/triggers/temperature.changed/). These triggers and conditions only list sensors with that device class. The list below shows the triggers and conditions of each device class.
 - Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `temperature`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
