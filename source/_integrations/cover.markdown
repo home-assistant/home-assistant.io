@@ -162,4 +162,4 @@ automation: |
 
 ## Known limitations
 
-The triggers and conditions documented on this page work only with `cover` entities that use the `awning`, `blind`, `curtain`, `shade`, or `shutter` device class.
+The triggers and conditions in [List of triggers](#list-of-triggers) and [List of conditions](#list-of-conditions) work only with `cover` entities that use the `awning`, `blind`, `curtain`, `shade`, or `shutter` device class.
