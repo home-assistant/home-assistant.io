@@ -62,7 +62,7 @@ The integration that provides the event entity sets the device class. When you c
 
 An event entity without a device class is a generic event and shows {% icon "mdi:eye-check" %}.
 
-Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it. If the device class has its own triggers and conditions, they're listed below the item.
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it. If the device class has its own trigger, the trigger is listed below the item.
 
 - {% icon "mdi:gesture-tap-button" %} **Button** (`button`): For buttons, such as the buttons of a remote control.
 - {% icon "mdi:doorbell" %} **Doorbell** (`doorbell`): For buttons that are used as a doorbell.
