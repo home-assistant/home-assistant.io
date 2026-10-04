@@ -38,10 +38,10 @@ The device class tells Home Assistant what a number stands for, such as a temper
 
 The device class makes a difference in the following places:
 
-- Automations: In triggers and conditions with a threshold, such as [Temperature crossed threshold](/triggers/temperature.crossed_threshold/) or [Power crossed threshold](/triggers/power.crossed_threshold/), you can use a number as the threshold instead of a fixed value. The number needs the matching device class. This works for temperature, power, battery, humidity, illuminance, moisture, and air quality.
-- Units: For many device classes, you can select another unit in the entity settings, and Home Assistant converts the value. Temperatures in °C or °F use the temperature unit of your unit system, unless you select another unit.
-- Display: Durations in days, hours, or minutes are shown in two units, such as **2h 30m** instead of **2.5 h**. Monetary values are shown as an amount of money.
-- Icon and name: The icon matches what the number stands for. If the integration doesn't give the entity its own name, Home Assistant names it after the device class, such as **Temperature**.
+- Automations: Threshold triggers and conditions, such as [Temperature crossed threshold](/triggers/temperature.crossed_threshold/), accept a number with the matching device class as the threshold.
+- Units: The device class decides which units you can select in the entity settings. Temperatures in °C or °F follow your unit system.
+- Display: With the duration device class, durations in days, hours, or minutes are shown in two units, such as **2h 30m** instead of **2.5 h**. With the monetary device class, the value is shown as an amount of money.
+- Icon and name: The icon and the default name match what the number stands for, such as **Temperature**.
 - History and Activity: If you have numbers with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
 
 The integration that provides the number sets the device class, and you can't change it in the entity settings. When you create a number yourself with a [template helper](/integrations/template/), you choose it.
