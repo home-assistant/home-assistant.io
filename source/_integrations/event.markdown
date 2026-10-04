@@ -45,17 +45,17 @@ For example, you can trigger a different action when a remote control button is 
 
 When creating automations in the UI, the event types are available as a dropdown list, depending on the event entity you are using. This means you don't have to remember or look up the different event types.
 
-For buttons and doorbells, Home Assistant has standard event types. If the integration uses them and sets the matching device class, the interface shows them with readable names, such as **Long press start** for a button or **Ring** for a doorbell.
+For buttons and doorbells, Home Assistant has standard event types. If the integration uses the standard event types and sets the matching device class, the interface shows them with readable names, such as **Long press start** for a button or **Ring** for a doorbell.
 
 ## Device class
 
-The device class tells Home Assistant what kind of signal an event entity reports, such as a doorbell press. Home Assistant uses it to choose the icon, the default name, and readable names for the [event types](#event-types), such as **Ring**. Google Assistant, Alexa, and Apple Home use it to recognize doorbells.
+The device class tells Home Assistant what kind of signal an event entity reports, such as a doorbell press. Home Assistant uses the device class to choose the icon, the default name, and readable names for the [event types](#event-types), such as **Ring**. Google Assistant, Alexa, and Apple Home use the device class to recognize doorbells.
 
-The integration that provides the event entity sets the device class. When you create an event entity yourself with a [template helper](/integrations/template/), you choose it.
+The integration that provides the event entity sets the device class. When you create an event entity yourself with a [template helper](/integrations/template/), you choose the device class.
 
 ### Device classes in automations and templates
 
-- Automations: The doorbell device class has its own trigger, **Doorbell rang**. It only reacts to event entities with that device class. The other device classes don't change how an event entity works in automations.
+- Automations: The doorbell device class has its own trigger, **Doorbell rang**. The trigger only reacts to event entities with that device class. The other device classes don't change how an event entity works in automations.
 - Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `doorbell`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
