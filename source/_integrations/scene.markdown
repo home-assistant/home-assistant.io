@@ -259,7 +259,7 @@ automation: |
 
 {% details "Scene doesn't open in the scene editor" %}
 
-### Symptom
+### Symptom: Selecting the scene does nothing
 
 In {% my scenes title="**Settings** > **Automations & scenes** > **Scenes**" %}, selecting the scene does nothing. The row shows {% icon "mdi:pencil-off" %}, with **Only scenes defined in scenes.yaml are editable.**, and **Rename**, **Duplicate**, and **Delete** in its menu are grayed out.
 
@@ -279,7 +279,7 @@ The scene has no `id`, so the scene editor can't open it. This is the case for s
 
 {% details "Scene can't be edited in the scene editor" %}
 
-### Symptom
+### Symptom: "Only scenes in scenes.yaml are editable"
 
 When you open the scene, the scene editor shows **Only scenes in scenes.yaml are editable.**
 
@@ -298,7 +298,7 @@ The scene has an `id`, but it's not in the `scenes.yaml` file, for example, beca
 
 {% details "Changes to a scene in YAML don't take effect" %}
 
-### Symptom
+### Symptom: Activating the scene still sets the old states
 
 You changed a scene in YAML, but activating the scene still sets the old states.
 
@@ -316,7 +316,7 @@ Home Assistant reads the scenes from YAML when it starts or when you reload the 
 
 {% details "Create scene does nothing: the scene would be empty" %}
 
-### Symptom
+### Symptom: No scene is created, and there is no error
 
 You run the **Create scene** action, but no scene is created. There is no error. The logs show `Empty scenes are not allowed`, often after one or more warnings like `Entity light.ceiling_lights does not exist and therefore cannot be snapshotted`.
 
@@ -337,7 +337,7 @@ If only some of the entities don't exist, the scene is created without them.
 
 {% details "Create scene does nothing: the scene already exists" %}
 
-### Symptom
+### Symptom: The scene isn't created or changed
 
 You run the **Create scene** action, but the scene isn't created or changed. The logs show `The scene scene.my_scene already exists`.
 
@@ -355,7 +355,7 @@ Use a different **Scene entity ID**.
 
 {% details "Create scene fails: entities and snapshot_entities must not overlap" %}
 
-### Symptom
+### Symptom: "entities and snapshot_entities must not overlap"
 
 The **Create scene** action fails, and the error message says **entities and snapshot_entities must not overlap**.
 
@@ -373,7 +373,7 @@ Remove the entity from one of the two fields.
 
 {% details "Delete scene fails: the scene wasn't created with Create scene" %}
 
-### Symptom
+### Symptom: "The scene scene.my_scene is not created with action scene.create"
 
 The **Delete scene** action fails with **The scene scene.my_scene is not created with action `scene.create`.**
 
@@ -392,7 +392,7 @@ The **Delete scene** action fails with **The scene scene.my_scene is not created
 
 {% details "Delete scene fails: the scene is from another integration" %}
 
-### Symptom
+### Symptom: "scene.my_scene is not a valid entity ID of a scene"
 
 The **Delete scene** action fails with **scene.my_scene is not a valid entity ID of a scene.**
 
