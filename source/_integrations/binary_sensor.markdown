@@ -46,7 +46,7 @@ The integration that provides the binary sensor sets the device class. When you 
 
 ### Device classes in automations and templates
 
-- Automations: Some device classes have their own triggers and conditions, such as [Door opened](/triggers/door.opened/). These triggers and conditions only list binary sensors with that device class. The list below shows the triggers and conditions of each device class.
+- Automations: Some device classes have their own triggers and conditions, such as [Door opened](/triggers/door.opened/). Of your binary sensors, these triggers and conditions only list the ones with that device class. The list below shows the triggers and conditions of each device class.
 - Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `door`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
@@ -60,7 +60,7 @@ Each item shows the name you see in the Home Assistant interface, followed by th
   - **Normal** (`off`)
   - Triggers: [Battery low](/triggers/battery.became_low/), [Battery not low](/triggers/battery.no_longer_low/)
   - Conditions: [Battery is low](/conditions/battery.is_low/), [Battery is not low](/conditions/battery.is_not_low/)
-- **Charging** (`battery_charging`): Shows whether the battery is charging.
+- **Charging** (`battery_charging`): Shows whether the battery is charging. Under **Show as**, this type is called **Battery charging**.
   - **Charging** (`on`)
   - **Not charging** (`off`)
   - Triggers: [Battery started charging](/triggers/battery.started_charging/), [Battery stopped charging](/triggers/battery.stopped_charging/)
