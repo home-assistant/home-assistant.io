@@ -59,13 +59,26 @@ Control Home Assistant:
 
 To change the model, instructions, or tools later, select the conversation agent and choose **Reconfigure conversation agent**.
 
-## Adding a speech-to-text service
-
-To add a speech-to-text service:
+### Adding a speech-to-text service
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select your LiteLLM entry.
 2. Select **Add speech-to-text service**.
-3. Select the transcription model. The service appears as a speech-to-text entity that you can select in an [Assist pipeline](/integrations/assist_pipeline/).
+3. Fill in the fields. If you turn on **Custom prompt/keywords**, select **Submit** to show the **Prompt** and **Keywords** fields.
+
+{% configuration_basic %}
+Model:
+  description: "The model used to transcribe speech. The list is discovered from your LiteLLM proxy."
+Custom prompt/keywords:
+  description: "Turn on to send optional prompt and keyword hints. Not every backend supports them. If the backend doesn't support a parameter, it rejects the request and Assist can't transcribe your speech. To fix this, clear the field or turn this off. Turning this off also removes any saved prompt and keywords."
+Prompt:
+  description: "Optional context or instructions for the transcription, in the same language as the audio. Supports [templates](/docs/templating/)."
+Keywords:
+  description: "Comma-separated words or phrases, such as names, to help the model recognize them. Supports [templates](/docs/templating/)."
+{% endconfiguration_basic %}
+
+The service appears as a speech-to-text entity named after the model. Select it in an [Assist pipeline](/integrations/assist_pipeline/). Home Assistant sends the pipeline language without its region. For example, `en-US` is sent as `en`.
+
+To change these settings later, select the speech-to-text service and choose **Reconfigure speech-to-text service**.
 
 
 ### Speech-to-text prompt and keywords
