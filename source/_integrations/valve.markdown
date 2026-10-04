@@ -33,13 +33,23 @@ A valve {% term entity %} can have the following states. Each item shows the lab
 
 ## Device class
 
-{% include integrations/device_class_intro.md %}
+The device class tells Home Assistant what flows through a valve, such as water or gas. Home Assistant uses the device class to choose the icon.
 
-The following device classes are supported for valves:
+The integration that provides the valve sets the device class.
 
-- **None**: Generic valve. This is the default and doesn't need to be set.
-- **water**: Valve that controls the flow of water through a system.
-- **gas**: Valve that controls the flow of gas through a system.
+### Device classes in automations and templates
+
+- Automations: The device class doesn't change how a valve works in automations.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `gas`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
+
+### List of available device classes
+
+A valve without a device class is a generic valve and shows the same icons as a water valve.
+
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
+
+- {% icon "mdi:valve-open" %} **Water** (`water`): A valve that controls the flow of water through a system.
+- {% icon "mdi:meter-gas" %} **Gas** (`gas`): A valve that controls the flow of gas through a system.
 
 {% include integrations/triggers.md %}
 
