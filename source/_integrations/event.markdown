@@ -49,29 +49,25 @@ For buttons and doorbells, Home Assistant has standard event types. If the integ
 
 ## Device class
 
-The device class tells Home Assistant what kind of signal an event entity reports, such as a doorbell press.
-
-The device class makes a difference in the following places:
-
-- Automations: The **Doorbell rang** trigger only reacts to event entities with the doorbell device class.
-- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/) and [Alexa](/integrations/alexa/) can announce events with the doorbell device class. Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, uses these events as the doorbell of a camera or lock.
-- Display: Buttons and doorbells show readable [event type](#event-types) names, such as **Ring**.
-- Icon and name: The icon and the default name match the type, such as **Doorbell**.
-- History and Activity: If you have event entities with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
+The device class tells Home Assistant what kind of signal an event entity reports, such as a doorbell press. Home Assistant uses it to choose the icon, the default name, and readable names for the [event types](#event-types), such as **Ring**. Google Assistant, Alexa, and Apple Home use it to recognize doorbells.
 
 The integration that provides the event entity sets the device class. When you create an event entity yourself with a [template helper](/integrations/template/), you choose it.
+
+### Device classes in automations and templates
+
+- Automations: The doorbell device class has its own trigger, **Doorbell rang**. It only reacts to event entities with that device class. The other device classes don't change how an event entity works in automations.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `doorbell`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
 
 An event entity without a device class is a generic event and shows {% icon "mdi:eye-check" %}.
 
-Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it. If the device class has its own triggers and conditions, they're listed below the item.
 
 - {% icon "mdi:gesture-tap-button" %} **Button** (`button`): For buttons, such as the buttons of a remote control.
 - {% icon "mdi:doorbell" %} **Doorbell** (`doorbell`): For buttons that are used as a doorbell.
+  - Trigger: **Doorbell rang**
 - {% icon "mdi:motion-sensor" %} **Motion** (`motion`): For motion detected by a motion sensor.
-
-In templates, the device class is the `device_class` attribute of the entity. Use the stored value, such as `doorbell`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### Video tutorial
 
