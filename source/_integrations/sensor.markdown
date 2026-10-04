@@ -89,7 +89,7 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 - **Energy** (`energy`): Energy, in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal.
 - **Energy per distance** (`energy_distance`): Energy used per distance, in kWh/100km, Wh/km, mi/kWh, or km/kWh.
 - **Stored energy** (`energy_storage`): Stored energy, such as in a battery, in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal.
-- Enumeration (`enum`): A sensor with a fixed list of possible text states.
+- **Sensor** (`enum`): A sensor with a fixed list of possible text states.
 - **Frequency** (`frequency`): Frequency, in mHz, Hz, kHz, MHz, or GHz.
 - **Gas** (`gas`): Gas volume, in L, m³, ft³, CCF, or MCF.
 - **Humidity** (`humidity`): Relative humidity of the air, in %.
