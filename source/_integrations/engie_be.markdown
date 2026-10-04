@@ -221,6 +221,10 @@ This almost always means the ENGIE account is shared between the integration and
 
 The integration could not fetch the EPEX day-ahead prices, for example because the ENGIE API was unreachable during startup. It retries on its own, so the sensors come back once a fetch succeeds. To try again right away, call the [Update entity](/integrations/homeassistant/#action-update_entity) action on one of the EPEX sensors.
 
+### The EPEX sensors did not appear
+
+The integration could not look up your tariff while it was starting, for example because the ENGIE API was unreachable. It retries the lookup in the background, so the sensors of a dynamic address appear once it succeeds.
+
 ## Removing the integration
 
 This integration follows standard integration removal steps.
