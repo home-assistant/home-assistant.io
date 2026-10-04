@@ -71,7 +71,6 @@ reference_offset:
 ## Good to know
 
 - Besides date/time entities, you can target sensors with the `timestamp` device class. The same types of entities can be used as the reference time.
-- [Date/Time helpers](/integrations/input_datetime/) cannot be used with this condition.
 - The comparison is strict. If the target and the reference time are exactly the same, the condition does not pass.
 - Entities that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped. If every targeted entity is skipped, the condition does not pass with **Any**, but does pass with **All**.
 - If the reference entity does not exist, or does not have a valid date and time, the condition does not pass.
