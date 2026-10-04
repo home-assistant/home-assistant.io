@@ -83,7 +83,7 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 
 If a cover shows up as the wrong type, for example as a window instead of a garage door, you can change its device class.
 
-You can only change the device class this way if the cover has a unique ID. Otherwise, the entity settings show that its settings can't be managed from the UI. In that case, you can change the device class in YAML with [customization](/docs/configuration/customizing-devices/#customizing-an-entity-in-yaml).
+You can only change the device class in the UI if the cover has a unique ID. Otherwise, the entity settings show that its settings can't be managed from the UI. In that case, you can change the device class in YAML with [customization](/docs/configuration/customizing-devices/#customizing-an-entity-in-yaml).
 
 1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the cover.
 2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
