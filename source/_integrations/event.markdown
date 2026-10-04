@@ -45,7 +45,7 @@ For example, you can trigger a different action when a remote control button is 
 
 When creating automations in the UI, the event types are available as a dropdown list, depending on the event entity you are using. This means you don't have to remember or look up the different event types.
 
-For buttons and doorbells, Home Assistant has standard event types. If the integration uses them, the interface shows them with readable names, such as **Long press start** for a button or **Ring** for a doorbell.
+For buttons and doorbells, Home Assistant has standard event types. If the integration uses them and sets the matching device class, the interface shows them with readable names, such as **Long press start** for a button or **Ring** for a doorbell.
 
 ## Device class
 
@@ -54,8 +54,9 @@ The device class tells Home Assistant what kind of signal an event entity report
 The device class makes a difference in the following places:
 
 - Automations: The **Doorbell rang** trigger only reacts to event entities with the doorbell device class.
-- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/) and [Alexa](/integrations/alexa/) can announce when someone rings a doorbell. Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, uses a doorbell event as the doorbell of a camera or lock from the same device.
-- Icon and name: The icon matches the type. An event entity without a name of its own is named after its device class, such as **Doorbell**.
+- Voice assistants and Apple Home: [Google Assistant](/integrations/google_assistant/) and [Alexa](/integrations/alexa/) can announce when someone rings a doorbell. Apple Home, through the [HomeKit Bridge](/integrations/homekit/) integration, uses a doorbell event as the doorbell of a camera or lock from the same device, and a motion event as the motion sensor of a camera.
+- Display: For buttons and doorbells, the standard event types show readable names, such as **Long press start** or **Ring**. For more information, see [Event types](#event-types).
+- Icon and name: The icon matches the type. If the integration doesn't give the entity its own name, Home Assistant names it after the device class, such as **Doorbell**.
 - History and Activity: If you have event entities with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
 
 The integration that provides the event entity sets the device class. When you create an event entity yourself with a [template helper](/integrations/template/), you choose it.
