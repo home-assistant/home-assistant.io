@@ -61,7 +61,7 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 
 If a switch controls an outlet or a smart plug but shows up as a switch, or the other way around, you can change its device class.
 
-You can only change the device class this way if the switch has a unique ID. Otherwise, the entity settings show that its settings can't be managed from the UI. In that case, you can change the device class in YAML with [customization](/docs/configuration/customizing-devices/#customizing-an-entity-in-yaml).
+You can only change the device class in the UI if the switch has a unique ID. Otherwise, the entity settings show that its settings can't be managed from the UI. In that case, you can change the device class in YAML with [customization](/docs/configuration/customizing-devices/#customizing-an-entity-in-yaml).
 
 1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the switch.
 2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
