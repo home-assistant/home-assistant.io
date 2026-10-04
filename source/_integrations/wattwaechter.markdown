@@ -52,11 +52,19 @@ The WattWächter Plus provides sensors that are based on your smart meter's repo
 - **Total feed-in (kWh)**: Total energy exported (fed back into the grid).
 - **Consumption tariff 1 / 2 (kWh)**: Energy consumption per tariff, if your meter supports dual tariffs.
 - **Feed-in tariff 1 / 2 (kWh)**: Energy feed-in per tariff.
+- **Absolute energy (kWh)**: Total energy regardless of direction, if reported by your meter.
+- **Reactive energy consumption / feed-in (kvarh)**: Reactive energy totals, if reported by your meter.
+- **Reactive energy quadrant I / II / III / IV (kvarh)**: Reactive energy per quadrant, on meters that report the four quadrant registers.
 
 ### Power sensors
 
 - **Active power (W)**: Current power being consumed or fed in. Negative values indicate feed-in.
 - **Active power L1 / L2 / L3 (W)**: Active power per phase.
+- **Power consumption / Power feed-in (W)**: Separate import and export power readings, on meters that report them as two registers.
+- **Absolute power (W)**: Power regardless of direction, on meters that report the unsigned value.
+- **Reactive power consumption / feed-in (var)**: Reactive power, if reported by your meter.
+- **Apparent power consumption / feed-in (VA)**: Apparent power, if reported by your meter.
+- **Maximum demand (kW)**: The maximum power demand, if reported by your meter.
 
 ### Voltage and current sensors
 
@@ -67,6 +75,10 @@ The WattWächter Plus provides sensors that are based on your smart meter's repo
 
 - **Grid frequency (Hz)**: The current grid frequency.
 - **Power factor / Power factor L1 / L2 / L3**: The power factor (total and per phase).
+
+### Additional meter values
+
+Smart meters can report values beyond the well-known ones listed above. The integration creates a sensor for every additional OBIS code your meter reports, deriving the sensor type from the reported unit. Cumulative energy registers are recorded as continuously increasing totals. These additional sensors are disabled by default; enable the ones you need from the device page. Device metadata registers, such as the meter's serial number, do not create sensors.
 
 ### Diagnostic sensors
 
