@@ -33,14 +33,14 @@ A valve {% term entity %} can have the following states. Each item shows the lab
 
 ## Device class
 
-The device class tells Home Assistant what flows through a valve, such as water or gas.
-
-The device class makes a difference in the following places:
-
-- Icon: By default, a gas valve shows {% icon "mdi:meter-gas" %}. Other valves show a different icon for open, closed, and moving, such as {% icon "mdi:valve-open" %}.
-- History and Activity: If you have valves with different device classes, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists each device class separately.
+The device class tells Home Assistant what flows through a valve, such as water or gas. Home Assistant uses it to choose the icon.
 
 The integration that provides the valve sets the device class.
+
+### Device classes in automations and templates
+
+- Automations: The device class doesn't change how a valve works in automations.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `gas`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 ### List of available device classes
 
@@ -50,8 +50,6 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 
 - {% icon "mdi:valve-open" %} **Water** (`water`): A valve that controls the flow of water through a system.
 - {% icon "mdi:meter-gas" %} **Gas** (`gas`): A valve that controls the flow of gas through a system.
-
-In templates, the device class is the `device_class` attribute of the entity. Use the stored value, such as `gas`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
 {% include integrations/triggers.md %}
 
