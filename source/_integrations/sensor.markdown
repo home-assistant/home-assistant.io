@@ -66,9 +66,10 @@ The integration that provides the sensor sets the device class, and you can't ch
 
 ### List of available device classes
 
+A sensor without a device class is a generic sensor.
+
 Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it. The description lists the units the device class supports.
 
-- No device class: A generic sensor.
 - **Absolute humidity** (`absolute_humidity`): Amount of water vapor in the air, in g/m³ or mg/m³.
 - **Apparent power** (`apparent_power`): Apparent power, in mVA, VA, or kVA.
 - **Air quality index** (`aqi`): Air quality index, without a unit.
