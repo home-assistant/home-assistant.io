@@ -20,6 +20,8 @@ ha_platforms:
   - diagnostics
   - image
   - light
+  - number
+  - select
   - sensor
   - switch
   - update
@@ -81,6 +83,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 - [Sensor](#sensor)
 - [Firmware updates](#firmware-updates)
+- [WAN networks](#wan-networks)
 
 {% include integrations/config_flow.md %}
 
@@ -116,6 +119,8 @@ Include wired network clients:
   description: "Also track wired clients, not just wireless clients."
 Track network devices:
   description: "Create device tracker entities for Ubiquiti network devices such as access points and switches."
+Track WAN networks:
+  description: "Create a device for each WAN network, with its status and its load balancing and failover settings. See [WAN networks](#wan-networks). Turning this on or off takes effect without a restart. Disabled by default."
 Select SSIDs to track wireless clients on:
   description: "Only track wireless clients connected to the selected SSIDs. Leave empty to track clients on all SSIDs."
 Time in seconds from last seen until considered away:
@@ -286,6 +291,50 @@ Changes may take over 5 seconds to apply as the device must adopt a new configur
 
 This will show if there are firmware updates available for the UniFi network devices connected to the controller. If the configured user has admin privileges, the firmware upgrades can also be installed directly from Home Assistant.
 
+## WAN networks
+
+If your UniFi gateway has more than one internet connection, Home Assistant can show the status of each one and let you change how the gateway uses them. To use this, turn on **Track WAN networks** in the [configuration options](#configuration-options).
+
+Each WAN network on your UniFi Network application, such as **Internet 1**, **Internet 2**, or **UniFi 5G A**, becomes its own device in Home Assistant with these entities:
+
+- **Status**: Shows the state of the connection:
+  - **Disabled**: The WAN is disabled in UniFi Network.
+  - **No link**: There is no link, for example because the cable is unplugged.
+  - **Offline**: The link is up, but the gateway's internet check fails.
+  - **Online**: The WAN is connected and has internet access.
+- **Load balancing**: Select **Failover only** or **Weighted**.
+- **Failover priority**: A number from 1 to 10. A lower number means a more preferred WAN.
+- **Load balance weight**: A number from 1 to 99. Sets this WAN's share of traffic among the weighted WANs.
+
+Changing **Load balancing**, **Failover priority**, or **Load balance weight** requires admin privileges.
+
+### How failover priority and load balancing work together
+
+UniFi Network combines these settings in a way that is not obvious from its own UI:
+
+- **Failover priority** always decides the order of your WANs. The load balancing mode never overrides it.
+- WANs set to **Weighted** share traffic between themselves, based on their **Load balance weight**. This only happens when at least two connected WANs are set to **Weighted**. If only one connected WAN is set to **Weighted**, it acts as a normal failover WAN, even though it still shows **Weighted**.
+- At least one WAN must stay set to **Weighted**, so you can't set every WAN to **Failover only**. If you try, Home Assistant shows the error "At least one WAN must use weighted load balancing".
+- Two WANs can't have the same **Failover priority**. If you try, Home Assistant shows the error "Another WAN already uses this failover priority. Move that WAN to an unused priority first, then try again".
+- The settings of a disconnected WAN have no effect on how traffic is routed.
+
+To swap the priorities of two WANs, for example **Internet 1** at priority 1 and **Internet 2** at priority 2:
+
+1. Set **Internet 1** to an unused priority, such as 9.
+2. Set **Internet 2** to 1.
+3. Set **Internet 1** to 2.
+
+### Example: prefer the wired connection and use 5G only as backup
+
+You have a wired internet connection on **Internet 1** and a 5G backup on **UniFi 5G A**. You want all traffic to use the wired connection, and only switch to 5G when the wired connection fails.
+
+1. On **Internet 1**, set **Failover priority** to 1 and **Load balancing** to **Weighted**.
+2. On **UniFi 5G A**, set **Failover priority** to 2 and **Load balancing** to **Failover only**.
+
+All traffic uses **Internet 1**. When its **Status** is no longer **Online**, the gateway moves traffic to **UniFi 5G A**. When **Internet 1** is back online, it becomes the active WAN again because it has the lower priority.
+
+To share traffic between two wired connections instead, set both to **Weighted** and use **Load balance weight** to split the traffic, for example 70 and 30.
+
 ## Examples
 
 ### Community blueprints
@@ -304,6 +353,7 @@ If the WebSocket connection is lost, the integration automatically tries to reco
 - **Early Access and Release Candidate versions of UniFi Network and UniFi OS are not supported.** Only the official Stable Release channel is expected to work with this integration.
 - **Presence detection is not compatible with MAC Address Randomization**, which is enabled by default on most modern smartphones. This feature must be disabled per network on the client device.
 - **Changes to LED control** on access points may take over 5 seconds to apply because the device must adopt a new configuration first.
+- **WAN settings follow UniFi Network rules.** At least one WAN must use **Weighted** load balancing, and two WANs can't share a failover priority. See [How failover priority and load balancing work together](#how-failover-priority-and-load-balancing-work-together).
 - **Lingering entities**: In some edge cases, clients or devices removed from UniFi Network may remain in the Home Assistant device registry and need to be [removed manually](#removing-a-device-in-home-assistant).
 
 ## Removing a device in Home Assistant
@@ -313,6 +363,8 @@ Integration populates both UniFi devices as well as network clients into Home As
 To manually remove a device entry, go to the Device Info page and select "Delete" from the Device Info menu.
 
 Only clients/devices which are no longer known by UniFi since the startup or reload of the UniFi integration can be removed.
+
+A WAN network device can't be removed while **Track WAN networks** is on and UniFi Network still reports that WAN. If you turn **Track WAN networks** off, you can remove any leftover WAN network devices.
 
 ![4d4ca937-17bb-4902-9949-2ea83e3c2c0c](https://github.com/home-assistant/home-assistant.io/assets/21991867/c926f5c7-18af-47b5-b888-30cc8511d76a)
 
