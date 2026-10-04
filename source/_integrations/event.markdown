@@ -69,6 +69,8 @@ Each item shows the name you see in the Home Assistant interface, followed by th
   - Trigger: **Doorbell rang**
 - {% icon "mdi:motion-sensor" %} **Motion** (`motion`): For motion detected by a motion sensor.
 
+{% include integrations/triggers.md %}
+
 ## Event automation examples
 
 ### Automation: send a notification when the doorbell rings
