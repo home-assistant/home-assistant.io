@@ -217,11 +217,11 @@ Your password is only used to sign in, and it is never stored. The integration k
 
 This almost always means the ENGIE account is shared between the integration and engie.be or the ENGIE Smart App. Every sign-in somewhere else revokes the integration's session, so its sensors become unavailable. Set up a dedicated ENGIE user (see [Prerequisites](#prerequisites)) to avoid this, then delete the integration and set it up again to recover.
 
-### EPEX price sensors are unavailable
+### The EPEX price sensors are unavailable
 
-The integration could not fetch the EPEX day-ahead prices, for example because the ENGIE API was unreachable during startup. It retries on its own, so the sensors come back once a fetch succeeds. To try again right away, call the [Update entity](/integrations/homeassistant/#action-update_entity) action on one of the EPEX sensors.
+The integration could not fetch the EPEX day-ahead prices, for example because the ENGIE API was unreachable during startup. It retries on its own, so the sensors come back once a fetch succeeds. To try again right away, call the [Update entity](/actions/homeassistant.update_entity/) action on one of the EPEX sensors.
 
-### The EPEX sensors did not appear
+### The EPEX price sensors did not appear
 
 The integration could not look up your tariff while it was starting, for example because the ENGIE API was unreachable. It retries the lookup in the background, so the sensors of a dynamic address appear once it succeeds.
 
