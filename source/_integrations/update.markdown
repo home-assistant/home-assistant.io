@@ -55,7 +55,7 @@ The device class tells Home Assistant whether an update is for the firmware of a
 
 The device class makes a difference in the following places:
 
-- Name: If the integration doesn't give the entity its own name, Home Assistant names it after the device class: **Firmware**.
+- Name: The default name of a firmware update is **Firmware**.
 - History and Activity: If you have both firmware updates and other updates, the **Type** filter in the [History](/dashboards/dashboards/#history-dashboard) and [Activity](/dashboards/dashboards/#activity-dashboard) dashboards lists them separately. Other updates are listed as **No type**.
 
 The integration that provides the update entity sets the device class. When you create an update entity yourself with a [template helper](/integrations/template/), you choose it.
