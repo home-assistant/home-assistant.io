@@ -36,7 +36,7 @@ In addition, the entity can have the following states. Each item shows the inter
 
 The device class tells Home Assistant what a number stands for, such as a temperature or a duration. Home Assistant uses the device class to choose the icon, the default name, the units you can select, and how the value is shown. The device class also lets you use the number as the threshold in triggers and conditions of the same type, for example, a temperature number in [Temperature crossed threshold](/triggers/temperature.crossed_threshold/).
 
-The integration that provides the number sets the device class, and you can't change the device class in the entity settings. When you create a number yourself with a [template helper](/integrations/template/), you choose the device class.
+The integration that provides the number sets the device class. When you create a number yourself with a [template helper](/integrations/template/), you choose the device class.
 
 ### Device classes in automations and templates
 
