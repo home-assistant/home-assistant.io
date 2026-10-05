@@ -107,7 +107,7 @@ Entities:
     Focus:
       description: "Includes this entity when fitting the map (`focus`)."
 Geolocation sources:
-  description: "Under **Source**, select the [geolocation](/integrations/geo_location/) sources whose entities you want to show (`geo_location_sources`)."
+  description: "The [geolocation](/integrations/geo_location/) sources whose entities you want to show (`geo_location_sources`). To add a source, select **Source**, then select the source."
 Entity visibility conditions:
   description: "Shows the entities only when all conditions are met (`conditions`). For more information, refer to [conditions options](#conditions-options)."
 {% endconfiguration_basic %}
