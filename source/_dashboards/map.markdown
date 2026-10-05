@@ -18,7 +18,7 @@ related:
 
 The map card shows your home zone, your other zones, and entities with a location on a map. This card is used on the [Map dashboard](/dashboards/dashboards/#map-dashboard), which is one of the default dashboards.
 
-On the map, each entity is shown as a marker: a small circle with its picture, icon, name, or state. Below the zoom buttons, two more buttons help you find your way on the map:
+On the map, each entity is shown as a marker with its picture, icon, name, or state. Below the zoom buttons, two more buttons help you find your way on the map:
 
 - **Toggle grouping** {% icon "mdi:google-circles-communities" %} combines markers that are close together into one bubble. The bubble shows up to three of the markers and the number of other markers in the group. Select the button again to show each marker separately. While markers are not grouped, the button shows {% icon "mdi:dots-hexagon" %}.
 - **Reset focus** {% icon "mdi:image-filter-center-focus" %} moves and zooms the map so that you can see all its entities again.
@@ -192,7 +192,7 @@ conditions:
 {% endconfiguration %}
 
 {% note %}
-Only entities that have a location, with `latitude` and `longitude` attributes, are shown on the map.
+Only entities that have a location, with `latitude` and `longitude` attributes, are shown on the map. A person without these attributes is shown in the zone they are in, for example at home.
 {% endnote %}
 
 ## Conditions options
