@@ -285,7 +285,7 @@ name:
   type: string
 color:
   required: false
-  description: "The color of the marker and of the path of previous locations. Use a theme color: `primary`, `accent`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `light-grey`, `grey`, `dark-grey`, `blue-grey`, `black`, or `white`. Theme colors follow your theme. You can also use a hex color code, for example, `#93c47d`. If not set, a color is picked for each entity. This option doesn't apply to [zone](/integrations/zone/) entities."
+  description: "The color of the marker and of the path of previous locations. Use a theme color: `primary`, `accent`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `light-grey`, `grey`, `dark-grey`, `blue-grey`, `black`, or `white`. Theme colors follow your theme. You can also use a hex color code, for example, `#93c47d`. If not set, a color is picked for each entity. For a [zone](/integrations/zone/), the color is used for the zone and its marker, except for passive zones. The card editor doesn't offer this option for zones, and it removes the `color` of a zone when you edit that zone in the editor."
   type: string
 label_mode:
   required: false
