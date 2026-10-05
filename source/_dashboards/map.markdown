@@ -16,7 +16,7 @@ related:
     title: Getting started tutorial on presence detection
 ---
 
-The map card allows you to display your home zone, entities, and other predefined zones on a map. This card is used on the [Map dashboard](/dashboards/dashboards/#map-dashboard), which is one of the default dashboards.
+The map card shows your home zone, your other zones, and entities with a location on a map. This card is used on the [Map dashboard](/dashboards/dashboards/#map-dashboard), which is one of the default dashboards.
 
 On the map, each entity is shown as a marker: a small circle with its picture, icon, name, or state. Below the zoom buttons, two more buttons help you find your way on the map:
 
@@ -91,7 +91,7 @@ Appearance:
     Cluster markers:
       description: "Combines markers that are close together into one bubble (`cluster`)."
 Show all:
-  description: "Automatically adds all entities with coordinates to the map (`show_all`)."
+  description: "Automatically adds all entities with a location to the map (`show_all`)."
 Entities:
   description: "The entities to show on the map (`entities`). To add an entity, select **Add entity**. To change the settings of an entity, select **Edit** {% icon "mdi:pencil" %} next to it. To remove it, select **Delete** {% icon "mdi:close" %}. To change the order, drag it by {% icon "mdi:drag-horizontal-variant" %}."
   keys:
@@ -130,7 +130,7 @@ entities:
   type: list
 geo_location_sources:
   required: false
-  description: List of geolocation sources or sources with their own settings. For more information, refer to [options for geolocation sources](#options-for-geolocation-sources). All current entities with that source will be displayed on the map. See [Geolocation](/integrations/geo_location/) platform for valid sources. Set to `all` to use all available sources. Either this, `show_all`, or the `entities` configuration option is required.
+  description: List of geolocation sources or sources with their own settings. For more information, refer to [options for geolocation sources](#options-for-geolocation-sources). Shows all current entities of these sources. For valid sources, refer to the [Geolocation](/integrations/geo_location/) integration. Set to `all` to use all available sources. Either this, `show_all`, or the `entities` configuration option is required.
   type: list
 show_all:
   required: false
@@ -167,7 +167,7 @@ scale_ruler:
   default: false
 theme_mode:
   required: false
-  description: 'Override the theme to force the map to display in either a light mode (`theme_mode: light`) or a dark mode (`theme_mode: dark`). Default (`theme_mode: auto`) will follow the theme settings. The theme mode also decides whether the light or the dark version of the `map_style` is shown.'
+  description: 'Shows the map in light mode (`light`), dark mode (`dark`), or following your theme (`auto`). The theme mode also decides whether the light or the dark version of the `map_style` is shown.'
   type: string
   default: 'auto'
 map_style:
@@ -195,17 +195,13 @@ conditions:
 Only entities that have a location, with `latitude` and `longitude` attributes, are shown on the map.
 {% endnote %}
 
-{% note %}
-If all your entities do not fit on the map at the `default_zoom` level, the map zooms out further to show them. The `default_zoom` can only make the map zoom out more, not zoom in more than needed to show all entities.
-{% endnote %}
-
 ## Conditions options
 
 With `conditions`, each entity is only shown when it meets all conditions. For the available conditions, refer to [conditions options of the conditional card](/dashboards/conditional/#conditions-options). In conditions that use an `entity`, the entity ID is filled in automatically with each entity on the map.
 
-### Examples
+### Example
 
-Map all locatable entities, except hiding those that have a state of `home`.
+The following example shows all entities with a location, except the ones whose state is `home`.
 
 ```yaml
 type: map
@@ -279,7 +275,7 @@ entity:
   type: string
 name:
   required: false
-  description: Replace the default label for the marker.
+  description: Replaces the default label of the marker.
   type: string
 color:
   required: false
@@ -292,11 +288,11 @@ label_mode:
   type: string
 attribute:
   required: false
-  description: An entity's attribute when `label_mode` is set to `attribute`.
+  description: The attribute to show when `label_mode` is set to `attribute`.
   type: string
 unit:
   required: false
-  description: A unit for a value of an attribute when `label_mode` is set to `attribute`.
+  description: The unit to show after the attribute value when `label_mode` is set to `attribute`.
   type: string
 focus:
   required: false
@@ -321,11 +317,11 @@ label_mode:
   type: string
 attribute:
   required: false
-  description: An entity's attribute when `label_mode` is set to `attribute`.
+  description: The attribute to show when `label_mode` is set to `attribute`.
   type: string
 unit:
   required: false
-  description: A unit for a value of an attribute when `label_mode` is set to `attribute`.
+  description: The unit to show after the attribute value when `label_mode` is set to `attribute`.
   type: string
 focus:
   required: false
