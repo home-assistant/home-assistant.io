@@ -56,7 +56,7 @@ If you have administrator rights, you can add other persons to Home Assistant an
    - But they can still be used for device tracking, show up on a map, and be included in automations.
 5. If they can sign in, turn on **Allow login**.
    - If there are user accounts that are not linked to a person yet, the **Select user account** dialog opens. To use one of these accounts, select it and continue with step 6. For more information, refer to [linking an existing user account to a person](#linking-an-existing-user-account-to-a-person). To create a new account, select **Create a new username**.
-   - The **Add user** dialog opens, where you fill in the user information.
+   - If you select **Create a new username**, the **Add user** dialog opens, where you fill in the user information.
    - Check if the username is correct. Home Assistant suggests one based on the person name, but the two do not have to be identical.
      - The username must be lowercase and contain no spaces.
      - The username is required to sign in.
