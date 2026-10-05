@@ -18,39 +18,99 @@ related:
 
 The map card allows you to display your home zone, entities, and other predefined zones on a map. This card is used on the [Map dashboard](/dashboards/dashboards/#map-dashboard), which is one of the default dashboards.
 
-<p class='img'>
-<img src='/images/dashboards/map_card.webp' alt='Screenshot of the map card'>
-Screenshot of the map card.
-</p>
-
 The two buttons below the zoom controls let you manage the markers and map viewport:
 
 - **Toggle grouping** enables or disables clustering of nearby markers.
 - **Reset focus** adjusts the map view to fit the displayed entities.
 
+### Overview in a panel view
+
+When the map card is in a [panel view](/dashboards/panel/), such as on the [Map dashboard](/dashboards/dashboards/#map-dashboard), it also shows an overview next to the map. The overview can show these tabs:
+
+- **People**: the people in your home and where they are.
+- **Devices**: the devices on the map that have a location.
+- **Zones**: your zones, with the number of people in each zone.
+
+The map shows the markers of the selected tab.
+
+Select an item to see its details and its **Activity** of the last 24 hours:
+
+- For a person or a device, the activity shows its changes, such as arriving at or leaving a zone.
+- For a zone, the activity shows the people who arrived or left.
+
+To open the more-info dialog of the item, select its name at the top of the details.
+
 ## Adding the map card to a dashboard
 
-1. In the top right of the screen, select the edit {% icon "mdi:edit" %} button.
+1. In the top right of the screen, select **Edit dashboard** {% icon "mdi:pencil" %}.
    - If this is your first time editing a dashboard, the **Edit dashboard** dialog appears.
      - By editing the dashboard, you are taking over control of this dashboard.
      - This means that it is no longer automatically updated when new dashboard elements become available.
      - Once you've taken control, you can't set this dashboard to update automatically anymore. However, you can create a new default dashboard.
-     - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
+     - To continue, in the dialog, select **Menu** {% icon "mdi:dots-vertical" %}, then select **Take control**.
 2. [Add the map card](/dashboards/cards/#adding-cards-to-your-dashboard) to your dashboard.
+   - If the card is in a [sections view](/dashboards/sections/), you can resize it on the **Layout** tab. In other view types, the **Layout** tab is not shown. For more information, refer to [resizing a card](/dashboards/cards/#resizing-a-card).
 3. By default, you see the house {% icon "mdi:house" %} icon on your map. It represents your [home zone](/integrations/zone/#about-the-home-zone).
    - To change the location of your home, you need to [edit your home's location in the home information](/docs/configuration/basic/#editing-the-home-information).
-
-    ![Edit map card settings](/images/dashboards/map_card_config.png)
 4. To learn how to show additional zones on your map, follow the steps on [adding a new zone](/integrations/zone/#adding-a-new-zone-or-editing-zones).
 5. To show other elements on the map, either add them under **Entities**, or use the **Geolocation sources**.
-   - For a description of the options, refer to the [YAML configuration](#yaml-configuration) section. It also applies to the options shown in the UI.
+   - For a description of the options, refer to [Card settings](#card-settings).
    - {% icon "mdi:info" %} **Info**: The list of entities shows the device trackers available for your home, such as a mobile phone with the companion app.
      - If you want to see a trace of the past locations of your entities, you need to define a time frame under **Hours to show**.
    - For more information about presence detection, refer to the [getting started tutorial on presence detection](/getting-started/presence-detection/).
 
-## Configuration options
+## Card settings
 
-All options for this card can be configured via the user interface. For a detailed description of the options, refer to the [YAML configuration](#yaml-configuration) section. It also applies to the options shown in the UI.
+The settings are listed in the order in which they appear in the card editor. For more details about a setting, refer to its YAML option in the [YAML configuration](#yaml-configuration) section.
+
+{% configuration_basic %}
+Title:
+  description: "The title of the card (`title`)."
+Appearance:
+  description: Expand this section to change how the map looks.
+  keys:
+    Aspect ratio:
+      description: "The height of the map compared to its width (`aspect_ratio`)."
+    Default zoom:
+      description: "The zoom level of the map when it opens (`default_zoom`)."
+    Theme mode:
+      description: "**Auto**, **Light**, or **Dark** (`theme_mode`). **Auto** follows your theme."
+    Map style:
+      description: "The look of the map: **Default**, **Colorful**, **Natural**, **Muted**, **Gray**, or **Toner** (`map_style`). Each style has a light and a dark version. The **Theme mode** decides which version is shown."
+    Hours to show:
+      description: "Shows the path of the previous locations of your entities for the given number of hours (`hours_to_show`)."
+    Scale ruler:
+      description: "Shows a ruler with the current scale of the map (`scale_ruler`)."
+    Auto fit:
+      description: "Moves the map to follow your entities each time they change location (`auto_fit`)."
+    Fit zones:
+      description: "Includes the zones in your list of entities when fitting the map (`fit_zones`)."
+    Cluster markers:
+      description: "Groups nearby markers into one marker (`cluster`)."
+Show all:
+  description: "Automatically adds all entities with coordinates to the map (`show_all`)."
+Entities:
+  description: "The entities to show on the map (`entities`). To add an entity, select **Add entity**. To change the settings of an entity, select **Edit** {% icon "mdi:pencil" %} next to it. To remove it, select **Delete** {% icon "mdi:close" %}. To change the order, drag it by {% icon "mdi:drag-horizontal-variant" %}."
+  keys:
+    Entity:
+      description: "The entity to show (`entity`)."
+    Name:
+      description: "Replaces the default label of the marker (`name`)."
+    Color:
+      description: "The color of the marker and of the path of previous locations (`color`). Not available for zones."
+    Label mode:
+      description: "What the marker shows: **Name**, **Icon**, **State**, or **Attribute** (`label_mode`). Not available for zones."
+    Attribute:
+      description: "The attribute to show when **Label mode** is set to **Attribute** (`attribute`). Not available for zones."
+    Unit:
+      description: "The unit to show after the attribute value (`unit`). Not available for zones."
+    Focus:
+      description: "Includes this entity when fitting the map (`focus`)."
+Geolocation sources:
+  description: "Under **Source**, select the [geolocation](/integrations/geo_location/) sources whose entities you want to show (`geo_location_sources`)."
+Entity visibility conditions:
+  description: "Shows the entities only when all conditions are met (`conditions`). For more information, refer to [conditions options](#conditions-options)."
+{% endconfiguration_basic %}
 
 ## YAML configuration
 
@@ -104,9 +164,14 @@ scale_ruler:
   default: false
 theme_mode:
   required: false
-  description: 'Override the theme to force the map to display in either a light mode (`theme_mode: light`) or a dark mode (`theme_mode: dark`). Default (`theme_mode: auto`) will follow the theme settings.'
+  description: 'Override the theme to force the map to display in either a light mode (`theme_mode: light`) or a dark mode (`theme_mode: dark`). Default (`theme_mode: auto`) will follow the theme settings. The theme mode also decides whether the light or the dark version of the `map_style` is shown.'
   type: string
   default: 'auto'
+map_style:
+  required: false
+  description: 'The style of the map: `default`, `colorful`, `natural`, `muted`, `gray`, or `toner`. Instead of a style name, you can also use a map with a `base` style and your own adjustments, such as other colors with `colors` and `colors_dark`.'
+  type: [string, map]
+  default: default
 hours_to_show:
   required: false
   description: Shows a path of previous locations. Hours to show as path on the map.
@@ -162,6 +227,10 @@ entity:
 name:
   required: false
   description: Replace the default label for the marker.
+  type: string
+color:
+  required: false
+  description: The color of the marker and of the path of previous locations. If not set, a color is picked for each entity. This option doesn't apply to [zone](/integrations/zone/) entities.
   type: string
 label_mode:
   required: false
