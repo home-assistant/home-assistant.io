@@ -44,11 +44,13 @@ Depending on the capabilities reported by the device, the integration can provid
 
 ## Daikin Onecta automation examples
 
+### Automation: Set the morning temperature
+
 You can use the climate entity in automations, for example, to set a comfortable temperature each morning.
 
-1. Go to **Settings** > **Automations & scenes** and select **Create automation**.
+1. Go to **Settings** > **Automations & scenes**, select **Create automation**, then select **Create new automation**.
 2. Add a **Time** trigger for the time you want the temperature to change.
-3. Add a **Set temperature** action and select your Daikin Onecta climate entity.
+3. Add a **Set thermostat target temperature** action and select your Daikin Onecta climate entity.
 
 {% include docs/paste_yaml_tip.md %}
 
