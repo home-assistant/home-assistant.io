@@ -54,7 +54,9 @@ If you have administrator rights, you can add other persons to Home Assistant an
    - If they cannot sign in, they do not get a user account and cannot do much with Home Assistant.
    - They cannot have their own dashboard, for example.
    - But they can still be used for device tracking, show up on a map, and be included in automations.
-5. If they can sign in, turn on **Allow login**. This opens the **Add user** dialog, where you fill in the user information.
+5. If they can sign in, turn on **Allow login**.
+   - If there are user accounts that are not linked to a person yet, the **Select user account** dialog opens. To use one of these accounts, select it and continue with step 6. For more information, refer to [linking an existing user account to a person](#linking-an-existing-user-account-to-a-person). To create a new account, select **Create a new username**.
+   - The **Add user** dialog opens, where you fill in the user information.
    - Check if the username is correct. Home Assistant suggests one based on the person name, but the two do not have to be identical.
      - The username must be lowercase and contain no spaces.
      - The username is required to sign in.
@@ -75,6 +77,19 @@ If you set up a new presence detection integration after creating a person, add 
 2. Under **Select the devices that belong to this person**, select **Add entity**.
 3. Select the device tracker entity you want to add.
 4. Select **Save**.
+
+### Linking an existing user account to a person
+
+If someone already has a user account, for example because you created it on the **Users** tab, you can link that account to a person. This way, the person can sign in with their existing login, and you do not need to create a new user account.
+
+1. Go to {% my people title="**Settings** > **People**" %}.
+2. Select the person, or select **Add person** to create a new one.
+3. Turn on **Allow login**.
+4. In the **Select user account** dialog, select the user account.
+   - The list shows only user accounts that are not linked to a person yet.
+   - If there are no such accounts, the **Add user** dialog opens instead, so you can create a new account.
+5. If you are adding a new person, select **Add** to save the person.
+   - For an existing person, the user account is linked right away.
 
 ### Customizing the picture for a person
 
