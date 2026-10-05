@@ -50,13 +50,13 @@ To keep the graph you are looking at on a dashboard, add it as a [History graph 
 
 ## About the data sources
 
-By default, the Recorder stores your data for 10 days. Older data is purged automatically. The data for the last 10 days is taken from the recorder.
+By default, the Recorder keeps the detailed history of your entities for 10 days. Older detailed data is purged automatically. Long-term statistics are not purged: they are kept indefinitely. The data for the last 10 days is taken from the detailed history.
 
-If you select a time period that goes back further than 10 days, the older data is taken from the {% term "long-term statistics" %}. Long-term statistics are saved for sensors with a state class of `measurement`, `total`, or `total_increasing`. To save storage, long-term statistics are averaged once per hour. Therefore, the values might look different from what you see from the recorder data, which shows the measured values at the sample rate defined for that sensor. The detailed data will be shown with a darker line on graphs.
+If you select a time period that goes back further than 10 days, the older data is taken from the {% term "long-term statistics" %}. Long-term statistics are saved for sensors with a state class of `measurement`, `total`, or `total_increasing`. To save storage, long-term statistics only keep hourly values. For these hours, the History panel shows the hourly average of sensors with the `measurement` state class, and the reading at the end of each hour for sensors with the `total` or `total_increasing` state class. Therefore, the values might look different from what you see in the detailed history, which shows the measured values at the sample rate defined for that sensor. The detailed data will be shown with a darker line on graphs.
 
 <img class="no-shadow" src='/images/integrations/history/history-panel_including-long-term-storage.png' alt='If the chosen time frame exceeds the retention period defined in the recorder, the long term statistics table is used as a data source.'>
 
-If you want to see the data in full resolution for a longer period of time, increase the [`purge_keep_days`](/integrations/recorder/#purge_keep_days) option of the Recorder. This option applies to all data that the Recorder stores, not to a single sensor. If you increase it, you may need to increase the storage capacity of your device.
+If you want to see the data in full resolution for a longer period of time, increase the [`purge_keep_days`](/integrations/recorder/#purge_keep_days) option of the Recorder. This option applies to the detailed history of all entities, not to a single sensor. If you increase it, you may need to increase the storage capacity of your device.
 
 ## Configuration
 
