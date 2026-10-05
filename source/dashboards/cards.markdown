@@ -99,16 +99,19 @@ This method is useful if you are on the **Device** page and want to create a car
 
 ## Showing or hiding a card or badge conditionally
 
-You can choose to show or hide certain cards or [badges](/dashboards/badges/) based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as the ones for the conditional card.
+You can choose to show or hide certain cards or [badges](/dashboards/badges/) based on different conditions. You can use conditions about the person viewing the dashboard and their device, such as **User**, **Screen**, **Location**, and **Time**. You can also use the same conditions as in automations, such as **Entity state**, **Template**, **Sun**, **Zone**, and **Device**. The [available conditions](/dashboards/conditional/#conditions-options) are the same as the ones for the conditional card.
 
 1. On the **Visibility** tab, select **Add condition**.
    - Troubleshooting: Don't see a **Visibility** tab?
      - It is not available inside nested cards: vertical stack, horizontal stack, and grid card
 2. Select the type of condition, and enter the parameters.
-   - The [available conditions](/dashboards/conditional/#conditions-options) are the same as the ones for the conditional card.
    - If you define multiple conditions, the card or badge is only shown when all conditions are met.
    - If you did not define any conditions, the card or badge is always shown to all users.
-3. Select **Save**.
+3. To change the order of the conditions, drag them by {% icon "mdi:drag-horizontal-variant" %}.
+4. Check the result before you save.
+   - At the top of the tab, **Current visibility** shows whether the card or badge would be shown right now.
+   - Each condition shows whether it passes right now, for example **Condition passes** or **Condition did not pass**.
+5. Select **Save**.
 
 ## Resizing a card
 
