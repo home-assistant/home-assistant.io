@@ -220,7 +220,7 @@ conditions:
 
 ## Options for a custom map style
 
-If you define `map_style` as a map instead of a style name, you can start from one of the styles and adjust it. The map styles are built with [VersaTiles](https://github.com/versatiles-org/versatiles-style), and the options below are passed on to it.
+If you define `map_style` as a map instead of a style name, you can start from one of the styles and adjust it. Only the options listed here are documented.
 
 {% configuration %}
 base:
@@ -230,7 +230,7 @@ base:
   default: default
 colors:
   required: false
-  description: "Colors for parts of the map, such as `water`, `land`, `natureWood`, `building`, or `roadStreet`. The keys are the color names of VersaTiles. For the full list, refer to the [VersaTiles colors](https://github.com/versatiles-org/versatiles-style/blob/main/API_DESIGN.md#colors). The colors you set replace only these parts. The rest of the style stays as it is. If you don't set `colors_dark`, these colors are used in both the light and the dark version of the map."
+  description: "Colors for parts of the map, such as `water`, `land`, `natureWood`, `building`, or `roadStreet`. The colors you set replace only these parts. The rest of the style stays as it is. If you don't set `colors_dark`, these colors are used in both the light and the dark version of the map."
   type: map
 colors_dark:
   required: false
@@ -240,18 +240,6 @@ recolor:
   required: false
   description: "Adjustments for all colors of the style, such as `saturate` (from `-1` for grayscale to `1` for twice the saturation), `rotate_hue` (in degrees), `brightness`, `contrast`, `gamma`, or `invert_brightness`."
   type: map
-text:
-  required: false
-  description: Options for the labels on the map, such as the language. Refer to the VersaTiles documentation.
-  type: map
-icon:
-  required: false
-  description: Options for the icons on the map, such as their size. Refer to the VersaTiles documentation.
-  type: map
-layers:
-  required: false
-  description: Which parts of the map are drawn, and from which zoom level. Refer to the VersaTiles documentation.
-  type: [boolean, integer, map]
 {% endconfiguration %}
 
 The following example starts from the **Muted** style, changes the color of water, and uses a darker water color on the dark version of the map.
