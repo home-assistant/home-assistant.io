@@ -56,7 +56,7 @@ SSL profile:
     The [Mozilla server side TLS profile](https://docs.tlsref.org/server-side-tls.html) that decides which TLS versions and ciphers clients can connect with. Each profile is named after the guideline version it follows.
 
     - **Modern v6** only accepts TLS 1.3 and is the default for new installations. Browsers and operating systems gained TLS 1.3 support around 2018 to 2019.
-    - **Intermediate v6** also accepts TLS 1.2 with current ciphers. Choose this if older devices or apps cannot connect. Support arrived around 2013 to 2016.
+    - **Intermediate v6** accepts TLS 1.2 and newer with current ciphers. Choose this if older devices or apps cannot connect. Support arrived around 2013 to 2016.
     - **Modern v4** and **Intermediate v4** follow outdated guidelines and are kept for installations that used them before the profiles were versioned.
   required: false
 Trust X-Forwarded-For:
