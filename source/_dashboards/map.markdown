@@ -110,7 +110,7 @@ Entities:
     Focus:
       description: "Keeps this entity in view when the map moves and zooms to show your entities (`focus`)."
 Geolocation sources:
-  description: "The geolocation sources whose entities you want to show (`geo_location_sources`). To add a source, select **Source**, then select the source. For valid sources, refer to [Integrations that provide geolocation entities](/integrations/geo_location/#integrations-that-provide-geolocation-entities)."
+  description: "The [geolocation](/integrations/geo_location/) sources whose entities you want to show (`geo_location_sources`). To add a source, select **Source**, then select the source."
 Entity visibility conditions:
   description: "Shows the entities only when all conditions are met (`conditions`). For more information, refer to [conditions options](#conditions-options)."
 {% endconfiguration_basic %}
@@ -130,7 +130,7 @@ entities:
   type: list
 geo_location_sources:
   required: false
-  description: List of geolocation sources or sources with their own settings. For more information, refer to [options for geolocation sources](#options-for-geolocation-sources). Shows all current entities of these sources. For valid sources, refer to [Integrations that provide geolocation entities](/integrations/geo_location/#integrations-that-provide-geolocation-entities). To show all available sources, add `all` to the list. Either this, `show_all`, or the `entities` configuration option is required.
+  description: List of geolocation sources or sources with their own settings. For more information, refer to [options for geolocation sources](#options-for-geolocation-sources). Shows all current entities of these sources. For valid sources, refer to the [Geolocation](/integrations/geo_location/) integration. To show all available sources, add `all` to the list. Either this, `show_all`, or the `entities` configuration option is required.
   type: list
 show_all:
   required: false
