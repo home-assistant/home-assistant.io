@@ -31,7 +31,7 @@ When the map card is in a [panel view](/dashboards/panel/), such as on the [Map 
 - **Devices**: the devices on the map that have a location.
 - **Zones**: your zones, with the number of people in each zone.
 
-The map shows the markers of the selected tab.
+On the **People** tab, the map shows people. On the **Devices** tab, it shows devices. Zones and other entities with a location are always shown.
 
 Select an item to see its details and its **Activity** of the last 24 hours:
 
