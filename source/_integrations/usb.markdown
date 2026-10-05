@@ -36,7 +36,7 @@ You can see the serial ports that Home Assistant detects in one place from the *
    - To look for ports again, for example after plugging in a USB-to-serial adapter, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
 
    {% tip %}
-   Integrations that are configured in your {% term "`configuration.yaml`" %} file, such as the [Serial](/integrations/serial/) sensor, are not tracked as using a port. If Home Assistant detects a port that is used only by such an integration, the port appears in the **Available** section rather than the **Connected** section. A network port, such as a `socket://` port, that is used only by such an integration does not appear in the panel at all.
+   Serial ports used only by YAML-only integrations, such as the [Serial](/integrations/serial/) sensor, are not tracked as having a consumer. If Home Assistant detects such a local port, it appears in the **Available** section rather than the **Connected** section. A network port, such as a `socket://` port, used only by such an integration does not appear in the panel at all.
    {% endtip %}
 2. Under each port, you see what it is used for:
    - Every {% term app %} and every integration set up in the UI that uses the port is listed below it. Select one to go to its settings. An integration or app that is not running at the moment is marked as **not running**.
