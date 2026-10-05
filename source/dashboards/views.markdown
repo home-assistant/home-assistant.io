@@ -201,11 +201,15 @@ The background settings of a view can be customized to display a background. Alt
 
 ### View-specific background settings
 
-**Image** - Sets the background image to use behind the view: 
-   - **Upload picture** lets you pick an image from the system used to show your Home Assistant UI.
-   - **Local path** lets you pick an image stored on Home Assistant. For example: `/homeassistant/images/lights_view_background_image.jpg`.
-     - To store an image on Home Assistant, you need to [configure access to files](/common-tasks/os/#configuring-access-to-files), for example via [Samba](/common-tasks/os/#installing-and-using-the-samba-app) or the [Studio Code Server](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-app) app.
-   - **web URL** let you pick an image from the web. For example `https://www.home-assistant.io/images/frontpage/assist_wake_word.png`.
+To set a background for a view, open the dashboard and select **Edit dashboard** {% icon "mdi:pencil" %}. Next to the view name, select **Edit view** {% icon "mdi:pencil" %}, then open the **Background** tab.
+
+- **Background image**: drop an image file in the **Add picture** field, or select **select from media** to pick an image from your media. Supported formats are JPEG, PNG, and GIF.
+- After you add an image, you can adjust the **Background settings**:
+  - **Background opacity**: how transparent the image is, from fully visible to invisible.
+  - **Background size**: **Original** keeps the original size of the image, **Fill view** fills the view and crops the image if needed, and **Fit view** fits the whole image in the view.
+  - **Background alignment**: where the image is placed, from **Top left** to **Bottom right**. The default is **Center**.
+  - **Background repeat**: **Repeat (tile)** repeats the image across the view, which is useful for a tiled background. **No repeat** shows the image once.
+  - **Background attachment**: **Scroll** moves the image when you scroll the view. **Fixed** keeps the image in place.
 
 {% configuration views %}
 background:
@@ -259,7 +263,7 @@ background:
 
 ### Background theme variable
 
-You can style the background of all your views with a [theme](/integrations/frontend/#themes). You can use the CSS variable `lovelace-background`. For wallpapers you probably want to use the example below, more options can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
+You can style the background of all your views with a [theme](/integrations/frontend/#themes), using the CSS variable `lovelace-background`. To use an image as a wallpaper, use the example below. For all options, refer to the [CSS `background` property](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
 
 #### Example
 
