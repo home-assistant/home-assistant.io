@@ -24,7 +24,7 @@ The USB Discovery integration also provides the **Serial** panel under **Setting
 
 ## Viewing your serial ports
 
-You can see all the serial ports on your system in one place from the **Serial** configuration panel. This is also where you look up the device path of a port, for example, when an integration asks for it during setup.
+You can see the serial ports that Home Assistant detects in one place from the **Serial** configuration panel. This is also where you look up the device path of a port, for example, when an integration asks for it during setup.
 
 1. Go to **Settings** > **Connectivity** > **Serial**.
    - At the top, a status summary shows how many of your connected ports are in use, and whether any ports are disconnected.
@@ -36,10 +36,10 @@ You can see all the serial ports on your system in one place from the **Serial**
    - To look for ports again, for example after plugging in a USB-to-serial adapter, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
 
    {% tip %}
-   Serial ports that are only used by [serial sensors](/integrations/serial/) configured in your {% term "`configuration.yaml`" %} are not tracked as consumers, so they appear in the **Available** rather than the **Connected** section.
+   Integrations that are configured in your {% term "`configuration.yaml`" %} file, such as the [Serial](/integrations/serial/) sensor, are not tracked as using a port. If Home Assistant detects a port that is used only by such an integration, the port appears in the **Available** section rather than the **Connected** section. A network port, such as a `socket://` port, that is used only by such an integration does not appear in the panel at all.
    {% endtip %}
 2. Under each port, you see what it is used for:
-   - Every integration and {% term app %} that uses the port is listed below it. Select one to go to its settings. An integration or app that is not running at the moment is marked as **not running**.
+   - Every {% term app %} and every integration set up in the UI that uses the port is listed below it. Select one to go to its settings. An integration or app that is not running at the moment is marked as **not running**.
    - **Discovered by**: names the integration that recognized the device on this port and is ready to set it up. Select this line to start the setup.
    - **Can be used with**: lists the integrations that support the device on this port. This appears only for a port that is not in use yet.
 3. To view more details about a port, select **Port information** {% icon "mdi:information-outline" %} next to it. The **Port information** dialog shows the device path, together with details such as the description, manufacturer, and serial number of the device. This option is available for ports that are currently connected.
