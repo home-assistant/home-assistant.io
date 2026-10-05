@@ -24,7 +24,7 @@ Google requires billing to be enabled (and a valid credit card loaded) to access
 
 By default, the integration requests traffic-aware routing, which triggers use of the Compute Routes Pro SKU (5,000 free requests per month). The sensor will update the travel time every 10 minutes, making approximately 144 calls per day. Note that at this rate, using more than 1 sensor will exceed the free credit limit. As the update frequency cannot be decreased, if you require more frequent data updates, consider triggering on-demand updates (see the automation example below).
 
-The integration also supports routing without considering live traffic. These requests are billed as Compute Routes Essentials, which provides 10,000 free requests per month. To use this for a sensor, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Google Maps Travel Time** integration, select **Configure**, and set **Travel routing preference** to **Traffic unaware**. For action calls, set **Travel routing preference** in the [Get travel times](/actions/google_travel_time.get_travel_times/) action.
+The integration also supports routing without considering live traffic. These requests are billed as Compute Routes Essentials, which provides 10,000 free requests per month. To use this for a sensor, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Google Maps Travel Time** integration, select **Configure**, and set **Travel routing preference** to **Traffic-unaware**. For action calls, set **Travel routing preference** in the [Get travel times](/actions/google_travel_time.get_travel_times/) action.
 
 A quota can be set against the API to limit costs. Set the 'quota per day' to a limit of 161 or less to avoid exceeding the free credit for Pro, or 322 if using only Essentials. Details on how to configure a quota can be found [here](https://developers.google.com/maps/documentation/routes/report-monitor#quotas).
 
@@ -33,8 +33,7 @@ A quota can be set against the API to limit costs. Set the 'quota per day' to a 
 Notes:
 
 - Origin and Destination can be the address or the GPS coordinates of the location (GPS coordinates have to be separated by a comma). You can also enter an entity ID that provides this information in its state, an entity ID with latitude and longitude attributes, or zone friendly name (case sensitive).
-
-{% include integrations/actions.md %}
+- When selecting a **Travel routing preference** of **Traffic-aware** or **Traffic-unaware**, the **Traffic model** must not be specified.
 
 ## Dynamic Configuration
 

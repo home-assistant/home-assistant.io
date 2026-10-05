@@ -125,7 +125,8 @@ travel_routing_preference:
 traffic_model:
   description: >
     The traffic model to use when calculating driving routes. One of
-    `best_guess`, `pessimistic`, or `optimistic`.
+    `best_guess`, `pessimistic`, or `optimistic`. Not allowed when the
+    `travel_routing_preference` is `traffic_unaware` or `traffic_aware`.
   required: false
   type: string
 departure_time:
