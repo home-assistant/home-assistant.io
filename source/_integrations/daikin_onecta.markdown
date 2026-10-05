@@ -70,6 +70,7 @@ You can use the climate entity in automations, for example, to set a comfortable
 1. Go to **Settings** > **Automations & scenes**, select **Create automation**, then select **Create new automation**.
 2. Add a **Time** trigger for the time you want the temperature to change.
 3. Add a **Set thermostat target temperature** action and select your Daikin Onecta climate entity.
+4. Select **Save**.
 
 {% include docs/paste_yaml_tip.md %}
 
@@ -97,19 +98,57 @@ The integration {% term polling polls %} the Daikin Onecta cloud service. After 
 
 ## Troubleshooting
 
-### Authentication or setup fails
+{% details "Authentication or setup fails" %}
 
-Verify that the client ID and client secret in Home Assistant match the OAuth client in the Daikin Developer Portal. Confirm that the redirect URI is `https://my.home-assistant.io/redirect/oauth`, or `<HOME_ASSISTANT_URL>/auth/external/callback` when My Home Assistant is disabled.
+### Symptom
 
-If authentication expires or is revoked, Home Assistant starts a reauthentication flow. Complete it from **Settings** > **Devices & services** to restore access.
+The integration cannot be configured, or Home Assistant starts a reauthentication flow.
 
-### Expected entities are missing
+#### Description
 
-Home Assistant only creates climate entities for functions that Daikin reports for the device. Confirm that the device is online and visible in the Onecta app. If a supported climate function is still missing, report the device model and the missing function.
+The OAuth client credentials may not match the Daikin Developer Portal configuration. Existing authorization can also expire or be revoked.
 
-### Devices are unavailable
+#### Resolution
 
-The integration is cloud-based. If Daikin Onecta, the device connection, or your internet connection is unavailable, entities become unavailable until a successful cloud update is received.
+1. Verify that the client ID and client secret in Home Assistant match the OAuth client in the Daikin Developer Portal.
+2. Confirm that the redirect URI is `https://my.home-assistant.io/redirect/oauth`, or `<HOME_ASSISTANT_URL>/auth/external/callback` when My Home Assistant is disabled.
+3. If reauthentication is requested, complete it from **Settings** > **Devices & services** to restore access.
+
+{% enddetails %}
+
+{% details "Expected entities are missing" %}
+
+### Symptom
+
+One or more expected climate entities are not created.
+
+#### Description
+
+Home Assistant creates climate entities only for functions that Daikin reports for the device.
+
+#### Resolution
+
+1. Confirm that the device is online and visible in the Onecta app.
+2. If a supported climate function is still missing, report the device model and the missing function.
+
+{% enddetails %}
+
+{% details "Devices are unavailable" %}
+
+### Symptom
+
+Daikin Onecta entities are unavailable.
+
+#### Description
+
+The integration is cloud-based. Entities become unavailable when Daikin Onecta, the device connection, or your internet connection is unavailable.
+
+#### Resolution
+
+1. Confirm that the device is online and visible in the Onecta app.
+2. Check your internet connection and try again after Daikin Onecta is available.
+
+{% enddetails %}
 
 ## Removing the integration
 
