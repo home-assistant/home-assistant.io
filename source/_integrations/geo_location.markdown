@@ -11,7 +11,7 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The **Geolocation** {% term integration %} provides entities for real-world events near your home, such as weather events, bush fires, or earthquakes. Each entity has coordinates and a distance to your home, so you can see it on a map and react to it in automations.
+The **Geolocation** {% term integration %} provides entities for real-world events near your home, such as weather events, bush fires, or earthquakes. Each entity has coordinates and a distance to the location the integration watches, which is usually your home. This lets you see it on a map and react to it in automations.
 
 {% include integrations/building_block_integration.md %}
 
@@ -65,7 +65,7 @@ The following integrations create geolocation entities. Each item shows the inte
 
 ## Geolocation states
 
-The state of a geolocation entity is the distance from the event to your home location, rounded to one decimal place, for example, `12.3`. The integration decides the unit. Most integrations use kilometers, and some switch to miles if your Home Assistant uses the US customary unit system.
+The state of a geolocation entity is the distance from the event to the location the integration watches, rounded to one decimal place, for example, `12.3`. By default, this is your home location. The integration decides the unit. Most integrations use kilometers, and some switch to miles if your Home Assistant uses the US customary unit system.
 
 In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
