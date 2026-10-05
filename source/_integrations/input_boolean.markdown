@@ -26,7 +26,8 @@ On a dashboard, a toggle helper appears as a switch you can turn on or off. Each
    - **Restore previous state**: the toggle keeps the state it had before Home Assistant stopped. This is the default.
    - **Turn on**: the toggle is always on after Home Assistant starts.
    - **Turn off**: the toggle is always off after Home Assistant starts.
-   - Changing this option does not change the current state of the toggle. It only applies the next time Home Assistant starts.
+
+   Changing this option does not change the current state of the toggle. It only applies the next time Home Assistant starts.
 5. Select **Create**.
 
 Input booleans can also be configured via {% term "`configuration.yaml`" %} file:
