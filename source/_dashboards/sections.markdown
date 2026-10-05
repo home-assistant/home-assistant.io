@@ -211,17 +211,33 @@ You can choose to show or hide certain sections based on different conditions. T
 
 To edit the section visibility conditions, select the edit {% icon "mdi:edit" %} button and then select the **Visibility** tab.
 
-## Editing an automatic section
+## About automatic sections
 
 An automatic section fills itself with cards, for example, the **Common controls** section, which shows the entities you use most often. In edit mode, an automatic section shows {% icon "mdi:auto-fix" %} and a solid outline. You can't edit its cards one by one. Instead, you change the settings of the section.
 
-You can't create an automatic section in the UI. To add one, use the `strategy` option in the [section YAML configuration](#section-yaml-configuration).
+## Editing an automatic section
 
-1. Select the edit {% icon "mdi:edit" %} button, then select the automatic section.
+1. In the top right of the screen, select the edit {% icon "mdi:edit" %} button, then select the automatic section.
 2. On the **Configuration** tab, change the settings.
    - For **Common controls**, you can set the **Maximum number of cards**, entities to **Always include**, entities to **Exclude from suggestions**, and whether to **Hide when empty**.
    - The **Appearance** and **Visibility** tabs work the same way as for other sections.
 3. Select **Save**.
+
+## Adding an automatic section
+
+When you create a section, it is always a regular section. To turn it into an automatic section, you replace its configuration in the code editor.
+
+1. In the top right of the screen, select the edit {% icon "mdi:edit" %} button, then select **Create section**.
+2. On the new section, select **Menu** {% icon "mdi:dots-vertical" %} > **Edit**, then select **Show code editor**.
+3. Replace the configuration with a `strategy`, for example:
+
+   ```yaml
+   strategy:
+     type: common-controls
+   ```
+
+   - For all options, refer to the `strategy` option in the [section YAML configuration](#section-yaml-configuration).
+4. Select **Save**.
 
 ## Editing the footer
 
@@ -293,7 +309,7 @@ theme:
   type: string
 strategy:
   required: false
-  description: "Turns the section into an [automatic section](#editing-an-automatic-section) that fills itself with cards. A section with a `strategy` has no `cards`."
+  description: "Turns the section into an [automatic section](#about-automatic-sections) that fills itself with cards. A section with a `strategy` has no `cards`."
   type: map
   keys:
     type:
