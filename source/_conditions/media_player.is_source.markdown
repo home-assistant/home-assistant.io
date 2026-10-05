@@ -22,7 +22,7 @@ To use **Media player source** in an automation:
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your media player is in, or select a device, a specific entity, a floor, or a label.
 5. From the conditions shown for that target, select **Media player source**.
-6. Under **Source**, select one or more sources to check for. Only the sources reported by the targeted media player are shown.
+6. Under **Source**, select one or more sources to check for. The list shows the sources the targeted media players offer. You can also type a source that isn't listed.
 7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 8. Under **For at least**, enter how long the media player must stay on the selected source before the condition passes.
 9. Select **Save**.
@@ -31,9 +31,9 @@ To use **Media player source** in an automation:
 
 {% options_ui %}
 Source:
-  description: The source or sources to check for. Only the sources reported by the targeted media player are shown. Sources are device-specific and typically include inputs like **HDMI 1**, **TV**, **Bluetooth**, or **Phono**.
+  description: The source or sources to check for. The list shows the sources the targeted media players offer, and you can also type one that isn't listed. Sources are device-specific and typically include inputs like **HDMI 1**, **TV**, **Bluetooth**, or **Phono**.
 Condition passes if:
-  description: When multiple media players are targeted, controls how results combine. Pick **Any** to pass if at least one targeted media player is on the selected source, or **All** to pass only when every targeted media player is on it. Default is **Any**.
+  description: When multiple media players are targeted, controls how results combine. Pick **Any** to pass if at least one targeted media player is on the selected source, or **All** to pass only when every targeted media player that reports a source is on it. Default is **Any**.
 For at least:
   description: How long the media player must stay on the selected source before the condition passes. Default is `0` (passes immediately).
 {% endoptions_ui %}
@@ -73,7 +73,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 source:
   description: >
-    The source or sources to check for. Accepts a single source string or a list of source strings. Only sources reported by the targeted media player are valid.
+    The source or sources to check for. Accepts a single source string or a list of source strings. Each source must match the name the media player reports exactly, including capitalization.
   required: true
   type: [string, list]
 behavior:
@@ -97,9 +97,9 @@ for:
 ## Good to know
 
 - The available sources depend entirely on the device. Home Assistant only shows the sources the targeted media player reports.
-- Media players that do not support selecting a source are ignored by this condition and will never pass it. To check whether a player is simply on, use [Media player is on](/conditions/media_player.is_on/).
-- Some media players only report their source list while they are powered on. If the device is off when you build the automation, the **Source** dropdown may be empty. Turn the device on to pick a source.
-- A media player that is off or is not reporting a source does not match. With **Any**, such players are skipped; with **All**, they make the condition fail.
+- The condition checks the source a media player reports. This includes media players that report their current source but can't be switched to another source from Home Assistant.
+- Some media players only report their source list while they are powered on. If the device is off when you build the automation, the **Source** dropdown may be empty. Turn the device on to pick a source, or type it in.
+- Media players that are off, `unavailable`, `unknown`, or not reporting a source are left out of the check. A media player doesn't report a source while it's off. With **Any**, they can't make the condition pass. With **All**, they don't make it fail. If none of the targeted media players report a source, **Any** fails and **All** passes. To also require that a media player is on, combine this condition with [Media player is on](/conditions/media_player.is_on/).
 
 {% include conditions/try_it.md %}
 
