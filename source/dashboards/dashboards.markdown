@@ -210,6 +210,21 @@ This will leave the default dashboard intact.
 
    ![Screenshot of the undo and redo buttons on top of the dashboard](/images/dashboards/dashboard-undo-redo.png)
 
+## Setting a background for a dashboard
+
+You can set a background image for a whole dashboard. The background is shown behind all views of the dashboard, unless a view has a [background of its own](/dashboards/views/#background).
+
+1. Open the dashboard. In the top right of the screen, select **Edit dashboard** {% icon "mdi:pencil" %}.
+   - On a narrow screen, such as a phone, this option might be under **Menu** {% icon "mdi:dots-vertical" %}.
+2. Next to the dashboard title, select **Edit title** {% icon "mdi:pencil" %}.
+   - Result: A dialog opens with the settings of the dashboard.
+3. Open the **Background** tab.
+4. Select the **Background image**, and adjust the other background settings, such as the opacity and size, if needed.
+   - The settings are the same as for a view. For a description of each setting, refer to [view-specific background settings](/dashboards/views/#view-specific-background-settings).
+5. Select **Update**.
+
+The **Background** tab is not available for [YAML dashboards](#adding-yaml-dashboards) and for dashboards that are still generated automatically. To set a background for a generated dashboard, [take control](#editing-a-new-dashboard) of it first.
+
 ## Deleting a dashboard
 
 If you do not use one of the predefined dashboards, or created a dashboard you no longer need, you can delete that dashboard. It will then no longer show in the sidebar.
