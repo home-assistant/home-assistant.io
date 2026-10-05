@@ -84,7 +84,7 @@ These are the properties available for a [Geolocation trigger](/triggers/geo_loc
 | `trigger.entity_id` | Entity ID of the geolocation entity.
 | `trigger.from_state` | Previous [state object] of the entity. `None` if the entity was just created.
 | `trigger.to_state` | New [state object] of the entity. `None` if the entity was removed.
-| `trigger.event` | The trigger event type, either `enter`  or `leave`.
+| `trigger.event` | The trigger event type, either `enter` or `leave`.
 | `trigger.source` | The Geolocation platform creating the trigger event.
 | `trigger.zone` | State object of the zone.
 
