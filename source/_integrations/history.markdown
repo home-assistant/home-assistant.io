@@ -29,16 +29,26 @@ This integration is by default enabled, unless you've disabled or removed the [`
 history:
 ```
 
+## Viewing history in the History panel
+
+The **History** panel shows how the states of your entities changed over time. The panel stays empty until you select what you want to see.
+
+1. In the sidebar, select **History**.
+   - On a wide screen, the **Sources** pane opens on the left.
+   - On a narrow screen, such as a phone, select **Sources** {% icon "mdi:tune-variant" %} in the toolbar to open it.
+2. In the **Sources** pane, select **Add target**, then select the floors, areas, devices, entities, or labels you want to see.
+3. Optional: To narrow down your selection, use the filters below the targets:
+   - **Type**: shows only entities of the selected types. For example, select an area, then select the **Temperature** type under **Sensor** to see only the temperature sensors in that area.
+   - **Integrations**: shows only entities that are provided by the selected integrations.
+   - Home Assistant remembers your targets and filters the next time you open the panel. To remove all of them, select **Clear filter** {% icon "mdi:filter-variant-remove" %} at the top of the pane.
+4. To change the time period, select the date range in the toolbar.
+   - To move to the previous or next period, select the arrows next to the date range.
+
 ## Exporting data from the History panel
 
-You can access the **History** panel from the side bar. To export the data, follow these steps:
-
-1. Select the areas, devices, or entities of interest.
-2. Set the time frame.
-3. In the top right corner, select the **Download data** button.
-   **Result**: Your data is exported in CSV format.
-
-<img class="no-shadow" src='/images/integrations/history/history-panel_export-data.png' alt='History panel can be accessed via sidebar.'>
+1. Select the sources and the time period, as described in [Viewing history in the History panel](#viewing-history-in-the-history-panel).
+2. In the top right corner, select **Menu** {% icon "mdi:dots-vertical" %}, then select **Download data**.
+   - **Result**: Your data is exported in CSV format.
 
 ## About the data sources
 
