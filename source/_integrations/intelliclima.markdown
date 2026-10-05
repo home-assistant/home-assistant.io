@@ -88,7 +88,7 @@ The following diagnostic binary sensors show why the **Fan** entity can run at a
 ### Fan
 
 - **Fan** (Main control entity)
-  - **Description**: Control the ventilation system's operation mode and speed. The entity shows the speed the device is actually running at, which can differ from the speed you set, for example while boosting or in night mode.
+  - **Description**: Control the ventilation system's operation mode and speed. The entity shows the current speed step reported by the device, which can differ from the speed you set, for example, while boosting or in night mode.
   - **Supported preset mode**:
     - **auto**: Full automatic mode that follows in-app programs and sensor thresholds for speeds and direction modes. Setting a speed yourself leaves the **auto** preset, while the **Fan Direction Mode** stays at **sensor**.
   - **Speed control**: Off and 4 speeds. In automations, the `fan.set_percentage` action maps each speed to 25%, 50%, 75%, and 100%.
