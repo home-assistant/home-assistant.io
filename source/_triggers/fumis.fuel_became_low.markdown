@@ -27,6 +27,7 @@ To use **Fuel became low** in an automation:
 {% options_ui %}
 Stoves:
   description: The Fumis stoves to watch. The trigger fires for each stove that reports its fuel became low.
+  required: true
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -57,6 +58,7 @@ device_id:
 
 - This trigger uses the same low fuel level alert as the **Alert** sensor of your stove, so you don't need a fuel level sensor for it.
 - Your stove shows only one alert at a time, so another alert, like the door being open, can hide the low fuel alert. The trigger takes this into account. It fires once when the fuel becomes low, and doesn't fire again when another alert comes and goes while the fuel is still low.
+- After the integration reloads, an update fails, or the stove reports an unrecognized alert, the first valid update establishes a new baseline. If that update already reports low fuel, the trigger does not fire.
 - Home Assistant checks your stove every 30 seconds, so it can take up to 30 seconds after the stove raises the alert before the trigger fires.
 - If you want to pick your own moment and your stove has a fuel level sensor, use a [Numeric state](/triggers/numeric_state/) trigger on the **Fuel level** sensor instead.
 
@@ -65,6 +67,8 @@ device_id:
 In addition to the [standard automation trigger data](/docs/automation/templating/#all), this trigger exposes the following template variable:
 
 - `trigger.device_id`: The device ID of the stove that reported its fuel became low.
+
+{% include triggers/try_it.md %}
 
 {% include triggers/more_examples.md %}
 
@@ -92,7 +96,9 @@ automation: |
         entity_id: notify.my_device
       data:
         title: "Pellet stove"
-        message: "The stove reports its fuel is running low. Time to refill the hopper."
+        message: >
+          The stove reports its fuel is running low. Time to refill the
+          hopper.
 {% endexample %}
 
 {% enddetails %}
