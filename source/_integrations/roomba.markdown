@@ -61,16 +61,18 @@ Check if the credentials can be retrieved directly from your device:
 1. Make sure the Roomba app is closed on all of your devices.
 2. Follow the instructions in Home Assistant to retrieve the credentials.
 
-If automatic retrieval does not work, you can retrieve the credentials manually. To manually retrieve both the BLID (username) and the password, refer to the instructions in the [Roomba 980](https://github.com/NickWaterton/Roomba980-Python#how-to-get-your-usernameblid-and-password) or [dority 980](https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password) repository.
+If automatic retrieval does not work, you can retrieve the credentials manually. To manually retrieve both the BLID (username) and the password, refer to the instructions in the [Roomba 980](https://github.com/NickWaterton/Roomba980-Python#how-to-get-your-usernameblid-and-password) or [dorita980](https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password) repository.
 
-For Home Assistant Container, the following command retrieves the BLID (username) and password:
+For Home Assistant Container, the following command retrieves the password:
 
 ```shell
-docker exec -it CONTAINER_NAME_OR_ID python -c 'import roombapy.entry_points; roombapy.entry_points.password()' ROOMBA_IP
+docker exec -it CONTAINER_NAME_OR_ID python3 -c \
+  'from roombapy import RoombaPassword
+print("Password:", RoombaPassword("ROOMBA_IP").get_password())'
 ```
 
 {% note %}
-The command to retrieve the credentials does not need any additional software to be installed because it uses the built-in [roombapy](https://github.com/pschmitt/roombapy) package and [password](https://github.com/pschmitt/roombapy/blob/1.6.1/roomba/entry_points.py#L20) function deployed with Home Assistant.
+The command to retrieve the password does not need any additional software to be installed because it uses the built-in [roombapy](https://github.com/pschmitt/roombapy) package deployed with Home Assistant.
 {% endnote %}
 
 #### Retrieving credentials from the cloud with dorita980
