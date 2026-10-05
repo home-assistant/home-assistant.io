@@ -53,11 +53,14 @@ To open the more-info dialog of the item, select its name at the top of the deta
 3. By default, you see the house {% icon "mdi:house" %} icon on your map. It represents your [home zone](/integrations/zone/#about-the-home-zone).
    - To change the location of your home, you need to [edit your home's location in the home information](/docs/configuration/basic/#editing-the-home-information).
 4. To learn how to show additional zones on your map, follow the steps on [adding a new zone](/integrations/zone/#adding-a-new-zone-or-editing-zones).
-5. To show other elements on the map, either add them under **Entities**, or use the **Geolocation sources**.
-   - For a description of the options, refer to [Card settings](#card-settings).
-   - {% icon "mdi:info" %} **Info**: The list of entities shows the device trackers available for your home, such as a mobile phone with the companion app.
-     - If you want to see a trace of the past locations of your entities, you need to define a time frame under **Hours to show**.
+5. To show other elements on the map, add entities or geolocation sources:
+   - To add an entity, under **Entities**, select **Add entity**. The list shows only entities that have a location, such as a mobile phone with the companion app.
+   - To add a geolocation source, under **Geolocation sources**, select **Source**.
    - For more information about presence detection, refer to the [getting started tutorial on presence detection](/getting-started/presence-detection/).
+6. Optional: To change how the map looks, expand **Appearance**. For example, select a **Map style** or a **Theme mode**.
+   - To see a trace of the past locations of your entities, enter the number of hours under **Hours to show**.
+   - For a description of all settings, refer to [Card settings](#card-settings).
+7. Select **Save**.
 
 ## Card settings
 
