@@ -100,7 +100,7 @@ Entities:
     Name:
       description: "Replaces the default label of the marker (`name`)."
     Color:
-      description: "The color of the marker and of the path of previous locations (`color`). Select one of the theme colors from the list. Not available for zones."
+      description: "The color of the marker and of the path of previous locations (`color`). Select one of the theme colors, or enter a hex color code, for example, `#93c47d`, and select **Custom color**. Not available for zones."
     Label mode:
       description: "What the marker shows: **Name**, **State**, **Attribute**, or **Icon** (`label_mode`). Not available for zones."
     Attribute:
