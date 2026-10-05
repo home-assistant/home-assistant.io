@@ -23,15 +23,15 @@ The two buttons below the zoom controls let you manage the markers and map viewp
 - **Toggle grouping** enables or disables clustering of nearby markers.
 - **Reset focus** adjusts the map view to fit the displayed entities.
 
-## Overview in a panel view
+## People, devices, and zones in a panel view
 
-When the map card is in a [panel view](/dashboards/panel/), such as on the [Map dashboard](/dashboards/dashboards/#map-dashboard), it also shows an overview next to the map. The overview can show these tabs:
+When the map card is in a [panel view](/dashboards/panel/), such as on the [Map dashboard](/dashboards/dashboards/#map-dashboard), it also shows the **People**, **Devices**, and **Zones** tabs on top of the map. On a phone, they are at the bottom of the screen. The tabs show the following:
 
 - **People**: the people in your home and where they are.
 - **Devices**: the devices on the map that have a location.
 - **Zones**: your zones, with the number of people in each zone.
 
-On the **People** tab, the map shows people. On the **Devices** tab, it shows devices. Zones and other entities with a location are always shown.
+People and devices are only shown on the map while their tab is selected. Zones and other entities with a location are always shown.
 
 Select an item to see its details and its **Activity** of the last 24 hours:
 
