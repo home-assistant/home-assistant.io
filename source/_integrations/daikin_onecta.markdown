@@ -36,11 +36,30 @@ Record the client ID and client secret, then add them as [application credential
 
 {% include integrations/config_flow.md %}
 
+## Configuration options
+
+To change these options, go to **Settings** > **Devices & services**, select **Daikin Onecta**, then select **Configure**.
+
+{% configuration_basic %}
+High frequency period update interval:
+  description: The polling interval, in minutes, from the high-frequency start time until the low-frequency start time. The default is 10 minutes; valid values are 5 to 240 minutes.
+Low frequency period update interval:
+  description: The polling interval, in minutes, outside the high-frequency period. The default is 30 minutes; valid values are 10 to 240 minutes.
+High frequency period start time:
+  description: The time at which high-frequency polling begins. The default is 07:00.
+Low frequency period start time:
+  description: The time at which low-frequency polling begins. The default is 22:00. With the default times, Home Assistant polls every 10 minutes from 07:00 to 22:00 and every 30 minutes from 22:00 to 07:00.
+Number of seconds that a data refresh is ignored after a command:
+  description: The time Home Assistant waits after a successful setting change before resuming background polling. The default is 30 seconds; valid values are 20 to 300 seconds.
+Expose HomeKit compatible fan speed aliases:
+  description: Enables HomeKit-compatible names for fixed fan speeds when your device supports them. Disabled by default.
+{% endconfiguration_basic %}
+
 ## Supported functionality
 
 Depending on the capabilities reported by the device, the integration can provide:
 
-- Climate control: HVAC mode, target temperature, fan speed, swing direction, and available presets.
+- Climate control: HVAC mode, target temperature, fan mode, swing mode, and preset mode.
 
 ## Daikin Onecta automation examples
 
@@ -75,25 +94,6 @@ automation: |
 ## Data updates
 
 The integration {% term polling polls %} the Daikin Onecta cloud service. After a setting change, Home Assistant temporarily defers background polling to preserve the confirmed local state and reduce cloud API requests. Polling resumes automatically after the configured delay.
-
-## Configuration options
-
-To change these options, go to **Settings** > **Devices & services**, select **Daikin Onecta**, then select **Configure**.
-
-{% configuration_basic %}
-High frequency period update interval:
-  description: The polling interval, in minutes, from the high-frequency start time until the low-frequency start time. The default is 10 minutes; valid values are 5 to 240 minutes.
-Low frequency period update interval:
-  description: The polling interval, in minutes, outside the high-frequency period. The default is 30 minutes; valid values are 10 to 240 minutes.
-High frequency period start time:
-  description: The time at which high-frequency polling begins. The default is 07:00.
-Low frequency period start time:
-  description: The time at which low-frequency polling begins. The default is 22:00. With the default times, Home Assistant polls every 10 minutes from 07:00 to 22:00 and every 30 minutes from 22:00 to 07:00.
-Number of seconds that a data refresh is ignored after a command:
-  description: The time Home Assistant waits after a successful setting change before resuming background polling. The default is 30 seconds; valid values are 20 to 300 seconds.
-Expose HomeKit compatible fan speed aliases:
-  description: Enables HomeKit-compatible names for fixed fan speeds when your device supports them. Disabled by default.
-{% endconfiguration_basic %}
 
 ## Troubleshooting
 
