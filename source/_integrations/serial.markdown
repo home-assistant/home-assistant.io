@@ -130,7 +130,7 @@ A standard for serial connections that is common on devices such as receivers, p
 
 To find the device path to use for the `serial_port` option, go to **Settings** > **Connectivity** > **Serial**. Next to your port, select **Port information** {% icon "mdi:information-outline" %} and copy the **Device** field. For more details about this panel, refer to [Viewing your serial ports](/integrations/usb/#viewing-your-serial-ports).
 
-Serial ports that are only used by serial sensors configured in your {% term "`configuration.yaml`" %} are not tracked as consumers. They appear in the **Available** section of the panel rather than the **Connected** section.
+If a serial port is detected by Home Assistant but is used only by serial sensors configured in your {% term "`configuration.yaml`" %}, it is not tracked as having a consumer. As a result, it appears in the **Available** section of the panel rather than the **Connected** section.
 
 ## Examples
 

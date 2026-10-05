@@ -20,7 +20,7 @@ This integration does not manage USB storage devices. To use a USB-attached driv
 - On Linux systems that have functional `udev` support, including Home Assistant Operating System, devices are detected as soon as they are plugged in.
 - On non-Linux systems or systems without `udev` support, devices are detected when visiting the integrations page and during onboarding.
 
-The USB Discovery integration also provides the **Serial** panel under **Settings** > **Connectivity**. This panel lists all serial ports that Home Assistant can reach. This includes USB devices, but also serial ports that are built into your system or shared over your network.
+The USB Discovery integration also provides the **Serial** panel under **Settings** > **Connectivity**. This panel lists serial ports that Home Assistant detects or tracks through an integration or {% term app %}. This includes USB devices, but also serial ports that are built into your system or shared over your network.
 
 ## Viewing your serial ports
 
