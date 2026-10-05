@@ -14,8 +14,6 @@ related:
     title: Configuration file
 ---
 
-<img src='/images/screenshots/activity-panel.png' style='margin-left:10px; float: right;' height="100" />
-
 The **Activity** {% term integration %} provides a different perspective on the history of your
 house by showing all the changes that happened to your house in reverse
 chronological order. It depends on
@@ -23,6 +21,27 @@ the [`recorder`](/integrations/recorder/) integration for storing the data. This
 [`recorder`](/integrations/recorder/) integration is set up to use e.g., MySQL or
 PostgreSQL as data store, the `activity` integration does not use the default
 SQLite database to store data.
+
+## Viewing activity in the Activity panel
+
+The **Activity** panel shows everything that happened in your home, with the most recent events first. You can narrow it down to the areas, devices, or entities you are interested in.
+
+1. In the sidebar, select **Activity**.
+   - On a wide screen, the **Sources** pane opens on the left.
+   - On a narrow screen, such as a phone, select **Sources** {% icon "mdi:tune-variant" %} in the toolbar to open it.
+2. Optional: To see only part of your activity, in the **Sources** pane, select **Add target**, then select the areas, devices, entities, or labels you want to see.
+3. Optional: To narrow down the activity further, use the filters below the targets. The filters also work without a target.
+   - **Type**: shows only activity of entities of the selected types. For example, select the **Motion** type under **Binary sensor** to see only motion activity.
+   - **Integrations**: shows only activity of entities that are provided by the selected integrations.
+   - Home Assistant remembers your targets and filters the next time you open the panel. To remove all of them, select **Clear filter** {% icon "mdi:filter-variant-remove" %} at the top of the pane.
+4. To change the time period, select the date range in the toolbar.
+   - To move to the previous or next period, select the arrows next to the date range.
+5. Optional: In the top right corner, select **Menu** {% icon "mdi:dots-vertical" %} for more options:
+   - **Refresh**: loads the latest activity.
+   - **Download data**: exports the activity that is currently shown in CSV format.
+   - **Reset**: removes your targets and filters and goes back to the default time period.
+
+## Configuration
 
 This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your {% term "`configuration.yaml`" %} file. If that is the case, the following example shows you how to enable this integration manually, by adding it to your {% term "`configuration.yaml`" %} file:
 
