@@ -211,6 +211,18 @@ You can choose to show or hide certain sections based on different conditions. T
 
 To edit the section visibility conditions, select the edit {% icon "mdi:edit" %} button and then select the **Visibility** tab.
 
+## Editing an automatic section
+
+An automatic section fills itself with cards, for example, the **Common controls** section, which shows the entities you use most often. In edit mode, an automatic section shows {% icon "mdi:auto-fix" %} and a solid outline. You can't edit its cards one by one. Instead, you change the settings of the section.
+
+You can't create an automatic section in the UI. To add one, use the `strategy` option in the [section YAML configuration](#section-yaml-configuration).
+
+1. Select the edit {% icon "mdi:edit" %} button, then select the automatic section.
+2. On the **Configuration** tab, change the settings.
+   - For **Common controls**, you can set the **Maximum number of cards**, entities to **Always include**, entities to **Exclude from suggestions**, and whether to **Hide when empty**.
+   - The **Appearance** and **Visibility** tabs work the same way as for other sections.
+3. Select **Save**.
+
 ## Editing the footer
 
 The footer lets you choose one card to show at the bottom of the view. This card stays on top of other cards while you scroll and only moves out of the way when you reach the bottom of the view.
@@ -279,6 +291,33 @@ theme:
   required: false
   description: Theme to apply to this section. Overrides the view theme for this section only. See [themes](/integrations/frontend/#defining-themes).
   type: string
+strategy:
+  required: false
+  description: "Turns the section into an [automatic section](#editing-an-automatic-section) that fills itself with cards. A section with a `strategy` has no `cards`."
+  type: map
+  keys:
+    type:
+      required: true
+      description: "The type of automatic section. Use `common-controls` to show the entities you use most often, based on the [Usage Prediction](/integrations/usage_prediction/) integration."
+      type: string
+    limit:
+      required: false
+      description: The maximum number of cards.
+      type: integer
+      default: 8
+    include_entities:
+      required: false
+      description: Entities that are always shown first, in this order, within the maximum number of cards.
+      type: list
+    exclude_entities:
+      required: false
+      description: Entities that are never suggested.
+      type: list
+    hide_empty:
+      required: false
+      description: Hides the section when there are no entities to show.
+      type: boolean
+      default: false
 {% endconfiguration %}
 
 ### Examples
@@ -293,6 +332,16 @@ background: true
 background:
   color: "red"
   opacity: 80
+```
+
+```yaml
+# Automatic section with the entities you use most often
+strategy:
+  type: common-controls
+  limit: 6
+  include_entities:
+    - light.living_room
+  hide_empty: true
 ```
 
 ## Footer YAML configuration
