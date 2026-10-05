@@ -54,7 +54,7 @@ To open the more-info dialog of the item, select its name at the top of the deta
    - To change the location of your home, you need to [edit your home's location in the home information](/docs/configuration/basic/#editing-the-home-information).
 4. To learn how to show additional zones on your map, follow the steps on [adding a new zone](/integrations/zone/#adding-a-new-zone-or-editing-zones).
 5. To show other elements on the map, add entities or geolocation sources:
-   - To add an entity, under **Entities**, select **Add entity**. The list shows only entities that have a location, such as a mobile phone with the companion app.
+   - To add an entity, under **Entities**, select **Add entity**. The list shows only entities that have a location, such as a phone with the [Home Assistant Companion app](https://companion.home-assistant.io/).
    - To add a geolocation source, under **Geolocation sources**, select **Source**.
    - For more information about presence detection, refer to the [getting started tutorial on presence detection](/getting-started/presence-detection/).
 6. Optional: To change how the map looks, expand **Appearance**. For example, select a **Map style** or a **Theme mode**.
@@ -85,11 +85,11 @@ Appearance:
     Scale ruler:
       description: "Shows a ruler with the current scale of the map (`scale_ruler`)."
     Auto fit:
-      description: "Moves the map to follow your entities each time they change location (`auto_fit`)."
+      description: "Moves and zooms the map each time your entities change location, so that you can always see all of them (`auto_fit`)."
     Fit zones:
-      description: "Includes the zones in your list of entities when fitting the map (`fit_zones`)."
+      description: "Also keeps the zones in your list of entities in view when the map moves and zooms to show your entities (`fit_zones`)."
     Cluster markers:
-      description: "Groups nearby markers into one marker (`cluster`)."
+      description: "Combines markers that are close together into one bubble (`cluster`)."
 Show all:
   description: "Automatically adds all entities with coordinates to the map (`show_all`)."
 Entities:
@@ -108,7 +108,7 @@ Entities:
     Unit:
       description: "The unit to show after the attribute value (`unit`). Not available for zones."
     Focus:
-      description: "Includes this entity when fitting the map (`focus`)."
+      description: "Keeps this entity in view when the map moves and zooms to show your entities (`focus`)."
 Geolocation sources:
   description: "The [geolocation](/integrations/geo_location/) sources whose entities you want to show (`geo_location_sources`). To add a source, select **Source**, then select the source."
 Entity visibility conditions:
@@ -117,7 +117,7 @@ Entity visibility conditions:
 
 ## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
+The following YAML options are available when you use YAML mode or prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -126,25 +126,25 @@ type:
   type: string
 entities:
   required: false
-  description: List of entity IDs or `entity` objects (see [below](#options-for-entities)). Either this, `show_all`, or the `geo_location_sources` configuration option is required.
+  description: List of entity IDs or entities with their own settings. For more information, refer to [options for entities](#options-for-entities). Either this, `show_all`, or the `geo_location_sources` configuration option is required.
   type: list
 geo_location_sources:
   required: false
-  description: List of geolocation sources or `source` objects (see [below](#options-for-geolocation-sources)). All current entities with that source will be displayed on the map. See [Geolocation](/integrations/geo_location/) platform for valid sources. Set to `all` to use all available sources. Either this, `show_all`, or the `entities` configuration option is required.
+  description: List of geolocation sources or sources with their own settings. For more information, refer to [options for geolocation sources](#options-for-geolocation-sources). All current entities with that source will be displayed on the map. See [Geolocation](/integrations/geo_location/) platform for valid sources. Set to `all` to use all available sources. Either this, `show_all`, or the `entities` configuration option is required.
   type: list
 show_all:
   required: false
-  description: Automatically add all entities with coordinates to the map card. (Default behavior of Map panel)
+  description: Automatically adds all entities with a location to the map. The [Map dashboard](/dashboards/dashboards/#map-dashboard) uses this setting.
   type: boolean
   default: false
 auto_fit:
   required: false
-  description: The map will follow moving `entities` by adjusting the viewport of the map each time an entity is updated.
+  description: Moves and zooms the map each time your entities change location, so that you can always see all of them.
   type: boolean
   default: false
 fit_zones:
   required: false
-  description: Whether the map should consider the zones in the list of specified entities when fitting its viewport.
+  description: Also keeps the zones in your list of `entities` in view when the map moves and zooms to show your entities.
   type: boolean
   default: false
 title:
@@ -153,13 +153,13 @@ title:
   type: string
 aspect_ratio:
   required: false
-  description: 'Forces the height of the image to be a ratio of the width. Valid formats: Height percentage value (`23%`) or ratio expressed with colon or "x" separator (`16:9` or `16x9`). For a ratio, the second element can be omitted and will default to "1" (`1.78` equals `1.78:1`).'
+  description: 'Sets the height of the map compared to its width. Use a percentage of the width (`23%`) or a ratio with a colon or an "x" (`16:9` or `16x9`). If you leave out the second number of a ratio, it is `1` (`1.78` equals `1.78:1`).'
   type: string
 default_zoom:
   required: false
-  description: The default zoom level of the map. Use a lower number to zoom out and a higher number to zoom in.
+  description: The zoom level of the map when it opens. Use a lower number to zoom out and a higher number to zoom in. When the map moves and zooms to show all your entities, it never zooms in further than this level.
   type: integer
-  default: 14 (or whatever zoom level is required to fit all visible markers)
+  default: 14
 scale_ruler:
   required: false
   description: Shows a ruler that indicates the current scale of the map.
@@ -172,38 +172,36 @@ theme_mode:
   default: 'auto'
 map_style:
   required: false
-  description: 'The style of the map: `default`, `colorful`, `natural`, `muted`, `gray`, or `toner`. To adjust a style, use a map instead of a style name. See [options for a custom map style](#options-for-a-custom-map-style).'
+  description: 'The style of the map: `default`, `colorful`, `natural`, `muted`, `gray`, or `toner`. To adjust a style, use a map instead of a style name. For more information, refer to [options for a custom map style](#options-for-a-custom-map-style).'
   type: [string, map]
   default: default
 hours_to_show:
   required: false
-  description: Shows a path of previous locations. Hours to show as path on the map.
+  description: Shows the path of the previous locations of your entities for the given number of hours.
   type: integer
   default: 0
 cluster:
   required: false
-  description: 'When set to `false`, the map will not cluster the markers. This is useful when you want to see all markers at once, but it may cause performance issues with a large number of markers.'
+  description: 'When set to `false`, markers that are close together are not combined into one bubble. This is useful when you want to see all markers at once. With a large number of markers, the map can respond more slowly.'
   type: boolean
   default: true
 conditions:
   required: false
-  description: List of conditions to check for entity visibility. See [description](#conditions-options).
+  description: List of conditions to check for entity visibility. For more information, refer to [conditions options](#conditions-options).
   type: list
 {% endconfiguration %}
 
-{% important %}
-Only entities that have latitude and longitude attributes will be displayed on the map.
-{% endimportant %}
+{% note %}
+Only entities that have a location, with `latitude` and `longitude` attributes, are shown on the map.
+{% endnote %}
 
 {% note %}
-The `default_zoom` value will be ignored if it is set higher than the current zoom level
-after fitting all visible entity markers in the map window. In other words, this can only
-be used to zoom the map _out_ by default.
+If all your entities do not fit on the map at the `default_zoom` level, the map zooms out further to show them. The `default_zoom` can only make the map zoom out more, not zoom in more than needed to show all entities.
 {% endnote %}
 
 ## Conditions options
 
-You can specify one or more `conditions`, in which case every selected entity will be tested against each condition and shown if it passes every condition. See [available conditions](/dashboards/conditional/#conditions-options). For conditions which accept an `entity` id, this will be automatically set to the entity being tested.
+With `conditions`, each entity is only shown when it meets all conditions. For the available conditions, refer to [conditions options of the conditional card](/dashboards/conditional/#conditions-options). In conditions that use an `entity`, the entity ID is filled in automatically with each entity on the map.
 
 ### Examples
 
@@ -272,7 +270,7 @@ Names ending in `Bg` set the outline color of that part, for example the edge of
 
 ## Options for entities
 
-If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configuration.
+To change the settings of a single entity, write it as `- entity: ENTITY_ID` with its settings below it, instead of only the entity ID.
 
 {% configuration %}
 entity:
@@ -290,26 +288,26 @@ color:
 label_mode:
   required: false
   default: name
-  description: When set to `icon`, renders the entity's icon in the marker instead of text. When set to `state` or `attribute`, renders the entity's state or attribute as the label for the map marker instead of the entity's name. This option doesn't apply to [zone](/integrations/zone/) entities because they don't use a label but an icon.
+  description: When set to `icon`, the marker shows the entity's icon instead of text. When set to `state` or `attribute`, the marker shows the entity's state or attribute instead of the entity's name. This option doesn't apply to [zone](/integrations/zone/) entities because they show an icon instead of a label.
   type: string
 attribute:
   required: false
-  description: An entity's attribute when `label_mode` set to `attribute`.
+  description: An entity's attribute when `label_mode` is set to `attribute`.
   type: string
 unit:
   required: false
-  description: A unit for a value of an attribute when `label_mode` set to `attribute`.
+  description: A unit for a value of an attribute when `label_mode` is set to `attribute`.
   type: string
 focus:
   required: false
   default: true
-  description: When set to `false`, this entity will not be considered for determining the default zoom or fit of the map.
+  description: When set to `false`, this entity is not kept in view when the map moves and zooms to show your entities.
   type: boolean
 {% endconfiguration %}
 
 ## Options for geolocation sources
 
-If you define geolocation sources as objects instead of strings (by adding `source:` before the ID), you can add more customization and configuration.
+To change the settings of a single geolocation source, write it as `- source: SOURCE_NAME` with its settings below it, instead of only the source name.
 
 {% configuration %}
 source:
@@ -319,24 +317,26 @@ source:
 label_mode:
   required: false
   default: name
-  description: When set to `icon`, renders the entity's icon in the marker instead of text. When set to `state` or `attribute`, renders the entity's state or attribute as the label for the map marker instead of the entity's name.
+  description: When set to `icon`, the marker shows the entity's icon instead of text. When set to `state` or `attribute`, the marker shows the entity's state or attribute instead of the entity's name.
   type: string
 attribute:
   required: false
-  description: An entity's attribute when `label_mode` set to `attribute`.
+  description: An entity's attribute when `label_mode` is set to `attribute`.
   type: string
 unit:
   required: false
-  description: A unit for a value of an attribute when `label_mode` set to `attribute`.
+  description: A unit for a value of an attribute when `label_mode` is set to `attribute`.
   type: string
 focus:
   required: false
   default: true
-  description: When set to `false`, the entities of this source will not be considered for determining the default zoom or fit of the map.
+  description: When set to `false`, the entities of this source are not kept in view when the map moves and zooms to show your entities.
   type: boolean
 {% endconfiguration %}
 
 ## Examples
+
+The following example shows a person's phone and the home zone. The map follows the phone when it moves.
 
 ```yaml
 type: map
@@ -347,6 +347,8 @@ entities:
   - device_tracker.demo_paulus
   - zone.home
 ```
+
+The following example shows the entities of two geolocation sources and the home zone. The map does not move to keep the entities of the `gdacs` source in view.
 
 ```yaml
 type: map
