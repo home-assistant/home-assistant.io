@@ -199,7 +199,7 @@ Set a separate [theme](/integrations/frontend/#themes) for the view and its card
 
 The background settings of a view can be customized to display a background. To use the same background for all views of a dashboard, [set a background for the dashboard](/dashboards/dashboards/#setting-a-background-for-a-dashboard) instead. Alternatively, a theme variable can be used to customize the background of all views.
 
-If more than one background is set, Home Assistant uses the first one that applies:
+If more than one background is set, Home Assistant uses only one of them, in the following order of priority, from highest to lowest:
 
 1. The background of the view
 2. The background of the dashboard
