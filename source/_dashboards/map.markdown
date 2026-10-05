@@ -172,7 +172,7 @@ theme_mode:
   default: 'auto'
 map_style:
   required: false
-  description: 'The style of the map: `default`, `colorful`, `natural`, `muted`, `gray`, or `toner`. Instead of a style name, you can also use a map with a `base` style and your own adjustments, such as other colors with `colors` and `colors_dark`.'
+  description: 'The style of the map: `default`, `colorful`, `natural`, `muted`, `gray`, or `toner`. To adjust a style, use a map instead of a style name. See [options for a custom map style](#options-for-a-custom-map-style).'
   type: [string, map]
   default: default
 hours_to_show:
@@ -216,6 +216,55 @@ show_all: true
 conditions:
   - condition: state
     state_not: home
+```
+
+## Options for a custom map style
+
+If you define `map_style` as a map instead of a style name, you can start from one of the styles and adjust it. The map styles are built with [VersaTiles](https://github.com/versatiles-org/versatiles-style), and the options below are passed on to it.
+
+{% configuration %}
+base:
+  required: false
+  description: "The style to start from: `default`, `colorful`, `natural`, `muted`, `gray`, or `toner`."
+  type: string
+  default: default
+colors:
+  required: false
+  description: "Colors for parts of the map, such as `water`, `land`, `natureWood`, `building`, or `roadStreet`. The keys are the color names of VersaTiles. For the full list, refer to the [VersaTiles colors](https://github.com/versatiles-org/versatiles-style/blob/main/API_DESIGN.md#colors). The colors you set replace only these parts. The rest of the style stays as it is. If you don't set `colors_dark`, these colors are used in both the light and the dark version of the map."
+  type: map
+colors_dark:
+  required: false
+  description: "Colors for the dark version of the map. If set, the dark version uses `colors_dark` instead of `colors`. The two are not merged, so add every color you want to change on the dark map to `colors_dark`."
+  type: map
+recolor:
+  required: false
+  description: "Adjustments for all colors of the style, such as `saturate` (from `-1` for grayscale to `1` for twice the saturation), `rotate_hue` (in degrees), `brightness`, `contrast`, `gamma`, or `invert_brightness`."
+  type: map
+text:
+  required: false
+  description: Options for the labels on the map, such as the language. Refer to the VersaTiles documentation.
+  type: map
+icon:
+  required: false
+  description: Options for the icons on the map, such as their size. Refer to the VersaTiles documentation.
+  type: map
+layers:
+  required: false
+  description: Which parts of the map are drawn, and from which zoom level. Refer to the VersaTiles documentation.
+  type: [boolean, integer, map]
+{% endconfiguration %}
+
+The following example starts from the **Muted** style, changes the color of water, and uses a darker water color on the dark version of the map.
+
+```yaml
+type: map
+show_all: true
+map_style:
+  base: muted
+  colors:
+    water: "#9ec9e2"
+  colors_dark:
+    water: "#1f3a5f"
 ```
 
 ## Options for entities
