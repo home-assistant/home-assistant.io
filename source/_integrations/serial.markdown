@@ -126,38 +126,11 @@ A standard for serial connections that is common on devices such as receivers, p
 "{{ (((states('sensor.serial_sensor') | float * 5 / 1024 ) - 0.5) * 100) | round(1) }}"
 ```
 
-## Viewing your serial ports
+## Finding the device path of a serial port
 
-You can see all the serial ports on your system in one place from the **Serial** configuration panel. This is also where you look up the device path to use in your configuration.
+To find the device path to use for the `serial_port` option, go to **Settings** > **Connectivity** > **Serial**. Next to your port, select **Port information** {% icon "mdi:information-outline" %} and copy the **Device** field. For more details about this panel, refer to [Viewing your serial ports](/integrations/usb/#viewing-your-serial-ports).
 
-1. Go to **Settings** > **Connectivity** > **Serial**.
-   - At the top, a status summary shows how many of your connected ports are in use, and whether any ports are disconnected.
-   - The ports are grouped into three lists:
-      - **Connected**: ports that are used by at least one integration or {% term app %}.
-      - **Available**: ports that are connected, but not used by any integration or {% term app %}.
-      - **Disconnected**: ports that an integration or {% term app %} uses, but that are currently not connected.
-   - If Home Assistant did not find any serial ports, the panel shows **No serial ports found** instead.
-   - To look for ports again, for example after plugging in a USB-to-serial adapter, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
-
-   {% tip %}
-   Serial ports that are only used by serial sensors configured in your {% term "`configuration.yaml`" %} are not tracked as consumers, so they appear in the **Available** rather than the **Connected** section.
-   {% endtip %}
-2. Under each port, you see what it is used for:
-   - Every integration and {% term app %} that uses the port is listed below it. Select one to go to its settings. An integration or app that is not running at the moment is marked as **not running**.
-   - **Discovered by**: names the integration that recognized the device on this port and is ready to set it up. Select this line to start the setup.
-   - **Can be used with**: lists the integrations that support the device on this port. This appears only for a port that is not in use yet.
-3. To view more details about a port, select **Port information** {% icon "mdi:information-outline" %} next to it. The **Port information** dialog shows the device path, together with details such as the description, manufacturer, and serial number of the device. This option is available for ports that are currently connected.
-   - To use the port with a serial sensor, copy the value of the **Device** field and use it as the `serial_port` option. For example, `/dev/ttyAMA0`.
-
-### About the serial ports panel
-
-The **Serial** panel under **Settings** > **Connectivity** can list the following types of serial ports:
-
-- **USB**: a device that is connected to a USB port, such as a USB-to-serial adapter.
-- **Built-in**: a serial port that is part of your system's hardware. For example, the Zigbee radio on [Home Assistant Yellow](/yellow/).
-- **Serial proxies**: a serial port that an [ESPHome](/integrations/esphome/) device shares over your network. These ports are listed alongside the ports that are connected to your system, so you can use them the same way.
-- **Integration-provided**: a serial port that is addressed with a URL instead of a device path, such as a port on a remote system that you expose with `ser2net` or `socat`.
-- **Other**: a serial port that Home Assistant cannot identify any further.
+If a serial port is detected by Home Assistant but is used only by serial sensors configured in your {% term "`configuration.yaml`" %}, it is not tracked as having a consumer. As a result, it appears in the **Available** section of the panel rather than the **Connected** section.
 
 ## Examples
 
