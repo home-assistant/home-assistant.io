@@ -43,7 +43,7 @@ output: "Goodnight. Closed front door, and 3 lights still on."
 
 ## Automation conditions
 
-A [template condition](/docs/automation/condition/#template-condition) lets an automation decide whether to continue based on any test you can write. The template needs to end up either `True` or `False`, and the automation only continues when the answer is `True`.
+A [template condition](/docs/scripts/conditions/#template-condition) lets an automation decide whether to continue based on any test you can write. The template needs to end up either `True` or `False`, and the automation only continues when the answer is `True`.
 
 {% example %}
 condition: |
