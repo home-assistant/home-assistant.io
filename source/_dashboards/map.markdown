@@ -139,12 +139,12 @@ show_all:
   default: false
 auto_fit:
   required: false
-  description: Moves and zooms the map each time your entities change location, so that you can always see them. Entities with `focus: false` are left out.
+  description: "Moves and zooms the map each time your entities change location, so that you can always see them. Entities with `focus: false` are left out."
   type: boolean
   default: false
 fit_zones:
   required: false
-  description: Also keeps the zones in your list of `entities` in view when the map moves and zooms to show your entities, unless they have `focus: false`.
+  description: "Also keeps the zones in your list of `entities` in view when the map moves and zooms to show your entities, unless they have `focus: false`."
   type: boolean
   default: false
 title:
