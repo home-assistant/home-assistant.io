@@ -89,7 +89,7 @@ While a dashboard is shown, the entity's state is `playing`, with the dashboard'
 
 Showing an unknown or unsupported dashboard, or using `now_playing` without a player, returns a clear error message.
 
-This feature requires a recent Music Assistant server.
+This feature requires Music Assistant server version 2.10 or later.
 
 ### Favorite current song button
 
