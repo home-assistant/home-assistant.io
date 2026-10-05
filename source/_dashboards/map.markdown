@@ -16,7 +16,7 @@ related:
     title: Getting started tutorial on presence detection
 ---
 
-The map card shows your home zone, your other zones, and entities with a location on a map. This card is used on the [Map dashboard](/dashboards/dashboards/#map-dashboard), which is one of the default dashboards.
+The map card can show your home zone, your other zones, and entities with a location on a map. This card is used on the [Map dashboard](/dashboards/dashboards/#map-dashboard), which is one of the default dashboards.
 
 On the map, each entity is shown as a marker with its picture, icon, name, state, or an attribute. Below the zoom buttons, two more buttons help you find your way on the map:
 
@@ -87,7 +87,7 @@ Appearance:
     Auto fit:
       description: "Moves and zooms the map each time your entities change location, so that you can always see all of them (`auto_fit`)."
     Fit zones:
-      description: "Also keeps the zones in your list of entities in view when the map moves and zooms to show your entities (`fit_zones`)."
+      description: "Also keeps the zones in your list of entities in view when the map moves and zooms to show your entities, unless their **Focus** is turned off (`fit_zones`)."
     Cluster markers:
       description: "Combines markers that are close together into one bubble (`cluster`)."
 Show all:
@@ -139,12 +139,12 @@ show_all:
   default: false
 auto_fit:
   required: false
-  description: Moves and zooms the map each time your entities change location, so that you can always see all of them.
+  description: Moves and zooms the map each time your entities change location, so that you can always see them. Entities with `focus: false` are left out.
   type: boolean
   default: false
 fit_zones:
   required: false
-  description: Also keeps the zones in your list of `entities` in view when the map moves and zooms to show your entities.
+  description: Also keeps the zones in your list of `entities` in view when the map moves and zooms to show your entities, unless they have `focus: false`.
   type: boolean
   default: false
 title:
@@ -157,7 +157,7 @@ aspect_ratio:
   type: string
 default_zoom:
   required: false
-  description: The zoom level of the map when it opens. Use a lower number to zoom out and a higher number to zoom in. When the map moves and zooms to show all your entities, it never zooms in further than this level.
+  description: The zoom level of the map when it opens. Use a lower number to zoom out and a higher number to zoom in. When the map moves and zooms to show your entities, it never zooms in further than this level.
   type: integer
   default: 14
 scale_ruler:
