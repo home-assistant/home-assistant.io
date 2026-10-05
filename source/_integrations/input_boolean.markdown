@@ -21,6 +21,13 @@ On a dashboard, a toggle helper appears as a switch you can turn on or off. Each
 
 1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, and select **Create helper**.
 2. Select **{% my config_flow_start domain="input_boolean" title="Toggle" %}**.
+3. Enter a **Name**, and select an **Icon** if you like.
+4. Optional: To choose the state of the toggle when Home Assistant starts, expand **More options**. Under **Each time Home Assistant starts**, select one of the options:
+   - **Restore previous state**: the toggle keeps the state it had before Home Assistant stopped. This is the default.
+   - **Turn on**: the toggle is always on after Home Assistant starts.
+   - **Turn off**: the toggle is always off after Home Assistant starts.
+   - Changing this option does not change the current state of the toggle. It only applies the next time Home Assistant starts.
+5. Select **Create**.
 
 Input booleans can also be configured via {% term "`configuration.yaml`" %} file:
 
@@ -57,9 +64,9 @@ input_boolean:
 
 ## Restore state
 
-If you set a valid value for `initial` this integration will start with the state
-set to that value. Otherwise, it will restore the state it had before
-Home Assistant stopping; if there is no state to restore - an `off` value is set. 
+By default, a toggle helper restores the state it had before Home Assistant stopped. If there is no state to restore, the toggle starts as off.
+
+To always start with the same state, set **Each time Home Assistant starts** to **Turn on** or **Turn off**, as described in [Configuration](#configuration). To change this for an existing toggle helper, go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} and select the toggle helper. Select **Settings** {% icon "mdi:cog-outline" %}, then expand **More options**. In YAML, use the `initial` option.
 
 ## Automation examples
 
