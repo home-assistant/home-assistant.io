@@ -18,7 +18,7 @@ related:
 
 The map card shows your home zone, your other zones, and entities with a location on a map. This card is used on the [Map dashboard](/dashboards/dashboards/#map-dashboard), which is one of the default dashboards.
 
-On the map, each entity is shown as a marker with its picture, icon, name, or state. Below the zoom buttons, two more buttons help you find your way on the map:
+On the map, each entity is shown as a marker with its picture, icon, name, state, or an attribute. Below the zoom buttons, two more buttons help you find your way on the map:
 
 - **Toggle grouping** {% icon "mdi:google-circles-communities" %} combines markers that are close together into one bubble. The bubble shows up to three of the markers and the number of other markers in the group. Select the button again to show each marker separately. While markers are not grouped, the button shows {% icon "mdi:dots-hexagon" %}.
 - **Reset focus** {% icon "mdi:image-filter-center-focus" %} moves and zooms the map so that you can see your entities again. Entities with **Focus** turned off are left out, and zones are only included if **Fit zones** is turned on.
@@ -33,7 +33,7 @@ When the map card is in a [panel view](/dashboards/panel/), such as on the [Map 
 
 People and devices are only shown on the map while their tab is selected. Zones and other entities with a location are always shown. Passive zones are not shown in a panel view.
 
-Select an item to see its details and its **Activity** of the last 24 hours:
+Select an item to see its details and its **Activity** from the last 24 hours:
 
 - For a person or a device, the activity shows its changes, such as arriving at or leaving a zone.
 - For a zone, the activity shows the people who arrived or left.
@@ -130,7 +130,7 @@ entities:
   type: list
 geo_location_sources:
   required: false
-  description: List of geolocation sources or sources with their own settings. For more information, refer to [options for geolocation sources](#options-for-geolocation-sources). Shows all current entities of these sources. For valid sources, refer to [Integrations that provide geolocation entities](/integrations/geo_location/#integrations-that-provide-geolocation-entities). Set to `all` to use all available sources. Either this, `show_all`, or the `entities` configuration option is required.
+  description: List of geolocation sources or sources with their own settings. For more information, refer to [options for geolocation sources](#options-for-geolocation-sources). Shows all current entities of these sources. For valid sources, refer to [Integrations that provide geolocation entities](/integrations/geo_location/#integrations-that-provide-geolocation-entities). To show all available sources, add `all` to the list. Either this, `show_all`, or the `entities` configuration option is required.
   type: list
 show_all:
   required: false
