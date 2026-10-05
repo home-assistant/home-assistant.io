@@ -100,7 +100,7 @@ Entities:
     Name:
       description: "Replaces the default label of the marker (`name`)."
     Color:
-      description: "The color of the marker and of the path of previous locations (`color`). Not available for zones."
+      description: "The color of the marker and of the path of previous locations (`color`). Select one of the theme colors from the list. Not available for zones."
     Label mode:
       description: "What the marker shows: **Name**, **State**, **Attribute**, or **Icon** (`label_mode`). Not available for zones."
     Attribute:
@@ -282,7 +282,7 @@ name:
   type: string
 color:
   required: false
-  description: The color of the marker and of the path of previous locations. If not set, a color is picked for each entity. This option doesn't apply to [zone](/integrations/zone/) entities.
+  description: "The color of the marker and of the path of previous locations. Use a theme color: `primary`, `accent`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `light-grey`, `grey`, `dark-grey`, `blue-grey`, `black`, or `white`. Theme colors follow your theme. You can also use a hex color code, for example, `#93c47d`. If not set, a color is picked for each entity. This option doesn't apply to [zone](/integrations/zone/) entities."
   type: string
 label_mode:
   required: false
