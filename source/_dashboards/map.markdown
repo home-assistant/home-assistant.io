@@ -255,12 +255,14 @@ You can use the following names under `colors` and `colors_dark`:
 
 - Land and water: `background`, `land`, `water`, `glacier`
 - Nature: `natureWood`, `natureGrass`, `naturePark`, `natureLeisure`, `natureAgriculture`, `natureWetland`, `natureSand`, `natureRock`
-- Areas and sites: `areaResidential`, `areaCommercial`, `areaIndustrial`, `areaWaste`, `areaBurial`, `siteParking`, `siteSports`
+- Areas and sites: `areaResidential`, `areaCommercial`, `areaIndustrial`, `areaWaste`, `areaBurial`, `siteParking`, `siteSports`, `siteConstruction`, `siteEducation`, `siteHospital`, `siteDanger`, `sitePrison`
 - Buildings: `building`, `buildingBg`
 - Roads: `roadStreet`, `roadStreetBg`, `roadTrunk`, `roadTrunkBg`, `roadMotorway`, `roadMotorwayBg`
 - Transit and paths: `transitRail`, `transitSubway`, `transitCycle`, `transitFoot`
 - Boundaries: `boundary`, `boundaryDisputed`
 - Labels: `label`, `labelHalo`, `labelWater`, `labelSymbol`, `labelPoi`, `labelShield`, `labelHousenumber`
+
+The default colors for construction, education, hospital, danger, and prison sites are partly transparent, so the map underneath stays visible. To keep this effect, use a color with transparency, such as `#FF66661A`.
 
 Names ending in `Bg` set the outline color of that part, for example the edge of a road.
 
