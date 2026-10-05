@@ -3,7 +3,7 @@ title: BLANCO
 description: Instructions on how to integrate BLANCO smart home devices in Home Assistant.
 ha_category:
   - Water
-ha_release: 2026.5
+ha_release: 2026.11
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -15,7 +15,7 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The **BLANCO** {% term integration %} connects Home Assistant to the BLANCO Smart Home Cloud API and exposes data from supported BLANCO smart home devices as entities in Home Assistant. Depending on the device model, this includes water temperatures, filter and CO₂ capacities, connectivity information, and device error states.
+The **BLANCO** {% term integration %} connects Home Assistant to the BLANCO Smart Home Cloud API and exposes the error state of supported BLANCO smart home devices as entities in Home Assistant.
 
 ## Supported devices
 
@@ -23,7 +23,7 @@ The integration is currently compatible with the following devices:
 
 - **CHOICE.ALL**: All‑in‑one water system (still, sparkling, hot)
 - **EVOL‑S PRO SODA (Rev F or later)**: Sparkling water system
-- **AQUA**: Filtered water system with filter monitoring
+- **AQUA**: Filtered water system
 
 All other BLANCO device types are not supported at this time.
 
@@ -80,14 +80,10 @@ The following entities are updated roughly every 30 seconds:
 
 ### Sensors
 
-- **Last online**: The timestamp of the last successful connection to the BLANCO cloud.
-- **Active errors**: The number of currently active errors reported by the device. To see detailed error information, open the BLANCO UNIT App.
-- **Temperature: Cold**: The target temperature to which the cold water is cooled (if cooling is supported).
-- **Temperature: Hot**: The target temperature to which the hot water is heated.
-- **CO2: Remaining capacity**: Percentage of CO₂ remaining in the sparkling‑water system (EVOL‑S PRO SODA and CHOICE.ALL).
-- **Filter: Remaining capacity**: Percentage of the filter's capacity remaining, depending on the device model.
-- **Filter: Remaining quantity**: Remaining water volume in liters before the filter is exhausted (AQUA devices).
-- **Filter: Remaining time**: Remaining time in days before the filter is exhausted (AQUA devices).
+- **Critical errors**: The number of currently active critical errors reported by the device.
+- **Warnings**: The number of currently active warnings reported by the device.
+
+Both sensors are diagnostic entities. To see detailed error information, open the BLANCO UNIT App.
 
 ## Data updates
 
