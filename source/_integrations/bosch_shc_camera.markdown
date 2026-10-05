@@ -3,7 +3,7 @@ title: Bosch Smart Home Camera
 description: Instructions on how to integrate Bosch Smart Home cameras into Home Assistant.
 ha_category:
   - Camera
-ha_release: '2026.10'
+ha_release: 2026.11
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: bosch_shc_camera
@@ -52,7 +52,7 @@ After signing in, you are not sent back to Home Assistant.
 #### Resolution
 
 1. Make sure [My Home Assistant](https://my.home-assistant.io/) is configured with your instance URL in the same browser you use to sign in.
-2. Start the setup again from **Settings** > **Devices & services**.
+2. Start the setup again from {% my integrations title="**Settings** > **Devices & services**" %}.
 
 ## Removing the integration
 
