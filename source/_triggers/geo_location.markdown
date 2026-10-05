@@ -100,7 +100,7 @@ This example uses the [NSW Rural Fire Service Incidents](/integrations/nsw_rural
   - **Event**: Enter
 - **Condition**: Template
   - The incident type is `Bush Fire`.
-- **Action**: Create a persistent notification
+- **Action**: Create persistent notification
   - **Message**: the incident name and status
 
 Create the zone in {% my zones title="**Settings** > **Areas, labels & zones**" %} and turn on **Passive**.
