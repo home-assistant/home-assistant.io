@@ -23,7 +23,7 @@ The two buttons below the zoom controls let you manage the markers and map viewp
 - **Toggle grouping** enables or disables clustering of nearby markers.
 - **Reset focus** adjusts the map view to fit the displayed entities.
 
-### Overview in a panel view
+## Overview in a panel view
 
 When the map card is in a [panel view](/dashboards/panel/), such as on the [Map dashboard](/dashboards/dashboards/#map-dashboard), it also shows an overview next to the map. The overview can show these tabs:
 
