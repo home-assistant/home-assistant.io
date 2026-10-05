@@ -505,7 +505,7 @@ Rebuilding {% term automations %} around the sun has been a slow-burn project, a
 
 This release adds the last of it to the **[Sun]** integration: four new conditions and eight matching triggers for *golden hour*, *blue hour*, *midnight sun*, and *polar night*. Golden hour and blue hour are the warm and cool light either side of sunrise and sunset, handy for automations that match your lighting to the mood outside, or close the blinds before direct sun hits a room. Each one can be limited to morning, evening, or either.
 
-Farther from the equator, *midnight sun* and *polar night* cover the more extreme stretches of the year: the sun staying above the horizon for a full day around midsummer, or below it for a full day around midwinter. Both now have their own condition and start and end triggers too, so automations that only make sense at high latitudes finally have something to hook into. Documentation for the full set is still catching up.
+Farther from the equator, *midnight sun* and *polar night* cover the more extreme stretches of the year: the sun staying above the horizon for a full day around midsummer, or below it for a full day around midwinter. Both now have their own condition and start and end triggers too, so automations that only make sense at high latitudes finally have something to hook into.
 
 Thanks, [@emontnemery]!
 
