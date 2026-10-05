@@ -285,7 +285,7 @@ This release also has new virtual integrations. Virtual integrations are stubs t
 [Carrier]: /integrations/carrier
 [Colmo]: /integrations/colmo
 [Comfee]: /integrations/comfee
-[Inventor]: /integrations/invertor
+[Inventor]: /integrations/inventor
 [Little Swan]: /integrations/little_swan
 [Midea]: /integrations/midea
 [Netsu]: /integrations/netsu
