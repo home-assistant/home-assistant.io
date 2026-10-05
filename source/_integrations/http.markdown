@@ -52,7 +52,12 @@ SSL peer certificate path:
   description: The absolute path to a client certificate Home Assistant should require for secure connections.
   required: false
 SSL profile:
-  description: The Mozilla SSL profile to use. Use **Intermediate** only if integrations have SSL handshake issues.
+  description: |
+    The [Mozilla server side TLS profile](https://docs.tlsref.org/server-side-tls.html) that decides which TLS versions and ciphers clients can connect with. Each profile is named after the guideline version it follows.
+
+    - **Modern v6** only accepts TLS 1.3 and is the default for new installations. Browsers and operating systems gained TLS 1.3 support around 2018 to 2019.
+    - **Intermediate v6** also accepts TLS 1.2 with current ciphers. Choose this if older devices or apps cannot connect. Support arrived around 2013 to 2015.
+    - **Modern v4** and **Intermediate v4** follow outdated guidelines and are kept for installations that used them before the profiles were versioned.
   required: false
 Trust X-Forwarded-For:
   description: Trust the `X-Forwarded-For` header when Home Assistant is behind a reverse proxy.
