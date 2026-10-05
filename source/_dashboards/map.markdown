@@ -25,7 +25,7 @@ On the map, each entity is shown as a marker: a small circle with its picture, i
 
 ## People, devices, and zones in a panel view
 
-When the map card is in a [panel view](/dashboards/panel/), such as on the [Map dashboard](/dashboards/dashboards/#map-dashboard), it also shows the **People**, **Devices**, and **Zones** tabs on top of the map. On a phone, they are at the bottom of the screen. The tabs show the following:
+When the map card is in a [panel view](/dashboards/panel/), such as on the [Map dashboard](/dashboards/dashboards/#map-dashboard), it also shows the **People**, **Devices**, and **Zones** tabs on top of the map, if the card shows at least one person, device, or zone. On a phone, they are at the bottom of the screen. The tabs show the following:
 
 - **People**: the people in your home and where they are.
 - **Devices**: the devices on the map that have a location.
