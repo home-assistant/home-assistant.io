@@ -63,32 +63,56 @@ The **IntelliClima** integration provides the following entities for each discov
   - **Remarks**: This entity is unavailable if filter tracking is turned off in the IntelliClima+ app.
   - **Available for devices**: Ecocomfort 2.0
 
+The following diagnostic binary sensors show why the **Fan** entity can run at a different speed than the one you set.
+
+- **Boost**
+  - **Description**: Indicates whether the device is boosting, which runs the fan above its highest selectable speed. The **Fan** entity shows speed **4** while boosting.
+  - **Entity category**: Diagnostic
+  - **Available for devices**: Ecocomfort 2.0
+
+- **Night mode**
+  - **Description**: Indicates whether night mode is active, which limits the fan to sleep speed. The **Fan** entity shows speed **1** while night mode is active.
+  - **Entity category**: Diagnostic
+  - **Available for devices**: Ecocomfort 2.0
+
+- **Advanced control**
+  - **Description**: Indicates whether an advanced control threshold set in the IntelliClima+ app is engaged, which runs the fan one speed step faster.
+  - **Entity category**: Diagnostic
+  - **Available for devices**: Ecocomfort 2.0
+
+- **Automatic speed control**
+  - **Description**: Indicates whether the device chooses the fan speed itself, either from its sensors in the **auto** preset or from a weekly program set in the IntelliClima+ app. It turns off when you set a speed yourself.
+  - **Entity category**: Diagnostic
+  - **Available for devices**: Ecocomfort 2.0
+
 ### Fan
 
 - **Fan** (Main control entity)
-  - **Description**: Control the ventilation system's operation mode and speed.
+  - **Description**: Control the ventilation system's operation mode and speed. The entity shows the speed the device is actually running at, which can differ from the speed you set, for example while boosting or in night mode.
   - **Supported preset mode**:
-    - **auto**: Full automatic mode that follows in-app programs and sensor thresholds for speeds and direction modes
-  - **Speed control**: Adjustable from 0-100%, mapped to 5 possible fan control values:
-    - **0%**: Off
-    - **25%**: Sleep
-    - **50%**: Low (Vel1 in-app)
-    - **75%**: Medium (Vel2 in-app)
-    - **100%**: High (Vel3 in-app)
+    - **auto**: Full automatic mode that follows in-app programs and sensor thresholds for speeds and direction modes. Setting a speed yourself leaves the **auto** preset, while the **Fan Direction Mode** stays at **sensor**.
+  - **Speed control**: Off and 4 speeds. In automations, the `fan.set_percentage` action maps each speed to 25%, 50%, 75%, and 100%.
+    - **Off**
+    - **1**: Sleep
+    - **2**: Low (Vel1 in-app)
+    - **3**: Medium (Vel2 in-app)
+    - **4**: High (Vel3 in-app), also shown while boosting
   - **Available for devices**: Ecocomfort 2.0
 
 ### Select
 
 - **Fan Direction Mode**
-  - **Description**: Select the ventilation system's direction operation mode. When you change the direction mode, the integration keeps the current fan speed whenever the device is already running at a fixed speed. If you change the direction mode while the device is off, or while the **Fan** entity is in the **auto** preset (which does not have a fixed speed), the fan is started at **25%** (sleep) speed.
+  - **Description**: Select the ventilation system's direction operation mode. When you change the direction mode, the integration keeps the current fan speed whenever the device is already running at a fixed speed. If you change the direction mode while the device is off, or while the **Fan** entity is in the **auto** preset (which does not have a fixed speed), the fan is started at speed **1** (sleep).
   - **Supported options**:
     - **forward**: Intake mode (supply air into the room)
     - **reverse**: Extract mode (exhaust air into the room)
     - **alternate**: Alternating mode (cycles between intake and extract)
-    - **sensor**: Sensor-based mode that uses sensor thresholds configured in the app, with a fixed speed when the thresholds are exceeded. Corresponds to the Manual sensor mode in the app.
+    - **sensor**: Sensor-based mode that uses sensor thresholds configured in the app, with a fixed speed when the thresholds are exceeded. Corresponds to the Manual sensor mode in the app. This option is also shown while the **Fan** entity is in the **auto** preset.
   - **Available for devices**: Ecocomfort 2.0
 
 ### Sensors
+
+A sensor shows as unknown while the device has no reading for it.
 
 - **Temperature**
   - **Description**: Current indoor ambient temperature detected by the device.
