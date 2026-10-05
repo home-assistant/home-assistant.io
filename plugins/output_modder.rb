@@ -25,7 +25,7 @@ module Jekyll
         next if link.get_attribute('href') =~ %r{\Ahttps?://\w*.?home-assistant.io}i
 
         # Play nice with our own links
-        if link.get_attribute('href') =~ %r{\Ahttps?://(?:\w+\.)?(?:home-assistant\.io|esphome\.io|nabucasa\.com|openhomefoundation\.org|music-assistant\.io|apolloautomation\.com)}i
+        if link.get_attribute('href') =~ %r{\Ahttps?://(?:\w+\.)?(?:home-assistant\.io|esphome\.io|nabucasa\.com|openhomefoundation\.org|music-assistant\.io|apolloautomation\.com)(?:[/:?#]|\z)}i
           next
         end
 
