@@ -31,7 +31,7 @@ When the map card is in a [panel view](/dashboards/panel/), such as on the [Map 
 - **Devices**: the devices on the map that have a location.
 - **Zones**: your zones, with the number of people in each zone.
 
-People and devices are only shown on the map while their tab is selected. Zones and other entities with a location are always shown.
+People and devices are only shown on the map while their tab is selected. Zones and other entities with a location are always shown. Passive zones are not shown in a panel view.
 
 Select an item to see its details and its **Activity** of the last 24 hours:
 
@@ -79,7 +79,7 @@ Appearance:
     Theme mode:
       description: "**Auto**, **Light**, or **Dark** (`theme_mode`). **Auto** follows your theme."
     Map style:
-      description: "The look of the map: **Default**, **Colorful**, **Natural**, **Muted**, **Gray**, or **Toner** (`map_style`). Each style has a light and a dark version. The **Theme mode** decides which version is shown. To adjust a style further, for example its colors, use YAML. For more information, refer to [options for a custom map style](#options-for-a-custom-map-style)."
+      description: "The look of the map: **Default**, **Colorful**, **Natural**, **Muted**, **Gray**, or **Toner** (`map_style`). Each style has a light and a dark version. The **Theme mode** decides which version is shown. On devices that can't show the detailed map, such as some older tablets, a simpler map is shown, and the map style has no effect. To adjust a style further, for example its colors, use YAML. For more information, refer to [options for a custom map style](#options-for-a-custom-map-style)."
     Hours to show:
       description: "Shows the path of the previous locations of your entities for the given number of hours (`hours_to_show`)."
     Scale ruler:
@@ -172,7 +172,7 @@ theme_mode:
   default: 'auto'
 map_style:
   required: false
-  description: 'The style of the map: `default`, `colorful`, `natural`, `muted`, `gray`, or `toner`. To adjust a style, use a map instead of a style name. For more information, refer to [options for a custom map style](#options-for-a-custom-map-style).'
+  description: 'The style of the map: `default`, `colorful`, `natural`, `muted`, `gray`, or `toner`. To adjust a style, use a map instead of a style name. For more information, refer to [options for a custom map style](#options-for-a-custom-map-style). On devices that can''t show the detailed map, such as some older tablets, a simpler map is shown, and `map_style` has no effect.'
   type: [string, map]
   default: default
 hours_to_show:
