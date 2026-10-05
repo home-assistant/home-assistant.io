@@ -91,7 +91,7 @@ Appearance:
     Cluster markers:
       description: "Combines markers that are close together into one bubble (`cluster`)."
 Show all:
-  description: "Automatically adds all entities with a location to the map (`show_all`)."
+  description: "Automatically adds all entities with a location to the map (`show_all`). If you turn this on, remove the entities and geolocation sources you added, because they can't be combined with **Show all**."
 Entities:
   description: "The entities to show on the map (`entities`). To add an entity, select **Add entity**. To change the settings of an entity, select **Edit** {% icon "mdi:pencil" %} next to it. To remove it, select **Delete** {% icon "mdi:close" %}. To change the order, drag it by {% icon "mdi:drag-horizontal-variant" %}."
   keys:
@@ -134,7 +134,7 @@ geo_location_sources:
   type: list
 show_all:
   required: false
-  description: Automatically adds all entities with a location to the map. The [Map dashboard](/dashboards/dashboards/#map-dashboard) uses this setting.
+  description: Automatically adds all entities with a location to the map. The [Map dashboard](/dashboards/dashboards/#map-dashboard) uses this setting. Can't be combined with `entities` or `geo_location_sources`. If you use one of them together with `show_all`, the card shows an error.
   type: boolean
   default: false
 auto_fit:
