@@ -18,10 +18,10 @@ related:
 
 The map card allows you to display your home zone, entities, and other predefined zones on a map. This card is used on the [Map dashboard](/dashboards/dashboards/#map-dashboard), which is one of the default dashboards.
 
-The two buttons below the zoom controls let you manage the markers and map viewport:
+On the map, each entity is shown as a marker: a small circle with its picture, icon, name, or state. Below the zoom buttons, two more buttons help you find your way on the map:
 
-- **Toggle grouping** {% icon "mdi:google-circles-communities" %} enables or disables clustering of nearby markers. While markers are not grouped, the button shows {% icon "mdi:dots-hexagon" %}.
-- **Reset focus** {% icon "mdi:image-filter-center-focus" %} adjusts the map view to fit the displayed entities.
+- **Toggle grouping** {% icon "mdi:google-circles-communities" %} combines markers that are close together into one bubble. The bubble shows up to three of the markers and the number of other markers in the group. Select the button again to show each marker separately. While markers are not grouped, the button shows {% icon "mdi:dots-hexagon" %}.
+- **Reset focus** {% icon "mdi:image-filter-center-focus" %} moves and zooms the map so that you can see all its entities again.
 
 ## People, devices, and zones in a panel view
 
