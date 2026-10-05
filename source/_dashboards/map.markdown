@@ -79,7 +79,7 @@ Appearance:
     Theme mode:
       description: "**Auto**, **Light**, or **Dark** (`theme_mode`). **Auto** follows your theme."
     Map style:
-      description: "The look of the map: **Default**, **Colorful**, **Natural**, **Muted**, **Gray**, or **Toner** (`map_style`). Each style has a light and a dark version. The **Theme mode** decides which version is shown."
+      description: "The look of the map: **Default**, **Colorful**, **Natural**, **Muted**, **Gray**, or **Toner** (`map_style`). Each style has a light and a dark version. The **Theme mode** decides which version is shown. To adjust a style further, for example its colors, use YAML. For more information, refer to [options for a custom map style](#options-for-a-custom-map-style)."
     Hours to show:
       description: "Shows the path of the previous locations of your entities for the given number of hours (`hours_to_show`)."
     Scale ruler:
@@ -230,7 +230,7 @@ base:
   default: default
 colors:
   required: false
-  description: "Colors for parts of the map, such as `water`, `land`, `natureWood`, `building`, or `roadStreet`. The colors you set replace only these parts. The rest of the style stays as it is. If you don't set `colors_dark`, these colors are used in both the light and the dark version of the map."
+  description: "Colors for parts of the map, such as `water`, `land`, `natureWood`, `building`, or `roadStreet`. For all names, refer to [map color names](#map-color-names). The colors you set replace only these parts. The rest of the style stays as it is. If you don't set `colors_dark`, these colors are used in both the light and the dark version of the map."
   type: map
 colors_dark:
   required: false
@@ -238,7 +238,7 @@ colors_dark:
   type: map
 recolor:
   required: false
-  description: "Adjustments for all colors of the style, such as `saturate` (from `-1` for grayscale to `1` for twice the saturation), `rotate_hue` (in degrees), `brightness`, `contrast`, `gamma`, or `invert_brightness`."
+  description: "Adjustments for all colors of the style, such as `saturate` (from `-1` for grayscale to `1` for twice the saturation), `rotate_hue` (in degrees), `brightness`, `contrast`, `gamma`, or `invert_brightness`. To mix a color into the whole style, use `tint` or `blend`, each with a `color` and an `amount`."
   type: map
 {% endconfiguration %}
 
@@ -254,6 +254,21 @@ map_style:
   colors_dark:
     water: "#1f3a5f"
 ```
+
+### Map color names
+
+You can use the following names under `colors` and `colors_dark`:
+
+- Land and water: `background`, `land`, `water`, `glacier`
+- Nature: `natureWood`, `natureGrass`, `naturePark`, `natureLeisure`, `natureAgriculture`, `natureWetland`, `natureSand`, `natureRock`
+- Areas and sites: `areaResidential`, `areaCommercial`, `areaIndustrial`, `areaWaste`, `areaBurial`, `siteParking`, `siteSports`
+- Buildings: `building`, `buildingBg`
+- Roads: `roadStreet`, `roadStreetBg`, `roadTrunk`, `roadTrunkBg`, `roadMotorway`, `roadMotorwayBg`
+- Transit and paths: `transitRail`, `transitSubway`, `transitCycle`, `transitFoot`
+- Boundaries: `boundary`, `boundaryDisputed`
+- Labels: `label`, `labelHalo`, `labelWater`, `labelSymbol`, `labelPoi`, `labelShield`, `labelHousenumber`
+
+Names ending in `Bg` set the outline color of that part, for example the edge of a road.
 
 ## Options for entities
 
