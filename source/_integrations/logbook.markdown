@@ -18,7 +18,7 @@ The **Activity** {% term integration %} provides a different perspective on the 
 
 ## Viewing activity in the Activity panel
 
-The **Activity** panel shows everything that happened in your home, with the most recent events first. You can narrow it down to the areas, devices, or entities you are interested in.
+The **Activity** panel shows recorded changes and events in your home, with the most recent events first. You can narrow it down to the areas, devices, or entities you are interested in.
 
 1. In the sidebar, select **Activity**.
    - On a wide screen, the **Sources** pane opens on the left.
