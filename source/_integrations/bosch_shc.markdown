@@ -131,6 +131,7 @@ The switch platform allows you to control your outlets, light switches, and sele
 Some devices also get an additional, device-specific switch. These are configuration entities, so they appear under the device's configuration controls rather than with the main controls:
 
 - Camera Eyes: a **Camera light** switch to turn its built-in light on or off
+- Camera 360: a **Notifications** switch to turn its notifications on or off
 - Outdoor Camera Gen2: **Ambient light** and **Front light** switches to turn its ambient light and front light on or off
 - Motion Detector II: **Pet immunity**, and **Sabotage detection**
 - Motion Detector II that supports it: **Automatic sensitivity**
