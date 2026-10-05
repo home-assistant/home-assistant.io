@@ -63,9 +63,12 @@ Trusted proxies:
 Enable IP banning:
   description: Automatically ban IP addresses after repeated failed logins.
   required: false
+Unlimited login attempts:
+  description: Never ban an IP address, no matter how many login attempts fail.
+  required: false
 Login attempts before ban:
-  description: Failed login attempts before an IP address is banned. Set this to `-1` to disable automatic bans.
-  required: true
+  description: Failed login attempts before an IP address is banned, from 1 to 1000. Only shown when **Unlimited login attempts** is turned off.
+  required: false
 CORS allowed origins:
   description: Origins that may make cross-origin requests. Include the scheme, for example `https://example.com`.
   required: false
