@@ -29,7 +29,7 @@ The **Activity** panel shows everything that happened in your home, with the mos
 1. In the sidebar, select **Activity**.
    - On a wide screen, the **Sources** pane opens on the left.
    - On a narrow screen, such as a phone, select **Sources** {% icon "mdi:tune-variant" %} in the toolbar to open it.
-2. Optional: To see only part of your activity, in the **Sources** pane, select **Add target**, then select the areas, devices, entities, or labels you want to see.
+2. Optional: To see only part of your activity, in the **Sources** pane, select **Add target**, then select the floors, areas, devices, entities, or labels you want to see.
 3. Optional: To narrow down the activity further, use the filters below the targets. The filters also work without a target.
    - **Type**: shows only activity of entities of the selected types. For example, select the **Motion** type under **Binary sensor** to see only motion activity.
    - **Integrations**: shows only activity of entities that are provided by the selected integrations.
