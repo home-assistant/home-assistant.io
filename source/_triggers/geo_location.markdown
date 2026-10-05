@@ -110,6 +110,9 @@ Create the zone in {% my zones title="**Settings** > **Areas, labels & zones**" 
 ```yaml
 geo_location:
   - platform: nsw_rural_fire_service_feed
+    latitude: -36.666667
+    longitude: 149.833333
+    radius: 15
     categories:
       - "Emergency Warning"
       - "Watch and Act"
