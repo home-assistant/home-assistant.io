@@ -68,7 +68,7 @@ Unlimited login attempts:
   required: false
 Login attempts before ban:
   description: Failed login attempts before an IP address is banned, from 1 to 1000. Only shown when **Unlimited login attempts** is turned off.
-  required: false
+  required: true
 CORS allowed origins:
   description: Origins that may make cross-origin requests. Include the scheme, for example `https://example.com`.
   required: false
