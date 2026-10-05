@@ -81,13 +81,6 @@ The service appears as a speech-to-text entity named after the model. Select it 
 To change these settings later, select the speech-to-text service and choose **Reconfigure speech-to-text service**.
 
 
-### Speech-to-text prompt and keywords
-
-You can enable **Custom prompt/keywords**. The selected model or its backend may not support prompts, keywords, or both. Check the model or backend documentation before enabling **Custom prompt/keywords**. Sending an unsupported parameter can cause transcription requests to fail.
-
-The **Prompt** field accepts optional context or instructions and supports [Home Assistant templates](/docs/configuration/templating/).
-
-The **Keywords** field accepts comma-separated words or phrases and also supports [Home Assistant templates](/docs/configuration/templating/). Home Assistant renders the template, splits the result at commas, and sends the non-empty items as keyword hints.
 
 ## Supported functionality
 
