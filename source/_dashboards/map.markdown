@@ -102,7 +102,7 @@ Entities:
     Color:
       description: "The color of the marker and of the path of previous locations (`color`). Not available for zones."
     Label mode:
-      description: "What the marker shows: **Name**, **Icon**, **State**, or **Attribute** (`label_mode`). Not available for zones."
+      description: "What the marker shows: **Name**, **State**, **Attribute**, or **Icon** (`label_mode`). Not available for zones."
     Attribute:
       description: "The attribute to show when **Label mode** is set to **Attribute** (`attribute`). Not available for zones."
     Unit:
