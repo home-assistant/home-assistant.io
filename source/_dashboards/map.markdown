@@ -20,8 +20,8 @@ The map card allows you to display your home zone, entities, and other predefine
 
 The two buttons below the zoom controls let you manage the markers and map viewport:
 
-- **Toggle grouping** enables or disables clustering of nearby markers.
-- **Reset focus** adjusts the map view to fit the displayed entities.
+- **Toggle grouping** {% icon "mdi:google-circles-communities" %} enables or disables clustering of nearby markers. While markers are not grouped, the button shows {% icon "mdi:dots-hexagon" %}.
+- **Reset focus** {% icon "mdi:image-filter-center-focus" %} adjusts the map view to fit the displayed entities.
 
 ## People, devices, and zones in a panel view
 
