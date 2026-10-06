@@ -163,7 +163,7 @@ schedule:
       type: list
       keys:
         days:
-          description: Days of the week to which the time block applies. Accepted values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, and `sunday`. The list must contain at least one value and cannot contain duplicates.
+          description: Days of the week to which the time block applies. Accepted values are `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, and `sunday`. The list must contain at least one value and can't contain duplicates.
           required: false
           type: list
           default: Every day
