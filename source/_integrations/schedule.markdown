@@ -158,7 +158,7 @@ schedule:
           type: map
           default: {}
     blocks:
-      description: Time blocks that apply to one or more days of the week. You cannot combine `blocks` with weekday keys in the same schedule.
+      description: Time blocks that apply to one or more days of the week. You can't combine `blocks` with weekday keys in the same schedule.
       required: false
       type: list
       keys:
