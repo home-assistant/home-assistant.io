@@ -20,7 +20,7 @@ The map card can show your home zone, your other zones, and entities with a loca
 
 On the map, each entity is shown as a marker with its picture, icon, name, state, or an attribute. Below the zoom buttons, two more buttons help you find your way on the map:
 
-- **Toggle grouping** {% icon "mdi:google-circles-communities" %} combines markers that are close together into one bubble. The bubble shows up to three of the markers and the number of other markers in the group. Select the button again to show each marker separately. While markers are not grouped, the button shows {% icon "mdi:dots-hexagon" %}.
+- **Toggle grouping** {% icon "mdi:google-circles-communities" %} combines markers that are close together into one bubble. The bubble shows up to four markers. For larger groups, it shows three markers and the number of remaining markers. Select the button again to show each marker separately. While markers are not grouped, the button shows {% icon "mdi:dots-hexagon" %}.
 - **Reset focus** {% icon "mdi:image-filter-center-focus" %} moves and zooms the map so that you can see your entities again. Entities with **Focus** turned off are left out, and zones are only included if **Fit zones** is turned on.
 
 ## Adding the map card to a dashboard
