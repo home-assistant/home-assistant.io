@@ -234,7 +234,7 @@ recorder:
 
 When using SQLite, if the system encounters unrecoverable disk corruption, it will move the database aside and create a new database to keep the system online. In this case, having at least 2.5x the database size available in free disk space is essential. Starting a new database is the system's last resort recovery option and is usually caused by failing flash storage, an inadequate power supply, an unclean shutdown, or another hardware failure.
 
-In this event, it may be possible to recover the old database by following the [SQLite recovery guide](https://www.sqlite.org/recovery.html). The old database is kept next to the new one, renamed to `home-assistant_v2.db.corrupt.<time>`, and a repair shows how much space it takes. Once you no longer need it, the repair can delete it for you, or you can ignore the repair to keep the files.
+In this event, it may be possible to recover the old database by following the [SQLite recovery guide](https://www.sqlite.org/recovery.html). The old database files are kept next to the new database, with `.corrupt.<time>` added to their names (for example, `home-assistant_v2.db.corrupt.<time>`). A repair in {% my repairs title="**Settings** > **System** > **Repairs**" %} shows how many files are kept and how much space they take. Once you no longer need them, the repair can delete them for you, or you can ignore the repair to keep the files.
 
 ## Custom database engines
 
