@@ -51,6 +51,7 @@ The integration supports devices connected to a Bosch Smart Home Controller, inc
 - Light Switches
 - Shutter Controls
 - Micromodule Shutter Controls and Micromodule Blinds
+- Light Control micromodule dimmers
 - Bosch Smart Home cameras (selected controls only)
 
 The entities available for a device depend on the capabilities reported by the controller.
