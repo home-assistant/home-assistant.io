@@ -50,7 +50,7 @@ Period:
   description: How long one full trip around the color wheel takes, in seconds. Accepts 0.05 to 3600 seconds. Shorter periods make the colors move faster. Defaults to 60 seconds.
   required: false
 Change:
-  description: How many degrees of the color wheel each step covers. Accepts 1 to 179 degrees. Each light gets one color update per step, so smaller values give smoother changes and more network traffic. A step lasts the period times the change, divided by 360. Defaults to 20.
+  description: How many degrees of the color wheel each step covers. Values below 1 are set to 1, and values above 179 are set to 179. Each light gets one color update per step, so smaller values give smoother changes and more network traffic. A step lasts the period times the change, divided by 360. Defaults to 20.
   required: false
 Spread:
   description: How far apart the colors of your lights are, in degrees on a color wheel from 0 to 360. Each additional light is offset by this much. Use 0 to keep every light on the same color. Defaults to 30.
