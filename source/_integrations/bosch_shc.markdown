@@ -3,6 +3,7 @@ title: Bosch SHC
 description: Integrate Bosch SHC.
 ha_category:
   - Binary sensor
+  - Button
   - Cover
   - Event
   - Hub
@@ -20,6 +21,7 @@ ha_codeowners:
 ha_domain: bosch_shc
 ha_platforms:
   - binary_sensor
+  - button
   - cover
   - event
   - number
@@ -72,6 +74,10 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 - Shutter Contact
 - Shutter Contact II
 - Battery powered devices
+
+### Buttons
+
+- A Smoke Detector gets a **Test alarm** button that starts the device's self-test.
 
 ### Covers
 
