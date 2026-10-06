@@ -48,6 +48,12 @@ Daikin lists the following gateway families as supporting third-party ONECTA Clo
 
 Daikin lists Daikin Home Controls (`EKRACPUR1PA`) and Daikin HomeHub (`EKRHH`) as not supporting third-party ONECTA Cloud API control. If your unit does not yet have a LAN or WLAN gateway, refer to Daikin's [supported gateways](https://developer.cloud.daikineurope.com/docs/84e709f1-9d33-47e1-a93c-7f5cb8b8f12b/supported_gateways) and [compatible units](https://www.daikin.eu/en_us/product-group/control-systems/onecta/connectable-units.html) guides. Newer Daikin units may have a gateway built in.
 
+## Limitations
+
+- The integration is cloud-based and needs a working internet connection and access to the Daikin ONECTA service.
+- Support is limited to Daikin gateway families that support third-party ONECTA Cloud API access. A gateway can report device state without supporting API control.
+- The integration currently provides climate entities. The exact controls available depend on the capabilities reported by each Daikin climate-control management point.
+
 ## Configuration options
 
 To change these options, go to **Settings** > **Devices & services**, select **Daikin Onecta**, then select **Configure**.
