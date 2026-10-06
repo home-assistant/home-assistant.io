@@ -39,7 +39,7 @@ Enqueue:
 Enable radio mode:
   description: Turns on radio mode to auto-generate a playlist based on the selection.
 Start item:
-  description: "The item to start playback from, instead of the first one. Use `latest` to play a podcast from its newest episode, or enter the URI, ID, or part of the name of the track or episode to start from."
+  description: "The item to start playback from, instead of the first one. Use `latest` to play a podcast from its newest episode, or enter the URI, ID, or part of the name (at least 3 characters) of the track or episode to start from."
 Username:
   description: Use this Music Assistant user to adjust the playlog entry. If the specified user has provider filtering configured, the media item selection will be made accordingly. For example, this has an effect on the resume point retrieval of an audiobook. When left empty, it defaults to the Home Assistant user that made the request, if their username matches a Music Assistant user. When you call this action from an automation or script, set the username explicitly so the request is attributed to the right user.
 {% endoptions_ui %}
