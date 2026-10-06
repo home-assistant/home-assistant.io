@@ -43,6 +43,7 @@ To change entity attributes, follow these steps:
 
    - Enter or edit the entity name.
      - In this example, this would change "Opening".
+     - If the entity belongs to a device, you can turn on **Use device name** instead. The entity then has no name of its own and is shown with the name of its device. It also uses the area of its device. To rename the device, select **change the device name**.
    - If needed, from the **Shown as** menu, you can select a different [device class](/integrations/homeassistant/#device-class).
    - If you like, add a [label](/docs/organizing/labels/).
 
