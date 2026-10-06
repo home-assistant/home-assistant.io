@@ -84,7 +84,11 @@ Each home battery device also has these binary sensors:
 
 ## Known limitations
 
+### Unsupported devices and functionality
+
 The integration does not yet expose entities for Zonneplan EV charge points or solar panels. Home batteries can't be controlled yet; only the sensors and binary sensors listed above are available.
+
+### Delayed usage data
 
 Zonneplan receives usage data from your grid operator a day or more after the fact, so the monthly usage and cost sensors lag behind, and a day's values can still change afterwards. They stay unknown until the month has data. Because of this delay, these sensors are not suitable for the energy dashboard.
 
