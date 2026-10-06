@@ -108,6 +108,7 @@ In **offline mode**, most entities will become unavailable. Only those marked wi
 | **Brewing active** | Is on if you are in the process of making coffee. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Backflush enabled** | Is on if you started the backflushing process. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %}| - |
 | **WebSocket connected** | Track your connection to the cloud WebSocket for real time updates. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %}| Disabled by default. |
+| **Bluetooth connected** | Track your connection over Bluetooth for local updates. | `all` | <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> | Disabled by default. |
 
 ## Sensors
 
