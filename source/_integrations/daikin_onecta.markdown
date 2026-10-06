@@ -36,6 +36,18 @@ Record the client ID and client secret, then add them as [application credential
 
 {% include integrations/config_flow.md %}
 
+## Supported devices
+
+Daikin supports third-party ONECTA Cloud API access only for units that can connect to the ONECTA app. These units are sold in the EMEA region. The integration creates climate entities only when the device reports compatible climate-control management points and capabilities.
+
+Daikin lists the following gateway families as supporting third-party ONECTA Cloud API access:
+
+- Air-to-air heat pumps: `BRP069A4x`, `BRP069B4x`, `BRP069C4x`, `BRP069C5x`, `BRP069A8x`, `BRP069B8x`, and `BRP069C8x`. The `BRP069C4x` family also supports air purifiers.
+- Altherma air-to-water heat pumps: `BRP069A6x` and `BRP069A7x`.
+- Altherma boilers: `DRGATEWAYAA`.
+
+Daikin lists Daikin Home Controls (`EKRACPUR1PA`) and Daikin HomeHub (`EKRHH`) as not supporting third-party ONECTA Cloud API control. If your unit does not yet have a LAN or WLAN gateway, refer to Daikin's [supported gateways](https://developer.cloud.daikineurope.com/docs/84e709f1-9d33-47e1-a93c-7f5cb8b8f12b/supported_gateways) and [compatible units](https://www.daikin.eu/en_us/product-group/control-systems/onecta/connectable-units.html) guides. Newer Daikin units may have a gateway built in.
+
 ## Configuration options
 
 To change these options, go to **Settings** > **Devices & services**, select **Daikin Onecta**, then select **Configure**.
