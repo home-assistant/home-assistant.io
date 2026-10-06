@@ -54,7 +54,7 @@ A climate entity and three switch entities are created for each Gree air conditi
 - **Panel light**
   - **Description**: Turns the front panel light on or off.
 - **Xtra fan**
-  - **Description**: Enables or disables extra fan mode, to help remove moisture from the coils. Gree remotes label this button **X-Fan** or **Blow**.
+  - **Description**: Enables or disables extra fan mode to help remove moisture from the coils. Gree remotes label this button **X-Fan** or **Blow**.
 
 These three features are switches rather than buttons because the Gree remote sends the wanted state, not a toggle, so Home Assistant can track whether each one is on or off. They are named to match the [Gree](/integrations/gree/) integration, which controls the same features over Wi-Fi.
 
