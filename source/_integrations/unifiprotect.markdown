@@ -112,7 +112,7 @@ Numbers are limited in the same way: the camera microphone level, the floodlight
 
 Selects are limited in the same way: the camera HDR mode, the floodlight light mode, and the alarm profile.
 
-Sensors are limited in the same way: the smart sensor battery, light, humidity and temperature readings with their trip timestamps, and the floodlight last motion.
+Sensors are limited in the same way: the smart sensor battery, signal quality, light, humidity and temperature readings with their trip timestamps, and the floodlight last motion.
 
 In API key only mode, binary sensors are limited to the states the public API reports: camera motion and smart detections other than package, which is an event {% term entity %}; floodlight "Is Dark" and motion; and smart sensor contact, motion, leak, tamper, and low battery. The doorbell chime binary sensor and the read-only mirrors of settings are not created, as the switch or light {% term entity %} already exposes the setting.
 
@@ -305,6 +305,7 @@ Each UniFi Protect key fob (USL-FOB) is added as a separate device in Home Assis
 - **Battery**: A diagnostic sensor with the remaining battery percentage.
 - **Battery low**: A diagnostic binary sensor that turns on when the fob reports a low battery.
 - **Signal strength**: A diagnostic sensor with the fob's signal strength in dBm. Disabled by default.
+- **Signal quality**: A diagnostic sensor with the fob's signal quality in percent. Disabled by default.
 - **Status**: A diagnostic sensor reporting the fob's presence as _Online_, _Recently seen_, _No recent heartbeat_, or _Device lost_.
 
 {% note %}
