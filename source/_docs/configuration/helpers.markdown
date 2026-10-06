@@ -97,7 +97,7 @@ Some places let you create a helper right where you need it. For example, if a f
 
 To change a helper later, select it in the list of helpers, and change its settings. Helpers that you set up in YAML can't be changed in the UI. Their settings show **The settings of this entity cannot be edited from the UI. Only entities set up from the UI are configurable from the UI.**
 
-## What happens to the value after a restart
+## What happens to the value after a restart?
 
 Home Assistant restarts now and then, for example, after an update or a power cut. If your automations depend on a helper, it matters whether the helper still has its value afterwards. For example, if a "Guests staying over" toggle turned itself off, an automation could turn down the heating in the guest room. And if a timer started idle again, the reminder it was counting down to would never come.
 
