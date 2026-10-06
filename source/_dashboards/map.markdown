@@ -23,6 +23,23 @@ On the map, each entity is shown as a marker with its picture, icon, name, state
 - **Toggle grouping** {% icon "mdi:google-circles-communities" %} combines markers that are close together into one bubble. The bubble shows up to four markers. For larger groups, it shows three markers and the number of remaining markers. Select the button again to show each marker separately. While markers are not grouped, the button shows {% icon "mdi:dots-hexagon" %}.
 - **Reset focus** {% icon "mdi:image-filter-center-focus" %} moves and zooms the map so that you can see your entities again. Entities with **Focus** turned off are left out, and zones are only included if **Fit zones** is turned on.
 
+## People, devices, and zones in a panel view
+
+When the map card is in a [panel view](/dashboards/panel/), such as on the [Map dashboard](/dashboards/dashboards/#map-dashboard), it also shows the **People**, **Devices**, and **Zones** tabs on top of the map, if the card shows at least one person, device, or zone. On a phone, they are at the bottom of the screen. The tabs show the following:
+
+- **People**: the people in your home and where they are.
+- **Devices**: the devices on the map that have a location.
+- **Zones**: your zones, with the number of people in each zone.
+
+People and devices are only shown on the map while their tab is selected. Zones and other entities with a location are always shown. [Passive zones](/integrations/zone/#adding-a-new-zone-or-editing-zones) are not shown in a panel view.
+
+Select an item to see its details and its **Activity** from the last 24 hours:
+
+- For a person or a device, the activity shows its changes, such as arriving at or leaving a zone.
+- For a zone, the activity shows the people who arrived or left.
+
+To open the more-info dialog of the item, select its name at the top of the details.
+
 ## Adding the map card to a dashboard
 
 1. In the top right of the screen, select **Edit dashboard** {% icon "mdi:pencil" %}.
@@ -175,7 +192,7 @@ conditions:
 {% endconfiguration %}
 
 {% note %}
-Only entities that have a location, with `latitude` and `longitude` attributes, are shown on the map.
+Only entities that have a location, with `latitude` and `longitude` attributes, are shown on the map. People are the exception: a person without a location is shown in the zone they are in, for example, at home.
 {% endnote %}
 
 ## Conditions options
