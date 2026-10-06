@@ -29,7 +29,7 @@ The **Qube heat pump** {% term integration %} allows you to monitor and control 
 
 ## Use cases
 
-- Monitor the heat pump's temperatures, power, energy use and coefficient of performance (COP), and add the electric consumption to the [energy dashboard](/docs/energy/).
+- Monitor the heat pump's temperatures, power, energy use, and coefficient of performance (COP), and add the electric consumption to the [energy dashboard](/docs/energy/).
 - Use surplus solar power: switch the smart grid ready mode to **Plus** or **Max** when your solar panels export to the grid, so the heat pump stores the energy as heat.
 - Heat domestic hot water when electricity is cheap, by boosting the water heater during low dynamic tariff hours.
 - Switch between summer and winter mode, or block the heat pump during peak hours, from automations instead of the heat pump's panel.
@@ -196,22 +196,7 @@ Host:
   - **Target temperature**: The user-defined DHW setpoint (adjustable).
   - **Operation modes**: Heat pump (normal operation) and performance (DHW boost, forces an immediate heating cycle).
 
-## Data updates
-
-The integration polls the heat pump every 15 seconds via Modbus TCP.
-
-## Diagnostics
-
-The diagnostics download contains:
-
-- The values the integration last read from the heat pump.
-- The state of the switches.
-- The smart grid ready mode.
-- The software version of the heat pump.
-
-The host address is redacted. Attach the downloaded file when reporting an issue. For more information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
-
-## Examples
+## Qube heat pump automation examples
 
 {% include docs/paste_yaml_tip.md %}
 
@@ -254,8 +239,8 @@ automation: |
 
 Boost the domestic hot water when the electricity price is low, and return to normal operation afterwards.
 
-- **Trigger**: The electricity price drops below 0.10 per kWh, or rises above it again.
-- **Action**: Set the water heater operation mode to **Performance** or **Heat pump**.
+- **Trigger**: The electricity price changes.
+- **Action**: Set the water heater operation mode to **Performance** when the price is below 0.10 per kWh, otherwise to **Heat pump**.
 
 {% details "YAML example for heating hot water at low prices" %}
 
@@ -263,25 +248,36 @@ Boost the domestic hot water when the electricity price is low, and return to no
 automation: |
   alias: "Qube: heat hot water at low prices"
   triggers:
-    - trigger: numeric_state
+    - trigger: state
       entity_id: sensor.electricity_price
-      below: 0.10
-      id: cheap
-    - trigger: numeric_state
-      entity_id: sensor.electricity_price
-      above: 0.10
-      id: expensive
   actions:
     - action: water_heater.set_operation_mode
       target:
         entity_id: water_heater.qube_heat_pump_domestic_hot_water
       data:
-        operation_mode: "{{ 'performance' if trigger.id == 'cheap' else 'heat_pump' }}"
+        operation_mode: >-
+          {{ 'performance' if trigger.to_state.state | float(1) < 0.10
+             else 'heat_pump' }}
 {% endexample %}
 
 {% enddetails %}
 
-Replace `sensor.grid_export_power` and `sensor.electricity_price` with the sensors of your energy meter and energy provider.
+Replace `sensor.grid_export_power` and `sensor.electricity_price` with the sensors of your energy meter and energy provider, and adjust the thresholds to their units. The examples assume an export power in watts that is positive while exporting, and a price per kWh.
+
+## Data updates
+
+The integration polls the heat pump every 15 seconds via Modbus TCP.
+
+## Diagnostics
+
+The diagnostics download contains:
+
+- The values the integration last read from the heat pump.
+- The state of the switches.
+- The smart grid ready mode.
+- The software version of the heat pump.
+
+The host address is redacted. Attach the downloaded file when reporting an issue. For more information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
 
 ## Known limitations
 
