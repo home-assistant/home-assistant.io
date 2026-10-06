@@ -37,12 +37,6 @@ The credentials used must be for the Hive account owner. Shared accounts or seco
 {% endnote %}
 
 {% include integrations/config_flow.md %}
-
-## Options
-
-Menu: *Configuration* > *Integrations* > *Select your new integration* > *Press the options button*
-
-- **Scan Interval**: Update the scan interval allowing the integration to poll for data more frequently (Cannot be set lower than 30 seconds).
   
 {% include integrations/actions.md %}
 

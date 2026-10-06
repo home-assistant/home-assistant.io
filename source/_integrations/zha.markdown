@@ -11,6 +11,7 @@ ha_category:
   - Event
   - Fan
   - Hub
+  - Infrared
   - Light
   - Lock
   - Number
@@ -19,6 +20,7 @@ ha_category:
   - Siren
   - Switch
   - Update
+  - Valve
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true
@@ -39,6 +41,7 @@ ha_platforms:
   - diagnostics
   - event
   - fan
+  - infrared
   - light
   - lock
   - number
@@ -47,6 +50,7 @@ ha_platforms:
   - siren
   - switch
   - update
+  - valve
 ha_zeroconf: true
 ha_integration_type: hub
 ---
@@ -62,7 +66,8 @@ This {% term integration %} currently supports the following device types within
 - [Cover](/integrations/cover/)
 - [Device tracker](/integrations/device_tracker/)
 - [Event](/integrations/event/)
-- [Fan](/integrations/fan/)
+- [Fan](/integrations/fan/) 
+- [Infrared](/integrations/infrared/)
 - [Light](/integrations/light/)
 - [Lock](/integrations/lock/)
 - [Number](/integrations/number/) (analog input/output)
@@ -71,6 +76,7 @@ This {% term integration %} currently supports the following device types within
 - [Siren](/integrations/siren/)
 - [Switch](/integrations/switch/)
 - [Update](/integrations/update/)
+- [Valve](/integrations/valve/)
 
 ## Introduction
 

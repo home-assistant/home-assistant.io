@@ -55,6 +55,19 @@ Verify SSL certificate:
   description: Enable this unless you are using a self-signed certificate on your Mealie installation.
 {% endconfiguration_basic %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Recognize food in new items:
+  description: >-
+    When enabled, Mealie checks new to-do list items to find matches in your food items and identify quantities and units. If it finds a confident match, Mealie adds the food item, unit, and quantity separately. Otherwise, the item is added as a note. Enabled by default.
+Recognize food in edited items:
+  description: >-
+    When enabled, Mealie checks edited to-do list items to find matches in your food items and identify quantities and units. If it finds a confident match, Mealie updates the food item, unit, and quantity. If disabled, the item is updated as entered. Enabled by default.
+Recognition method:
+  description: The method to use for processing to-do list items. The available methods are **Brute force**, **Natural language processing**, and **OpenAI**. The default is **Natural language processing**. If you select **OpenAI**, you must set up an API key in Mealie.
+{% endconfiguration_basic %}
+
 ## Available calendars
 
 The integration will create a {% term calendar %} for every type of meal plan, which are updated once an hour:
@@ -71,6 +84,8 @@ The integration will create a {% term calendar %} for every type of meal plan, w
 
 The integration will create a to-do list for every Mealie shopping list, which are updated every 5 minutes.
 
+When enabled in the options, items added to or edited in a to-do list are parsed by Mealie. If a confident match to an existing food is found, the item is added to or updated as a Mealie food item with separate quantity and unit.
+
 ## Sensors
 
 The integration provides the following sensors for the statistics, which are updated every 15 minutes:
@@ -85,7 +100,7 @@ The integration provides the following sensors for the statistics, which are upd
 
 ## Known limitations
 
-- When editing a food item within the shopping list the item will be converted to a note style item.
+- When you edit a food item in a shopping list, it is converted to a note if parsing does not find a confident match or if **Parse edited to-do list items** is disabled.
 
 ## Troubleshooting
 
