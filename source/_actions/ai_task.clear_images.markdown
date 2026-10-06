@@ -54,7 +54,7 @@ days:
 ## Good to know
 
 - The age of an image is counted from when it was generated. Viewing an image doesn't make it newer.
-- The action deletes every file in the AI Task image folder (`ai_task/image` in your media directory), not only images. Subfolders and other files in the media directory are left alone.
+- Every file in the AI Task image folder (`ai_task/image` in your media directory) is deleted, so don't store your own files there. Other files in the media directory are left alone.
 - To keep the folder small, call this action with `days` from an automation, for example once a week.
 
 {% include actions/stuck.md %}
