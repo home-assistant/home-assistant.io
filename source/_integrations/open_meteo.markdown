@@ -46,7 +46,7 @@ The current conditions include:
 - Temperature
 - Wind speed and direction
 
-The daily forecast adds a high and low temperature, expected precipitation, and wind for each day. The hourly forecast covers the condition, temperature, and precipitation for the hours ahead.
+The daily forecast covers, for each day, the condition, the high and low temperature, the apparent temperature, the expected precipitation, and the wind speed, gusts, and direction. The hourly forecast covers, for each hour ahead, the condition, the temperature and apparent temperature, the precipitation, the humidity, the dew point, the cloud cover, the air pressure, and the wind speed, gusts, and direction.
 
 You can show the forecast on a dashboard with the weather card, or read it in an automation or script with the [`weather.get_forecasts`](/integrations/weather/) action. Temperature, wind speed, and precipitation are shown in the units from your Home Assistant settings.
 
