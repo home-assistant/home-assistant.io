@@ -550,7 +550,7 @@ For IR Appliances, the state is inferred from previous commands in Home Assistan
 SwitchBot's cloud pushes state updates to Home Assistant through a webhook. This is how vacuums, along with the water leak, contact, motion, and presence sensors, receive their state updates. For SwitchBot's cloud to deliver this webhook, your Home Assistant instance must be reachable from the internet, which requires one of the following:
 
 - A publicly reachable [`external_url`](/integrations/homeassistant/), or
-- A [Home Assistant Link](/integrations/cloud/) subscription, in which case the webhook is delivered automatically through a cloudhook.
+- A [Home Assistant Link](/integrations/link/) subscription, in which case the webhook is delivered automatically through a cloudhook.
 
 On a local-only installation with neither of these, SwitchBot's cloud cannot deliver the webhook, and these devices do not receive updates.
 

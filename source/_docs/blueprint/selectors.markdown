@@ -1276,11 +1276,11 @@ Example output:
 
 ```yaml
 entity_id: media_player.living_room
-media_content_id: media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
+media_content_id: media-source://tts/link?message=TTS+Message&language=en-US&gender=female
 media_content_type: provider
 metadata:
   title: TTS Message
-  thumbnail: https://brands.home-assistant.io/_/cloud/logo.png
+  thumbnail: https://brands.home-assistant.io/_/link/logo.png
   media_class: app
   children_media_class: null
   navigateIds:
@@ -1289,17 +1289,17 @@ metadata:
       media_content_id: media-source://tts
     - media_content_type: provider
       media_content_id: >-
-        media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
+        media-source://tts/link?message=TTS+Message&language=en-US&gender=female
 ```
 
 Example output if accept filter is used. Note that the `entity_id` is not present:
 
 ```yaml
-media_content_id: media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
+media_content_id: media-source://tts/link?message=TTS+Message&language=en-US&gender=female
 media_content_type: provider
 metadata:
   title: TTS Message
-  thumbnail: https://brands.home-assistant.io/_/cloud/logo.png
+  thumbnail: https://brands.home-assistant.io/_/link/logo.png
   media_class: app
   children_media_class: null
   navigateIds:
@@ -1308,7 +1308,7 @@ metadata:
       media_content_id: media-source://tts
     - media_content_type: provider
       media_content_id: >-
-        media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
+        media-source://tts/link?message=TTS+Message&language=en-US&gender=female
 ```
 
 Example output when `multiple` is set to `true` (a list of media objects):

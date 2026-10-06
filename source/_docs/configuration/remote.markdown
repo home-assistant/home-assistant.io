@@ -10,7 +10,7 @@ related:
 
 By default, your Home Assistant only listens on your local network, which keeps things private and secure. If you want to reach it from outside your home, for example to control your devices while you are at work or on holiday, you have a few options.
 
-The easiest and safest option for most people is [Home Assistant Link](/cloud/). Other options are listed further down for those who prefer to set things up themselves.
+The easiest and safest option for most people is [Home Assistant Link](/link/). Other options are listed further down for those who prefer to set things up themselves.
 
 {% tip %}
 Before exposing Home Assistant to the internet, follow the [securing checklist](/docs/configuration/securing/).

@@ -66,7 +66,7 @@ The integration creates a **Transaction** {% term event %} {% term entity %} for
 
 The complete transaction data provided by Monzo is available in the event entity's `data` attribute for use in automations. By default, Home Assistant also stores this data in the recorder history.
 
-Transaction events require either [Home Assistant Link](/cloud/) or an external URL configured under {% my network title="**Settings** > **System** > **Network**" %} that is accessible from the web.
+Transaction events require either [Home Assistant Link](/link/) or an external URL configured under {% my network title="**Settings** > **System** > **Network**" %} that is accessible from the web.
 
 {% include integrations/actions.md %}
 
@@ -104,7 +104,7 @@ If Home Assistant cannot register a webhook, account and pot sensors continue to
 
 ## Known limitations
 
-- Transaction events require either [Home Assistant Link](/cloud/) or an external URL configured under {% my network title="**Settings** > **System** > **Network**" %} that is accessible from the web.
+- Transaction events require either [Home Assistant Link](/link/) or an external URL configured under {% my network title="**Settings** > **System** > **Network**" %} that is accessible from the web.
 - Pot transfers only work between a pot and its associated account in the same Monzo connection.
 - Loan, Flex, and Rewards accounts do not support pot transfers.
 - You cannot withdraw from a pot that has **Added security** enabled. Use the Monzo app to withdraw from that pot.
@@ -151,7 +151,7 @@ Monzo must be able to reach the Home Assistant webhook from the web. Balance sen
 
 #### Resolution
 
-Use [Home Assistant Link](/cloud/) or configure a publicly accessible external URL under {% my network title="**Settings** > **System** > **Network**" %}. Home Assistant automatically retries webhook registration after temporary failures.
+Use [Home Assistant Link](/link/) or configure a publicly accessible external URL under {% my network title="**Settings** > **System** > **Network**" %}. Home Assistant automatically retries webhook registration after temporary failures.
 
 ### A pot transfer fails
 

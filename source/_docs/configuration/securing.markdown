@@ -12,7 +12,7 @@ related:
     title: Multi-factor authentication
   - docs: /docs/configuration/secrets/
     title: Secrets.yaml file
-  - docs: /cloud/
+  - docs: /link/
     title: Home Assistant Link
   - url: https://nabucasa.com/config/
     title: Nabu Casa
@@ -43,7 +43,7 @@ For more information, refer to [Authentication](/docs/authentication/).
 
 If you want to reach Home Assistant from outside your home network, set up a secure method for [remote access](/docs/configuration/remote/) rather than exposing it directly to the internet.
 
-- The easiest and safest option is [Home Assistant Link](/cloud/). It needs no port forwarding or certificate setup, and your subscription supports the [Open Home Foundation](https://www.openhomefoundation.org), the nonprofit behind Home Assistant, ESPHome, and more open source projects.
+- The easiest and safest option is [Home Assistant Link](/link/). It needs no port forwarding or certificate setup, and your subscription supports the [Open Home Foundation](https://www.openhomefoundation.org), the nonprofit behind Home Assistant, ESPHome, and more open source projects.
 
 - Another option is to use TLS/SSL via the app [Duck DNS](/integrations/duckdns/) integrating Let's Encrypt.
 

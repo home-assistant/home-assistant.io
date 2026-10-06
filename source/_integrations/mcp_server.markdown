@@ -130,7 +130,7 @@ When accessing Home Assistant remotely through a reverse proxy or tunnel (such a
 
 If an unconfigured hostname or proxy header mismatch is used, Home Assistant cannot resolve the `issuer` in `/.well-known/oauth-authorization-server` and returns relative paths, which causes conforming OAuth clients to reject the metadata.
 
-Using [Home Assistant Link](/integrations/cloud/) (`https://<your-id>.ui.nabu.casa`) is recommended because it avoids reverse-proxy and tunnel configuration pitfalls.
+Using [Home Assistant Link](/integrations/link/) (`https://<your-id>.ui.nabu.casa`) is recommended because it avoids reverse-proxy and tunnel configuration pitfalls.
 {% endtip %}
 
 #### Long-lived access tokens
@@ -439,7 +439,7 @@ This can occur for two reasons:
 1. Go to {% my network title="**Settings** > **System** > **Network**" %} and make sure that the **External URL** (or **Internal URL**) matches the exact hostname and scheme used by the remote LLM client to reach Home Assistant.
 2. If using a reverse proxy or tunnel (such as Cloudflare Tunnel), make sure Home Assistant is configured to trust forwarded headers from the proxy. See [Reverse proxies in the HTTP integration documentation](/integrations/http/#reverse-proxies) for details on configuring **Trust X-Forwarded-For** and **Trusted proxies**.
 3. If the LLM client supports manual OAuth configuration (such as ChatGPT's user-defined OAuth client), enter the authorization and token endpoints manually rather than relying on automatic discovery.
-4. Using [Home Assistant Link](/integrations/cloud/) (`https://<your-id>.ui.nabu.casa`) avoids reverse-proxy and tunnel configuration pitfalls because it automatically handles canonical hostnames and SSL termination.
+4. Using [Home Assistant Link](/integrations/link/) (`https://<your-id>.ui.nabu.casa`) avoids reverse-proxy and tunnel configuration pitfalls because it automatically handles canonical hostnames and SSL termination.
 
 ## Removing the integration
 
