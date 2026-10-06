@@ -58,6 +58,15 @@ SSL profile:
     - **Modern v6** only accepts TLS 1.3 and is the default for new installations. Browsers and operating systems gained TLS 1.3 support around 2018 to 2019.
     - **Intermediate v6** accepts TLS 1.2 and newer with current ciphers. Choose this if older devices or apps cannot connect. Support arrived around 2013 to 2016.
     - **Modern v4** and **Intermediate v4** follow outdated guidelines and are kept for installations that used them before the profiles were versioned.
+
+    Oldest clients that can connect with each profile:
+
+    | Profile | Chrome | Firefox | Safari | iOS | Android | Edge |
+    | --- | --- | --- | --- | --- | --- | --- |
+    | Modern v6 | 70 | 63 | 12.1 | 12.2 | 10 | 75 |
+    | Intermediate v6 | 49 | 31 | 9 | 9 | 4.4 | 15 |
+    | Modern v4 | 30 | 27 | 9 | 9 | 5.0 | 1 |
+    | Intermediate v4 | 1 | 1 | 1 | any | 2.3 | any |
   required: false
 Trust X-Forwarded-For:
   description: Trust the `X-Forwarded-For` header when Home Assistant is behind a reverse proxy.
