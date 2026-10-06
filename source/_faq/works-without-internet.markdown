@@ -11,7 +11,7 @@ Devices that talk to Home Assistant using local protocols, such as [Zigbee](/int
 A few things still need the internet, and that is up to you:
 
 - Devices that only talk to a vendor's cloud. If a brand requires its own cloud service to work, that integration cannot reach the device when your internet is down. Whenever there is a local alternative, Home Assistant prefers it.
-- [Home Assistant Cloud](https://www.nabucasa.com) features such as remote access, and the Apple Home, Google Home, and Amazon Alexa integrations.
+- [Home Assistant Link](https://www.nabucasa.com) features such as remote access, and the Apple Home, Google Home, and Amazon Alexa integrations.
 - Updates and access to the {% term app %} store.
 
 Choosing devices that work with Home Assistant locally is the most reliable way to keep your smart home running through any kind of internet outage. The [Works with Home Assistant](https://works-with.home-assistant.io) program highlights devices that have been tested for local control.

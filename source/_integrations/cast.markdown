@@ -36,7 +36,7 @@ Ignore CEC:
 Home Assistant has its own Cast application to show the Home Assistant UI on any Chromecast device. You can use it by adding the [Cast entity row](/dashboards/entities/#cast) to your dashboards, or by calling the `cast.show_lovelace_view` action to show a specific dashboard view on a Cast device from an automation or script.
 
 {% important %}
-Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `external_url` in your [configuration](/integrations/homeassistant/#homeassistant-configuration-variables).
+Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Link, you don't need to do anything. Otherwise you must make sure that you have configured the `external_url` in your [configuration](/integrations/homeassistant/#homeassistant-configuration-variables).
 {% endimportant %}
 
 {% include integrations/actions.md %}

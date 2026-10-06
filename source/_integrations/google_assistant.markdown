@@ -7,7 +7,7 @@ featured: true
 ha_release: 0.56
 ha_iot_class: Cloud Push
 ha_codeowners:
-  - '@home-assistant/cloud'
+  - '@home-assistant/link'
 ha_domain: google_assistant
 ha_integration_type: system
 ha_platforms:
@@ -19,15 +19,15 @@ The **Google Assistant** {% term integration %} allows you to control your Home 
 
 If you want to send commands to Google Assistant to control devices supported by Google Assistant but not by Home Assistant, or broadcast messages to Google Assistant speakers and displays without interrupting music/video playback, take a look at the [Google Assistant SDK](/integrations/google_assistant_sdk) integration.
 
-## Automatic setup via Home Assistant Cloud
+## Automatic setup via Home Assistant Link
 
-With [Home Assistant Cloud](/cloud/), you can connect your Home Assistant instance in a few simple clicks to Google Assistant. With Home Assistant Cloud you don't have to deal with dynamic DNS, SSL certificates, or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Cloud requires a paid subscription after a 30-day free trial.
+With [Home Assistant Link](/link/), you can connect your Home Assistant instance in a few simple clicks to Google Assistant. With Home Assistant Link you don't have to deal with dynamic DNS, SSL certificates, or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Link requires a paid subscription after a 30-day free trial.
 
-For Home Assistant Cloud users, documentation can be found [here](https://www.nabucasa.com/config/google_assistant/).
+For Home Assistant Link users, documentation can be found [here](https://www.nabucasa.com/config/google_assistant/).
 
-## Manual setup (if you don't have Home Assistant Cloud)
+## Manual setup (if you don't have Home Assistant Link)
 
-The Google Assistant integration (without Home Assistant Cloud) requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
+The Google Assistant integration (without Home Assistant Link) requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
 
 ### Prerequisites
 
@@ -347,7 +347,7 @@ If you receive 404 errors linked to reporting state in your log, Home Assistant 
 
 #### Error during linking: "Could not update the setting. Please check your connection"
 
-Your **Cloud fulfillment URL** may be invalid or unreachable. Recheck the **Cloud fulfillment URL** as specified in [Manual setup](#manual-setup-if-you-dont-have-home-assistant-cloud) and verify that it's publicly reachable.
+Your **Link fulfillment URL** may be invalid or unreachable. Recheck the **Link fulfillment URL** as specified in [Manual setup](#manual-setup-if-you-dont-have-home-assistant-link) and verify that it's publicly reachable.
 
 #### 500 / 429 error on request sync
 

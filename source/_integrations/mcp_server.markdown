@@ -130,7 +130,7 @@ When accessing Home Assistant remotely through a reverse proxy or tunnel (such a
 
 If an unconfigured hostname or proxy header mismatch is used, Home Assistant cannot resolve the `issuer` in `/.well-known/oauth-authorization-server` and returns relative paths, which causes conforming OAuth clients to reject the metadata.
 
-Using [Home Assistant Cloud](/integrations/cloud/) (`https://<your-id>.ui.nabu.casa`) is recommended because it avoids reverse-proxy and tunnel configuration pitfalls.
+Using [Home Assistant Link](/integrations/cloud/) (`https://<your-id>.ui.nabu.casa`) is recommended because it avoids reverse-proxy and tunnel configuration pitfalls.
 {% endtip %}
 
 #### Long-lived access tokens
@@ -157,7 +157,7 @@ When using a remote custom connector in Claude for Desktop, the connection is br
 3. Select **+** in the **Connectors** pane, and then select **Add Custom Connector**.
 4. Enter the following details:
    - **Name**: "Home Assistant" (or any more descriptive name you prefer)
-   - **Remote MCP Server URL**: `https://<your_home_assistant_external_url>/api/mcp` (or your Home Assistant Cloud URL `https://<your-id>.ui.nabu.casa/api/mcp`). The hostname must match your configured External URL in Home Assistant.
+   - **Remote MCP Server URL**: `https://<your_home_assistant_external_url>/api/mcp` (or your Home Assistant Link URL `https://<your-id>.ui.nabu.casa/api/mcp`). The hostname must match your configured External URL in Home Assistant.
    - Under advanced settings:
      - **OAuth Client ID**: `https://claude.ai` (this is the base URL of the Claude application; do not enter your Home Assistant URL)
      - **OAuth Client Secret**: Leave this blank
@@ -203,7 +203,7 @@ ChatGPT supports connecting to remote Model Context Protocol servers for Plus, P
 2. Navigate to **Workspace settings** (or user settings), select **Apps**, and select **Create**.
 3. Enter the following details:
    - **Name**: "Home Assistant" (or any name you prefer).
-   - **MCP Server URL**: `https://<your_home_assistant_external_url>/api/mcp` (or your Home Assistant Cloud URL `https://<your-id>.ui.nabu.casa/api/mcp`). The hostname must match your configured External URL in Home Assistant.
+   - **MCP Server URL**: `https://<your_home_assistant_external_url>/api/mcp` (or your Home Assistant Link URL `https://<your-id>.ui.nabu.casa/api/mcp`). The hostname must match your configured External URL in Home Assistant.
    - Select **OAuth** for the authentication mechanism. ChatGPT will attempt to auto-discover OAuth settings. If discovery fails (for example, if ChatGPT attempts Dynamic Client Registration or encounters a tunnel hostname mismatch), enter the settings manually under **Advanced OAuth Settings** > **User defined oauth client**:
      - Under **Client registration**:
        - **OAuth Client ID**: `https://chatgpt.com` (this is the base URL of the ChatGPT application; do not enter your Home Assistant URL)
@@ -439,7 +439,7 @@ This can occur for two reasons:
 1. Go to {% my network title="**Settings** > **System** > **Network**" %} and make sure that the **External URL** (or **Internal URL**) matches the exact hostname and scheme used by the remote LLM client to reach Home Assistant.
 2. If using a reverse proxy or tunnel (such as Cloudflare Tunnel), make sure Home Assistant is configured to trust forwarded headers from the proxy. See [Reverse proxies in the HTTP integration documentation](/integrations/http/#reverse-proxies) for details on configuring **Trust X-Forwarded-For** and **Trusted proxies**.
 3. If the LLM client supports manual OAuth configuration (such as ChatGPT's user-defined OAuth client), enter the authorization and token endpoints manually rather than relying on automatic discovery.
-4. Using [Home Assistant Cloud](/integrations/cloud/) (`https://<your-id>.ui.nabu.casa`) avoids reverse-proxy and tunnel configuration pitfalls because it automatically handles canonical hostnames and SSL termination.
+4. Using [Home Assistant Link](/integrations/cloud/) (`https://<your-id>.ui.nabu.casa`) avoids reverse-proxy and tunnel configuration pitfalls because it automatically handles canonical hostnames and SSL termination.
 
 ## Removing the integration
 

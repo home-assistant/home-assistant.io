@@ -10,7 +10,7 @@ related:
   - docs: /voice_control/assist_create_open_ai_personality/
     title: Telegram notification
   - url: https://www.nabucasa.com
-    title: Home Assistant Cloud
+    title: Home Assistant Link
 ---
 
 In this tutorial, we are creating an automation that has Assist send you a daily summary. Assist will tell you about the weather and your calendar events today. It will also send you the summary to your messenger.
@@ -25,7 +25,7 @@ We will be using OpenAI, which requires an OpenAI account. For what we do in thi
 
 This tutorial assumes you have a few things set up already:
 
-- [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [local assistant pipeline](/voice_control/voice_remote_local_assistant/).
+- [Home Assistant Link](https://www.nabucasa.com) or a manually configured [local assistant pipeline](/voice_control/voice_remote_local_assistant/).
 
 This tutorial was done using the **Local calendar**, the **Meteorologisk institutt**,  and the **Telegram** integrations. It has not been tested with other integrations of the notifications or calendar category.
 

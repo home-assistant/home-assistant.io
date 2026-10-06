@@ -88,7 +88,6 @@ module Jekyll
       DEFAULT_TITLES = {
         "automations" => "Automations & Scenes",
         "blueprint_import" => "Import Blueprint",
-        "cloud" => "Home Assistant Cloud",
         "config_energy" => "Energy Configuration",
         "config_flow_start" => "Add Integration",
         "config_mqtt" => "MQTT Configuration",
@@ -102,6 +101,7 @@ module Jekyll
         "energy" => "Energy",
         "general" => "General Settings",
         "info" => "Information",
+        "link" => "Home Assistant Link",
         "supervisor_info" => "Supervisor Information",
         "supervisor_backups" => "Backups",
         "integrations" => "Devices & services",

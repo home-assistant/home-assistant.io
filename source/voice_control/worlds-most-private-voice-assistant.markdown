@@ -10,7 +10,7 @@ related:
   - url: https://www.amazon.com/dp/B06XW1BQHC
     title: Grandstream HT801
   - url: https://www.nabucasa.com
-    title: Home Assistant Cloud
+    title: Home Assistant Link
 ---
 
 This tutorial will guide you to turn your old landline phone into the

@@ -5,7 +5,7 @@ ha_category:
   - Voice
 ha_release: "0.54"
 ha_codeowners:
-  - '@home-assistant/cloud'
+  - '@home-assistant/link'
   - '@ochlocracy'
   - '@jbouwh'
 ha_domain: alexa
@@ -17,16 +17,16 @@ Amazon Alexa provides a Smart Home API for richer home automation control withou
 - _"Alexa, set the thermostat to cool."_
 - _"Alexa, is the garage door open?"_
 
-It takes considerable effort to configure. Your Home Assistant instance must be accessible from the Internet, and you need to create an Amazon Developer account and an Amazon Web Services (AWS) account. An easier solution is to use [Home Assistant Cloud](/integrations/cloud/).
+It takes considerable effort to configure. Your Home Assistant instance must be accessible from the Internet, and you need to create an Amazon Developer account and an Amazon Web Services (AWS) account. An easier solution is to use [Home Assistant Link](/integrations/link/).
 
 The [Emulated Hue integration][emulated-hue-integration] provides a simpler alternative to use utterances such as _"Alexa, turn on the kitchen light"_. However, it has some limitations since everything looks like a light bulb.
 
 {% note %}
 
-With [Home Assistant Cloud](/cloud/), you can connect your Home Assistant instance in a few simple clicks to Amazon Alexa. With Home Assistant Cloud you don't have to deal with dynamic DNS, SSL certificates or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Cloud requires a paid subscription after a 30-day free trial.
+With [Home Assistant Link](/link/), you can connect your Home Assistant instance in a few simple clicks to Amazon Alexa. With Home Assistant Link you don't have to deal with dynamic DNS, SSL certificates or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Link requires a paid subscription after a 30-day free trial.
 <br/>
 <br/>
-For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
+For Home Assistant Link Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
 
 {% endnote %}
 
@@ -473,7 +473,7 @@ See [Alexa Display Categories][alexa-display-categories] for a complete list
 
 ## Supported platforms
 
-Home Assistant supports the following integrations through Alexa using a Smart Home Skill. For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
+Home Assistant supports the following integrations through Alexa using a Smart Home Skill. For Home Assistant Link Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
 
 The following paragraphs explain the features of the platforms that are currently supported.
 
@@ -624,7 +624,7 @@ View a camera stream on an Amazon echo device.
 
 The [`stream`](/integrations/stream/) integration is required to stream cameras to Amazon echo devices.
 
-The Amazon echo device will request the camera stream from Home Assistant. The Home Assistant URL must be accessible from the network the Amazon echo device is connected to and must support HTTPS on port 443 with a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport). These requirements can be satisfied with Home Assistant Cloud, or LetsEncrypt/DuckDNS.
+The Amazon echo device will request the camera stream from Home Assistant. The Home Assistant URL must be accessible from the network the Amazon echo device is connected to and must support HTTPS on port 443 with a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport). These requirements can be satisfied with Home Assistant Link, or LetsEncrypt/DuckDNS.
 
 Enable preload stream option for cameras used with echo devices to reduce response time, and prevent timing out before the 6 second limit.
 
@@ -1133,7 +1133,7 @@ logger:
     homeassistant.components.alexa: debug
 ```
 
-If using Home Assistant Cloud you also need to debug `hass_nubucasa.iot`:
+If using Home Assistant Link you also need to debug `hass_nubucasa.iot`:
 
 ```yaml
 logger:

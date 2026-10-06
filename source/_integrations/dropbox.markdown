@@ -18,7 +18,7 @@ This {% term integration %} allows you to connect your [Dropbox](https://dropbox
 {% include integrations/config_flow.md %}
 
 {% note %}
-By default, this integration will use the Home Assistant Cloud Account Linking service to authenticate with Dropbox. This does not require a Home Assistant Cloud subscription, and is the easiest and recommended way to set up the integration. If you want to use your own Dropbox application credentials instead, please follow the instructions in the "Using custom application credentials" section below.
+By default, this integration will use the Home Assistant Link Account Linking service to authenticate with Dropbox. This does not require a Home Assistant Link subscription, and is the easiest and recommended way to set up the integration. If you want to use your own Dropbox application credentials instead, please follow the instructions in the "Using custom application credentials" section below.
 {% endnote %}
 
 {% details "Using custom application credentials" icon="mdi:account-key" %}

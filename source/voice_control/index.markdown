@@ -11,7 +11,7 @@ related:
   - docs: /voice_control/best_practices/
     title: Best practices with Assist
   - url: https://www.nabucasa.com/config/assist/
-    title: Home Assistant Cloud
+    title: Home Assistant Link
   - url: https://support.nabucasa.com/hc/categories/24451727188125
     title: Voice Preview Edition
 ---
@@ -30,10 +30,10 @@ When you configure voice assistant hardware made for Home Assistant, it will use
 
 Our recommended voice assistant hardware is the [Home Assistant Voice Preview Edition](/voice-pe/).
 
-In case your hardware does not support our wizard, do not worry. Here are two detailed guides based on how you plan to process your voice (Locally, or using Home Assistant Cloud voice services)
+In case your hardware does not support our wizard, do not worry. Here are two detailed guides based on how you plan to process your voice (Locally, or using Home Assistant Link voice services)
 
 - [I plan to process my voice locally](/voice_control/voice_remote_local_assistant/)
-- [I plan to use Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) (recommended as it is the simplest)
+- [I plan to use Home Assistant Link](/voice_control/voice_remote_cloud_assistant/) (recommended as it is the simplest)
 
 ## Expand and experiment
 
@@ -159,7 +159,7 @@ Assist aims to support more languages than other voice assistants, but this is s
 		</div>
 		<div class="supported-card cloud check" data-state="-1">
 			<div class="heading">
-				<span>Home Assistant Cloud</span>
+				<span>Home Assistant Link</span>
 			</div>
 			<div class="state-bar">
 				<span></span><span></span><span></span>

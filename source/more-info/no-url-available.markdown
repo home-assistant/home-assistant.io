@@ -3,7 +3,7 @@ title: "No URL Available"
 description: "More information on how to resolve the No URL Available message in Home Assistant."
 related:
   - url: https://support.nabucasa.com/hc/categories/24734619902749
-    title: Home Assistant Cloud user documentation
+    title: Home Assistant Link user documentation
 ---
 
 When Home Assistant serves you the "No URL Available" message, you are probably trying to set up or configuring an integration that requires your account to be linked.
@@ -22,11 +22,11 @@ Home Assistant will try to find the URL you are currently using in your browser 
 
 There are multiple options to consider:
 
-### Using Nabu Casa Home Assistant Cloud
+### Using Nabu Casa Home Assistant Link
 
-If you have Nabu Casa's [Home Assistant Cloud](https://support.nabucasa.com/hc/en-us/categories/24734619902749), the easiest way to resolve this, is by visiting your Home Assistant instance from the remote URL.
+If you have Nabu Casa's [Home Assistant Link](https://support.nabucasa.com/hc/en-us/categories/24734619902749), the easiest way to resolve this, is by visiting your Home Assistant instance from the remote URL.
 
-Go to {% my cloud title="**Settings** > **Home Assistant Cloud**" %}.
+Go to {% my cloud title="**Settings** > **Home Assistant Link**" %}.
 
 Visit your instance on the remote URL. Now you can set up the integration as normal, without getting the "No URL Available" message.
 

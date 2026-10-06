@@ -66,7 +66,7 @@ automation: |
   actions:
     - action: tts.speak
       target:
-        entity_id: tts.home_assistant_cloud
+        entity_id: tts.home_assistant_link
       data:
         media_player_entity_id: media_player.living_room
         message: >-

@@ -33,7 +33,7 @@ Enabling remote access to your Home Assistant instance—via port forwarding, tu
 
 We are not responsible for any security issues, data loss, unauthorized control of your devices, property damage, personal injury, or other consequences that may result from improper configuration, vulnerabilities, weak credentials, or external attacks.
 
-Set up remote access only if you fully understand the risks and have implemented strong security measures, such as HTTPS, multi-factor authentication, IP banning, regular updates, and preferably a VPN or [Home Assistant Cloud](/cloud/) instead of direct exposure.
+Set up remote access only if you fully understand the risks and have implemented strong security measures, such as HTTPS, multi-factor authentication, IP banning, regular updates, and preferably a VPN or [Home Assistant Link](/cloud/) instead of direct exposure.
 
 Proceed entirely at your own risk. If in doubt, keep Home Assistant local-only and avoid exposing it remotely.
 {% endimportant %}

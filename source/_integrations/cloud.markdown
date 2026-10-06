@@ -1,6 +1,6 @@
 ---
-title: Home Assistant Cloud
-description: Enable the Home Assistant Cloud integration.
+title: Home Assistant Link
+description: Enable the Home Assistant Link integration.
 ha_release: '0.60'
 ha_category:
   - Backup
@@ -19,12 +19,12 @@ ha_platforms:
 ha_integration_type: system
 related:
   - url: https://support.nabucasa.com/hc/categories/24734619902749
-    title: Home Assistant Cloud user documentation
+    title: Home Assistant Link user documentation
   - docs: /voice_control/voice_remote_cloud_assistant/
-    title: Setting up a voice Assistant with Home Assistant Cloud
+    title: Setting up a voice Assistant with Home Assistant Link
 ---
 
-The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services, such as the following:
+The Home Assistant Link allows you to quickly integrate your local Home Assistant with various cloud services, such as the following:
 
 - [Amazon Alexa](https://support.nabucasa.com/hc/articles/25619363899677)
 - [Google Assistant](https://support.nabucasa.com/hc/articles/25619376817053)
@@ -54,7 +54,7 @@ config:
 
 {% include integrations/actions.md %}
 
-## Home Assistant Cloud automation examples
+## Home Assistant Link automation examples
 
 With the remote access actions, you decide when your Home Assistant is reachable from outside your home.
 
@@ -68,7 +68,7 @@ Only open up remote access when you actually need it. This automation turns it o
   - **Entity with location**: You (`person.you`)
   - **Zone**: Home
   - **Event**: Leave
-- **Action**: Home Assistant Cloud: Enable Home Assistant Cloud remote access
+- **Action**: Home Assistant Link: Enable Home Assistant Link remote access
 
 {% details "YAML example for turning on remote access when you leave" %}
 
@@ -94,7 +94,7 @@ When you're home, you reach Home Assistant on your local network. This automatio
   - **Entity with location**: You (`person.you`)
   - **Zone**: Home
   - **Event**: Enter
-- **Action**: Home Assistant Cloud: Disable Home Assistant Cloud remote access
+- **Action**: Home Assistant Link: Disable Home Assistant Link remote access
 
 {% details "YAML example for turning off remote access when you get home" %}
 
