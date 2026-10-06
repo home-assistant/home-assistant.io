@@ -113,7 +113,8 @@ When you press the movie night button, activate the cinema {% term scene %}, but
 - **Condition**: Media player source
   - **Target**: Living room receiver
   - **Source**: HDMI 1
-- **Action**: Scene: Activate cinema scene
+- **Action**: Activate scene
+  - **Target**: Cinema scene
 
 {% details "YAML example for the cinema scene" %}
 
@@ -145,7 +146,6 @@ Every evening, if the amplifier is on one of its external inputs, send a reminde
 - **Condition**: Media player source
   - **Target**: Amplifier
   - **Source**: Coax1, Opt1
-  - **Condition passes if**: Any
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
