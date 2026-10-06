@@ -107,7 +107,7 @@ You can choose to show or hide certain cards or [badges](/dashboards/badges/) ba
 2. Select the type of condition, and enter the parameters.
    - If you define multiple conditions, the card or badge is only shown when all conditions are met.
    - If you did not define any conditions, the card or badge is always shown to all users.
-3. To change the order of the conditions, drag them by {% icon "mdi:drag-horizontal-variant" %}.
+3. To change the order of the conditions, drag a condition by its handle {% icon "mdi:drag-horizontal-variant" %}.
 4. Check the result before you save.
    - At the top of the tab, **Current visibility** shows whether the card or badge would be shown right now.
    - Each condition shows whether it passes right now, for example **Condition passes** or **Condition did not pass**.
