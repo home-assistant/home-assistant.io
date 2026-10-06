@@ -45,6 +45,9 @@ Entities without a unique ID are not stored in the entity registry, so you canno
 
 ### Can I add a unique ID myself?
 
-No. As an end user, you cannot add a unique ID to an entity that does not have one. Unique IDs must come from the integration itself, because they need to consistently identify the same physical device or service across restarts.
+It depends on the integration.
+
+- If you created the entity in YAML, check the documentation of its integration for a `unique_id` option. Some integrations, such as [Template](/integrations/template/) and [MQTT](/integrations/mqtt/), let you set one yourself. Once the entity has a unique ID, you can rename it and change its settings from the UI.
+- If the integration doesn't offer that option, you can't add a unique ID yourself. It has to come from the integration, because it needs to identify the same device or service every time Home Assistant starts.
 
 If an integration does not provide unique IDs, it could potentially be improved to do so. Contributions are welcome. See the [developer documentation](https://developers.home-assistant.io/docs/development_index) to get started, and the [entity registry documentation](https://developers.home-assistant.io/docs/entity_registry_index/) for more on unique IDs.

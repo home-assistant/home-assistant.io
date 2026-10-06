@@ -124,6 +124,8 @@ To add the forecast:
 
 The Energy dashboard now overlays the expected production on your solar graph.
 
+{% include integrations/actions.md %}
+
 ## Examples
 
 ### Automation: Act on a high solar forecast for tomorrow

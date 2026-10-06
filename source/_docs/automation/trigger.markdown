@@ -27,9 +27,19 @@ The main elements of a trigger that are defined in the `configuration.yaml` file
 
 ### Trigger ID
 
-All triggers can be assigned an optional `id`. If the ID is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from [trigger conditions and actions](/docs/scripts/conditions/#trigger-condition). The `id` does not have to be unique for each trigger, and it can be used to group similar triggers for use later in the automation (such as several triggers of different types that should all turn some entity on).
+In the visual automation editor, select triggers directly when you add a **Triggered by** condition.
+Home Assistant creates and manages the trigger IDs needed for those selections.
 
-Trigger IDs also allow you to set up an automation with many actions, each action depending on a different trigger. An action will be connected to a trigger through the trigger ID and fires only if that trigger is verified. To know how to create an automation using trigger IDs, refer to [Creating an automation with actions that depend on different triggers](/docs/automation/trigger/#creating-an-automation-with-actions-that-depend-on-different-triggers).
+To set a specific trigger ID yourself, edit the automation in YAML.
+All triggers can be assigned an optional `id`.
+If the ID is omitted, Home Assistant uses the trigger's position in the trigger list.
+You can reference the `id` in [trigger conditions and actions](/docs/scripts/conditions/#triggered-by-condition).
+IDs do not have to be unique.
+You can use the same ID to group similar triggers, such as triggers of different types that should all turn an entity on.
+
+Trigger IDs allow you to set up an automation with many actions, each action depending on a different trigger.
+An action is connected to a trigger through the trigger ID and runs only if that trigger is verified.
+To learn how to create an automation using trigger IDs, see [Creating an automation with actions that depend on different triggers](#creating-an-automation-with-actions-that-depend-on-different-triggers).
 
 #### YAML example
 
@@ -459,11 +469,9 @@ Instead of creating many automations for different groups of related triggers an
 2. In the lower right corner, select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
 4. Search for the trigger using the search box, for example, and then select it.
-5. In the trigger window on the right, edit the **Trigger ID** by going to the three dots {% icon "mdi:dots-vertical" %} menu > **Edit ID**.
-6. In the **Then do** section, select **Add action** and then select the **Choose** block.
-7. Expand the option section, select **Add condition** and, from the **By type** list, select the **Triggered by** condition.
-8. In the condition window on the right, select the trigger ID that you added in step 5 and then **Save**.
-9. In the section of the same option, select **Add action** and choose the action that will be fired by the related trigger.
-10. In the action window on the right, select the target or group of targets, input any other requested data and select **Save**.
-11. You can add more conditions and actions to that option by repeating steps 6 to 10.
-12. Repeat steps 3 to 11 to add another trigger and related option for the new condition and action.
+5. In the **Then do** section, select **Add action** and then select the **Choose** block.
+6. Expand the option section, select **Add condition** and, from the **By type** list, select **Triggered by**.
+7. In the condition window on the right, select the trigger that you added in step 4, and then select **Save**. Home Assistant creates an ID for the trigger if needed.
+8. In the same option, select **Add action**, and choose the action that runs when the related trigger starts the automation.
+9. In the action window on the right, select the target or group of targets, enter any other requested data, and select **Save**.
+10. To add another trigger and related option, repeat steps 3 to 9.
