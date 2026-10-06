@@ -78,7 +78,7 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 ### Buttons
 
 - A Smoke Detector gets a **Test alarm** button that starts the device's self-test.
-- A Motion Detector II gets a **Reset tamper** button that confirms the device is back in place and clears an active tamper alarm.
+- A Motion Detector II that supports it gets a **Reset tamper** button that confirms the device is back in place and clears an active tamper alarm.
 
 ### Covers
 
