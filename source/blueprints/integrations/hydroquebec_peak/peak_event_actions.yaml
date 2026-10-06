@@ -8,6 +8,8 @@ blueprint:
 
 
     Hydro-Québec recommends preheating about 2 hours before an event begins.
+  homeassistant:
+    min_version: 2024.10.0
   domain: automation
   author: Beat-YT
   input:

@@ -4,7 +4,7 @@ description: Instructions on how to integrate Hydro-Québec peak events into Hom
 ha_category:
   - Energy
   - Sensor
-ha_release: '2026.11'
+ha_release: 2026.11
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -55,7 +55,7 @@ For each configured offer, the integration provides the following entities. Even
 
 This blueprint runs actions at three moments: a configurable time before a peak event begins, when the event begins, and when the event ends. For example, the automation can preheat the home ahead of the event, lower the thermostats when it begins, and restore the normal temperature when it ends. Hydro-Québec recommends preheating about two hours before an event begins.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/hydroquebec_peak_event_actions.yaml" %}
+{% blueprint_example blueprint="hydroquebec_peak/peak_event_actions.yaml" %}
 
 ## Data updates
 
