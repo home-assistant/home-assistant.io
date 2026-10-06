@@ -77,7 +77,7 @@ The following sensors are enabled by default:
 - **Session start**: When the charger started the current or most recently completed charging session.
 - **Session duration**: Elapsed time of the current or most recently completed charging session reported by the charger in seconds (s).
 - **Internal temperature**: Temperature measured inside the charger in degrees Celsius (°C).
-- **Charging status**: High-level charging state reported by the charger.
+- **Charging status**: High-level charging state reported by the charger. **Scheduled** means a charging reservation is pending. For automations and templates, use the state `scheduled`.
 - **Charging message**: Additional guidance reported for the current charging state.
 
 The following sensors are disabled by default:
