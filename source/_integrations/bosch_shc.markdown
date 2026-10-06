@@ -99,6 +99,7 @@ The select platform lets you choose between a set of predefined options. Select 
 
 - Outdoor Siren: a **Siren volume** select, letting you choose between reduced, medium, or loud
 - Motion Detector II that supports it: a **Motion sensitivity** select, letting you choose between **high**, **medium**, or **low**. In YAML, the medium option is `middle`.
+- Door/Window Contact II Plus: a **Vibration sensitivity** select, letting you choose between **very high**, **high**, **medium**, **low**, or **very low**. In YAML, the options are `very_high`, `high`, `medium`, `low`, and `very_low`.
 
 ### Sensors
 
