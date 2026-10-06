@@ -69,11 +69,13 @@ The **Airly** integration provides the following entities. Which entities are cr
 - **Temperature**
   - **Description**: Shows the air temperature in degrees Celsius.
 
-## Examples
+## Automation examples
 
 The following examples show how to use the integration in Home Assistant automations. These examples are just a starting point, and you can use them as inspiration to create your own automations.
 
-### Notify when the air quality is poor
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: notify when the air quality is poor
 
 The following example sends a notification to your mobile device when the common air quality index goes above 75, which is where the index enters the "high" range. The message includes the current index value and the advice provided by Airly.
 
