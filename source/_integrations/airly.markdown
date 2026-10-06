@@ -69,12 +69,69 @@ The **Airly** integration provides the following entities. Which entities are cr
 - **Temperature**
   - **Description**: Shows the air temperature in degrees Celsius.
 
-## Known limitations
+## Examples
 
-Airly allows 100 data updates per day. Data updates become less frequent as you add Airly integration instances, as described in [Setup](#setup).
+The following examples show how to use the integration in Home Assistant automations. These examples are just a starting point, and you can use them as inspiration to create your own automations.
+
+### Notify when the air quality is poor
+
+The following example sends a notification to your mobile device when the common air quality index goes above 75, which is where the index enters the "high" range. The message includes the current index value and the advice provided by Airly.
+
+```yaml
+automation:
+  - alias: "Notify when the air quality is poor"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.airly_common_air_quality_index
+        above: 75
+
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
+        data:
+          title: "Poor air quality"
+          message: >
+            The air quality index is
+            {{ states('sensor.airly_common_air_quality_index') }}.
+            {{ state_attr('sensor.airly_common_air_quality_index', 'advice') }}
+```
+
+### Control an air purifier based on the PM2.5 level
+
+The following example turns on an air purifier when the PM2.5 level goes above 25 µg/m³ and turns it off when the level drops below 15 µg/m³. Replace `fan.air_purifier` with the entity of your own air purifier.
+
+```yaml
+automation:
+  - alias: "Turn on the air purifier when PM2.5 is high"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.airly_pm2_5
+        above: 25
+
+    actions:
+      - action: fan.turn_on
+        target:
+          entity_id: fan.air_purifier
+
+  - alias: "Turn off the air purifier when PM2.5 is low"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.airly_pm2_5
+        below: 15
+
+    actions:
+      - action: fan.turn_off
+        target:
+          entity_id: fan.air_purifier
+```
 
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
+
+## Known limitations
+
+Airly allows 100 data updates per day. Data updates become less frequent as you add Airly integration instances, as described in [Setup](#setup).
