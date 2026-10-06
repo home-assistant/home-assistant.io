@@ -31,7 +31,7 @@ When the map card is in a [panel view](/dashboards/panel/), such as on the [Map 
 - **Devices**: the devices on the map that have a location.
 - **Zones**: your zones, with the number of people in each zone.
 
-People and devices are only shown on the map while their tab is selected. Zones and other entities with a location are always shown. Passive zones are not shown in a panel view.
+People and devices are only shown on the map while their tab is selected. Zones and other entities with a location are always shown. [Passive zones](/integrations/zone/#adding-a-new-zone-or-editing-zones) are not shown in a panel view.
 
 Select an item to see its details and its **Activity** from the last 24 hours:
 
@@ -192,7 +192,7 @@ conditions:
 {% endconfiguration %}
 
 {% note %}
-Only entities that have a location, with `latitude` and `longitude` attributes, are shown on the map. A person without these attributes is shown in the zone they are in, for example at home.
+Only entities that have a location, with `latitude` and `longitude` attributes, are shown on the map. People are the exception: a person without a location is shown in the zone they are in, for example, at home.
 {% endnote %}
 
 ## Conditions options

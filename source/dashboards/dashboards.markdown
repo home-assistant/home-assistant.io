@@ -97,7 +97,9 @@ The predefined **Activity** dashboard is powered by the [Activity integration](/
 
 ### Map dashboard
 
-The predefined **Map** dashboard is populated by the [Map card](/dashboards/map/). On top of the map, you can see your [people, devices, and zones](/dashboards/map/#people-devices-and-zones-in-a-panel-view), and their recent activity. You can edit this dashboard like any other dashboard. For example, you can edit the [view](/dashboards/views/) to use the **Sidebar** instead of the default **Panel** view type if you like. The **People**, **Devices**, and **Zones** tabs are only available in the **Panel** view type, so they are no longer shown when you switch.
+The predefined **Map** dashboard is populated by the [Map card](/dashboards/map/). On top of the map, you can see your [people, devices, and zones](/dashboards/map/#people-devices-and-zones-in-a-panel-view), and their recent activity.
+
+You can edit this dashboard like any other dashboard. For example, you can edit the [view](/dashboards/views/) to use the **Sidebar** instead of the default **Panel** view type if you like. The **People**, **Devices**, and **Zones** tabs are only available in the **Panel** view type, so they are no longer shown when you switch.
 
 #### Maps and presence detection
 
