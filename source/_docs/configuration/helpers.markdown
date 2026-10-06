@@ -42,7 +42,7 @@ There are three kinds of helpers:
 
 ### Helpers that store a value
 
-These helpers keep what you or an automation set: a value, like the state of a toggle, or settings, like the time blocks of a schedule.
+These helpers keep what you or an automation set: a value, like the state of a toggle, or settings values, like the time blocks of a schedule.
 
 - [**Toggle**](/integrations/input_boolean/)
   - An on/off switch, for example, to pause an automation or to show that a guest is staying over.
@@ -97,7 +97,7 @@ Some places let you create a helper right where you need it. For example, if a f
 
 To change a helper later, select it in the list of helpers, and change its settings. Helpers that you set up in YAML can't be changed in the UI. Their settings show **The settings of this entity cannot be edited from the UI. Only entities set up from the UI are configurable from the UI.**
 
-## What happens to the value after a restart?
+## What happens to a helper value after a restart?
 
 Home Assistant restarts now and then, for example, after an update or a power cut. If your automations depend on a helper, it matters whether the helper still has its value afterwards. For example, if a "Guests staying over" toggle turned itself off, an automation could turn down the heating in the guest room. And if a timer started idle again, the reminder it was counting down to would never come.
 
@@ -106,12 +106,14 @@ Most helpers keep their value after a restart, so usually you don't need to do a
 - A timer that should keep running
   - By default, a timer stops when Home Assistant restarts, and is idle afterwards. If an automation depends on the timer, turn on **Restore state and time when Home Assistant starts** in the settings of the timer. If the timer finishes while Home Assistant isn't running, automations that react to it don't run after the restart.
 - A toggle that should always start on or off
-  - By default, a toggle keeps its state. If it should always be on, or always off, after a restart, change **Each time Home Assistant starts** in the settings of the toggle.
+- A toggle that should always start on or off
+  - By default, a toggle keeps its state. If it should always be **On**, or always **Off**, after a restart, change **Each time Home Assistant starts** in the settings of the toggle.
 - A counter that should start again from its initial value
   - By default, a counter keeps its value. To start at its initial value after every restart, turn off **Restore the last known value when Home Assistant starts** in the settings of the counter.
 - A number or a dropdown whose settings you changed
   - If you change the range of a number, its value moves to the nearest new limit. For example, if the value is 30 and you change the maximum to 25, the value becomes 25. If you change the range in YAML instead, and the last value is outside the new range, the number starts at its minimum after the restart.
-  - If you remove the option that a dropdown is set to, the dropdown shows as unknown until you select another option. After a restart, it starts at its first option.
+  - If you change the range of a number, its value moves to the nearest new limit. For example, if the value is `30` and you change the maximum to `25`, the value becomes `25`. If you change the range in YAML instead, and the last value is outside the new range, the number starts at its minimum after the restart.
+  - If you remove the option that a dropdown is set to, the dropdown shows as **Unknown** until you select another option. After a restart, it starts at its first option.
 
 In YAML, a number, dropdown, text, or date and time helper can have an `initial` value. It then starts with that value after every restart, instead of its last value.
 
@@ -124,9 +126,9 @@ You can use helpers in these places:
 - In automations and scripts
   - An automation can start when the helper changes, for example, when a timer finishes, with the [Timer finished](/triggers/timer.finished/) trigger.
   - An automation can check the helper in a condition, and only continue if, for example, a toggle is on.
-  - An automation or a script can change the helper in an action, for example, turn on a toggle or [start a timer](/actions/timer.start/).
+  - An automation or a script can change the helper in an action. For example, an automation can turn on a toggle or [start a timer](/actions/timer.start/).
   - For more examples, refer to [Which tool to use](/docs/automation/which-tool-to-use/#combining-the-tools).
 - On a dashboard
-  - You can see and change the helper yourself, for example, a toggle that pauses an automation, or a number that sets a target temperature. Add the helper to a card, like any other entity.
+  - You can see and change the helper yourself. For example, use a toggle to pause an automation, or a number to set a target temperature. Add the helper to a card, like any other entity.
 - With Assist
   - You can change the helper with your voice, for example, turn a toggle on or off. First, [expose the helper to Assist](/voice_control/voice_remote_expose_devices/).
