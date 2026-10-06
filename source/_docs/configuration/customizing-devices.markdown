@@ -55,7 +55,7 @@ To change entity attributes, follow these steps:
 
 ## Changing the entity ID format for new entities
 
-Home Assistant generates entity IDs for new entities based on parts of your setup, like the area that is assigned to the entity, the device it belongs to, and the entity name. For example, a temperature sensor on a thermostat in the living room might have the entity ID `sensor.living_room_thermostat_temperature`. The default format of entity IDs uses the area, device, and entity name, in that order. To get the most out of the default entity ID format, check the [recommendations on entity naming and related elements](#recommendations-on-entity-naming-and-related-elements).
+Home Assistant generates entity IDs for new entities based on parts of your setup, like the area that is assigned to the entity, the device it belongs to, and the entity name. For example, a temperature sensor on a thermostat in the living room might have the entity ID `sensor.living_room_thermostat_temperature`. The default format of entity IDs uses the area, the parent device, the device, and the entity name, in that order. For more information about parent devices, refer to [About parent devices and sub-devices](#about-parent-devices-and-sub-devices). Parts without a value are left out. To get the most out of the default entity ID format, check the [recommendations on entity naming and related elements](#recommendations-on-entity-naming-and-related-elements).
 
 However, you can change the default format of entity IDs by defining which parts will be used and its order. The new format that you set will only be used when Home Assistant generates a new entity ID, so existing entities keep their current entity IDs. You can still rename the entity IDs afterwards in the entity settings.
 
@@ -66,7 +66,7 @@ Some integrations suggest their own entity ID for new entities. In that case, th
 To change the format:
 
 1. Go to **Settings** > **System** > **Entity ID format**.
-2. Add, remove, or reorder the **Floor**, **Area**, **Device**, and **Entity** parts to build the format you want. The **Preview** shows an example of the result.
+2. Add, remove, or reorder the **Floor**, **Area**, **Parent device**, **Device**, and **Entity** parts to build the format you want. The **Examples** show the result for a device with a parent device and for one without.
 3. Select **Save**.
 
 If you want to go back to the default format, select **Reset to default**.
@@ -76,3 +76,13 @@ When you recreate the entity IDs for a device, Home Assistant will use the new f
 ## Customizing an entity in YAML
 
 If your entity is not supported, or you could not customize what you need via the user interface, you need to edit the settings in your {% term "`configuration.yaml`" %} file. For a detailed description of the entity configuration variables and [device class](/integrations/homeassistant/#device-class) information, refer to the [Home Assistant Core integration documentation](/integrations/homeassistant/).
+
+## About parent devices and sub-devices
+
+Some devices are made up of smaller parts that each act like a device of their own. For example, a power strip can show each of its outlets as a separate device. In Home Assistant, the power strip is the _parent device_, and each outlet is a _sub-device_ with its own entities, such as the power use of that outlet.
+
+Whether a device has sub-devices is decided by the integration that provides it. You can't add or change this yourself.
+
+You can see which devices belong together in several places, for example, on the page of a parent device, which lists its sub-devices, and on the page of a sub-device, which shows the device it is part of.
+
+By default, new entity IDs include the name of the parent device. For more information, refer to [Changing the entity ID format for new entities](#changing-the-entity-id-format-for-new-entities).

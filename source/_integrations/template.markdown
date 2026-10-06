@@ -412,6 +412,10 @@ Device:
   description: An existing device to attach this helper to.
 Availability:
   description: A template that gets the available state of the entity.
+Delay on:
+  description: The amount of time the template state must be met before this sensor switches to `on`. You find this option under **Additional options**.
+Delay off:
+  description: The amount of time the template state must not be met before this sensor switches to `off`. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML

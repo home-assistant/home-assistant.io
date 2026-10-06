@@ -111,7 +111,7 @@ There is currently support for the following device types within Home Assistant:
 
 ### Updates
 
-- **Image update available**: Shows whether a newer image is available for a container. Installing the update recreates the container with the latest image.
+- **Image update available**: Shows whether a newer image is available for a container. Installing the update pulls the latest image, showing its download progress, and then recreates the container with it. For images from a private registry, Portainer pulls the image itself and no progress is shown.
 - **Update**: Shows the running Portainer version and the latest release, with a link to its release notes. Portainer itself can't be updated from Home Assistant.
 
 {% include integrations/actions.md %}
