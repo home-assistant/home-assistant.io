@@ -86,6 +86,8 @@ The following sensors are disabled by default:
 - **Scheduled start**: Start time of a scheduled charging session. For a session that starts immediately, such as one started from Home Assistant, this is the time charging was requested.
 - **Charging time limit**: Time after which the charger ends the charging session in minutes (min). The value is unknown when no limit is set, which includes sessions started from Home Assistant.
 
+The **Scheduled start** and **Charging time limit** sensors only show values while a schedule is pending or a charging session is running. After cancellation or completion, both show `unknown`.
+
 Scheduled starts and charging time limits are set outside Home Assistant, for example in the charger's mobile app. The integration reports them but cannot change them.
 
 The following diagnostic sensors are disabled by default:
