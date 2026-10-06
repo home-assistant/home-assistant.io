@@ -24,16 +24,13 @@ If you want a straightforward and organized Home Assistant setup, create a simpl
 To change entity attributes, follow these steps:
 
 1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity from the list.
-2. In the top-right corner, select the {% icon "mdi:cog" %} cog icon.
-
-   ![Entity dialog box with cog icon.](/images/docs/configuration/customizing-entity-dialog.png)
-
+2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
 3. Enter or edit the attributes:
-   - For example, the entity ID here could be shortened to `binary_sensor.lumi_sensor_aq2_opening`.
+   - Enter or edit the entity ID, for example, to shorten it to `binary_sensor.lumi_sensor_aq2_opening`.
      - You can use lowercase letters, numbers, and underscores.
      - The ID must not start or end with an underscore.
      - To undo the change and revert the ID to the default, select the {% icon "mdi:restore" %} icon.
-     - To revert all the entity IDs for a device, on the device page, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Recreate entity IDs**.
+     - To revert all the entity IDs for a device, go to {% my devices title="**Settings** > **Devices & services** > **Devices**" %}, select the device and then select **Menu** {% icon "mdi:dots-vertical" %} > **Recreate entity IDs**.
      - Result: This resets the entity ID and applies the current default naming convention.
        - The terms used to generate the entity ID depend on a few factors. Prioritization is as follows:
          1. If you changed the name of the entity, the entity name will be used.
@@ -42,11 +39,9 @@ To change entity attributes, follow these steps:
             - If something other than Latin script is used, the entity ID is based on the English default name. This is because entity IDs must use lowercase letters, numbers, and underscores.
 
    - Enter or edit the entity name.
-     - In this example, this would change "Opening".
-   - If needed, from the **Shown as** menu, you can select a different [device class](/integrations/homeassistant/#device-class).
+     - If the entity belongs to a device, you can turn on **Use device name** instead. The entity is then called by the name of its device. For example, if a smart plug called `Coffee machine` has an entity called `Power`, the entity is shown as `Coffee machine` instead of `Coffee machine Power`. The entity also uses the area of its device. To rename the device, select **change the device name**.
+   - If needed, from the **Show as** menu, you can select a different [device class](/integrations/homeassistant/#device-class).
    - If you like, add a [label](/docs/organizing/labels/).
-
-   ![Settings for entity.](/images/docs/configuration/customizing-entity.png)
 
 4. To apply the changes, select **Update**.
 5. If you changed the entity ID and use this entity in automations or scripts, update the entity ID there as well.
