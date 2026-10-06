@@ -4,6 +4,7 @@ description: Instructions on how to integrate INDI Allsky with Home Assistant.
 ha_category:
   - Binary sensor
   - Camera
+  - Image
   - Sensor
 ha_release: "2026.10"
 ha_iot_class: Local Push
@@ -15,6 +16,7 @@ ha_integration_type: service
 ha_platforms:
   - binary_sensor
   - camera
+  - image
   - sensor
 ha_quality_scale: bronze
 ---
@@ -48,20 +50,39 @@ The **INDI Allsky** {% term integration %} provides the following entities:
 
 ### Camera
 
-- **Camera**: Provides the latest image from your INDI Allsky server.
+- **Latest capture**: Provides the latest image from your INDI Allsky server.
+
+### Image
+
+- **Latest keogram**: Displays the most recently generated keogram image composite.
+- **Latest star trail**: Displays the most recently generated star trail image composite.
 
 ### Sensors
 
+- **Camera sensor temperature**: Camera sensor temperature (in °C).
+- **Camera SQM**: Sky Quality Meter magnitude calculated from camera exposures.
+- **Camera SQM ADU**: Camera SQM raw Analog-to-Digital Unit (ADU) count.
+- **Device SQM**: Sky Quality Meter magnitude reading from a dedicated hardware SQM device.
+- **Dew heater duty cycle**: Dew heater power output level (in %).
+- **Dew point**: Calculated atmospheric dew point temperature (in °C).
 - **Exposure time**: The exposure duration of the latest capture (in seconds).
+- **Fan duty cycle**: Cooling fan output level (in %).
+- **Frost point**: Calculated atmospheric frost point temperature (in °C).
+- **Heat index**: Calculated heat index temperature (in °C).
 - **Sky quality**: Sky Quality Meter (SQM) reading.
 - **Stars**: The number of stars detected in the latest image.
-- **Camera sensor temperature**: Camera sensor temperature (in °C).
+- **Wind direction**: Measured wind direction (in degrees).
 
 - **Binning mode** (disabled by default): The binning mode used for capture.
 - **Camera ID** (disabled by default): The identifier of the camera.
+- **CPU temperature** (disabled by default): Server host CPU temperature (in °C).
 - **Exposure creation time** (disabled by default): Timestamp when the exposure was created.
 - **Filename** (disabled by default): The filename of the latest captured image.
 - **Gain** (disabled by default): The camera gain setting.
+
+### Dynamic hardware sensors
+
+Additional hardware sensors connected to your INDI Allsky instance (such as ambient temperature, relative humidity, barometric pressure, voltage, current, power, or illuminance sensors) are automatically discovered and created dynamically with appropriate units of measurement and device classes.
 
 ## Data updates
 
@@ -72,4 +93,3 @@ The camera entity fetches the latest image on-demand from the INDI Allsky server
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
-

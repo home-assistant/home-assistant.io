@@ -68,9 +68,9 @@ Bluetooth control is opt-in and set up per vehicle. You add each vehicle you wan
 2. Select **Add local vehicle**.
 3. Choose the account vehicle you want to control over Bluetooth, then select **Submit**.
 4. Home Assistant looks for the vehicle over Bluetooth. Make sure the vehicle is within range and that fewer than three phone keys are nearby, then continue.
-5. When prompted, select **Submit**, then approve Home Assistant's virtual key by placing your key card against the center console card reader of the vehicle.
+5. If the vehicle doesn't have Home Assistant's Bluetooth key on its key list yet, Home Assistant asks you to add it. Select **Submit**, then tap your key card on the center console card reader within about 30 seconds. The vehicle's touchscreen shows a prompt while it waits for the card. If the card isn't tapped in time, select **Submit** again and tap it sooner.
 
-You only need to do this once per vehicle.
+You only need to do this once per vehicle. If Home Assistant's key is later removed from the vehicle's key list, the next time you add the vehicle, Home Assistant asks you to tap a key card again.
 
 When the vehicle is within Bluetooth range, its commands use the local connection first, with an automatic fallback to the cloud when needed. This can make commands like locking, unlocking, or flashing the lights feel noticeably faster. When the vehicle is away, its commands use the cloud, and it switches back to Bluetooth on its own when it returns.
 
@@ -341,7 +341,6 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 |Sensor|Consumer imported from generator|No|Polling|
 |Sensor|Consumer imported from grid|No|Polling|
 |Sensor|Consumer imported from solar|No|Polling|
-|Sensor|Energy left|Yes|Polling|
 |Sensor|Generator exported|Yes|Polling|
 |Sensor|Generator power|No|Polling|
 |Sensor|Grid exported|Yes|Polling|
@@ -360,7 +359,6 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 |Sensor|Solar exported|No|Polling|
 |Sensor|Solar generated|Yes|Polling|
 |Sensor|Solar power|Yes|Polling|
-|Sensor|Total pack energy|No|Polling|
 |Sensor|Version|Yes|Polling|
 |Sensor|VPP backup reserve|Yes|Polling|
 |Switch|Allow charging from grid|Yes|Polling|

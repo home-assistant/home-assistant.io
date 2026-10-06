@@ -63,8 +63,11 @@ Trusted proxies:
 Enable IP banning:
   description: Automatically ban IP addresses after repeated failed logins.
   required: false
+Unlimited login attempts:
+  description: Never ban an IP address, no matter how many login attempts fail.
+  required: false
 Login attempts before ban:
-  description: Failed login attempts before an IP address is banned. Set this to `-1` to disable automatic bans.
+  description: Failed login attempts before an IP address is banned, from 1 to 1000. Only shown when **Unlimited login attempts** is turned off.
   required: true
 CORS allowed origins:
   description: Origins that may make cross-origin requests. Include the scheme, for example `https://example.com`.
@@ -104,6 +107,17 @@ When a network mask is provided, you must use the network address (for example, 
 The **Trust X-Forwarded-For** and **Trusted proxies** settings only apply when Home Assistant is behind a traditional reverse proxy, such as NGINX, Caddy, Traefik, or HAProxy. If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, requests arrive through a secure tunnel instead of a reverse proxy. These settings have no effect on cloud connections, and you do not need to configure them for remote access.
 
 {% endnote %}
+
+### Caching behind a reverse proxy or CDN
+
+If your reverse proxy or content delivery network (CDN) caches responses, set it up so your browser always gets the current Home Assistant frontend after an update:
+
+- Do not cache `404` (not found) responses.
+- Do not cache HTML pages, such as the main app page (`index.html`), or the service worker files (`/sw-modern.js` and `/sw-legacy.js`). A cached service worker keeps serving the old frontend after an update.
+- Do not cache responses from `/api/` or `/auth/`. These contain live data and login pages, and caching them can show outdated states or break signing in.
+- You can cache files under `/frontend_latest/`, `/frontend_es5/`, and `/static/`. Home Assistant already tells browsers to cache these for up to a month.
+
+Most reverse proxies and CDNs, such as NGINX and Cloudflare, do not cache HTML by default. You only need to check this if you added your own caching rules.
 
 ## APIs
 

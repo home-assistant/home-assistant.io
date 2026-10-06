@@ -28,7 +28,7 @@ To use the FRITZ!Box call monitor in your installation, a user with at least `Vo
 7.  Check the rights box next to `Voice messages, faxes, FRITZ!App Fon and call list`.
 8.  Click the `Apply` button.
 
-You also need network access from HA to your FRITZ!Box on port `tcp/1012` for the call monitoring, as well as *one time access* to port `tcp/80` for setting up the integration.
+You also need network access from Home Assistant to your FRITZ!Box on TCP port `1012` for call monitoring and TCP port `49000` for TR-064 communication. One-time access to TCP port `80` is required when setting up the integration.
 
 ## Setup
 

@@ -7,6 +7,7 @@ ha_category:
   - Number
   - Sensor
   - Switch
+  - Water heater
 ha_release: 2026.7
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -20,6 +21,7 @@ ha_platforms:
   - number
   - sensor
   - switch
+  - water_heater
 ha_integration_type: hub
 ha_quality_scale: silver
 ---
@@ -100,6 +102,7 @@ Each air conditioner or heat pump indoor unit is exposed as a climate entity wit
 Each heating zone of an air-to-water heat pump is exposed as a separate climate entity, named **Zone 1** and **Zone 2**. Zone 2 is only created when the unit reports zone 2 support.
 
 - **HVAC modes**: Off, Heat, Cool (if supported by the unit)
+- **HVAC action**: Heating, Cooling, Idle (while the unit is stopped or heating the hot water tank), or Off
 - **Target temperature** (per zone)
 - **Current room temperature** (per zone)
 
@@ -128,6 +131,7 @@ For Air-to-Water units only:
 
 - **Zone 1 room temperature** and **Zone 2 room temperature**: The room temperature of each zone. Zone 2 is only created when the unit reports zone 2 support.
 - **Tank water temperature**: The current measured tank water temperature.
+- **Operation status**: What the heat pump is doing: **Idle**, **Heating water**, **Heating zones**, or **Cooling**.
 
 ### Switches
 
@@ -136,6 +140,15 @@ For both Air-to-Air and Air-to-Water units:
 - **Frost protection**: Turns the frost protection on or off.
 - **Overheat protection**: Turns the overheat protection on or off.
 - **Standby**: Puts the unit in or out of standby mode. Only created for units that support standby.
+
+### Water heater
+
+Air-to-Water units with a hot water tank get a **Hot water** water heater:
+
+- **Target temperature**: The tank water temperature to heat to, within the limits reported by the unit.
+- **Operation mode**: **Heat pump** for normal operation, or **High demand** to force hot water, which heats the tank with priority over the heating zones.
+
+The water heater shows as off while the unit is powered off or in standby. It can't turn the unit on or off, as that would also affect the heating zones. To see whether the tank is being heated right now, use the **Operation status** sensor.
 
 ## Data updates
 
@@ -190,7 +203,6 @@ automation:
 
 - The integration uses the cloud. It doesn't work without an internet connection, and changes you make with the remote control or the MELCloud Home app can take up to 60 seconds to show up in Home Assistant.
 - An Air-to-Water zone in heat mode is shown as **Heat**, whether the unit controls on room temperature, flow temperature, or heating curve. Setting the zone to **Heat** or **Cool** from Home Assistant always selects room temperature control.
-- The hot water tank can't be controlled yet. Its temperature is available as a sensor.
 - The monthly energy consumption starts counting at midnight UTC on the first day of the month.
 
 ## Troubleshooting

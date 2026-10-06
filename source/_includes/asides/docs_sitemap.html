@@ -16,29 +16,29 @@
       {% if doc == 'automation' or in_automation_reference or include.docs_index %}
       <ul>
         <li>{% active_link /docs/automation/using_blueprints/ Using automation blueprints %}</li>
-        <li>{% active_link /docs/automation/editor/ Editor %}</li>
+        <li>{% active_link /docs/automation/editor/ Automation editor %}</li>
         <li>
           {% active_link /docs/automation/trigger/ Triggers %}
           <ul>
-            <li>{% active_link /triggers/ Browse available triggers %}</li>
+            <li>{% active_link /triggers/ All triggers %}</li>
           </ul>
         </li>
         <li>
           {% active_link /docs/automation/condition/ Conditions %}
           <ul>
-            <li>{% active_link /conditions/ Browse available conditions %}</li>
+            <li>{% active_link /conditions/ All conditions %}</li>
           </ul>
         </li>
         <li>
           {% active_link /docs/automation/action/ Actions %}
           <ul>
-            <li>{% active_link /actions/ Browse available actions %}</li>
+            <li>{% active_link /actions/ All actions %}</li>
+            <li>{% active_link /docs/automation/automation_integration_actions/ Actions of the automation integration %}</li>
           </ul>
         </li>
-        <li>{% active_link /docs/automation/modes/ Run modes %}</li>
-        <li>{% active_link /docs/automation/services/ Automation actions %}</li>
-        <li>{% active_link /docs/automation/templating/ Templates %}</li>
-        <li>{% active_link /docs/automation/yaml/ YAML %}</li>
+        <li>{% active_link /docs/automation/modes/ Automation modes %}</li>
+        <li>{% active_link /docs/automation/templating/ Automation templates %}</li>
+        <li>{% active_link /docs/automation/yaml/ Automations in YAML %}</li>
         <li>{% active_link /docs/automation/troubleshooting/ Testing and troubleshooting automations %}</li>
       </ul>
       {% endif %}
@@ -90,7 +90,7 @@
         <li>{% active_link /dashboards/badges/ Badges %}</li>
       </ul>
     </li>
-  
+
     <li>
       <iconify-icon icon="mdi:view-dashboard"></iconify-icon> View types
       <ul>
@@ -101,7 +101,7 @@
         {% endfor %}
       </ul>
     </li>
-  
+
     <li>
       {% icon "mdi:card-multiple" %} Card types
       <ul>
@@ -112,7 +112,7 @@
         {% endfor %}
       </ul>
     </li>
-  
+
     <li>
       {% icon "mdi:cog" %} Dashboard configuration
       <ul>
@@ -120,7 +120,7 @@
         <li>{% active_link /dashboards/header-footer/ Card headers & footers %}</li>
         <li>{% active_link /dashboards/actions/ Dashboard actions %}</li>
         <li><a
-            class="external-link" 
+            class="external-link"
             href="https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card/"
             >Developing custom cards
                      </a></li>
@@ -145,7 +145,7 @@
       <ul>
         <li>{% active_link /voice_control/voice_remote_expose_devices/ Exposing entities to Assist %}</li>
         <li>{% active_link /voice_control/assign_areas_floors/ Assigning areas to floors and an area to a device %}</li>
-        <li>{% active_link /voice_control/aliases/ Aliases for entities, areas and floors %}</li> 
+        <li>{% active_link /voice_control/aliases/ Aliases for entities, areas and floors %}</li>
         <li>{% active_link /voice_control/exposing_scripts_to_llms/ Exposing scripts to LLMs %}</li>
         <li>{% active_link /voice_control/builtin_sentences/ Talking to Assist - Sentences starter pack %}</li>
       </ul>
