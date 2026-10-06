@@ -60,6 +60,7 @@ The integration supports the following appliance types:
 - **Air Purifier**
 - **Air Conditioners**
 - **Dehumidifier**
+- **Robot Vacuum Cleaner**
 
 ## Prerequisites
 
@@ -204,7 +205,7 @@ This entity is used to control the appliance with the following actions:
   - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher, Refrigerator, Hood, Hob.
 - **Battery**
   - **Description**: Reports the battery level.
-  - **Available for appliance types**: RVC.
+  - **Available for appliance types**: Robot vacuum cleaner.
 - **Current temperature**
   - **Description**: Reports the current cavity temperature.
   - **Available for appliance types**: Oven.
