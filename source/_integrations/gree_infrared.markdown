@@ -91,6 +91,7 @@ If you also have an infrared receiver entity (from an IR blaster that can also l
 - With physical remote state tracking, commands from the remote for a mode you did not select during setup are ignored, so the entity does not switch to a mode it cannot control.
 - Every Gree command carries the whole state of the unit, so operating one entity also resends the others. Turning a switch on or off resends the current mode, target temperature, and fan speed, and changing the climate entity resends the turbo, panel light, and extra fan settings.
 - Toggling a switch while the air conditioner is off does not turn the unit on. The frame that is sent carries the switch you changed along with the off state.
+- A disabled entity does not remember its part of that state across a restart. If you disable the climate entity, toggling a switch sends the off state with the default mode, target temperature, and fan speed, which can turn a running unit off. With physical remote state tracking, this lasts until the receiver picks up the next command from the remote. Keep the climate entity enabled if you use the switches.
 
 ## Troubleshooting
 
