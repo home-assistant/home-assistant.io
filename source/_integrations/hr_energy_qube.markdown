@@ -195,8 +195,14 @@ The integration polls the heat pump every 15 seconds via Modbus TCP.
 
 ## Diagnostics
 
-The diagnostics download contains the values the integration last read from the heat pump, the state of the switches and the smart grid ready mode, and the software version. The host address is redacted.
-Attach the downloaded file when reporting an issue. For more information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
+The diagnostics download contains:
+
+- The values the integration last read from the heat pump.
+- The state of the switches.
+- The smart grid ready mode.
+- The software version of the heat pump.
+
+The host address is redacted. Attach the downloaded file when reporting an issue. For more information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
 
 ## Removing the integration
 
