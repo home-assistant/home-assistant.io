@@ -2,6 +2,7 @@
 title: Bosch SHC
 description: Integrate Bosch SHC.
 ha_category:
+  - Alarm
   - Binary sensor
   - Button
   - Cover
@@ -20,6 +21,7 @@ ha_codeowners:
   - '@mosandlt'
 ha_domain: bosch_shc
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
   - cover
@@ -66,6 +68,10 @@ During registration, Home Assistant generates a client certificate and key and r
 {% include integrations/config_flow.md %}
 
 ## Supported functionality
+
+### Alarm control panel
+
+The Intrusion Detection System of your Smart Home Controller is exposed as an alarm control panel. It supports **Arm away** (full protection), **Arm home** (partial protection), **Arm custom bypass** (individual protection), and **Disarm**. No code is required.
 
 ### Binary sensors
 
