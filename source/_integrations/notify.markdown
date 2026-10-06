@@ -17,20 +17,14 @@ If you want to send notifications to the Home Assistant web interface, you may u
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a notify entity
+## Notify entity states
 
-The state of a notify entity is the date and time when a message was last sent.
+The {% term state %} of a notify entity is a timestamp showing the date and time when a message was last sent. Home Assistant stores the timestamp in UTC, for example, `2026-01-01T12:00:00.123456+00:00`. The Home Assistant interface shows it in your local date and time format.
 
-<p class='img'>
-<img src='/images/integrations/notify/state_notify.png' alt='Screenshot showing the state of a notify entity in Settings > Tools > States' />
-<img src='/images/integrations/notify/state_notify.png' alt='Screenshot showing the state of a notify entity in the States tab of Tools.' />
-Screenshot showing the state of a notify entity in {% my tools_states title="Settings > Tools > States" %}
-</p>
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
-In addition, the entity can have the following states:
-
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 {% include integrations/actions.md %}
 

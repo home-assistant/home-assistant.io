@@ -115,19 +115,39 @@ The appliance you want to control, such as a TV, air conditioner, amplifier, or 
 
 The Home Assistant representation of a single emitter or receiver. This is what you select when configuring an integration for an infrared-controlled device.
 
-## About the state of an infrared entity
+## Infrared states
 
-The infrared entity is stateless in the traditional sense, as in, it cannot have a state like `on` or `off`. Instead, the state is a timestamp showing when the {% term entity %} was last active:
+An infrared entity has no `on` or `off` state. Its {% term state %} is a timestamp showing when the {% term entity %} was last active:
 
 - For an emitter, the state is the date and time the last IR command was sent.
 - For a receiver, the state is the date and time the last IR signal was received.
 
-In addition, the entity can have the following states:
+Home Assistant stores the timestamp in UTC, for example, `2026-01-01T12:00:00.123+00:00`. The Home Assistant interface shows it in your local date and time format.
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
+
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 Because the {% term state %} of an infrared entity is a timestamp, it changes every time the entity is used. This means you can use it to track when the emitter last sent a command, or when the receiver last picked up a signal. The logbook can also show context about which {% term integration %} or {% term action %} triggered the IR event.
+
+## Device class
+
+The device class tells Home Assistant whether an infrared entity is an emitter or a receiver. Home Assistant uses the device class to choose the icon and the default name, and to show the type of each adapter in the [list of infrared remote adapters](#viewing-your-infrared-remote-adapters).
+
+Home Assistant sets the device class automatically, based on whether the entity sends or receives IR signals. You can't change the device class.
+
+### Device classes in automations and templates
+
+- Automations: The device class doesn't change how an infrared entity works in automations.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `emitter`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
+
+### List of available device classes
+
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
+
+- **Infrared emitter** (`emitter`): Sends IR signals to an infrared-controlled device.
+- **Infrared receiver** (`receiver`): Receives IR signals, for example from a handheld remote.
 
 ## Troubleshooting
 

@@ -2286,7 +2286,7 @@ Unit of measurement:
 Device class:
   description: The [device class](/integrations/sensor/#device-class) used to pick display formatting and the icon.
 State class:
-  description: The [state class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes), which controls number formatting and whether the sensor's history is kept as long-term statistics.
+  description: The [state class](/integrations/sensor/#state-class), which controls whether the sensor's history is kept as long-term statistics.
 Device:
   description: An existing device to attach this helper to.
 Availability:
@@ -2704,7 +2704,7 @@ Backup:
 Specific version:
   description: Enables or disables using a specific version (`specific_version`) in the installation actions **Actions on install**. Defaults to disabled.
 Device class:
-  description: The [device class](/integrations/update/#device-class) used to pick the frontend state and icon.
+  description: The [device class](/integrations/update/#device-class) of the update.
 Device:
   description: An existing device to attach this helper to.
 Availability:
@@ -2735,7 +2735,7 @@ update:
       required: false
       type: boolean
     device_class:
-      description: Sets the [device class](/integrations/update/#device-class), changing the device state and icon that is displayed in the UI.
+      description: Sets the [device class](/integrations/update/#device-class) of the update.
       required: false
       type: device_class
       default: None

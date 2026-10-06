@@ -4,7 +4,7 @@ description: "Automations, scripts, scenes, blueprints, and helpers overlap. Lea
 related:
   - docs: /docs/automation/basics/
     title: Understanding automations
-  - docs: /integrations/script/
+  - docs: /docs/script/
     title: Scripts
   - docs: /docs/scene/
     title: Scenes
@@ -39,7 +39,7 @@ For details, refer to [Understanding automations](/docs/automation/basics/).
 - Not for
   - Reacting to a change by itself. A script only runs when something starts it. Use an automation for that.
 
-For details, refer to [Scripts](/integrations/script/).
+For details, refer to [Scripts](/docs/script/).
 
 ### Scene
 

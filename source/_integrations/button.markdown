@@ -22,21 +22,14 @@ Unlike a switch, a button has no `on` or `off` state. Instead, it remembers when
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a button
+## Button states
 
-The button {% term entity %} is stateless. Unlike a normal switch entity, it does not have an `on` or `off` state.
+The {% term state %} of a button is a timestamp showing when the button was last pressed from the Home Assistant interface or by an action. Home Assistant stores the timestamp in UTC, for example, `2026-01-01T12:00:00.123456+00:00`. The Home Assistant interface shows it in your local date and time format.
 
-The state of a button is a timestamp showing when the button was last pressed via the Home Assistant UI or an action.
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
-<p class='img'>
-<img src='/images/integrations/button/state_button.png' alt='Screenshot showing the state of a button entity in the States tab of Tools.' />
-Screenshot showing the state of a button entity in {% my tools_states title="Settings > Tools > States" %}
-</p>
-
-In addition, the entity can have the following states:
-
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 You can use button entities in automations to react when a button is pressed, or to simulate pressing the button from Home Assistant, like pressing a physical button on the device itself.
 
@@ -46,21 +39,24 @@ You can use button entities in automations to react when a button is pressed, or
 
 ## Device class
 
-{% include integrations/device_class_intro.md %}
+The device class tells Home Assistant what a button does, such as restarting a device. Home Assistant uses the device class to choose the icon and the default name.
 
-The screenshot shows different icons representing different device classes for buttons:
+The integration that provides the button sets the device class. When you create a button yourself with a [template helper](/integrations/template/), you choose the device class.
 
-<p class='img'>
-<img src='/images/screenshots/button_classes_icons.png' alt='Screenshot showing different button icons for the identify, restart, and update device classes.' />
-Example of device class icons.
-</p>
+### Device classes in automations and templates
 
-The following device classes are supported for buttons:
+- Automations: The device class doesn't change how a button works in automations.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `restart`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
-- **None**: Generic button. This is the default and doesn't need to be set.
-- **identify**: The button is used to identify a device.
-- **restart**: The button restarts the device.
-- **update**: The button updates the software of the device.
+### List of available device classes
+
+A button without a device class is a generic button and shows {% icon "mdi:button-pointer" %}.
+
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
+
+- {% icon "mdi:crosshairs-question" %} **Identify** (`identify`): The button is used to identify a device.
+- {% icon "mdi:restart" %} **Restart** (`restart`): The button restarts the device.
+- {% icon "mdi:package-up" %} **Update** (`update`): The button updates the software of the device.
 
 ## Button automation examples
 

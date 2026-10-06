@@ -22,16 +22,18 @@ The device tracker allows you to track devices in Home Assistant. This can happe
 
 To set up device tracking, add an integration that provides `device_tracker` entities, like the [Home Assistant Companion app](/integrations/mobile_app/) for phone-based location tracking or a router-based integration such as [Ubiquiti UniFi](/integrations/unifi/). You can connect device trackers to [person](/integrations/person/) entities and use them with [zones](/integrations/zone/) for automations that react when people or tracked devices enter or leave a place.
 
-## The state of a tracked device
+## Device tracker states
 
-- The name of the smallest [zone](/integrations/zone/) the device is currently in.
-- **Home** if the device is in the [home zone](/integrations/zone#home-zone).
-- **Not home** if the device is not in any zone.
+A device tracker can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
+
+- The name of the smallest [zone](/integrations/zone/) the device is currently in. The interface shows the same name.
+- **Home** (`home`): The device is in the [home zone](/integrations/zone#home-zone).
+- **Away** (`not_home`): The device is not in any zone.
 
 In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 ### Zones
 
@@ -56,12 +58,6 @@ Device trackers that track whether a device is connected to a fixed device have 
 ### Legacy device trackers
 
 Some integrations provide an older device tracker model which do not have the `tracking_type` or `in_zones` state attributes. These device trackers are scheduled for removal in the first half of 2027.
-
-<p class='img'>
-<img src='/images/integrations/device_tracker/state_device_tracker.png' alt='Screenshot showing the state of a device tracker entity in Settings > Tools > States' />
-<img src='/images/integrations/device_tracker/state_device_tracker.png' alt='Screenshot showing the state of a device tracker entity in the States tab of Tools.' />
-Screenshot showing the state of a device tracker entity in {% my tools_states title="Settings > Tools > States" %}
-</p>
 
 ## Automating tracked devices
 
