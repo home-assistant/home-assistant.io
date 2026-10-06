@@ -59,7 +59,7 @@ By default, Teslemetry sends every vehicle command through the cloud. If Home As
 
 - A Bluetooth adapter available to Home Assistant, such as a built-in adapter or a [Bluetooth proxy](/integrations/bluetooth/#remote-adapters-bluetooth-proxies).
 - The vehicle must be within Bluetooth range of that adapter while you set up pairing.
-- The vehicle must support Tesla's vehicle command protocol. Certain pre-2021 Model S and Model X vehicles do not, so they are not offered when adding a local vehicle.
+- The vehicle must support Tesla's vehicle command protocol. Vehicles that don't, such as certain pre-2021 Model S and Model X vehicles, are not listed when you add a local vehicle.
 
 ### Setting up Bluetooth control
 
