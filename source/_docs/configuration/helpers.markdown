@@ -14,7 +14,7 @@ A helper is an {% term entity %} that you create yourself, without a device behi
 
 You create and manage helpers in {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}.
 
-## When you need a helper
+## When do you need a helper?
 
 Most automations don't need a helper. You need one when Home Assistant has to remember something, when you want to set something yourself that an automation then uses, or when you want a sensor that calculates its value from other entities. For example:
 
@@ -117,7 +117,7 @@ In YAML, a number, dropdown, text, or date and time helper can have an `initial`
 
 Helpers that calculate a value calculate it again from their entities. A schedule works out from its time blocks whether it's on.
 
-## Where you use helpers
+## Where can you use helpers?
 
 You can use helpers in these places:
 
