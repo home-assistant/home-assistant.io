@@ -26,7 +26,18 @@ Integrates Airthings BLE {% term sensors %} into Home Assistant.
 
 - A supported Airthings device (see [Supported devices](#supported-devices)) within Bluetooth range of your Home Assistant host, or of a [Bluetooth proxy](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) that supports active connections.
 - A working [Bluetooth](/integrations/bluetooth) integration.
-- The device must use Bluetooth connectivity. All supported devices except Wave Gen 1 can instead connect through an Airthings Hub or View device (SmartLink). Bluetooth is then only turned on for a short time after you wave at the device or press its button, and Home Assistant cannot read it. The same applies to a Wave Enhance or Corentium Home 2 whose connectivity has not been set up. In the Airthings app, open the device's settings and select **Connectivity** > **Switch to Bluetooth**, or select **I prefer to connect with Bluetooth** when adding the device.
+- The device must use Bluetooth connectivity. All supported devices except Wave gen. 1 can instead connect through SmartLink, using a nearby Airthings device that acts as a hub. Bluetooth is then only turned on for a short time after you wave at the device or press its button, and Home Assistant cannot read it. The same applies to a Wave Enhance or Corentium Home 2 whose connectivity has not been set up. See [Switching from SmartLink to Bluetooth](#switching-from-smartlink-to-bluetooth).
+
+### Switching from SmartLink to Bluetooth
+
+A device uses either SmartLink or Bluetooth, not both. If the device currently sends live readings to the Airthings app over SmartLink, switching to Bluetooth stops the live readings.
+
+If the Airthings app offers SmartLink when you add a device, select **I prefer to connect with Bluetooth**. For a device that is already added:
+
+1. In the Airthings app, open the device's settings. **Connectivity** shows whether the device uses SmartLink or Bluetooth.
+2. Select **Reset connectivity**.
+3. Make sure the device is powered and stay close to it. Wave at a Wave Plus, Wave Radon, or Wave Mini, or press the button on a Wave Enhance or Corentium Home 2, so the app can connect to it over Bluetooth.
+4. Select **Reset connectivity** again. This clears the SmartLink configuration and switches the device to Bluetooth without affecting your sensor data. On a Wave Plus, Wave Radon, or Wave Mini, remove the batteries and insert them again when the app asks you to.
 
 {% include integrations/config_flow.md %}
 
@@ -39,7 +50,7 @@ The Airthings BLE integration will automatically discover devices once the [Blue
 
 There are two ways of retrieving the 10-digit serial number of an Airthings device:
 1. At the back of the device, located under the magnetic backplate.
-2. Airthings app: **Device settings -> Device info -> Serial Number**
+2. In the Airthings app, open the device's settings. The serial number is listed there.
 
 This integration uses the last 6 digits of the serial number.
 
