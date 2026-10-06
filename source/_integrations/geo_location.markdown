@@ -37,7 +37,7 @@ To see the events on a map, add an integration that provides geolocation entitie
    1. [Add a Map card](/dashboards/map/#adding-the-map-card-to-a-dashboard) to your dashboard.
    2. In the card settings, under **Geolocation sources**, select the source of the integration.
       - You can find the source of each integration in [Integrations that provide geolocation entities](#integrations-that-provide-geolocation-entities).
-      - The list only shows the sources of events that exist right now. If the source isn't listed, enter it yourself. For details, refer to [Troubleshooting](#troubleshooting).
+      - The list only shows the sources of events that exist right now. If the source isn't listed, enter it yourself.
    3. Select **Save**.
 
 ## Getting notified about events near your home
@@ -83,29 +83,3 @@ Each geolocation entity has the following attributes. Each item shows the label 
 Many integrations add their own attributes, such as the type or status of an incident. To react only to some events, check these attributes in a [Template condition](/docs/scripts/conditions/#template-condition).
 
 {% include integrations/triggers.md %}
-
-## Troubleshooting
-
-{% details "The geolocation source isn't listed in the Map card settings" %}
-
-### Symptom: No sources are listed under Geolocation sources
-
-In the Map card settings, you want to add a geolocation source, but under **Geolocation sources**, no sources are listed. The list might also show **No geolocation sources available**.
-
-#### Description
-
-The **Geolocation sources** list only shows sources of integrations that you have added and that have events right now. The Map card doesn't add an integration for you. If you haven't added an integration that provides geolocation entities, the list is empty.
-
-#### Resolution
-
-1. Check if you have added an integration that provides geolocation entities:
-   - Go to {% my integrations title="**Settings** > **Devices & services**" %} and look for the integration. For the integrations that are set up in {% term "`configuration.yaml`" %}, check that file.
-   - For the list of integrations, refer to [Integrations that provide geolocation entities](#integrations-that-provide-geolocation-entities).
-2. If you haven't added one yet, follow the steps in [Showing geolocation events on a dashboard](#showing-geolocation-events-on-a-dashboard).
-3. If the integration is added but its source still isn't listed, there are no matching events right now.
-   - Enter the source yourself, for example, `gdacs`, and select **Save**. The events appear on the map as soon as the integration creates entities for them.
-   - If you expect to see an event, check the filters of the integration, such as the radius around your home, and make them wider if needed. For GDACS, GeoJSON, and GeoNet NZ Quakes, you can't change the filters after setup: delete the integration and add it again with wider filters. For the other integrations, change the filters in your {% term "`configuration.yaml`" %} file, then restart Home Assistant.
-
-The list shows the name of the data provider instead of the source, if the integration provides one. For example, the source `gdacs` is listed as **Global Disaster Alert and Coordination System**.
-
-{% enddetails %}
