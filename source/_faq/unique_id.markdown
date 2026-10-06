@@ -4,13 +4,17 @@ description: "A unique ID is a permanent identifier (such as a serial number) th
 ha_category: Configuration
 ---
 
-When you open the configuration dialog of an {% term entity %}, you may see this message:
+When you open the settings of an {% term entity %}, you may see this message: **This entity ('climate.bath') does not have a unique ID, therefore its settings cannot be managed from the UI.**
 
-![Screenshot of popup for no unique ID](/images/faq/faq_no_unique_id.jpg)
+You may also see a similar message in these places:
+
+- When you add aliases for Assist: **Aliases are not supported for entities without a unique ID.**
+- When you assign a category to an automation, script, scene, or helper, for example: **To assign a category to an automation it needs to have a unique ID.**
+- In the list of automations, for an automation without a unique ID: **Only automations that have a unique ID assigned are debuggable.**
 
 A unique ID is a permanent identifier (for example, a serial number) that is guaranteed never to change. Without one, Home Assistant cannot safely let you rename the entity or change its settings from the user interface, because there would be no reliable way to track which entity you meant.
 
-You will typically see this on entities you created manually in YAML, or on entities from an {% term integration %} that has no way to determine a unique ID for the underlying device. This is not an error, but a limitation of the integration. A few integrations (such as [`template`](/integrations/template/) and [`mqtt`](/integrations/mqtt/)) let you define a unique ID yourself in YAML.
+You will typically see this on entities you created manually in YAML, or on entities from an {% term integration %} that has no way to determine a unique ID for the underlying device. This is not an error, but a limitation of the integration. To find out whether you can add one yourself, refer to [Can I add a unique ID myself?](#can-i-add-a-unique-id-myself).
 
 ### Where each ID is used
 
