@@ -77,56 +77,94 @@ The following examples show how to use the integration in Home Assistant automat
 
 ### Automation: notify when the air quality is poor
 
-The following example sends a notification to your mobile device when the common air quality index goes above 75, which is where the index enters the "high" range. The message includes the current index value and the advice provided by Airly.
+This automation sends a notification when the common air quality index goes above 75, which is where the index enters the "high" range. The message includes the current index value and the advice provided by Airly.
 
-```yaml
-automation:
-  - alias: "Notify when the air quality is poor"
-    triggers:
-      - trigger: numeric_state
-        entity_id: sensor.airly_common_air_quality_index
-        above: 75
+In the automation editor:
 
-    actions:
-      - action: notify.send_message
-        target:
-          entity_id: notify.my_device
-        data:
-          title: "Poor air quality"
-          message: >
-            The air quality index is
-            {{ states('sensor.airly_common_air_quality_index') }}.
-            {{ state_attr('sensor.airly_common_air_quality_index', 'advice') }}
-```
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Common air quality index (`sensor.airly_common_air_quality_index`)
+  - **Above**: `75`
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Title**: `Poor air quality`
+  - **Message**: The current index value and the advice from Airly
 
-### Control an air purifier based on the PM2.5 level
+{% details "YAML example for notifying when the air quality is poor" %}
 
-The following example turns on an air purifier when the PM2.5 level goes above 25 µg/m³ and turns it off when the level drops below 15 µg/m³. Replace `fan.air_purifier` with the entity of your own air purifier.
+{% example %}
+automation: |
+  alias: "Notify when the air quality is poor"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.airly_common_air_quality_index
+      above: 75
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Poor air quality"
+        message: >
+          The air quality index is
+          {{ states('sensor.airly_common_air_quality_index') }}.
+          {{ state_attr('sensor.airly_common_air_quality_index', 'advice') }}
+{% endexample %}
 
-```yaml
-automation:
-  - alias: "Turn on the air purifier when PM2.5 is high"
-    triggers:
-      - trigger: numeric_state
-        entity_id: sensor.airly_pm2_5
-        above: 25
+{% enddetails %}
 
-    actions:
-      - action: fan.turn_on
-        target:
-          entity_id: fan.air_purifier
+### Automation: control an air purifier based on the PM2.5 level
 
-  - alias: "Turn off the air purifier when PM2.5 is low"
-    triggers:
-      - trigger: numeric_state
-        entity_id: sensor.airly_pm2_5
-        below: 15
+These two automations turn on an air purifier when the PM2.5 level goes above 25 µg/m³ and turn it off when the level drops below 15 µg/m³. Using two different thresholds keeps the purifier from turning on and off repeatedly when the level hovers around a single threshold.
 
-    actions:
-      - action: fan.turn_off
-        target:
-          entity_id: fan.air_purifier
-```
+In the automation editor, create the first automation:
+
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: PM2.5 (`sensor.airly_pm2_5`)
+  - **Above**: `25`
+- **Action**: Turn on fan
+  - **Target**: Air purifier (`fan.air_purifier`)
+
+{% details "YAML example for turning on the air purifier" %}
+
+{% example %}
+automation: |
+  alias: "Turn on the air purifier when PM2.5 is high"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.airly_pm2_5
+      above: 25
+  actions:
+    - action: fan.turn_on
+      target:
+        entity_id: fan.air_purifier
+{% endexample %}
+
+{% enddetails %}
+
+Then create the second automation:
+
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: PM2.5 (`sensor.airly_pm2_5`)
+  - **Below**: `15`
+- **Action**: Turn off fan
+  - **Target**: Air purifier (`fan.air_purifier`)
+
+{% details "YAML example for turning off the air purifier" %}
+
+{% example %}
+automation: |
+  alias: "Turn off the air purifier when PM2.5 is low"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.airly_pm2_5
+      below: 15
+  actions:
+    - action: fan.turn_off
+      target:
+        entity_id: fan.air_purifier
+{% endexample %}
+
+{% enddetails %}
 
 ## Removing the integration
 
