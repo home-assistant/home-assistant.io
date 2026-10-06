@@ -102,7 +102,9 @@ automation: |
 
 ## Data updates
 
-The integration {% term polling polls %} the Daikin Onecta cloud service every 10 minutes from 07:00 to 22:00 and every 30 minutes overnight. After a setting change, Home Assistant temporarily defers background polling for 30 seconds to preserve the confirmed local state and reduce cloud API requests.
+The integration {% term polling polls %} the Daikin Onecta cloud service using no more than 55% of the daily API-call limit. Until Daikin reports the account limit, Home Assistant assumes 200 calls per day and uses 110 for polling: approximately every 10 minutes from 07:00 to 22:00 and every 30 minutes overnight. When Daikin reports a different limit, Home Assistant recalculates the intervals. Polling never occurs more often than once every 3 minutes.
+
+After a setting change, Home Assistant temporarily defers background polling for 30 seconds to preserve the confirmed local state and reduce cloud API requests.
 
 ## Troubleshooting
 
