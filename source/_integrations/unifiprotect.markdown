@@ -224,7 +224,8 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
 - **Events** - Cameras expose event entities for momentary motion and supported smart detections. Smart detection event entities include the raw Protect `event_source`, which distinguishes zone, line-crossing, and loitering detections. Package detection is provided as an event entity (`event.*_package`) rather than a binary sensor, because UniFi Protect reports it as a single, already-ended detection that a sustained binary sensor cannot represent.
 - **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
   - configuration sliders for Chime Type, Zoom Level, Microphone Sensitivity, and WDR Level
-  - configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds
+  - configuration switches Overlay Information, Smart Detections types, Status Light, High FPS mode, System Sounds
+  - configuration select for HDR mode (Auto, Always on, Always off)
   - configuration text and select for LCD Screen for doorbells to either set custom messages or use predefined messages
 - **Button** - A disabled by default button is added for each camera device. The button will let you reboot your camera device.
 
