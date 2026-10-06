@@ -14,24 +14,6 @@ A helper is an {% term entity %} that you create yourself, without a device behi
 
 You create and manage helpers in {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}.
 
-## When do you need a helper?
-
-Most automations don't need a helper. You need one when Home Assistant has to remember something, when you want to set something yourself that an automation then uses, or when you want a sensor that calculates its value from other entities. For example:
-
-- You want to pause an automation without editing it, for example, while you're on vacation.
-  - Create a **Toggle**. The automation only runs while the toggle is on. To pause the automation, turn the toggle off on your dashboard.
-- You want to choose a value on your dashboard, and let automations use it.
-  - Create a **Number**, for example, for the temperature the heating should reach, or a **Dropdown**, for example, for the mode of your home: Home, Away, or Night.
-- You want something to happen a while later, even if Home Assistant restarts in between.
-  - Create a **Timer**, and turn on **Restore state and time when Home Assistant starts**. One automation starts the timer, and another one reacts when it finishes.
-  - If the timer finishes while Home Assistant isn't running, the automation that reacts to it doesn't run. For details, refer to the [known limitations of the timer](/integrations/timer/#known-limitations).
-- You want to count something, for example, how often the doorbell rang today.
-  - Create a **Counter**. An automation increases it each time.
-- You want a sensor that combines other sensors, for example, the average temperature of all rooms.
-  - Create a **Combine the state of several sensors** helper.
-
-If none of these sounds like your situation, you probably don't need a helper yet.
-
 ## About the kinds of helpers
 
 There are three kinds of helpers:
@@ -85,6 +67,24 @@ Some helpers do more than store or calculate a value. For example:
 - [**Group**](/integrations/group/): Combines several entities into one, for example, all lights in a room.
 - [**Change device type of a switch**](/integrations/switch_as_x/): Shows a switch as another type of device, for example, as a light.
 
+## When do you need a helper?
+
+Most automations don't need a helper. You need one when Home Assistant has to remember something, when you want to set something yourself that an automation then uses, or when you want a sensor that calculates its value from other entities. For example:
+
+- You want to pause an automation without editing it, for example, while you're on vacation.
+  - Create a **Toggle**. The automation only runs while the toggle is on. To pause the automation, turn the toggle off on your dashboard.
+- You want to choose a value on your dashboard, and let automations use it.
+  - Create a **Number**, for example, for the temperature the heating should reach, or a **Dropdown**, for example, for the mode of your home: Home, Away, or Night.
+- You want something to happen a while later, even if Home Assistant restarts in between.
+  - Create a **Timer**, and turn on **Restore state and time when Home Assistant starts**. One automation starts the timer, and another one reacts when it finishes.
+  - If the timer finishes while Home Assistant isn't running, the automation that reacts to it doesn't run. For details, refer to the [known limitations of the timer](/integrations/timer/#known-limitations).
+- You want to count something, for example, how often the doorbell rang today.
+  - Create a **Counter**. An automation increases it each time.
+- You want a sensor that combines other sensors, for example, the average temperature of all rooms.
+  - Create a **Combine the state of several sensors** helper.
+
+If none of these sounds like your situation, you probably don't need a helper yet.
+
 ## Creating a helper
 
 1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}.
@@ -106,12 +106,10 @@ Most helpers keep their value after a restart, so usually you don't need to do a
 - A timer that should keep running
   - By default, a timer stops when Home Assistant restarts, and is idle afterwards. If an automation depends on the timer, turn on **Restore state and time when Home Assistant starts** in the settings of the timer. If the timer finishes while Home Assistant isn't running, automations that react to it don't run after the restart.
 - A toggle that should always start on or off
-- A toggle that should always start on or off
   - By default, a toggle keeps its state. If it should always be **On**, or always **Off**, after a restart, change **Each time Home Assistant starts** in the settings of the toggle.
 - A counter that should start again from its initial value
   - By default, a counter keeps its value. To start at its initial value after every restart, turn off **Restore the last known value when Home Assistant starts** in the settings of the counter.
 - A number or a dropdown whose settings you changed
-  - If you change the range of a number, its value moves to the nearest new limit. For example, if the value is 30 and you change the maximum to 25, the value becomes 25. If you change the range in YAML instead, and the last value is outside the new range, the number starts at its minimum after the restart.
   - If you change the range of a number, its value moves to the nearest new limit. For example, if the value is `30` and you change the maximum to `25`, the value becomes `25`. If you change the range in YAML instead, and the last value is outside the new range, the number starts at its minimum after the restart.
   - If you remove the option that a dropdown is set to, the dropdown shows as **Unknown** until you select another option. After a restart, it starts at its first option.
 
