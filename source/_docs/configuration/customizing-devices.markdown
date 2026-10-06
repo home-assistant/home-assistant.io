@@ -43,7 +43,7 @@ To change entity attributes, follow these steps:
 
    - Enter or edit the entity name.
      - In this example, this would change "Opening".
-     - If the entity belongs to a device, you can turn on **Use device name** instead. The entity is then called by the name of its device. For example, if a smart plug called _Coffee machine_ has an entity called _Power_, the entity is shown as _Coffee machine_ instead of _Coffee machine Power_. The entity also uses the area of its device. To rename the device, select **change the device name**.
+     - If the entity belongs to a device, you can turn on **Use device name** instead. The entity is then called by the name of its device. For example, if a smart plug called `Coffee machine` has an entity called `Power`, the entity is shown as `Coffee machine` instead of `Coffee machine Power`. The entity also uses the area of its device. To rename the device, select **change the device name**.
    - If needed, from the **Shown as** menu, you can select a different [device class](/integrations/homeassistant/#device-class).
    - If you like, add a [label](/docs/organizing/labels/).
 
