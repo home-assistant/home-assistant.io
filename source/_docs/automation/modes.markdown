@@ -75,7 +75,7 @@ Because a restart stops all runs, a long delay inside an automation, for example
    3. Turn on **Restore state and time when Home Assistant starts**, and select **Create**.
 2. In the automation, replace the delay with the [**Start a timer**](/actions/timer.start/) action for the new timer, and save the automation.
 3. Create a second automation for the actions that came after the delay:
-   1. As trigger, add [**Timer finished**](/triggers/timer.finished/) for the new timer.
+   1. As a trigger, add [**Timer finished**](/triggers/timer.finished/) for the new timer.
    2. Add the actions that came after the delay, and save the automation.
    - Result: When the timer finishes, the second automation runs the remaining actions, even if Home Assistant restarted in between.
 
