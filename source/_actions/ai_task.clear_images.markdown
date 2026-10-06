@@ -27,7 +27,7 @@ To clear images from an automation or a script:
 
 {% options_ui %}
 Older than:
-  description: Only deletes images that are older than this many days. For example, a value of 30 keeps the images generated in the last 30 days. If omitted, all generated images are deleted.
+  description: Only deletes images that are older than this many days, from 1 to 3650. For example, a value of 30 keeps the images generated in the last 30 days. If omitted, all generated images are deleted.
   required: false
 {% endoptions_ui %}
 
@@ -46,7 +46,7 @@ action: |
 
 {% options_yaml %}
 days:
-  description: Only deletes images that are older than this many days. For example, a value of 30 keeps the images generated in the last 30 days. If omitted, all generated images are deleted.
+  description: Only deletes images that are older than this many days, from 1 to 3650. For example, a value of 30 keeps the images generated in the last 30 days. If omitted, all generated images are deleted.
   required: false
   type: integer
 {% endoptions_yaml %}
@@ -54,7 +54,7 @@ days:
 ## Good to know
 
 - The age of an image is counted from when it was generated. Viewing an image doesn't make it newer.
-- Only images in the AI Task image folder are deleted. Other files in the media directory are left alone.
+- The action deletes every file in the AI Task image folder (`ai_task/image` in your media directory), not only images. Subfolders and other files in the media directory are left alone.
 - To keep the folder small, call this action with `days` from an automation, for example once a week.
 
 {% include actions/stuck.md %}
