@@ -119,12 +119,12 @@ These numbers are only available while the matching protection is enabled. The m
 
 For both Air-to-Air and Air-to-Water units:
 
-- **Room temperature**: The current measured room temperature.
 - **Energy consumed (monthly)**: The energy the unit used in the current month. Only created for units with an energy meter.
 - **Signal strength**: The Wi-Fi signal strength of the unit. This entity is disabled by default.
 
 For Air-to-Air units only:
 
+- **Room temperature**: The current measured room temperature.
 - **Outdoor temperature**: The temperature measured by the outdoor unit. Only created for units with an outdoor temperature sensor.
 
 For Air-to-Water units only:
@@ -156,48 +156,66 @@ The integration {% term polling polls %} the MELCloud Home API every 60 seconds 
 
 Units you add to or remove from your MELCloud Home account are added to or removed from Home Assistant automatically.
 
-## Examples
+## MELCloud Home automation examples
 
-### Turn off the air conditioning when a window opens
+Here are a few ideas to get you started.
 
-{% raw %}
+{% include docs/paste_yaml_tip.md %}
 
-```yaml
-automation:
-  - alias: "Turn off the air conditioning when the window opens"
-    triggers:
-      - trigger: state
-        entity_id: binary_sensor.living_room_window
-        to: "on"
-        for:
-          minutes: 2
-    actions:
-      - action: climate.turn_off
-        target:
-          entity_id: climate.living_room_ac
-```
+### Automation: Turn off the air conditioning when a window opens
 
-{% endraw %}
+Turn off the air conditioning when a window has been open for 2 minutes, so you don't cool or heat the outdoors.
 
-### Notify when a unit reports an error
+- **Trigger**: Entity: the window sensor turns on, for 2 minutes
+- **Action**: Climate: turn off the air conditioning
 
-{% raw %}
+{% details "YAML example for turning off the air conditioning when a window opens" %}
 
-```yaml
-automation:
-  - alias: "Notify when the air conditioning reports an error"
-    triggers:
-      - trigger: state
-        entity_id: binary_sensor.living_room_ac_error
-        to: "on"
-    actions:
-      - action: notify.notify
-        data:
-          title: "Air conditioning"
-          message: "The living room air conditioning reported an error. Check the MELCloud Home app for details."
-```
+{% example %}
+automation: |
+  alias: "Turn off the air conditioning when the window opens"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.living_room_window
+      to: "on"
+      for:
+        minutes: 2
+  actions:
+    - action: climate.turn_off
+      target:
+        entity_id: climate.living_room_ac
+{% endexample %}
 
-{% endraw %}
+{% enddetails %}
+
+### Automation: Notify when a unit reports an error
+
+Get a notification on your phone when a unit reports an error.
+
+- **Trigger**: Entity: the **Error** binary sensor of the unit turns on
+- **Action**: Notifications: send a notification message to your phone
+
+{% details "YAML example for a notification when a unit reports an error" %}
+
+{% example %}
+automation: |
+  alias: "Notify when the air conditioning reports an error"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.living_room_ac_error
+      to: "on"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_phone
+      data:
+        title: "Air conditioning"
+        message: >-
+          The living room air conditioning reported an error.
+          Check the MELCloud Home app for details.
+{% endexample %}
+
+{% enddetails %}
 
 ## Known limitations
 
@@ -222,3 +240,5 @@ Some entities are only created when your unit reports that it supports the featu
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
