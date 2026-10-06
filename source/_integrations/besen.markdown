@@ -80,13 +80,13 @@ The following sensors are enabled by default:
 - **Charging status**: High-level charging state reported by the charger.
 - **Charging message**: Additional guidance reported for the current charging state.
 
+The **Scheduled start** and **Charging time limit** sensors only show values while a schedule is pending or a charging session is running. After cancellation or completion, both show `unknown`.
+
 The following sensors are disabled by default:
 
 - **Session current limit**: Current limit recorded for the charging session in amperes (A). This usually matches the **Charging current** setting.
 - **Scheduled start**: Start time of a scheduled charging session. For a session that starts immediately, such as one started from Home Assistant, this is the time charging was requested.
 - **Charging time limit**: Time after which the charger ends the charging session in minutes (min). The value is unknown when no limit is set, which includes sessions started from Home Assistant.
-
-The **Scheduled start** and **Charging time limit** sensors only show values while a schedule is pending or a charging session is running. After cancellation or completion, both show `unknown`.
 
 Scheduled starts and charging time limits are set outside Home Assistant, for example in the charger's mobile app. The integration reports them but cannot change them.
 
