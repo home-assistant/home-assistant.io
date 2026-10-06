@@ -298,7 +298,7 @@ The following items are updated through push events, so changes appear in Home A
 
 - This integration requires multi-factor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
 - Reminders may not be added to the sensor if the configured account is linked to an Alexa Household.
-- You may see `Failed to refresh communications settings` warnings in the logs. These are caused by Amazon rate limiting connections, and the cause is under investigation. When this happens, the communication, drop-in, and announcement settings may be out of date. These settings rarely change, so you can safely ignore these warnings.
+- You might see `Failed to refresh communications settings` warnings in the logs. These are caused by Amazon rate limiting connections, and the cause is under investigation. When this happens, the communication, drop-in, and announcement settings might be out of date. These settings rarely change, so you can safely ignore these warnings.
 
 ## Troubleshooting
 
@@ -309,6 +309,8 @@ The following items are updated through push events, so changes appear in Home A
 ##### Description
 
 You will see `MFA OTP code not found on login page` or `Cannot find "auth-mfa-otpcode" in html source` in the logs when trying to set up the integration. This means the authentication details are incorrect.
+
+##### Resolution
 
 Make sure that:
 
@@ -327,6 +329,10 @@ Some sensors, particularly illuminance and motion sensors, show stale data.
 ##### Description
 
 Amazon sometimes only sends sensor updates when it detects that the sensor is used in Alexa.
+
+Amazon sometimes only sends sensor updates when it detects that the sensor is used in Alexa.
+
+##### Resolution
 
 To fix this, in the Alexa app, create a routine that is triggered when occupancy is detected. The routine does not need any actions. This enables the feature and makes sure the sensors update. For more information, see [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=GSR22RYDWS3KBUYW).
 
