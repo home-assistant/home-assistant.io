@@ -22,9 +22,18 @@ Integrates Airthings BLE {% term sensors %} into Home Assistant.
 
 [Airthings](https://www.airthings.com/) provide different {% term devices %} for measuring the air quality. Initially focusing on radon gas sensors, each device provides several different sensors to monitor typical contaminants whose presence contributes to bad air quality in the home.
 
-Requires Airthings hardware and a compatible Bluetooth dongle.
+## Prerequisites
+
+- A supported Airthings device (see [Supported devices](#supported-devices)) within Bluetooth range of your Home Assistant host, or of a [Bluetooth proxy](/integrations/bluetooth/#remote-adapters-bluetooth-proxies).
+- A working [Bluetooth](/integrations/bluetooth) integration.
+- Wave Enhance and Corentium Home 2 must use Bluetooth connectivity. If the device is set to SmartLink in the Airthings app, or its connectivity has not been set up, Bluetooth is only turned on for a short time after the button on the device is pressed, and Home Assistant cannot read it. In the Airthings app, open the device's settings and select **Connectivity** > **Switch to Bluetooth**, or add the device and select **I prefer to connect with Bluetooth**.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Device:
+  description: "The Airthings device to add. Devices are shown by model and serial number."
+{% endconfiguration_basic %}
 
 The Airthings BLE integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. This will include the device name and its serial number.
 
