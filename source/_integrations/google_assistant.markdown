@@ -347,7 +347,7 @@ If you receive 404 errors linked to reporting state in your log, Home Assistant 
 
 #### Error during linking: "Could not update the setting. Please check your connection"
 
-Your **Link fulfillment URL** may be invalid or unreachable. Recheck the **Link fulfillment URL** as specified in [Manual setup](#manual-setup-if-you-dont-have-home-assistant-link) and verify that it's publicly reachable.
+Your **Cloud fulfillment URL** may be invalid or unreachable. Recheck the **Cloud fulfillment URL** as specified in [Manual setup](#manual-setup-if-you-dont-have-home-assistant-link) and verify that it's publicly reachable.
 
 #### 500 / 429 error on request sync
 
