@@ -236,12 +236,21 @@ This entity is used to control the appliance with the following actions:
 
 {% details "List of sensors" %}
 
+- **Air filter state**
+  - **Description**: Reports air filter status. 
+  - **Available for appliance types**: Refrigerator.
 - **Appliance state**
   - **Description**: Reports the current appliance state.
-  - **Available for appliance types**: Oven.
+  - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher, Refrigerator, Hood, Hob.
+- **Battery**
+  - **Description**: Reports the battery level.
+  - **Available for appliance types**: RVC.
 - **Current temperature**
   - **Description**: Reports the current cavity temperature.
   - **Available for appliance types**: Oven.
+- **Cycle phase**
+  - **Description**: Reports the current wash/dry cycle phase.
+  - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher.
 - **End at**
   - **Descriptions**: Reports when the appliance will stop running.
   - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher.
@@ -252,21 +261,51 @@ This entity is used to control the appliance with the following actions:
 - **Food probe temperature**
   - **Description**:  Reports food probe temperature.
   - **Available for appliance types**: Oven.
+- **PM1**
+  - **Description**: Reports concentration of fine particles <1µm.
+  - **Available for appliance types**: Air purifier.
+- **PM2.5**
+  - **Description**: Reports concentration of fine particles <2.5µm.
+  - **Available for appliance types**: Air purifier.
+- **PM10**:
+  - **Description**: Reports concentration of particles up to 10µm.
+  - **Available for appliance types**: Air purifier.
 - **Remote control**
   - **Description**: Reports the remote control status.
-  - **Available for appliance types**: Oven.
+  - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher, Hood, Hob.
+- **Residual heat state**:
+  - **Description**: Reports residual heat in a zone.
+  - **Available for appliance types**: Hob.
 - **Running time**
   - **Descriptions**: Reports the amount of time the appliance has been running for.
   - **Available for appliance types**: Oven.
   - **Remarks**: Disabled by default. Shown in hours by default. On double ovens, there is a sensor for each cavity: **Upper cavity running time** and **Lower cavity running time**.
+- **Sound volume**:
+  - **Description**: Reports current sound level setting.
+  - **Available for appliance types**: Hood.
 - **Start at**
   - **Descriptions**: Reports when the appliance will start running.
   - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
   - **Remarks**: Disabled by default. On double ovens, there is a sensor for each cavity: **Upper cavity start at** and **Lower cavity start at**.
+- **Target temperature**
+  - **Description**: Reports flexible drawer target temperature.
+  - **Available for appliance types**: Refrigerator.
 - **Time left**
   - **Descriptions**: Reports the amount of time left until the appliance stops running.
   - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
   - **Remarks**: Disabled by default. Shown in hours by default. On double ovens, there is a sensor for each cavity: **Upper cavity time left** and **Lower cavity time left**.
+- **TVOC**
+  - **Description**: Reports total volatile organic compounds.
+  - **Available for appliance types**: Air purifier.
+- **Water filter state**
+  - **Description**: Reports water filter status.
+  - **Available for appliance types**: Refrigerator.
+- **Water hardness**
+  - **Description**: Reports water hardness.
+  - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher.
+- **Windows notification**
+  - **Description**: Reports if a window needs to be opened.
+  - **Available for appliance types**: Hob.
 
 {% enddetails %}
 
