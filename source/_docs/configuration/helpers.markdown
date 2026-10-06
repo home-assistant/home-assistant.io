@@ -75,7 +75,7 @@ Most automations don't need a helper. You need one when Home Assistant has to re
   - Create a **Toggle**. The automation only runs while the toggle is on. To pause the automation, turn the toggle off on your dashboard.
 - You want to choose a value on your dashboard, and let automations use it.
   - Create a **Number** for a value, such as the temperature the heating should reach.
-  - Or create a **Dropdown** for a choice, such as the mode of your home: Home, Away, or Night.
+  - Or create a **Dropdown** for a choice, such as the mode of your home: **Home**, **Away**, or **Night**.
 - You want something to happen a while later, even if Home Assistant restarts in between.
   - Create a **Timer**, and turn on **Restore state and time when Home Assistant starts**. One automation starts the timer, and another one reacts when it finishes.
   - If the timer finishes while Home Assistant isn't running, the automation that reacts to it doesn't run. For details, refer to the [known limitations of the timer](/integrations/timer/#known-limitations).
