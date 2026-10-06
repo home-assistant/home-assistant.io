@@ -26,6 +26,6 @@ To use this integration, you need a Thread border router that supports Matter. F
 
 For more information on setting up Matter with Nuki devices, refer to the [Nuki Matter setup guide](https://help.nuki.io/hc/en-001/articles/14596875392017-Setting-up-your-Matter-integration).
 
-## Supported devices
+## Works with Home Assistant certified devices
 
 {% include integrations/device_list.html brand="nuki" %}
