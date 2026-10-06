@@ -54,7 +54,7 @@ You can log this message at another [log level](/integrations/logger/#log-levels
 
 ## When a run stops before it finishes
 
-A run of an automation can stop before it reaches its last action, for example, while it waits in a delay. The mode decides what happens when the automation starts again during a run. A run also stops in the following cases:
+A run of an automation can stop before it reaches its last action, such as while it waits in a delay. The mode decides what happens when the automation starts again during a run. A run can also stop for other causes, for example:
 
 - Cause: Home Assistant restarts, for example, to install an update.
   - Result: All runs stop. A delay, a wait, or a trigger duration such as **For at least** that was in progress is lost. The automation doesn't continue after the restart.
