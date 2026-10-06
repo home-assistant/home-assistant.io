@@ -16,6 +16,7 @@ ha_codeowners:
 ha_domain: hr_energy_qube
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - select
   - sensor
   - switch
@@ -191,6 +192,17 @@ Host:
 ## Data updates
 
 The integration polls the heat pump every 15 seconds via Modbus TCP.
+
+## Diagnostics
+
+The diagnostics download contains:
+
+- The values the integration last read from the heat pump.
+- The state of the switches.
+- The smart grid ready mode.
+- The software version of the heat pump.
+
+The host address is redacted. Attach the downloaded file when reporting an issue. For more information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
 
 ## Removing the integration
 
