@@ -122,7 +122,7 @@ schedule:
           activity: "Work"
 ```
 
-Different blocks can include the same day if their times do not overlap. You cannot combine `blocks` with weekday keys in the same schedule.
+Different blocks can include the same day if their times don't overlap. A block can't cross midnight. To cover a night, split it into two blocks. For example, `22:00:00` to `24:00:00` and `00:00:00` to `06:00:00`. You can't combine `blocks` with weekday keys in the same schedule.
 
 {% configuration %}
 schedule:
