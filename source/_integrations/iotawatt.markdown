@@ -21,13 +21,31 @@ and create them as sensors in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Provide legacy period energy sensors:
+  description: Whether the deprecated period energy sensors, which reset at device-local midnight, are provided in addition to the lifetime energy sensors. Disabling this also reduces the number of requests sent to the IoTaWatt device.
+{% endconfiguration_basic %}
+
 ## Energy management and sensor availability
 
 You can use the energy sensors directly with the Home Assistant energy dashboard.
 
+For every power sensor, the integration provides a lifetime energy sensor (suffixed `.wh_lifetime`). These are meter readings counted by the IoTaWatt itself since the beginning of its datalog; the start of the metering period is available in the `metering_since` attribute. Use these sensors in the energy dashboard — Home Assistant derives hourly, daily, and monthly values from them automatically.
+
 IoTaWatt **Inputs** are available as sensors and are shown on the IoTaWatt device page in Home Assistant.
 
 Any **Outputs** you create within the IoTaWatt unit are also available as sensors for use in the energy dashboard and templates. However, they are not listed on the IoTaWatt device page because of the Home Assistant policy on unique naming. When you configure the energy dashboard or create a template or helper, start typing the name of a defined IoTaWatt output. Home Assistant suggests completing the sensor name.
+
+### Deprecated period energy sensors
+
+Previous versions provided energy sensors (suffixed `.wh`) that reset at device-local midnight. These are deprecated and will be removed in a future release. Existing installations keep them alongside the new lifetime sensors and show a repair issue until the migration is completed:
+
+1. Replace the deprecated `.wh` sensors with the corresponding `.wh_lifetime` sensors in the energy dashboard and in automations, scripts, and templates.
+2. Fix the repair issue (or disable the **Provide legacy period energy sensors** option of the integration entry).
+
+This removes the deprecated sensors; already recorded long-term statistics remain available. Newly added IoTaWatt devices only provide the lifetime sensors.
 
 ## Energy production systems
 
@@ -60,6 +78,6 @@ If you have two solar sensors named `Solar1` and `Solar2` you would use:
 
 The IoTaWatt Outputs are available for use:
 
-In the Grid Consumption settings, select `MainsConsumption.wh`  
-In the Return to grid settings, select `MainsExport.wh`  
-In the Solar production settings, select `Solar.wh`
+In the Grid Consumption settings, select `MainsConsumption.wh_lifetime`  
+In the Return to grid settings, select `MainsExport.wh_lifetime`  
+In the Solar production settings, select `Solar.wh_lifetime`
