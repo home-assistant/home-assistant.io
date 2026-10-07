@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2026.10 Beta: You are here 📍"
+title: "2026.10: You are here 📍"
 description: "A whole new map with redesigned markers and an overview of where everyone's been, a profile page that's yours, trigger IDs anyone can use, dashboard visibility that speaks the same language as automations, a panel for your Modbus connections, one-click AI connections, and 15 new integrations!"
-date: 2026-09-30 00:00:00
+date: 2026-10-07 00:00:00
 date_formatted: "October 7, 2026"
 author: Franck Nijhof
 author_twitter: frenck
@@ -10,61 +10,10 @@ comments: true
 categories:
   - Release-Notes
   - Core
-og_image: /images/blog/2026-10/beta-social.png
+og_image: /images/blog/2026-10/social.png
 ---
 
 <lite-youtube videoid="LzaGqk_dbeI" videotitle="Home Assistant 2026.10 Release Party"></lite-youtube>
-
-{% note %}
-
-**Welcome to the beta release notes for Home Assistant 2026.10** 🎉
-
-<br />
-
-Please note that these release notes are a work in progress. 👷‍♀️ We will be
-completing them over the next couple of days. Not all features might be final
-yet, and some features _**may not** make it into the final release_.
-
-<br />
-
-**Want to help test the beta?** Awesome! ❤️ We have documented how you
-[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
-
-<br />
-
-While running the beta, we highly recommend joining our _#beta_ channel on
-the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
-testers are in this channel during the beta period to share experiences, ideas,
-and iterate over new features, fine-tuning them before the final release.
-It's a really fun place to hang out. 😎
-
-<br />
-
-**Reporting issues**: As this is a beta test, you might encounter unexpected
-behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
-You can find our issue trackers and the reported issues during beta here:
-
-<br />
-
-- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/149)
-- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/836)
-- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/155)
-
-🙏 When reporting issues, **make sure to mention the exact beta version you are
-running** in the issue description. This will help us identify and track the
-issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
-
-<br />
-
-Issues introduced in the beta are processed with priority. 🔝
-
-{% endnote %}
-
-{% tip %}
-
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=LzaGqk_dbeI) on October 7, 2026, at 20:00 GMT / 12:00 PT / 21:00 CET!
-
-{% endtip %}
 
 Home Assistant 2026.10! 🎉
 
@@ -74,6 +23,7 @@ Enjoy the (beta) release!
 
 <!--more-->
 
+- [Cloud becomes Link](#cloud-becomes-link)
 - [A whole new map](#a-whole-new-map)
   - [Crisp at every zoom level](#crisp-at-every-zoom-level)
   - [Redesigned markers](#redesigned-markers)
@@ -100,6 +50,14 @@ Enjoy the (beta) release!
 _A huge thank you to all the contributors who made this release possible! And a special shout-out to [@frenck] and [@frenck] who helped write these release notes. Also, [@frenck], [@frenck], [@frenck], [@frenck], and [@frenck] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
 
 [@frenck]: https://github.com/frenck
+
+## Cloud becomes Link
+
+In case you missed it, [we're making the move](/blog/2026/10/02/big-tech-ruined-the-cloud-so-were-renaming-ours/) to rename [Home Assistant Cloud](/cloud/) to Home Assistant Link. Same service, new name.
+
+We're all pretty annoyed by how Big Tech has been ruining perfectly good smart home devices by making them reliant on the cloud. Ours has never locked anyone in, harvested their data, or turned working devices into e-waste, so a new name was in order. Home Assistant Link is all about being clearer that it does things differently. The change is planned for the December release, so tell us your thoughts before then.
+
+The best link is a fast link. 🏎️ [Nabu Casa](https://www.nabucasa.com/) has been hard at work making remote access even faster across the globe. They recently [migrated all of their servers to bare metal](https://support.nabucasa.com/hc/en-us/articles/39385482184733) and added more servers to boost their coverage of the world. This month, they added a latency checker that pings multiple servers on boot and picks the best connection for you.
 
 ## A whole new map
 
@@ -178,7 +136,9 @@ Not anymore. Add a **Triggered by** condition, and you check the triggers it sho
 
 <img src='/images/blog/2026-10/automation-triggered-by.png' alt='Screenshot of the automation editor with two numbered triggers, Motion detected and Motion cleared, and a Triggered by condition where the first trigger, Motion detected, is checked.' class='no-shadow' />
 
-If you set your trigger IDs yourself in {% term YAML %}, those keep working exactly as they did, and you can keep setting them there. If a condition points to a trigger that no longer exists, the editor now flags it, so you can clear it. And if several triggers share the same ID, the editor warns you and offers a **Fix** that gives each trigger its own ID and updates your conditions to match.
+If you set your trigger IDs yourself in {% term YAML %}, nothing changes. Those IDs keep working exactly as they did, sharing one ID between several triggers is still fine, and Home Assistant won't add IDs to your YAML for you. The trigger ID field is gone from the automation editor, because you no longer need it there: to run the same actions for several triggers, check them all in one **Triggered by** condition.
+
+The editor does keep an eye out for two things, but only in the **Triggered by** condition. If a condition points to a trigger that no longer exists, it flags it, so you can clear it. And if several triggers share the same ID, it shows a warning with a **Fix** that gives each trigger its own ID and updates your conditions to match. It's a suggestion, not a repair, so if sharing an ID is what you want, you can leave it as it is.
 
 This completes [an Open Home Foundation roadmap opportunity](https://github.com/OpenHomeFoundation/roadmap/issues/66) to make referencing triggers in automations a lot easier. Thanks, [@jpbede], [@wendevlin], [@marcinbauer-ohf], and [@nielsrowinbik]!
 
@@ -939,6 +899,7 @@ If you are a custom integration developer and want to learn about changes and ne
 - [New device and state class selectors](https://developers.home-assistant.io/blog/2026/09/04/device-and-state-class-selectors)
 - [New stop action and idle activity for lawn mowers](https://developers.home-assistant.io/blog/2026/09/11/lawn-mower-stop-action-idle-activity)
 - [OAuth2 error handling moved into the helper](https://developers.home-assistant.io/blog/2026/09/07/oauth2-central-error-handling)
+- [Probatio is our validation engine](https://developers.home-assistant.io/blog/2026/09/30/probatio-validation-engine)
 - [Shared config flow abort reasons are translated centrally](https://developers.home-assistant.io/blog/2026/09/28/central-config-flow-abort-reasons)
 - [Use Config Entry exceptions in integration migration method](https://developers.home-assistant.io/blog/2026/09/17/Use-config-entry-exc-in-migration)
 
