@@ -3,6 +3,7 @@ title: Bosch SHC
 description: Integrate Bosch SHC.
 ha_category:
   - Binary sensor
+  - Button
   - Cover
   - Event
   - Hub
@@ -20,6 +21,7 @@ ha_codeowners:
 ha_domain: bosch_shc
 ha_platforms:
   - binary_sensor
+  - button
   - cover
   - event
   - number
@@ -73,6 +75,11 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 - Shutter Contact II
 - Battery powered devices
 
+### Buttons
+
+- A Smoke Detector gets a **Test alarm** button that starts the device's self-test.
+- A Motion Detector II that supports it gets a **Reset tamper** button that confirms the device is back in place and clears an active tamper alarm.
+
 ### Covers
 
 The cover platform allows you to control shutters, awnings, and blinds.
@@ -99,6 +106,7 @@ The select platform lets you choose between a set of predefined options. Select 
 
 - Outdoor Siren: a **Siren volume** select, letting you choose between reduced, medium, or loud
 - Motion Detector II that supports it: a **Motion sensitivity** select, letting you choose between **high**, **medium**, or **low**. In YAML, the medium option is `middle`.
+- Door/Window Contact II Plus: a **Vibration sensitivity** select, letting you choose between **very high**, **high**, **medium**, **low**, or **very low**. In YAML, the options are `very_high`, `high`, `medium`, `low`, and `very_low`.
 
 ### Sensors
 
@@ -131,6 +139,8 @@ The switch platform allows you to control your outlets, light switches, and sele
 Some devices also get an additional, device-specific switch. These are configuration entities, so they appear under the device's configuration controls rather than with the main controls:
 
 - Camera Eyes: a **Camera light** switch to turn its built-in light on or off
+- Camera 360: a **Notifications** switch to turn its notifications on or off
+- Camera Eyes: a **Notifications** switch to turn its notifications on or off
 - Outdoor Camera Gen2: **Ambient light** and **Front light** switches to turn its ambient light and front light on or off
 - Motion Detector II: **Pet immunity**, and **Sabotage detection**
 - Motion Detector II that supports it: **Automatic sensitivity**

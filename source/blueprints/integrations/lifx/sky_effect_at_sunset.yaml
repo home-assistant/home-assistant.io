@@ -1,8 +1,8 @@
 blueprint:
   name: Start the LIFX Sky effect at sunset
   description: >
-    Start the Sky effect on a LIFX Ceiling, Luna, Tube, or E26 Candle Color
-    light when the sun sets.
+    Start the Sky effect on a LIFX matrix light, such as a Ceiling, Mirror,
+    Luna, or Tube, when the sun sets.
 
     The effect keeps running until you stop it. Use the LIFX **Stop effect**
     action to return the light to normal control.
@@ -15,9 +15,9 @@ blueprint:
     lifx_lights:
       name: LIFX lights
       description: >
-        The lights that run the Sky effect. Only LIFX Ceiling, Luna, Tube,
-        and E26 Candle Color lights running firmware 4.0 or later support
-        this effect.
+        The lights that run the Sky effect. Only LIFX matrix lights running
+        firmware 4.0 or later support this effect, such as the Ceiling,
+        Mirror, Luna, Tube, and E26 Candle Color.
       selector:
         target:
           entity:

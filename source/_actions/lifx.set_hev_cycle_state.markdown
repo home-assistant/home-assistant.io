@@ -8,7 +8,7 @@ related_actions:
   - lifx.effect_pulse
 ---
 
-The **Set HEV cycle state** action controls the HEV LEDs on a LIFX Clean bulb. Starting a cycle, also called a Clean cycle, switches the HEV LEDs on for a set time and then returns the bulb to its previous state. Stopping a cycle ends it early.
+The **Set HEV cycle state** action controls the HEV (high-energy visible light) LEDs on a LIFX Clean bulb. Starting a cycle, also called a Clean cycle, switches the HEV LEDs on for a set time and then returns the bulb to its previous state. Stopping a cycle ends it early.
 
 Only LIFX Clean bulbs have HEV LEDs. If you target a bulb without them, Home Assistant returns an error and nothing changes on that bulb.
 
@@ -47,10 +47,10 @@ action: |
     entity_id: light.bathroom
   data:
     power: true
-    duration: 3600
+    duration: 7200
 {% endexample %}
 
-This starts a one-hour Clean cycle on the bathroom bulb.
+This starts a two-hour Clean cycle on the bathroom bulb.
 
 ### Options in YAML
 
@@ -72,6 +72,8 @@ duration:
 - Only LIFX Clean bulbs have HEV LEDs. Targeting any other LIFX bulb returns the error "does not have HEV LEDs".
 - If you leave **Duration** out, Home Assistant asks the bulb to run for the duration configured on the bulb itself. Home Assistant does not apply a duration of its own, even though the field suggests 7200 seconds (two hours) when you open it in the UI.
 - Duration is sent to the bulb as whole seconds, so a value with decimals is rounded.
+- Run each Clean cycle for at least two continuous hours. Overnight, for example from 2:00 AM to 4:00 AM, is a good time, because nobody is likely to be in the room.
+- Two hours suits a light close to what it cleans, such as a table lamp. For a light further away, such as a pendant over a bathroom sink, [LIFX suggests](https://support.lifx.com/hc/en-us/articles/14509275849623-Using-antibacterial-HEV-on-your-LIFX-Clean) running the cycle overnight or for 8 hours.
 - Home Assistant creates a **Clean cycle** {% term entity %} for every bulb that has HEV LEDs. It tells you whether a cycle is currently running, which is handy as a condition so you don't start a second cycle or stop one that was never running.
 - The **Clean cycle** entity is refreshed every 10 seconds to keep network traffic low, so it may take a moment to catch up after you start or stop a cycle.
 - Stopping a cycle returns the bulb to the color and brightness it had before the cycle started. To set it to something else instead, follow up with the [Set state](/actions/lifx.set_state/) action.
@@ -83,7 +85,7 @@ duration:
 
 ### Automation: run a Clean cycle overnight
 
-Start a one-hour Clean cycle in the bathroom at 2:00 AM, when nobody is likely to be in the room.
+Start a two-hour Clean cycle in the bathroom at 2:00 AM. It runs until 4:00 AM, when nobody is likely to be in the room.
 
 - **Trigger**: Time: 02:00
 - **Action**: Set HEV cycle state
@@ -101,7 +103,7 @@ automation: |
         entity_id: light.bathroom
       data:
         power: true
-        duration: 3600
+        duration: 7200
 {% endexample %}
 
 ### Automation: stop the Clean cycle when someone walks in

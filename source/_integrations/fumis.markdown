@@ -159,6 +159,8 @@ The error sensor shows the currently active error on your stove. When an error o
 - **Fuel ignition timeout** (E114): The fuel did not ignite in time. The burning pot may be empty, or the pellet tank needs refilling.
 - **General error** (E115): A general error has occurred. Contact your service technician.
 
+{% include integrations/triggers.md %}
+
 ## Examples
 
 Your pellet stove works with all the features Home Assistant has to offer. Here are a couple of automation examples to get you started. You could also combine your stove with presence detection to heat only when someone is home, pair it with a weather forecast to prepare for cold nights, or use voice commands to adjust the temperature from the couch.
