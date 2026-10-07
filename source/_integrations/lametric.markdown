@@ -1,6 +1,6 @@
 ---
 title: LaMetric
-description: Instructions on how to integrate LaMetric TIME with Home Assistant.
+description: Instructions on how to integrate LaMetric TIME and SKY with Home Assistant.
 ha_category:
   - Button
   - Notifications
@@ -34,7 +34,7 @@ related:
     title: Debug logs and diagnostics
 ---
 
-The **LaMetric** {% term integration %} lets you integrate your [LaMetric TIME](https://lametric.com/) smart clock with Home Assistant, so you can display notifications, charts, and other visual updates on the device.
+The **LaMetric** {% term integration %} lets you integrate your [LaMetric TIME](https://lametric.com/) smart clock or LaMetric SKY smart light with Home Assistant, so you can display notifications, charts, and other visual updates on the device.
 
 Use cases for this integration include:
 
@@ -48,6 +48,9 @@ Use cases for this integration include:
 The following LaMetric devices are known to be supported:
 
 - [LaMetric TIME](https://lametric.com/)
+- [LaMetric SKY](https://lametric.com/)
+
+The screensaver time entities are not available on the LaMetric SKY. The volume and Bluetooth entities are only added when the device reports audio and Bluetooth support, which a LaMetric SKY on recent firmware does not.
 
 ## Prerequisites
 

@@ -35,7 +35,7 @@ Location:
 
 {% configuration_basic %}
 Language:
-    description: "Override the Home Assistant language for the textual weather forecast. Useful if your Home Assistant language is not supported by the Royal Meteorological Institute of Belgium."
+    description: "Override the Home Assistant language for forecast texts. Defaults to **Follow Home Assistant server language**. If that language is not English, French, Dutch, or German, English is used."
 {% endconfiguration_basic %}
 
 ## Supported features
@@ -53,6 +53,8 @@ The integration provides a weather entity along with [weather forecast services]
 ## Data updates
 
 The integration {% term polling polls %} weather data every 7 minutes by default.
+
+When a poll cannot reach the API, the weather entity keeps showing the data from the last poll that succeeded. Once that poll is more than 17.5 minutes old, the next failed poll makes the entity unavailable, until a poll succeeds again.
 
 ## Removing the integration
 

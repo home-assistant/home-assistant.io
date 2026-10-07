@@ -3,6 +3,7 @@ title: Modbus
 description: Instructions on how to manually register Modbus entities and platforms.
 ha_category:
   - Hub
+  - Modbus
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: modbus
@@ -30,7 +31,7 @@ The integration adheres strictly to the [protocol specification](https://www.mod
 
 The Modbus integration supports all devices adhering to the Modbus standard. The communication to the device or devices can be serial (RS-485), TCP, or UDP connections. The integration allows multiple communication channels, for example a serial port connection combined with one or more TCP connections.
 
-# Configuring modbus communication
+## Configuring modbus communication
 
 Configure the modbus communication with modbus devices. This is a general setup needed establish access to the device.
 
@@ -340,6 +341,30 @@ modbus:
     parity: E
     stopbits: 1
 ```
+
+## Viewing your Modbus connections
+
+You can see the connections to your Modbus devices in one place from the **Modbus** configuration panel. The panel lists the Modbus hubs that you configured in YAML, and the integrations that connect through the Modbus integration. For example, [SolarEdge Modbus](/integrations/solaredge_modbus/) and [STIEBEL ELTRON](/integrations/stiebel_eltron/) connect this way. Integrations that manage their own Modbus connection, such as [Nibe Heat Pump](/integrations/nibe_heatpump/) and [NeoPool](/integrations/neopool/), don't appear in the panel.
+
+Prerequisites:
+
+- You have administrator rights.
+- You have set up an integration that connects through the Modbus integration, or a Modbus hub in YAML. Otherwise, **Modbus** doesn't appear under **Connectivity**.
+
+1. Go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
+   - At the top, a summary shows how many device units are on how many connections.
+   - If no connection has been opened yet, the panel shows **No Modbus connections**.
+   - To load the list again, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
+2. Under **Connections**, you can see one item for each connection. For example a network address, such as a gateway, or a serial port, such as one with an RS-485 bus. A connection can reach several units, which are the Modbus devices behind it. The integrations in the panel that use the same address or port share one connection.
+3. Still under **Connections**, for each connection item, you can see:
+   - The address of the device, or the device path of the serial port.
+   - The type of connection: **TCP**, **UDP**, or **Serial**. A hub that you configured in YAML is also marked **Configured in YAML**. Such a hub keeps a connection of its own, so the same device can be listed twice.
+   - Whether the connection is open right now:
+     - A network connection shows **Connected** or **Not connected**. A serial port shows **Open** or **Closed**.
+     - **Connected** or **Open**: The connection is open right now. For a serial port, this only means that the port is open, not that the device answers.
+     - **Not connected** or **Closed**: The connection is not open right now. An integration opens it the next time it reads from the device. A device can also close a connection that isn't used.
+   - The integrations that use the connection, with the IDs of the device units they use. Select an integration to go to its settings. A hub that you configured in YAML is shown by its name instead, and can't be selected.
+4. For a serial connection, to see the port in the **Serial** panel, select **View this port under Serial**.
 
 # Configuring modbus entities
 

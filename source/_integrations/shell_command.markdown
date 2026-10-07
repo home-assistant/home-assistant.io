@@ -67,6 +67,8 @@ Testing commands in a separate [Home Assistant Container](/installation/linux#in
 
 Shell commands provide an action response in a dictionary containing `stdout`, `stderr`, and `returncode`. You can use these in automations to act on the command results using [`response_variable`](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
 
+{% include integrations/actions.md %}
+
 ## Examples
 
 ### Defining multiple shell commands

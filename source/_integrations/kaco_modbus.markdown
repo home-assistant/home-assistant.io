@@ -3,12 +3,14 @@ title: KACO Modbus
 description: Instructions on how to integrate a KACO solar inverter with Home Assistant over Modbus TCP.
 ha_category:
   - Energy
+  - Modbus-controlled
 ha_release: '2026.10'
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@g4bri3lDev'
 ha_domain: kaco_modbus
 ha_platforms:
+  - diagnostics
   - sensor
 ha_config_flow: true
 ha_integration_type: device
@@ -65,6 +67,11 @@ every 30 seconds.
 
 Only inverters that offer Modbus TCP are supported. KACO inverters that provide
 only the manufacturer's serial protocol can't be used with this integration.
+
+## Diagnostics
+
+The diagnostics download includes the inverter's raw register map, which can help developers reproduce issues without access to the hardware. The serial number is redacted.
+Attach the downloaded file when reporting an issue. For more information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
 
 ## Removing the integration
 
