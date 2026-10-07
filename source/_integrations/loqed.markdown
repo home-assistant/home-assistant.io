@@ -6,7 +6,7 @@ ha_category:
 ha_release: 2023.7
 ha_iot_class: Local Push
 ha_codeowners:
-  - '@mikewoudenberg'
+  - "@mikewoudenberg"
 ha_domain: loqed
 ha_platforms:
   - lock
@@ -28,7 +28,7 @@ This integration supports:
 
 ## Prerequisites
 
-On the [LOQED personal access token website](https://integrations.production.loqed.com/personal-access-tokens), please follow the following steps:
+On the [LOQED personal access token website](https://integrations.loqed.com/personal-access-tokens), please follow the following steps:
 
 {% details "Generate access token" %}
 
@@ -43,9 +43,9 @@ On the [LOQED personal access token website](https://integrations.production.loq
 
 {% configuration_basic %}
 API token:
-  description: "The LOQED personal access token you created in the previous step. You can use the same token for several locks."
+description: "The LOQED personal access token you created in the previous step. You can use the same token for several locks."
 Lock:
-  description: "The lock to add. You are only asked for this during manual setup when your LOQED account contains more than one lock. With a single lock, it is selected automatically."
+description: "The lock to add. You are only asked for this during manual setup when your LOQED account contains more than one lock. With a single lock, it is selected automatically."
 {% endconfiguration_basic %}
 
 Home Assistant should automatically detect your lock when your Home Assistant runs on the same network as your lock. In that case, you only need to provide the API token when configuring the integration.
@@ -64,7 +64,7 @@ This integration follows standard integration removal. Removing it also removes 
 
 After removing the integration, you can also delete the personal access token you created for it. If you use the same token for other locks in Home Assistant, keep it until you have removed all of them.
 
-On the [LOQED personal access token website](https://integrations.production.loqed.com/personal-access-tokens), follow these steps:
+On the [LOQED personal access token website](https://integrations.loqed.com/personal-access-tokens), follow these steps:
 
 1. Log in with your LOQED App email address (you need to be an admin).
 2. Select **delete** next to the personal access token you used when creating this integration.
