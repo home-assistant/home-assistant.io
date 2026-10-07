@@ -2054,7 +2054,7 @@ action: |
       message: "I'm fine..."
 {% endexample %}
 
-**Continue on error** doesn't ignore errors in the configuration, or errors that Home Assistant can't handle. The error is still shown in the trace and in the logs.
+**Continue on error** doesn't ignore errors in the configuration, such as a broken template. The error is still shown in the trace and in the logs.
 
 <a id="disabling-an-action"></a>
 
