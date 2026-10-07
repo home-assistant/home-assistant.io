@@ -74,9 +74,19 @@ The following sensors are enabled by default:
 - **Charging power**: Current charging power reported by the charger in watts (W).
 - **Total energy**: Lifetime energy reported by the charger in kilowatt-hours (kWh). Use this sensor when adding the charger to the [Energy dashboard](/home-energy-management).
 - **Session energy**: Energy delivered during the current or most recently completed charging session in kilowatt-hours (kWh). This value can reset when a new session starts, so it is not recommended for the Energy dashboard.
+- **Session start**: When the charger started the current or most recently completed charging session.
+- **Session duration**: Elapsed time of the current or most recently completed charging session reported by the charger in seconds (s).
 - **Internal temperature**: Temperature measured inside the charger in degrees Celsius (°C).
 - **Charging status**: High-level charging state reported by the charger.
 - **Charging message**: Additional guidance reported for the current charging state.
+
+The following sensors are disabled by default:
+
+- **Session current limit**: Current limit recorded for the charging session in amperes (A). This usually matches the **Charging current** setting.
+- **Scheduled start**: Start time of a scheduled charging session. For a session that starts immediately, such as one started from Home Assistant, this is the time charging was requested.
+- **Charging time limit**: Time after which the charger ends the charging session in minutes (min). The value is unknown when no limit is set, which includes sessions started from Home Assistant.
+
+Scheduled starts and charging time limits are set outside Home Assistant, for example in the charger's mobile app. The integration reports them but cannot change them.
 
 The following diagnostic sensors are disabled by default:
 

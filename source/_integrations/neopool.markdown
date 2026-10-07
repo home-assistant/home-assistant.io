@@ -20,6 +20,7 @@ ha_integration_type: hub
 ha_quality_scale: platinum
 ha_category:
   - Hub
+  - Modbus-controlled
 ---
 
 The **NeoPool** {% term integration %} integrates pool controllers built around the **NeoPool control system** (originally developed by **Sugar Valley**, acquired by **Hayward** in 2016) with Home Assistant. It communicates entirely locally over Modbus TCP, providing real-time monitoring of water chemistry, filtration, and hydrolysis without any cloud dependency.

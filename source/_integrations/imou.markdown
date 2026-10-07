@@ -2,6 +2,7 @@
 title: Imou
 description: Integrate Imou smart devices into Home Assistant.
 ha_category:
+  - Alarm
   - Binary sensor
   - Button
   - Camera
@@ -16,6 +17,7 @@ ha_domain: imou
 ha_codeowners:
   - '@Imou-OpenPlatform'
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
   - camera
@@ -28,7 +30,7 @@ ha_quality_scale: silver
 
 The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically.
 
-Channel devices expose **Live view SD** and **Live view HD** camera entities. Depending on what the cloud API reports for each device, the integration also creates button, switch, select, binary sensor, and sensor entities. See [Supported functionality](#supported-functionality) for the full list.
+Channel devices expose **Live view SD** and **Live view HD** camera entities. Depending on what the cloud API reports for each device, the integration also creates alarm control panel, button, switch, select, binary sensor, and sensor entities. See [Supported functionality](#supported-functionality) for the full list.
 
 ## Supported devices
 
@@ -110,6 +112,10 @@ When the cloud API reports that the toggle is supported for a device, the integr
 - **Privacy mode**: Enable privacy mode that closes or disables the camera lens on supported models.
 - **White light**: Manually toggle the camera white LED illuminator on supported models.
 
+### Alarm control panel
+
+On supported gateways and hubs, the integration exposes an alarm control panel entity named after the device. In the UI, use **Arm home**, **Arm away**, and **Disarm** when the cloud API reports those actions for the device. The entity state shows armed home, armed away, or disarmed accordingly.
+
 ### Selects
 
 When the cloud API reports that the option is supported for a device, the integration exposes the following select entities:
@@ -186,6 +192,10 @@ Binary sensors are unavailable when a device is offline or no longer on your acc
 Most sensors are unavailable when a device is offline or no longer on your account. Ensure the device has power and network connectivity and appears online in the Imou app.
 
 The **Status** sensor is an exception: it stays available when the device is offline and reports `offline` instead of becoming unavailable.
+
+### An alarm control panel is unavailable
+
+The alarm control panel is unavailable when the device is offline or no longer on your account. Ensure the gateway or hub appears online in the Imou app.
 
 ## Removing the integration
 

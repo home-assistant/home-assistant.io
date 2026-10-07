@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg class="flow" width="800" height="716" viewBox="0 0 800 716" xmlns="http://www.w3.org/2000/svg" aria-labelledby="flow-m">
+<title id="flow-m">Overview: adding a Matter device to Home Assistant</title>
+<defs><marker id="arrow-flow-m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="arrowhead"/></marker></defs><style>
+svg{font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+.bg{fill:#ffffff}
+.edges polyline{fill:none;stroke:#56626f;stroke-width:1.5}
+.arrowhead{fill:#56626f}
+.shape{stroke-width:1.5}
+.shape.here,.shape.decision{fill:#e2f1ef;stroke:#0a6f6a}
+.shape.decision{stroke-width:2}
+.shape.elsewhere{fill:#f6ebdf;stroke:#8a4b12}
+.shape.end{fill:#ffffff;stroke:#56626f}
+.label{fill:#1c2530;font-size:13px}
+.edge-label{fill:#56626f;font-size:12px;font-weight:500}
+.edge-label-bg{fill:#ffffff}
+</style><rect class="bg" x="0" y="0" width="800" height="716"/>
+<g class="edges">
+<polyline points="400,50 400,74" marker-end="url(#arrow-flow-m)"/>
+<polyline points="400,114 400,138" marker-end="url(#arrow-flow-m)"/>
+<polyline points="530,164 690,164 690,214" marker-end="url(#arrow-flow-m)"/>
+<polyline points="690,278 690,302" marker-end="url(#arrow-flow-m)"/>
+<polyline points="400,190 400,238" marker-end="url(#arrow-flow-m)"/>
+<polyline points="250,264 130,264 130,494 270,494" marker-end="url(#arrow-flow-m)"/>
+<polyline points="400,290 400,338" marker-end="url(#arrow-flow-m)"/>
+<polyline points="530,364 685,364 685,400" marker-end="url(#arrow-flow-m)"/>
+<polyline points="400,390 400,470" marker-end="url(#arrow-flow-m)"/>
+<polyline points="685,464 685,494 530,494" marker-end="url(#arrow-flow-m)"/>
+<polyline points="400,518 400,540 230,540 230,564" marker-end="url(#arrow-flow-m)"/>
+<polyline points="400,518 400,540 570,540 570,564" marker-end="url(#arrow-flow-m)"/>
+<polyline points="230,612 230,636 400,636"/>
+<polyline points="570,612 570,636 400,636"/>
+<polyline points="400,636 400,660" marker-end="url(#arrow-flow-m)"/>
+</g>
+<g class="nodes">
+<g><rect class="shape end" x="250" y="10" width="300" height="40" rx="20"/><text class="label" text-anchor="middle"><tspan x="400" y="34.5">New Matter device</tspan></text></g>
+<a class="node-link" href="https://www.home-assistant.io/integrations/matter/#adding-a-matter-device-to-home-assistant" target="_blank" rel="noopener" aria-label="Adding a Matter device to Home Assistant"><title>Adding a Matter device to Home Assistant</title><g><rect class="shape here" x="270" y="74" width="260" height="40" rx="8"/><text class="label" text-anchor="middle"><tspan x="400" y="98.5">Prepare Home Assistant</tspan></text></g></a>
+<a class="node-link" href="https://www.home-assistant.io/integrations/matter/#sharing-a-device-from-another-platform-with-home-assistant" target="_blank" rel="noopener" aria-label="Sharing a device from another platform with Home Assistant"><title>Sharing a device from another platform with Home Assistant</title><g><polygon class="shape decision" points="270,164 284,138 516,138 530,164 516,190 284,190"/><text class="label" text-anchor="middle"><tspan x="400" y="160.5">Is the device</tspan><tspan x="400" y="176.5">already in use?</tspan></text></g></a>
+<a class="node-link" href="https://www.home-assistant.io/integrations/matter/#sharing-a-device-from-another-platform-with-home-assistant" target="_blank" rel="noopener" aria-label="Sharing a device from another platform with Home Assistant"><title>Sharing a device from another platform with Home Assistant</title><g><rect class="shape here" x="600" y="214" width="180" height="64" rx="8"/><text class="label" text-anchor="middle"><tspan x="690" y="234.5">Sharing a device from</tspan><tspan x="690" y="250.5">another platform with</tspan><tspan x="690" y="266.5">Home Assistant</tspan></text></g></a>
+<g><rect class="shape end" x="610" y="302" width="160" height="48" rx="24"/><text class="label" text-anchor="middle"><tspan x="690" y="322.5">Device shared with</tspan><tspan x="690" y="338.5">Home Assistant</tspan></text></g>
+<a class="node-link" href="https://www.home-assistant.io/integrations/matter/#adding-a-matter-device-to-home-assistant" target="_blank" rel="noopener" aria-label="Adding a Matter device to Home Assistant"><title>Adding a Matter device to Home Assistant</title><g><polygon class="shape decision" points="250,264 264,238 536,238 550,264 536,290 264,290"/><text class="label" text-anchor="middle"><tspan x="400" y="260.5">Check logos on the device:</tspan><tspan x="400" y="276.5">Wi-Fi or Thread?</tspan></text></g></a>
+<a class="node-link" href="https://www.home-assistant.io/integrations/matter/#adding-a-matter-device-to-home-assistant" target="_blank" rel="noopener" aria-label="Adding a Matter device to Home Assistant"><title>Adding a Matter device to Home Assistant</title><g><polygon class="shape decision" points="270,364 284,338 516,338 530,364 516,390 284,390"/><text class="label" text-anchor="middle"><tspan x="400" y="360.5">Is there a Thread</tspan><tspan x="400" y="376.5">border router?</tspan></text></g></a>
+<a class="node-link" href="https://www.home-assistant.io/integrations/thread/#turning-home-assistant-into-a-thread-border-router" target="_blank" rel="noopener" aria-label="Turning Home Assistant into a Thread border router"><title>Turning Home Assistant into a Thread border router</title><g><rect class="shape elsewhere" x="590" y="400" width="190" height="64" rx="8"/><text class="label" text-anchor="middle"><tspan x="685" y="420.5">Turning Home Assistant</tspan><tspan x="685" y="436.5">into a Thread border</tspan><tspan x="685" y="452.5">router (Thread page)</tspan></text></g></a>
+<a class="node-link" href="https://www.home-assistant.io/integrations/matter/#adding-a-matter-device-to-home-assistant" target="_blank" rel="noopener" aria-label="Adding a Matter device to Home Assistant"><title>Adding a Matter device to Home Assistant</title><g><rect class="shape here" x="270" y="470" width="260" height="48" rx="8"/><text class="label" text-anchor="middle"><tspan x="400" y="498.5">Prepare Android or iPhone</tspan></text></g></a>
+<a class="node-link" href="https://www.home-assistant.io/integrations/matter/#to-add-a-new-device-using-the-android-companion-app" target="_blank" rel="noopener" aria-label="To add a new device using the Android Companion app"><title>To add a new device using the Android Companion app</title><g><rect class="shape here" x="90" y="564" width="280" height="48" rx="8"/><text class="label" text-anchor="middle"><tspan x="230" y="584.5">To add a new device using</tspan><tspan x="230" y="600.5">the Android Companion app</tspan></text></g></a>
+<a class="node-link" href="https://www.home-assistant.io/integrations/matter/#to-add-a-new-device-using-the-ios-companion-app" target="_blank" rel="noopener" aria-label="To add a new device using the iOS Companion app"><title>To add a new device using the iOS Companion app</title><g><rect class="shape here" x="430" y="564" width="280" height="48" rx="8"/><text class="label" text-anchor="middle"><tspan x="570" y="584.5">To add a new device using</tspan><tspan x="570" y="600.5">the iOS Companion app</tspan></text></g></a>
+<g><rect class="shape end" x="270" y="660" width="260" height="40" rx="20"/><text class="label" text-anchor="middle"><tspan x="400" y="684.5">Device added to Home Assistant</tspan></text></g>
+</g>
+<g class="edge-labels">
+<rect class="edge-label-bg" x="594.1" y="155" width="31.8" height="18" rx="4"/><text class="edge-label" x="610" y="168" text-anchor="middle">Yes</text>
+<rect class="edge-label-bg" x="387.4" y="205" width="25.2" height="18" rx="4"/><text class="edge-label" x="400" y="218" text-anchor="middle">No</text>
+<rect class="edge-label-bg" x="167.5" y="255" width="45.0" height="18" rx="4"/><text class="edge-label" x="190" y="268" text-anchor="middle">Wi-Fi</text>
+<rect class="edge-label-bg" x="374.2" y="305" width="51.6" height="18" rx="4"/><text class="edge-label" x="400" y="318" text-anchor="middle">Thread</text>
+<rect class="edge-label-bg" x="594.4" y="355" width="25.2" height="18" rx="4"/><text class="edge-label" x="607" y="368" text-anchor="middle">No</text>
+<rect class="edge-label-bg" x="384.1" y="421" width="31.8" height="18" rx="4"/><text class="edge-label" x="400" y="434" text-anchor="middle">Yes</text>
+<rect class="edge-label-bg" x="285.9" y="531" width="58.2" height="18" rx="4"/><text class="edge-label" x="315" y="544" text-anchor="middle">Android</text>
+<rect class="edge-label-bg" x="459.2" y="531" width="51.6" height="18" rx="4"/><text class="edge-label" x="485" y="544" text-anchor="middle">iPhone</text>
+</g>
+</svg>

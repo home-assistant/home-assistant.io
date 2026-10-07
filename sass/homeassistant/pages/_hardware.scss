@@ -1,0 +1,229 @@
+@use '../variables' as *;
+
+// Hardware overview page: products grouped by category and shown as tiles,
+// laid out like a product listing rather than an article.
+#hardware {
+  article.page > header h1.title {
+    text-align: center;
+  }
+
+  .hardware-lead {
+    max-width: 640px;
+    margin: 0 auto 56px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .hardware-category {
+    margin-bottom: 64px;
+  }
+
+  .hardware-category-header {
+    margin-bottom: 24px;
+
+    h2 {
+      margin: 0 0 4px;
+    }
+
+    p {
+      margin: 0;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  .hardware-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  // The product name is the link, stretched over the whole tile so the tile
+  // is clickable without nesting other content inside the link.
+  .hardware-tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: $white;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 16px;
+    color: $text-color;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+    &:hover,
+    &:focus-within {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+
+    // Outline the tile when its link has keyboard focus.
+    &:has(.hardware-tile-link:focus-visible) {
+      outline: 2px solid $link-color;
+      outline-offset: 2px;
+    }
+  }
+
+  a.hardware-tile-link {
+    color: inherit;
+    text-decoration: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+  }
+
+  .hardware-tile-image {
+    background: #f2f4f9;
+
+    // The ratio sits on the image, so taller source photos are cropped
+    // instead of stretching the tile.
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+  }
+
+  .hardware-tile-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 20px 24px 24px;
+
+    // The site positions headings for their anchor links. Resetting it lets
+    // the stretched link cover the whole tile, not just the heading.
+    h3 {
+      position: static;
+      margin: 0 0 8px;
+      font-family: $heading-font;
+      font-size: 20px;
+      line-height: 1.3;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    // The description, which always follows the product name.
+    h3 + p {
+      margin-bottom: 20px;
+    }
+  }
+
+  // Keeps model numbers such as "ZBT-2" from breaking at the hyphen.
+  .hardware-model {
+    white-space: nowrap;
+  }
+
+  .hardware-tile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0 0 12px;
+    padding: 0;
+    list-style: none;
+
+    li {
+      margin: 0;
+      padding: 2px 10px;
+      border-radius: 12px;
+      background: #e8e6f0;
+      color: #6b5ca5;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 20px;
+    }
+  }
+
+  // A copy of the "Get started" button in the header (.menu > li > a.primary
+  // in _overrides.scss, plus what it inherits from the menu), with different
+  // words. It's part of the card link, so it sits under the stretched link and
+  // takes its hover state from the tile.
+  .hardware-tile-cta {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 6px;
+    // Pushes the button to the bottom so buttons line up across a row.
+    margin-top: auto;
+    padding: 12px 16px 10px;
+    background: $link-color;
+    border-radius: 32px;
+    color: $white;
+    font-family: $heading-font;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.08px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    transition: background-color .33s;
+
+    iconify-icon {
+      height: 14px;
+      margin-top: -2px;
+      margin-right: -4px;
+    }
+  }
+
+  .hardware-tile:hover .hardware-tile-cta {
+    background: $primary-color;
+  }
+
+  .hardware-tile-body p.hardware-tile-status {
+    margin-top: auto;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .hardware-byo-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    color: $link-color;
+    font-family: $heading-font;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+  }
+
+  .hardware-byo {
+    margin-bottom: 48px;
+    padding: 32px;
+    border-radius: 16px;
+    background: #f2f4f9;
+    text-align: center;
+
+    h2 {
+      margin: 0 0 8px;
+    }
+
+    p {
+      max-width: 560px;
+      margin: 0 auto 16px;
+    }
+  }
+}

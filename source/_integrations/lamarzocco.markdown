@@ -63,7 +63,9 @@ Offline mode:
 
 By default, this integration will receive push updates from the cloud about its general status. If that is not possible it will query the cloud every 15 seconds for an update of general machine information, every 15 minutes for new statistics, every 30 minutes for updated schedules and every 8 hours for a firmware update.
 
-If your host has access to a Bluetooth adapter and your machine is within range, the integration can request updates through Bluetooth. This Bluetooth mode starts automatically if internet access is not available, or when you enable the **offline mode** option.
+If your host has access to a Bluetooth adapter and your machine is within range, the integration can request updates through Bluetooth. The integration will always try to send commands over Bluetooth first. If the machine is turned on, the Bluetooth connection will be held active to enable real-time updates for the **Brewing active** sensor.
+
+There is also a "Bluetooth only" mode. This Bluetooth mode starts automatically if internet access is not available, or when you enable the **Offline mode** option.
 In **offline mode**, most entities will become unavailable. Only those marked with <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> in the table below ([Available platforms & entities](#available-platforms--entities)) will remain available. While in **offline mode**, Home Assistant requests an update from your machine every 60 seconds.
 
 # Available platforms & entities
@@ -105,9 +107,10 @@ In **offline mode**, most entities will become unavailable. Only those marked wi
 | Binary sensor name | Description | Available for machines |  Retrievable from | Remarks |
 |------------------- |-------------| ---------------------- | ----------------- | ------- |
 | **Water tank empty** | Indicates whether the water tank needs a refill. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
-| **Brewing active** | Is on if you are in the process of making coffee. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
+| **Brewing active** | Is on if you are in the process of making coffee. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> | - |
 | **Backflush enabled** | Is on if you started the backflushing process. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %}| - |
 | **WebSocket connected** | Track your connection to the cloud WebSocket for real time updates. | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %}| Disabled by default. |
+| **Bluetooth connected** | Track your connection over Bluetooth for local updates. | `all` | <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> | Disabled by default. |
 
 ## Sensors
 
