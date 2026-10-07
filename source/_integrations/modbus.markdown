@@ -27,7 +27,7 @@ The **Modbus** {% term integration %} connects Home Assistant to devices that ha
 
 ## Supported devices
 
-The Modbus integration follows the [Modbus protocol specification](https://www.modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf) strictly, so it supports all devices that follow the Modbus standard. Home Assistant can reach them over Modbus TCP, Modbus UDP, or Modbus RTU over a serial connection, such as RS-485. You can use several connections at the same time, such as a serial connection together with one or more network connections.
+The Modbus integration follows the [Modbus protocol specification](https://www.modbus.org/file/secure/modbusprotocolspecification.pdf) strictly, so it supports all devices that follow the Modbus standard. Home Assistant can reach them over Modbus TCP, Modbus UDP, or Modbus RTU over a serial connection, such as RS-485. You can use several connections at the same time, such as a serial connection together with one or more network connections.
 
 ## Setting up Modbus control in Home Assistant
 
