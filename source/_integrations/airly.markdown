@@ -166,12 +166,12 @@ automation: |
 
 {% enddetails %}
 
+## Known limitations
+
+Airly allows 100 data updates per day. Data updates become less frequent as you add Airly integration instances, as described in [Setup](#setup).
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
-
-## Known limitations
-
-Airly allows 100 data updates per day. Data updates become less frequent as you add Airly integration instances, as described in [Setup](#setup).
