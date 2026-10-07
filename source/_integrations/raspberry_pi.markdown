@@ -11,6 +11,7 @@ ha_domain: raspberry_pi
 ha_integration_type: hardware
 ha_platforms:
   - update
+ha_quality_scale: legacy
 ---
 
 The **Raspberry Pi** {% term integration %} shows which Raspberry Pi board Home Assistant is running on. On a Raspberry Pi 4 or 5, it also lets you update the board's firmware from Home Assistant.

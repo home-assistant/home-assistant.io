@@ -57,37 +57,27 @@ Sensors:
 
 ### Retrieving your credentials
 
-Check if the credentials can be retrieved directly from your device:
+Home Assistant discovers the robot's BLID (its device identifier) and tries to retrieve its password during setup. Your iRobot account password is not the password requested by the integration.
 
-1. Make sure the Roomba app is closed on all of your devices.
-2. Follow the instructions in Home Assistant to retrieve the credentials.
+To retrieve the password during setup:
 
-If automatic retrieval does not work, you can retrieve the credentials manually. To manually retrieve both the BLID (username) and the password, refer to the instructions in the [Roomba 980](https://github.com/NickWaterton/Roomba980-Python#how-to-get-your-usernameblid-and-password) or [dority 980](https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password) repository.
+1. Close the iRobot app on your phone and any other devices.
+2. Follow the instructions in the integration setup to put your robot in the mode needed to retrieve its password. The buttons vary by model: the setup screen asks you to hold **Home**, or **Home** and **Spot**, until the robot makes a sound.
+3. Submit the form within 30 seconds. Home Assistant then tries to retrieve the password from the robot.
 
-For Home Assistant Container, the following command retrieves the BLID (username) and password:
+If Home Assistant asks you to enter a password, it could not retrieve it from the robot.
+Some models, including the Roomba j7, do not provide their password through this local method.
 
-```shell
-docker exec -it CONTAINER_NAME_OR_ID python -c 'import roombapy.entry_points; roombapy.entry_points.password()' ROOMBA_IP
-```
+#### Using a third-party tool to retrieve the robot password
 
-{% note %}
-The command to retrieve the credentials does not need any additional software to be installed because it uses the built-in [roombapy](https://github.com/pschmitt/roombapy) package and [password](https://github.com/pschmitt/roombapy/blob/1.6.1/roomba/entry_points.py#L20) function deployed with Home Assistant.
-{% endnote %}
+The third-party `dorita980` tool offers a [cloud method for retrieving robot credentials](https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password).
+Home Assistant does not maintain, review, or support this tool.
+Its instructions require you to provide your iRobot account credentials to it.
+If you choose to use it, review the instructions and security implications in its repository before proceeding.
+You do not need to install the tool on your Home Assistant device.
 
-#### Retrieving credentials from the cloud with dorita980
-
-The underlying Python library is currently unable to retrieve the credentials from some newer models (for example, the J7). See [this issue](https://github.com/pschmitt/roombapy/issues/97) for details. Luckily, the password can be retrieved from the cloud using a tool provided by the [dorita980](https://github.com/koalazak/dorita980) library. Follow [these instructions](https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password) to do this, you should receive output of the form:
-
-```shell
-Found 1 robot(s)!
-Robot "RoombaJ7" (sku: j715800 SoftwareVer: sapphire+22.21.1+2022-06-02-570490a425b+Firmware-Production+70):
-BLID=> XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-Password=> XXXXXXXXXXXXXXXXXXXXXXXXXXXXX <= Yes, all this string.
-
-Use this credentials in dorita980 lib :)
-```
-
-Copy the password (everything between `=>` and `<=`, not including leading and trailing whitespace) into the Home Assistant password dialog.
+If you retrieve the robot password using an external method, enter that password in the Home Assistant setup form, not your iRobot account password.
+Home Assistant already found the BLID during discovery.
 
 ## Troubleshooting
 

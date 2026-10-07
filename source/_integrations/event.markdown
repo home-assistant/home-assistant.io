@@ -28,19 +28,14 @@ The event entity captures these events from the physical world and makes them av
 
 {% include integrations/building_block_integration.md %}
 
-## The state of an event entity
+## Event states
 
-The event entity does not capture a state such as **On** or **Off**. Instead, an event entity keeps track of the timestamp when the emitted event was last detected.
+The {% term state %} of an event entity is a timestamp showing the date and time when the last event was detected. Home Assistant stores the timestamp in UTC, for example, `2026-01-01T12:00:00.123+00:00`. The Home Assistant interface shows it in your local date and time format.
 
-<p class='img'>
-  <img src='/images/integrations/event/event_timestamp.png' alt='Event entity with timestamp value in state and event type "pressed"'>
-  Event entity with a timestamp value in state and event type "pressed".
-</p>
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
-In addition, the entity can have the following states:
-
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 ## Event types
 
@@ -50,29 +45,29 @@ For example, you can trigger a different action when a remote control button is 
 
 When creating automations in the UI, the event types are available as a dropdown list, depending on the event entity you are using. This means you don't have to remember or look up the different event types.
 
+For buttons and doorbells, Home Assistant has standard event types. If the integration uses the standard event types and sets the matching device class, the interface shows them with readable names, such as **Long press start** for a button or **Ring** for a doorbell.
+
 ## Device class
 
-{% include integrations/device_class_intro.md %}
+The device class tells Home Assistant what kind of signal an event entity reports, such as a doorbell press. Home Assistant uses the device class to choose the icon, the default name, and readable names for the [event types](#event-types), such as **Ring**. Google Assistant, Alexa, and Apple Home use the device class to recognize doorbells.
 
-The screenshot shows different icons representing device classes of the event entity:
+The integration that provides the event entity sets the device class. When you create an event entity yourself with a [template helper](/integrations/template/), you choose the device class.
 
-<p class='img'>
-<img src='/images/integrations/event/device_class_event_icons.png' alt='Screenshot showing different icons representing device classes of the event entity' />
-Example of different icons representing device classes of the event entity.
-</p>
+### Device classes in automations and templates
 
-The following device classes are supported by event entities:
+- Automations: The doorbell device class has its own trigger, [Doorbell rang](/triggers/doorbell.rang/). The trigger only reacts to event entities with that device class. The other device classes don't change how an event entity works in automations.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `doorbell`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
-- **None**: Generic event. This is the default and doesn't need to be set.
-- **button**: For remote control buttons.
-- **doorbell**: Specifically for buttons that are used as a doorbell.
-- **motion**: For motion events detected by a motion sensor.
+### List of available device classes
 
-### Video tutorial
+An event entity without a device class is a generic event and shows {% icon "mdi:eye-check" %}.
 
-This video tutorial explains how events work in Home Assistant and how you can set up Emulated Roku to control a media player using a physical remote control.
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it. If the device class has its own trigger, the trigger is listed below the item.
 
-<lite-youtube videoid="nDHh1OjyuMA" videotitle="Event Triggers Unveiled: Control the Home Assistant Media Player with Your Remote Control!" posterquality="maxresdefault"></lite-youtube>
+- {% icon "mdi:gesture-tap-button" %} **Button** (`button`): For buttons, such as the buttons of a remote control.
+- {% icon "mdi:doorbell" %} **Doorbell** (`doorbell`): For buttons that are used as a doorbell.
+  - Trigger: [Doorbell rang](/triggers/doorbell.rang/)
+- {% icon "mdi:motion-sensor" %} **Motion** (`motion`): For motion detected by a motion sensor.
 
 {% include integrations/triggers.md %}
 

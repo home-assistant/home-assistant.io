@@ -2,9 +2,9 @@
 title: Samsung Infrared
 description: Integration to control Samsung TVs and air conditioners using an infrared transmitter.
 ha_category:
+  - Climate
   - Infrared-controlled
   - Media player
-  - Climate
 ha_release: 2026.6
 ha_iot_class: Assumed State
 ha_codeowners:

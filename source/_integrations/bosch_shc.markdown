@@ -165,7 +165,7 @@ The valve platform provides a diagnostic entity showing the current valve positi
 
 Get a reminder if a shutter contact stays open for too long, so an open window doesn't go unnoticed.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Front door (binary sensor)
   - **To**: On
   - **For**: `00:10:00`

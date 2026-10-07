@@ -16,7 +16,7 @@ related:
 
 Templates are built on top of Python, and many standard Python methods are available to you. You call them the same way you would in Python: put a dot after the value, then the method name and parentheses. These methods are not listed in the [template functions reference](/template-functions/) because they come from Python itself, but they solve a lot of common tasks.
 
-This page is a cheat sheet of the ones that come up most often in Home Assistant templates. When in doubt, open the {% my developer_template title="template editor" %} and try it.
+This page is a cheat sheet of the ones that come up most often in Home Assistant templates. When in doubt, open the {% my tools_template title="template editor" %} and try it.
 
 ## String methods
 

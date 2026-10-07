@@ -75,7 +75,7 @@ tilt_position:
 
 When the afternoon sun starts shining in, you can lower the blinds part way and tilt the slats to block the glare while keeping some light, all in one smooth move.
 
-- **Trigger**: Numeric state
+- **Trigger**: Numeric state crossed threshold
   - **Entity**: Sun
   - **Attribute**: Elevation
   - **Below**: 25

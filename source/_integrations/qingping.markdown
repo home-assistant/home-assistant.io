@@ -16,7 +16,6 @@ ha_platforms:
   - binary_sensor
   - sensor
 ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Qingping** {% term integration %} lets you monitor [Qingping](https://qingping.co/) environmental sensors directly over Bluetooth Low Energy. No cloud account or hub is required: the devices broadcast their readings and Home Assistant listens passively.

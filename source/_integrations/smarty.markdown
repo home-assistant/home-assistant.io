@@ -12,6 +12,7 @@ ha_iot_class: Local Polling
 ha_release: 0.95
 ha_codeowners:
   - '@z0mbieprocess'
+  - '@marcodutto'
 ha_domain: smarty
 ha_platforms:
   - binary_sensor

@@ -2586,7 +2586,7 @@ logger:
 ```
 
 You can use the `logger.set_level` action to change the log level of a handler on a running instance.
-{% my developer_call_service badge service="logger.set_level" %}
+{% my tools_perform_action badge service="logger.set_level" %}
 
 ### Group address cannot be read
 

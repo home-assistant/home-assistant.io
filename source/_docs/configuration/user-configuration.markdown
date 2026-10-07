@@ -23,7 +23,7 @@ A person and a user are two different concepts in Home Assistant:
 - A _person_ is used for presence detection. A person can be tracked, shown on the map, and used in automations that react when someone arrives or leaves.
 - A _user_ is a login account. It is what someone uses to sign in to Home Assistant, see their own dashboards, and, with the right permissions, manage the system.
 
-The two are linked only when the same individual needs both. You attach a user to a person by turning on **Allow login** for that person. This means you can have each one on its own:
+The two are linked only when the same individual needs both. You attach a user to a person by turning on **Allow login** for that person. You can then create a new user account, or [link an existing user account](/integrations/person/#linking-an-existing-user-account-to-a-person) that is not linked to a person yet. This means you can have each one on its own:
 
 - A _person without a user_ cannot sign in, but can still be tracked for presence, shown on the map, and used in automations. This is useful for household members, such as children, whose phone you track but who do not need their own login.
 - A _user without a person_ can sign in, but is not tracked for presence and does not appear on the map or in presence-based automations. This is useful for logins that do not belong to a tracked person, such as:
@@ -31,7 +31,7 @@ The two are linked only when the same individual needs both. You attach a user t
   - A local-only account for a wall-mounted tablet or kiosk.
   - An administrative or guest login where presence tracking is not needed.
 
-To create a user that is not linked to a person, add it from the **Users** tab instead of from **People**.
+To create a user that is not linked to a person, add it from the **Users** tab instead of from **People**. You can still [link it to a person](/integrations/person/#linking-an-existing-user-account-to-a-person) later.
 
 ## About user accounts
 
@@ -179,9 +179,19 @@ Administrators can delete other people and their user accounts. Because a person
 
 Delete only the user when you want to revoke someone's access to Home Assistant while still tracking them for presence. For example, when a household member should no longer be able to sign in, but you still want their presence to drive automations and show on the map.
 
+{% important %}
+**Risk of losing the user account**
+
+Turning off **Allow login** permanently deletes the user account and its login credentials. You cannot link the same account to the person again later.
+
+To avoid this:
+
+- If the person should only stop signing in for a while, deactivate the user account instead. On the **Users** tab, select the user, turn off **Active**, and select **Save**.
+{% endimportant %}
+
 1. Go to {% my people title="**Settings** > **People**" %} and select the person whose login you want to delete.
 2. Turn off **Allow login**.
-3. To confirm, select **OK**.
+3. In the **Delete user account** dialog, select **Delete**.
 
 The user account and its login credentials are deleted, but the person remains.
 

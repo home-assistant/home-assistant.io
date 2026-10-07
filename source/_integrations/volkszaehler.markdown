@@ -11,6 +11,8 @@ ha_platforms:
 ha_integration_type: device
 ha_quality_scale: legacy
 ha_config_flow: true
+ha_codeowners:
+  - '@StefanSchoof'
 ---
 
 The **Volkszaehler** {% term integration %} is consuming the system information provided by the [Volkszaehler](https://wiki.volkszaehler.org/) API.
