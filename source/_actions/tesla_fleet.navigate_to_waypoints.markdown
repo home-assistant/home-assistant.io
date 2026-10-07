@@ -73,6 +73,69 @@ place_ids:
 
 {% include actions/try_it.md %}
 
+{% include actions/more_examples.md %}
+
+### Automation: send the school run on weekday mornings
+
+Every weekday morning at 7:30, send the school drop-off plus office route to the car so navigation is ready before you get in.
+
+- **Trigger**: Time: 7:30 in the morning
+- **Condition**: Monday to Friday
+- **Action**: Navigate to waypoints, with the school stop and the office destination
+
+{% details "YAML example for sending the school run on weekday mornings" %}
+
+{% example %}
+automation: |
+  alias: "Send school run on weekday mornings"
+  triggers:
+    - trigger: time
+      at: "07:30:00"
+  conditions:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  actions:
+    - action: tesla_fleet.navigate_to_waypoints
+      data:
+        device_id: 0d462c0c4c0b064b1a91cdbd1ffcbd31
+        place_ids:
+          - ChIJVTPokywQkFQRmtVEaUZlJRA
+          - ChIJQWCmo89rkFQRZQfQ6oJUz7o
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: start a saved trip from your dashboard
+
+Add a button to your dashboard that sends a saved multi-stop trip to the car. The button is an [input button](/integrations/input_button/) {% term helper %} that you create separately.
+
+- **Trigger**: Input button: pressed
+- **Action**: Navigate to waypoints, with the saved stops
+
+{% details "YAML example for starting a saved trip from your dashboard" %}
+
+{% example %}
+automation: |
+  alias: "Start saved trip from dashboard"
+  triggers:
+    - trigger: state
+      entity_id: input_button.car_trip
+  actions:
+    - action: tesla_fleet.navigate_to_waypoints
+      data:
+        device_id: 0d462c0c4c0b064b1a91cdbd1ffcbd31
+        place_ids:
+          - ChIJVTPokywQkFQRmtVEaUZlJRA
+          - ChIJQWCmo89rkFQRZQfQ6oJUz7o
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
