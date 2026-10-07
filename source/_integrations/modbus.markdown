@@ -50,7 +50,7 @@ Prerequisites:
    - During setup, enter how Home Assistant reaches the device:
      - For a network connection, enter the host and the port. Use the port from the integration documentation. Many devices use `502`, but some use another port.
      - For a serial connection, select the [serial port](/integrations/serial/#serial-port), and enter the [baud rate](/integrations/serial/#baud-rate). A serial proxy is listed with the serial ports. For a serial device server, select **Enter manually** and enter its URL.
-   - Some integrations also ask for the unit ID of the device. This is the address of the device on the Modbus connection. Some integrations call it **Device ID**.
+   - Some integrations also ask for the unit ID of the device. This is the address of the device on the Modbus connection. Some integrations call it **Device ID**. In YAML, it's `device_address`.
    - Result: The entities of your device appear in Home Assistant.
 3. If no integration is available for your device, set up a Modbus hub and its entities in YAML instead. You then describe each register of the device yourself.
    - For the connection, refer to [Configuring modbus communication](#configuring-modbus-communication).
@@ -379,10 +379,10 @@ Prerequisites:
 - You have set up an integration that connects through the Modbus integration, or a Modbus hub in YAML. Otherwise, **Modbus** doesn't appear under **Connectivity**.
 
 1. Go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
-   - At the top, a summary shows how many device units are on how many connections.
+   - At the top, a summary shows how many units (Modbus devices) are on how many connections.
    - If no connection has been opened yet, the panel shows **No Modbus connections**.
    - To load the list again, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
-2. Under **Connections**, you can see one item for each connection. A connection is the network address of a device, such as a Modbus gateway, or a serial port, such as one with an RS-485 bus. A connection can reach several device units, which are the Modbus devices behind it. The integrations in the panel that use the same address or port share one connection.
+2. Under **Connections**, you can see one item for each connection. A connection is the network address of a device or of a Modbus gateway, or a serial port, such as one with an RS-485 bus. A connection can reach several units, which are the Modbus devices behind it. The integrations in the panel that use the same address or port share one connection.
 3. Still under **Connections**, for each connection item, you can see:
    - The address of the device, or the [device path](/integrations/serial/#device-path) of the serial port.
    - The type of connection: **TCP**, **UDP**, or **Serial**. A hub that you configured in YAML is also marked **Configured in YAML**. Such a hub keeps a connection of its own, so the same device can be listed twice.
@@ -390,7 +390,7 @@ Prerequisites:
      - A network connection shows **Connected** or **Not connected**. A serial port shows **Open** or **Closed**.
      - **Connected** or **Open**: The connection is open right now. For a serial port, **Open** only means that the port is open, not that the device answers.
      - **Not connected** or **Closed**: The connection is not open right now. The connection opens again the next time an integration reads from the device. A device can also close a connection that isn't used.
-   - The integrations that use the connection, with the IDs of the device units they use. Select an integration to go to its settings. A hub that you configured in YAML is shown by its name instead, and can't be selected.
+   - The integrations that use the connection, with the unit IDs they use. Select an integration to go to its settings. A hub that you configured in YAML is shown by its name instead, and can't be selected.
 4. For a serial connection, to see the port in the **Serial** panel, select **View this port under Serial**.
 
 # Configuring modbus entities
