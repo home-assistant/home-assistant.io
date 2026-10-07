@@ -213,7 +213,7 @@ To edit the section visibility conditions, select the edit {% icon "mdi:edit" %}
 
 ## Automatic sections
 
-An automatic section fills itself with cards, for example, the **Common controls** section, which shows the entities you use most often. In edit mode, an automatic section shows {% icon "mdi:auto-fix" %} and a solid outline. You can't edit its cards one by one. Instead, you change the settings of the section.
+An automatic section fills itself with cards. For example, the **Common controls** section shows the entities you use most often. In edit mode, an automatic section shows {% icon "mdi:auto-fix" %} and a solid outline.
 
 ### Creating an automatic section
 
@@ -232,6 +232,8 @@ When you create a section, it is always a regular section. To turn it into an au
 4. Select **Save**.
 
 ### Editing an automatic section
+
+You can't edit the cards of an automatic section one by one. Instead, you change the settings of the section.
 
 1. In the top right of the screen, select the edit {% icon "mdi:edit" %} button, then select the automatic section.
 2. On the **Configuration** tab, change the settings.
