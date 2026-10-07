@@ -87,16 +87,6 @@ If you want to change the local network storage that is used to store your backu
 
 You can also add a disk connected to your system, such as an internal drive or a USB drive, and use it for media, shared files, or backups. Home Assistant mounts the disk and reconnects it after a restart.
 
-<!-- TODO: Replace TBD below with the Home Assistant Operating System version that ships local disk storage. -->
-
-{% if page.installation == "os" %}
-
-{% important %}
-You need to update to {% term "Home Assistant Operating System" %} TBD before you can use this feature.
-{% endimportant %}
-
-{% endif %}
-
 The disk needs to be formatted already. These file systems are supported:
 
 - ext4, ext3, and ext2
