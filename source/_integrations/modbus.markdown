@@ -33,18 +33,18 @@ The Modbus integration supports all devices adhering to the Modbus standard. The
 
 ## Viewing your Modbus connections
 
-You can see all connections to your Modbus devices in one place from the **Modbus** configuration panel. The panel lists the connections of the integrations that use Modbus devices, and of the Modbus hubs that you configured in YAML.
+You can see the connections to your Modbus devices in one place from the **Modbus** configuration panel. The panel lists the Modbus hubs that you configured in YAML, and the integrations that connect through the Modbus integration. For example, [SolarEdge Modbus](/integrations/solaredge_modbus/) and [STIEBEL ELTRON](/integrations/stiebel_eltron/) connect this way. Integrations that manage their own Modbus connection, such as [Nibe Heat Pump](/integrations/nibe_heatpump/) and [NeoPool](/integrations/neopool/), don't appear in the panel.
 
 Prerequisites:
 
 - You have administrator rights.
-- You have set up an integration that uses Modbus, or a Modbus hub in YAML. Otherwise, **Modbus** doesn't appear under **Connectivity**.
+- You have set up an integration that connects through the Modbus integration, or a Modbus hub in YAML. Otherwise, **Modbus** doesn't appear under **Connectivity**.
 
 1. Go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
    - At the top, a summary shows how many units are on how many connections.
    - If no connection has been opened yet, the panel shows **No Modbus connections**.
    - To load the list again, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
-2. Under **Connections**, each item is one connection: a network address, such as a gateway, or a serial port, such as one with an RS-485 bus. A connection can reach several units, which are the Modbus devices behind it. All integrations that use the same address or port share one connection. For each connection, you can see:
+2. Under **Connections**, each item is one connection: a network address, such as a gateway, or a serial port, such as one with an RS-485 bus. A connection can reach several units, which are the Modbus devices behind it. The integrations in the panel that use the same address or port share one connection. For each connection, you can see:
    - The address of the device, or the device path of the serial port.
    - The type of connection: **TCP**, **UDP**, or **Serial**. A hub that you configured in YAML is also marked **Configured in YAML**. Such a hub keeps a connection of its own, so the same device can be listed twice.
    - Whether the connection is open right now:
