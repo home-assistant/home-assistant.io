@@ -44,6 +44,7 @@ section#hero {
             font-size: 14px;
             font-weight: 500;
             gap: 12px;
+            line-height: 1.5;
             margin-bottom: auto;
             padding: 8px 16px;
             text-align: center;
@@ -53,6 +54,9 @@ section#hero {
             @include bp(tablet) {
                 font-size: 16px;
                 gap: 16px;
+                // Only from tablet up: on phones the pill wraps, and the
+                // extra tracking would push it onto a third line.
+                letter-spacing: 0.02em;
             }
 
             svg {
