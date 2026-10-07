@@ -326,6 +326,28 @@ Codex can connect to Home Assistant as a remote MCP server by using OAuth:
 5.  Set the `HOMEASSISTANT_TOKEN` environment variable to a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) from your Home Assistant instance.
 6.  Save the file. You can now use Home Assistant tools within the Antigravity CLI.
 
+### Example: Mistral Vibe
+
+Mistral Vibe can connect to Home Assistant as a remote MCP server by using a long-lived access token. The Vibe CLI does not support OAuth for MCP servers yet.
+
+1. Install [Mistral Vibe](https://docs.mistral.ai/vibe/code/cli/install-setup) and run `vibe` once to complete the setup.
+2. Create a [Long-lived access token](#long-lived-access-tokens) from your Home Assistant account.
+3. Set the `HOMEASSISTANT_TOKEN` environment variable to your access token in the shell where you start Vibe.
+4. Open `~/.vibe/config.toml` and add the following at the end of the file:
+
+   ```toml
+   [[mcp_servers]]
+   name = "homeassistant"
+   transport = "streamable-http"
+   url = "https://<your_home_assistant_url>/api/mcp"
+   api_key_env = "HOMEASSISTANT_TOKEN"
+   api_key_header = "Authorization"
+   api_key_format = "Bearer {token}"
+   ```
+
+5. Replace `<your_home_assistant_url>` with the complete URL of your Home Assistant instance, including the port if required. For example, use `http://homeassistant.local:8123` for a typical local connection.
+6. Start `vibe` and type `/mcp` to confirm the server is connected. The Home Assistant tools appear with the prefix `homeassistant_`.
+
 ## Supported functionality
 
 ### Tools
