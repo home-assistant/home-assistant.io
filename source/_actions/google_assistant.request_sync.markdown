@@ -7,7 +7,7 @@ description: "Asks Google to sync your devices from Home Assistant."
 
 Use this action to ask Google to sync your devices from Home Assistant again. After a sync, the Google Home app shows the devices you currently expose, including any you added or removed. It's the same as saying "Hey Google, sync my devices".
 
-This action is for the manual [Google Assistant](/integrations/google_assistant/) setup. If you use Home Assistant Cloud, you don't need it: Home Assistant Cloud syncs your devices with Google for you when you change which entities are exposed.
+This action is for the manual [Google Assistant](/integrations/google_assistant/) setup. If you use Home Assistant Link, you don't need it: Home Assistant Link syncs your devices with Google for you when you change which entities are exposed.
 
 {% include actions/ui_header.md %}
 

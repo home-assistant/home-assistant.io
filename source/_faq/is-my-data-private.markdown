@@ -10,10 +10,10 @@ Home Assistant runs on your own hardware in your home, and your data is stored l
 
 Whenever a {% term device %} supports it, Home Assistant talks to it directly over your local network instead of going through a vendor's cloud. Local protocols like [Zigbee](/integrations/zha/), [Z-Wave](/integrations/zwave_js/), [Matter](/integrations/matter/), [Thread](/integrations/thread/), and [ESPHome](/integrations/esphome/) do not need any internet connection at all.
 
-Optional services such as [Home Assistant Cloud](https://www.nabucasa.com) only do what you specifically enable, like remote access or connecting Home Assistant to Apple Home, Google Home, and Amazon Alexa.
+Optional services such as [Home Assistant Link](https://www.nabucasa.com) only do what you specifically enable, like remote access or connecting Home Assistant to Apple Home, Google Home, and Amazon Alexa.
 
 Learn more:
 
 - [Privacy policy](/privacy/)
-- [Home Assistant Cloud](https://www.nabucasa.com)
+- [Home Assistant Link](https://www.nabucasa.com)
 - [Browse all integrations](/integrations/)

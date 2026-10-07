@@ -26,14 +26,14 @@ The **Fluss+** {% term integration %} allows you to control [Fluss+](https://flu
 - A Fluss+ device [claimed](https://support.fluss.io/portal/en/kb/articles/claiming-a-fluss) and [connected to Wi-Fi](https://support.fluss.io/portal/en/kb/articles/how-to-connect-the-fluss-to-wi-fi).
 - An [API key](https://support.fluss.io/portal/en/kb/articles/how-to-get-an-api-key-on-fluss-plus) for your Fluss+ device.
 - A [Home Assistant instance](/installation/) set up and running.
-- _(Optional)_ [Remote access](/cloud/) to reach your Fluss+ device from anywhere.
+- _(Optional)_ [Remote access](/link/) to reach your Fluss+ device from anywhere.
 
 {% important %}
 Enabling remote access to your Home Assistant instance—via port forwarding, tunnels, DuckDNS, or any other method—exposes your system to the internet. It increases the risk of unauthorized access, security breaches, or compromise of connected devices, including your Fluss+ controls.
 
 We are not responsible for any security issues, data loss, unauthorized control of your devices, property damage, personal injury, or other consequences that may result from improper configuration, vulnerabilities, weak credentials, or external attacks.
 
-Set up remote access only if you fully understand the risks and have implemented strong security measures, such as HTTPS, multi-factor authentication, IP banning, regular updates, and preferably a VPN or [Home Assistant Cloud](/cloud/) instead of direct exposure.
+Set up remote access only if you fully understand the risks and have implemented strong security measures, such as HTTPS, multi-factor authentication, IP banning, regular updates, and preferably a VPN or [Home Assistant Link](/link/) instead of direct exposure.
 
 Proceed entirely at your own risk. If in doubt, keep Home Assistant local-only and avoid exposing it remotely.
 {% endimportant %}

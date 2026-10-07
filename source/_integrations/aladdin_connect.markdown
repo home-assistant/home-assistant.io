@@ -29,7 +29,7 @@ Any garage door opener that works with the **AladdinConnect** app should work wi
 
 You need the following before you start:
 
-1. An active [Home Assistant Cloud](https://www.nabucasa.com/) subscription, since the integration authenticates through it.
+1. An active [Home Assistant Link](https://www.nabucasa.com/) subscription, since the integration authenticates through it.
 2. Install the **AladdinConnect** app on your phone and create an account.
 3. Add your garage door opener to the app and confirm you can open and close it.
 
@@ -123,14 +123,14 @@ Door status and battery level are updated by {% term polling %} the Aladdin Conn
 - Only doors that are owned by your Aladdin Connect account are available. Doors that your account has been granted shared access to are not supported.
 - There is no position control. You can open or close the door, but you cannot stop it at a specific position.
 - All communication goes through the cloud. There is no local or LAN-based control, so the integration stops working if your internet connection drops.
-- A Home Assistant Cloud subscription is required for authentication.
+- A Home Assistant Link subscription is required for authentication.
  
 
 ## Troubleshooting
 
 ### Setup fails with "cloud not enabled"
 
-This error means Home Assistant Cloud is not active. Go to {% my cloud title="**Settings** > **Home Assistant Cloud**" %} and verify you have an active [Home Assistant Cloud](https://www.nabucasa.com/) subscription.
+This error means Home Assistant Link is not active. Go to {% my cloud title="**Settings** > **Home Assistant Link**" %} and verify you have an active [Home Assistant Link](https://www.nabucasa.com/) subscription.
 
 ### OAuth sign-in fails or times out
 

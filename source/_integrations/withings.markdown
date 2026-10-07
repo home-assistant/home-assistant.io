@@ -95,7 +95,7 @@ You do not enter the webhook URL anywhere in the integration. Home Assistant bui
 
 Home Assistant prefers the **Internet** URL and falls back to the **Local Network** URL. For Withings webhooks to register successfully, the URL that Home Assistant selects must be a public HTTPS URL on port 443 with a valid certificate.
 
-If you use Home Assistant Cloud from [Nabu Casa](https://www.nabucasa.com/), a cloudhook is registered instead. Cloudhooks meet all requirements above automatically and do not need any network configuration.
+If you use Home Assistant Link from [Nabu Casa](https://www.nabucasa.com/), a cloudhook is registered instead. Cloudhooks meet all requirements above automatically and do not need any network configuration.
 
 #### Changing the webhook URL
 

@@ -30,7 +30,7 @@ The Sleep as Android integration allows you to trigger sleep-related automations
 
 ## Prerequisites
 
-This integration uses webhooks to receive events from Sleep as Android. By default, webhook triggers can only be accessed from devices on the same network as Home Assistant. If you want to receive events while away from your home network, remote access must be enabled, either by adding a [remote URL](/docs/configuration/remote/) or via [Home Assistant Cloud](https://www.nabucasa.com/config/webhooks/).
+This integration uses webhooks to receive events from Sleep as Android. By default, webhook triggers can only be accessed from devices on the same network as Home Assistant. If you want to receive events while away from your home network, remote access must be enabled, either by adding a [remote URL](/docs/configuration/remote/) or via [Home Assistant Link](https://www.nabucasa.com/config/webhooks/).
 
 Steps to set up the integration:
 
@@ -42,7 +42,7 @@ Steps to set up the integration:
 {% note %}
 
 To receive updates from Sleep as Android while away from home, your Home Assistant instance must be remotely accessible.  
-You can enable this by configuring a remote URL for Home Assistant or by using Home Assistant Cloud.  
+You can enable this by configuring a remote URL for Home Assistant or by using Home Assistant Link.  
 
 When setting up the Sleep as Android integration, the webhook is created using your external or cloud URL if remote access is available at that time.  
 If your instance is not remotely accessible during setup, the webhook will use your internal URL instead.  

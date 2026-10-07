@@ -40,7 +40,7 @@ The Home Assistant Xbox {% term integration %} lets you monitor and control Xbox
 
 - You must sign in with a **non-child Xbox account** (age 18+).
 - To enable the media player and remote entities, make sure **remote features** are turned on in **Settings** > **Devices & connections** > **Remote features** on your Xbox.
-- Home Assistant connects to **Xbox Network** via OAuth2 using Home Assistant Cloud’s account-linking service. To use this, your {% term "configuration.yaml" %} must include either `cloud:` or `default_config:`.
+- Home Assistant connects to **Xbox Network** via OAuth2 using Home Assistant Link’s account-linking service. To use this, your {% term "configuration.yaml" %} must include either `cloud:` or `default_config:`.
 
 {% include integrations/config_flow.md %}
 

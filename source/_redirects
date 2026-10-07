@@ -366,7 +366,11 @@ layout: null
 /integrations/blueprint /docs/automation/using_blueprints
 /integrations/trace /docs/automation/troubleshooting
 /integrations/hassio /hassio
-/integrations/cloud.alexa /cloud/alexa
+/integrations/cloud.alexa /link/alexa
+/cloud /link/ 301
+/cloud/alexa /link/alexa/ 301
+/cloud/google_assistant /link/google_assistant/ 301
+/cloud/troubleshooting /link/troubleshooting/ 301
 /integrations/imap_email_content /integrations/imap/#using-events
 /integrations/webhook /docs/automation/trigger/#webhook-trigger
 /getting-started/automation-create-first /getting-started/automation

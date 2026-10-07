@@ -6,7 +6,7 @@ related:
   - docs: /voice_control/voice_remote_local_assistant/
     title: Local Assistant pipeline
   - url: https://www.nabucasa.com
-    title: Home Assistant Cloud
+    title: Home Assistant Link
   - docs: /integrations/google_generative_ai_conversation/
     title: Google Generative AI integration
   - docs: /integrations/openai_conversation/

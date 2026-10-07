@@ -1280,7 +1280,7 @@ media_content_id: media-source://tts/cloud?message=TTS+Message&language=en-US&ge
 media_content_type: provider
 metadata:
   title: TTS Message
-  thumbnail: https://brands.home-assistant.io/_/cloud/logo.png
+  thumbnail: https://brands.home-assistant.io/_/link/logo.png
   media_class: app
   children_media_class: null
   navigateIds:
@@ -1299,7 +1299,7 @@ media_content_id: media-source://tts/cloud?message=TTS+Message&language=en-US&ge
 media_content_type: provider
 metadata:
   title: TTS Message
-  thumbnail: https://brands.home-assistant.io/_/cloud/logo.png
+  thumbnail: https://brands.home-assistant.io/_/link/logo.png
   media_class: app
   children_media_class: null
   navigateIds:

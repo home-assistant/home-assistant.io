@@ -1,15 +1,15 @@
 ---
-title: "Disable Home Assistant Cloud remote access"
-action: cloud.remote_disconnect
-domain: cloud
-description: "Turns off remote access to your Home Assistant through Home Assistant Cloud."
+title: "Disable Home Assistant Link remote access"
+action: link.remote_disconnect
+domain: link
+description: "Turns off remote access to your Home Assistant through Home Assistant Link."
 related_actions:
-  - cloud.remote_connect
+  - link.remote_connect
 ---
 
-Use this action to turn off remote access through Home Assistant Cloud. With remote access off, you can no longer reach your Home Assistant from outside your home network through your Nabu Casa URL. Other Home Assistant Cloud features, like voice assistants and backups, keep working.
+Use this action to turn off remote access through Home Assistant Link. With remote access off, you can no longer reach your Home Assistant from outside your home network through your Nabu Casa URL. Other Home Assistant Link features, like voice assistants and backups, keep working.
 
-This does the same as the toggle on the **Remote connection** card under {% my cloud title="**Settings** > **Home Assistant Cloud**" %} > **Remote access**. The setting is kept, also after a restart.
+This does the same as the toggle on the **Remote connection** card under {% my link title="**Settings** > **Home Assistant Link**" %} > **Remote access**. The setting is kept, also after a restart.
 
 {% include actions/ui_header.md %}
 
@@ -19,7 +19,7 @@ To disable remote access from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Home Assistant Cloud: Disable Home Assistant Cloud remote access**.
+5. From the search box, search for and select **Home Assistant Link: Disable Home Assistant Link remote access**.
 6. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
@@ -30,11 +30,11 @@ This action has no additional options in the UI.
 
 {% include actions/yaml_header.md %}
 
-In YAML, refer to this action as `cloud.remote_disconnect`. A basic example looks like this:
+In YAML, refer to this action as `link.remote_disconnect`. A basic example looks like this:
 
 {% example %}
 action: |
-  action: cloud.remote_disconnect
+  action: link.remote_disconnect
 {% endexample %}
 
 ### Options in YAML
@@ -43,10 +43,10 @@ This action has no additional options in YAML.
 
 ## Good to know
 
-- You need to be signed in to [Home Assistant Cloud](/integrations/cloud/) for remote access to work.
+- You need to be signed in to [Home Assistant Link](/integrations/link/) for remote access to work.
 - Only administrators can run this action.
 - If you run this action while you're away from home, you lose remote access right away. To be able to turn it back on remotely, enable **Allow external activation of remote access** under **Remote access** first.
-- To turn remote access on again, use [Enable Home Assistant Cloud remote access](/actions/cloud.remote_connect/).
+- To turn remote access on again, use [Enable Home Assistant Link remote access](/actions/link.remote_connect/).
 
 {% include actions/try_it.md %}
 
@@ -60,7 +60,7 @@ When you're home, you reach Home Assistant on your local network. This automatio
   - **Entity with location**: You (`person.you`)
   - **Zone**: Home
   - **Event**: Enter
-- **Action**: Home Assistant Cloud: Disable Home Assistant Cloud remote access
+- **Action**: Home Assistant Link: Disable Home Assistant Link remote access
 
 {% details "YAML example for turning off remote access when you get home" %}
 
@@ -73,7 +73,7 @@ automation: |
       zone: zone.home
       event: enter
   actions:
-    - action: cloud.remote_disconnect
+    - action: link.remote_disconnect
 {% endexample %}
 
 {% enddetails %}
@@ -84,7 +84,7 @@ Turn off remote access every night at midnight. Pair it with an automation that 
 
 - **Trigger**: Time
   - **At time**: 00:00
-- **Action**: Home Assistant Cloud: Disable Home Assistant Cloud remote access
+- **Action**: Home Assistant Link: Disable Home Assistant Link remote access
 
 {% details "YAML example for turning off remote access at night" %}
 
@@ -95,7 +95,7 @@ automation: |
     - trigger: time
       at: "00:00:00"
   actions:
-    - action: cloud.remote_disconnect
+    - action: link.remote_disconnect
 {% endexample %}
 
 {% enddetails %}

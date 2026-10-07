@@ -4,7 +4,7 @@ product_name: ESP32-S3-BOX-3
 device_name_entry: ESP32-S3-BOX-3
 related:
   - docs: /voice_control/voice_remote_cloud_assistant/
-    title: Home Assistant Cloud
+    title: Home Assistant Link
   - docs: /voice_control/voice_remote_local_assistant
     title: Assist Pipeline
   - docs: /voice_control/s3_box_voice_assistant/
@@ -44,7 +44,7 @@ The chart shows the default illustrations. The next steps show you how to change
 ### Prerequisites
 
 - Latest version of Home Assistant, installed with the Home Assistant Operating System
-- [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
+- [Home Assistant Link](/voice_control/voice_remote_cloud_assistant/) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
 - [ESP32-S3-BOX-3](https://www.aliexpress.us/item/1005005920207976.html). The ESP32-S3-BOX-Lite or the ESP32-S3-BOX also work, but they are not currently on the market.
 - Successfully completed the [ESP32-S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/) tutorial
 

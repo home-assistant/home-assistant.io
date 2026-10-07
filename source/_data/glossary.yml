@@ -147,7 +147,7 @@
     Devices that talk over local protocols such as Zigbee, Z-Wave, Matter,
     Thread, and ESPHome continue to work even when the internet is down or a
     manufacturer shuts down its cloud service. Optional cloud features, such as
-    [Home Assistant Cloud](https://www.nabucasa.com), can be added on top, but
+    [Home Assistant Link](https://www.nabucasa.com), can be added on top, but
     the core of your smart home stays on your own hardware.
   excerpt: >-
     Cloud-independent means Home Assistant does not need an internet

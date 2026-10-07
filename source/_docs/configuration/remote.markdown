@@ -1,26 +1,26 @@
 ---
 title: "Remote access to Home Assistant"
-description: "There are different ways to reach your Home Assistant from outside your home network. The recommended option is Home Assistant Cloud, which works without exposing anything to the internet."
+description: "There are different ways to reach your Home Assistant from outside your home network. The recommended option is Home Assistant Link, which works without exposing anything to the internet."
 related:
   - docs: /docs/configuration/securing/
     title: Securing your instance
   - url: https://www.nabucasa.com/config/remote/
-    title: Home Assistant Cloud - remote access
+    title: Home Assistant Link - remote access
 ---
 
 By default, your Home Assistant only listens on your local network, which keeps things private and secure. If you want to reach it from outside your home, for example to control your devices while you are at work or on holiday, you have a few options.
 
-The easiest and safest option for most people is [Home Assistant Cloud](/cloud/). Other options are listed further down for those who prefer to set things up themselves.
+The easiest and safest option for most people is [Home Assistant Link](/link/). Other options are listed further down for those who prefer to set things up themselves.
 
 {% tip %}
 Before exposing Home Assistant to the internet, follow the [securing checklist](/docs/configuration/securing/).
 {% endtip %}
 
-## Home Assistant Cloud
+## Home Assistant Link
 
-[Home Assistant Cloud](https://www.nabucasa.com) gives you remote access to your Home Assistant from anywhere, without opening any ports on your router and without exposing your home network to the internet. Setup takes a single toggle in the user interface.
+[Home Assistant Link](https://www.nabucasa.com) gives you remote access to your Home Assistant from anywhere, without opening any ports on your router and without exposing your home network to the internet. Setup takes a single toggle in the user interface.
 
-A unique remote URL is generated for you, and all traffic between your device and your home is encrypted automatically. Your Home Assistant Cloud subscription also helps fund the development of Home Assistant itself.
+A unique remote URL is generated for you, and all traffic between your device and your home is encrypted automatically. Your Home Assistant Link subscription also helps fund the development of Home Assistant itself.
 
 ## VPN
 
@@ -54,5 +54,5 @@ To set the URL under which your Home Assistant can be accessed from outside your
 
 1. Go to {% my network title="**Settings** > **System** > **Network**" %}.
 2. Under **Home Assistant URL**, in the **Internet** field, enter the external URL that you previously set up for your instance.
-    - If you use Home Assistant Cloud, you can turn on **Use Home Assistant Cloud** instead, and your Nabu Casa URL is used automatically.
+    - If you use Home Assistant Link, you can turn on **Use Home Assistant Link** instead, and your Nabu Casa URL is used automatically.
 3. Select **Save**.

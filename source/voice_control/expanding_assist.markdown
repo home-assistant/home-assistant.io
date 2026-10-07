@@ -6,7 +6,7 @@ related:
   - docs: /voice_control/custom_sentences/
     title: Custom sentences with Assist
   - url: https://www.nabucasa.com/config/
-    title: Home Assistant Cloud
+    title: Home Assistant Link
   - url: https://support.nabucasa.com/hc/categories/24451727188125
     title: Voice Preview Edition
 ---

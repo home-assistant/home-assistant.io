@@ -25,7 +25,7 @@ There are different ways of setting up zone presence detection. One way is to ru
 - [Onboarding steps](/getting-started/onboarding/) completed
 - [Remote access enabled](/docs/configuration/remote/)
   - The easiest way to do this is by enabling
-    - [Home Assistant Cloud](https://nabucasa.com/config/)
+    - [Home Assistant Link](https://nabucasa.com/config/)
 - Mobile phone:
   - Android (Android 6 or later) or iPhone (iOS 15 or later)
   - Phone plan with Internet access
