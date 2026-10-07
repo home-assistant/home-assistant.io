@@ -12,13 +12,13 @@
         background-color: #99DFFC;
         border-radius: 40px;
         display: inline-flex;
-        font-size: 10px;
+        font-size: 12px;
         font-weight: 600;
-        padding: 10px 24px;
+        padding: 11px 27px;
         transition: color 0.2s ease, background-color 0.2s ease;
 
         @include bp(desktop) {
-            font-size: 14px;
+            font-size: 15px;
         }
 
         &:hover {
@@ -32,12 +32,12 @@
         }
 
         &:has(.icon) {
-            gap: 4px;
-            padding: 4px 14px 4px 4px;
+            gap: 8px;
+            padding: 5px 18px 5px 5px;
 
             @include bp(desktop) {
-                gap: 10px;
-                padding: 8px 24px 8px 8px;
+                gap: 12px;
+                padding: 6px 24px 6px 6px;
             }
         }
 

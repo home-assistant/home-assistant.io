@@ -7,19 +7,56 @@
     <div class="container">
         <div class="header">
             <h3 class="h3">{% if has_meetups %}Find a meetup near you{% else %}Host an event in your area{% endif %}</h3>
+            {% if has_meetups %}
+            <p class="intro">Home Assistant meetups take place all year round. Community Day 2026 brings the whole Open Home
+                Foundation community together on Saturday, November 7, with meetups in cities around the world. Filter the
+                map to see all events, only Home Assistant meetups, or only Community Day events. Then select a marker to see
+                the details and register on Luma.</p>
+            {% else %}
+            <p class="intro">There are no upcoming meetups on the calendar right now. Host one yourself and bring the
+                community together in your city, either as a regular Home Assistant meetup or as part of Community Day 2026
+                on Saturday, November 7.</p>
+            {% endif %}
+        </div>
+
+        {% if has_meetups %}
+        <fieldset class="map-filter" data-map-filter>
+            <legend>Show on the map</legend>
+            <label class="map-filter-option">
+                <input type="radio" name="map-filter" value="all" checked />
+                <span class="map-filter-pill">All events</span>
+            </label>
+            <label class="map-filter-option">
+                <input type="radio" name="map-filter" value="home-assistant-meetups" />
+                <span class="map-filter-pill"><span class="map-filter-dot home-assistant-meetups"></span>Home Assistant meetups</span>
+            </label>
+            <label class="map-filter-option">
+                <input type="radio" name="map-filter" value="ohf-community-day" />
+                <span class="map-filter-pill"><span class="map-filter-dot ohf-community-day"></span>Community Day 2026</span>
+            </label>
+        </fieldset>
+
+        <div id="meetup-map" class="map is-loading" role="region" aria-label="Map of Home Assistant community meetups and Community Day events"></div>
+        <script type="application/json" id="meetup-map-events">{{ meetups | jsonify | replace: "<", "<" }}</script>
+        {% endif %}
+
+        <div class="buttons-container">
             <a href="https://luma.com/homeassistant" class="button secondary" target="_blank" rel="noopener">
                 <div class="icon">
                     <svg>
                         <use href="#luma" />
                     </svg>
                 </div>
-                {% if has_meetups %}Browse all meetups on Luma{% else %}Host a meetup{% endif %}
+                {% if has_meetups %}Home Assistant meetups on Luma{% else %}Host a Home Assistant meetup{% endif %}
+            </a>
+            <a href="https://luma.com/communityday2026" class="button secondary" target="_blank" rel="noopener">
+                <div class="icon">
+                    <svg>
+                        <use href="#community-day" />
+                    </svg>
+                </div>
+                {% if has_meetups %}Community Day 2026 on Luma{% else %}Host a Community Day meetup{% endif %}
             </a>
         </div>
-
-        {% if has_meetups %}
-        <div id="meetup-map" class="map is-loading" role="region" aria-label="Map of Home Assistant community meetups"></div>
-        <script type="application/json" id="meetup-map-events">{{ meetups | jsonify | replace: "<", "\u003c" }}</script>
-        {% endif %}
     </div>
 </section>

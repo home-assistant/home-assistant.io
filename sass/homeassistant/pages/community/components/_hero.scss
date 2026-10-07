@@ -19,12 +19,68 @@ section#hero {
 
     .container {
         display: flex;
+        // Fill the hero so the announcement can sit at the very top while
+        // the content stays at the bottom.
+        flex: 1 0 auto;
         flex-direction: column;
         justify-content: flex-end;
         padding: 24px 12px;
 
         @include bp(tablet) {
-            padding: 164px 12px 66px 12px;
+            padding: 40px 12px 66px 12px;
+        }
+
+        // The Community Day announcement sits at the top of the hero while
+        // the rest of the content stays pinned to the bottom.
+        .announcement {
+            align-items: center;
+            align-self: center;
+            background-color: #ffffff;
+            border: 1px solid #ffffff;
+            border-radius: 60px;
+            box-shadow: 0 0 2rem rgba(255, 255, 255, 1);
+            color: #002332;
+            display: inline-flex;
+            font-size: 14px;
+            font-weight: 500;
+            gap: 12px;
+            margin-bottom: auto;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 180ms ease-in-out, border-color 180ms ease-in-out, color 180ms ease-in-out;
+
+            @include bp(tablet) {
+                font-size: 16px;
+                gap: 16px;
+            }
+
+            svg {
+                flex-shrink: 0;
+                height: 24px;
+                width: 24px;
+                transition: color 180ms ease-in-out;
+
+                &:first-of-type {
+                    color: #41d09b;
+                }
+
+                &:last-of-type {
+                    height: 14px;
+                    width: 14px;
+                }
+            }
+
+            &:hover,
+            &:focus-visible {
+                background-color: #002332;
+                border-color: #002332;
+                color: #ffffff;
+
+                svg {
+                    color: inherit;
+                }
+            }
         }
 
         .content {

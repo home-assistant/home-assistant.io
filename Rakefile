@@ -197,45 +197,63 @@ end
 desc "Download upcoming community meetups from web-api.openhomefoundation.org"
 task :meetups_data do
   output_file = "#{source_dir}/_data/meetups_data.json"
+  # Both Luma calendars end up on the same map on the community page. The
+  # calendar key is kept on every event so the map can colour and filter them.
+  # Community Day comes first: an event listed on both calendars is a
+  # Community Day event (see the uniq below).
+  calendars = {
+    'ohf-community-day' => 'https://web-api.openhomefoundation.org/events/ohf-community-day',
+    'home-assistant-meetups' => 'https://web-api.openhomefoundation.org/events/home-assistant-meetups',
+  }
   begin
-    uri = URI('https://web-api.openhomefoundation.org/events/home-assistant-meetups')
-
-    remote_data = JSON.parse(Net::HTTP.get(uri))
-    events = remote_data['events']
-    raise "payload does not contain an events array" unless events.is_a?(Array)
-
     now = Time.now.utc
-    upcoming = events
-      # Only keep web links: the URL ends up in an href on the community page,
-      # so schemes such as javascript: must never make it into the data file.
-      .select { |event| event['url'].is_a?(String) && event['url'].downcase.start_with?('https://', 'http://') }
-      # The map shows a start time for every meetup, so an event without a
-      # usable start is dropped rather than rendered as an epoch date. An
-      # event that has already begun but hasn't ended yet still counts as
-      # upcoming, hence the end date in the comparison.
-      .select do |event|
-        begin
-          Time.parse(event['start'])
-          Time.parse(event['end'] || event['start']).utc >= now
-        rescue StandardError
-          false
-        end
-      end
+    upcoming = []
+
+    calendars.each do |calendar, url|
+      remote_data = JSON.parse(Net::HTTP.get(URI(url)))
+      events = remote_data['events']
+      raise "#{calendar} payload does not contain an events array" unless events.is_a?(Array)
+
+      upcoming.concat(
+        events
+          # Only keep web links: the URL ends up in an href on the community page,
+          # so schemes such as javascript: must never make it into the data file.
+          .select { |event| event['url'].is_a?(String) && event['url'].downcase.start_with?('https://', 'http://') }
+          # The map shows a start time for every meetup, so an event without a
+          # usable start is dropped rather than rendered as an epoch date. An
+          # event that has already begun but hasn't ended yet still counts as
+          # upcoming, hence the end date in the comparison.
+          .select do |event|
+            begin
+              Time.parse(event['start'])
+              Time.parse(event['end'] || event['start']).utc >= now
+            rescue StandardError
+              false
+            end
+          end
+          .map do |event|
+            {
+              'calendar' => calendar,
+              'summary' => event['summary'],
+              'start' => event['start'],
+              # The map expects a list of address lines; upstream occasionally
+              # sends a single string instead.
+              'address' => (event['address'].is_a?(Array) ? event['address'] : [event['address']])
+                .map { |line| line.to_s.strip }
+                .reject(&:empty?),
+              'url' => event['url'],
+              'latitude' => event['latitude'],
+              'longitude' => event['longitude'],
+            }
+          end
+      )
+    end
+
+    # A Luma event can be listed on both calendars. uniq keeps the first copy,
+    # which comes from the Community Day calendar.
+    upcoming = upcoming
+      .uniq { |event| event['url'] }
       .sort_by { |event| event['start'].to_s }
-      .map do |event|
-        {
-          'summary' => event['summary'],
-          'start' => event['start'],
-          # The map expects a list of address lines; upstream occasionally
-          # sends a single string instead.
-          'address' => (event['address'].is_a?(Array) ? event['address'] : [event['address']])
-            .map { |line| line.to_s.strip }
-            .reject(&:empty?),
-          'url' => event['url'],
-          'latitude' => event['latitude'],
-          'longitude' => event['longitude'],
-        }
-      end
 
     File.open(output_file, "w") do |file|
       file.write(JSON.generate(upcoming))
