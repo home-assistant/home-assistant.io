@@ -355,7 +355,8 @@ Prerequisites:
    - At the top, a summary shows how many device units are on how many connections.
    - If no connection has been opened yet, the panel shows **No Modbus connections**.
    - To load the list again, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
-2. Under **Connections**, each item is one connection: a network address, such as a gateway, or a serial port, such as one with an RS-485 bus. A connection can reach several units, which are the Modbus devices behind it. The integrations in the panel that use the same address or port share one connection. For each connection, you can see:
+2. Under **Connections**, you can see one item for each connection. For example a network address, such as a gateway, or a serial port, such as one with an RS-485 bus. A connection can reach several units, which are the Modbus devices behind it. The integrations in the panel that use the same address or port share one connection.
+3. Still under **Connections**, for each connection item, you can see:
    - The address of the device, or the device path of the serial port.
    - The type of connection: **TCP**, **UDP**, or **Serial**. A hub that you configured in YAML is also marked **Configured in YAML**. Such a hub keeps a connection of its own, so the same device can be listed twice.
    - Whether the connection is open right now:
@@ -363,7 +364,7 @@ Prerequisites:
      - **Connected** or **Open**: The connection is open right now. For a serial port, this only means that the port is open, not that the device answers.
      - **Not connected** or **Closed**: The connection is not open right now. An integration opens it the next time it reads from the device. A device can also close a connection that isn't used.
    - The integrations that use the connection, with the IDs of the device units they use. Select an integration to go to its settings. A hub that you configured in YAML is shown by its name instead, and can't be selected.
-3. For a serial connection, to see the port in the **Serial** panel, select **View this port under Serial**.
+4. For a serial connection, to see the port in the **Serial** panel, select **View this port under Serial**.
 
 # Configuring modbus entities
 
