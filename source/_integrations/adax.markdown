@@ -38,7 +38,7 @@ This is particularly useful when running Home Assistant in a Docker container, v
 To configure an existing heater manually, select **Local (manual)** in the setup flow and provide:
 
 - **IP address**: The local IP address assigned to the heater on your network.
-- **MAC address**: The MAC address of the heater (e.g., `AA:BB:CC:DD:EE:FF`).
+- **MAC address**: The local MAC address of the heater, for example, `AA:BB:CC:DD:EE:FF`.
 - **Token**: The local authentication/access token for the heater.
 
 {% note %}
