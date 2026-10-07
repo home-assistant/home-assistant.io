@@ -41,9 +41,16 @@ On the [LOQED personal access token website](https://integrations.production.loq
 
 {% include integrations/config_flow.md %}
 
-Home Assistant should automatically detect your lock when your Home Assistant runs on the same network as your lock. In that case, you only need to provide the selected API key when configuring the integration.
+{% configuration_basic %}
+API token:
+  description: "The LOQED personal access token you created in the previous step. You can use the same token for several locks."
+Lock:
+  description: "The lock to add. You are only asked for this during manual setup when your LOQED account contains more than one lock. With a single lock, it is selected automatically."
+{% endconfiguration_basic %}
 
-You can also set up a lock manually when for some reason, it is not automatically detected. In that case, you need to provide both the API Key from the previous step and the name of the Lock, as it is known in the LOQED companion app.
+Home Assistant should automatically detect your lock when your Home Assistant runs on the same network as your lock. In that case, you only need to provide the API token when configuring the integration.
+
+You can also set up a lock manually when for some reason, it is not automatically detected. In that case, you provide the API token from the previous step. If your LOQED account contains more than one lock, you then select the lock you want to add from a list.
 
 ## Actions
 
