@@ -27,7 +27,7 @@ The **Modbus** {% term integration %} connects Home Assistant to devices that ha
 
 ## Supported devices
 
-With a Modbus hub in YAML, you can connect any device that follows the [Modbus protocol specification](https://www.modbus.org/file/secure/modbusprotocolspecification.pdf). A hub can reach the device over Modbus TCP, Modbus UDP, or Modbus RTU over a serial connection, such as RS-485. You can set up several hubs at the same time, such as one hub on a serial connection and others on network connections.
+With a Modbus hub in YAML, you can connect any device that follows the [Modbus protocol specification](https://www.modbus.org/file/secure/modbusprotocolspecification.pdf). A hub can reach the device over Modbus TCP, Modbus UDP, Modbus RTU over a serial connection, such as RS-485, or Modbus RTU over TCP to a serial device server. You can set up several hubs at the same time, such as one hub on a serial connection and others on network connections.
 
 Integrations for specific devices support the devices listed in their own documentation. To find these integrations, browse the [Modbus-controlled category](/integrations/#modbus-controlled).
 
@@ -54,7 +54,7 @@ Prerequisites:
 
 1. If needed, turn on the Modbus interface of your device.
    - Many devices have Modbus TCP turned off by default. The documentation or the app of your device describes how to turn Modbus TCP on. Some integration pages describe the steps too, for example, [Fronius](/integrations/fronius/#modbus-tcp).
-2. Add the integration for your device, such as [SolarEdge Modbus](/integrations/solaredge_modbus/) or [STIEBEL ELTRON](/integrations/stiebel_eltron/). To find all integrations for devices with a Modbus interface, browse the [Modbus-controlled category](/integrations/#modbus-controlled).
+2. Add the integration for your device, such as [SolarEdge Modbus](/integrations/solaredge_modbus/) or [STIEBEL ELTRON](/integrations/stiebel_eltron/).
    - To add the integration, follow the steps in the integration documentation.
    - During setup, enter how Home Assistant reaches the device:
      - For a network connection, enter the host and the port. Use the port from the integration documentation. Many devices use `502`, but some use another port.
@@ -74,13 +74,13 @@ Prerequisites:
 - You can edit your {% term "`configuration.yaml`" %} file.
 - You have a device with a Modbus interface, and its Modbus documentation with the addresses of the values you want to use.
 - Home Assistant can reach the Modbus interface of the device in one of these ways:
-  - Over the network (Modbus TCP): the device, or a Modbus gateway that translates to Modbus TCP, is on your network.
+  - Over the network (Modbus TCP or Modbus UDP): the device, or a Modbus gateway that translates to Modbus TCP or UDP, is on your network.
   - Over a serial connection (Modbus RTU): the device is wired to a [USB-to-RS-485 adapter](/integrations/serial/#usb-to-serial-adapter) that is connected to your Home Assistant system, or to a [serial device server](/integrations/serial/#serial-device-server) on your network. A Modbus hub in YAML can't use an ESPHome serial proxy.
 
 1. If needed, turn on the Modbus interface of your device.
 2. In your {% term "`configuration.yaml`" %} file, add a Modbus hub for the connection to your device.
    - For the options, refer to [Configuring modbus communication](#configuring-modbus-communication).
-   - For a serial device server, use `type: rtuovertcp`. For details, refer to [Configuring a TCP-RTU connection](#configuring-a-tcp-rtu-connection).
+   - For a serial device server, use `type: rtuovertcp`. Set the baud rate on the serial device server itself. For details, refer to [Configuring a TCP-RTU connection](#configuring-a-tcp-rtu-connection).
 3. Under the hub, add an entity for each value you want to read or control. Set `address` to where the device stores the value.
    - For the options, refer to [Configuring modbus entities](#configuring-modbus-entities).
 4. Restart Home Assistant.
