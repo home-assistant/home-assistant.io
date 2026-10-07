@@ -29,18 +29,18 @@ The **Modbus** {% term integration %} connects Home Assistant to devices that ha
 
 Home Assistant supports devices with a Modbus interface through integrations for those devices. To find these integrations, browse the [Modbus-controlled category](/integrations/#modbus-controlled).
 
-If your device is not supported by Home Assistant, you can still get to its data by manually configuring the Modbus registers in YAML. For the steps, refer to [Setting up a Modbus hub in YAML](#setting-up-a-modbus-hub-in-yaml).
+If no integration supports your device, you can still get to its data by manually configuring the Modbus registers in YAML. For the steps, refer to [Setting up a Modbus hub in YAML](#setting-up-a-modbus-hub-in-yaml).
 
 ## Setting up Modbus control in Home Assistant
 
 Some devices have a Modbus interface, such as solar inverters, heat pumps, and ventilation units. Home Assistant can read data from these devices and control them.
 
-Choose one of the following methods to set up your Modbus device:
+To set up your Modbus device, add the integration for your device. For the steps, refer to [Setting up a device integration that uses Modbus](#setting-up-a-device-integration-that-uses-modbus).
 
-- If an integration is available for your device, add that integration. For the steps, refer to [Setting up a device integration that uses Modbus](#setting-up-a-device-integration-that-uses-modbus).
-  - To find out if an integration is available for your device, browse the [Modbus-controlled category](/integrations/#modbus-controlled).
-  - You can also search for the brand of your device when you add an integration in {% my integrations title="**Settings** > **Devices & services**" %}.
-- If no integration is available for your device, set up a Modbus hub in YAML. For the steps, refer to [Setting up a Modbus hub in YAML](#setting-up-a-modbus-hub-in-yaml).
+- To find out if an integration is available for your device, browse the [Modbus-controlled category](/integrations/#modbus-controlled).
+- You can also search for the brand of your device when you add an integration in {% my integrations title="**Settings** > **Devices & services**" %}.
+
+If no integration supports your device, you can configure its Modbus registers manually in YAML instead. For the steps, refer to [Setting up a Modbus hub in YAML](#setting-up-a-modbus-hub-in-yaml).
 
 ### Setting up a device integration that uses Modbus
 
@@ -67,6 +67,8 @@ Prerequisites:
    - For details, refer to [Viewing your Modbus connections](#viewing-your-modbus-connections).
 
 ### Setting up a Modbus hub in YAML
+
+Use a Modbus hub in YAML only if no integration supports your device. You then configure the Modbus registers of your device yourself.
 
 Prerequisites:
 
