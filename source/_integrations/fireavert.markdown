@@ -26,3 +26,7 @@ ha_brand: true
 {% my add_zwave_device badge domain=page.ha_domain %}
 
 [Learn more about Z-Wave in Home Assistant.](/integrations/zwave_js/)
+
+## Works with Home Assistant certified devices
+
+{% include integrations/device_list.html brand="fireavert" %}

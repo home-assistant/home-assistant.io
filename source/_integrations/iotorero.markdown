@@ -52,6 +52,6 @@ ha_zeroconf: true
 
 {% include integrations/supported_brand.md %}
 
-## Supported devices
+## Works with Home Assistant certified devices
 
 {% include integrations/device_list.html brand="iotorero" %}
