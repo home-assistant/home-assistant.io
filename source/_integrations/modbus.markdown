@@ -21,15 +21,40 @@ related:
     title: Configuration file
 ---
 
-[modbus](http://www.modbus.org/) is a communication protocol to control PLCs (Programmable Logic Controller) and RTUs (Remote Terminal Unit).
+The **Modbus** {% term integration %} connects Home Assistant to devices that have a Modbus interface. Many integrations for these devices use the Modbus integration to connect, so you usually don't set it up yourself. To get started, refer to [Setting up Modbus control in Home Assistant](#setting-up-modbus-control-in-home-assistant).
 
-The Modbus {% term integration %} lets you manually register Modbus entities by describing each register in your `configuration.yaml` file. It is meant for people who are comfortable working with Modbus, as it requires knowledge of the protocol and of the specific registers your device exposes.
+[Modbus](https://www.modbus.org/) is a communication protocol for industrial devices, such as controllers in heating, ventilation, and solar systems.
 
-Before setting this up, we recommend looking for a vendor-specific integration that already supports your Modbus device. A dedicated integration handles the register details for you and is easier to set up and maintain.
+## Supported devices
 
-The integration adheres strictly to the [protocol specification](https://www.modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf) using [pymodbus](https://github.com/pymodbus-dev/pymodbus) for the protocol implementation.
+The Modbus integration follows the [Modbus protocol specification](https://www.modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf) strictly, so it supports all devices that follow the Modbus standard. Home Assistant can reach them over Modbus TCP, Modbus UDP, or Modbus RTU over a serial connection, such as RS-485. You can use several connections at the same time, such as a serial connection together with one or more network connections.
 
-The Modbus integration supports all devices adhering to the Modbus standard. The communication to the device or devices can be serial (RS-485), TCP, or UDP connections. The integration allows multiple communication channels, for example a serial port connection combined with one or more TCP connections.
+## Setting up Modbus control in Home Assistant
+
+Some devices have a Modbus interface, such as solar inverters, heat pumps, and ventilation units. Home Assistant can read data from these devices and control them.
+
+Prerequisites:
+
+- You have administrator rights.
+- You have a device with a Modbus interface.
+- Home Assistant can reach the Modbus interface of the device in one of these ways:
+  - Over the network (Modbus TCP): the device, or a Modbus gateway that translates to Modbus TCP, is on your network.
+  - Over a serial connection (Modbus RTU): the device is wired to a [USB-to-RS-485 adapter](/integrations/serial/#usb-to-serial-adapter) that is connected to your Home Assistant system, to an [ESPHome serial proxy](/integrations/serial/#serial-proxy), or to a [serial device server](/integrations/serial/#serial-device-server) on your network.
+
+1. If needed, turn on the Modbus interface of your device.
+   - Many devices have Modbus TCP turned off by default. The documentation or the app of your device describes how to turn Modbus TCP on. Some integration pages describe the steps too, for example, [Fronius](/integrations/fronius/#modbus-tcp).
+2. Add the integration for your device, such as [SolarEdge Modbus](/integrations/solaredge_modbus/) or [STIEBEL ELTRON](/integrations/stiebel_eltron/). To find all integrations for devices with a Modbus interface, browse the [Modbus-controlled category](/integrations/#modbus-controlled).
+   - To add the integration, follow the steps in the integration documentation.
+   - During setup, enter how Home Assistant reaches the device:
+     - For a network connection, enter the host and the port. Use the port from the integration documentation. Many devices use `502`, but some use another port.
+     - For a serial connection, select the [serial port](/integrations/serial/#serial-port), and enter the [baud rate](/integrations/serial/#baud-rate). A serial proxy is listed with the serial ports. For a serial device server, select **Enter manually** and enter its URL.
+   - Some integrations also ask for the unit ID of the device. This is the address of the device on the Modbus connection. Some integrations call it **Device ID**.
+   - Result: The entities of your device appear in Home Assistant.
+3. If no integration is available for your device, set up a Modbus hub and its entities in YAML instead. You then describe each register of the device yourself.
+   - For the connection, refer to [Configuring modbus communication](#configuring-modbus-communication).
+   - For the entities, refer to [Configuring modbus entities](#configuring-modbus-entities).
+4. Optional: To check the connection, go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
+   - For details, refer to [Viewing your Modbus connections](#viewing-your-modbus-connections).
 
 ## Configuring modbus communication
 
@@ -344,7 +369,7 @@ modbus:
 
 ## Viewing your Modbus connections
 
-You can see the connections to your Modbus devices in one place from the **Modbus** configuration panel. The panel lists the Modbus hubs that you configured in YAML, and the integrations that connect through the Modbus integration. For example, [SolarEdge Modbus](/integrations/solaredge_modbus/) and [STIEBEL ELTRON](/integrations/stiebel_eltron/) connect this way. Integrations that manage their own Modbus connection, such as [Nibe Heat Pump](/integrations/nibe_heatpump/) and [NeoPool](/integrations/neopool/), don't appear in the panel.
+You can see the connections to your Modbus devices in one place from the **Modbus** configuration panel. The panel lists the Modbus hubs that you configured in YAML, and the integrations that connect through the Modbus integration. For example, [SolarEdge Modbus](/integrations/solaredge_modbus/) and [STIEBEL ELTRON](/integrations/stiebel_eltron/) are listed. Integrations that manage their own Modbus connection, such as [Nibe Heat Pump](/integrations/nibe_heatpump/) and [NeoPool](/integrations/neopool/), don't appear in the panel.
 
 Prerequisites:
 
@@ -355,14 +380,14 @@ Prerequisites:
    - At the top, a summary shows how many device units are on how many connections.
    - If no connection has been opened yet, the panel shows **No Modbus connections**.
    - To load the list again, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
-2. Under **Connections**, you can see one item for each connection. For example a network address, such as a gateway, or a serial port, such as one with an RS-485 bus. A connection can reach several units, which are the Modbus devices behind it. The integrations in the panel that use the same address or port share one connection.
+2. Under **Connections**, you can see one item for each connection. A connection is the network address of a device, such as a Modbus gateway, or a serial port, such as one with an RS-485 bus. A connection can reach several device units, which are the Modbus devices behind it. The integrations in the panel that use the same address or port share one connection.
 3. Still under **Connections**, for each connection item, you can see:
-   - The address of the device, or the device path of the serial port.
+   - The address of the device, or the [device path](/integrations/serial/#device-path) of the serial port.
    - The type of connection: **TCP**, **UDP**, or **Serial**. A hub that you configured in YAML is also marked **Configured in YAML**. Such a hub keeps a connection of its own, so the same device can be listed twice.
    - Whether the connection is open right now:
      - A network connection shows **Connected** or **Not connected**. A serial port shows **Open** or **Closed**.
-     - **Connected** or **Open**: The connection is open right now. For a serial port, this only means that the port is open, not that the device answers.
-     - **Not connected** or **Closed**: The connection is not open right now. An integration opens it the next time it reads from the device. A device can also close a connection that isn't used.
+     - **Connected** or **Open**: The connection is open right now. For a serial port, **Open** only means that the port is open, not that the device answers.
+     - **Not connected** or **Closed**: The connection is not open right now. The connection opens again the next time an integration reads from the device. A device can also close a connection that isn't used.
    - The integrations that use the connection, with the IDs of the device units they use. Select an integration to go to its settings. A hub that you configured in YAML is shown by its name instead, and can't be selected.
 4. For a serial connection, to see the port in the **Serial** panel, select **View this port under Serial**.
 
