@@ -41,7 +41,7 @@ Prerequisites:
 - You have a device with a Modbus interface.
 - Home Assistant can reach the Modbus interface of the device in one of these ways:
   - Over the network (Modbus TCP): the device, or a Modbus gateway that translates to Modbus TCP, is on your network.
-  - Over a serial connection (Modbus RTU): the device is wired to a [USB-to-RS-485 adapter](/integrations/serial/#usb-to-serial-adapter) that is connected to your Home Assistant system, to an [ESPHome serial proxy](/integrations/serial/#serial-proxy), or to a [serial device server](/integrations/serial/#serial-device-server) on your network.
+  - Over a serial connection (Modbus RTU): the device is wired to a [USB-to-RS-485 adapter](/integrations/serial/#usb-to-serial-adapter) that is connected to your Home Assistant system, to an [ESPHome serial proxy](/integrations/serial/#setting-up-an-esphome-serial-proxy), or to a [serial device server](/integrations/serial/#serial-device-server) on your network.
 
 1. If needed, turn on the Modbus interface of your device.
    - Many devices have Modbus TCP turned off by default. The documentation or the app of your device describes how to turn Modbus TCP on. Some integration pages describe the steps too, for example, [Fronius](/integrations/fronius/#modbus-tcp).
