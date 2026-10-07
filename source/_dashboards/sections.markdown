@@ -211,7 +211,7 @@ You can choose to show or hide certain sections based on different conditions. T
 
 To edit the section visibility conditions, select the edit {% icon "mdi:edit" %} button and then select the **Visibility** tab.
 
-## About automatic sections
+## Automatic sections
 
 An automatic section fills itself with cards, for example, the **Common controls** section, which shows the entities you use most often. In edit mode, an automatic section shows {% icon "mdi:auto-fix" %} and a solid outline. You can't edit its cards one by one. Instead, you change the settings of the section.
 
@@ -223,7 +223,7 @@ An automatic section fills itself with cards, for example, the **Common controls
    - The **Appearance** and **Visibility** tabs work the same way as for other sections.
 3. Select **Save**.
 
-## Adding an automatic section
+## Creating an automatic section
 
 When you create a section, it is always a regular section. To turn it into an automatic section, you replace its configuration in the code editor.
 
@@ -309,7 +309,7 @@ theme:
   type: string
 strategy:
   required: false
-  description: "Turns the section into an [automatic section](#about-automatic-sections) that fills itself with cards. A section with a `strategy` has no `cards`."
+  description: "Turns the section into an [automatic section](#automatic-sections) that fills itself with cards. A section with a `strategy` has no `cards`."
   type: map
   keys:
     type:
