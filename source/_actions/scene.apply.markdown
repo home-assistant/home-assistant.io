@@ -73,7 +73,7 @@ transition:
 
 ## Good to know
 
-- To see which attributes an entity accepts, go to {% my developer_states title="**Settings** > **Tools** > **States**" %}.
+- To see which attributes an entity accepts, go to {% my tools_states title="**Settings** > **Tools** > **States**" %}.
 - Transitions are only supported by lights, and the lights themselves must support them too.
 - If you want a reusable scene that appears in the UI and can be activated from a dashboard, create a scene instead and use [Activate scene](/actions/scene.turn_on/).
 

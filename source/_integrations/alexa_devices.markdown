@@ -291,13 +291,21 @@ automation:
 
 ## Data updates
 
-This integration {% term polling polls %} device data every five minutes by default. To-do and shopping list changes, voice interaction history, media state, and volume changes are received through push events and are reflected in Home Assistant without waiting for the polling interval.
+This integration {% term polling polls %} Amazon for sensor data every five minutes by default. It checks for new devices at startup and then once every 24 hours.
+
+The following items are updated through push events, so changes appear in Home Assistant without waiting for the polling interval:
+
+- To-do and shopping lists
+- Voice interaction history
+- Volume
+- Media state
+- Do not disturb status
 
 ## Known limitations
 
 - This integration requires multi-factor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
 - Reminders may not be added to the sensor if the configured account is linked to an Alexa Household.
-- [Amazon Japan](https://www.amazon.co.jp) appears to use a different login mechanism to other locations preventing setup of the integration.   This should be resolved in a future release.
+- You might see `Failed to refresh communications settings` warnings in the logs. These are caused by Amazon rate limiting connections, and the cause is under investigation. When this happens, the communication, drop-in, and announcement settings might be out of date. These settings rarely change, so you can safely ignore these warnings.
 
 ## Troubleshooting
 
@@ -307,32 +315,48 @@ This integration {% term polling polls %} device data every five minutes by defa
 
 ##### Description
 
-You will see `MFA OTP code not found on login page` or `Cannot find "auth-mfa-otpcode" in html source` in the logs when trying to set up the integration.   This is because the authentication details are incorrect.
+You will see `MFA OTP code not found on login page` or `Cannot find "auth-mfa-otpcode" in html source` in the logs when trying to set up the integration. This means the authentication details are incorrect.
 
-You need to ensure you are:
+##### Resolution
 
-- using the right credentials (The ones you would use to log in to the Alexa app and Amazon shopping site)
-- set up to use app based 2FA
-- not set up to receive SMS 2FA codes
+Make sure that:
 
-To test this you should log in to your local Amazon shopping site in incognito/private mode in your browser and check you are prompted for the OTP code from your authenticator app, and you can log in successfully.
+- You are using the right credentials. These are the ones you use to log in to the Alexa app and the Amazon shopping site.
+- Your account is set up to use app-based 2FA.
+- Your account is not set up to receive 2FA codes by SMS.
+
+To test this, open your local Amazon shopping site in a private browser window and log in. Check that you are prompted for the OTP code from your authenticator app and that you can log in successfully.
+
+### Sensors not updating
+
+#### Symptom: Data is stale or not updated
+
+Some sensors, particularly illuminance and motion sensors, show stale data.
+
+##### Description
+
+Amazon sometimes only sends sensor updates when it detects that the sensor is used in Alexa.
+
+Amazon sometimes only sends sensor updates when it detects that the sensor is used in Alexa.
+
+##### Resolution
+
+To fix this, in the Alexa app, create a routine that is triggered when occupancy is detected. The routine does not need any actions. This enables the feature and makes sure the sensors update. For more information, see [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=GSR22RYDWS3KBUYW).
 
 ### Sensors unavailable
 
 #### Symptom: "Too many requests"
 
-You see something similar to
+You see messages similar to the following in the logs:
 
 - `Error retrieving devices state: Too many requests for path ['listEndpoints']`
 - `Error retrieving data: CannotRetrieveData('Request failed: Bad Request')`
 - `Failed to obtain notification data. Timers and alarms have not been updated`
 - `Failed to refresh communications settings for device XXXXXX, used cached values.`
 
-In logs.
-
 ##### Description
 
-This happens because of rate limits applied by Amazon. We are working to reduce these errors. If these errors are causing you issues, you can disable polling for the integration. Disabling polling will stop these errors, but it will also stop DND, sensors, and connectivity from being updated. However, speech, announcements, and text commands will continue to work.
+This happens because of rate limits applied by Amazon. We are working to reduce these errors.
 
 ## Removing the integration
 

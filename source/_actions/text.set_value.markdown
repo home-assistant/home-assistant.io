@@ -66,7 +66,7 @@ value:
 
 Set a text entity to a message whenever a person comes home, for example to update a display.
 
-- **Trigger**: State: Person arrives home
+- **Trigger**: State changed: Person arrives home
 - **Action**: Set text value
   - **Target**: Display message
   - **Value**: Welcome home

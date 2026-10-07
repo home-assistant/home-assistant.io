@@ -102,7 +102,7 @@ automation: |
 
 When a person arrives home after dark, turn on the living room remote.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Paulus (`person.paulus`)
   - **To**: Home
 - **Condition**: Sun is below horizon

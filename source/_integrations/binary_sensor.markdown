@@ -29,58 +29,158 @@ or using an [input boolean helper](/integrations/input_boolean).
 
 {% include integrations/building_block_integration.md %}
 
-## The state of binary sensor
+## Binary sensor states
 
-A binary sensor can have two states: **on** or **off**. However, in the frontend, they might not be called **on** or **off**, but use an alternative term to be more meaningful in context. For example, hot/cold, locked/unlocked. The meaning of an **on** or **off** state depends on the device class.
+A binary sensor has two states: `on` or `off`. In the Home Assistant interface, its device class determines the icon and the label shown for each state. For example, a lock binary sensor shows **Unlocked** when its state is `on` and **Locked** when its state is `off`.
 
-In addition, the entity can have the following states:
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
-### Device class
+## Device class
 
-{% include integrations/device_class_intro.md %}
+The device class tells Home Assistant what a binary sensor detects, such as an open door or motion. Home Assistant uses the device class to choose the icon and the labels for `on` and `off`, such as **Open** and **Closed**. The device class also decides where you can use the binary sensor, such as in triggers and conditions, on the [Security dashboard](/dashboards/dashboards/#security-dashboard), or in voice assistants. If a binary sensor doesn't show up where you expect it, check its device class.
 
-The screenshot shows a few examples of different device classes for binary sensors:
+The integration that provides the binary sensor sets the device class. When you create a binary sensor yourself with a [template helper](/integrations/template/), you choose the device class.
 
-![List of binary sensors](/images/screenshots/binary_sensor_classes_icons.png)
+### Device classes in automations and templates
 
-Example of various device classes icons in `on` and `off` state. The on image
-in this example has `state_color: true` specified in the entities card
-configuration to receive the icon coloring.
+- Automations: Some device classes have their own triggers and conditions, such as [Door opened](/triggers/door.opened/). Of your binary sensors, these triggers and conditions only list the ones with that device class. The list below shows the triggers and conditions of each device class.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `door`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
-The following device classes are supported for binary sensors:
+### List of available device classes
 
-- **None**: Generic on/off. This is the default and doesn't need to be set.
-- **battery**: `on` means low, `off` means normal
-- **battery_charging**: `on` means charging, `off` means not charging
-- **carbon_monoxide**: `on` means carbon monoxide detected, `off` no carbon monoxide (clear)
-- **cold**: `on` means cold, `off` means normal
-- **connectivity**: `on` means connected, `off` means disconnected
-- **door**: `on` means open, `off` means closed
-- **garage_door**: `on` means open, `off` means closed
-- **gas**: `on` means gas detected, `off` means no gas (clear)
-- **glass_break**: `on` means glass break detected, `off` means no glass break (clear)
-- **heat**: `on` means hot, `off` means normal
-- **light**: `on` means light detected, `off` means no light
-- **lock**: `on` means open (unlocked), `off` means closed (locked)
-- **moisture**: `on` means moisture detected (wet), `off` means no moisture (dry)
-- **motion**: `on` means motion detected, `off` means no motion (clear)
-- **moving**: `on` means moving, `off` means not moving (stopped)
-- **occupancy**: `on` means occupied (detected), `off` means not occupied (clear)
-- **opening**: `on` means open, `off` means closed
-- **plug**: `on` means device is plugged in, `off` means device is unplugged
-- **power**: `on` means power detected, `off` means no power
-- **presence**: `on` means home, `off` means away
-- **problem**: `on` means problem detected, `off` means no problem (OK)
-- **running**: `on` means running, `off` means not running
-- **safety**: `on` means unsafe, `off` means safe
-- **smoke**: `on` means smoke detected, `off` means no smoke (clear)
-- **sound**: `on` means sound detected, `off` means no sound (clear)
-- **tamper**: `on` means tampering detected, `off` means no tampering (clear)
-- **update**: `on` means update available, `off` means up-to-date
-- **vibration**: `on` means vibration detected, `off` means no vibration (clear)
-- **window**: `on` means open, `off` means closed
+A binary sensor without a device class shows **On** and **Off** as its state labels.
 
-For comparison, here are the [device classes](/integrations/sensor#device-class) for analog sensors.
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it. Below each item are the labels the interface shows for the `on` and `off` states, and the triggers and conditions of the device class, if it has any.
+
+- **Battery** (`battery`): Shows whether the battery is low.
+  - **Low** (`on`)
+  - **Normal** (`off`)
+  - Triggers: [Battery low](/triggers/battery.became_low/), [Battery not low](/triggers/battery.no_longer_low/)
+  - Conditions: [Battery is low](/conditions/battery.is_low/), [Battery is not low](/conditions/battery.is_not_low/)
+- **Charging** (`battery_charging`): Shows whether the battery is charging. Under **Show as**, this type is called **Battery charging**.
+  - **Charging** (`on`)
+  - **Not charging** (`off`)
+  - Triggers: [Battery started charging](/triggers/battery.started_charging/), [Battery stopped charging](/triggers/battery.stopped_charging/)
+  - Conditions: [Battery is charging](/conditions/battery.is_charging/), [Battery is not charging](/conditions/battery.is_not_charging/)
+- **Carbon monoxide** (`carbon_monoxide`): Shows whether carbon monoxide is detected.
+  - **Detected** (`on`)
+  - **Clear** (`off`)
+  - Triggers: [Carbon monoxide cleared](/triggers/air_quality.co_cleared/), [Carbon monoxide detected](/triggers/air_quality.co_detected/)
+  - Conditions: [Carbon monoxide cleared](/conditions/air_quality.is_co_cleared/), [Carbon monoxide detected](/conditions/air_quality.is_co_detected/)
+- **Cold** (`cold`): Shows whether something is cold.
+  - **Cold** (`on`)
+  - **Normal** (`off`)
+- **Connectivity** (`connectivity`): Shows whether a device is connected.
+  - **Connected** (`on`)
+  - **Disconnected** (`off`)
+- **Door** (`door`): Shows whether a door is open.
+  - **Open** (`on`)
+  - **Closed** (`off`)
+  - Triggers: [Door closed](/triggers/door.closed/), [Door opened](/triggers/door.opened/)
+  - Conditions: [Door is closed](/conditions/door.is_closed/), [Door is open](/conditions/door.is_open/)
+- **Garage door** (`garage_door`): Shows whether a garage door is open.
+  - **Open** (`on`)
+  - **Closed** (`off`)
+  - Triggers: [Garage door closed](/triggers/garage_door.closed/), [Garage door opened](/triggers/garage_door.opened/)
+  - Conditions: [Garage door is closed](/conditions/garage_door.is_closed/), [Garage door is open](/conditions/garage_door.is_open/)
+- **Gas** (`gas`): Shows whether gas is detected.
+  - **Detected** (`on`)
+  - **Clear** (`off`)
+  - Triggers: [Gas cleared](/triggers/air_quality.gas_cleared/), [Gas detected](/triggers/air_quality.gas_detected/)
+  - Conditions: [Gas cleared](/conditions/air_quality.is_gas_cleared/), [Gas detected](/conditions/air_quality.is_gas_detected/)
+- **Glass break** (`glass_break`): Shows whether breaking glass is detected.
+  - **Detected** (`on`)
+  - **Clear** (`off`)
+- **Heat** (`heat`): Shows whether something is hot.
+  - **Hot** (`on`)
+  - **Normal** (`off`)
+- **Light** (`light`): Shows whether light is detected.
+  - **Light detected** (`on`)
+  - **No light** (`off`)
+  - Triggers: [Light level cleared](/triggers/illuminance.cleared/), [Light level detected](/triggers/illuminance.detected/)
+  - Conditions: [Light level is detected](/conditions/illuminance.is_detected/), [Light level is not detected](/conditions/illuminance.is_not_detected/)
+- **Lock** (`lock`): Shows whether a lock is unlocked.
+  - **Unlocked** (`on`)
+  - **Locked** (`off`)
+- **Moisture** (`moisture`): Shows whether moisture is detected, such as a water leak.
+  - **Wet** (`on`)
+  - **Dry** (`off`)
+  - Triggers: [Moisture cleared](/triggers/moisture.cleared/), [Moisture detected](/triggers/moisture.detected/)
+  - Conditions: [Moisture is detected](/conditions/moisture.is_detected/), [Moisture is not detected](/conditions/moisture.is_not_detected/)
+- **Motion** (`motion`): Shows whether motion is detected.
+  - **Detected** (`on`)
+  - **Clear** (`off`)
+  - Triggers: [Motion cleared](/triggers/motion.cleared/), [Motion detected](/triggers/motion.detected/)
+  - Conditions: [Motion is detected](/conditions/motion.is_detected/), [Motion is not detected](/conditions/motion.is_not_detected/)
+- **Moving** (`moving`): Shows whether something is moving.
+  - **Moving** (`on`)
+  - **Not moving** (`off`)
+- **Occupancy** (`occupancy`): Shows whether a room or area is occupied.
+  - **Detected** (`on`)
+  - **Clear** (`off`)
+  - Triggers: [Occupancy cleared](/triggers/occupancy.cleared/), [Occupancy detected](/triggers/occupancy.detected/)
+  - Conditions: [Occupancy is detected](/conditions/occupancy.is_detected/), [Occupancy is not detected](/conditions/occupancy.is_not_detected/)
+- **Opening** (`opening`): Shows whether something is open, such as a cabinet or a drawer.
+  - **Open** (`on`)
+  - **Closed** (`off`)
+- **Plug** (`plug`): Shows whether something is plugged in.
+  - **Plugged in** (`on`)
+  - **Unplugged** (`off`)
+- **Power** (`power`): Shows whether power is detected.
+  - **On** (`on`)
+  - **Off** (`off`)
+- **Presence** (`presence`): Shows whether someone is home.
+  - **Home** (`on`)
+  - **Away** (`off`)
+- **Problem** (`problem`): Shows whether there is a problem.
+  - **Problem** (`on`)
+  - **OK** (`off`)
+- **Running** (`running`): Shows whether something is running.
+  - **Running** (`on`)
+  - **Not running** (`off`)
+- **Safety** (`safety`): Shows whether something is unsafe.
+  - **Unsafe** (`on`)
+  - **Safe** (`off`)
+- **Smoke** (`smoke`): Shows whether smoke is detected.
+  - **Detected** (`on`)
+  - **Clear** (`off`)
+  - Triggers: [Smoke cleared](/triggers/air_quality.smoke_cleared/), [Smoke detected](/triggers/air_quality.smoke_detected/)
+  - Conditions: [Smoke cleared](/conditions/air_quality.is_smoke_cleared/), [Smoke detected](/conditions/air_quality.is_smoke_detected/)
+- **Sound** (`sound`): Shows whether sound is detected.
+  - **Detected** (`on`)
+  - **Clear** (`off`)
+- **Tamper** (`tamper`): Shows whether tampering is detected.
+  - **Tampering detected** (`on`)
+  - **Clear** (`off`)
+- **Update** (`update`): Shows whether an update is available.
+  - **Update available** (`on`)
+  - **Up-to-date** (`off`)
+- **Vibration** (`vibration`): Shows whether vibration is detected.
+  - **Detected** (`on`)
+  - **Clear** (`off`)
+  - Triggers: [Vibration cleared](/triggers/vibration.cleared/), [Vibration detected](/triggers/vibration.detected/)
+  - Conditions: [Vibration is detected](/conditions/vibration.is_detected/), [Vibration is not detected](/conditions/vibration.is_not_detected/)
+- **Window** (`window`): Shows whether a window is open.
+  - **Open** (`on`)
+  - **Closed** (`off`)
+  - Triggers: [Window closed](/triggers/window.closed/), [Window opened](/triggers/window.opened/)
+  - Conditions: [Window is closed](/conditions/window.is_closed/), [Window is open](/conditions/window.is_open/)
+
+For sensors that measure values, see the [sensor device classes](/integrations/sensor/#device-class).
+
+### Changing the device class of a binary sensor
+
+If a binary sensor shows up as the wrong type, for example as an opening instead of a door, you can change its device class.
+
+You can only change the device class in the UI if the binary sensor has a unique ID. A binary sensor without a unique ID shows a message in its entity settings instead. For such a binary sensor, you can change the device class in YAML with [customization](/docs/configuration/customizing-devices/#customizing-an-entity-in-yaml).
+
+1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the binary sensor.
+2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
+3. Under **Show as**, select the type that matches your device.
+4. Select **Update**.
+   - Result: The binary sensor shows up as the new type in triggers and dashboards.
+
+If you created the binary sensor with a template helper, change the device class in the options of the template helper instead.

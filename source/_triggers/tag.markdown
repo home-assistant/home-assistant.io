@@ -94,7 +94,7 @@ device_id:
 
 {% include triggers/try_it.md %}
 
-For this trigger, scan the tag you selected to test the automation. To inspect tag scan data, open {% my developer_events title="**Settings** > **Tools** > **Events**" %}, select **Listen to events**, and subscribe to `tag_scanned`.
+For this trigger, scan the tag you selected to test the automation. To inspect tag scan data, open {% my tools_events title="**Settings** > **Tools** > **Events**" %}, select **Listen to events**, and subscribe to `tag_scanned`.
 
 {% include triggers/more_examples.md %}
 
