@@ -31,7 +31,7 @@ Integration for the [HomeWizard](https://www.homewizard.com/) platform. It can c
 
 {% include integrations/device_list.html brand="homewizard" %}
 
-## Supported devices
+## Other supported devices
 
 In addition to the certified devices, the following device is also supported:
 

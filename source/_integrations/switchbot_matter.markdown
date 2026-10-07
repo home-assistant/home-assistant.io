@@ -36,7 +36,7 @@ SwitchBot Matter devices are certified for use via one of their Matter hubs: eit
 
 {% include integrations/device_list.html brand="SwitchBot" protocol="Matter over WiFi" %}
 
-## Supported devices
+## Other supported devices
 
 In addition to the certified devices, the following devices are also supported:
 

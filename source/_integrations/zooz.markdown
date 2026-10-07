@@ -32,7 +32,7 @@ ha_brand: true
 
 {% include integrations/device_list.html brand="zooz" %}
 
-## Supported devices
+## Other supported devices
 
 In addition to the certified devices, the following devices are also supported:
 

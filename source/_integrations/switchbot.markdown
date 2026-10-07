@@ -131,7 +131,7 @@ SwitchBot is committed to making sure their products are up-to-date and ready to
 
 {% include integrations/device_list.html brand="SwitchBot" protocol="Bluetooth" %}
 
-## Supported devices
+## Other supported devices
 
 In addition to the certified devices, the following devices are also supported:
 

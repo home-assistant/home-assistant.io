@@ -40,7 +40,7 @@ Matter-based Motionblinds devices powered by Eve need a Thread Border Router to 
 
 {% include integrations/device_list.html brand="motionblinds" protocol="Matter over Thread" %}
 
-## Supported devices
+## Other supported devices
 
 In addition to the certified devices, the following device is also supported via the Motionblinds Matter bridge (CM-55):
 
