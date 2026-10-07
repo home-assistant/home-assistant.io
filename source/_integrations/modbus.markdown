@@ -55,7 +55,7 @@ Prerequisites:
    - Some integrations also ask for the unit ID of the device. The unit ID identifies the device on the Modbus connection. Some integrations call it **Device ID**. In YAML, it's `device_address`.
    - Result: The entities of your device appear in Home Assistant.
 3. If no integration is available for your device, set up a Modbus hub and its entities in YAML instead. For each value you want to read or control, you set `address` to where the device stores the value. You find these addresses in the Modbus documentation of your device.
-   - A Modbus hub in YAML can't use an ESPHome serial proxy. For a serial connection, use a USB-to-RS-485 adapter instead.
+   - A Modbus hub in YAML can't use an ESPHome serial proxy. Use a USB-to-RS-485 adapter, or a serial device server with `type: rtuovertcp`. For details, refer to [Configuring a TCP-RTU connection](#configuring-a-tcp-rtu-connection).
    - For the connection, refer to [Configuring modbus communication](#configuring-modbus-communication).
    - For the entities, refer to [Configuring modbus entities](#configuring-modbus-entities).
 4. Optional: To check the connection, go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
@@ -387,7 +387,7 @@ Prerequisites:
    - To load the list again, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
 2. Under **Connections**, you can see one item for each connection. A connection is the network address of a device or of a Modbus gateway, or a serial port, such as one with an RS-485 bus. A connection can reach several units, which are the Modbus devices behind it. The integrations in the panel that use the same address or port share one connection.
 3. Still under **Connections**, for each connection item, you can see:
-   - The address of the device, or the [device path](/integrations/serial/#device-path) of the serial port.
+   - The network address, or the [device path](/integrations/serial/#device-path) of the serial port.
    - The type of connection: **TCP**, **UDP**, or **Serial**. A hub that you configured in YAML is also marked **Configured in YAML**. Such a hub keeps a connection of its own, so the same device can be listed twice.
    - Whether the connection is open right now:
      - A network connection shows **Connected** or **Not connected**. A serial port shows **Open** or **Closed**.
