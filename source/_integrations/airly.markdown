@@ -71,7 +71,7 @@ The **Airly** integration provides the following entities. Which entities are cr
 
 ## Known limitations
 
-There are no known limitations.
+Airly allows 100 data updates per day. Data updates become less frequent as you add Airly integration instances, as described in [Setup](#setup).
 
 ## Removing the integration
 
