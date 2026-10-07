@@ -69,6 +69,10 @@ The **Airly** integration provides the following entities. Which entities are cr
 - **Temperature**
   - **Description**: Shows the air temperature in degrees Celsius.
 
+## Known limitations
+
+There are no known limitations.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
