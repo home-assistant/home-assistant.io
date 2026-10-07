@@ -303,6 +303,40 @@ Codex can connect to Home Assistant as a remote MCP server by using OAuth:
 
 ![Screenshot of Cursor controlling the office lights](/images/integrations/mcp_server/cursor-lights-control.png)
 
+### Example: GitHub Copilot CLI
+
+GitHub Copilot CLI can connect to Home Assistant as a remote MCP server by using a long-lived access token and the HTTP transport.
+
+1. Install [GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-cli) and sign in.
+2. Create a [Long-lived access token](#long-lived-access-tokens) from your Home Assistant account.
+3. In your shell, run the following command:
+
+   ```bash
+   copilot mcp add --transport http \
+     --header "Authorization: Bearer <your_access_token_here>" \
+     homeassistant <your_home_assistant_url>/api/mcp
+   ```
+
+4. Replace `<your_access_token_here>` with your access token and `<your_home_assistant_url>` with the complete URL of your Home Assistant instance, including the port if required. For example, use `http://homeassistant.local:8123` for a typical local connection.
+5. Start `copilot` and type `/mcp show homeassistant` to confirm the server is connected and to see its tools.
+
+The command saves the server, including your access token, in `~/.copilot/mcp-config.json`. Instead of running the command, you can add the server to this file yourself. Add the following to your `mcpServers` configuration:
+
+```json
+{
+  "mcpServers": {
+    "homeassistant": {
+      "type": "http",
+      "url": "<your_home_assistant_url>/api/mcp",
+      "headers": {
+        "Authorization": "Bearer <your_access_token_here>"
+      },
+      "tools": ["*"]
+    }
+  }
+}
+```
+
 ### Example: Antigravity CLI
 
 1.  Install the Antigravity CLI if you haven't already. You can find installation instructions at [https://antigravity.google](https://antigravity.google).
