@@ -39,13 +39,13 @@ Under normal circumstances, Home Assistant automatically discovers your running 
 There is currently support for the following Home Assistant Platforms:
 
 - [Media player](#media-player-entities)
-- [Dashboards](#dashboards)
+- [Dashboard displays](#dashboards)
 - [Button](#favorite-current-song-button)
 
 Depending on the player provider, additional platforms are supported: [Number, Select, Sensor, Switch, Text](#player-options).
 
 
-All of the Home Assistant [Media Player Control Actions](/integrations/media_player/#media-control-actions) are supported.
+Music Assistant player entities support all of the Home Assistant [media player control actions](/integrations/media_player/#media-control-actions). Dashboard display entities support only media playback, media browsing, and turning off.
 
 If using `media_player.play_media`, then note the `media_content_id` payload can be any of the following:
 
@@ -70,7 +70,9 @@ The Music Assistant integration creates media player entities for all players an
 
 Music Assistant can show dashboards, such as a party queue or a "Now playing" screen, on display devices like a Chromecast running the Music Assistant receiver, a Fully Kiosk browser, or an Apple TV. Each display becomes its own Home Assistant device (a "Dashboard display") with a single media player entity, using the `tv` device class. Displays only show up while their provider is running; a browser tab open on the Music Assistant web interface is not a display device.
 
-To show a dashboard, call `media_player.play_media` with `media_content_type` set to `dashboard` and `media_content_id` set to `party`, `music_quiz`, or `now_playing/<player id>` (using the ID of the Music Assistant player to show). For example:
+To show a dashboard from an automation or script, perform the `media_player.play_media` action on the display entity. The easiest way to set it up is to add the action in the editor and use **Pick media** to browse to the dashboard you want. Home Assistant then fills in the media content ID and type for you.
+
+The media content type is always `dashboard`. The media content ID is `party`, `music_quiz`, or `now_playing/<player id>` for the "Now playing" screen of a specific Music Assistant player. For example:
 
 ```yaml
 action: media_player.play_media
@@ -78,7 +80,7 @@ target:
   entity_id: media_player.kitchen_display
 data:
   media_content_type: dashboard
-  media_content_id: now_playing/00:00:00:00:00:01
+  media_content_id: now_playing/<player id>
 ```
 
 You can also pick a dashboard from the entity's media browser. It lists the dashboards the display supports, with a "Now playing" folder to pick which Music Assistant player to show.
@@ -88,6 +90,8 @@ To hide the dashboard again, call `media_player.turn_off`. This is safe to call 
 While a dashboard is shown, the entity's state is `playing`, with the dashboard's name and artwork as the media title and image. It returns to `idle` when nothing is shown, and becomes `unavailable` if the display disconnects.
 
 Showing an unknown or unsupported dashboard, or using `now_playing` without a player, returns a clear error message.
+
+The Music Assistant actions, such as **Play media**, **Play announcement**, **Transfer queue**, and **Get queue**, only work with speaker entities. To show a dashboard, use the standard `media_player.play_media` action described above.
 
 This feature requires Music Assistant server version 2.10 or later.
 
