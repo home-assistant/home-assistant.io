@@ -65,7 +65,7 @@ By default, this integration will receive push updates from the cloud about its 
 
 If your host has access to a Bluetooth adapter and your machine is within range, the integration can request updates through Bluetooth. The integration will always try to send commands over Bluetooth first. If the machine is turned on, the Bluetooth connection will be held active to enable real-time updates for the **Brewing active** sensor.
 
-There is also a "Bluetooth only" mode. This Bluetooth mode starts automatically if internet access is not available, or when you enable the **offline mode** option.
+There is also a "Bluetooth only" mode. This Bluetooth mode starts automatically if internet access is not available, or when you enable the **Offline mode** option.
 In **offline mode**, most entities will become unavailable. Only those marked with <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> in the table below ([Available platforms & entities](#available-platforms--entities)) will remain available. While in **offline mode**, Home Assistant requests an update from your machine every 60 seconds.
 
 # Available platforms & entities
