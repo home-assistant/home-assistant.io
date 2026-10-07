@@ -339,7 +339,7 @@ Mistral Vibe can connect to Home Assistant as a remote MCP server by using a lon
    [[mcp_servers]]
    name = "homeassistant"
    transport = "streamable-http"
-   url = "https://<your_home_assistant_url>/api/mcp"
+   url = "<your_home_assistant_url>/api/mcp"
    api_key_env = "HOMEASSISTANT_TOKEN"
    api_key_header = "Authorization"
    api_key_format = "Bearer {token}"
