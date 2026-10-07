@@ -18,27 +18,36 @@ related:
 
 The map card can show your home zone, your other zones, and entities with a location on a map. This card is used on the [Map dashboard](/dashboards/dashboards/#map-dashboard), which is one of the default dashboards.
 
-On the map, each entity is shown as a marker with its picture, icon, name, state, or an attribute. Below the zoom buttons, two more buttons help you find your way on the map:
+<p class='img'>
+<img src='/images/dashboards/map-card.png' alt='Screenshot of the Map dashboard. The map card shows the People tab with four people, two of them grouped in one bubble at the home zone, one at a shop zone, and one on their own.'>
+The Map dashboard, with the map card in a panel view and the People tab open.
+</p>
 
-- **Toggle grouping** {% icon "mdi:google-circles-communities" %} combines markers that are close together into one bubble. The bubble shows up to four markers. For larger groups, it shows three markers and the number of remaining markers. Select the button again to show each marker separately. While markers are not grouped, the button shows {% icon "mdi:dots-hexagon" %}.
-- **Reset focus** {% icon "mdi:image-filter-center-focus" %} moves and zooms the map so that you can see your entities again. Entities with **Focus** turned off are left out, and zones are only included if **Fit zones** is turned on.
+On the map, each entity is shown as a marker that floats above its location. The marker shows the entity's picture or, if it doesn't have one, its initials. Instead, you can let it show the entity's icon, name, state, or an attribute. Entities that report how accurate their location is, such as a phone, also show a circle of that size in their color. When you zoom out far enough, the map turns into a globe.
+
+Below the zoom buttons, two more buttons help you find your way on the map:
+
+- **Toggle grouping** {% icon "mdi:google-circles-communities" %} combines markers that are close together into one bubble. The bubble shows up to four markers. For larger groups, it shows three markers and the number of remaining markers. People in the same zone share one bubble above the icon of that zone. Select a bubble to zoom in until its markers separate. If the markers are at the same spot, the bubble opens and shows each marker. Select the button again to show each marker separately. While markers are not grouped, the button shows {% icon "mdi:dots-hexagon" %}. The button is only shown when there is more than one marker.
+- **Reset focus** {% icon "mdi:image-filter-center-focus" %} moves and zooms the map so that you can see your entities again. Entities with **Focus** turned off are left out, and zones are only included if **Fit zones** is turned on. If **Auto fit** is turned on, the map also starts following your entities again.
 
 ## People, devices, and zones in a panel view
 
-When the map card is in a [panel view](/dashboards/panel/), such as on the [Map dashboard](/dashboards/dashboards/#map-dashboard), it also shows the **People**, **Devices**, and **Zones** tabs on top of the map, if the card shows at least one person, device, or zone. On a phone, they are at the bottom of the screen. The tabs show the following:
+When the map card is in a [panel view](/dashboards/panel/), such as on the [Map dashboard](/dashboards/dashboards/#map-dashboard), it also shows the **People**, **Devices**, and **Zones** tabs on top of the map, if the card shows at least one person, device, or zone. A tab is only shown if it has something to list. On a phone, the tabs are in a sheet at the bottom of the screen. Drag the sheet up or down to show more or less of the list. The tabs show the following:
 
-- **People**: the people in your home and where they are.
-- **Devices**: the devices on the map that have a location.
-- **Zones**: your zones, with the number of people in each zone.
+- **People**: the people in your home and where they are. You are listed first, as **Me**. People without a location are listed too, but dimmed.
+- **Devices**: the devices on the map that have a location. A device that belongs to a person is shown as that person, not as a separate device.
+- **Zones**: your zones, with the number of people in each zone. Your home zone is listed first.
 
-People and devices are only shown on the map while their tab is selected. Zones and other entities with a location are always shown. [Passive zones](/integrations/zone/#adding-a-new-zone-or-editing-zones) are not shown in a panel view.
+People and devices are only shown on the map while their tab is selected. Zones and other entities with a location are always shown. The circle that marks the size of a zone is only drawn on the **Zones** tab, for the selected zone, or when **Show zone radius** is turned on. [Passive zones](/integrations/zone/#adding-a-new-zone-or-editing-zones) are not shown in a panel view.
 
-Select an item to see its details and its **Activity** from the last 24 hours:
+Select an item in the list or on the map to see its details. The map moves to the item, and only zooms in as far as needed to separate it from nearby markers. The selected marker is larger and shows the circle of its location accuracy. The details show the **Activity** of the item from the last 24 hours:
 
 - For a person or a device, the activity shows its changes, such as arriving at or leaving a zone.
 - For a zone, the activity shows the people who arrived or left.
 
-To open the more-info dialog of the item, select its name at the top of the details.
+The activity shows the five most recent entries. To see up to twenty, select **Show more**. The activity uses the [History](/integrations/history/) integration.
+
+To open the more-info dialog of the item, select **More info**. To go back to the list, select **Back** {% icon "mdi:arrow-left" %}. The map then returns to where it was before you selected the item. If you select the map instead, the item is deselected and the map stays where it is.
 
 ## Adding the map card to a dashboard
 
@@ -85,9 +94,11 @@ Appearance:
     Scale ruler:
       description: "Shows a ruler with the current scale of the map (`scale_ruler`)."
     Auto fit:
-      description: "Moves and zooms the map each time your entities change location, so that you can always see all of them (`auto_fit`)."
+      description: "Moves and zooms the map each time your entities change location, so that you can always see all of them (`auto_fit`). When you move or zoom the map yourself, the map stops following your entities until you select **Reset focus**."
     Fit zones:
       description: "Also keeps the zones in your list of entities in view when the map moves and zooms to show your entities, unless their **Focus** is turned off (`fit_zones`)."
+    Show zone radius:
+      description: "In a [panel view](#people-devices-and-zones-in-a-panel-view), always draws the circle that marks the size of each zone, not only on the **Zones** tab (`show_zone_radius`)."
     Cluster markers:
       description: "Combines markers that are close together into one bubble (`cluster`)."
 Show all:
@@ -139,12 +150,17 @@ show_all:
   default: false
 auto_fit:
   required: false
-  description: "Moves and zooms the map each time your entities change location, so that you can always see them. Entities with `focus: false` are left out."
+  description: "Moves and zooms the map each time your entities change location, so that you can always see them. Entities with `focus: false` are left out. When you move or zoom the map yourself, the map stops following your entities until you select **Reset focus**."
   type: boolean
   default: false
 fit_zones:
   required: false
   description: "Also keeps the zones in your list of `entities` in view when the map moves and zooms to show your entities, unless they have `focus: false`."
+  type: boolean
+  default: false
+show_zone_radius:
+  required: false
+  description: "In a [panel view](#people-devices-and-zones-in-a-panel-view), the circle that marks the size of a zone is only drawn on the **Zones** tab and for the selected zone. When set to `true`, the circle of every zone is always drawn. In other views, the circles are always drawn and this option has no effect."
   type: boolean
   default: false
 title:
@@ -177,7 +193,7 @@ map_style:
   default: default
 hours_to_show:
   required: false
-  description: Shows the path of the previous locations of your entities for the given number of hours.
+  description: Shows the path of the previous locations of your entities for the given number of hours. Point at a spot on a path to see the name and the time. The paths use the [History](/integrations/history/) integration.
   type: integer
   default: 0
 cluster:
@@ -214,7 +230,7 @@ conditions:
 
 ## Options for a custom map style
 
-If you define `map_style` as a map instead of a style name, you can start from one of the styles and adjust it. Only the options listed here are documented.
+If you define `map_style` as a map instead of a style name, you can start from one of the styles and adjust it. Only the options listed here are documented. You can write the option names in `snake_case` or in `camelCase`, so settings that you copy from the [VersaTiles style editor](https://tiles.versatiles.org) work as they are.
 
 {% configuration %}
 base:
@@ -265,6 +281,17 @@ You can use the following names under `colors` and `colors_dark`:
 The default colors for construction, education, hospital, danger, and prison sites are partly transparent, so the map underneath stays visible. To keep this effect, use a color with transparency, such as `#FF66661A`.
 
 Names ending in `Bg` set the outline color of that part, for example the edge of a road.
+
+### Map colors in a theme
+
+A [theme](/integrations/frontend/#defining-themes) can also change the colors of the map. Set one or more of the following variables in your theme:
+
+- Land and water: `ha-color-map-land`, `ha-color-map-water`, `ha-color-map-green`, `ha-color-map-area`
+- Buildings: `ha-color-map-building`, `ha-color-map-building-outline`
+- Roads and transit: `ha-color-map-road`, `ha-color-map-road-major`, `ha-color-map-road-outline`, `ha-color-map-transit`
+- Boundaries and labels: `ha-color-map-boundary`, `ha-color-map-label`, `ha-color-map-label-halo`, `ha-color-map-label-secondary`
+
+The theme colors are applied on top of the map style, and the `colors` of the card are applied on top of the theme colors. The theme colors are only used when the **Theme mode** of the card matches the light or dark mode of your theme.
 
 ## Options for entities
 
