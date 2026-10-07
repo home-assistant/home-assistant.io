@@ -77,7 +77,7 @@ Airly allows 100 data updates per day. Data updates become less frequent as you 
 
 {% details "Can't set up the integration: no measuring stations in this area" %}
 
-### Symptom: "No Airly measuring stations in this area"
+### Symptom: No Airly measuring stations in this area
 
 When you try to set up the integration, Home Assistant shows the message "No Airly measuring stations in this area."
 
@@ -132,7 +132,7 @@ If the station started reporting additional values later, reload the integration
 
 {% details "Home Assistant asks for a new API key" %}
 
-### Symptom: "Authentication failed for Airly, please update your API key"
+### Symptom: Authentication failed for Airly, please update your API key
 
 Home Assistant asks you to reauthenticate the Airly integration, or the log shows the message "Authentication failed for Airly, please update your API key".
 
