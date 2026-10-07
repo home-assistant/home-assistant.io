@@ -55,7 +55,7 @@ exclude:
       required: false
       type: list
     entity_globs:
-      description: Hide all entities matching a listed pattern from the **Activity** panel (for example, `sensor.weather_*`).
+      description: The entities that match a listed pattern to hide from the **Activity** panel (for example, `sensor.weather_*`).
       required: false
       type: list
     domains:
@@ -72,7 +72,7 @@ include:
       required: false
       type: list
     entity_globs:
-      description: Show all entities matching a listed pattern in the **Activity** panel (for example, `sensor.weather_*`).
+      description: The entities that match a listed pattern to show in the **Activity** panel (for example, `sensor.weather_*`).
       required: false
       type: list
     domains:
@@ -83,7 +83,7 @@ include:
 
 ## Configure filter
 
-To narrow down what you see in the **Activity** panel, use the **Sources** pane, as described in [Viewing activity in the Activity panel](#viewing-activity-in-the-activity-panel). If you want to hide some entities from the activity for everyone, all the time, you can set up a filter in your {% term "`configuration.yaml`" %} file.
+To narrow down what you see in the **Activity** panel, use the **Sources** pane, as described in [Viewing activity in the Activity panel](#viewing-activity-in-the-activity-panel). If you want to hide some entities from the activity for all the users, all the time, you can set up a filter in your {% term "`configuration.yaml`" %} file.
 
 By default, the **Activity** panel uses the same filter as the [Recorder](/integrations/recorder/) integration. To limit which entities are shown in the **Activity** panel, use the `include` and `exclude` parameters.
 
@@ -171,8 +171,8 @@ When calling the `logbook.log` action without a `domain` or `entity_id`, entries
 {% note %}
 Some entities change so often that they would fill the **Activity** panel. Home Assistant does not show the activity of these entities:
 
-- Sensors that have a unit of measurement, a state class, or a numeric device class, such as temperature or power
-- Counter, image, and proximity entities
+- Sensors that have a unit of measurement, a state class, or a numeric device class, such as temperature or power.
+- Counter, image, and proximity entities.
 
 {% endnote %}
 
