@@ -50,7 +50,10 @@ Prerequisites:
 - You have a device with a Modbus interface.
 - Home Assistant can reach the Modbus interface of the device in one of these ways:
   - Over the network (Modbus TCP): the device, or a Modbus gateway that translates to Modbus TCP, is on your network.
-  - Over a serial connection (Modbus RTU): the device is wired to a [USB-to-RS-485 adapter](/integrations/serial/#usb-to-serial-adapter) that is connected to your Home Assistant system, to an [ESPHome serial proxy](/integrations/serial/#setting-up-an-esphome-serial-proxy), or to a [serial device server](/integrations/serial/#serial-device-server) on your network.
+  - Over a serial connection (Modbus RTU): the RS-485 wires of the device are connected to one of these:
+    - A [USB-to-RS-485 adapter](/integrations/serial/#usb-to-serial-adapter) that is connected to your Home Assistant system.
+    - An [ESPHome serial proxy](/integrations/serial/#setting-up-an-esphome-serial-proxy) with an RS-485 port.
+    - A [serial device server](/integrations/serial/#serial-device-server) on your network.
 
 1. If needed, turn on the Modbus interface of your device.
    - Many devices have Modbus TCP turned off by default. The documentation or the app of your device describes how to turn Modbus TCP on. Some integration pages describe the steps too, for example, [Fronius](/integrations/fronius/#modbus-tcp).
@@ -61,7 +64,7 @@ Prerequisites:
      - For a serial connection, select the [serial port](/integrations/serial/#serial-port), and enter the [baud rate](/integrations/serial/#baud-rate).
        - A serial proxy is listed with the serial ports.
        - For a serial device server, select **Enter manually** and enter its URL. With a `socket://` URL, the baud rate isn't passed on, so set it on the serial device server itself.
-   - Some integrations also ask for the unit ID of the device. The unit ID identifies the device on the Modbus connection. Some integrations call it **Device ID**. In YAML, it's `device_address`.
+   - Some integrations also ask for the unit ID of the device. The unit ID identifies the device on the Modbus connection. Some integrations call it **Device ID**, and device manuals often call it slave ID. Most devices use `1`. Unless several devices share the connection, you can usually keep `1`. In YAML, it's `device_address`.
    - Result: The entities of your device appear in Home Assistant.
 3. Optional: To check the connection, go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
    - For details, refer to [Viewing your Modbus connections](#viewing-your-modbus-connections).
@@ -77,7 +80,9 @@ Prerequisites:
 - You have a device with a Modbus interface, and its Modbus documentation with the addresses of the values you want to use.
 - Home Assistant can reach the Modbus interface of the device in one of these ways:
   - Over the network (Modbus TCP or Modbus UDP): the device, or a Modbus gateway that translates to Modbus TCP or UDP, is on your network.
-  - Over a serial connection (Modbus RTU): the device is wired to a [USB-to-RS-485 adapter](/integrations/serial/#usb-to-serial-adapter) that is connected to your Home Assistant system, or to a [serial device server](/integrations/serial/#serial-device-server) on your network. A Modbus hub in YAML can't use an ESPHome serial proxy.
+  - Over a serial connection (Modbus RTU): the RS-485 wires of the device are connected to one of these, but not to an ESPHome serial proxy:
+    - A [USB-to-RS-485 adapter](/integrations/serial/#usb-to-serial-adapter) that is connected to your Home Assistant system.
+    - A [serial device server](/integrations/serial/#serial-device-server) on your network.
 
 1. If needed, turn on the Modbus interface of your device.
 2. In your {% term "`configuration.yaml`" %} file, add a Modbus hub for the connection to your device.
