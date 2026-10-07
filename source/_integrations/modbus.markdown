@@ -27,9 +27,9 @@ The **Modbus** {% term integration %} connects Home Assistant to devices that ha
 
 ## Supported devices
 
-With a Modbus hub in YAML, you can connect any device that follows the [Modbus protocol specification](https://www.modbus.org/file/secure/modbusprotocolspecification.pdf). A hub can reach the device over Modbus TCP, Modbus UDP, Modbus RTU over a serial connection, such as RS-485, or Modbus RTU over TCP to a serial device server. You can set up several hubs at the same time, such as one hub on a serial connection and others on network connections.
+Home Assistant supports devices with a Modbus interface through integrations for those devices. To find these integrations, browse the [Modbus-controlled category](/integrations/#modbus-controlled).
 
-Integrations for specific devices support the devices listed in their own documentation. To find these integrations, browse the [Modbus-controlled category](/integrations/#modbus-controlled).
+If your device is not supported by Home Assistant, you can still get to its data by manually configuring the Modbus registers in YAML. For the steps, refer to [Setting up a Modbus hub in YAML](#setting-up-a-modbus-hub-in-yaml).
 
 ## Setting up Modbus control in Home Assistant
 
