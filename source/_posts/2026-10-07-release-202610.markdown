@@ -17,7 +17,17 @@ og_image: /images/blog/2026-10/social.png
 
 Home Assistant 2026.10! 🎉
 
-Enjoy the (beta) release!
+Last week, Nabu Casa dropped: [Big Tech ruined the cloud, so we're renaming ours](/blog/2026/10/02/big-tech-ruined-the-cloud-so-were-renaming-ours/). Home Assistant Cloud is on its way to becoming Home Assistant Link. Same service, new name. I love that title, by the way. If you haven't read the story behind it yet, go have a look, and [tell us what you think](#cloud-becomes-link). The change is planned for the December release, so there is still time. 🏎️
+
+Now, I'll let you in on a secret: I'm an automation person. Dashboards are lovely and I admire everyone who builds a pretty one, but for me, {% term automations %} are what make a smart home actually smart. So you can imagine how happy I am with what's in this release. One of the most powerful features you never thought you'd need has been sitting in Home Assistant for years: trigger IDs. Give your {% term triggers %} an ID, and one automation can do the job of two, three, or five. It was also tucked away in a menu, you had to invent the IDs yourself, and then remember which was which. Plenty of you never found it, and that's on us.
+
+Not anymore. [Trigger IDs finally get a proper UI](#the-best-automation-feature-you-never-used): you check the triggers you want in the condition, and Home Assistant takes care of the IDs behind the scenes. And if you like writing your own IDs in {% term YAML %}, nothing changes. Those keep working exactly as before. That makes it my favorite of this release. 🧠
+
+Don't get me wrong, the map is absolutely a cool feature too. Last release, every map in Home Assistant broke overnight when our map provider wanted an API key. We moved to [OpenStreetMap](https://www.openstreetmap.org/), and it turns out that swapping out the map opens a lot of doors: [a vector map that stays sharp at every zoom level](#a-whole-new-map), redesigned markers, and an overview of where everyone has been. You are here. 📍
+
+There's more: a [tidier profile page](#a-tidier-profile-page), a [panel for your Modbus connections](#a-panel-for-your-modbus-connections), [connecting your AI in one click](#connect-your-ai-in-one-click), and 15 new {% term integrations %}! 🚀
+
+Enjoy the release!
 
 ../Frenck
 
@@ -47,9 +57,10 @@ Enjoy the (beta) release!
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
-_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@frenck] and [@frenck] who helped write these release notes. Also, [@frenck], [@frenck], [@frenck], [@frenck], and [@frenck] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
+_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@googanhiem] and [@piitaya] who helped write these release notes. Also, [@grischard], [@moryoav], and [@RaHehl] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
 
 [@frenck]: https://github.com/frenck
+[@googanhiem]: https://github.com/googanhiem
 
 ## Cloud becomes Link
 
@@ -95,12 +106,11 @@ The zone editor in {% my zones title="**Settings** > **Areas, labels & zones**" 
 
 <img src='/images/blog/2026-10/map-zone-editor.png' alt='Screenshot of the zone editor on the new map, with the list of zones sorted alphabetically and Home at the top.' class='no-shadow' />
 
-
 The redesign follows an [Open Home Foundation design concept](https://github.com/OpenHomeFoundation/ux-design/discussions/68) for the Map dashboard.
 
 Thanks to [@maartenla], [@matthiasdebaat], [@bramkragten], and [@bgoncal]; [@grischard] for initiating vector maps on the OpenStreetMap side and for assisting us; and Paul Norman ([@pnorman]) for developing [Tilekiln](https://github.com/pnorman/tilekiln) and the tile service. Thanks also to the [OpenStreetMap Foundation](https://osmfoundation.org/) and the [MapLibre](https://maplibre.org/), [Shortbread](https://shortbread-tiles.org/), and [VersaTiles](https://versatiles.org/) communities.
 
-Like Home Assistant, [OpenStreetMap](https://openstreetmap.org) is built in the open by people like you. Spot something in your neighborhood that's missing or out of date? You can [leave a note or edit the map yourself](https://wiki.openstreetmap.org/wiki/Getting_Involved).
+Like Home Assistant, [OpenStreetMap](https://www.openstreetmap.org/) is built in the open by people like you. Spot something in your neighborhood that's missing or out of date? You can [leave a note or edit the map yourself](https://wiki.openstreetmap.org/wiki/Getting_Involved).
 
 [@pnorman]: https://github.com/pnorman
 
@@ -110,16 +120,16 @@ Select your name at the bottom of the sidebar, and you land on your {% my profil
 
 The profile page is now an overview, using the same kind of navigation you already know from **Settings**. At the top is a card with your account, followed by your **Theme**, and a short list of sections that each hold a handful of related settings:
 
-- **Appearance**: Your default dashboard and the order of your sidebar.
-- **Localization**: Your language, time zone, and how dates, times, and numbers are shown.
-- **This browser** (or **This mobile app** in the companion app): Notifications, display, and shortcuts for the device you're using right now.
-- **Security**: Your password, [multi-factor authentication](/docs/authentication/multi-factor-auth/), and access tokens.
+- **Appearance**: Your default dashboard and the order of your sidebar
+- **Localization**: Your language, time zone, and how dates, times, and numbers are shown
+- **This browser** (or **This mobile app** in the companion app): Notifications, display, and shortcuts for the device you're using right now
+- **Security**: Your password, [multi-factor authentication](/docs/authentication/multi-factor-auth/), and access tokens
 
-Nothing was taken away. Every setting is still there, grouped so you can find what you came for. Thanks, [@pcan08] and [@maartenla]!
+Nothing was taken away. Every setting is still there, just grouped so it's easier to find. Thanks, [@pcan08] and [@maartenla]!
 
 <img src='/images/blog/2026-10/profile-page.png' alt='Screenshot of the redesigned user profile page, showing the account card, the theme picker, and the Appearance, Localization, and This browser sections.' class='no-shadow' />
 
-That account card at the top learned a new trick, too. Until now, your own name and picture weren't actually yours to change. Only an administrator could set them, tucked away in the person settings. Not an administrator, but wanted a nicer picture of yourself in the sidebar? You had to go ask whoever runs your Home Assistant. A bit odd, for something that is literally your face.
+That account card at the top learned a new trick, too. Until now, your own name and picture weren't actually yours to change. Only an administrator could set them, tucked away in the person settings. Not an administrator, but you wanted a nicer picture of yourself in the sidebar? You had to go ask whoever runs your Home Assistant. A bit odd, for something that is literally your face.
 
 Every user, administrator or not, now has an **Edit profile** button right next to **Log out**. Upload and crop a picture, change your name, and save. Your name is used for both your user and the [person](/integrations/person/) linked to it, so it's the same everywhere you show up, from the sidebar to your dashboards and [Assist](/voice_control/). Your new picture shows up in the sidebar right away.
 
@@ -135,7 +145,7 @@ Every user, administrator or not, now has an **Edit profile** button right next 
 
 Take a look at your {% term automations %}, and chances are you'll find a few that come in pairs. One turns the hallway light on when motion is detected, the other turns it off again when the motion stops. One sends a notification when the washing machine starts, the other when it's done. Two automations, doing one job.
 
-Home Assistant has had a way to combine those into one for years. Give each {% term trigger %} an [ID](/docs/automation/trigger/#trigger-id), and use the [**Triggered by**](/docs/scripts/conditions/#triggered-by-condition) {% term condition %} to do something different depending on which trigger fired. It's one of the most powerful things you can do in the [automation editor](/docs/automation/editor/), and also one of the best hidden. The trigger ID field sat in the menu of each trigger. You had to come up with an ID, type it in yourself, and then remember which ID belonged to which trigger when you picked them in the condition. Most people never found it, and honestly, we can't blame them.
+Home Assistant has had a way to combine those into one for years. Give each {% term trigger %} an [ID](/docs/automation/trigger/#trigger-id), and use the [**Triggered by**](/docs/scripts/conditions/#triggered-by-condition) {% term condition %} to do something different depending on which trigger fired. It's one of the most powerful things you can do in the [automation editor](/docs/automation/editor/), and also one of the best-hidden. The trigger ID field sat in the menu of each trigger. You had to come up with an ID, type it in yourself, and then remember which ID belonged to which trigger when you picked them in the condition. Most people never found it, and honestly, we can't blame them.
 
 Not anymore. Add a **Triggered by** condition, and you check the triggers it should match. You see the triggers themselves, not some ID you made up, and each one is numbered by its position in your list, with the same number shown next to the trigger itself. So you always know which one is which. There are no IDs to come up with at all. Home Assistant takes care of those behind the scenes, and cleans up after itself when you remove a trigger.
 
@@ -147,7 +157,7 @@ The editor does keep an eye out for two things, but only in the **Triggered by**
 
 This completes [an Open Home Foundation roadmap opportunity](https://github.com/OpenHomeFoundation/roadmap/issues/66) to make referencing triggers in automations a lot easier. Thanks, [@jpbede], [@wendevlin], [@marcinbauer-ohf], and [@nielsrowinbik]!
 
-While you're in the automation editor, you'll notice your triggers, conditions, and actions tell you a bit more at a glance. Each row now shows the details that used to be hidden until you opened it: the threshold a trigger or condition checks for, like "above 10 °C", how long something needs to stay that way, the offset on a sunrise or sunset, and how long a wait action waits before it gives up. Thanks, [@wendevlin] and [@MindFreeze]!
+While you're in the automation editor, you'll notice your {% term triggers %}, {% term conditions %}, and {% term actions %} tell you a bit more at a glance. Each row now shows the details that used to be hidden until you opened it: the threshold a trigger or condition checks for, like "above 10 °C", how long something needs to stay that way, the offset on a sunrise or sunset, and how long a wait action waits before it gives up. Thanks, [@wendevlin] and [@MindFreeze]!
 
 <img src='/images/blog/2026-10/automation-row-details.png' alt='Screenshot of triggers and a condition in the automation editor, each showing its details in the row: 10m before sunset, temperature above 10 °C for 5m, light brightness between 10 and 20%, and illuminance above 50 lx for 10m.' class='no-shadow' />
 
@@ -166,13 +176,13 @@ Thanks to our community for keeping pace with the new {% term integrations %} an
 We welcome the following new integrations in this release:
 
 - **[Axle Energy]**, added by [@Herbertmt978]  
-  Bring the grid event schedule of your [Axle Energy](https://www.axle.energy/) account into Home Assistant. It tells you whether an upcoming event asks you to import from or export to the grid, and exactly when it starts and ends, so your automations can get your home ready in time.
+  Bring the grid event schedule of your [Axle Energy](https://www.axle.energy/) account into Home Assistant. It tells you whether an upcoming event asks you to import from or export to the grid, and exactly when it starts and ends, so your {% term automations %} can get your home ready in time.
 
 - **[Bitvis Power Hub]**, added by [@MandusBorjesson]  
-  Read real-time electricity data from your smart meter using a [Bitvis Power Hub](https://bitvis.se/), which plugs into the meter's HAN port. The Power Hub pushes its measurements, like power, voltage, and current per phase, straight to Home Assistant over your local network. No cloud, no {% term polling %}.
+  Read real-time electricity data from your smart meter using a [Bitvis Power Hub](https://bitvis.se/), which plugs into the meter's <abbr title="Home Area Network">HAN</abbr> port. The Power Hub pushes its measurements, like power, voltage, and current per phase, straight to Home Assistant over your local network. No cloud, no {% term polling %}.
 
 - **[Gree Infrared]**, added by [@Dr-Blank], launching at 🥈 silver quality  
-  Control a Gree air conditioner using any infrared transmitter you already have set up in Home Assistant, like an ESPHome device with an infrared LED. Add an infrared receiver, and the climate entity follows along when someone uses the physical Gree remote. Gree builds air conditioners for many brands, so units sold as Onida, Sinclair, and others work as well.
+  Control a Gree air conditioner using any infrared transmitter you already have set up in Home Assistant, like an ESPHome device with an infrared LED. Add an infrared receiver, and the {% term climate %} entity follows along when someone uses the physical Gree remote. Gree builds air conditioners for many brands, so units sold as Onida, Sinclair, and others work as well.
 
 - **[INDI Allsky]**, added by [@TN-1]  
   Connect your [INDI Allsky](https://github.com/aaronwmorris/indi-allsky) camera server, an allsky camera system for astrophotography and keeping an eye on cloud cover. You get the latest capture as a camera, plus sensors for sky quality, the number of stars detected, exposure time, and whether it's night.
@@ -184,7 +194,7 @@ We welcome the following new integrations in this release:
   Control [my-PV](https://www.my-pv.com/) devices, like the AC•THOR range and AC ELWA 2, which turn your surplus solar power into hot water. Home Assistant talks to them locally and discovers them on your network automatically.
 
 - **[OSRAM Infrared]**, added by [@freeDom-], launching at 🥈 silver quality  
-  Control OSRAM and LEDVANCE RGB lights that come with a 24-button infrared remote, using an infrared transmitter set up in Home Assistant. With an infrared receiver, the light entity also picks up commands from the physical remote.
+  Control OSRAM and LEDVANCE RGB lights that come with a 24-button infrared remote, using an infrared transmitter set up in Home Assistant. With an infrared receiver, the {% term light %} entity also picks up commands from the physical remote.
 
 - **[Persang Infrared]**, added by [@Dr-Blank]  
   Control a Persang Bluetooth speaker using an infrared transmitter set up in Home Assistant, giving you a media player and buttons for its remote functions.
@@ -199,13 +209,13 @@ We welcome the following new integrations in this release:
   Read your meter data locally from a [Theben Conexa 3.0](https://www.theben-se.de/conexa/) smart meter gateway, using its built-in Home Area Network (HAN) interface. No cloud needed.
 
 - **[Threema]**, added by [@LukasQ]  
-  Send end-to-end encrypted messages from your automations to people on [Threema](https://threema.ch), the privacy-focused messenger that doesn't need a phone number. It uses the Threema Gateway service, and each person you add as a recipient gets their own notify entity.
+  Send end-to-end encrypted messages from your {% term automations %} to people on [Threema](https://threema.ch), the privacy-focused messenger that doesn't need a phone number. It uses the Threema Gateway service, and each person you add as a recipient gets their own notify entity.
 
 - **[Vitesy]**, added by [@chemelli74]  
   Connect the [Vitesy](https://vitesy.com/) Shelfy, an air purifier that lives in your refrigerator. See the air quality and temperature inside your fridge, how often the door was opened, and when the filter needs cleaning or replacing. You can even switch the purifier mode, for example to boost it after a grocery run.
 
 - **[Willow]**, added by [@PaxPrz]  
-  Keep an eye on the health of your indoor plants with Willow sensors. Temperature, humidity, soil moisture, and light levels come from the Willow cloud into Home Assistant, ready for your dashboards and automations. Your plants can't tell you they're thirsty, but now Home Assistant can.
+  Keep an eye on the health of your indoor plants with Willow sensors. Temperature, humidity, soil moisture, and light levels come from the Willow cloud into Home Assistant, ready for your dashboards and {% term automations %}. Your plants can't tell you they're thirsty, but now Home Assistant can.
 
 - **[Zonneplan]**, added by [@erwindouna]  
   Get the electricity and gas prices of your [Zonneplan](https://www.zonneplan.nl/) contract, a Dutch provider of dynamic energy contracts. Handy for running your appliances when energy is cheapest.
@@ -264,41 +274,41 @@ This release also has new virtual integrations. Virtual integrations are stubs t
 
 It is not just new {% term integrations %} that have been added; existing ones keep getting better too. Here are some of the noteworthy improvements this release:
 
-- **[Matter]** added switches to turn the visual and audible alarms of supported leak sensors on or off, like the IKEA KLIPPBOK, and a switch for one-touch locking, so you decide whether a single touch on the keypad of your lock is enough to lock the door. Devices that measure electrical power now also report the frequency and power factor. Thanks, [@wardmatter], [@mmmspatz], and [@lboue]!
-- **[Tuya]** supports a lot more devices this release: two-channel DIN rail energy meters with readings per channel, circuit breakers, EV chargers (with their charging current, charging mode, and session energy), water valves (with water usage and temperature), and the keypad tone and alarm push settings of the Duosmart C30 alarm panel. Three-phase electricity meters now also report reactive power, apparent power, and power factor for each phase. Thanks, [@keranm], [@tmunzer], [@o-borovets], [@syl-craft], [@ChayoteJarocho], [@huangrenwei79], and [@epenet]!
+- **[Matter]** added {% term switches %} to turn the visual and audible alarms of supported leak sensors on or off, like the IKEA KLIPPBOK, and a switch for one-touch locking, so you decide whether a single touch on the keypad of your lock is enough to lock the door. {% term Devices %} that measure electrical power now also report the frequency and power factor. Thanks, [@wardmatter], [@mmmspatz], and [@lboue]!
+- **[Tuya]** supports a lot more {% term devices %} this release: two-channel DIN rail energy meters with readings per channel, circuit breakers, EV chargers (with their charging current, charging mode, and session energy), water valves (with water usage and temperature), and the keypad tone and alarm push settings of the Duosmart C30 alarm panel. Three-phase electricity meters now also report reactive power, apparent power, and power factor for each phase. Thanks, [@keranm], [@tmunzer], [@o-borovets], [@syl-craft], [@ChayoteJarocho], [@huangrenwei79], and [@epenet]!
 - **[Internet Printing Protocol (IPP)]** added page counters, so you can keep track of how many pages, impressions, and sheets your printer has gone through, split into color and black and white on printers that report it. Thanks, [@brianegge]!
-- **[ESPHome]** devices can now open the connection to Home Assistant themselves, so they work even when Home Assistant can't reach them directly. Turn on the `outgoing_connection` option on your ESPHome device, and Home Assistant takes it from there, with the same encryption as always. Thanks, [@bdraco]!
-- **[HomeKit Bridge]** can now show your valve entities in the Home app as a faucet, shower head, or sprinkler. How long a valve runs can now also come from any number entity, not just a number helper. Thanks, [@louwii17]!
-- **[Philips Hue]** added a switch to turn each MotionAware zone on or off, just like you can in the Hue app. Rooms and zones also gained a scene select, showing which scene (or smart scene) is currently active, and letting you pick another one. Thanks, [@marcelveldt] and [@sliekens]!
-- **[Reolink]** can now control the pan and tilt lens of cameras that combine multiple lenses in one device, when connected to a Reolink NVR or Home Hub. Thanks, [@starkillerOG]!
-- **[Music Assistant]** announcements can now speak a message, not only play an audio file. The announcement action takes a message and a text-to-speech entity to speak it, while keeping the pre-announcement chime and announcement volume that `tts.speak` doesn't offer. The AI search tool can now also search inside artists, albums, and playlists. Thanks, [@marcelveldt] and [@balloob]!
+- **[ESPHome]** {% term devices %} can now open the connection to Home Assistant themselves, so they work even when Home Assistant can't reach them directly. Turn on the `outgoing_connection` option on your ESPHome device, and Home Assistant takes it from there, with the same encryption as always. Thanks, [@bdraco]!
+- **[HomeKit Bridge]** can now show your valve {% term entities %} in the Home app as a faucet, shower head, or sprinkler. How long a valve runs can now also come from any number entity, not just a number {% term helper %}. Thanks, [@louwii17]!
+- **[Philips Hue]** added a switch to turn each MotionAware zone on or off, just like you can in the Hue app. Rooms and zones also gained a {% term scene %} select, showing which scene (or smart scene) is currently active, and letting you pick another one. Thanks, [@marcelveldt] and [@sliekens]!
+- **[Reolink]** can now control the pan and tilt lens of cameras that combine multiple lenses in one device, when connected to a Reolink <abbr title="network video recorder">NVR</abbr> or Home Hub. Thanks, [@starkillerOG]!
+- **[Music Assistant]** announcements can now speak a message, not only play an audio file. The announcement action takes a message and a {% term TTS "text-to-speech" %} entity to speak it, while keeping the pre-announcement chime and announcement volume that `tts.speak` doesn't offer. The AI search tool can now also search inside artists, albums, and playlists. Thanks, [@marcelveldt] and [@balloob]!
 - **[Roborock]** wet and dry vacuums now update in real time, so docking or starting a cleaning shows up in Home Assistant right away. The Roborock Q10 can now also clean specific zones, drive to a spot you pick, and report where it is. Thanks, [@piitaya] and [@hmmbob]!
-- **[Z-Wave]** added three new conditions to the automation editor, with proper fields to fill in: check a device's node status, the value of a configuration parameter, or any other Z-Wave value. Z-Wave triggers got the same treatment. Thanks, [@raman325]!
+- **[Z-Wave]** added three new {% term conditions %} to the automation editor, with proper fields to fill in: check a device's node status, the value of a configuration parameter, or any other Z-Wave value. Z-Wave {% term triggers %} got the same treatment. Thanks, [@raman325]!
 - **[UniFi Network]** now reports the battery level and runtime of your UniFi UPS, along with its output power, current, voltage, and power factor. Thanks, [@jimstrang]!
 - **[Broadlink]** now supports the RM5 Plus, which used to fail with a "device not supported" error. Thanks, [@DAB-LABS]!
-- **[UniFi Protect]** now supports the key fob, with an {% term "event entity" %} that fires on every button press, and shows each relay input as its own binary sensor. The API key only mode now also handles motion and smart detections, smart sensors, sirens, relays, and several camera and floodlight settings. Thanks, [@sbesh91], [@igoraugustynski], and [@RaHehl]!
+- **[UniFi Protect]** now supports the key fob, with an {% term "event entity" %} that fires on every button press, and shows each relay input as its own {% term "binary sensor" %}. The API key only mode now also handles motion and smart detections, smart sensors, sirens, relays, and several camera and floodlight settings. Thanks, [@sbesh91], [@igoraugustynski], and [@RaHehl]!
 - **[OpenAI]** added support for the GPT-6 Astra and GPT-Image-2.5 models. GPT-Image-2.5 Flare is now the default for generating images with [AI Task](/integrations/ai_task/). Thanks, [@Shulyaka]!
 - **[SwitchBot Bluetooth]** added support for the Lock Ultra Max, the Universal Remote, and the RGBICWW Light Bars, and lets you set how fast your SwitchBot curtains move. Thanks, [@Onero-testdev] and [@joostlek]!
 - **[SwitchBot Cloud]** added support for the Lock Ultra Max. Thanks, [@XiaoLing-git]!
 - **[LIFX]** now supports LIFX lights that connect over {% term Thread %}, and the signal strength sensor works for those lights too. Thanks, [@Djelibeybi]!
-- **[Proxmox VE]** added update entities for your Proxmox nodes, showing when updates are available and how many Proxmox and other packages are waiting. Installing them from Home Assistant is not possible yet. Thanks, [@CoMPaTech]!
+- **[Proxmox VE]** added {% term update "update entities" %} for your Proxmox nodes, showing when updates are available and how many Proxmox and other packages are waiting. Installing them from Home Assistant is not possible yet. Thanks, [@CoMPaTech]!
 - **[LinkPlay]** speakers that follow another speaker in a multiroom group now show the title, artist, album, and album art of what's playing. Each speaker keeps its own volume. Thanks, [@MagicMicky]!
-- **[Apple iCloud]** brings your iCloud calendars and Reminders into Home Assistant. Each calendar shows up as a calendar entity, and each Reminders list as a to-do list, where you can add, complete, and remove items that sync right back to your Apple devices. Thanks, [@FezVrasta]!
-- **[Hikvision]** added event entities that tell you what triggered a smart event: a human, a vehicle, or a pet. Great for getting notified about people at your gate, while ignoring passing traffic. Thanks, [@ptarjan]!
+- **[Apple iCloud]** brings your iCloud calendars and Reminders into Home Assistant. Each calendar shows up as a {% term "calendar entity" %}, and each Reminders list as a to-do list, where you can add, complete, and remove items that sync right back to your Apple devices. Thanks, [@FezVrasta]!
+- **[Hikvision]** added {% term "event entity" "event entities" %} that tell you what triggered a smart event: a human, a vehicle, or a pet. Great for getting notified about people at your gate, while ignoring passing traffic. Thanks, [@ptarjan]!
 - **[Opower]** now uses the import and export readings from your meter itself for your grid statistics. Before, grid import was worked out from your net usage, which undercounted it for homes with solar panels, and could even show no import at all on a sunny day. Thanks, [@tronikos]!
-- **[TP-Link Omada]** now shows your Omada controller as a device, with its status and an update entity for its firmware. Thanks, [@rubempoli]!
+- **[TP-Link Omada]** now shows your Omada controller as a {% term device %}, with its status and an {% term update "update entity" %} for its firmware. Thanks, [@rubempoli]!
 - **[EnergyZero]** can now use quarter-hourly electricity prices, and added all-in electricity prices next to the market prices. Thanks, [@klaasnicolaas]!
-- **[Bosch SHC]** grew a lot this release. Micromodule shutters, awnings, and blinds now show up as covers, and there are new switches for child locks, the alarm bypass of door and window contacts, the silent mode of thermostats, the intrusion alarm of the Smoke Detector II, and the settings of the Motion Detector 2, Door/Window Contact II Plus, Micromodule Relay, and Camera Eyes. A new sensor counts the open doors and windows in your home, thermostats show their valve position, and motion detectors now fire an event for every motion. Thanks, [@mosandlt]!
+- **[Bosch SHC]** grew a lot this release. Micromodule shutters, awnings, and blinds now show up as {% term covers %}, and there are new switches for child locks, the alarm bypass of door and window contacts, the silent mode of thermostats, the intrusion alarm of the Smoke Detector II, and the settings of the Motion Detector 2, Door/Window Contact II Plus, Micromodule Relay, and Camera Eyes. A new sensor counts the open doors and windows in your home, thermostats show their valve position, and motion detectors now fire an event for every motion. Thanks, [@mosandlt]!
 - **[Midea]** added water heaters, a lock switch, a pump switch for dehumidifiers, a sensor for when the water pump of an air conditioner is running, and salt, AI mode, time remaining, and door warning entities for the appliances that support them. Thanks, [@chemelli74], [@rokam], [@mattrossman], and [@peterdey]!
 - **[Teslemetry]** can now control things locally: your Powerwall over your own network, and your vehicle over Bluetooth. Commands try the local route first and fall back to the cloud, so they are faster, and vehicle commands even work when the car has no connection. Thanks, [@Bre77]!
-- **[Peblar]** chargers can now install firmware updates from Home Assistant, and you can manage the RFID cards and the autocharge vehicles allowed to charge, and authorize a charge session, all from actions. Chargers with a buzzer or status light also get selects for the buzzer volume and LED brightness. Thanks, [@syphernl] and [@frenck]!
+- **[Peblar]** chargers can now install firmware updates from Home Assistant, and you can manage the RFID cards and the autocharge vehicles allowed to charge, and authorize a charge session, all from {% term actions %}. Chargers with a buzzer or status light also get selects for the buzzer volume and LED brightness. Thanks, [@syphernl] and [@frenck]!
 - **[MELCloud Home]** added the outdoor temperature and a switch to put your unit in standby. Thanks, [@erwindouna]!
-- **[Universal Devices ISY/IoX]** added event entities for Insteon buttons and keypads, so you can automate on a press, a double press, or a long press. Thanks, [@shbatm]!
+- **[Universal Devices ISY/IoX]** added {% term "event entity" "event entities" %} for Insteon buttons and keypads, so you can automate on a press, a double press, or a long press. Thanks, [@shbatm]!
 - **[LG Infrared]** air conditioners gained swing modes, switches for the ion generator and auto clean, a select for the energy limit, and buttons for features like Jet mode and Eco mode. Thanks, [@Dr-Blank]!
 - **[Samsung Infrared]** now supports air conditioners. Thanks, [@elax46]!
 - **[Weheat]** added the air outlet temperature, domestic hot water target and control method, the electricity used by the indoor unit, and what your heat pump is doing while it cools. Thanks, [@barryvdh]!
 - **[LED Infrared]** added support for generic 10-key LED candle remotes. Thanks, [@tr4nt0r]!
-- **[Collection image]** gained actions to jump to the first, last, next, or previous image in the folder, alongside picking a random one. Thanks, [@karwosts]!
+- **[Collection image]** gained {% term actions %} to jump to the first, last, next, or previous image in the folder, alongside picking a random one. Thanks, [@karwosts]!
 - **[Homevolt]** added a select to change the battery mode, and controls for the power setpoint and grid import and export limits. Thanks, [@Danielhiversen]!
 
 [@barryvdh]: https://github.com/barryvdh
@@ -493,7 +503,7 @@ Time for a little cleaning, and no, we did not wait for spring! The following {%
 - **Travis-CI** has been removed. It relied on the travis-ci.org API, which Travis CI shut down in June 2021.
 - **Zestimate** has been removed. Zillow retired the API it relied on, and its replacement is aimed at commercial use, so the integration could not simply be updated.
 
-If you still have any of these in your YAML configuration, you can remove them.
+If you still have any of these in your {% term YAML %} configuration, you can remove them.
 
 ## Other noteworthy changes
 
@@ -503,20 +513,20 @@ There is even more packed into this release. Here are some of the other changes 
 - **[Tile cards](/dashboards/tile/)** gained a slider feature for [input selects](/integrations/input_select/) and [select](/integrations/select/) entities, so you can slide between options, in the same style as the toggle for input booleans. This was [@Jump-333]'s very first contribution to Home Assistant. Thanks, and welcome!
 - The **[Energy dashboard](/docs/energy/)** now shows the discharge of each battery separately in the energy usage graph, just like it already did for charging. Thanks, [@MindFreeze]!
 - **[Calendar cards](/dashboards/calendar/)** can show a button to add an event again, so you can put something on the calendar right from your dashboard, and you pick where the button sits. Thanks, [@Phil0L]!
-- **[Lawn mower]** entities gained a stop action and an idle state, so you can cancel a mower's current task, instead of only pausing it or sending it home, with a matching trigger and condition in the automation editor. MQTT lawn mowers support it as well, and [Husqvarna Automower](/integrations/husqvarna_automower/) and [Husqvarna Automower BLE](/integrations/husqvarna_automower_ble/) mowers already report when they are idle. Thanks, [@piitaya], [@Thomas55555], and [@alistair23]!
+- **[Lawn mower]** entities gained a stop action and an idle state, so you can cancel a mower's current task instead of only pausing it or sending it home. The automation editor has a matching trigger and condition, too. MQTT lawn mowers support it as well, and [Husqvarna Automower](/integrations/husqvarna_automower/) and [Husqvarna Automower BLE](/integrations/husqvarna_automower_ble/) mowers already report when they are idle. Thanks, [@piitaya], [@Thomas55555], and [@alistair23]!
 - **[Binary sensor]** has a new glass break device class. Glass break sensors are treated as security sensors, so they show up on the Security dashboard and in your home security summary. [HomematicIP Cloud](/integrations/homematicip_cloud/), [SimpliSafe](/integrations/simplisafe/), [Z-Wave](/integrations/zwave_js/), and [Hive](/integrations/hive/) already use it. Thanks, [@catellie]!
 - **[Template]** got two nice additions this release. Thanks, [@Petro31]!
-  - Template entities can now be climate entities, so you can build your own thermostat from other entities. Think of a heat pump or air conditioner that an integration only exposes as a loose collection of switches, sensors, and numbers. Create one as a {% term helper %} from the UI, pick templates for the current temperature, target temperature, and HVAC mode, and choose the actions that run when you change them. In YAML, you can take it further with fan, preset, and swing modes, and humidity. The [template climate documentation](/integrations/template/#climate) has all the details.
-  - Binary sensor template helpers now let you set a delay before they turn on or off, right from the UI. Until now, that was only possible in YAML.
+  - Template entities can now be climate entities, so you can build your own thermostat from other entities. Think of a heat pump or air conditioner that an integration only exposes as a loose collection of switches, sensors, and numbers. Create one as a {% term helper %} from the UI, pick {% term templates %} for the current temperature, target temperature, and HVAC mode, and choose the actions that run when you change them. In {% term YAML %}, you can take it further with fan, preset, and swing modes, and humidity. The [template climate documentation](/integrations/template/#climate) has all the details.
+  - Binary sensor template helpers now let you set a delay before they turn on or off, right from the UI. Until now, that was only possible in {% term YAML %}.
 - **Templates** gained a [`timedelta_string`](/template-functions/timedelta_string/) function, which turns a duration into readable text like "1 hour 30 minutes", the same way [`time_since`](/template-functions/time_since/) and [`time_until`](/template-functions/time_until/) do. Thanks, [@cnotin]!
-- **[Automation traces](/docs/automation/troubleshooting/#traces)** got a fresh look that matches the automation editor, with the real icon for each trigger, condition, and action, and a clear view of branches that didn't finish. Drag the divider to give the graph or the details more room, the step buttons now float on top of the graph, and screen readers describe each step. Thanks, [@jpbede]!
+- **[Automation traces](/docs/automation/troubleshooting/#traces)** got a fresh look that matches the automation editor, with the real icon for each {% term trigger %}, {% term condition %}, and {% term action %}, and a clear view of branches that didn't finish. Drag the divider to give the graph or the details more room, the step buttons now float on top of the graph, and screen readers describe each step. Thanks, [@jpbede]!
 - The **[Z-Wave]** network map can now show the real mesh. Turn on the new neighbors toggle, and it draws the connections between your devices, not just the routes they use. It's off by default, because large networks get busy fast. Thanks, [@MindFreeze]!
-- **[Calendar]** events from [CalDAV](/integrations/caldav/), [Local calendar](/integrations/local_calendar/), and [Google Calendar](/integrations/google/) now include whether they are confirmed or tentative, so your automations can tell the difference. [Remote calendar](/integrations/remote_calendar/) now also leaves out canceled events. Thanks, [@1358]!
+- **[Calendar]** events from [CalDAV](/integrations/caldav/), [Local calendar](/integrations/local_calendar/), and [Google Calendar](/integrations/google/) now include whether they are confirmed or tentative, so your {% term automations %} can tell the difference. [Remote calendar](/integrations/remote_calendar/) now also leaves out canceled events. Thanks, [@1358]!
 - **[Climate]** fan modes can now be set by voice, through a conversation agent, like "set the fan mode to auto". Thanks, [@synesthesiam]!
 - **Units** keep growing: atmospheres (atm) for pressure, and therms (thm) for energy, the unit many US utilities bill natural gas in. Weather entities can now also report pressure in kilopascals (kPa), which most weather services in Canada use. Thanks, [@Bre77], [@virtitnerd], and [@RussellAult]!
 - **Password managers**, including the one built into Firefox, can fill in your details on the Home Assistant login page again. Thanks, [@MindFreeze]!
 - On **phones** with a notch or rounded corners, tables, filter bars, settings cards, headers, and pop-up messages now reach the edges of the screen, while everything you read or tap stays clear of the cutout. Thanks, [@bgoncal]!
-- **Tables**, like the ones listing your devices and entities, now show placeholder rows while they load. And if something fails to load, you now see an error, instead of an empty list that looks like you have nothing set up. Thanks, [@timmo001]!
+- **Tables**, like the ones listing your {% term devices %} and {% term entities %}, now show placeholder rows while they load. And if something fails to load, you now see an error, instead of an empty list that looks like you have nothing set up. Thanks, [@timmo001]!
 - **YAML configuration errors** now suggest what you probably meant. Mistype `command_topci`, and the error asks: did you mean `command_topic`? Error messages also show the path to the file relative to your configuration folder, so they are easier to read. Thanks, [@frenck] and [@emontnemery]!
 
 [@1358]: https://github.com/1358
@@ -551,7 +561,7 @@ And no more guessing why a card is hiding. The top of the **Visibility** tab tel
 
 Last release, we started [modernizing Modbus](/blog/2026/09/02/release-20269/#modernizing-modbus): integrations that already know how your device talks Modbus, so you pick your device in the UI instead of writing register maps by hand. Those integrations share a single connection to each device, which is great for devices that only accept a few connections at once. It also meant there was no single place to see which integrations were talking to what.
 
-The new **Modbus** panel under **Settings** > **Connectivity** fixes that. It lists every Modbus connection Home Assistant has, serial ports and network gateways alike, along with the {% term devices %} on it and the integrations using them. Connections set up in YAML show up here too. A connection that's closed isn't a problem, by the way. It opens again the next time an integration needs it. The **Serial** panel links straight to it for ports that carry Modbus. Thanks, [@balloob]!
+The new **Modbus** panel under **Settings** > **Connectivity** fixes that. It lists every Modbus connection Home Assistant has, serial ports and network gateways alike, along with the {% term devices %} on it and the integrations using them. Connections set up in {% term YAML %} show up here too. A connection that's closed isn't a problem, by the way. It opens again the next time an integration needs it. The **Serial** panel links straight to it for ports that carry Modbus. Thanks, [@balloob]!
 
 <img src='/images/blog/2026-10/modbus-panel.png' alt='Screenshot of the Modbus panel, listing a serial port shared by a Flexit and a SolarEdge device, and a network connection to a Fronius inverter.' class='no-shadow' />
 
@@ -562,7 +572,7 @@ The list of integrations built this way keeps growing. This release adds two new
 
 ### Connect your AI in one click
 
-Home Assistant can act as a [Model Context Protocol](/integrations/mcp_server/) server, which lets AI apps like Claude, ChatGPT, or Cursor talk to your home. Getting there was a bit of a hunt, though: add the integration, pick which parts of Home Assistant to expose, and then figure out which URL to hand to your AI app.
+Home Assistant can act as a [Model Context Protocol](/integrations/mcp_server/) server, which lets AI apps like Claude, ChatGPT, or Cursor talk to your home. Getting there was a bit of a hunt, though: add the {% term integration %}, pick which parts of Home Assistant to expose, and then figure out which URL to hand to your AI app.
 
 The **AI tasks** page under **Settings** > **System** is now called **AI**, and it gained a **Model Context Protocol** card. Turn the server on in a single click, and the card lists the URLs to paste into your AI app, each with a button to copy it. New setups expose everything Home Assistant has to offer, including anything added later, and only allow administrator accounts to connect. You can change both whenever you like, without removing and re-adding the integration.
 
@@ -574,7 +584,7 @@ And your AI got a lot better at finding music. Ask it to play something, and ins
 
 Thanks, [@balloob]!
 
-If your home runs on [KNX](/integrations/knx/), your AI can now dig into that too. The KNX integration brings its own set of AI tools, which you can hand to your conversation agent, or to your AI app through the Model Context Protocol server. Ask about the group addresses, devices, and functions in your ETS project, go through the history of telegrams on your bus, or decode a value you don't recognize. It can even read and write values on the bus directly. Thanks, [@martinhoefling]!
+If your home runs on [KNX](/integrations/knx/), your AI can now dig into that too. The KNX integration brings its own set of AI tools, which you can hand to your conversation agent, or to your AI app through the Model Context Protocol server. Ask about the group addresses, devices, and functions in your <abbr title="Engineering Tool Software">ETS</abbr> project, go through the history of telegrams on your bus, or decode a value you don't recognize. It can even read and write values on the bus directly. Thanks, [@martinhoefling]!
 
 [@martinhoefling]: https://github.com/martinhoefling
 
@@ -715,7 +725,7 @@ Libre Hardware Monitor versions older than 0.9.5 are no longer supported. If you
 
 {% details "Linode and Tank Utility" %}
 
-The Linode and Tank Utility integrations have been disabled and no longer start.
+The Linode and Tank Utility {% term integrations %} have been disabled and no longer start.
 
 Both depend on Python libraries that have not been maintained for years (the Linode one was last updated in 2018, the Tank Utility one in 2023) and no longer work with current Python packaging tools. Keeping them running meant holding back those tools for every other integration, so they have been switched off instead.
 
@@ -779,7 +789,7 @@ The **Uptime** sensor of nodes, virtual machines, and containers now shows a tim
 
 {% details "Rejseplanen" %}
 
-Rejseplanen now uses version 2.0 of the Rejseplanen API, which requires an API key. You can [apply for an API key](https://labs.rejseplanen.dk/hc/en-us/articles/21553113674909-Adgang-til-data-fra-Labs) with Rejseplanen Labs. The integration is now set up from the UI instead of YAML.
+Rejseplanen now uses version 2.0 of the Rejseplanen API, which requires an API key. You can [apply for an API key](https://labs.rejseplanen.dk/hc/en-us/articles/21553113674909-Adgang-til-data-fra-Labs) with Rejseplanen Labs. The integration is now set up from the UI instead of {% term YAML %}.
 
 All extra attributes have been removed from the sensors. If you have {% term "template" "templates" %} or dashboard cards that use them, you need to update them.
 
@@ -794,7 +804,7 @@ All extra attributes have been removed from the sensors. If you have {% term "te
 
 Sofar inverters that report no energy meter no longer get these six energy sensors: **Load consumption today**, **Load consumption total**, **Import energy today**, **Import energy total**, **Export energy today**, and **Export energy total**.
 
-They never held real readings on those inverters. The inverter itself marks those values as invalid, and on a PV-only inverter, **Load consumption total** simply repeated the solar generation total. If you used these sensors on your Energy dashboard, or in {% term "template" "templates" %} or {% term automations %}, remove them. Hybrid inverters and PV inverters with a meter keep all six.
+They never held real readings on those inverters. The inverter itself marks those values as invalid, and on a <abbr title="photovoltaic">PV</abbr>-only inverter, **Load consumption total** simply repeated the solar generation total. If you used these sensors on your Energy dashboard, or in {% term "template" "templates" %} or {% term automations %}, remove them. Hybrid inverters and PV inverters with a meter keep all six.
 
 ([@darkrain-nl] - [#181729]) ([Sofar documentation])
 
@@ -849,7 +859,7 @@ If you leave out `directory_path`, nothing changes. Files are still saved to the
 
 {% details "Teslemetry" %}
 
-Vehicles that stream their data no longer get the entities that can only be updated by polling. Updating those required a paid API call, which most people did not expect.
+Vehicles that stream their data no longer get the {% term entities %} that can only be updated by {% term polling %}. Updating those required a paid API call, which most people did not expect.
 
 ([@Bre77] - [#181351]) ([Teslemetry documentation])
 
@@ -861,7 +871,7 @@ Vehicles that stream their data no longer get the entities that can only be upda
 
 {% details "UniFi Network" %}
 
-You can no longer reconfigure the UniFi Network integration by adding the same site again through **Add integration**. Use the dedicated **Reconfigure** option of the integration instead.
+You can no longer reconfigure the UniFi Network {% term integration %} by adding the same site again through **Add integration**. Use the dedicated **Reconfigure** option of the integration instead.
 
 ([@robinsiep] - [#182201]) ([UniFi Network documentation])
 
@@ -887,7 +897,7 @@ If you need a different update frequency, you can [set your own polling interval
 
 {% details "Xbox" %}
 
-The **Subscribed to Xbox Game Pass** binary sensor has been removed, because it never worked. The Xbox API always reported `false`, whether you or your friends were subscribed to Game Pass or not.
+The **Subscribed to Xbox Game Pass** {% term "binary sensor" %} has been removed, because it never worked. The Xbox API always reported `false`, whether you or your friends were subscribed to Game Pass or not.
 
 ([@tr4nt0r] - [#182734]) ([Xbox documentation])
 
