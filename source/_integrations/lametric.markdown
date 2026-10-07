@@ -295,6 +295,12 @@ If you see a "Cannot connect" error when adding the device manually, verify that
 2. The hostname or IP address you entered is correct.
 3. The API key matches the one shown in the LaMetric developer portal.
 
+### Notifications do not show in kiosk mode
+
+When the LaMetric device is in kiosk mode, it only accepts notifications with the `critical` priority, and refuses all others with the message "Only notifications with priority 'critical' are allowed in current mode".
+
+The notify entity always sends notifications with the `info` priority. To send a notification to a device in kiosk mode, use the `lametric.message` action or the [legacy notify action](#legacy-notify-action) with the priority set to `critical`.
+
 ## Use your own LaMetric application credentials
 
 If you prefer not to use the Home Assistant account linking service, you can set up the LaMetric application manually.

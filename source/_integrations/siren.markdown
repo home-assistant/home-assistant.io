@@ -16,14 +16,17 @@ The **Siren** {% term integration %} lets you control siren and chime devices an
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a siren entity
+## Siren states
 
-The state of a siren entity can be either **On** or **Off**.
+A siren entity can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
+
+- **On** (`on`): The siren is turned on.
+- **Off** (`off`): The siren is turned off.
 
 In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 {% include integrations/triggers.md %}
 

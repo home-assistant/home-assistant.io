@@ -83,7 +83,7 @@ automation: |
 
 If you use the deck in the evening, the patio fan can follow the deck light with a single action.
 
-- **Trigger**: State: Deck light changes to on
+- **Trigger**: State changed: Deck light changes to on
 - **Action**: Toggle fan
 - **Target**: Patio fan
 

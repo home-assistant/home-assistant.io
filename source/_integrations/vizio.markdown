@@ -85,7 +85,7 @@ Apps to include or exclude:
 
 ### Obtaining a list of valid apps to include or exclude
 
-The list of apps is fetched daily from VIZIO's app catalog (with a copy bundled in the [vizaio](https://github.com/raman325/vizaio) library as a fallback). To see the names you can include or exclude, check the `source_list` attribute of your TV's media player entity under {% my developer_states title="**Settings** > **Tools** > **States**" %}.
+The list of apps is fetched daily from VIZIO's app catalog (with a copy bundled in the [vizaio](https://github.com/raman325/vizaio) library as a fallback). To see the names you can include or exclude, check the `source_list` attribute of your TV's media player entity under {% my tools_states title="**Settings** > **Tools** > **States**" %}.
 
 ## Supported functionality
 
@@ -212,7 +212,7 @@ Here is an idea to get you started.
 
 This automation turns the TV on and launches an app when you start movie night. It is triggered by a toggle {% term helper %} named **Movie night**, which you need to create separately under {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Movie night (`input_boolean.movie_night`)
   - **To**: On
 - **Action**: Turn on media player

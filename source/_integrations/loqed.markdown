@@ -49,11 +49,15 @@ You can also set up a lock manually when for some reason, it is not automaticall
 
 Please see the default [lock integration page](/integrations/lock/) for the actions available for the lock.
 
-## De-installation in Loqed
+## Removing the integration
 
-First, remove the integration from Home Assistant. This will remove any configuration made on the lock itself for Home Assistant.
+This integration follows standard integration removal. Removing it also removes the webhook that Home Assistant registered on your lock.
 
-On [LOQED personal access token website](https://integrations.production.loqed.com/personal-access-tokens), please follow the following steps:
+{% include integrations/remove_device_service.md %}
 
-1. Log in with your LOQED App email address (you need to be admin).
-2. Select **delete** on the Personal Access Token you used when creating this integration.
+After removing the integration, you can also delete the personal access token you created for it. If you use the same token for other locks in Home Assistant, keep it until you have removed all of them.
+
+On the [LOQED personal access token website](https://integrations.production.loqed.com/personal-access-tokens), follow these steps:
+
+1. Log in with your LOQED App email address (you need to be an admin).
+2. Select **delete** next to the personal access token you used when creating this integration.

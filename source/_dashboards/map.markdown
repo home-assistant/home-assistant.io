@@ -67,7 +67,7 @@ entities:
   type: list
 geo_location_sources:
   required: false
-  description: List of geolocation sources or `source` objects (see [below](#options-for-geolocation-sources)). All current entities with that source will be displayed on the map. See [Geolocation](/integrations/geo_location/) platform for valid sources. Set to `all` to use all available sources. Either this, `show_all`, or the `entities` configuration option is required.
+  description: List of geolocation sources or `source` objects (see [below](#options-for-geolocation-sources)). All current entities with that source will be displayed on the map. For valid sources, see [Integrations that provide geolocation entities](/integrations/geo_location/#integrations-that-provide-geolocation-entities). Set to `all` to use all available sources. Either this, `show_all`, or the `entities` configuration option is required.
   type: list
 show_all:
   required: false

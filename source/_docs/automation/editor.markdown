@@ -1,14 +1,14 @@
 ---
-title: "Automation editor"
-description: "Create and edit automations from the Home Assistant user interface. The visual editor walks you through choosing a trigger, conditions, and actions, no coding needed."
+title: "Automation editors"
+description: "Create and edit automations from the Home Assistant user interface. Use the visual editor to choose triggers, conditions, and actions without writing code, or use the YAML editor to edit the automation's YAML."
 related:
   - docs: /getting-started/automation/
     title: "Tutorial: Create your first automation"
 ---
 
-The automation editor lets you create and edit automations directly from the Home Assistant user interface, without writing any YAML. The editor walks you through choosing a trigger, optional conditions, and the actions to run.
+The automation editors let you create and edit automations. You can do it directly from the Home Assistant user interface without writing any YAML in the visual editor, or in the YAML editor. The visual editor walks you through choosing a trigger, optional conditions, and the actions to run.
 
-If you're new to automations, start with the [Tutorial: Create your first automation](/getting-started/automation/). It walks you through creating your first automations in the editor, step by step.
+If you're new to automations, start with the [Tutorial: Create your first automation](/getting-started/automation/). It walks you through creating your first automations in the visual editor, step by step.
 
 ## Editing an automation in the visual editor
 
@@ -81,7 +81,7 @@ After changing a trigger, condition, or action, select **Save** to apply your ch
 
 ### Renaming a trigger, condition, or action
 
-A name makes it easier to find a trigger, condition, or action in a long automation, and in the [trace](/docs/automation/troubleshooting/#traces).
+A name makes it easier to find a trigger, condition, or action in a long automation, and in the [trace](/docs/automation/testing/#traces).
 
 1. On the right side of the row, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Rename**.
 2. Enter a name, and select **Submit**.

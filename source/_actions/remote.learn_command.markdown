@@ -110,7 +110,7 @@ timeout:
 
 When a user-created {% term helper %} button, created separately, is pressed, start learning the TV mute command.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Learn mute (`input_button.learn_mute`)
 - **Action**: Learn remote command
   - **Target**: Living room remote
@@ -140,7 +140,7 @@ automation: |
 
 When a user-created {% term helper %} button, created separately, is pressed, start learning an RF command and wait up to 30 seconds.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Learn gate command (`input_button.learn_gate_command`)
 - **Action**: Learn remote command
   - **Target**: RF bridge remote

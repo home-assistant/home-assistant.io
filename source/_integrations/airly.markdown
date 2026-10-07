@@ -41,6 +41,35 @@ be updated every 30 minutes, for three configured instances, data will be
 updated every 45 minutes, and so on.
 {% endnote %}
 
+## Supported functionality
+
+The **Airly** integration provides the following entities. Which entities are created depends on the data available from the Airly measuring stations closest to your location.
+
+### Sensors
+
+- **Common air quality index**
+  - **Description**: Shows the Common Air Quality Index (CAQI) for your location. The `level`, `description`, and `advice` attributes provide a human-readable air quality level and a recommendation from Airly.
+- **PM1**
+  - **Description**: Shows the concentration of particulate matter smaller than 1 micrometer in micrograms per cubic meter.
+- **PM2.5**
+  - **Description**: Shows the concentration of particulate matter smaller than 2.5 micrometers in micrograms per cubic meter. The `limit` and `percent` attributes show the recommended limit and the measured value as a percentage of that limit.
+- **PM10**
+  - **Description**: Shows the concentration of particulate matter smaller than 10 micrometers in micrograms per cubic meter. The `limit` and `percent` attributes show the recommended limit and the measured value as a percentage of that limit.
+- **Carbon monoxide**
+  - **Description**: Shows the carbon monoxide concentration in micrograms per cubic meter. The `limit` and `percent` attributes show the recommended limit and the measured value as a percentage of that limit.
+- **Nitrogen dioxide**
+  - **Description**: Shows the nitrogen dioxide concentration in micrograms per cubic meter. The `limit` and `percent` attributes show the recommended limit and the measured value as a percentage of that limit.
+- **Ozone**
+  - **Description**: Shows the ozone concentration in micrograms per cubic meter. The `limit` and `percent` attributes show the recommended limit and the measured value as a percentage of that limit.
+- **Sulphur dioxide**
+  - **Description**: Shows the sulfur dioxide concentration in micrograms per cubic meter. The `limit` and `percent` attributes show the recommended limit and the measured value as a percentage of that limit.
+- **Humidity**
+  - **Description**: Shows the relative humidity in percent.
+- **Pressure**
+  - **Description**: Shows the atmospheric pressure in hectopascals.
+- **Temperature**
+  - **Description**: Shows the air temperature in degrees Celsius.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.

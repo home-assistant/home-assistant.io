@@ -24,16 +24,17 @@ add-ons or containers.
 
 For a list of {% term integrations %} offering update entities, on the integrations page, select the ["Update" category](/integrations/#update).
 
-## The state of an update entity
+## Update states
 
-The state of an update {% term entity %} reflects whether an update is available or not.
-When the state is **On**, it means there is an update available; when everything
-is up-to-date, the state is **Off**.
+The {% term state %} of an update {% term entity %} shows whether an update is available. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
+
+- **Update available** (`on`): A newer version is available.
+- **Up-to-date** (`off`): The installed version is the latest version, or you skipped the latest version.
 
 In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 The following state attributes are exposed to provide more
 information on the update state:
@@ -50,13 +51,21 @@ information on the update state:
 
 ## Device class
 
-{% include integrations/device_class_intro.md %}
+The device class tells Home Assistant whether an update is for the firmware of a device. Home Assistant uses the device class to choose the default name, **Firmware**.
 
-The following device classes are supported for update entities:
+The integration that provides the update entity sets the device class. When you create an update entity yourself with a [template helper](/integrations/template/), you choose the device class.
 
-- **`None`**: A generic software update. This is the default and doesn't need
-  to be set.
-- **`firmware`**: This update {% term integration %} provides firmwares.
+### Device classes in automations and templates
+
+- Automations: The device class doesn't change how an update entity works in automations.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `firmware`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
+
+### List of available device classes
+
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
+
+- No device class: A generic software update. This is the default.
+- **Firmware** (`firmware`): An update for the firmware of a device.
 
 {% include integrations/triggers.md %}
 
