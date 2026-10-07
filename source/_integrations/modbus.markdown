@@ -35,6 +35,15 @@ Integrations for specific devices support the devices listed in their own docume
 
 Some devices have a Modbus interface, such as solar inverters, heat pumps, and ventilation units. Home Assistant can read data from these devices and control them.
 
+Choose one of the following methods to set up your Modbus device:
+
+- If an integration is available for your device, add that integration. For the steps, refer to [Setting up a device integration that uses Modbus](#setting-up-a-device-integration-that-uses-modbus).
+  - To find out if an integration is available for your device, browse the [Modbus-controlled category](/integrations/#modbus-controlled).
+  - You can also search for the brand of your device when you add an integration in {% my integrations title="**Settings** > **Devices & services**" %}.
+- If no integration is available for your device, set up a Modbus hub in YAML. For the steps, refer to [Setting up a Modbus hub in YAML](#setting-up-a-modbus-hub-in-yaml).
+
+### Setting up a device integration that uses Modbus
+
 Prerequisites:
 
 - You have administrator rights.
@@ -54,11 +63,29 @@ Prerequisites:
        - For a serial device server, select **Enter manually** and enter its URL. With a `socket://` URL, the baud rate isn't passed on, so set it on the serial device server itself.
    - Some integrations also ask for the unit ID of the device. The unit ID identifies the device on the Modbus connection. Some integrations call it **Device ID**. In YAML, it's `device_address`.
    - Result: The entities of your device appear in Home Assistant.
-3. If no integration is available for your device, set up a Modbus hub and its entities in YAML instead. For each value you want to read or control, you set `address` to where the device stores the value. You find these addresses in the Modbus documentation of your device.
-   - A Modbus hub in YAML can't use an ESPHome serial proxy. Use a USB-to-RS-485 adapter, or a serial device server with `type: rtuovertcp`. For details, refer to [Configuring a TCP-RTU connection](#configuring-a-tcp-rtu-connection).
-   - For the connection, refer to [Configuring modbus communication](#configuring-modbus-communication).
-   - For the entities, refer to [Configuring modbus entities](#configuring-modbus-entities).
-4. Optional: To check the connection, go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
+3. Optional: To check the connection, go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
+   - For details, refer to [Viewing your Modbus connections](#viewing-your-modbus-connections).
+
+### Setting up a Modbus hub in YAML
+
+Prerequisites:
+
+- You have administrator rights.
+- You can edit your {% term "`configuration.yaml`" %} file.
+- You have a device with a Modbus interface, and its Modbus documentation with the addresses of the values you want to use.
+- Home Assistant can reach the Modbus interface of the device in one of these ways:
+  - Over the network (Modbus TCP): the device, or a Modbus gateway that translates to Modbus TCP, is on your network.
+  - Over a serial connection (Modbus RTU): the device is wired to a [USB-to-RS-485 adapter](/integrations/serial/#usb-to-serial-adapter) that is connected to your Home Assistant system, or to a [serial device server](/integrations/serial/#serial-device-server) on your network. A Modbus hub in YAML can't use an ESPHome serial proxy.
+
+1. If needed, turn on the Modbus interface of your device.
+2. In your {% term "`configuration.yaml`" %} file, add a Modbus hub for the connection to your device.
+   - For the options, refer to [Configuring modbus communication](#configuring-modbus-communication).
+   - For a serial device server, use `type: rtuovertcp`. For details, refer to [Configuring a TCP-RTU connection](#configuring-a-tcp-rtu-connection).
+3. Under the hub, add an entity for each value you want to read or control. Set `address` to where the device stores the value.
+   - For the options, refer to [Configuring modbus entities](#configuring-modbus-entities).
+4. Restart Home Assistant.
+   - Result: The entities of your device appear in Home Assistant.
+5. Optional: To check the connection, go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
    - For details, refer to [Viewing your Modbus connections](#viewing-your-modbus-connections).
 
 ## Configuring modbus communication
