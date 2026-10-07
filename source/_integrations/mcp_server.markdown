@@ -308,7 +308,12 @@ Codex can connect to Home Assistant as a remote MCP server by using OAuth:
 GitHub Copilot CLI can connect to Home Assistant as a remote MCP server by using a long-lived access token and the HTTP transport.
 
 1. Install [GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/copilot-surfaces/copilot-cli) and sign in.
-2. Create a [Long-lived access token](#long-lived-access-tokens) from your Home Assistant account.
+2. Create a [long-lived access token](#long-lived-access-tokens) from your Home Assistant account.
+
+{% warning %}
+The following command can save the long-lived access token in your shell history, and GitHub Copilot CLI stores it as plain text in `~/.copilot/mcp-config.json`. Do not share or commit this file. If the token is exposed, delete it from {% my profile_security title="**User profile** > **Security**" %} and create a replacement.
+{% endwarning %}
+
 3. In your shell, run the following command:
 
    ```bash
