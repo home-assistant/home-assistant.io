@@ -49,8 +49,10 @@ Prerequisites:
    - To add the integration, follow the steps in the integration documentation.
    - During setup, enter how Home Assistant reaches the device:
      - For a network connection, enter the host and the port. Use the port from the integration documentation. Many devices use `502`, but some use another port.
-     - For a serial connection, select the [serial port](/integrations/serial/#serial-port), and enter the [baud rate](/integrations/serial/#baud-rate). A serial proxy is listed with the serial ports. For a serial device server, select **Enter manually** and enter its URL. With a `socket://` URL, the baud rate isn't passed on, so set it on the serial device server itself.
-   - Some integrations also ask for the unit ID of the device. This is the address of the device on the Modbus connection. Some integrations call it **Device ID**. In YAML, it's `device_address`.
+     - For a serial connection, select the [serial port](/integrations/serial/#serial-port), and enter the [baud rate](/integrations/serial/#baud-rate).
+       - A serial proxy is listed with the serial ports.
+       - For a serial device server, select **Enter manually** and enter its URL. With a `socket://` URL, the baud rate isn't passed on, so set it on the serial device server itself.
+   - Some integrations also ask for the unit ID of the device. The unit ID identifies the device on the Modbus connection. Some integrations call it **Device ID**. In YAML, it's `device_address`.
    - Result: The entities of your device appear in Home Assistant.
 3. If no integration is available for your device, set up a Modbus hub and its entities in YAML instead. For each value you want to read or control, you set `address` to where the device stores the value. You find these addresses in the Modbus documentation of your device.
    - A Modbus hub in YAML can't use an ESPHome serial proxy. For a serial connection, use a USB-to-RS-485 adapter instead.
