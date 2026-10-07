@@ -46,6 +46,17 @@ Host:
   description: The IP address or hostname of your Qube heat pump.
 {% endconfiguration_basic %}
 
+## Reconfiguration
+
+If the IP address or hostname of your heat pump changes, you can update it without removing and re-adding the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. On the **Qube heat pump** integration, select the three-dot menu and choose **Reconfigure**.
+3. Enter the new IP address or hostname.
+4. Select **Submit** to save the new settings.
+
+Home Assistant checks that the new address belongs to a Qube heat pump and, when it can read the heat pump's mDNS announcement, that it is the same heat pump as before.
+
 ## Supported functionality
 
 ### Binary sensors
