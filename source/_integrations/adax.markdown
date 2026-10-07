@@ -21,7 +21,7 @@ The **Adax** {% term integration %} integrates Adax heaters into Home Assistant 
 
 ## Local integration
 
-The local integration only works with newer Adax heaters with both Bluetooth and Wi-Fi. Home Assistant uses Bluetooth LE to configure the heaters, this means the machine _running_ Home Assistant needs to have a Bluetooth adapter and the heater needs to be in range during setup. Bluetooth requirement is applying only to automatic local setup. Using local control will disable cloud communication and the Adax app will not work.
+The local integration only works with newer Adax heaters that support both Bluetooth and Wi-Fi. Home Assistant uses Bluetooth Low Energy to configure the heaters automatically. For automatic local setup, the system running Home Assistant needs a Bluetooth adapter, and the heater needs to be in range. Bluetooth is not required for manual local setup. Using local control disables cloud communication, so the Adax app will not work.
 
 1. Reset the heater by pressing **+** and **OK** until the display shows **Reset**.
 2. Press and hold the **OK** button on the heater until the blue LED starts blinking.
