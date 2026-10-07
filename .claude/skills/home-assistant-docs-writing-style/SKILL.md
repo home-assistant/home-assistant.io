@@ -105,7 +105,7 @@ When a feature is deprecated or an integration is removed from Home Assistant, r
 
 - If a feature is deprecated, remove the related section from the integration page.
 - Do not add a deprecation notice to the documentation.
-- If an entire integration is deprecated, follow the steps on [removing an integration page](https://developers.home-assistant.io/docs/documenting/remove-page).
+- If an entire integration is deprecated, follow the steps on [removing an integration page](https://raw.githubusercontent.com/home-assistant/developers.home-assistant/refs/heads/master/docs/documenting/remove-page.md).
 
 ## Other documentation rules
 
