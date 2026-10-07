@@ -33,7 +33,7 @@ The last part of an automation has the [action](/docs/automation/action/). The a
 
 Now that you've got a sneak peek of what is possible, it's time to get your feet wet and create your first automation.
 
-By default, to create automations, use the [automation editor](/docs/automation/editor/). You can create an automation in the visual editor of the UI by following the steps below.
+By default, create automations with the visual editor, one of the available [automation editors](/docs/automation/editor/). You can create an automation in the visual editor of the UI by following the steps below.
 
 1. Go to **Settings** > **Automations & scenes**.
 2. In the lower right corner, select **Create automation** > **Create new automation**.
