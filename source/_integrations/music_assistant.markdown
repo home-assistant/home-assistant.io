@@ -68,7 +68,7 @@ The Music Assistant integration creates media player entities for all players an
 
 ### Dashboards
 
-Music Assistant can show dashboards, such as a party queue or a "Now playing" screen, on display devices like a Chromecast running the Music Assistant receiver, a Fully Kiosk browser, or an Apple TV. Each display becomes its own Home Assistant device (a "Dashboard display") with a single media player entity, using the `tv` device class. Displays only show up while their provider is running; a browser tab open on the Music Assistant web interface is not a display device.
+Music Assistant can show dashboards, such as a party queue or a "Now playing" screen, on display devices like a Chromecast running the Music Assistant receiver, a Fully Kiosk browser, or an Apple TV. Each display becomes its own Home Assistant device (a "Dashboard display") with a single media player entity, using the `tv` device class. A display gets its entity while its provider is running, and the entity becomes `unavailable` whenever the display disconnects. A browser tab open on the Music Assistant web interface is not a display device.
 
 To show a dashboard from an automation or script, perform the `media_player.play_media` action on the display entity. The easiest way to set it up is to add the action in the editor and use **Pick media** to browse to the dashboard you want. Home Assistant then fills in the media content ID and type for you.
 
