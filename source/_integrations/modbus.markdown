@@ -31,7 +31,30 @@ The integration adheres strictly to the [protocol specification](https://www.mod
 
 The Modbus integration supports all devices adhering to the Modbus standard. The communication to the device or devices can be serial (RS-485), TCP, or UDP connections. The integration allows multiple communication channels, for example a serial port connection combined with one or more TCP connections.
 
-# Configuring modbus communication
+## Viewing your Modbus connections
+
+You can see all connections to your Modbus devices in one place from the **Modbus** configuration panel. The panel lists the connections of the integrations that use Modbus devices, and of the Modbus hubs that you configured in YAML.
+
+Prerequisites:
+
+- You have administrator rights.
+- You have set up an integration that uses Modbus, or a Modbus hub in YAML. Otherwise, **Modbus** doesn't appear under **Connectivity**.
+
+1. Go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
+   - At the top, a summary shows how many units are on how many connections.
+   - If no connection has been opened yet, the panel shows **No Modbus connections**.
+   - To load the list again, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
+2. Under **Connections**, each item is one connection: a network address, such as a gateway, or a serial port, such as one with an RS-485 bus. A connection can reach several units, which are the Modbus devices behind it. All integrations that use the same address or port share one connection. For each connection, you can see:
+   - The address of the device, or the device path of the serial port.
+   - The type of connection: **TCP**, **UDP**, or **Serial**. A hub that you configured in YAML is also marked **Configured in YAML**. Such a hub keeps a connection of its own, so the same device can be listed twice.
+   - Whether the connection is open right now:
+     - A network connection shows **Connected** or **Not connected**. A serial port shows **Open** or **Closed**.
+     - **Connected** or **Open**: The connection is open right now. For a serial port, this only means that the port is open, not that the device answers.
+     - **Not connected** or **Closed**: The connection is not open right now. An integration opens it the next time it reads from the device. A device can also close a connection that isn't used.
+   - The integrations that use the connection, with the IDs of the units they use. Select an integration to go to its settings.
+3. For a serial connection, to see the port in the **Serial** panel, select **View this port under Serial**.
+
+## Configuring modbus communication
 
 Configure the modbus communication with modbus devices. This is a general setup needed establish access to the device.
 
