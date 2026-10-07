@@ -69,6 +69,10 @@ The **Airly** integration provides the following entities. Which entities are cr
 - **Temperature**
   - **Description**: Shows the air temperature in degrees Celsius.
 
+## Known limitations
+
+Airly allows 100 data updates per day. Data updates become less frequent as you add Airly integration instances, as described in [Setup](#setup).
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
