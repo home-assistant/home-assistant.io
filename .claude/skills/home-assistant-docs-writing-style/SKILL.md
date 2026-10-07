@@ -62,6 +62,11 @@ The full brand personality guide is at [`personality.markdown`](https://raw.gith
 
 ## Content structure
 
+- Follow the [topic-based authoring guide](https://raw.githubusercontent.com/home-assistant/developers.home-assistant/refs/heads/master/docs/documenting/topic-based-authoring.md) for every documentation page.
+- Organize each section around one purpose: concept, task, reference, tutorial, or troubleshooting.
+- Keep setup instructions in task sections, options and defined behavior in reference sections, and problem resolution in troubleshooting sections.
+- When a feature is configurable from the UI, document the UI path and options before supported YAML or command-line alternatives.
+- For pages with dedicated documentation guidance, follow that guidance first, then apply topic-based authoring.
 - Start pages with a brief overview or introduction.
 - Use progressive disclosure: basic information first, more complex details later.
 - Break longer content into logical sections with clear headings.
@@ -72,6 +77,7 @@ The full brand personality guide is at [`personality.markdown`](https://raw.gith
 
 ## Integration and platform content
 
+- For integration, trigger, condition, and action pages, follow their dedicated structure and templates first, then apply topic-based authoring.
 - Start with the UI path when an integration can be set up from the UI.
 - Include reusable snippets like `{% include integrations/config_flow.md %}` when they apply.
 - Use `source/_integrations/_integration_docs_template.markdown` as the starting point for integration pages.
