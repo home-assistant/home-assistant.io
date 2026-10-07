@@ -51,7 +51,7 @@ Prerequisites:
      - A network connection shows **Connected** or **Not connected**. A serial port shows **Open** or **Closed**.
      - **Connected** or **Open**: The connection is open right now. For a serial port, this only means that the port is open, not that the device answers.
      - **Not connected** or **Closed**: The connection is not open right now. An integration opens it the next time it reads from the device. A device can also close a connection that isn't used.
-   - The integrations that use the connection, with the IDs of the units they use. Select an integration to go to its settings.
+   - The integrations that use the connection, with the IDs of the units they use. Select an integration to go to its settings. A hub that you configured in YAML is shown by its name instead, and can't be selected.
 3. For a serial connection, to see the port in the **Serial** panel, select **View this port under Serial**.
 
 ## Configuring modbus communication
