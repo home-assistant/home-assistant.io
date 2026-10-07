@@ -1,0 +1,10 @@
+{
+  "client_id": "https://www.home-assistant.io/mcp/oauth-client.json",
+  "client_name": "Home Assistant",
+  "client_uri": "https://www.home-assistant.io/",
+  "logo_uri": "https://www.home-assistant.io/images/home-assistant-logo.svg",
+  "redirect_uris": ["https://my.home-assistant.io/redirect/oauth"],
+  "grant_types": ["authorization_code", "refresh_token"],
+  "response_types": ["code"],
+  "token_endpoint_auth_method": "none"
+}
