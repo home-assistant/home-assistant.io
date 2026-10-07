@@ -63,7 +63,7 @@ name:
 timeout:
   description: "Timeout while waiting for a response in seconds."
   required: false
-  default: 5
+  default: 3
   type: integer
 type:
   description: "Type of modbus."
