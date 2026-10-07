@@ -50,6 +50,18 @@
             }
         }
 
+        // Outlined button for light backgrounds.
+        &.hollow {
+            background-color: unset;
+            box-shadow: inset 0 0 0 1px #002332;
+            color: #002332;
+
+            &:hover {
+                background-color: #002332;
+                color: #ffffff;
+            }
+        }
+
         &.hollow-dark {
             background-color: unset;
             box-shadow: inset 0 0 0 1px #fff;
