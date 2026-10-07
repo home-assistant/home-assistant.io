@@ -116,85 +116,6 @@ Addresses on a dynamic tariff get the **EPEX tomorrow prices available** binary 
 
 A single ENGIE login can cover more than one address or meter. The integration adds every active business agreement on the account as its own device, named after the address, and groups that address's price sensors under it. An address that has an agreement but no priced meters still shows up as a device, so you can tell it was found.
 
-{% include integrations/actions.md %}
-
-## ENGIE Belgium automation examples
-
-Both examples assume an address on a dynamic tariff.
-
-{% include docs/paste_yaml_tip.md %}
-
-### Automation: get notified when tomorrow's prices are published
-
-This automation sends you tomorrow's cheapest hourly price as soon as tomorrow's EPEX prices are published.
-
-- **Trigger**: State: the **EPEX tomorrow prices available** binary sensor turned on
-- **Action**: ENGIE Belgium: Get EPEX prices for date, with tomorrow's date, stored in the response variable `epex_tomorrow`
-- **Action**: Send a notification message
-  - **Target**: My Device (`notify.my_device`)
-
-{% details "YAML example for a notification when tomorrow's prices are published" %}
-
-The entity IDs in these examples are shortened. Yours also contain the address of your household.
-
-{% example %}
-automation: |
-  alias: "Notify when tomorrow's EPEX prices are published"
-  triggers:
-    - trigger: state
-      entity_id: binary_sensor.main_street_1_epex_tomorrow_prices_available
-      from: "off"
-      to: "on"
-  actions:
-    - action: engie_be.get_epex_prices_for_date
-      data:
-        config_entry: YOUR_CONFIG_ENTRY_ID
-        date: "{{ now().date() + timedelta(days=1) }}"
-      response_variable: epex_tomorrow
-    - action: notify.send_message
-      target:
-        entity_id: notify.my_device
-      data:
-        message: >
-          Tomorrow's cheapest hour costs
-          {{ epex_tomorrow.slots | map(attribute='value') | min }} EUR/kWh.
-{% endexample %}
-
-{% enddetails %}
-
-### Automation: show tomorrow's lowest hour price
-
-The EPEX sensors show today's lowest hour, but not tomorrow's. This template sensor fetches tomorrow's prices once they are published and holds the cheapest hourly price on a sensor for your dashboards.
-
-{% details "YAML example for a sensor with tomorrow's lowest hour price" %}
-
-{% example %}
-template: |
-  - triggers:
-      - trigger: state
-        entity_id: binary_sensor.main_street_1_epex_tomorrow_prices_available
-        to: "on"
-      - trigger: homeassistant
-        event: start
-    conditions:
-      - condition: state
-        entity_id: binary_sensor.main_street_1_epex_tomorrow_prices_available
-        state: "on"
-    actions:
-      - action: engie_be.get_epex_prices_for_date
-        data:
-          config_entry: YOUR_CONFIG_ENTRY_ID
-          date: "{{ now().date() + timedelta(days=1) }}"
-        response_variable: epex_tomorrow
-    sensor:
-      - name: "Tomorrow's lowest hour price"
-        unique_id: engie_be_epex_tomorrow_lowest_hour_price
-        unit_of_measurement: "EUR/kWh"
-        state: "{{ epex_tomorrow.slots | map(attribute='value') | min }}"
-{% endexample %}
-
-{% enddetails %}
-
 ## Data updates
 
 The integration polls the ENGIE API once an hour. Contracted prices only change when your tariff is revised, so there is nothing to gain from polling more often. The sign-in tokens it uses are refreshed on their own, so it keeps working without you signing in again.
@@ -207,7 +128,6 @@ Your password is only used to sign in, and it is never stored. The integration k
 
 ## Known limitations
 
-- The **Get EPEX prices for date** action only covers today and tomorrow, in the Brussels time zone.
 - Price sensors appear only while a price period covers the current day. During a gap between contract periods, they become unavailable until a new price period starts.
 - If Home Assistant restarts at the exact moment the sign-in tokens are being renewed, the integration can lose the session and its sensors become unavailable until you set it up again.
 
