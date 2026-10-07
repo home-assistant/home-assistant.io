@@ -107,6 +107,25 @@ section#newsletter {
             transition: transform 0.8s cubic-bezier(0.3, 1, 0.5, 1);
             transition-delay: .25s;
 
+            // Placeholder shown while the cover is still loading: a soft tint
+            // of the section background with a shimmer sweeping across it.
+            // The covers are lazy-loaded, so the box is often visible before
+            // the image is. The box already has its final size, so this only
+            // prevents the artwork from popping in, not a layout shift.
+            background-color: rgba(255, 255, 255, 0.08);
+            background-image: linear-gradient(
+                100deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 70%
+            );
+            background-size: 200% 100%;
+            animation: edition-shimmer 1.8s ease-in-out infinite;
+
+            @media (prefers-reduced-motion: reduce) {
+                animation: none;
+            }
+
             @include bp(tablet) {
                 border-radius: 12px;
             }
@@ -122,6 +141,16 @@ section#newsletter {
                 position: absolute;
                 border-radius: 0;
                 inset: 0;
+                opacity: 0;
+                transition: opacity 0.5s ease-out;
+            }
+
+            &.is-loaded {
+                animation: none;
+
+                img {
+                    opacity: 1;
+                }
             }
 
             &:nth-child(1) {
@@ -154,5 +183,15 @@ section#newsletter {
                 transform: translateY(-40px);
             }
         }
+    }
+}
+
+@keyframes edition-shimmer {
+    from {
+        background-position: 100% 0;
+    }
+
+    to {
+        background-position: -100% 0;
     }
 }
