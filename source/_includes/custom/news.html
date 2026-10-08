@@ -289,15 +289,21 @@
   (function () {
     const API_BASE = '/livestream-api';
     const CACHE_TTL_MS = 60 * 1000;
-    const REFRESH_INTERVAL_MS = 60 * 1000;
+    // Poll often only while a stream is live or about to start.
+    const POLL_ACTIVE_MS = 60 * 1000;
+    const POLL_IDLE_MS = 5 * 60 * 1000;
+    const POLL_JITTER_MS = 15 * 1000;
     const timers = new WeakMap();
+    const polls = new WeakMap();
     const players = new WeakMap();
     const thumbs = new WeakMap();
-    const pending = new WeakMap();
-    const refreshedAt = new WeakMap();
+    const inflight = new WeakSet();
 
     const UPCOMING_WINDOW_MS = 48 * 60 * 60 * 1000;
     const PAST_WINDOW_MS = 12 * 60 * 60 * 1000;
+
+    const YOUTUBE_HOSTS = ['youtube.com', 'www.youtube.com', 'm.youtube.com', 'youtu.be'];
+    const YOUTUBE_ID = /^[A-Za-z0-9_-]{11}$/;
 
     const STATUS_LABEL = {
       live: 'Live now!',
@@ -326,22 +332,33 @@
       return 'none';
     }
 
-    function youtubeId(url) {
-      if (!url) return null;
+    // Only accept HTTPS YouTube links, so the API response can't inject
+    // `javascript:` URLs into the card or arbitrary values into CSS.
+    function youtubeLink(url) {
+      if (typeof url !== 'string') return null;
       try {
         const parsed = new URL(url);
-        if (parsed.hostname === 'youtu.be') {
-          return parsed.pathname.slice(1) || null;
-        }
-        const v = parsed.searchParams.get('v');
-        if (v) return v;
-        const parts = parsed.pathname.split('/').filter(Boolean);
-        const idx = parts.findIndex((part) => part === 'embed' || part === 'live' || part === 'shorts');
-        if (idx >= 0 && parts[idx + 1]) return parts[idx + 1];
-        return null;
+        if (parsed.protocol !== 'https:' || !YOUTUBE_HOSTS.includes(parsed.hostname)) return null;
+        return parsed;
       } catch (err) {
         return null;
       }
+    }
+
+    function youtubeId(link) {
+      if (!link) return null;
+      let id = null;
+      if (link.hostname === 'youtu.be') {
+        id = link.pathname.slice(1);
+      } else {
+        id = link.searchParams.get('v');
+        if (!id) {
+          const parts = link.pathname.split('/').filter(Boolean);
+          const idx = parts.findIndex((part) => part === 'embed' || part === 'live' || part === 'shorts');
+          if (idx >= 0) id = parts[idx + 1];
+        }
+      }
+      return id && YOUTUBE_ID.test(id) ? id : null;
     }
 
     function embedUrl(id) {
@@ -362,13 +379,15 @@
     }
 
     function setThumbnail(card, id) {
-      const apply = (url) => {
-        card.style.backgroundImage = 'url(' + url + ')';
-      };
       const maxres = 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg';
+      const hq = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg';
+      const apply = (url) => {
+        if (thumbs.get(card) === id) card.style.backgroundImage = 'url("' + url + '")';
+      };
       const probe = new Image();
-      probe.onload = () => apply(maxres);
-      probe.onerror = () => apply('https://i.ytimg.com/vi/' + id + '/hqdefault.jpg');
+      // YouTube serves a 120x90 placeholder when maxres doesn't exist.
+      probe.onload = () => apply(probe.naturalWidth > 120 ? maxres : hq);
+      probe.onerror = () => apply(hq);
       probe.src = maxres;
     }
 
@@ -400,28 +419,36 @@
       });
     }
 
+    // Skip the autoplaying video for visitors who asked for less motion or data.
+    function wantsStillImage() {
+      const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const saveData = navigator.connection && navigator.connection.saveData;
+      return Boolean(reducedMotion || saveData);
+    }
+
     function armPlayer(card, id) {
       const embed = card.querySelector('.livestream-card-embed');
       const iframe = embed && embed.querySelector('iframe');
-      if (!iframe || players.get(card) === id) return;
-      players.set(card, id);
+      const current = players.get(card);
+      if (!iframe || (current && current.id === id) || wantsStillImage()) return;
+      if (current) current.cancel();
 
       const events = ['scroll', 'click', 'mousemove', 'touchstart', 'touchmove'];
-      let loaded = false;
+      const cancel = () => events.forEach((event) => document.removeEventListener(event, start));
       const start = () => {
-        if (loaded) return;
-        loaded = true;
-        events.forEach((event) => document.removeEventListener(event, start));
-        if (players.get(card) !== id) return;
+        cancel();
         iframe.src = embedUrl(id);
         setTimeout(() => embed.classList.add('livestream-card-embed--visible'), 500);
       };
+      players.set(card, { id: id, cancel: cancel });
       events.forEach((event) => document.addEventListener(event, start, { once: true, passive: true }));
     }
 
     function clearPlayer(card) {
       const embed = card.querySelector('.livestream-card-embed');
       const iframe = embed && embed.querySelector('iframe');
+      const current = players.get(card);
+      if (current) current.cancel();
       players.delete(card);
       if (iframe) iframe.removeAttribute('src');
       if (embed) embed.classList.remove('livestream-card-embed--visible');
@@ -435,19 +462,21 @@
       }
     }
 
-    function refresh(card) {
-      if (pending.has(card)) return;
-      const wait = Math.max(0, REFRESH_INTERVAL_MS - (Date.now() - (refreshedAt.get(card) || 0)));
-      pending.set(card, setTimeout(() => {
-        pending.delete(card);
-        refreshedAt.set(card, Date.now());
-        load(card, true);
-      }, wait));
+    // One poll timer per card. Jitter spreads requests from many visitors,
+    // for example when a countdown reaches zero for everyone at once.
+    function schedule(card, delay) {
+      clearTimeout(polls.get(card));
+      polls.set(card, setTimeout(() => {
+        polls.delete(card);
+        // While hidden, the visibilitychange handler resumes polling.
+        if (!document.hidden) load(card, true);
+      }, delay + Math.random() * POLL_JITTER_MS));
     }
 
     function render(card, info) {
       const state = resolveState(info, Date.now());
-      const id = youtubeId(info && info.url);
+      const link = youtubeLink(info && info.url);
+      const id = youtubeId(link);
 
       stopCountdown(card);
       if (state !== 'live') clearPlayer(card);
@@ -456,27 +485,31 @@
       if (state === 'none') {
         thumbs.delete(card);
         card.style.backgroundImage = '';
-        return;
+        return state;
       }
 
       const status = card.querySelector('.livestream-card-status');
       const subtitle = card.querySelector('.livestream-card-subtitle');
+      const label = info.title || info.channelName || 'Home Assistant livestream';
 
-      if (info.url) card.href = info.url;
-      card.setAttribute('aria-label', (info.title || info.channelName) + ' on YouTube');
-      if (subtitle) subtitle.textContent = info.title || info.channelName;
+      if (link) card.href = link.href;
+      else card.removeAttribute('href');
+      card.setAttribute('aria-label', label + ' on YouTube');
+      if (subtitle) subtitle.textContent = label;
 
-      if (state === 'upcoming' && info.startTime) {
-        const startMs = Date.parse(info.startTime);
+      const startMs = state === 'upcoming' ? Date.parse(info.startTime) : NaN;
+      if (!isNaN(startMs)) {
         if (subtitle) subtitle.textContent = formatLocalStartTime(info.startTime);
         const tick = () => {
           if (status) status.textContent = formatCountdown(startMs, Date.now());
           if (startMs - Date.now() > 0) return;
           stopCountdown(card);
-          refresh(card);
+          schedule(card, 0);
         };
-        timers.set(card, setInterval(tick, 1000));
         tick();
+        // Only count down if the start time is still ahead, otherwise every
+        // refresh would immediately trigger another one.
+        if (startMs > Date.now()) timers.set(card, setInterval(tick, 1000));
       } else if (status) {
         status.textContent = STATUS_LABEL[state];
       }
@@ -487,7 +520,15 @@
           setThumbnail(card, id);
         }
         if (state === 'live') armPlayer(card, id);
+      } else {
+        thumbs.delete(card);
+        card.style.backgroundImage = '';
       }
+      return state;
+    }
+
+    function pollDelay(state) {
+      return state === 'live' || state === 'upcoming' ? POLL_ACTIVE_MS : POLL_IDLE_MS;
     }
 
     function readCache(channel) {
@@ -511,31 +552,32 @@
 
     async function load(card, force) {
       const channel = card.dataset.livestreamChannel;
-      if (!channel) return;
+      if (!channel || inflight.has(card)) return;
 
       const cached = force ? null : readCache(channel);
       if (cached) {
-        render(card, cached);
+        schedule(card, pollDelay(render(card, cached)));
         return;
       }
 
+      inflight.add(card);
+      let state = 'none';
       try {
         const response = await fetch(API_BASE + '/' + encodeURIComponent(channel));
-        if (!response.ok) return;
-        const info = await response.json();
-        writeCache(channel, info);
-        render(card, info);
+        if (response.ok) {
+          const info = await response.json();
+          writeCache(channel, info);
+          state = render(card, info);
+        }
       } catch (err) {
+      } finally {
+        inflight.delete(card);
+        schedule(card, pollDelay(state));
       }
     }
 
     const cards = document.querySelectorAll('.livestream-card[data-livestream-channel]');
     cards.forEach((card) => load(card));
-
-    setInterval(() => {
-      if (document.hidden) return;
-      cards.forEach((card) => load(card, true));
-    }, REFRESH_INTERVAL_MS);
 
     document.addEventListener('visibilitychange', function () {
       if (document.hidden) return;
