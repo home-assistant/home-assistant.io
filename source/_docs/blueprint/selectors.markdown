@@ -65,7 +65,7 @@ If no selector is defined, a text input for a single line will be shown.
 ## Action selector
 
 The action selector allows you to input one or more sequences of actions.
-On the user interface, the action part of the automation editor will be shown.
+On the user interface, the action part of the visual automation editor will be shown.
 The value of the input will contain a list of actions to perform.
 
 ![Screenshot of an action selector](/images/blueprints/selector-action.png)

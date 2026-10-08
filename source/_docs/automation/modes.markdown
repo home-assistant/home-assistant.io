@@ -7,7 +7,7 @@ Sometimes an automation starts again before it has finished its previous run, fo
 
 Most of the time, the default **Single** mode is what you want. The other modes are there for special cases, like a notification automation that should run a fresh copy for every event, or a long-running sequence that should restart from the top whenever something changes.
 
-To change the mode of an automation, in the automation editor, select **Menu** {% icon "mdi:dots-vertical" %} > **Change mode**. For detailed steps, refer to [changing the mode of an automation](/docs/automation/editor/#changing-the-mode-of-an-automation).
+To change the mode of an automation, in the visual automation editor, select **Menu** {% icon "mdi:dots-vertical" %} > **Change mode**. For detailed steps, refer to [changing the mode of an automation](/docs/automation/editor/#changing-the-mode-of-an-automation).
 
 ## The modes
 
