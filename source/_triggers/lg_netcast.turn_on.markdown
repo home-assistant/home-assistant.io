@@ -62,8 +62,9 @@ entity_id:
 
 ## Good to know
 
-- This trigger fires when Home Assistant _requests_ the TV to turn on, not when the TV reports that it turned on. You need to provide an action (such as Wake-on-LAN or HDMI-CEC) to actually power on the device.
-- Both `media_player` and `remote` entities for the same LG Netcast device share the same turn-on trigger.
+- To turn on the TV from this trigger, add an action that can power on the TV, such as Wake-on-LAN or HDMI-CEC.
+- This trigger fires when Home Assistant _requests_ the TV to turn on, not when the TV reports that it turned on.
+- Both media player and remote entities for the same LG Netcast device share the same turn-on trigger.
 - If you want to react when the TV actually reports that it is on, use [Media player turned on](/triggers/media_player.turned_on/) instead.
 
 {% include triggers/try_it.md %}

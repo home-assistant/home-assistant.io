@@ -84,7 +84,7 @@ template: |
 
 {% tip %}
 
-Not sure what state an entity has? Go to {% my developer_states title="**Developer Tools** > **States**" %} to see the current state and all attributes of every entity in your system.
+Not sure what state an entity has? Go to {% my developer_states title="**Settings** > **Tools** > **States**" %} to see the current state and all attributes of every entity in your system.
 
 {% endtip %}
 

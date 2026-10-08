@@ -14,9 +14,22 @@ ha_integration_type: service
 
 The **SMTP** {% term integration %} allows you to deliver notifications from Home Assistant to an email recipient.
 
+## About SMTP
+
+<abbr title="Simple Mail Transfer Protocol">SMTP</abbr> is a standard protocol used to send email messages between mail servers and email clients. An SMTP server is provided by your email service and handles the delivery of outgoing email messages.
+
+## How you can use the integration
+
+The SMTP integration allows Home Assistant to send email notifications through an SMTP server. You can use it in automations and scripts to send information, alerts, or other notifications by email.
+
+## Prerequisites
+
+You need an email account with SMTP access. Your email provider must allow you to connect to its SMTP server and authenticate with your account.
+
+Before setting up the SMTP integration, make sure you have the SMTP settings provided by your email provider. Most email providers list these settings on their help or support pages.
+
 {% include integrations/config_flow.md %}
 
-Check your email provider configuration or help pages to get the correct SMTP settings.
 {% configuration_basic %}
 Sender email:
     description: "Email address that will appear in the From field."
@@ -42,7 +55,11 @@ The integration provides the following configuration options:
 
 {% configuration_basic %}
 Connection timeout:
-  description: "Maximum time in seconds to wait for a response from the SMTP server before the connection attempt is aborted. Defaults to 5 seconds. Must be between 1 and 1800 seconds (30 minutes)."
+    description: "Maximum time in seconds to wait for a response from the SMTP server before the connection attempt is aborted. Defaults to 60 seconds. Must be between 1 and 1800 seconds (30 minutes)."
+Reply-To email address:
+    description: "Email address to use for recipient replies. If not specified, the sender's email address is used."
+Reply-To name:
+    description: "Display name shown as the Reply-To name."
 {% endconfiguration_basic %}
 
 ## Adding recipients
@@ -67,13 +84,13 @@ Example configuration for Google Mail.
 
 | **Parameter** | Value |
 | -------- | ------------- |
-| **Host** | smtp.gmail.com |
-| **Port** | 587 |
-| **Sender email** | <example@gmail.com> |
-| **Sender name** | SENDER_NAME |
-| **Connection security** | STARTTLS |
-| **Username** | <example@gmail.com> |
-| **Password** | YOUR_APP_PASSWORD |
+| **Host** | `smtp.gmail.com` |
+| **Port** | `587` |
+| **Sender email** | `example@gmail.com` |
+| **Sender name** | _sender name_ |
+| **Connection security** | `STARTTLS` |
+| **Username** | `example@gmail.com` |
+| **Password** | _your app password_ |
 
 Google has some extra layers of protection that need special attention. You must use [an application-specific password](https://support.google.com/mail/answer/185833) in your notification configuration.
 
@@ -137,3 +154,19 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+## Known limitations
+
+- The **SMTP** integration does not currently support OAuth 2.0 authentication.
+
+## Troubleshooting
+
+ The **SMTP** integration requires network connectivity to the configured SMTP server. If you use a mail server on the internet, verify that your internet connection is stable. Your email service provider may also experience downtime, including scheduled maintenance.
+
+When reporting an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics). Reload the integration. As soon as the issue reoccurs, stop debug logging again. The debug log file will be downloaded automatically.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}

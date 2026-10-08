@@ -83,7 +83,9 @@ behavior:
 
 When you pull into the driveway, you want to know if the air inside is safe before settling in. This automation triggers when you enter the home zone and checks the hallway CO reading. If the level is at or above 20 ppm, you get a notification right away so you know to open the windows or stay outside until the air clears.
 
-- **Trigger**: Zone: Person enters home zone
+- **Trigger**: Zone entered
+  - **Target**: Frenck
+  - **Zone**: Home
 - **Condition**: Air Quality: Carbon monoxide value
   - **Target**: Hallway CO sensor
   - **Threshold type**: 20
@@ -97,10 +99,11 @@ When you pull into the driveway, you want to know if the air inside is safe befo
 automation: |
   alias: "CO check on arrival home"
   triggers:
-    - trigger: zone
-      entity_id: person.frenck
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.frenck
+      options:
+        zone: zone.home
   conditions:
     - condition: air_quality.is_co_value
       target:

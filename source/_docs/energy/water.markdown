@@ -82,3 +82,9 @@ For any of the above-listed options, make sure it actually works with the type o
 ### Reading the meter wirelessly via RTL-SDR
 
 {% include energy/rtl_sdr.md %}
+
+## Viewing your water usage
+
+Once a compatible water consumption sensor is available in Home Assistant, go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %} and add it to the **Energy** dashboard. Home Assistant then uses long-term statistics from the sensor to calculate and display your water consumption over time. Use the date controls on the **Energy** dashboard to review usage for different periods.
+
+For cumulative water meters, a sensor with `state_class: total_increasing` can handle meter resets. When the sensor value drops because a meter resets or is replaced, Home Assistant starts a new meter cycle while keeping the previously accumulated consumption in its long-term statistics.

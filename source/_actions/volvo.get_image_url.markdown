@@ -88,27 +88,6 @@ images:
 
 {% include actions/try_it.md %}
 
-## Available image angles
-
-- `exterior_back`
-- `exterior_back_left`
-- `exterior_back_right`
-- `exterior_front`
-- `exterior_front_left`
-- `exterior_front_right`
-- `exterior_side_left`
-- `exterior_side_right`
-- `interior`
-
-## Response data
-
-The action response contains the requested image URLs.
-
-## Good to know
-
-If you leave `images` empty, the action retrieves all available image URLs for the selected vehicle.
->>>>>>> current
-
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}

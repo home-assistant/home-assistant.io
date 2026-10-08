@@ -94,9 +94,10 @@ for:
 
 ## Good to know
 
+- The target humidifier must support modes.
 - The available modes depend entirely on the device. Check your humidifier's documentation or the entity's attributes in Home Assistant to see which modes are supported.
 - This condition checks the mode the humidifier is _currently set to_, not whether it is actively running in that mode.
-- Humidifiers that do not support modes will never pass this condition. To check general on/off state instead, use [Humidifier is on](/conditions/humidifier.is_on/).
+- To check general on/off state instead, use [Humidifier is on](/conditions/humidifier.is_on/).
 
 {% include conditions/try_it.md %}
 

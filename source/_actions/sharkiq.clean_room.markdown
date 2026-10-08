@@ -61,7 +61,7 @@ rooms:
 
 ## Good to know
 
-- Write each room name exactly as it appears in the Shark Clean app. To find the names Home Assistant understands, check the `Rooms` attribute of your Shark robot vacuum entity, for example in the [Developer tools](/docs/tools/dev-tools/).
+- Write each room name exactly as it appears in the Shark Clean app. To find the names Home Assistant understands, check the `Rooms` attribute of your Shark robot vacuum entity, for example in [Tools](/docs/tools/dev-tools/).
 - If you use the area selector in the UI, format the area names to match the names in the vacuum's `Rooms` attribute.
 
 {% include actions/try_it.md %}

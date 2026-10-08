@@ -54,6 +54,7 @@ This integration provides comprehensive control and monitoring of your Tesla veh
 - Lock/unlock doors and control windows, trunk, frunk, and charge port
 - Start/stop charging and set charge limits
 - Enable Sentry mode, valet mode, and defrost mode
+- Keep accessory power on for the USB ports and 12V outlets
 - Flash lights, honk horn, and trigger HomeLink
 - Track vehicle location and navigation destination
 - Send a navigation destination to the vehicle
@@ -143,12 +144,16 @@ The integration will create binary sensor entities for a variety of metrics rela
 
 The integration will create button entities to control various aspects of the vehicle:
 
+- Disable keep accessory power mode
+- Enable keep accessory power mode
 - Flash lights
 - HomeLink
 - Honk horn
 - Keyless driving
 - Play fart
 - Wake
+
+Keep accessory power mode continues powering the USB ports and 12V outlets while the vehicle is parked and nobody is inside. It requires vehicle firmware 2025.38 or later, and it increases energy usage even when nothing is plugged in.
 
 ### Climate
 
@@ -419,7 +424,7 @@ automation:
           entity_id: switch.my_tesla_charge
 ```
 
-### Stop charging when battery reaches target
+### Automation: Stop charging when battery reaches target
 
 This automation stops charging when the desired charge level is reached:
 
@@ -458,28 +463,27 @@ automation:
           entity_id: cover.garage_door
 ```
 
-### Notify when charging is complete
+### Automation: Notify when charging is complete
 
-This automation sends a notification when your vehicle has finished charging:
+This example sends a notification when the vehicle stops charging after reaching at least 80% state of charge.
 
 ```yaml
-automation:
-  - alias: "Notify when Tesla charging complete"
-    triggers:
-      - trigger: state
-        entity_id: binary_sensor.my_tesla_battery_charging
-        from: "on"
-        to: "off"
-    conditions:
-      - condition: numeric_state
-        entity_id: sensor.my_tesla_battery_level
-        above: 79
-    actions:
-      - action: notify.send_message
-        target:
-          entity_id: notify.my_device
-        data:
-          message: "Tesla charging is complete at {{ states('sensor.my_tesla_battery_level') }}%"
+alias: "Notify when Tessie charging is complete"
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.my_tesla_battery_charging
+    from: "on"
+    to: "off"
+conditions:
+  - condition: numeric_state
+    entity_id: sensor.my_tesla_battery_level
+    above: 79
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "Tesla charging is complete at {{ states('sensor.my_tesla_battery_level') }}%."
 ```
 
 ## Troubleshooting
@@ -537,6 +541,7 @@ Energy product data should update regularly without restrictions.
 - **Field update frequency**: Some vehicle data fields may not update frequently depending on your Tessie subscription tier and field configuration settings.
 - **No reconfiguration**: The integration cannot be reconfigured through the UI. To change your API token or settings, you must remove and re-add the integration.
 - **Software updates**: Vehicle software updates can only be installed from Home Assistant after they have finished downloading to the vehicle.
+- **Keep accessory power state**: Tessie does not report whether keep accessory power mode is currently active, so it is exposed as separate enable and disable buttons rather than a switch. Automations can turn it on or off, but cannot check its current state.
 
 ## Diagnostics
 

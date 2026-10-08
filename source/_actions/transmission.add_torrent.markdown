@@ -60,7 +60,7 @@ action: |
 entry_id:
   description: >
     The Transmission integration entry to add the torrent to. To find the
-    value, go to **Developer tools** > **Actions**, select this action, choose
+    value, go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}, select this action, choose
     your integration, then switch to YAML mode to read the `entry_id`.
   required: true
   type: string

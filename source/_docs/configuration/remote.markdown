@@ -34,6 +34,8 @@ A reverse proxy is an intermediary server that sits in front of Home Assistant. 
 
 See [Reverse proxies in the HTTP integration documentation](/integrations/http/#reverse-proxies).
 
+If your reverse proxy or CDN caches responses, see [Caching behind a reverse proxy or CDN](/integrations/http/#caching-behind-a-reverse-proxy-or-cdn).
+
 ## Port forwarding
 
 Set up port forwarding from your router to the port Home Assistant listens on. By default, this is port 8123 on the computer that is hosting Home Assistant. If you changed the Home Assistant HTTP server port, use the port shown under {% my network title="**Settings** > **System** > **Network**" %}. General instructions on how to do this can be found by searching `<router model> port forwarding instructions`. You can use any free port on your router and forward that to the Home Assistant HTTP server port.

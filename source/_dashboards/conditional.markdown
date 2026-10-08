@@ -206,7 +206,7 @@ Specify the visibility of the card based on the current user's current location.
 condition: location
 locations:
   - home
-  - Home Neigborhood
+  - Home Neighborhood
 ```
 
 {% configuration %}

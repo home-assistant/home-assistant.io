@@ -36,8 +36,8 @@ See all [TTS integrations](/integrations/#text-to-speech) using this building bl
 The state of a text-to-speech {% term entity %} is a timestamp showing the date and time when text-to-speech was last used.
 
 <p class='img'>
-<img src='/images/integrations/tts/state_tts.png' alt='Screenshot showing the state of a text-to-speech entity in the developer tools' />
-Screenshot showing the state of a text-to-speech entity in the developer tools.
+<img src='/images/integrations/tts/state_tts.png' alt='Screenshot showing the state of a text-to-speech entity in the States tab of Tools.' />
+Screenshot showing the state of a text-to-speech entity in {% my developer_states title="Settings > Tools > States" %}
 </p>
 
 {% include integrations/actions.md %}
@@ -58,6 +58,7 @@ Available preferred audio settings, all optional, are:
 - `preferred_sample_rate`: Set the sample rate. When not supported by the target entity platform, the value is in Hz as a number, among ones supported by the `-ar` parameter of FFmpeg tool.
 - `preferred_sample_channels`: Set the number of audio channels. When not supported by the target entity platform, the value is a number among ones supported by the `-ac` parameter of FFmpeg tool.
 - `preferred_sample_bytes`: Set the audio bit sampling. When not supported by the target entity platform, can only be set to `2` to use 16-bit audio sampling (any other value is ignored).
+- `preferred_bitrate`: Set the audio bitrate in kbps as a number, for example `48`. This setting applies to MP3 output only. By default, Home Assistant encodes MP3 audio at a variable bitrate. If you set this option, Home Assistant encodes the audio at a constant bitrate, which some hardware decoders require.
 
 Example to produce an MP3 audio at 22050Hz:
 
@@ -138,3 +139,5 @@ The recommended way to overcome these obstacles is to not manually configure a l
 Some media players could reproduce only partial, corrupted or no audio at all when the audio format is not fully supported. In such cases it is required to experiment with different combinations of audio formats, channels, sample rates and bits using [preferred audio settings](#preferred-audio-settings) options.
 
 For example, some Google Cast devices skip initial audio part when the audio is sampled at 22050Hz, and to fix the problem it is required to set the `preferred_sample_rate` setting in the `options` option to `44100`.
+
+Some devices also reject variable bitrate MP3 audio and play nothing at all. To fix the problem, set the `preferred_bitrate` setting in the `options` option, for example to `48`. Home Assistant then encodes the audio at a constant bitrate, which these decoders accept.

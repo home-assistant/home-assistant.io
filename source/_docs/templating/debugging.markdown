@@ -22,7 +22,7 @@ Every template author has stared at a template that refuses to work and wondered
 
 ## The template editor
 
-Home Assistant has a built-in template editor that shows the result of a template while you type. Open it from {% my developer_template title="**Settings** > **Developer tools** > **Template**" %}.
+Home Assistant has a built-in template editor that shows the result of a template while you type. Open it from {% my developer_template title="**Settings** > **Tools** > **Template**" %}.
 
 The editor is the fastest feedback loop you have. It:
 
@@ -137,16 +137,47 @@ A common source of confusion is "why isn't my template updating?", or the opposi
 
 If you write a template that does not read any state or use `now()`, it runs _once_ at startup and never again. That is fine for constant values, but it's a common trap when you want a template to react to something.
 
-### Why does it work in Developer Tools but not in my automation?
+<a id="why-does-it-work-in-tools-but-not-in-my-automation"></a>
 
-The **Template editor** runs your template once, right when you open it, and shows the result. There is no ongoing re-evaluation. That makes it great for testing, but a working template in the editor does not guarantee it works in an automation.
+## Why does my template behave differently in Tools?
 
-Two things commonly differ:
+The **Template editor** shows the result of your template right away. It updates the result while you type, and when the states that the template uses change. That makes it great for testing, but the editor does not run your template the same way as an automation or a template entity. A template can work in the editor and not in your automation, or the other way around.
 
-- **`this` and `trigger` are not available** in the editor. If your template refers to them, the editor shows an error. In a template entity or automation, they exist.
-- **Automations re-evaluate on change.** A template trigger only fires when the template's result goes from false to true. If you load an automation while the condition is already true, nothing fires.
+{% details "Template with `this` or `trigger` shows an error or an empty result in the editor" %}
 
-When a template works in the editor but not in an automation, check whether you are using `this`, `trigger`, or expecting a specific "on-change" behavior.
+### Symptom 1
+
+Your template uses `this` or `trigger`, for example, `{{ trigger.to_state.state }}`. In the **Template editor**, it shows an error, or a warning and an empty result.
+
+#### Cause
+
+The editor does not have the variables `this` and `trigger`. Home Assistant only provides them when the template runs in certain places, such as an automation or a template entity.
+
+#### Resolution
+
+1. In the **Template editor**, at the top of the template, define the variables yourself with `{% set %}`, using the values you expect. For an example, refer to [testing an incoming-data template](/docs/templating/where-to-use/#testing-an-incoming-data-template).
+2. Check the result.
+   - Result: The editor shows the result that the template gives with these values.
+
+{% enddetails %}
+
+{% details "Template trigger does not react" %}
+
+### Symptom 2
+
+In the **Template editor**, the result of your template is true, but the automation with the template trigger does not start.
+
+#### Cause
+
+A template trigger only reacts when the result of the template changes from false to true. The editor only shows the current result. If the result is already true when you load the automation, the trigger does not react until the result has been false again.
+
+#### Resolution
+
+1. Make sure the result of the template is false, for example, by changing the state that the template checks.
+2. Cause the change that makes the result true.
+   - Result: The trigger reacts, and the automation starts.
+
+{% enddetails %}
 
 ## Common mistakes
 
@@ -183,7 +214,7 @@ The Home Assistant community is quick to help: join [Discord](https://discord.gg
 - The template you are using (copied from the editor, where you can see what it runs against).
 - What you expected the result to be.
 - What the actual result or error was.
-- The entity IDs involved (from {% my developer_states title="**Settings** > **Developer tools** > **States**" %}).
+- The entity IDs involved (from {% my developer_states title="**Settings** > **Tools** > **States**" %}).
 
 {% tip %}
 AI assistants like ChatGPT or Claude can also explain or fix templates when you describe what you want in plain language.

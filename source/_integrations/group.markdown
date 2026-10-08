@@ -364,11 +364,11 @@ state_class:
   required: false
 {% endconfiguration %}
 
-## Notify groups
+## Notify action groups
 
-This group is a special case of groups currently only available via YAML configuration.
+Notify action groups are used to combine multiple notification actions into a single one. This allows you to send a notification to multiple devices by performing a single action.
 
-Notify groups are used to combine multiple notification actions into a single action. This allows you to send notification to multiple devices by performing a single action.
+Groups of notify actions are not to be confused with [groups of notify entities](/integrations/group/#notify-entity-groups). Notify entity groups can be created through the UI using a **Notify group** {% term helper %}, while notify action groups are currently only available through YAML configuration.
 
 ```yaml
 # Example configuration.yaml entry

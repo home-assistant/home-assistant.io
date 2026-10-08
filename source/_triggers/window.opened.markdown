@@ -27,7 +27,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple windows are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted window opens, **First** to fire only when the first targeted window opens, or **All** to fire only after every targeted window is open.
-  required: true
+  required: false
 For at least:
   description: How long the window must stay open before the trigger fires. Set to zero to fire immediately.
   required: true
@@ -54,7 +54,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple windows are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:
@@ -71,8 +71,8 @@ for:
 
 ## Good to know
 
+- Use a binary sensor or cover that uses the window device class.
 - The trigger only fires when a window transitions from a known, valid state. If a window comes back from being unavailable (`unavailable`) or having an unknown state (`unknown`), the trigger does not fire for that recovery.
-- This trigger works with binary sensors and covers that use the `window` device class.
 - To react when a window closes instead, use [Window closed](/triggers/window.closed/).
 
 {% include triggers/try_it.md %}
@@ -125,7 +125,8 @@ When a motorized skylight opens, there is little point in keeping the air condit
 - **Target**: Hallway skylight cover
 - **Trigger when**: Each
 - **For at least**: 00:02:00
-- **Action**: Climate: Turn off
+- **Action**: Turn off thermostat
+  - **Target**: Upstairs thermostat
 
 {% details "YAML example for pausing cooling when a skylight opens" %}
 

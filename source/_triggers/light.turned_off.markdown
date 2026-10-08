@@ -33,6 +33,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple lights are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted light turns off, **First** to fire only when the first of a group of on lights turns off, or **All** to fire only after every targeted light is off.
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -112,7 +113,8 @@ When every light in the living room is off, stop whatever is playing on the livi
 - **Trigger**: Light turned off
 - **Target**: Living room area
 - **Trigger when**: All
-- **Action**: Media player: Turn off
+- **Action**: Turn off media player
+  - **Target**: Living room speaker
 
 {% details "YAML example for auto-pausing media when the room goes dark" %}
 

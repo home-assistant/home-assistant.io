@@ -5,7 +5,9 @@ ha_category:
   - Binary sensor
   - Car
   - Energy
+  - Select
   - Sensor
+  - Switch
 ha_release: 0.38
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -19,7 +21,9 @@ ha_platforms:
   - button
   - diagnostics
   - number
+  - select
   - sensor
+  - switch
 ha_integration_type: device
 ha_quality_scale: silver
 ---
@@ -144,6 +148,16 @@ Diagnostic sensors that help with troubleshooting and that are disabled by defau
 - **Restart**: Restarts the charging module.
 - **Restart Wi-Fi**: Restarts the charger's Wi-Fi module. Use this if the charger drops off your network but is otherwise powered.
 
+### Switches
+
+- **Current shaper**: Enables or disables the power shaper feature to dynamically limit charging power based on whole-home electrical load.
+- **Manual override**: Toggles manual override on the charger to start or pause charging regardless of scheduled or automatic claim states.
+- **Solar PV divert**: Enables or disables solar divert (eco) mode to dynamically match charging output to surplus solar power generation.
+
+### Select
+
+- **Override state**: Sets the manual override state on the charger. Options are **Auto** (clears the override), **Active** (forces charging to start), and **Disabled** (forces charging to pause). This entity requires OpenEVSE Wi-Fi firmware version 4.0.1 or later.
+
 ## Examples
 
 ### Notify when your car is plugged in
@@ -217,7 +231,6 @@ You do not need to configure any update interval yourself.
 - The integration manages a single OpenEVSE charger per config entry. If you have multiple chargers, add each one as a separate integration instance.
 - Only OpenEVSE chargers with the official Wi-Fi firmware are supported. Chargers reached only over MQTT, or third-party firmware variants, are not.
 - The **Vehicle state of charge** and **Vehicle range** sensors depend on the connected vehicle reporting this information through the charger. Many vehicles do not, in which case these sensors stay unavailable.
-- Configuring OpenEVSE through YAML is deprecated. Existing YAML configuration is automatically imported into the UI, and the YAML support is removed in a future Home Assistant release. After import, remove the `openevse` block from your {% term "`configuration.yaml`" %} file.
 
 ## Troubleshooting
 

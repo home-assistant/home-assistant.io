@@ -22,7 +22,7 @@ The **Persistent Notification** {% term integration %} can be used to show a not
 
 Persistent notification [triggers](/docs/automation/trigger) enable automations to be triggered when persistent notifications are updated. Triggers can be limited to a specific notification by providing an ID for `notification_id`, or when this value is omitted the automation will trigger for any notification ID. If no `update_type` is provided, the automation will trigger for the following update types: `added`, `removed`, `updated`, or `current`. By providing one or more of these values to the `update_type` option, the automation triggers only on these `update_type` events.
 
-Review the [Automating Home Assistant](/getting-started/automation/) getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
+Review the [Tutorial: Create your first automation](/getting-started/automation/) or the [Automation](/docs/automation/) documentation for full details.
 
 {% my automations badge %}
 
@@ -46,7 +46,7 @@ See [Automation Trigger Variables: Persistent Notification](/docs/automation/tem
 
 ## Use as a notifier
 
-Persistent notifications can also be used as a pre-configured notifier for the [Notify integration](/integrations/notify/) when that integration is loaded. It is available as `notify.persistent_notification`. This lets you use it with features that require a notifier, such as [notify groups](/integrations/group/#notify-groups) or the [Alert integration](/integrations/alert/).
+Persistent notifications can also be used as a pre-configured notifier for the [Notify integration](/integrations/notify/) when that integration is loaded. It is available as `notify.persistent_notification`. This lets you use it with features that require a notifier, such as [notify action groups](/integrations/group/#notify-action-groups) or the [Alert integration](/integrations/alert/).
 
 You can place the following attribute inside `data` for extended functionality:
 

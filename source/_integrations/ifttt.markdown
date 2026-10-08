@@ -78,7 +78,7 @@ ifttt:
 
 ### Testing your trigger
 
-You can use **Developer tools** to test your [Webhooks](https://ifttt.com/maker_webhooks) trigger. To do this, go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. Select `IFTTT: Trigger` as the action and fill in the following values:
+You can use **Tools** to test your [Webhooks](https://ifttt.com/maker_webhooks) trigger. To do this, go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}. Select `IFTTT: Trigger` as the action and fill in the following values:
 
 {% configuration_basic %}
 event:

@@ -31,20 +31,31 @@ jobs:
 
             // If not an org member, check if they're a codeowner
             try {
-              // Fetch CODEOWNERS file from the repository
+              // Fetch CODEOWNERS file from the next branch, so that code owners of
+              // integrations that are not released yet are recognized as well
               const { data: codeownersFile } = await github.rest.repos.getContent({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 path: 'CODEOWNERS',
-                ref: 'dev'
+                ref: 'next'
               });
 
               // Decode the content (it's base64 encoded)
               const codeownersContent = Buffer.from(codeownersFile.content, 'base64').toString('utf-8');
 
-              // Check if the issue author is mentioned in CODEOWNERS
-              // GitHub usernames in CODEOWNERS are prefixed with @
-              if (codeownersContent.includes(`@${issueAuthor}`)) {
+              // Collect the owner handles, skipping comments. An entry is either a
+              // user (@username) or a team (@org/team-name). Teams are ignored here,
+              // because their members are already covered by the check above.
+              const owners = new Set();
+              for (const line of codeownersContent.split('\n')) {
+                for (const entry of line.split('#')[0].split(/\s+/)) {
+                  if (entry.startsWith('@') && !entry.includes('/')) {
+                    owners.add(entry.slice(1).toLowerCase());
+                  }
+                }
+              }
+
+              if (owners.has(issueAuthor.toLowerCase())) {
                 console.log(`✅ ${issueAuthor} is an integration code owner`);
                 return; // Authorized
               }

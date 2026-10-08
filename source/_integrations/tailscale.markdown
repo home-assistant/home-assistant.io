@@ -25,7 +25,7 @@ For each device in your Tailnet, the integration shows details such as when the 
 {% important %}
 This integration monitors your Tailscale network. It does not make Home Assistant itself reachable over Tailscale.
 
-To reach Home Assistant remotely through Tailscale, install Tailscale on your Home Assistant device by following the [Tailscale installation guide](https://tailscale.com/kb/).
+To reach Home Assistant remotely through Tailscale, install Tailscale on your Home Assistant device by following the [Tailscale installation guide](https://tailscale.com/blog/remotely-access-home-assistant).
 {% endimportant %}
 
 ## Prerequisites
@@ -57,6 +57,7 @@ The integration creates a device in Home Assistant for each device in your Tailn
 ### Binary sensors
 
 - **Client**: Whether a Tailscale client update is available for the device.
+- **Connected to control**: Whether the device has recently connected to Tailscale's coordination server (the control plane).
 - **Key expiry disabled**: Whether key expiry is turned off for the device, meaning its key does not expire.
 - **Supports IPv6**: Whether the device's client supports IPv6.
 - **Supports UDP**: Whether the device's client supports UDP.
@@ -92,7 +93,7 @@ The integration {% term polling polls %} the Tailscale API every minute for the 
 ## Known limitations
 
 - The integration is read-only. You cannot change devices or your Tailnet from Home Assistant.
-- There is no online or offline sensor for devices. To tell whether a device is currently connected, use the **Last seen** sensor.
+- The **Connected to control** binary sensor indicates recent control-plane connectivity, while the **Last seen** sensor indicates recency. Neither guarantees peer-to-peer reachability or traffic.
 - Tailscale API access tokens are valid for 90 days. When a token expires, the integration stops updating and asks you to enter a new token.
 
 ## Troubleshooting

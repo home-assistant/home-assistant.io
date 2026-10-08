@@ -1,6 +1,5 @@
 {% capture name %}{{ include.name | default: page.title }}{% endcapture %}
 {% capture domain %}{{ include.domain | default: page.ha_domain }}{% endcapture %}
-{% capture google_dev_console_link %}{{ include.google_dev_console_link | default: page.google_dev_console_link }}{% endcapture %}
 {% capture api %}{{ include.api | default: page.api }}{% endcapture %}
 {% capture api_link %}{{ include.api_link | default: page.api_link }}{% endcapture %}
 

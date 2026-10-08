@@ -4,7 +4,7 @@ description: Instructions how to integrate IntesisHome AC devices with Home Assi
 ha_category:
   - Climate
 ha_release: 0.104
-ha_iot_class: Cloud Push
+ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@jnimmo'
 ha_domain: intesishome

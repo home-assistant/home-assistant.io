@@ -8,7 +8,9 @@ related_triggers:
   - time
 ---
 
-The **Numeric state** trigger is useful when you want an automation to react when a value crosses a threshold. Use it for temperatures, power readings, battery levels, humidity, and other values that matter only when they move above or below a threshold, or into a range.
+The **Numeric state** trigger is a general trigger for reacting when a numeric value crosses a threshold. Use it when you need to watch an exact numeric state or attribute value, or when the automation editor does not offer a trigger named after what you want to watch.
+
+If the automation editor shows a trigger named after the measurement you care about, use that one instead. For example, use [Temperature crossed threshold](/triggers/temperature.crossed_threshold/) for temperature readings or [Power crossed threshold](/triggers/power.crossed_threshold/) for power readings. These triggers are easier to read later and can handle compatible units automatically.
 
 {% include triggers/ui_header.md %}
 
@@ -109,6 +111,7 @@ This trigger watches one or more entities selected in the UI options **Entity** 
 
 - This trigger fires when a value crosses a threshold. It does not keep firing while the value stays on the same side of the threshold.
 - If you set both **Above** and **Below**, the trigger fires when the value enters that range.
+- This trigger compares the raw numeric value you enter. It does not convert between units. For measurements with units, use a trigger named after that measurement when one is available.
 - If you use an entity in **Above** (`above`) or **Below** (`below`), Home Assistant compares the value of the watched entity against the value of that entity only when the watched entity updates.
 - If you use **For** (`for`), the timer resets if Home Assistant restarts or automations reload.
 - When you use `value_template`, the `state` variable is the [state object](/docs/configuration/state_object) for the entity you selected with `entity_id`.

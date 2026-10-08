@@ -180,7 +180,7 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
   - **Description**: States if the mop is currently attached.
 
 - **Mop drying status**
-  - **Description**: Only available on docks with drying capabilites - States if the mop is currently being driven.
+  - **Description**: Only available on docks with drying capabilities. Indicates whether the mop is currently being dried.
 
 - **Water box attached**
   - **Description**: States if the water box is currently attached.
@@ -269,6 +269,15 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 
 - **Do not disturb**
   - **Description**: This enables _Do not disturb_ during the time frame you have set in the app or on the time entity. When _Do not disturb_ is enabled, the vacuum does not run or speak.
+
+- **Dust emptying**
+  - **Description**: Only available on docks that support automatic dust collection. States if the dock is currently emptying the vacuum's dust bin, and lets you start or stop emptying.
+
+- **Mop washing**
+  - **Description**: Only available on docks with mop washing capabilities. States if the mop is currently being washed, and lets you start or stop washing.
+
+- **Mop drying**
+  - **Description**: Only available on docks with mop drying capabilities. States if the mop is currently being dried, and lets you start or stop drying.
 
 #### Number
 

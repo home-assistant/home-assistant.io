@@ -10,15 +10,9 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The **Water heater** {% term integration %} lets you monitor and control supported hot water heaters in Home Assistant. You can use it to check whether a water heater is on or off, adjust the target temperature, change the operation mode, and build automations around those changes.
+The **Water heater** {% term integration %} lets you monitor and control hot water heaters in Home Assistant. Water heater entities are provided by integrations that support your device. You can use them to check whether a water heater is on or off, adjust the target temperature, change the operation mode, and build automations around those changes.
 
-To enable this {% term integration %}, pick one of the platforms, and add it to your {% term "`configuration.yaml`" %}:
-
-```yaml
-# Example configuration.yaml entry
-water_heater:
-  platform: demo
-```
+{% include integrations/building_block_integration.md %}
 
 {% warning %}
 

@@ -104,10 +104,10 @@ for:
 
 ## Good to know
 
+- The target thermostat must support target humidity and expose a target humidity attribute to Home Assistant.
 - This condition checks the thermostat's _target humidity_ setpoint, not the actual measured humidity in the room. To react to the measured humidity, use the [Relative humidity](/conditions/humidity.is_value/) condition instead.
-- Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+- Thermostats in the **Unavailable** or **Unknown** state are skipped for **Any** and fail for **All**.
 - Target humidity is expressed as a percentage. The valid range depends on the device, but is typically between 30% and 70%.
-- Not all thermostats support target humidity control. Only thermostats that expose a target humidity attribute will be evaluated by this condition.
 
 {% include conditions/try_it.md %}
 

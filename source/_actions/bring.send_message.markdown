@@ -108,7 +108,9 @@ action: |
 
 When you leave the home zone, send an urgent message to the shared shopping list so other household members have a last chance to add items before you arrive at the shop.
 
-- **Trigger**: Zone: person leaves `zone.home`
+- **Trigger**: Zone left
+  - **Target**: Your name
+  - **Zone**: Home
 - **Action**: Bring!: Send message
   - **Notification type**: Urgent message
 
@@ -118,10 +120,11 @@ When you leave the home zone, send an urgent message to the shared shopping list
 automation: |
   alias: "Notify list when leaving home to shop"
   triggers:
-    - trigger: zone
-      entity_id: person.your_name
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.your_name
+      options:
+        zone: zone.home
   actions:
     - action: bring.send_message
       target:

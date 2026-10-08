@@ -88,6 +88,8 @@ service_name:
       default: false
 {% endconfiguration %}
 
+{% include integrations/actions.md %}
+
 ## Examples
 
 ### Basic example which uses PUT method and payload encoded as form data
@@ -197,7 +199,7 @@ rest_command:
 
 ### How to test your new REST command
 
-Call the new action from [developer tools](/docs/tools/dev-tools/) in the sidebar with some `data` like:
+Call the new action from [Tools](/docs/tools/dev-tools/) in the sidebar with some `data` like:
 
 ```json
 {

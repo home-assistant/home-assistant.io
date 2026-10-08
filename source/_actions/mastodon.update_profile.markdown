@@ -82,7 +82,7 @@ action: |
     note: "Automated updates from my smart home."
 {% endexample %}
 
-To find the `config_entry_id`, go to **Developer tools** > **Actions**, select this action, choose your Mastodon account, and switch to YAML mode.
+To find the `config_entry_id`, go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}, select this action, choose your Mastodon account, and switch to YAML mode.
 
 ### Options in YAML
 

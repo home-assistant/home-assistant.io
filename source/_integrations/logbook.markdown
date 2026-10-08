@@ -174,7 +174,6 @@ script:
           domain: light
 ```
 
-
 {% important %}
 When calling the `logbook.log` action without a `domain` or `entity_id`, entries will be added with the `logbook` domain. Ensure that the `logbook` domain is not filtered away if you want these entries to appear in your **Activity** panel.
 {% endimportant %}
@@ -182,3 +181,5 @@ When calling the `logbook.log` action without a `domain` or `entity_id`, entries
 {% note %}
 Sensor entities that have been assigned units (for example, have a `unit_of_measurement` attribute) are assumed to change frequently and those sensors are automatically excluded from activity tracking.
 {% endnote %}
+
+{% include integrations/actions.md %}
