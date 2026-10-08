@@ -23,6 +23,7 @@ ha_platforms:
   - water_heater
 ha_integration_type: hub
 ha_quality_scale: silver
+ha_zeroconf: true
 ---
 
 The **Qube heat pump** {% term integration %} allows you to monitor and control [Qube](https://www.hr-energy.com/nl/pvt-systemen/onderdelen/qube-warmtepomp/) heat pumps via the Modbus TCP protocol.
@@ -40,6 +41,8 @@ The following devices are not supported by the integration:
 - Qbooster heat pump (the predecessor of the Qube heat pump)
 
 {% include integrations/config_flow.md %}
+
+Home Assistant discovers the Qube heat pump automatically when it is on the same network, using the controller's mDNS (Bonjour) advertisement. If the heat pump is on a separate network or VLAN, add it manually with its IP address or hostname, or allow mDNS between the networks on your router.
 
 {% configuration_basic %}
 Host:
