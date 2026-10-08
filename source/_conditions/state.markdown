@@ -39,7 +39,7 @@ State:
   description: The state, or the attribute value, that the entity must have. If you select several states, the condition passes if the entity has one of them.
   required: true
 For:
-  description: How long the entity must have had the state. By default, the condition doesn't check how long.
+  description: How long the entity must have had the state. By default, the condition doesn't check how long. Only works with one state, and not with an **Attribute**.
   required: false
 {% endoptions_ui %}
 
@@ -86,7 +86,7 @@ match:
   default: all
 for:
   description: >
-    How long the entity must have had the state. Accepts a duration string in `HH:MM:SS` format, or a time period mapping in hours, minutes, and seconds. You can use a template.
+    How long the entity must have had the state. Accepts a duration string in `HH:MM:SS` format, or a time period mapping in hours, minutes, and seconds. You can use a template. Only works with one fixed `state`, and not with `attribute` or a helper entity as `state`.
   required: false
   type: string
 {% endoptions_yaml %}
@@ -115,7 +115,7 @@ This condition checks one or more entities:
 - The condition compares the current state as text. To check whether an entity is unavailable (`unavailable`) or has an unknown state (`unknown`), select or enter those states. Otherwise, an unavailable entity doesn't pass.
 - If the entity doesn't exist, the condition fails with an error. The error is shown in the trace.
 - If you select an **Attribute** that the entity doesn't have, the condition doesn't pass.
-- **For** (`for`) checks how long the main state of the entity hasn't changed. Use it with one state of the main state. With an attribute or several states, it measures the time since the main state last changed, which is not always what you expect.
+- **For** (`for`) only works with one fixed state of the main state. You can't combine it with an attribute, with several states, or with a state that refers to a helper entity.
 - After Home Assistant restarts, **For** counts from the moment the entity was loaded again.
 - To check entities of a specific type, conditions such as [Light is on](/conditions/light.is_on/) can be easier to set up. For all conditions, refer to the [list of available conditions](/conditions/).
 - To check whether a numeric value is above or below a limit, use the [Numeric state](/docs/scripts/conditions/#numeric-state-condition) condition.
