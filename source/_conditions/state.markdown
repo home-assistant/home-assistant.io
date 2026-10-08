@@ -58,7 +58,7 @@ This passes when Sam is home.
 
 ### Options in YAML
 
-YAML provides some options that aren't available in the UI, such as checking several entities at once.
+YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 condition:
