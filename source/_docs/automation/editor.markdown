@@ -102,7 +102,7 @@ To try an automation without one of its triggers, conditions, or actions, turn i
 
 ### Continuing after an action fails
 
-By default, an automation stops when an action fails. To continue with the next action after an error Home Assistant can handle, in the **Menu** {% icon "mdi:dots-vertical" %} of the action, select **Continue on error**. The action then shows {% icon "mdi:alert-circle-check" %}. This option does not ignore misconfiguration or errors Home Assistant cannot handle. Only use it for actions whose failure does not matter for the rest of the automation.
+By default, an automation stops when an action fails. To continue with the next action after an error, in the **Menu** {% icon "mdi:dots-vertical" %} of the action, select **Continue on error**. The action then shows {% icon "mdi:alert-circle-check" %}. This option does not ignore errors in the automation's configuration, such as a broken template. Only use it for actions whose failure does not matter for the rest of the automation.
 
 ### Deleting a trigger, condition, or action
 

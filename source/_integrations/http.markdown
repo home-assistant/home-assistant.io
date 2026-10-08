@@ -63,8 +63,11 @@ Trusted proxies:
 Enable IP banning:
   description: Automatically ban IP addresses after repeated failed logins.
   required: false
+Unlimited login attempts:
+  description: Never ban an IP address, no matter how many login attempts fail.
+  required: false
 Login attempts before ban:
-  description: Failed login attempts before an IP address is banned. Set this to `-1` to disable automatic bans.
+  description: Failed login attempts before an IP address is banned, from 1 to 1000. Only shown when **Unlimited login attempts** is turned off.
   required: true
 CORS allowed origins:
   description: Origins that may make cross-origin requests. Include the scheme, for example `https://example.com`.
@@ -126,7 +129,7 @@ The `http` platforms are not real platforms within the meaning of the terminolog
 
 To use an HTTP [sensor](#sensor) or [binary sensor](#binary-sensor), you do not need to configure anything in Home Assistant. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity is created after the first message arrives.
 
-If you want to use an HTTP sensor, create a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) in the Home Assistant UI in the **Security** section of your {% my profile title="**User profile**" %} page.
+If you want to use an HTTP sensor, create a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) on your {% my profile_security title="**User profile** > **Security**" %} page.
 
 All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistatesentity_id) need to be sent to the endpoint of the device and use **POST**.
 

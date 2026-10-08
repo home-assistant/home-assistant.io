@@ -10,6 +10,8 @@ related_actions:
 
 Use this action to clear the sleep timer on a Modern Forms fan. Clearing the timer does not turn the fan off. It only cancels the pending timer.
 
+Sleep timers are not available on all fan models. On a fan without sleep timer support, this action fails with an error.
+
 {% include actions/ui_header.md %}
 
 To clear a fan sleep timer from an automation or a script:

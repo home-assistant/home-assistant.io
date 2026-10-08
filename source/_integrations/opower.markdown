@@ -21,6 +21,7 @@ The **Opower** {% term integration %} allows you to get energy information from 
 
 More than 175 utilities use Opower. Currently only the following utilities are supported by this integration:
 
+- AES Indiana
 - American Electric Power (AEP) subsidiaries
   - AEP Ohio
   - AEP Texas
@@ -45,11 +46,6 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - PECO Energy Company (PECO)
   - Potomac Electric Power Company (Pepco)
 - Glendale Water and Power (GWP)
-- National Grid US subsidiaries
-  - National Grid Massachusetts
-  - National Grid NY Long Island
-  - National Grid NY Metro
-  - National Grid NY Upstate
 - Northern Indiana Public Service Company (NIPSCO)
 - Pacific Gas & Electric (PG&E)
 - Puget Sound Energy (PSE)
