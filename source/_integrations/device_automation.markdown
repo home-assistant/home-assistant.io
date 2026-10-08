@@ -34,3 +34,5 @@ Example:
   actions:
     - action: camera.turn_off
 ```
+
+{% include integrations/conditions.md %}

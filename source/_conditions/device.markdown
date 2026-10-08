@@ -1,7 +1,7 @@
 ---
 title: "Device"
 condition: device
-domain: homeassistant
+domain: device_automation
 description: "Tests a condition that a device provides, such as whether a light is on."
 related_conditions:
   - state
