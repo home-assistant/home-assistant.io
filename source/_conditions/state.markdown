@@ -10,7 +10,7 @@ related_conditions:
 
 The **State** condition checks whether an {% term entity %} has a specific state right now. Use it when an automation should only continue in a certain situation, for example, only when someone is home, or only when a door is closed. It works with any entity, and it can also check an attribute instead of the main state.
 
-With the **For** option, the condition also checks how long the entity has had that state. For example, you can check whether a door has been closed for at least 10 minutes.
+With the **For at least** option, the condition also checks how long the entity has had that state. For example, you can check whether a door has been closed for at least 10 minutes.
 
 {% include conditions/ui_header.md %}
 
@@ -23,7 +23,7 @@ To use this condition in an automation:
 5. In **Entity**, select the entity to check.
 6. Optional: In **Attribute**, select an attribute to check instead of the main state.
 7. In **State**, select the state that the entity must have. To allow several states, select more than one.
-8. Optional: In **For**, enter how long the entity must have had the state. This only works if you selected one state and no attribute.
+8. Optional: In **For at least**, enter how long the entity must have had the state. This only works with one state. If you selected an **Attribute**, **For at least** isn't available.
 9. Select **Save**.
 
 ### Options in the UI
@@ -38,8 +38,8 @@ Attribute:
 State:
   description: The state, or the attribute value, that the entity must have. If you select several states, the condition passes if the entity has one of them.
   required: true
-For:
-  description: How long the entity must have had the state. By default, the condition doesn't check how long. Only works with one state and no **Attribute**.
+For at least:
+  description: How long the entity must have had the state. By default, the condition doesn't check how long. Only works with one state. Not available if you select an **Attribute**.
   required: false
 {% endoptions_ui %}
 
@@ -124,11 +124,11 @@ This condition checks one or more entities:
 
 ## Good to know
 
-- The condition compares the current state as text. To check whether an entity is unavailable (`unavailable`) or has an unknown state (`unknown`), select or enter those states. Otherwise, an unavailable entity doesn't pass.
+- The condition compares the state exactly. To check whether an entity is unavailable (`unavailable`) or has an unknown state (`unknown`), select or enter those states. Otherwise, an unavailable entity doesn't pass.
 - If the entity doesn't exist, the condition fails with an error. The error is shown in the trace.
 - If you select an **Attribute** that the entity doesn't have, the condition doesn't pass.
-- **For** (`for`) only works with one state of the main state. You can't combine it with an **Attribute**, with several states, or with a helper entity as the state. Home Assistant then shows an error when you save the automation.
-- After Home Assistant restarts, **For** counts from the moment the entity was loaded again.
+- **For at least** (`for`) only works with one state of the main state. If you select an **Attribute**, **For at least** isn't available. With several states, or with a helper entity as the state, Home Assistant shows an error when you save the automation.
+- After Home Assistant restarts, **For at least** counts from the moment the entity was loaded again.
 - To check entities of a specific type, conditions such as [Light is on](/conditions/light.is_on/) can be easier to set up. For all conditions, refer to the [list of available conditions](/conditions/).
 - To check whether a numeric value is above or below a limit, use the [Numeric state](/docs/scripts/conditions/#numeric-state-condition) condition.
 
@@ -181,7 +181,7 @@ At 23:00, this automation locks the front door, but only if the door has been cl
 - **Condition**: State
   - **Entity**: Front door (`binary_sensor.front_door`)
   - **State**: Closed
-  - **For**: 10 minutes
+  - **For at least**: 10 minutes
 - **Action**: Lock lock
   - **Target**: Front door lock (`lock.front_door`)
 
