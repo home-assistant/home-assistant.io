@@ -10,7 +10,7 @@ related_conditions:
 
 The **Template** condition checks whether a [template](/docs/templating/) renders `true` right now. Use it when no other condition can check what you need. For example, a template can compare two sensors with each other, or check the data of the trigger that started the automation.
 
-If another condition can do the same check, such as [State](/docs/scripts/conditions/#state-condition) or [Numeric state](/docs/scripts/conditions/#numeric-state-condition), that condition is easier to set up and to read later.
+If another condition can do the same check, such as [State](/conditions/state/) or [Numeric state](/docs/scripts/conditions/#numeric-state-condition), that condition is easier to set up and to read later.
 
 {% include conditions/ui_header.md %}
 
