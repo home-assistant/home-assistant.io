@@ -1,6 +1,6 @@
 ---
 title: "Scenes"
-description: "A scene sets a group of devices to saved states in one step. Learn how scenes work, when to use them, and how to create and activate them."
+description: "A scene sets a group of devices to saved states in one step. Learn how scenes work, when to use them, and how to create, activate, edit, and delete them."
 related:
   - docs: /integrations/scene/
     title: Scenes integration
@@ -12,7 +12,7 @@ A {% term scene %} stores the states you want for several devices, and sets them
 
 ## When to use a scene
 
-Use a scene when several devices should go into a specific state together, and you want to use that state more than once, for example, from a button on a dashboard, with Assist, and from an automation in the evening.
+Use a scene when several devices should go into a specific state together, and you want to use that state more than once. For example, you can activate the same scene from a button on a dashboard, with Assist, and from an automation in the evening.
 
 If the states are only needed in one automation, you don't need a saved scene. The [**Apply scene**](/actions/scene.apply/) action sets the states directly. For help choosing between a scene, a script, and an automation, refer to [Which tool to use](/docs/automation/which-tool-to-use/).
 
@@ -89,7 +89,15 @@ An automation or a script can save the current states of some devices in a tempo
 3. Enter a **Scene entity ID** for the temporary scene, for example, `before`.
 4. Under **Entities snapshot**, select the entities whose current states you want to save.
 5. Add the actions that change your devices.
-6. To restore the saved states, add the [**Activate scene**](/actions/scene.turn_on/) action for the temporary scene, for example, `scene.before`.
+6. To restore the saved states, add the [**Activate scene**](/actions/scene.turn_on/) action for the temporary scene.
+   - The temporary scene only exists after **Create scene** has run, so you usually can't select it in the list. Instead, select **Menu** {% icon "mdi:dots-vertical" %} > **Edit in YAML** on the action, and enter the entity ID of the scene:
+
+     ```yaml
+     action: scene.turn_on
+     target:
+       entity_id: scene.before
+     ```
+
 7. Select **Save**.
 
 For all options of the **Create scene** action, refer to [Create scene](/actions/scene.create/).
@@ -159,8 +167,14 @@ Renaming a scene doesn't change its entity ID, for example, `scene.movie_night`.
 
 If you don't need a scene anymore, you can delete it. Automations, scripts, and dashboards that use the scene can't activate it after that.
 
+You can delete scenes that you can edit in the scene editor. Other scenes can't be deleted in the scene editor. Depending on where such a scene comes from, do the following instead:
+
+- For a scene in another YAML file, remove the scene from that file, and then [reload the scenes](/integrations/scene/#reloading-scenes).
+- For a scene from another integration, delete the scene where that integration manages its scenes.
+- For a temporary scene from the **Create scene** action, use the [**Delete scene**](/actions/scene.delete/) action.
+
+### Deleting a scene from the list of scenes
+
 1. Go to {% my scenes title="**Settings** > **Automations & scenes** > **Scenes**" %}.
 2. In the row of the scene, select **Menu** {% icon "mdi:dots-vertical" %} > **Delete**.
 3. To confirm, select **Delete**.
-
-You can only delete scenes that you can edit in the scene editor. To remove a scene from another YAML file, remove it from that file, and then [reload the scenes](/integrations/scene/#reloading-scenes). To remove a scene from another integration, delete it where that integration manages its scenes. To remove a temporary scene, use the [**Delete scene**](/actions/scene.delete/) action.
