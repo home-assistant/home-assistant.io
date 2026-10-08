@@ -12,7 +12,7 @@ ha_integration_type: entity
 ---
 
 The **Lawn mower** {% term integration %} lets you bring compatible robotic lawn mowers into Home Assistant.
-Use it to monitor whether your mower is mowing, paused, returning to dock, docked, or reporting an error, and build automations around those states.
+Use it to monitor whether your mower is mowing, paused, idle, returning to dock, docked, or reporting an error, and build automations around those states.
 
 {% include integrations/building_block_integration.md %}
 

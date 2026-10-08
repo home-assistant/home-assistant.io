@@ -12,7 +12,7 @@ A password can be compromised in a number of ways, for example, it can be guesse
 
 You can use MFA with any of the other authentication providers. If more than one MFA module is enabled, you can choose one when you log in.
 
-You can turn MFA on and off in the [profile page](/docs/authentication/#your-account-profile) for your user account.
+You can turn MFA on and off for your user account on the {% my profile_security title="**User profile** > **Security**" %} page. For more information, refer to [Managing account access](/docs/authentication/#managing-account-access).
 
 ## Available MFA modules
 
@@ -37,7 +37,7 @@ If no `auth_mfa_modules` configuration section is defined in `configuration.yaml
 You will need an authenticator app on your phone. We recommend either [Google Authenticator](https://support.google.com/accounts/answer/1066447) or [Authy](https://authy.com/). Both are available for iOS or Android.
 
 1. Restart Home Assistant.
-2. Go to your {% my profile title="**User profile**" %} and select the **Security** tab.
+2. Go to your {% my profile_security title="**User profile** > **Security**" %}.
 3. In the **Multi-factor authentication modules** section, select **Enable** and a new secret key will be generated.
 4. Go to your phone app and enter the key, either by scanning the QR code or typing in the key below the QR code manually.
 
@@ -99,7 +99,7 @@ homeassistant:
       message: "I almost forget, to get into my clubhouse, you need to say {}"
 ```
 
-After restarting Home Assistant, go to {% my profile title="**User profile**" %} and select the **Security** tab. In the **Multi-factor authentication modules** section. Under **Notify one-time password**, select **Enable**.
+After restarting Home Assistant, go to {% my profile_security title="**User profile** > **Security**" %}. In the **Multi-factor authentication modules** section, under **Notify one-time password**, select **Enable**.
 
 Try logging out, then logging in again. You will be asked for the six-digit one-time password that was sent to your notify entity. Enter the password to log in.
 
@@ -114,7 +114,7 @@ The Notify MFA module can't tell if the one-time password was delivered successf
 Disabling MFA notify only affects your Home Assistant user account. Other users on the same Home Assistant instance are unaffected.
 
 1. Make sure you can still sign in with your password and any other MFA method that will remain enabled for your account.
-2. Go to your {% my profile title="**User profile**" %}, select the **Security** tab, and select **Disable** under **Notify one-time password**.
+2. Go to {% my profile_security title="**User profile** > **Security**" %} and, under **Notify one-time password**, select **Disable**.
 
 #### Removing MFA notify
 

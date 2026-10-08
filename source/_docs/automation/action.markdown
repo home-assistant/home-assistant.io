@@ -4,7 +4,7 @@ description: "Actions are what an automation does, for example, turning on a lig
 toc: false
 ---
 
-The actions of an automation make something happen, for example, turning on a light or sending a notification. Usually, they run after a trigger has started the automation and the conditions are met. In the automation editor, the actions are in the **Then do** section. You can also run them directly from there, for example, with **Run actions**. This skips the triggers and the conditions.
+The actions of an automation make something happen, for example, turning on a light or sending a notification. Usually, they run after a trigger has started the automation and the conditions are met. In the visual automation editor, the actions are in the **Then do** section. You can also run them directly from there, for example, with **Run actions**. This skips the triggers and the conditions.
 
 An automation can also use building blocks. Building blocks control whether, when, and in which order the actions run, for example, to wait a few seconds or to repeat steps. For all building blocks, refer to [Building blocks and actions](/docs/scripts/). For all actions that you can use, refer to the [list of available actions](/actions/).
 
