@@ -244,7 +244,7 @@ locations:
   type: list
 {% endconfiguration %}
 
-At least one of `target`, `away`, or `locations` must be used for this condition to be valid. `target` and `away` can be combined; the condition is true if either matches.
+At least one of `target`, `away: true`, or `locations` must be used for this condition to be valid. `target` and `away` can be combined; the condition is true if either matches.
 
 Conditions using `locations` keep working. They only match the person's state, which is the name of the smallest zone the person is in. When you edit one in the UI, select **Convert to zones and labels** to switch it to `target` and `away`. After converting, the condition matches any zone the person is in. Names that match no zone are removed.
 
