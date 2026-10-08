@@ -36,13 +36,13 @@ After:
   description: For **After** and **Between**. The condition passes from this event on. Select **Sunrise** or **Sunset**.
   required: false
 After offset:
-  description: Moves the **After** time earlier or later.
+  description: Moves the **After** time. By default, there is no offset. A positive duration makes the time later, and a negative duration makes it earlier.
   required: false
 Before:
   description: For **Before** and **Between**. The condition passes until this event. Select **Sunrise** or **Sunset**.
   required: false
 Before offset:
-  description: Moves the **Before** time earlier or later.
+  description: Moves the **Before** time. By default, there is no offset. A positive duration makes the time later, and a negative duration makes it earlier.
   required: false
 {% endoptions_ui %}
 
@@ -75,9 +75,10 @@ after:
   required: false
   type: string
 after_offset:
-  description: Moves the `after` time. Use `HH:MM:SS`, a number of seconds, or a duration with `hours`, `minutes`, and `seconds`. A negative value makes the time earlier, for example, `"-01:00:00"`.
+  description: Moves the `after` time. Use `HH:MM:SS`, a number of seconds, or a duration with `days`, `hours`, `minutes`, and `seconds`. A negative value makes the time earlier, for example, `"-01:00:00"`.
   required: false
   type: [string, integer, map]
+  default: "00:00:00"
 before:
   description: The event until which the condition passes. Use `sunrise` or `sunset`. You must set `after`, `before`, or both.
   required: false
@@ -86,6 +87,7 @@ before_offset:
   description: Moves the `before` time. Use the same formats as for `after_offset`.
   required: false
   type: [string, integer, map]
+  default: "00:00:00"
 {% endoptions_yaml %}
 
 ## Good to know
