@@ -1,0 +1,199 @@
+---
+title: "State"
+condition: state
+domain: homeassistant
+description: "Tests if an entity, or one of its attributes, has a specific state."
+related_conditions:
+  - light.is_on
+  - zone.in_zone
+---
+
+The **State** condition checks whether an {% term entity %} has a specific state right now. Use it when an automation should only continue in a certain situation, for example, only when someone is home, or only when a door is closed. It works with any entity, and it can also check an attribute instead of the main state.
+
+With the **For** option, the condition also checks how long the entity has had that state. For example, you can check whether a door has been closed for at least 10 minutes.
+
+{% include conditions/ui_header.md %}
+
+To use this condition in an automation:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation, or select **Create automation** > **Create new automation**.
+3. In the **And if** section, select **Add condition**.
+4. Search for and select **State**.
+5. In **Entity**, select the entity to check.
+6. Optional: In **Attribute**, select an attribute to check instead of the main state.
+7. In **State**, select the state that the entity must have. To allow several states, select more than one.
+8. Optional: In **For**, enter how long the entity must have had the state.
+9. Select **Save**.
+
+### Options in the UI
+
+{% options_ui %}
+Entity:
+  description: The entity to check.
+  required: true
+Attribute:
+  description: An attribute of the entity to check instead of the main state.
+  required: false
+State:
+  description: The state, or the attribute value, that the entity must have. If you select several states, the condition passes if the entity has one of them.
+  required: true
+For:
+  description: How long the entity must have had the state. By default, the condition doesn't check how long.
+  required: false
+{% endoptions_ui %}
+
+{% include conditions/yaml_header.md %}
+
+In YAML, use `condition: state`. A basic example looks like this:
+
+{% example %}
+condition: |
+  condition: state
+  entity_id: person.sam
+  state: "home"
+{% endexample %}
+
+This passes when Sam is home.
+
+### Options in YAML
+
+YAML provides some options that aren't available in the UI, such as checking several entities at once.
+
+{% options_yaml %}
+condition:
+  description: The condition type. For this condition, use `state`.
+  required: true
+  type: string
+entity_id:
+  description: The ID of the entity, or a list of entity IDs, to check.
+  required: true
+  type: [string, list]
+state:
+  description: >
+    The state, or the attribute value, that the entity must have. Use a list to allow several states. Instead of a fixed value, you can use the entity ID of an `input_boolean`, `input_datetime`, `input_number`, `input_select`, or `input_text` helper. The condition then compares with the current state of that helper.
+  required: true
+  type: [string, list]
+attribute:
+  description: An attribute of the entity to check instead of the main state.
+  required: false
+  type: string
+match:
+  description: >
+    When you check several entities, whether all of them (`all`) or at least one of them (`any`) must have the state. This option is available in YAML only.
+  required: false
+  type: string
+  default: all
+for:
+  description: >
+    How long the entity must have had the state. Accepts a duration string in `HH:MM:SS` format, or a time period mapping in hours, minutes, and seconds. You can use a template.
+  required: false
+  type: string
+{% endoptions_yaml %}
+
+The following example passes if at least one of two motion sensors detects motion:
+
+{% example %}
+condition: |
+  condition: state
+  entity_id:
+    - binary_sensor.motion_sensor_left
+    - binary_sensor.motion_sensor_right
+  match: any
+  state: "on"
+{% endexample %}
+
+## Targets of the condition
+
+This condition checks one or more entities:
+
+- Use the UI option **Entity**, or the YAML option `entity_id`, to check one entity.
+- To check more than one entity, use a list of `entity_id` values in YAML. In the UI, add one **State** condition per entity.
+
+## Good to know
+
+- The condition compares the current state as text. To check whether an entity is unavailable (`unavailable`) or has an unknown state (`unknown`), select or enter those states. Otherwise, an unavailable entity doesn't pass.
+- If the entity doesn't exist, the condition fails with an error. The error is shown in the trace.
+- If you select an **Attribute** that the entity doesn't have, the condition doesn't pass.
+- **For** (`for`) checks how long the main state of the entity hasn't changed. Use it with one state of the main state. With an attribute or several states, it measures the time since the main state last changed, which is not always what you expect.
+- After Home Assistant restarts, **For** counts from the moment the entity was loaded again.
+- To check entities of a specific type, conditions such as [Light is on](/conditions/light.is_on/) can be easier to set up. For all conditions, refer to the [list of available conditions](/conditions/).
+- To check whether a numeric value is above or below a limit, use the [Numeric state](/docs/scripts/conditions/#numeric-state-condition) condition.
+
+{% include conditions/try_it.md %}
+
+{% include conditions/more_examples.md %}
+
+### Automation: only send a laundry notification when someone is home
+
+When the washing machine finishes, this automation sends a notification, but only if Sam is home to take out the laundry.
+
+- **Trigger**: State changed
+  - **Entity**: Washing machine running (`binary_sensor.washing_machine_running`)
+  - **To**: Not running
+- **Condition**: State
+  - **Entity**: Sam (`person.sam`)
+  - **State**: Home
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for a laundry notification when someone is home" %}
+
+{% example %}
+automation: |
+  alias: "Laundry is done"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.washing_machine_running
+      to: "off"
+  conditions:
+    - condition: state
+      entity_id: person.sam
+      state: "home"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The laundry is done."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: lock the front door at night if it has been closed for a while
+
+At 23:00, this automation locks the front door, but only if the door has been closed for at least 10 minutes. This way, it doesn't lock the door while someone is still going in or out.
+
+- **Trigger**: Time
+  - **At time**: 23:00:00
+- **Condition**: State
+  - **Entity**: Front door (`binary_sensor.front_door`)
+  - **State**: Closed
+  - **For**: 10 minutes
+- **Action**: Lock lock
+  - **Target**: Front door lock (`lock.front_door`)
+
+{% details "YAML example for locking the front door at night" %}
+
+{% example %}
+automation: |
+  alias: "Lock the front door at night"
+  triggers:
+    - trigger: time
+      at: "23:00:00"
+  conditions:
+    - condition: state
+      entity_id: binary_sensor.front_door
+      state: "off"
+      for: "00:10:00"
+  actions:
+    - action: lock.lock
+      target:
+        entity_id: lock.front_door
+{% endexample %}
+
+{% enddetails %}
+
+{% include conditions/stuck.md %}
+
+{% include conditions/related.md %}
