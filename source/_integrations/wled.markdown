@@ -148,6 +148,12 @@ Can be configured on the WLED itself under
 
 [WLED Sync documentation](https://kno.wled.ge/interfaces/udp-notifier/)
 
+#### Audio reactive
+
+Toggles the AudioReactive usermod, which makes sound reactive effects follow the audio picked up by a microphone or line input on the WLED device. This switch is only created when the AudioReactive usermod is installed on the device.
+
+[WLED AudioReactive documentation](https://kno.wled.ge/advanced/audio-reactive/)
+
 #### Reverse
 
 Reverses the direction of the LED effect on a segment. One switch is created per segment.
