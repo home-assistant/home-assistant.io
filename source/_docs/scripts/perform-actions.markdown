@@ -87,7 +87,7 @@ action: |
 
 ## Action response data
 
-Some actions return data that you can use in the next steps of your automation or script. This data is called _action response data_. Actions return response data for information that is dynamic or large, and that doesn't fit well in an entity state. For example, response data can be the upcoming calendar events for the next week, or detailed driving directions.
+Some actions return data that you can use in later steps of your automation or script. This data is called _action response data_. Actions return response data for information that is dynamic or large, and that doesn't fit well in an entity state. For example, response data can be the upcoming calendar events for the next week, or detailed driving directions.
 
 To use the response data, store it in a [variable](/docs/scripts/#variables). You can choose any name for the variable.
 
@@ -125,7 +125,7 @@ data:
 
 ## Templates in actions
 
-With [templating], an action can decide what to do when it runs. In text fields, such as the message of a notification, you can enter a template directly. To use a template for the action itself, its targets, or all its options at once, select **Menu** {% icon "mdi:dots-vertical" %} > **Edit in YAML** on the action.
+With [templating], an action can decide what to do when it runs. In text fields, such as the message of a notification, you can enter a template directly. For other templates, such as for the action itself, its targets, or all its options at once, select **Menu** {% icon "mdi:dots-vertical" %} > **Edit in YAML** on the action.
 
 ### Choosing the action with a template
 
