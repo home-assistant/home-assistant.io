@@ -204,13 +204,15 @@ users:
 
 ### Location
 
-Specify the visibility of the card based on the current user's current location. The location is based on the state of the `person` entity associated with the current user. If the current user does not have a `person` entity, this condition will always resolve to false.
+Specify the visibility of the card based on the current user's current location. The location is based on the `person` entity associated with the current user. If the current user does not have a `person` entity, this condition will always resolve to false.
+
+Select zones directly or by label. The card is visible when the person is in any of the selected zones, including a selected zone that contains a smaller zone the person is also in. Turn on `away` to also show the card when the person is not in any zone.
 
 ```yaml
 condition: location
-locations:
-  - home
-  - Home Neighborhood
+target:
+  label_id: grocery_stores
+away: true
 ```
 
 {% configuration %}
@@ -218,11 +220,33 @@ condition:
   required: true
   description: "`location`"
   type: string
+target:
+  required: false
+  description: The zones to match. The condition is true if the person is in any of them.
+  type: map
+  keys:
+    entity_id:
+      required: false
+      description: One or more zone entity IDs, such as `zone.home`.
+      type: [string, list]
+    label_id:
+      required: false
+      description: One or more label IDs. Every zone with one of these labels is matched.
+      type: [string, list]
+away:
+  required: false
+  description: Also show the card when the person is not in any zone.
+  type: boolean
+  default: false
 locations:
-  required: true
-  description: A list of zones, which if any match the current state of the `person`, will cause this condition to be true.
+  required: false
+  description: "Older format: a list of zone names, which if any match the current state of the `person`, will cause this condition to be true. Use `home` for the Home zone and `not_home` for away."
   type: list
 {% endconfiguration %}
+
+At least one of `target`, `away`, or `locations` must be used for this condition to be valid. `target` and `away` can be combined; the condition is true if either matches.
+
+Conditions using `locations` keep working. They only match the person's state, which is the name of the smallest zone the person is in. When you edit one in the UI, select **Convert to zones and labels** to switch it to `target` and `away`. After converting, the condition matches any zone the person is in. Names that match no zone are removed.
 
 ### Time
 
