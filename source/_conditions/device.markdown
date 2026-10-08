@@ -95,7 +95,7 @@ entity_id:
 - If you remove the device or its entity, for example, because you replaced the device, the automation stops working. After the next restart or reload, {% my repairs title="**Settings** > **System** > **Repairs**" %} shows that the automation failed to set up. The error is `Unknown device` or `Unknown entity`, with the ID.
 - For a removed device, the editor shows **Editor not available for unknown device**. To fix the automation, delete the condition and add it again with the new device.
 - If the entity is unavailable or unknown, the condition doesn't pass. For example, a check whether a light is on or a cover is open fails.
-- The [State](/docs/scripts/conditions/#state-condition) and [Numeric state](/docs/scripts/conditions/#numeric-state-condition) conditions check an entity directly. In YAML, they are easier to read and to share, because they use the entity ID.
+- The [State](/conditions/state/) and [Numeric state](/docs/scripts/conditions/#numeric-state-condition) conditions check an entity directly. In YAML, they are easier to read and to share, because they use the entity ID.
 
 {% include conditions/try_it.md %}
 
