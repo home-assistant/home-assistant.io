@@ -29,7 +29,7 @@ To use this condition in an automation:
 
 {% options_ui %}
 Trigger:
-  description: The triggers to check. The condition passes if one of the selected triggers started the automation. Home Assistant gives the selected triggers an ID, if they don't have one yet.
+  description: The triggers to check. The condition passes if one of the selected triggers started the automation. Home Assistant gives the selected triggers an ID if they don't have one yet.
   required: true
 {% endoptions_ui %}
 
