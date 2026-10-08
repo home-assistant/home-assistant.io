@@ -23,7 +23,7 @@ To use this condition in an automation:
 5. In **Entity**, select the entity to check.
 6. Optional: In **Attribute**, select an attribute to check instead of the main state.
 7. In **State**, select the state that the entity must have. To allow several states, select more than one.
-8. Optional: In **For**, enter how long the entity must have had the state.
+8. Optional: In **For**, enter how long the entity must have had the state. This only works if you selected one state and no attribute.
 9. Select **Save**.
 
 ### Options in the UI
@@ -39,7 +39,7 @@ State:
   description: The state, or the attribute value, that the entity must have. If you select several states, the condition passes if the entity has one of them.
   required: true
 For:
-  description: How long the entity must have had the state. By default, the condition doesn't check how long. Only works with one state, and not with an **Attribute**.
+  description: How long the entity must have had the state. By default, the condition doesn't check how long. Only works with one state and no **Attribute**.
   required: false
 {% endoptions_ui %}
 
@@ -86,7 +86,7 @@ match:
   default: all
 for:
   description: >
-    How long the entity must have had the state. Accepts a duration string in `HH:MM:SS` format, or a time period mapping in hours, minutes, and seconds. You can use a template. Only works with one fixed `state`, and not with `attribute` or a helper entity as `state`.
+    How long the entity must have had the state. Accepts a duration string in `HH:MM:SS` format, or a time period mapping in hours, minutes, and seconds. You can use a template. Can't be combined with `attribute`, a list of states, or a helper entity as the state.
   required: false
   type: string
 {% endoptions_yaml %}
@@ -115,7 +115,7 @@ This condition checks one or more entities:
 - The condition compares the current state as text. To check whether an entity is unavailable (`unavailable`) or has an unknown state (`unknown`), select or enter those states. Otherwise, an unavailable entity doesn't pass.
 - If the entity doesn't exist, the condition fails with an error. The error is shown in the trace.
 - If you select an **Attribute** that the entity doesn't have, the condition doesn't pass.
-- **For** (`for`) only works with one fixed state of the main state. You can't combine it with an attribute, with several states, or with a state that refers to a helper entity.
+- **For** (`for`) only works with one state of the main state. You can't combine it with an **Attribute**, with several states, or with a helper entity as the state. Home Assistant then shows an error when you save the automation.
 - After Home Assistant restarts, **For** counts from the moment the entity was loaded again.
 - To check entities of a specific type, conditions such as [Light is on](/conditions/light.is_on/) can be easier to set up. For all conditions, refer to the [list of available conditions](/conditions/).
 - To check whether a numeric value is above or below a limit, use the [Numeric state](/docs/scripts/conditions/#numeric-state-condition) condition.
