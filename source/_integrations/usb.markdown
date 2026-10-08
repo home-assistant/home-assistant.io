@@ -36,11 +36,12 @@ You can see the serial ports that Home Assistant detects in one place from the *
    - To look for ports again, for example after plugging in a USB-to-serial adapter, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
 
    {% tip %}
-   Serial ports used only by YAML-only integrations, such as the [Serial](/integrations/serial/) sensor, are not tracked as having a consumer. If Home Assistant detects such a local port, it appears in the **Available** section rather than the **Connected** section. A network port that Home Assistant cannot discover, such as a `socket://` port, used only by such an integration does not appear in the panel at all.
+   Serial ports used only by YAML-only integrations, such as the [Serial](/integrations/serial/) sensor, or only by Modbus, are not tracked as having a consumer. If Home Assistant detects such a local port, it appears in the **Available** section rather than the **Connected** section. A network port that Home Assistant cannot discover, such as a `socket://` port, used only by such an integration does not appear in the panel at all.
    {% endtip %}
 2. Under each port, you see what it is used for:
    - Every {% term app %} and every integration set up in the UI that uses the port is listed below it. Select one to go to its settings. An integration or app that is not running at the moment is marked as **not running**.
    - **Discovered by**: names the integration that recognized the device on this port and is ready to set it up. Select this line to start the setup.
+   - **Used by Modbus**: appears when a Modbus connection uses this port. Select this line to open the **Modbus** page, where you can see the connection and the units on it.
    - **Can be used with**: lists the integrations that support the device on this port. This appears only for a port that is not in use yet.
 3. To view more details about a port, select **Port information** {% icon "mdi:information-outline" %} next to it. The **Port information** dialog shows the device path, together with details such as the description, manufacturer, and serial number of the device. This option is available for ports that are currently connected.
    - To use the port with an integration that asks for a device path, such as [Zigbee Home Automation](/integrations/zha/) or the [Serial](/integrations/serial/) sensor, copy the value of the **Device** field. For example, `/dev/ttyAMA0`.

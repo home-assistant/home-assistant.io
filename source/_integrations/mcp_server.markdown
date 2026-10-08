@@ -29,14 +29,26 @@ For detailed configuration instructions, refer to the [Client configuration](#cl
 
 {% include integrations/config_flow.md %}
 
+When you set up the integration, it exposes all LLM APIs and requires an administrator account. To change this, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Model Context Protocol Server**, and then select **Configure**.
+
 ## Configuration options
 
 The integration provides the following configuration options:
 
 {% configuration_basic %}
+Expose all LLM APIs:
+  description: If MCP clients can use every LLM API, including LLM APIs that are added
+    later. This option is turned on by default. If you set up the integration before this option
+    existed, it stays turned off so that your clients keep the LLM APIs you selected. Turn it off
+    to select individual LLM APIs.
 Control Home Assistant:
-  description: If MCP clients are allowed to control Home Assistant. Clients can only
-    control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
+  description: The LLM APIs that MCP clients can use when **Expose all LLM APIs** is turned off.
+    Clients can only control or provide information about entities that are
+    [exposed](/voice_control/voice_remote_expose_devices/) to them.
+Require an administrator account:
+  description: If only administrator accounts are allowed to use the `/api/mcp` endpoint. This
+    option is turned on by default. If you set up the integration before this option existed,
+    it stays turned off so that your clients keep working.
 {% endconfiguration_basic %}
 
 ## Architecture overview
@@ -69,9 +81,9 @@ client to provide an authentication token.
 
 ### Exposing a specific LLM API
 
-The `/api/mcp` endpoint serves the LLM API you select when you set up the
-integration. If you have more than one LLM API available, you can also connect a
-client to a specific one by adding its ID to the URL:
+The `/api/mcp` endpoint serves all LLM APIs, or the LLM APIs you select in the
+[configuration options](#configuration-options). If you have more than one LLM API
+available, you can also connect a client to a specific one by adding its ID to the URL:
 
 `/api/mcp/<api_id>`
 
@@ -81,10 +93,18 @@ Point your MCP client at this URL in the same way you would use the base
 responds with a 404 Not Found error.
 
 Connecting to any API other than Assist requires the authenticated user to be an
-administrator. The Assist API stays available to non-administrator users, just
-like the base `/api/mcp` endpoint.
+administrator. The Assist API stays available to non-administrator users. Access
+to the base `/api/mcp` endpoint follows the **Require an administrator account**
+option instead.
 
 ### Access control
+
+#### Administrator accounts
+
+The **Require an administrator account** option restricts the `/api/mcp` endpoint
+to administrator accounts and is turned on by default. Turn it off to let a
+non-administrator account, such as an account you created for a single MCP client,
+use the endpoint.
 
 #### OAuth
 
@@ -118,7 +138,7 @@ Using [Home Assistant Cloud](/integrations/cloud/) (`https://<your-id>.ui.nabu.c
 Some MCP clients may not support OAuth, but may support access tokens. You may create a
 [Long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) to allow the client to access the API.
 
-1. Go to {% my profile_security title="**User profile** > **Security** tab " %}.
+1. Go to {% my profile_security title="**User profile** > **Security**" %}.
 2. Under **Long-lived access tokens**, select **Create token**.
 3. Copy the access token to use when configuring the MCP client LLM application.
 
@@ -305,6 +325,28 @@ Codex can connect to Home Assistant as a remote MCP server by using OAuth:
 4.  Replace `<your_home_assistant_url>` with the URL of your Home Assistant instance.
 5.  Set the `HOMEASSISTANT_TOKEN` environment variable to a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) from your Home Assistant instance.
 6.  Save the file. You can now use Home Assistant tools within the Antigravity CLI.
+
+### Example: Mistral Vibe
+
+Mistral Vibe can connect to Home Assistant as a remote MCP server by using a long-lived access token. The Vibe CLI doesn't support OAuth for MCP servers yet.
+
+1. Install [Mistral Vibe](https://docs.mistral.ai/vibe/code/cli/install-setup) and run `vibe` once to complete the setup.
+2. Create a [Long-lived access token](#long-lived-access-tokens) from your Home Assistant account.
+3. Set the `HOMEASSISTANT_TOKEN` environment variable to your access token in the shell where you start Vibe.
+4. Open `~/.vibe/config.toml` and add the following at the end of the file:
+
+   ```toml
+   [[mcp_servers]]
+   name = "homeassistant"
+   transport = "streamable-http"
+   url = "<your_home_assistant_url>/api/mcp"
+   api_key_env = "HOMEASSISTANT_TOKEN"
+   api_key_header = "Authorization"
+   api_key_format = "Bearer {token}"
+   ```
+
+5. Replace `<your_home_assistant_url>` with the complete URL of your Home Assistant instance, including the port if required. For example, use `http://homeassistant.local:8123` for a typical local connection.
+6. Start `vibe` and type `/mcp` to confirm the server is connected. The Home Assistant tools appear with the prefix `homeassistant_`.
 
 ## Supported functionality
 

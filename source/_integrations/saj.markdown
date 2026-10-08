@@ -38,8 +38,6 @@ The following connection modules are not supported by this integration:
 
 - **AIO3**. This module does not expose the local web interface required by this integration.
 
-## Configuration
-
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}

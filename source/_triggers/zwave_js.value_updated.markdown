@@ -16,9 +16,40 @@ This trigger is useful when:
 - A device sends value updates without changing entity state, for example, when the device does not follow the Z-Wave specification.
 - You need to filter on a specific Command Class, property, property key, or endpoint.
 
-{% note %}
-This trigger is configured in YAML only. It cannot be added from the automation editor in the UI.
-{% endnote %}
+{% include triggers/ui_header.md %}
+
+To use **Z-Wave JS value updated** in an automation:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation, or select **Create automation** > **Create new automation**.
+3. In the **When** section, select **Add trigger**.
+4. Search for **Z-Wave JS value updated** and select it.
+5. Pick the nodes to watch under **Devices**, **Entities**, or both.
+6. Under **Command class**, pick the Command Class of the value, and under **Property**, enter its property.
+7. Optionally set **Property key** and **Endpoint** to narrow down which value is meant.
+8. Optionally set **From** and **To** to only fire on specific previous or new values.
+9. Select **Save**.
+
+### Options in the UI
+
+{% options_ui %}
+Devices:
+  description: The Z-Wave devices whose values to watch.
+Entities:
+  description: Entities whose devices should be watched.
+Command class:
+  description: The Command Class of the Z-Wave value to watch.
+Property:
+  description: The property of the Z-Wave value to watch.
+Property key:
+  description: The property key of the Z-Wave value, for values that have one.
+Endpoint:
+  description: The endpoint of the Z-Wave value.
+From:
+  description: One previous value, or a list of them. The trigger fires when the previous value matches any of them.
+To:
+  description: One new value, or a list of them. The trigger fires when the new value matches any of them.
+{% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
 
@@ -82,7 +113,7 @@ to:
 
 - Property names, property keys, and Command Class IDs come from Z-Wave JS. Refer to the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/valueid) for the available values.
 - When `from` or `to` is a list, the trigger fires if the value matches any item in the list.
-- This trigger does not appear in the automation editor in the UI. You can add it by editing the automation in YAML mode.
+- At least one of **Devices** or **Entities** is required, and an entity is resolved to the node behind it.
 
 ### Available trigger data
 
