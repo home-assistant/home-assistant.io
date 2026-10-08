@@ -19,7 +19,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. Search for and select **State**.
+4. From the search box, search for and select **State**.
 5. In **Entity**, select the entity to check.
 6. Optional: In **Attribute**, select an attribute to check instead of the main state.
 7. In **State**, select the state that the entity must have. To allow several states, select more than one.
