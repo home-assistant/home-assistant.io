@@ -4,6 +4,7 @@ description: Instructions on how to set up Hikvision cameras and NVRs within Hom
 ha_category:
   - Binary sensor
   - Camera
+  - Event
 ha_release: 0.35
 ha_iot_class: Local Push
 ha_codeowners:
@@ -13,13 +14,14 @@ ha_domain: hikvision
 ha_platforms:
   - binary_sensor
   - camera
+  - event
 ha_integration_type: device
 ha_config_flow: true
 ---
 
 The **Hikvision** {% term integration %} connects your [Hikvision IP Camera or <abbr title="Network Video Recorder">NVR</abbr>](https://www.hikvision.com/) to Home Assistant, providing:
 
-- Binary sensors that parse the event stream and present camera/NVR events as sensors with either an "off" or "on" state
+- Binary sensors that parse the event stream and present camera/NVR events as sensors with either an "off" or "on" state, and become unavailable while the event stream is disconnected
 - Camera entities with <abbr title="Real Time Streaming Protocol">RTSP</abbr> streaming and <abbr title="Hypertext Transfer Protocol">HTTP</abbr> snapshot capabilities
 
 The platform will automatically add all sensors to Home Assistant that are
@@ -140,6 +142,29 @@ Supported event types are:
 - Recording Failure
 - Exiting Region
 - Entering Region
+
+### Availability
+
+The binary sensors follow the connection to your device's event stream. While the stream is down, for example because the device is powered off or unreachable on your network, the sensors show as unavailable instead of keeping their last state. They return to reporting "off" or "on" once the connection is restored.
+
+## Event
+
+Some Hikvision devices classify what triggered a smart event, so you can tell a person from a passing car. The integration creates an event entity for each of these kinds of events on each channel:
+
+- Motion
+- Line crossing
+- Field detection
+
+Each event entity reports one of these event types when it triggers:
+
+- `human`
+- `pet`
+- `vehicle`
+- `triggered`, when the device does not say what caused the event
+
+Whether your device classifies events, and which of these values it uses, depends on the model and the firmware. Devices that do not classify report `triggered` every time.
+
+Use these entities when you want an automation to react only to a particular kind of trigger, for example to send a notification for a person crossing a line but not for a vehicle. Use the binary sensors instead when you want to know whether an event is currently active.
 
 ## Removing the integration
 

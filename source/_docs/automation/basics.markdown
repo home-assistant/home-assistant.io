@@ -23,7 +23,7 @@ The [trigger](/docs/automation/trigger/) belongs to the first part of the automa
 
 ### Condition part
 
-The second part of an automation has the [condition](/docs/automation/condition/). If the condition is verified, the action part takes place. In the example of the automation above, the lights in the living room will turn on only if the sun has set.
+The second part of an automation has the [condition](/docs/automation/condition/). If the condition is verified, the action part takes place. In the example of the automation above, the lights in the living room will turn on only if the sun has set. If Paulus comes home before sunset, nothing happens when the sun sets later. For why, and how to cover both cases, refer to [how automations react to changes](/docs/automation/how-automations-react-to-changes/#when-two-things-must-both-be-true).
 
 ### Action part
 
@@ -33,7 +33,7 @@ The last part of an automation has the [action](/docs/automation/action/). The a
 
 Now that you've got a sneak peek of what is possible, it's time to get your feet wet and create your first automation.
 
-By default, to create automations, use the [automation editor](/docs/automation/editor/). You can create an automation in the visual editor of the UI by following the steps below.
+By default, create automations with the visual editor, one of the available [automation editors](/docs/automation/editor/). You can create an automation in the visual editor of the UI by following the steps below.
 
 1. Go to **Settings** > **Automations & scenes**.
 2. In the lower right corner, select **Create automation** > **Create new automation**.
@@ -63,10 +63,10 @@ By default, to create automations, use the [automation editor](/docs/automation/
         - Select an entity, device or service to monitor a specific one.
         - Select entities, devices or services in an area, floor or with a certain label to monitor a group of them.
      2. You can add more targets by selecting **Add target** again.
-   - Under **Behavior**, you can decide how the automation starts by selecting one of the options there.
-     - **First**: if monitoring multiple targets, the automation only fires on the first time the trigger is verified for a target.
-     - **Last**: if monitoring multiple targets, the automation only fires after the trigger is verified for all targets.
-     - **Any**: the automation fires whenever a trigger of a monitored target is verified.
+   - Under **Trigger when**, if you monitor more than one target, you can decide when the automation starts:
+     - **Each**: Every time one of the targets makes the change that the trigger reacts to, for example, every time one of the lights turns on.
+     - **First**: The first time one of the targets makes that change. The trigger reacts again only after all targets have changed back.
+     - **All**: Once all targets have made that change, for example, when the last of the lights turns on.
 4. Select **Save**.
 
 ### Adding a condition

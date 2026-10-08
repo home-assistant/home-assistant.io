@@ -63,8 +63,11 @@ Trusted proxies:
 Enable IP banning:
   description: Automatically ban IP addresses after repeated failed logins.
   required: false
+Unlimited login attempts:
+  description: Never ban an IP address, no matter how many login attempts fail.
+  required: false
 Login attempts before ban:
-  description: Failed login attempts before an IP address is banned. Set this to `-1` to disable automatic bans.
+  description: Failed login attempts before an IP address is banned, from 1 to 1000. Only shown when **Unlimited login attempts** is turned off.
   required: true
 CORS allowed origins:
   description: Origins that may make cross-origin requests. Include the scheme, for example `https://example.com`.
@@ -105,6 +108,17 @@ The **Trust X-Forwarded-For** and **Trusted proxies** settings only apply when H
 
 {% endnote %}
 
+### Caching behind a reverse proxy or CDN
+
+If your reverse proxy or content delivery network (CDN) caches responses, set it up so your browser always gets the current Home Assistant frontend after an update:
+
+- Do not cache `404` (not found) responses.
+- Do not cache HTML pages, such as the main app page (`index.html`), or the service worker files (`/sw-modern.js` and `/sw-legacy.js`). A cached service worker keeps serving the old frontend after an update.
+- Do not cache responses from `/api/` or `/auth/`. These contain live data and login pages, and caching them can show outdated states or break signing in.
+- You can cache files under `/frontend_latest/`, `/frontend_es5/`, and `/static/`. Home Assistant already tells browsers to cache these for up to a month.
+
+Most reverse proxies and CDNs, such as NGINX and Cloudflare, do not cache HTML by default. You only need to check this if you added your own caching rules.
+
 ## APIs
 
 On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest/), [Python API](https://developers.home-assistant.io/docs/api_lib_index/) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket/) available.
@@ -115,7 +129,7 @@ The `http` platforms are not real platforms within the meaning of the terminolog
 
 To use an HTTP [sensor](#sensor) or [binary sensor](#binary-sensor), you do not need to configure anything in Home Assistant. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity is created after the first message arrives.
 
-If you want to use an HTTP sensor, create a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) in the Home Assistant UI in the **Security** section of your {% my profile title="**User profile**" %} page.
+If you want to use an HTTP sensor, create a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) on your {% my profile_security title="**User profile** > **Security**" %} page.
 
 All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistatesentity_id) need to be sent to the endpoint of the device and use **POST**.
 
@@ -136,7 +150,7 @@ If you use [Home Assistant Cloud](/integrations/cloud/) for remote access, Home 
 
 After a ban is added, a persistent notification appears in the Home Assistant frontend.
 
-To clear an IP ban, you can either:
+IP bans do not expire automatically. To clear an IP ban, you can either:
 
 - Remove the specific IP entry from `ip_bans.yaml`.
 - Delete the entire `ip_bans.yaml` file. It will be recreated automatically the next time a ban occurs.

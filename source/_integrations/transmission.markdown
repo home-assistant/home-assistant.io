@@ -45,8 +45,8 @@ Username:
   description: "Your Transmission username, if set."
 Password:
   description: "Your Transmission password, if set."
-Verify SSL certificate:
-  description: "Enable SSL certificate verification when connecting via HTTPS."
+Uses an SSL certificate:
+  description: "Connect to the Transmission RPC interface using HTTPS."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -166,7 +166,7 @@ actions:
 
 ### Attribute `torrent_info`
 
-All `*_torrents` sensors, such as `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents`, have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in {% my developer_states title="**Settings** > **Tools** > **States**" %} > `sensor.transmission_total_torrents` > **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
+All `*_torrents` sensors, such as `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents`, have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in {% my tools_states title="**Settings** > **Tools** > **States**" %} > `sensor.transmission_total_torrents` > **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
 
 ```yaml
 content: >

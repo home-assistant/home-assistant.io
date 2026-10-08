@@ -51,6 +51,8 @@ This action does not have fixed options. Instead, you provide one or more entrie
 
 ## Good to know
 
+- A log level sets the minimum severity that gets logged. You see messages at that level and every more severe level, and less severe messages are hidden. From least to most severe, the levels are `debug`, `info`, `warning`, `error`, and `critical`. `fatal` is another name for `critical`. For example, `info` logs info, warning, error, and critical messages, but not debug messages. For more details, see [log levels](/integrations/logger/#log-levels).
+- Some integrations have extra log levels of their own. For example, the Z-Wave driver has levels such as `verbose` and `silly`, which you choose in the Z-Wave integration settings. For details, see [how to access the Z-Wave logs](/integrations/zwave_js/#how-do-i-access-the-z-wave-logs).
 - The levels you set here apply on top of the default level. To change the default for integrations without their own level, use the [Set logger default level](/actions/logger.set_default_level/) action.
 - The levels you set reset when you restart Home Assistant, unless you set them in your configuration.
 

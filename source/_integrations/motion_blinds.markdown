@@ -168,7 +168,7 @@ Therefore it is recommended to use scripts or automations with the TDBU Combined
 
 That will ensure the same absolute position with respect to the window is achieved without letting the Bottom or Top bar move to an absolute_position that is not allowed.
 
-When the `motion_blinds.set_absolute_position` action is used with values that would move the Bottom or Top bar to positions that will make them collide, nothing will happen. An error will be logged telling that that position is not allowed and the TDBU blind will not move.
+When the `motion_blinds.set_absolute_position` action is used with values that would move the Bottom or Top bar to positions that will make them collide, nothing will happen. An error will be logged stating that the position is not allowed and the TDBU blind will not move.
 
 Therefore it is always safe to use any of the actions in Home Assistant with the TDBU blinds.
 

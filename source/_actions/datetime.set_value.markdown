@@ -66,7 +66,7 @@ datetime:
 
 Update a date/time entity to a fixed moment, for example to record the next planned departure.
 
-- **Trigger**: State: Work mode turns on
+- **Trigger**: State changed: Work mode turns on
 - **Action**: Set date/time
   - **Target**: Next departure
   - **Date & time**: A moment of your choosing

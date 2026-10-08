@@ -58,7 +58,7 @@ This action has no additional YAML options beyond the target.
 
 Save the state of a zone, play a notification sound, and then restore the zone afterward.
 
-- **Trigger**: State: Doorbell button is pressed
+- **Trigger**: State changed: Doorbell button is pressed
 - **Action**: Monoprice 6-Zone Amplifier: Snapshot
   - **Target**: Living room
 - **Action**: Play the doorbell sound

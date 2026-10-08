@@ -1,185 +1,181 @@
 ---
 title: "Performing actions"
-description: "Instructions on how to perform actions in Home Assistant."
+description: "Learn how to set up an action in the editor or in YAML: choose what it controls with targets, set its options, use response data, and use templates."
+related:
+  - docs: /docs/automation/action/
+    title: Automation actions
+  - docs: /actions/
+    title: List of available actions
+  - docs: /docs/scripts/
+    title: Building blocks and actions
+  - docs: /docs/templating/
+    title: Templating
+  - docs: /docs/tools/dev-tools/#actions-tab
+    title: Actions tab in Tools
+  - docs: /docs/automation/testing/
+    title: Testing automations
 ---
 
-Various integrations allow performing {% term actions %} when a certain event occurs. The most common one is performing an action when an automation {% term trigger %} happens. But an action can also be called from a {% term script %}, a dashboard, or via voice command devices such as Amazon Echo.
+An {% term action %} makes something happen, such as turning on a light or sending a notification. For what actions are and how they run in an automation, refer to [Automation actions](/docs/automation/action/).
 
-The configuration options to perform action are the same between all integrations and are described on this page.
+You add an action in the automation or script editor. There, you choose what the action controls, and set its options. Some actions also return data that later steps can use.
 
-Examples on this page will be given as part of an automation integration configuration but different approaches can be used for other integrations too.
+## Adding an action in the editor
 
-{% tip %}
-Use the **Actions** tab under {% my developer_services title="**Settings** > **Tools** > **Actions**" %} to discover available actions.
-{% endtip %}
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
+2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
+3. Search for and select the action, for example, **Turn on light**.
+   - You can also first select what you want to control under **By target**, and then select the action.
+4. If the action has targets, select what it should control under **Targets**.
+   - For details, refer to [Action targets](#action-targets).
+5. Fill in the other options of the action.
+   - For details, refer to [Action options](#action-options).
+6. Select **Save**.
 
-### The basics
+## Testing an action
 
-Perform the action `homeassistant.turn_on` on the {% term entity %} `light.living_room`, which is a [light group](/integrations/group/). This turns on every light that is a member of the group. You can also use `entity_id: all` and it will turn on all possible entities.
+To check what an action does, run it on its own, without running the whole automation or script. The action is performed right away. For example, a light turns on, or a notification is sent.
 
-```yaml
-action: homeassistant.turn_on
-target:
-  entity_id: light.living_room
-```
+- To run an action that you already added, select **Menu** {% icon "mdi:dots-vertical" %} > **Run action** on the action. For the steps and results, refer to [Testing an action](/docs/automation/testing/#testing-an-action).
+- To try an action before you add it, go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}. For the steps, refer to [Actions tab](/docs/tools/dev-tools/#actions-tab).
 
-### Targeting areas and devices
+## Action targets
 
-Instead of targeting an entity, you can also target an {% term area %} or {% term device %}. Or a combination of these.
-This is done with the `target` key.
+The target is what an action controls. Under **Targets**, you can select entities, devices, areas, floors, and labels, or a combination of these. When you select an area, a floor, or a label, the action controls the matching entities that support it. For example, if **Turn on light** targets an area, all lights in that area turn on.
 
-A `target` is a map that contains at least one of the following: `area_id`, `device_id`, `entity_id`.
-Each of these can be a list. The values should be lower-cased.
+In YAML, enter the action under `action`, for example, `light.turn_on`. Enter what it controls under `target`. The `target` contains at least one of the following: `entity_id`, `device_id`, `area_id`, `floor_id`, or `label_id`. Each of these can be a list. Use the IDs in lowercase, not the names.
 
-The following example uses a single action to turn on the lights in the
-living room area, 2 additional light devices and 2 additional light entities:
+The following example uses one action to turn on the lights in the living room area, two light devices, and two light entities:
 
-```yaml
-action: light.turn_on
-target:
-  area_id: living_room
-  device_id:
-    - ff22a1889a6149c5ab6327a8236ae704
-    - 52c050ca1a744e238ad94d170651f96b
-  entity_id:
-    - light.hallway
-    - light.landing
-```
+{% example %}
+action: |
+  action: light.turn_on
+  target:
+    area_id: living_room
+    device_id:
+      - ff22a1889a6149c5ab6327a8236ae704
+      - 52c050ca1a744e238ad94d170651f96b
+    entity_id:
+      - light.hallway
+      - light.landing
+{% endexample %}
 
-### Passing data to the action
+## Action options
 
-You can also specify other parameters beside the entity to target. For example, the `light.turn_on` action allows specifying the brightness.
+Most actions have options besides the target. For example, **Turn on light** has options for the brightness and the color. The options are shown below **Targets**.
 
-```yaml
-action: light.turn_on
-target:
-  entity_id: light.living_room
-data:
-  brightness: 120
-  rgb_color: [255, 0, 0]
-```
+- Required options don't have a checkbox. You always fill them in.
+- The other options have a checkbox. To use one of these options, select its checkbox.
+- Some options only show up when the selected targets support them.
 
-A full list of the parameters for an action can be found on the documentation page of each integration, in the same way as it's done for the `light.turn_on` [action](/actions/light.turn_on/).
+Each action has its own page with all its options, for example, [Turn on light](/actions/light.turn_on/). For all actions, refer to the [list of available actions](/actions/).
 
-### Use templates to decide which action to perform
+In YAML, the options go under `data`:
 
-You can use [templating] support to dynamically choose which action to perform. For example, you can perform a certain action based on if a light is on.
+{% example %}
+action: |
+  action: light.turn_on
+  target:
+    entity_id: light.living_room
+  data:
+    brightness: 120
+    rgb_color:
+      - 255
+      - 0
+      - 0
+{% endexample %}
 
+<a id="use-templates-to-handle-response-data"></a>
 
-```yaml
-action: >
-  {% if states('sensor.temperature') | float > 15 %}
-    switch.turn_on
-  {% else %}
-    switch.turn_off
-  {% endif %}
-entity_id: switch.ac
-```
+## Action response data
 
+Some actions return data that you can use in later steps of your automation or script. This data is called _action response data_. Actions return response data for information that is dynamic or large, and that doesn't fit well in an entity state. For example, response data can be the upcoming calendar events for the next week, or detailed driving directions.
 
-### Using the Actions developer tool
+To use the response data, store it in a [variable](/docs/scripts/#variables). You can choose any name for the variable.
 
-You can use the **Actions** developer tool to test data to pass in an action.
-For example, you may test turning a [light group](/integrations/group/) on or off.
+- In the editor, actions that return data show a **Response variable** field. If the response is optional for the action, first select the checkbox next to the field. Then enter the name of the variable.
+- In YAML, use `response_variable`.
 
-To turn a light group on or off, pass the following info:
+The following example stores the calendar events of the next 24 hours in the variable `agenda`.
 
-- Domain: `homeassistant`
-- Action: `turn_on`
-- Action data: `{ "entity_id": "light.kitchen" }`
+{% example %}
+action: |
+  action: calendar.get_events
+  target:
+    entity_id: calendar.school
+  data:
+    duration:
+      hours: 24
+  response_variable: agenda
+{% endexample %}
 
-### Use templates to determine the attributes
+In a later step of the same automation or script, you can use the variable `agenda` in a template. The following example sends the events in a notification.
 
-Templates can also be used for the data that you pass to the action.
+{% example %}
+action: |
+  action: notify.send_message
+  target:
+    entity_id: notify.email
+  data:
+    title: "Daily agenda for {{ now().date() }}"
+    message: >-
+      Your agenda for today:
+      {% for event in agenda['calendar.school'].events %}
+      {{ event.start }}: {{ event.summary }}
+      {% endfor %}
+{% endexample %}
 
+## Templates in actions
 
-```yaml
-action: thermostat.set_temperature
-target:
-  entity_id: >
-    {% if is_state('device_tracker.paulus', 'home') %}
-      thermostat.upstairs
+With [templating], an action can decide what to do when it runs. In text fields, such as the message of a notification, you can enter a template directly. For other templates, such as for the action itself, its targets, or all its options at once, select **Menu** {% icon "mdi:dots-vertical" %} > **Edit in YAML** on the action.
+
+### Choosing the action with a template
+
+A template can choose which action to perform. For example, the following action turns a switch on or off based on the temperature.
+
+{% example %}
+action: |
+  action: >
+    {% if states('sensor.temperature') | float(15) > 15 %}
+      switch.turn_on
     {% else %}
-      thermostat.downstairs
+      switch.turn_off
     {% endif %}
-data:
-  temperature: "{{ 22 - distance(states.device_tracker.paulus) }}"
-```
+  target:
+    entity_id: switch.ac
+{% endexample %}
 
+### Setting targets and options with a template
 
-You can use a template returning a native dictionary as well, which is useful if the attributes to be set depend on the situation.
+Templates can also set the target and the options that you pass to the action.
 
+{% example %}
+action: |
+  action: climate.set_temperature
+  target:
+    entity_id: >
+      {% if now().hour >= 22 %}
+        climate.bedroom
+      {% else %}
+        climate.living_room
+      {% endif %}
+  data:
+    temperature: "{{ 18 if now().hour >= 22 else 21 }}"
+{% endexample %}
 
-```yaml
-action: climate.set_temperature
-data: >
-  {% if states('sensor.temperature_living') < 19 %}
-    {"hvac_mode": "heat", "temperature": 19 }
-  {% else %}
-    {"hvac_mode": "auto" }
-  {% endif %}
-```
+A template can also return all options at once, as a dictionary. Use this when different situations need different options, not just different values.
 
-
-### Use templates to handle response data
-
-Some actions may respond with data that can be used in automation. This data is called _action response data_. Action response data
-is typically used for data that is dynamic or large and which may not be suited for use in entity state.
-Examples of action response data are upcoming calendar events for the next week or detailed driving directions.
-
-Templates can also be used for handling response data. The action can specify
-a `response_variable`. This is the [variable](/docs/scripts/#variables)
-that contains the response data. You can define any name for your `response_variable`. This example performs an action and stores the response in the variable called `agenda`.
-
-
-```yaml
-action: calendar.get_events
-target:
-  entity_id: calendar.school
-data:
-  duration:
-    hours: 24
-response_variable: agenda
-```
-
-
-You may then use the response data in the variable `agenda` in another action
-in the same script. The example below sends a notification using the response
-data.
-
-{% important %}
-Which data fields can be used in an action depends on the type of notification that is used.
-{% endimportant %}
-
-
-```yaml
-action: notify.gmail_com
-data:
-  target: "gduser1@workspacesamples.dev"
-  title: "Daily agenda for {{ now().date() }}"
-  message: >-
-    Your agenda for today:
-    <p>
-    {% for event in agenda['calendar.school'].events %}
-    {{ event.start}}: {{ event.summary }}<br>
-    {% endfor %}
-    </p>
-```
-
-
-### `homeassistant` actions
-
-There are four `homeassistant` actions that aren't tied to any single domain, these are:
-
-- `homeassistant.turn_on` - Turns on an entity (that supports being turned on), such as an `automation` or `switch`.
-- `homeassistant.turn_off` - Turns off an entity (that supports being turned off), such as an `automation` or `switch`.
-- `homeassistant.toggle` - Turns off an entity that is on, or turns on an entity that is off (that supports being turned on and off)
-- `homeassistant.update_entity` - Request the update of an entity, rather than waiting for the next scheduled update, for example [Google travel time] sensor, a [template sensor], or a [light]
-
-Complete action details and examples can be found on the [Home Assistant integration][homeassistant-integration-actions] page.
+{% example %}
+action: |
+  action: climate.set_temperature
+  target:
+    entity_id: climate.living_room
+  data: >
+    {% if states('sensor.temperature_living') | float(19) < 19 %}
+      {"hvac_mode": "heat", "temperature": 21}
+    {% else %}
+      {"hvac_mode": "heat_cool", "target_temp_low": 19, "target_temp_high": 24}
+    {% endif %}
+{% endexample %}
 
 [templating]: /docs/templating/
-[google travel time]: /integrations/google_travel_time/
-[template sensor]: /integrations/template/
-[light]: /integrations/light/
-[homeassistant-integration-actions]: /integrations/homeassistant#actions

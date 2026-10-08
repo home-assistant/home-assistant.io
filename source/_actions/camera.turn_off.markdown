@@ -61,7 +61,7 @@ This action has no additional YAML options beyond the target.
 
 Turn off a camera when someone arrives home.
 
-- **Trigger**: State: Person changes to home
+- **Trigger**: State changed: Person changes to home
 - **Action**: Turn off camera
   - **Target**: Living room camera
 

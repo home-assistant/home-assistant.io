@@ -83,6 +83,7 @@ offset_type:
 - This trigger does not use a target. It applies to the sun at your configured home location.
 - To fire a fixed amount of time before or after sunrise, set the **Offset** and **Offset type** options. For light-based timing that adapts to the seasons, use [Sun elevation crossed threshold](/triggers/sun.elevation_crossed_threshold/) instead.
 - To react to the first light before sunrise, use [Dawn](/triggers/sun.dawn/). To react when the sun goes down, use [Sunset](/triggers/sun.sunset/).
+- The **Sun** entity can change to **Above horizon** a few minutes after this trigger fires. To check whether the sun has risen, use the [Sun is up](/conditions/sun.is_up/) condition instead. Without an offset, it changes at the same moment as this trigger.
 
 {% include triggers/try_it.md %}
 

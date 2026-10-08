@@ -8,6 +8,7 @@ ha_category:
   - Climate
   - Cover
   - Event
+  - Fan
   - Hub
   - Light
   - Lock
@@ -26,6 +27,7 @@ ha_platforms:
   - cover
   - diagnostics
   - event
+  - fan
   - light
   - lock
   - sensor
@@ -49,6 +51,7 @@ There is currently support for the following device types within Home Assistant:
 - Climate
 - Cover
 - Event
+- Fan
 - Light
 - Lock
 - Sensor
@@ -154,6 +157,10 @@ Floor heating actuators are operated through the climate group and don't need th
 ### Events
 
 - Doorbell events for devices that expose a `DOOR_BELL_INPUT` channel, like `HmIP-DSD-PCB`.
+
+### Fans
+
+- Wall-mounted universal actuator, as a ventilation actuator (`HmIP-WUA`)
 
 ### Lights
 

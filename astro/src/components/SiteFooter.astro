@@ -1,0 +1,450 @@
+---
+// Site footer: skyline artwork, wordmark, link groups, social links and
+// the contact, analytics and hosting notices.
+//
+// Ports the structure and layout of the Jekyll footer in
+// `source/_includes/site/footer.html` (placed by
+// `source/_layouts/default.html`). Styling copies the structure and
+// cleans the surface, as agreed: sizes, spacing and colors snap to the
+// theme tokens instead of the one-off values in the `.page-content >
+// footer` rules of `sass/homeassistant/_overrides.scss` and
+// `sass/homeassistant/base/_footer.scss`; the inuitcss float grid
+// becomes a CSS grid.
+//
+// Deliberate differences from the Jekyll rendering, all agreed:
+//   - The skyline is part of the footer, in normal flow on the page
+//     background. Jekyll positions it absolutely above the footer and
+//     reserves room with a 194px top margin on the footer; here a layout
+//     just places <SiteFooter /> and adds whatever margin it wants
+//     between the content and the footer. As on the live site, it keeps
+//     its drawn size and is clipped on narrow screens: the house in it
+//     is proportioned to the wordmark below, and the two form the
+//     footer's branding.
+//   - The contact, analytics and hosting notices are small, muted text.
+//     Jekyll styles them under a `.social-media` class the markup never
+//     had, so visitors see body text; the intended treatment wins.
+//   - Social icons are inline SVGs (Simple Icons) instead of
+//     `<iconify-icon>` elements, so the footer does not depend on the
+//     Iconify CDN script. The `external-link` class on some links is
+//     dropped: nothing styles or scripts it.
+//   - The homepage's narrower 1100px footer is a landing-page override
+//     that is not carried over; the footer follows the site's content
+//     width, as the header does.
+//   - The hosting notice credits Astro, the stack this footer ships in,
+//     where the Jekyll footer credits Jekyll, and the Oscailte theme
+//     credit is dropped.
+//
+// The social links mirror `source/_data/social_media.yml`; keep the two
+// lists in step until the Astro build reads that file directly.
+import "../styles/tokens.scss";
+// The wordmark is the text-only mark the footer has always used; the
+// brand assets API offers no wordmark for Home Assistant, and the house
+// mark is already in the skyline. Both artworks and the Netlify badge
+// are copies of the files under source/images/.
+import wordmarkUrl from "../assets/footer-wordmark.svg?url";
+import skylineUrl from "../assets/footer-skyline.svg?url";
+import netlifyBadgeUrl from "../assets/netlify-badge.svg?url";
+
+// Link groups per column, in the order they appear on the page.
+const columns = [
+  [
+    {
+      title: "Join us and contribute!",
+      links: [
+        { label: "GitHub repo", href: "https://github.com/home-assistant/" },
+        {
+          label: "Developers Portal",
+          href: "https://developers.home-assistant.io",
+        },
+        { label: "Design Portal", href: "https://design.home-assistant.io" },
+        {
+          label: "Data Science Portal",
+          href: "https://data.home-assistant.io",
+        },
+        {
+          label: "Community Forum",
+          href: "https://community.home-assistant.io",
+        },
+        {
+          label: "Creator Network",
+          href: "https://creators.home-assistant.io/",
+        },
+        {
+          label: "Works with Home Assistant",
+          href: "https://works-with.home-assistant.io/",
+        },
+        { label: "Our community", href: "/community" },
+        { label: "Reporting issues", href: "/help/reporting_issues/" },
+      ],
+    },
+    {
+      title: "System status",
+      links: [
+        {
+          label: "Integration Alerts",
+          href: "https://alerts.home-assistant.io",
+        },
+        { label: "Security Alerts", href: "/security/" },
+        { label: "System Status", href: "https://status.home-assistant.io" },
+      ],
+    },
+  ],
+  [
+    {
+      title: "Companion apps",
+      links: [
+        {
+          label: "iOS and Apple devices",
+          href: "https://apps.apple.com/app/id1099568401",
+        },
+        {
+          label: "Android and Wear OS",
+          href: "https://play.google.com/store/apps/details?id=io.homeassistant.companion.android",
+        },
+        { label: "...and more!", href: "https://companion.home-assistant.io/" },
+      ],
+    },
+    {
+      title: "Support us",
+      links: [
+        {
+          label: "Merch store",
+          href: "https://store.openhomefoundation.org",
+          newTab: true,
+        },
+        { label: "Home Assistant Cloud", href: "/cloud/" },
+      ],
+    },
+    {
+      title: "Governance",
+      links: [
+        { label: "Privacy Notices", href: "/privacy/" },
+        {
+          label: "Contributor License Agreement",
+          href: "/developers/cla/",
+        },
+        { label: "Terms of Service", href: "/tos/" },
+        { label: "Code of Conduct", href: "/code_of_conduct/" },
+        { label: "Credits", href: "/developers/credits/" },
+        { label: "License", href: "/developers/license/" },
+      ],
+    },
+  ],
+];
+
+const social = [
+  { title: "YouTube", href: "https://youtube.com/@home_assistant", icon: "youtube" },
+  { title: "Reddit", href: "https://reddit.com/r/homeassistant", icon: "reddit" },
+  { title: "GitHub", href: "https://github.com/home-assistant", icon: "github" },
+  {
+    title: "Mastodon",
+    href: "https://fosstodon.org/@homeassistant",
+    icon: "mastodon",
+  },
+  {
+    title: "Bluesky",
+    href: "https://bsky.app/profile/home-assistant.io",
+    icon: "bluesky",
+  },
+  { title: "X (formerly Twitter)", href: "https://x.com/home_assistant", icon: "x" },
+  {
+    title: "Facebook",
+    href: "https://www.facebook.com/homeassistantio",
+    icon: "facebook",
+  },
+  {
+    title: "Instagram",
+    href: "https://www.instagram.com/homeassistant/",
+    icon: "instagram",
+  },
+  {
+    title: "LinkedIn",
+    href: "https://www.linkedin.com/company/home-assistant",
+    icon: "linkedin",
+  },
+];
+
+// Simple Icons, 24x24 viewBox (https://simpleicons.org).
+const icons = {
+  youtube:
+    '<path fill="currentColor" d="M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z"/>',
+  reddit:
+    '<path fill="currentColor" d="M12 0C5.373 0 0 5.373 0 12c0 3.314 1.343 6.314 3.515 8.485l-2.286 2.286A.72.72 0 0 0 1.738 24H12c6.627 0 12-5.373 12-12S18.627 0 12 0m4.388 3.199a1.999 1.999 0 1 1-1.947 2.46v.002a2.37 2.37 0 0 0-2.032 2.341v.007c1.776.067 3.4.567 4.686 1.363a2.802 2.802 0 1 1 2.908 4.753c-.088 3.256-3.637 5.876-7.997 5.876c-4.361 0-7.905-2.617-7.998-5.87a2.8 2.8 0 0 1 1.189-5.34c.645 0 1.239.218 1.712.585c1.275-.79 2.881-1.291 4.64-1.365v-.01a3.23 3.23 0 0 1 2.88-3.207a2 2 0 0 1 1.959-1.595m-8.085 8.376c-.784 0-1.459.78-1.506 1.797s.64 1.429 1.426 1.429s1.371-.369 1.418-1.385s-.553-1.841-1.338-1.841m7.406 0c-.786 0-1.385.824-1.338 1.841s.634 1.385 1.418 1.385c.785 0 1.473-.413 1.426-1.429c-.046-1.017-.721-1.797-1.506-1.797m-3.703 4.013c-.974 0-1.907.048-2.77.135a.222.222 0 0 0-.183.305a3.2 3.2 0 0 0 2.953 1.964a3.2 3.2 0 0 0 2.953-1.964a.222.222 0 0 0-.184-.305a28 28 0 0 0-2.769-.135"/>',
+  github:
+    '<path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>',
+  mastodon:
+    '<path fill="currentColor" d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127C.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611c.118 1.24.325 2.47.62 3.68c.55 2.237 2.777 4.098 4.96 4.857c2.336.792 4.849.923 7.256.38q.398-.092.786-.213c.585-.184 1.27-.39 1.774-.753a.06.06 0 0 0 .023-.043v-1.809a.05.05 0 0 0-.02-.041a.05.05 0 0 0-.046-.01a20.3 20.3 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.6 5.6 0 0 1-.319-1.433a.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546c.376 0 .75 0 1.125-.01c1.57-.044 3.224-.124 4.768-.422q.059-.011.11-.024c2.435-.464 4.753-1.92 4.989-5.604c.008-.145.03-1.52.03-1.67c.002-.512.167-3.63-.024-5.545m-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976c-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35c-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102q0-1.965 1.011-3.12c.696-.77 1.608-1.164 2.74-1.164c1.311 0 2.302.5 2.962 1.498l.638 1.06l.638-1.06c.66-.999 1.65-1.498 2.96-1.498c1.13 0 2.043.395 2.74 1.164q1.012 1.155 1.012 3.12z"/>',
+  bluesky:
+    '<path fill="currentColor" d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037c-.856 3.061-3.978 3.842-6.755 3.37c4.854.826 6.089 3.562 3.422 6.299c-5.065 5.196-7.28-1.304-7.847-2.97c-.104-.305-.152-.448-.153-.327c0-.121-.05.022-.153.327c-.568 1.666-2.782 8.166-7.847 2.97c-2.667-2.737-1.432-5.473 3.422-6.3c-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"/>',
+  x:
+    '<path fill="currentColor" d="M14.234 10.162L22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299l-.929-1.329L3.076 1.56h3.182l5.965 8.532l.929 1.329l7.754 11.09h-3.182z"/>',
+  facebook:
+    '<path fill="currentColor" d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978c.401 0 .955.042 1.468.103a9 9 0 0 1 1.141.195v3.325a9 9 0 0 0-.653-.036a27 27 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.7 1.7 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103l-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647"/>',
+  instagram:
+    '<path fill="currentColor" d="M7.03.084c-1.277.06-2.149.264-2.91.563a5.9 5.9 0 0 0-2.124 1.388a5.9 5.9 0 0 0-1.38 2.127C.321 4.926.12 5.8.064 7.076s-.069 1.688-.063 4.947s.021 3.667.083 4.947c.061 1.277.264 2.149.563 2.911c.308.789.72 1.457 1.388 2.123a5.9 5.9 0 0 0 2.129 1.38c.763.295 1.636.496 2.913.552c1.278.056 1.689.069 4.947.063s3.668-.021 4.947-.082c1.28-.06 2.147-.265 2.91-.563a5.9 5.9 0 0 0 2.123-1.388a5.9 5.9 0 0 0 1.38-2.129c.295-.763.496-1.636.551-2.912c.056-1.28.07-1.69.063-4.948c-.006-3.258-.02-3.667-.081-4.947c-.06-1.28-.264-2.148-.564-2.911a5.9 5.9 0 0 0-1.387-2.123a5.9 5.9 0 0 0-2.128-1.38c-.764-.294-1.636-.496-2.914-.55C15.647.009 15.236-.006 11.977 0S8.31.021 7.03.084m.14 21.693c-1.17-.05-1.805-.245-2.228-.408a3.7 3.7 0 0 1-1.382-.895a3.7 3.7 0 0 1-.9-1.378c-.165-.423-.363-1.058-.417-2.228c-.06-1.264-.072-1.644-.08-4.848c-.006-3.204.006-3.583.061-4.848c.05-1.169.246-1.805.408-2.228c.216-.561.477-.96.895-1.382a3.7 3.7 0 0 1 1.379-.9c.423-.165 1.057-.361 2.227-.417c1.265-.06 1.644-.072 4.848-.08c3.203-.006 3.583.006 4.85.062c1.168.05 1.804.244 2.227.408c.56.216.96.475 1.382.895s.681.817.9 1.378c.165.422.362 1.056.417 2.227c.06 1.265.074 1.645.08 4.848c.005 3.203-.006 3.583-.061 4.848c-.051 1.17-.245 1.805-.408 2.23c-.216.56-.477.96-.896 1.38a3.7 3.7 0 0 1-1.378.9c-.422.165-1.058.362-2.226.418c-1.266.06-1.645.072-4.85.079s-3.582-.006-4.848-.06m9.783-16.192a1.44 1.44 0 1 0 1.437-1.442a1.44 1.44 0 0 0-1.437 1.442M5.839 12.012a6.161 6.161 0 1 0 12.323-.024a6.162 6.162 0 0 0-12.323.024M8 12.008A4 4 0 1 1 12.008 16A4 4 0 0 1 8 12.008"/>',
+  linkedin:
+    '<path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037c-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85c3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.06 2.06 0 0 1-2.063-2.065a2.064 2.064 0 1 1 2.063 2.065m1.782 13.019H3.555V9h3.564zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/>',
+};
+---
+
+<footer class="site-footer">
+  <div class="skyline">
+    <img src={skylineUrl} alt="" width="740" height="130" />
+  </div>
+
+  <div class="surface">
+    <div class="columns">
+      <div class="column">
+        <img class="wordmark" src={wordmarkUrl} alt="Home Assistant" />
+        <p>
+          Home Assistant is a project from the{" "}
+          <a href="https://www.openhomefoundation.org/">Open Home Foundation</a>.
+        </p>
+      </div>
+
+      {
+        columns.map((groups) => (
+          <div class="column">
+            {groups.map(({ title, links }) => (
+              <>
+                <h3>{title}</h3>
+                <ul>
+                  {links.map(({ label, href, newTab }) => (
+                    <li>
+                      <a href={href} target={newTab ? "_blank" : undefined}>
+                        {label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ))}
+          </div>
+        ))
+      }
+
+      <div class="column">
+        <h3>Follow us</h3>
+        <p class="newsletter">
+          <a href="https://newsletter.openhomefoundation.org/#/portal">
+            Sign up for our newsletter
+          </a>
+        </p>
+        <ul class="social">
+          {
+            social.map(({ title, href, icon }) => (
+              <li>
+                <a
+                  href={href}
+                  title={title}
+                  rel="me noopener noreferrer"
+                  target="_blank"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true" set:html={icons[icon]} />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="notice">
+          <p>
+            For partnership inquiries please check out{" "}
+            <a href="https://works-with.home-assistant.io/">
+              Works with Home Assistant
+            </a>. For media,{" "}
+            <a href="mailto:media@openhomefoundation.org">email our team</a>.
+            For other questions, you can{" "}
+            <a href="mailto:hello@home-assistant.io">contact support</a> (No
+            technical support!)
+          </p>
+          <p>
+            This website uses{" "}
+            <a
+              href="https://www.openhomefoundation.org/blog/making-our-web-analytics-open-source-with-plausible/"
+              rel="noopener"
+            >
+              privacy-first analytics
+            </a>{" "}
+            to help us improve the site. You can view all data in our{" "}
+            <a
+              href="https://plausible.openhomefoundation.org/home-assistant.io"
+              rel="noopener"
+            >
+              public dashboard
+            </a>.
+          </p>
+          <p>
+            Website powered by <a href="https://astro.build/">Astro</a>
+          </p>
+          <a class="badge" href="https://www.netlify.com">
+            <img
+              src={netlifyBadgeUrl}
+              alt="Deploys by Netlify"
+              width="114"
+              height="51"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss">
+  @use "../styles/breakpoints";
+
+  /* Mobile first: one column, then two from the lap width and four
+     from the desk width, which is what the inuitcss grid classes on
+     the Jekyll footer resolve to. */
+
+  .site-footer {
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-large);
+    line-height: 1.5;
+
+    a {
+      color: var(--color-link);
+      text-decoration: none;
+
+      &:hover,
+      &:focus-visible {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  /* Skyline artwork on the page background, right above the surface.
+     The house in it is drawn in proportion to the wordmark below, so
+     the two read as one lockup: the skyline keeps its drawn size at
+     every width and is clipped on narrow screens rather than scaled. */
+
+  .skyline {
+    margin: 0 auto;
+    max-width: var(--layout-max-width);
+    overflow: hidden;
+    padding: 0 var(--layout-gutter);
+
+    img {
+      display: block;
+      max-width: none;
+    }
+  }
+
+  .surface {
+    background: var(--color-footer-surface);
+  }
+
+  .columns {
+    display: grid;
+    gap: 0 var(--layout-gutter);
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    max-width: var(--layout-max-width);
+    padding: var(--space-xxlarge) var(--layout-gutter);
+  }
+
+  .column {
+    min-width: 0;
+  }
+
+  /* Wordmark and blurb */
+
+  .wordmark {
+    display: block;
+    height: 4.5rem;
+    margin-bottom: var(--space-xlarge);
+    width: auto;
+  }
+
+  p {
+    margin: 0 0 var(--space-xlarge);
+  }
+
+  /* Link groups */
+
+  h3 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-medium);
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 var(--space-small);
+    text-transform: uppercase;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0 0 var(--space-xlarge);
+    padding: 0;
+  }
+
+  /* Social links: a row of icons that wraps, close under the
+     newsletter line */
+
+  .newsletter {
+    margin-bottom: var(--space-small);
+  }
+
+  .social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-small);
+    margin-bottom: var(--space-large);
+
+    a {
+      color: var(--color-text);
+      display: flex;
+
+      &:hover,
+      &:focus-visible {
+        color: var(--color-link);
+      }
+    }
+
+    svg {
+      fill: currentColor;
+      height: var(--font-size-xlarge);
+      width: var(--font-size-xlarge);
+    }
+  }
+
+  /* Contact, analytics and hosting notices */
+
+  .notice {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-medium);
+
+    p {
+      margin-bottom: var(--space-large);
+    }
+
+    /* The link is only as wide as the badge it wraps. */
+    .badge {
+      display: block;
+      width: fit-content;
+
+      img {
+        display: block;
+      }
+    }
+  }
+
+  @media only screen and (min-width: breakpoints.$lap) {
+    .columns {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media only screen and (min-width: breakpoints.$desk) {
+    .skyline,
+    .columns {
+      padding-left: var(--layout-gutter-wide);
+      padding-right: var(--layout-gutter-wide);
+    }
+
+    .columns {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

@@ -84,7 +84,7 @@ for:
 
 When the living room thermostat is actively drying the air, increase the ceiling fan speed to improve air circulation and help distribute the dehumidified air throughout the room. This optimizes moisture removal only during active drying cycles.
 
-- **Trigger**: State: Living room thermostat started drying
+- **Trigger**: State changed: Living room thermostat started drying
 - **Condition**: Thermostat is drying
   - **Target**: Living room thermostat
 - **Action**: Set fan speed to 60%

@@ -17,7 +17,7 @@ Automations based on a blueprint need to be configured. What needs to be configu
 
 1. To create your first automation based on a blueprint, go to {% my blueprints title="**Settings** > **Automations & scenes** > **Blueprints**" %}.
 2. Find the blueprint that you want to use and select **Create automation**.
-   - This opens the automation editor with the blueprint selected.
+   - This opens the editor with the blueprint selected.
 3. Give it a name and configure the blueprint.
 4. Select the blue **Save automation** button in the bottom right corner.
 
@@ -118,4 +118,4 @@ Learn more about blueprints by [reading our tutorial on creating a blueprint](/d
 
 ## Troubleshooting missing automations
 
-When you're creating automations using blueprints and they don't appear in the UI, make sure that you add back `automation: !include automations.yaml` from the default configuration to your {% term "`configuration.yaml`" %}.
+If you can't see your automation, refer to [My automation doesn't appear in the UI](/docs/automation/troubleshooting/#my-automation-doesnt-appear-in-the-ui).

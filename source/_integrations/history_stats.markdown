@@ -191,6 +191,8 @@ This video tutorial explains how you can use history stats. It also shows how yo
 
 <lite-youtube videoid="BMlU4SynQBY" videotitle="How To Master Graphs to Monitor Occupancy and Device Usage in Home Assistant" posterquality="maxresdefault"></lite-youtube>
 
+{% include integrations/actions.md %}
+
 ## Examples
 
 {% important %}
