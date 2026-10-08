@@ -61,8 +61,9 @@ YAML sometimes provides additional options for more complex use cases that are n
 offset:
   description: >
     The length of time from the end of the event. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format. A negative value, such as `minutes: -30` or `"-00:30:00"`, fires before the end of the event. A positive value fires after.
-  required: true
+  required: false
   type: time
+  default: "00:00:00"
 {% endoptions_yaml %}
 
 <!-- Keep the "include" below if your integration supports targets -->
