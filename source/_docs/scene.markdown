@@ -22,11 +22,11 @@ A scene sets states. It doesn't run steps, and it doesn't remember what came bef
 
 This is why:
 
-- A scene sets all its states, without waits or a set order. If you need waits or a set order, use a [script](/integrations/script/).
+- A scene sets all its states, without wait times or a set order. If you need wait times or a set order, use a [script](/integrations/script/).
 - A scene always sets the same states. It doesn't check anything first. If the states should depend on something, for example, whether someone is home, use an [automation](/docs/automation/).
 - A scene doesn't have an on or off state. To go back to how things were, activate another scene. Or save the current states first, with the [**Create scene**](/actions/scene.create/) action, and activate that scene later.
 
-## About Live Edit and Review Mode in the scene editor
+## Live Edit and Review Mode in the scene editor
 
 You create and edit scenes in the scene editor, in {% my scenes title="**Settings** > **Automations & scenes** > **Scenes**" %}. The editor has two modes:
 
@@ -106,27 +106,23 @@ For all options of the **Create scene** action, refer to [Create scene](/actions
 
 When you activate a scene, Home Assistant sets each of its devices and entities to the state stored in the scene. You can activate a scene in several ways:
 
-- From the list of scenes
+- From the list of scenes:
   - Go to {% my scenes title="**Settings** > **Automations & scenes** > **Scenes**" %}. In the row of the scene, select **Menu** {% icon "mdi:dots-vertical" %} > **Apply**.
-- From the scene editor
+- From the scene editor:
   - Open the scene, and select **Menu** {% icon "mdi:dots-vertical" %} > **Apply**.
   - **Apply** isn't available in **Live Edit**, or before you save the scene. In **Live Edit**, the scene is already applied.
-- From a dashboard
+- From a dashboard:
   - Add the scene to a card, for example, an [Entities card](/dashboards/entities/), and select **Activate**.
-- With Assist
+- With Assist:
   - [Expose the scene to Assist](/voice_control/voice_remote_expose_devices/), and say, for example, "Activate movie night scene".
-- From an automation or a script
+- From an automation or a script:
   - Use the [**Activate scene**](/actions/scene.turn_on/) action.
 
 To start an automation when a scene is activated, use the [**Scene activated**](/triggers/scene.activated/) trigger.
 
 ## Editing a scene
 
-You edit a scene in the scene editor. The scene editor can edit scenes that are stored in your `scenes.yaml` file and have an `id`. This includes all scenes that you create in the scene editor. Other scenes can't be edited in the scene editor. Depending on where such a scene comes from, do the following instead:
-
-- For a scene in another YAML file, move the scene to `scenes.yaml`, and give it an `id`. For the steps, refer to [Editing a YAML scene in the scene editor](/integrations/scene/#editing-a-yaml-scene-in-the-scene-editor).
-- For a scene from another integration, change the scene where that integration manages its scenes. For details, refer to [Scenes from other integrations](/integrations/scene/#scenes-from-other-integrations).
-- A temporary scene from the **Create scene** action can't be edited. To change it, run **Create scene** again with the same **Scene entity ID**.
+You edit a scene in the scene editor. The scene editor can edit scenes that are stored in your `scenes.yaml` file and have an `id`. This includes all scenes that you create in the scene editor.
 
 ### Editing a scene in the visual editor
 
@@ -163,18 +159,28 @@ You can change the name of a scene, and its icon, area, category, and labels, wi
 
 Renaming a scene doesn't change its entity ID, for example, `scene.movie_night`. To change the entity ID, refer to [Changing the attributes of an entity](/docs/configuration/customizing-devices/#changing-the-attributes-of-an-entity).
 
+### Scenes you can't edit in the scene editor
+
+The scene editor can't edit scenes that aren't in `scenes.yaml`, or that don't have an `id`. Depending on where such a scene comes from, change it as follows:
+
+- Scenes in another YAML file: Move the scene to `scenes.yaml`, and give it an `id`. For the steps, refer to [Editing a YAML scene in the scene editor](/integrations/scene/#editing-a-yaml-scene-in-the-scene-editor).
+- Scenes from another integration: Change the scene where that integration manages its scenes. For details, refer to [Scenes from other integrations](/integrations/scene/#scenes-from-other-integrations).
+- Temporary scenes from the **Create scene** action: These can't be edited. To change one, run **Create scene** again with the same **Scene entity ID**.
+
 ## Deleting a scene
 
 If you don't need a scene anymore, you can delete it. Automations, scripts, and dashboards that use the scene can't activate it after that.
 
-You can delete scenes that you can edit in the scene editor. Other scenes can't be deleted in the scene editor. Depending on where such a scene comes from, do the following instead:
-
-- For a scene in another YAML file, remove the scene from that file, and then [reload the scenes](/integrations/scene/#reloading-scenes).
-- For a scene from another integration, delete the scene where that integration manages its scenes.
-- For a temporary scene from the **Create scene** action, use the [**Delete scene**](/actions/scene.delete/) action.
-
-### Deleting a scene from the list of scenes
+To delete a scene from the list of scenes:
 
 1. Go to {% my scenes title="**Settings** > **Automations & scenes** > **Scenes**" %}.
 2. In the row of the scene, select **Menu** {% icon "mdi:dots-vertical" %} > **Delete**.
 3. To confirm, select **Delete**.
+
+### Scenes you can't delete in the scene editor
+
+You can only delete scenes that you can edit in the scene editor. To delete other scenes, depending on where they come from:
+
+- Scenes in another YAML file: Remove the scene from that file, and then [reload the scenes](/integrations/scene/#reloading-scenes).
+- Scenes from another integration: Delete the scene where that integration manages its scenes.
+- Temporary scenes from the **Create scene** action: Use the [**Delete scene**](/actions/scene.delete/) action.
