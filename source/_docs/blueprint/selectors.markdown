@@ -2020,6 +2020,8 @@ context:
       required: false
 {% endconfiguration %}
 
+### Example unit of measurement selector
+
 This blueprint example limits the selectable units to the device class and
 state class selected in the other inputs of the blueprint:
 
