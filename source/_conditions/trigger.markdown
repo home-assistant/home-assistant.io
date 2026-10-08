@@ -145,7 +145,7 @@ automation: |
 
 ### Automation: get a notification only for the back door
 
-When the front door or the back door opens, this automation turns on the hallway light. Only if the back door opened, it also sends a notification.
+When the front door or the back door opens, this automation turns on the hallway light. It only sends a notification if the back door opened.
 
 - **Triggers**:
   - State changed
