@@ -306,9 +306,7 @@ homeassistant:
       credential: "abc123"
 ```
 
-{% include integrations/triggers.md %}
-
-{% include integrations/actions.md %}
+{% include integrations/triggers_conditions_actions.md %}
 
 ## Home Assistant Core automation examples
 
