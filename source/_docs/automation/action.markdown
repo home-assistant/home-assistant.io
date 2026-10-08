@@ -8,11 +8,13 @@ related:
     title: List of available actions
   - docs: /docs/scripts/
     title: Building blocks and actions
+  - docs: /docs/automation/testing/
+    title: Testing automations
 ---
 
 An action is the part of an automation that makes something happen, for example, turning on a light, sending a notification, or activating a [scene](/docs/scene/). When a [trigger](/docs/automation/trigger/) starts the automation and the [conditions](/docs/automation/condition/) are met, the automation runs its actions.
 
-You add actions in the **Then do** section of the automation editor. For the steps, refer to [Adding an action in the editor](/docs/scripts/perform-actions/#adding-an-action-in-the-editor). Scripts use the same actions.
+You add actions in the **Then do** section of the automation editor. For the steps, refer to [Adding an action in the editor](/docs/scripts/perform-actions/#adding-an-action-in-the-editor). [Scripts](/integrations/script/) use the same actions.
 
 ## Parts of an action
 
