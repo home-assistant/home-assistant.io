@@ -143,7 +143,7 @@ This condition checks one or more entities:
 - If the value isn't a number, the condition fails with an error. For example, a state like `on` or `open` isn't a number. The error is shown in the trace.
 - If you select an **Attribute** that the entity doesn't have, the condition doesn't pass.
 - This condition checks the value right now. To start an automation when a value crosses a limit, use the [Numeric state crossed threshold](/triggers/numeric_state/) trigger.
-- To check a state that isn't a number, use the [State](/docs/scripts/conditions/#state-condition) condition.
+- To check a state that isn't a number, use the [State](/conditions/state/) condition.
 
 {% include conditions/try_it.md %}
 
