@@ -277,7 +277,9 @@ Codex can connect to Home Assistant as a remote MCP server by using OAuth:
 OpenCode can connect to Home Assistant as a remote MCP server by using OAuth. This example uses the configuration format of OpenCode v2.
 
 1. Install [OpenCode](https://opencode.ai).
-2. Open `~/.config/opencode/opencode.jsonc` to make the server available in every project. To use the server in one project only, open `opencode.jsonc` in your project instead.
+2. Edit or create your configuration file:
+   - To make the server available in every project, edit `~/.config/opencode/opencode.jsonc`.
+   - To use the server in one project only, edit `opencode.jsonc` in your project.
 3. Add the following to your configuration:
 
    ```json
