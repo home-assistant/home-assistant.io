@@ -50,6 +50,8 @@ task :generate do
   abort("Generating allowed referrers data failed") unless success
   success = system "rake meetups_data"
   abort("Generating community meetups data failed") unless success
+  success = system "rake newsletter_data"
+  abort("Generating newsletter data failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
   # The Astro build runs on every deploy so both stacks stay buildable
@@ -126,6 +128,7 @@ task :preview, :listen do |t, args|
   system "rake wwha_data"
   system "rake allowed_referrers_data"
   system "rake meetups_data"
+  system "rake newsletter_data"
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
   sassPid = Process.spawn("#{sass_compile} --watch")
   rackupPid = Process.spawn("rackup --port #{server_port} --host #{listen_addr}")
@@ -197,45 +200,63 @@ end
 desc "Download upcoming community meetups from web-api.openhomefoundation.org"
 task :meetups_data do
   output_file = "#{source_dir}/_data/meetups_data.json"
+  # Both Luma calendars end up on the same map on the community page. The
+  # calendar key is kept on every event so the map can colour and filter them.
+  # Community Day comes first: an event listed on both calendars is a
+  # Community Day event (see the uniq below).
+  calendars = {
+    'ohf-community-day' => 'https://web-api.openhomefoundation.org/events/ohf-community-day',
+    'home-assistant-meetups' => 'https://web-api.openhomefoundation.org/events/home-assistant-meetups',
+  }
   begin
-    uri = URI('https://web-api.openhomefoundation.org/events/home-assistant-meetups')
-
-    remote_data = JSON.parse(Net::HTTP.get(uri))
-    events = remote_data['events']
-    raise "payload does not contain an events array" unless events.is_a?(Array)
-
     now = Time.now.utc
-    upcoming = events
-      # Only keep web links: the URL ends up in an href on the community page,
-      # so schemes such as javascript: must never make it into the data file.
-      .select { |event| event['url'].is_a?(String) && event['url'].downcase.start_with?('https://', 'http://') }
-      # The map shows a start time for every meetup, so an event without a
-      # usable start is dropped rather than rendered as an epoch date. An
-      # event that has already begun but hasn't ended yet still counts as
-      # upcoming, hence the end date in the comparison.
-      .select do |event|
-        begin
-          Time.parse(event['start'])
-          Time.parse(event['end'] || event['start']).utc >= now
-        rescue StandardError
-          false
-        end
-      end
+    upcoming = []
+
+    calendars.each do |calendar, url|
+      remote_data = JSON.parse(Net::HTTP.get(URI(url)))
+      events = remote_data['events']
+      raise "#{calendar} payload does not contain an events array" unless events.is_a?(Array)
+
+      upcoming.concat(
+        events
+          # Only keep web links: the URL ends up in an href on the community page,
+          # so schemes such as javascript: must never make it into the data file.
+          .select { |event| event['url'].is_a?(String) && event['url'].downcase.start_with?('https://', 'http://') }
+          # The map shows a start time for every meetup, so an event without a
+          # usable start is dropped rather than rendered as an epoch date. An
+          # event that has already begun but hasn't ended yet still counts as
+          # upcoming, hence the end date in the comparison.
+          .select do |event|
+            begin
+              Time.parse(event['start'])
+              Time.parse(event['end'] || event['start']).utc >= now
+            rescue StandardError
+              false
+            end
+          end
+          .map do |event|
+            {
+              'calendar' => calendar,
+              'summary' => event['summary'],
+              'start' => event['start'],
+              # The map expects a list of address lines; upstream occasionally
+              # sends a single string instead.
+              'address' => (event['address'].is_a?(Array) ? event['address'] : [event['address']])
+                .map { |line| line.to_s.strip }
+                .reject(&:empty?),
+              'url' => event['url'],
+              'latitude' => event['latitude'],
+              'longitude' => event['longitude'],
+            }
+          end
+      )
+    end
+
+    # A Luma event can be listed on both calendars. uniq keeps the first copy,
+    # which comes from the Community Day calendar.
+    upcoming = upcoming
+      .uniq { |event| event['url'] }
       .sort_by { |event| event['start'].to_s }
-      .map do |event|
-        {
-          'summary' => event['summary'],
-          'start' => event['start'],
-          # The map expects a list of address lines; upstream occasionally
-          # sends a single string instead.
-          'address' => (event['address'].is_a?(Array) ? event['address'] : [event['address']])
-            .map { |line| line.to_s.strip }
-            .reject(&:empty?),
-          'url' => event['url'],
-          'latitude' => event['latitude'],
-          'longitude' => event['longitude'],
-        }
-      end
 
     File.open(output_file, "w") do |file|
       file.write(JSON.generate(upcoming))
@@ -247,6 +268,67 @@ task :meetups_data do
     # "host a meetup" state when the list is empty.
     warn "## Downloading community meetups failed, keeping existing file. #{e}"
     File.write(output_file, "[]") unless File.exist?(output_file)
+  end
+end
+
+desc "Download the latest Open Home Foundation newsletter editions"
+task :newsletter_data do
+  output_file = "#{source_dir}/_data/newsletter_data.json"
+  begin
+    require 'rexml/document'
+
+    uri = URI('https://newsletter.openhomefoundation.org/rss/')
+    feed = REXML::Document.new(Net::HTTP.get(uri))
+    items = REXML::XPath.match(feed, '//channel/item')
+    raise "feed does not contain any items" if items.empty?
+
+    # The feed lists the editions newest first; keep that order in the file.
+    editions = items.filter_map do |item|
+      title = item.elements['title']&.text.to_s.strip
+      image = item.elements['media:content']&.attributes&.[]('url').to_s.strip
+      # The image URL ends up in the community page markup, so an edition
+      # without a web link for its cover is dropped rather than rendered.
+      next unless image.start_with?('https://')
+
+      # Ghost serves the original artwork from its storage domain. The resized
+      # variants are only available through the newsletter site itself, so
+      # point the image at the w960 variant there, which is plenty for the
+      # stacked covers on the community page.
+      if image.include?('/content/images/')
+        image = 'https://newsletter.openhomefoundation.org/content/images/size/w960/' +
+                image.split('/content/images/', 2).last
+      end
+
+      { 'title' => title, 'image' => image }
+    end.first(3)
+    raise "feed does not contain any usable editions" if editions.empty?
+
+    File.open(output_file, "w") do |file|
+      file.write(JSON.generate(editions))
+    end
+    puts "## Wrote #{editions.length} newsletter editions"
+  rescue StandardError => e
+    # Never fail the build over the newsletter: fall back to the existing file,
+    # or to the editions that were current when this task was written, so the
+    # community page always has artwork to show.
+    warn "## Downloading newsletter editions failed, keeping existing file. #{e}"
+    unless File.exist?(output_file)
+      fallback = [
+        {
+          'title' => 'Thirteen years of Home Assistant: Leading the way back home',
+          'image' => 'https://newsletter.openhomefoundation.org/content/images/size/w960/2026/09/OHF_Newsletter2609_1200x630.png',
+        },
+        {
+          'title' => 'We sow the seeds, you grow the (open) home',
+          'image' => 'https://newsletter.openhomefoundation.org/content/images/size/w960/2026/08/OHF_Newsletter2608_1200x630.png',
+        },
+        {
+          'title' => 'The walled garden that’s breaking down barriers',
+          'image' => 'https://newsletter.openhomefoundation.org/content/images/size/w960/2026/07/OHF_Newsletter2607_1200x630.png',
+        },
+      ]
+      File.write(output_file, JSON.generate(fallback))
+    end
   end
 end
 
