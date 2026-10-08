@@ -71,9 +71,9 @@ entity_id:
   type: [string, list]
 state:
   description: >
-    The state, or the attribute value, that the entity must have. Use a list to allow several states. Instead of a fixed value, you can use the entity ID of an `input_boolean`, `input_datetime`, `input_number`, `input_select`, or `input_text` helper. The condition then compares with the current state of that helper.
+    The state, or the attribute value, that the entity must have. Use a list to allow several states. Instead of a fixed value, you can use the entity ID of an `input_boolean`, `input_datetime`, `input_number`, `input_select`, or `input_text` helper. The condition then compares with the current state of that helper. The main state is always text. An attribute value keeps its own type, so write it the same way. For example, write a number or `true` without quotes.
   required: true
-  type: [string, list]
+  type: [string, integer, float, boolean, list]
 attribute:
   description: An attribute of the entity to check instead of the main state.
   required: false
