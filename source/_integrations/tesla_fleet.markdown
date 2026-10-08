@@ -314,8 +314,7 @@ The `tesla_fleet.time_of_use` {% term action %} configures the time-of-use tarif
 | `device_id` | yes | The energy site to apply the tariff to. |
 | `name` | yes | Name of the tariff, for example `Agile Octopus`. |
 | `utility` | yes | Name of the energy supplier, for example `Octopus Energy`. |
-| `currency` | yes | Three-letter currency code for the rates, for example `GBP`. |
-| `daily_charge` | no | Fixed standing charge applied each day, in the selected currency. |
+| `daily_charge` | no | Fixed standing charge applied each day. |
 | `seasons` | yes | The seasons that make up the tariff. |
 
 #### Seasons
@@ -353,7 +352,7 @@ Periods within a season must not overlap, and seasons must not cover the same da
 You can reuse a period name within a season to describe a period that is split across the day, such as an off-peak rate that runs overnight and again in the afternoon. Every occurrence of the same name must use the same rates.
 
 {% note %}
-Period names are converted into Tesla time-of-use labels, so `Off peak` becomes `OFF_PEAK`. Any name works, but the Tesla mobile app only displays the labels `ON_PEAK`, `OFF_PEAK`, `PARTIAL_PEAK` and `SUPER_OFF_PEAK`.
+Tesla only acts on its own time-of-use labels, so periods are labelled by their import rate, cheapest first: with two periods they become `OFF_PEAK` and `ON_PEAK`, with three `OFF_PEAK`, `PARTIAL_PEAK` and `ON_PEAK`, and with four `SUPER_OFF_PEAK`, `OFF_PEAK`, `PARTIAL_PEAK` and `ON_PEAK`. Any period names work, periods sharing a name share a label, and a tariff can have at most four distinct periods.
 {% endnote %}
 
 #### Examples
@@ -366,7 +365,6 @@ data:
   device_id: 1a2b3c4d5e6f
   name: Economy 7
   utility: Example Energy
-  currency: GBP
   daily_charge: 0.6
   seasons:
     - name: All year
@@ -389,7 +387,6 @@ data:
   device_id: 1a2b3c4d5e6f
   name: Seasonal saver
   utility: Example Energy
-  currency: GBP
   seasons:
     - name: Summer
       start_month: 4
