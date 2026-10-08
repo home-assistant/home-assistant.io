@@ -21,6 +21,10 @@ A {% term calendar %} entity has a state and attributes that represent the next 
 
 {% include integrations/config_flow.md %}
 
+## Canceled events
+
+If you set up the calendar with **Upload an iCalendar file (.ics)**, the file can contain canceled events. Home Assistant leaves them out: they don't appear in the calendar, don't change the state of the calendar entity, and don't trigger [calendar automations](/integrations/calendar/#automation).
+
 ## Calendar Event Automations
 
 Individual Calendar *Events* are what powers automations such as:

@@ -6,6 +6,7 @@ description: "Triggers when one or more event entities receive a matching event 
 related_triggers:
   - event
   - state
+  - doorbell.rang
 ---
 
 The **Event received** trigger runs an automation when a physical event entity — such as a doorbell, a remote control button, or a motion sensor — detects a specific type of event. Use it when you want to react to a particular event type, like a doorbell ring or a double press, rather than any state change on the entity.
@@ -63,7 +64,7 @@ event_type:
 - Use an event entity that supports the event type you want to select.
 - This trigger fires only when the entity receives one of the specified event types. Changes to **Unavailable** or **Unknown** do not fire the trigger.
 - You can select multiple event types in a single trigger to react to any of them.
-- To trigger on any event type from an entity, use the [**State** trigger](/docs/automation/trigger/#state-trigger) instead.
+- To trigger on any event type from an entity, use the [**State changed** trigger](/docs/automation/trigger/#state-trigger) instead.
 
 {% include triggers/try_it.md %}
 

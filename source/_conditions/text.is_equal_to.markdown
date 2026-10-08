@@ -87,7 +87,7 @@ for:
 
 When you leave home, this automation checks that the **house mode** helper is set to `away` before turning off the lights and locking the door.
 
-- **Trigger**: State: Person leaves home
+- **Trigger**: State changed: Person leaves home
 - **Condition**: Text is equal to
   - **Target**: House mode
   - **Value**: `away`

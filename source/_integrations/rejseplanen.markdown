@@ -1,10 +1,10 @@
 ---
-title: "Rejseplanen"
-description: "Instructions on how to integrate timetable data for Danish Rejseplanen within Home Assistant."
+title: Rejseplanen
+description: Instructions on how to integrate timetable data for Danish Rejseplanen within Home Assistant.
 ha_release: 0.88
 ha_category:
   - Transport
-ha_iot_class: "Cloud Polling"
+ha_iot_class: Cloud Polling
 ha_quality_scale: legacy
 ha_config_flow: true
 ha_codeowners:

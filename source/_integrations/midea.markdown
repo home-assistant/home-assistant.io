@@ -17,7 +17,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@chemelli74'
   - '@rokam'
-  - '@caibinqing'
 ha_iot_class: Local Polling
 ha_platforms:
   - binary_sensor
@@ -32,8 +31,10 @@ ha_platforms:
   - sensor
   - switch
   - time
+  - water_heater
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: gold
+ha_dhcp: true
 ---
 
 The **Midea** {% term integration %} lets you monitor and control home appliances that use the Midea protocol, communicating with them directly over your local network. Because Midea also manufactures appliances for many other brands, this integration works with rebranded devices that speak the same protocol, not only those sold as "Midea".

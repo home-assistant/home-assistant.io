@@ -2,6 +2,7 @@
 title: Axle Energy
 description: Instructions on how to use Axle Energy grid event schedules in Home Assistant.
 ha_category:
+  - Binary sensor
   - Energy
   - Sensor
 ha_release: '2026.10'
@@ -11,6 +12,8 @@ ha_codeowners:
   - '@Herbertmt978'
 ha_domain: axle_energy
 ha_platforms:
+  - binary_sensor
+  - diagnostics
   - sensor
 ha_integration_type: service
 ha_quality_scale: bronze
@@ -38,10 +41,22 @@ API key:
   description: "Enter the Home Assistant token generated in your Axle account. Paste the token on its own, without a `Bearer ` prefix."
 {% endconfiguration_basic %}
 
+## Reconfiguration
+
+You can recheck your existing Axle Energy token or replace it at any time:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Axle Energy**, and open the three-dot menu for the entry you want to update. Select **Reconfigure**.
+2. If you are replacing the token, open the [**Home Assistant** section of your Axle account](https://vpp.axle.energy/app/account/home-assistant). If **Generate Token** is available, select it, then copy the token.
+3. The **API key** field is prefilled with the current token. Leave it unchanged to recheck the token, or replace it with the token you copied. Do not include the `Bearer ` prefix.
+4. Select **Submit**.
+
+Home Assistant validates the token before updating the entry. If the token is invalid or is already used by another entry, an error is shown and the form stays open so you can enter a different token. Your saved token is unchanged. A successful update preserves the entry's sensors and entity IDs, so your automations can continue using them. Each configured feed needs its own token.
+
 ## Supported functionality
 
-Each configured feed creates one service device with three sensor entities:
+Each configured feed creates one service device with the following entities:
 
+- **Event in progress** is on from the start of a participating import or export event until its end. It is off before and after the event, when no event is scheduled, or when you have opted out.
 - **Event type** shows whether the published event requests import from or export to the grid.
 - **Event start** shows when the event starts.
 - **Event end** shows when the event ends.
@@ -113,15 +128,17 @@ automation: |
 
 ## Data updates
 
-The integration {% term polling polls %} Axle every 10 minutes. All three sensors use the same update. Changes to the published schedule appear after the next successful update.
+The integration {% term polling polls %} Axle every 10 minutes. All entities use the same update. Changes to the published schedule appear after the next successful update.
 
-When Axle returns an empty schedule, the sensors show an unknown state. Events you have opted out of are excluded. If a request fails because of a temporary connection or service error, the sensors become unavailable and recover after a successful update. Authentication failures stop polling; follow the steps in [Authentication fails](#authentication-fails) to replace the token.
+**Event in progress** changes at the scheduled start and end times without waiting for the next update or making another request to Axle. It uses the latest schedule received, so a changed or canceled event is reflected after the next successful update.
+
+When Axle returns an empty schedule, **Event in progress** is off and the three event detail sensors show an unknown state. Events you have opted out of are excluded. If a request fails because of a temporary connection or service error, all entities become unavailable and recover after a successful update. Authentication failures stop polling; follow the steps in [Authentication fails](#authentication-fails) to replace the token.
 
 ## Known limitations
 
 - Each entry uses its own Axle API key. You can add another feed with a different key.
 - The integration reads the event schedule. It does not control your battery or inverter, or change your Axle participation mode.
-- Countdown, event activity, and calendar entities are not provided.
+- Countdown and calendar entities are not provided.
 - The event information depends on Axle's cloud service and may change between updates.
 
 ## Troubleshooting
@@ -130,15 +147,7 @@ When Axle returns an empty schedule, the sensors show an unknown state. Events y
 
 Check that you copied the full token from the **Home Assistant** section of your Axle account. Enter only the token in **API key**, without a `Bearer ` prefix.
 
-If Axle rejects the token for an existing feed, Home Assistant asks you to authenticate again:
-
-1. Open the [**Home Assistant** section of your Axle account](https://vpp.axle.energy/app/account/home-assistant) and copy the displayed token. If **Generate Token** is available, select it first.
-2. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Reconfigure** on the authentication notification for the affected Axle Energy entry.
-3. Enter the copied token in **API key** and submit the form.
-
-Home Assistant validates the token and resumes updates. Your existing sensors and their entity IDs are preserved, so automations can continue using them. Each configured feed needs its own token.
-
-If the token is already used by another entry, the form stays open so you can enter a different token.
+If Axle rejects the token for an existing feed, Home Assistant displays a notification asking you to authenticate again. Select **Reconfigure** on the notification. The authentication flow opens with a blank **API key** field. Before entering a token, open the [**Home Assistant** section of your Axle account](https://vpp.axle.energy/app/account/home-assistant). If **Generate Token** is available, select it, then copy the token. Enter a valid token without a `Bearer ` prefix, then select **Submit**.
 
 If Axle still rejects the token from your account, contact [Axle support](https://help.axle.energy/). You can also contact support for guidance on revoking an existing token.
 
@@ -149,6 +158,10 @@ Check your internet connection and whether you can access your Axle account. The
 ### The sensors show an unknown state
 
 Check whether Axle has scheduled an event for your account and whether you have opted out of it. An empty schedule is a valid response and does not indicate a connection failure.
+
+### Download diagnostics
+
+If you report a problem, [download diagnostics](/integrations/diagnostics/) from the Axle Energy integration. The file contains the latest saved event data and whether the last update succeeded. Your API key is not included. Downloading diagnostics does not request another update from Axle. Review the file before sharing it.
 
 ## Removing the integration
 
