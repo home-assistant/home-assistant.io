@@ -267,7 +267,7 @@ Tests if a template renders `true`. This condition works the same way as the [Te
 
 ### Sun
 
-Tests the position of the sun, for example, whether it is after sunset. This condition works the same way as the [Sun conditions](/docs/scripts/conditions/#sun-conditions) in automations and uses the same options.
+Tests the position of the sun, for example, whether it is after sunset. This condition works the same way as the [Sun condition](/conditions/sun/) in automations and uses the same options.
 
 ### Zone
 
