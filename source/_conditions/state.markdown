@@ -142,6 +142,7 @@ When the washing machine finishes, this automation sends a notification, but onl
 
 - **Trigger**: State changed
   - **Entity**: Washing machine running (`binary_sensor.washing_machine_running`)
+  - **From**: Running
   - **To**: Not running
 - **Condition**: State
   - **Entity**: Sam (`person.sam`)
@@ -157,6 +158,7 @@ automation: |
   triggers:
     - trigger: state
       entity_id: binary_sensor.washing_machine_running
+      from: "on"
       to: "off"
   conditions:
     - condition: state
