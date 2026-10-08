@@ -747,54 +747,7 @@ For details, refer to the [Text is equal to](/conditions/text.is_equal_to) condi
 
 ### Time condition
 
-The time condition can test if it is after a specified time, before a specified time or if it is a certain day of the week.
-
-```yaml
-conditions:
-  - alias: "Time 15~02"
-    condition: time
-    # At least one of the following is required.
-    after: "15:00:00"
-    before: "02:00:00"
-    weekday:
-      - mon
-      - wed
-      - fri
-```
-
-Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
-Note that if only `before` key is used, the condition will be `true` _from midnight_ until the specified time.
-If only `after` key is used, the condition will be `true` from the specified time _until midnight_.
-
-Time condition windows can span across the midnight threshold if **both** `after` and `before` keys are used. In the example above, the condition window is from 3pm to 2am.
-
-The after times are inclusive while before are exclusive. In the example above, if the time was at 3pm (15:00:00) then it meets the after time condition. If the time was at 2am (2:00:00), it would fail the condition because it will only be valid up to 1:59:59.
-
-{% tip %}
-A better weekday condition could be by using the [Workday Binary Sensor](/integrations/workday/).
-{% endtip %}
-
-For the `after` and `before` options a time helper (`input_datetime` entity), a `time` entity, or another `sensor` entity containing a timestamp with the "timestamp" device class, can be used instead.
-
-```yaml
-conditions:
-  - alias: "Example referencing a time helper"
-    condition: time
-    after: input_datetime.house_silent_hours_start
-    before: input_datetime.house_silent_hours_end
-
-  - alias: "Example referencing a time entity"
-    before: time.dnd_start
-
-  - alias: "Example referencing another sensor"
-    after: sensor.groceries_delivery_time
-```
-
-{% note %}
-Note that the time condition only takes the time into account. If
-a referenced sensor or helper entity contains a timestamp with a date, the
-date part is fully ignored.
-{% endnote %}
+For setup steps, YAML options, and examples for the **Time** condition, refer to [Time](/conditions/time/).
 
 ### Timer conditions
 
