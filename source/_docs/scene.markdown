@@ -82,7 +82,17 @@ Some integrations, such as [Philips Hue](/integrations/hue/), provide their own 
 
 ### Creating a temporary scene from an automation
 
-An automation or a script can create a scene while it runs, with the [**Create scene**](/actions/scene.create/) action. For example, it can save the current states of some devices, change them, and restore them later. The scene is removed again when you reload the scenes or restart Home Assistant.
+An automation or a script can save the current states of some devices in a temporary scene, change the devices, and restore the saved states later. The scene is removed again when you reload the scenes or restart Home Assistant.
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}, and open the automation or script.
+2. In the **Then do** section, select **Add action**, and search for and select **Create scene**.
+3. Enter a **Scene entity ID** for the temporary scene, for example, `before`.
+4. Under **Entities snapshot**, select the entities whose current states you want to save.
+5. Add the actions that change your devices.
+6. To restore the saved states, add the [**Activate scene**](/actions/scene.turn_on/) action for the temporary scene, for example, `scene.before`.
+7. Select **Save**.
+
+For all options of the **Create scene** action, refer to [Create scene](/actions/scene.create/).
 
 ## Ways to activate a scene
 
