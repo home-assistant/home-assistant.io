@@ -125,7 +125,7 @@ This condition checks one or more entities:
 ## Good to know
 
 - The condition compares the state exactly. To check whether an entity is unavailable (`unavailable`) or has an unknown state (`unknown`), select or enter those states. Otherwise, an unavailable entity doesn't pass.
-- If the entity doesn't exist, the condition fails with an error. The error is shown in the trace.
+- If the entity doesn't exist, the condition fails with an error. The error is shown in the [trace](/automation/testing/#traces).
 - If you use a helper entity as the state, and the helper doesn't exist, the condition fails with an error. The error is shown in the trace.
 - If you select an **Attribute** that the entity doesn't have, the condition doesn't pass.
 - **For at least** (`for`) only works with one state. If you select an **Attribute**, **For at least** isn't available. With several states, or with a helper entity as the state, Home Assistant shows an error when you save the automation.
