@@ -330,67 +330,7 @@ For the full list of available conditions and its details, refer to the [Motion 
 
 ### Numeric state condition
 
-This type of condition attempts to parse the state of the specified entity or the attribute of an entity as a number, and triggers if the value matches the thresholds (strictly below/above, so equal excluded).
-
-If both `below` and `above` are specified, both tests have to pass.
-
-```yaml
-conditions:
-  - alias: "Temperature between 17 and 25 degrees"
-    condition: numeric_state
-    entity_id: sensor.temperature
-    above: 17
-    below: 25
-```
-
-You can optionally use a `value_template` to process the value of the state before testing it.
-
-```yaml
-conditions:
-  - condition: numeric_state
-    entity_id: sensor.temperature
-    above: 17
-    below: 25
-    # If your sensor value needs to be adjusted
-    value_template: "{{ float(state.state) + 2 }}"
-```
-
-It is also possible to test the condition against multiple entities at once.
-The condition will pass if **all** entities match the thresholds.
-
-```yaml
-conditions:
-  - condition: numeric_state
-    entity_id:
-      - sensor.kitchen_temperature
-      - sensor.living_room_temperature
-    below: 18
-```
-
-Alternatively, the condition can test against a state attribute.
-The condition will pass if the attribute value of the entity matches the thresholds.
-
-```yaml
-conditions:
-  - condition: numeric_state
-    entity_id: climate.living_room_thermostat
-    attribute: temperature
-    above: 17
-    below: 25
-```
-
-Number helpers (`input_number` entities), `number`, `sensor`, and `zone` entities
-that contain a numeric value, can be used in the `above` and `below`
-options to make the condition more dynamic.
-
-```yaml
-conditions:
-  - condition: numeric_state
-    entity_id: climate.living_room_thermostat
-    attribute: temperature
-    above: input_number.temperature_threshold_low
-    below: input_number.temperature_threshold_high
-```
+For setup steps, YAML options, and examples for the **Numeric state** condition, refer to [Numeric state](/conditions/numeric_state/).
 
 ### Power condition
 
