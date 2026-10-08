@@ -18,7 +18,8 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. Make sure that the automation has the triggers you want to check.
-4. In the **And if** section, select **Add condition**. Or add it to the conditions of a **Choose** or **If-then** block.
+4. In the **And if** section, select **Add condition**.
+   - To use the condition between the actions, add it to the conditions of a **Choose** or **If-then** block instead.
 5. From the search box, search for and select **Triggered by**.
 6. Under **Trigger**, select one or more triggers of the automation.
    - The triggers are listed with their number and a description.
@@ -76,7 +77,7 @@ condition: |
 - If the editor shows **Missing trigger**, the condition refers to an ID that no trigger has anymore. This can happen if you delete a trigger, or change its ID in YAML. To clear the reference, clear the checkbox of the missing trigger.
 - If the editor warns that triggers share the same ID, select **Fix**. Home Assistant gives each of these triggers its own ID and updates the **Triggered by** conditions. Templates and action data that use `trigger.id` aren't updated, so check them yourself.
 - A trigger without an ID uses its position as its ID. In YAML, you can write that ID as a number or as text. For example, `0` and `"0"` both refer to the first trigger.
-- If no trigger started the automation, the condition doesn't pass. This happens when you select **Run actions**, or when you start the automation with the **Trigger automation** action. To test the automation with a trigger, refer to [Testing automations](/docs/automation/testing/).
+- If no trigger started the automation, the condition doesn't pass. This happens when you select **Run actions**, or when you start the automation with the **Trigger automation** action. To test the automation with a trigger, refer to [Using a simulated trigger to test an automation](/docs/automation/testing/#using-a-simulated-trigger-to-test-an-automation).
 
 {% include conditions/try_it.md %}
 
