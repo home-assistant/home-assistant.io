@@ -1,15 +1,17 @@
+{% comment %}
+    The editions are downloaded from the newsletter's RSS feed at build time by
+    the newsletter_data task in the Rakefile, newest first. The stack shows the
+    last edition on top, so they are rendered oldest to newest.
+{% endcomment %}
+{% assign editions = site.data.newsletter_data | reverse %}
 <section id="newsletter">
     <div class="container">
         <div class="editions" data-dsap>
+            {% for edition in editions %}
             <div class="edition">
-                <img src="https://newsletter.openhomefoundation.org/content/images/size/w960/2025/06/1200X630.jpg" />
+                <img src="{{ edition.image | escape }}" alt="{{ edition.title | escape }}" loading="lazy" decoding="async" />
             </div>
-            <div class="edition">
-                <img src="https://newsletter.openhomefoundation.org/content/images/size/w960/2025/07/OHF_Newsletter2507_1200X630.png" />
-            </div>
-            <div class="edition">
-                <img src="https://newsletter.openhomefoundation.org/content/images/size/w960/2025/08/OHF_Newsletter2508_1200x630.png" />
-            </div>
+            {% endfor %}
         </div>
         <div class="content">
             <h2>Subscribe to the newsletter</h2>
@@ -25,3 +27,18 @@
         </div>
     </div>
 </section>
+<script>
+    // Fade each cover in once it has loaded, so it doesn't pop in over its
+    // placeholder. Only covers that are still loading get the placeholder;
+    // cached ones, and all covers when JavaScript is unavailable, show as is.
+    document.querySelectorAll("#newsletter .edition img").forEach((img) => {
+        if (img.complete) {
+            return;
+        }
+        const edition = img.closest(".edition");
+        const reveal = () => edition.classList.remove("is-loading");
+        edition.classList.add("is-loading");
+        img.addEventListener("load", reveal, { once: true });
+        img.addEventListener("error", reveal, { once: true });
+    });
+</script>

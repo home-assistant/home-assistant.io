@@ -50,6 +50,8 @@ task :generate do
   abort("Generating allowed referrers data failed") unless success
   success = system "rake meetups_data"
   abort("Generating community meetups data failed") unless success
+  success = system "rake newsletter_data"
+  abort("Generating newsletter data failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
   # The Astro build runs on every deploy so both stacks stay buildable
@@ -126,6 +128,7 @@ task :preview, :listen do |t, args|
   system "rake wwha_data"
   system "rake allowed_referrers_data"
   system "rake meetups_data"
+  system "rake newsletter_data"
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
   sassPid = Process.spawn("#{sass_compile} --watch")
   rackupPid = Process.spawn("rackup --port #{server_port} --host #{listen_addr}")
@@ -265,6 +268,67 @@ task :meetups_data do
     # "host a meetup" state when the list is empty.
     warn "## Downloading community meetups failed, keeping existing file. #{e}"
     File.write(output_file, "[]") unless File.exist?(output_file)
+  end
+end
+
+desc "Download the latest Open Home Foundation newsletter editions"
+task :newsletter_data do
+  output_file = "#{source_dir}/_data/newsletter_data.json"
+  begin
+    require 'rexml/document'
+
+    uri = URI('https://newsletter.openhomefoundation.org/rss/')
+    feed = REXML::Document.new(Net::HTTP.get(uri))
+    items = REXML::XPath.match(feed, '//channel/item')
+    raise "feed does not contain any items" if items.empty?
+
+    # The feed lists the editions newest first; keep that order in the file.
+    editions = items.filter_map do |item|
+      title = item.elements['title']&.text.to_s.strip
+      image = item.elements['media:content']&.attributes&.[]('url').to_s.strip
+      # The image URL ends up in the community page markup, so an edition
+      # without a web link for its cover is dropped rather than rendered.
+      next unless image.start_with?('https://')
+
+      # Ghost serves the original artwork from its storage domain. The resized
+      # variants are only available through the newsletter site itself, so
+      # point the image at the w960 variant there, which is plenty for the
+      # stacked covers on the community page.
+      if image.include?('/content/images/')
+        image = 'https://newsletter.openhomefoundation.org/content/images/size/w960/' +
+                image.split('/content/images/', 2).last
+      end
+
+      { 'title' => title, 'image' => image }
+    end.first(3)
+    raise "feed does not contain any usable editions" if editions.empty?
+
+    File.open(output_file, "w") do |file|
+      file.write(JSON.generate(editions))
+    end
+    puts "## Wrote #{editions.length} newsletter editions"
+  rescue StandardError => e
+    # Never fail the build over the newsletter: fall back to the existing file,
+    # or to the editions that were current when this task was written, so the
+    # community page always has artwork to show.
+    warn "## Downloading newsletter editions failed, keeping existing file. #{e}"
+    unless File.exist?(output_file)
+      fallback = [
+        {
+          'title' => 'Thirteen years of Home Assistant: Leading the way back home',
+          'image' => 'https://newsletter.openhomefoundation.org/content/images/size/w960/2026/09/OHF_Newsletter2609_1200x630.png',
+        },
+        {
+          'title' => 'We sow the seeds, you grow the (open) home',
+          'image' => 'https://newsletter.openhomefoundation.org/content/images/size/w960/2026/08/OHF_Newsletter2608_1200x630.png',
+        },
+        {
+          'title' => 'The walled garden that’s breaking down barriers',
+          'image' => 'https://newsletter.openhomefoundation.org/content/images/size/w960/2026/07/OHF_Newsletter2607_1200x630.png',
+        },
+      ]
+      File.write(output_file, JSON.generate(fallback))
+    end
   end
 end
 
