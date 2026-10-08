@@ -107,21 +107,21 @@ action: |
   response_variable: agenda
 {% endexample %}
 
-In a later step of the same automation or script, you can use the variable `agenda` in a template. The following example sends a notification with the response data. Which options a notification action accepts depends on the notification integration.
+In a later step of the same automation or script, you can use the variable `agenda` in a template. The following example sends the events in a notification.
 
-```yaml
-action: notify.gmail_com
-data:
-  target: "gduser1@workspacesamples.dev"
-  title: "Daily agenda for {{ now().date() }}"
-  message: >-
-    Your agenda for today:
-    <p>
-    {% for event in agenda['calendar.school'].events %}
-    {{ event.start }}: {{ event.summary }}<br>
-    {% endfor %}
-    </p>
-```
+{% example %}
+action: |
+  action: notify.send_message
+  target:
+    entity_id: notify.email
+  data:
+    title: "Daily agenda for {{ now().date() }}"
+    message: >-
+      Your agenda for today:
+      {% for event in agenda['calendar.school'].events %}
+      {{ event.start }}: {{ event.summary }}
+      {% endfor %}
+{% endexample %}
 
 ## Templates in actions
 
@@ -131,46 +131,49 @@ With [templating], an action can decide what to do when it runs. In text fields,
 
 A template can choose which action to perform. For example, the following action turns a switch on or off based on the temperature.
 
-```yaml
-action: >
-  {% if states('sensor.temperature') | float(15) > 15 %}
-    switch.turn_on
-  {% else %}
-    switch.turn_off
-  {% endif %}
-target:
-  entity_id: switch.ac
-```
+{% example %}
+action: |
+  action: >
+    {% if states('sensor.temperature') | float(15) > 15 %}
+      switch.turn_on
+    {% else %}
+      switch.turn_off
+    {% endif %}
+  target:
+    entity_id: switch.ac
+{% endexample %}
 
 ### Setting targets and options with a template
 
 Templates can also set the target and the options that you pass to the action.
 
-```yaml
-action: climate.set_temperature
-target:
-  entity_id: >
-    {% if now().hour >= 22 %}
-      climate.bedroom
-    {% else %}
-      climate.living_room
-    {% endif %}
-data:
-  temperature: "{{ 18 if now().hour >= 22 else 21 }}"
-```
+{% example %}
+action: |
+  action: climate.set_temperature
+  target:
+    entity_id: >
+      {% if now().hour >= 22 %}
+        climate.bedroom
+      {% else %}
+        climate.living_room
+      {% endif %}
+  data:
+    temperature: "{{ 18 if now().hour >= 22 else 21 }}"
+{% endexample %}
 
 A template can also return all options at once, as a dictionary. Use this when different situations need different options, not just different values.
 
-```yaml
-action: climate.set_temperature
-target:
-  entity_id: climate.living_room
-data: >
-  {% if states('sensor.temperature_living') | float(19) < 19 %}
-    {"hvac_mode": "heat", "temperature": 21}
-  {% else %}
-    {"hvac_mode": "heat_cool", "target_temp_low": 19, "target_temp_high": 24}
-  {% endif %}
-```
+{% example %}
+action: |
+  action: climate.set_temperature
+  target:
+    entity_id: climate.living_room
+  data: >
+    {% if states('sensor.temperature_living') | float(19) < 19 %}
+      {"hvac_mode": "heat", "temperature": 21}
+    {% else %}
+      {"hvac_mode": "heat_cool", "target_temp_low": 19, "target_temp_high": 24}
+    {% endif %}
+{% endexample %}
 
 [templating]: /docs/templating/
