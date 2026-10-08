@@ -41,7 +41,7 @@
         </fieldset>
 
         <div id="meetup-map" class="map is-loading" role="region" aria-label="Map of Home Assistant community meetups and Community Day events"></div>
-        <script type="application/json" id="meetup-map-events">{{ meetups | jsonify | replace: "<", "<" }}</script>
+        <script type="application/json" id="meetup-map-events">{{ meetups | jsonify | replace: "<", "\u003c" }}</script>
         {% endif %}
 
         <div class="buttons-container">
