@@ -32,7 +32,7 @@
     // placeholder. Covers that are already cached are revealed right away.
     document.querySelectorAll("#newsletter .edition img").forEach((img) => {
         const reveal = () => img.closest(".edition").classList.add("is-loaded");
-        if (img.complete && img.naturalWidth > 0) {
+        if (img.complete) {
             reveal();
         } else {
             img.addEventListener("load", reveal, { once: true });
