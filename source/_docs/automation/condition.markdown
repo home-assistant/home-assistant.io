@@ -19,9 +19,9 @@ You add conditions in the **And if** section of the automation editor, with **Ad
 ## Kinds of conditions
 
 - Conditions named after what they check, such as **Light is on**, work with one type of entity.
-  - For all conditions, refer to the [list of available conditions](/conditions/).
 - General conditions, such as **State**, **Numeric state**, **Time**, and **Template**, aren't tied to one type of entity.
-  - For these conditions, and for writing conditions in YAML, refer to [Conditions](/docs/scripts/conditions/).
+
+For all conditions, refer to the [list of available conditions](/conditions/). For the general conditions, and for writing conditions in YAML, refer to [Conditions](/docs/scripts/conditions/).
 
 ## Conditions check the current state
 
