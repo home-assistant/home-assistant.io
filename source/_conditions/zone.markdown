@@ -20,7 +20,7 @@ For new automations, use these conditions instead:
 - Whether people or device trackers are in a zone: [Is in zone](/conditions/zone.in_zone/)
   - With **For at least**, it can also check how long they've been there.
 - Whether people or device trackers are not in a zone: [Is not in zone](/conditions/zone.not_in_zone/)
-- Whether someone is in one of several zones: an **Or** block with an [Is in zone](/conditions/zone.in_zone/) condition for each zone
+- Whether one person or device tracker is in one of several zones: an **Or** block with an [Is in zone](/conditions/zone.in_zone/) condition for each zone
 - Whether anyone is in a zone: [Zone occupancy is detected](/conditions/zone.occupancy_is_detected/)
 - Whether an entity that isn't a person or a device tracker is in a zone: no newer condition checks this. Keep using the **Zone** condition in YAML.
 
@@ -89,7 +89,8 @@ condition: |
 - With several entities, the condition only passes if every entity is in one of the zones. They don't have to be in the same zone.
 - For people and device trackers, the condition uses the zones they're in, from their `in_zones` attribute. For other entities, and for device trackers without that attribute, it uses their `latitude` and `longitude` attributes and their GPS accuracy.
 - If an entity is unavailable or unknown, it doesn't count as being in a zone, so the condition doesn't pass.
-- A person without a location doesn't count as being in a zone. For other entities without a location, the condition fails with an error. The error is shown in the trace.
+- A person without a location doesn't count as being in a zone.
+- If the zone or the entity doesn't exist, or an entity other than a person has no location, the condition fails with an error. The error is shown in the trace.
 
 ## Examples
 
