@@ -20,20 +20,21 @@ To use this trigger in an automation:
 3. In the **When** section, select **Add trigger**.
 4. From the search box, search for and select **Calendar event started**.
 5. Under **Targets** (see [Targets](#targets)), select **Add target** and pick what to watch. Select the calendar entity with the event that you want to watch. You can also select a device or a label, for example.
-6. Under **Offset**, you can enter the time from the start of the event when the trigger will fire. If you want the trigger to fire at the starting time of the event, skip this and the next option and select **Save**.
-7. If you entered an offset, under **Offset type**, select one of the following:
-   - **Before** if you want the trigger to fire before the start of the event.
-   - **After** if you want the trigger to fire after the start of the event.
-8. Select **Save**.
+6. Optionally, set an offset to fire before or after the start of the event:
+   - Under **Offset**, select **Before** or **After**.
+   - Under **Duration**, enter how far from the start of the event to fire, such as 15 minutes.
+7. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Offset:
-  description: The length of time from the start of the event in days, hours, minutes, and seconds.
-Offset type:
-  description: Whether to trigger before or after the start of the event, if an offset is defined.
-  default: before
+  description: |
+    Whether to fire before or after the start of the event:
+
+    - **No offset**: fires exactly when the event starts. This is the default.
+    - **Before**: fires the duration you enter before the start of the event.
+    - **After**: fires the duration you enter after the start of the event.
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -47,11 +48,10 @@ trigger: |
     entity_id: calendar.personal
   options:
     offset:
-      hours: 1
-      minutes: 15
-      seconds: 5
-      days: 1
-    offset_type: before
+      hours: -1
+      minutes: -15
+      seconds: -5
+      days: -1
 {% endexample %}
 
 This fires 1 day, 1 hour, 15 minutes and 5 seconds before the start of an event in `calendar.personal`.
@@ -63,15 +63,9 @@ YAML sometimes provides additional options for more complex use cases that are n
 {% options_yaml %}
 offset:
   description: >
-    The length of time from the start of the event. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format, for example.
+    The length of time from the start of the event. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format. A negative value, such as `minutes: -30` or `"-00:30:00"`, fires before the start of the event. A positive value fires after.
   required: true
   type: time
-offset_type:
-  description: >
-    Whether to trigger before or after the start of the event, if an offset is defined.
-  required: false
-  type: string
-  default: before
 {% endoptions_yaml %}
 
 <!-- Keep the "include" below if your integration supports targets -->
