@@ -10,7 +10,7 @@ ha_domain: threema
 ha_platforms:
   - notify
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_codeowners:
   - '@LukasQ'
 ---
@@ -22,7 +22,7 @@ The **Threema** {% term integration %} allows you to send end-to-end encrypted t
 - A [Threema Gateway](https://gateway.threema.ch) account. For testing purposes, you can [request developer credits](https://gateway.threema.ch) from Threema.
 - A Gateway ID (starts with `*`). You can use an existing ID or create a new one during setup. Make sure to select the **E2E Gateway** configuration when making the request.
 - An API secret from the Threema Gateway dashboard.
-- Message credits on your Threema Gateway account. Sending a message costs **1,600 credits with E2E mode** or **800 credits with basic mode**.
+- Message credits on your Threema Gateway account. Requesting a Threeema ID with E2E support **costs 1,600 credits** or **800 credits with basic support.**
 
 Setting up Threema Gateway is a two-step process:
 
