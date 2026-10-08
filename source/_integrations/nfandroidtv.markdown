@@ -50,8 +50,6 @@ To send a notification from an automation or a script:
 7. Enter the **Message** and set any other options.
 8. Select **Save**.
 
-{% details "Example YAML configuration" %}
-
 {% example %}
 action: |
   action: notify.send_message
@@ -61,8 +59,6 @@ action: |
     title: "Just a reminder"
     message: "You are awesome!"
 {% endexample %}
-
-{% enddetails %}
 
 {% include integrations/actions.md %}
 
