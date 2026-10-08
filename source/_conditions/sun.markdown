@@ -22,7 +22,9 @@ For new automations, use these conditions instead:
 - Around sunrise or sunset, instead of an offset: [Sun elevation](/conditions/sun.elevation/)
   - An angle follows the light outside through the seasons better than a fixed offset in time.
 - From sunset until midnight: [Sun is set](/conditions/sun.is_set/), together with a [Time](/docs/scripts/conditions/#time-condition) condition with **After** set to 12:00
+  - This works wherever the sun rises before 12:00 and sets after 12:00.
 - From midnight until sunrise: [Sun is set](/conditions/sun.is_set/), together with a [Time](/docs/scripts/conditions/#time-condition) condition with **Before** set to 12:00
+  - This works wherever the sun rises before 12:00 and sets after 12:00.
 
 ## Editing this condition in the UI
 
@@ -119,7 +121,7 @@ When the porch motion sensor detects motion, this automation turns on the porch 
 - **Action**: Turn on light
   - **Target**: Porch light (`light.porch`)
 
-In a new automation, use [Sun is set](/conditions/sun.is_set/) instead. It passes at the same times.
+In a new automation, use [Sun is set](/conditions/sun.is_set/) instead.
 
 {% details "YAML example for a porch light at night" %}
 
