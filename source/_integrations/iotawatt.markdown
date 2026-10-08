@@ -25,14 +25,14 @@ and create them as sensors in Home Assistant.
 
 {% configuration_basic %}
 Provide legacy period energy sensors:
-  description: Whether the deprecated period energy sensors, which reset at device-local midnight, are provided in addition to the lifetime energy sensors. Disabling this also reduces the number of requests sent to the IoTaWatt device.
+  description: Whether the deprecated period energy sensors, which reset at device-local midnight, are provided in addition to the lifetime energy sensors. On by default for devices added before the lifetime sensors were introduced, and off for newly added devices. Disabling this also reduces the number of requests sent to the IoTaWatt device.
 {% endconfiguration_basic %}
 
 ## Energy management and sensor availability
 
 You can use the energy sensors directly with the Home Assistant energy dashboard.
 
-For every power sensor, the integration provides a lifetime energy sensor (suffixed `.wh_lifetime`). These are meter readings counted by the IoTaWatt itself since the beginning of its datalog; the start of the metering period is available in the `metering_since` attribute. Use these sensors in the energy dashboard — Home Assistant derives hourly, daily, and monthly values from them automatically.
+For every power sensor, the integration provides a lifetime energy sensor (suffixed `.wh_lifetime`). These are meter readings counted by the IoTaWatt itself since the beginning of its datalog; the start of the metering period is available in the `metering_since` attribute. Use these sensors in the energy dashboard. Home Assistant automatically derives hourly, daily, and monthly values from them.
 
 IoTaWatt **Inputs** are available as sensors and are shown on the IoTaWatt device page in Home Assistant.
 
@@ -43,7 +43,7 @@ Any **Outputs** you create within the IoTaWatt unit are also available as sensor
 Previous versions provided energy sensors (suffixed `.wh`) that reset at device-local midnight. These are deprecated and will be removed in a future release. Existing installations keep them alongside the new lifetime sensors and show a repair issue until the migration is completed:
 
 1. Replace the deprecated `.wh` sensors with the corresponding `.wh_lifetime` sensors in the energy dashboard and in automations, scripts, and templates.
-2. Fix the repair issue (or disable the **Provide legacy period energy sensors** option of the integration entry).
+2. Go to {% my repairs title="**Settings** > **System** > **Repairs**" %} and fix the IoTaWatt repair issue. Alternatively, turn off the **Provide legacy period energy sensors** option in the IoTaWatt integration entry.
 
 This removes the deprecated sensors; already recorded long-term statistics remain available. Newly added IoTaWatt devices only provide the lifetime sensors.
 
