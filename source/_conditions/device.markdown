@@ -20,6 +20,7 @@ To use this condition in an automation:
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
 4. Select **By type**. Under **Generic**, select **Device**.
+   - You can also search for **Device**.
 5. Under **Device**, select the device you want to check.
 6. Under **Condition**, select what you want to check.
    - Some conditions show more options, such as **Duration**, **Above**, or **Below**.
