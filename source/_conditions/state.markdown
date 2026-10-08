@@ -91,6 +91,21 @@ for:
   type: string
 {% endoptions_yaml %}
 
+You can use templates in a time period mapping for `for`.
+Home Assistant evaluates the templates when it tests the condition.
+In this example, it gets the number of minutes and seconds from number helpers.
+If the helpers are set to 5 and 30, the entity must have had the specified state for at least 5 minutes and 30 seconds.
+
+{% example %}
+condition: |
+  condition: state
+  entity_id: device_tracker.paulus
+  state: "home"
+  for:
+    minutes: "{{ states('input_number.lock_min') | int }}"
+    seconds: "{{ states('input_number.lock_sec') | int }}"
+{% endexample %}
+
 The following example passes if at least one of two motion sensors detects motion:
 
 {% example %}
