@@ -84,7 +84,7 @@ Some integrations, such as [Philips Hue](/integrations/hue/), provide their own 
 
 An automation or a script can create a scene while it runs, with the [**Create scene**](/actions/scene.create/) action. For example, it can save the current states of some devices, change them, and restore them later. The scene is removed again when you reload the scenes or restart Home Assistant.
 
-## Activating a scene
+## Ways to activate a scene
 
 When you activate a scene, Home Assistant sets each of its devices and entities to the state stored in the scene. You can activate a scene in several ways:
 
