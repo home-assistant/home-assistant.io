@@ -67,7 +67,7 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 - **Apparent power** (`apparent_power`): Apparent power, in mVA, VA, or kVA.
 - **Air quality index** (`aqi`): Air quality index, without a unit.
 - **Area** (`area`): Area, in m², cm², km², mm², in², ft², yd², mi², ac, or ha.
-- **Atmospheric pressure** (`atmospheric_pressure`): Atmospheric pressure, in mPa, Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, inH₂O, or psi.
+- **Atmospheric pressure** (`atmospheric_pressure`): Atmospheric pressure, in mPa, Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, inH₂O, psi, or atm.
 - **Battery** (`battery`): Battery level, in %.
   - Triggers: [Battery level changed](/triggers/battery.level_changed/), [Battery level crossed threshold](/triggers/battery.level_crossed_threshold/)
   - Condition: [Battery level](/conditions/battery.is_level/)
@@ -85,9 +85,9 @@ Each item shows the name you see in the Home Assistant interface, followed by th
 - **Date** (`date`): A date.
 - **Distance** (`distance`): Distance, in km, m, cm, mm, mi, nmi, yd, ft, or in.
 - **Duration** (`duration`): Duration, in d, h, min, s, ms, or μs.
-- **Energy** (`energy`): Energy, in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal.
+- **Energy** (`energy`): Energy, in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, Gcal, or thm.
 - **Energy per distance** (`energy_distance`): Energy used per distance, in kWh/100km, Wh/km, mi/kWh, or km/kWh.
-- **Stored energy** (`energy_storage`): Stored energy, such as in a battery, in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal.
+- **Stored energy** (`energy_storage`): Stored energy, such as in a battery, in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, Gcal, or thm.
 - **Sensor** (`enum`): A sensor with a fixed list of possible text states.
 - **Frequency** (`frequency`): Frequency, in mHz, Hz, kHz, MHz, or GHz.
 - **Gas** (`gas`): Gas volume, in L, m³, ft³, CCF, or MCF.
@@ -133,7 +133,7 @@ Each item shows the name you see in the Home Assistant interface, followed by th
   - Condition: [Power value](/conditions/power.is_value/)
 - **Precipitation** (`precipitation`): Accumulated precipitation, in cm, in, or mm.
 - **Precipitation intensity** (`precipitation_intensity`): Precipitation intensity, in in/d, in/h, mm/d, or mm/h.
-- **Pressure** (`pressure`): Pressure, in mPa, Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, inH₂O, or psi.
+- **Pressure** (`pressure`): Pressure, in mPa, Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, inH₂O, psi, or atm.
 - **Radon** (`radon`): Radon concentration, in Bq/m³ or pCi/L.
 - **Reactive energy** (`reactive_energy`): Reactive energy, in varh or kvarh.
 - **Reactive power** (`reactive_power`): Reactive power, in mvar, var, or kvar.

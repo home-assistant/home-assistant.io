@@ -95,6 +95,8 @@ If someone already has a user account, for example because you created it on the
 
 To upload a picture in the frontend, open a person's page, select an image file or drag and drop one into the input field, and then crop it.
 
+You can also change your own picture and name from your user profile. For the steps, refer to [Changing your name and picture](/docs/configuration/user-configuration/#changing-your-name-and-picture).
+
 <lite-youtube videoid="rOlRnwaaT7Y" videotitle="Changing a profile picture" posterquality="maxresdefault"></lite-youtube>
 
 See the documentation about [hosting files](/integrations/http/#hosting-files) for more information about the `www` folder.

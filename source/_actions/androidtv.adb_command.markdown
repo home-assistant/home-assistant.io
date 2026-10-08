@@ -9,7 +9,7 @@ related_actions:
   - androidtv.upload
 ---
 
-Use this action to send a key command (such as `HOME` or `UP`) or a raw ADB shell command to your Android or Fire TV device. If the command returns any output, it is stored in the `adb_response` attribute of the media player entity and logged at the info level.
+Use this action to send a key command (such as `HOME` or `UP`) or a raw ADB shell command to your Android or Fire TV device. If the command returns any output, it is returned as an action response, stored in the `adb_response` attribute of the media player entity, and logged at the info level.
 
 {% include actions/ui_header.md %}
 
@@ -60,7 +60,7 @@ command:
 ## Good to know
 
 - Key commands include `POWER`, `SLEEP`, `HOME`, `UP`, `DOWN`, `LEFT`, `RIGHT`, `CENTER`, `BACK`, and `MENU`. The full list lives in the backend [androidtv](https://github.com/JeffLIrion/python-androidtv) package.
-- Use the special command `GET_PROPERTIES` to retrieve the properties Home Assistant uses to determine the device state. The result is stored in the `adb_response` attribute and is helpful when you want to write your own custom state detection rules.
+- Use the special command `GET_PROPERTIES` to retrieve the properties Home Assistant uses to determine the device state. The result is returned as an action response, stored in the `adb_response` attribute, and is helpful when you want to write your own custom state detection rules.
 - When a command returns output, read it from the `adb_response` attribute, for example with `{% raw %}{{ state_attr('media_player.fire_tv_living_room', 'adb_response') }}{% endraw %}`.
 - Sending key commands like `UP` and `HOME` over ADB can be slow. To send them faster, use [Learn sendevent](/actions/androidtv.learn_sendevent/) to translate a button press into a faster `sendevent` command.
 

@@ -566,6 +566,7 @@ layout: null
 /integrations/crimereports /more-info/removed-integration 301
 /integrations/cups /more-info/removed-integration 301
 /integrations/darksky /more-info/removed-integration 301
+/integrations/de_dietrich /more-info/removed-integration 301
 /integrations/decora /more-info/removed-integration 301
 /integrations/deutsche_bahn /more-info/removed-integration 301
 /integrations/device_tracker.trackr /more-info/removed-integration 301
@@ -577,6 +578,7 @@ layout: null
 /integrations/dominos /more-info/removed-integration 301
 /integrations/dovado /more-info/removed-integration 301
 /integrations/dte_energy_bridge /more-info/removed-integration 301
+/integrations/dublin_bus_transport /more-info/removed-integration 301
 /integrations/duke_energy /more-info/removed-integration 301
 /integrations/dweet /more-info/removed-integration 301
 /integrations/dyson /more-info/removed-integration 301
@@ -589,6 +591,7 @@ layout: null
 /integrations/envirophat /more-info/removed-integration 301
 /integrations/epsonworkforce /more-info/removed-integration 301
 /integrations/essent /more-info/removed-integration 301
+/integrations/etherscan /more-info/removed-integration 301
 /integrations/facebox /more-info/removed-integration 301
 /integrations/fedex /more-info/removed-integration 301
 /integrations/flick_electric /more-info/removed-integration 301
@@ -669,6 +672,7 @@ layout: null
 /integrations/permobil /more-info/removed-integration 301
 /integrations/ptvsd /more-info/removed-integration 301
 /integrations/pushetta /more-info/removed-integration 301
+/integrations/raincloud /more-info/removed-integration 301
 /integrations/raspihats /more-info/removed-integration 301
 /integrations/rpi_camera /more-info/removed-integration 301
 /integrations/rpi_gpio /more-info/removed-integration 301
@@ -682,6 +686,7 @@ layout: null
 /integrations/sensehat /more-info/removed-integration 301
 /integrations/shiftr /more-info/removed-integration 301
 /integrations/sht31 /more-info/removed-integration 301
+/integrations/sigfox /more-info/removed-integration 301
 /integrations/simple_alarm /more-info/removed-integration 301
 /integrations/simulated /more-info/removed-integration 301
 /integrations/smarthab /more-info/removed-integration 301
@@ -689,6 +694,7 @@ layout: null
 /integrations/snips /more-info/removed-integration 301
 /integrations/sochain /more-info/removed-integration 301
 /integrations/socialblade /more-info/removed-integration 301
+/integrations/solaredge_local /more-info/removed-integration 301
 /integrations/somfy /more-info/removed-integration 301
 /integrations/spider /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
@@ -707,6 +713,7 @@ layout: null
 /integrations/tof /more-info/removed-integration 301
 /integrations/tplink_lte /more-info/removed-integration 301
 /integrations/trackr /more-info/removed-integration 301
+/integrations/travisci /more-info/removed-integration 301
 /integrations/ubee /more-info/removed-integration 301
 /integrations/uber /more-info/removed-integration 301
 /integrations/ue_smart_radio /more-info/removed-integration 301
@@ -731,9 +738,11 @@ layout: null
 /integrations/xfinity /more-info/removed-integration 301
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
+/integrations/zestimate /more-info/removed-integration 301
 /integrations/zengge /integrations/led_ble 301
 /integrations/google_gemini /integrations/google_generative_ai_conversation 301
 /integrations/qube_heatpump /integrations/hr_energy_qube 301
+/integrations/oru /integrations/opower 301
 /components/zwave /integrations/zwave_js
 
 # Lovelace images
@@ -891,6 +900,7 @@ layout: null
 /triggers/vacuum.docked /triggers/vacuum.returned_to_dock/ 301
 /conditions/climate.target_humidity /conditions/climate.is_target_humidity/ 301
 /conditions/climate.target_temperature /conditions/climate.is_target_temperature/ 301
+/integrations/axle /integrations/axle_energy 301
 
 # Any trigger or condition without its own page shows an explanation instead of a plain 404.
 # Keep these rules below all other /triggers/ and /conditions/ redirects.
