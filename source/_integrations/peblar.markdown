@@ -139,6 +139,11 @@ Using this entity, you can set the maximum current the charger can provide to yo
 
 The minimum value for this entity is 6A, and the maximum value is depending on your charger's configuration. The value can be set in increments of 1A.
 
+Two more number entities configure the **Custom solar** charging mode. Both are a power on your grid connection in watts (W), where a negative value means power going out to the grid:
+
+- **Custom solar start threshold**: The net power at which charging starts, and below which it stops again. The charger's default is -1300 W, so charging begins once your house exports 1300 W. A value closer to zero starts earlier and takes some power from the grid; a positive value lets charging start while your house still draws from the grid, as long as that draw stays below the value you set.
+- **Custom solar grid target**: What the charger steers your connection to once it is charging. A target of 0 W uses exactly your surplus, no more and no less. A negative value keeps exporting to the grid, a positive value draws extra from it to charge faster. The charger always delivers at least 6A while charging, whatever the target.
+
 ### Selects
 
 This integration provides the following select entities.
@@ -181,11 +186,11 @@ The following options are available:
 - **Fast solar** ({% term state %}: `fast_solar`): The charger will fast charge the electric vehicle with the overproduction of solar energy, but will also use grid power if the solar production is not sufficient.
 - **Smart solar** ({% term state %}: `smart_solar`): The charger will charge the electric vehicle with the overproduction of solar energy, but will also use grid power if the solar production is not sufficient.
 - **Pure solar** ({% term state %}: `pure_solar`): The charger will only charge the electric vehicle with the overproduction of solar energy.
-- **Custom solar** ({% term state %}: `custom_solar`): The charger will charge the electric vehicle on solar energy, using the thresholds and grid power target you set on the charger itself.
+- **Custom solar** ({% term state %}: `custom_solar`): The charger will charge the electric vehicle on solar energy, following the start threshold and grid power target you set yourself.
 - **Scheduled** ({% term state %}: `scheduled`): The charger will charge the electric vehicle according to the schedule configured on the charger.
 
 {% note %}
-**Custom solar** is only offered by chargers running firmware 1.10 or later, and only when the charger has a power meter configured. The thresholds are set in the charger's web interface. Home Assistant selects the mode but doesn't change those settings.
+**Custom solar** is only offered by chargers running firmware 1.10 or later, and only when the charger has a power meter configured. The settings it runs on are the **Custom solar** number and switch entities described below.
 {% endnote %}
 
 ### Sensors
@@ -256,10 +261,12 @@ This integration provides the following switch entities:
 - **Charge**: This switch allows you to start or stop/pause the charging of your electric vehicle. This can be helpful if you want to temporarily stop charging your electric vehicle, for example, to avoid charging during expensive peak hours.
 - **Force single phase**: This switch can be used to force the charger to use a single phase for charging your electric vehicle. This can be useful if you want to limit your current draw from the charger to a single phase, for example, to prevent overloading your electrical installation.
 - **Keep socket locked**: When enabled, the cable stays locked in the charger. When disabled, the charger releases the cable once your vehicle is disconnected, so anyone can unplug it and take it with them. Turning this on while nothing is plugged in has no immediate effect: the charger locks the cable the next time one is inserted.
+- **Custom solar always charge**: When enabled, the **Custom solar** mode ignores its start threshold. Charging begins as soon as you plug in and follows the grid power target from the first second, with a minimum of 6A.
 
 {% note %}
 - The **Force single phase** switch is only available if your charger is connected to multiple phases. If your charger is connected to a single-phase power source, this switch will not be created.
 - The **Keep socket locked** switch is only available on Peblar chargers that are equipped with a socket.
+- The **Custom solar** entities are only available on chargers that support the **Custom solar** mode, which needs firmware 1.10 or later and a configured power meter. They can be set at any time, and take effect whenever that mode is selected.
 {% endnote %}
 
 ### Updates
