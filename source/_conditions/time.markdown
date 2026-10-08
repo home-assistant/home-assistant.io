@@ -10,7 +10,7 @@ related_conditions:
 
 The **Time** condition checks whether the current time is in a time window, or whether today is one of the days of the week that you select. Use it when an automation should only continue at certain times. For example, the automation only turns on a light at full brightness during the day, or only sends a reminder on weekdays.
 
-The time can be a fixed time, or the value of a [date and time helper](/integrations/input_datetime/), a time entity, or a timestamp sensor. With a helper that you create yourself, you can change the time later without editing the automation.
+The time can be a fixed time, or the value of a [date and time helper](/integrations/input_datetime/), a time {% term entity %}, or a timestamp sensor. With a helper that you create yourself, you can change the time later without editing the automation.
 
 {% include conditions/ui_header.md %}
 
