@@ -139,6 +139,7 @@ This condition checks one or more entities:
 
 - A value that is exactly the same as a limit doesn't pass. For example, with **Above** set to `24`, a value of `24` doesn't pass.
 - If the value is unavailable (`unavailable`) or unknown (`unknown`), the condition doesn't pass. The same happens if an entity that you use as a limit is unavailable or unknown.
+- If an entity that you use as a limit doesn't exist, the condition fails with an error. The error is shown in the trace.
 - If the value isn't a number, the condition fails with an error. For example, a state like `on` or `open` isn't a number. The error is shown in the trace.
 - If you select an **Attribute** that the entity doesn't have, the condition doesn't pass.
 - This condition checks the value right now. To start an automation when a value crosses a limit, use the [Numeric state crossed threshold](/triggers/numeric_state/) trigger.
