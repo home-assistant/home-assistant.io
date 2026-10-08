@@ -19,9 +19,9 @@ You add conditions in the **And if** section of the automation editor, with **Ad
 ## Kinds of conditions
 
 - Conditions named after what they check, such as **Light is on**, work with one type of entity.
-- General conditions, such as **State**, **Numeric state**, **Time**, and **Template**, aren't tied to one type of entity.
+- Other conditions work with any entity, or with the time, such as **State**, **Numeric state**, **Time**, and **Template**.
 
-For all conditions, refer to the [list of available conditions](/conditions/). For the general conditions, and for writing conditions in YAML, refer to [Conditions](/docs/scripts/conditions/).
+For all conditions, refer to the [list of available conditions](/conditions/). For these other conditions, and for writing conditions in YAML, refer to [Conditions](/docs/scripts/conditions/).
 
 ## Conditions check the current state
 
@@ -30,7 +30,7 @@ A condition checks the state at the moment the automation runs.
 This is why:
 
 - A condition doesn't start the automation when it becomes true. To start the automation when something becomes true, use a trigger.
-- A condition isn't checked again later. If the state changes after the check, the automation doesn't notice.
+- If the state changes after the check, the condition isn't checked again. The automation continues or stops based on that one check.
 
 For examples, refer to [Conditions check the current state](/docs/automation/how-automations-react-to-changes/#conditions-check-the-current-state).
 
