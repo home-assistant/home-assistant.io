@@ -7,7 +7,7 @@ related_conditions:
   - template
 ---
 
-The **Triggered by** condition checks which trigger started the automation. Use it when an automation has several triggers, and it should do something different depending on the trigger. For example, one automation can close the blinds at sunset and open them at sunrise.
+The **Triggered by** condition checks which {% term trigger %} started the automation. Use it when an automation has several triggers, and it should do something different depending on the trigger. For example, one automation can close the blinds at sunset and open them at sunrise.
 
 You often use this condition in a **Choose** or **If-then** block between the actions, so that one part of the actions only runs for one trigger. You can also use it in the **And if** section.
 
