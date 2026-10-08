@@ -94,7 +94,7 @@ You can configure Home Assistant sensor entities to automatically push live meas
 "Vehicle range sensor":
   description: "Sensor measuring the vehicle's estimated battery range in miles or kilometers."
 "Vehicle time-to-full-charge sensor":
-  description: "Sensor reporting either the estimated time remaining in seconds until the vehicle is fully charged, or a datetime/timestamp of when charging will finish."
+  description: "Sensor reporting either the estimated time remaining (in seconds, minutes, hours, or days) until the vehicle is fully charged, or a datetime/timestamp of when charging will finish."
 "Home battery state of charge sensor":
   description: "Sensor measuring home storage battery state of charge (percentage)."
 "Home battery power sensor":
