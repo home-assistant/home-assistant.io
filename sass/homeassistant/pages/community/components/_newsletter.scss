@@ -1,8 +1,9 @@
 @use '../mixins' as *;
 section#newsletter {
     --section-spacing-y: 0;
-    background-color: #002332;
+    background-color: #CCEFFE;
     border-radius: 12px;
+    margin-top: 24px;
     overflow: hidden;
 
     .container {
@@ -29,9 +30,8 @@ section#newsletter {
         text-wrap: balance;
     }
 
-    &,
-    p {
-        color: #ffffff;
+    h2 {
+        color: #002332;
     }
 
     @include bp(tablet) {
