@@ -189,7 +189,7 @@ port:
 
 {% endconfiguration %}
 
-#### Example: typical TCP configuration
+#### Example: Typical TCP configuration
 
 ```yaml
 # Example yaml: typical tcp connection
@@ -200,7 +200,7 @@ modbus:
     port: 502
 ```
 
-#### Example: full TCP configuration
+#### Example: Full TCP configuration
 
 ```yaml
 # Example yaml: full tcp connection
@@ -234,7 +234,7 @@ port:
 
 {% endconfiguration %}
 
-#### Example: typical TCP-RTU configuration
+#### Example: Typical TCP-RTU configuration
 
 ```yaml
 # Example yaml: typical tcp-rtu connection
@@ -245,7 +245,7 @@ modbus:
     port: 502
 ```
 
-#### Example: full TCP-RTU configuration
+#### Example: Full TCP-RTU configuration
 
 ```yaml
 # Example yaml: full tcp-rtu connection
@@ -276,7 +276,7 @@ port:
 
 {% endconfiguration %}
 
-#### Example: typical UDP configuration
+#### Example: Typical UDP configuration
 
 ```yaml
 # Example yaml: typical udp connection
@@ -287,7 +287,7 @@ modbus:
     port: 502
 ```
 
-#### Example: full UDP configuration
+#### Example: Full UDP configuration
 
 ```yaml
 # Example yaml: full udp connection
@@ -362,7 +362,7 @@ stopbits:
 
 {% endconfiguration %}
 
-#### Example: typical serial configuration
+#### Example: Typical serial configuration
 
 ```yaml
 # Example yaml:  typical serial connection
@@ -377,7 +377,7 @@ modbus:
     stopbits: 1
 ```
 
-#### Example: full serial configuration
+#### Example: Full serial configuration
 
 ```yaml
 # Example yaml: full udp connection
@@ -480,7 +480,7 @@ unique_id:
 
 {% endconfiguration %}
 
-#### Example: entities grouping
+#### Example: Entities grouping
 
 ```yaml
 # Example yaml: entities grouping
@@ -564,7 +564,7 @@ binary_sensors:
 
 {% endconfiguration %}
 
-#### Example: typical binary sensor configuration
+#### Example: Typical binary sensor configuration
 
 ```yaml
 # Example yaml: typical binary_sensor
@@ -579,7 +579,7 @@ modbus:
         slave: 1
 ```
 
-#### Example: full binary sensor configuration
+#### Example: Full binary sensor configuration
 
 ```yaml
 # Example yaml: binary_sensor with all options
@@ -599,7 +599,7 @@ modbus:
         unique_id: my_relay
 ```
 
-#### Example: multiple identical binary sensor configuration
+#### Example: Multiple identical binary sensor configuration
 
 ```yaml
 # Example of 10 identical binary_sensor
@@ -1005,7 +1005,7 @@ climates:
 
 {% endconfiguration %}
 
-#### Example: climate configuration
+#### Example: Climate configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -1304,7 +1304,7 @@ fans:
           type: integer
 {% endconfiguration %}
 
-#### Example: fan configuration
+#### Example: Fan configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -1432,7 +1432,7 @@ lights:
 
 {% endconfiguration %}
 
-#### Example: light configuration
+#### Example: Light configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -1616,7 +1616,7 @@ sensors:
 If you specify scale or offset as floating point values, double precision floating point arithmetic will be used to calculate final value. This can cause loss of precision for values that are larger than 2^53.
 {% endnote %}
 
-#### Example: sensor configuration
+#### Example: Sensor configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -1646,7 +1646,7 @@ modbus:
 ```
 
 
-#### Example: sensor full configuration
+#### Example: Sensor full configuration
 
 Example temperature sensor with a default scan interval:
 
@@ -1750,7 +1750,7 @@ switches:
 
 {% endconfiguration %}
 
-#### Example: switch configuration
+#### Example: Switch configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -1779,7 +1779,7 @@ modbus:
 ```
 
 
-#### Example: switch full configuration
+#### Example: Switch full configuration
 
 ```yaml
 # Example configuration.yaml entry
