@@ -16,7 +16,7 @@ You add actions in the **Then do** section of the automation editor. For the ste
 
 ## Parts of an action
 
-Each action does one thing, for example, **Turn on light**. For a description of all actions, refer to the [list of available actions](/actions/).
+Each action does one thing. For example, **Turn on light** turns on lights. For a description of all actions, refer to the [list of available actions](/actions/).
 
 Many actions also have some of the following parts:
 
@@ -33,7 +33,7 @@ An automation runs its actions one after the other, from top to bottom.
 
 This is why:
 
-- A condition between the actions can stop the run. If the condition isn't met, the actions after the condition don't run. For details, refer to [Condition](/docs/scripts/#condition).
+- A condition between the actions can stop the automation. If the condition isn't met, the actions after the condition don't run. For details, refer to [Condition](/docs/scripts/#condition).
 - If an action fails, the actions after the failed action don't run. To continue anyway, refer to [Continuing when a step fails](/docs/scripts/#continuing-when-a-step-fails).
 - Actions don't run at the same time. To run actions at the same time, use [Run in parallel](/docs/scripts/#run-in-parallel).
 
@@ -43,4 +43,4 @@ Building blocks control whether, when, and in which order the actions run. For e
 
 ## Running the actions directly
 
-To try the actions of an automation, select **Menu** {% icon "mdi:dots-vertical" %} > **Run actions** in the automation editor. **Run actions** is available after you save the automation. **Run actions** skips the **When** and **And if** sections, and performs the actions right away. To run a single action, refer to [Testing an action](/docs/scripts/perform-actions/#testing-an-action).
+You can run the actions of an automation without waiting for its trigger: all actions at once, or a single action. For the steps, refer to [Testing all the actions](/docs/automation/testing/#testing-all-the-actions) and [Testing an action](/docs/automation/testing/#testing-an-action).
