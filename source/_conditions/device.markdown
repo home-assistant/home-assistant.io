@@ -10,7 +10,7 @@ related_conditions:
 
 The **Device** condition checks something that a {% term device %} provides. You select a device, and then select one of the conditions it offers. For example, you can check whether the garage door is open, or whether the alarm is armed.
 
-The conditions you can select depend on the device and its {% term integration %}. Lights and switches usually offer **is on** and **is off**. Sensors can offer a check on their value, and covers can offer **is open** and **is closed**. Not every device offers conditions.
+The conditions you can select depend on the device and its {% term integration %}. For example, a light usually offers **Living room light is on** and **Living room light is off**. A sensor can offer a check on its value, and a cover can offer **Garage door is open**. Not every device offers conditions.
 
 {% include conditions/ui_header.md %}
 
@@ -35,7 +35,7 @@ Condition:
   description: What to check on the device. The list shows the conditions that this device offers, such as **Garage door is open**.
   required: true
 Duration:
-  description: Only for some conditions, such as **is on** and **is off**. The condition only passes if the device has been in that state for at least this long.
+  description: Only for some conditions, such as whether a light is on or off. The condition only passes if the device has been in that state for at least this long.
   required: false
 Above:
   description: Only for some conditions, such as a sensor value. The condition passes if the value is above this number.
@@ -47,7 +47,7 @@ Below:
 
 {% include conditions/yaml_header.md %}
 
-In YAML, use `condition: device`. A device condition refers to the device and the entity by their internal IDs, not by their names. The easiest way to get the YAML is to create the condition in the editor first, then switch to **Edit in YAML**. A basic example looks like this:
+In YAML, use `condition: device`. A device condition refers to the device and the entity by their internal IDs, not by their names. The easiest way to get the YAML is to create the condition in the editor first. Then, on the condition, select **Menu** {% icon "mdi:dots-vertical" %} > **Edit in YAML**. A basic example looks like this:
 
 {% example %}
 condition: |
@@ -91,10 +91,11 @@ Some condition types accept more options, such as `for`, `above`, or `below`. Th
 
 ## Good to know
 
-- Because the condition uses internal IDs, it keeps working if you rename the device or change the entity ID.
-- If you remove the device, the automation can't start anymore. The log shows `Unknown device` with the device ID, and the editor shows **Editor not available for unknown device**. Select a different device, or replace the condition.
-- If you replace a device with a new one, the condition still refers to the old device. Open the condition and select the new device.
-- If the entity is unavailable or unknown, conditions like **is on** or **is open** don't pass.
+- When you create the condition in the editor, it uses internal IDs. It keeps working if you rename the device or change the entity ID. After you change an entity ID, restart Home Assistant or reload your automations, so the condition picks up the new entity ID.
+- If you write an entity ID, such as `cover.garage_door`, in YAML, update the condition when that entity ID changes.
+- If you remove the device or its entity, for example, because you replaced the device, the automation stops working. After the next restart or reload, {% my repairs title="**Settings** > **System** > **Repairs**" %} shows that the automation failed to set up. The error is `Unknown device` or `Unknown entity`, with the ID.
+- For a removed device, the editor shows **Editor not available for unknown device**. To fix the automation, delete the condition and add it again with the new device.
+- If the entity is unavailable or unknown, the condition doesn't pass. For example, a check whether a light is on or a cover is open fails.
 - The [State](/docs/scripts/conditions/#state-condition) and [Numeric state](/docs/scripts/conditions/#numeric-state-condition) conditions check an entity directly. In YAML, they are easier to read and to share, because they use the entity ID.
 
 {% include conditions/try_it.md %}
