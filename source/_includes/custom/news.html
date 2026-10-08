@@ -532,6 +532,11 @@
     const cards = document.querySelectorAll('.livestream-card[data-livestream-channel]');
     cards.forEach((card) => load(card));
 
+    setInterval(() => {
+      if (document.hidden) return;
+      cards.forEach((card) => load(card, true));
+    }, REFRESH_INTERVAL_MS);
+
     document.addEventListener('visibilitychange', function () {
       if (document.hidden) return;
       cards.forEach((card) => load(card));
