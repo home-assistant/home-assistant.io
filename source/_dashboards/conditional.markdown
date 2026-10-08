@@ -206,7 +206,7 @@ users:
 
 Specify the visibility of the card based on the current user's current location. The location is based on the `person` entity associated with the current user. If the current user does not have a `person` entity, this condition will always resolve to false.
 
-Select zones directly or by label. The card is visible when the person is in any of the selected zones, including a selected zone that contains a smaller zone the person is also in. Turn on `away` to also show the card when the person is not in any zone.
+Select zones directly or by label. The card is visible when the person is in any of the selected zones. The condition matches against the `in_zones` attribute of the `person` entity, which lists every zone the person is in, including passive zones and zones that contain a smaller zone. Turn on `away` to also show the card when the person is not in any zone.
 
 ```yaml
 condition: location
