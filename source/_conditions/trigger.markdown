@@ -47,7 +47,7 @@ This passes when the trigger with the ID `sunset` started the automation.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+The options in YAML are the same as in the UI.
 
 {% options_yaml %}
 condition:
