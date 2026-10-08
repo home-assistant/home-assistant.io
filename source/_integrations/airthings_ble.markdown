@@ -26,7 +26,7 @@ Integrates Airthings BLE {% term sensors %} into Home Assistant.
 
 - A supported Airthings device (see [Supported devices](#supported-devices)) within Bluetooth range of your Home Assistant host, or of a [Bluetooth proxy](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) that supports active connections.
 - A working [Bluetooth](/integrations/bluetooth) integration.
-- The device must use Bluetooth connectivity. All supported devices except Wave gen. 1 can connect through SmartLink instead, using a nearby Airthings device as a hub.
+- The device must use Bluetooth connectivity. All supported devices except Wave Gen. 1 can connect through SmartLink instead, using a nearby Airthings device as a hub.
   - Bluetooth is then turned on only briefly after you wave at the device or press its button, and Home Assistant can't read it.
   - The same applies to a Wave Enhance or Corentium Home 2 whose connectivity has not been set up. See [Switching from SmartLink to Bluetooth](#switching-from-smartlink-to-bluetooth).
 - Up-to-date device firmware. Update it in the Airthings app before adding the device.
@@ -59,7 +59,7 @@ This integration uses the last 6 digits of the serial number.
 
 ## Supported devices
 
-- Wave gen. 1
+- Wave Gen. 1
 - Wave Radon
 - Wave Mini
 - Wave Plus
