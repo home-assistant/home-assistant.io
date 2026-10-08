@@ -32,7 +32,7 @@ You add an action in the automation or script editor. There, you choose what the
 
 ## Testing an action
 
-To check what an action does, run it on its own, without running the whole automation or script. The action is performed right away, so your devices change.
+To check what an action does, run it on its own, without running the whole automation or script. The action is performed right away. For example, a light turns on, or a notification is sent.
 
 - In the editor, on the action, select **Menu** {% icon "mdi:dots-vertical" %} > **Run action**.
 - To try an action before you add it, go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}. For the steps, refer to [Actions tab](/docs/tools/dev-tools/#actions-tab).
