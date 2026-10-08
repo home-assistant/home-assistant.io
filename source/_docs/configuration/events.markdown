@@ -256,6 +256,8 @@ This event is fired when an automation is triggered.
 - `name`: The name of the automation.
 - `entity_id`: The identifier of the automation.
 - `source`: Optional, description of the trigger that started the automation.
+- `item_id`: Optional, the ID of the automation. Only set when the automation has an ID.
+- `run_id`: Optional, the ID of this run, used by the automation's traces. Set together with `item_id`.
 
 ### `scene_reloaded`
 
@@ -273,3 +275,5 @@ This event is fired when a script is run. A script can be started by a user or b
 
 - `name`: Name of the script that was run.
 - `entity_id`: Identifier of the script that was run.
+- `item_id`: The ID of the script, used by its traces.
+- `run_id`: The ID of this run, used by the script's traces.
