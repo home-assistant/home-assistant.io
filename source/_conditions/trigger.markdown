@@ -77,7 +77,10 @@ condition: |
 - If the editor shows **Missing trigger**, the condition refers to an ID that no trigger has anymore. This can happen if you delete a trigger, or change its ID in YAML. To clear the reference, clear the checkbox of the missing trigger.
 - If the editor warns that triggers share the same ID, select **Fix**. Home Assistant gives each of these triggers its own ID and updates the **Triggered by** conditions. Templates and action data that use `trigger.id` aren't updated, so check them yourself.
 - A trigger without an ID uses its position as its ID. In YAML, you can write that ID as a number or as text. For example, `0` and `"0"` both refer to the first trigger.
-- If no trigger started the automation, the condition doesn't pass. This happens when you select **Run actions**, or when you start the automation with the **Trigger automation** action. To test the automation with a trigger, refer to [Using a simulated trigger to test an automation](/docs/automation/testing/#using-a-simulated-trigger-to-test-an-automation).
+- When you select **Run actions**, or start the automation with the **Trigger automation** action, no trigger starts it. Both skip the conditions in **And if** by default, so the actions run.
+  - A **Triggered by** condition in a **Choose** or **If-then** block is still checked. It doesn't pass, so that part of the actions doesn't run.
+  - If you turn off **Skip conditions** in the **Trigger automation** action, a **Triggered by** condition in **And if** doesn't pass either. The automation stops.
+  - To test the automation with a trigger, refer to [Using a simulated trigger to test an automation](/docs/automation/testing/#using-a-simulated-trigger-to-test-an-automation).
 
 {% include conditions/try_it.md %}
 
