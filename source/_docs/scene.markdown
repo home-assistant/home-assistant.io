@@ -104,9 +104,15 @@ To start an automation when a scene is activated, use the [**Scene activated**](
 
 ## Editing a scene
 
-To add devices, or to change the states that a scene stores, edit the scene in **Live Edit**. While you edit, the scene is applied to your devices. To only remove devices or entities, you don't need **Live Edit**: you can remove them in **Review Mode**, and select **Save**.
+You edit a scene in the scene editor. The scene editor can edit scenes that are stored in your `scenes.yaml` file and have an `id`. This includes all scenes that you create in the scene editor. Other scenes can't be edited in the scene editor. Depending on where such a scene comes from, do the following instead:
 
-You can edit all scenes that you create in the editor. Scenes from other YAML files, from other integrations, or from the **Create scene** action can't be edited in the editor. For what you can do instead, refer to [Scene doesn't open in the scene editor](/integrations/scene/#scene-doesnt-open-in-the-scene-editor).
+- For a scene in another YAML file, move the scene to `scenes.yaml`, and give it an `id`. For the steps, refer to [Editing a YAML scene in the scene editor](/integrations/scene/#editing-a-yaml-scene-in-the-scene-editor).
+- For a scene from another integration, change the scene where that integration manages its scenes. For details, refer to [Scenes from other integrations](/integrations/scene/#scenes-from-other-integrations).
+- A temporary scene from the **Create scene** action can't be edited. To change it, run **Create scene** again with the same **Scene entity ID**.
+
+### Editing a scene in the visual editor
+
+To add devices, or to change the states that a scene stores, edit the scene in **Live Edit**. While you edit, the scene is applied to your devices. To only remove devices or entities, you don't need **Live Edit**: you can remove them in **Review Mode**, and select **Save**.
 
 1. Go to {% my scenes title="**Settings** > **Automations & scenes** > **Scenes**" %}, and open the scene.
    - The editor opens in **Review Mode**.
