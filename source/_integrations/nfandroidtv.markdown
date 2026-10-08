@@ -72,12 +72,14 @@ These examples show how to use the TV notify entity in automations. Replace the 
 
 ### Automation: show a doorbell notification
 
-Show a notification on the TV when the doorbell detects motion.
+Show a notification with a camera snapshot on the TV when the doorbell rang.
 
-- **Trigger**: State changed, doorbell motion changes to detected
+- **Trigger**: Doorbell rang
+  - **Targe**: Front door doorbell
 - **Action**: Send a notification via `nfandroidtv.send_message`
   - **Target**: Living room TV (`notify.living_room_tv`)
   - **Message**: Someone is at the front door.
+  - **Image**: Snapshot from `camera.front_door`
   - **Duration**: 4 seconds
   - **Position**: Bottom left
 
@@ -87,15 +89,18 @@ Show a notification on the TV when the doorbell detects motion.
 automation: |
   alias: "Show doorbell notification on the TV"
   triggers:
-    - trigger: state
-      entity_id: binary_sensor.doorbell_motion
-      to: "on"
+    - trigger: doorbell.rang
+      target:
+        entity_id: event.front_door_doorbell
   actions:
     - action: nfandroidtv.send_message
       target:
         entity_id: notify.living_room_tv
       data:
         message: "Someone is at the front door."
+        image:
+          media_content_id: media-source://camera/camera.front_door
+          media_content_type: application/vnd.apple.mpegurl
         duration:
           seconds: 4
         position: "bottom-left"

@@ -134,32 +134,42 @@ transparency:
 
 {% include actions/more_examples.md %}
 
-### Action: send a doorbell notification with a front door camera snapshot
+### Action: send a notification with a front door camera snapshot
 
-When the doorbell is pressed, send a notification that includes a snapshot from the front door camera.
+Send a notification that includes a snapshot from the front door camera.
 
 - **Action**: Notifications for Android TV / Fire TV: Send a notification message
-- **Target**: My TV
+  - **Target**: Living room TV (`notify.living_room_tv`)
+  - **Message**: Someone is at the front door
+  - **Image**: Snapshot from `camera.front_door`
 
 {% example %}
 action: |
   action: nfandroidtv.send_message
   target:
-    entity_id: notify.my_tv
+    entity_id: notify.living_room_tv
   data:
     message: "Someone is at the door"
     image:
-      media_content_id: media-source://camera/camera.demo_camera
+      media_content_id: media-source://camera/camera.front_door
       media_content_type: application/vnd.apple.mpegurl
 {% endexample %}
 
-### Action: send a one-time password to your TV when starting Final Fantasy XIV
+### Automation: send a one-time password to your TV when starting Final Fantasy XIV
 
 When you launch Final Fantasy XIV on your PlayStation console, automatically send a one-time password from an [OTP sensor](/integrations/otp/) to your TV, making it easy to log in without reaching for another device.
 
-- **Trigger**: State
+- **Trigger**: State changed, media title changes to `FINAL FANTASY XIV Online`
 - **Action**: Notifications for Android TV / Fire TV: Send a notification message
-- **Target**: My TV
+  - **Target**: Living room TV (`notify.living_room_tv`)
+  - **Title**: Your One-Time Password
+  - **Message**: Template using the current state of `sensor.otp_final_fantasy_xiv`
+  - **Icon**: `ffxiv_meteor.png` from the local media source
+  - **Fontsize**: Medium
+  - **Position**: Bottom right
+  - **Duration**: 30 seconds
+  - **Transparency**: 75%
+  - **Background color**: Amber
 
 {% example %}
 automation: |
@@ -171,7 +181,7 @@ automation: |
   actions:
     action: nfandroidtv.send_message
     target:
-      entity_id: notify.my_tv
+      entity_id: notify.living_room_tv
     data:
       title: "Your One-Time Password"
       message: |
