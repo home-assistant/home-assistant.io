@@ -82,7 +82,7 @@ for:
 
 If a window opens while the bedroom fan is running, you may want a reminder so you can decide whether to keep using the fan.
 
-- **Trigger**: State: Window changes to open
+- **Trigger**: State changed: Window changes to open
 - **Condition**: Fan is on
   - **Target**: Bedroom fan
   - **Condition passes if**: Any
@@ -120,7 +120,7 @@ automation: |
 
 If the office is already warm enough for the fan to be running, you can also lower the blinds when the sun gets strong.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Sun
   - **To**: Above horizon
 - **Condition**: Fan is on

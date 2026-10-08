@@ -139,7 +139,7 @@ If you want more control over when an entity updates, you can define triggers. T
 
 Whenever a trigger fires, all related entities re-render and have access to [the trigger data](/docs/automation/templating/) in the templates.
 
-Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [state trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
+Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [State changed trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
 
 The state, including attributes, of trigger-based sensors and binary sensors is restored when Home Assistant is restarted. The state of other trigger-based template entities is not restored.
 
@@ -2562,7 +2562,7 @@ Unit of measurement:
 Device class:
   description: The [device class](/integrations/sensor/#device-class) used to pick display formatting and the icon.
 State class:
-  description: The [state class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes), which controls number formatting and whether the sensor's history is kept as long-term statistics.
+  description: The [state class](/integrations/sensor/#state-class), which controls whether the sensor's history is kept as long-term statistics.
 Device:
   description: An existing device to attach this helper to.
 Availability:
@@ -2980,7 +2980,7 @@ Backup:
 Specific version:
   description: Enables or disables using a specific version (`specific_version`) in the installation actions **Actions on install**. Defaults to disabled.
 Device class:
-  description: The [device class](/integrations/update/#device-class) used to pick the frontend state and icon.
+  description: The [device class](/integrations/update/#device-class) of the update.
 Device:
   description: An existing device to attach this helper to.
 Availability:
@@ -3011,7 +3011,7 @@ update:
       required: false
       type: boolean
     device_class:
-      description: Sets the [device class](/integrations/update/#device-class), changing the device state and icon that is displayed in the UI.
+      description: Sets the [device class](/integrations/update/#device-class) of the update.
       required: false
       type: device_class
       default: None

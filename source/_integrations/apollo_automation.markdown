@@ -5,6 +5,9 @@ ha_release: 0.85
 ha_category:
   - Alarm
   - DIY
+  - Infrared
+  - Radio frequency
+  - Serial
   - Update
 ha_domain: apollo_automation
 ha_integration_type: virtual
@@ -16,6 +19,7 @@ ha_codeowners:
   - '@jesserockz'
   - '@kbx81'
   - '@bdraco'
+  - '@arturpragacz'
 ha_config_flow: true
 ha_platforms:
   - alarm_control_panel
@@ -30,10 +34,12 @@ ha_platforms:
   - diagnostics
   - event
   - fan
+  - infrared
   - light
   - lock
   - media_player
   - number
+  - radio_frequency
   - select
   - sensor
   - switch

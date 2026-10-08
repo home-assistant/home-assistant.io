@@ -90,7 +90,7 @@ Get a notification when a weather warning becomes active.
 
 Entities are named after the monitored municipality, for example `sensor.innsbruck_warning_level`.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Innsbruck warning level (`sensor.innsbruck_warning_level`)
   - **To**: Yellow
   - **To**: Orange

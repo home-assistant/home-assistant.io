@@ -98,7 +98,7 @@ automation: |
 
 When cooking begins, you may want to push the fan up more quickly.
 
-- **Trigger**: State: Stove hood light changes to on
+- **Trigger**: State changed: Stove hood light changes to on
 - **Action**: Increase fan speed
 - **Target**: Kitchen fan
 - **Increment**: 20

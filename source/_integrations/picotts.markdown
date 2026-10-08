@@ -10,7 +10,7 @@ ha_platforms:
   - tts
 ha_integration_type: service
 ha_codeowners:
-  - '@rooggiieerr'
+  - '@rrooggiieerr'
 ha_config_flow: true
 ---
 

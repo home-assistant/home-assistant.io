@@ -23,6 +23,7 @@ ha_platforms:
   - water_heater
 ha_integration_type: hub
 ha_quality_scale: silver
+ha_zeroconf: true
 ---
 
 The **Qube heat pump** {% term integration %} allows you to monitor and control [Qube](https://www.hr-energy.com/nl/pvt-systemen/onderdelen/qube-warmtepomp/) heat pumps via the Modbus TCP protocol.
@@ -48,10 +49,23 @@ The following devices are not supported by the integration:
 
 {% include integrations/config_flow.md %}
 
+Home Assistant discovers the Qube heat pump automatically when it is on the same network, using the controller's mDNS (Bonjour) advertisement. If the heat pump is on a separate network or VLAN, add it manually with its IP address or hostname, or allow mDNS between the networks on your router.
+
 {% configuration_basic %}
 Host:
   description: The IP address or hostname of your Qube heat pump.
 {% endconfiguration_basic %}
+
+## Reconfiguration
+
+If the IP address or hostname of your heat pump changes, you can update it without removing and re-adding the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. On the **Qube heat pump** integration, select the three-dot menu and choose **Reconfigure**.
+3. Enter the new IP address or hostname.
+4. Select **Submit** to save the new settings.
+
+Home Assistant checks that the new address belongs to a Qube heat pump and, when it can read the heat pump's mDNS announcement, that it is the same heat pump as before.
 
 ## Supported functionality
 

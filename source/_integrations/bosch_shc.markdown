@@ -78,6 +78,7 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 ### Buttons
 
 - A Smoke Detector gets a **Test alarm** button that starts the device's self-test.
+- A Motion Detector II that supports it gets a **Reset tamper** button that confirms the device is back in place and clears an active tamper alarm.
 
 ### Covers
 
@@ -164,7 +165,7 @@ The valve platform provides a diagnostic entity showing the current valve positi
 
 Get a reminder if a shutter contact stays open for too long, so an open window doesn't go unnoticed.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Front door (binary sensor)
   - **To**: On
   - **For**: `00:10:00`

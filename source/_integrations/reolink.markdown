@@ -767,7 +767,7 @@ Prerequisites:
 
     ![Automation When timer](/images/integrations/reolink/auto_pause__automation_when_timer.png)
 
-5. There is nothing in the **And if** section. For the **Then do** section choose **add building block** and use **Choose**. 
+5. There is nothing in the **And if** section. In the **Then do** section, select **Add action** > **Blocks** > **Choose**. 
    - You will have as many options as you have times in your dropdown box plus one to reset the dropdown box. 
    - First, we make the option to reset the dropdown box. This needs to be the first option. 
    - Under **Option 1**, select **+ Add Condition** > **Other conditions** > **Triggered by**. 

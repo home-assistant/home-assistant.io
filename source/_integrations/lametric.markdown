@@ -8,6 +8,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Time
   - Update
 ha_iot_class: Local Polling
 ha_release: 0.49
@@ -24,6 +25,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - time
   - update
 ha_integration_type: device
 ha_config_flow: true
@@ -113,6 +115,23 @@ During setup, you can choose between two methods:
 - **Bluetooth**
   - **Description**: Toggle the device's Bluetooth radio on or off.
   - **Entity category**: Configuration
+
+### Times
+
+- **Screensaver start time**
+  - **Description**: The time the time-based screensaver starts, in your Home Assistant time zone.
+  - **Entity category**: Configuration
+- **Screensaver end time**
+  - **Description**: The time the time-based screensaver ends, in your Home Assistant time zone.
+  - **Entity category**: Configuration
+
+Changing a time only changes the schedule. If the screensaver is set to turn on when it gets dark, it stays that way.
+
+The device accepts both times only when set together. If you never set a screensaver time on the device, setting one time sets both to that time until you set the other.
+
+The device stores these times in UTC. After a daylight saving time change, the times shift by one hour, so set them again if needed.
+
+These entities are not available on the LaMetric SKY.
 
 ### Update
 
@@ -297,6 +316,12 @@ If you see a "Cannot connect" error when adding the device manually, verify that
 1. The device is powered on and connected to your network.
 2. The hostname or IP address you entered is correct.
 3. The API key matches the one shown in the LaMetric developer portal.
+
+### Notifications do not show in kiosk mode
+
+When the LaMetric device is in kiosk mode, it only accepts notifications with the `critical` priority, and refuses all others with the message "Only notifications with priority 'critical' are allowed in current mode".
+
+The notify entity always sends notifications with the `info` priority. To send a notification to a device in kiosk mode, use the `lametric.message` action or the [legacy notify action](#legacy-notify-action) with the priority set to `critical`.
 
 ## Use your own LaMetric application credentials
 

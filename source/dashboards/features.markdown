@@ -794,7 +794,7 @@ type:
   type: string
 effects:
   required: false
-  description: "List of effects to show in the dropdown. Use this to filter or reorder the available effects. The effect names depend on your device and can be found in the `effect_list` attribute of the entity in {% my developer_states title="**Settings** > **Tools** > **States**" %}. When not specified, all effects supported by the entity are shown."
+  description: "List of effects to show in the dropdown. Use this to filter or reorder the available effects. The effect names depend on your device and can be found in the `effect_list` attribute of the entity in {% my tools_states title="**Settings** > **Tools** > **States**" %}. When not specified, all effects supported by the entity are shown."
   type: list
 {% endconfiguration %}
 
@@ -895,7 +895,7 @@ type:
   type: string
 sound_modes:
   required: false
-  description: "List of sound modes to show in the dropdown. Use this to filter or reorder the available sound modes. The sound mode names depend on your device and can be found in the `sound_mode_list` attribute of the entity in {% my developer_states title="**Settings** > **Tools** > **States**" %}. When not specified, all available sound modes are shown."
+  description: "List of sound modes to show in the dropdown. Use this to filter or reorder the available sound modes. The sound mode names depend on your device and can be found in the `sound_mode_list` attribute of the entity in {% my tools_states title="**Settings** > **Tools** > **States**" %}. When not specified, all available sound modes are shown."
   type: list
 {% endconfiguration %}
 
@@ -1286,7 +1286,7 @@ type:
   type: string
 fan_speeds:
   required: false
-  description: "List of fan speeds to show in the dropdown. Use this to filter or reorder the available fan speeds. The fan speed names depend on your device and can be found in the `fan_speed_list` attribute of the entity in {% my developer_states title="**Settings** > **Tools** > **States**" %}. When not specified, all available fan speeds are shown."
+  description: "List of fan speeds to show in the dropdown. Use this to filter or reorder the available fan speeds. The fan speed names depend on your device and can be found in the `fan_speed_list` attribute of the entity in {% my tools_states title="**Settings** > **Tools** > **States**" %}. When not specified, all available fan speeds are shown."
   type: list
 {% endconfiguration %}
 

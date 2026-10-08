@@ -48,7 +48,10 @@ This action has no additional YAML options beyond the target.
 
 ## Good to know
 
-- This action only works on scenes created with [Create scene](/actions/scene.create/). If you point it at a scene from your YAML configuration, the action fails and an error appears in your logs.
+- This action only works on scenes created with [Create scene](/actions/scene.create/). For any other scene, the action fails, and you see the error where you ran the action:
+  - For a scene from the scene editor or from YAML: **The scene scene.my_scene is not created with action `scene.create`.**
+  - For a scene from another integration, such as Hue: **scene.my_scene is not a valid entity ID of a scene.**
+- To remove a scene that you created in the [scene editor](/docs/scene/editor/), delete it there.
 - To remove a scene defined in YAML, remove it from your configuration and run [Reload scenes](/actions/scene.reload/).
 
 {% include actions/try_it.md %}

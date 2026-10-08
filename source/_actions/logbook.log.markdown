@@ -91,7 +91,7 @@ domain:
 
 When a garden irrigation valve has been open for more than 30 minutes, close it and write a custom entry to the **Activity** panel recording the event. This gives you a permanent, searchable record in the **Activity** panel of every time the safety cutoff fired, which is useful for spotting patterns such as a valve that repeatedly fails to close on schedule.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Garden irrigation (`valve.garden_irrigation`)
   - **To**: Open
   - **For**:  `0:30:00`
