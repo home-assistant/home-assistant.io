@@ -8,7 +8,7 @@ related_conditions:
   - zone.in_zone
 ---
 
-The **State** condition checks whether an {% term entity %} has a specific state right now. Use it when an automation should only continue in a certain situation, for example, only when someone is home, or only when a door is closed. It works with any entity, and it can also check an attribute instead of the main state.
+The **State** condition checks whether an {% term entity %} has a specific state right now. Use it when an automation should only continue in a certain situation. For example, the automation only continues when someone is home, or when a door is closed. It works with any entity, and it can also check an attribute instead of the main state.
 
 With the **For at least** option, the condition also checks how long the entity has had that state. For example, you can check whether a door has been closed for at least 10 minutes.
 
@@ -127,7 +127,7 @@ This condition checks one or more entities:
 - The condition compares the state exactly. To check whether an entity is unavailable (`unavailable`) or has an unknown state (`unknown`), select or enter those states. Otherwise, an unavailable entity doesn't pass.
 - If the entity doesn't exist, the condition fails with an error. The error is shown in the trace.
 - If you select an **Attribute** that the entity doesn't have, the condition doesn't pass.
-- **For at least** (`for`) only works with one state of the main state. If you select an **Attribute**, **For at least** isn't available. With several states, or with a helper entity as the state, Home Assistant shows an error when you save the automation.
+- **For at least** (`for`) only works with one state. If you select an **Attribute**, **For at least** isn't available. With several states, or with a helper entity as the state, Home Assistant shows an error when you save the automation.
 - After Home Assistant restarts, **For at least** counts from the moment the entity was loaded again.
 - To check entities of a specific type, conditions such as [Light is on](/conditions/light.is_on/) can be easier to set up. For all conditions, refer to the [list of available conditions](/conditions/).
 - To check whether a numeric value is above or below a limit, use the [Numeric state](/docs/scripts/conditions/#numeric-state-condition) condition.
@@ -174,7 +174,7 @@ automation: |
 
 ### Automation: lock the front door at night if it has been closed for a while
 
-At 23:00, this automation locks the front door, but only if the door has been closed for at least 10 minutes. This way, it doesn't lock the door while someone is still going in or out.
+At 23:00, this automation locks the front door, but only if the door has been closed for at least 10 minutes. The 10 minutes make sure that nobody is still going in or out when the door locks.
 
 - **Trigger**: Time
   - **At time**: 23:00:00
