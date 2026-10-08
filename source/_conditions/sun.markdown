@@ -157,7 +157,7 @@ At 07:00, this automation opens the bedroom blinds, but only if the sun rose at 
 - **Action**: Open cover
   - **Target**: Bedroom blinds (`cover.bedroom_blinds`)
 
-In a new automation, use [Sun elevation](/conditions/sun.elevation/) instead. Pick an angle that matches the light you want, for example, above 5°.
+In a new automation, use [Sun elevation](/conditions/sun.elevation/) instead. Pick an angle that matches the light you want, for example, above 5°. The time when the sun reaches that angle changes with the seasons. If you need exactly 30 minutes after sunrise, keep the **Sun** condition in YAML.
 
 {% details "YAML example for opening the blinds after sunrise" %}
 
