@@ -63,7 +63,7 @@ This passes when the garage door is open.
 
 ### Options in YAML
 
-The options in YAML are the same as in the UI.
+In YAML, the options have different names. **Device** becomes `device_id`. The **Condition** you select becomes `domain`, `type`, and, for most conditions, `entity_id`. Some condition types accept more options, such as `for`, `above`, or `below`. These match the extra options in the UI.
 
 {% options_yaml %}
 condition:
@@ -87,8 +87,6 @@ entity_id:
   required: false
   type: string
 {% endoptions_yaml %}
-
-Some condition types accept more options, such as `for`, `above`, or `below`. They match the extra options in the UI.
 
 ## Good to know
 
