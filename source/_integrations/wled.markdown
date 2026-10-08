@@ -200,7 +200,7 @@ Information about new WLED releases is checked independently, once every 3 hours
 
 - Custom segment names configured in WLED are not used by the integration. Segments are always named using their index (for example, "Segment 1", "Segment 2"), regardless of any names assigned in the WLED interface.
 
-- The integration does not support controlling WLED usermods, such as the AudioReactive usermod. Features like toggling the microphone on or off are not available.
+- Apart from turning the AudioReactive usermod on and off, the integration does not control WLED usermods. Usermod settings, like the gain of the AudioReactive microphone, are not available.
 
 - There is no segment master control to apply changes (color, effect, brightness) to all segments in a single action. To control multiple segments at once, you can group them using a [light group](/integrations/group#light-group), though this sends separate requests per segment and may result in less smooth transitions compared to WLED's native multi-segment control.
 
