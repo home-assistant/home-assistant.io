@@ -9,7 +9,7 @@
         <div class="editions" data-dsap>
             {% for edition in editions %}
             <div class="edition">
-                <img src="{{ edition.image }}" alt="{{ edition.title | escape }}" loading="lazy" decoding="async" />
+                <img src="{{ edition.image | escape }}" alt="{{ edition.title | escape }}" loading="lazy" decoding="async" />
             </div>
             {% endfor %}
         </div>
