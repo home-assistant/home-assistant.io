@@ -95,7 +95,7 @@ condition: |
 - If **Before** is earlier than **After**, the time window goes past midnight. For example, with **After** set to 22:00 and **Before** set to 06:00, the condition passes during the night.
 - **Days of the week** checks the current day. In a time window that goes past midnight, the hours after midnight belong to the next day. For example, at 01:00 on a Saturday, the condition only passes if **Saturday** is selected.
 - If you use an entity, only its time counts. The date is ignored. If a time entity or a timestamp sensor is unavailable (`unavailable`) or unknown (`unknown`), the condition doesn't pass.
-- To check for working days, including public holidays, use the [Workday](/integrations/workday/) integration. It creates a sensor that you can check with a [State](/docs/scripts/conditions/#state-condition) condition.
+- To check for working days, including public holidays, use the [Workday](/integrations/workday/) integration. It creates a sensor that you can check with a [State](/conditions/state/) condition.
 - For time windows that change from day to day, a [schedule helper](/integrations/schedule/) can be easier to set up. You can check it with [Schedule is on](/conditions/schedule.is_on/).
 - The condition uses the time zone of Home Assistant. You can find it in {% my general title="**Settings** > **System** > **Home information**" %}.
 - This condition checks the time right now. To start an automation at a certain time, use the [Time](/triggers/time/) trigger.
