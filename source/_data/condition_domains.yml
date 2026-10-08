@@ -2,6 +2,6 @@
 # /conditions/ and in the sidebar of each condition page. Domains that are not
 # listed fall back to the title of the matching integration page.
 - key: homeassistant
-  label: Home Assistant Core
-  icon: mdi:home-assistant
-  description: General conditions that work with any entity, not with one type of device only.
+  label: General
+  icon: simple-icons:homeassistant
+  description: Conditions that work with any entity, the time, or the trigger, not with one type of device only.
