@@ -520,6 +520,7 @@ layout: null
 /docs/tools/credstash/ /docs/configuration/secrets
 /docs/tools/quick-bar/ /docs/tools/quick-search
 /docs/scripts/editor/ /docs/script/
+/docs/scene/editor/ /docs/scene/#live-edit-and-review-mode-in-the-scene-editor
 /getting-started/devices /integrations
 /integrations/map /dashboards/map/
 

@@ -48,11 +48,6 @@
     </li>
     <li>
       {% icon "mdi:palette" %} {% active_link /docs/scene/ Scenes %}
-      {% if doc == 'scene' or include.docs_index %}
-      <ul>
-        <li>{% active_link /docs/scene/editor/ Editor %}</li>
-      </ul>
-      {% endif %}
     </li>
     <li>
       {% icon "mdi:script-text-play" %} {% active_link /docs/script/ Scripts %}
@@ -71,7 +66,7 @@
       {% icon "mdi:script-text" %} {% active_link /docs/scripts/ Building blocks and actions %}
       {% if doc == 'scripts' or include.docs_index %}
       <ul>
-        <li>{% active_link /docs/scripts/perform-actions/ Actions %}</li>
+        <li>{% active_link /docs/scripts/perform-actions/ Performing actions %}</li>
         <li>{% active_link /docs/scripts/conditions/ Conditions %}</li>
       </ul>
       {% endif %}
