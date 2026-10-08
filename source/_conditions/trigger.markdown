@@ -75,7 +75,10 @@ condition: |
 
 - When you select triggers in the editor, Home Assistant creates and manages their trigger IDs for you. It removes the IDs that it created when no **Triggered by** condition uses them anymore. If you use `trigger.id` in a template or in action data, set the ID yourself in YAML instead.
 - If the editor shows **Missing trigger**, the condition refers to an ID that no trigger has anymore. This can happen if you delete a trigger, or change its ID in YAML. To clear the reference, clear the checkbox of the missing trigger.
-- If the editor warns that triggers share the same ID, select **Fix**. Home Assistant gives each of these triggers its own ID and updates the **Triggered by** conditions. Templates and action data that use `trigger.id` aren't updated, so check them yourself.
+- If the editor warns that triggers share the same ID, select **Fix**.
+  - Home Assistant gives each of these triggers its own ID and updates the **Triggered by** conditions.
+  - Duplicate IDs that no **Triggered by** condition uses are removed. This also happens if a template or action data uses them.
+  - Templates and action data that use `trigger.id` aren't updated, so check them yourself.
 - A trigger without an ID uses its position as its ID. In YAML, you can write that ID as a number or as text. For example, `0` and `"0"` both refer to the first trigger.
   - Positions start at `0`, but the editor numbers the triggers from 1. For example, trigger 1 in the editor has the ID `0` in YAML.
 - When you select **Run actions**, or start the automation with the **Trigger automation** action, no trigger starts it. Both skip the conditions in **And if** by default, so the actions run.
