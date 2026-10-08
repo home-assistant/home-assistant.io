@@ -169,7 +169,7 @@ updated every 45 minutes, and so on.
 
 ## Known limitations
 
-Airly allows 100 data updates per day. Data updates become less frequent as you add Airly integration instances, as described in [Data updates](#Data updates).
+Airly allows 100 data updates per day. Data updates become less frequent as you add Airly integration instances, as described in [Data updates](#data-updates).
 
 ## Troubleshooting
 
