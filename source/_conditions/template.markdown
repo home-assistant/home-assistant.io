@@ -65,8 +65,9 @@ value_template:
 In YAML, you can also write a template condition as the template only, without `condition` and `value_template`. The following example does the same as the basic example:
 
 {% example %}
-condition: |
-  "{{ state_attr('climate.living_room', 'temperature') | float(0) > 20 }}"
+automation: |
+  conditions:
+    - "{{ state_attr('climate.living_room', 'temperature') | float(0) > 20 }}"
 {% endexample %}
 
 You can use the shorthand everywhere Home Assistant accepts a condition. This includes:
@@ -74,6 +75,7 @@ You can use the shorthand everywhere Home Assistant accepts a condition. This in
 - The `conditions` of an automation, alone or in a list with other conditions
 - The `conditions` of the **And**, **Or**, and **Not** blocks
 - The `conditions` of a **Choose** option, and the `while` and `until` of a **Repeat** block
+- The `if` of an **If-then** block
 - A **Condition** step between the actions, written as `condition: "{{ ... }}"`
 
 The following example combines two shorthand templates with a **State** condition. All three must be met:
