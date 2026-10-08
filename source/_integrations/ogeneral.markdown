@@ -1,9 +1,9 @@
 ---
 title: O General
-description: Control your O General heat pump or air conditioner using the FGLair integration
+description: Connect and control your O General devices using the FGLair integration
 ha_category:
   - Climate
-ha_release: '2026.10'
+ha_release: 2024.9
 ha_domain: ogeneral
 ha_integration_type: virtual
 ha_supporting_domain: fujitsu_fglair

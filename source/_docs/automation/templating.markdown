@@ -77,12 +77,15 @@ These are the properties available for an [Event trigger](/docs/automation/trigg
 
 ### Geolocation
 
-These are the properties available for a [Geolocation trigger](/integrations/geo_location/#geolocation-trigger). 
+These are the properties available for a [Geolocation trigger](/triggers/geo_location/). 
 
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `geo_location`
-| `trigger.event` | The trigger event type, either `enter`  or `leave`.
+| `trigger.entity_id` | Entity ID of the geolocation entity.
+| `trigger.from_state` | Previous [state object] of the entity. `None` if the entity was just created.
+| `trigger.to_state` | New [state object] of the entity. `None` if the entity was removed.
+| `trigger.event` | The trigger event type, either `enter` or `leave`.
 | `trigger.source` | The Geolocation platform creating the trigger event.
 | `trigger.zone` | State object of the zone.
 
@@ -111,7 +114,7 @@ These are the properties available for an [MQTT trigger](/docs/automation/trigge
 
 ### Numeric state
 
-These are the properties available for a [numeric state trigger](/docs/automation/trigger/#numeric-state-trigger).
+These are the properties available for a [Numeric state crossed threshold trigger](/docs/automation/trigger/#numeric-state-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -138,7 +141,7 @@ These are the properties available for a [Sentence trigger](/docs/automation/tri
 
 ### State
 
-These are the properties available for a [State trigger](/docs/automation/trigger/#state-trigger).
+These are the properties available for a [State changed trigger](/docs/automation/trigger/#state-trigger).
 
 | Template variable | Data |
 | ---- | ---- |

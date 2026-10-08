@@ -5,7 +5,7 @@ ha_category:
   - Energy
   - Modbus-controlled
   - Sensor
-ha_release: 2026.10
+ha_release: "2026.10"
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -20,7 +20,7 @@ ha_platforms:
   - switch
 ha_integration_type: device
 ha_zeroconf: true
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
 The **SolarEdge Modbus** {% term integration %} connects Home Assistant to your SolarEdge solar inverter over your own network, using the Modbus TCP interface built into the inverter. There is no account, no API key, and no cloud service involved, so your solar production keeps arriving in Home Assistant even when your internet connection is down.

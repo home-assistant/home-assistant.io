@@ -20,6 +20,7 @@ ha_integration_type: device
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
+ha_quality_scale: platinum
 ---
 
 The **TechnoVE** {% term integration %} lets you monitor and control your [TechnoVE](https://technove.ca/) smart EV charging station directly from Home Assistant using the station's local API. No cloud account or internet connection is required. Everything communicates over your local network.

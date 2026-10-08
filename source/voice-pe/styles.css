@@ -3012,7 +3012,7 @@ section#collaboration .collaboration-card .partner {
   font-weight: 300;
   align-items: center;
   display: flex;
-  gap: 16px;
+  gap: 8px;
   font-size: 16px;
   margin-bottom: 12px;
 }
@@ -3025,14 +3025,8 @@ section#collaboration .collaboration-card .partner {
 }
 
 section#collaboration .collaboration-card .partner img {
-  height: 25px;
+  height: 24px;
   border-radius: 0;
-}
-
-@media (min-width: 768px) {
-  section#collaboration .collaboration-card .partner img {
-    height: 30px;
-  }
 }
 
 section#collaboration .collaboration-card .collaboration-card-inner {

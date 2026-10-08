@@ -79,7 +79,7 @@ pin:
 
 This automation changes the PIN when a user-created toggle {% term helper %} turns on. Create this helper separately before using the example.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Target**: Change switch pin (input boolean)
   - **To**: On
 - **Action**: Nintendo Switch parental controls: Update PIN code

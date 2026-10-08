@@ -9,29 +9,23 @@
 # - aliases: A list of aliases for the term (optional)
 #
 - term: Action
-  definition: |-
-    Actions are used in several places in Home Assistant. As part of a script or
-    automation, actions define what is going to happen once a trigger is
-    activated. In scripts, an action is called *sequence*. An action is a **software
-    function that interacts with targets to make something happen**. Actions can use other actions
-    and/or scenes to interact with entities and cause these entities to do
-    something. Actions can also include conditions and a delay. An action can
-    perform multiple actions at the same time. For example, if your presence is
-    detected in a room, an action may perform one action to turn on a light and
-    perform another action to start playing music after a delay. Actions are also
-    used on the dashboard, for example as tap or hold action on a UI element.
-    When triggered, the action performs another action. Home Assistant provides a series of predefined actions,
-    such as `homeassistant.turn_on`, `homeassistant.toggle`, or
-    `homeassistant.reload`. An action makes something happen, while an event
-    tells you that something happened. For more information, refer to
-    [events and actions](/docs/configuration/events/#events-and-actions).
+  definition: >-
+    An action makes Home Assistant do something, for example, turn on a light,
+    send a notification, or activate a scene. Automations and scripts run a
+    list of actions. A dashboard card can also perform an action when you tap
+    it. This is one of several [dashboard actions](/dashboards/actions/), next
+    to others like opening another dashboard. Events are different: an event
+    tells you that something happened.
+    For more information, refer to [events and
+    actions](/docs/configuration/events/#events-and-actions).
   aliases:
     - actions
   link: /docs/automation/action/
-  excerpt: >
-    Actions are used in several places in Home Assistant. As part of a script or
-    automation, actions define what is going to happen once a trigger is
-    activated. In scripts, an action is called *sequence*.
+  excerpt: >-
+    An action makes Home Assistant do something, for example, turn on a light,
+    send a notification, or activate a scene. Automations and scripts run a
+    list of actions.
+
 - term: Actor
   definition: |-
     An entity that receives a control signal and performs an action in a system.
@@ -332,7 +326,7 @@
     A helper is a virtual entity you create inside Home Assistant. It is not backed by a physical device. Helpers store values, track state, or do calculations that your automations and dashboards need.
   aliases:
     - helpers
-  link: /integrations/#helper
+  link: /docs/configuration/helpers/
 - term: HASS
   definition: >-
     HASS is an abbreviation for Home Assistant that was commonly used in the past.
@@ -556,10 +550,11 @@
     - scenes
 
 - term: Script
-  definition: >
-    Scripts are components that allow you to specify a sequence of actions to
-    be executed by Home Assistant when turned on.
-  link: /docs/scripts/
+  definition: >-
+    A script is a saved list of steps that runs when you start it, for
+    example, from a dashboard, with Assist, or from an automation. Unlike an
+    automation, a script has no triggers, so it doesn't start by itself.
+  link: /docs/script/
   aliases:
     - scripts
 - term: Sensor
@@ -599,7 +594,7 @@
     at a time. However, entities can store attributes related to that state. For example,
     the state of a light is _on_, and the related state attributes could be its
     current brightness and color values. To start an automation when a state changes, use
-    the [**State** trigger](/triggers/state/). The current state can be used in conditions.
+    the [**State changed** trigger](/triggers/state/). The current state can be used in conditions.
   link: /docs/configuration/state_object/
   aliases:
     - states
@@ -665,8 +660,9 @@
     - Thread border routers
 - term: Trigger
   definition: >-
-    A trigger is a set of values or conditions of a platform that are defined to
-    cause an automation to run.
+    A trigger is the part of an automation that makes the automation start when
+    something specific happens, for example, when the sun sets, a door opens,
+    or a button is pressed.
   link: /docs/automation/trigger/
   aliases:
     - triggers
@@ -712,8 +708,12 @@
     - zones
 - term: Long-term statistics
   definition: >-
-    Home Assistant saves long-term statistics for a sensor if the entity has a state_class of measurement, total, or total_increasing. For short-term statistics, a snapshot is taken every 5 minutes. For long-term statistics, an hourly aggregate is stored of the short-term statistics. Short-term statistics are automatically purged after a predefined period (default is 10 days). Long-term statistics are never purged.
-  link: /blog/2021/08/04/release-20218/#long-term-statistics
+    Home Assistant keeps statistics for sensors that have a state class, such
+    as measurement, total, or total increasing. Every 5 minutes, it saves
+    short-term statistics, which are deleted after 10 days by default. Every
+    hour, it saves long-term statistics, which are never deleted
+    automatically. The Energy dashboard and statistics cards use them.
+  link: /docs/configuration/long-term-statistics/
 - term: boolean
   definition: >-
     A value that is either true or false. Used for on/off states, yes/no conditions, and similar binary choices.

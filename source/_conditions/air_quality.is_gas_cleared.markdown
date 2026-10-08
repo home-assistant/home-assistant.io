@@ -71,7 +71,7 @@ behavior:
 
 After a gas event, pressing a button to silence the alarm too early is risky if gas lingers in another room. This automation triggers when you press the silence button, but the condition requires _every_ gas sensor in the house to read clear before the siren actually turns off. If any sensor still detects gas, the alarm keeps sounding.
 
-- **Trigger**: State: Silence alarm button pressed
+- **Trigger**: State changed: Silence alarm button pressed
 - **Condition**: Air Quality: Gas cleared
   - **Target**: All gas sensors (kitchen, basement)
   - **Condition passes if**: All
