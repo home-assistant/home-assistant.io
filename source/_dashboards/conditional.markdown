@@ -271,7 +271,7 @@ Tests the position of the sun, for example, whether it is after sunset. This con
 
 ### Zone
 
-Tests if a person or device tracker is in a zone. This condition works the same way as the [Zone conditions](/docs/scripts/conditions/#zone-conditions) in automations and uses the same options.
+Tests if a person or device tracker is in a zone. This condition works the same way as the [Zone condition](/conditions/zone/) in automations and uses the same options.
 
 ### Device
 

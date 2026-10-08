@@ -872,75 +872,7 @@ For the full list of available conditions and its details, refer to the [Water h
 
 ### Zone conditions
 
-Zone conditions test if an entity is in a certain zone. The entity can be either a [person](/integrations/person/) or a [device tracker](/integrations/device_tracker/).
-
-For the full list of available conditions and its details, refer to the [Zone conditions](/integrations/zone/#list-of-conditions).
-
-#### YAML examples
-
-```yaml
-conditions:
-  - alias: "Paulus at home"
-    condition: zone.in_zone
-    target:
-      entity_id: device_tracker.paulus
-    options:
-      zone: zone.home
-```
-
-It is also possible to test the condition against multiple entities at once.
-The condition will pass if all entities are in the specified zone.
-
-```yaml
-conditions:
-  - condition: zone.in_zone
-    target:
-      entity_id:
-        - device_tracker.frenck
-        - device_tracker.daphne
-    options:
-      zone: zone.home
-```
-
-To test if an entity is matching a set of possible zones, you need to add two zone conditions in an **Or** condition block.
-
-```yaml
-condition: or
-conditions:
-  - condition: zone.in_zone
-    target:
-      entity_id: device_tracker.paulus
-    options:
-      zone: zone.home
-  - condition: zone.in_zone
-    target:
-      entity_id: device_tracker.paulus
-    options:
-      zone: zone.work
-```
-
-Or, combine multiple entities with multiple zones. In the following example,
-both entities need to be either in the home or the work zone for the condition
-to pass.
-
-```yaml
-conditions:
-  - condition: or
-    conditions:
-      - condition: zone.in_zone
-        target:
-          entity_id:
-            - device_tracker.frenck
-            - device_tracker.daphne
-        options:
-          zone: zone.home
-      - condition: zone.in_zone
-        target:
-          entity_id:
-            - device_tracker.frenck
-            - device_tracker.daphne
-        options:
-          zone: zone.work
+For setup steps, YAML options, and examples for the **Zone** condition, which checks whether an entity is in a zone, refer to [Zone](/conditions/zone/). For the other zone conditions, refer to the [list of Zone conditions](/integrations/zone/#list-of-conditions).
 
 ## Examples
 
