@@ -41,7 +41,7 @@ This is why:
 
 ## Actions and building blocks
 
-Building blocks control whether, when, and in which order the actions run. For example, a building block can check a condition, wait a few seconds, repeat steps, or choose between steps. In the editor, select **Add action**. The building blocks are in the **Building blocks** group. For all building blocks, refer to [Building blocks and actions](/docs/scripts/).
+Building blocks control whether, when, and in which order the actions run. For example, a building block can check a condition, wait a few seconds, repeat steps, or choose between steps. To add a building block in the editor, select **Add action**, and then select **Blocks**. For all building blocks, refer to [Building blocks and actions](/docs/scripts/).
 
 ## Running the actions directly
 
