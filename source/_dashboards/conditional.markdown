@@ -246,7 +246,7 @@ locations:
 
 At least one of `target`, `away: true`, or `locations` must be used for this condition to be valid. `target` and `away` can be combined; the condition is true if either matches.
 
-Conditions using `locations` keep working. They only match the person's state, which is the name of the smallest zone the person is in. When you edit one in the UI, select **Convert to zones and labels** to switch it to `target` and `away`. After converting, the condition matches any zone the person is in. Names that match no zone are removed.
+Conditions using `locations` keep working. They only match the person's state, which is the name of the smallest zone the person is in. When you open one in the dashboard editor, it is converted to `target` and `away`, and the new format is saved when you save the card. After converting, the condition matches any zone the person is in. Names that match no zone are kept and shown as not found, so you can remove them.
 
 ### Time
 
