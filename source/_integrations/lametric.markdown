@@ -122,9 +122,11 @@ During setup, you can choose between two methods:
   - **Description**: The time the time-based screensaver ends, in your Home Assistant time zone.
   - **Entity category**: Configuration
 
-Changing a time only changes the schedule. The screensaver mode that is active on the device, for example the one that turns on when it gets dark, stays active.
+Changing a time only changes the schedule. If the screensaver is set to turn on when it gets dark, it stays that way.
 
-The device only accepts both times together. If no screensaver times were ever set on the device, setting one time sets both to that time, until you set the other one as well.
+The device accepts both times only when set together. If you never set a screensaver time on the device, setting one time sets both to that time until you set the other.
+
+The device stores these times in UTC. After a daylight saving time change, the times shift by one hour, so set them again if needed.
 
 These entities are not available on the LaMetric SKY.
 
