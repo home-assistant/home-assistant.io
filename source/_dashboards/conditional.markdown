@@ -263,7 +263,7 @@ At least one of `after` or `before` must be used for this condition to be valid.
 
 ### Template
 
-Tests if a template renders `true`. This condition works the same way as the [Template condition](/docs/scripts/conditions/#template-condition) in automations and uses the same options.
+Tests if a template renders `true`. This condition works the same way as the [Template condition](/conditions/template/) in automations and uses the same options.
 
 ### Sun
 

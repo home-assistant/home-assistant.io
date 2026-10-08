@@ -83,7 +83,7 @@ event:
 ## Good to know
 
 - Geolocation entities are temporary, so you can't select a specific one in advance. This is why the trigger uses the source.
-- To react only to some events, add a [Template condition](/docs/scripts/conditions/#template-condition) that checks their attributes, for example, the type of incident. The [bush fire example](#automation-get-a-notification-about-a-bush-fire-near-your-home) shows how.
+- To react only to some events, add a [Template condition](/conditions/template/) that checks their attributes, for example, the type of incident. The [bush fire example](#automation-get-a-notification-about-a-bush-fire-near-your-home) shows how.
 - For the data you can use in templates, refer to the [geolocation trigger variables](/docs/automation/templating/#geolocation).
 
 {% include triggers/try_it.md %}

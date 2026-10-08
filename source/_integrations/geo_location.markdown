@@ -47,7 +47,7 @@ To get a notification when an event, such as an earthquake, happens in an area y
 1. Add an integration that provides geolocation entities, as described in [Showing geolocation events on a dashboard](#showing-geolocation-events-on-a-dashboard).
 2. Create the zone you want to watch in {% my zones title="**Settings** > **Areas, labels & zones**" %}. To keep the zone from affecting where people and devices are shown, turn on **Passive**.
 3. Create an automation with the [Geolocation trigger](/triggers/geo_location/). Enter the source of the integration, select the zone, and under **Event**, keep **Enter**.
-4. Optional: To react only to some events, add a [Template condition](/docs/scripts/conditions/#template-condition) that checks the attributes of the event.
+4. Optional: To react only to some events, add a [Template condition](/conditions/template/) that checks the attributes of the event.
 5. Add an action that sends a notification, and save the automation.
    - For a complete automation, refer to the [bush fire example](/triggers/geo_location/#automation-get-a-notification-about-a-bush-fire-near-your-home).
 
@@ -80,7 +80,7 @@ Each geolocation entity has the following attributes. Each item shows the label 
 - **Latitude** (`latitude`): The latitude of the event, rounded to five decimal places.
 - **Longitude** (`longitude`): The longitude of the event, rounded to five decimal places.
 
-Many integrations add their own attributes, such as the type or status of an incident. To react only to some events, check these attributes in a [Template condition](/docs/scripts/conditions/#template-condition).
+Many integrations add their own attributes, such as the type or status of an incident. To react only to some events, check these attributes in a [Template condition](/conditions/template/).
 
 {% include integrations/triggers.md %}
 
