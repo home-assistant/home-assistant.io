@@ -30,10 +30,10 @@ To use this condition in an automation:
 
 {% options_ui %}
 After:
-  description: The start of the time window. The time itself passes. Use a **Fixed time**, or the **Value of a date/time helper or timestamp-class sensor**. Default is **Fixed time**.
+  description: The time when the time window starts. Use a **Fixed time**, or the **Value of a date/time helper or timestamp-class sensor**. Default is **Fixed time**.
   required: false
 Before:
-  description: The end of the time window. The time itself doesn't pass. Use a **Fixed time**, or the **Value of a date/time helper or timestamp-class sensor**. Default is **Fixed time**.
+  description: The time when the time window ends. The window ends just before this time. Use a **Fixed time**, or the **Value of a date/time helper or timestamp-class sensor**. Default is **Fixed time**.
   required: false
 Days of the week:
   description: The days on which the condition passes. By default, every day passes.
@@ -90,13 +90,14 @@ condition: |
 
 ## Good to know
 
-- **After** is included, and **Before** is not. With **After** set to 15:00 and **Before** set to 02:00, the condition passes at 15:00:00, but not at 02:00:00.
+- The time window starts exactly at **After**, and ends just before **Before**. For example, with **After** set to 15:00 and **Before** set to 02:00, the condition passes at 15:00:00, but not at 02:00:00.
 - If you only set **After**, the condition passes from that time until midnight. If you only set **Before**, it passes from midnight until that time.
 - If **Before** is earlier than **After**, the time window goes past midnight. For example, with **After** set to 22:00 and **Before** set to 06:00, the condition passes during the night.
 - **Days of the week** checks the current day. In a time window that goes past midnight, the hours after midnight belong to the next day. For example, at 01:00 on a Saturday, the condition only passes if **Saturday** is selected.
 - If you use an entity, only its time counts. The date is ignored. If the entity is unavailable (`unavailable`) or unknown (`unknown`), the condition doesn't pass.
 - To check for working days, including public holidays, use the [Workday](/integrations/workday/) integration. It creates a sensor that you can check with a [State](/docs/scripts/conditions/#state-condition) condition.
 - For time windows that change from day to day, a [schedule helper](/integrations/schedule/) can be easier to set up. You can check it with [Schedule is on](/conditions/schedule.is_on/).
+- The condition uses the time zone of Home Assistant. You can find it in {% my general title="**Settings** > **System** > **General**" %}.
 - This condition checks the time right now. To start an automation at a certain time, use the [Time](/triggers/time/) trigger.
 
 {% include conditions/try_it.md %}
