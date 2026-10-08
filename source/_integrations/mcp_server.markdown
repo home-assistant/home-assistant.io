@@ -328,7 +328,7 @@ Codex can connect to Home Assistant as a remote MCP server by using OAuth:
 
 ### Example: Mistral Vibe
 
-Mistral Vibe can connect to Home Assistant as a remote MCP server by using a long-lived access token. The Vibe CLI does not support OAuth for MCP servers yet.
+Mistral Vibe can connect to Home Assistant as a remote MCP server by using a long-lived access token. The Vibe CLI doesn't support OAuth for MCP servers yet.
 
 1. Install [Mistral Vibe](https://docs.mistral.ai/vibe/code/cli/install-setup) and run `vibe` once to complete the setup.
 2. Create a [Long-lived access token](#long-lived-access-tokens) from your Home Assistant account.
