@@ -127,7 +127,7 @@ Additional diagnostic sensors are exposed but disabled by default. See [enabling
 - **H1 fine adjustment effect**: The temperature offset from the manual fine-adjustment.
 - **H1 room sensor potentiometer**: The room temperature offset from the room sensor's adjustment knob.
 - **H2 delayed outdoor temperature effect**: The delayed outdoor temperature effect applied to the H2 setpoint.
-- **H1/H2 autumn drying effect**: The supply water temperature raise currently applied by autumn drying.
+- **H1/H2 autumn drying effect**: The temperature raise currently applied by autumn drying to the room temperature (with a room sensor) or supply water temperature (without a room sensor).
 
 ### Valve entities
 
