@@ -14,7 +14,7 @@ related:
 
 A condition checks whether something is true right now. For example, a condition can check whether a door is closed, or whether someone is home. When a [trigger](/docs/automation/trigger/) starts the automation, Home Assistant checks the conditions. If they are met, the automation runs its [actions](/docs/automation/action/). If not, the automation stops.
 
-You add conditions in the **And if** section of the automation editor, with **Add condition**. Conditions are optional. Without conditions, the automation runs its actions every time a trigger reacts.
+You add conditions in the **And if** section of the automation editor, with **Add condition**. Conditions are optional. Without conditions, the automation runs its actions whenever a trigger starts it.
 
 ## Kinds of conditions
 
