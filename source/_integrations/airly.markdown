@@ -28,9 +28,15 @@ The **Airly** {% term integration %} uses the [Airly](https://airly.org/) web se
 
 See [Automation examples](#automation-examples) for examples you can use as a starting point.
 
-## Setup
+## Prerequisites
 
-To generate an Airly API key, go to [Airly for developers](https://developer.airly.org/register) page.
+This integration needs a free Airly API key. To get one:
+
+1. Go to the [Airly for developers](https://developer.airly.org/en/register) portal.
+2. Create an account by entering your name, email address, a password, and a short description of how you plan to use the API. Alternatively, sign up with your GitHub, Google, or Facebook account.
+3. Open the activation link in the email that Airly sends you.
+4. Sign in to your Airly for developers account.
+5. Copy your API key. You need it when you set up the integration.
 
 {% include integrations/config_flow.md %}
 
