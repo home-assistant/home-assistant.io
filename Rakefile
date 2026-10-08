@@ -267,11 +267,10 @@ task :newsletter_data do
     # The feed lists the editions newest first; keep that order in the file.
     editions = items.filter_map do |item|
       title = item.elements['title']&.text.to_s.strip
-      url = item.elements['link']&.text.to_s.strip
       image = item.elements['media:content']&.attributes&.[]('url').to_s.strip
-      # Both URLs end up in the community page markup, so anything that
-      # isn't a web link is dropped rather than rendered.
-      next unless url.start_with?('https://') && image.start_with?('https://')
+      # The image URL ends up in the community page markup, so an edition
+      # without a web link for its cover is dropped rather than rendered.
+      next unless image.start_with?('https://')
 
       # Ghost serves the original artwork from its storage domain. The resized
       # variants are only available through the newsletter site itself, so
@@ -282,12 +281,7 @@ task :newsletter_data do
                 image.split('/content/images/', 2).last
       end
 
-      {
-        'title' => title,
-        'url' => url,
-        'published' => item.elements['pubDate']&.text.to_s.strip,
-        'image' => image,
-      }
+      { 'title' => title, 'image' => image }
     end.first(3)
     raise "feed does not contain any usable editions" if editions.empty?
 
@@ -304,20 +298,14 @@ task :newsletter_data do
       fallback = [
         {
           'title' => 'Thirteen years of Home Assistant: Leading the way back home',
-          'url' => 'https://newsletter.openhomefoundation.org/thirteen-years-of-home-assistant-leading-the-way-back-home/',
-          'published' => 'Thu, 17 Sep 2026 15:13:20 GMT',
           'image' => 'https://newsletter.openhomefoundation.org/content/images/size/w960/2026/09/OHF_Newsletter2609_1200x630.png',
         },
         {
           'title' => 'We sow the seeds, you grow the (open) home',
-          'url' => 'https://newsletter.openhomefoundation.org/we-sow-the-seeds-you-grow-the-open-home/',
-          'published' => 'Thu, 27 Aug 2026 15:17:25 GMT',
           'image' => 'https://newsletter.openhomefoundation.org/content/images/size/w960/2026/08/OHF_Newsletter2608_1200x630.png',
         },
         {
           'title' => 'The walled garden that’s breaking down barriers',
-          'url' => 'https://newsletter.openhomefoundation.org/the-walled-garden-thats-breaking-down-barriers/',
-          'published' => 'Thu, 23 Jul 2026 15:19:49 GMT',
           'image' => 'https://newsletter.openhomefoundation.org/content/images/size/w960/2026/07/OHF_Newsletter2607_1200x630.png',
         },
       ]
