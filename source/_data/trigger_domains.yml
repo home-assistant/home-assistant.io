@@ -1,0 +1,7 @@
+# Labels and icons for the domains shown on the triggers reference at
+# /triggers/ and in the sidebar of each trigger page. Domains that are not
+# listed fall back to the title of the matching integration page.
+- key: homeassistant
+  label: Home Assistant Core
+  icon: mdi:home-assistant
+  description: General triggers that work with any entity, event, or time, not with one type of device only.
