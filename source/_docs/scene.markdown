@@ -159,6 +159,14 @@ You can change the name of a scene, and its icon, area, category, and labels, wi
 
 Renaming a scene doesn't change its entity ID, for example, `scene.movie_night`. To change the entity ID, refer to [Changing the attributes of an entity](/docs/configuration/customizing-devices/#changing-the-attributes-of-an-entity).
 
+### Scenes you can't edit in the scene editor
+
+The scene editor can't edit scenes that aren't in `scenes.yaml`, or that don't have an `id`. Depending on where such a scene comes from, change it as follows:
+
+- Scenes in another YAML file: Move the scene to `scenes.yaml`, and give it an `id`. For the steps, refer to [Editing a YAML scene in the scene editor](/integrations/scene/#editing-a-yaml-scene-in-the-scene-editor).
+- Scenes from another integration: Change the scene where that integration manages its scenes. For details, refer to [Scenes from other integrations](/integrations/scene/#scenes-from-other-integrations).
+- Temporary scenes from the **Create scene** action: These can't be edited. To change one, run **Create scene** again with the same **Scene entity ID**.
+
 ## Deleting a scene
 
 If you don't need a scene anymore, you can delete it. Automations, scripts, and dashboards that use the scene can't activate it after that.
@@ -171,8 +179,8 @@ To delete a scene from the list of scenes:
 
 ### Scenes you can't delete in the scene editor
 
-The scene editor can't edit scenes that aren't in `scenes.yaml`, or that don't have an `id`. Depending on where such a scene comes from, change it as follows:
+You can only delete scenes that you can edit in the scene editor. To delete other scenes, depending on where they come from:
 
-- Scenes in another YAML file: Move the scene to `scenes.yaml`, and give it an `id`. For the steps, refer to [Editing a YAML scene in the scene editor](/integrations/scene/#editing-a-yaml-scene-in-the-scene-editor).
-- Scenes from another integration: Change the scene where that integration manages its scenes. For details, refer to [Scenes from other integrations](/integrations/scene/#scenes-from-other-integrations).
-- Temporary scenes from the **Create scene** action: These can't be edited. To change one, run **Create scene** again with the same **Scene entity ID**.
+- Scenes in another YAML file: Remove the scene from that file, and then [reload the scenes](/integrations/scene/#reloading-scenes).
+- Scenes from another integration: Delete the scene where that integration manages its scenes.
+- Temporary scenes from the **Create scene** action: Use the [**Delete scene**](/actions/scene.delete/) action.
