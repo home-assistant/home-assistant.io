@@ -22,7 +22,7 @@ A scene sets states. It doesn't run steps, and it doesn't remember what came bef
 
 This is why:
 
-- A scene sets all its states in one go. It can't wait, or change things in a specific order. For that, use a [script](/integrations/script/).
+- A scene sets all its states, without waits or a set order. If you need waits or a set order, use a [script](/integrations/script/).
 - A scene always sets the same states. It doesn't check anything first. If the states should depend on something, for example, whether someone is home, use an [automation](/docs/automation/).
 - A scene doesn't have an on or off state. To go back to how things were, activate another scene. Or save the current states first, with the [**Create scene**](/actions/scene.create/) action, and activate that scene later.
 
@@ -110,7 +110,7 @@ When you activate a scene, Home Assistant sets each of its devices and entities 
   - Go to {% my scenes title="**Settings** > **Automations & scenes** > **Scenes**" %}. In the row of the scene, select **Menu** {% icon "mdi:dots-vertical" %} > **Apply**.
 - From the scene editor
   - Open the scene, and select **Menu** {% icon "mdi:dots-vertical" %} > **Apply**.
-  - **Apply** is only available in **Review Mode**, for a scene that you already saved. In **Live Edit**, the scene is already applied.
+  - **Apply** isn't available in **Live Edit**, or before you save the scene. In **Live Edit**, the scene is already applied.
 - From a dashboard
   - Add the scene to a card, for example, an [Entities card](/dashboards/entities/), and select **Activate**.
 - With Assist
