@@ -150,7 +150,7 @@ Can be configured on the WLED itself under
 
 #### Audio reactive
 
-Toggles the AudioReactive usermod, which makes sound reactive effects follow the audio picked up by a microphone or line input on the WLED device. This switch is only created when the AudioReactive usermod is installed on the device.
+Toggles the AudioReactive usermod, which makes sound-reactive effects follow the audio picked up by a microphone or line input on the WLED device. This switch is only created when the AudioReactive usermod is installed on the device.
 
 [WLED AudioReactive documentation](https://kno.wled.ge/advanced/audio-reactive/)
 
