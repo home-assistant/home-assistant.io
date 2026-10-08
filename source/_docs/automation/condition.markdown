@@ -16,12 +16,12 @@ A condition checks whether something is true right now. For example, a condition
 
 You add conditions in the **And if** section of the automation editor, with **Add condition**. Conditions are optional. Without conditions, the automation runs its actions whenever a trigger starts it.
 
-## Kinds of conditions
+## Built-in and integration conditions
 
-- Conditions named after what they check, such as **Light is on**, work with one type of entity.
-- Other conditions work with any entity, or with the time, such as **State**, **Numeric state**, **Time**, and **Template**.
+- Conditions that come with an integration are named after what they check. Integration conditions include **Light is on** and **Sun is up**.
+- Conditions that are built into Home Assistant aren't tied to an integration. You can use them with entities from any integration. Built-in conditions include **State**, **Numeric state**, **Time**, and **Template**.
 
-For all conditions, refer to the [list of available conditions](/conditions/). For these other conditions, and for writing conditions in YAML, refer to [Conditions](/docs/scripts/conditions/).
+For the conditions that come with an integration, refer to the [list of available conditions](/conditions/). For the built-in conditions, and for writing conditions in YAML, refer to [Conditions](/docs/scripts/conditions/).
 
 ## Conditions check the current state
 
