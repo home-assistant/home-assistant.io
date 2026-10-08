@@ -103,6 +103,18 @@ condition: |
   state: "on"
 {% endexample %}
 
+If an attribute value is itself a list, put that list inside another list. Otherwise, the condition reads the values as several possible states. The following example passes only if the `fan_modes` attribute is exactly `["auto", "low"]`:
+
+{% example %}
+condition: |
+  condition: state
+  entity_id: climate.living_room_thermostat
+  attribute: fan_modes
+  state:
+    - - "auto"
+      - "low"
+{% endexample %}
+
 ## Targets of the condition
 
 This condition checks one or more entities:
