@@ -58,7 +58,7 @@ id:
   description: >
     The ID of the trigger, or a list of IDs. The condition passes if one of these triggers started the automation. A trigger without an ID uses its position in the list of triggers as its ID, starting with `0`.
   required: true
-  type: [string, list]
+  type: [string, integer, list]
 {% endoptions_yaml %}
 
 The following example passes if one of two triggers started the automation:
