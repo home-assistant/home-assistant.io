@@ -435,7 +435,7 @@ modbus:
 
 Modbus entities are grouped below each Modbus hub.
 
-Each Modbus device must have at least 1 entity. Otherwise, the integration isn't loaded.
+Each Modbus hub must have at least 1 entity. Otherwise, Home Assistant doesn't load that hub, and shows a repair in {% my repairs title="**Settings** > **System** > **Repairs**" %}.
 
 For parameters that can't be used together, refer to the [Parameters usage matrix](#parameters-usage-matrix).
 
@@ -1548,7 +1548,7 @@ sensors:
     nan_value:
       description: If a Modbus sensor has a defined NaN value, this value can be set as a hex string starting with `0x` containing one or more bytes (for example, `0xFFFF` or `0x80000000`) or provided as an integer directly. If triggered, the sensor becomes `unknown`. The conversion from hex to integer for `nan_value` doesn't use the `data_type`, `structure`, or `swap` options.
       required: false
-      type: string
+      type: [string, integer]
     zero_suppress:
       description: Suppress values close to zero. If -zero_suppress <= value <= +zero_suppress --> 0. Can be float or integer
       required: false
