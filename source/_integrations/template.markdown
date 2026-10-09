@@ -346,10 +346,10 @@ alarm_control_panel:
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the alarm control panel works in optimistic mode. When enabled, the alarm control panel's state updates immediately when it's armed, disarmed, or triggered through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the alarm control panel updates only when the `state` template returns a new value. If you don't define a `state` template, the alarm control panel is always optimistic.
+      description: Flag that defines if the alarm control panel works in optimistic mode. When enabled, the alarm control panel's state updates immediately when it's armed, disarmed, or triggered through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the alarm control panel updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the alarm control panel works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     state:
       description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_custom_bypass`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `disarming`, `pending`, and `triggered` are used."
       required: false
@@ -769,10 +769,10 @@ climate:
       required: false
       type: float
     optimistic:
-      description: Flag that defines if the climate entity works in optimistic mode. When enabled, the entity's state updates immediately when it's changed through the UI or actions, without waiting for its templates to update. When disabled, the entity updates only when its templates return a new value. If you don't define an `hvac_mode` template, the climate entity is always optimistic.
+      description: Flag that defines if the climate entity works in optimistic mode. When enabled, the entity's state updates immediately when it's changed through the UI or actions, without waiting for its templates to update. When disabled, the entity updates only when its templates return a new value. If you don't set `optimistic` and don't define an `hvac_mode` template, the climate entity works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without an `hvac_mode` template, otherwise `false`"
     preset_mode:
       description: Defines a template to get the preset mode of the climate. Must render a value in `preset_modes`. If `preset_mode` is specified, `preset_modes` and `set_preset_mode` must also be specified.
       required: false
