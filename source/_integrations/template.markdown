@@ -2453,7 +2453,7 @@ Actions on select:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -2566,7 +2566,7 @@ State class:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -2794,7 +2794,7 @@ Actions on turn off:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -2984,7 +2984,7 @@ Device class:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -3115,7 +3115,7 @@ Actions on locate:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -3197,7 +3197,7 @@ vacuum:
 # Example state-based configuration.yaml entry
 template:
   - vacuum:
-      - name: Living Room Vacuum
+      - name: "Living Room Vacuum"
         start:
           action: script.vacuum_start
 ```
@@ -3209,7 +3209,7 @@ template:
       - trigger: state
         entity_id: sensor.living_room_vacuum_state
     vacuum:
-      - name: Living Room Vacuum
+      - name: "Living Room Vacuum"
         state: "{{ states('sensor.living_room_vacuum_state') }}"
         start:
           action: script.vacuum_start
@@ -3219,7 +3219,7 @@ template:
 # Example state-based configuration.yaml entry with segment cleaning
 template:
   - vacuum:
-      - name: Living Room Vacuum
+      - name: "Living Room Vacuum"
         clean_segments:
           action: script.vacuum_start
           data:
@@ -3242,7 +3242,7 @@ This example shows how you can use a Template Vacuum to control an IR vacuum cle
 ```yaml
 template:
   - vacuum:
-      - name: Living Room Vacuum
+      - name: "Living Room Vacuum"
         start:
           - action: remote.send_command
             target:
@@ -3273,9 +3273,8 @@ This example shows how to add custom attributes.
 ```yaml
 template:
   - vacuum:
-      - name: Living Room Vacuum
+      - name: "Living Room Vacuum"
         state: "{{ states('sensor.vacuum_state') }}"
-        fan_speed: "{{ states('sensor.vacuum_fan_speed') }}"
         start:
           action: script.vacuum_start
         attributes:
@@ -3315,7 +3314,7 @@ Forecast hourly:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
