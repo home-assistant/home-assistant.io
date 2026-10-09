@@ -47,8 +47,6 @@ This fires every time Home Assistant requires `media_player.samsung_smart_tv` to
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 trigger:
   description: The trigger `samsungtv.turn_on`.

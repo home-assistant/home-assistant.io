@@ -48,8 +48,6 @@ This fires when `zone.home` changes from empty to occupied.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 zone:
   description: The zone to monitor.

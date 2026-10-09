@@ -48,8 +48,6 @@ This fires when `lock.front_door` changes to the unlocked state.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >

@@ -50,8 +50,6 @@ This passes when the living room VOC sensor reads at or above 300 µg/m³.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >

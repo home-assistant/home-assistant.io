@@ -48,8 +48,6 @@ This passes when the sensor `motion.sensor_backyard` has not detected any motion
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >

@@ -48,8 +48,6 @@ This fires every time `binary_sensor.living_room_smoke` transitions to the detec
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >

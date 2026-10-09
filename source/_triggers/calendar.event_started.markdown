@@ -58,8 +58,6 @@ This fires 1 day, 1 hour, 15 minutes and 5 seconds before the start of an event 
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 offset:
   description: >

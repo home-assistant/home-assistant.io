@@ -55,8 +55,6 @@ This fires 30 minutes after the end of an event in `calendar.personal`.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 offset:
   description: >

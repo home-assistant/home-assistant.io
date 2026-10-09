@@ -47,8 +47,6 @@ This passes when `timer.guest_room` is idle.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: When multiple timers are targeted, controls how results combine. Accepts `all` or `any`.

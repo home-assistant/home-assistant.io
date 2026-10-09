@@ -50,8 +50,6 @@ This fires when `counter.chore_reminders` reaches its maximum.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: When multiple counters are targeted, controls whether the trigger fires for `each`, `first`, or `all`.

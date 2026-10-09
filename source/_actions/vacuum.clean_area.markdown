@@ -36,8 +36,6 @@ This sends `vacuum.cleaner` to clean the `living_room` and `kitchen` areas.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 target:
   description: The vacuum to send to specific areas.

@@ -50,8 +50,6 @@ This passes when the hallway CO sensor reads at or above 35 ppm.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >

@@ -47,8 +47,6 @@ This fires whenever the street-side NO2 sensor reading changes by at least 10 pp
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >
