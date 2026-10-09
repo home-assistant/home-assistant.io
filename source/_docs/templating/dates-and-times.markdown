@@ -234,7 +234,7 @@ output: "Christmas: 8 months"
 
 Home Assistant stores state timestamps (`last_changed`, `last_updated`) in UTC. `now()` returns the current time in your configured time zone, while `utcnow()` returns it in UTC.
 
-If you need to compare datetimes, both sides need to be in the same time zone. [`as_datetime`](/template-functions/as_datetime/) and [`strptime`](/template-functions/strptime/) return datetimes without a time zone by default. Apply the matching conversion before comparing, or convert both sides with [`as_timestamp`](/template-functions/as_timestamp/) and compare the numbers. [`timestamp_local`](/template-functions/timestamp_local/) and [`timestamp_utc`](/template-functions/timestamp_utc/) return text, not datetimes, so they aren't suited for comparing.
+If you need to compare datetimes, either both or neither need a time zone. Datetimes with different time zones can be compared directly, but comparing a datetime that has a time zone with one that doesn't causes an error. [`as_datetime`](/template-functions/as_datetime/) returns a datetime without a time zone when the text doesn't include one, and [`strptime`](/template-functions/strptime/) does the same unless the format includes `%z`. To add your time zone, use [`as_local`](/template-functions/as_local/), or convert both sides with [`as_timestamp`](/template-functions/as_timestamp/) and compare the numbers. [`timestamp_local`](/template-functions/timestamp_local/) and [`timestamp_utc`](/template-functions/timestamp_utc/) return text, not datetimes, so they aren't suited for comparing.
 
 ## Common gotchas
 
