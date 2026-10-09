@@ -72,8 +72,11 @@ The integration creates a device for each configured PVOutput system, with the f
 - **Voltage**
   - **Description**: DC or AC voltage reported by the system, in V. Only added once your system uploads voltage data. Disabled by default.
   - **Device class**: Voltage
+- **Last reported**
+  - **Description**: When your system last reported its status to PVOutput. Use this to spot an uploader that stopped sending data.
+  - **Device class**: Timestamp
 
-Which sensors you get depends on what your PVOutput uploader sends. The energy generation, power generation, and efficiency sensors are always added. The consumption, temperature, and voltage sensors are only added once your system reports a value for them. If your uploader starts sending one of these values later, the matching sensor is added automatically, without restarting Home Assistant.
+Which sensors you get depends on what your PVOutput uploader sends. The energy generation, power generation, efficiency, and last reported sensors are always added. The consumption, temperature, and voltage sensors are only added once your system reports a value for them. If your uploader starts sending one of these values later, the matching sensor is added automatically, without restarting Home Assistant.
 
 Sensors that were added by an earlier version of this integration are kept, even if your system does not report a value for them. Enabled sensors show as unknown.
 
@@ -111,6 +114,34 @@ actions:
       message: "Power generation is unexpectedly low."
 ```
 
+### Notify when the uploader stops sending data
+
+When your uploader stops sending data, PVOutput keeps returning the last status of the day, so the other sensors keep showing their last values. Send a notification if your system has not reported anything for an hour during the day:
+
+{% raw %}
+
+```yaml
+alias: "PVOutput uploader stopped"
+triggers:
+  - trigger: template
+    value_template: >
+      {{ now() - states('sensor.my_system_last_reported') | as_datetime
+         > timedelta(hours=1) }}
+conditions:
+  - condition: sun
+    after: sunrise
+    before: sunset
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      title: "Solar"
+      message: "PVOutput has not received data from your system for over an hour."
+```
+
+{% endraw %}
+
 ### Run appliances when solar production is high
 
 Turn on a high-consumption appliance, such as a dishwasher or pool pump, when solar generation exceeds a threshold:
@@ -135,6 +166,7 @@ actions:
 - Which sensors are added depends on what your PVOutput uploader sends. If your uploader only reports generation, the consumption, temperature, and voltage sensors are not added.
 - Sensors are never removed automatically. If your uploader stops sending a value, the matching sensor stays and shows as unknown.
 - The 2-minute polling interval is fixed to stay within PVOutput's API rate limits and cannot be changed.
+- PVOutput does not tell which timezone a system uses. The integration assumes your PVOutput system is in the same timezone as Home Assistant. If it is not, the last reported sensor is off by the difference.
 
 ## Troubleshooting
 
@@ -149,6 +181,10 @@ If all sensors are unavailable shortly after setup, verify that:
 1. Your PVOutput system is actively uploading data. You can check this on the [PVOutput live page](https://pvoutput.org/).
 2. The System ID you entered matches a system that belongs to your account.
 3. Your Home Assistant instance can reach the internet.
+
+### Sensors show outdated values
+
+If the sensors keep showing the same values, check the **Last reported** sensor. If it shows an old time, your uploader stopped sending data to PVOutput. Check your inverter, logger, or upload software, not the integration.
 
 ## Removing the integration
 
