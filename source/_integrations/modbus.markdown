@@ -151,7 +151,7 @@ The wired serial bus that most Modbus RTU devices use. Several devices can share
 
 #### Modbus gateway
 
-A device that translates between Modbus TCP on your network and Modbus RTU on a serial bus. Home Assistant talks Modbus TCP to the gateway. Some manuals call it a bridge, a converter, or a repeater.
+A device that translates between Modbus TCP on your network and Modbus RTU on a serial bus. Home Assistant talks Modbus TCP to the gateway. Some manuals call it a bridge or a converter.
 
 #### Serial device server
 
@@ -184,7 +184,7 @@ A Modbus device behind a connection.
 
 #### Unit ID
 
-The number that identifies a unit on a connection. Most devices use `1`. `0` is the broadcast address, which reaches all units. In YAML, it's `device_address`.
+The number that identifies a unit on a connection. Most devices use `1`. `0` is the broadcast address. A write to `0` reaches all units, but no unit replies, so you can't read with `0`. In YAML, it's `device_address`.
 
 Device manuals often call it slave ID or device address. Some integrations call it **Device ID**.
 
