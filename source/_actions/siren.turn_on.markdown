@@ -82,7 +82,7 @@ duration:
 
 Turn on a siren when a door opens and nobody is home.
 
-- **Trigger**: State: Front door opens
+- **Trigger**: State changed: Front door opens
 - **Condition**: Nobody is home
 - **Action**: Turn on siren
   - **Target**: Entry siren

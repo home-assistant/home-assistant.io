@@ -61,7 +61,7 @@ This action has no additional YAML options beyond the target.
 
 Turn on a camera's motion detection when the last person leaves home.
 
-- **Trigger**: State: Person changes to not_home
+- **Trigger**: State changed: Person changes to not_home
 - **Action**: Enable camera motion detection
   - **Target**: Living room camera
 

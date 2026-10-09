@@ -68,3 +68,68 @@ specific channels from showing up in Home Assistant.
 {% important %}
 The QVR Pro user must have Surveillance Management permission.
 {% endimportant %}
+
+{% include integrations/actions.md %}
+
+## QVR Pro automation examples
+
+With the recording actions, Home Assistant decides when your QVR Pro server records.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: record the driveway when motion is detected
+
+Start recording the driveway camera on your QVR Pro server as soon as the motion sensor detects motion.
+
+- **Trigger**: State changed
+  - **Entity**: Driveway motion (`binary_sensor.driveway_motion`)
+  - **To**: Detected
+- **Action**: Start record
+  - **GUID**: The GUID of the driveway camera channel
+
+{% details "YAML example for recording when motion is detected" %}
+
+{% example %}
+automation: |
+  alias: "Record the driveway when motion is detected"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.driveway_motion
+      to: "on"
+  actions:
+    - action: qvr_pro.start_record
+      data:
+        guid: "YOUR_CHANNEL_GUID"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: stop recording when the driveway is quiet again
+
+Stop recording the driveway camera when the motion sensor has not detected motion for 2 minutes.
+
+- **Trigger**: State changed
+  - **Entity**: Driveway motion (`binary_sensor.driveway_motion`)
+  - **To**: Clear
+  - **For at least**: 2 minutes
+- **Action**: Stop record
+  - **GUID**: The GUID of the driveway camera channel
+
+{% details "YAML example for stopping the recording when it's quiet" %}
+
+{% example %}
+automation: |
+  alias: "Stop recording when the driveway is quiet"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.driveway_motion
+      to: "off"
+      for:
+        minutes: 2
+  actions:
+    - action: qvr_pro.stop_record
+      data:
+        guid: "YOUR_CHANNEL_GUID"
+{% endexample %}
+
+{% enddetails %}

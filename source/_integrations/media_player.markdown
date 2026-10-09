@@ -20,18 +20,18 @@ Interacts with media players on your network.
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a media player
+## Media player states
 
-A media player can have the following states:
+A media player can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
 
-- **Off**: The media player is turned off and is not accepting commands until turned on.
-- **On**: The media player is turned on, but no details on its state are currently known.
-- **Idle**: The media player is turned on and accepting commands, but currently not playing any media. Possibly at some idle home screen.
-- **Playing**: The media player is currently playing media.
-- **Paused**: The media player has an active media and is currently paused
-- **Buffering**: The media player is preparing to start playback of media.
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Off** (`off`): The media player is turned off and is not accepting commands until turned on.
+- **On** (`on`): The media player is turned on, but no details on its state are currently known.
+- **Idle** (`idle`): The media player is turned on and accepting commands, but not playing any media. For example, it might show a home screen.
+- **Playing** (`playing`): The media player is currently playing media.
+- **Paused** (`paused`): The media player has media loaded and is paused.
+- **Buffering** (`buffering`): The media player is preparing to start playback of media.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 {% include integrations/triggers.md %}
 
@@ -108,18 +108,23 @@ automation: |
 
 ## Device class
 
-{% include integrations/device_class_intro.md %}
+The device class tells Home Assistant what kind of media player an entity is, such as a TV or a speaker. Home Assistant uses the device class to choose the icon. Google Assistant, Alexa, and Apple Home use the device class to decide what kind of device to show.
 
-The media player entity will be represented by one of the following icons in the frontend, depending on the device class of the media player:
+The integration that provides the media player sets the device class.
 
-- {% icon "mdi:cast" %} `None`
-- {% icon "mdi:television" %} `tv`
-- {% icon "mdi:speaker" %} `speaker`
-- {% icon "mdi:audio-video" %} `receiver` (device that takes audio and video input and outputs to speakers and displays)
-- {% icon "mdi:projector" %} `projector`
+### Device classes in automations and templates
 
-Some device classes also support additional icons based on their state:
+- Automations: The device class doesn't change how a media player works in automations.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `tv`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
-- Off: {% icon "mdi:cast-off" %} {% icon "mdi:television-off" %} {% icon "mdi:speaker-off" %} {% icon "mdi:audio-video-off" %} {% icon "mdi:projector-off" %}
-- Playing: {% icon "mdi:cast-connected" %} {% icon "mdi:television-play" %} {% icon "mdi:speaker-play" %}
-- Paused: {% icon "mdi:cast-connected" %} {% icon "mdi:television-pause" %} {% icon "mdi:speaker-pause" %}
+### List of available device classes
+
+A media player without a device class is a generic media player and shows {% icon "mdi:cast" %} by default.
+
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
+
+- {% icon "mdi:television" %} **TV** (`tv`): A television.
+- {% icon "mdi:speaker" %} **Speaker** (`speaker`): A speaker.
+- {% icon "mdi:audio-video" %} **Receiver** (`receiver`): A device that takes audio and video input and outputs it to speakers and displays.
+- {% icon "mdi:projector" %} **Projector** (`projector`): A projector.
+

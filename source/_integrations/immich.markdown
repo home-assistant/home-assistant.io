@@ -100,7 +100,7 @@ In any case, when reporting an issue, please enable [debug logging](/docs/config
 
 There are no known limitations.
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}
 

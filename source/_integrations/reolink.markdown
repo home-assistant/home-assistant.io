@@ -23,6 +23,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - time
   - update
 ha_integration_type: hub
 ha_dhcp: true
@@ -245,7 +246,7 @@ Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at di
 
 Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), select entities are added for:
 
-- Floodlight mode (Off, Auto, On at night, Schedule, Adaptive, Auto adaptive)
+- Floodlight mode (Off, Auto, Auto PIR, On at night, Schedule, Adaptive, Auto adaptive)
 - Floodlight event mode (Off, On, Flash)
 - Day night mode+ (Auto, Color, Black&White)
 - <abbr title="pan, tilt, and zoom">PTZ</abbr> preset
@@ -766,7 +767,7 @@ Prerequisites:
 
     ![Automation When timer](/images/integrations/reolink/auto_pause__automation_when_timer.png)
 
-5. There is nothing in the **And if** section. For the **Then do** section choose **add building block** and use **Choose**. 
+5. There is nothing in the **And if** section. In the **Then do** section, select **Add action** > **Blocks** > **Choose**. 
    - You will have as many options as you have times in your dropdown box plus one to reset the dropdown box. 
    - First, we make the option to reset the dropdown box. This needs to be the first option. 
    - Under **Option 1**, select **+ Add Condition** > **Other conditions** > **Triggered by**. 

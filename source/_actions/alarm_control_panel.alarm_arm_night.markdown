@@ -131,7 +131,7 @@ automation: |
 
 When the last light in the bedroom turns off, arm the alarm in night mode. This ties your security to your actual routine instead of a fixed time.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Bedroom light
   - **To**: Off 
 - **Action**: Alarm control panel: Arm alarm night

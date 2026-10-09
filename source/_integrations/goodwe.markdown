@@ -3,6 +3,7 @@ title: GoodWe Inverter
 description: Instructions on how to connect your GoodWe Inverter to Home Assistant.
 ha_category:
   - Energy
+  - Modbus-controlled
   - Sensor
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -18,6 +19,9 @@ ha_platforms:
   - select
   - sensor
 ha_integration_type: device
+related:
+  - docs: /integrations/modbus/
+    title: Modbus
 ---
 
 The **GoodWe** {% term integration %} will poll a [GoodWe](http://www.goodwe.com/) solar inverter over the local network and present its runtime values as sensors in Home Assistant.

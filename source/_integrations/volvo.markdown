@@ -234,12 +234,12 @@ Go to Volvo's developer portal to view [the list of supported models](https://de
 
 ## Examples
 
-### Notify if doors are left open
+### Automation: Notify if doors are left open
 
-Send a notification to your mobile phone if at least one door is open for 5 minutes.
+This example sends a notification when one of the selected doors or the tailgate remains open for five minutes.
 
 ```yaml
-alias: Notify me if doors are left open for 5 minutes
+alias: "Notify if Volvo doors are left open"
 triggers:
   - trigger: state
     entity_id:
@@ -252,12 +252,11 @@ triggers:
     for:
       minutes: 5
 actions:
-  - action: notify.mobile_app_phone_john_doe
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
-      data:
-        url: /lovelace/volvo
-      title: 🚘 Volvo
-      message: "You've left some doors open."
+      message: "A Volvo door or the tailgate has been left open for five minutes."
 ```
 
 ### Estimated charging finish time

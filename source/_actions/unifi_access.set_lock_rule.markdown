@@ -77,7 +77,7 @@ interval:
 
 Apply a custom rule that keeps a door unlocked for 30 minutes when an automation runs.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Delivery mode (`input_boolean.delivery_mode`)
   - **To**: On
 - **Action**: Set lock rule

@@ -11,16 +11,15 @@ ha_codeowners:
   - '@tronikos'
 ha_integration_type: service
 ha_quality_scale: platinum
-google_dev_console_link: https://console.developers.google.com/start/api?id=drive
 api: Google Drive API
-api_link: https://console.developers.google.com/start/api?id=drive
+api_link: https://console.cloud.google.com/apis/library/drive.googleapis.com
 related:
   - docs: /common-tasks/general/#backups
     title: Creating backups in Home Assistant
   - url: https://drive.google.com
     title: Google Drive
-  - url: https://console.developers.google.com/start/api?id=drive
-    title: Google Developer Console
+  - url: https://console.cloud.google.com/apis/library/drive.googleapis.com
+    title: Google Cloud console
 ha_platforms:
   - diagnostics
   - sensor

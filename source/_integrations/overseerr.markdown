@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@joostlek'
   - '@AmGarera'
+  - '@felixschndr'
 ha_domain: overseerr
 ha_integration_type: service
 ha_platforms:

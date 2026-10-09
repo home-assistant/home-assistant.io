@@ -56,7 +56,7 @@ logger.info("Hello {} at {}".format(name, time.time()))
 ```
 
 - Start Home Assistant to reload the script configuration.
-- Call your new {% my developer_call_service service="python_script.hello_world" %} action (with parameters) from the {% my developer_services %}, using the YAML mode. 
+- Call your new {% my tools_perform_action service="python_script.hello_world" %} action (with parameters) from the {% my tools_actions %}, using the YAML mode. 
 
 ```yaml
 action: python_script.hello_world
@@ -91,7 +91,7 @@ hass.bus.fire("hello_world_event", {"wow": "from a Python script!"})
 
 This script doesn't output anything. However, you can view the events being fired in **Tools**.
 
-From a separate browser window or tab, go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}. Under **Listen to events** enter `hello_world_event`, and then select **Start listening**. You should see something like this:
+From a separate browser window or tab, go to {% my tools_events title="**Settings** > **Tools** > **Events**" %}. Under **Listen to events** enter `hello_world_event`, and then select **Start listening**. You should see something like this:
 
 ```yaml
 event_type: hello_world_event

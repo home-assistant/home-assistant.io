@@ -1,10 +1,13 @@
 ---
 title: IoTorero
 description: Connect and control your IoTorero devices using the ESPHome integration
-ha_release: '2026.7'
+ha_release: 0.85
 ha_category:
   - Alarm
   - DIY
+  - Infrared
+  - Radio frequency
+  - Serial
   - Update
 ha_domain: iotorero
 ha_integration_type: virtual
@@ -12,10 +15,12 @@ ha_supporting_domain: esphome
 ha_supporting_integration: ESPHome
 works_with:
   - local
+ha_brand: true
 ha_codeowners:
   - '@jesserockz'
   - '@kbx81'
   - '@bdraco'
+  - '@arturpragacz'
 ha_config_flow: true
 ha_platforms:
   - alarm_control_panel
@@ -45,7 +50,6 @@ ha_platforms:
 ha_iot_class: Local Push
 ha_dhcp: true
 ha_zeroconf: true
-ha_brand: true
 ---
 
 {% include integrations/wwha.md url="https://www.athom.tech/" %}

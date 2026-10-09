@@ -60,7 +60,7 @@ sun:
 
 ## Automation trigger
 
-Home Assistant provides a set of dedicated sun triggers for sunrise, sunset, dawn, dusk, solar noon, solar midnight, and the sun's elevation. See the [list of triggers](#list-of-triggers) below for the full set.
+Home Assistant provides a set of dedicated sun triggers for sunrise, sunset, dawn, dusk, solar noon, solar midnight, golden hour, blue hour, midnight sun, polar night, and the sun's elevation. See the [list of triggers](#list-of-triggers) below for the full set.
 
 The classic `sun` trigger described here is still supported.
 
