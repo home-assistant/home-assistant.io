@@ -2,13 +2,19 @@
 title: "Write AC charge times"
 action: growatt_server.write_ac_charge_times
 domain: growatt_server
-description: "Writes AC charge settings and periods to a supported SPH inverter."
+description: "Writes AC charge settings and periods to a supported SPH or Mix inverter."
 related_actions:
   - growatt_server.read_ac_charge_times
   - growatt_server.write_ac_discharge_times
 ---
 
-The **Write AC charge times** action writes the AC charge settings and up to three charge periods to a supported SPH inverter. You only need to provide the fields you want to change. Anything you leave out keeps its current value.
+The **Write AC charge times** action writes the AC charge settings and up to three charge periods to a supported SPH or Mix inverter. You only need to provide the fields you want to change. Anything you leave out keeps its current value.
+
+SPH inverters need API token authentication. Mix inverters need username and password authentication. Other inverter and authentication combinations are not supported by this action.
+
+{% note %}
+On a Mix inverter, each write first reads the current settings from Growatt, so it makes two calls to the classic API. The classic API is rate limited, so avoid calling this action in a tight loop. If Growatt returns incomplete or invalid settings, the action stops without writing anything.
+{% endnote %}
 
 {% important %}
 This action changes your inverter's charging behavior. Incorrect settings can affect battery lifespan and charging costs. Make changes only if you understand your battery and tariff setup.
@@ -32,7 +38,7 @@ This action does not support targets. In the UI, you are not prompted to choose 
 
 {% options_ui %}
 Device:
-  description: The Growatt SPH inverter to write to.
+  description: The Growatt SPH or Mix inverter to write to.
   required: true
 Charge power:
   description: The charge power limit, as a percentage (0 to 100).
@@ -96,7 +102,7 @@ This charges the battery from the grid between midnight and 6 AM, up to 95% stat
 {% options_yaml %}
 device_id:
   description: >
-    The Growatt SPH inverter to write to.
+    The Growatt SPH or Mix inverter to write to.
   required: true
   type: string
 charge_power:

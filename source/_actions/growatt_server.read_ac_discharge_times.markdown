@@ -2,12 +2,14 @@
 title: "Read AC discharge times"
 action: growatt_server.read_ac_discharge_times
 domain: growatt_server
-description: "Reads AC discharge periods from a supported SPH inverter."
+description: "Reads AC discharge periods from a supported SPH or Mix inverter."
 related_actions:
   - growatt_server.write_ac_discharge_times
 ---
 
-The **Read AC discharge times** action reads the current AC discharge periods from a supported SPH inverter and returns them as response data. This is useful when you want to check the current discharge schedule before changing it.
+The **Read AC discharge times** action reads the current AC discharge periods from a supported SPH or Mix inverter and returns them as response data. This is useful when you want to check the current discharge schedule before changing it.
+
+SPH inverters need API token authentication. Mix inverters need username and password authentication. Other inverter and authentication combinations are not supported by this action.
 
 {% include actions/ui_header.md %}
 
@@ -27,7 +29,7 @@ This action does not support targets. In the UI, you are not prompted to choose 
 
 {% options_ui %}
 Device:
-  description: The Growatt SPH inverter to read from.
+  description: The Growatt SPH or Mix inverter to read from.
   required: true
 {% endoptions_ui %}
 
@@ -50,7 +52,7 @@ This action returns the current AC discharge periods as response data.
 {% options_yaml %}
 device_id:
   description: >
-    The Growatt SPH inverter to read from.
+    The Growatt SPH or Mix inverter to read from.
   required: true
   type: string
 {% endoptions_yaml %}
