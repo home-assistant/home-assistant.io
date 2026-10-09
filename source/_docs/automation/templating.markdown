@@ -7,7 +7,7 @@ Automations support [templating](/docs/templating/) in the same way as scripts d
 
 Example of variables used in templates:
 
-- `{{ this.name }}` is the name of the automation executing from this trigger
+- `{{ this.attributes.friendly_name }}` is the name of the automation executing from this trigger
 - `{{ trigger.platform }}` is the type of trigger object, like `calendar`
 
 ## Available state data
@@ -168,7 +168,7 @@ These are the properties available for a [Tag trigger](/docs/automation/trigger/
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `tag`
-| `trigger.tag_id` | The tag ID captured.
+| `trigger.event.data.tag_id` | The tag ID captured.
 | `trigger.event.data.device_id` | Optional device ID that captured the tag.
 
 ### Template
