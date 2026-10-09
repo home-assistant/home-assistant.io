@@ -41,6 +41,7 @@ Time limit:
 Auto release:
   description: Automatically clear the override when the session completes or limits are reached.
   required: false
+  default: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -85,6 +86,7 @@ auto_release:
   description: Automatically clear the override when the session completes or limits are reached.
   required: false
   type: boolean
+  default: false
 {% endoptions_yaml %}
 
 {% include actions/targets.md domain="openevse" %}
