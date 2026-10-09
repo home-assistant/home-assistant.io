@@ -127,7 +127,7 @@ If you only show the value, as in `{{ states.sensor.temperature.state }}`, the r
 
 ## TemplateError: Invalid entity ID 'sensor.Temperature'
 
-**What it means.** The entity ID in the template isn't a valid entity ID at all, for example, because it contains capital letters or spaces. Entity IDs only use lowercase letters, numbers, and underscores, with one period between the domain and the name. Neither part can start or end with an underscore, and the domain can't contain two underscores in a row.
+**What it means.** The entity ID in the template isn't a valid entity ID at all, for example, because it contains capital letters or spaces. Entity IDs only use lowercase letters, numbers, and underscores, with one period between the domain and the name. Neither part can start or end with an underscore, and the entity ID can't contain two underscores in a row.
 
 **How to fix it.** Copy the entity ID from {% my tools_states title="**Settings** > **Tools** > **States**" %}.
 
