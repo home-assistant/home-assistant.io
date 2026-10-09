@@ -331,7 +331,7 @@ method:
     rtu:
       description: "Modbus RTU: binary data, preceded by the unit ID and followed by a checksum. Standard."
     ascii:
-      description: "Modbus ASCII: data as text characters, preceded by the unit ID and followed by a checksum. Used by few devices."
+      description: "Modbus ASCII: data as text characters, preceded by the unit ID and followed by a checksum. Only a few devices use it."
 parity:
   description: "Parity of the data bytes."
   required: true
