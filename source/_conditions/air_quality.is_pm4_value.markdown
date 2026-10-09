@@ -51,8 +51,6 @@ This passes when the living room PM4 sensor reads at or above 50 µg/m³.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >

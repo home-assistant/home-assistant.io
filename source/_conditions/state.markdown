@@ -58,8 +58,6 @@ This passes when Sam is home.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 condition:
   description: The condition type. For this condition, use `state`.

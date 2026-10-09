@@ -44,8 +44,6 @@ This passes when the hallway carbon monoxide sensor is no longer detecting CO.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >

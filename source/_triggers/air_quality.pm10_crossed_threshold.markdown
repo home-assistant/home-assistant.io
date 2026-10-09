@@ -56,8 +56,6 @@ This fires whenever the patio PM10 sensor crosses 50 in either direction.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >

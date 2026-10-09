@@ -56,8 +56,6 @@ This fires whenever the greenhouse N2O sensor crosses 350 in either direction.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >

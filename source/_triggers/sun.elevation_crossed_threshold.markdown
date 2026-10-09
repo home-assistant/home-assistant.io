@@ -64,8 +64,6 @@ This fires when the sun drops below 4° of elevation, a common stand-in for "it'
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: |

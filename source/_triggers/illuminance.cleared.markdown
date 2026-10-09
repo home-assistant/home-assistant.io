@@ -60,8 +60,6 @@ This fires 2 minutes after the outdoor light sensor stops detecting light.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |

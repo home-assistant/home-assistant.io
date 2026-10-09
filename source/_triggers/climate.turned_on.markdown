@@ -55,8 +55,6 @@ This fires every time `climate.living_room` transitions from off to any active m
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |

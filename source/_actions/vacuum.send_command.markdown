@@ -36,8 +36,6 @@ This sends the `set_do_not_disturb` command to `vacuum.upstairs`.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 target:
   description: The vacuum to send the command to.

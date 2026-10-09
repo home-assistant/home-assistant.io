@@ -114,8 +114,6 @@ This fires whenever any humidity sensor in the basement area changes to a value 
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% include triggers/threshold_changed_options_yaml.md
    unit_phrase_yaml="literal percentage 0–100" %}
 

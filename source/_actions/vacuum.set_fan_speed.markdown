@@ -35,8 +35,6 @@ The `fan_speed` value (label or number) is platform-dependent. Allowed values ar
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 target:
   description: Vacuum entity to control.

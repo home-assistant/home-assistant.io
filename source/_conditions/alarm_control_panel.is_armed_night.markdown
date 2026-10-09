@@ -47,8 +47,6 @@ This passes when the hallway alarm panel is currently armed in night mode.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >

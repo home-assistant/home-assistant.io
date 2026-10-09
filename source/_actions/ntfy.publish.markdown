@@ -186,8 +186,6 @@ This sends a notification to the topic `mytopic` with the message content `trigg
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 title:
   description: >

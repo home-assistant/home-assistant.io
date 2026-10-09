@@ -58,8 +58,6 @@ This fires every time `climate.living_room` begins actively cooling.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
