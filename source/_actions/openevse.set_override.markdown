@@ -89,7 +89,7 @@ auto_release:
   default: false
 {% endoptions_yaml %}
 
-{% include actions/targets.md domain="openevse" %}
+{% include actions/targets.md %}
 
 {% include actions/try_it.md %}
 

@@ -32,7 +32,7 @@ action: |
     entity_id: switch.openevse_manual_override
 {% endexample %}
 
-{% include actions/targets.md domain="openevse" %}
+{% include actions/targets.md %}
 
 {% include actions/try_it.md %}
 

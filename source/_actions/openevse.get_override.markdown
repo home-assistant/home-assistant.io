@@ -58,7 +58,7 @@ time_limit: 3600
 auto_release: true
 ```
 
-{% include actions/targets.md domain="openevse" %}
+{% include actions/targets.md %}
 
 {% include actions/try_it.md %}
 
