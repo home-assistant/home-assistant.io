@@ -28,6 +28,9 @@
 	--font-size-medium: 0.875rem;
 	--font-size-large: 1rem;
 	--font-size-xlarge: 1.25rem;
+	--font-size-xxlarge: 1.5rem;
+	/* Display type for a page's hero headline, scaling with the window. */
+	--font-size-display: clamp(4rem, 2rem + 8vw, 8rem);
 
 	--space-small: 0.5rem;
 	--space-medium: 0.75rem;
@@ -40,8 +43,11 @@
 
 	--shadow-panel: 0 0 1px rgb(0 0 0 / 50%), 0 0.5rem 1.5rem rgb(0 0 0 / 10%);
 
-	/* The site's content gutter, its maximum width and the header bar. */
-	--layout-max-width: 97.5rem;
+	/* The site's content gutter, its maximum width and the header bar.
+	   The maximum width is the content alone, gutters come on top (see
+	   _layout.scss); the Jekyll site's 1560px wrapper includes its
+	   gutters, which leaves 1464px of content. */
+	--layout-max-width: 93rem;
 	--layout-gutter: 1.5rem;
 	--layout-gutter-wide: 3rem;
 	--header-height: 4.25rem;

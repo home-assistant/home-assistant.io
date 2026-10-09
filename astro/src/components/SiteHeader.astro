@@ -210,6 +210,7 @@ const versionTitle =
 
 <style lang="scss">
   @use "../styles/breakpoints";
+  @use "../styles/layout";
 
   /* Mobile first: the menu is a panel that drops out of the bar and is
      opened by the checkbox, which is what the Jekyll header does below
@@ -243,9 +244,7 @@ const versionTitle =
     gap: var(--layout-gutter);
     height: var(--header-height);
     justify-content: space-between;
-    margin: 0 auto;
-    max-width: var(--layout-max-width);
-    padding: 0 var(--layout-gutter);
+    @include layout.container;
   }
 
   /* Logo and version badge */
@@ -416,10 +415,6 @@ const versionTitle =
       --nav-color: var(--color-text-inverse);
       --nav-color-active: var(--color-text-inverse);
       --nav-wash: var(--color-hover-wash-inverse);
-    }
-
-    .bar {
-      padding: 0 var(--layout-gutter-wide);
     }
 
     .menu-button {
