@@ -246,11 +246,11 @@ You can combine the NRGkick controls with other sensors in your home to build sm
 
 ### Automation: Charge your EV from solar surplus
 
-Charge your EV with solar power that would otherwise be exported to the grid. This blueprint adjusts the charging current to match the available surplus, can switch between 1 and 3 phases, and pauses charging when there isn't enough sun.
+Charge your EV with solar power that would otherwise be exported to the grid. This blueprint adjusts the charging current to match the available surplus, can switch between 1 and 3 phases, and pauses charging when there isn't enough surplus power.
 
 {% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/nrgkick-charge-your-ev-from-solar-surplus-dynamic-current-1-3-phase-switching/1027907" %}
 
-To use this blueprint, you need a grid power sensor that measures the power at your grid connection point, including the power used by the NRGkick. A solar production sensor alone is not enough.
+To use this blueprint, you need a grid power sensor that measures the power at your grid connection point, including the power used by the NRGkick. The sensor must update at least every 10 seconds. A solar production sensor alone is not enough.
 
 The blueprint uses the following NRGkick entities:
 
