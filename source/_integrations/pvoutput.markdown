@@ -75,7 +75,7 @@ The integration creates a device for each configured PVOutput system, with the f
 
 Which sensors you get depends on what your PVOutput uploader sends. The energy generation, power generation, and efficiency sensors are always added. The consumption, temperature, and voltage sensors are only added once your system reports a value for them. If your uploader starts sending one of these values later, the matching sensor is added automatically, without restarting Home Assistant.
 
-Sensors that were added by an earlier version of this integration are kept, even if your system does not report a value for them. Those sensors show as unknown.
+Sensors that were added by an earlier version of this integration are kept, even if your system does not report a value for them. Enabled sensors show as unknown.
 
 ## Data updates
 
