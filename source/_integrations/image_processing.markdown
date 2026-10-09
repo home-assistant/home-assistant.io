@@ -15,14 +15,14 @@ Image processing enables Home Assistant to process images from [cameras](/integr
 
 {% include integrations/building_block_integration.md %}
 
-## The state of an image processing entity
+## Image processing states
 
-For face recognition applications, the state of an image processing entity can be the name of the detected person or motion that was detected.
+The state of an image processing entity depends on the integration that provides it. For face recognition, the state is the name of the person detected with the highest confidence, or the motion that was detected. If the integration does not report a confidence level, the state is the number of detected faces.
 
-In addition, the entity can have the following states:
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 ## ALPR
 
@@ -77,14 +77,16 @@ sensor:
   scan_interval: 10000
 ...
 automation:
-- alias: "Scan for faces when motion detected"
+- alias: "Scan for faces when motion is detected"
   triggers:
-    - trigger: state
-      entity_id: sensor.door_motion_sensor
-      to: "on"
+    - trigger: motion.detected
+      target:
+        entity_id: binary_sensor.door_motion_sensor
   actions:
     - action: image_processing.scan
       target:
         entity_id: image_processing.door
 ...
 ```
+
+{% include integrations/actions.md %}

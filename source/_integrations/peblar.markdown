@@ -15,6 +15,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - event
   - number
   - select
   - sensor
@@ -79,34 +80,56 @@ Below is a complete overview of the entities this integration provides.
 
 ### Binary sensors
 
-The binary sensors provided are used to indicate the health status of the
-charger. The following binary sensors are available:
+The following binary sensors are available:
 
-- **Active error**: Indicates if the charger has detected an error. If this sensor is on ({% term state %}: `on`) an error has been detected, otherwise, it is off ({% term state %}: `off`).
-- **Active warning**: Indicates if the charger has raised a warning. If this sensor is on ({% term state %}: `on`) a warning has been raised, otherwise, it is off ({% term state %}: `off`).
+- **Active error**: Indicates if the charger has detected an error. If this sensor is on ({% term state %}: `on`) an error has been detected, otherwise, it is off ({% term state %}: `off`). Disabled by default.
+- **Active warning**: Indicates if the charger has raised a warning. If this sensor is on ({% term state %}: `on`) a warning has been raised, otherwise, it is off ({% term state %}: `off`). Disabled by default.
+- **Socket lock**: Indicates whether the cable is currently locked in the charger. When this sensor is on ({% term state %}: `on`), the cable is unlocked; when it is off ({% term state %}: `off`), the cable is locked. This follows the Home Assistant convention for lock sensors, where on means open.
 
-If any of these binary sensors are on, you should check the charger's local
-web interface for more information about the error or warning.
+If the **Active error** or **Active warning** binary sensor is on, you should
+check the charger's local web interface for more information about the error
+or warning.
 
 {% important %}
-These binary sensors are disabled by default. If you want to use them, you need
+Some of these binary sensors are disabled by default. If you want to use them, you need
 to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
 documentation for information on how to do this.
 {% endimportant %}
+
+{% note %}
+The **Socket lock** binary sensor is only available on Peblar chargers that are equipped with a socket.
+{% endnote %}
 
 ### Buttons
 
 The buttons provided by this integration can be used to trigger an action on
 the charger. The following buttons are available:
 
-- **Identify**: This button can be used to identify the charger. This can be useful if you have multiple chargers and want to identify which one is which. Once pressed, the LED on the charger will start blinking for a few seconds.
-- **Restart**: This button can be used to restart the charger. This can be useful if the charger is not responding as expected.
+- **Identify**: This button can be used to identify the charger. This can be useful if you have multiple chargers and want to identify which one is which. Once pressed, the LED on the charger will start blinking for a few seconds. Disabled by default.
+- **Restart**: This button can be used to restart the charger. This can be useful if the charger is not responding as expected. Disabled by default.
+- **Unlock socket**: This button releases the cable from the charger, so you can unplug it by hand. This is useful when **Keep socket locked** is on and you want to take the cable with you. Only available on Peblar chargers that are equipped with a socket.
 
 {% important %}
-These buttons are disabled by default. If you want to use them, you need
+Some of these buttons are disabled by default. If you want to use them, you need
 to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
 documentation for information on how to do this.
 {% endimportant %}
+
+### Events
+
+This integration provides a single event entity: **Session authorization**.
+
+It fires every time a charging session is started with an RFID card, and carries the following attributes:
+
+- `token`: The name the card was given on the charger, so you can tell one person from another.
+- `session_number`: The charger's own number for the session, counting up with every session.
+- `started_at`: When the charger started the session, by its own clock.
+
+{% note %}
+The **Session authorization** entity is only available on Peblar chargers equipped with an RFID reader. When the charger is set to charge without authentication, it reports no new session authorization event because no card is shown.
+
+Home Assistant doesn't report a session that was already running when it started. It was authorized before Home Assistant was watching, and reporting it then would give it the wrong time.
+{% endnote %}
 
 ### Numbers
 
@@ -118,9 +141,39 @@ The minimum value for this entity is 6A, and the maximum value is depending on y
 
 ### Selects
 
-This integration provides a single select entity: **Smart charging**.
+This integration provides the following select entities.
 
-It reflects the same smart charging state as is shown on the charger's local web interface, and allows you to control the charging behavior of the charger.
+#### Buzzer volume
+
+The **Buzzer volume** select entity controls the volume level of the charger's built-in buzzer. The following options are available:
+
+- **Off** ({% term state %}: `off`): The buzzer is disabled.
+- **Low** ({% term state %}: `low`): The buzzer plays at a low volume.
+- **Low medium** ({% term state %}: `low_medium`): The buzzer plays at a volume between low and medium. This level is not offered by the charger's own web interface.
+- **Medium** ({% term state %}: `medium`): The buzzer plays at a medium volume.
+- **High** ({% term state %}: `high`): The buzzer plays at a high volume.
+
+{% note %}
+The **Buzzer volume** select entity is only available on Peblar chargers that are equipped with a buzzer.
+{% endnote %}
+
+#### LED brightness
+
+The **LED brightness** select entity controls the brightness of the status LED on the charger. The following options are available:
+
+- **Automatic** ({% term state %}: `automatic`): The charger automatically adjusts the LED brightness based on ambient light conditions.
+- **Bright** ({% term state %}: `bright`): The LED is set to its maximum brightness.
+- **Medium** ({% term state %}: `medium`): The LED is set to a medium brightness.
+- **Dim** ({% term state %}: `dim`): The LED is set to a low brightness.
+- **Off** ({% term state %}: `off`): The LED is turned off.
+
+{% note %}
+The **LED brightness** select entity is only available on Peblar chargers that support LED brightness control.
+{% endnote %}
+
+#### Smart charging
+
+The **Smart charging** select entity reflects the same smart charging state as is shown on the charger's local web interface, and allows you to control the charging behavior of the charger.
 
 The following options are available:
 
@@ -128,7 +181,12 @@ The following options are available:
 - **Fast solar** ({% term state %}: `fast_solar`): The charger will fast charge the electric vehicle with the overproduction of solar energy, but will also use grid power if the solar production is not sufficient.
 - **Smart solar** ({% term state %}: `smart_solar`): The charger will charge the electric vehicle with the overproduction of solar energy, but will also use grid power if the solar production is not sufficient.
 - **Pure solar** ({% term state %}: `pure_solar`): The charger will only charge the electric vehicle with the overproduction of solar energy.
+- **Custom solar** ({% term state %}: `custom_solar`): The charger will charge the electric vehicle on solar energy, using the thresholds and grid power target you set on the charger itself.
 - **Scheduled** ({% term state %}: `scheduled`): The charger will charge the electric vehicle according to the schedule configured on the charger.
+
+{% note %}
+**Custom solar** is only offered by chargers running firmware 1.10 or later, and only when the charger has a power meter configured. The thresholds are set in the charger's web interface. Home Assistant selects the mode but doesn't change those settings.
+{% endnote %}
 
 ### Sensors
 
@@ -193,23 +251,31 @@ documentation for information on how to do this.
 
 ### Switches
 
-This integration provides two switch entities:
+This integration provides the following switch entities:
 
 - **Charge**: This switch allows you to start or stop/pause the charging of your electric vehicle. This can be helpful if you want to temporarily stop charging your electric vehicle, for example, to avoid charging during expensive peak hours.
 - **Force single phase**: This switch can be used to force the charger to use a single phase for charging your electric vehicle. This can be useful if you want to limit your current draw from the charger to a single phase, for example, to prevent overloading your electrical installation.
+- **Keep socket locked**: When enabled, the cable stays locked in the charger. When disabled, the charger releases the cable once your vehicle is disconnected, so anyone can unplug it and take it with them. Turning this on while nothing is plugged in has no immediate effect: the charger locks the cable the next time one is inserted.
 
 {% note %}
-The **Force single phase** switch is only available if your charger is connected to multiple phases. If your charger is connected to a single-phase power source, this switch will not be created.
+- The **Force single phase** switch is only available if your charger is connected to multiple phases. If your charger is connected to a single-phase power source, this switch will not be created.
+- The **Keep socket locked** switch is only available on Peblar chargers that are equipped with a socket.
 {% endnote %}
 
 ### Updates
 
 The Peblar integration provides two update entities for the Peblar charger:
 
-- **Firmware**: Indicates if there is a firmware update available for the charger. The firmware can be thought of as the operating system of the charger.
-- **Customization**: Indicates if there is a customization update available for the charger. The customization can be thought of as the user interface of the charger that you see when you log in to the charger's local web interface.
+- **Firmware**: Indicates if there is a firmware update available for the charger, and installs it. The firmware can be thought of as the operating system of the charger.
+- **Customization**: Indicates if there is a customization update available for the charger, and installs it. The customization can be thought of as the user interface of the charger that you see when you log in to the charger's local web interface.
 
-Software updates cannot be installed through Home Assistant. You need to log in to the charger's local web interface to install the updates.
+{% important %}
+If both updates are available, install the customization update first. Home Assistant does not install a firmware update while a customization update is still available. The charger's own web interface installs them in the same order.
+{% endimportant %}
+
+Installing an update takes several minutes. The charger first downloads the package and then restarts itself. While it restarts, the charger is unavailable in Home Assistant.
+
+Home Assistant does not show a progress percentage while an update installs, because the charger does not report one. The version numbers are updated once the charger is back online.
 
 ## Data updates
 
@@ -229,10 +295,7 @@ Although this integration uses local polling, any configuration changes you make
 Peblar charger from Home Assistant will appear on the charger almost
 instantly.
 
-## Actions
-
-This integration does not provide additional actions. All actions available
-for this integration are provided by their respective entities.
+{% include integrations/actions.md %}
 
 ## Examples
 
@@ -265,6 +328,32 @@ automation:
             There is a software update available for your Peblar charger.
             Please log in to the charger's local web interface to install
             the update.
+```
+
+### Automation: notify who started charging
+
+The following example sends a notification naming the person whose card started the charging session. The card names come from the charger's own authorization list.
+
+```yaml
+automation:
+  - alias: "Peblar charging session started"
+    triggers:
+      - trigger: event.received
+        target:
+          entity_id: event.peblar_ev_charger_session_authorization
+        options:
+          event_type:
+            - session_authorized
+
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
+        data:
+          title: "Charging started"
+          message: >
+            {{ state_attr('event.peblar_ev_charger_session_authorization', 'token') }}
+            started charging.
 ```
 
 ### Notify when an issue is detected

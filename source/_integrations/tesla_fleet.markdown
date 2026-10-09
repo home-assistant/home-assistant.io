@@ -304,19 +304,89 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Sensor | State       | Yes     |
 | Sensor | Vehicle     | Yes     |
 
+{% include integrations/actions.md %}
+
+## Tesla Fleet automation examples
+
+You can use the navigation actions to get your car ready for the trip before you get in.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: navigate to your next appointment
+
+Half an hour before a calendar event starts, send the event's location to the car.
+
+- **Trigger**: Calendar: 30 minutes before an event starts
+- **Condition**: The event has a location
+- **Action**: Navigate to destination
+
+{% details "YAML example for navigating to your next appointment" %}
+
+{% example %}
+automation: |
+  alias: "Navigate to next appointment"
+  triggers:
+    - trigger: calendar
+      entity_id: calendar.personal
+      event: start
+      offset: "-0:30:0"
+  conditions:
+    - condition: template
+      value_template: "{{ trigger.calendar_event.location | default('', true) != '' }}"
+  actions:
+    - action: tesla_fleet.navigate_to_destination
+      data:
+        device_id: 0d462c0c4c0b064b1a91cdbd1ffcbd31
+        destination: "{{ trigger.calendar_event.location }}"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: navigate home when leaving work
+
+When you leave the work zone, send your home location to the car.
+
+- **Trigger**: Zone: you leave the work zone
+- **Action**: Navigate to coordinates
+
+{% details "YAML example for navigating home when leaving work" %}
+
+{% example %}
+automation: |
+  alias: "Navigate home when leaving work"
+  triggers:
+    - trigger: zone
+      entity_id: person.alex
+      zone: zone.work
+      event: leave
+  actions:
+    - action: tesla_fleet.navigate_to_coordinates
+      data:
+        device_id: 0d462c0c4c0b064b1a91cdbd1ffcbd31
+        gps:
+          latitude: "{{ state_attr('zone.home', 'latitude') }}"
+          longitude: "{{ state_attr('zone.home', 'longitude') }}"
+{% endexample %}
+
+{% enddetails %}
+
 ## Vehicle sleep
 
 Constant API {% term polling %} will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping. The {% term integration %} automatically stops {% term polling %} these vehicles for 15 minutes after inactivity. You can call the `homeassistant.update_entity` {% term action %} to force {% term polling %}, which will reset the timer.
 
 {% note %} Vehicles manufactured outside of those mentioned above have no issues with prevented sleep. {% endnote %}
 
-## Removing the integration
-
-{% include integrations/remove_device_service.md %}
-
-- Removing the {% term integration %} does not delete your Tesla Developer Application - you can remove it manually from the [Tesla Developer Dashboard](https://developer.tesla.com/dashboard) if no longer needed.
-
 ## Troubleshooting
+
+### Tesla Developer Dashboard does not continue after selecting **Next**
+
+#### Symptom
+
+When configuring **Client Details** in the Tesla Developer Dashboard, selecting **Next** does not continue to the next step and no validation error is shown.
+
+#### Resolution
+
+Tesla may reject some origin domains without displaying a validation error. `ddns.net` hostnames have been observed to be rejected. If your origin URL uses `ddns.net`, use a different hostname that does not end in `ddns.net`, or use an external hosting service such as [FleetKey](https://fleetkey.net).
 
 - **Setup errors**: Verify your public key is accessible at the correct URL and you've completed all registration steps with Tesla
 - **Command failures**: Ensure `tesla_fleet.key` exists in your Home Assistant config directory and add your public key to vehicles via `https://tesla.com/_ak/YOUR_DOMAIN`
@@ -324,3 +394,9 @@ Constant API {% term polling %} will prevent most Model S and Model X vehicles m
 - **Access to this resource is not authorized**: Check your [Tesla Developer Dashboard](https://developer.tesla.com/dashboard) to ensure you haven't exceeded your usage limits and add billing information if required. In certain countries, the *Fart* (remote boombox) command will also throw this error where its usage is illegal.
 
 If you have an error with your credentials, you can delete them in the {% my application_credentials title="Application Credentials" %} user interface.
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
+- Removing the {% term integration %} does not delete your Tesla Developer Application - you can remove it manually from the [Tesla Developer Dashboard](https://developer.tesla.com/dashboard) if no longer needed.

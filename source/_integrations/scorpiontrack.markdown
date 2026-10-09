@@ -11,12 +11,13 @@ ha_domain: scorpiontrack
 ha_platforms:
   - binary_sensor
   - device_tracker
+  - diagnostics
   - sensor
 ha_config_flow: true
 ha_integration_type: hub
 ha_codeowners:
   - '@Herbertmt978'
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **ScorpionTrack** {% term integration %} lets Home Assistant follow the location, speed, and ignition state of vehicles that have been shared through a public ScorpionTrack shared-location link.
@@ -49,13 +50,27 @@ Share URL or token:
   description: "Paste the full ScorpionTrack shared-location URL or only the token from that URL."
 {% endconfiguration_basic %}
 
+## Reconfigure the share
+
+To check or update the link for an existing share:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select **ScorpionTrack**, then select the three dots {% icon "mdi:dots-vertical" %} menu for the share.
+3. Select **Reconfigure** and enter the share URL or token.
+
+Home Assistant checks the link before saving it and reloads the existing integration entry. The link must identify the same share. To use a different share, add it as a new integration entry.
+
+Reconfiguration does not renew or restore a share in ScorpionTrack.
+
 ## Supported functionality
 
 The **ScorpionTrack** integration creates one device for each vehicle included in the share. Each device provides:
 
 - A {% term "device tracker" %} entity that represents the vehicle on the Home Assistant map and in zone logic, using the latest GPS location reported through the ScorpionTrack share.
 - A **Speed** sensor entity that shows the latest vehicle speed reported through the share.
+- A **Last reported** diagnostic sensor entity that shows when the vehicle last reported its position through the share.
 - An **Ignition** binary sensor entity that shows the latest ignition state reported through the share.
+- A **Heading** sensor entity that shows the bearing of the latest shared position in degrees. It is disabled by default.
 
 The tracker name uses the vehicle registration when available, and otherwise falls back to the vehicle name from the ScorpionTrack share.
 
@@ -79,7 +94,17 @@ Make sure the shared-location link is still active in ScorpionTrack and that the
 
 ### No vehicles appear after setup
 
-Confirm that the ScorpionTrack share still includes vehicles and that the share has not expired. Home Assistant creates tracker entities for vehicles present in the share when the integration is set up or reloaded. If you add vehicles to the share later, reload or reconfigure the integration.
+Confirm that the ScorpionTrack share still includes vehicles and that the share has not expired. If you add vehicles to an existing share, Home Assistant creates their entities on the next successful update. You do not need to reload the integration.
+
+### Download diagnostics
+
+If you report a problem, you can [download diagnostics](/integrations/diagnostics/) from the ScorpionTrack integration. The download uses the most recent cached data and does not make another request to ScorpionTrack. Share tokens, names, registrations, addresses, and coordinates are redacted. Review the file before sharing it.
+
+## Removing a vehicle
+
+After a successful update confirms that a vehicle is no longer in the ScorpionTrack share, Home Assistant automatically removes its device and entities. Failed updates or missing location data do not remove a shared vehicle.
+
+If you add the vehicle back to the share, Home Assistant creates its device and entities on the next successful update. You do not need to reload the integration.
 
 ## Removing the integration
 

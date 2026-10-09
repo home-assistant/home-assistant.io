@@ -20,9 +20,10 @@ ha_integration_type: device
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
+ha_quality_scale: platinum
 ---
 
-The **TechnoVE** {% term integration %} lets you monitor and control your [TechnoVE](https://www.technove.com/) smart EV charging station directly from Home Assistant using the station's local API. No cloud account or internet connection is required — everything communicates over your local network.
+The **TechnoVE** {% term integration %} lets you monitor and control your [TechnoVE](https://technove.ca/) smart EV charging station directly from Home Assistant using the station's local API. No cloud account or internet connection is required. Everything communicates over your local network.
 
 Use case: If you have a TechnoVE charging station at home, you can automate your EV charging based on electricity prices, solar panel production, or time of day. For example, you could automatically start charging at night when electricity rates are lower, or pause charging when your home's power consumption is too high.
 
@@ -124,6 +125,14 @@ The **TechnoVE** integration provides the following entities.
 ## Data updates
 
 The **TechnoVE** integration {% term polling polls %} data from the charging station every 5 seconds over the local network. This frequent polling interval ensures that status changes (such as plugging in or unplugging the vehicle) are reflected promptly in Home Assistant.
+
+## Examples
+
+### Notify when charging is completed
+
+Send a notification or execute custom actions when your electric vehicle finishes charging on your TechnoVE charging station:
+
+{% blueprint_example blueprint="technove/charging_completed_notification.yaml" %}
 
 ## Known limitations
 

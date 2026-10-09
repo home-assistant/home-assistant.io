@@ -50,24 +50,22 @@ Also see [Actions](#actions) below.
 To display calendar events directly on your dashboards, Home Assistant includes the [calendar card](/dashboards/calendar/).
 The card shows upcoming events from one or more calendar entities and provides a quick, glanceable view of your schedule.
 
-## The state of a calendar entity
+## Calendar states
 
-The state shows whether there is an active event:
+The state shows whether there is an active event. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
 
-- **On**: The calendar has an active event.
-- **Off**: The calendar does not have an active event.
+- **On** (`on`): The calendar has an active event.
+- **Off** (`off`): The calendar does not have an active event.
 
-In addition, the entity can have the following states:
+In addition, the entity can have the following state:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
 
 ## Automation
 
 Calendar [Triggers](/docs/automation/trigger) enable {% term automation %} based on an
-event's start or end. Review the [Automating Home Assistant](/getting-started/automation/)
-getting started guide on automations or the [Automation](/docs/automation/)
-documentation for full details.
+event's start or end. Review the [Tutorial: Create your first automation](/getting-started/automation/)
+or the [Automation](/docs/automation/) documentation for full details.
 
 Calendar {% term triggers %} are the best way to automate based on calendar events.
 A calendar {% term entity %} can also be used to automate based on its state, but these are limited and attributes only represent the next event.

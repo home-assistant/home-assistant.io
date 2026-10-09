@@ -73,7 +73,7 @@ behavior:
 
 When the doorbell rings, only announce it through the living room speaker if the living room light is already on. Keeps the house quiet when the room is empty.
 
-- **Trigger**: State: Doorbell button pressed
+- **Trigger**: State changed: Doorbell button pressed
 - **Condition**: Light is on
 - **Target**: Living room light
 - **Condition passes if**: Any

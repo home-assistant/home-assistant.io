@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_release: '2024.10'
 ha_codeowners:
   - '@jeeftor'
+  - '@bradleyseanf'
 ha_domain: monarch_money
 ha_config_flow: true
 ha_platforms:
@@ -15,7 +16,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-[Monarch Money](https://www.monarchmoney.com) is a personal finance aggregation and budgeting service that integrates with Plaid, MX, and FinCity, the three major financial backends.
+[Monarch Money](https://monarch.com) is a personal finance aggregation and budgeting service that integrates with Plaid, MX, and FinCity, the three major financial backends.
 
 ## Prerequisites
 
@@ -32,3 +33,18 @@ Each `account` is set up as a device in Home Assistant and contain the following
 |-------|---------------|
 |Balance|Account balance|
 |Age| This sensor shows when the data was retrieved by Monarch's back end |
+- **Balance**: The account balance.
+- **Age**: When Monarch Money last retrieved the data.
+- **Owner**: The institution owner in Monarch Money.
+
+### Budgets
+
+Each `budget` category is set up as a service device in Home Assistant and contains the following sensors for the current month:
+
+- **Budget actual**: The actual amount recorded for the category.
+- **Budget planned**: The amount budgeted for the category.
+- **Budget remaining**: The remaining amount reported by Monarch Money, including rollover from previous months.
+
+Budget data updates every four hours. New categories appear after the next update.
+
+If Monarch Money returns a category without current-month data, its device and sensors still appear, but the sensors are **Unavailable** until data is available. If current-month data is available but an individual amount is missing, that sensor shows as **Unknown**.

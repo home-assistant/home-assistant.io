@@ -12,6 +12,7 @@ ha_platforms:
 ha_codeowners:
   - '@gjohansson-ST'
 ha_integration_type: service
+ha_quality_scale: bronze
 ---
 
 The **DNS IP** {% term integration %} will expose an IP address, fetched via DNS resolution (every 2 minutes), as its value. It provides both IPv4 and IPv6 lookup as separate sensors depending on accessibility to resolvers.
@@ -48,6 +49,6 @@ This service is reliant on an internet connection and that the chosen **resolver
 - Manually test to resolve the hostname using any command line tools or websites available.
 - Manually reload the integration.
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}

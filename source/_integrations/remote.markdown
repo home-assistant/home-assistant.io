@@ -18,16 +18,17 @@ The **Remote** {% term integration %} manages remote entities and lets you contr
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a remote entity
+## Remote states
 
-The state of a remote entity can be either **On** or **Off**.
+A remote entity can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
 
-## Good to know
+- **On** (`on`): The remote is turned on.
+- **Off** (`off`): The remote is turned off.
 
-The entity can also have the following states:
+In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 {% include integrations/triggers_conditions_actions.md %}
 

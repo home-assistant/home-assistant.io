@@ -12,7 +12,7 @@ ha_domain: luci
 ha_platforms:
   - device_tracker
 ha_integration_type: hub
-ha_quality_scale: legacy
+ha_quality_scale: silver
 ---
 
 The **OpenWrt (luci)** {% term integration %} tracks the devices connected to a router that runs [OpenWrt](https://openwrt.org/) with the [LuCI](https://openwrt.org/docs/techref/luci) web interface. Home Assistant polls the router locally, so you can use the presence of a phone or another device to tell who is home and trigger automations based on that.
@@ -53,15 +53,44 @@ Verify SSL certificate:
 
 If the credentials for your router change later, Home Assistant asks you to enter the new username and password so it can reconnect. You don't need to remove and add the integration again.
 
+## Configuration options
+
+To change the options, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **OpenWrt (luci)** integration, and select **Configure**.
+
+{% configuration_basic %}
+Seconds to consider a device at 'home':
+    description: "The time a device stays home after the router stops reporting it. The default is 180 seconds. You can set any value between 0 and 900 seconds. Increase this if devices that go to sleep, such as phones, switch between home and away too often. Set it to 0 to mark a device as away as soon as the router no longer reports it."
+{% endconfiguration_basic %}
+
 ## Supported functionality
 
 For each device it finds on the router, the integration creates a {% term "device tracker" %} entity that shows whether the device is home or away. Each entity also exposes the device's IP address, hostname, and MAC address.
+
+When the router stops reporting a device, the entity stays home until the time set in **Seconds to consider a device at 'home'** has passed. While the device is still considered home, it keeps its last known IP address and hostname. This keeps short dropouts, such as a phone that puts its Wi-Fi to sleep, from looking like someone left the house.
 
 To choose which devices to track and how they are shown, see the [device tracker integration page](/integrations/device_tracker/).
 
 ## Known limitations
 
 Some OpenWrt installations are affected by [a small bug](https://github.com/openwrt/luci/issues/576) where the timeout for LuCI RPC calls is not set, which makes the calls fail. To fix this on your router, you can apply the change manually to the `/usr/lib/lua/luci/controller/rpc.lua` file, or set a fixed timeout. The default is 3600.
+
+## Troubleshooting
+
+### Some device trackers are missing or no longer updating
+
+#### Symptom: "Remove leftover known devices for OpenWrt (luci)"
+
+Home Assistant shows a repair issue titled **Remove leftover known devices for OpenWrt (luci)**, and some of the device trackers created by this integration are missing or stopped updating.
+
+#### Description
+
+Earlier versions of this integration stored the devices it tracked in the `known_devices.yaml` file. The integration now creates its own entities instead, but leftover entries in that file use the same entity IDs. Because of that, the new entities are dropped when Home Assistant starts.
+
+#### Resolution
+
+1. Open the `known_devices.yaml` file in your Home Assistant configuration directory (the same place as your {% term "`configuration.yaml`" %} file).
+2. Remove the entries listed in the repair issue.
+3. Restart Home Assistant.
 
 ## Removing the integration
 

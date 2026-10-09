@@ -211,7 +211,7 @@ Check if one of the following cases applies:
 
 If one of the above cases applies to your setup, try [enabling the old discovery method](#enable-old-discovery-method) in the [integration options](#integration-options). This might resolve the issue.
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}
 

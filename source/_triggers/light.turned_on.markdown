@@ -33,6 +33,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple lights are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted light turns on, **First** to fire only when the first of a group of off lights turns on, or **All** to fire only after every targeted light is on.
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}

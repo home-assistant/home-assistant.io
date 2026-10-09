@@ -8,6 +8,7 @@ ha_category:
   - Climate
   - Cover
   - Event
+  - Fan
   - Hub
   - Light
   - Lock
@@ -26,6 +27,7 @@ ha_platforms:
   - cover
   - diagnostics
   - event
+  - fan
   - light
   - lock
   - sensor
@@ -49,6 +51,7 @@ There is currently support for the following device types within Home Assistant:
 - Climate
 - Cover
 - Event
+- Fan
 - Light
 - Lock
 - Sensor
@@ -104,6 +107,12 @@ If you are unable to control the HmIP-DLD device via Home Assistant, you might n
 To do this, navigate to **Access Control** in the Homematic IP app and enable the necessary permissions.
 
 Currently, you can only use the HmIP-DLD in Home Assistant without a PIN. Make sure no PIN is set for the device in the Homematic IP app.
+
+## Use HmIP-FLC and HmIP-FDC door openers in Home Assistant
+
+The door opener of the HmIP-FLC and HmIP-FDC is a button entity. As with the HmIP-DLD, the Home Assistant access point must be allowed to control it under **Access Control** in the Homematic IP app.
+
+If the access authorization has a PIN, use the `homematicip_cloud.pull_latch` action with its `pin` field. The button itself cannot pass a PIN.
 
 ## Arm the alarm system while a sensor reports a problem
 
@@ -203,6 +212,7 @@ The list below shows which Home Assistant entities each supported Homematic IP d
 
 - Wall-mounted garage door controller (`HmIP-WGC`)
 - Full Flush Lock Controller door opener (`HmIP-FLC`)
+- Full Flush Door Controller door opener (`HmIP-FDC`)
 
 ### Climate
 
@@ -224,6 +234,10 @@ Floor heating actuators are operated through the climate group and don't need th
 ### Events
 
 - Doorbell events for devices that expose a `DOOR_BELL_INPUT` channel, like `HmIP-DSD-PCB`.
+
+### Fans
+
+- Wall-mounted universal actuator, as a ventilation actuator (`HmIP-WUA`)
 
 ### Lights
 
@@ -250,6 +264,7 @@ Floor heating actuators are operated through the climate group and don't need th
 - Fine dust sensor (`HmIP-SFD`)
 - Soil moisture sensor (`ELV-SH-SMSI`)
 - Door lock pad (`HmIP-DLP`)
+- Carbon dioxide sensors (`HmIP-SCTH230`, `HmIP-WGTC`, `HmIPW-SCTHD`)
 
 ### Switches
 

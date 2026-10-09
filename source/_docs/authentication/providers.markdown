@@ -184,6 +184,10 @@ homeassistant:
 Assuming you only created the owner during the onboarding process and have not created any other users, this configuration lets you directly access the Home Assistant main page from your internal network (192.168.0.0/24) or from localhost (127.0.0.1). If you get a login abort error, you can use the Home Assistant authentication provider to log in when accessing your Home Assistant instance from outside your network.
 
 {% note %}
+If you enable `allow_bypass_login` and only one user is available, Home Assistant automatically logs in that user from the trusted network. The login screen is not shown, so you cannot choose the Home Assistant authentication provider while those bypass conditions apply.
+{% endnote %}
+
+{% note %}
 The order of `auth_providers` is critical as authentication providers are evaluated top to bottom.
 To enable skip login as intended, the `trusted_networks` provider must be listed before the `homeassistant` provider. If `type: homeassistant` is configured first, Home Assistant will immediately present the login page and the skip login logic will never be reached, even if the client is on a trusted network.
 {% endnote %}

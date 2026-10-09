@@ -3,6 +3,7 @@ title: Rain Bird
 description: Instructions on how to integrate your Rain Bird LNK WiFi Module within Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Calendar
   - Irrigation
   - Sensor
@@ -16,7 +17,9 @@ ha_codeowners:
 ha_domain: rainbird
 ha_platforms:
   - binary_sensor
+  - button
   - calendar
+  - diagnostics
   - number
   - sensor
   - switch
@@ -28,8 +31,10 @@ The **Rain Bird** {% term integration %} allows interacting with [LNK WiFi](http
 There is currently support for the following device types within Home Assistant:
 
 - [Binary sensor](#binary-sensor)
+- [Button](#button)
 - [Calendar](#calendar)
 - [Number](#number)
+- [Sensor](#sensor)
 - [Switch](#switch)
 
 Home Assistant allows you to control the irrigation values, log details about
@@ -50,8 +55,15 @@ irrigations schedules on a calendar.
 Host:
   description: "The IP address of your Rain Bird device. You can find the IP address under the device in the Rain Bird app under **Controller Settings** > **Network Info**."
 Password:
-  description: "The password used to authenticate the Rain Bird device."
+  description: "The **controller password**, which you set when the Rain Bird WiFi controller was first configured. This is not the password for your Rain Bird account. It is 4-8 letters or numbers; if you set it up with the Rain Bird 2.0 app, it is the 6-digit PIN."
 {% endconfiguration_basic %}
+
+The controller password is specific to the controller and protects its network
+and sharing settings. Rain Bird documents it here:
+
+- [WiFi controller password and what it protects](https://wifi.rainbird.com/articles/wifi-controller-password-and-what-it-protects/)
+- [How do I change my controller password?](https://wifi.rainbird.com/articles/how-do-i-change-my-controller-password/)
+- [Forgotten controller passwords](https://wifi.rainbird.com/articles/forgotten-controller-passwords/)
 
 ## Configuration options
 
@@ -66,7 +78,8 @@ Default irrigation time:
 
 The Rain Bird integration fetches available irrigation zones once, then polls
 every minute to check the current state of each valve. The irrigation schedule
-calendar is only fetched every 15 minutes.
+is only fetched every 15 minutes, and only while the calendar or a program next run
+sensor is enabled.
 
 ## Supported functionality
 
@@ -79,6 +92,16 @@ The Rain Bird integration provides the following entities.
 - **Rain sensor**
   - **Description**: The rain sensor will tell if you if the device has detected rain. 
   - **Available for devices**: The rain sensor is an optional add-on for the device purchased from Rain Bird.
+
+#### Button
+
+- **Run program**
+  - **Description**: A button is created for each program the controller supports
+    (Run PGM A, Run PGM B, and so on). Pressing it starts that program right away,
+    using the zones and run times stored on the controller, the same as starting the program
+    manually at the controller. You can use it in automations with the `button.press` action.
+  - **Available for devices**: All. The number of buttons depends on how many programs your
+    controller model supports.
 
 #### Calendar
 
@@ -96,6 +119,15 @@ The Rain Bird integration provides the following entities.
     of days to delay irrigation when combined with another weather forecast integration in Home Assistant.
   - **Available for devices**: Only available for Rain Bird devices irrigation schedules.
 
+#### Sensor
+
+- **Program next run**
+  - **Description**: One sensor per program (for example, **PGM A next run**) with the next time the
+    program is scheduled to start, taking any rain delay into account. It moves on to the following
+    run as soon as a run starts. The sensor is unknown if the program has no start times or zones.
+    These sensors are disabled by default. To use one, enable it from the controller's device page.
+  - **Available for devices**: Only available for Rain Bird devices with irrigation programs.
+
 #### Switch
 
 - **Irrigation Zone**
@@ -107,9 +139,10 @@ The Rain Bird integration provides the following entities.
 
 ## Known Limitations
 
-The new Rain Bird 2.0 App and Firmware is not compatible with Home Assistant.
-The upgrade process will migrate devices to require use of the new Rain Bird
-IQ4 cloud, and Home Assistant will not be able to access the device.
+Controllers updated by the Rain Bird 2.x app and newer firmware serve their local
+API over HTTPS instead of HTTP. Home Assistant 2026.3.1 or later tries both, so
+these controllers are supported and are still controlled locally, with no cloud
+requirement. On earlier versions, setup fails with a connection error.
 
 The Rain Bird LNK WiFi can only receive one incoming request at a time. It may
 not be possible for Home Assistant to send commands to the device while you
