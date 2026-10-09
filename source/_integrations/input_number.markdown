@@ -76,8 +76,12 @@ input_number:
         required: false
         type: string
         default: slider
+      device_class:
+        description: The [type/class](/integrations/number/#device-class) of the number, used to pick the number's wording and icon in the frontend.
+        required: false
+        type: device_class
       unit_of_measurement:
-        description: Unit of measurement in which the value of the slider is expressed in.
+        description: Unit of measurement in which the value of the slider is expressed in. When a `device_class` is set, use a unit that is supported by that device class.
         required: false
         type: string
       icon:
