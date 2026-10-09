@@ -212,7 +212,7 @@ automation:
           value: 32
 {% endexample %}
 
-### Add EV charging to the Energy dashboard
+## Energy dashboard
 
 Use the **Total energy usage** sensor as an individual device on the [Energy dashboard](/home-energy-management):
 
