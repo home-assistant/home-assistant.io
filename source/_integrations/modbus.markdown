@@ -123,15 +123,15 @@ Prerequisites:
 
 ### Ways to connect
 
-#### Modbus TCP
+#### Modbus <abbr title="Transmission Control Protocol">TCP</abbr>
 
 Modbus over your network. Most devices with a network interface use port `502`.
 
-#### Modbus RTU
+#### Modbus <abbr title="Remote Terminal Unit">RTU</abbr>
 
-Modbus over a serial connection, usually an RS-485 bus. The data is sent in binary form. In YAML, use `method: rtu`.
+Modbus over a serial connection, usually an <abbr title="Recommended Standard 485">RS-485</abbr> bus. The data is sent in binary form. In YAML, use `method: rtu`.
 
-#### Modbus ASCII
+#### Modbus <abbr title="American Standard Code for Information Interchange">ASCII</abbr>
 
 Modbus over a serial connection, with the data sent as text characters. Only a few devices use it. In YAML, use `method: ascii`.
 
@@ -139,7 +139,7 @@ Modbus over a serial connection, with the data sent as text characters. Only a f
 
 Modbus RTU data that is sent over your network unchanged. A serial device server uses it. Some manuals call it TCP-RTU.
 
-#### Modbus UDP
+#### Modbus <abbr title="User Datagram Protocol">UDP</abbr>
 
 Modbus over your network, with UDP instead of TCP. It's rarely used.
 
