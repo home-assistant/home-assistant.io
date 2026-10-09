@@ -129,7 +129,7 @@ Configure the Modbus communication with your Modbus devices. This general setup 
 
 The Modbus integration allows you to use multiple connections, each with multiple entities.
 
-The Modbus integration provides several parameters to help communicate with "difficult" devices, these parameters are independent of the type of communication.
+The Modbus integration provides several parameters to help communicate with "difficult" devices. These parameters are independent of the type of communication.
 
 To enable this integration, add it to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -443,7 +443,7 @@ All Modbus entities have the following parameters:
 
 {% configuration %}
 address:
-  description: "Register address (0-based) of the coil or register. You can also enter it in hexadecimal, for example, `0x789A`."
+  description: "Address (0-based) of the coil or register. You can also enter it in hexadecimal, for example, `0x789A`."
   required: true
   type: integer
 name:
@@ -1403,7 +1403,7 @@ lights:
           default: 0
           type: integer
         input_type:
-          description: Type of address (holding/coil/discrete/input).
+          description: Type of address.
           required: false
           default: "Same as `write_type`"
           type: list
