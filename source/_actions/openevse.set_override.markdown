@@ -78,9 +78,9 @@ energy_limit:
   required: false
   type: integer
 time_limit:
-  description: Time limit duration for the override session.
+  description: Time limit duration for the override session (e.g. `01:30:00` or seconds).
   required: false
-  type: duration
+  type: [string, integer]
 auto_release:
   description: Automatically clear the override when the session completes or limits are reached.
   required: false
