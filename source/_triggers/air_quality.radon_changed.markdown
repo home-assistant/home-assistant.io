@@ -67,6 +67,7 @@ trigger: |
 {% include triggers/threshold_changed_options_yaml.md
    unit_phrase_yaml="literal radon concentration"
    has_unit="true"
+   strict_unit="true"
    unit_label="radon unit"
    unit_options_code="`Bq/m³` or `pCi/L`"
    unit_default="Bq/m³"

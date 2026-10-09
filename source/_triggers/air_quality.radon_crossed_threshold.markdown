@@ -7,7 +7,7 @@ related_triggers:
   - air_quality.radon_changed
 ---
 
-The **Radon level crossed threshold** trigger fires when the radon reading on one or more air quality sensors crosses into a zone you define: above a level, below a level, into a range, or out of a range. Radon is a naturally occurring radioactive gas that rises from the soil and seeps into buildings through cracks and gaps in floors and walls. It is invisible and odorless, it collects in basements and ground-floor rooms, and long-term exposure to elevated levels increases the risk of lung cancer. Because radon fluctuates with ventilation, weather, and the seasons, a live sensor lets your home respond the moment a level becomes a concern instead of waiting for a periodic test.
+The **Radon level crossed threshold** trigger fires when the radon reading on one or more air quality sensors crosses into a zone you define: above a level, below a level, into a range, or out of a range. Radon is a naturally occurring radioactive gas that rises from the soil and seeps into buildings through cracks and gaps in floors and walls. It is invisible and odorless. It collects in basements and ground-floor rooms, and long-term exposure to elevated levels increases the risk of lung cancer. Because radon fluctuates with ventilation, weather, and the seasons, a live sensor lets your home respond the moment a level becomes a concern instead of waiting for a periodic test.
 
 Imagine your basement fan starting on its own the moment radon climbs above your limit, and a notification letting you know once it has dropped back to normal. Radon sensors report in becquerels per cubic meter (Bq/m³) or picocuries per liter (pCi/L). You can set the threshold in either unit, and Home Assistant converts between them automatically.
 
@@ -72,6 +72,7 @@ trigger: |
 {% include triggers/threshold_crossed_options_yaml.md
    unit_phrase_yaml="literal radon concentration"
    has_unit="true"
+   strict_unit="true"
    unit_label="radon unit"
    unit_options_code="`Bq/m³` or `pCi/L`"
    unit_default="Bq/m³"
