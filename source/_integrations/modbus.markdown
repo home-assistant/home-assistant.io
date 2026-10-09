@@ -62,7 +62,7 @@ Prerequisites:
    - During setup, enter how Home Assistant reaches the device:
      - For a network connection, enter the host and the port. Use the port from the integration documentation. Many devices use `502`, but some use another port.
      - For a serial connection, select the [serial port](/integrations/serial/#serial-port), and enter the [baud rate](/integrations/serial/#baud-rate).
-       - A serial proxy is listed with the serial ports.
+       - An ESPHome serial proxy is listed with the serial ports.
        - For a serial device server, select **Enter manually** and enter its URL. With a `socket://` URL, the baud rate isn't passed on, so set it on the serial device server itself.
    - Some integrations also ask for the unit ID of the device. The unit ID identifies the device on the Modbus connection. Some integrations call it **Device ID**, and device manuals often call it slave ID. Most devices use `1`. Unless several devices share the connection, you can usually keep `1`. In YAML, it's `device_address`.
    - Result: The entities of your device appear in Home Assistant.
