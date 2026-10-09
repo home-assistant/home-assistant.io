@@ -87,11 +87,12 @@ Below are example automations to get notified when something needs your attentio
 
 This automation sends a notification to your phone when the GPU temperature goes above 95 °C.
 
-- **Trigger**: Numeric state
-  - **Entity**: GPU Core (`sensor.my_pc_nvidia_geforce_rtx_4080_gpu_core_temperature`)
-  - **Above**: 95
+- **Trigger**: Temperature crossed threshold
+  - **Target**: GPU Core (`sensor.my_pc_nvidia_geforce_rtx_4080_gpu_core_temperature`)
+  - **Threshold type**: Above (95 °C)
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
+  - **Message**: Your GPU temperature is above 95 °C.
 
 {% details "YAML example for a GPU temperature alert" %}
 
@@ -99,30 +100,35 @@ This automation sends a notification to your phone when the GPU temperature goes
 automation: |
   alias: "Notify when the GPU exceeds safe temperature"
   triggers:
-    - trigger: numeric_state
-      entity_id: sensor.my_pc_nvidia_geforce_rtx_4080_gpu_core_temperature
-      above: 95
+    - trigger: temperature.crossed_threshold
+      target:
+        entity_id: sensor.my_pc_nvidia_geforce_rtx_4080_gpu_core_temperature
+      options:
+        threshold:
+          type: above
+          value:
+            number: 95
+            unit_of_measurement: "°C"
   actions:
     - action: notify.send_message
       target:
         entity_id: notify.my_device
       data:
-        message: >
-          Your GPU is at
-          {{ states('sensor.my_pc_nvidia_geforce_rtx_4080_gpu_core_temperature') }} °C.
+        message: "Your GPU temperature is above 95 °C."
 {% endexample %}
 
 {% enddetails %}
 
 ### Automation: Get notified when a drive is almost full
 
-This automation sends a notification to your phone when the free space on an NVMe drive drops below 100 GiB.
+This automation sends a notification to your phone when the free space on an NVMe drive drops below 100 GiB. The **Below** value uses the unit the sensor is displayed in, which is GiB by default.
 
 - **Trigger**: Numeric state
   - **Entity**: Free disk space (`sensor.my_pc_samsung_ssd_990_pro_2tb_free_space_data`)
   - **Below**: 100
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
+  - **Message**: Your NVMe drive has less than 100 GiB of free space left.
 
 {% details "YAML example for a low disk space alert" %}
 
