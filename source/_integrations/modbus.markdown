@@ -86,10 +86,10 @@ Prerequisites:
 
 1. If needed, turn on the Modbus interface of your device.
 2. In your {% term "`configuration.yaml`" %} file, add a Modbus hub for the connection to your device.
-   - For the options, refer to [Configuring modbus communication](#configuring-modbus-communication).
-   - For a serial device server, use `type: rtuovertcp`. Set the baud rate on the serial device server itself. For details, refer to [Configuring a TCP-RTU connection](#configuring-a-tcp-rtu-connection).
+   - For the options, refer to [Configuring Modbus communication](#configuring-modbus-communication).
+   - For a serial device server, use `type: rtuovertcp`. Set the baud rate on the serial device server itself. For details, refer to [Configuring a Modbus RTU over TCP connection](#configuring-a-modbus-rtu-over-tcp-connection).
 3. Under the hub, add an entity for each value you want to read or control. Set `address` to where the device stores the value.
-   - For the options, refer to [Configuring modbus entities](#configuring-modbus-entities).
+   - For the options, refer to [Configuring Modbus entities](#configuring-modbus-entities).
 4. Restart Home Assistant.
    - Result: The entities of your device appear in Home Assistant.
 5. Optional: To check the connection, go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
@@ -125,11 +125,11 @@ Use these options when you set up a Modbus hub in YAML. For the steps, refer to 
 
 ### Configuring Modbus communication
 
-Configure the modbus communication with modbus devices. This is a general setup needed establish access to the device.
+Configure the Modbus communication with your Modbus devices. This general setup is needed to access the device.
 
-The modbus integration allows you to use multiple connections each with multiple sensors.
+The Modbus integration allows you to use multiple connections, each with multiple entities.
 
-The modbus integration provides several parameters to help communicate with "difficult" devices, these parameters are independent of the type of communication.
+The Modbus integration provides several parameters to help communicate with "difficult" devices, these parameters are independent of the type of communication.
 
 To enable this integration, add it to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -137,9 +137,9 @@ To enable this integration, add it to your {% term "`configuration.yaml`" %} fil
 {% configuration %}
 delay:
   description: "Time to delay sending messages in seconds after connecting.
-  Some modbus devices need a delay of typically 1-2 seconds after connection is established to prepare the communication.
+  Some Modbus devices need a delay of typically 1-2 seconds after connection is established to prepare the communication.
   If a device does not respond to messages after connecting, then try this parameter.
-  **Remark:** solely affect the first message."
+  The delay only affects the first message."
   required: false
   default: 0
   type: integer
@@ -158,28 +158,28 @@ timeout:
   default: 3
   type: integer
 type:
-  description: "Type of modbus."
+  description: "Type of connection."
   required: true
   type: list
   keys:
     tcp:
-      description: "TCP/IP connection with socket framer, used with Ethernet enabled devices."
+      description: "Modbus TCP, for devices with a network interface, or for a Modbus gateway on your network."
     udp:
-      description: "UDP connection with socket framer, rarely used."
+      description: "Modbus UDP, over the network. Rarely used."
     rtuovertcp:
-      description: "TCP/IP connection with rtu framer, used when connection to modbus forwarders."
+      description: "Modbus RTU over TCP, for a serial device server on your network."
     serial:
-      description: "Serial connection with RTU framer, used with TTY port or USB rs485 converter."
+      description: "Serial connection (Modbus RTU or Modbus ASCII), for a serial port or a USB-to-RS-485 adapter."
 
 {% endconfiguration %}
 
-### Configuring TCP connection
+### Configuring a Modbus TCP connection
 
-`type: tcp` is required. Used for devices providing a TCP/IP interface directly.
+`type: tcp` is required. Use it for devices with a network interface, and for Modbus gateways that translate to Modbus TCP.
 
 {% configuration %}
 host:
-  description: "IP address or name of your modbus device, e.g., `192.168.1.1`."
+  description: "IP address or name of your Modbus device, for example, `192.168.1.1`."
   required: true
   type: string
 port:
@@ -189,10 +189,10 @@ port:
 
 {% endconfiguration %}
 
-#### Example: Typical TCP configuration
+#### Example: Typical Modbus TCP configuration
 
 ```yaml
-# Example yaml: typical tcp connection
+# Example YAML: typical Modbus TCP connection
 modbus:
   - name: modbus_hub
     type: tcp
@@ -200,10 +200,10 @@ modbus:
     port: 502
 ```
 
-#### Example: Full TCP configuration
+#### Example: Full Modbus TCP configuration
 
 ```yaml
-# Example yaml: full tcp connection
+# Example YAML: full Modbus TCP connection
 modbus:
   - name: modbus_hub
     type: tcp
@@ -215,16 +215,13 @@ modbus:
     timeout: 5
 ```
 
-### Configuring a TCP-RTU connection
+### Configuring a Modbus RTU over TCP connection
 
-`type: rtuovertcp` is required. Used for devices providing a TCP/IP interface directly.
-
-This is typically used, when communicating with a modbus-forwarder, a device that
-has a TCP/IP connection upwards, and one or more serial connections downwards.
+`type: rtuovertcp` is required. Use it for a serial device server: a device on your network that passes Modbus RTU between the network and one or more serial connections.
 
 {% configuration %}
 host:
-  description: "IP address or name of your modbus device, e.g., `192.168.1.1`."
+  description: "IP address or name of your Modbus device, for example, `192.168.1.1`."
   required: true
   type: string
 port:
@@ -234,10 +231,10 @@ port:
 
 {% endconfiguration %}
 
-#### Example: Typical TCP-RTU configuration
+#### Example: Typical Modbus RTU over TCP configuration
 
 ```yaml
-# Example yaml: typical tcp-rtu connection
+# Example YAML: typical Modbus RTU over TCP connection
 modbus:
   - name: modbus_hub
     type: rtuovertcp
@@ -245,10 +242,10 @@ modbus:
     port: 502
 ```
 
-#### Example: Full TCP-RTU configuration
+#### Example: Full Modbus RTU over TCP configuration
 
 ```yaml
-# Example yaml: full tcp-rtu connection
+# Example YAML: full Modbus RTU over TCP connection
 modbus:
   - name: modbus_hub
     type: rtuovertcp
@@ -260,13 +257,13 @@ modbus:
     timeout: 5
 ```
 
-### Configuring a UDP connection
+### Configuring a Modbus UDP connection
 
 `type: udp` is required. This is rarely used, and only for very special configurations.
 
 {% configuration %}
 host:
-  description: "IP address or name of your modbus device, e.g., `192.168.1.1`."
+  description: "IP address or name of your Modbus device, for example, `192.168.1.1`."
   required: true
   type: string
 port:
@@ -276,10 +273,10 @@ port:
 
 {% endconfiguration %}
 
-#### Example: Typical UDP configuration
+#### Example: Typical Modbus UDP configuration
 
 ```yaml
-# Example yaml: typical udp connection
+# Example YAML: typical Modbus UDP connection
 modbus:
   - name: modbus_hub
     type: udp
@@ -287,10 +284,10 @@ modbus:
     port: 502
 ```
 
-#### Example: Full UDP configuration
+#### Example: Full Modbus UDP configuration
 
 ```yaml
-# Example yaml: full udp connection
+# Example YAML: full Modbus UDP connection
 modbus:
   - name: modbus_hub
     type: udp
@@ -302,11 +299,11 @@ modbus:
     timeout: 5
 ```
 
-### Configuring serial connection
+### Configuring a serial connection
 
-`type: serial` is required. This is used for devices providing a serial rs485 interface.
+`type: serial` is required. Use it for devices with an RS-485 interface.
 
-The physical interface is typically a USB serial-rs485 converter or an rs232-rs485 connected to a serial port.
+The device is typically connected through a USB-to-RS-485 adapter, or through an RS-232-to-RS-485 adapter on a serial port.
 
 {% configuration %}
 baudrate:
@@ -327,14 +324,14 @@ bytesize:
     "8":
       description: "8 bit for data, standard."
 method:
-  description: "Method of the connection to modbus."
+  description: "The Modbus variant that the device uses on the serial connection."
   required: true
   type: list
   keys:
     rtu:
-      description: "Binary data transmission preceded by slave id and followed by a crc, standard."
+      description: "Modbus RTU: binary data, preceded by the unit ID and followed by a checksum. Standard."
     ascii:
-      description: "ASCII data transmission preceded by slave id and followed by a crc, used for few devices."
+      description: "Modbus ASCII: data as text characters, preceded by the unit ID and followed by a checksum. Used by few devices."
 parity:
   description: "Parity of the data bytes."
   required: true
@@ -347,7 +344,7 @@ parity:
     N:
       description: "No parity bit, standard."
 port:
-  description: "Serial port or USB device where your modbus device is connected to your Home Assistant host."
+  description: "Serial port or USB device where your Modbus device is connected to your Home Assistant host."
   required: true
   type: string
 stopbits:
@@ -365,7 +362,7 @@ stopbits:
 #### Example: Typical serial configuration
 
 ```yaml
-# Example yaml:  typical serial connection
+# Example YAML: typical serial connection
 modbus:
   - name: modbus_hub
     type: serial
@@ -380,7 +377,7 @@ modbus:
 #### Example: Full serial configuration
 
 ```yaml
-# Example yaml: full udp connection
+# Example YAML: full serial connection
 modbus:
   - name: modbus_hub
     type: serial
@@ -402,7 +399,7 @@ modbus:
 Multiple connections can freely mix different communications:
 
 ```yaml
-# Example yaml: multiple tcp connections
+# Example YAML: multiple Modbus TCP connections
 modbus:
   - name: modbus_hub
     type: tcp
@@ -417,7 +414,7 @@ modbus:
 
 
 ```yaml
-# Example yaml: tcp connection and serial connection
+# Example YAML: Modbus TCP connection and serial connection
 modbus:
   - name: modbus_hub
     type: tcp
@@ -436,17 +433,17 @@ modbus:
 
 ### Configuring Modbus entities
 
-modbus entities are grouped below each modbus communication entry.
+Modbus entities are grouped below each Modbus hub.
 
-**REMARK** Each modbus device must have at least 1 entity defined, otherwise the integration will not be loaded.
+Each Modbus device must have at least 1 entity. Otherwise, the integration isn't loaded.
 
-Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
+For parameters that can't be used together, refer to the [Parameters usage matrix](#parameters-usage-matrix).
 
-All modbus entities have the following parameters:
+All Modbus entities have the following parameters:
 
 {% configuration %}
 address:
-  description: "Address of coil/register. Note that this can also be specified in Hex. For example: `0x789A`"
+  description: "Register address (0-based) of the coil or register. You can also enter it in hexadecimal, for example, `0x789A`."
   required: true
   type: integer
 name:
@@ -457,7 +454,7 @@ scan_interval:
   description: "Update interval in seconds.
   scan_interval = 0 for no polling.
   Entities are read shortly after startup and then according to scan_interval.
-  Remark, when restarting HA the last known value is restored."
+  When Home Assistant restarts, the last known value is restored."
   required: false
   type: integer
   default: 15
@@ -467,13 +464,13 @@ slave:
   type: integer
   default: 1
 device_address:
-  description: "Id of the device. Used to address multiple devices on a rs485 bus or devices connected to a modbus repeater. 0 is the broadcast id. "
+  description: "Unit ID of the device. Use it to address several devices on an RS-485 bus, or devices behind a Modbus gateway. `0` is the broadcast address."
   required: false
   type: integer
   default: 1
 unique_id:
   description: "ID that uniquely identifies this entity.
-  Slaves will be given a unique_id of <<unique_id>>_<<slave_index>>.
+  With `virtual_count`, the additional entities get this unique ID with a number added, for example, `my_unique_id_1`.
   If two entities have the same unique ID, Home Assistant will raise an exception."
   required: false
   type: string
@@ -483,7 +480,7 @@ unique_id:
 #### Example: Entities grouping
 
 ```yaml
-# Example yaml: entities grouping
+# Example YAML: entities grouping
 modbus:
   - type: tcp
     host: IP_ADDRESS_1
@@ -530,7 +527,7 @@ For that reason, many devices (especially older ones) do not share the coil addr
 and this `input` would read from a different address space than `coil`. The problem is present in devices with
 shared address space and are a frequent cause of problems when configuring entities.
 
-Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
+For parameters that can't be used together, refer to the [Parameters usage matrix](#parameters-usage-matrix).
 
 {% configuration %}
 binary_sensors:
@@ -552,13 +549,13 @@ binary_sensors:
       required: false
       type: integer
     virtual_count:
-      description: "Generate count+1 binary sensors (master + slaves).
+      description: "Creates this binary sensor plus this number of additional binary sensors.
       Addresses are automatically incremented.
       The parameter simplifies configuration and provides a much better performance by not using count+1 requests but a single request."
       required: false
       type: integer
     unique_id:
-      description: "ID that uniquely identifies the entity. Slaves will automatically be given a unique_id of <<unique_id>>_<<slave_index>>.  If two sensors have the same unique ID, Home Assistant will raise an exception."
+      description: "ID that uniquely identifies the entity. The additional binary sensors get this unique ID with a number added, for example, `my_unique_id_1`. If two sensors have the same unique ID, Home Assistant will raise an exception."
       required: false
       type: string
 
@@ -567,7 +564,7 @@ binary_sensors:
 #### Example: Typical binary sensor configuration
 
 ```yaml
-# Example yaml: typical binary_sensor
+# Example YAML: typical binary_sensor
 modbus:
   - name: hub1
     type: tcp
@@ -582,7 +579,7 @@ modbus:
 #### Example: Full binary sensor configuration
 
 ```yaml
-# Example yaml: binary_sensor with all options
+# Example YAML: binary_sensor with all options
 modbus:
   - name: hub1
     type: tcp
@@ -619,17 +616,17 @@ modbus:
 This configuration will poll coil addresses 100 to 110 every 15 seconds and update the binary_sensors: `my_relay`
 and `my_relay_1` to `my_relay_10`.
 
-The master configuration like device_class are automatically copied to the slaves.
+The additional binary sensors get the same configuration as the first one, such as `device_class`.
 
 ### Configuring climate entities
 
 The Modbus climate platform allows you to monitor a thermostat or heaters as well as set a target temperature, HVAC action, HVAC mode, swing mode, and fan state.
 
-Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
+For parameters that can't be used together, refer to the [Parameters usage matrix](#parameters-usage-matrix).
 
 {% configuration %}
 climates:
-  description: "A list of all climate entities in this modbus instance."
+  description: "A list of all climate entities in this Modbus hub."
   required: false
   type: map
   keys:
@@ -1038,11 +1035,11 @@ The `modbus` cover platform allows you to control covers (such as blinds, a roll
 
 At the moment, platform cover support the opening and closing of a cover. You can control your covers either using coils or holding registers.
 
-Cover that uses `input_type: coil` is not able to determine intermediary states such as opening and closing. Coil stores only two states — "0" means cover closed, and "1" implies cover open. To allow detecting intermediary states, there is an optional `status_register` attribute. It will enable you to write your command (e.g., to open a cover) into a coil, and read current cover status back through the register. Additionally, you can specify values for `state_open`, `state_opening`, `state_closed`, and `state_closing` attributes. These will be matched with the value read from the `status_register`.
+A cover that uses `input_type: coil` is not able to determine intermediary states such as opening and closing. A coil stores only two states: `0` means the cover is closed, and `1` means it's open. To allow detecting intermediary states, there is an optional `status_register` attribute. It will enable you to write your command (for example, to open a cover) into a coil, and read current cover status back through the register. Additionally, you can specify values for `state_open`, `state_opening`, `state_closed`, and `state_closing` attributes. These will be matched with the value read from the `status_register`.
 
 If your cover uses `input_type: holding` (default) to send commands, it can also read the intermediary states. To adjust which value represents what state, you can fine-tune the optional state attributes, like `state_open`. These optional state values are also used for specifying values written into the register. If you specify an optional status_register attribute, cover states will be read from status_register instead of the register used for sending commands.
 
-Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
+For parameters that can't be used together, refer to the [Parameters usage matrix](#parameters-usage-matrix).
 
 {% configuration %}
 covers:
@@ -1229,11 +1226,11 @@ modbus:
 
 The `modbus` fan platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
-Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
+For parameters that can't be used together, refer to the [Parameters usage matrix](#parameters-usage-matrix).
 
 {% configuration %}
 fans:
-  description: "A list of all fan entities in this modbus instance."
+  description: "A list of all fan entities in this Modbus hub."
   required: true
   type: map
   keys:
@@ -1254,13 +1251,13 @@ fans:
       type: list
       keys:
         holding:
-          description: "write_register is called."
+          description: "Write Single Register (function code 06)."
         holdings:
-          description: "write_registers is called."
+          description: "Write Multiple Registers (function code 16)."
         coil:
-          description: "write_coil is called."
+          description: "Write Single Coil (function code 05)."
         coils:
-          description: "write_coils is called."
+          description: "Write Multiple Coils (function code 15)."
     verify:
       description: "Read from Modbus device to verify fan.
         If used without attributes, it uses the toggle register configuration.
@@ -1285,9 +1282,9 @@ fans:
           type: list
           keys:
             coil:
-              description: "Coil (1bit relay)."
-            discrete:
-              description: "Discret input (1bit relay)."
+              description: "Coil: a single bit that can be read and written."
+            discrete_input:
+              description: "Discrete input: a single bit that can only be read."
             holding:
               description: "Holding register."
             input:
@@ -1336,11 +1333,11 @@ modbus:
 
 The `modbus` light platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
-Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
+For parameters that can't be used together, refer to the [Parameters usage matrix](#parameters-usage-matrix).
 
 {% configuration %}
 lights:
-  description: "A list of all light entities in this modbus instance."
+  description: "A list of all light entities in this Modbus hub."
   required: true
   type: map
   keys:
@@ -1381,13 +1378,13 @@ lights:
       type: list
       keys:
         holding:
-          description: "write_register is called."
+          description: "Write Single Register (function code 06)."
         holdings:
-          description: "write_registers is called."
+          description: "Write Multiple Registers (function code 16)."
         coil:
-          description: "write_coil is called."
+          description: "Write Single Coil (function code 05)."
         coils:
-          description: "write_coils is called."
+          description: "Write Multiple Coils (function code 15)."
     verify:
       description: "Read from Modbus device to verify the light.
         If used without attributes, it uses the toggle register configuration.
@@ -1412,9 +1409,9 @@ lights:
           type: list
           keys:
             coil:
-              description: "Coil (1bit relay)."
-            discrete:
-              description: "Discrete inout (1bit relay)."
+              description: "Coil: a single bit that can be read and written."
+            discrete_input:
+              description: "Discrete input: a single bit that can only be read."
             holding:
               description: "Holding register."
             input:
@@ -1480,11 +1477,11 @@ modbus:
 
 The `modbus` sensor allows you to gather data from [Modbus](http://www.modbus.org/) registers.
 
-Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
+For parameters that can't be used together, refer to the [Parameters usage matrix](#parameters-usage-matrix).
 
 {% configuration %}
 sensors:
-  description: "A list of all sensors in this modbus instance."
+  description: "A list of all sensors in this Modbus hub."
   required: true
   type: map
   keys:
@@ -1549,7 +1546,7 @@ sensors:
       required: false
       type: float
     nan_value:
-      description: If a Modbus sensor has a defined NaN value, this value can be set as a hex string starting with `0x` containing one or more bytes (for example, `0xFFFF` or `0x80000000`) or provided as an integer directly. If triggered, the sensor becomes `unknown`. Please note that the hex to int conversion for `nan_value` does currently not obey home-assistants Modbus encoding using the `data_type`, `structure`, or `swap` arguments.
+      description: If a Modbus sensor has a defined NaN value, this value can be set as a hex string starting with `0x` containing one or more bytes (for example, `0xFFFF` or `0x80000000`) or provided as an integer directly. If triggered, the sensor becomes `unknown`. The conversion from hex to integer for `nan_value` doesn't use the `data_type`, `structure`, or `swap` options.
       required: false
       type: string
     zero_suppress:
@@ -1576,7 +1573,7 @@ sensors:
       required: false
       type: integer
     virtual_count:
-      description: "Generates x+1 sensors (master + slaves), allowing read of multiple registers with a single read message."
+      description: "Creates this sensor plus this number of additional sensors. All their registers are read with a single request."
       required: false
       type: integer
     state_class:
@@ -1674,11 +1671,11 @@ modbus:
 
 The `modbus` switch platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
-Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
+For parameters that can't be used together, refer to the [Parameters usage matrix](#parameters-usage-matrix).
 
 {% configuration %}
 switches:
-  description: "A list of all switches in this modbus instance."
+  description: "A list of all switches in this Modbus hub."
   required: true
   type: map
   keys:
@@ -1699,13 +1696,13 @@ switches:
       type: list
       keys:
         holding:
-          description: "write_register is called."
+          description: "Write Single Register (function code 06)."
         holdings:
-          description: "write_registers is called."
+          description: "Write Multiple Registers (function code 16)."
         coil:
-          description: "write_coil is called."
+          description: "Write Single Coil (function code 05)."
         coils:
-          description: "write_coils is called."
+          description: "Write Multiple Coils (function code 15)."
     verify:
       description: "Read from Modbus device to verify switch.
         If used without attributes, it uses the toggle register configuration.
@@ -1730,9 +1727,9 @@ switches:
           type: list
           keys:
             coil:
-              description: "Coil (1bit relay)."
-            discrete:
-              description: "Discret input (1bit relay)."
+              description: "Coil: a single bit that can be read and written."
+            discrete_input:
+              description: "Discrete input: a single bit that can only be read."
             holding:
               description: "Holding register."
             input:
@@ -1826,23 +1823,26 @@ Some parameters exclude other parameters, the following tables show what can be 
 
 ## Opening an issue
 
-When opening an issue, please add your current configuration (or a scaled down version), with at least:
+When you open an issue, add your current configuration, or a shortened version of it, with at least:
 
- - the modbus configuration lines
- - the entity lines (such as sensor)
+- The Modbus configuration lines
+- The entity lines, such as for a sensor
 
-In order for the developers better to identify the problem, please add the
-following lines to {% term "`configuration.yaml`" %}:
+To help the developers find the problem, include a debug log:
 
-```yaml
-logger:
-  default: warning
-  logs:
-    homeassistant.components.modbus: debug
-    pymodbus: debug
-```
+1. Add the following lines to your {% term "`configuration.yaml`" %} file:
 
-and restart Home Assistant, reproduce the problem, and include the log in the issue.
+   ```yaml
+   logger:
+     default: warning
+     logs:
+       homeassistant.components.modbus: debug
+       pymodbus: debug
+   ```
+
+2. Restart Home Assistant.
+3. Reproduce the problem.
+4. Add the log to the issue.
 
 ## Building on top of Modbus
 
