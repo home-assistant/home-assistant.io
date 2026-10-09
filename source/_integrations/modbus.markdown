@@ -129,11 +129,11 @@ Modbus over your network. Most devices with a network interface use port `502`.
 
 #### Modbus RTU
 
-Modbus over a serial connection, usually an RS-485 bus. The data is sent in binary form.
+Modbus over a serial connection, usually an RS-485 bus. The data is sent in binary form. In YAML, use `method: rtu`.
 
 #### Modbus ASCII
 
-Modbus over a serial connection, with the data sent as text characters. Only a few devices use it.
+Modbus over a serial connection, with the data sent as text characters. Only a few devices use it. In YAML, use `method: ascii`.
 
 #### Modbus RTU over TCP
 
@@ -220,7 +220,7 @@ A register that you can read and write, for example, a setting. In YAML, it's `h
 
 #### Register address
 
-The position of a register or coil in the device. Home Assistant counts addresses from `0`.
+The position of a coil, discrete input, or register in the device. Home Assistant counts addresses from `0`.
 
 Some manuals count from `1`, or add the type of data in front, such as `40001` for the first holding register. In that case, the address in Home Assistant is `0`.
 
