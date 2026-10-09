@@ -25,6 +25,12 @@ The **Modbus** {% term integration %} connects Home Assistant to devices that ha
 
 [Modbus](https://www.modbus.org/) is a communication protocol for industrial devices, such as controllers in heating, ventilation, and solar systems.
 
+The following chart shows how Home Assistant reaches a Modbus device. If an integration is available for your device, you set it up in the UI. If no integration is available, you add the device with a Modbus hub in YAML.
+
+<object type="image/svg+xml" data="/images/integrations/modbus/modbus-overview.svg" width="690" style="max-width: 100%; height: auto;" aria-label="How Home Assistant connects to Modbus devices">
+  <img src="/images/integrations/modbus/modbus-overview.png" alt="Diagram of how Home Assistant connects to Modbus devices. An integration for the device, such as SolarEdge Modbus or Sofar, uses a shared connection of the Modbus integration, one per address or port. It reaches the device over Modbus TCP or RTU, through a Modbus gateway, the device itself, a USB-to-RS-485 adapter, or an ESPHome serial proxy. For a device without an integration, you describe its entities in YAML, register by register. A Modbus hub in YAML then uses its own connection, over Modbus TCP, UDP, or RTU, through a Modbus gateway, the device itself, or a USB-to-RS-485 adapter.">
+</object>
+
 ## Supported devices
 
 Home Assistant supports devices with a Modbus interface through integrations for those devices. To find these integrations, browse the [Modbus-controlled category](/integrations/#modbus-controlled).
