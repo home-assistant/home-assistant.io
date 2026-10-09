@@ -53,6 +53,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Doorbell announcement with binary\_sensor](#doorbell-announcement-with-binary_sensor)
     - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
   - [Camera](#camera)
+    - [WebRTC live view](#webrtc-live-view)
   - [Climate](#climate)
     - [Set Thermostat Temperature](#set-thermostat-temperature)
     - [Thermostat Mode](#thermostat-mode)
@@ -627,6 +628,15 @@ The [`stream`](/integrations/stream/) integration is required to stream cameras 
 The Amazon echo device will request the camera stream from Home Assistant. The Home Assistant URL must be accessible from the network the Amazon echo device is connected to and must support HTTPS on port 443 with a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport). These requirements can be satisfied with Home Assistant Cloud, or LetsEncrypt/DuckDNS.
 
 Enable preload stream option for cameras used with echo devices to reduce response time, and prevent timing out before the 6 second limit.
+
+#### WebRTC live view
+
+Echo Show devices can also show the live view of a camera over WebRTC. This is used for cameras that support WebRTC, either natively or through the [go2rtc](/integrations/go2rtc/) integration. The HTTPS stream described above is still offered when its requirements are met, so existing setups keep working.
+
+- Only IPv4 connection candidates are sent to the Echo Show. If a camera only provides IPv6 or mDNS (`.local`) candidates, the live view fails.
+- The video does not go directly over your local network. The Echo Show connects through a public address of your network or through a TURN relay server. Home Assistant Cloud provides TURN servers automatically. Without Home Assistant Cloud, configure your own TURN server with the [WebRTC](/integrations/web_rtc/) integration.
+- Alexa checks whether a camera supports WebRTC when it discovers devices. If WebRTC becomes available later, for example when go2rtc starts after Alexa discovered your devices, ask Alexa to discover devices again.
+- To troubleshoot the live view, enable [debug logging](#debugging) for `homeassistant.components.alexa`. The log shows each session, the connection candidates sent to the Echo Show, and how long it took to answer.
 
 ### Climate
 
