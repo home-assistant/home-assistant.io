@@ -2474,10 +2474,10 @@ select:
           required: true
           type: template
     optimistic:
-      description: Flag that defines if the select works in optimistic mode. When enabled, the select's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the select updates only when the `state` template returns a new value. If you don't define a `state` template, the select is always optimistic.
+      description: Flag that defines if the select works in optimistic mode. When enabled, the select's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the select updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the select works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     options:
       description: Template for the select's available options.
       required: true
@@ -2815,10 +2815,10 @@ switch:
           required: true
           type: template
     optimistic:
-      description: Flag that defines if the switch works in optimistic mode. When enabled, the switch's state updates immediately when it's turned on or off through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the switch updates only when the `state` template returns a new value. If you don't define a `state` template, the switch is always optimistic.
+      description: Flag that defines if the switch works in optimistic mode. When enabled, the switch's state updates immediately when it's turned on or off through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the switch updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the switch works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     state:
       description: Defines a template to set the state of the switch. If not defined, the switch optimistically assumes all commands are successful. The switch is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The switch is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The switch is `unknown` if the template evaluates as `None`.
       required: false
@@ -3156,10 +3156,10 @@ vacuum:
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the vacuum works in optimistic mode. When enabled, the vacuum's state updates immediately when a command is sent through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the vacuum updates only when the `state` template returns a new value. If you don't define a `state` template, the vacuum is always optimistic.
+      description: Flag that defines if the vacuum works in optimistic mode. When enabled, the vacuum's state updates immediately when a command is sent through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the vacuum updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the vacuum works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     pause:
       description: Defines an action to run when the vacuum is paused.
       required: false
