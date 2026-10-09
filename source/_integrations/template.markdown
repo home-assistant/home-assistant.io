@@ -2462,10 +2462,10 @@ Availability:
 select:
   description: List of selects
   required: true
-  type: map
+  type: list
   keys:
     attributes:
-      description: Defines templates for attributes of the entity. The `options` attribute is not allow inside attributes map.
+      description: Defines templates for attributes of the entity. The `options` attribute is not allowed inside the attributes map.
       required: false
       type: [map, template]
       keys:
@@ -2474,7 +2474,7 @@ select:
           required: true
           type: template
     optimistic:
-      description: Flag that defines if the select works in optimistic mode. When enabled, the select's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the select updates only when the `state` template returns a new value.
+      description: Flag that defines if the select works in optimistic mode. When enabled, the select's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the select updates only when the `state` template returns a new value. If you don't define a `state` template, the select is always optimistic.
       required: false
       type: boolean
       default: false
@@ -2527,7 +2527,7 @@ template:
 
 ### State based select - Control Day/Night mode of a camera
 
-This show how a state based template select can be used to perform an action.
+This shows how a state based template select can be used to perform an action.
 
 ```yaml
 template:
@@ -2803,10 +2803,10 @@ Availability:
 switch:
   description: List of switches
   required: true
-  type: map
+  type: list
   keys:
     attributes:
-      description: Defines templates for attributes of the entity. The `device_class` attribute is not allow inside attributes map.
+      description: Defines templates for attributes of the entity. The `device_class` attribute is not allowed inside the attributes map.
       required: false
       type: [map, template]
       keys:
@@ -2815,7 +2815,7 @@ switch:
           required: true
           type: template
     optimistic:
-      description: Flag that defines if the switch works in optimistic mode. When enabled, the switch's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the switch updates only when the `state` template returns a new value.
+      description: Flag that defines if the switch works in optimistic mode. When enabled, the switch's state updates immediately when it's turned on or off through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the switch updates only when the `state` template returns a new value. If you don't define a `state` template, the switch is always optimistic.
       required: false
       type: boolean
       default: false
@@ -2826,11 +2826,11 @@ switch:
       default: optimistic
     turn_off:
       description: Defines an action or list of actions to run when the switch is turned off.
-      required: true
+      required: false
       type: action
     turn_on:
       description: Defines an action or list of actions to run when the switch is turned on.
-      required: true
+      required: false
       type: action
 
 {% endconfiguration %}
@@ -2919,7 +2919,7 @@ momentary switches to control a device.
 template:
   - switch:
       - name: "Skylight"
-        value_template: "{{ is_state('sensor.skylight', 'on') }}"
+        state: "{{ is_state('sensor.skylight', 'on') }}"
         turn_on:
           action: switch.turn_on
           target:
@@ -2993,7 +2993,7 @@ Availability:
 update:
   description: List of update entities
   required: true
-  type: map
+  type: list
   keys:
     attributes:
       description: >
@@ -3024,11 +3024,11 @@ update:
       required: false
       type: action
     installed_version:
-      description: Defines a template to get the installed version. When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
+      description: Defines a template to get the installed version. When `latest_version` is newer than `installed_version`, the update entity state is `on`.
       required: true
       type: template
     latest_version:
-      description: Defines a template to get the latest version. When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
+      description: Defines a template to get the latest version. When `latest_version` is newer than `installed_version`, the update entity state is `on`.
       required: true
       type: template
     release_summary:
@@ -3048,7 +3048,7 @@ update:
       description: Defines a template to get the update title.
       required: false
       type: template
-    update_percent:
+    update_percentage:
       description: Defines a template to get the update completion percentage.
       required: false
       type: template
@@ -3110,7 +3110,7 @@ Actions on return to dock:
   description: The action or actions run when the vacuum is sent to dock.
 Actions on clean spot:
   description: The action or actions run for a spot-clean command.
-Actions locate:
+Actions on locate:
   description: The action or actions run for a locate command.
 Device:
   description: An existing device to attach this helper to.
@@ -3124,10 +3124,10 @@ Availability:
 vacuum:
   description: List of vacuum entities
   required: true
-  type: map
+  type: list
   keys:
     attributes:
-      description: Defines templates for attributes of the entity.
+      description: Defines templates for attributes of the entity. The `fan_speed` and `fan_speed_list` attributes are not allowed inside the attributes map.
       required: false
       type: [map, template]
       keys:
@@ -3135,10 +3135,6 @@ vacuum:
           description: The attribute and corresponding template.
           required: true
           type: template
-    battery_level:
-      description: "Defines a template to get the battery level of the vacuum. Legal values are numbers between `0` and `100`."
-      required: false
-      type: template
     clean_segments:
       description: Defines an action to run when the vacuum is given a clean area command. The action receives the `segment_ids` variable, which contains the list of selected area segment IDs. Requires `unique_id` and `segments`.
       required: inclusive
@@ -3160,7 +3156,7 @@ vacuum:
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the vacuum works in optimistic mode. When enabled, the vacuum's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the vacuum updates only when the `state` template returns a new value.
+      description: Flag that defines if the vacuum works in optimistic mode. When enabled, the vacuum's state updates immediately when a command is sent through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the vacuum updates only when the `state` template returns a new value. If you don't define a `state` template, the vacuum is always optimistic.
       required: false
       type: boolean
       default: false
@@ -3185,7 +3181,7 @@ vacuum:
       required: true
       type: action
     state:
-      description: "Defines a template to get the state of the vacuum. Valid value: `docked`/`cleaning`/`idle`/`paused`/`returning`/`error`"
+      description: "Defines a template to get the state of the vacuum. Valid values are `cleaning`, `docked`, `idle`, `paused`, `returning`, and `error`."
       required: false
       default: optimistic
       type: template
@@ -3244,10 +3240,9 @@ template:
 This example shows how you can use a Template Vacuum to control an IR vacuum cleaner using the [Harmony Hub Remote integration](/integrations/harmony).
 
 ```yaml
-vacuum:
-  - platform: template
-    vacuums:
-      living_room_vacuum:
+template:
+  - vacuum:
+      - name: Living Room Vacuum
         start:
           - action: remote.send_command
             target:
@@ -3276,14 +3271,14 @@ vacuum:
 This example shows how to add custom attributes.
 
 ```yaml
-vacuum:
-  - platform: template
-    vacuums:
-      living_room_vacuum:
-        value_template: "{{ states('sensor.vacuum_state') }}"
-        battery_level_template: "{{ states('sensor.vacuum_battery_level') | int }}"
-        fan_speed_template: "{{ states('sensor.vacuum_fan_speed') }}"
-        attribute_templates:
+template:
+  - vacuum:
+      - name: Living Room Vacuum
+        state: "{{ states('sensor.vacuum_state') }}"
+        fan_speed: "{{ states('sensor.vacuum_fan_speed') }}"
+        start:
+          action: script.vacuum_start
+        attributes:
           status: >-
             {% if (states('sensor.robot_vacuum_robot_cleaner_movement') == "after" and states('sensor.robot_vacuum_robot_cleaner_cleaning_mode') == "stop")  %}
               Charging to Resume
@@ -3329,7 +3324,7 @@ Availability:
 weather:
   description: List of weather entities
   required: true
-  type: map
+  type: list
   keys:
     apparent_temperature:
       description: The current apparent (feels-like) temperature.
@@ -3345,6 +3340,10 @@ weather:
           description: The attribute and corresponding template.
           required: true
           type: template
+    attribution:
+      description: Defines a template for the attribution text of the weather data, such as the name of the data provider.
+      required: false
+      type: template
     cloud_coverage:
       description: The current cloud coverage.
       required: false
@@ -3378,7 +3377,7 @@ weather:
       required: false
       type: template
     precipitation_unit:
-      description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
+      description: Unit for the precipitation values. Valid options are km, mi, nmi, ft, m, cm, mm, in, and yd.
       required: false
       type: string
     pressure:
@@ -3386,7 +3385,7 @@ weather:
       required: false
       type: template
     pressure_unit:
-      description: Unit for pressure_template output. Valid options are Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, psi.
+      description: Unit for the `pressure` value. Valid options are mPa, Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, inH₂O, psi, and atm.
       required: false
       type: string
     temperature:
@@ -3394,7 +3393,7 @@ weather:
       required: true
       type: template
     temperature_unit:
-      description: Unit for temperature_template output. Valid options are °C, °F, and K.
+      description: Unit for the `temperature` value. Valid options are °C, °F, and K.
       required: false
       type: string
     uv_index:
@@ -3406,7 +3405,7 @@ weather:
       required: false
       type: template
     visibility_unit:
-      description: Unit for visibility_template output. Valid options are km, mi, ft, m, cm, mm, in, yd.
+      description: Unit for the `visibility` value. Valid options are km, mi, nmi, ft, m, cm, mm, in, and yd.
       required: false
       type: string
     wind_gust_speed:
@@ -3418,7 +3417,7 @@ weather:
       required: false
       type: template
     wind_speed_unit:
-      description: Unit for wind_speed_template output. Valid options are m/s, km/h, mph, mm/d, in/d, and in/h.
+      description: Unit for the `wind_speed` value. Valid options are m/s, km/h, mph, kn, m/min, ft/s, in/s, mm/s, mm/d, mm/h, in/d, in/h, and Beaufort.
       required: false
       type: string
     wind_bearing:
