@@ -1237,11 +1237,11 @@ Last fired event type:
 Event types:
   description: A template that gets the list of available event types.
 Device class:
-  description: The [device class](/integrations/event/#device-class) used to pick the event's wording and icon. One of **Button**, **Doorbell** or **Motion**.
+  description: The [device class](/integrations/event/#device-class) used to pick the event's wording and icon. One of **Button**, **Doorbell**, or **Motion**. You can only set it when you create the helper.
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -1250,8 +1250,17 @@ Availability:
 event:
   description: List of events
   required: true
-  type: map
+  type: list
   keys:
+    attributes:
+      description: Defines templates for attributes of the entity. The `event_type` and `event_types` attributes are not allowed inside the attributes map.
+      required: false
+      type: [map, template]
+      keys:
+        "attribute: template":
+          description: The attribute and corresponding template.
+          required: true
+          type: template
     device_class:
       description: Sets the [class of the device](/integrations/event/#device-class), changing the device state and icon that is displayed in the UI.
       required: false
@@ -1319,7 +1328,7 @@ Speed count:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -1328,7 +1337,7 @@ Availability:
 fan:
   description: List of fans
   required: true
-  type: map
+  type: list
   keys:
     attributes:
       description: >
@@ -1345,10 +1354,10 @@ fan:
       required: false
       type: template
     optimistic:
-      description: Flag that defines if the fan works in optimistic mode. When enabled, the fan's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the fan updates only when the `state` template returns a new value.
+      description: Flag that defines if the fan works in optimistic mode. When enabled, the fan's state updates immediately when it's changed through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the fan updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the fan works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     oscillating:
       description: "Defines a template to get the oscillation state of the fan. The fan is oscillating if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The fan is not oscillating if the template evaluates to `0`, `false`, `no`, `off`, or `disable`."
       required: false
@@ -1362,10 +1371,9 @@ fan:
       required: false
       type: template
     preset_modes:
-      description: List of preset modes the fan is capable of. This is an arbitrary list of strings and must not contain any speeds.
+      description: List of preset modes the fan is capable of. This is an arbitrary list of strings.
       required: false
       type: [string, list]
-      default: []
     set_percentage:
       description: Defines an action to run when the fan is given a speed percentage command.
       required: false
@@ -1388,8 +1396,8 @@ fan:
       type: integer
       default: 100
     state:
-      description: "Defines a template to get the state of the fan. The fan is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The fan is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The fan is `unknown` if the template evaluates as `None`."
-      required: true
+      description: "Defines a template to get the state of the fan. The fan is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The fan is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The fan is `unknown` if the template evaluates as `None`. If not defined, and `optimistic` isn't set, the fan works in optimistic mode."
+      required: false
       type: template
     turn_on:
       description: Defines an action to run when the fan is turned on.
@@ -1604,7 +1612,7 @@ Verify SSL certificate:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -1613,10 +1621,10 @@ Availability:
 image:
   description: List of images
   required: true
-  type: map
+  type: list
   keys:
     attributes:
-      description: Defines templates for attributes of the entity. The `access_token` attribute is not allow inside attributes map.
+      description: Defines templates for attributes of the entity. The `access_token` attribute is not allowed inside the attributes map.
       required: false
       type: [map, template]
       keys:
@@ -1682,7 +1690,7 @@ State:
 Actions on turn on:
   description: The action or actions run when the light is turned on.
 Actions on turn off:
-  description: The action run when the light is turned off.
+  description: The action or actions run when the light is turned off.
 Brightness level:
   description: A template for the light's brightness.
 Actions on set level:
@@ -1698,7 +1706,7 @@ Actions on set color temperature:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -1707,7 +1715,7 @@ Availability:
 light:
   description: List of your lights.
   required: true
-  type: map
+  type: list
   keys:
     attributes:
       description: >
@@ -1750,10 +1758,10 @@ light:
       type: template
       default: optimistic
     optimistic:
-      description: Flag that defines if the light works in optimistic mode. When enabled, the light's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the light updates only when the `state` template returns a new value.
+      description: Flag that defines if the light works in optimistic mode. When enabled, the light's state updates immediately when it's changed through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the light updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the light works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     rgb:
       description: Defines a template to get the RGB color of the light. Must render a tuple or a list (red, green, blue).
       required: false
@@ -1817,7 +1825,7 @@ light:
       type: template
       default: optimistic
     turn_on:
-      description: Defines an action to run when the light is turned on. May receive the variables `brightness` and/or `transition`.
+      description: Defines an action to run when the light is turned on. May receive the variables `brightness`, `brightness_pct`, and `transition`.
       required: true
       type: action
     turn_off:
@@ -1844,6 +1852,7 @@ template:
         temperature: "{{states('input_number.temperature_input') | int}}"
         hs: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
         effect_list: "{{ state_attr('light.led_strip', 'effect_list') }}"
+        effect: "{{ state_attr('light.led_strip', 'effect') }}"
         turn_on:
           action: script.theater_lights_on
         turn_off:
@@ -1901,6 +1910,7 @@ template:
         temperature: "{{states('input_number.temperature_input') | int}}"
         hs: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
         effect_list: "{{ state_attr('light.led_strip', 'effect_list') }}"
+        effect: "{{ state_attr('light.led_strip', 'effect') }}"
         turn_on:
           action: script.theater_lights_on
         turn_off:
@@ -1996,13 +2006,11 @@ When `light.turn_on` is called, Home Assistant selects exactly one script to run
 4. `rgbww_color` is provided and `set_rgbww` is defined.
 5. `rgbw_color` is provided and `set_rgbw` is defined.
 6. `rgb_color` is provided and `set_rgb` is defined.
-7. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
-8. `rgb_color` is provided and `set_rgb` is defined.
-9. `xy_color` is provided and `set_xy` is defined.
-10. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
-11. None of the above match, and `turn_on` is called.
+7. `xy_color` is provided and `set_xy` is defined.
+8. `brightness` (or `brightness_pct`) is provided and `set_level` is defined.
+9. None of the above match, and `turn_on` is called.
 
-Whichever script is selected, it also receives `brightness` as a variable when the call included brightness, and `transition` as a variable when the call included transition and `supports_transition` is `true`. For example, when you turn a light on with a color and a brightness at the same time, the relevant color script runs (not `set_level`), and it can still use the `brightness` variable.
+Whichever script is selected, it also receives `brightness` and `brightness_pct` as variables when the call included brightness, and `transition` as a variable when the call included transition and `supports_transition` is `true`. For example, when you turn a light on with a color and a brightness at the same time, the relevant color script runs (not `set_level`), and it can still use the `brightness` variable.
 
 There is no separate script for transitions. The `transition` value is passed as a variable to whichever script is selected, including `turn_off`.
 
@@ -2062,11 +2070,12 @@ This example shows how to group together 2 RGBW segments from the same WLED cont
 ```yaml
 template:
   - light:
-        unique_id: 28208f257b54c44e50deb2d618d44710
-        name: Multi-segment Wled control
+      - unique_id: 28208f257b54c44e50deb2d618d44710
+        name: "Multi-segment WLED control"
         state: "{{ states('light.wled_master') }}"
         level: "{{ state_attr('light.wled_master', 'brightness') | d(0,true) | int }}"
-        rgbw: (
+        rgbw: >
+          (
           {{ (state_attr('light.wled_segment_0', 'rgbw_color')[0] | d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[0] | d(0))/2 }},
           {{ (state_attr('light.wled_segment_0', 'rgbw_color')[1] | d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[1] | d(0))/2 }},
           {{ (state_attr('light.wled_segment_0', 'rgbw_color')[2] | d(0) + state_attr('light.wled_segment_1', 'rgbw_color')[2] | d(0))/2 }},
@@ -2075,21 +2084,29 @@ template:
         effect_list: "{{ state_attr('light.wled_segment_0', 'effect_list') }}"
         effect: "{{ state_attr('light.wled_segment_0', 'effect') if state_attr('light.wled_segment_0', 'effect') == state_attr('light.wled_segment_1', 'effect') else none }}"
         availability: "{{ not is_state('light.wled_master', 'unknown') }}"
-
         turn_on:
           action: light.turn_on
-          entity_id: light.wled_segment_0, light.wled_segment_1, light.wled_master
+          target:
+            entity_id:
+              - light.wled_segment_0
+              - light.wled_segment_1
+              - light.wled_master
         turn_off:
           action: light.turn_off
-          entity_id: light.wled_master
+          target:
+            entity_id: light.wled_master
         set_level:
           action: light.turn_on
-          entity_id: light.wled_master
+          target:
+            entity_id: light.wled_master
           data:
             brightness: "{{ brightness }}"
         set_rgbw:
           action: light.turn_on
-          entity_id: light.wled_segment_0, light.wled_segment_1
+          target:
+            entity_id:
+              - light.wled_segment_0
+              - light.wled_segment_1
           data:
             rgbw_color:
               - "{{ r }}"
@@ -2099,7 +2116,10 @@ template:
             effect: "Solid"
         set_effect:
           action: light.turn_on
-          entity_id: light.wled_segment_0, light.wled_segment_1
+          target:
+            entity_id:
+              - light.wled_segment_0
+              - light.wled_segment_1
           data:
             effect: "{{ effect }}"
 ```
@@ -2122,13 +2142,13 @@ Actions on lock:
 Actions on unlock:
   description: The action or actions run when the lock is unlocked.
 Code format:
-  description: A template that gets the code format of the lock. It must match as a regular expression against any code entered before the **Actions on lock** or **Actions on unlock** run.
+  description: A template that gets the code format of the lock. It must match as a regular expression against any code entered before the **Actions on lock**, **Actions on unlock**, or **Actions on open** run.
 Actions on open:
   description: The action or actions run when the lock is opened.
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -2137,7 +2157,7 @@ Availability:
 lock:
   description: List of locks
   required: true
-  type: map
+  type: list
   keys:
     attributes:
       description: >
@@ -2150,7 +2170,7 @@ lock:
           required: true
           type: template
     code_format:
-      description: Defines a template to get the `code_format` attribute of the entity. This template must evaluate to a valid [Python regular expression](https://docs.python.org/3/library/re.html#regular-expression-syntax) or `None`. If it evaluates to a not-`None` value, you are prompted to enter a code when interacting with the lock. The code is matched against the regular expression, and the lock/unlock actions are executed only if they match. The actual _validity_ of the entered code must be verified within these actions. If there's a syntax error in the template, the entity is `unavailable`. If the template fails to render for other reasons or if the regular expression is invalid, no code is accepted, and the lock/unlock actions are never be invoked.
+      description: Defines a template to get the `code_format` attribute of the entity. This template must evaluate to a valid [Python regular expression](https://docs.python.org/3/library/re.html#regular-expression-syntax) or `None`. If it evaluates to a not-`None` value, you are prompted to enter a code when interacting with the lock. The code is matched against the regular expression, and the lock, unlock, and open actions run only if they match. The actual _validity_ of the entered code must be verified within these actions. If the template fails to render, or the regular expression is invalid, no code is accepted. The lock, unlock, and open actions then fail with an error, and never run.
       required: false
       type: template
       default: None
@@ -2163,10 +2183,10 @@ lock:
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the lock works in optimistic mode. When enabled, the lock's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the lock updates only when the `state` template returns a new value.
+      description: Flag that defines if the lock works in optimistic mode. When enabled, the lock's state updates immediately when it's locked, unlocked, or opened through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the lock updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the lock works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     state:
       description: Defines a template to set the state of the lock. Valid output values from the template are `locked`, `unlocked`, `open`, `locking`, `unlocking`, `opening`, and `jammed`, which are directly mapped to the corresponding states. In addition,  `1`, `true`, `yes`, `on`, and `enable` are valid as synonyms to `locked` while `0`, `false`, `no`, `off`, and `disable` are valid as synonyms to `unlocked`. If the template produces a `None` value, the state is set to `unknown`.
       required: false
@@ -2242,7 +2262,7 @@ This example shows a lock in optimistic mode. This lock immediately changes stat
 template:
   - lock:
       - name: Garage Door
-        state: "{{ is_state('sensor.skylight.state', 'on') }}"
+        state: "{{ is_state('sensor.skylight', 'on') }}"
         optimistic: true
         lock:
           action: switch.turn_on
@@ -2262,7 +2282,7 @@ This example shows a lock that takes its state from a sensor, and uses two momen
 template:
   - lock:
       - name: Garage Door
-        state: "{{ is_state('sensor.skylight.state', 'on') }}"
+        state: "{{ is_state('sensor.skylight', 'on') }}"
         lock:
           action: switch.turn_on
           target:
@@ -2330,7 +2350,7 @@ Actions on set value:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -2339,11 +2359,11 @@ Availability:
 number:
   description: List of numbers
   required: true
-  type: map
+  type: list
   keys:
     attributes:
       description: >
-        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `min`, `max`, `step`, and `mode`.
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `min`, `max`, `step`, `mode`, and `device_class`.
       required: false
       type: [map, template]
       keys:
@@ -2351,6 +2371,10 @@ number:
           description: The attribute and corresponding template.
           required: true
           type: template
+    device_class:
+      description: Sets the [device class](/integrations/number/#device-class), changing the device state and icon that is displayed in the UI.
+      required: false
+      type: device_class
     max:
       description: Template for the number's maximum value.
       required: false
@@ -2362,10 +2386,10 @@ number:
       type: template
       default: 0.0
     optimistic:
-      description: Flag that defines if the number works in optimistic mode. When enabled, the number's state updates immediately when changed through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the number updates only when the `state` template returns a new value.
+      description: Flag that defines if the number works in optimistic mode. When enabled, the number's state updates immediately when changed through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the number updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the number works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     set_value:
       description: Defines actions to run when the number value changes. The variable `value` contains the number entered.
       required: true
