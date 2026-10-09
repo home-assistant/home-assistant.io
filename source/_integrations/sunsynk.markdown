@@ -34,11 +34,11 @@ Sunsynk makes hybrid solar inverters and batteries. The integration can get the 
 
 - A Modbus TCP gateway on your network. The gateway connects to the RS485 port of the inverter. Many RS485 to Ethernet or RS485 to Wi-Fi converters can do this. The gateway must use Modbus TCP. RTU over TCP is not supported.
 - A cable from the RS485 port of the inverter to the gateway. On the RS485 port, pin 1 is B and pin 2 is A.
-- Set the gateway to 9600 baud, 8 data bits, no parity and 1 stop bit.
+- Set the gateway to 9600 baud, 8 data bits, no parity, and 1 stop bit.
 - On the inverter, go to **Advanced** > **Multi-Inverter**. Make sure that **Modbus SN** is not `00`. Use this value as the unit ID. A firmware update can set the value back to `00`.
 
 {% warning %}
-The RS485 port is inside the wiring area of the inverter. Before you open the inverter, switch off the AC, PV and battery isolators. Then wait 5 minutes. If you are not sure, ask your installer to connect the cable.
+The RS485 port is inside the wiring area of the inverter. The wiring area can have dangerous voltages. Before you open the inverter, follow the safety procedure in the installation manual of your inverter model. Only a qualified person must do this work. If you are not sure, ask your installer to connect the cable.
 {% endwarning %}
 
 Home Assistant can find the Sunsynk data logger on your network. The data logger has the hostname `e-linter`. When it is found, Home Assistant shows a **Sunsynk** discovery card. Select **Add** and enter your account details. You can also add the integration by hand.
@@ -69,7 +69,7 @@ Unit ID:
   description: The **Modbus SN** of the inverter. The default is 1.
 {% endconfiguration_basic %}
 
-Before the integration adds the inverter, it reads the serial number of the inverter. Add one entry for each inverter. The inverter is a device in Home Assistant, named **Inverter** and the serial number. A battery is a second device, linked to its inverter, named **Battery** and the serial number of the inverter.
+Before the integration adds the inverter, it reads the serial number of the inverter. Add one entry for each inverter. The inverter is a device in Home Assistant, named **Inverter** and the serial number. If a battery is set up on the inverter, the battery is a second device, linked to its inverter, named **Battery** and the serial number of the inverter. Refer to [Battery](#battery).
 
 You can add the same inverter with a Sunsynk Connect account and with a Modbus TCP gateway. Each connection then has its own devices and entities.
 
@@ -128,7 +128,7 @@ The inverter sends new data to the cloud every 5 minutes, so a shorter interval 
 
 ### Modbus TCP gateway
 
-The integration polls the inverter every 10 seconds. If the inverter does not reply, the entities of the inverter become unavailable until the next poll that is successful.
+The integration polls the inverter every 10 seconds. If the inverter does not reply, the entities of the inverter become unavailable until the next successful poll.
 
 ## Actions
 
@@ -228,7 +228,7 @@ Make sure that Home Assistant has an internet connection and that [Sunsynk Conne
 
 1. Make sure that the host and the port are correct, and that Home Assistant can reach the gateway on your network.
 2. On the inverter, make sure that **Modbus SN** is not `00` and that it is the same as the unit ID.
-3. Make sure that the gateway uses 9600 baud, 8 data bits, no parity and 1 stop bit.
+3. Make sure that the gateway uses 9600 baud, 8 data bits, no parity, and 1 stop bit.
 4. If the inverter does not reply, swap the A and B wires at the gateway. This does not cause damage.
 
 ### The integration shows a different serial number
