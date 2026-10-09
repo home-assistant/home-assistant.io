@@ -24,7 +24,7 @@ This is useful whenever you have a UNIX timestamp (a number of seconds since Jan
 {% template_function_usage %}
 filter: '{{ 1710510600 | timestamp_custom("%H:%M") }}'
 type: string
-output: "14:30"
+output: "14:50"
 {% endtemplate_function_usage %}
 
 {% include template_functions/signatures.md %}
@@ -68,7 +68,7 @@ By default, `timestamp_custom` converts the timestamp to your local time zone. P
 {% example %}
 template: '{{ 1710510600 | timestamp_custom("%H:%M", false) }}'
 type: string
-output: "13:30"
+output: "13:50"
 {% endexample %}
 
 ## Common format patterns
