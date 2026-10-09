@@ -1,4 +1,6 @@
 flowchart TB
+    accTitle: How Home Assistant connects to Modbus devices
+    accDescr: An integration that connects through the Modbus integration, such as SolarEdge Modbus or Sofar, uses a shared connection of the Modbus integration, one per address or port. It reaches the device over Modbus TCP or RTU, through a Modbus gateway, the device itself, a USB-to-RS-485 adapter, an ESPHome serial proxy, or a serial device server. For a device without an integration, you describe its entities in YAML, register by register. A Modbus hub in YAML then uses its own connection, over Modbus TCP, UDP, or RTU, through a Modbus gateway, the device itself, a USB-to-RS-485 adapter, or a serial device server.
     subgraph HA["Home Assistant"]
         subgraph DEV["Integrations that use the Modbus integration"]
             SE["SolarEdge Modbus"]
