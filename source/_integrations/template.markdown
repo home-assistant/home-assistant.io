@@ -115,7 +115,7 @@ After you create a template helper, you can change its options at any time in **
 
 Entities are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block can define entities of any of the supported types, and can contain optional update triggers.
 
-The older format, with `platform: template` under a platform key such as `sensor:`, isn't supported anymore. If your configuration still uses it, Home Assistant shows a repair.
+The older format, with `platform: template` under a platform key such as `sensor:`, isn't supported anymore. If your configuration still uses it, the entities aren't created, and Home Assistant logs an error.
 
 ### State-based template entities
 
