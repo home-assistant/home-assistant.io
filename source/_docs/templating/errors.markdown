@@ -149,7 +149,7 @@ output: "a"
 **What it means.** The template runs in a place that only supports [limited templates](/docs/templating/where-to-use/#limited-templates), such as `trigger_variables`, some trigger options, or the `enabled` option of a trigger, condition, or action. The name in quotes shows which function you used. These functions aren't available there:
 
 - Functions that read the state of entities, like `states`, `state_attr`, or `is_state`
-- Date and time functions, like `now`, `utcnow`, `today_at`, or `relative_time`
+- Functions that use the current date or time, like `now`, `utcnow`, `today_at`, or `relative_time`
 - Some area, floor, label, and device functions, like `area_name` or `device_attr`
 - `md5`, the `sha` functions, and `base64_encode` and `base64_decode`
 
