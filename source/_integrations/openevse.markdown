@@ -160,13 +160,11 @@ Home Assistant only enables or disables solar divert mode. It does not send sola
 
 - **Override state**: Sets the manual override state on the charger. Options are **Auto** (clears the override), **Active** (forces charging to start), and **Disabled** (forces charging to pause). This entity requires OpenEVSE Wi-Fi firmware version 4.0.1 or later.
 
-## Actions
-
 {% include integrations/actions.md %}
 
-## Examples
+## OpenEVSE automation examples
 
-### Notify when your car is plugged in
+### Automation: Notify when your car is plugged in
 
 This automation sends a notification whenever a vehicle is connected to the charger.
 
@@ -185,7 +183,7 @@ automation:
           message: "Your car is now connected to the charger."
 {% endexample %}
 
-### Lower the charge rate during peak hours
+### Automation: Lower the charge rate during peak hours
 
 This automation reduces the charge rate to 10A between 5 PM and 9 PM, then returns it to 32A afterwards. Adjust the times and current values to match your electricity tariff and your charger’s limits.
 

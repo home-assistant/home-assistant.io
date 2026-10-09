@@ -15,8 +15,8 @@ To set a manual override from an automation or script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **OpenEVSE: Set manual override**.
-6. Choose the OpenEVSE device or entity to target.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the OpenEVSE device or entity you want to manage.
+6. From the actions shown for that target, select **Set manual override**.
 7. Fill in the optional override settings you wish to apply.
 8. Select **Save**.
 
