@@ -16,18 +16,38 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Sunsynk** {% term integration %} gets data from the [Sunsynk](https://www.sunsynk.org) cloud and shows it in Home Assistant.
+The **Sunsynk** {% term integration %} gets data from [Sunsynk](https://www.sunsynk.org) inverters and shows it in Home Assistant.
 
-Sunsynk makes hybrid solar inverters and batteries. The inverter sends its data to the Sunsynk cloud. You can see this data in the Sunsynk Connect app and on the [Sunsynk Connect](https://sunsynk.net) website. This integration reads the same data.
+Sunsynk makes hybrid solar inverters and batteries. The integration can get the data in two ways:
+
+- **Sunsynk Connect account**: The inverter sends its data to the Sunsynk cloud. You can see this data in the Sunsynk Connect app and on the [Sunsynk Connect](https://sunsynk.net) website. The integration reads the same data from the cloud.
+- **Modbus TCP gateway**: The integration reads the data directly from the inverter on your local network. It does not use the cloud.
 
 ## Prerequisites
+
+### Sunsynk Connect account
 
 - A Sunsynk inverter that is connected to the Sunsynk cloud with a Wi-Fi or Ethernet data logger.
 - A Sunsynk Connect account. Use the same email address and password that you use in the Sunsynk Connect app.
 
+### Modbus TCP gateway
+
+- A Modbus TCP gateway on your network. The gateway connects to the RS485 port of the inverter. Many RS485 to Ethernet or RS485 to Wi-Fi converters can do this. The gateway must use Modbus TCP. RTU over TCP is not supported.
+- A cable from the RS485 port of the inverter to the gateway. On the RS485 port, pin 1 is B and pin 2 is A.
+- Set the gateway to 9600 baud, 8 data bits, no parity and 1 stop bit.
+- On the inverter, go to **Advanced** > **Multi-Inverter**. Make sure that **Modbus SN** is not `00`. Use this value as the unit ID. A firmware update can set the value back to `00`.
+
+{% warning %}
+The RS485 port is inside the wiring area of the inverter. Before you open the inverter, switch off the AC, PV and battery isolators. Then wait 5 minutes. If you are not sure, ask your installer to connect the cable.
+{% endwarning %}
+
 Home Assistant can find the Sunsynk data logger on your network. The data logger has the hostname `e-linter`. When it is found, Home Assistant shows a **Sunsynk** discovery card. Select **Add** and enter your account details. You can also add the integration by hand.
 
 {% include integrations/config_flow.md %}
+
+When you add the integration, select how Home Assistant connects to your inverter.
+
+### Sunsynk Connect account
 
 {% configuration_basic %}
 Username:
@@ -38,13 +58,29 @@ Password:
 
 The integration adds all inverters of the account. Each inverter is a device in Home Assistant, named **Inverter** and the serial number, or the alias you set in Sunsynk Connect. A battery is a second device, linked to its inverter, named **Battery** and the serial number of the inverter. If you do not want an inverter, you can disable the device.
 
+### Modbus TCP gateway
+
+{% configuration_basic %}
+Host:
+  description: The hostname or IP address of the Modbus TCP gateway.
+Port:
+  description: The TCP port of the Modbus TCP gateway. The default is 502.
+Unit ID:
+  description: The **Modbus SN** of the inverter. The default is 1.
+{% endconfiguration_basic %}
+
+Before the integration adds the inverter, it reads the serial number of the inverter. Add one entry for each inverter. The inverter is a device in Home Assistant, named **Inverter** and the serial number. A battery is a second device, linked to its inverter, named **Battery** and the serial number of the inverter.
+
+You can add the same inverter with a Sunsynk Connect account and with a Modbus TCP gateway. Each connection then has its own devices and entities.
+
 ## Supported devices
 
-The integration supports all Sunsynk inverters that send data to the Sunsynk cloud.
+- **Sunsynk Connect account**: All Sunsynk inverters that send data to the Sunsynk cloud.
+- **Modbus TCP gateway**: The single-phase hybrid inverters of the SG01LP1 series.
 
 ## Supported functionality
 
-The integration creates the sensors below for each inverter. The sensors are read-only.
+The integration creates the sensors below for each inverter. The sensors are read-only. The two connections create the same sensors.
 
 ### Solar
 
@@ -54,7 +90,7 @@ The integration creates the sensors below for each inverter. The sensors are rea
 
 ### Grid
 
-- **Grid power** (W): The power that flows between the grid and the inverter now. The sign is the same as in the Sunsynk Connect app.
+- **Grid power** (W): The power that flows between the grid and the inverter now. The value is positive when you import from the grid and negative when you export. This is the same as in the Sunsynk Connect app.
 - **Grid import today** (kWh): The energy that came from the grid today.
 - **Grid import total** (kWh): The energy that came from the grid since installation.
 - **Grid export today** (kWh): The energy that went to the grid today.
@@ -63,9 +99,12 @@ The integration creates the sensors below for each inverter. The sensors are rea
 
 ### Battery
 
-The battery is a separate device in Home Assistant. It is linked to its inverter. The integration creates it only when the inverter reports a connected battery. If you add a battery later, reload the integration. The Sunsynk cloud reports one set of values for all battery packs of an inverter.
+The battery is a separate device in Home Assistant. It is linked to its inverter. If you add a battery later, reload the integration.
 
-- **Power** (W): The power that flows between the battery and the inverter now. The sign is the same as in the Sunsynk Connect app.
+- **Sunsynk Connect account**: The integration creates the battery device only when the inverter reports a connected battery. The Sunsynk cloud reports one set of values for all battery packs of an inverter.
+- **Modbus TCP gateway**: The integration creates the battery device only when a battery is set up on the inverter. If the battery mode of the inverter is set to no battery, the integration does not create the battery device.
+
+- **Power** (W): The power that flows between the battery and the inverter now. The value is positive when the battery discharges and negative when it charges. This is the same as in the Sunsynk Connect app.
 - **State of charge** (%): The charge level of the battery.
 - **Charge today** (kWh): The energy that went into the battery today.
 - **Charge total** (kWh): The energy that went into the battery since installation.
@@ -81,9 +120,15 @@ The battery is a separate device in Home Assistant. It is linked to its inverter
 
 ## Data updates
 
+### Sunsynk Connect account
+
 The integration polls the Sunsynk cloud every 5 minutes. Each inverter polls on its own. If the cloud does not answer for one inverter, only the entities of that inverter become unavailable.
 
 The inverter sends new data to the cloud every 5 minutes, so a shorter interval does not give newer data. To read the data of one inverter now, use the `homeassistant.update_entity` action on one of its entities.
+
+### Modbus TCP gateway
+
+The integration polls the inverter every 10 seconds. If the inverter does not reply, the entities of the inverter become unavailable until the next poll that is successful.
 
 ## Actions
 
@@ -168,14 +213,27 @@ automation: |
 ## Known limitations
 
 - The integration reads data only. It cannot change settings on the inverter.
-- The data comes from the Sunsynk cloud. If the inverter loses its internet connection, the data does not update.
+- With a Sunsynk Connect account, the data comes from the Sunsynk cloud. If the inverter loses its internet connection, the data does not update.
 - Sunsynk limits the number of API requests. Do not use the same account in other tools that poll the API often.
+- The Modbus TCP gateway connection supports only the single-phase hybrid inverters of the SG01LP1 series.
+- The Modbus TCP gateway connection supports only Modbus TCP. It does not support RTU over TCP or a direct serial connection.
 
 ## Troubleshooting
 
-### The integration cannot connect
+### The integration cannot connect to Sunsynk Connect
 
 Make sure that Home Assistant has an internet connection and that [Sunsynk Connect](https://sunsynk.net) is online.
+
+### The integration cannot connect to the Modbus TCP gateway
+
+1. Make sure that the host and the port are correct, and that Home Assistant can reach the gateway on your network.
+2. On the inverter, make sure that **Modbus SN** is not `00` and that it is the same as the unit ID.
+3. Make sure that the gateway uses 9600 baud, 8 data bits, no parity and 1 stop bit.
+4. If the inverter does not reply, swap the A and B wires at the gateway. This does not cause damage.
+
+### The integration shows a different serial number
+
+If the integration finds an inverter with a different serial number at the address, it does not show the data. This prevents incorrect data in the energy dashboard. Make sure that the host and the unit ID are correct. Then reload the integration.
 
 ### The password is no longer valid
 
