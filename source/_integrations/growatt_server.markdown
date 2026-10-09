@@ -139,6 +139,8 @@ The classic API (username/password authentication) has strict rate limits that c
 - **Option 1: Your inverter supports API token**: Use token authentication instead, as this uses the official Growatt V1 API that does not have this limitation.
 - **Option 2: Your inverter doesn't support API token**: Avoid all unnecessary integration reloads, as a reload triggers re-login via Growatt classic API.
 
+The AC charge and discharge actions also use the classic API on Mix inverters. Each write makes two calls (a read, then the write), so schedule them sparingly.
+
 ## Inverter controls
 
 When using API token authentication, the integration provides additional control entities:
@@ -230,14 +232,14 @@ data:
   device_id: "YOUR_MIN_DEVICE_ID"
 ```
 
-### Writing SPH AC charge times
+### Writing AC charge times
 
-Configure charge behavior and two charge periods on an SPH inverter:
+Configure charge behavior and two charge periods on an SPH device (API token authentication) or a Mix device (username and password authentication). With username and password authentication, Growatt lists some SPH inverters as Mix devices:
 
 ```yaml
 action: growatt_server.write_ac_charge_times
 data:
-  device_id: "YOUR_SPH_DEVICE_ID"
+  device_id: "YOUR_SPH_OR_MIX_DEVICE_ID"
   charge_power: 100
   charge_stop_soc: 95
   mains_enabled: true
@@ -249,14 +251,14 @@ data:
   period_2_enabled: false
 ```
 
-### Reading SPH AC discharge times
+### Reading AC discharge times
 
-Read the current discharge periods from an SPH inverter:
+Read the current discharge periods from an SPH or Mix device:
 
 ```yaml
 action: growatt_server.read_ac_discharge_times
 data:
-  device_id: "YOUR_SPH_DEVICE_ID"
+  device_id: "YOUR_SPH_OR_MIX_DEVICE_ID"
 ```
 
 ## Data updates
