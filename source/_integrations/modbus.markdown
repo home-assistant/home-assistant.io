@@ -64,7 +64,7 @@ Prerequisites:
      - For a serial connection, select the [serial port](/integrations/serial/#serial-port), and enter the [baud rate](/integrations/serial/#baud-rate).
        - An ESPHome serial proxy is listed with the serial ports.
        - For a serial device server, select **Enter manually** and enter its URL. With a `socket://` URL, the baud rate isn't passed on, so set it on the serial device server itself.
-   - Some integrations also ask for the unit ID of the device. The unit ID identifies the device on the Modbus connection. Some integrations call it **Device ID**, and device manuals often call it slave ID. Most devices use `1`. Unless several devices share the connection, you can usually keep `1`. In YAML, it's `device_address`.
+   - Some integrations also ask for the unit ID of the device. The unit ID identifies the device on the Modbus connection. Some integrations call it **Device ID**, and device manuals often use the older term slave ID. Most devices use `1`. Unless several devices share the connection, you can usually keep `1`. In YAML, it's `device_address`.
    - Result: The entities of your device appear in Home Assistant.
 3. Optional: To check the connection, go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
    - For details, refer to [Viewing your Modbus connections](#viewing-your-modbus-connections).
@@ -163,7 +163,7 @@ type:
   type: list
   keys:
     tcp:
-      description: "Modbus TCP, for devices with a network interface, or for a Modbus gateway on your network."
+      description: "Modbus TCP, for devices with a Modbus TCP interface, or for a Modbus gateway on your network."
     udp:
       description: "Modbus UDP, over the network. Rarely used."
     rtuovertcp:
@@ -175,7 +175,7 @@ type:
 
 ### Configuring a Modbus TCP connection
 
-`type: tcp` is required. Use it for devices with a network interface, and for Modbus gateways that translate to Modbus TCP.
+`type: tcp` is required. Use it for devices with a Modbus TCP interface, and for Modbus gateways that translate to Modbus TCP.
 
 {% configuration %}
 host:
