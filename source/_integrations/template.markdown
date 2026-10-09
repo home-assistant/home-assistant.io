@@ -258,7 +258,7 @@ template:
 
 ## Alarm Control Panel
 
-The template alarm control panel platform allows you to create a alarm control panels with templates to define the state and scripts to define each actions.
+The template alarm control panel platform allows you to create alarm control panels with templates to define the state and scripts to define each action.
 
 Alarm control panel entities can be created from the frontend in the Helpers section or via YAML.
 
@@ -290,7 +290,7 @@ Code format:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -299,26 +299,26 @@ Availability:
 alarm_control_panel:
   description: List of alarm control panels
   required: true
-  type: map
+  type: list
   keys:
     arm_away:
-      description: Defines an action to run when the alarm is armed to away mode.
+      description: Defines an action to run when the alarm is armed to away mode. Receives the variable `code`.
       required: false
       type: action
     arm_custom_bypass:
-      description: Defines an action to run when the alarm is armed to custom bypass mode.
+      description: Defines an action to run when the alarm is armed to custom bypass mode. Receives the variable `code`.
       required: false
       type: action
     arm_home:
-      description: Defines an action to run when the alarm is armed to home mode.
+      description: Defines an action to run when the alarm is armed to home mode. Receives the variable `code`.
       required: false
       type: action
     arm_night:
-      description: Defines an action to run when the alarm is armed to night mode.
+      description: Defines an action to run when the alarm is armed to night mode. Receives the variable `code`.
       required: false
       type: action
     arm_vacation:
-      description: Defines an action to run when the alarm is armed to vacation mode.
+      description: Defines an action to run when the alarm is armed to vacation mode. Receives the variable `code`.
       required: false
       type: action
     attributes:
@@ -337,25 +337,25 @@ alarm_control_panel:
       type: boolean
       default: true
     code_format:
-      description: One of `number`, `text` or `no_code`. Format for the code used to arm/disarm the alarm.
+      description: One of `number`, `text`, or `no_code`. Format for the code used to arm/disarm the alarm.
       required: false
       type: string
       default: number
     disarm:
-      description: Defines an action to run when the alarm is disarmed.
+      description: Defines an action to run when the alarm is disarmed. Receives the variable `code`.
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the alarm control panel works in optimistic mode. When enabled, the alarm control panel's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the alarm control panel updates only when the `state` template returns a new value.
+      description: Flag that defines if the alarm control panel works in optimistic mode. When enabled, the alarm control panel's state updates immediately when it's armed, disarmed, or triggered through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the alarm control panel updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the alarm control panel works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     state:
       description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_custom_bypass`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `disarming`, `pending`, and `triggered` are used."
       required: false
       type: template
     trigger:
-      description: Defines an action to run when the alarm is triggered.
+      description: Defines an action to run when the alarm is triggered. Receives the variable `code`.
       required: false
       type: action
 {% endconfiguration %}
@@ -411,7 +411,7 @@ Device class:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 Delay on:
   description: The amount of time the template state must be met before this sensor switches to `on`. You find this option under **Additional options**.
 Delay off:
@@ -436,7 +436,7 @@ binary_sensor:
           required: true
           type: template
     auto_off:
-      description: "**Requires a trigger.** After how much time the entity should turn off after it rendered 'on'."
+      description: "**Requires a trigger.** After how much time the entity should turn off after it rendered 'on'. This can also be a template."
       required: false
       type: time
     delay_off:
@@ -605,7 +605,7 @@ Device class:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -614,7 +614,7 @@ Availability:
 button:
   description: List of buttons
   required: true
-  type: map
+  type: list
   keys:
     attributes:
       description: Defines templates for attributes of the entity. The `device_class` attribute is not allowed inside attributes map.
@@ -625,6 +625,10 @@ button:
           description: The attribute and corresponding template.
           required: true
           type: template
+    device_class:
+      description: Sets the [device class](/integrations/button/#device-class), changing the icon that is displayed in the UI.
+      required: false
+      type: device_class
     press:
       description: Defines actions to run to press the button.
       required: true
@@ -661,7 +665,7 @@ Name:
 Current temperature:
   description: A template for the climate's current temperature.
   required: false
-HVAC action:
+Current action:
   description: A template for the climate's current HVAC action. Only `cooling`, `defrosting`, `drying`, `fan`, `heating`, `idle`, `off`, and `preheating` are recognized.
   required: false
 HVAC mode:
@@ -669,11 +673,11 @@ HVAC mode:
   required: false
 HVAC modes:
   description: A template for the climate's available HVAC modes. The template expects a list of HVAC modes. Only `auto`, `cool`, `dry`, `fan_only`, `heat`, `heat_cool`, and `off` are recognized in the list.
-  required: false
+  required: true
 Actions on set HVAC mode:
   description: The action or actions run when a climate's HVAC mode change is requested.
-  required: false
-Actions on temperature:
+  required: true
+Actions on set temperature:
   description: The action or actions run when a climate's target temperature change is requested.
   required: false
 Target temperature:
@@ -685,21 +689,28 @@ Temperature unit:
 Device:
   description: An existing device to attach this helper to.
   required: false
-Availability template:
-  description: A template that gets the available state of the entity.
+Availability:
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
+  required: false
+Min target temperature:
+  description: The lowest target temperature you can set. You find this option under **Additional options**.
+  required: false
+Max target temperature:
+  description: The highest target temperature you can set. You find this option under **Additional options**.
   required: false
 {% endconfiguration_basic %}
 
 ### Options in YAML
 
 {% configuration climate %}
-cover:
-  description: Characteristics of a climate
-  type: map
+climate:
+  description: List of climate entities
+  required: true
+  type: list
   keys:
     attributes:
       description: >
-        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `current_humidity`, `current_temperature`, `fan_mode`, `fan_modes`, `humidity`, `hvac_action`, `hvac_modes`, `max_humidity`, `max_temp`, `min_humidity`, `min_temp`, `preset_mode`, `preset_modes`, `swing_horizontal_mode`, `swing_horizontal_modes`, `swing_mode`, `swing_modes`, `target_humidity_step`, `target_temp_high`, `target_temp_low`, `target_temp_step` and `temperature`,.
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `current_humidity`, `current_temperature`, `fan_mode`, `fan_modes`, `humidity`, `hvac_action`, `hvac_modes`, `max_humidity`, `max_temp`, `min_humidity`, `min_temp`, `preset_mode`, `preset_modes`, `swing_horizontal_mode`, `swing_horizontal_modes`, `swing_mode`, `swing_modes`, `target_humidity_step`, `target_temp_high`, `target_temp_low`, `target_temp_step`, and `temperature`.
       required: false
       type: [map, template]
       keys:
@@ -729,7 +740,7 @@ cover:
       required: false
       type: template
     hvac_mode:
-      description: Defines a template to get the HVAC mode of the climate. Must render a value in `fan_modes`. Only `auto`, `cool`, `dry`, `fan_only`, `heat`, `heat_cool`, and `off` are recognized in the list. Result must be an option in `hvac_modes`.
+      description: Defines a template to get the HVAC mode of the climate. Only `auto`, `cool`, `dry`, `fan_only`, `heat`, `heat_cool`, and `off` are recognized in the list. Result must be an option in `hvac_modes`.
       required: false
       type: template
       default: optimistic
@@ -757,6 +768,11 @@ cover:
       description: The climate's temperature precision. Only `0.5`, `0.1`, and `1` are recognized.
       required: false
       type: float
+    optimistic:
+      description: Flag that defines if the climate entity works in optimistic mode. When enabled, the entity's state updates immediately when it's changed through the UI or actions, without waiting for its templates to update. When disabled, the entity updates only when its templates return a new value. If you don't set `optimistic` and don't define an `hvac_mode` template, the climate entity works in optimistic mode.
+      required: false
+      type: boolean
+      default: "`true` without an `hvac_mode` template, otherwise `false`"
     preset_mode:
       description: Defines a template to get the preset mode of the climate. Must render a value in `preset_modes`. If `preset_mode` is specified, `preset_modes` and `set_preset_mode` must also be specified.
       required: false
@@ -772,7 +788,7 @@ cover:
       type: action
     set_humidity:
       description: Defines an action or actions to set the target humidity. Receives variable `humidity`. If `target_humidity_step` is specified, `humidity` is rounded to the nearest `target_humidity_step`.
-      required: inclusive
+      required: false
       type: action
     set_hvac_mode:
       description: Defines an action or actions to set the HVAC mode. Receives variable `hvac_mode`.
@@ -787,12 +803,12 @@ cover:
       required: inclusive
       type: action
     set_swing_mode:
-      description: Defines an action or actions to set the swing mode. Receives variable `swing_mode`. If `set_fan_mode` is specified, `swing_modes` must also be specified.
+      description: Defines an action or actions to set the swing mode. Receives variable `swing_mode`. If `set_swing_mode` is specified, `swing_modes` must also be specified.
       required: inclusive
       type: action
     set_temperature:
-      description: Defines an action or actions to set the target temperatures. Receives variables `temperature`, `target_temp_high` and `target_temp_low` when enabled. If `target_temperature_step` is specified, `temperature`, `target_temp_high` and `target_temp_low` are rounded to the nearest `target_temperature_step`.
-      required: inclusive
+      description: Defines an action or actions to set the target temperatures. Receives variables `hvac_mode`, `temperature`, `target_temp_high`, and `target_temp_low` when enabled. If `hvac_mode` is received, the `set_hvac_mode` actions run first. If `target_temperature_step` is specified, `temperature`, `target_temp_high`, and `target_temp_low` are rounded to the nearest `target_temperature_step`.
+      required: false
       type: action
     swing_horizontal_mode:
       description: Defines a template to get the horizontal swing mode of the climate. Must render a value in `swing_horizontal_modes`. If `swing_horizontal_mode` is specified, `swing_horizontal_modes` and `set_swing_horizontal_mode` must also be specified.
@@ -817,12 +833,12 @@ cover:
       required: false
       type: template
     target_humidity_step:
-      description: Round the `target_humidity` to the nearest `target_humidity_step`. Must be an integer between `1` and `100`.
+      description: Round the `target_humidity` to the nearest `target_humidity_step`. Must be a whole number of `1` or more.
       required: false
       type: integer
     target_temperature:
       description: Defines a template to get the target temperature of the climate. If `target_temperature` is specified, `set_temperature` must also be specified.
-      required: inclusive
+      required: false
       type: template
     target_temperature_high:
       description: Defines a template to get the high target temperature of the climate. If `target_temperature_high` is specified, `target_temperature_low` and `set_temperature` must also be specified.
@@ -864,7 +880,7 @@ template:
         hvac_modes: "{{ ['off', 'heat'] }}"
         current_temperature: "{{ states('sensor.living_room_temperature') }}"
         set_hvac_mode:
-          - action: "switch.turn_on{{ 'on' if hvac_mode == 'heat' else 'off' }}"
+          - action: "switch.turn_{{ 'on' if hvac_mode == 'heat' else 'off' }}"
             target:
               entity_id: switch.living_room_heat
 ```
@@ -910,7 +926,7 @@ template:
         hvac_modes: "{{ ['off', 'heat'] }}"
         current_temperature: "{{ states('sensor.living_room_temperature') }}"
         set_hvac_mode:
-          - action: "switch.turn_on{{ 'on' if hvac_mode == 'heat' else 'off' }}"
+          - action: "switch.turn_{{ 'on' if hvac_mode == 'heat' else 'off' }}"
             target:
               entity_id: switch.living_room_heat
 ```
@@ -927,7 +943,7 @@ Name:
 State:
   description: A template that gets the cover's state. Only `open`, `opening`, `closing`, and `closed` are recognized.
 Actions on open:
-  description: The action or actions run when the cover is open.
+  description: The action or actions run when the cover is opened.
 Actions on close:
   description: The action or actions run when the cover is closed.
 Actions on stop:
@@ -941,15 +957,16 @@ Device class:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
 
 {% configuration cover %}
 cover:
-  description: Characteristics of a cover
-  type: map
+  description: List of covers
+  required: true
+  type: list
   keys:
     attributes:
       description: >
@@ -1053,15 +1070,15 @@ In optimistic mode, the cover position state is maintained internally. This mode
 
 If both a `state` and a `position` are specified, only `opening` and `closing` states are set directly from the `state`. The `open` and `closed` states are instead derived from the cover position.
 
-| value_template output | result                               |
-| --------------------- | ------------------------------------ |
-| open                  | state defined by `position_template` |
-| closed                | state defined by `position_template` |
-| true                  | state defined by `position_template` |
-| false                 | state defined by `position_template` |
-| opening               | state set to `opening`               |
-| closing               | state set to `closing`               |
-| <any other output>    | No change of state or position       |
+| `state` output     | result                      |
+| ------------------ | --------------------------- |
+| open               | state defined by `position` |
+| closed             | state defined by `position` |
+| true               | state defined by `position` |
+| false              | state defined by `position` |
+| opening            | state set to `opening`      |
+| closing            | state set to `closing`      |
+| <any other output> | No change of state or position |
 
 ### State based cover - Garage Door
 
@@ -1124,7 +1141,7 @@ template:
 
 ## Device tracker
 
-The template device_tracker platform allows you to create device_tracker entities with templates for `latitude` and `longitude` to define the state. The state of the device_tracker is determined by the location (`latitude` and `longitude`). When the location is inside the Home zone, the state will be `home`. When the location is inside any other zone, the state will be the zone's name. When the location is not inside any zone, the state will be `not_home`.
+The template device_tracker platform allows you to create device_tracker entities with templates for `latitude` and `longitude`, or for a list of zones in `in_zones`, to define the state. The state of the device_tracker is determined by the location (`latitude` and `longitude`), or by the zones. When the location is inside the Home zone, the state will be `home`. When the location is inside any other zone, the state will be the zone's name. When the location is not inside any zone, the state will be `not_home`.
 
 ### Options in the UI
 
@@ -1140,9 +1157,9 @@ Longitude:
 Device:
   description: An existing device to attach this helper to.
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
 Location accuracy:
-  description: A template that gets the accuracy of the device tracker's location, with the margin on error expressed in meters.
+  description: A template that gets the accuracy of the device tracker's location, with the margin on error expressed in meters. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -1151,7 +1168,7 @@ Location accuracy:
 device_tracker:
   description: List of device trackers
   required: true
-  type: map
+  type: list
   keys:
     attributes:
       description: >
