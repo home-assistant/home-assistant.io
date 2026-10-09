@@ -118,7 +118,7 @@ See [Types and conversion](/docs/templating/types/#iterables-look-like-lists-but
 
 **What it means.** You used dot notation like `states.sensor.temperature.state`, and the entity `sensor.temperature` doesn't exist, or isn't set up yet. `states.sensor.temperature` then returns `None`, which has no `state`. Usually, the entity ID is misspelled.
 
-If you only show the value, as in `{{ states.sensor.temperature.state }}`, the result is empty, and the log shows a warning instead of the error. In the template editor, the same message appears as a warning above the result.
+If you only show the value, as in `{{ states.sensor.temperature.state }}`, the result is empty, and the log shows a warning instead of the error. In the template editor, the same message appears as a warning above the result. The error only appears when the template uses the value further, for example in `{{ states.sensor.temperature.state | float }}`.
 
 **How to fix it.**
 
@@ -127,7 +127,7 @@ If you only show the value, as in `{{ states.sensor.temperature.state }}`, the r
 
 ## TemplateError: Invalid entity ID 'sensor.Temperature'
 
-**What it means.** The entity ID in the template isn't a valid entity ID at all, for example, because it contains capital letters or spaces. Entity IDs only use lowercase letters, numbers, and underscores, with one period between the domain and the name.
+**What it means.** The entity ID in the template isn't a valid entity ID at all, for example, because it contains capital letters or spaces. Entity IDs only use lowercase letters, numbers, and underscores, with one period between the domain and the name. Neither part can start or end with an underscore, and the domain can't contain two underscores in a row.
 
 **How to fix it.** Copy the entity ID from {% my tools_states title="**Settings** > **Tools** > **States**" %}.
 
