@@ -155,7 +155,7 @@ A device that translates between Modbus TCP on your network and Modbus RTU on a 
 
 #### Serial device server
 
-A device on your network that passes serial data on unchanged. Home Assistant sends Modbus RTU over TCP to it.
+A device on your network that passes serial data on unchanged. Home Assistant sends Modbus RTU over TCP to it. For details, refer to [Serial device server](/integrations/serial/#serial-device-server) on the Serial page.
 
 #### Transparent mode and Modbus TCP gateway mode
 
@@ -166,11 +166,11 @@ Many network devices can work both ways. They have a transparent mode and a Modb
 
 #### USB-to-RS-485 adapter
 
-An adapter that connects an RS-485 bus to a USB port of your Home Assistant system.
+An adapter that connects an RS-485 bus to a USB port of your Home Assistant system. For details, refer to [USB-to-serial adapter](/integrations/serial/#usb-to-serial-adapter) on the Serial page.
 
 #### ESPHome serial proxy
 
-An ESPHome device with an RS-485 port. It makes the bus available to Home Assistant over your network.
+An ESPHome device with an RS-485 port. It makes the bus available to Home Assistant over your network. To set one up, refer to [Setting up an ESPHome serial proxy](/integrations/serial/#setting-up-an-esphome-serial-proxy) on the Serial page.
 
 ### Devices on a connection
 
@@ -184,7 +184,9 @@ A Modbus device behind a connection.
 
 #### Unit ID
 
-The number that identifies a unit on a connection. Most devices use `1`. `0` is the broadcast address. A write to `0` reaches all units, but no unit replies, so you can't read with `0`. In YAML, it's `device_address`.
+The number that identifies a unit on a connection. Most devices use `1`. In YAML, it's `device_address`.
+
+On a serial bus, and behind a Modbus gateway, `0` is the broadcast address. A write to `0` reaches all units, but no unit replies, so you can't read with `0`. A device with its own network interface can use `0` in a different way. For details, check its manual.
 
 Device manuals often call it slave ID or device address. Some integrations call it **Device ID**.
 
