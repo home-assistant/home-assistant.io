@@ -1,0 +1,33 @@
+flowchart TB
+    subgraph HA["Home Assistant"]
+        subgraph DEV["Integrations that use the Modbus integration"]
+            SE["SolarEdge Modbus"]
+            SO["Sofar"]
+            OT["Other Modbus integrations"]
+        end
+        ENT["Entities you describe<br/>in YAML, register<br/>by register"]
+        subgraph MBI["Modbus integration"]
+            SHARED["Shared connection<br/>(one per address or port)"]
+            HUB["Modbus hub in YAML<br/>(own connection)"]
+        end
+        DEV <--> SHARED
+        ENT <--> HUB
+    end
+
+    L1["Network: Modbus gateway<br/>or the device itself<br/>Serial:<br/><a href='/integrations/serial/#usb-to-serial-adapter' target='_top'>USB-to-RS-485 adapter</a>,<br/><a href='/integrations/serial/#setting-up-an-esphome-serial-proxy' target='_top'>ESPHome serial proxy</a>,<br/>or <a href='/integrations/serial/#serial-device-server' target='_top'>serial device server</a>"]
+    L2["Network: Modbus gateway<br/>or the device itself<br/>Serial:<br/><a href='/integrations/serial/#usb-to-serial-adapter' target='_top'>USB-to-RS-485 adapter</a><br/>or <a href='/integrations/serial/#serial-device-server' target='_top'>serial device server</a>"]
+
+    D1["Device with an integration<br/>(inverter, heat pump)"]
+    D2["Device without an integration"]
+
+    SHARED <-->|"Modbus TCP or RTU"| L1
+    HUB <-->|"Modbus TCP, UDP, or RTU"| L2
+    L1 <--> D1
+    L2 <--> D2
+
+    click SE "/integrations/solaredge_modbus/" _top
+    click SO "/integrations/sofar/" _top
+    click OT "/integrations/#modbus-controlled" _top
+    click ENT "/integrations/modbus/#configuring-modbus-entities" _top
+    click SHARED "/integrations/modbus/#viewing-your-modbus-connections" _top
+    click HUB "/integrations/modbus/#setting-up-a-modbus-hub-in-yaml" _top
