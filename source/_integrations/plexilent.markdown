@@ -15,7 +15,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Plexilent** {% term integration %} lets you control [Plexilent](https://plexilent.com/) smart lights from Home Assistant: switch them on and off, dim them, and set their white temperature or colour.
+The **Plexilent** {% term integration %} lets you control [Plexilent](https://plexilent.com/) smart lights from Home Assistant: switch them on and off, dim them, and set their white temperature or color.
 
 Plexilent lights form a Bluetooth mesh that a Plexilent Wi-Fi gateway connects to the Plexilent cloud. This integration talks to that cloud with the same account you use in the Plexilent app, so it works wherever Home Assistant has internet access.
 
@@ -23,7 +23,7 @@ Plexilent lights form a Bluetooth mesh that a Plexilent Wi-Fi gateway connects t
 
 Every light in your Plexilent homes that a Wi-Fi gateway can reach:
 
-- **Colour lights**: on/off, brightness, white temperature and colour.
+- **Color lights**: on/off, brightness, white temperature and color.
 - **Tunable white lights**: on/off, brightness and white temperature, within the range set for each light in the app.
 - **Dimmable lights**: on/off and brightness.
 - **On/off lights**.
