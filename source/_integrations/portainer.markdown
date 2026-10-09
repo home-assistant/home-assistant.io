@@ -53,6 +53,7 @@ There is currently support for the following device types within Home Assistant:
 ### Binary sensors
 
 - **Status**: Reports whether a container is running.
+- **Out of memory**: Reports a problem when the container was stopped because it ran out of memory. It resets when the container starts again.
 
 ### Buttons
 
@@ -61,6 +62,7 @@ There is currently support for the following device types within Home Assistant:
 - **Resume container**: Resumes the container.
 - **Recreate container**: Recreates the container by pulling the latest tagged image.
 - **Prune unused images**: Removes unused Docker images from the endpoint.
+- **Update stack**: Pulls the latest images and redeploys the stack. Stacks deployed from a Git repository are redeployed from that repository. The stack keeps its environment variables and settings. Not available for Kubernetes stacks.
 
 ### Events
 
@@ -76,6 +78,8 @@ There is currently support for the following device types within Home Assistant:
 - **Memory usage**: Current memory usage of the container.
 - **Memory usage percentage**: Memory usage as a percentage of the container's limit.
 - **Memory limit**: Memory limit configured for the container.
+- **Started**: When the container was last started.
+- **Restart count**: How often Docker restarted the container, for example, because of its restart policy.
 
 #### Endpoint sensors
 
@@ -104,6 +108,11 @@ There is currently support for the following device types within Home Assistant:
 
 - **Container**: Starts or stops an individual Docker container.
 - **Stack**: Starts or stops all containers in a stack.
+
+### Updates
+
+- **Image update available**: Shows whether a newer image is available for a container. Installing the update pulls the latest image, showing its download progress, and then recreates the container with it. For images from a private registry, Portainer pulls the image itself and no progress is shown.
+- **Update**: Shows the running Portainer version and the latest release, with a link to its release notes. Portainer itself can't be updated from Home Assistant.
 
 {% include integrations/actions.md %}
 
@@ -137,7 +146,11 @@ automation:
 
 ## Supported devices
 
-The integration creates one device per Portainer endpoint (Docker host). Containers and stacks appear as child devices under their endpoint. If a container belongs to a stack, it is nested under that stack instead.
+The integration creates one device for the Portainer server and one device per Portainer endpoint (Docker host). Containers and stacks appear as child devices under their endpoint. If a container belongs to a stack, it is nested under that stack instead.
+
+### Portainer server
+
+The Portainer instance itself is a device, exposing the **Update** entity for Portainer.
 
 ### Endpoints
 
@@ -149,13 +162,13 @@ Each Docker container is a child device under its endpoint or stack. Container d
 
 ### Stacks
 
-Each Docker Compose or Swarm stack is a child device under its endpoint. Stack devices expose a status sensor, a type sensor, a container count sensor, and a switch to start or stop the entire stack.
+Each Docker Compose or Swarm stack is a child device under its endpoint. Stack devices expose a status sensor, a type sensor, a container count sensor, a switch to start or stop the entire stack, and a button to update it.
 
 Docker API Engine needs to be equal to or above version 1.44. Older versions are [deprecated](https://docs.docker.com/reference/api/engine/#deprecated-api-versions). 
 
 ## Data updates
 
-The integration normally updates every 60 seconds. For more detailed steps on how to define a custom polling interval, follow the procedure below.
+The integration normally updates every 60 seconds. The Portainer version is checked every 6 hours, because Portainer looks up the latest release on GitHub for every check. For more detailed steps on how to define a custom polling interval, follow the procedure below.
 
 ### Defining a custom polling interval
 

@@ -10,9 +10,10 @@ ha_codeowners:
   - '@allenporter'
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: service
-ha_quality_scale: gold
+ha_quality_scale: platinum
 api: Google Health API
 api_link: https://console.cloud.google.com/apis/library/health.googleapis.com
 related:
@@ -140,7 +141,7 @@ automation: |
 
 Notify you if your daily resting heart rate goes above a certain threshold (for example, 80 bpm), which could indicate fatigue or stress.
 
-- **Trigger**: State: resting heart rate sensor state changes
+- **Trigger**: State changed: resting heart rate sensor state changes
 - **Condition**: Numeric state: resting heart rate is above 80 bpm
 - **Action**: Send a notification
 
@@ -186,13 +187,39 @@ The integration updates sensors on different intervals based on the data type:
 
 ## Troubleshooting
 
-### Resetting a broken or incorrect configuration
+{% details "Configuration is broken or incorrect" %}
 
-If the Google Health integration was initially configured incorrectly, you can delete the credentials in the [Application Credentials](/integrations/application_credentials/) user interface and start the setup again.
+### Symptom: Integration doesn't work as expected
 
-### Connection failed after authorization
+The Google Health integration was set up with incorrect settings, for example, the wrong client ID or client secret, and does not work as expected.
 
-If authorization appears to succeed but Home Assistant returns a connection error, verify that you granted the required **Profile** permission. Home Assistant requires the profile scope to verify your account identity and setup the integration.
+#### Description
+
+Home Assistant stores the credentials you entered during the initial setup as application credentials. Setting up the integration again reuses these stored credentials, so the incorrect configuration persists until you remove them.
+
+#### Resolution
+
+1. Delete the credentials in the [Application Credentials](/integrations/application_credentials/) user interface.
+2. Set up the integration again.
+
+{% enddetails %}
+
+{% details "Connection failed after authorization" %}
+
+### Symptom: Home Assistant returns an error
+
+The authorization appears to succeed, but Home Assistant returns a connection error.
+
+#### Description
+
+After you authorize access, Home Assistant uses your Google Account profile to verify your identity and checks that the account is linked to Google Health. If either of these steps fails, the setup cannot be completed.
+
+#### Resolution
+
+- Verify that you granted the required **Profile** permission. Home Assistant requires the profile scope to verify your account identity and set up the integration.
+- Verify that you selected the correct Google Account and that this account is set up in Google Health. If the account is not linked to Google Health, the Home Assistant logs show the message `The account is not linked to Google Health`.
+
+{% enddetails %}
 
 ## Removing the integration
 

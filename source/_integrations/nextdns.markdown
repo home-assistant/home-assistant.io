@@ -167,10 +167,16 @@ The NextDNS integration provides the following entities.
   - **Description**: Controls blocking of filter bypass methods
 - **Block child sexual abuse material**
   - **Description**: Controls blocking of child sexual abuse material
+- **Block data-drop services**
+  - **Description**: Controls blocking of data-drop services
+- **Block decentralized web gateways**
+  - **Description**: Controls blocking of decentralized web gateways
 - **Block dynamic DNS hostnames**
   - **Description**: Controls blocking of dynamic DNS hostnames
 - **Block disguised third-party trackers**
   - **Description**: Controls blocking of disguised third-party trackers
+- **Block free hosting domains**
+  - **Description**: Controls blocking of free hosting domains
 - **Block page**
   - **Description**: Controls the display of the blocking page
 - **Block online gaming**
@@ -183,9 +189,13 @@ The NextDNS integration provides the following entities.
 - **Block porn**
   - **Description**: Controls blocking of pornographic content
   - **Remarks**: This entity is disabled by default
+- **Block residential hosting**
+  - **Description**: Controls blocking of residential hosting
 - **Block social networks**
   - **Description**: Controls blocking of social networks
   - **Remarks**: This entity is disabled by default
+- **Block tunneling endpoints**
+  - **Description**: Controls blocking of tunneling endpoints
 - **Block video streaming**
   - **Description**: Controls blocking of video streaming websites
   - **Remarks**: This entity is disabled by default

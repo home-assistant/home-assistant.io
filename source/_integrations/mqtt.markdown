@@ -28,7 +28,6 @@ ha_platforms:
   - fan
   - humidifier
   - image
-  - infrared
   - lawn_mower
   - light
   - lock
@@ -1477,6 +1476,8 @@ Note that MQTT device payloads often contain information for updating multiple e
 Because MQTT state updates are often repeated frequently, even when no actual changes exist, it is up to the MQTT subscriber to determine whether a status update was received. If the latest update is missed, it might take some time before the next one arrives. If a retained payload exists at the broker, that value will be replayed first, but it will be an update of a previous last state.
 
 MQTT devices often continuously generate numerous state updates. MQTT does not update `last_reported` to avoid impacting system stability unless `force_update` is set. Alternatively, an MQTT sensor can be created to measure the last update.
+
+{% include integrations/triggers.md %}
 
 ## Using Templates
 

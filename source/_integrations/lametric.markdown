@@ -1,6 +1,6 @@
 ---
 title: LaMetric
-description: Instructions on how to integrate LaMetric TIME with Home Assistant.
+description: Instructions on how to integrate LaMetric TIME and SKY with Home Assistant.
 ha_category:
   - Button
   - Notifications
@@ -8,6 +8,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Time
   - Update
 ha_iot_class: Local Polling
 ha_release: 0.49
@@ -24,6 +25,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - time
   - update
 ha_integration_type: device
 ha_config_flow: true
@@ -34,7 +36,7 @@ related:
     title: Debug logs and diagnostics
 ---
 
-The **LaMetric** {% term integration %} lets you integrate your [LaMetric TIME](https://lametric.com/) smart clock with Home Assistant, so you can display notifications, charts, and other visual updates on the device.
+The **LaMetric** {% term integration %} lets you integrate your [LaMetric TIME](https://lametric.com/) smart clock or LaMetric SKY smart light with Home Assistant, so you can display notifications, charts, and other visual updates on the device.
 
 Use cases for this integration include:
 
@@ -48,6 +50,9 @@ Use cases for this integration include:
 The following LaMetric devices are known to be supported:
 
 - [LaMetric TIME](https://lametric.com/)
+- [LaMetric SKY](https://lametric.com/)
+
+The screensaver time entities are not available on the LaMetric SKY. The volume and Bluetooth entities are only added when the device reports audio and Bluetooth support, which a LaMetric SKY on recent firmware does not.
 
 ## Prerequisites
 
@@ -111,6 +116,23 @@ During setup, you can choose between two methods:
   - **Description**: Toggle the device's Bluetooth radio on or off.
   - **Entity category**: Configuration
 
+### Times
+
+- **Screensaver start time**
+  - **Description**: The time the time-based screensaver starts, in your Home Assistant time zone.
+  - **Entity category**: Configuration
+- **Screensaver end time**
+  - **Description**: The time the time-based screensaver ends, in your Home Assistant time zone.
+  - **Entity category**: Configuration
+
+Changing a time only changes the schedule. If the screensaver is set to turn on when it gets dark, it stays that way.
+
+The device accepts both times only when set together. If you never set a screensaver time on the device, setting one time sets both to that time until you set the other.
+
+The device stores these times in UTC. After a daylight saving time change, the times shift by one hour, so set them again if needed.
+
+These entities are not available on the LaMetric SKY.
+
 ### Update
 
 The integration provides an update entity that shows whether a firmware update is available for your LaMetric device.
@@ -170,6 +192,10 @@ sound:
   required: false
   type: string
   default: none
+sound_url:
+  description: "An MP3 file to play with the notification, instead of a built-in sound: a media source ID of a file in Home Assistant, or the URL of the file. When `sound` is given as well, that sound plays when the file cannot be fetched."
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Data updates
@@ -224,7 +250,7 @@ actions:
 
 ## Notification sounds
 
-The following notification sounds can be used with the `sound` parameter on the notify and action calls:
+The following notification sounds can be used with the `sound` parameter on the notify and action calls. To play your own sound instead, use the `sound_url` parameter: pick an MP3 file from your media in Home Assistant, or enter the URL of one. The device fetches and plays it, so it must be able to reach Home Assistant, or the URL, on the network.
 
 - `alarm1`
 - `alarm2`
@@ -279,7 +305,7 @@ The following notification sounds can be used with the `sound` parameter on the 
 
 - The integration communicates with the LaMetric device over the local network. If the device is not reachable, its entities become unavailable.
 - When the LaMetric device is powered through a USB port on a computer, the display brightness is limited. For full brightness, use a proper USB charger.
-- The list of supported sounds is fixed by the device firmware. Adding custom sounds is not possible.
+- The list of built-in sounds is fixed by the device firmware. To play another sound, use `sound_url` with an MP3 file.
 
 ## Troubleshooting
 
@@ -294,6 +320,12 @@ If you see a "Cannot connect" error when adding the device manually, verify that
 1. The device is powered on and connected to your network.
 2. The hostname or IP address you entered is correct.
 3. The API key matches the one shown in the LaMetric developer portal.
+
+### Notifications do not show in kiosk mode
+
+When the LaMetric device is in kiosk mode, it only accepts notifications with the `critical` priority, and refuses all others with the message "Only notifications with priority 'critical' are allowed in current mode".
+
+The notify entity always sends notifications with the `info` priority. To send a notification to a device in kiosk mode, use the `lametric.message` action or the [legacy notify action](#legacy-notify-action) with the priority set to `critical`.
 
 ## Use your own LaMetric application credentials
 

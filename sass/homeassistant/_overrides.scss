@@ -191,6 +191,16 @@ h1.title.indent {
         }
       }
 
+      // Keep the single "All actions/triggers/..." sub-lists tight to their parent.
+      ul ul ul {
+        margin-top: 4px;
+        margin-bottom: 4px;
+
+        li {
+          margin: 4px 0;
+        }
+      }
+
       &>ul {
         margin: 16px 0 8px 28px;
       }
@@ -929,6 +939,48 @@ a.material-card:hover {
   .links li {
     display: inline;
   }
+
+  .page-rating {
+    margin: 24px 0;
+  }
+
+  .page-rating-ask {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .page-rating-button {
+    cursor: pointer;
+    font: inherit;
+    padding: 4px 16px;
+    color: $link-color;
+    background-color: #e8edf0;
+    border: none;
+    border-radius: 16px;
+
+    &:hover {
+      background-color: #d9e1e6;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $link-color;
+      outline-offset: 2px;
+    }
+  }
+
+  .page-rating-thanks {
+    margin: 0;
+
+    &:empty {
+      display: none;
+    }
+  }
 }
 
 .installation-survey {
@@ -1406,6 +1458,12 @@ a.material-card:hover {
       border: 0;
       border-radius: 0;
       box-shadow: none;
+
+      &.sponsor-logo-wide {
+        @media screen and (min-width: 768px) {
+          max-width: 240px;
+        }
+      }
     }
 
     &-title {
@@ -2236,13 +2294,13 @@ h6 {
         overflow: hidden;
         text-wrap: balance;
       }
-      
+
       .community-card__meta .meta-link{
         position: absolute;
         bottom: 0;
         right: 0;
       }
-      
+
       video{
         position: absolute;
         inset: 0;

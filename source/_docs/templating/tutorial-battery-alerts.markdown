@@ -44,7 +44,7 @@ You need:
 
 ## Step 1: See your battery sensors
 
-Before you write a single template, it helps to see what you are working with. Open {% my developer_states title="**Settings** > **Tools** > **States**" %} and filter on `battery`.
+Before you write a single template, it helps to see what you are working with. Open {% my tools_states title="**Settings** > **Tools** > **States**" %} and filter on `battery`.
 
 <!-- screenshot placeholder: Tools > States filtered to battery sensors -->
 
@@ -54,7 +54,7 @@ Some devices expose battery status through a `binary_sensor` with the `battery` 
 
 ## Step 2: List the low batteries
 
-Open {% my developer_template title="**Settings** > **Tools** > **Template**" %} and paste this in:
+Open {% my tools_template title="**Settings** > **Tools** > **Template**" %} and paste this in:
 
 {% example %}
 template: |
