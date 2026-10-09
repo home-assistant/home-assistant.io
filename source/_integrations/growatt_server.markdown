@@ -234,7 +234,7 @@ data:
 
 ### Writing AC charge times
 
-Configure charge behavior and two charge periods on an SPH inverter (API token authentication) or a Mix inverter (username and password authentication):
+Configure charge behavior and two charge periods on an SPH device (API token authentication) or a Mix device (username and password authentication). With username and password authentication, Growatt lists some SPH inverters as Mix devices:
 
 ```yaml
 action: growatt_server.write_ac_charge_times
@@ -253,7 +253,7 @@ data:
 
 ### Reading AC discharge times
 
-Read the current discharge periods from an SPH or Mix inverter:
+Read the current discharge periods from an SPH or Mix device:
 
 ```yaml
 action: growatt_server.read_ac_discharge_times

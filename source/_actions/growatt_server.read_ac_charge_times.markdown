@@ -9,7 +9,11 @@ related_actions:
 
 The **Read AC charge times** action reads the current AC charge periods from a supported SPH or Mix inverter and returns them as response data. This is useful when you want to check the current charge schedule before changing it.
 
-SPH inverters need API token authentication. Mix inverters need username and password authentication. Other inverter and authentication combinations are not supported by this action.
+This action works with SPH devices set up with API token authentication, and with Mix devices set up with username and password authentication. With username and password authentication, Growatt lists some SPH inverters as Mix devices, and those work too. Other combinations are not supported by this action.
+
+{% note %}
+On a Mix device, each read makes one call to the classic API, which is rate limited. Avoid calling this action in a tight loop.
+{% endnote %}
 
 {% include actions/ui_header.md %}
 

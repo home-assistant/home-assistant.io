@@ -10,7 +10,7 @@ related_actions:
 
 The **Write AC charge times** action writes the AC charge settings and up to three charge periods to a supported SPH or Mix inverter. You only need to provide the fields you want to change. Anything you leave out keeps its current value.
 
-SPH inverters need API token authentication. Mix inverters need username and password authentication. Other inverter and authentication combinations are not supported by this action.
+This action works with SPH devices set up with API token authentication, and with Mix devices set up with username and password authentication. With username and password authentication, Growatt lists some SPH inverters as Mix devices, and those work too. Other combinations are not supported by this action.
 
 {% note %}
 On a Mix inverter, each write first reads the current settings from Growatt, so it makes two calls to the classic API. The classic API is rate limited, so avoid calling this action in a tight loop. If Growatt returns incomplete or invalid settings, the action stops without writing anything.
