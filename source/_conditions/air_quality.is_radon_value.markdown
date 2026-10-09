@@ -96,7 +96,7 @@ Set the helper's unit of measurement to `Bq/m³` or `pCi/L`, because an entity w
    unit_example_value="300"
    threshold_required="true" %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md domain="sensor" %}
 
 {% include conditions/behavior.md %}
 
@@ -114,7 +114,7 @@ Set the helper's unit of measurement to `Bq/m³` or `pCi/L`, because an entity w
 
 ### Automation: run the basement fan overnight only if radon is high
 
-Radon often builds up in a closed basement during the day. This automation runs at 22:00 and checks the basement radon reading. If the level is above 100 Bq/m³, the ventilation fan turns on so the air is cleared before morning. On days when the reading has stayed low, nothing happens, and the fan stays quiet.
+Radon often builds up in a closed basement during the day. This automation runs at 22:00 and checks the basement radon reading. If the level is above 100 Bq/m³, the ventilation fan turns on so the air is cleared before morning. On days when the reading has stayed low, nothing happens. This automation only turns the fan on, so use a separate automation or schedule to turn it off.
 
 - **Trigger**: Time: 22:00
 - **Condition**: Radon value (above 100 Bq/m³)
