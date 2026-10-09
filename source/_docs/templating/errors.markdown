@@ -58,7 +58,7 @@ The `0` is a fallback used when the conversion fails (for example, when the sens
 
 The same message comes from other functions, with their name instead of `float`. These include [`int`](/template-functions/int/), [`as_datetime`](/template-functions/as_datetime/), [`as_timestamp`](/template-functions/as_timestamp/), [`strptime`](/template-functions/strptime/), [`round`](/template-functions/round/), and the `timestamp_*` functions.
 
-**How to fix it.** Add a default value to [`float`](/template-functions/float/) or [`int`](/template-functions/int/):
+**How to fix it.** Give the function a default value to use instead, for example, `| float(0)` for [`float`](/template-functions/float/), or `as_datetime(value, None)` for [`as_datetime`](/template-functions/as_datetime/):
 
 {% example %}
 template: |
@@ -146,13 +146,20 @@ output: "a"
 
 ## TemplateError: Use of 'states' is not supported in limited templates
 
-**What it means.** The template runs in a place that only supports [limited templates](/docs/templating/where-to-use/#limited-templates), such as `trigger_variables`, or some trigger options. Functions that read the state of entities, like `states`, `state_attr`, or `is_state`, aren't available there. The name in quotes shows which function you used.
+**What it means.** The template runs in a place that only supports [limited templates](/docs/templating/where-to-use/#limited-templates), such as `trigger_variables`, some trigger options, or the `enabled` option of a trigger, condition, or action. The name in quotes shows which function you used. These functions aren't available there:
 
-**How to fix it.** Move the part that reads entity states to a place that supports full templates. For example, use `variables` instead of `trigger_variables` in an automation. `variables` supports full templates, but is only evaluated after a trigger reacts.
+- Functions that read the state of entities, like `states`, `state_attr`, or `is_state`
+- Date and time functions, like `now`, `utcnow`, `today_at`, or `relative_time`
+- Some area, floor, label, and device functions, like `area_name` or `device_attr`
+- `md5`, the `sha` functions, and `base64_encode` and `base64_decode`
+
+People most often run into this with `now()` in `trigger_variables`.
+
+**How to fix it.** Move the part that uses these functions to a place that supports full templates. For example, use `variables` instead of `trigger_variables` in an automation. `variables` supports full templates, but is only evaluated after the automation starts.
 
 ## SecurityError: access to attribute 'append' of 'list' object is unsafe
 
-**What it means.** Templates run in a protected environment that doesn't allow changing lists or dictionaries, or accessing internal attributes. Calling `append`, `update`, or `pop`, or using attributes that start with `_`, causes this error.
+**What it means.** Templates run in a protected environment that doesn't allow changing lists or dictionaries, or accessing internal attributes. Calling `append`, `update`, or `pop` causes this error right away. If you only read an attribute that starts with `_`, the result is empty, and the log shows a warning. The error only appears when the value is called or used further.
 
 **How to fix it.** Build a new list instead of changing the existing one. For example, use `{% set items = items + ['new'] %}` instead of `{{ items.append('new') }}`. To collect values in a loop, use a `namespace`:
 
