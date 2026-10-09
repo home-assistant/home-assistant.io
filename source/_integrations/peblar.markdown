@@ -392,7 +392,7 @@ automation:
 
 The charger offers more than one way in, and this integration uses most of them.
 
-The integration uses the local REST API to poll the meter, system state, and EV interface, and to authorize charging sessions. It uses the charger's internal web interfaces for configuration, firmware versions and updates, RFID and vehicle lists, and meter history. A WebSocket connection reports charging-session state changes, which prompts the integration to refresh the relevant polled data.
+The integration uses the local REST API to {% term polling poll %} the meter, system state, and EV interface, and to authorize charging sessions. It uses the charger's internal web interfaces for configuration, firmware versions and updates, RFID and vehicle lists, and meter history. A WebSocket connection reports charging-session state changes, which prompts the integration to refresh the relevant polled data.
 
 The one thing it leaves alone is the Modbus API, which stays entirely yours to use.
 
