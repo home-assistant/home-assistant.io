@@ -388,12 +388,20 @@ automation:
             Please check the charger's local web interface for more information.
 ```
 
+## How this integration talks to your charger
+
+The charger offers more than one way in, and this integration uses most of them.
+
+The local REST API provides the live readings: the meter, the system state, the EV interface, and authorizing a charging session. Everything else comes from the same interfaces the charger's own web interface uses, including a WebSocket connection that reports changes as they happen. That covers the configuration, the firmware versions and updates, the RFID and vehicle lists, and the meter history.
+
+The one thing it leaves alone is the Modbus API, which stays entirely yours to use.
+
 ## Known limitations
 
 Not all functionality of the Peblar charger is available through this integration. The following limitations are known:
 
 - The Peblar APIs currently don't communicate when the charger is awaiting authentication (for example, using an RFID card) before it can start charging. As a result, you will see a suspended charging status in Home Assistant when the charger is actually awaiting authentication.
-- Home Assistant uses and manages the charger's REST API. This means that the use of this integration will enable the REST API on the charger automatically. It is possible to use the REST API directly in parallel with this integration.
+- Home Assistant manages the charger's local REST API for you. If it is switched off, setting up this integration switches it on, and it stays on afterwards. You can keep using that API yourself alongside the integration.
 - Peblar is also sold as white-label products, such as [CoolBlue BlueBuilt](https://www.coolblue.nl/en/charging-stations/our-charging-stations), [Eneco Connectric®](https://www.eneco.nl/campagnes/laadpalen/) and [Shell Recharge](https://www.shell.nl/b2b-business/shell-fleet-solutions/electric-charging/at-home-ev-charging.html#thuisladers). This integration has been tested only with Peblar branded products, and it's unknown whether it works with these white-label versions.
 
 ## Troubleshooting
