@@ -1337,10 +1337,10 @@ fan:
       required: false
       type: template
     optimistic:
-      description: Flag that defines if the fan works in optimistic mode. When enabled, the fan's state updates immediately when it's changed through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the fan updates only when the `state` template returns a new value. If you don't define a `state` template, the fan is always optimistic.
+      description: Flag that defines if the fan works in optimistic mode. When enabled, the fan's state updates immediately when it's changed through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the fan updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the fan works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     oscillating:
       description: "Defines a template to get the oscillation state of the fan. The fan is oscillating if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The fan is not oscillating if the template evaluates to `0`, `false`, `no`, `off`, or `disable`."
       required: false
@@ -1379,7 +1379,7 @@ fan:
       type: integer
       default: 100
     state:
-      description: "Defines a template to get the state of the fan. The fan is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The fan is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The fan is `unknown` if the template evaluates as `None`. If not defined, the fan works in optimistic mode."
+      description: "Defines a template to get the state of the fan. The fan is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The fan is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The fan is `unknown` if the template evaluates as `None`. If not defined, and `optimistic` isn't set, the fan works in optimistic mode."
       required: false
       type: template
     turn_on:
@@ -1741,10 +1741,10 @@ light:
       type: template
       default: optimistic
     optimistic:
-      description: Flag that defines if the light works in optimistic mode. When enabled, the light's state updates immediately when it's changed through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the light updates only when the `state` template returns a new value. If you don't define a `state` template, the light is always optimistic.
+      description: Flag that defines if the light works in optimistic mode. When enabled, the light's state updates immediately when it's changed through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the light updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the light works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     rgb:
       description: Defines a template to get the RGB color of the light. Must render a tuple or a list (red, green, blue).
       required: false
@@ -2166,10 +2166,10 @@ lock:
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the lock works in optimistic mode. When enabled, the lock's state updates immediately when it's locked, unlocked, or opened through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the lock updates only when the `state` template returns a new value. If you don't define a `state` template, the lock is always optimistic.
+      description: Flag that defines if the lock works in optimistic mode. When enabled, the lock's state updates immediately when it's locked, unlocked, or opened through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the lock updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the lock works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     state:
       description: Defines a template to set the state of the lock. Valid output values from the template are `locked`, `unlocked`, `open`, `locking`, `unlocking`, `opening`, and `jammed`, which are directly mapped to the corresponding states. In addition,  `1`, `true`, `yes`, `on`, and `enable` are valid as synonyms to `locked` while `0`, `false`, `no`, `off`, and `disable` are valid as synonyms to `unlocked`. If the template produces a `None` value, the state is set to `unknown`.
       required: false
@@ -2369,10 +2369,10 @@ number:
       type: template
       default: 0.0
     optimistic:
-      description: Flag that defines if the number works in optimistic mode. When enabled, the number's state updates immediately when changed through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the number updates only when the `state` template returns a new value. If you don't define a `state` template, the number is always optimistic.
+      description: Flag that defines if the number works in optimistic mode. When enabled, the number's state updates immediately when changed through the UI or actions, without waiting for the template defined in `state` to update. When disabled, the number updates only when the `state` template returns a new value. If you don't set `optimistic` and don't define a `state` template, the number works in optimistic mode.
       required: false
       type: boolean
-      default: false
+      default: "`true` without a `state` template, otherwise `false`"
     set_value:
       description: Defines actions to run when the number value changes. The variable `value` contains the number entered.
       required: true
