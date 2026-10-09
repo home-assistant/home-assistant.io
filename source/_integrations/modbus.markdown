@@ -188,7 +188,7 @@ The number that identifies a unit on a connection. Most devices use `1`. In YAML
 
 On a serial bus, and behind a Modbus gateway, `0` is the broadcast address. A write to `0` reaches all units, but no unit replies, so you can't read with `0`. A device with its own network interface can use `0` in a different way. For details, check its manual.
 
-Device manuals often call it slave ID or device address. Some integrations call it **Device ID**.
+Device manuals often use the older term slave ID, or device address. Some integrations call it **Device ID**.
 
 #### Modbus hub
 
@@ -200,7 +200,7 @@ A connection that you configure in YAML, under `modbus:`. A Modbus hub keeps a c
 
 A place in the device that stores one value of 16 bits. Values that need more space, such as a 32-bit number, use several registers in a row.
 
-A device has four types of data: coils, discrete inputs, input registers, and holding registers.
+Modbus defines four types of data: coils, discrete inputs, input registers, and holding registers. A device only uses the types it needs.
 
 #### Coil
 
