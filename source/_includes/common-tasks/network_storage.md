@@ -98,7 +98,7 @@ The disk needs to be formatted already. These file systems are supported:
 
 Home Assistant does not format disks for you. If your disk uses a different file system, format it on a computer first.
 
-### Add a local disk
+### Adding a local disk
 
 1. Go to {% my storage title="**Settings** > **System** > **Storage**" %} in the UI.
 2. Select **Add storage**.
@@ -119,7 +119,7 @@ Read-only:
   description: Home Assistant reads from the disk but never writes to it. A write-protected disk can only be added as read-only. Backup storage cannot be read-only.
 {% endconfiguration_basic %}
 
-### Keep a local disk connected
+### Keeping a local disk connected
 
 Home Assistant remembers the disk by its file system identifier, not by a device name such as `/dev/sda1`. Device names can change after a restart or when you move a drive, so your storage keeps working either way.
 
