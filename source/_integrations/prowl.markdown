@@ -27,7 +27,7 @@ API key:
 
 ## Sending notifications
 
-The **Prowl** integration adds a notify {% term entity %} for each configured API key. To send a notification, you can use the **Send a notification message** (`notify.send_message`) {% term action %}. To set a priority or attach a URL, use the [**Prowl: Send message**](/actions/prowl.send_message/) (`prowl.send_message`) action instead.
+The **Prowl** integration adds a notify {% term entity %} for each configured API key. To send a notification, use the [**Send a notification message**](/actions/notify.send_message/) (`notify.send_message`) {% term action %} and select the Prowl notify entity as the target. To set a priority or attach a URL, use the [**Prowl: Send message**](/actions/prowl.send_message/) (`prowl.send_message`) action instead.
 
 {% example %}
 action: |
