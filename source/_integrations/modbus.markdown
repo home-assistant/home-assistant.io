@@ -21,9 +21,7 @@ related:
     title: Configuration file
 ---
 
-The **Modbus** {% term integration %} connects Home Assistant to devices that have a Modbus interface. Many integrations for these devices use the Modbus integration to connect, so you usually don't set it up yourself. To get started, refer to [Setting up Modbus control in Home Assistant](#setting-up-modbus-control-in-home-assistant).
-
-[Modbus](https://www.modbus.org/) is a communication protocol for industrial devices, such as controllers in heating, ventilation, and solar systems.
+The **Modbus** {% term integration %} connects Home Assistant to devices that have a Modbus interface. Many integrations for these devices use the Modbus integration to connect, so you usually don't set it up yourself. To get started, refer to [Setting up Modbus control in Home Assistant](#setting-up-modbus-control-in-home-assistant). For the terms used on this page, refer to [Modbus terminology](#modbus-terminology).
 
 ## Supported devices
 
@@ -118,6 +116,111 @@ Prerequisites:
      - **Not connected** or **Closed**: The connection is not open right now. The connection opens again the next time an integration reads from the device. A device can also close a connection that isn't used.
    - The integrations that use the connection, with the unit IDs they use. Select an integration to go to its settings. A hub that you configured in YAML is shown by its name instead, and can't be selected.
 4. For a serial connection, to see the port in the **Serial** panel, select **View this port under Serial**.
+
+## Modbus terminology
+
+[Modbus](https://www.modbus.org/) is a communication protocol for industrial devices, such as controllers in heating, ventilation, and solar systems. Device manuals and integration pages use the following terms. Some manuals use older or different names for the same thing. These are listed with each term.
+
+### Ways to connect
+
+#### Modbus TCP
+
+Modbus over your network. Most devices with a network interface use port `502`.
+
+#### Modbus RTU
+
+Modbus over a serial connection, usually an RS-485 bus. The data is sent in binary form.
+
+#### Modbus ASCII
+
+Modbus over a serial connection, with the data sent as text characters. Only a few devices use it.
+
+#### Modbus RTU over TCP
+
+Modbus RTU data that is sent over your network unchanged. A serial device server uses it. Some manuals call it TCP-RTU.
+
+#### Modbus UDP
+
+Modbus over your network, with UDP instead of TCP. It's rarely used.
+
+#### RS-485
+
+The wired serial bus that most Modbus RTU devices use. Several devices can share one RS-485 bus.
+
+### Devices between Home Assistant and your device
+
+#### Modbus gateway
+
+A device that translates between Modbus TCP on your network and Modbus RTU on a serial bus. Home Assistant talks Modbus TCP to the gateway. Some manuals call it a bridge, a converter, or a repeater.
+
+#### Serial device server
+
+A device on your network that passes serial data on unchanged. Home Assistant sends Modbus RTU over TCP to it.
+
+#### Transparent mode and Modbus TCP gateway mode
+
+Many network devices can work both ways. They have a transparent mode and a Modbus TCP gateway mode. Set up the connection to match the mode of the device:
+
+- In Modbus TCP gateway mode, the device is a [Modbus gateway](#modbus-gateway). Enter its host and port. In YAML, use `type: tcp`.
+- In transparent mode, the device is a [serial device server](#serial-device-server). As the serial port, select **Enter manually** and enter its `socket://` URL. In YAML, use `type: rtuovertcp`.
+
+#### USB-to-RS-485 adapter
+
+An adapter that connects an RS-485 bus to a USB port of your Home Assistant system.
+
+#### ESPHome serial proxy
+
+An ESPHome device with an RS-485 port. It makes the bus available to Home Assistant over your network.
+
+### Devices on a connection
+
+#### Connection
+
+The network address of a device or a Modbus gateway, or a serial port. One connection can reach several units. In the **Modbus** panel, integrations that use the same address or port share one connection.
+
+#### Unit
+
+A Modbus device behind a connection.
+
+#### Unit ID
+
+The number that identifies a unit on a connection. Most devices use `1`. `0` is the broadcast address, which reaches all units. In YAML, it's `device_address`.
+
+Device manuals often call it slave ID or device address. Some integrations call it **Device ID**.
+
+#### Modbus hub
+
+A connection that you configure in YAML, under `modbus:`. A Modbus hub keeps a connection of its own, even if an integration uses the same device.
+
+### Data in a device
+
+#### Register
+
+A place in the device that stores one value of 16 bits. Values that need more space, such as a 32-bit number, use several registers in a row.
+
+A device has four types of data: coils, discrete inputs, input registers, and holding registers.
+
+#### Coil
+
+A single bit that you can read and write, for example, to turn a relay on or off. In YAML, it's `coil`.
+
+#### Discrete input
+
+A single bit that you can only read, for example, the state of a contact. In YAML, it's `discrete_input`.
+
+#### Input register
+
+A register that you can only read, for example, a measured value. In YAML, it's `input`.
+
+#### Holding register
+
+A register that you can read and write, for example, a setting. In YAML, it's `holding`.
+
+#### Register address
+
+The position of a register or coil in the device. Home Assistant counts addresses from `0`.
+
+Some manuals count from `1`, or add the type of data in front, such as `40001` for the first holding register. In that case, the address in Home Assistant is `0`.
 
 ## Modbus YAML reference
 
