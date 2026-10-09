@@ -41,7 +41,7 @@ The OpenRouter integration allows you to generate data using AI models available
 
 ### Generating images with AI
 
-If you choose a model that can create images when you add an AI task, you can also use it to generate images. Use the [`ai_task.generate_image`](/integrations/ai_task/#action-ai_taskgenerate_image) action in your automations and scripts. Models that cannot create images only support generating data.
+If you choose a model that can create images when you add an AI task, you can also use it to generate images. Use the [`ai_task.generate_image`](/actions/ai_task.generate_image/) action in your automations and scripts. Models that cannot create images only support generating data.
 
 ## Removing the integration
 
