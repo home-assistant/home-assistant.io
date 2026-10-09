@@ -51,7 +51,7 @@ Lights added in the app appear in Home Assistant automatically, and each light i
 ## Known limitations
 
 - A light shows as unavailable while its home's gateway is offline.
-- Plexilent sensors, wall switch panels, fans and curtains are not supported yet.
+- Plexilent sensors, wall switch panels, fans, and curtains are not supported yet.
 
 ## Troubleshooting
 
