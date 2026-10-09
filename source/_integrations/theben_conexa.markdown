@@ -15,7 +15,8 @@ ha_integration_type: device
 related:
   - url: https://www.theben-se.de/conexa/
     title: Theben Smart Energy website
-
+ha_platforms:
+  - sensor
 ---
 
 The **Theben Conexa** {% term integration %} allows you to connect Home Assistant to the Conexa 3.0 device by [Theben Smart Energy](https://www.theben-se.de/conexa/). A Smart Meter Gateway (SMGW) acts as the secure communication hub for the modern electrical grid. With the Conexa, you get a built-in Home Area Network (HAN) interface. This integration can use that local connection to read your meter data directly, without needing the cloud.
@@ -87,4 +88,3 @@ To resolve this issue, try one of the following options:
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
-

@@ -38,6 +38,8 @@ Enqueue:
   description: Whether the content should be played now or added to the queue.
 Enable radio mode:
   description: Turns on radio mode to auto-generate a playlist based on the selection.
+Start item:
+  description: "The item to start playback from, instead of the first one. Use `latest` to play a podcast from its newest episode, or enter the URI, ID, or part of the name (at least 3 characters) of the track or episode to start from."
 Username:
   description: Use this Music Assistant user to adjust the playlog entry. If the specified user has provider filtering configured, the media item selection will be made accordingly. For example, this has an effect on the resume point retrieval of an audiobook. When left empty, it defaults to the Home Assistant user that made the request, if their username matches a Music Assistant user. When you call this action from an automation or script, set the username explicitly so the request is attributed to the right user.
 {% endoptions_ui %}
@@ -83,6 +85,10 @@ radio_mode:
   required: false
   type: boolean
   default: false
+start_item:
+  description: "The item to start playback from, instead of the first one. Use `latest` (or `newest`) to play a podcast from its newest episode, or give the URI, ID, or part of the name (at least 3 characters) of the track or episode to start from."
+  required: false
+  type: string
 username:
   description: Use this Music Assistant user to adjust the playlog entry. If the specified user has provider filtering configured, the media item selection will be made accordingly. For example, this has an effect on the resume point retrieval of an audiobook. When left empty, it defaults to the Home Assistant user that made the request, if their username matches a Music Assistant user. When you call this action from an automation or script, set the username explicitly so the request is attributed to the right user.
   required: false
@@ -94,6 +100,20 @@ username:
 ## Good to know
 
 - The `media_id` can be a track, artist, or album name (for example, `Queen`), a name combined with an artist (for example, `Queen - Innuendo`), a streaming provider URI (for example, `spotify://artist/12345`), or a streaming provider URL.
+- When you play a podcast, Music Assistant queues its episodes from the oldest one. To hear the newest episode, for example in a morning news routine, set `start_item` to `latest`:
+
+{% example %}
+action: |
+  action: music_assistant.play_media
+  target:
+    entity_id: media_player.kitchen_speaker
+  data:
+    media_id: spotify://podcast/aabbccddeeff
+    media_type: podcast
+    start_item: latest
+{% endexample %}
+
+  Some providers, such as Spotify, refresh their episode lists less often, so the newest episode they offer can lag behind the podcast's own feed.
 
 {% include actions/try_it.md %}
 

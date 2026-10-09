@@ -74,7 +74,7 @@ sound:
 
 Play a doorbell chime on an Alexa device when a camera detects motion at your front door.
 
-- **Trigger**: State: Front door motion sensor changes to _on_
+- **Trigger**: State changed: Front door motion sensor changes to _on_
 - **Action**: Alexa Devices: Send sound
 
 {% details "YAML example for a doorbell sound on motion" %}

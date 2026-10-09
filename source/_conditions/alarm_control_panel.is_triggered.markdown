@@ -82,7 +82,7 @@ for:
 
 When a panic button is pressed, send an urgent push notification with the alarm status, but only if the alarm is genuinely triggered. This prevents false alerts from accidental button presses when the alarm is in a normal state.
 
-- **Trigger**: State: Panic button pressed
+- **Trigger**: State changed: Panic button pressed
 - **Condition**: Alarm is triggered
   - **Target**: Hallway alarm panel
   - **Condition passes if**: Any

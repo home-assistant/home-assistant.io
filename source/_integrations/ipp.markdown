@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@ctalkington'
+  - '@brianegge'
 ha_domain: ipp
 ha_platforms:
   - diagnostics

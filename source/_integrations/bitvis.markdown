@@ -12,10 +12,11 @@ ha_config_flow: true
 ha_zeroconf: true
 ha_codeowners:
   - '@MandusBorjesson'
-  - '@simontegelid'
   - '@real-tintin'
+  - '@simontegelid'
 ha_domain: bitvis
 ha_integration_type: device
+ha_quality_scale: bronze
 ---
 
 The **Bitvis Power Hub** {% term integration %} reads real-time electricity data from a [Bitvis Power Hub](https://bitvis.se/) device. The Power Hub connects to the <abbr title="Home Area Network">HAN</abbr> port (a standard port on European smart meters) on your smart electricity meter and pushes measurements to Home Assistant over your local network using UDP.

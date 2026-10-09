@@ -52,6 +52,7 @@ level:
 
 ## Good to know
 
+- A log level sets the minimum severity that gets logged. You see messages at that level and every more severe level, and less severe messages are hidden. From least to most severe, the levels are `debug`, `info`, `warning`, `error`, and `critical`. `fatal` is another name for `critical`. For example, `info` logs info, warning, error, and critical messages, but not debug messages. For more details, see [log levels](/integrations/logger/#log-levels).
 - This level applies only to integrations that don't have a specific level set. To set the level for one or more specific integrations, use the [Set logger level](/actions/logger.set_level/) action.
 - The default level resets when you restart Home Assistant, unless you set a default in your configuration.
 
