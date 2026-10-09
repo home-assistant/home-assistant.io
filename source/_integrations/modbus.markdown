@@ -95,7 +95,35 @@ Prerequisites:
 5. Optional: To check the connection, go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
    - For details, refer to [Viewing your Modbus connections](#viewing-your-modbus-connections).
 
-## Configuring modbus communication
+## Viewing your Modbus connections
+
+You can see the connections to your Modbus devices in one place from the **Modbus** configuration panel. The panel lists the Modbus hubs that you configured in YAML, and the integrations that connect through the Modbus integration. For example, [SolarEdge Modbus](/integrations/solaredge_modbus/) and [STIEBEL ELTRON](/integrations/stiebel_eltron/) are listed. Integrations that manage their own Modbus connection, such as [Nibe Heat Pump](/integrations/nibe_heatpump/) and [NeoPool](/integrations/neopool/), don't appear in the panel.
+
+Prerequisites:
+
+- You have administrator rights.
+- You have set up an integration that connects through the Modbus integration, or a Modbus hub in YAML. Otherwise, **Modbus** doesn't appear under **Connectivity**.
+
+1. Go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
+   - At the top, a summary shows how many units (Modbus devices) are on how many connections.
+   - If no connection has been opened yet, the panel shows **No Modbus connections**.
+   - To load the list again, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
+2. Under **Connections**, you can see one item for each connection. A connection is the network address of a device or of a Modbus gateway, or a serial port, such as one with an RS-485 bus. A connection can reach several units, which are the Modbus devices behind it. The integrations in the panel that use the same address or port share one connection.
+3. Still under **Connections**, for each connection item, you can see:
+   - The network address, or the [device path](/integrations/serial/#device-path) of the serial port.
+   - The type of connection: **TCP**, **UDP**, or **Serial**. A hub that you configured in YAML is also marked **Configured in YAML**. Such a hub keeps a connection of its own, so the same device can be listed twice.
+   - Whether the connection is open right now:
+     - A network connection shows **Connected** or **Not connected**. A serial port shows **Open** or **Closed**.
+     - **Connected** or **Open**: The connection is open right now. For a serial port, **Open** only means that the port is open, not that the device answers.
+     - **Not connected** or **Closed**: The connection is not open right now. The connection opens again the next time an integration reads from the device. A device can also close a connection that isn't used.
+   - The integrations that use the connection, with the unit IDs they use. Select an integration to go to its settings. A hub that you configured in YAML is shown by its name instead, and can't be selected.
+4. For a serial connection, to see the port in the **Serial** panel, select **View this port under Serial**.
+
+## Modbus YAML reference
+
+Use these options when you set up a Modbus hub in YAML. For the steps, refer to [Setting up a Modbus hub in YAML](#setting-up-a-modbus-hub-in-yaml).
+
+### Configuring Modbus communication
 
 Configure the modbus communication with modbus devices. This is a general setup needed establish access to the device.
 
@@ -145,7 +173,7 @@ type:
 
 {% endconfiguration %}
 
-## Configuring tcp connection
+### Configuring TCP connection
 
 `type: tcp` is required. Used for devices providing a TCP/IP interface directly.
 
@@ -161,7 +189,7 @@ port:
 
 {% endconfiguration %}
 
-### Example: typical tcp configuration
+#### Example: Typical TCP configuration
 
 ```yaml
 # Example yaml: typical tcp connection
@@ -172,7 +200,7 @@ modbus:
     port: 502
 ```
 
-### Example: full tcp configuration
+#### Example: Full TCP configuration
 
 ```yaml
 # Example yaml: full tcp connection
@@ -187,7 +215,7 @@ modbus:
     timeout: 5
 ```
 
-## Configuring a TCP-RTU connection
+### Configuring a TCP-RTU connection
 
 `type: rtuovertcp` is required. Used for devices providing a TCP/IP interface directly.
 
@@ -206,7 +234,7 @@ port:
 
 {% endconfiguration %}
 
-### Example: typical TCP-RTU configuration
+#### Example: Typical TCP-RTU configuration
 
 ```yaml
 # Example yaml: typical tcp-rtu connection
@@ -217,7 +245,7 @@ modbus:
     port: 502
 ```
 
-### Example: full TCP-RTU configuration
+#### Example: Full TCP-RTU configuration
 
 ```yaml
 # Example yaml: full tcp-rtu connection
@@ -232,7 +260,7 @@ modbus:
     timeout: 5
 ```
 
-## Configuring a UDP connection
+### Configuring a UDP connection
 
 `type: udp` is required. This is rarely used, and only for very special configurations.
 
@@ -248,7 +276,7 @@ port:
 
 {% endconfiguration %}
 
-### Example: typical udp configuration
+#### Example: Typical UDP configuration
 
 ```yaml
 # Example yaml: typical udp connection
@@ -259,7 +287,7 @@ modbus:
     port: 502
 ```
 
-### Example: full UDP configuration
+#### Example: Full UDP configuration
 
 ```yaml
 # Example yaml: full udp connection
@@ -274,7 +302,7 @@ modbus:
     timeout: 5
 ```
 
-## Configuring serial connection
+### Configuring serial connection
 
 `type: serial` is required. This is used for devices providing a serial rs485 interface.
 
@@ -334,7 +362,7 @@ stopbits:
 
 {% endconfiguration %}
 
-### Example: typical serial configuration
+#### Example: Typical serial configuration
 
 ```yaml
 # Example yaml:  typical serial connection
@@ -349,7 +377,7 @@ modbus:
     stopbits: 1
 ```
 
-### Example: full serial configuration
+#### Example: Full serial configuration
 
 ```yaml
 # Example yaml: full udp connection
@@ -369,7 +397,7 @@ modbus:
 ```
 
 
-## Configuring multiple connections
+### Configuring multiple connections
 
 Multiple connections can freely mix different communications:
 
@@ -406,31 +434,7 @@ modbus:
     stopbits: 1
 ```
 
-## Viewing your Modbus connections
-
-You can see the connections to your Modbus devices in one place from the **Modbus** configuration panel. The panel lists the Modbus hubs that you configured in YAML, and the integrations that connect through the Modbus integration. For example, [SolarEdge Modbus](/integrations/solaredge_modbus/) and [STIEBEL ELTRON](/integrations/stiebel_eltron/) are listed. Integrations that manage their own Modbus connection, such as [Nibe Heat Pump](/integrations/nibe_heatpump/) and [NeoPool](/integrations/neopool/), don't appear in the panel.
-
-Prerequisites:
-
-- You have administrator rights.
-- You have set up an integration that connects through the Modbus integration, or a Modbus hub in YAML. Otherwise, **Modbus** doesn't appear under **Connectivity**.
-
-1. Go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
-   - At the top, a summary shows how many units (Modbus devices) are on how many connections.
-   - If no connection has been opened yet, the panel shows **No Modbus connections**.
-   - To load the list again, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
-2. Under **Connections**, you can see one item for each connection. A connection is the network address of a device or of a Modbus gateway, or a serial port, such as one with an RS-485 bus. A connection can reach several units, which are the Modbus devices behind it. The integrations in the panel that use the same address or port share one connection.
-3. Still under **Connections**, for each connection item, you can see:
-   - The network address, or the [device path](/integrations/serial/#device-path) of the serial port.
-   - The type of connection: **TCP**, **UDP**, or **Serial**. A hub that you configured in YAML is also marked **Configured in YAML**. Such a hub keeps a connection of its own, so the same device can be listed twice.
-   - Whether the connection is open right now:
-     - A network connection shows **Connected** or **Not connected**. A serial port shows **Open** or **Closed**.
-     - **Connected** or **Open**: The connection is open right now. For a serial port, **Open** only means that the port is open, not that the device answers.
-     - **Not connected** or **Closed**: The connection is not open right now. The connection opens again the next time an integration reads from the device. A device can also close a connection that isn't used.
-   - The integrations that use the connection, with the unit IDs they use. Select an integration to go to its settings. A hub that you configured in YAML is shown by its name instead, and can't be selected.
-4. For a serial connection, to see the port in the **Serial** panel, select **View this port under Serial**.
-
-# Configuring modbus entities
+### Configuring Modbus entities
 
 modbus entities are grouped below each modbus communication entry.
 
@@ -476,7 +480,7 @@ unique_id:
 
 {% endconfiguration %}
 
-## Example: entities grouping
+#### Example: Entities grouping
 
 ```yaml
 # Example yaml: entities grouping
@@ -510,7 +514,7 @@ modbus:
 
 The different types of entities are detailed in the following.
 
-## Configuring binary sensor entities
+### Configuring binary sensor entities
 
 The Modbus binary sensor allows you to gather data from coils which as per standard have state ON/OFF.
 
@@ -560,7 +564,7 @@ binary_sensors:
 
 {% endconfiguration %}
 
-### Example: typical binary sensor configuration
+#### Example: Typical binary sensor configuration
 
 ```yaml
 # Example yaml: typical binary_sensor
@@ -575,7 +579,7 @@ modbus:
         slave: 1
 ```
 
-### Example: full binary sensor configuration
+#### Example: Full binary sensor configuration
 
 ```yaml
 # Example yaml: binary_sensor with all options
@@ -595,7 +599,7 @@ modbus:
         unique_id: my_relay
 ```
 
-### Example: multiple identical binary sensor configuration
+#### Example: Multiple identical binary sensor configuration
 
 ```yaml
 # Example of 10 identical binary_sensor
@@ -617,7 +621,7 @@ and `my_relay_1` to `my_relay_10`.
 
 The master configuration like device_class are automatically copied to the slaves.
 
-## Configuring climate entities
+### Configuring climate entities
 
 The Modbus climate platform allows you to monitor a thermostat or heaters as well as set a target temperature, HVAC action, HVAC mode, swing mode, and fan state.
 
@@ -1001,7 +1005,7 @@ climates:
 
 {% endconfiguration %}
 
-### Example: climate configuration
+#### Example: Climate configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -1028,7 +1032,7 @@ modbus:
         temperature_unit: C
 ```
 
-## Configuring cover entities
+### Configuring cover entities
 
 The `modbus` cover platform allows you to control covers (such as blinds, a roller shutter, or a garage door).
 
@@ -1104,7 +1108,7 @@ covers:
           description: "Input register."
 {% endconfiguration %}
 
-### Example: Modbus cover
+#### Example: Modbus cover
 
 ```yaml
 # Example configuration.yaml entry
@@ -1129,7 +1133,7 @@ modbus:
 ```
 
 
-### Example: Modbus cover controlled by a coil
+#### Example: Modbus cover controlled by a coil
 
 This example shows a configuration for a Modbus cover controlled using a coil. Intermediary states like opening/closing are not supported. The cover state is polled from Modbus every 10 seconds.
 
@@ -1152,7 +1156,7 @@ modbus:
         scan_interval: 10
 ```
 
-### Example: Modbus cover controlled by a coil, its state is read from the register
+#### Example: Modbus cover controlled by a coil, its state is read from the register
 
 This example shows a configuration for a Modbus cover controlled using a coil. Actual cover state is read from the `status_register`. We've also specified register values to match with the states open/opening/closed/closing. The cover state is polled from Modbus every 10 seconds.
 
@@ -1176,7 +1180,7 @@ modbus:
         state_closed: 4
 ```
 
-### Example: Modbus cover controlled by a holding register
+#### Example: Modbus cover controlled by a holding register
 
 This example shows a configuration for a Modbus cover controlled using a holding register, from which we also read current cover state. We've also specified register values to match with the states open/opening/closed/closing. The cover state is polled from Modbus every 10 seconds.
 
@@ -1198,7 +1202,7 @@ modbus:
         state_closed: 4
 ```
 
-### Example: Modbus cover controlled by a holding register, its state is read from the status register
+#### Example: Modbus cover controlled by a holding register, its state is read from the status register
 
 This example shows a configuration for a Modbus cover controlled using a holding register. However, cover state is read from a `status_register`. In this case, we've specified only values for `state_open` and `state_closed`, for the rest, default values are used. The cover state is polled from Modbus every 10 seconds.
 
@@ -1221,7 +1225,7 @@ modbus:
         state_closed: 0
 ```
 
-## Configuring fan entities
+### Configuring fan entities
 
 The `modbus` fan platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
@@ -1300,7 +1304,7 @@ fans:
           type: integer
 {% endconfiguration %}
 
-### Example: fan configuration
+#### Example: Fan configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -1328,7 +1332,7 @@ modbus:
             state_off: 1
 ```
 
-## Configuring light entities
+### Configuring light entities
 
 The `modbus` light platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
@@ -1428,7 +1432,7 @@ lights:
 
 {% endconfiguration %}
 
-### Example: light configuration
+#### Example: Light configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -1472,7 +1476,7 @@ modbus:
             state_off: 1
 ```
 
-## Configuring sensor entities
+### Configuring sensor entities
 
 The `modbus` sensor allows you to gather data from [Modbus](http://www.modbus.org/) registers.
 
@@ -1612,7 +1616,7 @@ sensors:
 If you specify scale or offset as floating point values, double precision floating point arithmetic will be used to calculate final value. This can cause loss of precision for values that are larger than 2^53.
 {% endnote %}
 
-### Example: sensor configuration
+#### Example: Sensor configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -1642,7 +1646,7 @@ modbus:
 ```
 
 
-### Example: sensor full configuration
+#### Example: Sensor full configuration
 
 Example temperature sensor with a default scan interval:
 
@@ -1666,7 +1670,7 @@ modbus:
         data_type: integer
 ```
 
-## Configuring switch entities
+### Configuring switch entities
 
 The `modbus` switch platform allows you to control [Modbus](http://www.modbus.org/) coils or registers.
 
@@ -1746,7 +1750,7 @@ switches:
 
 {% endconfiguration %}
 
-### Example: switch configuration
+#### Example: Switch configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -1775,7 +1779,7 @@ modbus:
 ```
 
 
-### Example: switch full configuration
+#### Example: Switch full configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -1803,7 +1807,7 @@ modbus:
             state_off: 1
 ```
 
-## Parameters usage matrix
+### Parameters usage matrix
 
 Some parameters exclude other parameters, the following tables show what can be combined:
 
@@ -1820,7 +1824,7 @@ Some parameters exclude other parameters, the following tables show what can be 
 
 {% include integrations/actions.md %}
 
-# Opening an issue
+## Opening an issue
 
 When opening an issue, please add your current configuration (or a scaled down version), with at least:
 
@@ -1840,6 +1844,6 @@ logger:
 
 and restart Home Assistant, reproduce the problem, and include the log in the issue.
 
-# Building on top of modbus
+## Building on top of Modbus
 
 The only recommended way is to inherit the entities needed.

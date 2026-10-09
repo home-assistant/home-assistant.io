@@ -121,7 +121,7 @@ When you select more than one device, the **Condition passes if** option control
 - The condition does not pass when none of the selected devices resolve to a Z-Wave node, whichever behavior you choose.
 - A selected device that no longer resolves to a node, because the config entry is unloaded or the device was removed, counts as unresolved and makes **All** fail. It is simply skipped for **Any**.
 - Selecting the same node twice does not change the result. Nodes are de-duplicated before the check.
-- Node statuses are also exposed as a diagnostic sensor per node, so you can use the standard [state condition](/docs/scripts/conditions/#state-condition) instead if you prefer to check that entity.
+- Node statuses are also exposed as a diagnostic sensor per node, so you can use the standard [State condition](/conditions/state/) instead if you prefer to check that entity.
 
 {% include conditions/try_it.md %}
 

@@ -8,9 +8,9 @@ related_triggers:
   - time
 ---
 
-The **Numeric state crossed threshold** trigger is a general trigger for reacting when a numeric value crosses a threshold. Use it when you need to watch an exact numeric state or attribute value, or when the automation editor does not offer a trigger named after what you want to watch.
+The **Numeric state crossed threshold** trigger is a general trigger for reacting when a numeric value crosses a threshold. Use it when you need to watch an exact numeric state or attribute value, or when the visual automation editor does not offer a trigger named after what you want to watch.
 
-If the automation editor shows a trigger named after the measurement you care about, use that one instead. For example, use [Temperature crossed threshold](/triggers/temperature.crossed_threshold/) for temperature readings or [Power crossed threshold](/triggers/power.crossed_threshold/) for power readings. These triggers are easier to read later and can handle compatible units automatically.
+If the visual automation editor shows a trigger named after the measurement you care about, use that one instead. For example, use [Temperature crossed threshold](/triggers/temperature.crossed_threshold/) for temperature readings or [Power crossed threshold](/triggers/power.crossed_threshold/) for power readings. These triggers are easier to read later and can handle compatible units automatically.
 
 {% include triggers/ui_header.md %}
 

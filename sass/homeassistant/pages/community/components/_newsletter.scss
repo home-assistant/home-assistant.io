@@ -1,8 +1,9 @@
 @use '../mixins' as *;
 section#newsletter {
     --section-spacing-y: 0;
-    background-color: #002332;
+    background-color: #CCEFFE;
     border-radius: 12px;
+    margin-top: 24px;
     overflow: hidden;
 
     .container {
@@ -29,9 +30,8 @@ section#newsletter {
         text-wrap: balance;
     }
 
-    &,
-    p {
-        color: #ffffff;
+    h2 {
+        color: #002332;
     }
 
     @include bp(tablet) {
@@ -122,6 +122,31 @@ section#newsletter {
                 position: absolute;
                 border-radius: 0;
                 inset: 0;
+                transition: opacity 0.5s ease-out;
+
+                @media (prefers-reduced-motion: reduce) {
+                    transition: none;
+                }
+            }
+
+            &.is-loading {
+                background-color: rgba(255, 255, 255, 0.08);
+                background-image: linear-gradient(
+                    100deg,
+                    transparent 30%,
+                    rgba(255, 255, 255, 0.1) 50%,
+                    transparent 70%
+                );
+                background-size: 200% 100%;
+                animation: edition-shimmer 1.8s ease-in-out infinite;
+
+                @media (prefers-reduced-motion: reduce) {
+                    animation: none;
+                }
+
+                img {
+                    opacity: 0;
+                }
             }
 
             &:nth-child(1) {
@@ -154,5 +179,15 @@ section#newsletter {
                 transform: translateY(-40px);
             }
         }
+    }
+}
+
+@keyframes edition-shimmer {
+    from {
+        background-position: 100% 0;
+    }
+
+    to {
+        background-position: -100% 0;
     }
 }
