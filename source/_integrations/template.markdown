@@ -3594,7 +3594,7 @@ template:
 
 ## Optimistic mode
 
-For template entities that support interactivity, such as `number`, `select`, `switch`, or `light`, you can enable optimistic mode by setting the `optimistic` parameter to `true`. If you don't set `optimistic` and don't define a `state` template, optimistic mode is on automatically. This affects how the entity's state updates when you interact with it:
+For template entities that support interactivity, such as `number`, `select`, `switch`, or `light`, you can enable optimistic mode by setting the `optimistic` parameter to `true`. If you don't set `optimistic`, optimistic mode is on automatically when the entity has no template for its state. For most entities, that's the `state` template. For a climate entity, it's `hvac_mode`. A cover is only optimistic automatically when it has neither `state` nor `position`. This affects how the entity's state updates when you interact with it:
 
 - **With optimistic mode disabled**: When you interact with the entity (for example, selecting a new option in a dropdown or setting a new number value), the entity's state in Home Assistant updates only after the underlying template defined in the `state` parameter returns the new value.
 
