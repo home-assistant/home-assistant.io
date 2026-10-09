@@ -25,7 +25,7 @@ There are several things you can do to free up some space:
 
 Follow these steps to check the available free disk space.
 
-1. Go to **{% my storage title="Settings > System > Storage" %}**.
+1. Go to {% my storage title="**Settings** > **System** > **Storage**" %}.
 2. Under disk metrics, hover over the status bar to view the details.
    - {% icon "mdi:information-outline" %} [Network storage](/common-tasks/os/#network-storage) and [local disks](/common-tasks/os/#local-disk-storage) that you have added are listed under **Additional storage**.
 
