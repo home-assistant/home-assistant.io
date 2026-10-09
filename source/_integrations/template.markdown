@@ -1,6 +1,6 @@
 ---
 title: Template
-description: Instructions on how to integrate Template Sensors into Home Assistant.
+description: Instructions on how to create template entities in Home Assistant.
 ha_category:
   - Alarm Control Panel
   - Binary sensor
@@ -66,7 +66,7 @@ related:
 
 The **Template** {% term integration %} allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/templating/) for properties of an entity, like the name or the state.
 
-There is currently support for the following device types within Home Assistant:
+There is currently support for the following entity types within Home Assistant:
 
 - [Alarm control panel](#alarm-control-panel)
 - [Binary sensor](#binary-sensor)
@@ -113,7 +113,9 @@ After you create a template helper, you can change its options at any time in **
 
 ## YAML configuration
 
-Entities are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain optional update triggers.
+Entities are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block can define entities of any of the supported types, and can contain optional update triggers.
+
+The older format, with `platform: template` under a platform key such as `sensor:`, isn't supported anymore. If your configuration still uses it, Home Assistant shows a repair.
 
 ### State-based template entities
 
@@ -137,14 +139,14 @@ template:
 
 If you want more control over when an entity updates, you can define triggers. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#trigger-based-sensor-and-binary-sensor-storing-webhook-information)), or update entities based on a schedule.
 
-Whenever a trigger fires, all related entities re-render and have access to [the trigger data](/docs/automation/templating/) in the templates.
+Whenever a trigger reacts, all related entities re-render and have access to [the trigger data](/docs/automation/templating/) in the templates.
 
 Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [State changed trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
 
-The state, including attributes, of trigger-based sensors and binary sensors is restored when Home Assistant is restarted. The state of other trigger-based template entities is not restored.
+The state, including attributes, of trigger-based template entities is restored when Home Assistant is restarted. This doesn't apply to buttons, images, and update entities.
 
 {% note %}
-Buttons do not support using `trigger` or `action` options.
+Buttons don't support the `triggers` or `actions` options.
 {% endnote %}
 
 ```yaml
@@ -166,11 +168,11 @@ template:
 
 {% configuration trigger-based %}
 actions:
-  description: Define actions to be executed when the trigger fires (for trigger-based entities only). Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
+  description: Define actions to run when a trigger reacts (for trigger-based entities only). Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
   required: false
   type: list
 conditions:
-  description: Define conditions that have to be met after a trigger fires and before any actions are executed or sensor updates are performed (for trigger-based entities only). Optional. [See condition documentation](/docs/automation/condition).
+  description: Define conditions that have to be met after a trigger reacts and before any actions are executed or sensor updates are performed (for trigger-based entities only). Optional. [See condition documentation](/docs/automation/condition).
   required: false
   type: list
 triggers:
@@ -182,7 +184,7 @@ unique_id:
   required: false
   type: string
 variables:
-  description: Key-value pairs of variable definitions which can be referenced and used in the templates below (for trigger-based entities only). Mostly used by blueprints. With State-based template entities, variables are only resolved when the configuration is loaded or reloaded. Trigger based template entities resolve variables between triggers and actions.
+  description: Key-value pairs of variable definitions which can be referenced and used in the templates below. Mostly used by blueprints. With state-based template entities, variables are only resolved when the configuration is loaded or reloaded. Trigger-based template entities resolve variables between triggers and actions.
   required: false
   type: map
   keys:
@@ -193,7 +195,7 @@ variables:
 
 {% endconfiguration %}
 
-## Common Device Configuration Options
+## Common entity options
 
 Each entity platform has its own set of configuration options, but there are some common options that can be used across all entity platforms.
 
@@ -225,7 +227,7 @@ template:
     required: false
     type: list
   default_entity_id:
-    description: Use `default_entity_id` instead of name for automatic generation of the entity id. For example, `sensor.my_awesome_sensor`. When used without a `unique_id`, the entity id updates during restart or reload if the entity id is available. If the entity id already exists, the entity id is created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time.
+    description: Use `default_entity_id` instead of name for automatic generation of the entity id. For example, `sensor.my_awesome_sensor`. When used without a `unique_id`, the entity id updates during restart or reload if the entity id is available. If the entity id already exists, the entity id is created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. The domain must match the platform, for example, `sensor.` for a sensor.
     required: false
     type: string
   icon:
@@ -233,7 +235,7 @@ template:
     required: false
     type: template
   picture:
-    description: Defines a template for the entity picture of the sensor.
+    description: Defines a template for the entity picture of the entity.
     required: false
     type: template
   name:
@@ -245,7 +247,7 @@ template:
     required: false
     type: string
   variables:
-    description: Key-value pairs of variable definitions which can be referenced and used in the templates below (for trigger-based entities only). Mostly used by blueprints. With State-based template entities, variables are only resolved when the configuration is loaded or reloaded. Trigger based template entities resolve variables between triggers and actions.
+    description: Key-value pairs of variable definitions which can be referenced and used in the templates below. Mostly used by blueprints. With state-based template entities, variables are only resolved when the configuration is loaded or reloaded. Trigger-based template entities resolve variables between triggers and actions.
     required: false
     type: map
     keys:
@@ -3631,9 +3633,9 @@ template:
 
 ## Optimistic mode
 
-For template entities that support interactivity (like `number` and `select`), you can enable optimistic mode by setting the `optimistic` parameter to `true`. This affects how the entity's state updates when you interact with it:
+For template entities that support interactivity, such as `number`, `select`, `switch`, or `light`, you can enable optimistic mode by setting the `optimistic` parameter to `true`. If you don't set `optimistic`, optimistic mode is on automatically when the entity has no template for its state. For most entities, that's the `state` template. For a climate entity, it's `hvac_mode`. A cover is only optimistic automatically when it has neither `state` nor `position`. This affects how the entity's state updates when you interact with it:
 
-- **With optimistic mode disabled (default)**: When you interact with the entity (for example, selecting a new option in a dropdown or setting a new number value), the entity's state in Home Assistant updates only after the underlying template defined in the `state` parameter returns the new value.
+- **With optimistic mode disabled**: When you interact with the entity (for example, selecting a new option in a dropdown or setting a new number value), the entity's state in Home Assistant updates only after the underlying template defined in the `state` parameter returns the new value.
 
 - **With optimistic mode enabled**: When you interact with the entity, the entity's state in Home Assistant immediately updates to reflect your change, without waiting for the `state` template to update. This provides a more responsive UI experience but may not reflect the actual state if the underlying action fails or takes time to complete.
 
@@ -3643,14 +3645,14 @@ Optimistic mode is particularly useful when:
 - You want a more responsive UI experience
 - You're confident the action succeeds
 
-When optimistic mode is disabled (default), you get more accuracy but potentially a less responsive UI, as the entity only updates after confirmation from the underlying system.
+When optimistic mode is disabled, you get more accuracy but potentially a less responsive UI, as the entity only updates after confirmation from the underlying system.
 
 ## Rate limiting updates
 
 When there are entities present in the template and no triggers are defined, the template re-renders when one of the entities changes states. To avoid this taking up too many resources in Home Assistant, rate limiting is automatically applied if too many states are observed.
 
 {% tip %}
-<a href='#trigger-based-template-sensors'>Define a trigger</a> to avoid a rate limit and get more control over entity updates.
+[Define a trigger](#trigger-based-template-entities) to avoid a rate limit and get more control over entity updates.
 {% endtip %}
 
 When [`states`](/template-functions/states/) is used in a template by itself to iterate all states on the system, the template is re-rendered each
@@ -3692,7 +3694,7 @@ trigger: |
     minutes: 5
 {% endexample %}
 
-Home Assistant tracks the entities that are referenced in the template and evaluates the template again when one of those entities changes state. If a template does not reference an entity, it is evaluated once per minute.
+Home Assistant tracks the entities that are referenced in the template and evaluates the template again when one of those entities changes state. If the template uses the time, for example with `now()`, it's also evaluated at the start of every minute. A template that references neither an entity nor the time isn't evaluated again.
 
 You can use `for` to require the template to stay true for a set time. Templates in `for` are evaluated when `value_template` becomes true.
 
@@ -3704,9 +3706,9 @@ The `for` option does not survive a Home Assistant restart or the reload of auto
 
 ### Startup
 
-If you are using the state of a platform that might not be available during startup, the Template Sensor may get an `unknown` state. To avoid this, use the [`states()`](/template-functions/states/) function in your template. For example, you should replace {% raw %}`{{ states.sensor.moon.state }}`{% endraw %} with this equivalent that returns the state and never results in `unknown`: {% raw %}`{{ states('sensor.moon') }}` {% endraw %}.
+If you are using the state of a platform that might not be available during startup, the Template Sensor may get an `unknown` state. To avoid this, use the [`states()`](/template-functions/states/) function in your template. For example, you should replace {% raw %}`{{ states.sensor.moon.state }}`{% endraw %} with this equivalent, which doesn't cause an error while the entity isn't available yet: {% raw %}`{{ states('sensor.moon') }}` {% endraw %}. Until the entity exists, it returns `unknown`.
 
-The same would apply to the [`is_state()`](/template-functions/is_state/) function. You should replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent that returns `true`/`false` and never gives an `unknown` result:
+The same would apply to the [`is_state()`](/template-functions/is_state/) function. You should replace {% raw %}`{{ states.switch.source.state == 'on' }}`{% endraw %} with this equivalent, which returns `true` or `false` instead of an error:
 
 ```yaml
 {{ is_state('switch.source', 'on') }}
