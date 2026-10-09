@@ -4,7 +4,7 @@ description: Instructions on how to integrate a Marantz receiver via its RS-232 
 ha_category:
   - Media player
 ha_iot_class: Local Push
-ha_release: 2026.10
+ha_release: 2026.11
 ha_codeowners:
   - '@balloob'
 ha_config_flow: true
