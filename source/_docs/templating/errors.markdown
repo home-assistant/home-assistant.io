@@ -155,7 +155,7 @@ output: "a"
 
 People most often run into this with `now()` in `trigger_variables`.
 
-**How to fix it.** Move the part that uses these functions to a place that supports full templates. For example, use `variables` instead of `trigger_variables` in an automation. `variables` supports full templates, but is only evaluated after the automation starts.
+**How to fix it.** Move the part that uses these functions to a place that supports full templates. For example, if you only need the value in the conditions or actions of an automation, use `variables` instead of `trigger_variables`. `variables` supports full templates, but is only evaluated after the automation starts. That's why the trigger options themselves can't use it.
 
 ## SecurityError: access to attribute 'append' of 'list' object is unsafe
 
@@ -175,7 +175,7 @@ output: "['kitchen', 'hall']"
 
 ## TemplateError: Template output exceeded maximum size of 262144 characters
 
-**What it means.** The template produced more than 262,144 characters of text. Home Assistant limits the output size, so a template can't slow down or overload the system.
+**What it means.** The template produced more than 262,144 characters of text. Home Assistant limits how large the result of a template can be.
 
 **How to fix it.** Return less data. For example, filter a list down to the entities you need, or return a count instead of the full list.
 
