@@ -158,8 +158,10 @@ Freezes the LED effect on a segment. One switch is created per segment.
 
 ### Buttons
 
-This {% term integration %} provides a [button entity](/integrations/button)
-to restart the WLED device.
+This {% term integration %} provides the following [button entities](/integrations/button):
+
+- Restart: Restarts the WLED device.
+- Next playlist entry: Skips the running playlist to its next entry. This button is only available with WLED 0.15.0 or newer.
 
 ### Updates
 
