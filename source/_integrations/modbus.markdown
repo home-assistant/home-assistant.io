@@ -62,7 +62,7 @@ Prerequisites:
    - During setup, enter how Home Assistant reaches the device:
      - For a network connection, enter the host and the port. Use the port from the integration documentation. Many devices use `502`, but some use another port.
      - For a serial connection, select the [serial port](/integrations/serial/#serial-port), and enter the [baud rate](/integrations/serial/#baud-rate).
-       - An ESPHome serial proxy is listed with the serial ports.
+       - The port that an ESPHome serial proxy shares is listed with the serial ports.
        - For a serial device server, select **Enter manually** and enter its URL. With a `socket://` URL, the baud rate isn't passed on, so set it on the serial device server itself.
    - Some integrations also ask for the unit ID of the device. The unit ID identifies the device on the Modbus connection. Some integrations call it **Device ID**, and device manuals often use the older term slave ID. Most devices use `1`. Unless several devices share the connection, you can usually keep `1`. In YAML, it's `device_address`.
    - Result: The entities of your device appear in Home Assistant.
@@ -1035,9 +1035,9 @@ The `modbus` cover platform allows you to control covers (such as blinds, a roll
 
 At the moment, platform cover support the opening and closing of a cover. You can control your covers either using coils or holding registers.
 
-A cover that uses `input_type: coil` is not able to determine intermediary states such as opening and closing. A coil stores only two states: `0` means the cover is closed, and `1` means it's open. To allow detecting intermediary states, there is an optional `status_register` attribute. It will enable you to write your command (for example, to open a cover) into a coil, and read current cover status back through the register. Additionally, you can specify values for `state_open`, `state_opening`, `state_closed`, and `state_closing` attributes. These will be matched with the value read from the `status_register`.
+A cover that uses `input_type: coil` is not able to determine intermediate states such as opening and closing. A coil stores only two states: `0` means the cover is closed, and `1` means it's open. To allow detecting intermediate states, there is an optional `status_register` attribute. It will enable you to write your command (for example, to open a cover) into a coil, and read current cover status back through the register. Additionally, you can specify values for `state_open`, `state_opening`, `state_closed`, and `state_closing` attributes. These will be matched with the value read from the `status_register`.
 
-If your cover uses `input_type: holding` (default) to send commands, it can also read the intermediary states. To adjust which value represents what state, you can fine-tune the optional state attributes, like `state_open`. These optional state values are also used for specifying values written into the register. If you specify an optional status_register attribute, cover states will be read from status_register instead of the register used for sending commands.
+If your cover uses `input_type: holding` (default) to send commands, it can also read the intermediate states. To adjust which value represents what state, you can fine-tune the optional state attributes, like `state_open`. These optional state values are also used for specifying values written into the register. If you specify an optional status_register attribute, cover states will be read from status_register instead of the register used for sending commands.
 
 For parameters that can't be used together, refer to the [Parameters usage matrix](#parameters-usage-matrix).
 
@@ -1132,7 +1132,7 @@ modbus:
 
 #### Example: Modbus cover controlled by a coil
 
-This example shows a configuration for a Modbus cover controlled using a coil. Intermediary states like opening/closing are not supported. The cover state is polled from Modbus every 10 seconds.
+This example shows a configuration for a Modbus cover controlled using a coil. Intermediate states like opening/closing are not supported. The cover state is polled from Modbus every 10 seconds.
 
 ```yaml
 modbus:
