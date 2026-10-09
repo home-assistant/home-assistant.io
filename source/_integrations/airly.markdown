@@ -18,6 +18,16 @@ ha_quality_scale: silver
 
 The **Airly** {% term integration %} uses the [Airly](https://airly.org/) web service as a source for air quality data for your location.
 
+## Use cases
+
+- Get a notification with Airly's advice when the air quality becomes poor.
+- Turn on your air purifier or ventilation automatically when the particulate matter level rises.
+- Get a reminder to keep your windows closed when the outdoor air is polluted.
+- Show the current outdoor air quality on your dashboard.
+- Track how the air quality changes over time in the history panel.
+
+See [Automation examples](#automation-examples) for examples you can use as a starting point.
+
 ## Setup
 
 To generate an Airly API key, go to [Airly for developers](https://developer.airly.org/register) page.
