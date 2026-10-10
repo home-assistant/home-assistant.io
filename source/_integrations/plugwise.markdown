@@ -136,7 +136,7 @@ A generous number of sensors is provided for your climate setup. Examples includ
 - **Cooling**
   - **Description**: Toggle if cooling should be enabled.
 - **DHW Comfort Mode**
-  - **Description**: Toggle comfort mode for domestic hot water.
+  - **Description**: Removed, replaced by the DHW mode Select.
 
 #### Water heaters
 
