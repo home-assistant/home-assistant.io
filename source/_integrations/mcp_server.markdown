@@ -16,14 +16,17 @@ related:
 ha_quality_scale: silver
 ---
 
-The [Model Context Protocol](https://modelcontextprotocol.io) is an open protocol that standardizes how applications provide context to <abbr title="Large Language Models">LLMs</abbr>. The **Model Context Protocol Server** (MCP) integration enables using Home Assistant to provide context for <abbr title="Model Context Protocol">MCP</abbr> LLM Client Applications. For example, you can control your lights from Claude Desktop, or expose your Google Tasks to-do list as a tool.
-
-Controlling Home Assistant is done by providing <abbr title="Model Context Protocol">MCP</abbr> clients with access to Home Assistant's Assist API. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}, and your <abbr title="Model Context Protocol">MCP</abbr> client can also read a real-time snapshot of that context. This gives your AI assistant a clear picture of your home's current state.
+The **Model Context Protocol Server** (<abbr title="Model Context Protocol">MCP</abbr>) integration lets you connect an AI agent, such as ChatGPT or Claude, to Home Assistant. The AI agent can then control your devices and see the current state of your home. You choose which devices and entities the AI agent can access on the {% my voice_assistants title="exposed entities page" %}.
 
 ## Prerequisites
 
-- You need an [MCP client](https://modelcontextprotocol.io/clients) LLM Application such as [Claude for Desktop](https://claude.ai/download).
-- If your client does not support remote servers, you need an additional local MCP server remote gateway.
+- Your MCP server URL. To get it:
+  1. Go to {% my config_ai title="**Settings** > **System** > **AI**" %}.
+  2. If MCP is not enabled, enable it.
+  3. Next to the MCP server you want to use, select the copy icon {% icon "mdi:content-copy" %}. We recommend **My MCP** because it includes everything.
+- An AI agent that supports MCP servers.
+- If the AI agent runs in the cloud, for example when you use it through a website, your Home Assistant instance must be accessible from the internet. Use [Home Assistant Cloud](/integrations/cloud/) or another method of [remote access](/docs/configuration/remote/).
+- If your AI agent does not support remote servers, you need an additional local MCP server remote gateway.
 
 For detailed configuration instructions, refer to the [Client configuration](#client-configuration) section.
 
@@ -197,24 +200,18 @@ If your Home Assistant instance is only accessible on your local network (for ex
 
 ### Example: ChatGPT
 
-ChatGPT supports connecting to remote Model Context Protocol servers for Plus, Pro, Business, and Enterprise/Edu users. ChatGPT currently only supports remote connections, which means your Home Assistant instance must be publicly accessible from the internet.
+ChatGPT runs in the cloud, so your Home Assistant instance must be accessible from the internet. Before you start, copy your MCP server URL as described in the [prerequisites](#prerequisites).
 
-1. Log in to [ChatGPT](https://chatgpt.com). Ensure developer mode is enabled for your account (this can be toggled in **Settings** > **Apps** > **Advanced Settings**).
-2. Navigate to **Workspace settings** (or user settings), select **Apps**, and select **Create**.
+1. Go to the [ChatGPT plugins page](https://chatgpt.com/plugins).
+2. In the top-right corner, select **Add** > **Add custom MCP server**.
 3. Enter the following details:
-   - **Name**: "Home Assistant" (or any name you prefer).
-   - **MCP Server URL**: `https://<your_home_assistant_external_url>/api/mcp` (or your Home Assistant Cloud URL `https://<your-id>.ui.nabu.casa/api/mcp`). The hostname must match your configured External URL in Home Assistant.
-   - Select **OAuth** for the authentication mechanism. ChatGPT will attempt to auto-discover OAuth settings. If discovery fails (for example, if ChatGPT attempts Dynamic Client Registration or encounters a tunnel hostname mismatch), enter the settings manually under **Advanced OAuth Settings** > **User defined oauth client**:
-     - Under **Client registration**:
-       - **OAuth Client ID**: `https://chatgpt.com` (this is the base URL of the ChatGPT application; do not enter your Home Assistant URL)
-       - **OAuth Client Secret**: Enter any text (it is not used by Home Assistant, but the ChatGPT configuration form requires a value).
-       - **Token endpoint auth method**: `client_secret_post`
-     - Under **OAuth endpoints**:
-       - **Auth URL**: `https://<your_home_assistant_external_url>/auth/authorize`
-       - **Token URL**: `https://<your_home_assistant_external_url>/auth/token`
-       - **Authorization server base**: `https://<your_home_assistant_external_url>`
-4. Select **Create**. Once created, the app will appear in your **Enabled Apps**.
-5. Begin a new chat in ChatGPT, open the apps menu, and select your newly created Home Assistant app. ChatGPT will prompt you to authenticate, which will redirect you to Home Assistant to log in and authorize the connection.
+   - **Name**: `Home Assistant`
+   - **Connection**: Paste your MCP server URL.
+   - **Authentication**: Select **OAuth**.
+4. Select **I understand and want to continue**.
+5. Select **Create as plugin**.
+6. ChatGPT offers to **Connect Home Assistant**. Select **Continue to Home Assistant**.
+7. Log in to your Home Assistant instance.
 
 ### Example: Claude Code
 
