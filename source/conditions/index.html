@@ -31,6 +31,17 @@ toc: true
   <div class="grid__item six-sixths lap-one-whole palm-one-whole">
     <div id="tf-container">
       {%- assign domain_keys = all_conditions | map: 'domain' | uniq | sort -%}
+      {%- comment -%} Show the general Home Assistant group first. {%- endcomment -%}
+      {%- assign ordered_keys = "" | split: "" -%}
+      {%- if domain_keys contains "homeassistant" -%}
+        {%- assign ordered_keys = ordered_keys | push: "homeassistant" -%}
+      {%- endif -%}
+      {%- for key in domain_keys -%}
+        {%- if key != "homeassistant" -%}
+          {%- assign ordered_keys = ordered_keys | push: key -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- assign domain_keys = ordered_keys -%}
       {%- for domain_key in domain_keys -%}
         {%- assign domain_conditions = all_conditions | where: 'domain', domain_key -%}
         {%- assign domain_entry = site.data.condition_domain_lookup[domain_key] -%}
