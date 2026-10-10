@@ -80,9 +80,9 @@ When the afternoon sun starts shining in, you can lower the blinds part way and 
   - **Attribute**: Elevation
   - **Below**: 25
 - **Action**: Set cover position and tilt
-- **Target**: Living room blind
-- **Position**: 60
-- **Tilt position**: 30
+  - **Target**: Living room blind
+  - **Position**: 60
+  - **Tilt position**: 30
 
 {% details "YAML example for tilting the blinds against the sun" %}
 
