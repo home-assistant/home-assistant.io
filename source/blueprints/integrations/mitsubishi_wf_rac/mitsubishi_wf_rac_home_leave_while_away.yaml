@@ -33,13 +33,15 @@ blueprint:
             - domain: device_tracker
             - domain: group
 
-    away_delay:
+    away_minutes:
       name: Away for
-      description: How long everybody has to be gone before the unit falls back.
-      default:
-        minutes: 30
+      description: How many minutes everybody has to be gone before the unit falls back.
+      default: 30
       selector:
-        duration:
+        number:
+          min: 0
+          max: 240
+          unit_of_measurement: min
 
     resume:
       name: Leave Home Leave on return
@@ -58,7 +60,8 @@ triggers:
   - trigger: state
     entity_id: !input presence
     to: "not_home"
-    for: !input away_delay
+    for:
+      minutes: !input away_minutes
     id: away
   - trigger: state
     entity_id: !input presence

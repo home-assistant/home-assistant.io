@@ -37,21 +37,24 @@ blueprint:
             - domain: binary_sensor
               device_class: opening
 
-    open_delay:
+    open_minutes:
       name: Open for
       description: >
-        How long the window has to stay open before the unit is switched off,
-        so a quick airing does not interrupt it.
-      default:
-        minutes: 2
+        How many minutes the window has to stay open before the unit is
+        switched off, so a quick airing does not interrupt it.
+      default: 2
       selector:
-        duration:
+        number:
+          min: 0
+          max: 60
+          unit_of_measurement: min
 
 triggers:
   - trigger: state
     entity_id: !input window
     to: "on"
-    for: !input open_delay
+    for:
+      minutes: !input open_minutes
 
 actions:
   - action: climate.turn_off

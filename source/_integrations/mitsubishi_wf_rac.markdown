@@ -3,7 +3,7 @@ title: Mitsubishi WF-RAC
 description: Instructions on how to integrate Mitsubishi Heavy Industries air conditioners with a WF-RAC module into Home Assistant.
 ha_category:
   - Climate
-ha_release: '2026.10'
+ha_release: '2026.11'
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -30,7 +30,7 @@ The module is the requirement, not the indoor unit: a unit that works with the S
 
 - The module has to be on your network already. Set it up once with the manufacturer's app, or through the module's own access point; this integration does not perform that first-time setup.
 - Give the module a fixed address in your router. A changed address is picked up when the module announces itself again, but only then.
-- The module accepts a limited number of registered controllers. If its account table is full, Home Assistant cannot register and the integration raises a repair issue saying so; free a slot in the app, or factory-reset the module.
+- The module accepts a limited number of registered controllers (four accounts). If its account table is full, setup fails with a "too many devices registered" error. Remove the unit from the Smart M-Air app on a phone that no longer needs it, or factory-reset the module, then try again.
 
 {% include integrations/config_flow.md %}
 
@@ -41,9 +41,9 @@ Host:
   description: "The local IP address of the airco's wireless module."
 Port:
   description: "The port the module's local API listens on. This is 51443 on every firmware branch seen so far; discovery fills it in."
-Ignore duplicate IP address:
-  description: "Off by default. Adds the airco even though another entry already uses that IP address, for re-adding a unit whose old entry went missing. The module accepts one connection at a time, so two entries polling it produce errors in the log."
 {% endconfiguration_basic %}
+
+An IP address that is already configured is refused. The module accepts one connection at a time, so two entries polling the same unit would only produce errors.
 
 ## Supported functionality
 
@@ -53,7 +53,7 @@ The integration creates one device per air conditioner with a climate entity tha
 - **Target temperature**, held to the range the model allows for the mode it is in.
 - **Fan speed**, including the unit's quiet step.
 - **Vertical swing**, plus horizontal swing and the unit's own 3D auto mode on the models that have a left/right vane.
-- **Away preset**, which switches the unit into its own Home Leave mode.
+- **Away preset**, on units that report Home Leave support, which switches the unit into its own Home Leave mode.
 
 The current temperature shown is the unit's own return-air reading.
 
@@ -71,30 +71,7 @@ A separate room sensor is the better trigger, so the unit only starts when the r
 - **Condition**: Numeric state: bedroom temperature above 23 °C
 - **Action**: Climate: Set target temperature to 22 °C in cool mode
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/mitsubishi_wf_rac_precool_with_room_sensor.yaml" %}
-
-{% details "YAML example for pre-cooling the bedroom" %}
-
-{% example %}
-automation: |
-  alias: "Pre-cool the bedroom"
-  triggers:
-    - trigger: time
-      at: "21:30:00"
-  conditions:
-    - condition: numeric_state
-      entity_id: sensor.bedroom_temperature
-      above: 23
-  actions:
-    - action: climate.set_temperature
-      target:
-        entity_id: climate.bedroom
-      data:
-        temperature: 22
-        hvac_mode: cool
-{% endexample %}
-
-{% enddetails %}
+{% blueprint_example blueprint="mitsubishi_wf_rac/mitsubishi_wf_rac_precool_with_room_sensor.yaml" %}
 
 ### Automation: Turn the unit off when a window is opened
 
@@ -103,25 +80,7 @@ The unit keeps running against an open window on its own. Give it a couple of mi
 - **Trigger**: State: bedroom window open for 2 minutes
 - **Action**: Climate: Turn off
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/mitsubishi_wf_rac_off_with_open_window.yaml" %}
-
-{% details "YAML example for switching off with the window open" %}
-
-{% example %}
-automation: |
-  alias: "Stop cooling with the window open"
-  triggers:
-    - trigger: state
-      entity_id: binary_sensor.bedroom_window
-      to: "on"
-      for: "00:02:00"
-  actions:
-    - action: climate.turn_off
-      target:
-        entity_id: climate.bedroom
-{% endexample %}
-
-{% enddetails %}
+{% blueprint_example blueprint="mitsubishi_wf_rac/mitsubishi_wf_rac_off_with_open_window.yaml" %}
 
 ### Automation: Fall back to Home Leave instead of switching off
 
@@ -131,33 +90,7 @@ On units that report it, Home Leave keeps the room within a wide band rather tha
 - **Condition**: The living room unit is not off
 - **Action**: Climate: Set preset mode to `away`
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/mitsubishi_wf_rac_home_leave_while_away.yaml" %}
-
-{% details "YAML example for falling back to Home Leave" %}
-
-{% example %}
-automation: |
-  alias: "Home Leave while nobody is in"
-  triggers:
-    - trigger: state
-      entity_id: person.alex
-      to: "not_home"
-      for: "00:30:00"
-  conditions:
-    - condition: not
-      conditions:
-        - condition: state
-          entity_id: climate.living_room
-          state: "off"
-  actions:
-    - action: climate.set_preset_mode
-      target:
-        entity_id: climate.living_room
-      data:
-        preset_mode: away
-{% endexample %}
-
-{% enddetails %}
+{% blueprint_example blueprint="mitsubishi_wf_rac/mitsubishi_wf_rac_home_leave_while_away.yaml" %}
 
 ## Data updates
 
@@ -167,11 +100,11 @@ Commands issued together are coalesced into a single frame, because the module a
 
 ## Known limitations
 
-- The unit briefly goes unavailable about once an hour. The module reassociates with your Wi-Fi on its own. The integration tolerates three failed polls in a row to ride through it. This is the module's behavior, not a network fault.
+- The unit briefly goes unavailable about once an hour. The module reassociates with your Wi-Fi on its own. The integration tolerates two missed polls in a row to ride through it; the third consecutive missed poll marks the unit unavailable. This is the module's behavior, not a network fault.
 - Only one controller writes at a time. The module grants a 60-second exclusive write lease to whoever wrote last. A command sent while somebody else holds it, typically the manufacturer's app, is refused and retried once when the lease lapses.
 - The current temperature is measured at the return air grille, above the unit and inside its own airflow, so it reads differently from a thermostat placed in the room.
 - A limited number of controllers can be registered on a module at once. Home Assistant occupies one slot.
-- The module presents a self-signed certificate, and the connection does not verify it. If you want it verified, save the module's certificate as `ac_cert.pem` in your Home Assistant configuration directory; the connection is then pinned to that unit, and the integration picks the file up on the next reload. Fetch it with `openssl s_client -connect <module IP>:51443 -showcerts </dev/null 2>/dev/null | openssl x509 -outform PEM > ac_cert.pem`. Without the file, everything works the same way, unverified.
+- The module presents a self-signed certificate that cannot be verified, so the connection on the local network is encrypted but not authenticated.
 
 ## Troubleshooting
 
@@ -181,7 +114,11 @@ Discovery uses mDNS, which does not cross subnets or VLANs by default. Add the u
 
 ### Setup fails with "too many devices registered"
 
-The module's account table is full. Remove a controller in the manufacturer's app, or factory-reset the module, then retry. Home Assistant raises a repair issue while this condition persists and clears it by itself once registration succeeds.
+The module's account table is full. Remove the unit from the Smart M-Air app on a phone that no longer needs it, or factory-reset the module, then retry.
+
+### A repair issue says too many accounts are registered
+
+A command failed because the module's account table is full, so Home Assistant could not register itself. The repair lists the steps: remove the unit from the Smart M-Air app on a phone that no longer needs it, then send any command to the climate entity. The issue clears after the next command the module accepts.
 
 ### The unit stops responding after using the app
 
@@ -189,6 +126,6 @@ The app takes the write lease for 60 seconds. Wait a minute and try again.
 
 ## Removing the integration
 
-This integration follows standard integration removal. Removing the config entry also releases the controller slot Home Assistant occupies on the module.
+This integration follows standard integration removal. Removing the config entry tries to release the controller slot Home Assistant occupies on the module. This is best effort: if it fails, a warning is logged and the slot can be freed in the manufacturer's app. If two entries exist for the same unit, removing one does not release the slot.
 
 {% include integrations/remove_device_service.md %}
