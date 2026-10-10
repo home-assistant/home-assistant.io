@@ -43,6 +43,9 @@ If you have a sensor session running, and once you have enabled the Dexcom integ
 
 - Blood glucose value sensor
 - Blood glucose trend sensor
+- Blood glucose reading time sensor, the time Dexcom recorded the reading
+
+If Dexcom has no reading from the last 10 minutes, for example when the transmitter is out of range, the sensors show as unknown.
 
 ## Example automation
 
