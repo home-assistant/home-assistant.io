@@ -936,6 +936,8 @@ Position:
   description: A template that gets the position of the cover.
 Actions on set position:
   description: The action or actions run when a position is set.
+Supported speeds:
+  description: The speeds the cover supports. If set, the actions on open, close, and set position receive the requested speed in the variable `speed`.
 Device class:
   description: The [device class](/integrations/cover/#device-class) used to pick the cover's state wording and icon.
 Device:
@@ -983,7 +985,7 @@ cover:
       required: false
       type: template
     set_cover_position:
-      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` contains the entity's set position.
+      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` contains the entity's set position. If `supported_speeds` is specified, the variable `speed` contains the requested speed.
       required: false
       type: action
     set_cover_tilt_position:
@@ -998,6 +1000,10 @@ cover:
       description: Defines an action to stop the cover.
       required: false
       type: action
+    supported_speeds:
+      description: List of speeds the cover supports, for example `normal` and `fast`. If specified, the `open_cover`, `close_cover`, and `set_cover_position` actions receive the requested speed in the variable `speed`. The variable is `none` if no speed was requested.
+      required: false
+      type: [string, list]
     tilt:
       description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open). If the template produces a `None` value, the current tilt state is set to `unknown`.
       required: false
@@ -1043,6 +1049,30 @@ template:
           action: script.close_garage_door
         stop_cover:
           action: script.stop_garage_door
+```
+
+```yaml
+# Example configuration.yaml entry for a cover with two speeds
+template:
+  - cover:
+      - name: Living room shutter
+        state: "{{ states('cover.living_room_shutter_motor') }}"
+        supported_speeds:
+          - normal
+          - fast
+        open_cover:
+          action: script.open_living_room_shutter
+          data:
+            # Falls back to normal if no speed was requested
+            speed: "{{ speed or 'normal' }}"
+        close_cover:
+          action: script.close_living_room_shutter
+          data:
+            speed: "{{ speed or 'normal' }}"
+        stop_cover:
+          action: cover.stop_cover
+          target:
+            entity_id: cover.living_room_shutter_motor
 ```
 
 ### Cover Optimistic Mode
