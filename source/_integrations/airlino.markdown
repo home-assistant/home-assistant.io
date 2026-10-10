@@ -1,8 +1,9 @@
 ---
 title: AirLino
 description: Instructions on how to integrate AirLino devices with Home Assistant.
-ha_release: 2025.3
+ha_release: 2026.11
 ha_iot_class: Local Polling
+ha_zeroconf: true
 ha_codeowners:
   - '@Philipp-E'
 ha_domain: airlino
@@ -12,7 +13,7 @@ related:
     title: LinTech GmbH
 ---
 
-The **AirLino** {% term integration %} is used to integrate with the devices of [LinTech GmbH](https://https://www.lintech.de/). LinTech is specialized in mobile and wireless communication via Bluetooth, Bluetooth Low Energy, Wi-Fi, NB-IoT, and other technologies and is a manufacturer of wireless components for audio and data communication.
+The **AirLino** {% term integration %} is used to integrate with the devices of [LinTech GmbH](https://www.lintech.de/). LinTech is specialized in mobile and wireless communication via Bluetooth, Bluetooth Low Energy, Wi-Fi, NB-IoT, and other technologies and is a manufacturer of wireless components for audio and data communication.
 
 ## Supported devices
 
@@ -27,7 +28,7 @@ The following devices are known to be supported by the integration:
 
 The following devices are not supported by the integration:
 
-- Airlino devices with older API versions than v19 (Firmware version 5.0.4 or older)
+- AirLino devices with older API versions than v19 (Firmware version 5.0.4 or older)
 
 ## Prerequisites
 
@@ -65,15 +66,13 @@ The **AirLino** integration provides the following entities.
 - **Group devices**
   - When devices are grouped the multiroom receiver follows automatically the sender. Therefore, all commands except volume control are explicitly disabled for those devices
 
-{% include integrations/triggers_conditions_actions.md %}
+AirLino entities support standard [media player triggers, conditions, and actions](/integrations/media_player/).
 
 ## AirLino automation examples
 
 Media Players in Home Assistant can be also used in Automations as triggers and actions.
 
-The following list of actions can be used:
-- Media player muted
-- Media player unmuted
+The following triggers can be used:
 - Media player volume changed
 - Media player crossed threshold
 - Media player paused playing
@@ -119,27 +118,22 @@ Here are a few ideas to get you started.
 {% details "YAML example for grouping speakers and playing media" %}
 
 {% example %}
-```yaml
-automation:
-  alias: Party Automation
-description: ''
-triggers:
-  - trigger: switch.turned_on
-    target:
-      entity_id: input_boolean.party_mode
-conditions: []
-actions:
-  - action: media_player.join
-    target:
-      entity_id: media_player.livingroom
-    data:
-      group_members:
-        - media_player.kitchen
-  - action: media_player.media_play
-    target:
-      entity_id: media_player.livingroom
-mode: single
-```
+ automation: |
+   alias: "Start party playback"
+   triggers:
+     - trigger: state
+       entity_id: input_boolean.party_mode
+       to: "on"
+   actions:
+     - action: media_player.join
+       target:
+         entity_id: media_player.living_room
+       data:
+         group_members:
+           - media_player.kitchen
+     - action: media_player.media_play
+       target:
+         entity_id: media_player.living_room
 {% endexample %}
 
 {% enddetails %}
@@ -150,7 +144,7 @@ mode: single
 - **Condition**: Optional condition if needed
 - **Action**: Stop media on players
 
-{% details "YAML example for grouping speakers and playing media" %}
+{% details "YAML example for stopping media when everyone leaves" %}
 
 {% example %}
 ```yaml
@@ -189,7 +183,7 @@ The **AirLino** integration {% term polling polls %} data from the device every 
 - The current version of the Integration supports the basic media player functionalities. TIDAL and Qobuz are currently not supported. Source selection is currently not supported
 - HTTPS radio streams are not supported by the AirLino devices
 - Home Assistant does not support multiple groups with different devices. So creating a new group will mess up the existing one.
-- Airlino devices are still reporting themself as idle even if they are already used as Spotify connect device or via bluetooth. As a workaround, the state of Spotify integration can be checked.
+- AirLino devices still report themselves as idle when used through Spotify Connect or Bluetooth. As a workaround, check the state of the Spotify integration.
 - When using the AirLino device for TTS output, the mp3 stream will run in repeat mode when not being stopped manually
 - Starting Internet Radio from Home Assistant will be reported by the AirLino device as source `other`
 - Image URL of the current Radio stations are not provided by the device
@@ -210,7 +204,7 @@ When trying to set up a multiroom group and adding a specific device, the error 
 
 #### Description
 
-The device is accessable and usable, but the multiroom functionality which seem to require UPnP is not detecting or accepting the device.
+The device is accessible and usable, but the multiroom functionality which seem to require UPnP is not detecting or accepting the device.
 
 #### Resolution
 
