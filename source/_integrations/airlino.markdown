@@ -90,7 +90,7 @@ The following conditions are supported:
 - Media player volume
 - State
 
-The following triggers will work:
+The following actions will work:
 - Browse media (Consider HTTPS and TTS limitation)
 - Join media players
 - Next track
