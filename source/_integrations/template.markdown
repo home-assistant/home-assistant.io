@@ -936,8 +936,6 @@ Position:
   description: A template that gets the position of the cover.
 Actions on set position:
   description: The action or actions run when a position is set.
-Supported speeds:
-  description: The speeds the cover supports. If set, the actions on open, close, and set position receive the requested speed in the variable `speed`.
 Device class:
   description: The [device class](/integrations/cover/#device-class) used to pick the cover's state wording and icon.
 Device:
