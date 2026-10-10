@@ -1,5 +1,5 @@
 ---
-title: "TV is requested to turn on"
+title: "TV turn on requested"
 trigger: webostv.turn_on
 domain: webostv
 description: "Triggers when one or more LG webOS TVs are requested to turn on."
@@ -7,7 +7,7 @@ related_triggers:
   - media_player.turned_on
 ---
 
-The **TV is requested to turn on** trigger fires when Home Assistant requests an LG webOS TV to power on. Use it to react to that request and carry out the actual turn-on step, such as sending a Wake-on-LAN packet or an HDMI-CEC command.
+The **TV turn on requested** trigger fires when Home Assistant requests an LG webOS TV to power on. Use it to react to that request and carry out the actual turn-on step, such as sending a Wake-on-LAN packet or an HDMI-CEC command.
 
 LG webOS TVs cannot be powered on by the integration itself. Instead, Home Assistant fires this trigger when something (an automation, a script, or the UI) calls the turn-on action for the TV. You then use an automation to run whichever method your TV supports. Without such an automation, the TV appears as unavailable while it is off.
 
@@ -18,7 +18,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. Search for **TV is requested to turn on** and select it.
+4. Search for **TV turn on requested** and select it.
 5. Under **Devices**, **Entities**, or both, select the LG webOS TVs you want to monitor.
 6. Select **Save**.
 
@@ -80,7 +80,7 @@ entity_id:
 
 When something requests the LG webOS TV to turn on, send a Wake-on-LAN magic packet to power it on over the network. Set up the [Wake-on-LAN integration](/integrations/wake_on_lan/) before using this example.
 
-- **Trigger**: TV is requested to turn on
+- **Trigger**: TV turn on requested
   - **Entities**: Living room LG TV (`media_player.lg_webos_tv`)
 - **Action**: Send magic packet
   - **MAC address**: `AA:BB:CC:DD:EE:FF`
@@ -105,7 +105,7 @@ automation: |
 
 When something requests the LG webOS TV to turn on, send a notification to your phone.
 
-- **Trigger**: TV is requested to turn on
+- **Trigger**: TV turn on requested
   - **Entities**: Living room LG TV (`media_player.lg_webos_tv`)
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
