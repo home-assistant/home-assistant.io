@@ -93,9 +93,7 @@ template: |
   {% endfor %}
 type: string
 output: |
-  Kitchen: light.kitchen_ceiling, light.kitchen_counter
-  Living room: light.living_room_main
-  Unknown: light.unnamed_bulb
+  Unknown: light.unnamed_bulb, light.kitchen_ceiling, light.kitchen_counter, light.living_room_main
 {% endexample %}
 
 ## Good to know
