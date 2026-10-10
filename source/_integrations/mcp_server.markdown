@@ -16,14 +16,16 @@ related:
 ha_quality_scale: silver
 ---
 
-The [Model Context Protocol](https://modelcontextprotocol.io) is an open protocol that standardizes how applications provide context to <abbr title="Large Language Models">LLMs</abbr>. The **Model Context Protocol Server** (MCP) integration enables using Home Assistant to provide context for <abbr title="Model Context Protocol">MCP</abbr> LLM Client Applications. For example, you can control your lights from Claude Desktop, or expose your Google Tasks to-do list as a tool.
-
-Controlling Home Assistant is done by providing <abbr title="Model Context Protocol">MCP</abbr> clients with access to Home Assistant's Assist API. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}, and your <abbr title="Model Context Protocol">MCP</abbr> client can also read a real-time snapshot of that context. This gives your AI assistant a clear picture of your home's current state.
+The **Model Context Protocol Server** (<abbr title="Model Context Protocol">MCP</abbr>) integration lets you connect an AI agent, such as ChatGPT or Claude, to Home Assistant. The AI agent can then control your devices and see the current state of your home.
 
 ## Prerequisites
 
-- You need an [MCP client](https://modelcontextprotocol.io/clients) LLM Application such as [Claude for Desktop](https://claude.ai/download).
-- If your client does not support remote servers, you need an additional local MCP server remote gateway.
+- Your MCP server URL. To get it:
+  1. Go to {% my config_ai title="**Settings** > **System** > **AI**" %}.
+  2. If MCP is not enabled, enable it.
+  3. Next to the MCP server you want to use, select the copy icon {% icon "mdi:content-copy" %}. We recommend **My MCP** because it lets the AI agent control everything Home Assistant has access to.
+- An AI agent that supports MCP servers.
+- If the AI agent runs in the cloud, for example when you use it through a website, your Home Assistant instance must be accessible from the internet. Use [Home Assistant Cloud](/integrations/cloud/) or another method of [remote access](/docs/configuration/remote/).
 
 For detailed configuration instructions, refer to the [Client configuration](#client-configuration) section.
 
@@ -51,228 +53,86 @@ Require an administrator account:
     it stays turned off so that your clients keep working.
 {% endconfiguration_basic %}
 
-## Architecture overview
-
-This integration can provide similar functionality as other LLM-based conversation
-agents (for example [Anthropic](/integrations/anthropic/), [Google Generative AI](/integrations/google_generative_ai_conversation), [Ollama](/integrations/ollama/), [Open AI](/integrations/openai_conversation/)). In those conversation agents, Home Assistant is the
-client and prepares the available tools and passes them into the LLM with a prompt.
-
-The Model Context Protocol follows a different pattern: An LLM application acts as
-a client and can connect to multiple MCP servers to provide context. See the
-[Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction#general-architecture) for more details.
-
-The Home Assistant Model Context Protocol Server integration implements the
-[Streamable HTTP protocol](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#streamable-http)
-allowing client-to-server communication using the stateless protocol. Some MCP clients only support
-[stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio) transport,
-and directly run an MCP server as a local command line tool. You can
-use an MCP proxy server like [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy)
-to act as a gateway to the Home Assistant MCP SSE server.
-
 ## Client configuration
 
-The Model Context Protocol specification has recently defined standards for
-authorization and connecting to remote servers. The standards are a *work in progress*
-and so some clients may not support the latest functionality, and the specification
-will likely continue to evolve.
+Home Assistant implements the standard Model Context Protocol, including OAuth 2.0 with <abbr title="Proof Key for Code Exchange">PKCE</abbr>. It supports [OAuth Client ID Metadata Documents](https://datatracker.ietf.org/doc/draft-ietf-oauth-client-id-metadata-document/), so AI agents set up the client ID and callback URL automatically.
 
-The Home Assistant MCP server is exposed as `/api/mcp` and requires the
-client to provide an authentication token.
+### Example: Claude
 
-### Exposing a specific LLM API
-
-The `/api/mcp` endpoint serves all LLM APIs, or the LLM APIs you select in the
-[configuration options](#configuration-options). If you have more than one LLM API
-available, you can also connect a client to a specific one by adding its ID to the URL:
-
-`/api/mcp/<api_id>`
-
-For example, the built-in Assist API is always available at `/api/mcp/assist`.
-Point your MCP client at this URL in the same way you would use the base
-`/api/mcp` endpoint. If you request an API ID that does not exist, Home Assistant
-responds with a 404 Not Found error.
-
-Connecting to any API other than Assist requires the authenticated user to be an
-administrator. The Assist API stays available to non-administrator users. Access
-to the base `/api/mcp` endpoint follows the **Require an administrator account**
-option instead.
-
-### Access control
-
-#### Administrator accounts
-
-The **Require an administrator account** option restricts the `/api/mcp` endpoint
-to administrator accounts and is turned on by default. Turn it off to let a
-non-administrator account, such as an account you created for a single MCP client,
-use the endpoint.
-
-#### OAuth
-
-The Model Context Protocol supports OAuth for [authorization](https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/) and is fully supported by Home Assistant's
-[Authentication API](https://developers.home-assistant.io/docs/auth_api/). MCP
-clients that support OAuth can use this to allow you to give the client access
-to your Home Assistant MCP server.
-
-Home Assistant has adopted [IndieAuth](https://indieauth.spec.indieweb.org/) and does not require you to pre-define
-an OAuth Client ID. Instead, the Client ID is the base URL of the client application making the request:
-
-- **Client ID**: The base URL of the LLM client application configuring the connector (for example, `https://claude.ai` for Claude, or `https://chatgpt.com` for ChatGPT). It must never be your Home Assistant instance URL. Home Assistant's IndieAuth implementation validates that the OAuth `redirect_uri` shares the same scheme and domain with the `client_id`. If you enter your Home Assistant instance URL as the Client ID, authentication fails because the client application's redirect URI does not match.
-- **Client Secret**: This is not used by Home Assistant. If the field is required by the client application, enter any text; if it is optional, leave it blank.
+Before you start, copy your MCP server URL as described in the [prerequisites](#prerequisites).
 
 {% note %}
-Home Assistant implements the [OAuth Client ID Metadata Document](https://datatracker.ietf.org/doc/draft-ietf-oauth-client-id-metadata-document/) specification (`client_id_metadata_document_supported: true`) rather than traditional Dynamic Client Registration (RFC 7591), and does not provide an RFC 7591 `registration_endpoint`.
-
-LLM clients that accept URL-based client IDs work without prior registration. However, any client that strictly mandates RFC 7591 Dynamic Client Registration cannot register with Home Assistant.
+Claude connects to your MCP server from the cloud, also when you use Claude Desktop. Your Home Assistant instance must be accessible from the internet.
 {% endnote %}
 
-{% tip %}
-When accessing Home Assistant remotely through a reverse proxy or tunnel (such as Cloudflare Tunnel), the hostname used by the remote LLM client must match the configured **Internal URL** or **External URL** in Home Assistant ({% my network title="**Settings** > **System** > **Network**" %}).
-
-If an unconfigured hostname or proxy header mismatch is used, Home Assistant cannot resolve the `issuer` in `/.well-known/oauth-authorization-server` and returns relative paths, which causes conforming OAuth clients to reject the metadata.
-
-Using [Home Assistant Cloud](/integrations/cloud/) (`https://<your-id>.ui.nabu.casa`) is recommended because it avoids reverse-proxy and tunnel configuration pitfalls.
-{% endtip %}
-
-#### Long-lived access tokens
-
-Some MCP clients may not support OAuth, but may support access tokens. You may create a
-[Long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) to allow the client to access the API.
-
-1. Go to {% my profile_security title="**User profile** > **Security**" %}.
-2. Under **Long-lived access tokens**, select **Create token**.
-3. Copy the access token to use when configuring the MCP client LLM application.
-
-For more information about authentication in Home Assistant, refer to the [Authentication documentation](/docs/authentication/).
-
-### Example: Claude for Desktop
-
-Claude for Desktop can connect to Home Assistant using either a cloud-based remote connector or a local MCP proxy server.
-
-**Option 1: Remote connector (requires public Home Assistant URL)**
-
-When using a remote custom connector in Claude for Desktop, the connection is brokered through Anthropic's cloud infrastructure. This means your Home Assistant instance must be publicly accessible from the internet.
-
-1. Download [Claude for Desktop](https://claude.ai/download) and log in.
-2. Select **Customize** from the side menu, and then **Connectors**.
-3. Select **+** in the **Connectors** pane, and then select **Add Custom Connector**.
-4. Enter the following details:
-   - **Name**: "Home Assistant" (or any more descriptive name you prefer)
-   - **Remote MCP Server URL**: `https://<your_home_assistant_external_url>/api/mcp` (or your Home Assistant Cloud URL `https://<your-id>.ui.nabu.casa/api/mcp`). The hostname must match your configured External URL in Home Assistant.
-   - Under advanced settings:
-     - **OAuth Client ID**: `https://claude.ai` (this is the base URL of the Claude application; do not enter your Home Assistant URL)
-     - **OAuth Client Secret**: Leave this blank
-5. Select **Add**. Then select **Connect** next to the entry created with the name you provided above.
-6. Log in to your Home Assistant instance and allow the redirect back to Claude Desktop.
-7. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
+1. Open the form to add a connector:
+   - On claude.ai, go to the [Claude connectors page](https://claude.ai/new#customize/connectors/yours). In the top-right corner, select **Add** > **Add custom connector**.
+   - In Claude Desktop, go to **Settings** > **Connectors** and select **Add** > **Add custom connector**.
+2. Enter the following details:
+   - **Name**: `Home Assistant`
+   - **MCP Server URL**: Paste your MCP server URL.
+3. Select **Add**.
+4. Claude verifies the MCP server and shows a dialog. Enter the following details:
+   - **Authentication**: Select **Sign in now**.
+   - **OAuth client**: Select **Use Claude's published identity**.
+5. Select **Add**.
+6. On the page for your new connector, select **Connect**.
+7. Log in to your Home Assistant instance.
+8. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
 
    ![Screenshot of Claude for Desktop adding an item to a Home Assistant To-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
 
-**Option 2: Local MCP proxy server (for internal/local Home Assistant URLs)**
-
-If your Home Assistant instance is only accessible on your local network (for example, `http://homeassistant.local:8123` or `http://192.168.1.10:8123`) or behind a VPN, you can use a local MCP proxy. This allows Claude Desktop to connect directly from your computer without routing through Anthropic's cloud.
-
-1. Make sure you have a [Long-lived access token](#long-lived-access-tokens) from your Home Assistant account.
-2. Install `mcp-proxy` following the instructions in the [README](https://github.com/sparfenyuk/mcp-proxy). For example: `uv tool install git+https://github.com/sparfenyuk/mcp-proxy`.
-3. Locate your Claude Desktop configuration file (for example, `~/Library/Application Support/Claude/claude_desktop_config.json` on macOS or `%APPDATA%\Claude\claude_desktop_config.json` on Windows).
-4. Add the following to your `mcpServers` configuration:
-
-   ```json
-   {
-     "mcpServers": {
-       "Home Assistant": {
-         "command": "mcp-proxy",
-         "args": [
-           "--transport=streamablehttp",
-           "--stateless",
-           "http://<your_local_home_assistant_ip_or_url>:8123/api/mcp"
-         ],
-         "env": {
-           "API_ACCESS_TOKEN": "<your_access_token_here>"
-         }
-       }
-     }
-   }
-   ```
-5. Restart Claude for Desktop to connect.
-
 ### Example: ChatGPT
 
-ChatGPT supports connecting to remote Model Context Protocol servers for Plus, Pro, Business, and Enterprise/Edu users. ChatGPT currently only supports remote connections, which means your Home Assistant instance must be publicly accessible from the internet.
+Before you start, copy your MCP server URL as described in the [prerequisites](#prerequisites).
 
-1. Log in to [ChatGPT](https://chatgpt.com). Ensure developer mode is enabled for your account (this can be toggled in **Settings** > **Apps** > **Advanced Settings**).
-2. Navigate to **Workspace settings** (or user settings), select **Apps**, and select **Create**.
-3. Enter the following details:
-   - **Name**: "Home Assistant" (or any name you prefer).
-   - **MCP Server URL**: `https://<your_home_assistant_external_url>/api/mcp` (or your Home Assistant Cloud URL `https://<your-id>.ui.nabu.casa/api/mcp`). The hostname must match your configured External URL in Home Assistant.
-   - Select **OAuth** for the authentication mechanism. ChatGPT will attempt to auto-discover OAuth settings. If discovery fails (for example, if ChatGPT attempts Dynamic Client Registration or encounters a tunnel hostname mismatch), enter the settings manually under **Advanced OAuth Settings** > **User defined oauth client**:
-     - Under **Client registration**:
-       - **OAuth Client ID**: `https://chatgpt.com` (this is the base URL of the ChatGPT application; do not enter your Home Assistant URL)
-       - **OAuth Client Secret**: Enter any text (it is not used by Home Assistant, but the ChatGPT configuration form requires a value).
-       - **Token endpoint auth method**: `client_secret_post`
-     - Under **OAuth endpoints**:
-       - **Auth URL**: `https://<your_home_assistant_external_url>/auth/authorize`
-       - **Token URL**: `https://<your_home_assistant_external_url>/auth/token`
-       - **Authorization server base**: `https://<your_home_assistant_external_url>`
-4. Select **Create**. Once created, the app will appear in your **Enabled Apps**.
-5. Begin a new chat in ChatGPT, open the apps menu, and select your newly created Home Assistant app. ChatGPT will prompt you to authenticate, which will redirect you to Home Assistant to log in and authorize the connection.
+{% note %}
+If you use ChatGPT on chatgpt.com, your Home Assistant instance must be accessible from the internet.
+{% endnote %}
+
+1. Open the form to add an MCP server:
+   - On chatgpt.com, go to the [ChatGPT plugins page](https://chatgpt.com/plugins). In the top-right corner, select **Add** > **Add custom MCP server**.
+   - In ChatGPT Desktop, go to **Settings** > **Plugins** and select **Add** > **Add MCP server**.
+2. Enter the following details:
+   - **Name**: `Home Assistant`
+   - **Connection**: Paste your MCP server URL.
+   - **Authentication**: Select **OAuth**.
+3. Select **I understand and want to continue**.
+4. Select **Create as plugin**.
+5. ChatGPT offers to **Connect Home Assistant**. Select **Continue to Home Assistant**.
+6. Log in to your Home Assistant instance.
 
 ### Example: Claude Code
 
-Claude Code supports remote MCP servers, making it easy to connect to your Home Assistant instance:
+Claude Code connects to MCP servers over HTTPS only. Use the MCP server URL of your remotely accessible Home Assistant instance, as described in the [prerequisites](#prerequisites).
 
 1. Install [Claude Code](https://claude.com/product/claude-code) and log in.
-2. In your shell, run the following command:
+2. In your terminal, run the following command. Replace `<your_mcp_server_url>` with your MCP server URL.
 
    ```bash
-   claude mcp add-json "HA" '{
-     "type": "http",
-     "url": "https://<your_home_assistant_url>/api/mcp",
-     "oauth": {
-       "clientId": "http://localhost:12345",
-       "callbackPort": 12345
-     }
-   }' --client-secret
+   claude mcp add home-assistant --transport http <your_mcp_server_url>
    ```
-   The name `"HA"`, the URL `"https://<your_home_assistant_url>"`, and the callback port `"12345"` are examples; adjust them to match your setup. *(Note: `clientId: "http://localhost:12345"` is correct for the Claude Code CLI's internal local callback server. Do not change this to your Home Assistant URL.)*
 
-3. Start `claude` and type `/mcp`. Navigate to your MCP listing (for example, **HA**) and press Enter. Select **Authenticate** to open a web browser to your Home Assistant login page.
-4. After you authenticate to your Home Assistant server, Home Assistant will tell you that you can close the web browser.
-5. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
+3. Start `claude` and type `/mcp`.
+4. Select `home-assistant`.
+5. Select **Authenticate**.
+6. Log in to your Home Assistant instance.
+7. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
 
 ### Example: Codex
 
-Codex can connect to Home Assistant as a remote MCP server by using OAuth:
-
 1. Install [Codex](https://developers.openai.com/codex/cli/) and sign in.
-2. Open `.codex/config.toml` in your project. To make the server available in every project, open `~/.codex/config.toml` instead.
-3. Add the following root-level setting before the first TOML table header in the file:
-
-   ```toml
-   mcp_oauth_callback_port = 12345
-   ```
-
-4. Add the Home Assistant MCP server configuration. You can add this table at the end of the file:
-
-   ```toml
-   [mcp_servers.homeassistant]
-   url = "<your_home_assistant_url>/api/mcp"
-   auth = "oauth"
-   oauth = { client_id = "http://127.0.0.1:12345" }
-   ```
-
-   Replace `<your_home_assistant_url>` with the complete URL of your Home Assistant server, including `http://` or `https://` and the port, if required. For example, use `http://homeassistant.local:8123` for a typical local connection. The callback port and the port in `client_id` must match. The `client_id` value is the base URL of the local OAuth callback used by Codex; do not replace it with your Home Assistant URL.
-
-5. If you used project-local configuration, start Codex from the project and confirm the trust prompt. After the project opens, exit Codex and return to a shell in the same project. If you do not want to trust the project, use global configuration instead.
-6. Run the following command:
+2. In your terminal, run the following command. Replace `<your_mcp_server_url>` with your MCP server URL, for example `http://homeassistant.local:8123/api/mcp`.
 
    ```bash
-   codex mcp login homeassistant
+   codex mcp add homeassistant --url <your_mcp_server_url>
    ```
 
-7. Complete the authentication in your web browser and authorize Codex to access Home Assistant.
-8. Restart Codex or start a new task to load the Home Assistant MCP server.
+3. Codex opens your Home Assistant instance in your web browser. Log in to your Home Assistant instance.
 
 ### Example: Cursor
+
+Cursor connects to Home Assistant through [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy). This local MCP server acts as a gateway to the Home Assistant MCP server. You also need a long-lived access token, which you can create in {% my profile_security title="**User profile** > **Security**" %}.
 
 1. Download and install [Cursor](https://www.cursor.com).
 2. Install `mcp-proxy` following the instructions in the [README](https://github.com/sparfenyuk/mcp-proxy).
@@ -331,7 +191,7 @@ Codex can connect to Home Assistant as a remote MCP server by using OAuth:
 Mistral Vibe can connect to Home Assistant as a remote MCP server by using a long-lived access token. The Vibe CLI doesn't support OAuth for MCP servers yet.
 
 1. Install [Mistral Vibe](https://docs.mistral.ai/vibe/code/cli/install-setup) and run `vibe` once to complete the setup.
-2. Create a [Long-lived access token](#long-lived-access-tokens) from your Home Assistant account.
+2. Create a long-lived access token in {% my profile_security title="**User profile** > **Security**" %}.
 3. Set the `HOMEASSISTANT_TOKEN` environment variable to your access token in the shell where you start Vibe.
 4. Open `~/.vibe/config.toml` and add the following at the end of the file:
 
@@ -386,50 +246,6 @@ subset of MCP features:
 
 
 ## Troubleshooting
-
-This section has troubleshooting information for Claude for Desktop since it is
-the primary client. Also see [Debugging in Claude Desktop](https://modelcontextprotocol.io/docs/tools/debugging#debugging-in-claude-desktop).
-
-### LLM client cannot connect to Home Assistant MCP server
-
-#### Symptom: Failed to start MCP server: Could not start MCP server Home Assistant
-
-When trying to configure a client like Claude for Desktop to talk to Home Assistant, the app shows a
-message like "Failed to start MCP server: Could not start MCP server Home Assistant"
-
-##### Description
-
-This means that the local MCP server `mcp-proxy` could not start.
-
-##### Resolution
-
-Verify the command line arguments in the `claude_desktop_config.json` are correct. You may try to run
-the command manually to verify that the command can be found.
-
-#### Symptom: “MCP server Home Assistant disconnected” or "Could not attach to MCP server Home Assistant"
-
-When trying to configure a client like Claude Desktop to talk to Home Assistant, the app shows a
-message like "MCP server Home Assistant disconnected" or "Could not attach to MCP server Home Assistant".
-
-##### Description
-
-This means the MCP server has started, however the MCP server is having trouble communicating with Home Assistant,
-or the MCP server in Home Assistant is not configured.
-
-##### Resolution
-
-To understand the root cause, first check debug logs on the client. For example in Claude for Desktop:
-
-1. Select **Settings...**.
-2. Select **Developer**.
-3. Select the **Home Assistant** MCP server.
-4. Select **Open Logs Folder**.
-5. View `mcp-server-Home Assistant.log`. These are known problems and their resolution:
-   - `Client error '404 Not Found' for URL 'http://<your_local_home_assistant_ip_or_url>:8123/api/mcp'`:
-     this means the MCP Server integration is not configured in Home Assistant.
-   - `Client error '401 Unauthorized' for URL 'http://<your_local_home_assistant_ip_or_url>:8123/api/mcp'`:
-     this means that the long-lived access token is not correct.
-...
 
 ### Repeated OAuth failures
 
