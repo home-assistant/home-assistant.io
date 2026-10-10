@@ -955,7 +955,7 @@ cover:
   keys:
     attributes:
       description: >
-        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `is_closed`, `current_position`, `current_tilt_position`, and `device_class`.
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `is_closed`, `current_position`, `current_tilt_position`, `supported_speeds`, and `device_class`.
       required: false
       type: [map, template]
       keys:
@@ -1055,24 +1055,24 @@ template:
 # Example configuration.yaml entry for a cover with two speeds
 template:
   - cover:
-      - name: Living room shutter
+      - name: "Living room shutter"
         state: "{{ states('cover.living_room_shutter_motor') }}"
         supported_speeds:
-          - normal
-          - fast
+          - "normal"
+          - "fast"
         open_cover:
-          action: script.open_living_room_shutter
-          data:
-            # Falls back to normal if no speed was requested
-            speed: "{{ speed or 'normal' }}"
+          - action: script.open_living_room_shutter
+            data:
+              # Falls back to normal if no speed was requested
+              speed: "{{ speed or 'normal' }}"
         close_cover:
-          action: script.close_living_room_shutter
-          data:
-            speed: "{{ speed or 'normal' }}"
+          - action: script.close_living_room_shutter
+            data:
+              speed: "{{ speed or 'normal' }}"
         stop_cover:
-          action: cover.stop_cover
-          target:
-            entity_id: cover.living_room_shutter_motor
+          - action: cover.stop_cover
+            target:
+              entity_id: cover.living_room_shutter_motor
 ```
 
 ### Cover Optimistic Mode
