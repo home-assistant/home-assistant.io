@@ -38,6 +38,10 @@ The Hue concept is based on Rooms and Zones. Although the underlying Hue lights 
 
 Home Assistant creates lights for each Hue zone and room automatically but disables them by default. To enable them, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Philips Hue** integration, and enable the grouped light entities you want to use.
 
+## Flashing lights
+
+On V2 Hue bridges (square shape), you can flash a light, room, or zone to get your attention, for example, when the doorbell rings. The light can flash on and off, flash in a color, or alternate between two colors, and then it will return to its previous state. Flashing this way does not change the state of the light reported to Home Assistant. To start a flash, use the [**Flash** action](/actions/hue.flash/).
+
 ## Scenes
 
 You can create, edit, and delete Hue scenes from the official Hue app on iOS and Android. Each room and zone can have its own scenes, and there is a large library of preset scenes for specific moods. These Hue scenes are automatically imported into Home Assistant and available as scene entities. Creating or editing Hue scenes in Home Assistant is not supported.
