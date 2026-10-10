@@ -50,17 +50,106 @@ This action has no additional YAML options beyond the target.
 
 ## Response data
 
-The action returns the result for each targeted lock, keyed by entity ID. For each lock, it returns a mapping of the stored codes, keyed by a unique code identifier. Each code has a `name` and the `code` itself.
+The action returns the result for each targeted lock, keyed by entity ID. For each lock, it returns a mapping of the stored codes, keyed by a unique code identifier. Each code has the following fields:
+
+- **name**: The name of the PIN code.
+- **code**: The PIN value.
+- **access_code_id**: A unique access code identifier.
+- **schedule**: The schedule for this PIN, or `null` for permanent PINs.
 
 ```yaml
 lock.front_door:
   93ab517c-0000-0000-0000-000000000000:
     name: Example Person
     code: "3333"
+    access_code_id: "93ab517c-0000-0000-0000-000000000000"
+    schedule: null
   82958b77-0000-0000-0000-000000000000:
-    name: Example person 2
-    code: "2222"
+    name: Guest
+    code: "1234"
+    access_code_id: "82958b77-0000-0000-0000-000000000000"
+    schedule:
+      type: temporary
+      start_datetime: "2026-09-01T15:00:00+00:00"
+      end_datetime: "2026-09-01T16:00:00+00:00"
 ```
+
+### Schedule formats
+
+The `schedule` field describes when a PIN is active. It is `null` for permanent PINs, or one of the following shapes:
+
+**Temporary** — set via the `start_datetime` and `end_datetime` fields:
+
+```json
+{
+  "type": "temporary",
+  "start_datetime": "2026-09-01T15:00:00+00:00",
+  "end_datetime": "2026-09-01T16:00:00+00:00"
+}
+```
+
+**Recurring** — a single recurring schedule set through the Schlage app:
+
+```json
+{
+  "type": "recurring",
+  "days_of_week": {
+    "sun": false,
+    "mon": true,
+    "tue": true,
+    "wed": true,
+    "thu": true,
+    "fri": true,
+    "sat": false
+  },
+  "start_hour": 8,
+  "start_minute": 0,
+  "end_hour": 17,
+  "end_minute": 0
+}
+```
+
+**Multi-recurring** — two time windows, also set through the Schlage app:
+
+```json
+{
+  "type": "multi_recurring",
+  "windows": [
+    {
+      "days_of_week": {
+        "sun": false,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": false
+      },
+      "start_hour": 8,
+      "start_minute": 0,
+      "end_hour": 12,
+      "end_minute": 0
+    },
+    {
+      "days_of_week": {
+        "sun": false,
+        "mon": true,
+        "tue": true,
+        "wed": true,
+        "thu": true,
+        "fri": true,
+        "sat": false
+      },
+      "start_hour": 13,
+      "start_minute": 0,
+      "end_hour": 17,
+      "end_minute": 0
+    }
+  ]
+}
+```
+
+Recurring and multi_recurring schedules are configured through the Schlage app and cannot be set through Home Assistant service actions.
 
 {% include actions/try_it.md %}
 
