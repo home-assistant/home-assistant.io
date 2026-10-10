@@ -28,6 +28,13 @@ ha_zeroconf: true
 
 The **Qube heat pump** {% term integration %} allows you to monitor and control [Qube](https://www.hr-energy.com/nl/pvt-systemen/onderdelen/qube-warmtepomp/) heat pumps via the Modbus TCP protocol.
 
+## Use cases
+
+- Monitor the heat pump's temperatures, power, energy use, and coefficient of performance (COP), and add the electric consumption to the [energy dashboard](/docs/energy/).
+- Use surplus solar power: switch the smart grid ready mode to **Plus** or **Max** when your solar panels export to the grid, so the heat pump stores the energy as heat.
+- Heat domestic hot water when electricity is cheap, by boosting the water heater during low dynamic tariff hours.
+- Switch between summer and winter mode, or block the heat pump during peak hours, from automations instead of the heat pump's panel.
+
 ## Supported devices
 
 The following devices are known to be supported by the integration:
@@ -203,6 +210,74 @@ Home Assistant checks that the new address belongs to a Qube heat pump and, when
   - **Target temperature**: The user-defined DHW setpoint (adjustable).
   - **Operation modes**: Heat pump (normal operation) and performance (DHW boost, forces an immediate heating cycle).
 
+## Qube heat pump automation examples
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Store surplus solar power as heat
+
+When your solar panels export more power than the heat pump needs, raise the smart grid ready mode to **Plus** so the heat pump uses the surplus. Switch back to **Off** when the export drops.
+
+- **Trigger**: The grid export sensor is above 1500 W for 5 minutes, or below 500 W for 5 minutes.
+- **Action**: Select **Plus** or **Off** in the smart grid ready mode select.
+
+{% details "YAML example for storing surplus solar power" %}
+
+{% example %}
+automation: |
+  alias: "Qube: use surplus solar power"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.grid_export_power
+      above: 1500
+      for:
+        minutes: 5
+      id: surplus
+    - trigger: numeric_state
+      entity_id: sensor.grid_export_power
+      below: 500
+      for:
+        minutes: 5
+      id: no_surplus
+  actions:
+    - action: select.select_option
+      target:
+        entity_id: select.qube_heat_pump_smart_grid_ready_mode
+      data:
+        option: "{{ 'plus' if trigger.id == 'surplus' else 'off' }}"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Heat hot water when electricity is cheap
+
+Boost the domestic hot water when the electricity price is low, and return to normal operation afterwards.
+
+- **Trigger**: The electricity price changes.
+- **Action**: Set the water heater operation mode to **Performance** when the price is below 0.10 per kWh, otherwise to **Heat pump**.
+
+{% details "YAML example for heating hot water at low prices" %}
+
+{% example %}
+automation: |
+  alias: "Qube: heat hot water at low prices"
+  triggers:
+    - trigger: state
+      entity_id: sensor.electricity_price
+  actions:
+    - action: water_heater.set_operation_mode
+      target:
+        entity_id: water_heater.qube_heat_pump_domestic_hot_water
+      data:
+        operation_mode: >-
+          {{ 'performance' if trigger.to_state.state | float(1) < 0.10
+             else 'heat_pump' }}
+{% endexample %}
+
+{% enddetails %}
+
+Replace `sensor.grid_export_power` and `sensor.electricity_price` with the sensors of your energy meter and energy provider, and adjust the thresholds to their units. The examples assume an export power in watts that is positive while exporting, and a price per kWh.
+
 ## Data updates
 
 The integration polls the heat pump every 15 seconds via Modbus TCP.
@@ -217,6 +292,69 @@ The diagnostics download contains:
 - The software version of the heat pump.
 
 The host address is redacted. Attach the downloaded file when reporting an issue. For more information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
+
+## Known limitations
+
+- The integration communicates with the heat pump over Modbus TCP on your local network only. Settings that are not listed under [Supported functionality](#supported-functionality), such as the heating curve parameters, are configured on the heat pump's panel.
+- Changes made on the heat pump's panel appear in Home Assistant after the next poll, within 15 seconds.
+- Automatic discovery uses mDNS, which does not cross network or VLAN boundaries unless your router forwards it. Without it, add the heat pump manually.
+- On some firmware versions the heat pump does not report its software version over Modbus. The device page then does not show a meaningful software version.
+- When the heat pump's energy counters briefly report a lower value, the energy sensors keep the previous value until the counter passes it again, so the energy dashboard does not count the difference twice. A drop of more than 1 kWh that persists for three polls is treated as a counter reset.
+- The heat pump cannot be restarted from Home Assistant. To restart it, power cycle the heat pump.
+
+## Troubleshooting
+
+{% details "Can't set up the heat pump" %}
+
+### Symptom
+
+When trying to set up the integration, the form shows "Failed to connect" or "Could not verify this is a Qube heat pump".
+
+#### Description
+
+Home Assistant connects to the heat pump over Modbus TCP on port 502 and reads a register to verify that it is a Qube heat pump. The connection fails when the address is wrong or the port can't be reached; the verification fails when another device answers on that address.
+
+#### Resolution
+
+1. Check the IP address or hostname of the heat pump, for example in your router's list of connected devices.
+2. Make sure Home Assistant can reach port 502 on the heat pump. If the heat pump is on a separate network or VLAN, allow this traffic in your router or firewall.
+
+{% enddetails %}
+
+{% details "The heat pump is not discovered" %}
+
+### Symptom
+
+Home Assistant does not show the Qube heat pump as a discovered device.
+
+#### Description
+
+The heat pump announces itself with mDNS. These announcements only reach Home Assistant when both are on the same network, or when your router forwards mDNS between networks.
+
+#### Resolution
+
+1. Add the heat pump manually with its IP address or hostname.
+2. Optionally, enable mDNS forwarding between the networks in your router (sometimes called mDNS reflector or multicast DNS).
+
+{% enddetails %}
+
+{% details "Entities are unavailable" %}
+
+### Symptom
+
+All entities of the heat pump show as unavailable.
+
+#### Description
+
+The heat pump stopped answering Modbus requests. The integration retries on every poll and the entities recover automatically when the heat pump answers again.
+
+#### Resolution
+
+1. Check that the heat pump is powered on and connected to your network.
+2. If the IP address of the heat pump changed, Home Assistant updates it automatically when the heat pump is discovered again. To prevent this, give the heat pump a fixed IP address in your router.
+3. If the problem persists, [download the diagnostics](#diagnostics) and include them when reporting an issue.
+
+{% enddetails %}
 
 ## Removing the integration
 
