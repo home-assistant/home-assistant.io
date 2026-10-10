@@ -222,6 +222,7 @@ automation: |
 - The integration uses the cloud. It doesn't work without an internet connection, and changes you make with the remote control or the MELCloud Home app can take up to 60 seconds to show up in Home Assistant.
 - An Air-to-Water zone in heat mode is shown as **Heat**, whether the unit controls on room temperature, flow temperature, or heating curve. Setting the zone to **Heat** or **Cool** from Home Assistant always selects room temperature control.
 - The monthly energy consumption starts counting at midnight UTC on the first day of the month.
+- Air-to-Water zones can't be turned off one at a time. Setting a zone to **Off** turns off the whole heat pump, which also stops the other zone and hot water. To stop heating one zone only, lower its target temperature instead.
 
 ## Troubleshooting
 
