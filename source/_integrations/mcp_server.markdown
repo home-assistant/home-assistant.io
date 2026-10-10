@@ -23,7 +23,7 @@ The **Model Context Protocol Server** (<abbr title="Model Context Protocol">MCP<
 - Your MCP server URL. To get it:
   1. Go to {% my config_ai title="**Settings** > **System** > **AI**" %}.
   2. If MCP is not enabled, enable it.
-  3. Next to the MCP server you want to use, select the copy icon {% icon "mdi:content-copy" %}. We recommend **My MCP** because it includes everything.
+  3. Next to the MCP server you want to use, select the copy icon {% icon "mdi:content-copy" %}. We recommend **My MCP** because it lets the AI agent control everything Home Assistant has access to.
 - An AI agent that supports MCP servers.
 - If the AI agent runs in the cloud, for example when you use it through a website, your Home Assistant instance must be accessible from the internet. Use [Home Assistant Cloud](/integrations/cloud/) or another method of [remote access](/docs/configuration/remote/).
 - If your AI agent does not support remote servers, you need an additional local MCP server remote gateway.
