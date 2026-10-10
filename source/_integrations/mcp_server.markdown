@@ -54,24 +54,6 @@ Require an administrator account:
     it stays turned off so that your clients keep working.
 {% endconfiguration_basic %}
 
-## Architecture overview
-
-This integration can provide similar functionality as other LLM-based conversation
-agents (for example [Anthropic](/integrations/anthropic/), [Google Generative AI](/integrations/google_generative_ai_conversation), [Ollama](/integrations/ollama/), [Open AI](/integrations/openai_conversation/)). In those conversation agents, Home Assistant is the
-client and prepares the available tools and passes them into the LLM with a prompt.
-
-The Model Context Protocol follows a different pattern: An LLM application acts as
-a client and can connect to multiple MCP servers to provide context. See the
-[Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction#general-architecture) for more details.
-
-The Home Assistant Model Context Protocol Server integration implements the
-[Streamable HTTP protocol](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#streamable-http)
-allowing client-to-server communication using the stateless protocol. Some MCP clients only support
-[stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio) transport,
-and directly run an MCP server as a local command line tool. You can
-use an MCP proxy server like [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy)
-to act as a gateway to the Home Assistant MCP SSE server.
-
 ## Client configuration
 
 The Model Context Protocol specification has recently defined standards for
@@ -362,50 +344,6 @@ subset of MCP features:
 
 
 ## Troubleshooting
-
-This section has troubleshooting information for Claude for Desktop since it is
-the primary client. Also see [Debugging in Claude Desktop](https://modelcontextprotocol.io/docs/tools/debugging#debugging-in-claude-desktop).
-
-### LLM client cannot connect to Home Assistant MCP server
-
-#### Symptom: Failed to start MCP server: Could not start MCP server Home Assistant
-
-When trying to configure a client like Claude for Desktop to talk to Home Assistant, the app shows a
-message like "Failed to start MCP server: Could not start MCP server Home Assistant"
-
-##### Description
-
-This means that the local MCP server `mcp-proxy` could not start.
-
-##### Resolution
-
-Verify the command line arguments in the `claude_desktop_config.json` are correct. You may try to run
-the command manually to verify that the command can be found.
-
-#### Symptom: “MCP server Home Assistant disconnected” or "Could not attach to MCP server Home Assistant"
-
-When trying to configure a client like Claude Desktop to talk to Home Assistant, the app shows a
-message like "MCP server Home Assistant disconnected" or "Could not attach to MCP server Home Assistant".
-
-##### Description
-
-This means the MCP server has started, however the MCP server is having trouble communicating with Home Assistant,
-or the MCP server in Home Assistant is not configured.
-
-##### Resolution
-
-To understand the root cause, first check debug logs on the client. For example in Claude for Desktop:
-
-1. Select **Settings...**.
-2. Select **Developer**.
-3. Select the **Home Assistant** MCP server.
-4. Select **Open Logs Folder**.
-5. View `mcp-server-Home Assistant.log`. These are known problems and their resolution:
-   - `Client error '404 Not Found' for URL 'http://<your_local_home_assistant_ip_or_url>:8123/api/mcp'`:
-     this means the MCP Server integration is not configured in Home Assistant.
-   - `Client error '401 Unauthorized' for URL 'http://<your_local_home_assistant_ip_or_url>:8123/api/mcp'`:
-     this means that the long-lived access token is not correct.
-...
 
 ### Repeated OAuth failures
 
