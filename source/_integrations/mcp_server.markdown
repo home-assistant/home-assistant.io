@@ -155,49 +155,22 @@ Before you start, copy your MCP server URL as described in the [prerequisites](#
 If you use Claude on claude.ai, your Home Assistant instance must be accessible from the internet.
 {% endnote %}
 
-1. Go to the [Claude connectors page](https://claude.ai/new#customize/connectors/yours).
-2. In the top-right corner, select **Add** > **Add custom connector**.
-3. Enter the following details:
+1. Open the form to add a connector:
+   - On claude.ai, go to the [Claude connectors page](https://claude.ai/new#customize/connectors/yours). In the top-right corner, select **Add** > **Add custom connector**.
+   - In Claude Desktop, go to **Settings** > **Connectors** and select **Add** > **Add custom connector**.
+2. Enter the following details:
    - **Name**: `Home Assistant`
    - **MCP Server URL**: Paste your MCP server URL. If you use Claude Desktop, you can also use your local MCP server URL.
-4. Select **Add**.
-5. Claude verifies the MCP server and shows a dialog. Enter the following details:
+3. Select **Add**.
+4. Claude verifies the MCP server and shows a dialog. Enter the following details:
    - **Authentication**: Select **Sign in now**.
    - **OAuth client**: Select **Use Claude's published identity**.
-6. Select **Add**.
-7. On the page for your new connector, select **Connect**.
-8. Log in to your Home Assistant instance.
-9. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
+5. Select **Add**.
+6. On the page for your new connector, select **Connect**.
+7. Log in to your Home Assistant instance.
+8. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
 
    ![Screenshot of Claude for Desktop adding an item to a Home Assistant To-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
-
-#### Local MCP proxy server
-
-If your Home Assistant instance is only accessible on your local network (for example, `http://homeassistant.local:8123` or `http://192.168.1.10:8123`) or behind a VPN, you can use a local MCP proxy. This allows Claude Desktop to connect directly from your computer without routing through Anthropic's cloud.
-
-1. Make sure you have a [Long-lived access token](#long-lived-access-tokens) from your Home Assistant account.
-2. Install `mcp-proxy` following the instructions in the [README](https://github.com/sparfenyuk/mcp-proxy). For example: `uv tool install git+https://github.com/sparfenyuk/mcp-proxy`.
-3. Locate your Claude Desktop configuration file (for example, `~/Library/Application Support/Claude/claude_desktop_config.json` on macOS or `%APPDATA%\Claude\claude_desktop_config.json` on Windows).
-4. Add the following to your `mcpServers` configuration:
-
-   ```json
-   {
-     "mcpServers": {
-       "Home Assistant": {
-         "command": "mcp-proxy",
-         "args": [
-           "--transport=streamablehttp",
-           "--stateless",
-           "http://<your_local_home_assistant_ip_or_url>:8123/api/mcp"
-         ],
-         "env": {
-           "API_ACCESS_TOKEN": "<your_access_token_here>"
-         }
-       }
-     }
-   }
-   ```
-5. Restart Claude for Desktop to connect.
 
 ### Example: ChatGPT
 
