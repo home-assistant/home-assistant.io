@@ -13,16 +13,16 @@ related:
     title: LinTech GmbH
 ---
 
-The **AirLino** {% term integration %} is used to integrate with the devices of [LinTech GmbH](https://www.lintech.de/). LinTech is specialized in mobile and wireless communication via Bluetooth, Bluetooth Low Energy, Wi-Fi, NB-IoT, and other technologies and is a manufacturer of wireless components for audio and data communication.
+The **AirLino** {% term integration %} is used to integrate the devices of [LinTech GmbH](https://www.lintech.de/) in Home Assistant. LinTech is specialized in mobile and wireless communication via Bluetooth, Bluetooth Low Energy, Wi-Fi, NB-IoT, and other technologies and is a manufacturer of wireless components for audio and data communication.
 
 ## Supported devices
 
 The following devices are known to be supported by the integration:
 
-- AirLino(R)
-- AirLino(R)plus
-- AirLino(R)max
-- AirLino(R)pro
+- AirLino&reg;
+- AirLino&reg;plus
+- AirLino&reg;max
+- AirLino&reg;pro
 
 ## Unsupported devices
 
@@ -60,9 +60,9 @@ The **AirLino** integration provides the following entities.
 - **Volume Control**
   - The devices and the integration does not directly support a mute/unmute functionality
 - **Play MP3 or Ogg/Vorbis stream**
-  - E.g. Radio stations, TTS command (See limitation), or other stream
+  - Radio stations, TTS command (See limitation), or other streams
 - **Next/Previous**
-  - Plays the next item from the playlist (e.g. radio station)
+  - Plays the next item from the playlist (For example radio station)
 - **Group devices**
   - When devices are grouped the multiroom receiver follows automatically the sender. Therefore, all commands except volume control are explicitly disabled for those devices
 
@@ -73,6 +73,7 @@ AirLino entities support standard [media player triggers, conditions, and action
 Media Players in Home Assistant can be also used in Automations as triggers and actions.
 
 The following triggers can be used:
+
 - Media player volume changed
 - Media player crossed threshold
 - Media player paused playing
@@ -81,6 +82,7 @@ The following triggers can be used:
 - State changed (Transition from/to Unavailable can be used as workaround for turned on/off)
 
 The following conditions are supported:
+
 - Media player is muted
 - Media player is not muted
 - Media player is not playing (Consider Spotify connect state limitation)
@@ -91,6 +93,7 @@ The following conditions are supported:
 - State
 
 The following actions will work:
+
 - Browse media (Consider HTTPS and TTS limitation)
 - Join media players
 - Next track
@@ -113,7 +116,7 @@ Here are a few ideas to get you started.
 
 - **Trigger**: Input boolean which can be triggered in different ways
 - **Condition**: Optional condition if needed
-- **Action**: Create group with player in Living Room as master and other player as receiver.
+- **Action**: Create group with player in Living Room as sender and other player as receiver.
 
 {% details "YAML example for grouping speakers and playing media" %}
 
@@ -147,28 +150,23 @@ Here are a few ideas to get you started.
 {% details "YAML example for stopping media when everyone leaves" %}
 
 {% example %}
-```yaml
-automation:
-alias: Leave Home
-triggers:
-  - trigger: zone.occupancy_cleared
-    options:
-      for: '00:00:00'
-      zone: zone.home
-conditions: []
-actions:
-  - action: media_player.media_stop
-    target:
-      entity_id: media_player.livingroom
-  - action: media_player.media_stop
-    target:
-      entity_id: media_player.kitchen
-  - action: media_player.media_stop
-    target:
-      entity_id: media_player.bathroom
-mode: single
-
-```
+ automation: |
+   alias: "Leave Home"
+   triggers:
+     - trigger: zone.occupancy_cleared
+       options:
+         for: '00:00:00'
+         zone: zone.home
+   actions:
+     - action: media_player.media_stop
+       target:
+         entity_id: media_player.living_room
+     - action: media_player.media_stop
+       target:
+         entity_id: media_player.kitchen
+     - action: media_player.media_stop
+       target:
+         entity_id: media_player.bathroom
 {% endexample %}
 
 {% enddetails %}
@@ -178,7 +176,6 @@ mode: single
 The **AirLino** integration {% term polling polls %} data from the device every 10 seconds by default.
 
 ## Known limitations
-
 
 - The current version of the Integration supports the basic media player functionalities. TIDAL and Qobuz are currently not supported. Source selection is currently not supported
 - HTTPS radio streams are not supported by the AirLino devices
@@ -209,7 +206,7 @@ The device is accessible and usable, but the multiroom functionality which seem 
 #### Resolution
 
 1. Make sure UPnP is enabled:
-   - Open the Airlino App and select the device.
+   - Open the AirLino App and select the device.
    - Open the `settings` of the device.
    - Enable UPnP in the `Source Selection`.
 
