@@ -77,7 +77,7 @@ The integration mirrors all hardware and sensors that Libre Hardware Monitor sho
 
 If you do not require all sensors of a device, you can disable the corresponding entities in the UI.
 
-## Libre Hardware Monitor automation examples
+## Automation examples
 
 Below are example automations to get notified when something needs your attention.
 
