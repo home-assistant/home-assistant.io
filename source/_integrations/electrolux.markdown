@@ -16,6 +16,7 @@ ha_category:
   - Humidifier
   - Light
   - Number
+  - Select
   - Sensor
 ha_platforms:
   - binary_sensor
@@ -25,6 +26,7 @@ ha_platforms:
   - light
   - humidifier
   - Number
+  - select
   - sensor
 ha_quality_scale: bronze
 related:
@@ -189,6 +191,40 @@ This entity is used to control the appliance with the following actions:
 - **Target Temperature**
   - **Description**: Set or report the target temperature.
   - **Available for appliance types**: Oven, Fridge.
+
+{% enddetails %}
+
+### Select
+
+{% details "List of select entities" %}
+
+- **Temperature**
+  - **Description**: Used to select or report the analog temperature setting. 
+  - **Available for appliance types**: Washing machine, Washer Dryer.
+- **Spin speed**
+  - **Description**: Used to select or report the spin speed.
+  - **Available for appliance types**: Washing machine, Washer Dryer.
+- **Program**
+  - **Description**: Used to select or report the program.
+  - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher.
+- **Lower cavity program**
+  - **Description**: Used to select or report the program of the lower cavity on double ovens.
+  - **Available for appliance types**: Oven.
+- **Upper cavity program**
+  - **Description**: Used to select or report the program of the upper cavity on double ovens.
+  - **Available for appliance types**: Oven.
+- **Fan level**
+  - **Description**: Used to select the fan level, allowing to turn off the fan entirely.
+  - **Available for appliance types**: Hob, Hood.
+- **Hood state**
+  - **Description**: Used to select or report the current state of the hood.
+  - **Available for appliance types**: Hob.
+- **Sound tone**
+  - **Description**: Used to select the sound tone.
+  - **Available for appliance types**: Hob.
+- **Fan speed**
+  - **Description**: Used to select the fan speed; cannot be used to turn off the fan.
+  - **Available for appliance types**: Dehumidifier.
 
 {% enddetails %}
 
