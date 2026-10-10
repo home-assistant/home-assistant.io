@@ -62,6 +62,7 @@ The integration supports the following appliance types:
 - **Air Purifier**
 - **Air Conditioners**
 - **Dehumidifier**
+- **Robot Vacuum Cleaner**
 
 ## Prerequisites
 
@@ -232,21 +233,60 @@ This entity is used to control the appliance with the following actions:
 
 {% details "List of sensors" %}
 
+- **Air filter state**
+  - **Description**: Reports air filter status. 
+  - **Available for appliance types**: Refrigerator.
 - **Appliance state**
   - **Description**: Reports the current appliance state.
-  - **Available for appliance types**: Oven.
+  - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher, Refrigerator, Hood, Hob.
+- **Battery**
+  - **Description**: Reports the battery level.
+  - **Available for appliance types**: Robot vacuum cleaner.
 - **Current temperature**
   - **Description**: Reports the current cavity temperature.
   - **Available for appliance types**: Oven.
+- **Cycle phase**
+  - **Description**: Reports the current wash/dry cycle phase.
+  - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher.
 - **Food probe state**
   - **Description**: Reports the food probe state.
   - **Available for appliance types**: Oven.
 - **Food probe temperature**
   - **Description**:  Reports food probe temperature.
   - **Available for appliance types**: Oven.
+- **PM1**
+  - **Description**: Reports concentration of fine particles <1µm.
+  - **Available for appliance types**: Air purifier.
+- **PM2.5**
+  - **Description**: Reports concentration of fine particles <2.5µm.
+  - **Available for appliance types**: Air purifier.
+- **PM10**:
+  - **Description**: Reports concentration of particles up to 10µm.
+  - **Available for appliance types**: Air purifier.
 - **Remote control**
   - **Description**: Reports the remote control status.
-  - **Available for appliance types**: Oven.
+  - **Available for appliance types**: Oven, Washing machine, Dryer, Washer dryer, Dishwasher, Hood, Hob.
+- **Residual heat state**:
+  - **Description**: Reports residual heat in a zone.
+  - **Available for appliance types**: Hob.
+- **Sound volume**:
+  - **Description**: Reports current sound level setting.
+  - **Available for appliance types**: Hood.
+- **Target temperature**
+  - **Description**: Reports flexible drawer target temperature.
+  - **Available for appliance types**: Refrigerator.
+- **TVOC**
+  - **Description**: Reports total volatile organic compounds.
+  - **Available for appliance types**: Air purifier.
+- **Water filter state**
+  - **Description**: Reports water filter status.
+  - **Available for appliance types**: Refrigerator.
+- **Water hardness**
+  - **Description**: Reports water hardness.
+  - **Available for appliance types**: Washing machine, Dryer, Washer dryer, Dishwasher.
+- **Windows notification**
+  - **Description**: Reports if a window needs to be opened.
+  - **Available for appliance types**: Hob.
 
 {% enddetails %}
 
