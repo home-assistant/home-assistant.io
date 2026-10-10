@@ -19,24 +19,7 @@ The **Space API** {% term integration %} allow Hackerspaces and Makerspaces to e
 
 ## Configuration
 
-To set up the `spaceapi` {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
-
-```yaml
-# Example configuration.yaml entry
-spaceapi:
-  space: HACKERSPACE_NAME
-  logo: URL_FOR_LOGO
-  url: URL
-  location:
-    address: ADDRESS
-  contact:
-    email: EMAIL_ADDRESS
-  issue_report_channels:
-    - email
-  state:
-    entity_id: binary_sensor.front_door
-```
+The configuration has been migrated to the UI existing YAML configuration were migrated automatically but need a manual cleanup of the configuration.yml file.
 
 {% configuration %}
 space:
@@ -294,7 +277,9 @@ Replace `[DOMAIN_OR_IP_WITH_PORT]` with your Home Assistant instance's domain or
 
 ### API version
 
-This {% term integration %} implements SpaceAPI **version 13** (v0.13).
+This {% term integration %} implements SpaceAPI **version 13** (v0.13) and **version 15** (v15)
+In the version 15 implementation all v0.13 depricated items are removed but no new items were added so far.
+
 
 ### Public access and CORS
 
@@ -310,37 +295,3 @@ curl http://YOUR_HOME_ASSISTANT_URL:8123/api/spaceapi
 
 The response will be a JSON payload conforming to the SpaceAPI v0.13 specification, containing information about your hackerspace including status, location, contact details, and sensor data.
 
-## Examples
-
-In this section you find some real-life examples of how to use this integration.
-
-### Eastermundigen
-
-A possible configuration entry for [Eastermundigen](https://www.eastermundigen.ch/), a Hackerspace in Switzerland, could look like this.
-
-```yaml
-# Example configuration.yaml entry
-spaceapi:
-  space: Eastermundigen
-  logo: https://eastermundigen.ch/logo.png
-  url: https://eastermundigen.ch
-  location:
-    address: "Steinbruchweg 16, 3072 Ostermundigen, Schweiz"
-  contact:
-    phone: "+41311111111"
-    twitter: "@eastermundigen"
-    email: "info@eastermundigen.ch"
-  issue_report_channels:
-    - email
-  state:
-    entity_id: "binary_sensor.front_door"
-    icon_open: https://eastermundigen.ch/open.png
-    icon_closed: https://eastermundigen.ch/close.png
-  sensors:
-    temperature:
-      - "sensor.temperature_in"
-      - "sensor.temperature_out"
-    humidity:
-      - "sensor.humidity_in"
-      - "sensor.humidity_out"
-```
