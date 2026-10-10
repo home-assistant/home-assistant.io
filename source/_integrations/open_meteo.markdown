@@ -46,9 +46,84 @@ The current conditions include:
 - Temperature
 - Wind speed and direction
 
-The daily forecast adds a high and low temperature, expected precipitation, and wind for each day. The hourly forecast covers the condition, temperature, and precipitation for the hours ahead.
+The daily forecast covers, for each day, the condition, the high and low temperature, the apparent temperature, the expected precipitation, and the wind speed, gusts, and direction. The hourly forecast covers, for each hour ahead, the condition, the temperature and apparent temperature, the precipitation, the humidity, the dew point, the cloud cover, the air pressure, and the wind speed, gusts, and direction.
 
 You can show the forecast on a dashboard with the weather card, or read it in an automation or script with the [`weather.get_forecasts`](/integrations/weather/) action. Temperature, wind speed, and precipitation are shown in the units from your Home Assistant settings.
+
+## Use cases
+
+- Show the weather for home on a dashboard with the weather card, and add a second zone to see the weather at a holiday home or your parents' place next to it.
+- Get a reminder to bring in the laundry, or to skip watering the garden, when rain is expected.
+- Get a warning the evening before a frosty night, to cover your plants or put a cover on the car's windshield.
+- Close the awning or sunscreens ahead of a windy day.
+
+## Examples
+
+The examples below use the daily forecast of the Home zone, `weather.home`, read with the [`weather.get_forecasts`](/integrations/weather/#action-weatherget_forecasts) action. The first day in the forecast is today, the second one is tomorrow.
+
+### Notify when rain is expected tomorrow
+
+Every evening at 20:00, this automation checks the forecast for tomorrow, and sends a notification when rain is expected.
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Rain expected tomorrow"
+    triggers:
+      - trigger: time
+        at: "20:00:00"
+    actions:
+      - action: weather.get_forecasts
+        target:
+          entity_id: weather.home
+        data:
+          type: daily
+        response_variable: forecast
+      - variables:
+          tomorrow: "{{ forecast['weather.home'].forecast[1] }}"
+      - condition: template
+        value_template: "{{ tomorrow.precipitation | float(0) > 0 }}"
+      - action: notify.notify
+        data:
+          message: >
+            Rain is expected tomorrow: {{ tomorrow.precipitation }}
+            {{ state_attr('weather.home', 'precipitation_unit') }}.
+```
+
+{% endraw %}
+
+### Warn about frost tomorrow
+
+Every evening at 18:00, this automation sends a notification when the low for tomorrow is below freezing, so you have time to cover your plants. It compares the low with 0, for temperatures in °C; use 32 instead when your Home Assistant uses °F.
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Frost expected tomorrow"
+    triggers:
+      - trigger: time
+        at: "18:00:00"
+    actions:
+      - action: weather.get_forecasts
+        target:
+          entity_id: weather.home
+        data:
+          type: daily
+        response_variable: forecast
+      - variables:
+          tomorrow: "{{ forecast['weather.home'].forecast[1] }}"
+      - condition: template
+        value_template: "{{ tomorrow.templow | float(99) < 0 }}"
+      - action: notify.notify
+        data:
+          message: >
+            Frost is expected tomorrow, down to {{ tomorrow.templow }}
+            {{ state_attr('weather.home', 'temperature_unit') }}. Cover your plants!
+```
+
+{% endraw %}
 
 ## Data updates
 
