@@ -89,6 +89,12 @@ for:
 - The trigger fires only on the crossing moment. Once the elevation is above your threshold, it does not fire again until the elevation drops back below it and then crosses up again.
 - A threshold around 0° corresponds roughly to sunrise and sunset. Negative angles like -6° correspond to civil twilight. Use [Dawn](/triggers/sun.dawn/) and [Dusk](/triggers/sun.dusk/) if you prefer to work with named twilight phases instead of raw angles.
 - The maximum elevation the sun reaches depends on your latitude and the time of year, so pick threshold angles that the sun actually reaches at your location.
+- The threshold can be a decimal number, such as `-4.5`. In the editor, the field expects whole numbers, so set a decimal threshold in YAML.
+- Home Assistant updates the sun's elevation at intervals, and rounds it to 2 decimals. The trigger reacts at the first update after the elevation crosses the threshold. A threshold with more decimals doesn't make the trigger react at a more precise time.
+  - Every 2 minutes when the sun is close to the horizon, from civil twilight up to an elevation of 10°
+  - Every 4 minutes during the rest of the day and in nautical twilight
+  - Every 8 minutes in astronomical twilight
+  - Every 20 minutes at night
 - To react to every elevation change rather than a single crossing, use [Sun elevation changed](/triggers/sun.elevation_changed/).
 
 {% include triggers/try_it.md %}
