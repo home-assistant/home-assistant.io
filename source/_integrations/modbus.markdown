@@ -87,6 +87,7 @@ Prerequisites:
    - For the options, refer to [Configuring modbus communication](#configuring-modbus-communication).
    - For a serial device server, use `type: rtuovertcp`. Set the baud rate on the serial device server itself. For details, refer to [Configuring a TCP-RTU connection](#configuring-a-tcp-rtu-connection).
 3. Under the hub, add an entity for each value you want to read or control. Set `address` to where the device stores the value.
+   - For the terms, such as register types and addresses, refer to [Modbus terms used in YAML](#modbus-terms-used-in-yaml).
    - For the options, refer to [Configuring modbus entities](#configuring-modbus-entities).
 4. Restart Home Assistant.
    - Result: The entities of your device appear in Home Assistant.
@@ -131,17 +132,9 @@ Modbus over your network. Most devices with a network interface use port `502`.
 
 Modbus over a serial connection, usually an <abbr title="Recommended Standard 485">RS-485</abbr> bus. The data is sent in binary form.
 
-#### Modbus <abbr title="American Standard Code for Information Interchange">ASCII</abbr>
-
-Modbus over a serial connection, with the data sent as text characters. Only a few devices use it.
-
 #### Modbus RTU over TCP
 
-Modbus RTU data that is sent over your network unchanged. A serial device server uses it. Some manuals call it TCP-RTU.
-
-#### Modbus <abbr title="User Datagram Protocol">UDP</abbr>
-
-Modbus over your network, with UDP instead of TCP. It's rarely used.
+Modbus RTU data that is sent over your network unchanged. A serial device server, or a Modbus gateway in transparent mode, uses it. Some manuals call it TCP-RTU.
 
 #### RS-485
 
@@ -153,8 +146,8 @@ An electrical standard for the physical, wired connection that most Modbus RTU d
 
 A device that connects a serial bus, such as RS-485, to your network. Some manuals call it a bridge or a converter. A Modbus gateway works in one of two ways:
 
-- It translates between Modbus TCP and Modbus RTU. Home Assistant then talks Modbus TCP to the gateway. Enter its host and port. In YAML, use `type: tcp`.
-- It forwards the Modbus RTU data unchanged, often called transparent mode. Home Assistant then sends Modbus RTU over TCP to it. As the serial port, select **Enter manually** and enter its `socket://` URL. In YAML, use `type: rtuovertcp`.
+- It translates between Modbus TCP and Modbus RTU. Home Assistant then talks Modbus TCP to the gateway. Enter its host and port.
+- It forwards the Modbus RTU data unchanged, often called transparent mode. Home Assistant then sends Modbus RTU over TCP to it. As the serial port, select **Enter manually** and enter its `socket://` URL.
 
 Many gateways can do both. Set up the connection to match the mode that's set on the gateway.
 
@@ -184,17 +177,44 @@ A Modbus device behind a connection.
 
 #### Unit ID
 
-The number that identifies a unit on a connection. Most devices use `1`. In YAML, it's `device_address`.
+The number that identifies a unit on a connection. Most devices use `1`.
 
 On a serial bus, and behind a Modbus gateway, `0` is the broadcast address. A write to `0` reaches all units, but no unit replies, so you can't read with `0`. A device with its own network interface can use `0` in a different way. For details, check its manual.
 
 Device manuals often use the older term slave ID, or device address. Some integrations call it **Device ID**.
 
+## Modbus YAML reference
+
+Use these options when you set up a Modbus hub in YAML. For the steps, refer to [Setting up a Modbus hub in YAML](#setting-up-a-modbus-hub-in-yaml).
+
+### Modbus terms used in YAML
+
+When you set up a Modbus hub in YAML, you also need the following terms. For general terms, such as a Modbus gateway or the unit ID, refer to [Modbus terminology](#modbus-terminology).
+
 #### Modbus hub
 
 A connection that you configure in YAML, under `modbus:`. A Modbus hub keeps a connection of its own, even if an integration uses the same device.
 
-### Data in a device
+#### Connection type
+
+The `type` of a Modbus hub sets how Home Assistant reaches the device:
+
+- `tcp`: [Modbus TCP](#modbus-tcp), to a device with a network interface, or to a [Modbus gateway](#modbus-gateway) that translates.
+- `rtuovertcp`: [Modbus RTU over TCP](#modbus-rtu-over-tcp), to a [serial device server](#serial-device-server), or to a Modbus gateway in transparent mode.
+- `udp`: [Modbus UDP](#modbus-udp).
+- `serial`: [Modbus RTU](#modbus-rtu) or [Modbus ASCII](#modbus-ascii), over a serial port, such as a [USB-to-RS-485 adapter](#usb-to-rs-485-adapter).
+
+#### Modbus <abbr title="American Standard Code for Information Interchange">ASCII</abbr>
+
+Modbus over a serial connection, with the data sent as text characters. Only a few devices use it. With `type: serial`, set `method: ascii`. For Modbus RTU, use `method: rtu`.
+
+#### Modbus <abbr title="User Datagram Protocol">UDP</abbr>
+
+Modbus over your network, with UDP instead of TCP. It's rarely used. Set `type: udp`.
+
+#### Device address
+
+The [unit ID](#unit-id) of the device, set with `device_address` on each entity. Most devices use `1`. Older configurations use `slave`, which works the same.
 
 #### Register
 
@@ -223,10 +243,6 @@ A register that you can read and write, for example, a setting. In YAML, it's `h
 The position of a coil, discrete input, or register in the device. Home Assistant counts addresses from `0`.
 
 Some manuals count from `1`, or add the type of data in front, such as `40001` for the first holding register. In that case, the address in Home Assistant is `0`.
-
-## Modbus YAML reference
-
-Use these options when you set up a Modbus hub in YAML. For the steps, refer to [Setting up a Modbus hub in YAML](#setting-up-a-modbus-hub-in-yaml).
 
 ### Configuring Modbus communication
 
