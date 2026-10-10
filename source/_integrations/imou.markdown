@@ -86,10 +86,10 @@ Imou Open Platform API usage limits apply to your App ID:
 
 Each device channel with a camera feed exposes two camera entities:
 
-- **Live view SD**: Standard-definition cloud live stream.
-- **Live view HD**: High-definition cloud live stream.
+- **Live view SD**: Standard-definition cloud live stream (enabled by default).
+- **Live view HD**: High-definition cloud live stream (disabled by default; enable it in the entity settings if you need HD).
 
-Both are enabled by default. You can view a still image or start a live stream when the device is online.
+You can view a still image or start a live stream when the device is online.
 
 ### Buttons
 
