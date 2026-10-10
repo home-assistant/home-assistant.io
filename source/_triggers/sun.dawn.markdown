@@ -23,8 +23,8 @@ To use this trigger in an automation:
 4. From the search box, search for and select **Dawn**.
 5. Under **Twilight type**, select **Civil**, **Nautical**, or **Astronomical** to choose how dark the start of dawn is.
 6. Optionally, set an offset to fire before or after dawn:
-   - Under **Offset**, enter how far from dawn to fire, such as 30 minutes.
-   - Under **Offset type**, select **Before** or **After**.
+   - Under **Offset**, select **Before** or **After**.
+   - Under **Duration**, enter how far from dawn to fire, such as 30 minutes.
 7. Select **Save**.
 
 ### Options in the UI
@@ -38,13 +38,12 @@ Twilight type:
     - **Nautical**: the sun is 12° below the horizon. The horizon is still faintly visible at sea.
     - **Astronomical**: the sun is 18° below the horizon. The sky is, for most purposes, fully dark.
 Offset:
-  description: The length of time from dawn when the trigger fires, in days, hours, minutes, and seconds. By default there is no offset, so the trigger fires exactly at dawn.
-Offset type:
   description: |
-    Whether the offset applies before or after dawn:
+    Whether to fire before or after dawn:
 
-    - **Before**: fires the offset amount before dawn. This is the default.
-    - **After**: fires the offset amount after dawn.
+    - **No offset**: fires exactly at dawn. This is the default.
+    - **Before**: fires the duration you enter before dawn.
+    - **After**: fires the duration you enter after dawn.
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -65,7 +64,7 @@ trigger: |
     type: astronomical
 {% endexample %}
 
-To fire a fixed amount of time before or after dawn, add the `offset` and `offset_type` options:
+To fire a fixed amount of time before or after dawn, add the `offset` option. A negative offset fires before and a positive one after:
 
 {% example %}
 trigger: |
@@ -73,7 +72,6 @@ trigger: |
   options:
     offset:
       minutes: 30
-    offset_type: after
 {% endexample %}
 
 This fires 30 minutes after civil dawn every day.
@@ -89,16 +87,10 @@ type:
   default: civil
 offset:
   description: >
-    The length of time from dawn when the trigger fires. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format. Combine it with `offset_type` to fire before or after dawn.
+    The length of time from dawn when the trigger fires. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format. A negative value, such as `minutes: -30` or `"-00:30:00"`, fires before dawn. A positive value fires after.
   required: false
   type: time
   default: "00:00:00"
-offset_type:
-  description: >
-    Whether the offset applies before or after dawn. Accepts `before` or `after`.
-  required: false
-  type: string
-  default: before
 {% endoptions_yaml %}
 
 ## Good to know
