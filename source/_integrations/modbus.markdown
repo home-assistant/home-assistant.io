@@ -167,7 +167,7 @@ type:
     udp:
       description: "Modbus UDP, over the network. Rarely used."
     rtuovertcp:
-      description: "Modbus RTU over TCP, for a serial device server on your network."
+      description: "Modbus RTU over TCP, for a serial device server, or a Modbus gateway in transparent mode."
     serial:
       description: "Serial connection (Modbus RTU or Modbus ASCII), for a serial port or a USB-to-RS-485 adapter."
 
@@ -217,7 +217,7 @@ modbus:
 
 ### Configuring a Modbus RTU over TCP connection
 
-`type: rtuovertcp` is required. Use it for a serial device server: a device on your network that passes Modbus RTU between the network and one or more serial connections.
+`type: rtuovertcp` is required. Use it for a serial device server, or for a Modbus gateway in transparent mode. Both pass Modbus RTU unchanged between your network and one or more serial connections.
 
 {% configuration %}
 host:
@@ -464,7 +464,7 @@ slave:
   type: integer
   default: 1
 device_address:
-  description: "Unit ID of the device. Use it to address several devices on an RS-485 bus, or devices behind a Modbus gateway. `0` is the broadcast address."
+  description: "Unit ID of the device. Use it to address several devices on an RS-485 bus, or devices behind a Modbus gateway. On these connections, `0` is the broadcast address."
   required: false
   type: integer
   default: 1
