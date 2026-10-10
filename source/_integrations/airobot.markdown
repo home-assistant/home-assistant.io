@@ -434,6 +434,7 @@ The unit can run out of network connections if other clients keep opening new Mo
 
 1. **Restart the unit** to clear its open connections.
 2. **Check other Modbus clients** on your network and configure them to keep a single connection open, or to close their connection after each poll.
+3. **Check the address**: If a different ventilation unit now answers at the configured address, the integration stops showing data instead of showing the other unit's readings. Reconfigure the integration with the unit's current address.
 
 {% enddetails %}
 
