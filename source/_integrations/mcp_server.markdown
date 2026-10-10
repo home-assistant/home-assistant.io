@@ -55,69 +55,9 @@ Require an administrator account:
 
 ## Client configuration
 
-The Model Context Protocol specification has recently defined standards for
-authorization and connecting to remote servers. The standards are a *work in progress*
-and so some clients may not support the latest functionality, and the specification
-will likely continue to evolve.
+Home Assistant implements the standard Model Context Protocol, including OAuth 2.0 with <abbr title="Proof Key for Code Exchange">PKCE</abbr>. It supports [OAuth Client ID Metadata Documents](https://datatracker.ietf.org/doc/draft-ietf-oauth-client-id-metadata-document/), so AI agents set up the client ID and callback URL automatically.
 
-The Home Assistant MCP server is exposed as `/api/mcp` and requires the
-client to provide an authentication token.
-
-### Exposing a specific LLM API
-
-The `/api/mcp` endpoint serves all LLM APIs, or the LLM APIs you select in the
-[configuration options](#configuration-options). If you have more than one LLM API
-available, you can also connect a client to a specific one by adding its ID to the URL:
-
-`/api/mcp/<api_id>`
-
-For example, the built-in Assist API is always available at `/api/mcp/assist`.
-Point your MCP client at this URL in the same way you would use the base
-`/api/mcp` endpoint. If you request an API ID that does not exist, Home Assistant
-responds with a 404 Not Found error.
-
-Connecting to any API other than Assist requires the authenticated user to be an
-administrator. The Assist API stays available to non-administrator users. Access
-to the base `/api/mcp` endpoint follows the **Require an administrator account**
-option instead.
-
-### Access control
-
-#### Administrator accounts
-
-The **Require an administrator account** option restricts the `/api/mcp` endpoint
-to administrator accounts and is turned on by default. Turn it off to let a
-non-administrator account, such as an account you created for a single MCP client,
-use the endpoint.
-
-#### OAuth
-
-The Model Context Protocol supports OAuth for [authorization](https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/) and is fully supported by Home Assistant's
-[Authentication API](https://developers.home-assistant.io/docs/auth_api/). MCP
-clients that support OAuth can use this to allow you to give the client access
-to your Home Assistant MCP server.
-
-Home Assistant has adopted [IndieAuth](https://indieauth.spec.indieweb.org/) and does not require you to pre-define
-an OAuth Client ID. Instead, the Client ID is the base URL of the client application making the request:
-
-- **Client ID**: The base URL of the LLM client application configuring the connector (for example, `https://claude.ai` for Claude, or `https://chatgpt.com` for ChatGPT). It must never be your Home Assistant instance URL. Home Assistant's IndieAuth implementation validates that the OAuth `redirect_uri` shares the same scheme and domain with the `client_id`. If you enter your Home Assistant instance URL as the Client ID, authentication fails because the client application's redirect URI does not match.
-- **Client Secret**: This is not used by Home Assistant. If the field is required by the client application, enter any text; if it is optional, leave it blank.
-
-{% note %}
-Home Assistant implements the [OAuth Client ID Metadata Document](https://datatracker.ietf.org/doc/draft-ietf-oauth-client-id-metadata-document/) specification (`client_id_metadata_document_supported: true`) rather than traditional Dynamic Client Registration (RFC 7591), and does not provide an RFC 7591 `registration_endpoint`.
-
-LLM clients that accept URL-based client IDs work without prior registration. However, any client that strictly mandates RFC 7591 Dynamic Client Registration cannot register with Home Assistant.
-{% endnote %}
-
-{% tip %}
-When accessing Home Assistant remotely through a reverse proxy or tunnel (such as Cloudflare Tunnel), the hostname used by the remote LLM client must match the configured **Internal URL** or **External URL** in Home Assistant ({% my network title="**Settings** > **System** > **Network**" %}).
-
-If an unconfigured hostname or proxy header mismatch is used, Home Assistant cannot resolve the `issuer` in `/.well-known/oauth-authorization-server` and returns relative paths, which causes conforming OAuth clients to reject the metadata.
-
-Using [Home Assistant Cloud](/integrations/cloud/) (`https://<your-id>.ui.nabu.casa`) is recommended because it avoids reverse-proxy and tunnel configuration pitfalls.
-{% endtip %}
-
-#### Long-lived access tokens
+### Long-lived access tokens
 
 Some MCP clients may not support OAuth, but may support access tokens. You may create a
 [Long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) to allow the client to access the API.
