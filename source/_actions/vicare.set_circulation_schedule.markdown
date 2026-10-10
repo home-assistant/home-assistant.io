@@ -2,9 +2,9 @@
 title: "Set circulation schedule"
 action: vicare.set_circulation_schedule
 domain: vicare
-description: "Sets the DHW circulation pump weekly schedule."
+description: "Sets the domestic hot water circulation pump schedule."
 related_actions:
-  - vicare.set_vicare_mode
+  - vicare.get_circulation_schedule
 ---
 
 Use this action to configure the weekly schedule of the domestic hot water (<abbr title="domestic hot water">DHW</abbr>) circulation pump on your Viessmann device. The circulation pump keeps hot water moving through your pipes so it reaches the tap faster, at the cost of extra energy use, so most people only run it during the hours they actually need instant hot water.
@@ -17,35 +17,35 @@ To set the circulation schedule from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the water heater entity you want to control.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the water heater entity of your Viessmann device.
 6. From the actions shown for that target, select **Viessmann ViCare: Set circulation schedule**.
-7. For every day of the week, add the time slots you want. Days with no circulation still need to be included, just leave them empty.
+7. For each day you want to change, add the time slots for that day. Days you leave out keep their current schedule.
 8. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Monday:
-  description: The circulation slots for Monday. See [Good to know](#good-to-know) for the fields each slot needs.
-  required: true
+  description: The circulation slots for Monday. Each slot has a **from** time, a **to** time, and a **mode**. See [Good to know](#good-to-know) for details. If left out, Monday keeps its current schedule.
+  required: false
 Tuesday:
-  description: The circulation slots for Tuesday.
-  required: true
+  description: The circulation slots for Tuesday. If left out, Tuesday keeps its current schedule.
+  required: false
 Wednesday:
-  description: The circulation slots for Wednesday.
-  required: true
+  description: The circulation slots for Wednesday. If left out, Wednesday keeps its current schedule.
+  required: false
 Thursday:
-  description: The circulation slots for Thursday.
-  required: true
+  description: The circulation slots for Thursday. If left out, Thursday keeps its current schedule.
+  required: false
 Friday:
-  description: The circulation slots for Friday.
-  required: true
+  description: The circulation slots for Friday. If left out, Friday keeps its current schedule.
+  required: false
 Saturday:
-  description: The circulation slots for Saturday.
-  required: true
+  description: The circulation slots for Saturday. If left out, Saturday keeps its current schedule.
+  required: false
 Sunday:
-  description: The circulation slots for Sunday.
-  required: true
+  description: The circulation slots for Sunday. If left out, Sunday keeps its current schedule.
+  required: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -59,19 +59,13 @@ action: |
     entity_id: water_heater.main_water_heater
   data:
     monday:
-      - start_time: "06:00"
-        end_time: "22:00"
+      - from: "06:00"
+        to: "22:00"
         mode: "on"
-        position: 0
-    tuesday: []
-    wednesday: []
-    thursday: []
-    friday: []
-    saturday: []
     sunday: []
 {% endexample %}
 
-This runs the circulation pump on Monday from 6:00 AM to 10:00 PM and turns it off for the rest of the week.
+This runs the circulation pump on Monday from 6:00 AM to 10:00 PM and turns it off on Sunday. All other days keep their current schedule.
 
 ### Options in YAML
 
@@ -79,38 +73,45 @@ This runs the circulation pump on Monday from 6:00 AM to 10:00 PM and turns it o
 monday:
   description: >
     The circulation slots for Monday. See [Good to know](#good-to-know)
-    for the fields each slot needs.
-  required: true
+    for the fields each slot needs. If left out, Monday keeps its current
+    schedule.
+  required: false
   type: list
 tuesday:
   description: >
-    The circulation slots for Tuesday.
-  required: true
+    The circulation slots for Tuesday. If left out, Tuesday keeps its
+    current schedule.
+  required: false
   type: list
 wednesday:
   description: >
-    The circulation slots for Wednesday.
-  required: true
+    The circulation slots for Wednesday. If left out, Wednesday keeps its
+    current schedule.
+  required: false
   type: list
 thursday:
   description: >
-    The circulation slots for Thursday.
-  required: true
+    The circulation slots for Thursday. If left out, Thursday keeps its
+    current schedule.
+  required: false
   type: list
 friday:
   description: >
-    The circulation slots for Friday.
-  required: true
+    The circulation slots for Friday. If left out, Friday keeps its
+    current schedule.
+  required: false
   type: list
 saturday:
   description: >
-    The circulation slots for Saturday.
-  required: true
+    The circulation slots for Saturday. If left out, Saturday keeps its
+    current schedule.
+  required: false
   type: list
 sunday:
   description: >
-    The circulation slots for Sunday.
-  required: true
+    The circulation slots for Sunday. If left out, Sunday keeps its
+    current schedule.
+  required: false
   type: list
 {% endoptions_yaml %}
 
@@ -118,105 +119,84 @@ sunday:
 
 ## Good to know
 
-Each time slot in a day's list is a mapping with the following keys:
+Each time slot in a day's list has the following fields:
 
-- `start_time`: Required. The time the pump turns on, as `HH:MM`, on a 10-minute resolution, such as `06:00` or `06:10`.
-- `end_time`: Required. The time the pump turns off, as `HH:MM`, on a 10-minute resolution. Use `24:00` for midnight.
-- `mode`: Required. The circulation mode for this slot. Which modes your device supports varies by model, for example `on`, `5/25-cycles`, or `5/10-cycles`. If you use a mode your device doesn't support, the action fails and the error message lists the modes it does support.
-- `position`: Required. The slot's position among the day's slots, starting at `0`.
+- `from`: Required. The time the pump turns on, such as `06:00` or `06:10`. Times must be on a 10-minute grid.
+- `to`: Required. The time the pump turns off, on a 10-minute grid. Use `24:00` for the end of the day. It must be later than `from`.
+- `mode`: Required. The circulation mode for this slot. Which modes your device supports varies by model, for example `on`, `5/25-cycles`, or `5/10-cycles`. If you use a mode your device doesn't support, the action fails and the error message comes from your device.
 
-All seven weekday fields are required on every call, even for days with no scheduled circulation. Use an empty list, for example `sunday: []`, for those days.
+To turn off circulation for a day, pass an empty list for that day, for example `sunday: []`.
 
-The maximum number of slots per day depends on your device. If you exceed it, the action fails and the error message includes your device's actual limit.
+The maximum number of slots per day depends on your device. If you exceed it, the action fails and the error message comes from your device.
 
-The current schedule is available as the `circulation_schedule` attribute of the water heater {% term entity %}. Not all devices support a circulation pump. If yours doesn't, this attribute is absent. Its field names (`mon` through `sun`, with `start`/`end` per slot) don't match this action's fields (`monday` through `sunday`, with `start_time`/`end_time`), so you can't pass its value straight back into this action — remap the keys first if you want to restore a saved schedule.
+To see the current schedule, use the [Get circulation schedule](/actions/vicare.get_circulation_schedule/) action. Its response uses the same format as this action, so you can save a schedule and restore it later.
+
+Not all devices have a circulation pump. If yours doesn't, the action fails with an error saying the device does not support a domestic hot water circulation schedule.
 
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
 
-### Automation: Turn off circulation when you leave
+### Automation: Turn off circulation on weekends
 
-This automation stops the circulation pump as soon as everyone leaves home, so it doesn't run while nobody's there to use it.
+This automation turns off the circulation pump on Saturday and Sunday every Friday evening, for example if you're usually away on weekends. The weekday schedule stays as it is.
+
+- **Trigger**: the time is 8:00 PM on Friday
+- **Action**: Set circulation schedule
+  - **Target**: the water heater
+  - **Saturday** and **Sunday**: no slots
 
 {% details "Show example YAML" %}
 
 {% example %}
 automation: |
-  alias: "Turn off circulation pump when away"
+  alias: "Turn off circulation on weekends"
   triggers:
-    - trigger: state
-      entity_id: zone.home
-      to: "0"
+    - trigger: time
+      at: "20:00:00"
+      weekday: fri
   actions:
     - action: vicare.set_circulation_schedule
       target:
         entity_id: water_heater.main_water_heater
       data:
-        monday: []
-        tuesday: []
-        wednesday: []
-        thursday: []
-        friday: []
         saturday: []
         sunday: []
 {% endexample %}
 
 {% enddetails %}
 
-### Automation: Restore the schedule when you get home
+### Automation: Restore the weekend schedule
 
-This automation puts a fixed weekly schedule back once someone returns. Adjust the times to match the hours you actually want the pump to run.
+This automation puts the weekend circulation schedule back every Monday morning, so the pump runs again next weekend. Adjust the times to match the hours you want the pump to run.
+
+- **Trigger**: the time is 6:00 AM on Monday
+- **Action**: Set circulation schedule
+  - **Target**: the water heater
+  - **Saturday** and **Sunday**: one slot from 8:00 AM to 10:00 PM in mode `on`
 
 {% details "Show example YAML" %}
 
 {% example %}
 automation: |
-  alias: "Restore circulation schedule when home"
+  alias: "Restore weekend circulation schedule"
   triggers:
-    - trigger: state
-      entity_id: zone.home
-      from: "0"
+    - trigger: time
+      at: "06:00:00"
+      weekday: mon
   actions:
     - action: vicare.set_circulation_schedule
       target:
         entity_id: water_heater.main_water_heater
       data:
-        monday:
-          - start_time: "06:00"
-            end_time: "22:00"
-            mode: "on"
-            position: 0
-        tuesday:
-          - start_time: "06:00"
-            end_time: "22:00"
-            mode: "on"
-            position: 0
-        wednesday:
-          - start_time: "06:00"
-            end_time: "22:00"
-            mode: "on"
-            position: 0
-        thursday:
-          - start_time: "06:00"
-            end_time: "22:00"
-            mode: "on"
-            position: 0
-        friday:
-          - start_time: "06:00"
-            end_time: "22:00"
-            mode: "on"
-            position: 0
         saturday:
-          - start_time: "08:00"
-            end_time: "22:00"
+          - from: "08:00"
+            to: "22:00"
             mode: "on"
-            position: 0
         sunday:
-          - start_time: "08:00"
-            end_time: "22:00"
+          - from: "08:00"
+            to: "22:00"
             mode: "on"
-            position: 0
 {% endexample %}
 
 {% enddetails %}
