@@ -16,8 +16,11 @@ related:
     title: Airobot
   - url: https://airobothome.com/heat-control-products/
     title: Airobot Heat Control Products
+  - url: https://airobothome.com/ventilation-products/
+    title: Airobot Ventilation Products
 ha_category:
   - Climate
+  - Sensor
 ha_platforms:
   - button
   - climate
@@ -56,17 +59,15 @@ After initial setup, the thermostat does not require internet connectivity to fu
 
 ### Ventilation unit
 
-1. Connect the unit to your local network over Wi-Fi or Ethernet. For a wired connection, connect an Ethernet cable to the RJ45 port on the unit's enclosure, typically near the power cable input. If there is no RJ45 port on the enclosure, connect the cable to the **LAN** socket on the controller board.
-2. On the unit's controller, go to **Menu** > **Settings** > **Other** > **Modbus TCP** and set it to **ON**. Modbus TCP is disabled by default. The unit reboots.
+1. Connect the unit to your local network over Wi-Fi or Ethernet. For a wired connection, connect an Ethernet cable to the RJ45 port on the unit's enclosure, typically near the power cable input. If there is no RJ45 port on the enclosure, connect the cable to the **LAN** socket on the controller board inside the unit.
+2. On the unit's control panel, go to **Menu** > **Settings** > **Other** > **Modbus TCP** and set it to **ON**. Modbus TCP is disabled by default. The unit reboots.
 3. Note the unit's IP address. You can find it in your router's list of connected devices.
 
-If you don't have a controller, Airobot customer support can activate Modbus TCP remotely while the unit is connected to the internet.
+If your unit has no control panel, Airobot customer support can activate Modbus TCP remotely while the unit is connected to the internet.
 
 {% include integrations/config_flow.md %}
 
-When you add the integration manually, choose **Thermostat** or **Ventilation unit**.
-
-Both device types can be automatically discovered via DHCP when they are on the same network. If automatic discovery does not work, you can manually add the integration.
+Both device types can be automatically discovered via DHCP when they are on the same network as Home Assistant. A discovered thermostat asks for its password; a discovered ventilation unit only needs to be confirmed. If automatic discovery does not work, add the integration manually and choose **Thermostat** or **Ventilation unit**.
 
 Thermostat:
 
@@ -88,7 +89,7 @@ Host:
 
 ## Reconfiguration
 
-If you need to update the connection settings for your thermostat (such as changing the IP address, Device ID, or password) or your ventilation unit (its IP address), you can reconfigure the integration without removing and re-adding it:
+If you need to update the connection settings for your thermostat (IP address or hostname, Device ID, or password) or your ventilation unit (IP address), you can reconfigure the integration without removing and re-adding it:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. On the **Airobot** integration, select the three-dot menu and choose **Reconfigure**.
@@ -97,11 +98,11 @@ If you need to update the connection settings for your thermostat (such as chang
 
 This is useful when:
 
-- Your thermostat's IP address has changed (for example, after a router restart or a DHCP lease renewal).
-- You need to update the Device ID or password.
-- You want to switch between IP address and hostname.
+- Your device's IP address has changed.
+- You need to update the thermostat's Device ID or password.
+- You want to switch the thermostat between IP address and hostname.
 
-For a ventilation unit, reconfiguration is stopped if a different ventilation unit answers at the new address, or if the unit there does not report its identity.
+For a ventilation unit, reconfiguration is refused if a different ventilation unit answers at the new address, or if the address already belongs to another configured ventilation unit. If the unit was identified by its MAC address when it was added, reconfiguration is also refused when the unit at the new address does not report its identity.
 
 ## Supported functionality
 
@@ -203,23 +204,23 @@ The integration provides the following sensor entities for a ventilation unit.
 #### Temperature and humidity
 
 - **Extract air temperature** and **Extract air humidity**
-  - **Description**: The air extracted from the rooms, before the heat exchanger.
+  - **Description**: Temperature and relative humidity of the air extracted from the rooms, measured before the heat exchanger.
   - **Unit**: °C and %
 
 - **Supply air temperature** and **Supply air humidity**
-  - **Description**: The fresh air supplied to the rooms, after the heat exchanger.
+  - **Description**: Temperature and relative humidity of the fresh air supplied to the rooms, measured after the heat exchanger.
   - **Unit**: °C and %
 
 - **Outside air temperature** and **Outside air humidity**
-  - **Description**: The outdoor air taken in by the unit.
+  - **Description**: Temperature and relative humidity of the outdoor air taken in by the unit.
   - **Unit**: °C and %
 
 - **Exhaust air temperature** and **Exhaust air humidity**
-  - **Description**: The air blown outside, after the heat exchanger.
+  - **Description**: Temperature and relative humidity of the air blown outside, measured after the heat exchanger.
   - **Unit**: °C and %
 
 - **Extra temperature** and **Extra humidity**
-  - **Description**: An optional extra sensor, required when the unit drives an external humidifier.
+  - **Description**: An optional extra sensor, used when the unit controls an external humidifier.
   - **Unit**: °C and %
   - **Remarks**: Only created if the extra sensor is installed.
 
@@ -235,7 +236,7 @@ The integration provides the following sensor entities for a ventilation unit.
 - **PM2.5**
   - **Description**: The fine particulate matter concentration.
   - **Unit**: µg/m³
-  - **Remarks**: Requires the optional PM2.5 sensor.
+  - **Remarks**: Only reports values on units with the optional PM2.5 sensor. The entity is always created; disable it if your unit has no PM2.5 sensor.
 
 #### Fans and heat recovery
 
@@ -244,7 +245,7 @@ The integration provides the following sensor entities for a ventilation unit.
 
 - **Supply fan speed** and **Extract fan speed**
   - **Description**: The rotation speed of each fan.
-  - **Unit**: RPM
+  - **Unit**: rpm
 
 - **Supply airflow** and **Extract airflow**
   - **Description**: The measured airflow of each fan.
@@ -312,7 +313,7 @@ actions:
 
 The **Airobot** integration {% term polling polls %} data from the thermostat every 30 seconds. This interval matches the thermostat's internal measurement cycle, ensuring efficient data synchronization without overwhelming the device.
 
-Ventilation units are also polled every 30 seconds, over Modbus TCP. The connection is shared through the [Modbus](/integrations/modbus/) integration, so other integrations that connect to the same unit through it use the same connection. A Modbus hub configured in YAML opens a connection of its own, which the unit counts as another client (see [Known limitations](#known-limitations)).
+Ventilation units are also polled every 30 seconds, over Modbus TCP. The connection is managed by the [Modbus](/integrations/modbus/) integration, and you can check its status under {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}. A Modbus hub configured in YAML opens a connection of its own, which the unit counts as another client (see [Known limitations](#known-limitations)).
 
 ## Known limitations
 
@@ -328,7 +329,7 @@ Ventilation units are also polled every 30 seconds, over Modbus TCP. The connect
 
 - **Modbus TCP only**: Ventilation units are supported over Modbus TCP. Modbus RTU (serial) and the Airobot cloud service are not supported.
 - **One Modbus client**: The unit handles one active Modbus TCP connection at a time. While Home Assistant is connected, other Modbus clients, such as a building management system, a diagnostic tool, or a Modbus hub configured in YAML, may get no response.
-- **Identification**: The integration identifies a ventilation unit by its MAC address, which it reads from registers that are not part of Airobot's published Modbus specification. If your unit's firmware does not provide them, a manually added unit is identified by its IP address until DHCP discovery finds it.
+- **Identification**: The integration identifies a ventilation unit by its MAC address, which it reads from registers that Airobot's Modbus specification does not document. If your unit's firmware does not provide them, a manually added unit is tracked by its IP address until DHCP discovery supplies the MAC address. Until then, reconfiguration cannot check that the unit at the new address is the same unit.
 
 ## Troubleshooting
 
@@ -415,7 +416,7 @@ The integration loses connection to the thermostat, causing the entity to become
 Home Assistant cannot reach the unit's Modbus TCP interface on port 502.
 
 1. **Check that Modbus TCP is enabled**:
-   - On the unit's controller, go to **Menu** > **Settings** > **Other** > **Modbus TCP** and make sure it is **ON**.
+   - On the unit's control panel, go to **Menu** > **Settings** > **Other** > **Modbus TCP** and make sure it is **ON**.
 
 2. **Check the network connection**:
    - Make sure the unit is connected to your network. If it uses Wi-Fi, check the signal strength at the unit; a wired Ethernet connection is more reliable.
@@ -424,7 +425,7 @@ Home Assistant cannot reach the unit's Modbus TCP interface on port 502.
    - Check your router's list of connected devices and make sure the unit's IP address matches the one you entered.
 
 4. **Check port 502**:
-   - From the Home Assistant host, check that the port is open, for example with `nc -zv <unit-ip> 502`.
+   - From a computer on the same network, check that the port is open, for example with `nc -zv <unit-ip> 502`.
 
 5. **Disconnect other Modbus clients**:
    - The unit answers one Modbus TCP client at a time. Disconnect any other Modbus client, such as a building management system or a diagnostic tool.
@@ -438,8 +439,8 @@ Home Assistant cannot reach the unit's Modbus TCP interface on port 502.
 The unit can run out of network connections if other clients keep opening new Modbus connections without closing them.
 
 1. **Restart the unit** to clear its open connections.
-2. **Check other Modbus clients** on your network and configure them to keep a single connection open, or to close their connection after each poll.
-3. **Check the address**: If a different ventilation unit now answers at the configured address, the integration stops showing data instead of showing the other unit's readings. Reconfigure the integration with the unit's current address.
+2. **Check other Modbus clients** on your network and configure them to close their connection after each poll.
+3. **Check the address**: If a different ventilation unit answers at the configured address, the entities become unavailable instead of showing the other unit's readings. The integration checks this at startup and whenever the connection to the unit is re-established. Reconfigure the integration with the unit's current address.
 
 {% enddetails %}
 
