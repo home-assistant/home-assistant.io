@@ -179,7 +179,7 @@ The **AirLino** integration {% term polling polls %} data from the device every 
 
 - The current version of the Integration supports the basic media player functionalities. TIDAL and Qobuz are currently not supported. Source selection is currently not supported
 - HTTPS radio streams are not supported by the AirLino devices
-- Home Assistant does not support multiple groups with different devices. So creating a new group will mess up the existing one.
+- Since the API doesn't provide authoritative membership data for multiroom groups, Home Assistant is not able to determine if unconfigured or unloaded receivers are still part of a group. In order to delete a group finally, the unjoin action needs to be explicitly triggered for the sender device.
 - AirLino devices still report themselves as idle when used through Spotify Connect or Bluetooth. As a workaround, check the state of the Spotify integration.
 - When using the AirLino device for TTS output, the mp3 stream will run in repeat mode when not being stopped manually
 - Starting Internet Radio from Home Assistant will be reported by the AirLino device as source `other`
