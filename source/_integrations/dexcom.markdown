@@ -18,7 +18,7 @@ The **Dexcom** {% term integration %} allows you to view your CGM data from [Dex
 
 ## Prerequisites
 
-You will need to set up the Dexcom Share feature in your Dexcom [G6](https://provider.dexcom.com/education-research/cgm-education-use/videos/setting-dexcom-share-and-follow) or [G7](https://www.dexcom.com/faqs/how-do-i-share-my-dexcom-g7-glucose-data-with-followers) app to use this integration. Enabling the Dexcom Share service requires setup of at least one follower. The integration will use the Dexcom user's credentials, not the follower's credentials.
+You will need to set up the Dexcom Share feature in your Dexcom [G6](https://provider.dexcom.com/education-research/cgm-education-use/videos/setting-dexcom-share-and-follow) or [G7](https://www.dexcom.com/faqs/how-do-i-share-my-dexcom-g7-glucose-data-with-followers) app to use this integration. Enabling the Dexcom Share service requires setup of at least one follower. The integration will use the Dexcom user's credentials, not the follower's credentials. If you want to access a dependent's data, use the dependent's own credentials. Home Assistant cannot select a dependent profile when you sign in with a parent or manager account.
 
 {% include integrations/config_flow.md %}
 

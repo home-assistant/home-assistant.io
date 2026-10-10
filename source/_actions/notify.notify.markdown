@@ -128,7 +128,7 @@ automation: |
 
 Send a notification when motion is detected while nobody is home.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Hall motion (`binary_sensor.hall_motion`)
   - **To**: On
 - **Condition**: State

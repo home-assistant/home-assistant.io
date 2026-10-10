@@ -98,7 +98,7 @@ automation: |
 
 Once the day cools down, you may only need a softer airflow.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Sun
   - **To**: Below horizon
 - **Action**: Decrease fan speed

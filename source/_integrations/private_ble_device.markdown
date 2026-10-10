@@ -71,4 +71,4 @@ Alternatively, the IRK of an Android phone and/or secondary device can be obtain
 
 ## ESPresense
 
-If you already use Identity Resolving Key tracking with ESPresence then you already have a hex-encoded version of your Identity Resolving Key. Home Assistant can use the key in this format directly.
+If you already use Identity Resolving Key tracking with ESPresense then you already have a hex-encoded version of your Identity Resolving Key. Home Assistant can use the key in this format directly.

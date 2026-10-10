@@ -1,8 +1,9 @@
 ---
 title: Sofar
-description: Instructions on how to integrate a Sofar solar inverter with Home Assistant over Modbus TCP.
+description: Instructions on how to integrate a Sofar solar inverter with Home Assistant over Modbus TCP or a serial RS485 connection.
 ha_category:
   - Energy
+  - Modbus-controlled
 ha_release: 2026.9
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -17,10 +18,10 @@ ha_platforms:
   - switch
 ha_config_flow: true
 ha_integration_type: device
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
-The **Sofar** {% term integration %} connects Home Assistant to a Sofar Solar inverter over Modbus TCP, either directly to an inverter with a network port, or through a Modbus TCP bridge for inverters that only expose RS485.
+The **Sofar** {% term integration %} connects Home Assistant to a Sofar Solar inverter over Modbus. You can reach the inverter over the network (Modbus TCP), either directly or through a Modbus TCP bridge, or over a serial port wired to its RS485 terminals (Modbus RTU).
 
 ## Use cases
 
@@ -35,49 +36,76 @@ The **Sofar** integration brings your inverter's own measurements into Home Assi
 
 ## Supported devices
 
-During setup, the integration reads the inverter's serial number and uses it to automatically detect the inverter model and its register map. It currently recognizes newer-generation Sofar inverters, including:
+The integration supports Sofar inverters that use the current-generation Modbus register map, including HYD hybrid inverters and KTL-X and KTLM PV inverters. During setup, the integration reads the inverter's serial number to detect its type and the registers that apply to it.
 
-- PV-only (grid-tied) inverters.
-- Hybrid inverters with battery storage.
+The current-generation detection recognizes these serial-number prefixes:
 
-If the inverter answers but its serial number isn't recognized, setup fails and you'll need to wait for support for your model to be added.
+- `SP1`, `SP2`, `ZP1`, and `ZP2` for three-phase HYD hybrid models.
+- `SM2E` and `ZM2E` for single-phase HYD hybrid models.
+- `SH1` for HYD5-8KTL-3P hybrid models.
+- `SH3E`, `SS2E`, `ZS2E`, `SQ1ES1`, and `SS1` for KTL-X, KTLM, and related PV models.
+- `SA1`, `SB1`, `SC1`, `SD1`, `SF4`, `SL1`, and `SJ2` for additional current-generation PV models.
+
+Some serial-number prefixes are also used by older Sofar models, so the marketed model name or serial prefix alone does not always identify the register generation. If the inverter answers but does not use the supported register map, setup fails.
+
+## Unsupported devices
+
+Older Sofar inverters that use the legacy Modbus register map aren't supported. These devices use different register ranges from the current-generation inverters, even when their serial-number prefix is similar or identical.
 
 ## Prerequisites
 
-- The inverter needs to be reachable over the network from Home Assistant, either because it has its own Modbus TCP port, or because it's connected through a Modbus TCP bridge (for example, a serial-to-network adapter wired to its RS485 port).
-- Modbus needs to be enabled on the inverter, if it has a setting for this.
+Depending on how you connect the inverter, you need one of the following:
+
+- **Network (Modbus TCP)**: The inverter has its own Modbus TCP port, or its RS485 port is wired to a Modbus TCP bridge or a data logger stick that speaks Modbus TCP.
+- **Serial port (Modbus RTU)**: The inverter's RS485 terminals are wired to a USB-to-RS485 adapter on your Home Assistant host. Alternatively, an ESPHome serial proxy with an RS485 interface can share the port with Home Assistant over the network. To set one up, refer to [Setting up an ESPHome serial proxy](/integrations/serial/#setting-up-an-esphome-serial-proxy).
+
+Modbus also needs to be enabled on the inverter, if it has a setting for this.
 
 {% include integrations/config_flow.md %}
 
+When you add the integration, choose how the inverter is reached: **Network (Modbus TCP)** or **Serial port (Modbus RTU)**. The settings that follow depend on your choice.
+
 {% configuration_basic %}
 Host:
-  description: "The hostname or IP address of the inverter, or of the Modbus TCP bridge it's connected through."
+  description: "The hostname or IP address of the inverter, or of the Modbus TCP bridge it's connected through. Only shown for a network connection."
 Port:
-  description: "The Modbus TCP port to connect to. The default is `502`."
+  description: "The Modbus TCP port to connect to. The default is `502`. Only shown for a network connection."
+Serial port:
+  description: "The serial port the inverter's RS485 bus is wired to. Ports shared over the network by an ESPHome serial proxy are listed alongside the local ones. Only shown for a serial connection."
+Baud rate:
+  description: "The speed of the RS485 bus, as set on the inverter. The default is `9600`, which matches the Sofar default. Only shown for a serial connection."
 Modbus unit ID:
   description: "The inverter's Modbus unit ID, also called its Modbus device address. The default is `1`."
 {% endconfiguration_basic %}
+
+{% note %}
+Home Assistant can share a Modbus connection between integrations when their connection settings are compatible. If another integration already uses the same serial port or bridge with different settings, such as another baud rate, setup fails with a connection error.
+{% endnote %}
 
 During setup, the integration also detects whether the inverter has EPS (Emergency Power Supply) wiring for an off-grid backup output, and polls its registers only if it does.
 
 ## Reconfiguration
 
-If the inverter becomes reachable somewhere else on the network, for example after a DHCP lease change or when you replace the Modbus TCP bridge it's connected through, you can update the connection settings without removing and re-adding the integration:
+If the inverter becomes reachable somewhere else, for example after a DHCP lease change, when you replace the Modbus TCP bridge it's connected through, or when you rewire it to another serial port, you can update the connection settings without removing and re-adding the integration:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and find the **Sofar** integration.
 2. Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reconfigure**.
-3. Update the **Host**, **Port**, or **Modbus unit ID** as needed.
+3. Update the connection settings as needed. For a network connection, these are the **Host**, **Port**, and **Modbus unit ID**. For a serial connection, these are the **Serial port**, **Baud rate**, and **Modbus unit ID**.
 4. Select **Submit** to save the new settings.
 
 The integration reads the serial number again and only accepts the new settings if they lead to the same inverter, so reconfiguring can't accidentally point an entry at a different device and take its history with it.
+
+Reconfiguring keeps the connection type you chose during setup. To switch between a network and a serial connection, remove the integration and add it again with the other connection type.
 
 ## Supported functionality
 
 The **Sofar** integration provides the following entities.
 
+The inverter's power limits and its passive-mode setpoints each span several registers that it only accepts written together, so they are actions rather than entities. All of them require an administrator.
+
 ### Binary sensors
 
-- **Active power limit enabled**: Whether the inverter is currently applying the active power limit, rather than generating unrestricted. Set by the [Set active power limit](/actions/sofar.set_active_power_limit/) action, which leaves the limit itself stored but unused while this is off. Disabled by default.
+- **Active power limit enabled**: Whether the inverter is currently applying the active power limit, rather than generating unrestricted. Set by the [Set active power limit](/actions/sofar.set_active_power_limit/) action, which still writes the limit while this is off, but the inverter ignores it until it's enabled again. Disabled by default.
 - **Faults**: One diagnostic binary sensor per fault category, such as grid, battery, thermal, or communication. Each one turns on if any underlying fault bits in that category are currently active. Faults are grouped by category rather than by vendor register, since a single register can hold faults from more than one category at once. Combiner box, string fuse, input fuse, and AFCI (Arc-Fault Circuit Interrupter) faults are disabled by default, since PV and hybrid inverters don't have that hardware. The integration's diagnostics download includes the complete, decoded list of every currently active fault.
 
 ### Buttons
@@ -85,7 +113,7 @@ The **Sofar** integration provides the following entities.
 - **RTC sync**: Writes the current date and time to the inverter's clock.
 - **IV curve scan**: Starts a scan of the PV strings' I-V curves. Only shown for inverters with battery storage.
 
-### Select
+### Selects
 
 - **Charger use mode**: The battery charger's operating mode, such as self use, time of use, or feed-in priority. Only shown for inverters with battery storage.
 - **EPS mode**: Turns the EPS/backup output off and on, and whether it's allowed to cold-start from battery power alone. Only shown for inverters wired for EPS/backup power.
@@ -105,13 +133,11 @@ The **Sofar** integration reads a large number of sensors from the inverter. Onl
 - **Energy totals**: Import, export, load consumption, solar generation, and battery charge/discharge energy, both for today and all-time.
 - **Current settings**: The feed-in limit, the active power limit, and the passive-mode setpoints as they're currently stored on the inverter, so you can read back what the actions below have set.
 
-The overall totals and the readings most people need are enabled by default. Per-phase detail, daily energy counters, the battery configuration, and the current settings are disabled. To use one of them, enable it from the entity's settings.
+The readings most people need are enabled by default. Per-phase detail, the reactive power totals, daily energy counters, the battery configuration, and the current settings are disabled. To use one of them, enable it from the entity's settings.
 
-### Switch
+### Switches
 
 The integration adds one switch, named after the inverter itself, that stops and resumes its operation remotely. Turning it off puts the inverter into its waiting state rather than cutting power to it.
-
-The inverter's power limits and its passive-mode setpoints each span several registers that it only accepts written together, so they are actions rather than entities. All of them require an administrator.
 
 {% include integrations/actions.md %}
 
@@ -229,8 +255,8 @@ The **Sofar** {% term integration %} {% term polling polls %} the inverter's liv
 
 ## Known limitations
 
-- Only Modbus TCP connections are supported. Direct serial (RTU) connections aren't supported yet.
-- Only newer-generation Sofar inverters are recognized. Older, legacy models aren't supported yet.
+- Switching an existing entry between a network and a serial connection isn't possible through reconfiguration. Remove the integration and add it again instead.
+- Serial connections use 8 data bits, no parity, and 1 stop bit (8N1), which is what Sofar inverters use on their RS485 port. Only the baud rate can be changed.
 
 ## Troubleshooting
 
@@ -238,10 +264,11 @@ If these steps don't help, [open an issue on GitHub](https://github.com/home-ass
 
 ### Cannot connect to the inverter
 
-1. Make sure the inverter (or the Modbus TCP bridge it's connected through) is powered on and reachable on the network.
-2. Confirm the host and port are correct, and that nothing else is holding open the same Modbus connection.
-3. Check that Modbus is enabled on the inverter, if it has a setting for this.
-4. If it still fails, include the host, port, and Modbus unit ID in the issue report. If the integration is already added, also enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), reproduce the failure, and include the log.
+1. Make sure the inverter is powered on. If it's connected through a Modbus TCP bridge or an ESPHome serial proxy, make sure that device is also powered on and reachable on your network.
+2. For a network connection, confirm the host and port are correct, and that nothing else is holding open the same Modbus connection.
+3. For a serial connection, confirm the serial port is correct and the baud rate matches the one set on the inverter. Check the RS485 wiring: if A and B are swapped, the inverter doesn't answer.
+4. Check that Modbus is enabled on the inverter, if it has a setting for this.
+5. If it still fails, include the connection type, the connection settings, and the Modbus unit ID in the issue report. If the integration is already added, also enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), reproduce the failure, and include the log.
 
 ### Inverter isn't recognized
 

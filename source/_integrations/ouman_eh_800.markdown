@@ -92,6 +92,8 @@ Enabled by default (categorized as configuration):
 - **H1/H2 Temperature drop**, **Big temperature drop**: Offsets applied to the target when an automatic reduction is active.
 - **H1/H2 Room temperature fine tuning**: Manual offset for the room temperature target.
 - **H1 Constant temperature setpoint** (only when the heating mode is constant-temperature controller): The target supply water temperature.
+- **Autumn drying outdoor temperature limit** (on the main device): The 24-hour average outside temperature below which autumn drying activates. The setting is shared by H1 and H2.
+- **H1/H2 Autumn drying setpoint**: The amount the room temperature (with a room sensor) or the supply water temperature (without a room sensor) is raised while autumn drying is active.
 
 Disabled by default (see [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)):
 
@@ -116,6 +118,7 @@ The exact set of sensors depends on which features and circuits are active on yo
 - **H1/H2 valve position**: The current position of the mixing valve, in percent.
 - **H1/H2 room temperature**: The room temperature measured by the room sensor (when installed).
 - **H1/H2 room temperature setpoint**: The target room temperature.
+- **Return water temperature**, **Accumulator temperature**, **Boiler temperature** (on the main device, only when a measurement channel is assigned to that measurement): The temperature measured by the optional sensor.
 
 Additional diagnostic sensors are exposed but disabled by default. See [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities) to enable them if needed:
 
@@ -124,6 +127,7 @@ Additional diagnostic sensors are exposed but disabled by default. See [enabling
 - **H1 fine adjustment effect**: The temperature offset from the manual fine-adjustment.
 - **H1 room sensor potentiometer**: The room temperature offset from the room sensor's adjustment knob.
 - **H2 delayed outdoor temperature effect**: The delayed outdoor temperature effect applied to the H2 setpoint.
+- **H1/H2 autumn drying effect**: The temperature raise currently applied by autumn drying to the room temperature (with a room sensor) or supply water temperature (without a room sensor).
 
 ### Valve entities
 

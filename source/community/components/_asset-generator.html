@@ -1,0 +1,37 @@
+{%- assign ag_app = '/javascripts/community/asset-generator/app.js' | cache_buster | split: '?' | last -%}
+{%- assign ag_templates = '/javascripts/community/asset-generator/templates.js' | cache_buster | split: '?' | last -%}
+
+<dialog id="asset-generator" class="asset-generator" data-asset-generator-dialog
+    data-asset-generator-version="{{ ag_app }}{{ ag_templates }}" aria-label="Create a meetup graphic">
+    <button type="button" class="asset-generator-close" data-asset-generator-close aria-label="Close">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+    </button>
+
+    <div class="asset-generator-body">
+        <div class="asset-generator-panel">
+            <h2 class="asset-generator-eyebrow">Content</h2>
+
+            <div data-ag-controls></div>
+
+            <div class="asset-generator-actions">
+                <button type="button" class="button secondary" data-ag-download>Download PNG</button>
+                <span class="asset-generator-status" data-ag-status role="status"></span>
+            </div>
+        </div>
+
+        <div class="asset-generator-preview">
+            <h2 class="asset-generator-eyebrow">Preview</h2>
+
+            <div class="asset-generator-canvas">
+                <p class="asset-generator-loading" data-asset-generator-loading>Loading the generator…</p>
+                <div class="asset-generator-scaler" data-ag-scaler>
+                    <div class="asset-generator-stage" data-ag-stage></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</dialog>
+
+<script type="module" src="{{ '/javascripts/community/asset-generator/modal.js' | cache_buster }}"></script>

@@ -1,0 +1,48 @@
+/* Design tokens for the Astro components. Colors come from the values
+   the Jekyll build ships today (sass/homeassistant/_variables.scss and
+   the compiled stylesheets/screen.css); the scales below are the
+   theme, deliberately coarser than the one-off sizes in the old CSS.
+   Components pick the nearest step instead of a bespoke value. */
+
+:root {
+	--color-text: #222;
+	--color-text-muted: #555;
+	--color-text-inverse: #fff;
+	--color-link: #007fa8;
+	--color-highlight: #1abcf2;
+	--color-highlight-shade: #086585;
+
+	--color-page: #fbfbfb;
+	--color-surface: #fff;
+	--color-surface-subtle: #e8edf0;
+	--color-footer-surface: #f2f4f9;
+	--color-header-surface: rgb(251 251 251 / 80%);
+	--color-hover-wash: rgb(26 188 242 / 10%);
+	--color-hover-wash-inverse: rgb(255 255 255 / 15%);
+
+	--font-sans: "Instrument Sans", "Helvetica Neue", Helvetica, Arial,
+		sans-serif;
+	--font-heading: "Figtree", "Helvetica Neue", Arial, sans-serif;
+
+	--font-size-small: 0.75rem;
+	--font-size-medium: 0.875rem;
+	--font-size-large: 1rem;
+	--font-size-xlarge: 1.25rem;
+
+	--space-small: 0.5rem;
+	--space-medium: 0.75rem;
+	--space-large: 1rem;
+	--space-xlarge: 1.5rem;
+	--space-xxlarge: 2.5rem;
+
+	--radius-small: 0.5rem;
+	--radius-pill: 62.5rem;
+
+	--shadow-panel: 0 0 1px rgb(0 0 0 / 50%), 0 0.5rem 1.5rem rgb(0 0 0 / 10%);
+
+	/* The site's content gutter, its maximum width and the header bar. */
+	--layout-max-width: 97.5rem;
+	--layout-gutter: 1.5rem;
+	--layout-gutter-wide: 3rem;
+	--header-height: 4.25rem;
+}
