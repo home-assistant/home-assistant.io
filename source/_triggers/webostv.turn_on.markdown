@@ -1,6 +1,6 @@
 ---
 title: "TV is requested to turn on"
-trigger: webostv.turn_on_requested
+trigger: webostv.turn_on
 domain: webostv
 description: "Triggers when one or more LG webOS TVs are requested to turn on."
 related_triggers:
@@ -18,32 +18,51 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), select the LG webOS TV you want to monitor. You can also select an area, a floor, a device, or a label.
-5. From the triggers shown for that target, select **TV is requested to turn on**.
+4. Search for **TV is requested to turn on** and select it.
+5. Under **Devices**, **Entities**, or both, select the LG webOS TVs you want to monitor.
 6. Select **Save**.
 
 ### Options in the UI
 
-This trigger has no additional options beyond the target.
+Select at least one device or entity.
+
+{% options_ui %}
+Devices:
+  description: The LG webOS TVs to monitor.
+Entities:
+  description: The LG webOS TV media players to monitor.
+{% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `webostv.turn_on_requested`. A basic example looks like this:
+In YAML, refer to this trigger as `webostv.turn_on`. A basic example looks like this:
 
 {% example %}
 trigger: |
-  trigger: webostv.turn_on_requested
-  target:
-    entity_id: media_player.lg_webos_tv
+  trigger: webostv.turn_on
+  entity_id: media_player.lg_webos_tv
 {% endexample %}
 
 This fires every time Home Assistant requests `media_player.lg_webos_tv` to turn on.
 
 ### Options in YAML
 
-This trigger has no additional YAML options beyond the target.
+At least one of `device_id` or `entity_id` is required.
 
-{% include triggers/targets.md domain="media_player" %}
+{% options_yaml %}
+trigger:
+  description: The trigger type. For this trigger, use `webostv.turn_on`.
+  required: true
+  type: string
+device_id:
+  description: One or more device IDs of LG webOS TVs to monitor.
+  required: false
+  type: [string, list]
+entity_id:
+  description: One or more entity IDs of LG webOS TV media players to monitor.
+  required: false
+  type: [string, list]
+{% endoptions_yaml %}
 
 ## Good to know
 
@@ -51,8 +70,7 @@ This trigger has no additional YAML options beyond the target.
 - To turn on the TV from this trigger, add an action that can power it on, such as [Wake-on-LAN](/integrations/wake_on_lan/) or [HDMI-CEC](/integrations/hdmi_cec/).
 - For Wake-on-LAN, enable **LG Connect Apps** in the TV's **Network** settings, or **Mobile App** in the **General** settings on older models. The exact setting name varies by model and webOS version.
 - Wake-on-LAN works best when the TV is connected to your network with Ethernet, and usually only works when Home Assistant is on the same network as the TV.
-- This trigger needs a target. If you leave the target empty, the automation reports an error when it starts. Anything in the target that is not an LG webOS TV media player {% term entity %} is ignored.
-- When you target an area, a floor, or a label, Home Assistant keeps track of which TVs belong to it. If you add a TV to that area later, the trigger starts watching it as well.
+- On the TV's device page, the same trigger is listed as **Device is requested to turn on**. It works the same way.
 
 {% include triggers/try_it.md %}
 
@@ -63,7 +81,7 @@ This trigger has no additional YAML options beyond the target.
 When something requests the LG webOS TV to turn on, send a Wake-on-LAN magic packet to power it on over the network. Set up the [Wake-on-LAN integration](/integrations/wake_on_lan/) before using this example.
 
 - **Trigger**: TV is requested to turn on
-  - **Target**: Living room LG TV (`media_player.lg_webos_tv`)
+  - **Entities**: Living room LG TV (`media_player.lg_webos_tv`)
 - **Action**: Send magic packet
   - **MAC address**: `AA:BB:CC:DD:EE:FF`
 
@@ -73,9 +91,8 @@ When something requests the LG webOS TV to turn on, send a Wake-on-LAN magic pac
 automation: |
   alias: "Turn on LG webOS TV with Wake-on-LAN"
   triggers:
-    - trigger: webostv.turn_on_requested
-      target:
-        entity_id: media_player.lg_webos_tv
+    - trigger: webostv.turn_on
+      entity_id: media_player.lg_webos_tv
   actions:
     - action: wake_on_lan.send_magic_packet
       data:
@@ -84,40 +101,29 @@ automation: |
 
 {% enddetails %}
 
-### Automation: turn on a power strip before waking the living room TV
+### Automation: send a notification when the TV is requested to turn on
 
-When the LG webOS TV in the living room is requested to turn on, first switch on the smart power strip it is connected to, then send a Wake-on-LAN packet. This keeps the strip switched off while nothing is in use, and still gives the TV power before it is woken. The short wait gives the TV time to receive power before the packet arrives.
-
-The trigger targets the living room area, so the automation keeps working if you replace the TV. It assumes that area has one LG webOS TV, because the magic packet goes to a single MAC address. If you have more, target each TV in its own automation.
+When something requests the LG webOS TV to turn on, send a notification to your phone.
 
 - **Trigger**: TV is requested to turn on
-  - **Target**: Living room area
-- **Action**: Turn on switch
-  - **Target**: Living room TV strip (`switch.living_room_tv_strip`)
-- **Action**: Wait for time to pass
-  - **Duration**: 5 seconds
-- **Action**: Send magic packet
-  - **MAC address**: `AA:BB:CC:DD:EE:FF`
+  - **Entities**: Living room LG TV (`media_player.lg_webos_tv`)
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
-{% details "YAML example for powering a strip before waking the TV" %}
+{% details "YAML example for sending a notification when the TV is requested to turn on" %}
 
 {% example %}
 automation: |
-  alias: "Power the TV strip before waking the TV"
+  alias: "Notify when LG webOS TV is requested to turn on"
   triggers:
-    - trigger: webostv.turn_on_requested
-      target:
-        area_id: living_room
+    - trigger: webostv.turn_on
+      entity_id: media_player.lg_webos_tv
   actions:
-    - action: switch.turn_on
+    - action: notify.send_message
       target:
-        entity_id: switch.living_room_tv_strip
-    # Give the TV time to receive power before waking it
-    - delay:
-        seconds: 5
-    - action: wake_on_lan.send_magic_packet
+        entity_id: notify.my_device
       data:
-        mac: "AA:BB:CC:DD:EE:FF"
+        message: "The living room TV was requested to turn on."
 {% endexample %}
 
 {% enddetails %}
