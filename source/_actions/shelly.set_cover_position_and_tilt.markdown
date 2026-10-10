@@ -67,6 +67,11 @@ tilt_position:
 
 {% include actions/targets.md domain="cover" %}
 
+## Good to know
+
+- This action works only on Shelly generation 2 and later devices. Generation 1 covers are not supported.
+- Both **Position** and **Tilt position** are required. To change only one of them, use the standard [**Set cover position**](/actions/cover.set_cover_position/) or [**Set cover tilt position**](/actions/cover.set_cover_tilt_position/) actions instead.
+
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
@@ -104,11 +109,6 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
-
-## Good to know
-
-- This action works only on Shelly generation 2 and later devices. Generation 1 covers are not supported.
-- Both **Position** and **Tilt position** are required. To change only one of them, use the standard [**Set cover position**](/actions/cover.set_cover_position/) or [**Set cover tilt position**](/actions/cover.set_cover_tilt_position/) actions instead.
 
 {% include actions/stuck.md %}
 
