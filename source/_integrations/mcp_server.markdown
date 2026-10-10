@@ -176,26 +176,20 @@ If you use ChatGPT on chatgpt.com, your Home Assistant instance must be accessib
 
 ### Example: Claude Code
 
-Claude Code supports remote MCP servers, making it easy to connect to your Home Assistant instance:
+Claude Code connects to MCP servers over HTTPS only. Use the MCP server URL of your remotely accessible Home Assistant instance, as described in the [prerequisites](#prerequisites).
 
 1. Install [Claude Code](https://claude.com/product/claude-code) and log in.
-2. In your shell, run the following command:
+2. In your terminal, run the following command. Replace `<your_mcp_server_url>` with your MCP server URL.
 
    ```bash
-   claude mcp add-json "HA" '{
-     "type": "http",
-     "url": "https://<your_home_assistant_url>/api/mcp",
-     "oauth": {
-       "clientId": "http://localhost:12345",
-       "callbackPort": 12345
-     }
-   }' --client-secret
+   claude mcp add home-assistant --transport http <your_mcp_server_url>
    ```
-   The name `"HA"`, the URL `"https://<your_home_assistant_url>"`, and the callback port `"12345"` are examples; adjust them to match your setup. *(Note: `clientId: "http://localhost:12345"` is correct for the Claude Code CLI's internal local callback server. Do not change this to your Home Assistant URL.)*
 
-3. Start `claude` and type `/mcp`. Navigate to your MCP listing (for example, **HA**) and press Enter. Select **Authenticate** to open a web browser to your Home Assistant login page.
-4. After you authenticate to your Home Assistant server, Home Assistant will tell you that you can close the web browser.
-5. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
+3. Start `claude` and type `/mcp`.
+4. Select `home-assistant`.
+5. Select **Authenticate**.
+6. Log in to your Home Assistant instance.
+7. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
 
 ### Example: Codex
 
