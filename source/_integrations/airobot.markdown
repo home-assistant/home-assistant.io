@@ -56,7 +56,7 @@ After initial setup, the thermostat does not require internet connectivity to fu
 
 ### Ventilation unit
 
-1. Connect an Ethernet cable to the RJ45 port on the unit's enclosure, typically near the power cable input. If there is no RJ45 port on the enclosure, connect the cable to the **LAN** socket on the controller board.
+1. Connect the unit to your local network over Wi-Fi or Ethernet. For a wired connection, connect an Ethernet cable to the RJ45 port on the unit's enclosure, typically near the power cable input. If there is no RJ45 port on the enclosure, connect the cable to the **LAN** socket on the controller board.
 2. On the unit's controller, go to **Menu** > **Settings** > **Other** > **Modbus TCP** and set it to **ON**. Modbus TCP is disabled by default. The unit reboots and saves the IP address it received from your router as a static address.
 3. Note the unit's IP address. You can find it in your router's list of connected devices.
 
@@ -412,13 +412,16 @@ Home Assistant cannot reach the unit's Modbus TCP interface on port 502.
 1. **Check that Modbus TCP is enabled**:
    - On the unit's controller, go to **Menu** > **Settings** > **Other** > **Modbus TCP** and make sure it is **ON**.
 
-2. **Check the IP address**:
+2. **Check the network connection**:
+   - Make sure the unit is connected to your network. If it uses Wi-Fi, check the signal strength at the unit; a wired Ethernet connection is more reliable.
+
+3. **Check the IP address**:
    - The unit saves its IP address as static when Modbus TCP is first enabled. If your router has been reset or reconfigured since then, the address may have changed. Check your router's list of connected devices.
 
-3. **Check port 502**:
+4. **Check port 502**:
    - From the Home Assistant host, check that the port is open, for example with `nc -zv <unit-ip> 502`.
 
-4. **Disconnect other Modbus clients**:
+5. **Disconnect other Modbus clients**:
    - The unit answers one Modbus TCP client at a time. Disconnect any other Modbus client, such as a building management system or a diagnostic tool.
 
 {% enddetails %}
