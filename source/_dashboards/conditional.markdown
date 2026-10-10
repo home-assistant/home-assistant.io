@@ -275,7 +275,7 @@ Tests if a person or device tracker is in a zone. This condition works the same 
 
 ### Device
 
-Tests a condition that a device provides, for example, whether a light is on. This condition works the same way as the [Device conditions](/docs/scripts/conditions/#device-conditions) in automations. Set it up in the UI, because the options depend on the device.
+Tests a condition that a device provides, for example, whether a light is on. This condition works the same way as the [Device condition](/conditions/device/) in automations. Set it up in the UI, because the options depend on the device.
 
 ### And
 

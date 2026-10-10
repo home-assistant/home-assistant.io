@@ -236,7 +236,7 @@ For the full list of available conditions and its details, refer to the [Cover c
 
 ### Device conditions
 
-Set of conditions provided by a device.
+For setup steps, YAML options, and examples for the **Device** condition, refer to [Device](/conditions/device/).
 
 ### Fan conditions
 
