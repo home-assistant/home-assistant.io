@@ -2089,5 +2089,5 @@ actions:
 ```
 
 [conditions page]: /docs/scripts/conditions/
-[shorthand-template]: /docs/scripts/conditions/#template-condition-shorthand-notation
+[shorthand-template]: /conditions/template/#shorthand-notation
 [script variables]: /integrations/script/#variables

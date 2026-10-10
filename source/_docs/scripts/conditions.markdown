@@ -528,93 +528,11 @@ For details, refer to the [Temperature value](/conditions/temperature.is_value) 
 
 ### Template condition
 
-The template condition tests if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render `True`.
-
-```yaml
-conditions:
-  - alias: "Iphone battery above 50%"
-    condition: template
-    value_template: "{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}"
-```
-
-Within an automation, template conditions also have access to the `trigger` variable as [described here][automation-templating].
-
-{% important %}
-Be careful when combining `and`/`or` with a value that isn't already a boolean, such as a list, string, or number. In Python and Jinja, `and`/`or` don't always evaluate to a boolean. Instead, they return whichever operand determined the result. For example, if `some_list` is a non-empty list like `[255, 0, 0]`:
-
-{% example %}
-template: |
-  {{ some_list is defined and some_list }}
-output: |
-  [255, 0, 0]
-{% endexample %}
-
-This renders as the list itself, not `true`. Since a template condition only passes when the rendered result is the (case-insensitive) string `true`, the condition silently fails even though `some_list` is genuinely defined and non-empty. Force a real boolean with a comparison instead:
-
-```yaml
-conditions: "{{ some_list is defined and some_list | length > 0 }}"
-```
-{% endimportant %}
+For setup steps, YAML options, and examples for the **Template** condition, refer to [Template](/conditions/template/).
 
 #### Template condition shorthand notation
 
-The template condition has a shorthand notation that can be used to make your scripts and automations shorter.
-
-For example:
-
-```yaml
-conditions: "{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}"
-```
-
-Or in a list of conditions, allowing to use existing conditions as described in this
-chapter and one or more shorthand template conditions
-
-```yaml
-conditions:
-  - "{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}"
-  - condition: state
-    entity_id: alarm_control_panel.home
-    state: armed_away
-  - "{{ is_state('device_tracker.iphone', 'away') }}"
-```
-
-This shorthand notation can be used everywhere in Home Assistant where
-conditions are accepted. For example, in [`and`](#and-condition), [`or`](#or-condition)
-and [`not`](#not-condition) conditions:
-
-```yaml
-conditions:
-  - condition: or
-    conditions:
-      - "{{ is_state('device_tracker.iphone', 'away') }}"
-      - condition: numeric_state
-        entity_id: "sensor.temperature"
-        below: 20
-```
-
-It's also supported in the `repeat` action's `while` or `until` option, or in a `choose` action's `conditions` option:
-
-```yaml
-- while: "{{ is_state('sensor.mode', 'Home') and repeat.index < 10 }}"
-  sequence:
-    - ...
-```
-
-```yaml
-- choose:
-    - conditions: "{{ is_state('sensor.mode', 'Home') and repeat.index < 10 }}"
-      sequence:
-       - ...
-```
-
-It's also supported in script or automation `condition` actions:
-
-```yaml
-- condition: "{{ is_state('device_tracker.iphone', 'away') }}"
-```
-
-[template]: /docs/templating/
-[automation-templating]: /getting-started/automation-templating/
+For the shorthand notation of the **Template** condition, refer to [Shorthand notation](/conditions/template/#shorthand-notation).
 
 ### Text condition
 
