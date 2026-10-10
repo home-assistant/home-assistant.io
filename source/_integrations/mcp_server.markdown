@@ -57,17 +57,6 @@ Require an administrator account:
 
 Home Assistant implements the standard Model Context Protocol, including OAuth 2.0 with <abbr title="Proof Key for Code Exchange">PKCE</abbr>. It supports [OAuth Client ID Metadata Documents](https://datatracker.ietf.org/doc/draft-ietf-oauth-client-id-metadata-document/), so AI agents set up the client ID and callback URL automatically.
 
-### Long-lived access tokens
-
-Some MCP clients may not support OAuth, but may support access tokens. You may create a
-[Long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) to allow the client to access the API.
-
-1. Go to {% my profile_security title="**User profile** > **Security**" %}.
-2. Under **Long-lived access tokens**, select **Create token**.
-3. Copy the access token to use when configuring the MCP client LLM application.
-
-For more information about authentication in Home Assistant, refer to the [Authentication documentation](/docs/authentication/).
-
 ### Example: Claude
 
 Before you start, copy your MCP server URL as described in the [prerequisites](#prerequisites).
@@ -143,7 +132,7 @@ Claude Code connects to MCP servers over HTTPS only. Use the MCP server URL of y
 
 ### Example: Cursor
 
-Cursor connects to Home Assistant through [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy). This local MCP server acts as a gateway to the Home Assistant MCP server. You also need a [Long-lived access token](#long-lived-access-tokens).
+Cursor connects to Home Assistant through [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy). This local MCP server acts as a gateway to the Home Assistant MCP server. You also need a long-lived access token, which you can create in {% my profile_security title="**User profile** > **Security**" %}.
 
 1. Download and install [Cursor](https://www.cursor.com).
 2. Install `mcp-proxy` following the instructions in the [README](https://github.com/sparfenyuk/mcp-proxy).
@@ -202,7 +191,7 @@ Cursor connects to Home Assistant through [mcp-proxy](https://github.com/sparfen
 Mistral Vibe can connect to Home Assistant as a remote MCP server by using a long-lived access token. The Vibe CLI doesn't support OAuth for MCP servers yet.
 
 1. Install [Mistral Vibe](https://docs.mistral.ai/vibe/code/cli/install-setup) and run `vibe` once to complete the setup.
-2. Create a [Long-lived access token](#long-lived-access-tokens) from your Home Assistant account.
+2. Create a long-lived access token in {% my profile_security title="**User profile** > **Security**" %}.
 3. Set the `HOMEASSISTANT_TOKEN` environment variable to your access token in the shell where you start Vibe.
 4. Open `~/.vibe/config.toml` and add the following at the end of the file:
 
