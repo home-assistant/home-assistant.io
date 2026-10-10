@@ -26,7 +26,6 @@ The **Model Context Protocol Server** (<abbr title="Model Context Protocol">MCP<
   3. Next to the MCP server you want to use, select the copy icon {% icon "mdi:content-copy" %}. We recommend **My MCP** because it lets the AI agent control everything Home Assistant has access to.
 - An AI agent that supports MCP servers.
 - If the AI agent runs in the cloud, for example when you use it through a website, your Home Assistant instance must be accessible from the internet. Use [Home Assistant Cloud](/integrations/cloud/) or another method of [remote access](/docs/configuration/remote/).
-- If your AI agent does not support remote servers, you need an additional local MCP server remote gateway.
 
 For detailed configuration instructions, refer to the [Client configuration](#client-configuration) section.
 
@@ -203,6 +202,8 @@ Claude Code connects to MCP servers over HTTPS only. Use the MCP server URL of y
 3. Codex opens your Home Assistant instance in your web browser. Log in to your Home Assistant instance.
 
 ### Example: Cursor
+
+Cursor connects to Home Assistant through [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy). This local MCP server acts as a gateway to the Home Assistant MCP server. You also need a [Long-lived access token](#long-lived-access-tokens).
 
 1. Download and install [Cursor](https://www.cursor.com).
 2. Install `mcp-proxy` following the instructions in the [README](https://github.com/sparfenyuk/mcp-proxy).
