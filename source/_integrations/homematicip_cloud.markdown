@@ -193,6 +193,7 @@ Floor heating actuators are operated through the climate group and don't need th
 - Floor heating actuator – 12 channels, valve positions (`HMIP-FALMOT-C12`)
 - Fine dust sensor (`HmIP-SFD`)
 - Soil moisture sensor (`ELV-SH-SMSI`)
+- Ultrasonic distance sensor interface, distance and height (`ELV-SH-DUSI`)
 - Door lock pad (`HmIP-DLP`)
 - Carbon dioxide sensors (`HmIP-SCTH230`, `HmIP-WGTC`, `HmIPW-SCTHD`)
 
