@@ -56,7 +56,8 @@ Home Assistant validates the token before updating the entry. If the token is in
 
 Each configured feed creates one service device with the following entities:
 
-- **Event in progress** is on from the start of a participating import or export event until its end. It is off before and after the event, when no event is scheduled, or when you have opted out.
+- **Participation** shows whether your Axle account is **Opted in** or **Opted out**. The status is available even when no event is scheduled.
+- **Event in progress** is on from the start of a participating import or export event until its end. It is off before and after the event, when no event is scheduled, or when your account is opted out.
 - **Event type** shows whether the published event requests import from or export to the grid.
 - **Event start** shows when the event starts.
 - **Event end** shows when the event ends.
@@ -128,16 +129,16 @@ automation: |
 
 ## Data updates
 
-The integration {% term polling polls %} Axle every 10 minutes. All entities use the same update. Changes to the published schedule appear after the next successful update.
+The integration {% term polling polls %} Axle every 10 minutes. All entities use the same update. Changes to the published schedule and **Participation** status appear after the next successful update. If Axle does not provide your account's participation status, **Participation** shows an unknown state.
 
 **Event in progress** changes at the scheduled start and end times without waiting for the next update or making another request to Axle. It uses the latest schedule received, so a changed or canceled event is reflected after the next successful update.
 
-When Axle returns an empty schedule, **Event in progress** is off and the three event detail sensors show an unknown state. Events you have opted out of are excluded. If a request fails because of a temporary connection or service error, all entities become unavailable and recover after a successful update. Authentication failures stop polling; follow the steps in [Authentication fails](#authentication-fails) to replace the token.
+When Axle returns an empty schedule or your account is opted out, **Event in progress** is off and the three event detail sensors show an unknown state. If a request fails because of a temporary connection or service error, all entities become unavailable and recover after a successful update. Authentication failures stop polling; follow the steps in [Authentication fails](#authentication-fails) to replace the token.
 
 ## Known limitations
 
 - Each entry uses its own Axle API key. You can add another feed with a different key.
-- The integration reads the event schedule. It does not control your battery or inverter, or change your Axle participation mode.
+- The integration reads your account's participation status and event schedule. It is read-only and does not control your battery or inverter, or change your Axle participation mode.
 - Countdown and calendar entities are not provided.
 - The event information depends on Axle's cloud service and may change between updates.
 
@@ -157,11 +158,11 @@ Check your internet connection and whether you can access your Axle account. The
 
 ### The sensors show an unknown state
 
-Check whether Axle has scheduled an event for your account and whether you have opted out of it. An empty schedule is a valid response and does not indicate a connection failure.
+An unknown state on **Participation** means the last successful Axle response did not include the `opted_out` flag. It does not indicate whether an event is scheduled. An empty schedule is valid: **Event in progress** is off, and **Event type**, **Event start**, and **Event end** are unknown.
 
 ### Download diagnostics
 
-If you report a problem, [download diagnostics](/integrations/diagnostics/) from the Axle Energy integration. The file contains the latest saved event data and whether the last update succeeded. Your API key is not included. Downloading diagnostics does not request another update from Axle. Review the file before sharing it.
+If you report a problem, [download diagnostics](/integrations/diagnostics/) from the Axle Energy integration. The file contains the latest saved event data, the reported opt-out flag, and whether the last update succeeded. Your API key is not included. Downloading diagnostics does not request another update from Axle. Review the file before sharing it.
 
 ## Removing the integration
 
