@@ -122,7 +122,7 @@ sunday:
 Each time slot in a day's list has the following fields:
 
 - `from`: Required. The time the pump turns on, such as `06:00` or `06:10`. Times must be on a 10-minute grid.
-- `to`: Required. The time the pump turns off, on a 10-minute grid. Use `24:00` for the end of the day. It must be later than `from`.
+- `to`: Required. The time the pump turns off, on a 10-minute grid. Use `00:00` or `24:00` for the end of the day. It must be later than `from`.
 - `mode`: Required. The circulation mode for this slot. Which modes your device supports varies by model, for example `on`, `5/25-cycles`, or `5/10-cycles`. If you use a mode your device doesn't support, the action fails and the error message comes from your device.
 
 To turn off circulation for a day, pass an empty list for that day, for example `sunday: []`.
