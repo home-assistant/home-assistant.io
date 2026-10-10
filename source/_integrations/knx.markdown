@@ -487,7 +487,7 @@ Every telegram that matches an address pattern with its destination field will b
 
 ## KNX tools for AI conversation agents
 
-The KNX integration registers an <abbr title="Large Language Model">LLM</abbr> <abbr title="application programming interface">API</abbr> named **KNX**. It gives a conversation agent, and through the [Model Context Protocol Server](/integrations/mcp_server/) also an external <abbr title="Model Context Protocol">MCP</abbr> client, a set of tools to inspect your KNX installation and to interact with the bus.
+The KNX integration registers an <abbr title="Large Language Model">LLM</abbr> <abbr title="application programming interface">API</abbr> named **KNX**. It gives a conversation agent, and through the [Model Context Protocol](/integrations/mcp_server/) also an external <abbr title="Model Context Protocol">MCP</abbr> client, a set of tools to inspect your KNX installation and to interact with the bus.
 
 With these tools, an agent can answer questions such as "Which device sent the last telegram to 1/2/3?", "What is connected to line 1.1?", or "What is the current temperature on 4/0/1?". None of this requires a Home Assistant {% term entity %} for the group address in question.
 
@@ -505,7 +505,7 @@ The KNX API is not used by default. Select it on the {% term integration %} that
 2. Select the conversation agent integration, then select **Configure**.
 3. Add **KNX** to **Control Home Assistant**.
 
-To use the tools from an external MCP client instead, select **KNX** when you set up the [Model Context Protocol Server](/integrations/mcp_server/) integration, or point the client at `/api/mcp/knx`. Connecting to `/api/mcp/knx` requires an administrator token. The base `/api/mcp` endpoint serves the API you selected during setup and is also available to non-administrators.
+To use the tools from an external MCP client instead, select **KNX** when you set up the [Model Context Protocol](/integrations/mcp_server/) integration, or point the client at `/api/mcp/knx`. Connecting to `/api/mcp/knx` requires an administrator token. The base `/api/mcp` endpoint serves the API you selected during setup and is also available to non-administrators.
 
 ### Available tools
 

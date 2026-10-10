@@ -1,6 +1,7 @@
 ---
-title: Model Context Protocol Server
-description: Instructions on how to add a Model Context Protocol Server to Home Assistant.
+title: Model Context Protocol
+description: Instructions on how to add a Model Context Protocol server to Home Assistant.
+featured: true
 ha_category:
   - Voice
 ha_release: 2025.2
@@ -16,7 +17,7 @@ related:
 ha_quality_scale: silver
 ---
 
-The [Model Context Protocol](https://modelcontextprotocol.io) is an open protocol that standardizes how applications provide context to <abbr title="Large Language Models">LLMs</abbr>. The **Model Context Protocol Server** (MCP) integration enables using Home Assistant to provide context for <abbr title="Model Context Protocol">MCP</abbr> LLM Client Applications. For example, you can control your lights from Claude Desktop, or expose your Google Tasks to-do list as a tool.
+The [Model Context Protocol](https://modelcontextprotocol.io) is an open protocol that standardizes how applications provide context to <abbr title="Large Language Models">LLMs</abbr>. The **Model Context Protocol** (MCP) integration enables using Home Assistant to provide context for <abbr title="Model Context Protocol">MCP</abbr> LLM Client Applications. For example, you can control your lights from Claude Desktop, or expose your Google Tasks to-do list as a tool.
 
 Controlling Home Assistant is done by providing <abbr title="Model Context Protocol">MCP</abbr> clients with access to Home Assistant's Assist API. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}, and your <abbr title="Model Context Protocol">MCP</abbr> client can also read a real-time snapshot of that context. This gives your AI assistant a clear picture of your home's current state.
 
@@ -29,7 +30,7 @@ For detailed configuration instructions, refer to the [Client configuration](#cl
 
 {% include integrations/config_flow.md %}
 
-When you set up the integration, it exposes all LLM APIs and requires an administrator account. To change this, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Model Context Protocol Server**, and then select **Configure**.
+When you set up the integration, it exposes all LLM APIs and requires an administrator account. To change this, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Model Context Protocol**, and then select **Configure**.
 
 ## Configuration options
 
@@ -61,7 +62,7 @@ The Model Context Protocol follows a different pattern: An LLM application acts 
 a client and can connect to multiple MCP servers to provide context. See the
 [Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction#general-architecture) for more details.
 
-The Home Assistant Model Context Protocol Server integration implements the
+The Home Assistant Model Context Protocol integration implements the
 [Streamable HTTP protocol](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#streamable-http)
 allowing client-to-server communication using the stateless protocol. Some MCP clients only support
 [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio) transport,
