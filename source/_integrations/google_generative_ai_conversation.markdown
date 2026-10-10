@@ -66,24 +66,24 @@ If you choose to not use the recommended settings, you can configure the followi
 Model:
   description: Model used to generate response.
 Temperature:
-  description: Creativity allowed in the responses for models that support custom sampling. Higher values produce a more random and varied response. This setting applies only to older Gemini models and non-Gemini models.
+  description: Creativity allowed in the responses for models that support custom sampling. Higher values produce a more random and varied response.
 Top P:
-  description: Probability threshold for top-p sampling. This setting applies only to older Gemini models and non-Gemini models.
+  description: Probability threshold for top-p sampling. This setting applies only to models that support custom sampling.
 Top K:
-  description: Number of top-scored tokens to consider during generation. This setting applies only to older Gemini models and non-Gemini models.
+  description: Number of top-scored tokens to consider during generation. This setting applies only to models that support custom sampling.
 Maximum Tokens to Return in Response:
   description: The maximum number of words or "tokens" that the AI model should generate.
 Thinking budget:
   description: The token budget for internal reasoning before the model generates a response (Gemini 2.5 models only). Set this to `-1` to let the model decide automatically, `0` to disable reasoning (not available for Gemini 2.5 Pro), or a positive number for a custom budget.
 Thinking level:
-  description: The level of internal reasoning for Gemini 3 and later text models, including the latest text aliases. Supported levels depend on the model. If your selected level is unsupported, the integration uses the model default and keeps your saved choice. For example, Gemini 3.8 uses the model default when you select **Minimal**. Gemini 2.5 models use the thinking budget instead.
+  description: The level of internal reasoning for Gemini 3 and later text models, including the latest text aliases. You can select **Auto**, **Low**, **Medium**, or **High**. **Minimal** is unavailable on Pro models, the latest text aliases, and Gemini 3.6 and later models, except Gemini 3.6 Flash (not Flash-Lite). If your selected level is unsupported, the integration uses the model default and keeps your saved choice. For example, Gemini 3.8 uses the model default when you select **Minimal**. Gemini 2.5 models use the thinking budget instead.
 Safety settings:
   description: Thresholds for different [harmful categories](https://ai.google.dev/gemini-api/docs/safety-settings).
 Enable Google Search tool:
   description: Enables the model to [query Google Search](https://ai.google.dev/gemini-api/docs/grounding). This can only be enabled when the "Control Home Assistant" setting is set to "No control". See below for a workaround using it with "Assist".
 {% endconfiguration_basic %}
 
-Temperature, top-p, and top-k apply only to models that support custom sampling. For newer Gemini models and the latest text aliases, the integration omits these settings from requests and uses the model defaults. Your saved values remain available when you switch back to a supported older model. The integration also omits custom sampling for Gemini model names it does not recognize, so an unrecognized older model may use its defaults instead of your saved values.
+Temperature, top-p, and top-k apply to Gemini models with numeric versions before 3.6, except Gemini 3.5 Flash-Lite and Gemini 3.5 Transcribe. They also apply to Gemini Robotics-ER 1.6 and non-Gemini models. For other Gemini models, including the latest text aliases, the integration omits these settings from requests and uses the model defaults. Your saved values remain available when you switch back to a model that supports custom sampling. An unrecognized older Gemini model may use its defaults instead of your saved values.
 
 For text-to-speech, the same model-specific behavior applies to temperature. Thinking settings apply to supported text models. Switching models keeps your saved settings, while selecting the recommended settings resets the configurable options.
 
