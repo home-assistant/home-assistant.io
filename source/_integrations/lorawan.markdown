@@ -1,6 +1,6 @@
 ---
 title: LoRaWAN
-description: Shared support for LoRaWAN server and device integrations.
+description: Provide support for integrating LoRaWAN devices and backends into Home Assistant.
 ha_category:
   - Network
 ha_release: 2026.11
