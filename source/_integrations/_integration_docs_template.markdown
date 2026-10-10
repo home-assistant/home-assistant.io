@@ -198,7 +198,7 @@ The integration does not provide the ability to reboot, which can instead be don
 
 {% details "Can’t set up the device" %}
 
-### Symptom
+### Symptom: "This device can't be reached"
 
 When trying to set up the integration, the form shows the message “This device can’t be reached”.
 
@@ -219,7 +219,7 @@ This means the settings on the device are incorrect, since the device needs to b
 
 {% details "Pairing a Thread device fails" %}
 
-### Symptom
+### Symptom: The device is in pairing mode, but commissioning doesn't complete
 
 You are trying to add a Thread device through the Home Assistant Companion app. The device is in pairing mode, but the process fails or times out.
 

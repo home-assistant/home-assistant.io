@@ -83,7 +83,7 @@ for:
 
 If you use a schedule to track when deliveries are expected, you can send yourself a reminder when the door opens outside that time.
 
-- **Trigger**: State: Front door opened
+- **Trigger**: State changed: Front door opened
 - **Condition**: Schedule is off
   - **Target**: Delivery schedule
 - **Action**: Send a notification message

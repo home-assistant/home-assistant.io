@@ -112,7 +112,7 @@ Numbers are limited in the same way: the camera microphone level, the floodlight
 
 Selects are limited in the same way: the camera HDR mode, the floodlight light mode, and the alarm profile.
 
-Sensors are limited in the same way: the smart sensor battery, light, humidity and temperature readings with their trip timestamps, and the floodlight last motion.
+Sensors are limited in the same way: the smart sensor battery, signal quality, light, humidity and temperature readings with their trip timestamps, and the floodlight last motion.
 
 In API key only mode, binary sensors are limited to the states the public API reports: camera motion and smart detections other than package, which is an event {% term entity %}; floodlight "Is Dark" and motion; and smart sensor contact, motion, leak, tamper, and low battery. The doorbell chime binary sensor and the read-only mirrors of settings are not created, as the switch or light {% term entity %} already exposes the setting.
 
@@ -224,7 +224,8 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
 - **Events** - Cameras expose event entities for momentary motion and supported smart detections. Smart detection event entities include the raw Protect `event_source`, which distinguishes zone, line-crossing, and loitering detections. Package detection is provided as an event entity (`event.*_package`) rather than a binary sensor, because UniFi Protect reports it as a single, already-ended detection that a sustained binary sensor cannot represent.
 - **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
   - configuration sliders for Chime Type, Zoom Level, Microphone Sensitivity, and WDR Level
-  - configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds
+  - configuration switches Overlay Information, Smart Detections types, Status Light, High FPS mode, System Sounds
+  - configuration select for HDR mode (Auto, Always on, Always off)
   - configuration text and select for LCD Screen for doorbells to either set custom messages or use predefined messages
 - **Button** - A disabled by default button is added for each camera device. The button will let you reboot your camera device.
 
@@ -305,6 +306,7 @@ Each UniFi Protect key fob (USL-FOB) is added as a separate device in Home Assis
 - **Battery**: A diagnostic sensor with the remaining battery percentage.
 - **Battery low**: A diagnostic binary sensor that turns on when the fob reports a low battery.
 - **Signal strength**: A diagnostic sensor with the fob's signal strength in dBm. Disabled by default.
+- **Signal quality**: A diagnostic sensor with the fob's signal quality in percent. Disabled by default.
 - **Status**: A diagnostic sensor reporting the fob's presence as _Online_, _Recently seen_, _No recent heartbeat_, or _Device lost_.
 
 {% note %}
@@ -391,7 +393,7 @@ Four URLs for proxy API endpoints:
 
 `nvr_id` can either be the UniFi Protect ID of your NVR or the config entry ID for your UniFi Protect {% term integrations %}. `camera_id` can either be the UniFi Protect ID of your camera or an entity ID of any {% term entity %} provided by the UniFi Protect {% term integrations %} that can be reversed to a UniFi Protect camera (for example, an entity ID of a detected object sensor).
 
-The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is close to the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is close to the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my developer_states title="**Settings** > **Tools** > **States**" %} and find the event when the sensor started detecting motion.
+The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is close to the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is close to the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my tools_states title="**Settings** > **Tools** > **States**" %} and find the event when the sensor started detecting motion.
 
 ### Example notification automation with thumbnail
 

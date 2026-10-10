@@ -25,7 +25,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: device
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **OpenEVSE** {% term integration %} connects your Home Assistant installation to an [OpenEVSE](https://www.openevse.com/) electric vehicle charging station that runs the OpenEVSE Wi-Fi firmware. The integration talks to the charger locally over your home network, so it works without an internet connection and without a cloud account.
@@ -153,6 +153,8 @@ Diagnostic sensors that help with troubleshooting and that are disabled by defau
 - **Current shaper**: Enables or disables the power shaper feature to dynamically limit charging power based on whole-home electrical load.
 - **Manual override**: Toggles manual override on the charger to start or pause charging regardless of scheduled or automatic claim states.
 - **Solar PV divert**: Enables or disables solar divert (eco) mode to dynamically match charging output to surplus solar power generation.
+
+Home Assistant only enables or disables solar divert mode. It does not send solar production or grid import/export data from other Home Assistant integrations to the charger. For solar divert to operate, configure the OpenEVSE firmware with a live solar generation or grid import/export feed. Refer to the [OpenEVSE solar divert documentation](https://github.com/OpenEVSE/openevse_esp32_firmware/blob/master/docs/user/solar-divert.md) for setup instructions.
 
 ### Select
 

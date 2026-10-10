@@ -24,7 +24,7 @@ For a general debugging workflow, see [Debugging templates](/docs/templating/deb
 
 - Check the spelling of every name in the template. [`states`](/template-functions/states/) and `state` are different; `trigger.to_state` and `trigger.tostate` are different.
 - If you use a variable with `{% set name = value %}`, make sure the `set` runs before the variable is used.
-- If you expect the variable to come from an automation trigger (`trigger.*`) or a template entity (`this.*`), remember these only exist in those contexts. They are not available in the {% my developer_template title="Template editor" %}.
+- If you expect the variable to come from an automation trigger (`trigger.*`) or a template entity (`this.*`), remember these only exist in those contexts. They are not available in the {% my tools_template title="Template editor" %}.
 
 ## UndefinedError: 'dict object' has no attribute 'foo'
 
@@ -117,7 +117,7 @@ See [Types and conversion](/docs/templating/types/#iterables-look-like-lists-but
 **How to fix it.**
 
 - Use `states('sensor.temperature')` instead. The function version returns the text `'unknown'` for missing entities instead of raising an error, which is safer.
-- Verify the entity ID in {% my developer_states title="**Settings** > **Tools** > **States**" %}.
+- Verify the entity ID in {% my tools_states title="**Settings** > **Tools** > **States**" %}.
 
 ## No first item, sequence was empty
 

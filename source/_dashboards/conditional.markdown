@@ -88,6 +88,10 @@ card:
 
 ## Conditions options
 
+You can use conditions about the person viewing the dashboard and their device, such as **User**, **Screen**, **Location**, and **Time**. You can also use the same conditions as in automations, such as **Entity state**, **Entity numeric state**, **Template**, **Sun**, **Zone**, and **Device**.
+
+When you add or change an **Entity state** or **Entity numeric state** condition in the UI, it is saved in the same format as in automations, with `entity_id` instead of `entity`. The format described in this section keeps working.
+
 ### State
 
 Tests if an entity has a specified state.
@@ -256,6 +260,22 @@ weekdays:
 {% endconfiguration %}
 
 At least one of `after` or `before` must be used for this condition to be valid. Both can be used together to define a time range as in the example above.
+
+### Template
+
+Tests if a template renders `true`. This condition works the same way as the [Template condition](/docs/scripts/conditions/#template-condition) in automations and uses the same options.
+
+### Sun
+
+Tests the position of the sun, for example, whether it is after sunset. This condition works the same way as the [Sun conditions](/docs/scripts/conditions/#sun-conditions) in automations and uses the same options.
+
+### Zone
+
+Tests if a person or device tracker is in a zone. This condition works the same way as the [Zone conditions](/docs/scripts/conditions/#zone-conditions) in automations and uses the same options.
+
+### Device
+
+Tests a condition that a device provides, for example, whether a light is on. This condition works the same way as the [Device conditions](/docs/scripts/conditions/#device-conditions) in automations. Set it up in the UI, because the options depend on the device.
 
 ### And
 
