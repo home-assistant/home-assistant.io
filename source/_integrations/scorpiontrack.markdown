@@ -92,6 +92,16 @@ The **ScorpionTrack** integration {% term polling polls %} ScorpionTrack every 2
 
 Make sure the shared-location link is still active in ScorpionTrack and that the token was copied correctly. If you pasted the full URL, verify that it is the actual share URL and not the customer portal page address.
 
+### A repair says the share is unavailable
+
+If ScorpionTrack rejects the share or reports that it is unavailable, Home Assistant creates a repair in {% my repairs title="**Settings** > **System** > **Repairs**" %}. Vehicle updates are unavailable until access is restored.
+
+1. Open ScorpionTrack and check whether the share has expired or been revoked.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %} in Home Assistant. If ScorpionTrack provides an updated link for the same share, reconfigure its entry with that link. If the existing link works again, reload the entry instead.
+3. If you need a different share, add it as a new ScorpionTrack integration, then remove the old integration.
+
+The repair clears after a successful update or when you remove the affected integration. A temporary connection or response error does not create this repair.
+
 ### No vehicles appear after setup
 
 Confirm that the ScorpionTrack share still includes vehicles and that the share has not expired. If you add vehicles to an existing share, Home Assistant creates their entities on the next successful update. You do not need to reload the integration.
