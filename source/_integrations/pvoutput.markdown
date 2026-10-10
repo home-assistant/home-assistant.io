@@ -84,81 +84,117 @@ Sensors that were added by an earlier version of this integration are kept, even
 
 The integration polls PVOutput every 2 minutes over the internet for updated system status. PVOutput itself imposes rate limits on its API, so the poll interval is fixed and cannot be shortened.
 
-## Examples
+## PVOutput automation examples
 
-### Notify when generation drops below a threshold
+Use the PVOutput sensors to get notified about your solar system, or to run appliances on solar power. Create an automation in {% my automations title="**Settings** > **Automations & scenes**" %} with the trigger, conditions, and actions below.
 
-Send a mobile notification if your solar system is generating less than 100 W during the day, which may indicate a cloud cover event, shading, or a problem with the system:
+{% include docs/paste_yaml_tip.md %}
 
-```yaml
-alias: "Low solar generation alert"
-triggers:
-  - trigger: numeric_state
-    entity_id: sensor.my_system_power_generation
-    below: 100
-    for:
-      minutes: 15
-conditions:
-  - condition: sun
-    after: sunrise
-    after_offset: "01:00:00"
-  - condition: sun
-    before: sunset
-    before_offset: "-01:00:00"
-actions:
-  - action: notify.send_message
-    target:
-      entity_id: notify.my_device
-    data:
-      title: "Solar"
-      message: "Power generation is unexpectedly low."
-```
+### Automation: Notify when generation drops below a threshold
 
-### Notify when the uploader stops sending data
+Send a notification if your solar system is generating less than 100 W during the day, which may indicate cloud cover, shading, or a problem with the system.
 
-When your uploader stops sending data, PVOutput keeps returning the last status of the day, so the other sensors keep showing their last values. Send a notification if your system has not reported anything for an hour during the day:
+- **Trigger**: Numeric state, with the PVOutput **Power generation** sensor below `100` for 15 minutes
+- **Conditions**:
+  - Sun, after sunrise with an offset of 1 hour
+  - Sun, before sunset with an offset of minus 1 hour
+- **Action**: Notifications: Send a notification message
+  - **Message**: Power generation is unexpectedly low.
 
-{% raw %}
+{% details "YAML example for a low generation notification" %}
 
-```yaml
-alias: "PVOutput uploader stopped"
-triggers:
-  - trigger: template
-    value_template: >
-      {{ now() - states('sensor.my_system_last_reported') | as_datetime
-         > timedelta(hours=1) }}
-conditions:
-  - condition: sun
-    after: sunrise
-    before: sunset
-actions:
-  - action: notify.send_message
-    target:
-      entity_id: notify.my_device
-    data:
-      title: "Solar"
-      message: "PVOutput has not received data from your system for over an hour."
-```
+Replace the entity IDs with the ones of your PVOutput system and notification device.
 
-{% endraw %}
+{% example %}
+automation: |
+  alias: "Low solar generation alert"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.my_system_power_generation
+      below: 100
+      for:
+        minutes: 15
+  conditions:
+    - condition: sun
+      after: sunrise
+      after_offset: "01:00:00"
+    - condition: sun
+      before: sunset
+      before_offset: "-01:00:00"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Solar"
+        message: "Power generation is unexpectedly low."
+{% endexample %}
 
-### Run appliances when solar production is high
+{% enddetails %}
 
-Turn on a high-consumption appliance, such as a dishwasher or pool pump, when solar generation exceeds a threshold:
+### Automation: Notify when the uploader stops sending data
 
-```yaml
-alias: "Run dishwasher on solar"
-triggers:
-  - trigger: numeric_state
-    entity_id: sensor.my_system_power_generation
-    above: 2000
-    for:
-      minutes: 5
-actions:
-  - action: switch.turn_on
-    target:
-      entity_id: switch.dishwasher
-```
+When your uploader stops sending data, PVOutput keeps returning the last status of the day, so the other sensors keep showing their last values. Send a notification if your system has not reported anything for an hour while the sun is up.
+
+The template only becomes true during the day, so it resets every night and can trigger again the next day.
+
+- **Trigger**: Template, using the template from the YAML example below
+- **Action**: Notifications: Send a notification message
+  - **Message**: PVOutput has not received data from your system for over an hour.
+
+{% details "YAML example for a stalled uploader notification" %}
+
+Replace the entity IDs with the ones of your PVOutput system and notification device.
+
+{% example %}
+automation: |
+  alias: "PVOutput uploader stopped"
+  triggers:
+    - trigger: template
+      value_template: >
+        {{ is_state('sun.sun', 'above_horizon')
+           and has_value('sensor.my_system_last_reported')
+           and now() - states('sensor.my_system_last_reported') | as_datetime
+             > timedelta(hours=1) }}
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Solar"
+        message: "PVOutput has not received data from your system for over an hour."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Run appliances when solar production is high
+
+Turn on a high-consumption appliance, such as a dishwasher or pool pump, when solar generation exceeds a threshold.
+
+- **Trigger**: Numeric state, with the PVOutput **Power generation** sensor above `2000` for 5 minutes
+- **Action**: Switch: Turn on
+  - **Target**: your appliance switch
+
+{% details "YAML example for running an appliance on solar" %}
+
+Replace the entity IDs with the ones of your PVOutput system and appliance.
+
+{% example %}
+automation: |
+  alias: "Run dishwasher on solar"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.my_system_power_generation
+      above: 2000
+      for:
+        minutes: 5
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.dishwasher
+{% endexample %}
+
+{% enddetails %}
 
 ## Known limitations
 
@@ -166,7 +202,7 @@ actions:
 - Which sensors are added depends on what your PVOutput uploader sends. If your uploader only reports generation, the consumption, temperature, and voltage sensors are not added.
 - Sensors are never removed automatically. If your uploader stops sending a value, the matching sensor stays and shows as unknown.
 - The 2-minute polling interval is fixed to stay within PVOutput's API rate limits and cannot be changed.
-- PVOutput does not tell which timezone a system uses. The integration assumes your PVOutput system is in the same timezone as Home Assistant. If it is not, the last reported sensor is off by the difference.
+- PVOutput does not tell which time zone a system uses. The integration assumes your PVOutput system is in the same time zone as Home Assistant. If it is not, the last reported sensor is off by the difference.
 
 ## Troubleshooting
 
