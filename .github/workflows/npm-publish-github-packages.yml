@@ -1,0 +1,549 @@
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
+
+name: Node.js Package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm test
+
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com/
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+Here's the standard GitHub Actions workflow for publishing an npm package to GitHub Packages (this is the `npm-publish-github-packages.yml` starter workflow):
+
+```yaml
+name: Node.js Package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm test
+
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com/
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+```
+
+**Requirements to make this work:**
+
+1. **Scope the package name** in `package.json` — GitHub Packages requires it:
+   ```json
+   "name": "@your-username/your-package"
+   ```
+
+2. **Point publishing at the GitHub registry** in `package.json`:
+   ```json
+   "publishConfig": {
+     "registry": "https://npm.pkg.github.com/"
+   }
+   ```
+
+3. **`.npmrc`** (optional, if consumers need to install it) — the `setup-node` action with `registry-url` writes this automatically for the publish job.
+
+4. **Trigger**: The workflow fires when you create a GitHub Release. Bump the `version` in `package.json` before creating the release, or `npm publish` will fail with a version conflict.
+
+**Common tweaks:**
+
+- Publish on every push to `main` instead of on release:
+  ```yaml
+  on:
+    push:
+      branches: [main]
+  ```
+- Publish on tag pushes:
+  ```yaml
+  on:
+    push:
+      tags: ['v*']
+  ```
+- Add `--access public` to `npm publish` if the scope is on an org that allows public packages.
+- To publish to npmjs.org instead, change `registry-url` to `https://registry.npmjs.org/` and use an `NPM_TOKEN` secret instead of `GITHUB_TOKEN`.
+
+Want me to adapt it for a specific setup (monorepo, pnpm/yarn, provenance attestation, etc.)?That's the unmodified GitHub starter workflow. It works, but there are a few things that commonly bite people. Quick review:
+
+**What it does**
+- `build` job: checks out, sets up Node 20, runs `npm ci` + `npm test`.
+- `publish-gpr` job: runs only if `build` passes, publishes to GitHub Packages using the automatic `GITHUB_TOKEN`.
+
+**Things to check before it'll actually publish**
+
+1. **`package.json` name must be scoped** — GitHub Packages rejects unscoped names:
+   ```json
+   "name": "@your-org/your-package"
+   ```
+
+2. **Registry must be set in `package.json`**, otherwise `npm publish` goes to npmjs.org and fails auth:
+   ```json
+   "publishConfig": {
+     "registry": "https://npm.pkg.github.com/"
+   }
+   ```
+
+3. **`npm ci` requires a lockfile.** If `package-lock.json` isn't committed, both jobs fail immediately. Use `npm install` if you don't have one.
+
+4. **`npm ci` in `publish-gpr` is redundant-ish** but not harmful — it's there to install devDeps needed for any `prepublishOnly`/`prepare` build step. If you have no build step, you can swap it for `npm ci --omit=dev` or drop it.
+
+5. **`npm test` in `build` will fail if you have no test script.** The default `npm init` test script is a stub that exits 1. Either add real tests or delete that line.
+
+6. **Version conflicts** — the release trigger doesn't bump your version. `npm publish` fails if that version already exists. Bump `package.json` before creating the release.
+
+**Optional improvements**
+
+- Pin Node with a `.nvmrc` or matrix if you support multiple versions.
+- Add `provenance: true` to `setup-node` and `--provenance` to publish (npmjs.org only, not GPR).
+- If you're on pnpm/yarn, replace `npm ci`/`npm publish` accordingly and add the package manager setup step.
+- Add a `concurrency` block to avoid overlapping publishes on rapid releases.
+
+Want me to tailor this for a specific setup — monorepo, pnpm, scoped org, or adding a version-bump step?Lanjut — ini poin-poin yang biasanya baru ketemu setelah workflow jalan beberapa kali:
+
+**7. `GITHUB_TOKEN` dan permission**
+- `packages: write` sudah benar. Tapi kalau repo di bawah **organization**, pastikan di Settings → Actions → General → Workflow permissions diizinkan "Read and write".
+- `GITHUB_TOKEN` **tidak bisa** publish ke repo/org lain, dan tidak bisa trigger workflow lain. Kalau butuh itu, pakai PAT (`secrets.PAT`) — tapi hindari kalau tidak perlu.
+
+**8. Link package ke repo**
+GitHub Packages butuh metadata ini di `package.json`, kalau tidak package-nya "yatim" dan tidak muncul di tab Packages repo:
+```json
+"repository": {
+  "type": "git",
+  "url": "https://github.com/OWNER/REPO.git"
+}
+```
+
+**9. Install dari GitHub Packages di project lain**
+Konsumen butuh `.npmrc` sendiri:
+```
+@your-org:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+Dan mereka harus login pakai PAT dengan scope `read:packages`. Ini sering bikin bingung karena `npm install` biasa akan 401.
+
+**10. `prepare` / `prepublishOnly`**
+Kalau kamu pakai TypeScript atau bundler, `npm publish` akan menjalankan `prepare` otomatis. Pastikan `dist/` ada di `files` field:
+```json
+"files": ["dist"]
+```
+Kalau tidak, kamu akan publish source mentah tanpa build output.
+
+**11. Cache untuk mempercepat**
+```yaml
+- uses: actions/setup-node@v4
+  with:
+    node-version: 20
+    cache: npm
+```
+Bisa menghemat 20–60 detik per job kalau dependency banyak.
+
+**12. Idempotent publish (aman kalau re-run)**
+Kalau workflow di-rerun setelah publish sukses sebagian, `npm publish` akan gagal karena versi sudah ada. Guard sederhana:
+```yaml
+- run: |
+    npm publish --dry-run 2>/dev/null && npm publish || echo "Version already published, skipping"
+```
+Atau cek dulu:
+```yaml
+- run: |
+    PKG=$(node -p "require('./package.json').name")
+    VER=$(node -p "require('./package.json').version")
+    if npm view "$PKG@$VER" version --registry=https://npm.pkg.github.com/ >/dev/null 2>&1; then
+      echo "Already published"; exit 0
+    fi
+    npm publish
+```
+
+**13. Tag vs release**
+`types: [created]` hanya jalan saat release **dibuat**. Kalau kamu edit release atau upload asset, tidak trigger. Kalau mau publish saat tag di-push (tanpa bikin release), ganti:
+```yaml
+on:
+  push:
+    tags: ['v*']
+```
+Tapi hati-hati: `GITHUB_TOKEN` di push event punya permission berbeda, dan kamu harus checkout tag-nya secara eksplisit kalau perlu.
+
+**14. Multi-Node testing**
+Pisahkan build matrix dari publish supaya publish cuma sekali:
+```yaml
+jobs:
+  build:
+    strategy:
+      matrix:
+        node: [18, 20, 22]
+    ...
+  publish-gpr:
+    needs: build
+    ...
+```
+
+**15. Provenance (khusus npmjs.org)**
+GitHub Packages **tidak** mendukung `--provenance`. Kalau nanti pindah ke npmjs.org:
+```yaml
+permissions:
+  id-token: write
+  contents: read
+- run: npm publish --provenance --access public
+```
+
+**16. Private package?**
+Kalau package private, tambahkan `"private": false` di `package.json` — ya, kontra-intuitif, tapi `"private": true` akan memblokir `npm publish` sepenuhnya, sementara visibility private diatur di GitHub, bukan di `package.json`.
+
+Mau gue rangkai jadi satu file final yang sudah include cache + idempotent publish + matrix? Atau ada skenario spesifik (monorepo / pnpm / TS build) yang mau dibahas?Berikut lanjutan poin-poin tambahan yang sering terlewat, kali ini fokus ke race condition, keamanan, dan optimasi CI:
+
+**17. Race condition antara bump versi dan publish**
+Ini penyebab paling sering workflow gagal diam-diam. Jika workflow `release.yml` melakukan bump versi di `package.json` **setelah** tag dibuat, job publish akan checkout ref tag — yaitu commit **sebelum** bump. Akibatnya `npm publish` mencoba mempublish versi lama, yang berujung skip di npmjs.org atau **hard failure** di GitHub Packages.
+
+Solusinya: upload file hasil bump sebagai artifact, lalu download di job publish setelah checkout:
+```yaml
+# di job validate (setelah bump)
+- uses: actions/upload-artifact@v4
+  with:
+    name: bumped-manifests
+    path: |
+      package.json
+      package-lock.json
+    retention-days: 3
+    if-no-files-found: error
+
+# di job publish (setelah checkout)
+- uses: actions/download-artifact@v4
+  with:
+    name: bumped-manifests
+```
+`download-artifact@v4` mengekstrak langsung ke `$GITHUB_WORKSPACE` tanpa subdirektori, sehingga file stale tertimpa dengan benar.
+
+**18. Idempotency guard untuk GitHub Packages**
+Di npmjs.org, publish ulang versi yang sama akan di-skip. Tapi GitHub Packages akan **hard-fail dengan 409 Conflict**. Tambahkan guard sebelum publish:
+```yaml
+- name: Check if version already published
+  id: check-ghp
+  run: |
+    PKG=$(node -p "require('./package.json').name")
+    VER=$(node -p "require('./package.json').version")
+    if npm view "$PKG@$VER" version --registry=https://npm.pkg.github.com/ >/dev/null 2>&1; then
+      echo "already_published=true" >> $GITHUB_OUTPUT
+    else
+      echo "already_published=false" >> $GITHUB_OUTPUT
+    fi
+
+- run: npm publish
+  if: steps.check-ghp.outputs.already_published != 'true'
+```
+Ini membuat rerun setelah kegagalan parsial menjadi aman.
+
+**19. Concurrency group untuk mencegah publish bersamaan**
+Kalau kamu publish beberapa paket dalam monorepo secara paralel, atau ada dua release cepat berturut-turut, dua job bisa saling menimpa. Tambahkan concurrency di level workflow:
+```yaml
+concurrency:
+  group: package-publish-${{ github.event.release.tag_name }}
+  cancel-in-progress: false
+```
+Gunakan `cancel-in-progress: false` untuk publish — kamu **tidak** ingin membatalkan publish yang sedang berjalan.
+
+**20. Dist-tag untuk pre-release**
+`npm publish` secara default menandai versi sebagai `latest`. Untuk beta/rc, gunakan `--tag`:
+```yaml
+- run: npm publish --tag beta
+  env:
+    NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+Catatan: di **UI GitHub Packages**, label yang terlihat tetap "latest" — tapi `npm dist-tag ls` akan menunjukkan tag yang benar.
+
+**21. Batas 1.000 versi per paket di GitHub Packages**
+GitHub Packages membatasi jumlah versi yang bisa dipublish per paket. Jika kamu melewati 1.000 versi, akan muncul masalah performa dan timeout. Untuk paket dengan rilis sangat sering (misalnya nightly build), pertimbangkan untuk **unpublish versi lama** secara berkala, atau pindah ke npmjs.org untuk channel utama.
+
+**22. Jangan commit `NODE_AUTH_TOKEN` di `.npmrc`**
+`setup-node` dengan `registry-url` otomatis menulis `.npmrc` di runner yang mereferensikan `NODE_AUTH_TOKEN` dari environment variable. Pastikan file `.npmrc` di repo **tidak** berisi token literal. Tambahkan `.npmrc` ke `.gitignore` jika kamu generate lokal.
+
+**23. `always-auth` sudah dihapus**
+Jika kamu menemukan contoh workflow lama yang menggunakan `always-auth: true` di `setup-node`, hapus. Input ini sudah **removed** di `setup-node@v6` dan tidak akan didukung lagi di npm versi mendatang. `registry-url` + `NODE_AUTH_TOKEN` sudah cukup.
+
+**24. OIDC Trusted Publishing (untuk npmjs.org, bukan GitHub Packages)**
+Jika nanti kamu pindah ke npmjs.org, kamu bisa **menghapus `NPM_TOKEN` sepenuhnya** dan pakai OIDC:
+```yaml
+permissions:
+  id-token: write
+  contents: read
+steps:
+  - uses: actions/setup-node@v7
+    with:
+      node-version: '24'
+      registry-url: 'https://registry.npmjs.org'
+  - run: npm publish --provenance --access public
+```
+Syarat: npm CLI **≥ 11.5.1** dan Node **≥ 22.14.0**. Trusted publishing **tidak didukung** di GitHub Packages (hanya GitHub-hosted runners).
+
+**25. `packageManager` field untuk caching otomatis**
+`setup-node@v6` mengaktifkan caching **secara otomatis** untuk npm jika `packageManager` atau `devEngines.packageManager` di `package.json` diset ke `"npm"`. Untuk pnpm/yarn, caching tetap manual. Ini bisa menghemat waktu CI secara signifikan tanpa konfigurasi tambahan.
+
+**26. `files` field wajib untuk TypeScript**
+Kalau kamu pakai `tsc`, pastikan `dist/` masuk ke `files` di `package.json`:
+```json
+"files": ["dist"]
+```
+Tanpa ini, `npm publish` akan mengirim source mentah **tanpa build output**, dan package akan rusak saat diinstall. `prepare` script akan menjalankan build, tapi hanya file yang ada di `files` yang diikutsertakan.
+
+**27. Mirror GitHub Packages sering menjadi "trap"**
+Jika kamu punya package di npmjs.org dan ingin mirror ke GitHub Packages, perintah install yang ditampilkan di halaman package GitHub Packages akan **404** karena scope-nya tidak ada di registry.npmjs.org. Pengguna yang mencoba `npm install @scope/package` tanpa `.npmrc` yang diarahkan ke GitHub Packages akan gagal. Pertimbangkan apakah mirror benar-benar diperlukan, atau cukup publish ke satu registry saja.
+
+**28. `npm ci` vs `npm install` di job publish**
+`npm ci` membutuhkan `package-lock.json` yang **komitted**. Jika lockfile tidak ada, gunakan `npm install`. Di job publish, `npm ci` biasanya hanya diperlukan jika ada `prepare` script yang butuh devDependencies. Jika tidak ada build step, bisa diganti dengan `npm ci --omit=dev` atau dihilangkan sama sekali.
+
+**29. Pin action ke SHA, bukan tag**
+Untuk keamanan supply chain, pertimbangkan pin action ke commit SHA penuh alih-alih tag versi:
+```yaml
+- uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+- uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
+```
+Ini mencegah tag di-hijack jika maintainer action compromised.
+
+**30. Matrix testing tanpa publish berulang**
+Kalau kamu test di beberapa versi Node, pisahkan job:
+```yaml
+jobs:
+  test:
+    strategy:
+      matrix:
+        node: [18, 20, 22]
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm ci && npm test
+
+  publish-gpr:
+    needs: test   # hanya jalan sekali setelah semua matrix selesai
+```
+Tanpa pemisahan ini, kamu akan mempublish berulang kali di setiap versi Node.
+
+Mau gue rangkai jadi satu file final yang sudah include concurrency + idempotent guard + cache + OIDC (kalau pindah ke npmjs.org)?Lanjut — kali ini fokus ke monorepo, release automation, dan hal-hal operasional yang baru muncul setelah paket dipakai orang lain:
+
+**31. Monorepo dengan npm/pnpm/yarn workspaces**
+Publish satu paket dari workspace butuh `--workspace` atau `-w`:
+```yaml
+- run: npm publish --workspace=@your-org/pkg-a
+  env:
+    NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+Atau publish semua workspace yang versinya berubah:
+```yaml
+- run: npm publish --workspaces --access restricted
+```
+Hati-hati: `--workspaces` akan mencoba publish **semua** workspace, termasuk yang versinya tidak berubah — dan itu akan 409 di GitHub Packages. Guard idempotency (poin 18) jadi wajib di sini.
+
+**32. Changesets untuk versioning otomatis**
+Alih-alih bump manual, pakai [changesets](https://github.com/changesets/changesets):
+```yaml
+- uses: changesets/action@v1
+  with:
+    publish: npm run release
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+Changesets akan membuat PR "Version Packages", dan saat PR itu di-merge, action ini otomatis publish. Cocok untuk monorepo karena menangani dependency antar-paket.
+
+**33. semantic-release**
+Alternatif changesets, publish otomatis dari commit message:
+```yaml
+- run: npx semantic-release
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+Tapi semantic-release **belum tentu** mendukung GitHub Packages dengan baik — plugin `@semantic-release/npm` default ke registry.npmjs.org. Perlu konfigurasi `publishConfig.registry` eksplisit.
+
+**34. Konvensi tag: `v1.2.3` vs `1.2.3`**
+Kalau trigger pakai `tags: ['v*']`, ekstrak versi dengan:
+```yaml
+- run: echo "VERSION=${GITHUB_REF_NAME#v}" >> $GITHUB_OUTPUT
+  id: ver
+```
+Lalu verifikasi cocok dengan `package.json`:
+```yaml
+- run: |
+    PKG_VER=$(node -p "require('./package.json').version")
+    if [ "$PKG_VER" != "${{ steps.ver.outputs.VERSION }}" ]; then
+      echo "Tag ${{ steps.ver.outputs.VERSION }} != package.json $PKG_VER"
+      exit 1
+    fi
+```
+Ini mencegah publish versi yang salah karena lupa bump.
+
+**35. Deteksi pre-release otomatis**
+Kalau tag mengandung `-beta`, `-rc`, atau `-alpha`, publish dengan dist-tag yang sesuai:
+```yaml
+- run: |
+    VER=$(node -p "require('./package.json').version")
+    if [[ "$VER" == *"-"* ]]; then
+      TAG=$(echo "$VER" | sed -E 's/.*-([a-z]+).*/\1/')
+      npm publish --tag "$TAG"
+    else
+      npm publish
+    fi
+```
+
+**36. Dry-run sebelum publish asli**
+Selalu jalankan `npm pack --dry-run` dulu untuk melihat file apa yang akan dikirim:
+```yaml
+- run: npm pack --dry-run
+```
+Output-nya menunjukkan daftar file dan ukuran tarball. Kalau `node_modules` atau `.env` masuk ke daftar, **hentikan** dan perbaiki `files`/`.npmignore` dulu.
+
+**37. SBOM (Software Bill of Materials)**
+Untuk kepatuhan supply chain, generate SBOM dan lampirkan ke release:
+```yaml
+- uses: anchore/sbom-action@v0
+  with:
+    format: spdx-json
+    output-file: sbom.spdx.json
+- uses: softprops/action-gh-release@v2
+  with:
+    files: sbom.spdx.json
+```
+
+**38. Attestations (hanya npmjs.org)**
+GitHub Packages tidak mendukung, tapi kalau pindah ke npmjs.org:
+```yaml
+permissions:
+  id-token: write
+  contents: read
+  attestations: write
+- run: npm publish --provenance --access public
+```
+Ini membuat attestation yang bisa diverifikasi dengan `npm audit signatures`.
+
+**39. Visibility package di GitHub Packages**
+Default-nya package mewarisi visibility repo. Untuk mengubah:
+- Buka halaman package → Package settings → Danger Zone → Change visibility.
+- Atau lewat API: `PATCH /user/packages/{package_type}/{package_name}`.
+
+**40. Cross-repo publish**
+Kalau workflow di repo A mau publish ke repo B, `GITHUB_TOKEN` **tidak bisa** — perlu PAT (classic) dengan scope `write:packages`:
+```yaml
+env:
+  NODE_AUTH_TOKEN: ${{ secrets.PAT_WITH_PACKAGES_WRITE }}
+```
+Sebaiknya gunakan fine-grained PAT yang dibatasi hanya ke repo target.
+
+**41. Debugging publish failure**
+Kalau gagal tanpa pesan jelas, tambahkan `--loglevel verbose`:
+```yaml
+- run: npm publish --loglevel verbose
+```
+Log lengkap akan muncul di output Actions. Cek juga `~/.npm/_logs/` — meskipun di runner akan hilang setelah job selesai, jadi lebih baik upload sebagai artifact:
+```yaml
+- uses: actions/upload-artifact@v4
+  if: failure()
+  with:
+    name: npm-logs
+    path: ~/.npm/_logs/
+```
+
+**42. Deprecate versi lama**
+Kalau ada bug di versi yang sudah terpublish, **jangan unpublish** (bisa merusak konsumen). Deprecate saja:
+```bash
+npm deprecate "@your-org/pkg@<1.2.3" "Bug in resolver, upgrade to >=1.2.3"
+```
+Bisa dijalankan manual, atau tambahkan sebagai job terpisah di workflow.
+
+**43. Rename package**
+GitHub Packages **tidak mendukung rename**. Kalau kamu rename package, konsumen harus ganti nama di `package.json`. Tidak ada redirect. Pertimbangkan untuk publish package baru dengan nama baru sambil tetap maintain yang lama untuk sementara.
+
+**44. Rate limit GitHub Packages**
+GitHub Packages punya rate limit yang berbeda dari API GitHub. Untuk organisasi besar dengan banyak CI, publish bisa throttle. Solusinya: cache `npm ci` dan hindari publish berulang (idempotency guard).
+
+**45. `.npmignore` vs `files`**
+Gunakan **salah satu**, jangan keduanya. `files` lebih eksplisit dan lebih aman (whitelist). `.npmignore` adalah blacklist — mudah lupa menambahkan pattern baru, dan file sensitif bisa bocor. Rekomendasi: selalu pakai `files`.
+
+**46. Lifecycle scripts berbahaya**
+`preinstall`, `postinstall`, `prepare` akan dijalankan oleh konsumen saat `npm install`. Ini vektor serangan supply chain yang nyata. Untuk package yang akan dipakai orang lain, minimalkan lifecycle script — hanya `prepare` untuk build, dan hindari `postinstall` yang menjalankan network call.
+
+**47. Package signing (npmjs.org)**
+npmjs.org mendukung signing dengan GPG. GitHub Packages tidak. Kalau kamu butuh signing untuk compliance, hanya tersedia di npmjs.org.
+
+**48. Renovate / Dependabot untuk action**
+Jangan biarkan action ketinggalan versi. Dependabot bisa update workflow:
+```yaml
+# .github/dependabot.yml
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+```
+Ini otomatis membuat PR saat `actions/checkout@v4` naik ke `v5`.
+
+**49. Scheduled publish (nightly)**
+Untuk nightly build, jangan pakai trigger `release`. Gunakan `schedule`:
+```yaml
+on:
+  schedule:
+    - cron: '0 2 * * *'
+```
+Dan append versi dengan timestamp:
+```yaml
+- run: npm version "0.0.0-nightly.$(date +%Y%m%d)" --no-git-tag-version
+- run: npm publish --tag nightly
+```
+
+**50. Dokumentasi konsumen**
+Sertakan section di README tentang cara install dari GitHub Packages, termasuk contoh `.npmrc`. Ini mengurangi pertanyaan "kenapa 404?" yang sering muncul. Contoh:
+```markdown
+## Install from GitHub Packages
+
+Create `.npmrc` in your project:
+
+@your-org:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+
+Then `npm install @your-org/pkg`.
+```
+
+Kalau mau, gue bisa rangkai semua ini jadi template workflow final yang production-ready — termasuk matrix test, idempotency guard, concurrency, SBOM, dan notifikasi. Tinggal bilang setup-nya (monorepo / single package, npm / pnpm / yarn, TS / JS).
