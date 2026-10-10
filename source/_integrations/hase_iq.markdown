@@ -55,7 +55,6 @@ The integration adds a device for the stove, with the following sensors.
   - **Values**: Idle (no fire), Heating up, Nominal (the stove has reached its nominal temperature), Needs wood, and Burning out (the fire is dying down, don't add wood).
 - **Temperature**
   - **Description**: The temperature in the firebox, in °C.
-  - **Remarks**: Only reported while the stove is heating up. Unknown in the other phases.
 - **Heat-up**
   - **Description**: How far the stove is through its heat-up, in percent.
   - **Remarks**: Only reported while the stove is heating up. Unknown in the other phases.
