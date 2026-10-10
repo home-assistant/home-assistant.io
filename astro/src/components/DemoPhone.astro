@@ -1,0 +1,143 @@
+---
+// Phone-shaped frame running the live Home Assistant demo
+// (demo.home-assistant.io) on wide screens, and a static screenshot of
+// it, linking to the demo, on smaller ones.
+//
+// Ports the `.hero-demo` column of `source/_includes/site/hero_unit.html`
+// and its rules in `sass/homeassistant/homepage/_hero_unit.scss`.
+// Styling copies the structure and cleans the surface, as agreed.
+//
+// Deliberate differences from the Jekyll rendering, all agreed:
+//   - The demo still loads on the visitor's first interaction (scroll,
+//     pointer, touch or key), so it stays out of page-load metrics.
+//     The script now skips a frame that is hidden, where the live site
+//     loaded the full demo on phones too, behind `display: none`.
+//   - The frame switches to the screenshot below the site's desk
+//     breakpoint (1140px) instead of at 760px.
+//   - The frame's height follows the window, between 37.5rem and its
+//     drawn 50rem, so the whole phone stays in view on shorter screens.
+//   - The bezel is two white rings around a brand-blue gap instead of
+//     a `double` border, whose transparent gap only reads as two rings
+//     over the hero's gradient and merges into one on other backgrounds.
+//   - The commented-out mouse-tilt script and the unused `floaty-demo`
+//     and `box-shadow-color` keyframes are not carried over.
+import "../styles/tokens.scss";
+import loadingUrl from "../assets/demo-phone-loading.webp?url";
+import screenshotUrl from "../assets/demo-phone-screenshot.png?url";
+---
+
+<div class="demo-phone">
+  <div class="frame">
+    <div class="screen">
+      <img src={loadingUrl} alt="" width="640" height="1136" loading="lazy" />
+      <iframe
+        title="Home Assistant demo"
+        data-demo-src="https://demo.home-assistant.io/?frontpage"></iframe>
+    </div>
+  </div>
+  <a
+    class="screenshot"
+    href="https://demo.home-assistant.io/"
+    target="_blank"
+    rel="noopener"
+  >
+    <img
+      src={screenshotUrl}
+      alt="Home Assistant screenshot"
+      width="400"
+      height="828"
+      loading="lazy"
+    />
+  </a>
+</div>
+
+<script>
+  // Load the demo on the first interaction rather than with the page.
+  // Hidden frames (small screens show the screenshot) are left alone.
+  const events = ["scroll", "click", "mousemove", "touchstart", "keydown"];
+  const controller = new AbortController();
+
+  const load = () => {
+    controller.abort();
+    for (const frame of document.querySelectorAll<HTMLIFrameElement>(
+      "iframe[data-demo-src]",
+    )) {
+      if (frame.checkVisibility()) frame.src = frame.dataset.demoSrc ?? "";
+    }
+  };
+
+  for (const type of events) {
+    addEventListener(type, load, { passive: true, signal: controller.signal });
+  }
+</script>
+
+<style lang="scss">
+  @use "../styles/breakpoints";
+
+  .frame {
+    display: none;
+  }
+
+  .screenshot {
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+
+    img {
+      display: block;
+      height: auto;
+      max-width: 100%;
+    }
+  }
+
+  @media only screen and (min-width: breakpoints.$desk) {
+    .screenshot {
+      display: none;
+    }
+
+    /* The phone is artwork: its bezel, corner radii and drop shadow
+       are drawn for this frame, not taken from the theme. The bezel is
+       two white rings with a filled gap between them (the frame's
+       border and the screen's), so it looks the same on any
+       background; a CSS `double` border leaves the gap transparent. */
+    .frame {
+      background: var(--color-highlight);
+      border: 0.25rem solid var(--color-text-inverse);
+      border-radius: 3rem;
+      box-shadow: 1.5rem 4rem 4rem hsl(220 100% 25% / 50%);
+      display: block;
+      margin: 0 auto;
+      padding: 0.25rem;
+      width: fit-content;
+    }
+
+    .screen {
+      border: 0.25rem solid var(--color-text-inverse);
+      border-radius: 2.5rem;
+      box-sizing: border-box;
+      display: grid;
+      height: clamp(37.5rem, 100svh - var(--header-height) - 5rem, 50rem);
+      max-width: 100%;
+      overflow: hidden;
+      width: 25rem;
+
+      /* Poster and demo share the one grid cell; the demo paints over
+         the poster once it has loaded. */
+      img,
+      iframe {
+        grid-area: 1 / 1;
+        height: 100%;
+        width: 100%;
+      }
+
+      img {
+        object-fit: cover;
+      }
+
+      iframe {
+        border: 0;
+        position: relative;
+      }
+    }
+  }
+</style>
