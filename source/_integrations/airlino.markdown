@@ -198,7 +198,7 @@ This integration follows standard integration removal.
 
 {% details "AirLino failed to be added to multiroom group" %}
 
-### Symptom: “Error: `Devicename` not a media renderer”
+### Symptom: "Error: `Devicename` not a media renderer"
 
 When trying to set up a multiroom group and adding a specific device, the error message "`Devicename` not a media renderer" is shown.
 
