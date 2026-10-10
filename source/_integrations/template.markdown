@@ -936,14 +936,14 @@ Position:
   description: A template that gets the position of the cover.
 Actions on set position:
   description: The action or actions run when a position is set.
-Supported speeds:
-  description: The speeds the cover supports. If set, the actions on open, close, and set position receive the requested speed in the variable `speed`.
 Device class:
   description: The [device class](/integrations/cover/#device-class) used to pick the cover's state wording and icon.
 Device:
   description: An existing device to attach this helper to.
 Availability:
   description: A template that gets the available state of the entity.
+Supported speeds:
+  description: The speeds the cover supports. If set, the actions on open, close, and set position receive the requested speed in the variable `speed`. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
