@@ -162,7 +162,7 @@ device:
       required: false
       type: string
 device_class:
-  description: Sets the [class of the device](/integrations/valve/#device_class), changing the device state and icon that is displayed on the frontend. The `device_class` can be `null`.
+  description: Sets the [device class](/integrations/valve/#device-class), which identifies what flows through the valve and controls the icon displayed in the UI. The `device_class` can be `null`.
   required: false
   type: string
 enabled_by_default:

@@ -25,12 +25,11 @@ A speech-to-text (STT) entity allows other integrations or applications to strea
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a speech-to-text entity
+## Speech-to-text states
 
-Every speech-to-text entity keeps track of the timestamp of when the last time
-the speech-to-text entity was used to process speech.
+The {% term state %} of a speech-to-text entity is a timestamp showing the date and time when the entity was last used to process speech. Home Assistant stores the timestamp in UTC, for example, `2026-01-01T12:00:00.123456+00:00`. The Home Assistant interface shows it in your local date and time format.
 
-In addition, the entity can have the following states:
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.

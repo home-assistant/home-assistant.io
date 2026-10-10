@@ -19,6 +19,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - switch
   - water_heater
 ha_dhcp: true
 ha_integration_type: hub

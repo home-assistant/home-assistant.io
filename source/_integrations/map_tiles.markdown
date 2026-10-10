@@ -15,4 +15,6 @@ The **Map tiles** {% term integration %} serves the base map that you see behind
 
 The map tiles come from the [OpenStreetMap Foundation](https://osmfoundation.org/) tile servers and are based on OpenStreetMap data from its contributors. This integration proxies those requests and caches recently used tiles in memory to improve performance and help keep the map usable during brief upstream or internet outages.
 
-This integration is automatically loaded by Home Assistant and requires no configuration.
+This integration is automatically loaded by Home Assistant and requires no configuration. On devices that can't show the detailed map, such as some older tablets, Home Assistant shows a simpler map from the same servers.
+
+To change the look of the map, such as its colors or its light and dark version, use the **Map style** and **Theme mode** settings of the [Map card](/dashboards/map/#card-settings).

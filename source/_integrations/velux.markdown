@@ -24,6 +24,7 @@ ha_platforms:
 ha_integration_type: hub
 ha_dhcp: true
 ha_quality_scale: silver
+ha_zeroconf: true
 ---
 
 The [Velux](https://www.velux.com/) {% term integration %} for Home Assistant allows you to connect to a Velux KLF 200 interface so you can control [io-homecontrol](http://www.io-homecontrol.com) devices, such as windows, blinds, lights, and switches. The integration lets you start scenes configured on the KLF 200.
@@ -106,6 +107,8 @@ All Velux cover entities support:
 - Close
 - Stop
 - Set position
+
+The **Open cover**, **Close cover**, and **Set cover position** actions support an optional `speed` option. Available values are listed in the `supported_speeds` attribute of the cover entity (`silent`, `fast`, and `default`).
 
 Blinds additionally support:
 

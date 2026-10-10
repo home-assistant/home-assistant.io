@@ -290,8 +290,6 @@ See [Troubleshooting](#troubleshooting) below for steps to resolve the common mi
 
 11.  If all went well, you are ready to go!
 
-    ![Screenshot of success](/images/integrations/nest/finished.png)
-
 {% enddetails %}
 
 ## Climate
@@ -376,7 +374,7 @@ without waiting for any media to be fetched. See Device Triggers for media suppo
 
 ## Device Triggers
 
-The Nest integration provides [device triggers](/docs/automation/trigger/#device-triggers) to enable automation in Home Assistant. You should review the [Automating Home Assistant](/getting-started/automation/) getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
+The Nest integration provides [device triggers](/docs/automation/trigger/#device-triggers) to enable automation in Home Assistant. You should review the [Tutorial: Create your first automation](/getting-started/automation/) or the [Automation](/docs/automation/) documentation for full details.
 
 Device triggers will wait to fire after any media associated with the event is downloaded. Use an
 event entity for immediate notifications without media.
@@ -794,9 +792,9 @@ Changes for things like sensors or thermostat temperature set points should be i
   2. Click the Home Assistant device access project
   3. Verify the *Pub/Sub topic* is *Enabled*. If not, follow the integration configuration instructions.
   4. If the Pub/Sub topic starts with `projects/<your cloud project>/topics/home-assistant-` then you are using a topic created by Home Assistant. You may follow the steps in the next section to verify the topic.
-  5. If the Pub/Sub topic starts with `projects/sdm-prod/topics` then you are using a topic created by the Device Access console. This is the old way, but works completely fine. You should skip the next section.
+  5. If the Pub/Sub topic starts with `projects/sdm-prod/topics`, you are using a legacy Google-hosted topic. Google will stop publishing events to these topics after November 30, 2026. Follow the **Enable events and Pub/Sub topic** setup instructions above to create a topic in your own Google Cloud project, then disable the legacy topic and re-enable events with the new topic in the Device Access Console. For more information, refer to Google's [event migration instructions](https://developers.google.com/nest/device-access/subscribe-to-events#enable_events).
 
-- **(Optional) Verify topic message publishing.** Skip this section if using a topic name starting with `projects/sdm-prod/topics`
+- **(Optional) Verify topic message publishing.**
 
   1. Visit the Pub/Sub Topics [Cloud Console](https://console.cloud.google.com/cloudpubsub/topic/list)
   2. Click the Home Assistant Topic ID matching the Device Access Console configuration.

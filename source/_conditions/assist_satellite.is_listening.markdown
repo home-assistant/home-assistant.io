@@ -90,7 +90,7 @@ for:
 
 This automation pauses a media player only when a satellite in the same area has already started listening, ensuring media is not paused unnecessarily when the satellite is idle and no voice interaction is taking place.
 
-- **Trigger**: State change of any media player in the living room to `playing`
+- **Trigger**: State changed, when any media player in the living room changes to `playing`
 - **Condition**: Satellite is listening
   - **Target**: Assist satellite of living room
 - **Action**: Pause media

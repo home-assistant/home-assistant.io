@@ -9,8 +9,8 @@ Presence detection tells Home Assistant who is at home and where they are. That 
 - Turn on the AC when I leave work
 
 <p class='img'>
-    <img src="/images/screenshots/map.png" alt="Screenshot of a map dashboard in Home Assistant showing a school, work and home zone and two people."/>
-    Map dashboard showing a school, work, and a home zone and the location of two people.
+    <img src="/images/dashboards/map-card.png" alt="Screenshot of the Map dashboard in Home Assistant showing four people, two of them at the home zone, one at a shop zone, and one on their own."/>
+    Map dashboard showing a home zone, a shop zone, and the location of four people.
 </p>
 
 ## About setting up zone presence detection
@@ -43,9 +43,9 @@ There are different ways of setting up zone presence detection. One way is to ru
    - On the integration card, select **1 Device**. This opens the device info page.
    - You now see your phone name and its entities.
 4. To view the location of your phone on the map, open the **Map** dashboard.
-   - You now see a circle on that map with your initial.
-   - It shows the current location of your phone.
-   - To view the details, select that initial.
+   - You now see a marker on that map with your picture or your initials.
+   - It floats above the current location of your phone. Under **People**, you are listed as **Me**.
+   - To view the details, select that marker, then select **More info**.
      - Open the **Attributes** list to see the phone's **Latitude**, **Longitude**, and the **Source** of information.
      - The source is the `device_tracker` entity for that device, for example `device_tracker.pixel_7_pro`.
 5. To view the entity details and the history, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and in the search field, enter `devi` and select your `device_tracker` entity from the list.

@@ -82,7 +82,7 @@ for:
 
 When the living room thermostat is actively cooling and the sun is high in the sky, close the blinds to reduce heat gain. This helps the air conditioner work more efficiently without having to guess whether it's actually running.
 
-- **Trigger**: State: Living room thermostat started cooling
+- **Trigger**: State changed: Living room thermostat started cooling
 - **Condition**: Sun elevation above 30
 - **Condition**: Thermostat is cooling
   - **Target**: Living room thermostat

@@ -61,6 +61,7 @@ For each endpoint configured in Gatus, the integration creates the following bin
 
 For each endpoint configured in Gatus, the integration creates the following sensors:
 
+- **DNS response code**: Reports the DNS response code (for example, `NOERROR`, `NXDOMAIN`, or `SERVFAIL`) of the most recent health check.
 - **Certificate expiration**: Reports the remaining SSL certificate validity in days of the most recent health check.
 - **Response time**: Reports the check latency in milliseconds (ms) of the most recent health check.
 - **Status code**: Reports the numeric status code of the most recent health check. For HTTP endpoints, this is the HTTP status code.
@@ -79,7 +80,7 @@ Get notified the moment one of your monitored endpoints fails its health check.
 To create this automation in the UI:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and create a new automation.
-2. Add a **State** trigger.
+2. Add a **State changed** trigger.
 3. In **Entity**, select the Gatus binary sensor for the endpoint you want to monitor.
 4. In **To**, enter `off`.
 5. Add the **Send a notification message** action.
@@ -112,7 +113,7 @@ Get notified when a previously failing endpoint comes back online.
 To create this automation in the UI:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and create a new automation.
-2. Add a **State** trigger.
+2. Add a **State changed** trigger.
 3. In **Entity**, select the Gatus binary sensor for the endpoint you want to monitor.
 4. In **From**, enter `off`.
 5. In **To**, enter `on`.

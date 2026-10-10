@@ -48,19 +48,21 @@ Areas can also be used for automatically generated cards, such as the [Area card
 
 ## Automations
 
-A set of repeatable {% term actions %} that can be set up to run automatically. Automations are made of three key components:
+An automation runs a set of steps by itself when something changes in your home. For example, it turns on the lights in the living room when the sun sets. In the automation editor, an automation has three sections:
 
-1. Triggers - events that start an {% term automation %}. For example, when the sun sets or a motion sensor is activated.
-2. Conditions - optional tests that must be met before an {% term action %} can be run. For example, if someone is home.
-3. Actions - interact with {% term devices %} such as turn on a light.
+- **When**: the {% term triggers %}
+  - A trigger reacts to a change and starts the automation, for example, when the sun sets or a motion sensor detects motion.
+- **And if**: the {% term conditions %}, which are optional
+  - A condition is a test that must be true for the automation to continue, for example, someone is home.
+- **Then do**: the {% term actions %}
+  - The actions are what the automation does, for example, turn on a light, send a notification, or activate a scene.
+  - You can also add a condition between the actions. The actions after it then only run if the condition is true.
 
 To learn the basics about {% term automations %}, refer to the [automation basics](/docs/automation/basics/) page or try [creating an automation](/getting-started/automation) yourself.
 
-![Automations](/images/getting-started/automation-editor.png)
-
 ## Scripts
 
-Similar to {% term automations %}, scripts are repeatable {% term actions %} that can be run. The difference between {% term scripts %} and {% term automations %} is that {% term scripts %} do not have triggers. This means that {% term scripts %} cannot automatically run unless they are used in {% term automations %}. Scripts are particularly useful if you perform the same {% term actions %} in different {% term automations %} or trigger them from a dashboard. For information on how to create {% term scripts %}, refer to the [scripts](/integrations/script/) documentation.
+A script is a saved list of steps that runs when you start it, for example, from a button on a dashboard, with Assist, or from an {% term automation %}. A step can be an {% term action %}, such as turning on a light, or a building block, such as waiting a few seconds. Unlike an automation, a script has no triggers, so it doesn't start by itself. Scripts are useful when you want to start the same steps from several places, or pass different values to the script each time, such as a message or a brightness level. To learn how to create and use scripts, refer to [Scripts](/docs/script/).
 
 ![Scripts](/images/getting-started/script_01.png)
 
@@ -74,7 +76,7 @@ To learn how to use {% term scenes %}, refer to the [scene](/integrations/scene/
 
 ## Apps
 
-Apps are third-party applications that provide additional functionality in Home Assistant. Apps run directly alongside Home Assistant, whereas {% term integrations %} connect Home Assistant to other apps. Apps are only [supported](/installation/#about-installation-types) when using {% term "Home Assistant Operating System" %}.
+Apps are third-party applications that extend Home Assistant with additional functionality. They run alongside Home Assistant on the same system and are installed and managed from Home Assistant. Apps are only [supported](/installation/#about-installation-types) when using {% term "Home Assistant Operating System" %}.
 
 Apps are installed from the app store under {% my supervisor title="**Settings** > **Apps**" %}. If you are curious now and feel like installing every app that looks interesting: beware that apps can use quite a bit of resources in terms of disk space, memory, and additional load on the processor.
 

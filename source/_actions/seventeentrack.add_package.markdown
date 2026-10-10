@@ -90,7 +90,7 @@ package_friendly_name:
 
 When a helper that holds a new tracking number changes, add that package to 17Track.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Tracking number (`input_text.tracking_number`)
 - **Action**: 17TRACK: Add a package
 
@@ -116,7 +116,7 @@ automation: |
 
 Enter the tracking number and friendly name of a new package in a dedicated card on your dashboard and then press a button to start this automation. The automation reads the two text helpers that were added and, if the tracking number is not empty, passes the values as data to the **17TRACK: Add a package** action. After that, it clears the input fields for the next use.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Add package to 17Track (`input_button.add_package_to_17track`)
 - **Condition**: Template
 - **Action**: 17TRACK: Add a package

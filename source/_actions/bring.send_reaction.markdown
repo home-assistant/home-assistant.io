@@ -77,7 +77,7 @@ reaction:
 
 When the shopping list's activities event fires if someone adds or removes an item, automatically send a ❤️ reaction to acknowledge the update without opening the app.
 
-- **Trigger**: State: `event.shoppinglist_activities`
+- **Trigger**: State changed: `event.shoppinglist_activities`
 - **Action**: Bring!: Send reaction
   - **Reaction**: `heart`
 
