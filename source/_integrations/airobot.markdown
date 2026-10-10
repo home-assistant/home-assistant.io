@@ -57,7 +57,7 @@ After initial setup, the thermostat does not require internet connectivity to fu
 ### Ventilation unit
 
 1. Connect the unit to your local network over Wi-Fi or Ethernet. For a wired connection, connect an Ethernet cable to the RJ45 port on the unit's enclosure, typically near the power cable input. If there is no RJ45 port on the enclosure, connect the cable to the **LAN** socket on the controller board.
-2. On the unit's controller, go to **Menu** > **Settings** > **Other** > **Modbus TCP** and set it to **ON**. Modbus TCP is disabled by default. The unit reboots and saves the IP address it received from your router as a static address.
+2. On the unit's controller, go to **Menu** > **Settings** > **Other** > **Modbus TCP** and set it to **ON**. Modbus TCP is disabled by default. The unit reboots.
 3. Note the unit's IP address. You can find it in your router's list of connected devices.
 
 If you don't have a controller, Airobot customer support can activate Modbus TCP remotely while the unit is connected to the internet.
@@ -312,18 +312,23 @@ actions:
 
 The **Airobot** integration {% term polling polls %} data from the thermostat every 30 seconds. This interval matches the thermostat's internal measurement cycle, ensuring efficient data synchronization without overwhelming the device.
 
-Ventilation units are also polled every 30 seconds, over Modbus TCP. The connection is shared through the [Modbus](/integrations/modbus/) integration, so other integrations that talk to the same unit use the same connection.
+Ventilation units are also polled every 30 seconds, over Modbus TCP. The connection is shared through the [Modbus](/integrations/modbus/) integration, so other integrations that connect to the same unit through it use the same connection. A Modbus hub configured in YAML opens a connection of its own, which the unit counts as another client (see [Known limitations](#known-limitations)).
 
 ## Known limitations
 
-- **Local API only**: The integration only supports the local REST API. Cloud-based control through the Airobot cloud service is not supported.
+### Thermostat
+
+- **Local API only**: The integration connects to thermostats through their local REST API. Cloud-based control through the Airobot cloud service is not supported.
 - **Manual API enablement**: The local REST API must be manually enabled on the thermostat before the integration can connect. It is disabled by default for security reasons.
 - **Firmware requirements**: Only firmware version 1.8 or later is supported. Older firmware versions do not provide the local REST API.
 - **Heating only**: The thermostat is designed for floor heating control only and does not support cooling modes.
 - **Optional sensors**: Carbon dioxide and floor temperature sensors are only available if the corresponding hardware is installed in your thermostat model.
-- **Ventilation unit: Modbus TCP only**: Ventilation units are supported over Modbus TCP. Modbus RTU (serial) is not supported.
-- **Ventilation unit: one Modbus client**: The unit handles one active Modbus TCP connection at a time. While Home Assistant is connected, other Modbus clients, such as a building management system or a diagnostic tool, may get no response.
-- **Ventilation unit identification**: The integration identifies a ventilation unit by its MAC address, which it reads from registers that are not part of Airobot's published Modbus specification. If your unit's firmware does not provide them, a manually added unit is identified by its IP address until DHCP discovery finds it.
+
+### Ventilation unit
+
+- **Modbus TCP only**: Ventilation units are supported over Modbus TCP. Modbus RTU (serial) and the Airobot cloud service are not supported.
+- **One Modbus client**: The unit handles one active Modbus TCP connection at a time. While Home Assistant is connected, other Modbus clients, such as a building management system, a diagnostic tool, or a Modbus hub configured in YAML, may get no response.
+- **Identification**: The integration identifies a ventilation unit by its MAC address, which it reads from registers that are not part of Airobot's published Modbus specification. If your unit's firmware does not provide them, a manually added unit is identified by its IP address until DHCP discovery finds it.
 
 ## Troubleshooting
 
@@ -416,7 +421,7 @@ Home Assistant cannot reach the unit's Modbus TCP interface on port 502.
    - Make sure the unit is connected to your network. If it uses Wi-Fi, check the signal strength at the unit; a wired Ethernet connection is more reliable.
 
 3. **Check the IP address**:
-   - The unit saves its IP address as static when Modbus TCP is first enabled. If your router has been reset or reconfigured since then, the address may have changed. Check your router's list of connected devices.
+   - Check your router's list of connected devices and make sure the unit's IP address matches the one you entered.
 
 4. **Check port 502**:
    - From the Home Assistant host, check that the port is open, for example with `nc -zv <unit-ip> 502`.
