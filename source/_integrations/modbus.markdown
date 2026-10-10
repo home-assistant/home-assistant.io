@@ -148,6 +148,7 @@ A device that connects a serial bus, such as RS-485, to your network. Some manua
 
 - It translates between Modbus TCP and Modbus RTU. Home Assistant then talks Modbus TCP to the gateway. Enter its host and port.
 - It forwards the Modbus RTU data unchanged, often called transparent mode. Home Assistant then sends Modbus RTU over TCP to it. As the serial port, select **Enter manually** and enter its `socket://` URL.
+  - This only works with integrations that offer a serial connection, such as Flexit and SolarEdge Modbus. With an integration that only connects over the network, such as Fronius, KACO Modbus, or STIEBEL ELTRON, set the gateway to translate. A Modbus hub in YAML works with both modes.
 
 Many gateways can do both. Set up the connection to match the mode that's set on the gateway.
 
@@ -155,7 +156,7 @@ A device with its own network interface, such as an inverter that offers Modbus 
 
 #### Serial device server
 
-A device, or software such as `ser2net` or `socat`, that makes a serial port available over your network and passes the data on unchanged. For Modbus, it works like a gateway that forwards the data unchanged. For details, refer to [Serial device server](/integrations/serial/#serial-device-server) on the Serial page.
+A device, or software such as `ser2net` or `socat`, that makes a serial port available over your network and passes the data on unchanged. For Modbus, it works like a gateway that forwards the data unchanged, with the same limit: integrations can only use it if they offer a serial connection. For details, refer to [Serial device server](/integrations/serial/#serial-device-server) on the Serial page.
 
 #### USB-to-RS-485 adapter
 
