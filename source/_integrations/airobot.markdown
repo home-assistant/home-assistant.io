@@ -101,7 +101,7 @@ This is useful when:
 - You need to update the Device ID or password.
 - You want to switch between IP address and hostname.
 
-For a ventilation unit, reconfiguration is stopped if a different ventilation unit answers at the new address.
+For a ventilation unit, reconfiguration is stopped if a different ventilation unit answers at the new address, or if the unit there does not report its identity.
 
 ## Supported functionality
 
