@@ -129,11 +129,11 @@ Modbus over your network. Most devices with a network interface use port `502`.
 
 #### Modbus <abbr title="Remote Terminal Unit">RTU</abbr>
 
-Modbus over a serial connection, usually an <abbr title="Recommended Standard 485">RS-485</abbr> bus. The data is sent in binary form. In YAML, use `method: rtu`.
+Modbus over a serial connection, usually an <abbr title="Recommended Standard 485">RS-485</abbr> bus. The data is sent in binary form.
 
 #### Modbus <abbr title="American Standard Code for Information Interchange">ASCII</abbr>
 
-Modbus over a serial connection, with the data sent as text characters. Only a few devices use it. In YAML, use `method: ascii`.
+Modbus over a serial connection, with the data sent as text characters. Only a few devices use it.
 
 #### Modbus RTU over TCP
 
@@ -145,24 +145,24 @@ Modbus over your network, with UDP instead of TCP. It's rarely used.
 
 #### RS-485
 
-The wired serial bus that most Modbus RTU devices use. Several devices can share one RS-485 bus.
+An electrical standard for the physical, wired connection that most Modbus RTU devices use. Several devices can share one RS-485 bus.
 
 ### Devices between Home Assistant and your device
 
 #### Modbus gateway
 
-A device that translates between Modbus TCP on your network and Modbus RTU on a serial bus. Home Assistant talks Modbus TCP to the gateway. Some manuals call it a bridge or a converter.
+A device that connects a serial bus, such as RS-485, to your network. Some manuals call it a bridge or a converter. A Modbus gateway works in one of two ways:
+
+- It translates between Modbus TCP and Modbus RTU. Home Assistant then talks Modbus TCP to the gateway. Enter its host and port. In YAML, use `type: tcp`.
+- It forwards the Modbus RTU data unchanged, often called transparent mode. Home Assistant then sends Modbus RTU over TCP to it. As the serial port, select **Enter manually** and enter its `socket://` URL. In YAML, use `type: rtuovertcp`.
+
+Many gateways can do both. Set up the connection to match the mode that's set on the gateway.
+
+A device with its own network interface, such as an inverter that offers Modbus TCP, isn't a gateway. Home Assistant connects to it directly.
 
 #### Serial device server
 
-A device on your network that passes serial data on unchanged. Home Assistant sends Modbus RTU over TCP to it. For details, refer to [Serial device server](/integrations/serial/#serial-device-server) on the Serial page.
-
-#### Transparent mode and Modbus TCP gateway mode
-
-Many network devices can work both ways. They have a transparent mode and a Modbus TCP gateway mode. Set up the connection to match the mode of the device:
-
-- In Modbus TCP gateway mode, the device is a [Modbus gateway](#modbus-gateway). Enter its host and port. In YAML, use `type: tcp`.
-- In transparent mode, the device is a [serial device server](#serial-device-server). As the serial port, select **Enter manually** and enter its `socket://` URL. In YAML, use `type: rtuovertcp`.
+A device, or software such as `ser2net` or `socat`, that makes a serial port available over your network and passes the data on unchanged. For Modbus, it works like a gateway that forwards the data unchanged. For details, refer to [Serial device server](/integrations/serial/#serial-device-server) on the Serial page.
 
 #### USB-to-RS-485 adapter
 
