@@ -204,13 +204,15 @@ users:
 
 ### Location
 
-Specify the visibility of the card based on the current user's current location. The location is based on the state of the `person` entity associated with the current user. If the current user does not have a `person` entity, this condition will always resolve to false.
+Specify the visibility of the card based on the current user's location. The location is based on the `person` entity associated with the current user. If the current user does not have a `person` entity, this condition will always resolve to false.
+
+Select zones directly or by label. The card is visible when the person is in any of the selected zones. The condition matches against the `in_zones` attribute of the `person` entity, which lists every zone the person is in, including passive zones and zones that contain a smaller zone. Set `away: true` to also show the card when the person is away (state `not_home`). Passive zones don't change the person's state, so a person who is only in passive zones is away.
 
 ```yaml
 condition: location
-locations:
-  - home
-  - Home Neighborhood
+target:
+  label_id: grocery_stores
+away: true
 ```
 
 {% configuration %}
@@ -218,11 +220,37 @@ condition:
   required: true
   description: "`location`"
   type: string
+target:
+  required: false
+  description: The zones to match. The condition is true if the person is in any of them.
+  type: map
+  keys:
+    entity_id:
+      required: false
+      description: One or more zone entity IDs, such as `zone.home`.
+      type: [string, list]
+    label_id:
+      required: false
+      description: One or more label IDs. Every zone with one of these labels is matched.
+      type: [string, list]
+away:
+  required: false
+  description: Also show the card when the person is away (state `not_home`), including when they are only in passive zones.
+  type: boolean
+  default: false
 locations:
-  required: true
-  description: A list of zones, which if any match the current state of the `person`, will cause this condition to be true.
+  required: false
+  description: "Older format: a list of zone names, which if any match the current state of the `person`, will cause this condition to be true. Use `home` for the Home zone and `not_home` for away."
   type: list
 {% endconfiguration %}
+
+At least one of `target`, `away: true`, or `locations` must be used for this condition to be valid. `target` and `away` can be combined; the condition is true if either matches.
+
+Conditions using `locations` keep working. They only match the person's state, which is the name of the smallest zone the person is in.
+
+When you open one of these conditions in the dashboard editor, the editor shows it as zones and **Away**, with a warning that explains the change. Opening it does not change your configuration: the condition keeps using `locations` until you change something in it. When you do, it is converted to `target` and `away`, and saving the card saves the new format.
+
+After converting, the condition matches any zone the person is in, not only the zone that sets their state. Each zone name is converted to every zone with that name, `home` to the Home zone, and `not_home` to `away: true`. Names that match no zone are kept and shown as not found, so you can remove them.
 
 ### Time
 
