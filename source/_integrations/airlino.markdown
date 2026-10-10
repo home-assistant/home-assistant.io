@@ -19,10 +19,10 @@ The **AirLino** {% term integration %} is used to integrate with the devices of 
 
 The following devices are known to be supported by the integration:
 
-- AirLino&reg;
-- AirLino&reg;plus
-- AirLino&reg;max
-- AirLino&reg;pro
+- AirLino(R)
+- AirLino(R)plus
+- AirLino(R)max
+- AirLino(R)pro
 
 ## Unsupported devices
 
