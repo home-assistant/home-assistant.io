@@ -16,7 +16,7 @@ related:
 ha_quality_scale: silver
 ---
 
-The **Model Context Protocol Server** (<abbr title="Model Context Protocol">MCP</abbr>) integration lets you connect an AI agent, such as ChatGPT or Claude, to Home Assistant. The AI agent can then control your devices and see the current state of your home. You choose which devices and entities the AI agent can access on the {% my voice_assistants title="exposed entities page" %}.
+The **Model Context Protocol Server** (<abbr title="Model Context Protocol">MCP</abbr>) integration lets you connect an AI agent, such as ChatGPT or Claude, to Home Assistant. The AI agent can then control your devices and see the current state of your home.
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ Home Assistant implements the standard Model Context Protocol, including OAuth 2
 Before you start, copy your MCP server URL as described in the [prerequisites](#prerequisites).
 
 {% note %}
-If you use Claude on claude.ai, your Home Assistant instance must be accessible from the internet.
+Claude connects to your MCP server from the cloud, also when you use Claude Desktop. Your Home Assistant instance must be accessible from the internet.
 {% endnote %}
 
 1. Open the form to add a connector:
@@ -70,7 +70,7 @@ If you use Claude on claude.ai, your Home Assistant instance must be accessible 
    - In Claude Desktop, go to **Settings** > **Connectors** and select **Add** > **Add custom connector**.
 2. Enter the following details:
    - **Name**: `Home Assistant`
-   - **MCP Server URL**: Paste your MCP server URL. If you use Claude Desktop, you can also use your local MCP server URL.
+   - **MCP Server URL**: Paste your MCP server URL.
 3. Select **Add**.
 4. Claude verifies the MCP server and shows a dialog. Enter the following details:
    - **Authentication**: Select **Sign in now**.
