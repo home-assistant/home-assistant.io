@@ -2051,6 +2051,8 @@ action: |
 
 **Continue on error** doesn't ignore errors in the configuration, such as a broken template. The error is still shown in the trace and in the logs.
 
+An action whose target is unavailable or doesn't exist doesn't fail. Home Assistant skips that target, so the next step runs even without **Continue on error**. If the target doesn't exist, the log shows a warning.
+
 <a id="disabling-an-action"></a>
 
 ### Turning off a step
