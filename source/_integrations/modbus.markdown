@@ -76,6 +76,7 @@ Prerequisites:
 - You have administrator rights.
 - You can edit your {% term "`configuration.yaml`" %} file.
 - You have a device with a Modbus interface, and its Modbus documentation with the addresses of the values you want to use.
+  - For the terms, such as register types and addresses, refer to [Modbus terms used in YAML](#modbus-terms-used-in-yaml).
 - Home Assistant can reach the Modbus interface of the device in one of these ways:
   - Over the network (Modbus TCP or Modbus UDP): the device, or a Modbus gateway that translates to Modbus TCP or UDP, is on your network.
   - Over a serial connection (Modbus RTU): the RS-485 wires of the device are connected to one of these, but not to an ESPHome serial proxy:
@@ -87,7 +88,6 @@ Prerequisites:
    - For the options, refer to [Configuring modbus communication](#configuring-modbus-communication).
    - For a serial device server, use `type: rtuovertcp`. Set the baud rate on the serial device server itself. For details, refer to [Configuring a TCP-RTU connection](#configuring-a-tcp-rtu-connection).
 3. Under the hub, add an entity for each value you want to read or control. Set `address` to where the device stores the value.
-   - For the terms, such as register types and addresses, refer to [Modbus terms used in YAML](#modbus-terms-used-in-yaml).
    - For the options, refer to [Configuring modbus entities](#configuring-modbus-entities).
 4. Restart Home Assistant.
    - Result: The entities of your device appear in Home Assistant.
