@@ -130,6 +130,44 @@ Claude Code connects to MCP servers over HTTPS only. Use the MCP server URL of y
 
 3. Codex opens your Home Assistant instance in your web browser. Log in to your Home Assistant instance.
 
+### Example: OpenCode
+
+OpenCode can connect to Home Assistant as a remote MCP server by using OAuth. This example uses the configuration format of OpenCode v2.
+
+1. Install [OpenCode](https://opencode.ai).
+2. Edit or create your configuration file:
+   - To make the server available in every project, edit `~/.config/opencode/opencode.jsonc`.
+   - To use the server in one project only, edit `opencode.jsonc` in your project.
+3. Add the following to your configuration:
+
+   ```json
+   {
+     "$schema": "https://opencode.ai/config.json",
+     "mcp": {
+       "servers": {
+         "homeassistant": {
+           "type": "remote",
+           "url": "<your_home_assistant_url>/api/mcp",
+           "oauth": {
+             "client_id": "http://127.0.0.1:12345",
+             "callback_port": 12345
+           }
+         }
+       }
+     }
+   }
+   ```
+
+4. Replace `<your_home_assistant_url>` with the complete URL of your Home Assistant server, including `http://` or `https://` and the port, if required. For example, use `http://homeassistant.local` for a typical local connection. The callback port and the port in `client_id` must match. The `client_id` value is the base URL of the local OAuth callback used by OpenCode. Do not replace it with your Home Assistant URL.
+5. Run the following command:
+
+   ```bash
+   opencode mcp auth homeassistant
+   ```
+
+6. Complete the authentication in your web browser and authorize OpenCode to access Home Assistant.
+7. Run `opencode mcp list` to confirm that the server is connected. The Home Assistant tools appear with the prefix `homeassistant_`.
+
 ### Example: Cursor
 
 Cursor connects to Home Assistant through [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy). This local MCP server acts as a gateway to the Home Assistant MCP server. You also need a long-lived access token, which you can create in {% my profile_security title="**User profile** > **Security**" %}.
