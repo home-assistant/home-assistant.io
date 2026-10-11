@@ -25,8 +25,9 @@ Your server must expose Koito's web API and be reachable from Home Assistant.
 To obtain your API key:
 
 1. Open your Koito server in a browser.
-2. Open **Settings** using the settings icon and sign in on the **Account** tab.
-3. Open the **API Keys** tab and copy the generated API key, or create a dedicated
+2. Open **Settings** using the {% icon "mdi:cog" %} settings icon and sign in on the **Account** tab.
+3. After signing in, reopen **Settings**.
+4. Open the **API Keys** tab and copy the generated API key, or create a dedicated
    key for Home Assistant.
 
 This integration only makes read requests, but the key itself can also allow
