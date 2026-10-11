@@ -8,6 +8,7 @@ ha_category:
   - Cover
   - Energy
   - Event
+  - Infrared
   - Light
   - Media player
   - Number
@@ -36,6 +37,7 @@ ha_platforms:
   - cover
   - diagnostics
   - event
+  - infrared
   - light
   - media_player
   - number
