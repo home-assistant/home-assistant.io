@@ -53,6 +53,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Doorbell announcement with binary\_sensor](#doorbell-announcement-with-binary_sensor)
     - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
   - [Camera](#camera)
+    - [WebRTC live view](#webrtc-live-view)
   - [Climate](#climate)
     - [Set Thermostat Temperature](#set-thermostat-temperature)
     - [Thermostat Mode](#thermostat-mode)
@@ -627,6 +628,18 @@ The [`stream`](/integrations/stream/) integration is required to stream cameras 
 The Amazon echo device will request the camera stream from Home Assistant. The Home Assistant URL must be accessible from the network the Amazon echo device is connected to and must support HTTPS on port 443 with a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport). These requirements can be satisfied with Home Assistant Cloud, or LetsEncrypt/DuckDNS.
 
 Enable preload stream option for cameras used with echo devices to reduce response time, and prevent timing out before the 6 second limit.
+
+#### WebRTC live view
+
+Echo Show devices can also show your camera's live view using WebRTC. This works for cameras that support WebRTC, either directly or through the [go2rtc](/integrations/go2rtc/) integration. If your setup also meets the requirements for the stream above, that stream keeps working too.
+
+- The Echo Show only works with IPv4 addresses. If your camera stream is only available on an IPv6 address or a local network name (ending in `.local`), the live view won't work.
+- The video doesn't go straight over your local network. Instead, the Echo Show connects through your public internet address, or through a relay server (a TURN server). If you use Home Assistant Cloud, relay servers are set up for you. Without Home Assistant Cloud, your public internet address may work just fine with the default settings. If the live view doesn't start, add your own TURN server with the [WebRTC](/integrations/web_rtc/) integration.
+- If the live view doesn't work, turn on [debug logging](#debugging) for `homeassistant.components.alexa`. The log shows each live view session, the network addresses sent to the Echo Show, and how long Home Assistant took to respond.
+
+{% important %}
+Alexa only checks if a camera supports WebRTC when it discovers your devices. If WebRTC becomes available later, for example because go2rtc started after Alexa discovered your devices, the live view won't show up for that camera. To fix this, just say _"Alexa, discover devices"_, so Alexa picks up the change.
+{% endimportant %}
 
 ### Climate
 
