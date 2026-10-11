@@ -351,7 +351,7 @@ automation:
 
 {% important %}
 Be mindful of the API rate limit (50,000 calls per month for private keys). Frequent updates can quickly use up your allocation. Monitor your usage and adjust your intervals.
-The integration will only spend one call per request no matter the number of stops defined in the config.
+Each data update uses one API call, regardless of the number of configured stops.
 {% endimportant %}
 
 ## Data updates
