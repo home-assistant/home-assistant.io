@@ -21,7 +21,7 @@ You add conditions in the **And if** section of the automation editor, with **Ad
 - Conditions that come with an integration are named after what they check. Integration conditions include **Light is on** and **Sun is up**.
 - Conditions that are built into Home Assistant aren't tied to an integration. You can use them with entities from any integration. Built-in conditions include **State**, **Numeric state**, **Time**, and **Template**.
 
-For the conditions that come with an integration, refer to the [list of available conditions](/conditions/). For the built-in conditions, and for writing conditions in YAML, refer to [Conditions](/docs/scripts/conditions/).
+For all conditions, refer to the [list of available conditions](/conditions/). The built-in conditions are in the [General](/conditions/#homeassistant) group. The **Device** condition is in the [Device automation](/conditions/#device_automation) group. To combine conditions in YAML, refer to [Conditions](/docs/scripts/conditions/).
 
 ## Conditions check the current state
 
