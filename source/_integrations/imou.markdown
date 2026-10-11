@@ -76,7 +76,7 @@ These regions correspond to the API endpoints used by the integration.
 
 After setup, you can change the **App secret** and **Server region** without removing the integration:
 
-1. Go to **Settings** → **Devices & services**.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Imou** integration, then **Configure**.
 3. Enter the updated **App secret** and choose the correct **Server region**.
 
