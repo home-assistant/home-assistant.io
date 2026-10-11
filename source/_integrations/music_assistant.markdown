@@ -27,9 +27,24 @@ The **Music Assistant** (MA) {% term integration %} allows you to connect Home A
 
 ## Prerequisites
 
-Before installing this integration, ensure you have a running Music Assistant server. Instructions for installing the Music Assistant server are available in the [Music Assistant documentation](https://www.music-assistant.io/installation/)
+This integration connects to a Music Assistant server.
+
+- If you run {% term "Home Assistant Operating System" %}, you don't need to prepare anything. Home Assistant can install and start the official Music Assistant app for you during setup.
+- For other installation types, or if you want to run the Music Assistant server somewhere else, make sure you have a running Music Assistant server first. Instructions are available in the [Music Assistant documentation](https://www.music-assistant.io/installation/).
 
 {% include integrations/config_flow.md %}
+
+### Setting up with the Music Assistant app
+
+If you run {% term "Home Assistant Operating System" %}, the setup asks whether you want to use the official Music Assistant app.
+
+1. Keep **Use the official Music Assistant app** selected and select **Submit**.
+   - If the app is not installed yet, Home Assistant installs it. This can take several minutes.
+   - If the app is not running, Home Assistant starts it.
+2. If this is a new Music Assistant installation, Music Assistant opens in a new browser tab. Finish its initial setup there.
+   - Home Assistant continues automatically once the Music Assistant setup is done.
+
+If you already run Music Assistant in another way, for example in a different app, in your own container, or on another machine, clear the **Use the official Music Assistant app** checkbox. You can then enter the URL of your Music Assistant server manually.
 
 ### Manual configuration
 
