@@ -134,6 +134,10 @@ If you do not want to do this, keep **Live view** unchecked when adding the devi
 
 Depending on the supported features of the camera, you can control various settings such as privacy mode, pan/tilt, and motion detection alerts.
 
+If the camera supports pan/tilt and has presets saved in the Tapo app, a **PTZ preset** select entity is added. Selecting an option moves the camera to that preset.
+The camera does not report which preset it is on, so the state of this entity is unknown.
+Presets added later in the Tapo app show up after the integration is reloaded.
+
 ### Lights
 
 Light entities are added for bulbs, light strips, and dimmer switches. 
