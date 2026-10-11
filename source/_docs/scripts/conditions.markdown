@@ -162,7 +162,7 @@ conditions:
 
 ## Types of conditions
 
-Each condition has its own page. For all conditions, refer to the [list of available conditions](/conditions/).
+For individual condition pages, refer to the [list of available conditions](/conditions/).
 
 The conditions that are built into Home Assistant are:
 
