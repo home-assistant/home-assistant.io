@@ -15,7 +15,7 @@ To use this action in an automation or script:
 2. Open an existing automation or script, or select **Create** to start a new one.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **UniFi Protect: Trigger alarm webhook**.
+5. From the search box, search for and select **Trigger alarm webhook**.
 6. Fill in the fields, then select **Save**.
 
 ### Options in the UI
@@ -23,8 +23,10 @@ To use this action in an automation or script:
 {% options_ui %}
 NVR:
   description: The UniFi Protect NVR to send the webhook to.
+  required: true
 Trigger ID:
   description: The ID of the webhook trigger, as shown in the Alarm Manager.
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
