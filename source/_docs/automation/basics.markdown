@@ -148,7 +148,7 @@ The state shows whether the automation is enabled. It doesn't show whether the a
 
 The attributes tell you more about an automation, such as when it last ran, or whether it's running right now. You can use them to check an automation without opening it, or to make another automation depend on it.
 
-- **Last triggered** (`last_triggered`): When the automation was last triggered after its conditions were either met or skipped. If the conditions stopped the automation, this time doesn't change.
+- **Last triggered** (`last_triggered`): When the automation was last triggered after its conditions were either met or skipped. If the conditions stopped the automation, or the run mode didn't allow another run, this time doesn't change.
   - Use it to check when an automation was last triggered, or to keep another automation from reacting again too soon.
 - **Running automations** (`current`): How many runs of the automation there are right now. In **Queued** mode, this includes the runs that are waiting in the queue. Usually, this is `0`.
   - Use it to wait until an automation has finished, or to skip something while it's still running.
