@@ -154,7 +154,7 @@ You can see and use the attributes in different places:
 - In an automation or a script, select an attribute in the **Attribute** field of a **State** trigger or condition.
 - In templates, use `state_attr()`. For example, `state_attr('automation.turn_on_porch_light', 'last_triggered')`.
 
-Automations have the following attributes. **Max running automations** and **ID** are only there in some cases, as described in the list. If an automation is unavailable, it can only have the **ID** attribute.
+Automations have the following automation-specific attributes. **Max running automations** and **ID** are only present in some cases, as described in the list. If an automation is unavailable, **ID** is the only automation-specific attribute it can have.
 
 - **Last triggered** (`last_triggered`): When the automation was last triggered after its {% term conditions %} were either met or skipped. If the conditions stopped the automation, or the run mode didn't allow another run, this time doesn't change.
   - Use it to check when an automation was last triggered, or to keep another automation from reacting again too soon.
