@@ -54,7 +54,9 @@ trigger_id:
 
 ## Good to know
 
+- Only administrators can use this action.
 - Unlike the other UniFi Protect actions, this one also works in API key only mode.
+- UniFi Protect doesn't always reject an unknown trigger ID, so a typo can fail silently.
 
 {% include actions/try_it.md %}
 
