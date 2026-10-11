@@ -64,9 +64,11 @@ API key:
 
 During setup, you can choose between three methods:
 
+- **Press the button**: Enter the device's hostname or IP address, then press the button on top of the device within a minute when it asks for it. The device hands out its API key itself. This method does not require a LaMetric account, and works on devices from 2022 onward.
 - **Automatic**: Sign in with your LaMetric account to let Home Assistant fetch your devices and their credentials for you.
 - **Manual**: Enter the device's hostname or IP address and API key. This method does not require a LaMetric account.
-- **Press the button**: Enter the device's hostname or IP address, then press the button on top of the device within a minute when it asks for it. The device hands out its API key itself. This method does not require a LaMetric account, and works on devices from 2022 onward.
+
+When Home Assistant discovers your device, or asks you to re-authenticate it, it first checks whether the device supports the button press. If it does, setup goes straight to pressing the button. If it does not, like an older LaMetric TIME, only the other two methods are offered.
 
 ## Supported functionality
 
