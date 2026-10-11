@@ -134,13 +134,13 @@ Note that you don´t need to add a condition to create an automation.
 
 ## Automations as entities
 
-Each automation is also an {% term entity %}, with an entity ID such as `automation.turn_on_porch_light`. You find it in the list of entities under {% my entities title="**Settings** > **Devices & services** > **Entities**" %}. Like other entities, you can show it on a dashboard, or use it in other automations and scripts.
+Each automation is also an {% term entity %}, with an entity ID such as `automation.turn_on_porch_light`. Automation entities are listed with all other entities under {% my entities title="**Settings** > **Devices & services** > **Entities**" %}. Like other entities, you can show an automation entity on a dashboard, or use it in other automations and {% term scripts %}.
 
 ### Automation states
 
-The state shows whether the automation is enabled. It doesn't show whether the automation is running right now. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
+The {% term state %} shows whether the automation is enabled. It doesn't show whether the automation is running right now. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write {% term templates %} or edit automations in {% term YAML %}, use the stored state.
 
-- **On** (`on`): The automation is enabled. It reacts to its triggers.
+- **On** (`on`): The automation is enabled. It reacts to its {% term triggers %}.
 - **Off** (`off`): The automation is disabled. It ignores its triggers.
 - **Unavailable** (`unavailable`): The configuration of the automation isn't valid, so Home Assistant can't set it up. For details, refer to [Automation is unavailable after an update](/docs/automation/troubleshooting/#automation-is-unavailable-after-an-update-automation-is-unavailable-or-failed-to-set-up).
 
@@ -148,7 +148,15 @@ The state shows whether the automation is enabled. It doesn't show whether the a
 
 The attributes tell you more about an automation, such as when it last ran, or whether it's running right now. You can use them to check an automation without opening it, or to make another automation depend on it.
 
-- **Last triggered** (`last_triggered`): When the automation was last triggered after its conditions were either met or skipped. If the conditions stopped the automation, or the run mode didn't allow another run, this time doesn't change.
+You can see and use the attributes in different places:
+
+- In the entities list or on a dashboard, select the automation entity, and then select **Menu** {% icon "mdi:dots-vertical" %} > **Details**.
+- In an automation or a script, select an attribute in the **Attribute** field of a **State** trigger or condition.
+- In templates, use `state_attr()`. For example, `state_attr('automation.turn_on_porch_light', 'last_triggered')`.
+
+Automations have the following attributes. **Max running automations** and **ID** are only there in some cases, as described in the list. If an automation is unavailable, it can only have the **ID** attribute.
+
+- **Last triggered** (`last_triggered`): When the automation was last triggered after its {% term conditions %} were either met or skipped. If the conditions stopped the automation, or the run mode didn't allow another run, this time doesn't change.
   - Use it to check when an automation was last triggered, or to keep another automation from reacting again too soon.
 - **Running automations** (`current`): How many runs of the automation there are right now. In **Queued** mode, this includes the runs that are waiting in the queue. Usually, this is `0`.
   - Use it to wait until an automation has finished, or to skip something while it's still running.
@@ -157,11 +165,9 @@ The attributes tell you more about an automation, such as when it last ran, or w
   - When **Running automations** reaches this number, the next time a trigger reacts, no new run is added. For details, refer to [I see an "Already running" warning in the logs](/docs/automation/troubleshooting/#i-see-an-already-running-warning-in-the-logs).
 - **ID** (`id`): The unique ID of the automation. It connects the entity to the configuration of the automation. Automations that you create in the editor always have one. Automations in YAML only have one if you set `id`.
 
-To see the attributes, select the automation entity, and then select **Menu** {% icon "mdi:dots-vertical" %} > **Details**. In an automation or a script, select an attribute in the **Attribute** field of a **State** trigger or condition. In templates, use `state_attr()`, for example, `state_attr('automation.turn_on_porch_light', 'last_triggered')`.
-
 ### Actions for automations
 
-To control an automation from another automation or a script, use these actions:
+To control an automation from another automation or a script, use these {% term actions %}:
 
 - [Turn on automation](/actions/automation.turn_on/): Sets the state to **On**.
 - [Turn off automation](/actions/automation.turn_off/): Sets the state to **Off**. By default, it also stops the actions that are running.
