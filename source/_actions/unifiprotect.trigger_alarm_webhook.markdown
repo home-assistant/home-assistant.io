@@ -21,8 +21,8 @@ To use this action in an automation or script:
 ### Options in the UI
 
 {% options_ui %}
-UniFi Protect NVR:
-  description: Any device from the UniFi Protect instance.
+NVR:
+  description: The UniFi Protect NVR to send the webhook to.
 Trigger ID:
   description: The ID of the webhook trigger, as shown in the Alarm Manager.
 {% endoptions_ui %}
@@ -35,15 +35,15 @@ In YAML, refer to this action as `unifiprotect.trigger_alarm_webhook`. A basic e
 action: |
   action: unifiprotect.trigger_alarm_webhook
   data:
-    device_id: 1234567890abcdef1234567890abcdef
+    config_entry_id: 1234567890abcdef1234567890abcdef
     trigger_id: 0b6c5a2e-9d3f-4c1a-8e7b-2f4d6a8c1e3b
 {% endexample %}
 
 ### Options in YAML
 
 {% options_yaml %}
-device_id:
-  description: The ID of any device from the UniFi Protect instance.
+config_entry_id:
+  description: The config entry ID of the UniFi Protect NVR.
   required: true
   type: string
 trigger_id:
