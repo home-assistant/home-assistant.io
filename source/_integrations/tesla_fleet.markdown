@@ -322,7 +322,7 @@ The integration imports history as follows:
 - If an energy sensor has no history, for example because it's disabled, its statistic starts at midnight today in your energy site's time zone.
 - After Home Assistant has been offline, it fills in the missed hours, starting from the last hour it imported, as far back as Tesla still provides the data.
 - Hours around midnight and daylight saving time changes are placed correctly, based on your energy site's time zone.
-- Missing readings are left empty, not filled with zeros.
+- If Tesla leaves a value out of a reading, such as solar generation overnight, it counts as zero. Times with no readings at all are left empty.
 
 ### Use the statistics in the Energy dashboard
 
