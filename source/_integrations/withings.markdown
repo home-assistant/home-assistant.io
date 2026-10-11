@@ -24,6 +24,7 @@ The **Withings** {% term integration %} consumes data from various health produc
 ## Prerequisites
 
 - Withings account
+  - A [Withings+](https://www.withings.com/en-us/pages/withings-plus) subscription is required for accounts created after October 11, 2026
 - Withings app installed
 - Withings device setup in the app
 - [Withings developer account](#creating-a-withings-developer-account) to get a *ClientID* and *Secret* to connect to be able to get the data from the Withings cloud API
