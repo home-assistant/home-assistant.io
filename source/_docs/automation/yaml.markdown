@@ -21,6 +21,8 @@ automation kitchen:
 
 You can add as many labeled `automation` blocks as you want.
 
+After you change automations in a YAML file, reload them: go to {% my tools_yaml title="**Settings** > **Tools** > **YAML**" %} and reload **Automations**. To reload them from an automation or a script, use the [Reload automations](/actions/automation.reload/) action.
+
 {% configuration %}
 alias:
   description: Name of the automation.
