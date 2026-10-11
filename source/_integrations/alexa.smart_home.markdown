@@ -635,8 +635,11 @@ Echo Show devices can also show your camera's live view using WebRTC. This works
 
 - Only IPv4 connection candidates are sent to the Echo Show. If a camera only provides IPv6 or mDNS (`.local`) candidates, the live view fails.
 - The video doesn't go straight over your local network. Instead, the Echo Show connects through your public internet address, or through a relay server (a TURN server). If you use Home Assistant Cloud, relay servers are set up for you. Without Home Assistant Cloud, your public internet address may work just fine with the default settings. If the live view doesn't start, add your own TURN server with the [WebRTC](/integrations/web_rtc/) integration.
-- Alexa checks whether a camera supports WebRTC when it discovers devices. If WebRTC becomes available later, for example when go2rtc starts after Alexa discovered your devices, ask Alexa to discover devices again.
-- To troubleshoot the live view, enable [debug logging](#debugging) for `homeassistant.components.alexa`. The log shows each session, the connection candidates sent to the Echo Show, and how long it took to answer.
+- If the live view doesn't work, turn on [debug logging](#debugging) for `homeassistant.components.alexa`. The log shows each live view session, the network addresses sent to the Echo Show, and how long Home Assistant took to respond.
+
+{% important %}
+Alexa only checks if a camera supports WebRTC when it discovers your devices. If WebRTC becomes available later, for example because go2rtc started after Alexa discovered your devices, the live view won't show up for that camera. To fix this, just say _"Alexa, discover devices"_, so Alexa picks up the change.
+{% endimportant %}
 
 ### Climate
 
