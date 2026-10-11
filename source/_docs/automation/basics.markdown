@@ -131,3 +131,32 @@ Note that you don´t need to add a condition to create an automation.
       - Select entities, devices or services in an area, floor or with a certain label to monitor a group of them.
    2. You can add another target by selecting **Add target** again.
 5. Select **Save**.
+
+## Automations as entities
+
+Each automation is also an {% term entity %}, with an entity ID such as `automation.turn_on_porch_light`. You find it in the list of entities under {% my entities title="**Settings** > **Devices & services** > **Entities**" %}. Like other entities, you can show it on a dashboard, or use it in other automations and scripts.
+
+### Automation states
+
+The state shows whether the automation is enabled. It doesn't show whether the automation is running right now. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
+
+- **On** (`on`): The automation is enabled. It reacts to its triggers.
+- **Off** (`off`): The automation is disabled. It ignores its triggers.
+- **Unavailable** (`unavailable`): The configuration of the automation isn't valid, so Home Assistant can't set it up. For details, refer to [Automation is unavailable after an update](/docs/automation/troubleshooting/#automation-is-unavailable-after-an-update-automation-is-unavailable-or-failed-to-set-up).
+
+### Automation attributes
+
+- **Last triggered** (`last_triggered`): When the automation last ran its actions. If the conditions stopped the automation, this time doesn't change.
+- **Run mode** (`mode`): What happens when a trigger reacts while the automation is still running: **Single**, **Restart**, **Queued**, or **Parallel**. For details, refer to [Automation modes](/docs/automation/modes/).
+- **Running automations** (`current`): How many runs of the automation are in progress right now. Usually, this is `0`.
+- **Max running automations** (`max`): How many runs can be in progress at the same time. Only automations in **Queued** or **Parallel** mode have this attribute.
+- **ID** (`id`): The unique ID of the automation. Automations that you create in the editor always have one. Automations in YAML only have one if you set `id`.
+
+### Actions for automations
+
+To control an automation from another automation or a script, use these actions:
+
+- [Turn on automation](/actions/automation.turn_on/): Sets the state to **On**.
+- [Turn off automation](/actions/automation.turn_off/): Sets the state to **Off**. By default, it also stops the actions that are running.
+- [Toggle automation](/actions/automation.toggle/): Switches the state between **On** and **Off**.
+- [Trigger automation](/actions/automation.trigger/): Runs the actions right away, without waiting for a trigger. By default, it skips the conditions.
