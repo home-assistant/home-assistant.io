@@ -2,7 +2,6 @@
 title: Koito
 description: Monitor listening statistics and now-playing information from a Koito server.
 ha_category:
-  - Binary sensor
   - Sensor
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -12,7 +11,6 @@ ha_codeowners:
 ha_domain: koito
 ha_release: "2026.11"
 ha_platforms:
-  - binary_sensor
   - sensor
 ha_integration_type: service
 ---
@@ -56,10 +54,6 @@ Top album and track entities expose separate `title` and `artists` attributes.
 Artwork is available through `entity_picture` and `image_url` when supplied by
 Koito. Missing ranked items have an unknown state.
 
-### Binary sensors
-
-- Now playing, indicating whether Koito reports playback as active.
-
 ## Data updates and limitations
 
 Home Assistant polls every minute. Statistics and rankings use all-time data.
@@ -68,9 +62,9 @@ Server-requested backoff postpones the next scheduled refresh.
 The integration provides no polling/timeframe options or custom actions.
 
 Now playing is cached by Koito for the track's duration when known, or 10 minutes
-by default. It can therefore remain on after playback stops. Home Assistant
+by default. It can therefore continue reporting a track after playback stops. Home Assistant
 also needs to wait for its next poll. A transport or payload failure of the optional now-playing
-endpoint makes the binary sensor unavailable and the track sensor unknown;
+endpoint makes the track sensor unknown;
 other statistics remain available. Authentication and server backoff failures
 apply to the whole refresh. A rejected API key triggers reauthentication.
 
