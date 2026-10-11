@@ -159,6 +159,24 @@ overload the event bus in Home Assistant.
 Some TV's allow you to sync the processed ambilight color data to your Philips Hue bridge. This will make your Hue lights sync with the TV ambilight without the need to purchase a Hue Play HDMI Sync Box.
 The integration exposes a "Ambilight+Hue" switch entity when your TV supports it which enables you to toggle this.
 
+{% include integrations/option_flow.md %}
+{% configuration_basic %}
+Allow notification service:
+  description: Use the notification service of the TV instead of periodic polling. Home Assistant then reacts faster to changes on the TV. Some TVs stop responding when this is turned on, due to firmware bugs.
+Menu settings:
+  description: The settings from the settings menu of the TV to add as entities. For more information, refer to [Menu settings](#menu-settings).
+{% endconfiguration_basic %}
+
+## Menu settings
+
+On TVs that support it, you can add settings from the settings menu of the TV as entities. This lets you, for example, turn a setting on or off from an automation. Settings that can be turned on or off are added as switch entities.
+
+To choose which settings to add, turn on the TV and open the [options](#options) of the integration. Then, select the settings under **Menu settings**.
+
+- The names of the settings come from the TV, in the language of its menu. A name includes the menus the setting is in, for example, **Ambilight / Extend Ambilight / Message / Turn on**. If several settings have the same name, the name is extended so you can tell them apart.
+- Home Assistant remembers the settings menu of the TV. After the TV has been turned on once, you can change the selected settings while the TV is off.
+- A setting is unavailable while the TV is off, or when the TV doesn't offer it in its current mode.
+- When you remove a setting from the selection, its entity is removed.
 
 ## Binary sensor
 
