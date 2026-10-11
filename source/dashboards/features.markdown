@@ -674,8 +674,8 @@ type:
   description: "`lawn-mower-commands`"
   type: string
 commands:
-  required: true
-  description: List of commands to show on the card. The list can contain `start_pause` and `dock`.
+  required: false
+  description: List of commands to show on the card. The list can contain `start_pause`, `stop`, and `dock`. If not set, all commands supported by the entity are shown.
   type: list
 {% endconfiguration %}
 
