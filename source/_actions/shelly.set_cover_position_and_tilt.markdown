@@ -110,6 +110,35 @@ automation: |
 
 {% enddetails %}
 
+### Automation: close the blinds for privacy at sunset
+
+When the sun sets, you can lower the blinds all the way and close the slats, so no one can see in once the lights are on.
+
+- **Trigger**: Sun: sunset
+- **Action**: Set cover position and tilt
+  - **Target**: Bedroom blind
+  - **Position**: 0
+  - **Tilt position**: 0
+
+{% details "YAML example for closing the blinds at sunset" %}
+
+{% example %}
+automation: |
+  alias: "Close the bedroom blinds at sunset"
+  triggers:
+    - trigger: sun
+      event: sunset
+  actions:
+    - action: shelly.set_cover_position_and_tilt
+      target:
+        entity_id: cover.bedroom_blind
+      data:
+        position: 0
+        tilt_position: 0
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
