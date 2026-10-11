@@ -74,9 +74,11 @@ For both Air-to-Air and Air-to-Water units:
 
 - **Error**: Indicates if the unit reported an error.
 - **Standby**: Indicates if the unit is in standby mode.
-- **Holiday mode**: Indicates if holiday mode is enabled.
+- **Holiday mode**: Indicates if a holiday is running right now. It stays off while a scheduled holiday hasn't started yet.
 - **Frost protection**: Indicates if frost protection is enabled.
 - **Overheat protection**: Indicates if overheat protection is enabled.
+- **Frost protection active**: Indicates if the frost protection is running right now. For Air-to-Water units, it's on when the frost protection runs in either zone.
+- **Overheat protection active**: Indicates if the overheat protection is running right now.
 
 For Air-to-Water units only:
 
@@ -125,13 +127,13 @@ For both Air-to-Air and Air-to-Water units:
 For Air-to-Air units only:
 
 - **Room temperature**: The current measured room temperature.
-- **Outdoor temperature**: The temperature measured by the outdoor unit. Only created for units with an outdoor temperature sensor.
+- **Outdoor temperature**: The temperature measured by the outdoor unit. Created once the unit reports an outdoor temperature.
 
 For Air-to-Water units only:
 
 - **Zone 1 room temperature** and **Zone 2 room temperature**: The room temperature of each zone. Zone 2 is only created when the unit reports zone 2 support.
 - **Tank water temperature**: The current measured tank water temperature.
-- **Operation status**: What the heat pump is doing: **Idle**, **Heating water**, **Heating zones**, or **Cooling**.
+- **Operation status**: What the heat pump is doing: **Idle**, **Heating water**, **Heating zones**, **Cooling**, or **Frost protection**.
 
 ### Switches
 
@@ -236,7 +238,7 @@ This happens when your password changed or your login is no longer accepted. Fol
 
 ### An entity is missing
 
-Some entities are only created when your unit reports that it supports the feature, such as the energy meter, the outdoor temperature sensor, zone 2, or standby mode. Check the capabilities of your unit in the MELCloud Home app.
+Some entities are only created when your unit reports that it supports the feature, such as the energy meter, zone 2, or standby mode. Check the capabilities of your unit in the MELCloud Home app. The outdoor temperature sensor is created once the unit reports an outdoor temperature, which can take up to 15 minutes after setup.
 
 ## Removing the integration
 
