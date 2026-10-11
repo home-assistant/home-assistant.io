@@ -267,7 +267,12 @@ Check the square box aside of the automation you wish to delete and from the top
 
 ## Reloading automations
 
-After you change automations in a YAML file, reload them to apply the changes.
+After you change automations in a YAML file, reload them to apply the changes. Reloading only affects the automations that you changed:
+
+- If one of them is running, the run stops.
+- If one of them waits for a **For at least** duration, the wait starts over.
+
+For details, refer to [When a run stops before it finishes](/docs/automation/modes/#when-a-run-stops-before-it-finishes).
 
 1. Go to {% my tools_yaml title="**Settings** > **Tools** > **YAML**" %}.
 2. Under **YAML configuration reloading**, select **Automations**.
