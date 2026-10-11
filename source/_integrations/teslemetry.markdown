@@ -122,7 +122,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 The **Bluetooth** column marks entities whose commands can control the vehicle over Bluetooth when it's paired and within range of a Home Assistant Bluetooth adapter. See [Bluetooth vehicle control](#bluetooth-vehicle-control) for setup and requirements.
 
 {% note %}
-Only vehicle controls send commands over Bluetooth. Reading state, and the updated state that follows a command, always comes through Teslemetry's cloud connection or data stream, even for an entity marked **Yes**. When the vehicle is out of Bluetooth range, its commands use the cloud, and individual commands the local connection can't complete fall back to the cloud automatically. Energy site and Wall Connector entities are not controlled over vehicle Bluetooth.
+Only vehicle controls send commands over Bluetooth. While a paired vehicle that streams its data is within Bluetooth range, the states it broadcasts over Bluetooth also update the **Lock**, the four door binary sensors, the **Charge port door**, **Frunk**, and **Trunk** covers, the Cybertruck tonneau cover, and the **Shift state** sensor, alongside Teslemetry's data stream. Every other state, and all state for a vehicle that polls, comes through Teslemetry's cloud connection or data stream, even for an entity marked **Yes**. When the vehicle is out of Bluetooth range, its commands use the cloud, and individual commands the local connection can't complete fall back to the cloud automatically. Energy site and Wall Connector entities are not controlled over vehicle Bluetooth.
 {% endnote %}
 
 |Domain|Name|Enabled|Data|Bluetooth|
