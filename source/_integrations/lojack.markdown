@@ -12,7 +12,9 @@ ha_codeowners:
   - '@devinslick'
 ha_domain: lojack
 ha_platforms:
+  - binary_sensor
   - device_tracker
+  - sensor
 ha_integration_type: hub
 ---
 
@@ -83,11 +85,37 @@ The **LoJack** integration provides the following entities for each vehicle.
 
 Each vehicle gets a device tracker entity named after the vehicle. It uses GPS as its source type and reports `home`, `not_home`, or a zone name based on the vehicle's GPS coordinates.
 
+#### Sensors
+
+Each vehicle also gets the following sensors. Sensor names follow the sensor device classes: Distance, Speed, Voltage, and Timestamp. For example, `sensor.2021_toyota_camry_distance`.
+
+- **Distance**
+  - **Description**: The vehicle's odometer reading, as reported by the tracker. The sensor is in miles and shown in your unit system.
+- **Speed**
+  - **Description**: The vehicle's current speed. The sensor is in miles per hour and shown in your unit system.
+- **Voltage**
+  - **Description**: The vehicle's battery voltage. LoJack devices report battery voltage, not a charge percentage. The sensor is classified as diagnostic.
+- **Timestamp**
+  - **Description**: When the vehicle last reported its location. The sensor is classified as diagnostic.
+
+All sensors update together with the device tracker on each poll and become unavailable while the Spireon API cannot be reached.
+
+#### Binary sensors
+
+Each vehicle also gets the following binary sensors. For example, `binary_sensor.2021_toyota_camry_moving`.
+
+- **Moving**
+  - **Description**: On when the vehicle's speed is above 0.5 mph, meaning the vehicle is moving. When the tracker does not report a speed, the state is unknown rather than off. The sensor is classified as diagnostic.
+- **Connectivity**
+  - **Description**: On when the vehicle's tracker has reported usable data (a last-reported time or GPS coordinates). Off means the tracker has not reported usable data. The sensor is classified as diagnostic.
+
+The binary sensors update together with the device tracker and sensors on each poll.
+
 ## Data updates
 
-The **LoJack** integration {% term polling polls %} data from the Spireon cloud API every 5 minutes by default. Each poll retrieves the last known location cached on the Spireon server. It does _not_ command the vehicle's hardware to obtain a new GPS fix. The server-side cache is updated whenever the vehicle's LoJack hardware periodically reports in (the reporting interval is determined by the LoJack hardware and firmware and is not configurable).
+The **LoJack** integration {% term polling polls %} data from the Spireon cloud API every 5 minutes by default. Each poll retrieves the latest vehicle data (location and telemetry) cached on the Spireon server. It does _not_ command the vehicle's hardware to obtain a new GPS fix. The server-side cache is updated whenever the vehicle's LoJack hardware periodically reports in (the reporting interval is determined by the LoJack hardware and firmware and is not configurable).
 
-Calling the `homeassistant.update_entity` action re-fetches the last known location already stored on the Spireon server. This is fast and lightweight but only returns whatever location the server already has. If the vehicle has not reported in recently, you will get stale data. Use this approach when you want to check the location more frequently than every 5 minutes, or when you need a quick, low-overhead update.
+Calling the `homeassistant.update_entity` action re-fetches the latest vehicle data already stored on the Spireon server, refreshing the device tracker, sensors, and binary sensors together. This is fast and lightweight but only returns whatever data the server already has. If the vehicle has not reported in recently, you will get stale data. Use this approach when you want to check the vehicle more frequently than every 5 minutes, or when you need a quick, low-overhead update.
 
 ## Examples
 
