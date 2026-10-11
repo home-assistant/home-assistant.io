@@ -146,11 +146,18 @@ The state shows whether the automation is enabled. It doesn't show whether the a
 
 ### Automation attributes
 
+The attributes tell you more about an automation, such as when it last ran, or whether it's running right now. You can use them to check an automation without opening it, or to make another automation depend on it.
+
 - **Last triggered** (`last_triggered`): When the automation last ran its actions. If the conditions stopped the automation, this time doesn't change.
-- **Run mode** (`mode`): What happens when a trigger reacts while the automation is still running: **Single**, **Restart**, **Queued**, or **Parallel**. For details, refer to [Automation modes](/docs/automation/modes/).
+  - Use it to check whether an automation did what you expected, or to keep another automation from reacting again too soon.
 - **Running automations** (`current`): How many runs of the automation are in progress right now. Usually, this is `0`.
+  - Use it to wait until an automation has finished, or to skip something while it's still running.
+- **Run mode** (`mode`): What happens when a trigger reacts while the automation is still running: **Single**, **Restart**, **Queued**, or **Parallel**. For details, refer to [Automation modes](/docs/automation/modes/).
 - **Max running automations** (`max`): How many runs can be in progress at the same time. Only automations in **Queued** or **Parallel** mode have this attribute.
-- **ID** (`id`): The unique ID of the automation. Automations that you create in the editor always have one. Automations in YAML only have one if you set `id`.
+  - When **Running automations** reaches this number, the next time a trigger reacts, no new run is added. For details, refer to [I see an "Already running" warning in the logs](/docs/automation/troubleshooting/#i-see-an-already-running-warning-in-the-logs).
+- **ID** (`id`): The unique ID of the automation. It connects the entity to the configuration of the automation. Automations that you create in the editor always have one. Automations in YAML only have one if you set `id`.
+
+To see the attributes, select the automation entity, and then select **Menu** {% icon "mdi:dots-vertical" %} > **Details**. In an automation or a script, select an attribute in the **Attribute** field of a **State** trigger or condition. In templates, use `state_attr()`, for example, `state_attr('automation.turn_on_porch_light', 'last_triggered')`.
 
 ### Actions for automations
 
