@@ -489,7 +489,7 @@ The **Condition** building block checks a condition in the middle of a sequence.
 
 {% options_ui %}
 Condition type:
-  description: The condition to check. Each condition type has its own options. For the available conditions, refer to [conditions](/docs/scripts/conditions/).
+  description: The condition to check. Each condition type has its own options. For the available conditions, refer to the [list of available conditions](/conditions/).
   required: true
 {% endoptions_ui %}
 
