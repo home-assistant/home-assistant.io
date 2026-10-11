@@ -913,7 +913,9 @@ When you save the automation, Home Assistant shows `Message malformed:` with `Un
 
 #### Description
 
-Only the top-level keys of an automation are plural: `triggers:`, `conditions:`, and `actions:`. Inside each item, the keys stay singular. If an action starts with `- actions:` instead of `- action:`, or a condition starts with `- conditions:` instead of `- condition:`, Home Assistant can't tell what the item is.
+At the automation level, `triggers:`, `conditions:`, and `actions:` are plural. The key that identifies an item stays singular: a condition starts with `- condition:`, and an action call starts with `- action:`. If an action starts with `- actions:`, or a condition starts with `- conditions:`, Home Assistant can't tell what the item is.
+
+Plural keys further inside an item are correct. For example, an **Or** condition or a **Choose** option has its own `conditions:` list.
 
 #### Resolution
 
