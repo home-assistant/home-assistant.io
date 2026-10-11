@@ -853,6 +853,76 @@ In the save dialog, enter a name, and then save again.
 
 {% enddetails %}
 
+## An example from the forum doesn't work
+
+Use this section if you copied an example from the forum or a guide, and it doesn't work in your automation. Older examples often use keys that have been renamed since. The old keys still work, but they cause problems when you mix them with the new ones. For the renamed keys, refer to [Older YAML syntax](/docs/automation/yaml/#older-yaml-syntax).
+
+<a id="part-of-a-pasted-example-disappears-in-the-yaml-editor"></a>
+
+{% details "Part of a pasted example disappears in the YAML editor, because old and new keys are mixed" %}
+
+<h3 class="no_toc">Symptom</h3>
+
+You pasted part of an older example into your automation in YAML mode. After you save, or switch back to the visual editor, the triggers, conditions, or actions from the example are gone.
+
+#### Description
+
+The example uses an old key, such as `trigger:`, and your automation already has the new key, such as `triggers:`. When both keys are there, the editor keeps the new key and drops everything under the old key. No error is shown.
+
+#### Resolution
+
+1. In the example, change the keys to the current names.
+   - For example, change `trigger:` to `triggers:`, and `platform:` to `trigger:`.
+2. Paste the items of the example under the keys that your automation already has.
+   - For example, paste the triggers under `triggers:`, not as a second `triggers:` list.
+3. Save the automation.
+
+{% enddetails %}
+
+<a id="automation-in-a-yaml-file-isnt-set-up-cannot-specify-both"></a>
+
+{% details "Automation in a YAML file isn't set up: “Cannot specify both 'trigger' and 'triggers'”" %}
+
+<h3 class="no_toc">Symptom</h3>
+
+An automation that you wrote in {% term "`configuration.yaml`" %} or another YAML file isn't active. {% my repairs title="**Settings** > **System** > **Repairs**" %} shows **Automation … failed to set up**, with an error such as `Cannot specify both 'trigger' and 'triggers'. Please use 'triggers' only.`
+
+#### Description
+
+The automation has an old key and the new key in the same place. Home Assistant doesn't know which one to use, so it doesn't set up the automation. The error names the keys, for example:
+
+- `Cannot specify both 'trigger' and 'triggers'. Please use 'triggers' only.`
+- `Cannot specify both 'platform' and 'trigger'. Please use 'trigger' only.`
+- `Cannot specify both 'service' and 'action'. Please use 'action' only.`
+
+#### Resolution
+
+1. In the YAML file, find the automation and remove the old key.
+   - Move its items under the new key.
+2. Go to {% my tools_yaml title="**Settings** > **Tools** > **YAML**" %} and reload **Automations**.
+
+{% enddetails %}
+
+<a id="saving-shows-unable-to-determine-action-or-unexpected-value-for-condition"></a>
+
+{% details "Saving shows “Unable to determine action” or “Unexpected value for condition”" %}
+
+<h3 class="no_toc">Symptom</h3>
+
+When you save the automation, Home Assistant shows `Message malformed:` with `Unable to determine action`, or with `Unexpected value for condition: 'None'`.
+
+#### Description
+
+Only the top-level keys of an automation are plural: `triggers:`, `conditions:`, and `actions:`. Inside each item, the keys stay singular. If an action starts with `- actions:` instead of `- action:`, or a condition starts with `- conditions:` instead of `- condition:`, Home Assistant can't tell what the item is.
+
+#### Resolution
+
+1. In each action, change `- actions:` back to `- action:`.
+2. In each condition, change `- conditions:` back to `- condition:`.
+3. Save the automation.
+
+{% enddetails %}
+
 ## My automation behaves differently when I run it manually
 
 Use this section if the automation works when you select **Run actions**, but not when the trigger happens, or the other way around.
