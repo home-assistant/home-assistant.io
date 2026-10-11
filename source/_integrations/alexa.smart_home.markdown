@@ -631,7 +631,7 @@ Enable preload stream option for cameras used with echo devices to reduce respon
 
 #### WebRTC live view
 
-Echo Show devices can also show the live view of a camera over WebRTC. This is used for cameras that support WebRTC, either natively or through the [go2rtc](/integrations/go2rtc/) integration. The HTTPS stream described above is still offered when its requirements are met, so existing setups keep working.
+Echo Show devices can also show your camera's live view using WebRTC. This works for cameras that support WebRTC, either directly or through the [go2rtc](/integrations/go2rtc/) integration. If your setup also meets the requirements for the stream above, that stream keeps working too.
 
 - Only IPv4 connection candidates are sent to the Echo Show. If a camera only provides IPv6 or mDNS (`.local`) candidates, the live view fails.
 - The video does not go directly over your local network. The Echo Show connects through a public address of your network or through a TURN relay server. Home Assistant Cloud provides TURN servers automatically. Without Home Assistant Cloud, configure your own TURN server with the [WebRTC](/integrations/web_rtc/) integration.
