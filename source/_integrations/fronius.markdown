@@ -57,8 +57,6 @@ You should either set a static IP or assign a static DHCP lease for the Fronius 
 For Gen24 devices (delivered with Firmware >= 1.14.1) make sure to activate "Solar API" in the inverters web interface. For older devices, Solar API should be enabled by default.
 {% endnote %}
 
-## Configuration
-
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}

@@ -9,7 +9,7 @@
 #   curl -s https://mcr.microsoft.com/v2/devcontainers/ruby/tags/list \
 #     | tr ',' '\n' | grep -- '-3.4-trixie'
 # Avoid tags like 4.1.1-4.0-trixie or 4.1.1-3.3-trixie, which change Ruby.
-FROM mcr.microsoft.com/devcontainers/ruby:4.1.1-3.4-trixie
+FROM mcr.microsoft.com/devcontainers/ruby:4.1.2-3.4-trixie
 
 ARG NODE_VERSION="lts/*"
 

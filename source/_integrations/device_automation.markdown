@@ -15,11 +15,11 @@ ha_integration_type: system
 
 There is no device automation-specific configuration. Instead, device automations are configured as part of regular automations.
 
-Device automations are meant to be configured in the UI. In the automation editor, a device trigger can represent a state change, a button press on a remote, or another event provided by the integration. Unlike a state trigger, a device trigger is tied to a device and does not always need to target a specific entity.
+Device automations are meant to be configured in the UI. In the visual automation editor, a device trigger can represent a state change, a button press on a remote, or another event provided by the integration. Unlike a state trigger, a device trigger is tied to a device and does not always need to target a specific entity.
 
 [MQTT device triggers](/integrations/device_trigger.mqtt/) are set up through [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
-If you need YAML for an automation that is not managed in the UI, create the trigger in the automation editor first, then copy the YAML from the trigger.
+If you need YAML for an automation that is not managed in the UI, create the trigger in the visual automation editor first, then copy the YAML from the trigger.
 
 Example:
 

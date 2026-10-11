@@ -312,7 +312,7 @@ Before using these examples, make sure the NUT integration is configured and you
 
 This automation sends a notification when the UPS status sensor changes to **On Battery, Battery Discharging**.
 
-In the automation editor:
+In the visual automation editor:
 
 - **Trigger**: State changed
   - **Entity**: UPS status (`sensor.ups_status`)

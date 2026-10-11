@@ -1,55 +1,52 @@
 ---
 title: "Automation conditions"
-description: "Automations can test conditions when invoked."
-toc: false
+description: "Conditions decide whether an automation continues after a trigger starts it. Learn which kinds of conditions there are, why they check the current state, and how they work with building blocks."
+related:
+  - docs: /conditions/
+    title: List of available conditions
+  - docs: /docs/scripts/conditions/
+    title: Conditions reference
+  - docs: /docs/automation/how-automations-react-to-changes/
+    title: How automations react to changes
+  - docs: /docs/automation/testing/
+    title: Testing automations
 ---
 
-Conditions are an optional part of an automation rule. They can be used to prevent the automation's actions from being run. After a {% term trigger %} occurred, all conditions will be checked. The automation will be executed if all conditions return `true`. If any of the conditions returns `false`, the automation won't start.
+A condition checks whether something is true right now. For example, a condition can check whether a door is closed, or whether someone is home. When a [trigger](/docs/automation/trigger/) starts the automation, Home Assistant checks the conditions. If they are met, the automation runs its [actions](/docs/automation/action/). If not, the automation stops.
 
-A condition checks the state at the moment the automation runs, not at the moment of the trigger. For an example, refer to [how automations react to changes](/docs/automation/how-automations-react-to-changes/#conditions-check-the-current-state).
+You add conditions in the **And if** section of the automation editor, with **Add condition**. Conditions are optional. Without conditions, the automation runs its actions whenever a trigger starts it.
 
-The available conditions for an automation are the same as for the script syntax so see that page for a [full list of available conditions](/docs/scripts/conditions/).
+## Built-in and integration conditions
 
-Example of using condition:
+- Conditions that come with an integration are named after what they check. Integration conditions include **Light is on** and **Sun is up**.
+- Conditions that are built into Home Assistant aren't tied to an integration. You can use them with entities from any integration. Built-in conditions include **State**, **Numeric state**, **Time**, and **Template**.
 
+For the conditions that come with an integration, refer to the [list of available conditions](/conditions/). For the built-in conditions, and for writing conditions in YAML, refer to [Conditions](/docs/scripts/conditions/).
 
-```yaml
-automation:
-  - alias: "Turn on office lights"
-    triggers:
-      - trigger: state
-        entity_id: sensor.office_motion_sensor
-        to: "on"
-    conditions:
-      - or:
-        - condition: numeric_state
-          entity_id: sun.sun
-          attribute: elevation
-          below: 4
-        - condition: numeric_state
-          entity_id: sensor.office_lux_sensor
-          below: 10
-    actions:
-      - action: scene.turn_on
-        target:
-          entity_id: scene.office_lights
-```
+## Conditions check the current state
 
+A condition checks the state at the moment the automation runs.
 
-The `condition` option of an automation, also accepts a single condition template directly. For example:
+This is why:
 
+- A condition doesn't start the automation when it becomes true. To start the automation when something becomes true, use a trigger.
+- If the state changes after the check, the condition isn't checked again. The automation continues or stops based on that one check.
 
-```yaml
-automation:
-  - alias: "Turn on office lights"
-    triggers:
-      - trigger: state
-        entity_id: sensor.office_motion_sensor
-        to: "on"
-    conditions: "{{ state_attr('sun.sun', 'elevation') < 4 }}"
-    actions:
-      - action: scene.turn_on
-        target:
-          entity_id: scene.office_lights
-```
+For examples, refer to [Conditions check the current state](/docs/automation/how-automations-react-to-changes/#conditions-check-the-current-state).
 
+## Conditions and building blocks
+
+If an automation has several conditions, all of them must be met. To combine conditions in a different way, select **Add condition**, and then select **Blocks**:
+
+- **Or**: met if at least one of the conditions inside is met.
+- **Not**: met if none of the conditions inside are met.
+- **And**: met if all conditions inside are met. Use it inside an **Or** or **Not** block.
+
+You can also check a condition between the actions under **Then do**:
+
+- To stop the remaining actions when a condition isn't met, use the [**Condition**](/docs/scripts/#condition) building block.
+- To do different things depending on a condition, use [**If-then**](/docs/scripts/#if-then) or [**Choose**](/docs/scripts/#choose).
+
+## Testing conditions
+
+You can check whether a condition is met right now, without running the automation. For the steps, refer to [Testing a condition](/docs/automation/testing/#testing-a-condition).

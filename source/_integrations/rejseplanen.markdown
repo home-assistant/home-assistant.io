@@ -5,7 +5,7 @@ ha_release: 0.88
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
-ha_quality_scale: legacy
+ha_quality_scale: silver
 ha_config_flow: true
 ha_codeowners:
   - '@Jawar19'
@@ -350,7 +350,8 @@ automation:
 {% enddetails %}
 
 {% important %}
-Be mindful of the API rate limit (50,000 calls per month for private keys). Frequent updates across multiple stops can quickly use up your allocation. Monitor your usage and adjust your intervals.
+Be mindful of the API rate limit (50,000 calls per month for private keys). Frequent updates can quickly use up your allocation. Monitor your usage and adjust your intervals.
+The integration will only spend one call per request no matter the number of stops defined in the config.
 {% endimportant %}
 
 ## Data updates

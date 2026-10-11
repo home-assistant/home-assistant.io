@@ -16,7 +16,7 @@ ha_codeowners:
 
 The [Pushover action](https://pushover.net/) is a platform for the notify integration. This allows integrations to send messages to the user using Pushover.
 
-## Configuration
+## Prerequisites
 
 To get an API key, you need to [register an application](https://pushover.net/apps/clone/home_assistant) on the Pushover website. Your Pushover user key can be found on the [Pushover dashboard](https://pushover.net/dashboard).
 

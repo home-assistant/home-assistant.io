@@ -45,8 +45,8 @@ Username:
   description: "Your Transmission username, if set."
 Password:
   description: "Your Transmission password, if set."
-Verify SSL certificate:
-  description: "Enable SSL certificate verification when connecting via HTTPS."
+Uses an SSL certificate:
+  description: "Connect to the Transmission RPC interface using HTTPS."
 {% endconfiguration_basic %}
 
 ## Supported functionality
