@@ -128,6 +128,14 @@ for the following information from WLED:
 - Wi-Fi BSSID (disabled by default)
 - IP Address
 
+When the device has a usermod installed that measures temperature or humidity, the {% term integration %} adds sensors for those too:
+
+- Temperature, from the Temperature usermod (like a DS18B20 sensor) or the SHT usermod
+- Humidity, from the SHT usermod
+- Internal temperature of the ESP chip, from the Internal Temperature usermod (disabled by default)
+
+These sensors show up once the usermod reports a reading, in the unit it is configured for.
+
 ### Switches
 
 The {% term integration %} will also create several
