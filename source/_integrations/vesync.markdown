@@ -167,6 +167,7 @@ Sensors and settings exposed by VeSync humidifiers.
 | Number                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `mist_level`            | Mist level intensity (Range: 1-9, Step: 1). Only available in manual mode.         | 1         |
+| `warm_mist_level`       | Warm mist level (Range: 0-3, Step: 1). Only on models with warm mist, such as the LV600S and OasisMist 4.5L. | 0         |
 
 | Select                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
