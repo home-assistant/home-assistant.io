@@ -58,7 +58,7 @@ The **IMGW-PIB** integration provides the following entities.
 
 ## IMGW-PIB automation examples
 
-The **Hydrological alert** sensor lets you react as soon as a hydrological alert is issued for your river or reservoir.
+The **Hydrological alert** sensor lets you react when a hydrological alert is detected for your river or reservoir.
 Here is an idea to get you started.
 
 {% include docs/paste_yaml_tip.md %}
