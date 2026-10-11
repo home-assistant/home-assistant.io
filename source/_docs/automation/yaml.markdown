@@ -270,7 +270,7 @@ Check the square box aside of the automation you wish to delete and from the top
 After you change automations in a YAML file, reload them to apply the changes. Reloading only affects the automations that you changed:
 
 - If one of them is running, the run stops.
-- If one of them waits for a **For at least** duration, the wait starts over.
+- If one of them has a **For at least** duration in progress, the duration is lost.
 
 For details, refer to [When a run stops before it finishes](/docs/automation/modes/#when-a-run-stops-before-it-finishes).
 
