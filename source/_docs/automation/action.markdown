@@ -20,6 +20,8 @@ You add actions in the **Then do** section of the automation editor. For the ste
 
 Each action does one thing. For example, **Turn on light** turns on lights. For a description of all actions, refer to the [list of available actions](/actions/).
 
+Some actions control automations themselves, for example, to turn off another automation. For these actions, refer to [Actions for automations](/docs/automation/basics/#actions-for-automations).
+
 Many actions also have some of the following parts:
 
 - Targets: what the action controls, for example, the lights in the living room.
