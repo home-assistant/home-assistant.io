@@ -201,6 +201,23 @@ automation my_lights:
           message: "Cube has triggered this event: {{ trigger.event }}"
 ```
 
+## Older YAML syntax
+
+Older examples, such as in forum posts, guides, or blueprints, can use keys that have been renamed since. Home Assistant still accepts the old keys, so these examples keep working. When you save an automation in the editor, Home Assistant changes the keys to the current names.
+
+The renamed keys are:
+
+- `service:` in an action is now `action:`.
+  - Renamed in Home Assistant 2024.8.
+- `platform:` in a trigger is now `trigger:`.
+  - Renamed in Home Assistant 2024.10.
+- The top-level `trigger:`, `condition:`, and `action:` keys of an automation are now `triggers:`, `conditions:`, and `actions:`.
+  - Renamed in Home Assistant 2024.10.
+
+At the automation level, `triggers:`, `conditions:`, and `actions:` are plural. The key that identifies a trigger or condition within those lists stays singular (`trigger:` or `condition:`), and an action call uses singular `action:`.
+
+Use either the old key or the new key, not both in the same place. For example, an automation can't have both `trigger:` and `triggers:`. Before you copy part of an older example into your automation, change its keys to the current names.
+
 ## Additional options
 
 Some options are only available when writing automations directly in {% term YAML %} and cannot be configured through the user interface.
