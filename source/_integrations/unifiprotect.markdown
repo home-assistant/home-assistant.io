@@ -192,6 +192,7 @@ each of the different {% term entity %} platforms.
 **Permissions**: The below sections on the features available to your Home Assistant instance assume you have full
 write access to each device. If the user you are using has limited access to some devices, you will get fewer entities
 and in many cases, get a read-only sensor instead of an editable switch/select/number {% term entity %}.
+Floodlights are the exception: the light, status light, motion sensitivity, auto-shutoff duration, and light mode controls use the API key, so they are available regardless of the local user's permissions.
 {% endnote %}
 
 The table below shows, per device type, which connection mode is required. See [Connection modes](#connection-modes) for what each mode provides.
