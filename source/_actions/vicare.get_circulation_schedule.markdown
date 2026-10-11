@@ -47,7 +47,7 @@ The response is keyed by the entity ID of each targeted water heater. Each entry
 
 - `from`: The time the pump turns on, such as `06:00:00`.
 - `to`: The time the pump turns off. `24:00:00` means the end of the day.
-- `mode`: The circulation mode of the slot, such as `on`, `5/25-cycles`, or `5/10-cycles`.
+- `mode`: The circulation mode of the slot: `on`, `cycles_5_25`, or `cycles_5_10`.
 
 A shortened example of the response looks like this:
 
