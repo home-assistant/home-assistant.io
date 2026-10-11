@@ -669,6 +669,8 @@ actions:
 
 {% include integrations/triggers.md %}
 
+{% include integrations/conditions.md %}
+
 {% include integrations/actions.md %}
 
 ## Setting up a Z-Wave server without using the Z-Wave JS app

@@ -19,11 +19,18 @@ ha_integration_type: service
 ha_quality_scale: platinum
 ---
 
-NextDNS is a DNS service that protects from all kinds of security threats, blocks ADS and trackers on websites and in apps, and provides a safe and supervised Internet for kids — on all devices and on all networks. The NextDNS integration allows you to monitor NextDNS statistics and control its configuration.
+The **NextDNS** {% term integration %} is used to integrate with [NextDNS](https://nextdns.io), a DNS service that protects you from security threats, blocks advertisements and trackers on websites and in apps, and provides a safe and supervised internet for kids on all devices and on all networks. The integration lets you monitor NextDNS statistics and control its configuration.
+
+You can use it to:
+
+- Monitor DNS queries from your local network or individual devices.
+- Track DNS query protocols to understand connection security.
+- Manage children's screen time by scheduling access to social media, games, and streaming services.
 
 ## Prerequisites
 
-To obtain API key go to the NextDNS site >> [Account section](https://my.nextdns.io/account).
+1. Sign in to your [NextDNS account](https://my.nextdns.io/account).
+2. Copy the API key shown on the account page.
 
 {% include integrations/config_flow.md %}
 
@@ -34,15 +41,9 @@ Profile:
     description: "The NextDNS configuration profile you want to integrate."
 {% endconfiguration_basic %}
 
-## Removing the integration
-
-This integration follows standard integration removal, no extra steps are required.
-
-{% include integrations/remove_device_service.md %}
-
 ## Supported functionality
 
-The NextDNS integration provides the following entities.
+The **NextDNS** integration provides the following entities.
 
 ### Binary sensors
 
@@ -167,10 +168,16 @@ The NextDNS integration provides the following entities.
   - **Description**: Controls blocking of filter bypass methods
 - **Block child sexual abuse material**
   - **Description**: Controls blocking of child sexual abuse material
+- **Block data-drop services**
+  - **Description**: Controls blocking of data-drop services
+- **Block decentralized web gateways**
+  - **Description**: Controls blocking of decentralized web gateways
 - **Block dynamic DNS hostnames**
   - **Description**: Controls blocking of dynamic DNS hostnames
 - **Block disguised third-party trackers**
   - **Description**: Controls blocking of disguised third-party trackers
+- **Block free hosting domains**
+  - **Description**: Controls blocking of free hosting domains
 - **Block page**
   - **Description**: Controls the display of the blocking page
 - **Block online gaming**
@@ -183,9 +190,13 @@ The NextDNS integration provides the following entities.
 - **Block porn**
   - **Description**: Controls blocking of pornographic content
   - **Remarks**: This entity is disabled by default
+- **Block residential hosting**
+  - **Description**: Controls blocking of residential hosting
 - **Block social networks**
   - **Description**: Controls blocking of social networks
   - **Remarks**: This entity is disabled by default
+- **Block tunneling endpoints**
+  - **Description**: Controls blocking of tunneling endpoints
 - **Block video streaming**
   - **Description**: Controls blocking of video streaming websites
   - **Remarks**: This entity is disabled by default
@@ -325,45 +336,74 @@ The NextDNS integration provides the following entities.
   - **Description**: Controls Zoom access
   - **Remarks**: This entity is disabled by default
 
+## NextDNS automation examples
+
+Here are a few ideas to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Block social media for kids in the evening
+
+This automation turns on the **Block social networks** switch of the kids profile every evening.
+
+- **Trigger**: Time: 20:00
+- **Action**: Turn on
+  - **Target**: Block social networks (`switch.kids_block_social_networks`)
+
+{% details "YAML example for blocking social media in the evening" %}
+
+{% example %}
+automation: |
+  alias: "Block social media for kids in the evening"
+  triggers:
+    - trigger: time
+      at: "20:00:00"
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.kids_block_social_networks
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Unblock social media for kids after school
+
+This automation turns off the **Block social networks** switch of the kids profile after school.
+
+- **Trigger**: Time: 16:00
+- **Action**: Turn off
+  - **Target**: Block social networks (`switch.kids_block_social_networks`)
+
+{% details "YAML example for unblocking social media after school" %}
+
+{% example %}
+automation: |
+  alias: "Unblock social media for kids after school"
+  triggers:
+    - trigger: time
+      at: "16:00:00"
+  actions:
+    - action: switch.turn_off
+      target:
+        entity_id: switch.kids_block_social_networks
+{% endexample %}
+
+{% enddetails %}
+
 ## Data updates
 
-By default, the integration {% term polling polls %} data from the NextDNS API:
-- Every 5 minutes for connection status data
-- Every 10 minutes for analytics data
-- Every 1 minute for settings
+The **NextDNS** integration {% term polling polls %} data from the NextDNS API by default:
 
-## Possible use-cases
-
-- Monitor DNS queries from your local network or individual devices.
-- Track DNS query protocols to understand connection security.
-- Manage children's screen time by scheduling access to social media, games, and streaming services.
-
-## Examples
-
-### Block social media for kids
-
-These automations block social media access for the kids profile during evening hours and unblock it after school.
-
-```yaml
-automation:
-  - alias: Block social media for kids in the evening
-    triggers:
-      - trigger: time
-        at: "20:00:00"
-    actions:
-      - action: switch.turn_off
-        target:
-          entity_id: switch.kids_block_social_networks
-  - alias: Unblock social media for kids after school
-    triggers:
-      - trigger: time
-        at: "16:00:00"
-    actions:
-      - action: switch.turn_on
-        target:
-          entity_id: switch.kids_block_social_networks
-```
+- Every 5 minutes for connection status
+- Every 10 minutes for analytics
+- Every minute for settings
 
 ## Known limitations
 
 There are no known limitations.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}

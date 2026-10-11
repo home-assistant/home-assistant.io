@@ -25,12 +25,12 @@ UNIX timestamps are useful when you need to perform arithmetic with dates and ti
 {% include template_functions/usage.md %}
 
 {% template_function_usage %}
-function: '{{ as_timestamp("2024-03-15T14:30:00+01:00") }}'
+function: '{{ as_timestamp("2024-03-15T14:50:00+01:00") }}'
 type: float
 output: "1710510600.0"
 
 ---
-filter: '{{ "2024-03-15T14:30:00+01:00" | as_timestamp }}'
+filter: '{{ "2024-03-15T14:50:00+01:00" | as_timestamp }}'
 type: float
 output: "1710510600.0"
 {% endtemplate_function_usage %}

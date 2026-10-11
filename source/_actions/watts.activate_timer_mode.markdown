@@ -49,8 +49,6 @@ This sets the living room thermostat to 21.5°C for 90 minutes, then returns to 
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 temperature:
   description: >

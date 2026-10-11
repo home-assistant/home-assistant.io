@@ -236,7 +236,7 @@ For the full list of available conditions and its details, refer to the [Cover c
 
 ### Device conditions
 
-Set of conditions provided by a device.
+For setup steps, YAML options, and examples for the **Device** condition, refer to [Device](/conditions/device/).
 
 ### Fan conditions
 
@@ -330,67 +330,7 @@ For the full list of available conditions and its details, refer to the [Motion 
 
 ### Numeric state condition
 
-This type of condition attempts to parse the state of the specified entity or the attribute of an entity as a number, and triggers if the value matches the thresholds (strictly below/above, so equal excluded).
-
-If both `below` and `above` are specified, both tests have to pass.
-
-```yaml
-conditions:
-  - alias: "Temperature between 17 and 25 degrees"
-    condition: numeric_state
-    entity_id: sensor.temperature
-    above: 17
-    below: 25
-```
-
-You can optionally use a `value_template` to process the value of the state before testing it.
-
-```yaml
-conditions:
-  - condition: numeric_state
-    entity_id: sensor.temperature
-    above: 17
-    below: 25
-    # If your sensor value needs to be adjusted
-    value_template: "{{ float(state.state) + 2 }}"
-```
-
-It is also possible to test the condition against multiple entities at once.
-The condition will pass if **all** entities match the thresholds.
-
-```yaml
-conditions:
-  - condition: numeric_state
-    entity_id:
-      - sensor.kitchen_temperature
-      - sensor.living_room_temperature
-    below: 18
-```
-
-Alternatively, the condition can test against a state attribute.
-The condition will pass if the attribute value of the entity matches the thresholds.
-
-```yaml
-conditions:
-  - condition: numeric_state
-    entity_id: climate.living_room_thermostat
-    attribute: temperature
-    above: 17
-    below: 25
-```
-
-Number helpers (`input_number` entities), `number`, `sensor`, and `zone` entities
-that contain a numeric value, can be used in the `above` and `below`
-options to make the condition more dynamic.
-
-```yaml
-conditions:
-  - condition: numeric_state
-    entity_id: climate.living_room_thermostat
-    attribute: temperature
-    above: input_number.temperature_threshold_low
-    below: input_number.temperature_threshold_high
-```
+For setup steps, YAML options, and examples for the **Numeric state** condition, refer to [Numeric state](/conditions/numeric_state/).
 
 ### Power condition
 
@@ -423,216 +363,11 @@ For information about each condition, refer to [Siren conditions](/integrations/
 
 ### State condition
 
-Tests if an entity has a specified state.
-
-```yaml
-conditions:
-  - alias: "Paulus not home for an hour and a bit"
-    condition: state
-    entity_id: device_tracker.paulus
-    state: "not_home"
-    # optional: Evaluates to true only if state was this for last X time.
-    for:
-      hours: 1
-      minutes: 10
-      seconds: 5
-```
-
-It is also possible to test the condition against multiple entities at once.
-The condition will pass if **all** entities match the state.
-
-```yaml
-conditions:
-  - condition: state
-    entity_id:
-      - light.kitchen
-      - light.living_room
-    state: "on"
-```
-
-Instead of matching all, it is also possible if one of the entities matches.
-In the following example the condition will pass if **any** entity matches the state.
-
-```yaml
-conditions:
-  - condition: state
-    entity_id:
-      - binary_sensor.motion_sensor_left
-      - binary_sensor.motion_sensor_right
-    match: any
-    state: "on"
-```
-
-Testing if an entity is matching a set of possible conditions;
-The condition will pass if the entity matches one of the states given.
-
-```yaml
-conditions:
-  - condition: state
-    entity_id: alarm_control_panel.home
-    state:
-      - "armed_away"
-      - "armed_home"
-```
-
-Or, combine multiple entities with multiple states. In the following example,
-both media players need to be either paused or playing for the condition to pass.
-
-```yaml
-conditions:
-  - condition: state
-    entity_id:
-      - media_player.living_room
-      - media_player.kitchen
-    state:
-      - "playing"
-      - "paused"
-```
-
-Alternatively, the condition can test against a state attribute.
-The condition will pass if the attribute matches the given state.
-
-```yaml
-conditions:
-  - condition: state
-    entity_id: climate.living_room_thermostat
-    attribute: fan_mode
-    state: "auto"
-```
-
-Just like the main state, the `state` option accepts a list of possible values
-when matching an attribute, and the condition passes if the attribute matches
-any value in the list. If the attribute value is itself a list, wrap it in
-another list so the whole list is treated as a single value to match. The
-following condition passes only when the `fan_modes` attribute equals exactly
-`["auto", "low"]`.
-
-```yaml
-conditions:
-  - condition: state
-    entity_id: climate.living_room_thermostat
-    attribute: fan_modes
-    state:
-      - - "auto"
-        - "low"
-```
-
-Finally, the `state` option accepts helper entities (also known as `input_*`
-entities). The condition will pass if the state of the entity matches the state
-of the given helper entity.
-
-```yaml
-conditions:
-  - condition: state
-    entity_id: alarm_control_panel.home
-    state: input_select.guest_mode
-```
-
-{% note %}
-The `for` option only works with a single, fixed state on the entity's main
-state. You cannot combine `for` with an `attribute`, a list of states, or a
-state that references a helper entity.
-{% endnote %}
-
-You can also use templates in the `for` option.
-
-```yaml
-conditions:
-  - condition: state
-    entity_id: device_tracker.paulus
-    state: "home"
-    for:
-      minutes: "{{ states('input_number.lock_min')|int }}"
-      seconds: "{{ states('input_number.lock_sec')|int }}"
-```
-
-The `for` template(s) will be evaluated when the condition is tested.
+For setup steps, YAML options, and examples for the **State** condition, refer to [State](/conditions/state/).
 
 ### Sun conditions
 
-For the full list of available conditions and its details, refer to the [Sun conditions](/integrations/sun/#list-of-conditions).
-
-#### Sun state condition
-
-The sun state can be used to test if the sun has set or risen.
-
-```yaml
-conditions:
-  - alias: "Sun up"
-    condition: sun.is_up
-```
-
-```yaml
-conditions:
-  - alias: "Sun down"
-    condition: sun.is_set
-```
-
-#### Sun elevation condition
-
-The sun elevation can be used to test if the sun has set or risen, it is dusk, or it is night when a trigger occurs.
-For an in-depth explanation of sun elevation, see [sun elevation trigger][sun_elevation_trigger].
-
-[sun_elevation_trigger]: /docs/automation/trigger/#sun-elevation-trigger
-
-```yaml
-conditions:
-  - condition: and  # 'twilight' condition: dusk and dawn, in typical locations
-    conditions:
-      - condition: template
-        value_template: "{{ state_attr('sun.sun', 'elevation') < 0 }}"
-      - condition: template
-        value_template: "{{ state_attr('sun.sun', 'elevation') > -6 }}"
-```
-
-```yaml
-conditions:
-  condition: template  # 'night' condition: from dusk to dawn, in typical locations
-  value_template: "{{ state_attr('sun.sun', 'elevation') < -6 }}"
-```
-
-#### Sunset/sunrise condition
-
-The sun condition can also test if the sun has already set or risen when a trigger occurs. The `before` and `after` keys can only be set to `sunset` or `sunrise`. They have a corresponding optional offset value (`before_offset`, `after_offset`) that can be added, similar to the [sun trigger][sun_trigger].
-
-Note that if only `before` key is used, the condition will be true _from midnight_ until sunrise/sunset. If only `after` key is used, the condition will be true from sunset/sunrise _until midnight_. If both `before: sunrise` and `after: sunset` keys are used, the condition will be true _from midnight_ until sunrise **and** from sunset _until midnight_. If both `after: sunrise` and `before: sunset` keys are used, the condition will be true from sunrise until sunset.
-
-[sun_trigger]: /docs/automation/trigger/#sun-trigger
-
-{% tip %}
-The sunset/sunrise conditions do not work in locations inside the polar circles, and also not in locations with a highly skewed local time zone. In those cases it is advised to use conditions evaluating the solar elevation instead of the before/after sunset/sunrise conditions.
-{% endtip %}
-
-This is an example of 1 hour offset before sunset:
-
-```yaml
-conditions:
-  - condition: sun
-    after: sunset
-    after_offset: "-01:00:00"
-```
-
-This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`:
-
-```yaml
-conditions:
-  - condition: sun
-    after: sunset
-    before: sunrise
-```
-
-This is 'when light' - equivalent to a state condition on `sun.sun` of `above_horizon`:
-
-```yaml
-conditions:
-  - condition: sun
-    after: sunrise
-    before: sunset
-```
-
-A visual timeline is provided below, showing an example of when these conditions are true. In this chart, sunrise is at 6:00, and sunset is at 18:00 (6:00 PM). The green areas of the chart indicate when the specified conditions are true.
-
-![Graphic showing an example of sun conditions](/images/docs/scripts/sun-conditions.svg)
+For setup steps, YAML options, and examples for the **Sun** condition, which checks the time before or after sunrise or sunset, refer to [Sun](/conditions/sun/). For the other sun conditions, refer to the [list of Sun conditions](/integrations/sun/#list-of-conditions).
 
 ### Switch conditions
 
@@ -651,93 +386,11 @@ For details, refer to the [Temperature value](/conditions/temperature.is_value) 
 
 ### Template condition
 
-The template condition tests if the [given template][template] renders a value equal to true. This is achieved by having the template result in a true boolean expression or by having the template render `True`.
-
-```yaml
-conditions:
-  - alias: "Iphone battery above 50%"
-    condition: template
-    value_template: "{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}"
-```
-
-Within an automation, template conditions also have access to the `trigger` variable as [described here][automation-templating].
-
-{% important %}
-Be careful when combining `and`/`or` with a value that isn't already a boolean, such as a list, string, or number. In Python and Jinja, `and`/`or` don't always evaluate to a boolean. Instead, they return whichever operand determined the result. For example, if `some_list` is a non-empty list like `[255, 0, 0]`:
-
-{% example %}
-template: |
-  {{ some_list is defined and some_list }}
-output: |
-  [255, 0, 0]
-{% endexample %}
-
-This renders as the list itself, not `true`. Since a template condition only passes when the rendered result is the (case-insensitive) string `true`, the condition silently fails even though `some_list` is genuinely defined and non-empty. Force a real boolean with a comparison instead:
-
-```yaml
-conditions: "{{ some_list is defined and some_list | length > 0 }}"
-```
-{% endimportant %}
+For setup steps, YAML options, and examples for the **Template** condition, refer to [Template](/conditions/template/).
 
 #### Template condition shorthand notation
 
-The template condition has a shorthand notation that can be used to make your scripts and automations shorter.
-
-For example:
-
-```yaml
-conditions: "{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}"
-```
-
-Or in a list of conditions, allowing to use existing conditions as described in this
-chapter and one or more shorthand template conditions
-
-```yaml
-conditions:
-  - "{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}"
-  - condition: state
-    entity_id: alarm_control_panel.home
-    state: armed_away
-  - "{{ is_state('device_tracker.iphone', 'away') }}"
-```
-
-This shorthand notation can be used everywhere in Home Assistant where
-conditions are accepted. For example, in [`and`](#and-condition), [`or`](#or-condition)
-and [`not`](#not-condition) conditions:
-
-```yaml
-conditions:
-  - condition: or
-    conditions:
-      - "{{ is_state('device_tracker.iphone', 'away') }}"
-      - condition: numeric_state
-        entity_id: "sensor.temperature"
-        below: 20
-```
-
-It's also supported in the `repeat` action's `while` or `until` option, or in a `choose` action's `conditions` option:
-
-```yaml
-- while: "{{ is_state('sensor.mode', 'Home') and repeat.index < 10 }}"
-  sequence:
-    - ...
-```
-
-```yaml
-- choose:
-    - conditions: "{{ is_state('sensor.mode', 'Home') and repeat.index < 10 }}"
-      sequence:
-       - ...
-```
-
-It's also supported in script or automation `condition` actions:
-
-```yaml
-- condition: "{{ is_state('device_tracker.iphone', 'away') }}"
-```
-
-[template]: /docs/templating/
-[automation-templating]: /getting-started/automation-templating/
+For the shorthand notation of the **Template** condition, refer to [Shorthand notation](/conditions/template/#shorthand-notation).
 
 ### Text condition
 
@@ -747,54 +400,7 @@ For details, refer to the [Text is equal to](/conditions/text.is_equal_to) condi
 
 ### Time condition
 
-The time condition can test if it is after a specified time, before a specified time or if it is a certain day of the week.
-
-```yaml
-conditions:
-  - alias: "Time 15~02"
-    condition: time
-    # At least one of the following is required.
-    after: "15:00:00"
-    before: "02:00:00"
-    weekday:
-      - mon
-      - wed
-      - fri
-```
-
-Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
-Note that if only `before` key is used, the condition will be `true` _from midnight_ until the specified time.
-If only `after` key is used, the condition will be `true` from the specified time _until midnight_.
-
-Time condition windows can span across the midnight threshold if **both** `after` and `before` keys are used. In the example above, the condition window is from 3pm to 2am.
-
-The after times are inclusive while before are exclusive. In the example above, if the time was at 3pm (15:00:00) then it meets the after time condition. If the time was at 2am (2:00:00), it would fail the condition because it will only be valid up to 1:59:59.
-
-{% tip %}
-A better weekday condition could be by using the [Workday Binary Sensor](/integrations/workday/).
-{% endtip %}
-
-For the `after` and `before` options a time helper (`input_datetime` entity), a `time` entity, or another `sensor` entity containing a timestamp with the "timestamp" device class, can be used instead.
-
-```yaml
-conditions:
-  - alias: "Example referencing a time helper"
-    condition: time
-    after: input_datetime.house_silent_hours_start
-    before: input_datetime.house_silent_hours_end
-
-  - alias: "Example referencing a time entity"
-    before: time.dnd_start
-
-  - alias: "Example referencing another sensor"
-    after: sensor.groceries_delivery_time
-```
-
-{% note %}
-Note that the time condition only takes the time into account. If
-a referenced sensor or helper entity contains a timestamp with a date, the
-date part is fully ignored.
-{% endnote %}
+For setup steps, YAML options, and examples for the **Time** condition, refer to [Time](/conditions/time/).
 
 ### Timer conditions
 
@@ -806,37 +412,7 @@ For the full list of available conditions and its details, refer to the [To-do l
 
 ### Triggered by condition
 
-The triggered by condition can test if an automation was triggered by a certain trigger, identified by the trigger's `id`.
-
-```yaml
-conditions:
-  - condition: trigger
-    id: event_trigger
-```
-
-For a trigger identified by its index, both a string and integer is allowed:
-
-```yaml
-conditions:
-  - condition: trigger
-    id: "0"
-```
-
-```yaml
-conditions:
-  - condition: trigger
-    id: 0
-```
-
-It is possible to give a list of triggers:
-
-```yaml
-conditions:
-  - condition: trigger
-    id:
-      - event_1_trigger
-      - event_2_trigger
-```
+For setup steps, YAML options, and examples for the **Triggered by** condition, refer to [Triggered by](/conditions/trigger/).
 
 ### Update conditions
 
@@ -864,75 +440,7 @@ For the full list of available conditions and its details, refer to the [Water h
 
 ### Zone conditions
 
-Zone conditions test if an entity is in a certain zone. The entity can be either a [person](/integrations/person/) or a [device tracker](/integrations/device_tracker/).
-
-For the full list of available conditions and its details, refer to the [Zone conditions](/integrations/zone/#list-of-conditions).
-
-#### YAML examples
-
-```yaml
-conditions:
-  - alias: "Paulus at home"
-    condition: zone.in_zone
-    target:
-      entity_id: device_tracker.paulus
-    options:
-      zone: zone.home
-```
-
-It is also possible to test the condition against multiple entities at once.
-The condition will pass if all entities are in the specified zone.
-
-```yaml
-conditions:
-  - condition: zone.in_zone
-    target:
-      entity_id:
-        - device_tracker.frenck
-        - device_tracker.daphne
-    options:
-      zone: zone.home
-```
-
-To test if an entity is matching a set of possible zones, you need to add two zone conditions in an **Or** condition block.
-
-```yaml
-condition: or
-conditions:
-  - condition: zone.in_zone
-    target:
-      entity_id: device_tracker.paulus
-    options:
-      zone: zone.home
-  - condition: zone.in_zone
-    target:
-      entity_id: device_tracker.paulus
-    options:
-      zone: zone.work
-```
-
-Or, combine multiple entities with multiple zones. In the following example,
-both entities need to be either in the home or the work zone for the condition
-to pass.
-
-```yaml
-conditions:
-  - condition: or
-    conditions:
-      - condition: zone.in_zone
-        target:
-          entity_id:
-            - device_tracker.frenck
-            - device_tracker.daphne
-        options:
-          zone: zone.home
-      - condition: zone.in_zone
-        target:
-          entity_id:
-            - device_tracker.frenck
-            - device_tracker.daphne
-        options:
-          zone: zone.work
+For setup steps, YAML options, and examples for the **Zone** condition, which checks whether an entity is in a zone, refer to [Zone](/conditions/zone/). For the other zone conditions, refer to the [list of Zone conditions](/integrations/zone/#list-of-conditions).
 
 ## Examples
 

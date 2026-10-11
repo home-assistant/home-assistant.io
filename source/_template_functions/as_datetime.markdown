@@ -67,7 +67,7 @@ You can also convert a numeric UNIX timestamp (seconds since January 1, 1970) in
 {% example %}
 template: '{{ as_datetime(1710510600) }}'
 type: datetime
-output: "2024-03-15 14:30:00+00:00"
+output: "2024-03-15 13:50:00+00:00"
 {% endexample %}
 
 ## Using a default value

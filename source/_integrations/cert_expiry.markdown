@@ -63,6 +63,10 @@ The integration {% term polling polls %} the certificate every 12 hours. To trig
 
 ## Known limitations
 
+The integration validates the server's certificate before reading its expiration date. Self-signed certificates and certificates issued by a private certificate authority do not work unless Home Assistant trusts them. The integration has no option to disable certificate verification or configure a custom certificate authority.
+
+If certificate validation fails, you can still finish setting up the integration. The sensor state is `unknown`, the `is_valid` attribute is `false`, and the `error` attribute describes the validation failure.
+
 The integration only provides the certificate expiration date. It does not provide the issue date, certificate lifetime, renewal window, or any ACME-specific information.
 
 ## Removing the integration

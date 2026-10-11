@@ -14,6 +14,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: service
+ha_quality_scale: platinum
 ---
 
 The **easyEnergy** {% term integration %} integrates the [easyEnergy](https://www.easyenergy.com) API platform with Home Assistant.

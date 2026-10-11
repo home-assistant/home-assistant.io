@@ -51,8 +51,6 @@ This fires every time `alarm_control_panel.home_alarm` transitions to any armed 
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >

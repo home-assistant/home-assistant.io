@@ -50,8 +50,6 @@ This passes when `vacuum.living_room` is actively cleaning.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >

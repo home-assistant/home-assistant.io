@@ -54,8 +54,6 @@ This passes when `assist_satellite.living_room` is currently idle.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >

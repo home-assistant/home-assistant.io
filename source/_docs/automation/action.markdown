@@ -1,91 +1,48 @@
 ---
 title: "Automation actions"
-description: "Actions are what an automation does, for example, turning on a light or sending a notification. Building blocks control whether, when, and in which order the actions run."
-toc: false
+description: "Actions are what an automation does, such as turning on a light or sending a notification. Learn what an action is made of, how actions run, and how they work with building blocks."
+related:
+  - docs: /docs/scripts/perform-actions/
+    title: Performing actions
+  - docs: /actions/
+    title: List of available actions
+  - docs: /docs/scripts/
+    title: Building blocks and actions
+  - docs: /docs/automation/testing/
+    title: Testing automations
 ---
 
-The actions of an automation make something happen, for example, turning on a light or sending a notification. Usually, they run after a trigger has started the automation and the conditions are met. In the automation editor, the actions are in the **Then do** section. You can also run them directly from there, for example, with **Run actions**. This skips the triggers and the conditions.
+An action is the part of an automation that makes something happen, for example, turning on a light, sending a notification, or activating a [scene](/docs/scene/). When a [trigger](/docs/automation/trigger/) starts the automation and the [conditions](/docs/automation/condition/) are met, the automation runs its actions.
 
-An automation can also use building blocks. Building blocks control whether, when, and in which order the actions run, for example, to wait a few seconds or to repeat steps. For all building blocks, refer to [Building blocks and actions](/docs/scripts/). For all actions that you can use, refer to the [list of available actions](/actions/).
+You add actions in the **Then do** section of the automation editor. For the steps, refer to [Adding an action in the editor](/docs/scripts/perform-actions/#adding-an-action-in-the-editor). [Scripts](/integrations/script/) use the same actions.
 
-Many actions have a target, for example, the lights to turn on, and options, for example, the brightness.
+## Parts of an action
 
-An action can also activate a [scene](/docs/scene/), which sets its devices and entities to saved states in one step.
+Each action does one thing. For example, **Turn on light** turns on lights. For a description of all actions, refer to the [list of available actions](/actions/).
 
-The following examples show two automations. The first changes two lights at sunset. The second sends notifications before and after sunset and uses a variable to set the `action:` value for the first notification.
+Many actions also have some of the following parts:
 
-```yaml
-automation:
-  - alias: "Set sunset lighting"
-    triggers:
-      - trigger: sun
-        event: sunset
-    actions:
-      - action: light.turn_on
-        target:
-          entity_id:
-            - light.kitchen
-            - light.living_room
-        data:
-          brightness: 150
-          rgb_color:
-            - 255
-            - 0
-            - 0
+- Targets: what the action controls, for example, the lights in the living room.
+  - For details, refer to [Action targets](/docs/scripts/perform-actions/#action-targets).
+- Options: details of what the action does, for example, the brightness of the lights.
+  - For details, refer to [Action options](/docs/scripts/perform-actions/#action-options).
+- Response data: what the action returns, for example, the calendar events of the next week.
+  - For details, refer to [Action response data](/docs/scripts/perform-actions/#action-response-data).
 
-  - alias: "Send sunset notifications"
-    triggers:
-      - trigger: sun
-        event: sunset
-        offset: -00:30
-    variables:
-      notification_action: notify.paulus_iphone
-    actions:
-      # The action value can be templated with a variable.
-      - action: "{{ notification_action }}"
-        data:
-          message: "Beautiful sunset!"
-      - delay: 0:35
-      - action: notify.notify
-        data:
-          message: "Oh wow you really missed something great."
-```
+## Actions run in order
 
-Conditions can also be steps in an action sequence. You can combine action and condition steps in one sequence, and Home Assistant processes them in the order you put them in. If a condition evaluates to false, the sequence stops there, so the actions after it don't run.
+An automation runs its actions one after the other, from top to bottom.
 
-In the following example, the `or` condition lets the remaining actions run when either the sun is low enough or the office illuminance is below 10. If neither condition is true, the automation stops before activating the scene, lights, and switches. For more information about the available condition types and their syntax, refer to [Conditions](/docs/scripts/conditions/).
+This is why:
 
-```yaml
-automation:
-  - alias: "Office at evening"
-    triggers:
-      - trigger: state
-        entity_id: sensor.office_occupancy
-        to: "on"
-    actions:
-      - action: notify.notify
-        data:
-          message: "Testing conditional actions"
-      - condition: or
-        conditions:
-          - condition: numeric_state
-            entity_id: sun.sun
-            attribute: elevation
-            below: 4
-          - condition: numeric_state
-            entity_id: sensor.office_illuminance
-            below: 10
-      - action: scene.turn_on
-        target:
-          entity_id: scene.office_at_evening
-      - action: light.turn_on
-        target:
-          entity_id:
-            - light.office
-            - light.office_2
-      - action: switch.turn_on
-        target:
-          label_id:
-            - office_evening
-            - office_after_15
-```
+- If a condition between the actions isn't met, the actions after the condition don't run. For details, refer to [Condition](/docs/scripts/#condition).
+- If an action fails, the actions after the failed action don't run. To continue anyway, refer to [Continuing when a step fails](/docs/scripts/#continuing-when-a-step-fails).
+- Actions don't run at the same time. To run actions at the same time, use [Run in parallel](/docs/scripts/#run-in-parallel).
+
+## Actions and building blocks
+
+Building blocks control whether, when, and in which order the actions run. For example, a building block can check a condition, wait a few seconds, repeat steps, or choose between steps. To add a building block in the editor, select **Add action**, and then select **Blocks**. For all building blocks, refer to [Building blocks and actions](/docs/scripts/).
+
+## Running the actions directly
+
+You can run the actions of an automation without waiting for its trigger: all actions at once, or a single action. For the steps, refer to [Testing all the actions](/docs/automation/testing/#testing-all-the-actions) and [Testing an action](/docs/automation/testing/#testing-an-action).

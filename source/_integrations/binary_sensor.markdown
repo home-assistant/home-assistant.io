@@ -91,6 +91,9 @@ Each item shows the name you see in the Home Assistant interface, followed by th
   - **Clear** (`off`)
   - Triggers: [Gas cleared](/triggers/air_quality.gas_cleared/), [Gas detected](/triggers/air_quality.gas_detected/)
   - Conditions: [Gas cleared](/conditions/air_quality.is_gas_cleared/), [Gas detected](/conditions/air_quality.is_gas_detected/)
+- **Glass break** (`glass_break`): Shows whether glass breaking is detected.
+  - **Glass break detected** (`on`)
+  - **Clear** (`off`)
 - **Heat** (`heat`): Shows whether something is hot.
   - **Hot** (`on`)
   - **Normal** (`off`)

@@ -18,6 +18,7 @@ ha_platforms:
   - remote
   - sensor
 ha_integration_type: device
+ha_quality_scale: platinum
 ---
 
 The **VIZIO SmartCast** {% term integration %} allows you to control [SmartCast](https://www.vizio.com/smartcast-app)-compatible TVs and sound bars (2016+ models) locally from Home Assistant.

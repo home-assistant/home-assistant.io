@@ -1,6 +1,6 @@
 ---
 title: Homevolt
-description: Connect Homevolt batteries locally to expose sensors in Home Assistant.
+description: Connect Homevolt batteries locally to expose sensors and controls in Home Assistant.
 ha_category:
   - Energy
   - Sensor
@@ -8,6 +8,8 @@ ha_iot_class: Local Polling
 ha_domain: homevolt
 ha_platforms:
   - diagnostics
+  - number
+  - select
   - sensor
   - switch
 ha_config_flow: true
@@ -25,13 +27,13 @@ The **Homevolt** {% term integration %} lets Home Assistant read local data from
 {% include integrations/config_flow.md %}
 
 API access must be explicitly enabled on the Homevolt device; contact Tibber Customer Support to activate the API.
-Configuration needs the device IP address and, if set on the device, a password. 
+Configuration needs the device IP address and, if set on the device, a password.
 
 {% configuration_basic %}
 Host:
- description: "The IP address or hostname of your Homevolt device. You can find it in your router or via the device's discovery."
+  description: "The IP address or hostname of your Homevolt device. You can find it in your router or via the device's discovery."
 Password:
- description: "The password for your Homevolt device, if it is password protected. Leave empty if no password is set."
+  description: "The password for your Homevolt device, if it is password protected. Leave empty if no password is set."
 {% endconfiguration_basic %}
 
 ## Sensors
@@ -41,20 +43,45 @@ The {% term integration %} creates sensors reported by the device, including:
 - Power (W) and energy (Wh/kWh)
 - Voltage (V) and current (A)
 - Temperature (°C) and frequency (Hz)
-- Battery/percentage (%)
+- Battery percentage (%)
 - Signal strength (dB)
 - Text, count, or schedule status values
 
 ## Switches
 
-The {% term integration %} creates switches reported by the device, including:
+The {% term integration %} creates the following switch:
 
-- Local mode, enable or disable local control mode
+- **Local mode**: Enable or disable local control mode.
+
+## Selects
+
+The **Battery mode** select changes the battery's operating mode. It is available when the **Local mode** switch is enabled.
+
+Available modes:
+
+- Idle
+- Inverter charge
+- Inverter discharge
+- Frequency reserve
+- Solar charge
+
+## Numbers
+
+The {% term integration %} provides the following power controls:
+
+- **Power setpoint**: Sets the battery power target.
+- **Grid import limit**: Sets the maximum power imported from the grid.
+- **Grid export limit**: Sets the maximum power exported to the grid.
+
+Each control accepts values from 0 to 11,000 W in 100 W increments.
+
+Controls are available only when **Local mode** is enabled. **Power setpoint** is available in **Inverter charge** and **Inverter discharge** modes. **Grid import limit** and **Grid export limit** are available in **Frequency reserve** mode. The number controls are unavailable in **Idle** and **Solar charge** modes.
 
 ## Troubleshooting
 
-- `Failed to connect`: confirm the IP address, device is powered, and reachable on your network.
-- `Invalid authentication`: verify the device password or remove it if none is set.
+- `Failed to connect`: Confirm the IP address, that the device is powered on, and that it is reachable on your network.
+- `Invalid authentication`: Verify the device password, or remove it if no password is configured.
+- Number controls are unavailable: Enable **Local mode** and select a **Battery mode** that supports the desired control.
 
 ## Removing the integration
 

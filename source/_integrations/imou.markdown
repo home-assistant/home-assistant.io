@@ -11,6 +11,7 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 2026.7
 ha_config_flow: true
+ha_dhcp: true
 ha_domain: imou
 ha_codeowners:
   - '@Imou-OpenPlatform'
@@ -18,11 +19,12 @@ ha_platforms:
   - binary_sensor
   - button
   - camera
+  - diagnostics
   - select
   - sensor
   - switch
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically.
@@ -44,9 +46,9 @@ Before using the Imou integration, create an Imou Open Platform application:
 3. Go to **App Information** to obtain an **App ID** and **App secret**.
 4. Add your Imou devices in the Imou Open Platform or Imou mobile app so they appear on your account.
 
-## Configuration
-
 {% include integrations/config_flow.md %}
+
+Home Assistant can discover Imou and Lechange devices on the local network from their MAC address. Opening a discovered Imou integration shows the same setup form as adding it manually: enter your Imou Open Platform App ID, App secret, and server region. The discovered device is not added to your account automatically.
 
 {% configuration_basic %}
 App ID:
@@ -155,6 +157,8 @@ This integration communicates with Imou cloud services. Device control commands 
 ### Invalid App ID or App secret
 
 Verify that **App ID**, **App secret**, and **Server region** match your Imou Open Platform application and account region.
+
+If you changed the **App secret**, Home Assistant will ask you to reauthenticate the Imou integration. Enter the new **App secret**; you do not need to remove the integration.
 
 ### API quota is used quickly
 
