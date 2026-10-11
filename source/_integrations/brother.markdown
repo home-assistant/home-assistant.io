@@ -187,7 +187,7 @@ Not all printer models support all the listed entities. The set of entities depe
 
 ## Brother Printer automation examples
 
-The binary sensors of this integration let you react to printer problems as soon as they happen, for example when the printer jams or runs out of paper.
+The binary sensors of this integration let you react to printer problems when the integration detects them, for example when the printer jams or runs out of paper.
 Here is an idea to get you started.
 
 {% include docs/paste_yaml_tip.md %}
