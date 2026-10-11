@@ -7,6 +7,7 @@ ha_category:
   - Cover
   - Event
   - Hub
+  - Light
   - Number
   - Select
   - Sensor
@@ -24,6 +25,7 @@ ha_platforms:
   - button
   - cover
   - event
+  - light
   - number
   - select
   - sensor
@@ -49,6 +51,7 @@ The integration supports devices connected to a Bosch Smart Home Controller, inc
 - Light Switches
 - Shutter Controls
 - Micromodule Shutter Controls and Micromodule Blinds
+- Light Control micromodule dimmers
 - Bosch Smart Home cameras (selected controls only)
 
 The entities available for a device depend on the capabilities reported by the controller.
@@ -91,6 +94,10 @@ Shutter Control and Micromodule Shutter Control devices support opening, closing
 - A Motion Detector or Motion Detector II gets an event entity that fires whenever the device detects motion.
 - A Smoke Detector gets an event entity that fires whenever its alarm state changes.
 - A Smoke Detection System gets an event entity that fires whenever its alarm state changes: **Idle** (`alarm_off`), **Alarm** (`alarm_on`), or **Alarm muted** (`alarm_muted`).
+
+### Light
+
+A Light Control micromodule dimmer gets a light entity that supports turning on and off and setting the brightness.
 
 ### Number
 
