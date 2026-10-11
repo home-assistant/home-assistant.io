@@ -52,7 +52,7 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md domain="binary_sensor" %}
 
 {% include conditions/behavior.md %}
 
