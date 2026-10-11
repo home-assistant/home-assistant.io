@@ -633,7 +633,7 @@ Enable preload stream option for cameras used with echo devices to reduce respon
 
 Echo Show devices can also show your camera's live view using WebRTC. This works for cameras that support WebRTC, either directly or through the [go2rtc](/integrations/go2rtc/) integration. If your setup also meets the requirements for the stream above, that stream keeps working too.
 
-- Only IPv4 connection candidates are sent to the Echo Show. If a camera only provides IPv6 or mDNS (`.local`) candidates, the live view fails.
+- The Echo Show only works with IPv4 addresses. If your camera stream is only available on an IPv6 address or a local network name (ending in `.local`), the live view won't work.
 - The video doesn't go straight over your local network. Instead, the Echo Show connects through your public internet address, or through a relay server (a TURN server). If you use Home Assistant Cloud, relay servers are set up for you. Without Home Assistant Cloud, your public internet address may work just fine with the default settings. If the live view doesn't start, add your own TURN server with the [WebRTC](/integrations/web_rtc/) integration.
 - If the live view doesn't work, turn on [debug logging](#debugging) for `homeassistant.components.alexa`. The log shows each live view session, the network addresses sent to the Echo Show, and how long Home Assistant took to respond.
 
