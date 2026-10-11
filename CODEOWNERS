@@ -1461,6 +1461,7 @@ source/_actions/elkm1.set_time.markdown @gwww @bdraco
 source/_actions/elkm1.speak_phrase.markdown @gwww @bdraco
 source/_actions/elkm1.speak_word.markdown @gwww @bdraco
 source/_actions/elkm1.switch_output_turn_on_for.markdown @gwww @bdraco
+source/_actions/energyid.get_directive_schedule.markdown @JrtPec @Molier
 source/_actions/energyzero.get_energy_prices.markdown @klaasnicolaas
 source/_actions/energyzero.get_gas_prices.markdown @klaasnicolaas
 source/_actions/environment_canada.get_alerts.markdown @gwww @michaeldavie
