@@ -155,7 +155,7 @@ Get a reminder if a shutter contact stays open for too long, so an open window d
 - **Trigger**: State changed
   - **Entity**: Front door (binary sensor)
   - **To**: On
-  - **For**: `00:10:00`
+  - **For at least**: `00:10:00`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
   - **Message**: `The front door has been open for 10 minutes.`
