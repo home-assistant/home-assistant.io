@@ -370,7 +370,7 @@ If a door stays open longer than expected, this automation sends a message to yo
 - **Trigger**: State changed
   - **Entity**: Back door sensor (`binary_sensor.back_door`)
   - **To**: `on`
-  - **For**: 5 minutes
+  - **For at least**: 5 minutes
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
