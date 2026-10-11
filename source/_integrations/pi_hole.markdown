@@ -61,8 +61,8 @@ The integration creates a switch for the Pi-hole allowing you to toggle ad-block
 
 The integration provides nine sensors with statistics about DNS queries, blocked domains, and clients. Some sensor names differ between Pi-hole v5 and v6:
 
-- **Ads blocked today** (v5) / **Ads blocked** (v6): Number of blocked DNS queries.
-- **Ads percentage blocked today** (v5) / **Ads percentage blocked** (v6): Percentage of DNS queries that were blocked.
+- **ADS blocked today** (v5) / **ADS blocked** (v6): Number of blocked DNS queries.
+- **ADS percentage blocked today** (v5) / **ADS percentage blocked** (v6): Percentage of DNS queries that were blocked.
 - **Seen clients**: Total number of clients seen by Pi-hole.
 - **DNS queries today** (v5) / **DNS queries** (v6): Number of DNS queries processed.
 - **Domains blocked**: Number of domains on the blocklist.
