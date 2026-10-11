@@ -27,7 +27,7 @@ To use this trigger in an automation:
 9. Optional: In **Below**, enter a number to fire the trigger only if the value of the numeric state or attribute is below that number. Instead of a **Fixed number**, you can select **Value of an entity** and then select an entity from the list. This fires the trigger if the value of the numeric state or attribute is below the value of the selected entity.
 10. Optional: Enter a number in both **Above** and **Below** to fire the trigger if the value of the numeric state or attribute is inside the range. If you don't set **Above** and **Below**, the trigger fires on every change of the numeric state or attribute value.
 11. Optional: In **Value template**, enter a template that will be used to calculate the numeric value.
-12. Optional: In **For**, enter how long the numeric state or attribute value must remain unchanged or stay within the configured threshold before the trigger fires. You can enter a template by selecting **Template** instead of **Duration**.
+12. Optional: In **For at least**, enter how long the numeric state or attribute value must remain unchanged or stay within the configured threshold before the trigger fires. You can enter a template by selecting **Template** instead of **Duration**.
 13. Select **Save**.
 
 ### Options in the UI
@@ -48,7 +48,7 @@ Below:
 Value template:
   description: The limited template to use for calculating the numeric value.
   required: false
-For:
+For at least:
   description: The amount of time the value of the numeric state or attribute must remain unchanged or stay within the configured threshold. Default is `0` hours, `00` minutes and `00` seconds (fires immediately).
   required: false
 {% endoptions_ui %}
@@ -113,7 +113,7 @@ This trigger watches one or more entities selected in the UI options **Entity** 
 - If you set both **Above** and **Below**, the trigger fires when the value enters that range.
 - This trigger compares the raw numeric value you enter. It does not convert between units. For measurements with units, use a trigger named after that measurement when one is available.
 - If you use an entity in **Above** (`above`) or **Below** (`below`), Home Assistant compares the value of the watched entity against the value of that entity only when the watched entity updates.
-- If you use **For** (`for`), the timer resets if Home Assistant restarts or automations reload.
+- If you use **For at least** (`for`), the timer resets if Home Assistant restarts or automations reload.
 - When you use `value_template`, the `state` variable is the [state object](/docs/configuration/state_object) for the entity you selected with `entity_id`.
 
 {% include triggers/try_it.md %}
@@ -156,7 +156,7 @@ If a battery-powered device stays below a set level for a while, this automation
 - **Trigger**: Numeric state crossed threshold
   - **Entity**: Door lock battery sensor (`sensor.front_door_lock_battery`)
   - **Below**: `20`
-  - **For**: 30 minutes
+  - **For at least**: 30 minutes
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
