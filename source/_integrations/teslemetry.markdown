@@ -74,6 +74,17 @@ You only need to do this once per vehicle. If Home Assistant's key is later remo
 
 When the vehicle is within Bluetooth range, its commands use the local connection first, with an automatic fallback to the cloud when needed. This can make commands like locking, unlocking, or flashing the lights feel noticeably faster. When the vehicle is away, its commands use the cloud, and it switches back to Bluetooth on its own when it returns.
 
+### Re-approving the Bluetooth key
+
+If the vehicle stops accepting Home Assistant's key, for example because the key was removed from the vehicle's **Locks** screen, its commands keep working through the cloud and Home Assistant raises a repair for that vehicle. To fix it:
+
+1. Go to {% my repairs title="**Settings** > **System** > **Repairs**" %} and select the **Re-approve the Bluetooth key** repair for the vehicle.
+2. Make sure the vehicle is within Bluetooth range, then select **Submit**. Home Assistant checks the key over Bluetooth, which works even while the vehicle is asleep. If the vehicle accepts the key again, the repair is resolved.
+3. If the vehicle still rejects the key, Home Assistant continues into the vehicle's Bluetooth reconfiguration. Select **Submit** to look for the vehicle over Bluetooth.
+4. When prompted, select **Submit**, then approve Home Assistant's virtual key by placing your key card against the center console card reader of the vehicle.
+
+You can also start the reconfiguration yourself: go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Teslemetry** integration, and on the vehicle's Bluetooth entry, select the cogwheel {% icon "mdi:cog-outline" %} (**Reconfigure local vehicle**).
+
 ### Removing Bluetooth control
 
 Removing the Teslemetry integration, or the pairing for a single vehicle, stops Home Assistant from routing that vehicle's commands over Bluetooth and forgets the stored Bluetooth address. It does not revoke Home Assistant's virtual key from the vehicle itself. That key stays authorized on the car until you remove it there.
@@ -85,6 +96,8 @@ To fully revoke Home Assistant's access:
 3. When prompted, confirm the removal by tapping an authenticated key card or key fob against the center console card reader.
 
 If you use other apps that also connect to the vehicle over a virtual key, they'll appear in the same list, so make sure you remove the correct one.
+
+If you remove the key from the vehicle but keep the vehicle's Bluetooth pairing in Home Assistant, Home Assistant raises a repair the next time a command is rejected over Bluetooth. Remove the vehicle's pairing from the Teslemetry integration as well to stop using Bluetooth for it.
 
 ## Local Powerwall control
 
