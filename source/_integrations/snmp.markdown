@@ -112,6 +112,8 @@ Once the migration is complete, a repair message will appear in your Home Assist
 Only the `device_tracker` platform is automatically migrated. Sensors and switches will continue to function from YAML. However, a bug in the legacy implementation caused some binary and string MAC addresses to generate incorrectly named entities. This has been fixed, which may result in new entities being created for some devices. If this happens, you'll need to enable the new entities and update any associated automations. Old entities will remain in the system but will consistently show as `not_home`. These can be safely deleted from `known_devices.yaml` once you've migrated to the new entities.
 {% endnote %}
 
+The legacy YAML options `consider_home` and `new_device_defaults` are not carried over by the import and are ignored. The `device_tracker` config entry has no equivalent option, so a device is now marked as away as soon as it disappears from the MAC address table returned by the device. Any grace period previously configured with `consider_home` no longer applies.
+
 ## Sensor
 
 The `snmp` sensor platform displays values made available by network devices through the SNMP protocol.
@@ -449,3 +451,9 @@ switch:
     payload_off: 3000
     vartype: Gauge32
 ```
+
+## Removing the integration
+
+The SNMP `device_tracker` platform is set up as a config entry, but the `sensor` and `switch` platforms are still configured in YAML. Before removing the integration instance, remove the SNMP `sensor` and `switch` entries from your `configuration.yaml` file and restart Home Assistant so the YAML configuration is no longer loaded.
+
+{% include integrations/remove_device_service.md %}
