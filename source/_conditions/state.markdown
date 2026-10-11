@@ -144,7 +144,7 @@ This condition checks one or more entities:
 - **For at least** (`for`) only works with one state. If you select an **Attribute**, **For at least** isn't available. With several states, or with a helper entity as the state, Home Assistant shows an error when you save the automation.
 - After Home Assistant restarts, **For at least** counts from the moment the entity was loaded again.
 - To check entities of a specific type, conditions such as [Light is on](/conditions/light.is_on/) can be easier to set up. For all conditions, refer to the [list of available conditions](/conditions/).
-- To check whether a numeric value is above or below a limit, use the [Numeric state](/docs/scripts/conditions/#numeric-state-condition) condition.
+- To check whether a numeric value is above or below a limit, use the [Numeric state](/conditions/numeric_state/) condition.
 
 {% include conditions/try_it.md %}
 
