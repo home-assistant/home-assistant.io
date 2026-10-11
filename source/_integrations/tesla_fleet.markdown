@@ -310,7 +310,7 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 
 For energy sites with a battery or solar, the integration imports Tesla's energy history as hourly {% term "long-term statistics" %}. Energy from Tesla is recorded in the hour it was measured. Sites with only a Wall Connector don't have these statistics.
 
-The statistics cover the same fields as the energy history sensors, such as grid imported, solar generated, and home usage. To find them, go to {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %} and search for `tesla_fleet:`.
+The statistics cover the same fields as the energy history sensors, such as grid imported, solar generated, and home usage. To find them, go to {% my tools_statistics title="**Settings** > **Tools** > **Statistics**" %} and search for `tesla_fleet:`.
 
 - Each statistic ID uses the format `tesla_fleet:<energy_site_id>_<field>`, for example `tesla_fleet:123456_grid_energy_imported`.
 - Each name is your site name followed by the field, for example **My Home grid energy imported**.
