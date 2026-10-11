@@ -52,6 +52,37 @@ You can log this message at another [log level](/integrations/logger/#log-levels
 4. Select **Save**.
    - Result: The next time the automation can't start a new run, Home Assistant logs the message at this level, or not at all. The default level is `warning`.
 
+## When a run stops before it finishes
+
+A run of an automation can stop before it reaches its last action, such as while it waits in a delay. The mode decides what happens when the automation starts again during a run. A run can also stop for other causes, for example:
+
+- Cause: Home Assistant restarts, for example, to install an update.
+  - Result: All runs stop. A delay, a wait, or a trigger duration such as **For at least** that was in progress is lost. The automation doesn't continue after the restart.
+- Cause: You save a changed automation in the automation editor, or you reload automations after you changed them in YAML.
+  - Result: A run of a changed automation stops. Automations that you didn't change keep running.
+- Cause: You turn off the automation, for example, with **Disable** in the automation editor.
+  - Result: Running actions stop as well. The [**Turn off automation**](/actions/automation.turn_off/) action has a **Stop actions** option that lets running actions finish instead.
+- Cause: You change the entity ID of the automation.
+  - Result: Running actions stop.
+
+## Replacing a long delay with a timer
+
+Because a restart stops all runs, a long delay inside an automation, for example, of several hours, can get lost. A timer helper keeps its remaining time across a restart. This works when the automation waits only once at a time, and the actions after the delay don't need information from the trigger, such as which sensor started the automation. If the timer is already running, starting it again restarts the timer. For a fixed time of day, you can instead use a [**Time**](/triggers/time/) trigger.
+
+1. Create a timer:
+   1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, select **Create helper**, and then select **Timer**.
+   2. Enter a **Name**, and set the **Duration** to the time the automation should wait.
+   3. Turn on **Restore state and time when Home Assistant starts**, and select **Create**.
+2. In the automation, replace the delay with the [**Start a timer**](/actions/timer.start/) action for the new timer, and save the automation.
+3. Create a second automation for the actions that came after the delay:
+   1. As a trigger, add [**Timer finished**](/triggers/timer.finished/) for the new timer.
+   2. Add the actions that came after the delay, and save the automation.
+   - Result: When the timer finishes, the second automation runs the remaining actions, even if Home Assistant restarted in between.
+
+If the timer runs out while Home Assistant is off, the **Timer finished** trigger doesn't react when Home Assistant starts again.
+
+For more combinations, refer to [Which tool to use](/docs/automation/which-tool-to-use/#combining-the-tools).
+
 ## Example: throttled automation
 
 Some automations should only run once every 5 minutes, even when they are started more often. To do this, use the **Single** mode with a delay at the end, and silence the warning for the ignored starts.

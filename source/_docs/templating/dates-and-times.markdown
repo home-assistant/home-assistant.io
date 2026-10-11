@@ -145,9 +145,9 @@ template: |
   UTC:   {{ ts | timestamp_utc }}
   Custom: {{ ts | timestamp_custom('%H:%M on %B %d') }}
 output: |
-  Local: 2024-03-15 14:30:00+01:00
-  UTC:   2024-03-15 13:30:00+00:00
-  Custom: 14:30 on March 15
+  Local: 2024-03-15T14:50:00+01:00
+  UTC:   2024-03-15T13:50:00+00:00
+  Custom: 14:50 on March 15
 {% endexample %}
 
 See [`timestamp_local`](/template-functions/timestamp_local/), [`timestamp_utc`](/template-functions/timestamp_utc/), and [`timestamp_custom`](/template-functions/timestamp_custom/).
@@ -168,7 +168,7 @@ output: "1743768600"
 {% example %}
 template: |
   {{ as_datetime('2026-04-04 14:30:00') }}
-output: "2026-04-04 14:30:00+02:00"
+output: "2026-04-04 14:30:00"
 {% endexample %}
 
 ## Time differences
@@ -234,7 +234,7 @@ output: "Christmas: 8 months"
 
 Home Assistant stores state timestamps (`last_changed`, `last_updated`) in UTC. `now()` returns the current time in your configured time zone, while `utcnow()` returns it in UTC.
 
-If you need to compare datetimes, both sides need to be in the same time zone. [`as_datetime`](/template-functions/as_datetime/) and [`strptime`](/template-functions/strptime/) return datetimes without a time zone by default. Apply the matching conversion before comparing, or stick to [`timestamp_local`](/template-functions/timestamp_local/) and [`timestamp_utc`](/template-functions/timestamp_utc/) which handle this for you.
+If you need to compare datetimes, either both or neither need a time zone. Datetimes with different time zones can be compared directly, but comparing a datetime that has a time zone with one that doesn't causes an error. [`as_datetime`](/template-functions/as_datetime/) returns a datetime without a time zone when the text doesn't include one, and [`strptime`](/template-functions/strptime/) does the same unless the format includes `%z`. To add your time zone, use [`as_local`](/template-functions/as_local/), or convert both sides with [`as_timestamp`](/template-functions/as_timestamp/) and compare the numbers. [`timestamp_local`](/template-functions/timestamp_local/) and [`timestamp_utc`](/template-functions/timestamp_utc/) return text, not datetimes, so they aren't suited for comparing.
 
 ## Common gotchas
 

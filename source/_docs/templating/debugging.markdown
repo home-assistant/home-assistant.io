@@ -182,7 +182,7 @@ A template trigger only reacts when the result of the template changes from fals
 ## Common mistakes
 
 - **Sensor gives text, not a number.** Use `| float(0)` or `| int(0)`.
-- **Entity is `unknown` or `unavailable`.** Add a fallback with `| default(...)` or an `if has_value(...)` check.
+- **Entity is `unknown` or `unavailable`.** Check it first with `if has_value(...)`, or give `float` and `int` a fallback, such as `| float(0)`.
 - **Variable changes inside a loop are lost.** Use [`namespace`](/template-functions/namespace/).
 - **YAML refuses to load your template.** Check quoting. See [Templates in YAML](/docs/templating/yaml/).
 - **Template appears as literal text in output.** The field does not support templating, or the template is inside a `{% raw %}` / `{% endraw %}` block.

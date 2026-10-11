@@ -55,7 +55,7 @@ This automation sends a message to your phone when the garage door has been open
 - **Trigger**: State changed
   - **Entity**: Garage door (`binary_sensor.garage_door`)
   - **To**: On
-  - **For**: 00:10:00
+  - **For at least**: 00:10:00
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
   - **Message**: The garage door has been open for 10 minutes.

@@ -84,9 +84,11 @@ Home Assistant creates and manages the trigger IDs needed for those selections.
 To set a specific trigger ID yourself, edit the automation in YAML.
 All triggers can be assigned an optional `id`.
 If the ID is omitted, Home Assistant uses the trigger's position in the trigger list.
-You can reference the `id` in [trigger conditions and actions](/docs/scripts/conditions/#triggered-by-condition).
+You can reference the `id` in [Triggered by](/conditions/trigger/) conditions and in actions.
 IDs do not have to be unique.
-You can use the same ID to group similar triggers, such as triggers of different types that should all turn an entity on.
+To check for several triggers in one condition, select all of them in the **Triggered by** condition instead of giving them the same ID.
+If triggers share an ID, the editor shows a warning and offers to fix it.
+For details, refer to [Triggered by](/conditions/trigger/#good-to-know).
 
 Trigger IDs allow you to set up an automation with many actions, each action depending on a different trigger.
 An action is connected to a trigger through the trigger ID and runs only if that trigger reacted.

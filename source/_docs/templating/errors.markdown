@@ -20,6 +20,8 @@ For a general debugging workflow, see [Debugging templates](/docs/templating/deb
 
 **What it means.** The template is trying to use a variable named `foo` that does not exist. Either the name is misspelled, or the variable was never set.
 
+If you only show or check the variable, as in `{{ foo }}` or `{% if foo %}`, there's no error. The result is empty, and the log shows a warning instead: `Template variable warning: 'foo' is undefined when rendering '...'`. In the template editor, the same message appears as a warning above the result. The error only appears when the template uses the variable further, for example in `{{ foo + 1 }}` or `{{ foo.bar }}`.
+
 **How to fix it.**
 
 - Check the spelling of every name in the template. [`states`](/template-functions/states/) and `state` are different; `trigger.to_state` and `trigger.tostate` are different.
@@ -50,11 +52,13 @@ output: "27.5"
 
 The `0` is a fallback used when the conversion fails (for example, when the sensor is `unavailable`). See [Types and conversion](/docs/templating/types/).
 
-## TypeError: float() argument must be a string or a real number, not 'NoneType'
+## ValueError: Template error: float got invalid input 'unavailable' when rendering template '...' but no default was specified
 
-**What it means.** You tried to convert `None` to a number, and `None` is not a number. This usually comes from reading an attribute that does not exist, or calling [`state_attr`](/template-functions/state_attr/) for an entity that has not been set up yet.
+**What it means.** A conversion function got a value it can't convert, and you didn't give it a default to use instead. The value in quotes shows what it got. Common values are `unavailable` or `unknown` from an entity that isn't ready, and `None` from an attribute that doesn't exist.
 
-**How to fix it.** Add a default value to [`float`](/template-functions/float/) or [`int`](/template-functions/int/):
+The same message comes from other functions, with their name instead of `float`. These include [`int`](/template-functions/int/), [`as_datetime`](/template-functions/as_datetime/), [`as_timestamp`](/template-functions/as_timestamp/), [`strptime`](/template-functions/strptime/), [`round`](/template-functions/round/), and the `timestamp_*` functions.
+
+**How to fix it.** Give the function a default value to use instead, for example, `| float(0)` for [`float`](/template-functions/float/), or `as_datetime(value, None)` for [`as_datetime`](/template-functions/as_datetime/):
 
 {% example %}
 template: |
@@ -110,14 +114,22 @@ See [Types and conversion](/docs/templating/types/#iterables-look-like-lists-but
 
 **How to fix it.** Check the test name against the [template functions reference](/template-functions/#comparison). Common tests are [`defined`](/template-functions/defined/), [`none`](/template-functions/none/), `number`, [`string`](/template-functions/string/), `boolean`, [`iterable`](/template-functions/iterable/), [`mapping`](/template-functions/mapping/), [`even`](/template-functions/even/), [`odd`](/template-functions/odd/), [`eq`](/template-functions/eq/), [`gt`](/template-functions/gt/), [`lt`](/template-functions/lt/), and `in`. Aliases like `equalto`, `greaterthan`, and `lessthan` also work.
 
-## UndefinedError: 'states' has no attribute 'sensor'
+## UndefinedError: 'None' has no attribute 'state'
 
-**What it means.** When using dot notation like `states.sensor.temperature.state`, one of the pieces in the chain does not exist. Usually this means the entity ID is wrong, or the entity has not been set up yet.
+**What it means.** You used dot notation like `states.sensor.temperature.state`, and the entity `sensor.temperature` doesn't exist, or isn't set up yet. `states.sensor.temperature` then returns `None`, which has no `state`. Usually, the entity ID is misspelled.
+
+If you only show the value, as in `{{ states.sensor.temperature.state }}`, the result is empty, and the log shows a warning instead of the error. In the template editor, the same message appears as a warning above the result. The error only appears when the template uses the value further, for example in `{{ states.sensor.temperature.state | float }}`.
 
 **How to fix it.**
 
 - Use `states('sensor.temperature')` instead. The function version returns the text `'unknown'` for missing entities instead of raising an error, which is safer.
 - Verify the entity ID in {% my tools_states title="**Settings** > **Tools** > **States**" %}.
+
+## TemplateError: Invalid entity ID 'sensor.Temperature'
+
+**What it means.** The entity ID in the template isn't a valid entity ID at all, for example, because it contains capital letters or spaces. Entity IDs only use lowercase letters, numbers, and underscores, with one period between the domain and the name. Neither part can start or end with an underscore, and the entity ID can't contain two underscores in a row.
+
+**How to fix it.** Copy the entity ID from {% my tools_states title="**Settings** > **Tools** > **States**" %}.
 
 ## No first item, sequence was empty
 
@@ -131,6 +143,41 @@ template: |
   {{ items | first | default('nothing') }}
 output: "a"
 {% endexample %}
+
+## TemplateError: Use of 'states' is not supported in limited templates
+
+**What it means.** The template runs in a place that only supports [limited templates](/docs/templating/where-to-use/#limited-templates), such as `trigger_variables`, some trigger options, or the `enabled` option of a trigger, condition, or action. The name in quotes shows which function you used. These functions aren't available there:
+
+- Functions that read the state of entities, like `states`, `state_attr`, or `is_state`
+- Functions that use the current date or time, like `now`, `utcnow`, `today_at`, or `relative_time`
+- Some area, floor, label, and device functions, like `area_name` or `device_attr`
+- `md5`, the `sha` functions, and `base64_encode` and `base64_decode`
+
+People most often run into this with `now()` in `trigger_variables`.
+
+**How to fix it.** Move the part that uses these functions to a place that supports full templates. For example, if you only need the value in the conditions or actions of an automation, use `variables` instead of `trigger_variables`. `variables` supports full templates, but is only evaluated after the automation starts. That's why the trigger options themselves can't use it.
+
+## SecurityError: access to attribute 'append' of 'list' object is unsafe
+
+**What it means.** Templates run in a protected environment that doesn't allow changing lists or dictionaries, or accessing internal attributes. Calling `append`, `update`, or `pop` causes this error right away. If you only read an attribute that starts with `_`, the result is empty, and the log shows a warning. The error only appears when the value is called or used further.
+
+**How to fix it.** Build a new list instead of changing the existing one. For example, use `{% set items = items + ['new'] %}` instead of `{{ items.append('new') }}`. To collect values in a loop, use a `namespace`:
+
+{% example %}
+template: |
+  {% set ns = namespace(items=[]) %}
+  {% for name in ['kitchen', 'hall'] %}
+    {% set ns.items = ns.items + [name] %}
+  {% endfor %}
+  {{ ns.items }}
+output: "['kitchen', 'hall']"
+{% endexample %}
+
+## TemplateError: Template output exceeded maximum size of 262144 characters
+
+**What it means.** The template produced more than 262,144 characters of text. Home Assistant limits how large the result of a template can be.
+
+**How to fix it.** Return less data. For example, filter a list down to the entities you need, or return a count instead of the full list.
 
 ## YAML error: could not find expected ':'
 

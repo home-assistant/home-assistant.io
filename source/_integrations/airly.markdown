@@ -18,9 +18,25 @@ ha_quality_scale: silver
 
 The **Airly** {% term integration %} uses the [Airly](https://airly.org/) web service as a source for air quality data for your location.
 
-## Setup
+## Use cases
 
-To generate an Airly API key, go to [Airly for developers](https://developer.airly.org/register) page.
+- Get a notification with Airly's advice when the air quality becomes poor.
+- Turn on your air purifier or ventilation automatically when the particulate matter level rises.
+- Get a reminder to keep your windows closed when the outdoor air is polluted.
+- Show the current outdoor air quality on your dashboard.
+- Track how the air quality changes over time in the history panel.
+
+See [Automation examples](#automation-examples) for examples you can use as a starting point.
+
+## Prerequisites
+
+This integration needs a free Airly API key. To get one:
+
+1. Go to the [Airly for developers](https://developer.airly.org/en/register) portal.
+2. Create an account by entering your name, email address, a password, and a short description of how you plan to use the API. Alternatively, sign up with your GitHub, Google, or Facebook account.
+3. Open the activation link in the email that Airly sends you.
+4. Sign in to your Airly for developers account.
+5. Copy your API key. You need it when you set up the integration.
 
 {% include integrations/config_flow.md %}
 
@@ -32,14 +48,6 @@ Latitude:
 Longitude:
     description: "The longitude of the location for which to retrieve air quality data. By default, Home Assistant uses your home location."
 {% endconfiguration_basic %}
-
-{% note %}
-Airly allows 100 data updates per day. For this reason, the more Airly instances
-configured, the less frequent updates will be. For one configured Airly instance,
-data will be updated every 15 minutes, for two configured instances, data will
-be updated every 30 minutes, for three configured instances, data will be 
-updated every 45 minutes, and so on.
-{% endnote %}
 
 ## Supported functionality
 
@@ -167,9 +175,17 @@ automation: |
 
 {% enddetails %}
 
+## Data updates
+
+Airly API allows 100 data updates per day. For this reason, the more Airly instances
+configured, the less frequent updates will be. For one configured Airly instance,
+data will be updated every 15 minutes, for two configured instances, data will
+be updated every 30 minutes, for three configured instances, data will be
+updated every 45 minutes, and so on.
+
 ## Known limitations
 
-Airly allows 100 data updates per day. Data updates become less frequent as you add Airly integration instances, as described in [Setup](#setup).
+Airly allows 100 data updates per day. Data updates become less frequent as you add Airly integration instances, as described in [Data updates](#data-updates).
 
 ## Troubleshooting
 

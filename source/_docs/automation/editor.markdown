@@ -104,6 +104,8 @@ To try an automation without one of its triggers, conditions, or actions, turn i
 
 By default, an automation stops when an action fails. To continue with the next action after an error, in the **Menu** {% icon "mdi:dots-vertical" %} of the action, select **Continue on error**. The action then shows {% icon "mdi:alert-circle-check" %}. This option does not ignore errors in the automation's configuration, such as a broken template. Only use it for actions whose failure does not matter for the rest of the automation.
 
+An action whose target is unavailable or doesn't exist doesn't fail. Home Assistant skips that target, so the next action runs even without **Continue on error**. If the target doesn't exist, the log shows a warning.
+
 ### Deleting a trigger, condition, or action
 
 In the **Menu** {% icon "mdi:dots-vertical" %} of the row, select **Delete**. To bring it back, select **Undo** in the message that appears, or [undo the change](#undoing-and-redoing-changes).

@@ -19,6 +19,10 @@ Device automations are meant to be configured in the UI. In the visual automatio
 
 [MQTT device triggers](/integrations/device_trigger.mqtt/) are set up through [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
+{% include integrations/conditions.md %}
+
+## Using device automations in YAML
+
 If you need YAML for an automation that is not managed in the UI, create the trigger in the visual automation editor first, then copy the YAML from the trigger.
 
 Example:

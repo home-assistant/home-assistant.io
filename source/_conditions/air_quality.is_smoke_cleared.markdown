@@ -43,8 +43,6 @@ This passes when the kitchen smoke sensor is no longer detecting smoke.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -54,7 +52,7 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md domain="binary_sensor" %}
 
 {% include conditions/behavior.md %}
 
