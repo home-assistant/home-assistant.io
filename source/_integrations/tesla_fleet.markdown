@@ -308,7 +308,7 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 
 ## Long-term energy statistics
 
-For energy sites with a battery or solar, the integration imports Tesla's energy history as hourly {% term "long-term statistics" %}. Energy is recorded in the hour it was measured. Sites with only a Wall Connector don't have these statistics.
+For energy sites with a battery or solar, the integration imports Tesla's energy history as hourly {% term "long-term statistics" %}. Energy from Tesla is recorded in the hour it was measured. Sites with only a Wall Connector don't have these statistics.
 
 The statistics cover the same fields as the energy history sensors, such as grid imported, solar generated, and home usage. To find them, go to {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %} and search for `tesla_fleet:`.
 
