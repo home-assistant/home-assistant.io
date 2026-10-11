@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Camera
   - Image
+  - Media source
   - Sensor
 ha_release: '2026.10'
 ha_iot_class: Local Push
@@ -83,6 +84,16 @@ The **INDI Allsky** {% term integration %} provides the following entities:
 ### Dynamic hardware sensors
 
 Additional hardware sensors connected to your INDI Allsky instance (such as ambient temperature, relative humidity, barometric pressure, voltage, current, power, or illuminance sensors) are automatically discovered and created dynamically with appropriate units of measurement and device classes.
+
+## Media source
+
+A [media source](/integrations/media_source/) is provided for your INDI Allsky camera, allowing you to browse and play media directly in Home Assistant.
+
+The media browser organizes media into three categories:
+
+- **Latest Media**: Instant access to the latest captured snapshot, keogram, star trail composite, and night/day timelapse video.
+- **Timelapses & Generated Media**: Browse generated timelapse videos and associated keograms and star trails organized by year and month.
+- **Captured Images History**: Browse historical individual camera exposures organized by year, month, day, and hour.
 
 ## Data updates
 
