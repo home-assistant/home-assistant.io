@@ -2555,7 +2555,7 @@ The following table lists the supported numeric Data Point Types (DPT). You can 
 
 - The [KNX tools for AI conversation agents](#knx-tools-for-ai-conversation-agents) return at most 1000 entries per call. An agent can page through the rest, but a question that would need the entire project or the full telegram history in a single answer may not be answered completely.
 
-- The KNX tools work on raw KNX data: group addresses, individual addresses, and <abbr title="data point types">DPTs</abbr>. They do not know about the Home Assistant {% term entities %} you created from those group addresses. To let an agent control those entities as well, keep the built-in Assist API selected alongside the KNX API.
+- The KNX tools work on raw KNX data: group addresses, individual addresses, and <abbr title="data point types">DPTs</abbr>. They do not know about the Home Assistant {% term entities %} you created from those group addresses. To let an agent control those entities as well, keep the built-in **Device control** API selected alongside the KNX API.
 
 - USB bus interfaces are not directly supported by the underlying [`xknx` library](https://github.com/XKNX/xknx). However, you could try to run a software KNX router such as `Calimero` or `knxd` alongside Home Assistant to serve as a USB to IP bridge. For best reliability, using a certified KNX IP interface or router is recommended.
 
