@@ -19,6 +19,6 @@ ha_brand: true
 
 {% include integrations/wwha.md url="https://www.ledvance.com/en-int" %}
 
-## Supported devices
+## Works with Home Assistant certified devices
 
 {% include integrations/device_list.html brand="ledvance-osram" name="LEDVANCE" hide_list="true" %}
