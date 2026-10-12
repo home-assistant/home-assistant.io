@@ -10,7 +10,7 @@ related_conditions:
 
 The **Or** condition groups several conditions and passes if at least one of them passes. Use it when an automation should continue in more than one situation. For example, the automation turns on the hallway light when the sun is down, or when the hallway is dark during the day.
 
-The conditions in the **And if** section of an automation must all pass. To combine that with **Or**, add an **Or** condition next to the other conditions. The automation then continues if all the other conditions pass, and at least one of the conditions in the **Or** condition passes.
+The conditions in the **And if** section of an automation must all pass. You can add an **Or** condition next to them. The automation then continues if all the other conditions pass, and at least one condition inside the **Or** condition passes.
 
 {% include conditions/ui_header.md %}
 
@@ -20,6 +20,7 @@ To use this condition in an automation:
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
 4. Select **Blocks**, then select **Or**.
+   - To add **Or** inside an **And** or a **Not** condition, select **Add condition** inside that condition, and then select **Blocks** > **Or**.
 5. Inside the **Or** condition, select **Add condition**, and add the conditions to check.
    - You can add any condition, including other **And**, **Or**, and **Not** conditions.
 6. Select **Save**.
@@ -85,7 +86,7 @@ conditions:
 
 ### Automation: remind you to take a jacket when it's cold or rainy
 
-At 07:30, this automation sends a reminder to take a jacket, but only if Alex is home, and it's raining or cold outside. The **State** condition and the **Or** condition are both in the **And if** section, so both must pass. Inside the **Or** condition, one of the two conditions is enough.
+At 07:30, this automation sends a reminder to take a jacket, but only if Alex is home, and it's raining or the outdoor temperature is below 10 °C. The **State** condition and the **Or** condition are both in the **And if** section, so both must pass. Inside the **Or** condition, one of the two conditions is enough.
 
 - **Trigger**: Time: 07:30
 - **Condition**: State
@@ -134,7 +135,7 @@ automation: |
 
 ### Automation: turn on the hallway light when it's dark
 
-When motion is detected in the hallway, this automation turns on the hallway light if the sun is down, or if the hallway is dark during the day.
+When motion is detected in the hallway, this automation turns on the hallway light if the sun is down, or if the hallway illuminance is below 20 lx during the day.
 
 - **Trigger**: State changed
   - **Entity**: Hallway motion (`binary_sensor.hallway_motion`)
