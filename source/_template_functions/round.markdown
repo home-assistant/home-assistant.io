@@ -140,7 +140,8 @@ output: "21.5"
 - The default `common` method uses banker's rounding, where 0.5 rounds to the nearest even number. So `2.5 | round` gives `2`, not `3`.
 - With `precision=0` (the default), the result is an integer. With a nonzero precision, the result is a float.
 - The `half` method rounds to the nearest 0.5 rather than the nearest whole number.
-- For example, `2.7` rounds to `3` with `common` and `ceil`, to `2` with `floor`, and to `2.5` with `half`.
+- For example, 2.7 rounds to 3 with common and ceil, and to 2 with floor.
+- With half, set a precision of 1 or higher to keep the .5: 2.7 | round(1, 'half') gives 2.5. At precision 0, the result is cut to a whole number, so 2.7 | round(0, 'half') gives 2
 
 {% include template_functions/try_it.md %}
 
