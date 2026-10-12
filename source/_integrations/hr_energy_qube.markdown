@@ -306,7 +306,7 @@ The host address is redacted. Attach the downloaded file when reporting an issue
 
 {% details "Can't set up the heat pump" %}
 
-### Symptom
+### Symptom: "Failed to connect" or "Could not verify this is a Qube heat pump"
 
 When trying to set up the integration, the form shows "Failed to connect" or "Could not verify this is a Qube heat pump".
 
@@ -323,7 +323,7 @@ Home Assistant connects to the heat pump over Modbus TCP on port 502 and reads a
 
 {% details "The heat pump is not discovered" %}
 
-### Symptom
+### Symptom: The heat pump does not appear as a discovered device
 
 Home Assistant does not show the Qube heat pump as a discovered device.
 
@@ -340,7 +340,7 @@ The heat pump announces itself with mDNS. These announcements only reach Home As
 
 {% details "Entities are unavailable" %}
 
-### Symptom
+### Symptom: All entities show as unavailable
 
 All entities of the heat pump show as unavailable.
 
