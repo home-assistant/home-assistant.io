@@ -1,6 +1,7 @@
 ---
 title: "Wait for a trigger"
 building_block: wait_for_trigger
+category: waiting
 description: "Pause the automation until something happens, with an optional timeout."
 related_building_blocks:
   - wait_template

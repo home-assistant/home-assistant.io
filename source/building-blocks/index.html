@@ -27,19 +27,26 @@ toc: true
 
   <div class="grid__item six-sixths lap-one-whole palm-one-whole">
     <div id="tf-container">
-      <div class="tf-category" data-category="building-blocks">
-        <ul class="tf-list">
-          {%- for block in all_building_blocks -%}
-          <li class="tf-item" data-title="{{ block.building_block | downcase }} {{ block.title | downcase }}" data-desc="{{ block.description | downcase }}">
-            <a href="{{ block.url }}">
-              <span class="tf-title">{{ block.title }}</span>
-              <code class="tf-fn">{{ block.building_block }}</code>
-            </a>
-            <span class="tf-desc">{{ block.description }}</span>
-          </li>
-          {%- endfor -%}
-        </ul>
-      </div>
+      {%- for cat in site.data.building_block_categories -%}
+        {%- assign cat_blocks = all_building_blocks | where: 'category', cat.key -%}
+        {%- if cat_blocks.size > 0 -%}
+        <div class="tf-category" data-category="{{ cat.key }}">
+          <h3 id="{{ cat.key }}"><iconify-icon inline icon="{{ cat.icon }}"></iconify-icon> {{ cat.label }}</h3>
+          {%- if cat.description -%}<p>{{ cat.description }}</p>{%- endif -%}
+          <ul class="tf-list">
+            {%- for block in cat_blocks -%}
+            <li class="tf-item" data-title="{{ block.building_block | downcase }} {{ block.title | downcase }}" data-desc="{{ block.description | downcase }}">
+              <a href="{{ block.url }}">
+                <span class="tf-title">{{ block.title }}</span>
+                <code class="tf-fn">{{ block.building_block }}</code>
+              </a>
+              <span class="tf-desc">{{ block.description }}</span>
+            </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+        {%- endif -%}
+      {%- endfor -%}
       <div class="tf-no-results" style="display:none">
         <div class="alert alert-note"><p class="alert-content">No building blocks matching your search.</p></div>
       </div>
