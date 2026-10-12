@@ -8,7 +8,7 @@ related_conditions:
   - not
 ---
 
-The **And** condition groups several conditions, and passes only if all of them pass. The conditions in the **And if** section of an automation already must all pass, so you only need **And** inside an [**Or**](/conditions/or/) or a [**Not**](/conditions/not/) condition. For example, the automation continues if it's very hot, or if it's warm and humid at the same time.
+The **And** condition groups several conditions and passes only if all of them pass. Use it inside an [**Or**](/conditions/or/) or a [**Not**](/conditions/not/) condition. For example, the automation continues if it's very hot, or if it's warm and humid at the same time.
 
 {% include conditions/ui_header.md %}
 
@@ -18,18 +18,14 @@ To use this condition in an automation:
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
 4. Select **Blocks**, then select **And**.
-   - To use **And** inside an **Or** or a **Not** condition, select **Add condition** inside that condition instead.
+   - To add **And** inside an **Or** or a **Not** condition, select **Add condition** inside that condition, and then select **Blocks** > **And**.
 5. Inside the **And** condition, select **Add condition**, and add the conditions that must all pass.
    - You can add any condition, including other **And**, **Or**, and **Not** conditions.
 6. Select **Save**.
 
 ### Options in the UI
 
-{% options_ui %}
-Conditions:
-  description: The conditions that must all pass.
-  required: true
-{% endoptions_ui %}
+The **And** condition has no options of its own. It checks the conditions that you add inside it.
 
 {% include conditions/yaml_header.md %}
 
@@ -47,7 +43,7 @@ condition: |
       below: 20
 {% endexample %}
 
-This passes if Alex is home and the living room temperature is below 20.
+This passes if Alex is home and the living room temperature is below 20 °C.
 
 There is also a shorter form, with the conditions under `and`:
 
@@ -89,10 +85,10 @@ conditions:
 
 ### Automation: turn on the fan when it's hot, or warm and humid
 
-When the living room temperature changes, this automation turns on the fan if the temperature is above 26 °C. It also turns on the fan if the temperature is above 24 °C and the humidity is above 70% at the same time.
+When the living room temperature or humidity changes, this automation turns on the fan if the temperature is above 26 °C. It also turns on the fan if the temperature is above 24 °C and the humidity is above 70% at the same time.
 
 - **Trigger**: State changed
-  - **Entity**: Living room temperature (`sensor.living_room_temperature`)
+  - **Entity**: Living room temperature (`sensor.living_room_temperature`), Living room humidity (`sensor.living_room_humidity`)
 - **Condition**: Or
   - **Condition**: Numeric state
     - **Entity**: Living room temperature (`sensor.living_room_temperature`)
@@ -114,7 +110,9 @@ automation: |
   alias: "Turn on fan when hot, or warm and humid"
   triggers:
     - trigger: state
-      entity_id: sensor.living_room_temperature
+      entity_id:
+        - sensor.living_room_temperature
+        - sensor.living_room_humidity
   conditions:
     - condition: or
       conditions:
