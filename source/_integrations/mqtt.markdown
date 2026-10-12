@@ -342,18 +342,18 @@ MQTT entities, device triggers, and tags can be linked to a device in the [devic
 
 How the device information is set depends on the configuration method.
 
-### Sub devices
+### Child devices
 
-A physical device can be split into sub devices, for example, the outlets of a power strip, or the channels of a multi-channel switch. A sub device is a part of its parent device, and has its own name and entities. A sub device uses the area of its parent device, unless another area is assigned to it, and is removed together with its parent device.
+A physical device can be split into child devices, for example, the outlets of a power strip, or the channels of a multi-channel switch. A child device is a part of its parent device, and has its own name and entities. A child device uses the area of its parent device, unless another area is assigned to it, and is removed together with its parent device.
 
-A sub device is set with the `sub_device` mapping, which can be abbreviated as `sub_dev` in discovery messages. The `device` mapping then describes the parent device.
+A child device is set with the `child_device` mapping, which can be abbreviated as `cdev` in discovery messages. The `device` mapping then describes the parent device.
 
-- Only `identifiers` and `name` can be set for a sub device. The `identifiers` are required. Other device information, like the `manufacturer`, belongs to the parent device.
-- A sub device requires the entity to have a `unique_id`.
-- Sub devices are not supported for device triggers, tags, and subentries.
-- A sub device can't be used as the `via_device` of another device.
+- Only `identifiers` and `name` can be set for a child device. The `identifiers` are required. Other device information, like the `manufacturer`, belongs to the parent device.
+- A child device requires the entity to have a `unique_id`.
+- Child devices are not supported for device triggers, tags, and subentries.
+- A child device can't be used as the `via_device` of another device.
 
-When the `identifiers` of an existing MQTT device are used for a sub device, the existing device is converted into a sub device. It keeps its device ID, so automations that use the device keep working. If the existing device is still in use as a regular device, the conversion fails and a warning is logged. In that case, update the configuration of all items that use the device, and reload the MQTT integration.
+When the `identifiers` of an existing MQTT device are used for a child device, the existing device is converted into a child device. It keeps its device ID, so automations that use the device keep working. If the existing device is still in use as a regular device, the conversion fails and a warning is logged. In that case, update the configuration of all items that use the device, and reload the MQTT integration.
 
 ### Device configuration in YAML
 
@@ -379,7 +379,7 @@ mqtt:
         name: "Bedroom"
 ```
 
-To link an entity to a [sub device](#sub-devices), add a `sub_device` mapping to the `device` mapping. In the example below, the switch is linked to the sub device `Outlet 1`, which is a part of the power strip. The power sensor is linked to the power strip itself:
+To link an entity to a [child device](#child-devices), add a `child_device` mapping to the `device` mapping. In the example below, the switch is linked to the child device `Outlet 1`, which is a part of the power strip. The power sensor is linked to the power strip itself:
 
 ```yaml
 mqtt:
@@ -391,7 +391,7 @@ mqtt:
         identifiers: "power_strip"
         name: "Power strip"
         manufacturer: "Bla electronics"
-        sub_device:
+        child_device:
           identifiers: "power_strip_outlet_1"
           name: "Outlet 1"
   - sensor:
@@ -409,7 +409,7 @@ mqtt:
 
 With [device discovery](#device-discovery-payload), the `device` (`dev`) mapping is required and is set once, at the root of the discovery payload. It applies to all components in the payload and can't be overridden per component. Entity components must have a `unique_id`.
 
-A [sub device](#sub-devices) is set per component with the `sub_device` (`sub_dev`) mapping. A `sub_device` mapping is not allowed in the `device` mapping at the root of the discovery payload. In the example below, each switch is linked to a sub device of the power strip, and the power sensor is linked to the power strip itself:
+A [child device](#child-devices) is set per component with the `child_device` (`cdev`) mapping. A `child_device` mapping is not allowed in the `device` mapping at the root of the discovery payload. In the example below, each switch is linked to a child device of the power strip, and the power sensor is linked to the power strip itself:
 
 ```json
 {
@@ -427,7 +427,7 @@ A [sub device](#sub-devices) is set per component with the `sub_device` (`sub_de
       "name": "Switch",
       "uniq_id": "power_strip_outlet_1_switch",
       "cmd_t": "power_strip/outlet_1/set",
-      "sub_dev": {
+      "cdev": {
         "ids": "power_strip_outlet_1",
         "name": "Outlet 1"
       }
@@ -437,7 +437,7 @@ A [sub device](#sub-devices) is set per component with the `sub_device` (`sub_de
       "name": "Switch",
       "uniq_id": "power_strip_outlet_2_switch",
       "cmd_t": "power_strip/outlet_2/set",
-      "sub_dev": {
+      "cdev": {
         "ids": "power_strip_outlet_2",
         "name": "Outlet 2"
       }
@@ -458,7 +458,7 @@ A [sub device](#sub-devices) is set per component with the `sub_device` (`sub_de
 
 With [single component discovery](#single-component-discovery-payload), the `device` (`dev`) mapping is added to the discovery payload of each component that is part of the device. For device triggers, the `device` mapping is required. Device triggers and tags don't need a `unique_id`.
 
-To link an entity to a [sub device](#sub-devices), add a `sub_device` (`sub_dev`) mapping to the `device` mapping, the same way as in YAML. For example:
+To link an entity to a [child device](#child-devices), add a `child_device` (`cdev`) mapping to the `device` mapping, the same way as in YAML. For example:
 
 ```json
 {
@@ -468,7 +468,7 @@ To link an entity to a [sub device](#sub-devices), add a `sub_device` (`sub_dev`
   "dev": {
     "ids": "power_strip",
     "name": "Power strip",
-    "sub_dev": {
+    "cdev": {
       "ids": "power_strip_outlet_1",
       "name": "Outlet 1"
     }
@@ -480,7 +480,7 @@ The options in the `device` mapping can be abbreviated, see [supported abbreviat
 
 ### Device configuration with subentries
 
-Each [subentry](#configuration-via-subentries) holds one MQTT device. The device details are set in the UI when the subentry is added or reconfigured. Sub devices are not supported for subentries.
+Each [subentry](#configuration-via-subentries) holds one MQTT device. The device details are set in the UI when the subentry is added or reconfigured. Child devices are not supported for subentries.
 
 ### Device configuration options
 
@@ -526,17 +526,17 @@ device:
       description: The serial number of the device.
       required: false
       type: string
-    sub_device:
-      description: The [sub device](#sub-devices) of the device the entity is linked to. Requires a `unique_id`. Not supported for device triggers and tags. With device discovery, the `sub_device` mapping is set per component.
+    child_device:
+      description: The [child device](#child-devices) of the device the entity is linked to. Requires a `unique_id`. Not supported for device triggers and tags. With device discovery, the `child_device` mapping is set per component.
       required: false
       type: map
       keys:
         identifiers:
-          description: A list of IDs that uniquely identify the sub device.
+          description: A list of IDs that uniquely identify the child device.
           required: true
           type: [string, list]
         name:
-          description: The name of the sub device.
+          description: The name of the child device.
           required: false
           type: string
     suggested_area:
@@ -548,7 +548,7 @@ device:
       required: false
       type: string
     via_device:
-      description: Identifier of a device that routes messages between this device and Home Assistant, like a hub or a bridge. This is used to show the device topology in Home Assistant. Use a [sub device](#sub-devices) for a part of a physical device instead. A sub device can't be used as `via_device`.
+      description: Identifier of a device that routes messages between this device and Home Assistant, like a hub or a bridge. This is used to show the device topology in Home Assistant. Use a [child device](#child-devices) for a part of a physical device instead. A child device can't be used as `via_device`.
       required: false
       type: string
 {% endconfiguration %}
@@ -975,6 +975,7 @@ support_url:
     'bri_stat_t':          'brightness_state_topic',
     'bri_tpl':             'brightness_template',
     'bri_val_tpl':         'brightness_value_template',
+    'cdev':                'child_device',
     'clr_temp_cmd_tpl':    'color_temp_command_template',
     'clr_temp_cmd_t':      'color_temp_command_topic',
     'clr_temp_k':           'color_temp_kelvin',
@@ -1171,7 +1172,6 @@ support_url:
     'stop_cmd_t':          'stop_command_topic',
     'stop_cmd_tpl':        'stop_command_template',
     'stype':               'subtype',
-    'sub_dev':             'sub_device',
     'sug_dsp_prc':         'suggested_display_precision',
     'sup_clrm':            'supported_color_modes',
     'sup_dur':             'support_duration',
@@ -1236,7 +1236,7 @@ support_url:
     'sw':                  'sw_version',
     'sa':                  'suggested_area',
     'sn':                  'serial_number',
-    'sub_dev':             'sub_device',
+    'cdev':                'child_device',
 ```
 
 {% enddetails %}
