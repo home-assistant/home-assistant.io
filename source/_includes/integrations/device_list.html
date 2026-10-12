@@ -19,7 +19,7 @@ For the full list of {{ company.devices | size }} certified {{ include.brand }} 
 {%- endfor -%}
 {%- endif -%}
 {%- if show_device %}
-<li><a href="{{ device.websiteLink | escape }}" target="_blank" rel="noopener">{{ device.fullName | escape_once }}</a></li>
+<li><a href="{{ device.websiteLink | escape }}" target="_blank" rel="noopener">{{ device.fullName | escape_once }}</a>{% if device.modelNumber != empty %} ({{ device.modelNumber | escape_once }}){% endif %}</li>
 {%- endif -%}
 {%- endfor %}
 </ul>
