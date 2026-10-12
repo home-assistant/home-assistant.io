@@ -16,13 +16,13 @@ An action is the part of an automation that makes something happen, for example,
 
 You add actions in the **Then do** section of the automation editor. For the steps, refer to [Adding an action in the editor](/docs/scripts/perform-actions/#adding-an-action-in-the-editor). [Scripts](/integrations/script/) use the same actions.
 
-## Parts of an action
-
 Each action does one thing. For example, **Turn on light** turns on lights. For a description of all actions, refer to the [list of available actions](/actions/).
 
 Some actions control automations themselves, for example, to turn off another automation. For these actions, refer to [Actions for automations](/docs/automation/basics/#actions-for-automations).
 
-Many actions also have some of the following parts:
+## Parts of an action
+
+Many actions have some of the following parts:
 
 - Targets: what the action controls, for example, the lights in the living room.
   - For details, refer to [Action targets](/docs/scripts/perform-actions/#action-targets).
