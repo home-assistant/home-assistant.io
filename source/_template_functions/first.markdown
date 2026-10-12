@@ -48,7 +48,7 @@ value:
 
 ## Good to know
 
-- If the sequence is empty, the result is empty, and the template editor shows a warning. If the template uses that result further, for example, in `(items | first).name`, you get an error. Chain with [`| default(value)`](/template-functions/default/) if emptiness is possible.
+- If the sequence is empty, the result is undefined. It shows as empty, and the template editor shows a warning. If the template uses that result further, for example, in `(items | first).name`, you get an error. Chain with [`| default(value)`](/template-functions/default/) if emptiness is possible.
 - Works on any sequence, including strings (returns the first character) and generators.
 - When used after [`selectattr`](/template-functions/selectattr/) or [`select`](/template-functions/select/), add [`| list`](/template-functions/list/) first or the result will only consume part of the iterable.
 
