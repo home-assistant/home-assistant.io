@@ -2,11 +2,12 @@
 title: "Wait for a trigger"
 building_block: wait_for_trigger
 category: waiting
-description: "Pause the automation until something happens, with an optional timeout."
+description: "Pause an automation or script until a trigger reacts, with an optional timeout."
 related_building_blocks:
   - wait_template
   - delay
 ---
+
 The **Wait for a trigger** building block pauses the automation or script until one of its triggers reacts to a change. Use it when the next steps should only run after something happens, for example, a door closing.
 
 ## Adding Wait for a trigger in the editor
