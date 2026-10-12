@@ -8,9 +8,10 @@ ha_config_flow: true
 ha_iot_class: Cloud Push
 ha_domain: threema
 ha_platforms:
+  - image
   - notify
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_codeowners:
   - '@LukasQ'
 ---
@@ -71,13 +72,17 @@ After setting up the gateway, add recipients as **subentries**. Go to **Settings
 
 Each recipient subentry creates its own **device**, named after the recipient, for example, "Dad (AB1CD2EF)", or only the Threema ID if no name was given. The device hosts a single notify entity used to send messages to that recipient.
 
-### Supported functionality
+If you configured a private key for end-to-end encryption, the integration also creates one **Gateway** device for the gateway itself. This device hosts the QR code image entity described below, and is not created in basic mode.
 
-The **Threema** integration provides the following entities.
+## Entities
 
-#### Notify
+### Notify
 
 Each recipient device has one notify entity, named after the recipient. To find its entity ID, go to **Settings** > **Devices & services** > **Threema**, and open the device of the recipient.
+
+### Image
+
+In end-to-end encryption mode, the Gateway device has a **Gateway QR code** entity, a diagnostic entity containing a `3mid:` QR code built from your Gateway ID and public key, the same format Threema's apps use to verify a contact's identity. Scan it with the Threema app to confirm, out-of-band, that the gateway you configured really is yours before trusting messages sent through it.
 
 ## Actions
 
