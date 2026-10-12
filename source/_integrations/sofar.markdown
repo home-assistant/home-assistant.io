@@ -46,7 +46,7 @@ The integration recognizes these serial-number prefixes directly:
 - `SH3E`, `SS2E`, `ZS2E`, `SQ1ES1`, and `SS1` for KTL-X, KTLM, and related PV models.
 - `SA1`, `SB1`, `SC1`, `SD1`, `SF4`, `SL1`, and `SJ2` for additional current-generation PV models.
 
-If the serial number starts with another prefix, the integration asks the inverter which registers it serves instead. From that answer, it works out whether the inverter is single-phase or three-phase, whether it's a hybrid or PV-only model, and how many PV strings it has. This means current-generation models that aren't in the list above can usually be set up too.
+If the serial number starts with another prefix, the integration asks the inverter which registers it serves instead. From that answer, it works out whether the inverter is single-phase or three-phase, whether it's a hybrid or PV-only model, and how many PV strings it has. This means you can usually set up current-generation models that aren't on the list above, too.
 
 Some serial-number prefixes are also used by older Sofar models, so the marketed model name or serial prefix alone does not always identify the register generation. If the inverter answers but neither its serial number nor the registers it serves identify a supported model, setup fails.
 
@@ -276,7 +276,7 @@ If these steps don't help, [open an issue on GitHub](https://github.com/home-ass
 
 #### Description
 
-The integration identifies the inverter from its serial number, or from the registers the inverter reports it serves. If setup fails with an unrecognized inverter error, neither of these matched a supported model. The inverter might use the older register map, or your model isn't supported yet.
+The integration identifies the inverter by its serial number or by the registers it reports it serves. If setup fails with an unrecognized inverter error, neither matches a supported model. The inverter might use the older register map, or your model may not be supported yet.
 
 #### Resolution
 
