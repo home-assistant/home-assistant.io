@@ -18,8 +18,9 @@ To organize your Home Assistant setup, use short names for floors, areas, device
 Assign devices to areas and areas to floors instead of repeating their location in every name.
 Home Assistant can use this information when it creates new entity IDs.
 
-An entity name is the name shown in Home Assistant, such as `Temperature` or `Coffee machine`.
-An entity ID is the technical identifier used in automations and scripts, such as `sensor.living_room_thermostat_temperature`.
+An _entity name_ identifies the specific function or data point, such as `Temperature` or `Power`.
+Home Assistant can combine it with device or area context in the _friendly name_ it displays.
+An _entity ID_ identifies the entity in automations, scripts, and other configuration, such as `sensor.living_room_thermostat_temperature`.
 Changing an entity name does not change its entity ID.
 
 Use these recommendations when naming your Home Assistant setup:
@@ -29,6 +30,9 @@ Use these recommendations when naming your Home Assistant setup:
 - Give otherwise identical devices a distinguishing name that is meaningful to you. For example, use `Left window sensor` and `Right window sensor` if their position is how you tell them apart.
 - [Assign an area to each device](/docs/organizing/areas/#assigning-an-area-to-a-device-from-the-devices-dashboard) and [assign a floor to each area](/docs/organizing/areas/#assigning-areas-to-floors-and-adding-labels). Home Assistant uses this information in pickers, dialogs, and tables, so you do not need to add location information to areas, devices, and entities.
 - Change the displayed name on a dashboard card when you only want a different label in that dashboard. You do not need to change the entity name.
+
+If you already use a naming strategy that works for you, you do not need to rename existing items.
+Use these recommendations for new items, or when an existing name makes an item hard to identify.
 
 ## Changing the attributes of an entity
 
@@ -41,8 +45,8 @@ To change entity attributes, follow these steps:
      - You can use lowercase letters, numbers, and underscores.
      - The ID must not start or end with an underscore.
       - To undo the change and revert the ID to the default, select the {% icon "mdi:restore" %} icon.
-      - To revert all the entity IDs for a device, go to {% my devices title="**Settings** > **Devices & services** > **Devices**" %}, select the device and then select **Menu** {% icon "mdi:dots-vertical" %} > **Recreate entity IDs**.
-      - This resets the entity IDs and applies the current default naming convention.
+      - To recreate all the entity IDs for a device, go to {% my devices title="**Settings** > **Devices & services** > **Devices**" %}, select the device and then select **Menu** {% icon "mdi:dots-vertical" %} > **Recreate entity IDs**.
+      - This recreates the entity IDs using the current entity ID format.
         It does not change entity names.
       - The terms used to generate the entity ID depend on a few factors. Prioritization is as follows:
         1. If you changed the name of the entity, the entity name will be used.
