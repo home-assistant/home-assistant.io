@@ -775,7 +775,7 @@ When using single component discovery messages, the `<component>` part in the di
 
 The options in the payload are only used to set up one specific component. If a device contains multiple components, it is recommended to use [device discovery](/integrations/mqtt/#device-discovery-payload) instead.
 
-MQTT entities can share device configuration, meaning one entity can include the full device configuration and other entities can link to that device by only setting the shared `identifiers` or `connections`, and the device `name`. See [MQTT device configuration](#device-configuration-with-single-component-discovery).
+MQTT entities can share device configuration, meaning one entity can include the full device configuration and other entities can link to that device by only setting the shared `identifiers` or `connections`. It is recommended to also include the device `name`. See [MQTT device configuration](#device-configuration-with-single-component-discovery).
 
 Example discovery payload:
 

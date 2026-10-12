@@ -8,7 +8,7 @@ An MQTT {{ include.item }} can be set up in the following ways:
 - [Manually in YAML](/integrations/mqtt/#manual-configured-mqtt-items), by adding the configuration to your {% term "`configuration.yaml`" %} file, as shown in the example below.
 {%- endunless %}
 
-The configuration variables below apply to discovery{% unless include.yaml == false %} and YAML{% endunless %}. How the device information is set depends on the configuration method, see [MQTT device configuration](/integrations/mqtt/#mqtt-device-configuration).
+The configuration variables below apply to discovery{% unless include.yaml == false %} and YAML{% endunless %}. How the device information is set depends on the configuration method. See [MQTT device configuration](/integrations/mqtt/#mqtt-device-configuration).
 {%- unless include.yaml == false %}
 
 {% include integrations/restart_ha_after_config_inclusion.md %}
