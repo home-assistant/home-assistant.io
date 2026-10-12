@@ -39,7 +39,7 @@ The Tractive integration adds one device tracker and several sensors and switche
 ## Known limitations
 
 - Trackers (pets) that are shared from another account to your account are not visible in Home Assistant. You need to set up each Tractive account that owns a tracker (pet) as a separate integration entry.
-- You must sign in to your Tractive account with an email address and password. Signing in with a Google or Apple account is not supported.
+- Your Tractive account must allow signing in with an email address and password. Accounts that can only sign in with a Google or Apple account are not supported.
 
 ## Removing the integration
 
