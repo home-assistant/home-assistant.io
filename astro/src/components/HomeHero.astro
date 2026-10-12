@@ -27,12 +27,13 @@
 //     (`src/styles/_layout.scss`), so it lines up with the header and
 //     footer instead of an extra 64px indent. The badge sizes to its
 //     content instead of a fixed 330px.
-//   - The "Get started" arrow is an inline SVG instead of an
+//   - The "Get started" arrow is an inline SVG (`<Icon>`) instead of an
 //     `<iconify-icon>`. The commented-out "As seen on" block and the
 //     bottom margin (spacing to the next section is the layout's) are
 //     not carried over.
 import "../styles/tokens.scss";
 import DemoPhone from "./DemoPhone.astro";
+import Icon from "./Icon.astro";
 import githubLogoUrl from "../assets/hero-github-logo.svg?url";
 import trophyUrl from "../assets/hero-trophy.svg?url";
 
@@ -56,12 +57,7 @@ const integrationMilestone = Math.floor((integrationCount - 1) / 100) * 100;
       <div class="actions">
         <a class="primary" href="/installation/">
           Get started
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              fill="currentColor"
-              d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z"
-            ></path>
-          </svg>
+          <Icon name="arrow-right" />
         </a>
         <div class="secondary">
           <a href="https://demo.home-assistant.io" target="_blank" rel="noopener">
@@ -181,11 +177,6 @@ const integrationMilestone = Math.floor((integrationCount - 1) / 100) * 100;
       var(--space-xlarge);
     text-transform: uppercase;
     white-space: nowrap;
-
-    svg {
-      height: 1em;
-      width: 1em;
-    }
 
     &:hover,
     &:focus-visible {
