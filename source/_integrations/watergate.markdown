@@ -57,7 +57,7 @@ The Watergate integration provides the following entities.
 #### Sensors
 
 {% important %}
-Before this change, **Water meter volume** and **Water meter duration** reported the difference between the normal and reverse readings. They now report the normal direction alone. If your device has ever recorded reverse flow, their value rises once by that amount at the first update after upgrading, and Home Assistant counts that rise as consumption. Long-term statistics are kept, but the Energy Dashboard shows a one-time spike. Devices without reverse flow are not affected.
+On systems that previously recorded **Water meter volume** and **Water meter duration** as the difference between the normal and reverse readings, switching to directional readings causes both sensors to report the normal direction alone. If your device has recorded reverse flow, their values rise once by that amount when Home Assistant first receives directional readings, and Home Assistant counts the rise as consumption. Long-term statistics are kept, but the Energy dashboard shows a one-time spike. Devices without recorded reverse flow are not affected.
 {% endimportant %}
 
 - **Water meter volume**
