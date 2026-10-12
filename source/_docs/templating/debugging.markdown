@@ -28,7 +28,7 @@ The editor is the fastest feedback loop you have. It:
 
 - Shows the output of your template live.
 - Shows errors and warnings as a message above the result.
-- Shows the type of the result, under **Result type**.
+- Shows the type of the result, for example **Result type: string** or **Result type: boolean**.
 - Shows when the template updates, for example, when an entity it listens to changes.
 - Has access to all your entities, so you can try a template against real data.
 
