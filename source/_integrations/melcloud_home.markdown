@@ -89,7 +89,7 @@ The following extra sensors are only applicable for the Air-to-Water units:
 
 - **Room zone temperature 1 & 2**: Either one or the two room temperatures are returned, if applicable for the setup.
 - **Tank water temperature**: The current measured tank water temperature.
-- **Operation status**: What the heat pump is doing: **Idle**, **Heating water**, **Heating zones**, or **Cooling**.
+- **Operation status**: What the heat pump is doing: **Idle**, **Heating water**, **Heating zones**, **Cooling**, or **Frost protection**.
 
 ### Number
 
