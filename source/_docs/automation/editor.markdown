@@ -19,9 +19,8 @@ All your automations are listed in a table under {% my automations title="**Sett
 - Group the automations with **Group by**, by category, area, or state. By default, the automations are grouped by category.
 - Change several automations at once. Select **Enter selection mode**, select the automations, and then select one of the following:
   - **Move to category**
-  - **Add label**
   - **Move to area**
-  - **Enable** or **Disable**, in the **Action** {% icon "mdi:dots-vertical" %} menu
+  - **Add label**, **Enable**, or **Disable**, in the **Action** {% icon "mdi:dots-vertical" %} menu
 
 Automations without an `id` can't be selected. Only automations that you wrote in a YAML file can be missing an `id`.
 
