@@ -1,8 +1,8 @@
 // Icon path data for the Astro components.
 //
-// Every icon is the `d` attribute of a single 24x24 path from Material
-// Design Icons (https://pictogrammers.com/library/mdi/, Apache 2.0),
-// the same set the Jekyll site loads through Iconify's `mdi:` prefix.
+// Every icon is the `d` attribute of a single 24x24 path from the icon
+// set used by the Jekyll site (Material Design Icons or Simple Icons,
+// depending on the icon).
 // Storing bare path data keeps the file free of markup and matches the
 // shape the `@mdi/js` package exports, so if the migration adopts that
 // package this file becomes a list of re-exports and nothing else
