@@ -122,7 +122,7 @@ By the end of this section you will have configured the OAuth consent screen, ne
    - **Application home page**: Enter `https://www.home-assistant.io`.
    - **Application privacy policy link**: Enter `https://www.home-assistant.io/privacy`.
    - **Terms of service**: Leave this field blank.
-   - **Authorized domains**: Click **+ Add domain** and enter `home-assistant.io` without `https://` or a path.
+   - **Authorized domains**: Select **+ Add domain** and enter `home-assistant.io` without `https://` or a path.
    - **App logo**: Leave this field empty to avoid triggering additional verification requirements.
 
    Click **Save**.
