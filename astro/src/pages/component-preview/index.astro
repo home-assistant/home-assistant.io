@@ -11,11 +11,11 @@ import PreviewDemo from "../../lib/PreviewDemo.astro";
 // the variants render at true viewport width.
 //
 // Components use viewport media queries, so a tile that is much
-// narrower than the window shows the wrong layout and overflows. Two
-// things keep that in check: the page runs at the full window width,
-// and fixtures marked `wide: true` (header, footer) get a tile that
-// spans the whole row, so the demo is only a gutter short of the
-// viewport the component is laid out for.
+// narrower than the window shows the wrong layout and overflows. Every
+// tile therefore takes a full row of a page that runs at the full
+// window width, so a demo is only a gutter short of the viewport the
+// component is laid out for. Fixtures marked `wide: true` (header,
+// footer) also drop the demo padding and render edge to edge.
 // This page is a development aid: it is only reachable through
 // /astro-preview/ and is excluded from the Jekyll/Astro route parity
 // checks.
@@ -83,23 +83,18 @@ const entries = getComponentPreviews();
     padding: 0.5rem 0.75rem;
   }
   .tiles {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
   .tile {
     border: 1px solid #d1d5db;
     border-radius: 6px;
-    display: flex;
-    flex-direction: column;
-    /* Grid items default to min-width: auto and would grow past
-       their cell to fit a wide demo; let the demo scroll instead. */
-    min-width: 0;
-  }
-  .tile.wide {
-    grid-column: 1 / -1;
+    /* Clip the variants to the rounded corners. */
+    overflow: hidden;
   }
   .tile header {
+    background: #f9fafb;
     border-bottom: 1px solid #d1d5db;
     padding: 0.5rem 0.75rem;
   }
@@ -117,7 +112,6 @@ const entries = getComponentPreviews();
   }
   .variant:last-of-type {
     border-bottom: 0;
-    flex: 1;
   }
   .variant h3 {
     color: #4b5563;

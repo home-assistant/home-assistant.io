@@ -21,8 +21,9 @@
 //     instead of `<iconify-icon>` elements, so the header does not
 //     depend on the Iconify CDN script.
 //   - The DocSearch container is rendered empty, exactly as Jekyll
-//     does; the page still loads and initializes @docsearch/js
-//     against `#docsearch` and brings its own styles for the widget.
+//     does; the page layout (Page.astro) loads and initializes
+//     @docsearch/js against `#docsearch`, and the header reduces
+//     DocSearch's button to the magnifier icon.
 //   - The header does not position itself. On the live site the page
 //     makes it `position: fixed` so content scrolls underneath; that
 //     belongs to the page layout, not to the header.
@@ -377,8 +378,8 @@ const versionTitle =
      to action goes first, with search beside it, reversing their
      desktop-bar DOM order — same as the live site. */
 
-  .nav-cta,
-  .nav-search {
+  /* Scoped under .menu to outrank the panel's full-width items. */
+  .menu :is(.nav-cta, .nav-search) {
     width: auto;
   }
 
@@ -389,6 +390,25 @@ const versionTitle =
 
   .nav-search {
     order: -1;
+  }
+
+  /* DocSearch renders its button into the empty container; reduce it to
+     the magnifier in the navigation color, as on the live site.
+     The button is DocSearch's markup, hence :global. */
+  .docsearch :global(.DocSearch-Button) {
+    background: none;
+    box-shadow: none;
+    color: var(--nav-color);
+    margin: 0;
+    padding: var(--space-medium);
+  }
+
+  .docsearch :global(.DocSearch-Search-Icon) {
+    color: inherit;
+  }
+
+  .docsearch :global(:is(.DocSearch-Button-Placeholder, .DocSearch-Button-Keys)) {
+    display: none;
   }
 
   /* Desktop bar */
