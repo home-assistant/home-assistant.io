@@ -48,7 +48,7 @@ To change entity attributes, follow these steps:
         1. If you changed the name of the entity, the entity name will be used.
         2. The entity ID suggested by the integration (just a few integrations do this).
         3. The default name in the user language, if using Latin script.
-           - If something other than Latin script is used, the entity ID is based on the English default name. This is because entity IDs must use lowercase letters, numbers, and underscores.
+           If something other than Latin script is used, the entity ID is based on the English default name. This is because entity IDs must use lowercase letters, numbers, and underscores.
 
    - Enter or edit the entity name.
      - If the entity belongs to a device, you can turn on **Use device name** instead. The entity is then called by the name of its device. For example, if a smart plug called `Coffee machine` has an entity called `Power`, the entity is shown as `Coffee machine` instead of `Coffee machine Power`. The entity also uses the area of its device. To rename the device, select **change the device name**.
