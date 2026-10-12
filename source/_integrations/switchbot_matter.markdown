@@ -40,6 +40,6 @@ SwitchBot Matter devices are certified for use via one of their Matter hubs: eit
 
 In addition to the certified devices, the following devices are also supported:
 
-- [SwitchBot Lock Ultra](https://www.switch-bot.com/products/switchbot-lock_ultra) (via a Matter hub)
+- [SwitchBot Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra) (via a Matter hub)
 - [SwitchBot Motion Sensor](https://www.switch-bot.com/products/motion-sensor) (via a Matter hub)
 - [SwitchBot Multitasking Robot K11+](https://www.switch-bot.com/products/switchbot-robot-vacuum-k11) (Matter over Wi-Fi)
