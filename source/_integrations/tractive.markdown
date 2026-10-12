@@ -39,3 +39,9 @@ Due to Tractive API limitations, trackers (pets) that are shared from another ac
 The Tractive integration adds one device tracker and several sensors and switches per registered pet:
 
 ![Tractive device tracker](/images/integrations/tractive/device_tracker.png)
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
