@@ -1,6 +1,6 @@
 ---
 title: "Customizing entities"
-description: "Override the name, icon, or other properties of an entity, and hide entities you don't need to see."
+description: "Rename or hide entities, choose how new entity IDs are created, and change entity icons or other properties."
 related:
   - docs: /integrations/homeassistant/
   - docs: /docs/configuration/
@@ -40,14 +40,15 @@ To change entity attributes, follow these steps:
    - Enter or edit the entity ID, for example, to shorten it to `binary_sensor.lumi_sensor_aq2_opening`.
      - You can use lowercase letters, numbers, and underscores.
      - The ID must not start or end with an underscore.
-     - To undo the change and revert the ID to the default, select the {% icon "mdi:restore" %} icon.
-     - To revert all the entity IDs for a device, go to {% my devices title="**Settings** > **Devices & services** > **Devices**" %}, select the device and then select **Menu** {% icon "mdi:dots-vertical" %} > **Recreate entity IDs**.
-     - Result: This resets the entity ID and applies the current default naming convention.
-       - The terms used to generate the entity ID depend on a few factors. Prioritization is as follows:
-         1. If you changed the name of the entity, the entity name will be used.
-         2. The entity ID suggested by the integration (just a few integrations do this).
-         3. The default name in the user language, if using Latin script.
-            - If something other than Latin script is used, the entity ID is based on the English default name. This is because entity IDs must use lowercase letters, numbers, and underscores.
+      - To undo the change and revert the ID to the default, select the {% icon "mdi:restore" %} icon.
+      - To revert all the entity IDs for a device, go to {% my devices title="**Settings** > **Devices & services** > **Devices**" %}, select the device and then select **Menu** {% icon "mdi:dots-vertical" %} > **Recreate entity IDs**.
+      - This resets the entity IDs and applies the current default naming convention.
+        It does not change entity names.
+      - The terms used to generate the entity ID depend on a few factors. Prioritization is as follows:
+        1. If you changed the name of the entity, the entity name will be used.
+        2. The entity ID suggested by the integration (just a few integrations do this).
+        3. The default name in the user language, if using Latin script.
+           - If something other than Latin script is used, the entity ID is based on the English default name. This is because entity IDs must use lowercase letters, numbers, and underscores.
 
    - Enter or edit the entity name.
      - If the entity belongs to a device, you can turn on **Use device name** instead. The entity is then called by the name of its device. For example, if a smart plug called `Coffee machine` has an entity called `Power`, the entity is shown as `Coffee machine` instead of `Coffee machine Power`. The entity also uses the area of its device. To rename the device, select **change the device name**.
