@@ -2,8 +2,8 @@
 layout: post
 title: "LEDVANCE joins Works with Home Assistant"
 description: "LEDVANCE joins Works with Home Assistant, bringing a century of lighting heritage and 116 certified Matter devices to our community 🎉"
-date: 2026-10-13 00:00:01
-date_formatted: "October 13, 2026"
+date: 2026-10-12 00:00:01
+date_formatted: "October 12, 2026"
 author: Jacqueline Ajayi
 comments: true
 categories: Works-with-Home-Assistant
