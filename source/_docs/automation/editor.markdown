@@ -24,7 +24,7 @@ All your automations are listed in a table under {% my automations title="**Sett
 
 Automations without an `id` can't be selected. Only automations that you wrote in a YAML file can be missing an `id`.
 
-The table works like the other tables in Home Assistant. For the steps, refer to [Working with tables](/docs/organizing/tables/). For categories, refer to [Categories](/docs/organizing/categories/).
+The table works like the other tables in Home Assistant. For the steps, refer to [Working with tables](/docs/organizing/tables/). To use categories in tables, refer to [Categories](/docs/organizing/categories/).
 
 ## Editing an automation in the visual editor
 
