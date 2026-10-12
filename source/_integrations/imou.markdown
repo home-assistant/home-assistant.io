@@ -72,6 +72,18 @@ When adding the integration, select **Server region** to match your Open Platfor
 
 These regions correspond to the API endpoints used by the integration.
 
+### Updating credentials and server region
+
+After setup, you can change the **App secret** and **Server region** without removing the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Imou** integration, then **Configure**.
+3. Enter the updated **App secret** and choose the correct **Server region**.
+
+Home Assistant validates the credentials against the Imou Open Platform before saving the changes.
+
+If the platform rejects your App ID or App secret during normal operation, Home Assistant prompts you to **Reauthenticate** instead. Use that flow when only the App secret changed and you are fixing an authentication error.
+
 ## API usage
 
 Imou Open Platform API usage limits apply to your App ID:
@@ -102,7 +114,9 @@ The integration exposes button entities when the cloud API reports that the acti
 
 ### Switches
 
-When the cloud API reports that the toggle is supported for a device, the integration exposes the following switch entities:
+When the cloud API reports that the toggle is supported for a device, the integration exposes switch entities.
+
+Primary controls:
 
 - **Abnormal sound alarm**: Toggle abnormal sound detection alarms.
 - **Audio recording**: Toggle audio recording on supported cameras.
@@ -112,6 +126,16 @@ When the cloud API reports that the toggle is supported for a device, the integr
 - **Plug switch**: Control the main power relay on supported IoT socket devices.
 - **Privacy mode**: Enable privacy mode that closes or disables the camera lens on supported models.
 - **White light**: Manually toggle the camera white LED illuminator on supported models.
+
+Device settings (**Configuration** category):
+
+- **Alarm-linked siren**: Link the device siren to alarm events on supported models.
+- **Alarm-linked white light**: Link the white light to alarm events on supported models.
+- **Flip image**: Flip the camera image vertically on supported models.
+- **Pet detection**: Toggle pet detection on supported cameras.
+- **Prompt sound**: Toggle prompt sounds on supported models.
+- **Smart tracking**: Toggle smart tracking on supported cameras.
+- **Wide dynamic range**: Toggle wide dynamic range on supported cameras.
 
 ### Alarm control panel
 
@@ -166,7 +190,7 @@ This integration communicates with Imou cloud services. Device control commands 
 
 Verify that **App ID**, **App secret**, and **Server region** match your Imou Open Platform application and account region.
 
-If you changed the **App secret**, Home Assistant will ask you to reauthenticate the Imou integration. Enter the new **App secret**; you do not need to remove the integration.
+If you changed the **App secret**, Home Assistant may ask you to reauthenticate the Imou integration. Enter the new **App secret**; you do not need to remove the integration. You can also update the **App secret** and **Server region** at any time from **Configure** (see [Updating credentials and server region](#updating-credentials-and-server-region)).
 
 ### API quota is used quickly
 

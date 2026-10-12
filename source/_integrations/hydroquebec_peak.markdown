@@ -2,6 +2,7 @@
 title: Hydro-Québec Peak Events
 description: Instructions on how to integrate Hydro-Québec peak events into Home Assistant.
 ha_category:
+  - Binary sensor
   - Energy
   - Sensor
 ha_release: 2026.11
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@Beat-YT'
 ha_domain: hydroquebec_peak
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: service
 ha_quality_scale: bronze
@@ -42,6 +44,15 @@ To track more than one offer, add the integration again and select another offer
 
 For each configured offer, the integration provides the following entities. Events are published by Hydro-Québec a few hours before they occur, typically the day before.
 
+### Binary sensors
+
+- **Peak event in progress**
+  - **Description**: On while a peak event is in progress.
+- **Peak event today AM** and **Peak event today PM**
+  - **Description**: On when a morning or evening peak event is scheduled for today. Useful for residential offers with fixed event windows, where only whether an event occurs changes from day to day.
+- **Peak event tomorrow AM** and **Peak event tomorrow PM**
+  - **Description**: On when a morning or evening peak event is scheduled for tomorrow. For example, you can decide in the evening whether to charge your car overnight or preheat early.
+
 ### Sensors
 
 - **Peak event begins**
@@ -59,7 +70,7 @@ This blueprint runs actions at three moments: a configurable time before a peak 
 
 ## Data updates
 
-The integration {% term polling polls %} Hydro-Québec's open data every 15 minutes. Between updates, the sensors also refresh automatically when an event starts or ends, and at midnight, so the information stays current.
+The integration {% term polling polls %} Hydro-Québec's open data every 15 minutes. Between updates, the entities also refresh automatically when an event starts or ends, and at midnight, so the information stays current.
 
 ## Known limitations
 
