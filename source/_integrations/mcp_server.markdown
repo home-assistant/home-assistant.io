@@ -50,6 +50,11 @@ Require an administrator account:
   description: If only administrator accounts are allowed to use the `/api/mcp` endpoint. This
     option is turned on by default. If you set up the integration before this option existed,
     it stays turned off so that your clients keep working.
+Read-only:
+  description: If MCP clients can only use controls that do not change anything, such as getting
+    the current state of your home. This applies only to the `/api/mcp` endpoint. Endpoints for
+    a specific LLM API, such as `/api/mcp/assist`, are not affected. This option is turned off
+    by default.
 {% endconfiguration_basic %}
 
 ## Architecture overview
