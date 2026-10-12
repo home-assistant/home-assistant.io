@@ -111,6 +111,8 @@ A name makes it easier to find a trigger, condition, or action in a long automat
 1. On the right side of the row, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Rename**.
 2. Enter a name, and select **Submit**.
 
+In YAML, the name is stored in `alias`.
+
 ### Copying, moving, and duplicating triggers, conditions, and actions
 
 - To add a copy in the same automation, in the **Menu** {% icon "mdi:dots-vertical" %} of the row, select **Duplicate**.
