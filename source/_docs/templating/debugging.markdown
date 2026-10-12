@@ -43,8 +43,8 @@ When a template misbehaves in an automation, a script, or a template entity, fix
    - If the template uses `trigger` or `this`, define them at the top with `{% set %}`. For the steps, refer to [Testing a template](/docs/tools/dev-tools/#testing-a-template).
 3. Under **Result**, check the output.
    - If a message is shown above the result, refer to [Troubleshooting template errors](/docs/templating/errors/).
-   - Check the **Result type**. If you expected a number and see `str`, refer to [Check what a value actually is](#check-what-a-value-actually-is).
-   - Below the result, check which entities the template listens to. If an entity you expect isn't listed, the template doesn't update when that entity changes. For details, refer to [When does my template run?](#when-does-my-template-run).
+   - Check the **Result type**. If you expected a number and see `string`, refer to [Check what a value actually is](#check-what-a-value-actually-is).
+   - Below the result, check what the template listens to. If neither the entity you expect nor its domain is listed, the template doesn't update when that entity changes. If the editor says that the template listens for all state changed events, it updates when any entity changes. For details, refer to [When does my template run?](#when-does-my-template-run).
 4. Change the template until the result is what you expect. If the template is long, take it apart first. For the steps, refer to [Narrow down the problem](#narrow-down-the-problem).
 5. Remove any variables you defined in step 2. Then copy the template, and paste it back into your automation, script, or template entity.
 
