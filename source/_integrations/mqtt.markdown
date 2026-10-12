@@ -334,7 +334,7 @@ Note that on each MQTT entity, the `has_entity_name` attribute will be set to `T
 
 ## MQTT device configuration
 
-MQTT entities, device triggers, and tags can be linked to a device in the [device registry](https://developers.home-assistant.io/docs/device_registry_index/). The device information is set with the `device` mapping, which can be abbreviated as `dev` in discovery messages.
+MQTT entities, device triggers, and tags can be linked to a device in the [device registry](https://developers.home-assistant.io/docs/device_registry_index/). With YAML and MQTT discovery, the device information is set with the `device` mapping, which can be abbreviated as `dev` in discovery messages. With subentries, the device information is set in the UI.
 
 - At least one of `identifiers` or `connections` must be set to identify the device.
 - For entities, the device information is only used when the entity has a `unique_id`.
