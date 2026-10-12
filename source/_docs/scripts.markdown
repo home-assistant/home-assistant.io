@@ -743,477 +743,60 @@ else:
 
 ## Repeat for each
 
-<!-- future frontmatter:
-title: "Repeat for each"
-building_block: repeat_for_each
-description: "Run a group of actions once for each item in a list."
-related_building_blocks: [repeat_count, repeat_while, repeat_until]
--->
-
-The **Repeat for each** building block runs a group of actions once for each item in a list. Use it when you want to do the same thing for several items, for example, to turn off a list of lights one by one.
-
-### Adding Repeat for each in the editor
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
-2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
-3. Select **Blocks**, then select **Repeat for each**.
-4. In **For each item in list**, enter the list of items in YAML, for example:
-
-   ```yaml
-   - "living_room"
-   - "kitchen"
-   ```
-
-5. Under **Actions**, select **Add action**, and add the actions to run for each item. To use the current item in a template, use `repeat.item`.
-6. Select **Save**.
-
+<a id="adding-repeat-for-each-in-the-editor"></a>
 <a id="repeat-for-each-options-in-the-ui"></a>
-
-#### Options in the UI
-
-{% options_ui %}
-For each item in list:
-  description: The list of items. The actions run once for each item.
-  required: true
-Actions:
-  description: The actions to run for each item.
-  required: true
-{% endoptions_ui %}
-
-### Repeat for each in YAML
-
-In YAML, use `repeat` with `for_each` and `sequence`. This example turns off three lights:
-
-{% example %}
-action: |
-  repeat:
-    for_each:
-      - "living_room"
-      - "kitchen"
-      - "office"
-    sequence:
-      - action: light.turn_off
-        target:
-          entity_id: "light.{{ repeat.item }}"
-{% endexample %}
-
-The items can also be templates, or mappings of keys and values:
-
-{% example %}
-action: |
-  repeat:
-    for_each:
-      - language: English
-        message: Hello World
-      - language: Dutch
-        message: Hallo Wereld
-    sequence:
-      - action: notify.phone
-        data:
-          title: "Message in {{ repeat.item.language }}"
-          message: "{{ repeat.item.message }}!"
-{% endexample %}
-
+<a id="repeat-for-each-in-yaml"></a>
 <a id="repeat-for-each-options-in-yaml"></a>
-
-#### Options in YAML
-
-{% options_yaml %}
-repeat:
-  description: The repeat settings.
-  required: true
-  type: map
-  keys:
-    for_each:
-      description: The list of items, or a template that returns a list.
-      required: true
-      type: [list, template]
-    sequence:
-      description: The actions to run for each item.
-      required: true
-      type: list
-{% endoptions_yaml %}
-
 <a id="repeat-for-each-repeat-variable"></a>
+<a id="good-to-know-about-repeat-for-each"></a>
+<a id="examples-of-repeat-for-each"></a>
+<a id="automation-send-a-notification-for-each-sensor-with-low-battery"></a>
 
-#### Repeat variable
+The **Repeat for each** building block runs a group of actions once for each item in a list. For the steps, options, and examples, refer to [Repeat for each](/building-blocks/repeat_for_each/).
 
-While the actions repeat, the `repeat` variable shows which item is used:
-
-- `repeat.item`: The current item of the list.
-- `repeat.index`: The number of the round: `1`, `2`, `3`, and so on.
-- `repeat.first`: `true` during the first round.
-- `repeat.last`: `true` during the last round.
-
-### Good to know about Repeat for each
-
-- The list can be a fixed list, or a list created by a template. If the template doesn't return a list, the automation or script stops with an error.
-
-### Examples of Repeat for each
-
-#### Automation: send a notification for each sensor with low battery
-
-Every evening, this automation goes through all entities with the {% term label %} "Battery check", and sends a separate notification for each one that is below 20%. The notification includes the name of the sensor. Create the label yourself, and add it to your battery sensors, in {% my labels title="**Settings** > **Areas, labels & zones** > **Labels**" %}.
-
-The list comes from a template, so it changes when you add the label to more sensors. Inside the repeat, `repeat.item` is the entity ID of the current sensor.
-
-- **Trigger**: Time, at 20:00
-- **Action**: Repeat for each
-  - **For each item in list**: `{{ label_entities('Battery check') }}`
-  - **Actions**: If-then
-    - **If**: A **Template** condition with `{{ states(repeat.item) | float(100) < 20 }}`
-    - **Then**: Send a notification message, with the name and battery level of the sensor
-
-{% details "YAML example" %}
-
-{% example %}
-automation: |
-  alias: "Notify about low batteries"
-  triggers:
-    - trigger: time
-      at: "20:00:00"
-  actions:
-    - repeat:
-        for_each: "{{ label_entities('Battery check') }}"
-        sequence:
-          - if:
-              - "{{ states(repeat.item) | float(100) < 20 }}"
-            then:
-              - action: notify.send_message
-                target:
-                  entity_id: notify.my_device
-                data:
-                  message: >
-                    {{ state_attr(repeat.item, 'friendly_name') }} has
-                    {{ states(repeat.item) }}% battery left.
-{% endexample %}
-
-{% enddetails %}
 
 <a id="counted-repeat"></a>
 
 ## Repeat multiple times
 
-<!-- future frontmatter:
-title: "Repeat multiple times"
-building_block: repeat_count
-description: "Run a group of actions a set number of times."
-related_building_blocks: [repeat_for_each, repeat_while, repeat_until]
--->
-
-The **Repeat multiple times** building block runs a group of actions a set number of times. Use it when you know in advance how often the actions should run, for example, to flash a light 3 times.
-
-### Adding Repeat multiple times in the editor
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
-2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
-3. Select **Blocks**, then select **Repeat multiple times**.
-4. In **Count**, enter how many times to run the actions.
-5. Under **Actions**, select **Add action**, and add the actions to repeat.
-6. Select **Save**.
-
+<a id="adding-repeat-multiple-times-in-the-editor"></a>
 <a id="repeat-multiple-times-options-in-the-ui"></a>
-
-#### Options in the UI
-
-{% options_ui %}
-Count:
-  description: How many times to run the actions.
-  required: true
-Actions:
-  description: The actions to repeat.
-  required: true
-{% endoptions_ui %}
-
-### Repeat multiple times in YAML
-
-In YAML, use `repeat` with `count` and `sequence`. The count can be a template. The template is rendered when the repeat starts. This example has two scripts. The second script calls the first one to flash the hallway light 3 times:
-
-{% example %}
-script: |
-  flash_light:
-    mode: restart
-    sequence:
-      - action: light.turn_on
-        target:
-          entity_id: "light.{{ light }}"
-      - alias: "Cycle light 'count' times"
-        repeat:
-          count: "{{ count | int * 2 - 1 }}"
-          sequence:
-            - delay: 2
-            - action: light.toggle
-              target:
-                entity_id: "light.{{ light }}"
-  flash_hallway_light:
-    sequence:
-      - alias: "Flash hallway light 3 times"
-        action: script.flash_light
-        data:
-          light: hallway
-          count: 3
-{% endexample %}
-
+<a id="repeat-multiple-times-in-yaml"></a>
 <a id="repeat-multiple-times-options-in-yaml"></a>
-
-#### Options in YAML
-
-{% options_yaml %}
-repeat:
-  description: The repeat settings.
-  required: true
-  type: map
-  keys:
-    count:
-      description: How many times to run the actions. Can be a template.
-      required: true
-      type: [integer, template]
-    sequence:
-      description: The actions to repeat.
-      required: true
-      type: list
-{% endoptions_yaml %}
-
 <a id="repeat-loop-variable"></a>
 <a id="repeat-multiple-times-repeat-variable"></a>
+<a id="good-to-know-about-repeat-multiple-times"></a>
 
-#### Repeat variable
+The **Repeat multiple times** building block runs a group of actions a set number of times. For the steps, options, and examples, refer to [Repeat multiple times](/building-blocks/repeat_count/).
 
-While the actions repeat, the `repeat` variable shows which round is running:
-
-- `repeat.index`: The number of the round: `1`, `2`, `3`, and so on.
-- `repeat.first`: `true` during the first round.
-- `repeat.last`: `true` during the last round.
-
-### Good to know about Repeat multiple times
-
-- You can use any building block inside the repeat, including another repeat.
 
 ## Repeat until
 
-<!-- future frontmatter:
-title: "Repeat until"
-building_block: repeat_until
-description: "Run a group of actions until conditions are met."
-related_building_blocks: [repeat_while, repeat_count, repeat_for_each]
--->
-
-The **Repeat until** building block runs a group of actions until its conditions are met. The conditions are checked after each round, so the actions always run at least once. Use it when you want to try something again until it works, for example, until a device reports that it turned on.
-
-### Adding Repeat until in the editor
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
-2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
-3. Select **Blocks**, then select **Repeat until**.
-4. Under **Until conditions**, select **Add condition**, and add the conditions that end the repeat.
-5. Under **Actions**, select **Add action**, and add the actions to repeat.
-6. Select **Save**.
-
+<a id="adding-repeat-until-in-the-editor"></a>
 <a id="repeat-until-options-in-the-ui"></a>
-
-#### Options in the UI
-
-{% options_ui %}
-Until conditions:
-  description: The [conditions](/docs/scripts/conditions/) that are checked after each round. The repeat ends when all conditions are met.
-  required: true
-Actions:
-  description: The actions to repeat.
-  required: true
-{% endoptions_ui %}
-
-### Repeat until in YAML
-
-In YAML, use `repeat` with `sequence` and `until`. `until` also accepts a [shorthand notation of a template condition][shorthand-template]:
-
-{% example %}
-action: |
-  repeat:
-    until: "{{ is_state('device_tracker.iphone', 'home') }}"
-    sequence:
-      - action: script.something
-{% endexample %}
-
+<a id="repeat-until-in-yaml"></a>
 <a id="repeat-until-options-in-yaml"></a>
-
-#### Options in YAML
-
-{% options_yaml %}
-repeat:
-  description: The repeat settings.
-  required: true
-  type: map
-  keys:
-    until:
-      description: The conditions that are checked after each round. The repeat ends when all conditions are met. You can also use a template.
-      required: true
-      type: [list, template]
-    sequence:
-      description: The actions to repeat.
-      required: true
-      type: list
-{% endoptions_yaml %}
-
 <a id="repeat-until-repeat-variable"></a>
+<a id="good-to-know-about-repeat-until"></a>
+<a id="examples-of-repeat-until"></a>
+<a id="automation-repeat-a-command-until-it-works"></a>
 
-#### Repeat variable
+The **Repeat until** building block runs a group of actions until its conditions are met. For the steps, options, and examples, refer to [Repeat until](/building-blocks/repeat_until/).
 
-While the actions repeat, the `repeat` variable shows which round is running. You can also use it in the conditions:
-
-- `repeat.index`: The number of the round: `1`, `2`, `3`, and so on.
-- `repeat.first`: `true` during the first round.
-
-### Good to know about Repeat until
-
-- The actions always run at least once, because the conditions are only checked after each round.
-- The repeat ends when all **Until conditions** are met. To also end it after a number of rounds, put the conditions in an **Or** condition, together with a condition on `repeat.index`, for example, `{{ repeat.index >= 5 }}`. The repeat then ends when the actions work, or after 5 rounds.
-
-### Examples of Repeat until
-
-#### Automation: repeat a command until it works
-
-When `binary_sensor.xyz` turns on, this automation runs a shell command, and repeats it until `binary_sensor.something` is on.
-
-- **Trigger**: State changed
-  - **Entity**: `binary_sensor.xyz`
-  - **To**: On
-- **Condition**: State
-  - **Entity**: `binary_sensor.something`
-  - **State**: Off
-- **Action**: Repeat until
-  - **Actions**: Run the shell command, then wait 200 milliseconds
-  - **Until conditions**: `binary_sensor.something` is on
-
-{% details "YAML example" %}
-
-{% example %}
-automation: |
-  triggers:
-    - trigger: state
-      entity_id: binary_sensor.xyz
-      to: "on"
-  conditions:
-    - condition: state
-      entity_id: binary_sensor.something
-      state: "off"
-  actions:
-    - alias: "Repeat the sequence UNTIL the conditions are true"
-      repeat:
-        sequence:
-          # Run command that for some reason doesn't always work
-          - action: shell_command.turn_something_on
-          # Give it time to complete
-          - delay:
-              milliseconds: 200
-        until:
-          # Did it work?
-          - condition: state
-            entity_id: binary_sensor.something
-            state: "on"
-{% endexample %}
-
-{% enddetails %}
 
 <a id="while-loop"></a>
 
 ## Repeat while
 
-<!-- future frontmatter:
-title: "Repeat while"
-building_block: repeat_while
-description: "Run a group of actions as long as conditions are met."
-related_building_blocks: [repeat_until, repeat_count, repeat_for_each]
--->
-
-The **Repeat while** building block runs a group of actions as long as its conditions are met. The conditions are checked before each round. Use it when the actions should keep running while something is true, for example, while a mode is turned on.
-
-### Adding Repeat while in the editor
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
-2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
-3. Select **Blocks**, then select **Repeat while**.
-4. Under **While conditions**, select **Add condition**, and add the conditions that must be met for the next round.
-5. Under **Actions**, select **Add action**, and add the actions to repeat.
-6. Select **Save**.
-
+<a id="adding-repeat-while-in-the-editor"></a>
 <a id="repeat-while-options-in-the-ui"></a>
-
-#### Options in the UI
-
-{% options_ui %}
-While conditions:
-  description: The [conditions](/docs/scripts/conditions/) that are checked before each round. The actions run as long as all conditions are met.
-  required: true
-Actions:
-  description: The actions to repeat.
-  required: true
-{% endoptions_ui %}
-
-### Repeat while in YAML
-
-In YAML, use `repeat` with `while` and `sequence`. This example repeats a script as long as `input_boolean.do_something` is on, and at most 20 times:
-
-{% example %}
-script: |
-  do_something:
-    sequence:
-      - action: script.get_ready_for_something
-      - alias: "Repeat the sequence AS LONG AS the conditions are true"
-        repeat:
-          while:
-            - condition: state
-              entity_id: input_boolean.do_something
-              state: "on"
-            # Don't do it too many times
-            - condition: template
-              value_template: "{{ repeat.index <= 20 }}"
-          sequence:
-            - action: script.something
-{% endexample %}
-
-`while` also accepts a [shorthand notation of a template condition][shorthand-template]:
-
-{% example %}
-action: |
-  repeat:
-    while: "{{ is_state('sensor.mode', 'Home') and repeat.index < 10 }}"
-    sequence:
-      - action: script.something
-{% endexample %}
-
+<a id="repeat-while-in-yaml"></a>
 <a id="repeat-while-options-in-yaml"></a>
-
-#### Options in YAML
-
-{% options_yaml %}
-repeat:
-  description: The repeat settings.
-  required: true
-  type: map
-  keys:
-    while:
-      description: The conditions that are checked before each round. The actions run as long as all conditions are met. You can also use a template.
-      required: true
-      type: [list, template]
-    sequence:
-      description: The actions to repeat.
-      required: true
-      type: list
-{% endoptions_yaml %}
-
 <a id="repeat-while-repeat-variable"></a>
+<a id="good-to-know-about-repeat-while"></a>
 
-#### Repeat variable
+The **Repeat while** building block runs a group of actions as long as its conditions are met. For the steps, options, and examples, refer to [Repeat while](/building-blocks/repeat_while/).
 
-While the actions repeat, the `repeat` variable shows which round is running. You can also use it in the conditions:
-
-- `repeat.index`: The number of the round: `1`, `2`, `3`, and so on.
-- `repeat.first`: `true` during the first round.
-
-### Good to know about Repeat while
-
-- The conditions are checked before each round. If they are not met at the start, the actions don't run at all.
-- To make sure the repeat ends, add a condition on `repeat.index`, for example, `{{ repeat.index <= 20 }}`.
 
 <a id="grouping-actions"></a>
 
