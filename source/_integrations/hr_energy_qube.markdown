@@ -22,7 +22,7 @@ ha_platforms:
   - switch
   - water_heater
 ha_integration_type: hub
-ha_quality_scale: gold
+ha_quality_scale: silver
 ha_zeroconf: true
 ---
 
