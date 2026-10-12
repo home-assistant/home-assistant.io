@@ -111,6 +111,39 @@ automation: |
 
 {% enddetails %}
 
+## Minutes until an event starts
+
+For a numeric countdown, you can create an optional [Template helper](/integrations/template/#creating-a-template-helper-from-the-user-interface) from the existing **Event start** and **Event end** sensors. This helper is separate from the entities created by the Axle Energy integration.
+
+It shows the minutes until the event starts, rounded up to the next whole minute. It shows `0` while the event is in progress, **Unknown** when there is no event or the event has ended, and **Unavailable** when either source sensor is unavailable. The helper updates when either source changes and at the start of each minute, without requesting data from Axle. For an automation at an exact event time, use the timestamp sensors with a [time trigger](/docs/automation/trigger/#time-trigger).
+
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} and select **Create helper**.
+2. Select **Template**, then **Sensor**.
+3. Enter `Axle Energy minutes until event start` as the **Name** and `min` as the **Unit of measurement**. Leave **Device class** and **State class** empty.
+4. Paste the following into **State**. Replace the entity IDs if you have renamed your Axle sensors.
+
+{% example %}
+template: |
+  {% set start = as_timestamp(states('sensor.axle_energy_event_start'), none) %}
+  {% set end = as_timestamp(states('sensor.axle_energy_event_end'), none) %}
+  {% set current = as_timestamp(now()) %}
+  {% if start is not none and end is not none and end > current %}
+    {{ [0, ((start - current) / 60) | round(0, 'ceil') | int] | max }}
+  {% else %}
+    {{ none }}
+  {% endif %}
+{% endexample %}
+
+5. Expand **Additional options** and paste the following into **Availability**, using the same entity IDs.
+
+{% example %}
+template: |
+  {{ not is_state('sensor.axle_energy_event_start', 'unavailable')
+     and not is_state('sensor.axle_energy_event_end', 'unavailable') }}
+{% endexample %}
+
+6. Select **Submit**. You can then add the helper to your dashboard.
+
 ## Data updates
 
 The integration {% term polling polls %} Axle every 10 minutes. All three sensors use the same update. Changes to the published schedule appear after the next successful update.
