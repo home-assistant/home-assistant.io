@@ -22,7 +22,7 @@ ha_platforms:
   - switch
   - water_heater
 ha_integration_type: hub
-ha_quality_scale: silver
+ha_quality_scale: gold
 ha_zeroconf: true
 ---
 
@@ -351,7 +351,7 @@ The heat pump stopped answering Modbus requests. The integration retries on ever
 #### Resolution
 
 1. Check that the heat pump is powered on and connected to your network.
-2. If the IP address of the heat pump changed, Home Assistant updates it automatically when the heat pump is discovered again. To prevent this, give the heat pump a fixed IP address in your router.
+2. If the IP address of the heat pump changed, Home Assistant updates it automatically when the heat pump is discovered again. Otherwise, [reconfigure](#reconfiguration) the integration with the new address, and consider giving the heat pump a fixed IP address in your router.
 3. If the problem persists, [download the diagnostics](#diagnostics) and include them when reporting an issue.
 
 {% enddetails %}
