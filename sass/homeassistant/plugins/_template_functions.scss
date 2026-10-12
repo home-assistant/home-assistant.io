@@ -38,12 +38,15 @@ $tf-code-font: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
 /* Template functions index page */
+#tf-container h2,
 #tf-container h3 {
   margin-top: 1.5em;
   margin-bottom: 0.5em;
   padding-bottom: 0.4em;
   border-bottom: 2px solid $primary-color;
   font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
   scroll-margin-top: 100px;
 }
 
