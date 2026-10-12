@@ -80,6 +80,7 @@ credential_index:
 ## Good to know
 
 - Only administrators can run this action.
+- If you target a lock device or an area, the action runs once for each lock, even when the secure mode lock entity is enabled.
 - The lock's master code is not stored in a numbered slot and cannot be cleared with this action.
 
 {% include actions/stuck.md %}

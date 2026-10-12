@@ -81,9 +81,9 @@ When the lock is locked or unlocked outside Home Assistant, the lock's **Changed
 - **The master code name or Master code**: The master code was used.
 - **Manual**: The lock was turned by hand, using the thumb turn or a key.
 - **Auto lock**: The lock locked itself with its auto lock feature.
-- **Remote**: The lock was operated remotely, for example from the Yale app.
+- **Remote**: The lock was operated remotely, for example from the Yale app or from Home Assistant.
 
-When you lock or unlock the lock from Home Assistant, the logbook shows the Home Assistant user who did it, as before.
+When you lock or unlock the lock from Home Assistant, the logbook shows the Home Assistant user who did it, as before. The **Changed by** attribute may then show **Remote**, because that is what the lock reports for commands sent over Bluetooth.
 
 To find out the cause, Home Assistant waits briefly, up to about 2 seconds, for the lock to report what happened before it records the new state. If the lock does not report a cause in time, the new state is recorded without one.
 
@@ -94,7 +94,7 @@ When the lock is operated outside Home Assistant and the cause is known, Home As
 The event includes the following data:
 
 - `device_id`: The ID of the lock device.
-- `entity_id`: The entity ID of the lock, such as `lock.front_door`.
+- `entity_id`: The entity ID of the main lock entity, such as `lock.front_door`. This is also the case when the secure mode lock entity is enabled.
 - `source`: What operated the lock: `pin` for the keypad or a PIN, `manual` for the thumb turn or a key, `auto_lock` for the auto lock feature, or `remote` for remote operation.
 - `slot`: The keypad slot number of the PIN that was used, or `null` if no numbered slot was used.
 - `name`: The slot name or master code name, or `null` if no name is set.

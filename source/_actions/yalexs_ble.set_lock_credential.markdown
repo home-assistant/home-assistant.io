@@ -98,7 +98,9 @@ name:
 ## Good to know
 
 - Only administrators can run this action.
-- Each PIN can only be in one slot. If the PIN is already used in another slot, the action fails and the lock is not changed.
+- Each PIN can only be in one slot. The lock clears the target slot before it writes the new PIN. If the PIN is already used in another slot, the action fails and the target slot is left empty: any previous PIN in it is removed, along with its name.
+- If the action fails for another reason after the slot was cleared, such as a lock error or a lost connection, the slot may be empty and its name is removed. If the lock is not connected, nothing is sent and the slot and its name stay as they were. After an error, use the [Get lock credential status](/actions/yalexs_ble.get_lock_credential_status/) action to check the slot.
+- If you target a lock device or an area, the action runs once for each lock, even when the secure mode lock entity is enabled.
 - Home Assistant stores slot names, not the lock. If you remove the integration and add it again, you need to set the names again.
 - PINs you set from Home Assistant are not shown in the Yale app. The Yale app or a Yale Connect bridge can overwrite or remove them when it syncs with the lock. Manage your PINs in one place.
 - The lock never returns a stored PIN. Keep a record of your PINs somewhere safe if you need them later.

@@ -110,6 +110,7 @@ lock.front_door:
 ## Good to know
 
 - Only administrators can run this action.
+- If you target a lock device or an area, the action runs once for each lock, even when the secure mode lock entity is enabled.
 - The action asks the lock directly, so it also reports PINs that were added at the keypad or in the Yale app. Those slots have no name unless you set one with the [Set lock credential](/actions/yalexs_ble.set_lock_credential/) action.
 
 {% include actions/stuck.md %}
