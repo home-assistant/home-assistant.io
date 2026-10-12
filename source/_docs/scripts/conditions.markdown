@@ -12,76 +12,6 @@ All conditions support an optional `alias`.
 
 ## Logical conditions
 
-### OR condition
-
-Test multiple conditions in one condition statement. Passes if any embedded condition is true.
-
-```yaml
-conditions:
-  - alias: "Paulus home OR temperature below 20"
-    condition: or
-    conditions:
-      - condition: state
-        entity_id: "device_tracker.paulus"
-        state: "home"
-      - condition: numeric_state
-        entity_id: "sensor.temperature"
-        below: 20
-```
-
-The OR condition also has a shorthand form. The following configuration works the same as the one listed above:
-
-```yaml
-conditions:
-  - alias: "Paulus home OR temperature below 20"
-    or:
-      - condition: state
-        entity_id: "device_tracker.paulus"
-        state: "home"
-      - condition: numeric_state
-        entity_id: "sensor.temperature"
-        below: 20
-```
-
-### Mixed AND and OR conditions
-
-Test multiple AND and OR conditions in one condition statement. Passes if any embedded condition is true.
-This allows you to mix several AND and OR conditions together.
-
-```yaml
-conditions:
-  - condition: and
-    conditions:
-      - condition: state
-        entity_id: "device_tracker.paulus"
-        state: "home"
-      - condition: or
-        conditions:
-          - condition: state
-            entity_id: sensor.weather_precip
-            state: "rain"
-          - condition: numeric_state
-            entity_id: "sensor.temperature"
-            below: 20
-```
-
-Or in shorthand form:
-
-```yaml
-conditions:
-  - and:
-    - condition: state
-      entity_id: "device_tracker.paulus"
-      state: "home"
-    - or:
-      - condition: state
-        entity_id: sensor.weather_precip
-        state: "rain"
-      - condition: numeric_state
-        entity_id: "sensor.temperature"
-        below: 20
-```
-
 ### NOT condition
 
 Test multiple conditions in one condition statement. Passes if all embedded conditions are **not** true.
@@ -128,6 +58,7 @@ The conditions that are built into Home Assistant are:
 - <a id="sun-condition"></a><a id="sun-conditions"></a><a id="sun-state-condition"></a><a id="sun-elevation-condition"></a><a id="sunsetsunrise-condition"></a>[Sun](/conditions/sun/)
 - <a id="zone-condition"></a><a id="zone-conditions"></a>[Zone](/conditions/zone/)
 - <a id="and-condition"></a>[And](/conditions/and/)
+- <a id="or-condition"></a><a id="mixed-and-and-or-conditions"></a>[Or](/conditions/or/)
 
 ## Examples
 
