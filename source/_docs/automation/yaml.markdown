@@ -23,7 +23,7 @@ You can add as many labeled `automation` blocks as you want.
 
 {% configuration %}
 alias:
-  description: Friendly name for the automation.
+  description: Name of the automation.
   required: false
   type: string
 id:
@@ -158,7 +158,7 @@ automation my_lights:
       # With a single action entry, we don't need a '-' before action - though you can if you want to
       - action: homeassistant.turn_on
         target:
-          entity_id: group.living_room
+          entity_id: light.living_room
 
   # Turn off lights when everybody leaves the house
   - alias: "Rule 2 - Away Mode"

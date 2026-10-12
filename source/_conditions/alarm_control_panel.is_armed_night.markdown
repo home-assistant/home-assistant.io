@@ -82,11 +82,12 @@ for:
 
 When the hallway motion sensor detects movement, turn on the hallway light at 10% brightness, but only while the alarm is armed in night mode. During the day, you want full brightness instead.
 
-- **Trigger**: State: Hallway motion sensor detects motion
+- **Trigger**: State changed
+  - **Entity**: Hallway motion sensor
+  - **To**: On
 - **Condition**: Alarm is armed night
-- **Target**: Hallway alarm panel
-- **Condition passes if**: Any
-- **Action**: Light: Turn on at 10% brightness
+  - **Target**: Hallway alarm panel
+- **Action**: Turn on light (at 10% brightness)
 
 {% details "YAML example for a dim hallway nightlight when armed night" %}
 
@@ -101,8 +102,6 @@ automation: |
     - condition: alarm_control_panel.is_armed_night
       target:
         entity_id: alarm_control_panel.hallway
-      options:
-        behavior: any
   actions:
     - action: light.turn_on
       target:
@@ -117,7 +116,7 @@ automation: |
 
 The doorbell normally announces visitors through every speaker, but nobody wants that at 2 AM. Add a night-mode check so the speakers stay silent overnight and you get a quiet phone notification instead.
 
-- **Trigger**: State: Doorbell pressed
+- **Trigger**: State changed: Doorbell pressed
 - **Condition**: Alarm is armed night
 - **Action**: Send a notification message (skip the speaker announcement)
   - **Target**: My Device (`notify.my_device`)

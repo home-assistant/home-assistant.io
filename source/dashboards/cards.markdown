@@ -38,13 +38,17 @@ A card can be added to a dashboard directly [from the view](#to-add-a-card-from-
 
 ### To add a card from a view
 
-1. Depending on your dashboard view layout:
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
+2. Select your dashboard from the list.
+3. If your dashboard has multiple [views](/dashboards/views/), select the view to which you want to add a card.
+4. In the top right of the screen, select the edit {% icon "mdi:edit" %} button.
+5. Depending on your dashboard view layout:
    - For Sections layout, select {% icon "mdi:plus" %} in the section (bottom left).
      ![Add card in sections layout](/images/dashboards/add_card_sections_layout.png)
    - For other layout types (such as Masonry, Panel, or Sidebar), in the bottom right of the view, select **Add card**.
      ![Add card in masonry layout](/images/dashboards/add_card_masonary_layout.png)
 
-2. There are two methods to add a card:
+6. There are two methods to add a card:
 
    - **By entity**.
         - Select the entities from the list.
@@ -57,16 +61,14 @@ A card can be added to a dashboard directly [from the view](#to-add-a-card-from-
         - If you are using the **Sections** view, try the **Tile** card in the **Suggested cards** section.
         ![Add card by Card type dialog](/images/blog/2024-03-dashboard-chapter-1/sections-add-card-by-card.png)
 
-3. If you want this card to be visible only to specific users or under a certain condition, you can [define those conditions](#showing-or-hiding-a-card-or-badge-conditionally).
-4. If you are adding this card to a [sections view](/dashboards/sections/), on the **Layout** tab, you can [resize the card](#resizing-a-card).
-5. Customize your card:
+7. If you want this card to be visible only to specific users or under a certain condition, you can [define those conditions](#showing-or-hiding-a-card-or-badge-conditionally).
+8. If you are adding this card to a [sections view](/dashboards/sections/), on the **Layout** tab, you can [resize the card](#resizing-a-card).
+9. Customize your card:
    - [define card actions](/dashboards/actions/).
    - [define header and footer](/dashboards/header-footer/)
    - [customize features](/dashboards/features/#customizing-features).
    - Not all cards support these elements. Refer to the documentation of the specific card type.
-6. Select **Add to dashboard**.
-
-   ![Screenshot card suggestions](/images/dashboards/dashboard_add-by-entity_04.png)
+10. In the top right of the screen, select **Done** to save the changes of the view.
 
 ### To add a card from the device page
 
@@ -97,16 +99,19 @@ This method is useful if you are on the **Device** page and want to create a car
 
 ## Showing or hiding a card or badge conditionally
 
-You can choose to show or hide certain cards or [badges](/dashboards/badges/) based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as the ones for the conditional card.
+You can choose to show or hide certain cards or [badges](/dashboards/badges/) based on different conditions. You can use conditions about the person viewing the dashboard and their device, such as **User**, **Screen**, **Location**, and **Time**. You can also use the same conditions as in automations, such as **Entity state**, **Template**, **Sun**, **Zone**, and **Device**. The [available conditions](/dashboards/conditional/#conditions-options) are the same as the ones for the conditional card.
 
 1. On the **Visibility** tab, select **Add condition**.
    - Troubleshooting: Don't see a **Visibility** tab?
      - It is not available inside nested cards: vertical stack, horizontal stack, and grid card
 2. Select the type of condition, and enter the parameters.
-   - The [available conditions](/dashboards/conditional/#conditions-options) are the same as the ones for the conditional card.
    - If you define multiple conditions, the card or badge is only shown when all conditions are met.
    - If you did not define any conditions, the card or badge is always shown to all users.
-3. Select **Save**.
+3. To change the order of the conditions, drag a condition by its handle {% icon "mdi:drag-horizontal-variant" %}.
+4. Check the result before you save.
+   - At the top of the tab, **Current visibility** shows whether the card or badge would be shown right now.
+   - Each condition shows whether it passes right now, for example **Condition passes** or **Condition did not pass**.
+5. Select **Save**.
 
 ## Resizing a card
 

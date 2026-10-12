@@ -9,6 +9,8 @@ ha_iot_class: Local Polling
 ha_domain: iammeter
 ha_codeowners:
   - '@lewei50'
+  - '@IAMMETER'
+  - '@miwyf'
 ha_platforms:
   - sensor
 ha_integration_type: integration

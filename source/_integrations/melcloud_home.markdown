@@ -3,7 +3,8 @@ title: MELCloud Home
 description: Instructions on how to integrate MELCloud Home with Home Assistant.
 ha_category:
   - Climate
-  - Sensor  
+  - Number
+  - Sensor
 ha_release: 2026.7
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -11,10 +12,15 @@ ha_codeowners:
 ha_domain: melcloud_home
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - climate
-  - sensor  
+  - diagnostics
+  - number
+  - sensor
+  - switch
+  - water_heater
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **MELCloud Home** {% term integration %} connects Home Assistant to [MELCloud Home](https://www.melcloudhome.com/), Mitsubishi Electric's cloud service for managing their air conditioning and heat pump products.
@@ -61,12 +67,14 @@ Each air conditioner or heat pump indoor unit is exposed as a climate entity wit
 - **Horizontal vane**: Auto, Swing, Left, Left centre, Centre, Right centre, Right
 - **Target temperature**
 - **Current room temperature**
+- **Outdoor temperature**
 
 #### Air-to-Water (ATW) units
 
 Each heating zone of an air-to-water heat pump is exposed as a separate climate entity. Zone 2 is only created when the unit reports zone 2 support.
 
 - **HVAC modes**: Off, Heat, Cool (if supported by the unit)
+- **HVAC action**: Heating, Cooling, Idle (while the unit is stopped or heating the hot water tank), or Off
 - **Target temperature** (per zone)
 - **Current room temperature** (per zone)
 
@@ -81,6 +89,27 @@ The following extra sensors are only applicable for the Air-to-Water units:
 
 - **Room zone temperature 1 & 2**: Either one or the two room temperatures are returned, if applicable for the setup.
 - **Tank water temperature**: The current measured tank water temperature.
+- **Operation status**: What the heat pump is doing: **Idle**, **Heating water**, **Heating zones**, or **Cooling**.
+
+### Number
+
+The following controls are available:
+
+- **Frost protection**: minimum and maximum temperatures for frost protection, if enabled.
+- **Overheat protection**: minimum and maximum temperatures for overheat protection, if enabled.
+
+### Water heater
+
+Air-to-Water units with a hot water tank get a **Hot water** water heater:
+
+- **Target temperature**: The tank water temperature to heat to, within the limits reported by the unit.
+- **Operation mode**: **Heat pump** for normal operation, or **High demand** to force hot water, which heats the tank with priority over the heating zones.
+
+The water heater shows as off while the unit is powered off or in standby. It can't turn the unit on or off, as that would also affect the heating zones. To see whether the tank is being heated right now, use the **Operation status** sensor.
+
+### Switches
+
+- **Standby**: Turns standby mode on or off, if supported by the unit.
 
 ## Data updates
 

@@ -320,7 +320,6 @@ mqtt:
       state_locking: "LOCKING"
       state_unlocking: "UNLOCKING"
       state_jammed: "MOTOR_JAMMED"
-      state_ok: "MOTOR_OK"
       optimistic: false
       qos: 1
       retain: true

@@ -110,7 +110,7 @@ If you have a {% term group %} of sensors, you can expand the group and find the
 {% example %}
 template: |
   {{
-    expand("group.indoor_temperatures")
+    expand("sensor.indoor_temperatures")
     | map(attribute="state")
     | map("float")
     | statistical_mode

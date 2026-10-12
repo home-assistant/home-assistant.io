@@ -26,6 +26,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple lawn mowers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted mower starts returning, **First** to fire only when the first targeted mower starts returning, or **All** to fire only after every targeted mower has started returning.
+  required: false
 For at least:
   description: How long the mower must stay in the returning state before the trigger fires. Leave it at zero to fire immediately.
 {% endoptions_ui %}
@@ -83,7 +84,7 @@ If the mower docks in a darker part of the yard, turn on a nearby light when it 
 
 - **Trigger**: Lawn mower started returning to dock
   - **Target**: Backyard mower
-- **Condition**: Sun: after sunset
+- **Condition**: Sun is set
 - **Action**: Turn on light
 
 {% details "YAML example for lighting the path to the dock" %}
@@ -96,8 +97,7 @@ automation: |
       target:
         entity_id: lawn_mower.backyard
   conditions:
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

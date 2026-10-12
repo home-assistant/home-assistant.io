@@ -15,18 +15,18 @@ The **Vacuum** {% term integration %} enables the ability to control home cleani
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a vacuum entity
+## Vacuum states
 
-A vacuum {% term entity %} can have the following states:
+A vacuum {% term entity %} can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
 
-- **Cleaning**: The vacuum is currently cleaning.
-- **Docked**: The vacuum is currently docked. It is assumed that docked can also mean charging.
-- **Error**: The vacuum encountered an error while cleaning.
-- **Idle**: The vacuum is not paused, not docked, and does not have any errors.
-- **Paused**: The vacuum was cleaning but was paused without returning to the dock.
-- **Returning**: The vacuum is done cleaning and is currently returning to the dock, but not yet docked.
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Cleaning** (`cleaning`): The vacuum is currently cleaning.
+- **Docked** (`docked`): The vacuum is currently docked. It is assumed that docked can also mean charging.
+- **Error** (`error`): The vacuum is in an error state.
+- **Idle** (`idle`): The vacuum is not paused, not docked, and does not have any errors.
+- **Paused** (`paused`): The vacuum was cleaning but was paused without returning to the dock.
+- **Returning to dock** (`returning`): The vacuum is returning to the dock, but is not docked yet.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 ## Creating an automation to send the vacuum to clean specific areas
 
@@ -58,7 +58,7 @@ Once you have the areas mapped, you can send your vacuum to clean specific areas
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Select **Create automation**.
 3. Set up your trigger. For example, you can use a time trigger to have the vacuum clean every day at 2 PM.
-4. In the **Then do** section, select **Add action**, and from the list, select the **Vacuum: Clean area with vacuum cleaner** action.
+4. In the **Then do** section, select **Add action**, and from the list, select the **Clean area with vacuum cleaner** action.
 5. Under **Targets**, select your vacuum entity.
 6. Under **Areas**, select the area to clean. You can select multiple areas.
 7. Give your automation a name and select **Save**.

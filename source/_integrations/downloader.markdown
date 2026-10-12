@@ -18,23 +18,7 @@ The **Downloader** {% term integration %} provides an action to download files. 
 
 If the path is not absolute, it’s assumed to be relative to the Home Assistant configuration directory (for example, `/config/downloads`). So if you have a folder called `/config/my_download_folder`, when prompted to **Select a location to get to store downloads**, enter `my_download_folder`. Home Assistant checks if the directory exists.
 
-### Use the action
-
-Go to the "Developer tools", then to "Actions", and choose `downloader.download_file` from the list of available actions. Fill the "data" field as shown in the example below and select "Perform action".
-
-```json
-{"url":"http://domain.tld/path/to/file"}
-```
-
-This will download the file from the given URL.
-
-| Data attribute | Optional | Description                                    |
-| ---------------------- | -------- | ---------------------------------------------- |
-| `url`                  |       no | The URL of the file to download.               |
-| `subdir`               |      yes | Download into subdirectory of **download_dir** |
-| `filename`             |      yes | Determine the filename.                        |
-| `overwrite`            |      yes | Whether to overwrite the file or not, defaults to `false`. |
-| `headers`              |      yes | Dictionary of custom HTTP headers to add to the request.  |
+{% include integrations/actions.md %}
 
 ### Download status events
 
@@ -58,6 +42,6 @@ Along with the event the following payload parameters are available:
   actions:
     - action: persistent_notification.create
       data:
-        message: "{{trigger.event.data.filename}} download failed"
+        message: "{{ trigger.event.data.filename }} download failed"
         title: "Download Failed"
  ```

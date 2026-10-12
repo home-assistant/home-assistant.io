@@ -7,12 +7,12 @@ ha_release: 2026.1
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
-  - '@niaexa'
-  - '@ryanjones-gentex'
+  - '@Gentex-Corporation/Homelink'
+  - '@rjones-gentex'
 ha_domain: gentex_homelink
 ha_platforms:
   - event
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
@@ -23,8 +23,6 @@ The **HomeLink** {% term integration %} allows you to integrate your [HomeLink](
 HomeLink is only compatible with HomeLink devices accessible via the HomeLink App. To prepare for an integration with Home Assistant:
 
 {% include integrations/config_flow.md %}
-
-## Configuration
 
 {% configuration_basic %}
 Email:

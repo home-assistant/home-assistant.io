@@ -120,4 +120,3 @@ binary_sensor:
     4: motion
     6: moisture
 ```
-

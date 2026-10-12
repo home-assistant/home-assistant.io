@@ -66,7 +66,7 @@ command_template:
   required: false
   type: template
 command_topic:
-  description: The MQTT topic to publish commands to trigger the button.
+  description: The MQTT topic that Home Assistant publishes to when you press the button in Home Assistant, including when you call the `button.press` action.
   required: true
   type: string
 default_entity_id:

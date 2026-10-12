@@ -1,10 +1,11 @@
 ---
 title: Nexen
-description: Monitor your Nexen solar inverters using the Hypontech Cloud integration
+description: Connect and control your Nexen devices using the Hypontech Cloud integration
 ha_category:
+  - Binary sensor
   - Energy
   - Sensor
-ha_release: 2026.7
+ha_release: 2026.3
 ha_domain: nexen
 ha_integration_type: virtual
 ha_supporting_domain: hypontech
@@ -13,6 +14,7 @@ ha_codeowners:
   - '@jcisio'
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_iot_class: Cloud Polling
 ---

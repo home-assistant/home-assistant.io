@@ -179,25 +179,7 @@ For each park & ride you add, the following sensor entities are created:
 
 Get fresher upcoming-departure data before your commute without raising the polling rate the rest of the day. This blueprint refreshes a transit stop's sensors at a configurable interval inside a time window — by default, every minute between 8:00 and 9:00.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/data_grand_lyon_refresh_during_time_window.yaml" %}
-
-{% details "Example YAML" %}
-
-```yaml
-triggers:
-  - trigger: time_pattern
-    minutes: "/1"
-conditions:
-  - condition: time
-    after: "08:00:00"
-    before: "09:00:00"
-actions:
-  - action: homeassistant.update_entity
-    target:
-      entity_id: sensor.my_stop_next_departure_1
-```
-
-{% enddetails %}
+{% blueprint_example blueprint="data_grand_lyon/refresh_during_time_window.yaml" %}
 
 ## Data updates
 
@@ -230,7 +212,19 @@ To resolve this issue, try the following steps:
 
 ### Transit stop shows no data
 
-Make sure the line identifier and stop ID are correct. You can verify these on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/prochains-passages-reseau-transports-commun-lyonnais-rhonexpress-disponibilites-temps-reel/info).
+First, make sure the line identifier and stop ID are correct. You can verify these on the [Grand Lyon open data platform](https://data.grandlyon.com/portail/fr/jeux-de-donnees/prochains-passages-reseau-transports-commun-lyonnais-rhonexpress-disponibilites-temps-reel/info).
+
+If the identifiers are correct, the source itself may not have real-time data for that stop. Real-time departures are not available for every stop or at every time of day. You can check whether the source has live data using the official [TCL app](https://www.tcl.fr/decouvrir/les-applications-tcl/lapplication-tcl). Open your stop in the app and look at the next departures:
+
+- If the next departure shows a green real-time indicator, live data is available in the source and the integration should report departures.
+
+  ![Screenshot of the TCL app showing departures with a green real-time indicator](/images/integrations/data_grand_lyon/tcl_live_data.jpeg)
+
+- If the next departure is shown in gray (for example, as a fixed time or as **Terminus de la ligne**), there is very likely no live data available in the source.
+
+  ![Screenshot of the TCL app showing departures in gray without real-time data](/images/integrations/data_grand_lyon/tcl_no_live_data.jpeg)
+
+When the source has no live data, it often comes back later. Sometimes the data returns after a few hours, and sometimes it takes a few days.
 
 ### Vélo'v station shows no data
 

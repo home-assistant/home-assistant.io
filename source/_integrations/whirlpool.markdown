@@ -2,8 +2,11 @@
 title: Whirlpool Appliances
 description: Instructions on how to integrate Whirlpool appliances with Home Assistant.
 ha_category:
+  - Button
   - Climate
   - Hub
+  - Light
+  - Number
   - Select
 ha_release: '2022.10'
 ha_iot_class: Cloud Push
@@ -14,8 +17,11 @@ ha_codeowners:
 ha_domain: whirlpool
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - diagnostics
+  - light
+  - number
   - select
   - sensor
 ha_integration_type: hub
@@ -66,16 +72,25 @@ Brand:
 
 This {% term integration %} maps appliances to entities in Home Assistant. A single appliance may be represented by one or more entities.
 
-- [Binary Sensor](#binary_sensor)
+- [Binary Sensor](#binary-sensor)
+- [Button](#button)
 - [Climate](#climate)
+- [Light](#light)
+- [Number](#number)
 - [Select](#select)
 - [Sensor](#sensor)
 
-### Binary Sensor
+### Binary sensor
 
 The binary sensor platform provides the following functionality:
 
 - state of the washer/dryer machine door (open/closed)
+
+### Button
+
+The button platform provides the following functionality:
+
+- stop the current cooking program for an oven cavity
 
 ### Climate
 
@@ -89,11 +104,33 @@ The following actions are also available:
 - [**fan mode**](/integrations/climate/#action-set-fan-mode) (`low`, `medium`, `high`)
 - [**swing mode**](/integrations/climate/#action-set-swing-mode) (`off`, `horizontal`)
 
+### Light
+
+The light platform provides the following functionality:
+
+- turn an oven cavity light on or off
+
+Ovens with two cavities have separate light entities for the upper and lower cavity.
+
+### Number
+
+The number platform provides the following entity for ovens:
+
+- **Target temperature**: Sets the target temperature for an oven cavity, keeping the current cooking mode.
+
+{% important %}
+If the oven is idle, setting the target temperature starts a bake cycle at the set temperature.
+{% endimportant %}
+
 ### Select
 
 The select platform provides the following entity for refrigerators:
 
 - **Temperature level**: Sets the temperature level of the refrigerator. The available options are `-4 °C`, `-2 °C`, `0 °C`, `3 °C`, and `5 °C`.
+
+The select platform provides the following entity for ovens:
+
+- **Cook mode**: Sets the cook mode of an oven cavity, keeping the current target temperature. Selecting `Standby` turns the oven off by stopping the current cook.
 
 ### Sensor
 

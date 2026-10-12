@@ -1,0 +1,330 @@
+# Press/review card content for the custom/press.html include, used on
+# individual product landing pages (as opposed to community_cards.yml, which
+# powers the general press section on the homepage).
+#
+# Each top-level key is a product slug matching source/_data/products.yml.
+# `cards` entries use the same schema as community_cards.yml:
+#   href, text, author, author_image, author_image_alt, link_icon,
+#   quote (bool), background_image, background_image_alt,
+#   video, video_poster
+zbt-2:
+  title: "Connection you can count on"
+  lead: "Discover how reviewers and community members experience the ZBT-2"
+  cards:
+    - href: "https://smarthomescene.com/reviews/home-assistant-zbt-2-zigbee-and-thread-coordinator-review/"
+      text: '"Setting up the ZBT-2 in Home Assistant could not be easier."'
+      author: "Smart Home Scene"
+      author_image: "/images/community-cards/smart-home-scene.webp"
+      author_image_alt: "Smart Home Scene logo"
+      quote: true
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=Gi9D24qk6mo"
+      text: "Home Assistant ZBT-2: Review and Z2M Migration"
+      author: "Tricks And Things"
+      author_image: "/images/community-cards/tricks-and-things.webp"
+      author_image_alt: "Tricks And Things logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=1cMjOElz4Rc"
+      text: "Migrating very complex Zigbee to the new Home Assistant Connect ZBT-2"
+      author: "Vaclav Chaloupka"
+      author_image: "/images/community-cards/vaclav-chaloupka.webp"
+      author_image_alt: "Vaclav Chaloupka logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=vnIAn4hPU_g"
+      text: 'ZBT-2 Is INSANE — Home Assistant''s New Zigbee Beast'
+      author: "BeardedTinker"
+      author_image: "/images/community-cards/bearded-tinker.webp"
+      author_image_alt: "BeardedTinker logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.hackster.io/news/home-assistant-launches-the-bigger-faster-connect-zbt-2-zigbee-thread-dongle-d46ed0c4136f"
+      text: "Home Assistant Launches the Bigger, Faster Connect ZBT-2 Zigbee/Thread Dongle"
+      author: "Hackster.io"
+      author_image: "/images/community-cards/hackster.webp"
+      author_image_alt: "Hackster.io logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://restechtoday.com/a-closer-look-at-the-new-home-assistant-connect-zbt-2-zigbee-thread-adapter/"
+      text: '"Users upgrading to a ZBT-2 can seamlessly migrate their existing Zigbee or Thread network to the ZBT-2."'
+      author: "Res Tech Today"
+      author_image: "/images/community-cards/res-tech-today.webp"
+      author_image_alt: "Res Tech Today logo"
+      quote: true
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://smarthomeshopuk.com/community/labs/guides/home-assistant-connect-zbt-2-setup/"
+      text: '"Ideal for users who want the fastest, most reliable way to connect Zigbee devices today and Matter-over-Thread devices tomorrow."'
+      author: "SmartHomeShopUK"
+      author_image: "/images/community-cards/smart-home-shop.webp"
+      author_image_alt: "SmartHomeShopUK logo"
+      quote: true
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=1VEvKXpQ_U0"
+      text: '"If you''re a beginner and value a simple installation you cannot go wrong with ZBT-2"'
+      author: "smattex"
+      link_icon: "/images/community-cards/play-icon.png"
+      video: "/video/community-cards/if-youre-a-beginner-and-value-a-simple-installation-you-cannot-go-wrong-with-zbt-2.webm"
+      video_poster: "/images/community-cards/if-youre-a-beginner-and-value-a-simple-installation-you-cannot-go-wrong-with-zbt-2.webp"
+    - href: "https://www.youtube.com/watch?v=31xtk7Z-Tuc"
+      text: "The Home Assistant Connect ZBT-2. The easiest way to start with Zigbee or Thread is now even better!"
+      author: "mostlychris"
+      link_icon: "/images/community-cards/play-icon.png"
+      video: /video/community-cards/the-home-assistant-connect-zbt-2-the-easiest-way-to-start-with-zigbee-or-thread-is-now-even-better.webm
+      video_poster: /images/community-cards/the-home-assistant-connect-zbt-2-the-easiest-way-to-start-with-zigbee-or-thread-is-now-even-better.webp
+    - href: "https://www.youtube.com/watch?v=zPEnMk_fT_g"
+      text: "How to Setup a Thread Border Router using the Home Assistant ZBT-2"
+      author: "Simon Says Home Assistant"
+      author_image: "/images/community-cards/simon-says-home-assistant.webp"
+      author_image_alt: "Simon Says Home Assistant logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=WQO8JD2cbvc"
+      text: "Is The ZBT-2 The Best Smart Home Upgrade This Year?"
+      author: "The Bearded Tech Guy"
+      author_image: "/images/community-cards/the-bearded-tech-guy.webp"
+      author_image_alt: "The Bearded Tech Guy logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.reddit.com/r/homeassistant/comments/1qkv58p/upgrading_to_the_zbt2_dramatically_improved_the/"
+      text: '"Upgrading to the ZBT-2 dramatically improved the battery life of my Zigbee blinds"'
+      author: "derekakessler"
+      author_image: "/images/community-cards/reddit-logo.webp"
+      author_image_alt: "Reddit logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.matteralpha.com/how-to/home-assistant-connect-thread-dongle-first-take-the-finest-dongle-ever"
+      text: '"A special advantage of Home Assistant''s official hardware is the long-term maintenance and auto-update feature"'
+      author: "Matter Alpha"
+      author_image: "/images/community-cards/matter-alpha.webp"
+      author_image_alt: "Matter Alpha logo"
+      quote: true
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=xdgE1MNzY7g"
+      text: "Home Assistant Just Got a MASSIVE Upgrade: Meet the ZBT-2! Ultimate Zigbee and Thread Adapter"
+      author: "Speak to the Geek"
+      link_icon: "/images/community-cards/play-icon.png"
+      video: /video/community-cards/home-assistant-just-got-a-massive-upgrade-meet-the-zbt-2-ultimate-zigbee-and-thread-adapter.webm
+      video_poster: /images/community-cards/home-assistant-just-got-a-massive-upgrade-meet-the-zbt-2-ultimate-zigbee-and-thread-adapter.webp
+
+zwa-2:
+  title: "Reach that goes the distance"
+  lead: "Explore what reviewers and community members think about the ZWA-2"
+  cards:
+    - href: "https://www.theverge.com/tech/759542/home-assistant-connect-zwa-2-z-wave-long-range-antenna"
+      text: "This big stick solved my smart garden connectivity problems"
+      author: "The Verge"
+      author_image: "/images/community-cards/the-verge-logo.webp"
+      author_image_alt: "The Verge logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/shorts/y3Si4kAjebU"
+      text: "Home Assistant Connect ZWA-2 setup"
+      author: "Automated House"
+      author_image: "/images/community-cards/automated-house.webp"
+      author_image_alt: "Automated House logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=vEsLghjVCo4"
+      text: "The Smart Home Long Range Performance KING - Home Assistant ZWA-2 Review"
+      author: "Everything Smart Home"
+      author_image: "/images/community-cards/everything-smart-home.webp"
+      author_image_alt: "Everything Smart Home logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=0UWXgLdXfrM"
+      text: '"Seeing a signal go through concrete building and trees over 200 meters"'
+      author: "Howmation"
+      link_icon: "/images/community-cards/play-icon.png"
+      video: /video/community-cards/seeing-a-signal-go-through-concrete-building-and-trees-over-200-meters.webm
+      video_poster: /images/community-cards/seeing-a-signal-go-through-concrete-building-and-trees-over-200-meters.webp
+    - href: "https://www.youtube.com/watch?v=bKQiIkV1MO4"
+      text: "Checking out the Home Assistant Connect ZWA-2!"
+      author: "Level1Techs"
+      link_icon: "/images/community-cards/play-icon.png"
+      video: /video/community-cards/checking-out-the-home-assistant-connect-zwa-2.webm
+      video_poster: /images/community-cards/checking-out-the-home-assistant-connect-zwa-2.webp
+    - href: "https://www.reddit.com/r/homeassistant/comments/1muye64/got_the_new_home_assistant_connect_zwa2/"
+      text: '"Got the new Home Assistant Connect ZWA2"'
+      author: "ekobres"
+      author_image: "/images/community-cards/reddit-logo.webp"
+      author_image_alt: "Reddit logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.reddit.com/r/homeassistant/comments/1q6iaoj/zwa2_zwave_antenna_is_really_really_good/"
+      text: '"ZWA-2 Z-wave antenna is really, really good."'
+      author: "brahmy"
+      author_image: "/images/community-cards/reddit-logo.webp"
+      author_image_alt: "Reddit logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=OhyN6Ni-w0U"
+      text: "Put your Home Assistant ZWA-2 where YOU want it using portable Z-Wave."
+      author: "mostlychris"
+      author_image: "/images/community-cards/mostly-chris.webp"
+      author_image_alt: "mostlychris logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://smarthomescene.com/blog/make-z-wave-great-again-home-assistant-connect-zwa-2/"
+      text: '"The new Home Assistant Connect ZWA-2 is the most performant Z-Wave and Z-Wave Long Range adapter, precisely tuned to Z-Wave''s ideal wavelength"'
+      author: "Smart Home Scene"
+      author_image: "/images/community-cards/smart-home-scene.webp"
+      author_image_alt: "Smart Home Scene logo"
+      quote: true
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=iR_dhEv4j10"
+      text: "Is This the Best Home Assistant Upgrade Ever?"
+      author: "Automate Your Life"
+      author_image: "/images/community-cards/automate-your-life.webp"
+      author_image_alt: "Automate Your Life logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=uC29tntE2VA"
+      text: "How To Add Home Assistant Connect ZWA-2 to Home Assistant"
+      author: "The Bearded Tech Guy"
+      author_image: "/images/community-cards/the-bearded-tech-guy.webp"
+      author_image_alt: "The Bearded Tech Guy logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.reddit.com/r/homeassistant/comments/1mu33tp/zwa2_is_just_amazing/"
+      text: '"ZWA-2 is just amazing!"'
+      author: "jmcgeejr"
+      author_image: "/images/community-cards/reddit-logo.webp"
+      author_image_alt: "Reddit logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.xda-developers.com/home-assistant-connect-zwa-2-review/"
+      text: "I've been testing the new Home Assistant Z-Wave hub, and it's a game-changer for smart home devices"
+      author: "XDA Developers"
+      author_image: "/images/community-cards/xda.webp"
+      author_image_alt: "XDA Developers logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://youtu.be/AyE0_6N21h4?si=HEOI-xYPEx9GnJhq"
+      text: "My Smart Home Played me for a Fool"
+      author: "Jeff Geerling"
+      link_icon: "/images/community-cards/play-icon.png"
+      video: /video/community-cards/my-smart-home-played-me-for-a-fool.webm
+      video_poster: /images/community-cards/my-smart-home-played-me-for-a-fool.webp
+
+voice-pe:
+  title: "Straight from the community"
+  lead: "Find out how users and reviewers rate the Home Assistant Voice Preview Edition"
+  cards:
+    - href: "https://arstechnica.com/gadgets/2024/12/home-assistants-voice-preview-edition-is-a-little-box-with-big-privacy-powers/"
+      text: "Home Assistant's Voice Preview Edition is a little box with big privacy powers"
+      author: "Ars Technica"
+      author_image: "/images/community-cards/ars-technica-logo.webp"
+      author_image_alt: "Ars Technica logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.xda-developers.com/replaced-smart-speakers-cheaper-open-source-alternatives/"
+      text: "I replaced my smart speakers with cheaper open-source alternatives, and I'll never go back"
+      author: "XDA"
+      author_image: "/images/community-cards/xda.webp"
+      author_image_alt: "XDA logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=An4IapvutzM"
+      text: '"Home Assistant made their own Alexa!!"'
+      author: "NetworkChuck"
+      link_icon: "/images/community-cards/play-icon.png"
+      video: /video/community-cards/home-assistant-made-their-own-alexa.webm
+      video_poster: /images/community-cards/home-assistant-made-their-own-alexa.webp
+    - href: "https://www.youtube.com/watch?v=Jtxw6cWn2eg"
+      text: "How to Set Up Home Assistant Voice (Preview Edition): A Step-by-Step Guide"
+      author: "DIY Made Easy"
+      author_image: "/images/community-cards/diy-made-easy.webp"
+      author_image_alt: "DIY Made Easy logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=w9BbjUowmnE"
+      text: '"Local Smart Home Voice Control Is AMAZING"'
+      author: "Everything Smart Home"
+      link_icon: "/images/community-cards/play-icon.png"
+      video: /video/community-cards/local-smart-home-voice-control-is-amazing.webm
+      video_poster: /images/community-cards/local-smart-home-voice-control-is-amazing.webp
+    - href: "https://www.theverge.com/2024/12/19/24325101/home-assistant-voice-preview-edition-smart-home-voice-assistant-hardware"
+      text: "Home Assistant's new voice assistant answers to 'Hey Jarvis'"
+      author: "The Verge"
+      author_image: "/images/community-cards/the-verge-logo.webp"
+      author_image_alt: "The Verge logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=L4ONmyjG6ec"
+      text: "This new smart speaker will change everything!"
+      author: "Smart Home Solver"
+      link_icon: "/images/community-cards/play-icon.png"
+      video: /video/community-cards/this-new-smart-speaker-will-change-everything.webm
+      video_poster: /images/community-cards/this-new-smart-speaker-will-change-everything.webp
+    - href: "https://www.juanmtech.com/home-assistant-voice-pe-first-look-and-setup/"
+      text: "Home Assistant Voice PE First Look and Setup"
+      author: "JuanMTech"
+      author_image: "/images/community-cards/juan-m-tech.webp"
+      author_image_alt: "JuanMTech logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=2VO-HM08EeA"
+      text: "YOU NEED THIS! The Home Assistant Voice Preview Edition Hardware for local voice control."
+      author: "mostlychris"
+      author_image: "/images/community-cards/mostly-chris.webp"
+      author_image_alt: "mostlychris logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://haade.fr/en/blog/home-assistant-unveils-home-assistant-voice-preview-edition"
+      text: '"Here is a super product to control your home automation by voice and all locally"'
+      author: "Haade"
+      author_image: "/images/community-cards/haade.webp"
+      author_image_alt: "Haade logo"
+      quote: true
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=cNnYSMPPDh8"
+      text: "Home Assistant Voice Preview Edition - Is It Any Good?"
+      author: "Project Smart Home"
+      author_image: "/images/community-cards/project-smart-home.webp"
+      author_image_alt: "Project Smart Home logo"
+      link_icon: "/images/community-cards/document-icon.png"
+
+green:
+  title: "An easy choice"
+  lead: "Check out what reviewers and community members are saying about the Home Assistant Green"
+  cards:
+    - href: "https://www.theverge.com/23875557/home-assistant-green-announcement-price-specs-ten-year-anniversary"
+      text: "The Home Assistant Green is here to make the most powerful smart home platform more accessible"
+      author: "The Verge"
+      author_image: "/images/community-cards/the-verge-logo.webp"
+      author_image_alt: "The Verge logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=ZY1D1_IksVI"
+      text: "Beginner's Guide to Getting Started with Home Assistant"
+      author: "HiTech Life"
+      author_image: "/images/community-cards/hitech-life.webp"
+      author_image_alt: "HiTech Life logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.howtogeek.com/home-assistant-green-is-the-best-smart-home-purchase-ive-ever-made/"
+      text: '"Home Assistant Green Is the Best Smart Home Purchase I''ve Ever Made"'
+      author: "How-To Geek"
+      author_image: "/images/community-cards/how-to-geek.webp"
+      author_image_alt: "How-To Geek logo"
+      quote: true
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=UWPWIv2pKms"
+      text: "Getting Started with Home Automation using Home Assistant Green"
+      author: "Project Smart Home"
+      author_image: "/images/community-cards/project-smart-home.webp"
+      author_image_alt: "Project Smart Home logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=rAZ3Hpvqb3I"
+      text: 'Home Assistant setup: A step by step guide for beginners'
+      author: "Rebecca Keys"
+      link_icon: "/images/community-cards/play-icon.png"
+      video: /video/community-cards/home-assistant-setup-a-step-by-step-guide-for-beginners.webm
+      video_poster: /images/community-cards/home-assistant-setup-a-step-by-step-guide-for-beginners.webp
+    - href: "https://www.youtube.com/watch?v=3V3Jestsoq0"
+      text: '"There''s no going back to Apple Home or Google Home because the level of control you get is completely unmatched."'
+      author: "6 Months Later"
+      link_icon: "/images/community-cards/play-icon.png"
+      video: /video/community-cards/theres-no-going-back-to-apple-home-or-google-home-because-the-level-of-control-you-get-is-completely-unmatched.webm
+      video_poster: /images/community-cards/theres-no-going-back-to-apple-home-or-google-home-because-the-level-of-control-you-get-is-completely-unmatched.webp
+    - href: "https://www.youtube.com/watch?v=FLWC0lEE_uE"
+      text: "Super Easy Home Assistant Setup in 2026!"
+      author: "Simon Says Home Assistant"
+      link_icon: "/images/community-cards/play-icon.png"
+      video: /video/community-cards/super-easy-home-assistant-setup-in-2026.webm
+      video_poster: /images/community-cards/super-easy-home-assistant-setup-in-2026.webp
+    - href: "https://www.thesmarthome.blog/getting-started-with-home-assistant-green/"
+      text: '"A year later, I still haven''t found any reason to upgrade my trusty Home Assistant Green."'
+      author: "The Smart Home Blog"
+      author_image: "/images/community-cards/the-smart-home-blog.webp"
+      author_image_alt: "The Smart Home Blog logo"
+      quote: true
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=42GKCaB1xSg"
+      text: "Home Assistant GREEN - A Smart Home Hub for Beginners!"
+      author: "Make It Work"
+      author_image: "/images/community-cards/make-it-work.webp"
+      author_image_alt: "Make It Work logo"
+      link_icon: "/images/community-cards/document-icon.png"
+    - href: "https://www.youtube.com/watch?v=U-G1NxeD3Lo"
+      text: "One Year with Home Assistant: Tips & Tricks & What I Learned (HA Green)"
+      author: "TechMishka"
+      author_image: "/images/community-cards/tech-mishka.webp"
+      author_image_alt: "TechMishka logo"
+      link_icon: "/images/community-cards/document-icon.png"

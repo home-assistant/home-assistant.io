@@ -20,7 +20,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Sun: It is night**.
+4. From the search box, search for and select **It is night**.
 5. Select **Save**.
 
 {% include conditions/yaml_header.md %}
@@ -49,7 +49,7 @@ This passes only while the sky is fully dark.
 When motion is detected in the hallway during full darkness, turn the light on at a low brightness instead of full power.
 
 - **Trigger**: Motion detected in the hallway
-- **Condition**: Sun: It is night
+- **Condition**: It is night
 - **Action**: Turn on the hallway light at 10% brightness
 
 {% details "YAML example for a dim night light" %}

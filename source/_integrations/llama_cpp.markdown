@@ -4,7 +4,7 @@ description: Instructions on how to integrate llama.cpp (and other OpenAI-compat
 ha_category:
   - AI
   - Voice
-ha_release: 2026.7
+ha_release: 2026.8
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: llama_cpp

@@ -315,9 +315,9 @@ List of supported binary sensors, including the following properties (if availab
       from: "off"
       to: "on"
   conditions:
-    - condition: state
-      entity_id: group.family
-      state: "not_home"
+    - condition: zone.occupancy_is_not_detected
+      options:
+        zone: zone.home
   actions:
     - action: notify.notify_person
       data:

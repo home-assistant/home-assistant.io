@@ -7,7 +7,7 @@ const remarkrc = {
     emphasis: "_",
     fence: "`",
     incrementListMarker: true,
-    listItemIndent: 1,
+    listItemIndent: "one",
     strong: "*",
   },
   plugins: [

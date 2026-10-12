@@ -8,6 +8,7 @@ ha_release: 2026.1
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fluss'
+  - '@Marcello17'
 ha_domain: fluss
 ha_config_flow: true
 ha_platforms:

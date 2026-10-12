@@ -60,10 +60,13 @@ This guide shows how to install the {% term "Home Assistant Operating System" %}
 
 Within a few minutes after connecting the Raspberry Pi, you will be able to reach your new Home Assistant.
 
-- In the browser of your desktop system, enter <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>.
+- In the browser of your desktop system, enter <a href="http://homeassistant.local" target="_blank">homeassistant.local</a>.
 
 {% note %}
-If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your Raspberry Pi’s IP address).
+If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant" target="_blank">homeassistant</a> or `http://X.X.X.X` (replace X.X.X.X with your Raspberry Pi’s IP address).
+
+If Home Assistant does not open without a port number, try <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>, <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a>, or `http://X.X.X.X:8123`.
+If port `80` is already in use, for example, if you use a reverse proxy, Home Assistant uses port `8123`.
 {% endnote %}
 
 - The time it takes for this page to become available depends on your hardware. On a Raspberry Pi 4 or 5, this page should be available within a minute.
@@ -97,8 +100,11 @@ With the Home Assistant Operating System installed and accessible, you can now c
 
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
 
-
 <div style="margin-top:50px">
 <p>
     <i>We get commissions for purchases made through links in this post.</i></p>
 </div>
+
+## Install Home Assistant Container
+
+While we recommend using the {% term "Home Assistant Operating System" %}, you can also use the {% term "Home Assistant Container" %} method to install Home Assistant. To check the limitations and installation instructions, refer to [Home Assistant Container on Raspberry Pi](/installation/raspberrypi-other/).

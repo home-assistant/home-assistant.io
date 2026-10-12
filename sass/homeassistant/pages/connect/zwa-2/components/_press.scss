@@ -1,0 +1,22 @@
+@use '../../mixins' as *;
+@use '../../press' as *;
+
+#landingpage {
+    section#press {
+        @include press-section(32px, 0.25rem) {
+            .content-intro {
+                .sub-title {
+                    font-size: 3rem;
+                }
+
+                p {
+                    font-size: 1rem;
+                }
+            }
+
+            .masonry .community-card__content p {
+                font-size: 1rem;
+            }
+        }
+    }
+}

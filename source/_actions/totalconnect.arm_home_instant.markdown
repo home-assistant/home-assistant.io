@@ -57,7 +57,7 @@ This action has no additional YAML options beyond the target.
 
 Use this automation to arm the panel in home mode with no entry delay every evening at sunset.
 
-- **Trigger**: Sun: sunset
+- **Trigger**: Sunset
 - **Action**: Arm home instant
   - **Target**: Home alarm panel
 
@@ -67,8 +67,7 @@ Use this automation to arm the panel in home mode with no entry delay every even
 automation: |
     alias: "Arm home instant at sunset"
     triggers:
-      - trigger: sun
-        event: sunset
+      - trigger: sun.sunset
     actions:
       - action: totalconnect.arm_home_instant
         target:

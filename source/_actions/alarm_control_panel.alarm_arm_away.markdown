@@ -105,7 +105,8 @@ action: |
 
 When the last person walks out the door, arm the alarm in away mode. A simple way to make sure you never forget to set the alarm.
 
-- **Trigger**: Zone: Everyone leaves home
+- **Trigger**: Zone occupancy cleared
+  - **Zone**: Home (`zone.home`)
 - **Action**: Alarm control panel: Arm alarm away
 - **Target**: Home alarm
 
@@ -115,13 +116,9 @@ When the last person walks out the door, arm the alarm in away mode. A simple wa
 automation: |
   alias: "Arm alarm when everyone leaves"
   triggers:
-    - trigger: state
-      entity_id: person.paulus
-      to: not_home
-  conditions:
-    - condition: state
-      entity_id: group.family
-      state: not_home
+    - trigger: zone.occupancy_cleared
+      options:
+        zone: zone.home
   actions:
     - action: alarm_control_panel.alarm_arm_away
       target:
@@ -158,9 +155,9 @@ automation: |
         - wed
         - thu
         - fri
-    - condition: state
-      entity_id: group.family
-      state: not_home
+    - condition: zone.occupancy_is_not_detected
+      options:
+        zone: zone.home
   actions:
     - action: alarm_control_panel.alarm_arm_away
       target:

@@ -74,9 +74,9 @@ Build a complete list of all unique {% term entities %} across two groups.
 
 {% example %}
 template: |
-  {% set group_a = expand("group.downstairs_lights")
+  {% set group_a = expand("light.downstairs_lights")
      | map(attribute="entity_id") | list %}
-  {% set group_b = expand("group.upstairs_lights")
+  {% set group_b = expand("light.upstairs_lights")
      | map(attribute="entity_id") | list %}
   {{ union(group_a, group_b) }}
 type: list

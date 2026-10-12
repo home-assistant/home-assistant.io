@@ -75,10 +75,10 @@ for:
 
 ## Good to know
 
-- This condition works only with `cover` entities that use the `shade` device class.
-- Entities in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
+- The target must be a cover entity with the shade device class.
+- Entities in the **Unavailable** or **Unknown** state are ignored when Home Assistant evaluates the condition.
 - With **Any**, the condition passes if at least one available targeted shade is open.
-- With **All**, the condition passes only if every available targeted shade is open. If every targeted shade is `unavailable` or `unknown`, **All** passes and **Any** fails.
+- With **All**, the condition passes only if every available targeted shade is open. If every targeted shade is **Unavailable** or **Unknown**, **All** passes and **Any** fails.
 
 {% include conditions/try_it.md %}
 
@@ -88,7 +88,7 @@ for:
 
 At sunset, this automation checks whether the shade is still open. If it is, Home Assistant closes it for the night.
 
-- **Trigger**: Sun: Sunset
+- **Trigger**: Sunset
 - **Condition**: Shade is open
   - **Target**: Bedroom shade
 - **Action**: Close cover
@@ -99,8 +99,7 @@ At sunset, this automation checks whether the shade is still open. If it is, Hom
 automation: |
   alias: "Close the shade at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   conditions:
     - condition: cover.shade_is_open
       target:

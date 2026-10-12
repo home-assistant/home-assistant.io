@@ -74,7 +74,7 @@ Count the number of lights currently in the "on" state.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("light.home_lights")
     | selectattr("state", "eq", "on")
     | list
     | length
@@ -90,7 +90,7 @@ Count how many door sensors report an "on" (open) state.
 {% example %}
 template: |
   {{
-    expand("group.door_sensors")
+    expand("binary_sensor.door_sensors")
     | selectattr("state", "eq", "on")
     | list
     | count

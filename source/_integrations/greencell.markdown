@@ -11,8 +11,10 @@ ha_codeowners:
   - '@BrzezowskiGC'
 ha_domain: greencell
 ha_platforms:
+  - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
+ha_quality_scale: bronze
 ---
 
 The **Greencell** {% term integration %} lets you connect Greencell EV charging devices to Home Assistant via MQTT. It monitors device status and measures electrical parameters such as voltage, current, and power, exposing real-time telemetry and charging-session data for use in dashboards and automations.
@@ -180,6 +182,18 @@ To resolve this issue, try the following steps:
 1. Check your car for reported charging errors or notifications.
 2. In the GC App, review the specific error reported by the device.
 3. Contact Greencell Support and include the error details gathered above.
+
+## Diagnostics
+
+This integration provides diagnostic information to help with troubleshooting. To download the diagnostics data:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the Greencell integration.
+3. Open the three-dot {% icon "mdi:dots-vertical" %} menu and select **Download diagnostics**.
+
+The downloaded file includes the [integration mode](#integration-modes) the device currently runs in, and the most recent values received over MQTT: current, voltage, power, and EVSE state. The serial number of the device is redacted and appears as `**REDACTED**`.
+
+If you contact Greencell Support about an issue with the integration, attach this file to your message.
 
 ## Removing the integration
 

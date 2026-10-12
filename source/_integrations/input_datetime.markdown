@@ -12,14 +12,12 @@ ha_domain: input_datetime
 ha_integration_type: helper
 ---
 
-The **Input Datetime** {% term integration %} allows you to define date and time values
-that can be controlled via the frontend and can be used within automations and
-templates.
+The **Input Datetime** {% term integration %} lets you create a date and time {% term helper %}: an entity that stores a date, a time, or both, which you can set yourself. Because the value is not tied to a physical device, you can use it as an adjustable date or time setting for your automations, scripts, and dashboards. For example, you can create a date and time helper to store a wake-up time, a target date, or the moment an automation should run.
 
-The preferred way to configure input datetime is via the user interface at **{% my helpers title="Settings > Devices & services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_datetime" title="Date and/or time" %}** option.
+On a dashboard, a date and time helper appears as a date picker, a time picker, or both. Each time the value changes, Home Assistant records a new {% term state %}, which you can use in your automations and templates. Your automations and scripts can also change the value, which makes a date and time helper a convenient way to share a setting between the UI and your automations.
 
-To be able to add **{% my helpers title="Helpers" %}** via the user interface you should have `default_config:` in your {% term "`configuration.yaml`" %}, it should already be there by default unless you removed it.
-If you removed `default_config:` from your configuration, you must add `input_datetime:` to your {% term "`configuration.yaml`" %} first, then you can use the UI.
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, and select **Create helper**.
+2. Select **{% my config_flow_start domain="input_datetime" title="Date and/or time" %}**.
 
 `input_datetime` can also be configured via YAML. To add three datetime inputs to your installation,
 one with both date and time, and one with date or time each,
@@ -159,3 +157,21 @@ If you have a `datetime` object, you can use its `timestamp` method. Or, if you 
   data:
     timestamp: "{{ now().timestamp() }}"
 ```
+
+## Troubleshooting
+
+### The **Date and/or time** helper option is missing from the UI
+
+#### Symptom
+
+When you go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} to add a helper, the **Date and/or time** option is not listed.
+
+#### Description
+
+Date and time helpers are provided through [`default_config:`](/integrations/default_config/), which is part of your {% term "`configuration.yaml`" %} by default. If you removed `default_config:`, the option is no longer available.
+
+#### Resolution
+
+1. Add `input_datetime:` to your {% term "`configuration.yaml`" %}.
+2. Restart Home Assistant.
+3. After the restart, create your date and time helpers from the user interface.
