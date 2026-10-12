@@ -116,6 +116,16 @@ IP address:
     description: "The IP address of your Sonic device."
 {% endconfiguration_basic %}
 
+## Reconfiguration
+
+If the IP address of your Sonic device changes, you can update it without removing and re-adding the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. On the **Watergate** integration, select the three-dot menu and choose **Reconfigure**.
+3. Enter the new IP address and select **Submit**.
+
+The new address must belong to the same Sonic device that was originally set up.
+
 ## Examples
 
 ### Monitor water usage in the Energy Dashboard
