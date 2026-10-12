@@ -1,0 +1,345 @@
+---
+// Call-to-action button: a pill with a label, a label and an arrow, or
+// just the arrow. Renders a link when given `href`, otherwise a
+// `<button>`.
+//
+// Built from the "Call to actions" component set in the Figma file
+// "Design System - Marketing Website" (node 15:173), not ported from
+// Jekyll: the live site has some 25 ad-hoc button classes (`button`,
+// `button-more`, `btn`, `cta buy`, ...) that this replaces over time.
+//
+// Figma axes and how they map:
+//   - Scheme (Default, Secondary, Tertiary, Green, Connect line):
+//     `scheme` prop; Figma's "Default" is `primary` here.
+//   - Style (Fill, Outline): `outline` prop.
+//   - Lockup (Default, With Icon, Only Icon): `icon` prop, with or
+//     without slot content. An icon-only button needs `label`.
+//   - State (Default, Hover, Active, Focus, Disabled): CSS states
+//     (:hover, :active, :focus-visible) and the `disabled` prop.
+//   - Size (Desktop, Mobile): automatic, the mobile size below the
+//     site's lap breakpoint.
+//   - The dark-background frames: `onDark` prop.
+//
+// Deliberate differences from the Figma file, all agreed:
+//   - On Fill buttons the icon circle stays white in every state;
+//     Figma's icon-only Default scheme turns it navy when active.
+//   - Borders and focus rings are drawn inside the pill (inset box
+//     shadows), so the 1px, 2px and 4px state borders never change its
+//     size; the redundant 1px same-color border on the Tertiary,
+//     Green and Connect line fills is not drawn.
+import "../styles/tokens.scss";
+
+const {
+  href,
+  scheme = "primary",
+  outline = false,
+  icon = false,
+  label,
+  onDark = false,
+  disabled = false,
+  class: className,
+  ...attributes
+} = Astro.props;
+
+// Rendered up front to tell an icon-only button from a labelled one:
+// Astro.slots.has() is also true for an expression that renders nothing.
+const content = await Astro.slots.render("default");
+const iconOnly = icon && !content.trim();
+const Tag = href ? "a" : "button";
+
+// A link cannot be disabled: drop its href and mark it instead.
+const tagAttributes = href
+  ? disabled
+    ? { role: "link", "aria-disabled": "true" }
+    : { href }
+  : { type: "button", disabled };
+---
+
+<Tag
+  class:list={[
+    "button",
+    scheme,
+    { outline, "on-dark": onDark, "icon-only": iconOnly },
+    className,
+  ]}
+  aria-label={iconOnly ? label : undefined}
+  {...tagAttributes}
+  {...attributes}
+>
+  {!iconOnly && <span class="label" set:html={content} />}
+  {
+    icon && (
+      <span class="icon" aria-hidden="true" />
+    )
+  }
+</Tag>
+
+<style lang="scss">
+  @use "../styles/breakpoints";
+
+  /* Colors come from the Figma file's variables. Each scheme sets its
+     own palette; the states below only pick from it. */
+
+  .button {
+    --button-ink: #002e3e;
+    --button-disabled: #d3e5f5;
+    --button-disabled-text: #fff;
+    --button-outline-text: var(--button-ink);
+
+    /* What the current state shows; changed by style and state. */
+    --surface: var(--scheme);
+    --text: var(--scheme-text);
+    --ring: transparent;
+    --ring-width: 0;
+    --icon-surface: #fff;
+    --icon-color: var(--button-ink);
+
+    align-items: center;
+    background: var(--surface);
+    border: 0;
+    border-radius: var(--radius-pill);
+    box-shadow: inset 0 0 0 var(--ring-width) var(--ring);
+    box-sizing: border-box;
+    color: var(--text);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-small);
+    font-weight: 600;
+    gap: var(--space-small);
+    justify-content: center;
+    line-height: 1;
+    min-height: 2rem;
+    padding: 0 var(--space-medium);
+    text-decoration: none;
+    white-space: nowrap;
+
+    &:has(.icon) {
+      padding-right: var(--space-xsmall);
+    }
+
+    &:hover {
+      --surface: var(--scheme-hover);
+      --text: var(--scheme-text-hover);
+    }
+
+    &:active {
+      --surface: var(--scheme-active);
+      --text: var(--scheme-text-active);
+    }
+
+    &:focus-visible {
+      --surface: var(--scheme-active);
+      --text: var(--scheme-text-active);
+      --ring: var(--scheme-focus);
+      --ring-width: 0.25rem;
+      outline: none;
+    }
+  }
+
+  /* Centered on its capitals, as Figma's vertical trim does; without
+     trimming, Figtree's deeper descent space lifts the label 1px. */
+  .label {
+    text-box: trim-both cap alphabetic;
+  }
+
+  .icon {
+    background: var(--icon-surface);
+    border-radius: var(--radius-pill);
+    flex: none;
+    height: 1.5rem;
+    position: relative;
+    width: 1.5rem;
+
+    /* The Figma arrow (10.5 × 8.75), painted as a mask on the circle's
+       own box so the two can never drift apart. Browsers snap images to
+       whole pixels, so the arrow sits centered in a whole-pixel 12 × 10
+       mask (src/assets/button-arrow.svg) that centers exactly in the
+       24px circle; at its drawn size it would land 0.5px off. */
+    &::before {
+      background: var(--icon-color);
+      content: "";
+      inset: 0;
+      mask: url("../assets/button-arrow.svg") center / 0.75rem 0.625rem no-repeat;
+      position: absolute;
+    }
+  }
+
+  .icon-only {
+    height: 2rem;
+    padding: 0;
+    width: 2rem;
+
+    &:has(.icon) {
+      padding: 0;
+    }
+  }
+
+  /* Outline: no fill, the scheme color as a border that thickens on
+     press and focus; the icon circle takes the scheme color. */
+
+  .outline {
+    --surface: transparent;
+    --text: var(--button-outline-text);
+    --ring: var(--scheme);
+    --ring-width: 1px;
+    --icon-surface: var(--scheme);
+    --icon-color: var(--scheme-arrow);
+
+    &:hover {
+      --surface: transparent;
+      --text: var(--button-outline-text);
+      --ring: var(--scheme-hover);
+    }
+
+    &:active {
+      --surface: transparent;
+      --text: var(--button-outline-text);
+      --ring: var(--scheme-active);
+      --ring-width: 2px;
+    }
+
+    &:focus-visible {
+      --surface: transparent;
+      --text: var(--button-outline-text);
+    }
+
+    &.icon-only {
+      --icon-surface: transparent;
+      --icon-color: var(--text);
+    }
+  }
+
+  /* Disabled wins over every other state. */
+
+  .button:is(:disabled, [aria-disabled="true"]) {
+    --surface: var(--button-disabled);
+    --text: var(--button-disabled-text);
+    --ring-width: 0;
+    --icon-surface: var(--button-disabled);
+    --icon-color: var(--button-disabled-text);
+    cursor: default;
+
+    &.outline {
+      --surface: transparent;
+      --text: var(--button-disabled);
+      --ring: var(--button-disabled);
+      --ring-width: 1px;
+    }
+
+    &.outline.icon-only {
+      --icon-surface: transparent;
+      --icon-color: var(--button-disabled);
+    }
+  }
+
+  /* Schemes. --scheme-arrow is the arrow on the outline icon circle. */
+
+  .primary {
+    --scheme: #18bcf2;
+    --scheme-hover: #b9e6fc;
+    --scheme-active: #006895;
+    --scheme-focus: #37c8fd;
+    --scheme-text: var(--button-ink);
+    --scheme-text-hover: var(--button-ink);
+    --scheme-text-active: #fff;
+    --scheme-arrow: var(--button-ink);
+  }
+
+  .secondary {
+    --scheme: #002e3e;
+    --scheme-hover: #006787;
+    --scheme-active: #009ac7;
+    --scheme-focus: #37c8fd;
+    --scheme-text: #fff;
+    --scheme-text-hover: #fff;
+    --scheme-text-active: #fff;
+    --scheme-arrow: #fff;
+  }
+
+  .tertiary {
+    --scheme: #b9e6fc;
+    --scheme-hover: #00aef8;
+    --scheme-active: #37c8fd;
+    --scheme-focus: #009ac7;
+    --scheme-text: var(--button-ink);
+    --scheme-text-hover: var(--button-ink);
+    --scheme-text-active: var(--button-ink);
+    --scheme-arrow: var(--button-ink);
+  }
+
+  .green {
+    --scheme: #16f3be;
+    --scheme-hover: #a2fae5;
+    --scheme-active: #12c298;
+    --scheme-focus: #73f8d8;
+    --scheme-text: var(--button-ink);
+    --scheme-text-hover: var(--button-ink);
+    --scheme-text-active: var(--button-ink);
+    --scheme-arrow: var(--button-ink);
+  }
+
+  .connect-line {
+    --scheme: #005fbe;
+    --scheme-hover: #00aef8;
+    --scheme-active: #003972;
+    --scheme-focus: #18bcf2;
+    --scheme-text: #fff;
+    --scheme-text-hover: var(--button-ink);
+    --scheme-text-active: #fff;
+    --scheme-arrow: #fff;
+  }
+
+  /* On dark backgrounds: the Figma file's dark frames. */
+
+  .on-dark {
+    --button-disabled: #384956;
+    --button-disabled-text: #b7c9d9;
+    --button-outline-text: #fff;
+
+    &.primary {
+      --scheme-focus: #18bcf2;
+    }
+
+    &.secondary {
+      --scheme: #006787;
+      --scheme-hover: #004156;
+      --scheme-focus: #006787;
+    }
+
+    &.tertiary {
+      --scheme-active: #7bd4fb;
+      --scheme-focus: #dff3fc;
+    }
+
+    &.green {
+      --scheme-focus: #d0fdf2;
+    }
+
+    &.connect-line {
+      --scheme-focus: #009ac7;
+    }
+  }
+
+  @media only screen and (min-width: breakpoints.$lap) {
+    .button {
+      font-size: var(--font-size-medium);
+      gap: var(--space-medium);
+      min-height: 2.375rem;
+      padding: 0 var(--space-xlarge);
+
+      &:has(.icon) {
+        padding-right: var(--space-small);
+      }
+    }
+
+    .icon-only {
+      height: 2.5rem;
+      width: 2.5rem;
+
+      &:has(.icon) {
+        padding: 0;
+      }
+    }
+  }
+</style>
