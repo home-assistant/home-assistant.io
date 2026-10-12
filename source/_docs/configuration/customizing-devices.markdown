@@ -9,15 +9,26 @@ related:
   - docs: /docs/organizing/labels/
 ---
 
-After adding a new device, you might find the automatically assigned entity ID too technical and the entity lacking a friendly name. You can personalize these elements to better fit your naming conventions or modify other attributes like the icon.
+After adding a new device, you might find its automatically assigned entity ID too technical or want to change its entity name.
+You can personalize these elements or modify other attributes, such as the icon.
 
 ## Recommendations on entity naming and related elements
 
-If you want a straightforward and organized Home Assistant setup, create a simple name for each entity, as well as for each related floor, area and device, and then configure everything properly. Name every element for what it is and Home Assistant will add the context around it based on what you have configured. Here are a few recommendations and examples:
+To organize your Home Assistant setup, use short names for floors, areas, devices, and entities.
+Assign devices to areas and areas to floors instead of repeating their location in every name.
+Home Assistant can use this information when it creates new entity IDs.
 
-- Create a short, standalone name for each item. Leave out its location and what it belongs to. For example, a good name for an area is `Living room` instead of `Ground floor living room`, and a good name for a device is `Multi sensor` instead of `Office multi sensor`.
-- [Assign an area to each device](/docs/organizing/areas/#assigning-an-area-to-a-device-from-the-devices-dashboard) and [assign a floor to each area](/docs/organizing/areas/#assigning-areas-to-floors-and-adding-labels). Home Assistant will use that information in pickers, dialogs, and tables so you don't need to add the location of areas, entities, and devices in their names.
-- Customize the presentation of floors, areas, devices, and entities by editing the cards and views of dashboards. For example, you can adjust the displayed name of a dashboard entity card or remove it if it is longer than you would like, instead of changing the entity name.
+An entity name is the name shown in Home Assistant, such as `Temperature` or `Coffee machine`.
+An entity ID is the technical identifier used in automations and scripts, such as `sensor.living_room_thermostat_temperature`.
+Changing an entity name does not change its entity ID.
+
+Use these recommendations when naming your Home Assistant setup:
+
+- Name each item for what it is, rather than where it is or what it belongs to. For example, name an area `Living room` instead of `Ground floor living room`, and a device `Multi sensor` instead of `Office multi sensor`.
+- Use the device name to identify the physical device and the entity name to identify what the device reports or controls. For example, a device named `Thermostat` can have an entity named `Temperature`.
+- Give otherwise identical devices a distinguishing name that is meaningful to you. For example, use `Left window sensor` and `Right window sensor` if their position is how you tell them apart.
+- [Assign an area to each device](/docs/organizing/areas/#assigning-an-area-to-a-device-from-the-devices-dashboard) and [assign a floor to each area](/docs/organizing/areas/#assigning-areas-to-floors-and-adding-labels). Home Assistant uses this information in pickers, dialogs, and tables, so you do not need to add location information to areas, devices, and entities.
+- Change the displayed name on a dashboard card when you only want a different label in that dashboard. You do not need to change the entity name.
 
 ## Changing the attributes of an entity
 
@@ -124,7 +135,12 @@ To disable or enable several entities at once, follow these steps:
 
 ## Changing the entity ID format for new entities
 
-Home Assistant generates entity IDs for new entities based on parts of your setup, like the area that is assigned to the entity, the device it belongs to, and the entity name. For example, a temperature sensor on a thermostat in the living room might have the entity ID `sensor.living_room_thermostat_temperature`. The default format of entity IDs uses the area, the parent device, the device, and the entity name, in that order. For more information about parent devices, refer to [About parent devices and sub-devices](#about-parent-devices-and-sub-devices). Parts without a value are left out. To get the most out of the default entity ID format, check the [recommendations on entity naming and related elements](#recommendations-on-entity-naming-and-related-elements).
+Home Assistant generates entity IDs for new entities from the parts you include in the entity ID format, such as the floor, area, parent device, device, and entity name.
+For example, a temperature sensor on a thermostat in the living room might have the entity ID `sensor.living_room_thermostat_temperature`.
+By default, the format uses the area, parent device, device, and entity name, in that order.
+For more information about parent devices, refer to [About parent devices and sub-devices](#about-parent-devices-and-sub-devices).
+Parts without a value are left out.
+To get the most out of the default entity ID format, check the [recommendations on entity naming and related elements](#recommendations-on-entity-naming-and-related-elements).
 
 However, you can change the default format of entity IDs by defining which parts will be used and its order. The new format that you set will only be used when Home Assistant generates a new entity ID, so existing entities keep their current entity IDs. You can still rename the entity IDs afterwards in the entity settings.
 
