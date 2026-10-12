@@ -79,6 +79,9 @@ collections:
   conditions:
     output: true
     permalink: /conditions/:path/
+  building_blocks:
+    output: true
+    permalink: /building-blocks/:path/
   docs:
     output: true
   apps:
@@ -186,6 +189,11 @@ defaults:
   - scope:
       path: ""
       type: conditions
+    values:
+      toc: true
+  - scope:
+      path: ""
+      type: building_blocks
     values:
       toc: true
   - scope:
