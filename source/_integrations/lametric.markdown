@@ -106,6 +106,9 @@ When Home Assistant discovers your device, or asks you to re-authenticate it, it
 - **Brightness mode**
   - **Description**: Choose whether the brightness is set manually or automatically based on ambient light.
   - **Entity category**: Configuration
+- **Screensaver mode**
+  - **Description**: Choose when the screensaver turns on: when it gets dark, or on a schedule set with the screensaver time entities. Only the modes the device supports are offered. To switch to the schedule, set its start and end time first. Not available on the LaMetric SKY.
+  - **Entity category**: Configuration
 
 ### Sensors
 
@@ -117,6 +120,9 @@ When Home Assistant discovers your device, or asks you to re-authenticate it, it
 
 - **Bluetooth**
   - **Description**: Toggle the device's Bluetooth radio on or off.
+  - **Entity category**: Configuration
+- **Screensaver**
+  - **Description**: Turn the screensaver on or off. This leaves the screensaver mode and schedule as they are. Not available on the LaMetric SKY.
   - **Entity category**: Configuration
 
 ### Times
