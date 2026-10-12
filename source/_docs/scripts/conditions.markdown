@@ -12,53 +12,6 @@ All conditions support an optional `alias`.
 
 ## Logical conditions
 
-### AND condition
-
-Test multiple conditions in one condition statement. Passes if all embedded conditions are true.
-
-```yaml
-conditions:
-  - alias: "Paulus home AND temperature below 20"
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: "device_tracker.paulus"
-        state: "home"
-      - condition: numeric_state
-        entity_id: "sensor.temperature"
-        below: 20
-```
-
-If you do not want to combine AND and OR conditions, you can list them sequentially.
-
-The following configuration works the same as the one listed above:
-
-```yaml
-conditions:
-  - condition: state
-    entity_id: "device_tracker.paulus"
-    state: "home"
-  - condition: numeric_state
-    entity_id: "sensor.temperature"
-    below: 20
-```
-
-Currently you need to format your conditions like this to be able to edit them using the [automations editor](/docs/automation/editor/).
-
-The AND condition also has a shorthand form. The following configuration works the same as the ones listed above:
-
-```yaml
-conditions:
-  alias: "Paulus home AND temperature below 20"
-  - and:
-    - condition: state
-      entity_id: "device_tracker.paulus"
-      state: "home"
-    - condition: numeric_state
-      entity_id: "sensor.temperature"
-      below: 20
-```
-
 ### OR condition
 
 Test multiple conditions in one condition statement. Passes if any embedded condition is true.
@@ -174,6 +127,7 @@ The conditions that are built into Home Assistant are:
 - <a id="device-conditions"></a>[Device](/conditions/device/)
 - <a id="sun-condition"></a><a id="sun-conditions"></a><a id="sun-state-condition"></a><a id="sun-elevation-condition"></a><a id="sunsetsunrise-condition"></a>[Sun](/conditions/sun/)
 - <a id="zone-condition"></a><a id="zone-conditions"></a>[Zone](/conditions/zone/)
+- <a id="and-condition"></a>[And](/conditions/and/)
 
 ## Examples
 
