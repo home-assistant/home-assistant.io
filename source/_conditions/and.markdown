@@ -60,8 +60,6 @@ condition: |
 
 ### Options in YAML
 
-The options in YAML are the same as in the UI.
-
 {% options_yaml %}
 condition:
   description: The condition type. For this condition, use `and`. In the shorter form, leave out `condition`, and use `and` instead of `conditions`.
