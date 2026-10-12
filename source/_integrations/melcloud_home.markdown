@@ -67,7 +67,6 @@ Each air conditioner or heat pump indoor unit is exposed as a climate entity wit
 - **Horizontal vane**: Auto, Swing, Left, Left centre, Centre, Right centre, Right
 - **Target temperature**
 - **Current room temperature**
-- **Outdoor temperature**
 
 #### Air-to-Water (ATW) units
 
@@ -84,6 +83,10 @@ The following entities are created per unit or zone, both for Air-to-Air and Air
 
 - **Room temperature**: Returns the current measured room temperature.
 - **RSSI**: The current WiFi signal strength.
+
+The following extra sensor is only applicable for the Air-to-Air units:
+
+- **Outdoor temperature**: The temperature measured by the outdoor unit. Created once the unit reports an outdoor temperature, which can take up to 15 minutes after setup.
 
 The following extra sensors are only applicable for the Air-to-Water units:
 
