@@ -74,7 +74,7 @@ A construction project nearby or a windy spring day sends dust everywhere. This 
 - **Trigger**: PM10 level changed
 - **Target**: Hallway PM10 sensor
 - **Threshold type**: 25
-- **Action**: Start vacuum
+- **Action**: Start vacuum cleaner
 
 {% details "YAML example for PM10-triggered vacuuming" %}
 
