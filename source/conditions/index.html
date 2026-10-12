@@ -23,7 +23,7 @@ toc: true
     <div class="component-search">
       <form onsubmit="event.preventDefault(); return false">
         <input type="text" name="search" id="search" class="search text-input"
-          placeholder="Search conditions..." autofocus />
+          placeholder="Search conditions..." aria-label="Search conditions" autofocus />
       </form>
     </div>
   </div>
@@ -50,7 +50,7 @@ toc: true
         {%- assign domain_desc = domain_entry.description -%}
         {%- if domain_conditions.size > 0 -%}
         <div class="tf-category" data-category="{{ domain_key }}">
-          <h3 id="{{ domain_key }}"><iconify-icon inline icon="{{ domain_icon }}"></iconify-icon> {{ domain_label }}</h3>
+          <h2 id="{{ domain_key }}"><iconify-icon inline icon="{{ domain_icon }}"></iconify-icon> {{ domain_label }}</h2>
           {%- if domain_desc -%}<p>{{ domain_desc }}</p>{%- endif -%}
           <ul class="tf-list">
             {%- for cnd in domain_conditions -%}
