@@ -167,8 +167,8 @@ importers:
   .:
     dependencies:
       astro:
-        specifier: 7.3.7
-        version: 7.3.7(sass@1.105.1)(yaml@2.9.1)
+        specifier: 7.3.8
+        version: 7.3.8(esbuild@0.28.2)(sass@1.105.1)(yaml@2.9.1)
     devDependencies:
       sass:
         specifier: ^1.104.1
@@ -939,8 +939,8 @@ packages:
     resolution: {integrity: sha512-COROpnaoap1E2F000S62r6A60uHZnmlvomhfyT2DlTcrY1OrBKn2UhH7qn5wTC9zMvD0AY7csdPSNwKP+7WiQw==}
     engines: {node: '>= 0.4'}
 
-  astro@7.3.7:
-    resolution: {integrity: sha512-MyxnNzy+HHkLa8iNVcGTXbmSTlkjqkXJyRcMU3EwprbsF7gh3M03DKLAGVcVTmATF8jV1Fen0rkala1JiEyMSg==}
+  astro@7.3.8:
+    resolution: {integrity: sha512-LHzDHSaV+YzZiR3EFndDYTLLeNeuMtP1qX1FLcCNUUHOCqTTIWPczy2UV3zpA5VqvJe5cWZolqM9Z8JFqR2i9w==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
     peerDependencies:
@@ -2215,7 +2215,7 @@ snapshots:
 
   aria-query@5.3.2: {}
 
-  astro@7.3.7(sass@1.105.1)(yaml@2.9.1):
+  astro@7.3.8(esbuild@0.28.2)(sass@1.105.1)(yaml@2.9.1):
     dependencies:
       '@astrojs/compiler-rs': 0.5.1
       '@astrojs/internal-helpers': 0.12.0
@@ -2235,7 +2235,6 @@ snapshots:
       diff: 9.0.0
       dset: 3.1.4
       es-module-lexer: 3.0.3
-      esbuild: 0.28.2
       find-proc: 0.2.0
       flattie: 1.1.1
       fontace: 0.4.1
@@ -2291,6 +2290,7 @@ snapshots:
       - '@vitejs/devtools'
       - aws4fetch
       - db0
+      - esbuild
       - idb-keyval
       - ioredis
       - jiti
@@ -2430,6 +2430,7 @@ snapshots:
       '@esbuild/win32-arm64': 0.28.2
       '@esbuild/win32-ia32': 0.28.2
       '@esbuild/win32-x64': 0.28.2
+    optional: true
 
   eventemitter3@5.0.4: {}
 
