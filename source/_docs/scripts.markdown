@@ -217,7 +217,7 @@ set_conversation_response:
 
 - Assist uses the response when the automation finishes. If the automation sets the response more than once, the last one is used.
 - If the automation didn't start from a conversation, for example, from a time trigger, the response isn't used.
-- Set the response in the automation itself. If the automation runs a script, a response that the script sets doesn't reach Assist. To use data from a script, let the script [return a response](#examples-of-stop) with **Stop**, and use that data in the automation's **Set conversation response**.
+- Set the response in the automation itself. If the automation runs a script, a response that the script sets doesn't reach Assist. To use data from a script, let the script [return a response](/building-blocks/stop/#examples) with **Stop**, and use that data in the automation's **Set conversation response**.
 
 ### Examples of Set conversation response
 
