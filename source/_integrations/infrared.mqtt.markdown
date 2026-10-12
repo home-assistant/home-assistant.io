@@ -12,8 +12,7 @@ The **MQTT Infrared** {% term integration %} allows you to integrate infrared em
 
 ## Configuration
 
-To use an MQTT infrared entity in your installation, [add an MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% include integrations/mqtt_config_methods.md item="infrared entity" platform="infrared" subentry=false %}
 
 The MQTT infrared platform supports a configuration schema for infrared emitter and receiver devices.
 
@@ -26,8 +25,6 @@ mqtt:
       schema: emitter
       command_topic: command-topic
 ```
-
-Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -78,59 +75,7 @@ default_entity_id:
   description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `infrared.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, it will be created with a number appended. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
-device:
-  description: "Device information for this infrared entity. Used to link the entity to a device in the [device registry](https://developers.home-assistant.io/docs/device_registry_index). Only works when [`unique_id`](#unique_id) is set. At least one of `identifiers` or `connections` is required to identify the device."
-  required: false
-  type: map
-  keys:
-    configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
-      required: false
-      type: string
-    connections:
-      description: 'A list of device connections to the outside world, each specified as a tuple of `[connection_type, connection_identifier]`. For example, the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
-      required: false
-      type: list
-    hw_version:
-      description: The hardware version of the device.
-      required: false
-      type: string
-    identifiers:
-      description: 'A list of IDs that uniquely identify the device. For example, a serial number.'
-      required: false
-      type: [list, string]
-    manufacturer:
-      description: The manufacturer of the device.
-      required: false
-      type: string
-    model:
-      description: The model of the device.
-      required: false
-      type: string
-    model_id:
-      description: The model identifier of the device.
-      required: false
-      type: string
-    name:
-      description: The name of the device.
-      required: false
-      type: string
-    serial_number:
-      description: "The serial number of the device."
-      required: false
-      type: string
-    suggested_area:
-      description: 'Suggest an area if the device isn’t in one yet.'
-      required: false
-      type: string
-    sw_version:
-      description: The firmware version of the device.
-      required: false
-      type: string
-    via_device:
-      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
-      required: false
-      type: string
+{% include integrations/mqtt_device.md %}
 enabled_by_default:
   description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
   required: false
@@ -217,8 +162,6 @@ mqtt:
       state_topic: state-topic
 ```
 
-Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
-
 {% configuration %}
 availability:
   description: A list of MQTT topics subscribed to receive availability (online/offline) updates. Must not be used together with `availability_topic`.
@@ -260,59 +203,7 @@ default_entity_id:
   description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `infrared.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, it will be created with a number appended. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
-device:
-  description: "Device information for this infrared entity. Used to link the entity to a device in the [device registry](https://developers.home-assistant.io/docs/device_registry_index). Only works when [`unique_id`](#unique_id) is set. At least one of `identifiers` or `connections` is required to identify the device."
-  required: false
-  type: map
-  keys:
-    configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
-      required: false
-      type: string
-    connections:
-      description: 'A list of device connections to the outside world, each specified as a tuple of `[connection_type, connection_identifier]`. For example, the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
-      required: false
-      type: list
-    hw_version:
-      description: The hardware version of the device.
-      required: false
-      type: string
-    identifiers:
-      description: 'A list of IDs that uniquely identify the device. For example, a serial number.'
-      required: false
-      type: [list, string]
-    manufacturer:
-      description: The manufacturer of the device.
-      required: false
-      type: string
-    model:
-      description: The model of the device.
-      required: false
-      type: string
-    model_id:
-      description: The model identifier of the device.
-      required: false
-      type: string
-    name:
-      description: The name of the device.
-      required: false
-      type: string
-    serial_number:
-      description: "The serial number of the device."
-      required: false
-      type: string
-    suggested_area:
-      description: 'Suggest an area if the device isn’t in one yet.'
-      required: false
-      type: string
-    sw_version:
-      description: The firmware version of the device.
-      required: false
-      type: string
-    via_device:
-      description: 'Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show device topology in Home Assistant.'
-      required: false
-      type: string
+{% include integrations/mqtt_device.md %}
 enabled_by_default:
   description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
   required: false
