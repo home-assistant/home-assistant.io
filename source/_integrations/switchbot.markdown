@@ -577,6 +577,8 @@ Features:
 - get battery
 - motion detection state
 - light detection state
+- on button press event
+- off button press event
 
 #### Keypad Vision (Pro)
 
