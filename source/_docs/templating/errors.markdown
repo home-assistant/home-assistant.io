@@ -279,11 +279,13 @@ Remove empty `{% %}` markers. If you intended a comment, use `{# ... #}` instead
 
 <h3 class="no_toc">Symptom</h3>
 
-The template editor or the log shows the error `TemplateAssertionError: No test named 'foo'.`
+The template editor or the log shows the error `TemplateAssertionError: No test named 'foo'.` If the test is inside an `{% if %}` block or an inline `if`, the message is `TemplateRuntimeError: No test named 'foo' found.` instead.
 
 #### Description
 
 After `is`, you used a test name the engine doesn't know. Test names are lowercase. For example, `is none` works, but `is None` gives the error `No test named 'None'`.
+
+Inside an `{% if %}` block or an inline `if`, the template engine only checks the test name when that part of the template runs. If it doesn't run, there's no error until the condition changes.
 
 #### Resolution
 
@@ -297,11 +299,13 @@ Check the test name against the [template functions reference](/template-functio
 
 <h3 class="no_toc">Symptom</h3>
 
-The template editor or the log shows the error `TemplateAssertionError: No filter named 'foo'.`
+The template editor or the log shows the error `TemplateAssertionError: No filter named 'foo'.` If the filter is inside an `{% if %}` block or an inline `if`, the message is `TemplateRuntimeError: No filter named 'foo' found.` instead.
 
 #### Description
 
 After `|`, you used a filter name the engine doesn't know. Usually, the name is misspelled.
+
+Inside an `{% if %}` block or an inline `if`, the template engine only checks the filter name when that part of the template runs. If it doesn't run, there's no error until the condition changes.
 
 #### Resolution
 
