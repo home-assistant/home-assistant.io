@@ -52,6 +52,8 @@ The **MELCloud Home** {% term integration %} provides the following entities.
 - **Forced hot water**: Indicates if the force hot water is activated (applicable only for Air-to-Water units).
 - **Frost protection**: Indicates if the prost protection, if enabled, is activated.
 - **Overheat protection**: Indicates if the overheat protection, if enabled, is activated.
+- **Frost protection active**: Indicates if the frost protection is running right now. For Air-to-Water units, it's on when the frost protection runs in either zone.
+- **Overheat protection active**: Indicates if the overheat protection is running right now.
 
 ###  Climate
 
