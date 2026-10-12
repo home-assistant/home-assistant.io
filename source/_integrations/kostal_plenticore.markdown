@@ -115,10 +115,10 @@ The following sensors are available in the library:
 | Energy PV3 Month        | kWh  | Energy of PV string 3 of the current month. |
 | Energy PV3 Year         | kWh  | Energy of PV string 3 of the current year. |
 | Energy PV3 Total        | kWh  | Energy of PV string 3 total. |
-| Energy Yield Day       | kWh  | Energy yield of the current day. <sup>1</sup> |
-| Energy Yield Month      | kWh  | Energy yield of the current month. <sup>1</sup> |
-| Energy Yield Year       | kWh  | Energy yield of the current year. <sup>1</sup> |
-| Energy Yield Total      | kWh  | Energy yield total. <sup>1</sup> |
+| Energy Yield Day       | kWh  | [Energy yield](#kostal-terminology) of the current day. |
+| Energy Yield Month      | kWh  | [Energy yield](#kostal-terminology) of the current month. |
+| Energy Yield Year       | kWh  | [Energy yield](#kostal-terminology) of the current year. |
+| Energy Yield Total      | kWh  | [Energy yield](#kostal-terminology) total. |
 | Energy Discharge to Grid Day    | kWh  | Energy discharged from battery to the Grid of the current day. |
 | Energy Discharge to Grid Month  | kWh  | Energy discharged from battery to the Grid of the current month. |
 | Energy Discharge to Grid Year   | kWh  | Energy discharged from battery to the Grid of the current year. |
@@ -140,8 +140,6 @@ The following sensors are available in the library:
 | Energy to Grid Year | kWh | Energy fed into the grid for the current year. |
 | Energy to Grid Total | kWh | Energy fed into the grid in total, since the system was installed. |
 | Sum power of all PV DC inputs | W | Total sum of power provided by all PV inputs together. |
-
-<sup>1</sup>: *Energy yield* is not the PV production. It is the energy the system delivers to the home and the grid, from both PV and battery. PV energy used to charge the battery is not included.
 
 {% note %}
 The inverter does not provide any data about the energy that is fed into the grid directly, but the `pykoplenti` library provides it via virtual process data.
@@ -224,3 +222,11 @@ The following diagnostic sensors are available.
 | Name                    | Data Type | Description   |
 |-------------------------|-----------|:-------------------------------------------|
 | Active errors           | Integer   | Count of currently active errors. |
+
+## Kostal Terminology
+
+Some sensor names use terms from the Kostal inverter:
+
+- **Autarky**: The share of your home consumption that your own system covered, in percent. Kostal also calls this the degree of self-sufficiency. The higher the value, the less energy you bought from the grid.
+- **Own consumption rate**: The share of the PV energy you produced that you used yourself, in percent. Kostal calls this the self-consumption rate.
+- **Energy yield**: The energy the inverter delivers to your home and to the grid, from both PV and battery. Energy yield isn't the same as PV production: PV energy used to charge the battery isn't included.
