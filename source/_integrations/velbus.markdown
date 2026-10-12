@@ -115,7 +115,7 @@ Every input module will be represented as a binary sensor entity in Home Assista
 
 ### Event
 
-Every physical button of an input module will have an event entity in Home Assistant. The event entity emits a `short_press` or `long_press` event when the button is released.
+Each physical Velbus button is exposed as an event entity. A short press emits a `short_press` event when the button is released. A long press emits a `long_press` event as soon as the module reports the long press. Releasing a long press does not emit an additional event.
 
 ### Select
 
