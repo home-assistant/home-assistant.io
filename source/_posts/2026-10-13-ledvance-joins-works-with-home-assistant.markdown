@@ -35,7 +35,7 @@ Since LEDVANCE’s Matter devices use Wi-Fi, you won’t need any extra gear to 
 
 ## Devices
 
-LEDVANCE’s certified devices cover everything from filament-style bulbs, spotlights, and recessed and track downlights, to ceiling and wall lights, floor lamps, and flexible LED strips for adding a glow under kitchen cabinets or behind the TV. In fact, there are so many options that the list is too long to include in this blog, so head to the <a href="https://works-with.home-assistant.io/certified-products/?brand=ledvance" target="_blank" rel="noopener">certified device list</a> to check out all the details!
+LEDVANCE’s certified devices cover everything from filament-style bulbs, spotlights, and recessed and track downlights, to ceiling and wall lights, floor lamps, and flexible LED strips for adding a glow under kitchen cabinets or behind the TV. In fact, there are so many options that the list is too long to include in this blog, so head to the <a href="https://works-with.home-assistant.io/certified-products/?brand=ledvance-osram" target="_blank" rel="noopener">certified device list</a> to check out all the details!
 
 <p class='img'>
 <img src="/images/blog/2026-10-ledvance/image2.webp" alt="Set the scene for a comfy night in with LEDVANCE’s smart lights.">

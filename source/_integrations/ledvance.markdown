@@ -21,4 +21,4 @@ ha_brand: true
 
 ## Supported devices
 
-{% include integrations/device_list.html brand="ledvance" hide_list="true" %}
+{% include integrations/device_list.html brand="ledvance-osram" hide_list="true" %}
