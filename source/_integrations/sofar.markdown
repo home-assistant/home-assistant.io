@@ -38,7 +38,7 @@ The **Sofar** integration brings your inverter's own measurements into Home Assi
 
 The integration supports Sofar inverters that use the current-generation Modbus register map, including HYD hybrid inverters and KTL-X and KTLM PV inverters. During setup, the integration reads the inverter's serial number to detect its type and the registers that apply to it.
 
-The current-generation detection recognizes these serial-number prefixes:
+The integration recognizes these serial-number prefixes directly:
 
 - `SP1`, `SP2`, `ZP1`, and `ZP2` for three-phase HYD hybrid models.
 - `SM2E` and `ZM2E` for single-phase HYD hybrid models.
@@ -46,7 +46,9 @@ The current-generation detection recognizes these serial-number prefixes:
 - `SH3E`, `SS2E`, `ZS2E`, `SQ1ES1`, and `SS1` for KTL-X, KTLM, and related PV models.
 - `SA1`, `SB1`, `SC1`, `SD1`, `SF4`, `SL1`, and `SJ2` for additional current-generation PV models.
 
-Some serial-number prefixes are also used by older Sofar models, so the marketed model name or serial prefix alone does not always identify the register generation. If the inverter answers but does not use the supported register map, setup fails.
+If the serial number starts with another prefix, the integration asks the inverter which registers it serves instead. From that answer, it works out whether the inverter is single-phase or three-phase, whether it's a hybrid or PV-only model, and how many PV strings it has. This means current-generation models that aren't in the list above can usually be set up too.
+
+Some serial-number prefixes are also used by older Sofar models, so the marketed model name or serial prefix alone does not always identify the register generation. If the inverter answers but neither its serial number nor the registers it serves identify a supported model, setup fails.
 
 ## Unsupported devices
 
@@ -274,7 +276,7 @@ If these steps don't help, [open an issue on GitHub](https://github.com/home-ass
 
 #### Description
 
-The integration only recognizes inverter models it knows the register map for. If setup fails with an unrecognized inverter error, your model isn't supported yet.
+The integration identifies the inverter from its serial number, or from the registers the inverter reports it serves. If setup fails with an unrecognized inverter error, neither of these matched a supported model. The inverter might use the older register map, or your model isn't supported yet.
 
 #### Resolution
 
