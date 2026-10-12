@@ -29,7 +29,7 @@ The editor is the fastest feedback loop you have. It:
 - Shows the output of your template live.
 - Shows errors and warnings as a message above the result.
 - Shows the type of the result, under **Result type**.
-- Shows when the template updates, for example, which entities it listens to.
+- Shows when the template updates, for example, when an entity it listens to changes.
 - Has access to all your entities, so you can try a template against real data.
 
 For everything the editor shows, refer to [Template editor tab](/docs/tools/dev-tools/#template-editor-tab).
