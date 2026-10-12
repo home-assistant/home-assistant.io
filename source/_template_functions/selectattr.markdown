@@ -24,7 +24,7 @@ This is one of the most frequently used filters in Home Assistant templates. It 
 
 {% template_function_usage %}
 filter: |
-  {{ expand("group.all_lights")
+  {{ expand("light.home_lights")
     | selectattr("state", "eq", "on")
     | map(attribute="entity_id")
     | list
@@ -72,7 +72,7 @@ When no test is specified, items are kept if the attribute value is truthy.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("light.home_lights")
     | selectattr("attributes.brightness")
     | map(attribute="entity_id")
     | list
@@ -89,7 +89,7 @@ output: '["light.kitchen", "light.living_room"]'
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("light.home_lights")
     | selectattr("state", "eq", "on")
     | map(attribute="name")
     | join(", ")
@@ -104,7 +104,7 @@ output: "Kitchen light, Living room light"
 {% example %}
 template: |
   {{
-    expand("group.all_sensors")
+    expand("sensor.home_sensors")
     | selectattr("state", "ne", "unavailable")
     | map(attribute="entity_id")
     | list
@@ -119,7 +119,7 @@ output: '["sensor.temperature", "sensor.humidity", "sensor.pressure"]'
 {% example %}
 template: |
   {{
-    expand("group.temperature_sensors")
+    expand("sensor.temperature_sensors")
     | selectattr("state", "gt", "22")
     | map(attribute="entity_id")
     | list
@@ -146,7 +146,7 @@ Filter entities by state and count the results.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("light.home_lights")
     | selectattr("state", "eq", "on")
     | list
     | length
@@ -162,7 +162,7 @@ Use dotted notation to filter by nested attributes like device class.
 {% example %}
 template: |
   {{
-    expand("group.all_sensors")
+    expand("sensor.home_sensors")
     | selectattr("attributes.device_class", "eq", "temperature")
     | map(attribute="entity_id")
     | list
@@ -180,7 +180,7 @@ Use the [`contains`](/template-functions/contains/) test to match partial state 
 {% example %}
 template: |
   {{
-    expand("group.media_players")
+    expand("media_player.speakers")
     | selectattr("state", "contains", "play")
     | map(attribute="name")
     | join(", ")
@@ -196,7 +196,7 @@ Apply multiple filters in sequence to narrow down results.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("light.home_lights")
     | selectattr("state", "eq", "on")
     | selectattr("attributes.brightness", "gt", 100)
     | map(attribute="name")
@@ -214,7 +214,7 @@ Find entities that are unavailable or unknown.
 {% example %}
 template: |
   {{
-    expand("group.all_sensors")
+    expand("sensor.home_sensors")
     | selectattr("state", "in", ["unavailable", "unknown"])
     | map(attribute="entity_id")
     | list

@@ -19,13 +19,15 @@ ha_integration_type: helper
 ha_config_flow: true
 ---
 
-The **Random** {% term integration %} simply creates random values or state. This can be useful if you want to test automation rules or run an interactive demo. It generates a new state every time it is polled.
-
+The **Random (Helper)** {% term integration %} creates random values or a random state. This is useful when you want to test automation rules or run an interactive demo. It generates a new state every time it is polled.
 
 ## Configuration
-The preferred way to configure random helpers is via the user interface at **{% my helpers title="Settings > Devices & services > Helpers" %}** and select the add button; next, select the {% my config_flow_start domain=page.ha_domain title=page.title %} option.
 
-To be able to add Helpers via the user interface, you should have `default_config:` in your {% term "`configuration.yaml`" %}. It should already be there by default unless you removed it. If you removed `default_config:` from your configuration, you must add `random:` to your {% term "`configuration.yaml`" %} first, then you can use the UI.
+The preferred way to create a random helper is through the user interface.
+
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, and select **Create helper**.
+2. Select **{% my config_flow_start domain=page.ha_domain title=page.title %}**.
+3. Select **Random binary sensor** to create random states or **Random sensor** to create random values.
 
 ## Binary sensor
 The random binary sensor creates random states (`true`, 1, `on` or `false`, 0, `off`).
@@ -80,3 +82,21 @@ unit_of_measurement:
   required: false
   type: string
 {% endconfiguration %}
+
+## Troubleshooting
+
+### The Random helper option is missing from the user interface
+
+#### Symptom
+
+When you go to **{% my helpers title="Settings > Devices & services > Helpers" %}** to add a helper, the **Random** option is not listed.
+
+#### Description
+
+Random helpers are provided through [`default_config:`](/integrations/default_config/), which is part of your {% term "`configuration.yaml`" %} by default. If you removed `default_config:`, the option is no longer available.
+
+#### Resolution
+
+1. Add `random:` to your {% term "`configuration.yaml`" %}.
+2. Restart Home Assistant.
+3. After the restart, create your random helpers from the user interface.

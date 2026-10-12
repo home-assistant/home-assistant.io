@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_domain: homewizard
 ha_codeowners:
   - '@DCSBL'
+  - '@lexpostma'
 ha_platforms:
   - button
   - diagnostics

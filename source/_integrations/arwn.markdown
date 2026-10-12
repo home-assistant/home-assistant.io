@@ -4,7 +4,7 @@ description: Instructions on how to integrate ARWN within Home Assistant.
 ha_category:
   - Sensor
 ha_release: 0.31
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_domain: arwn
 ha_platforms:
   - sensor

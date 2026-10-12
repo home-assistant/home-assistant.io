@@ -1,6 +1,7 @@
 ---
 title: Music Assistant
 description: Instructions on how to integrate Music Assistant into Home Assistant.
+featured: true
 ha_category:
   - Media player
 ha_release: 2024.12
@@ -22,13 +23,28 @@ ha_integration_type: service
 ha_quality_scale: bronze
 ---
 
-The **Music Assistant** (MA) {% term integration %} allows you to connect Home Assistant to a [Music Assistant Server](https://music-assistant.io/). Once configured, all [MA Players](https://music-assistant.io/player-support/) show up as Home Assistant [media player entities](/integrations/media_player/).  Media players will allow you to control media playback and see the currently playing item.
+The **Music Assistant** (MA) {% term integration %} allows you to connect Home Assistant to a [Music Assistant Server](https://www.music-assistant.io/). Once configured, all [MA Players](https://www.music-assistant.io/player-support/) show up as Home Assistant [media player entities](/integrations/media_player/).  Media players will allow you to control media playback and see the currently playing item.
 
 ## Prerequisites
 
-Before installing this integration, ensure you have a running Music Assistant server. Instructions for installing the Music Assistant server are available in the [Music Assistant documentation](https://www.music-assistant.io/installation/)
+This integration connects to a Music Assistant server.
+
+- If you run {% term "Home Assistant Operating System" %}, you don't need to prepare anything. Home Assistant can install and start the official Music Assistant app for you during setup.
+- For other installation types, or if you want to run the Music Assistant server somewhere else, make sure you have a running Music Assistant server first. Instructions are available in the [Music Assistant documentation](https://www.music-assistant.io/installation/).
 
 {% include integrations/config_flow.md %}
+
+### Setting up with the Music Assistant app
+
+If you run {% term "Home Assistant Operating System" %}, the setup asks whether you want to use the official Music Assistant app.
+
+1. Keep **Use the official Music Assistant app** selected and select **Submit**.
+   - If the app is not installed yet, Home Assistant installs it. This can take several minutes.
+   - If the app is not running, Home Assistant starts it.
+2. If this is a new Music Assistant installation, Music Assistant opens in a new browser tab. Finish its initial setup there.
+   - Home Assistant continues automatically once the Music Assistant setup is done.
+
+If you already run Music Assistant in another way, for example in a different app, in your own container, or on another machine, clear the **Use the official Music Assistant app** checkbox. You can then enter the URL of your Music Assistant server manually.
 
 ### Manual configuration
 
@@ -39,12 +55,13 @@ Under normal circumstances, Home Assistant automatically discovers your running 
 There is currently support for the following Home Assistant Platforms:
 
 - [Media player](#media-player-entities)
+- [Dashboard displays](#dashboards)
 - [Button](#favorite-current-song-button)
 
 Depending on the player provider, additional platforms are supported: [Number, Select, Sensor, Switch, Text](#player-options).
 
 
-All of the Home Assistant [Media Player Control Actions](/integrations/media_player/#media-control-actions) are supported.
+Music Assistant player entities support all of the Home Assistant [media player control actions](/integrations/media_player/#media-control-actions). Dashboard display entities support only media playback, media browsing, and turning off.
 
 If using `media_player.play_media`, then note the `media_content_id` payload can be any of the following:
 
@@ -52,6 +69,8 @@ If using `media_player.play_media`, then note the `media_content_id` payload can
 - A track or album combined with the artist's name. For example, `Queen - Innuendo`.
 - A streaming provider URI. For example, `spotify://artist/12345`.
 - A streaming provider URL. For example, `https://open.spotify.com/track/31cWPvM99ZHxMl3mdgiw4I`.
+
+The `media_player.play_media` action runs as the Home Assistant user who made the request if their username matches a Music Assistant user. This affects the playlog entry and any provider filtering configured for that user. The `media_player.play_media` action doesn't let you choose the user, so if you call it from a script or automation and want the request attributed to a specific user, use the Music Assistant [Play media](/actions/music_assistant.play_media/) action instead and set its **Username** field.
 
 If using `media_player.browse_media`, then the `media_content_id` payload must be a URI of the form `library://artist/1`, `library://album/20`, or `spotify://album/5zj4Ej0FrlJQaSo0d6cttH`. The type of item that the URI refers to must be an album or artist.
 
@@ -62,6 +81,35 @@ Streaming provider URLs can be obtained from the web interface of the provider.
 ### Media player entities
 
 The Music Assistant integration creates media player entities for all players and groups available in MA, including those imported from Home Assistant. This is needed to provide the full functionality Music Assistant has to offer. This full functionality includes transfer of the playing queue of music from one player to another, automatic pausing of playback during announcements, and richer options for selecting the media for playback. These entities will display media information, playback progress, and playback controls.
+
+### Dashboards
+
+Music Assistant can show dashboards, such as a party queue or a "Now playing" screen, on display devices like a Chromecast running the Music Assistant receiver, a Fully Kiosk browser, or an Apple TV. Each display becomes its own Home Assistant device (a "Dashboard display") with a single media player entity, using the `tv` device class. A display gets its entity while its provider is running, and the entity becomes `unavailable` whenever the display disconnects. A browser tab open on the Music Assistant web interface is not a display device.
+
+To show a dashboard from an automation or script, perform the `media_player.play_media` action on the display entity. The easiest way to set it up is to add the action in the editor and use **Pick media** to browse to the dashboard you want. Home Assistant then fills in the media content ID and type for you.
+
+The media content type is always `dashboard`. The media content ID is `party`, `music_quiz`, or `now_playing/<player id>` for the "Now playing" screen of a specific Music Assistant player. For example:
+
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.kitchen_display
+data:
+  media_content_type: dashboard
+  media_content_id: now_playing/<player id>
+```
+
+You can also pick a dashboard from the entity's media browser. It lists the dashboards the display supports, with a "Now playing" folder to pick which Music Assistant player to show.
+
+To hide the dashboard again, call `media_player.turn_off`. This is safe to call even when nothing is shown, or when the display has disconnected.
+
+While a dashboard is shown, the entity's state is `playing`, with the dashboard's name and artwork as the media title and image. It returns to `idle` when nothing is shown, and becomes `unavailable` if the display disconnects.
+
+Showing an unknown or unsupported dashboard, or using `now_playing` without a player, returns a clear error message.
+
+The Music Assistant actions, such as **Play media**, **Play announcement**, **Transfer queue**, and **Get queue**, only work with speaker entities. To show a dashboard, use the standard `media_player.play_media` action described above.
+
+This feature requires Music Assistant server version 2.10 or later.
 
 ### Favorite current song button
 
@@ -81,7 +129,7 @@ If a player provider supports player options, the Music Assistant integration ex
 
 This integration requires Music Assistant server version 2.4 or later. The integration can connect to Music Assistant servers hosted as an app or in a separate Docker container.
 
-Music Assistant supports a [wide range of devices](https://www.music-assistant.io/player-support/) both natively and through the [Home Assistant provider](https://www.music-assistant.io/player-support/ha/). The Home Assistant provider, when installed, allows any Home Assistant media player to appear as a player in Music Assistant and thereby benefit from the advanced playback functionality that Music Assistant provides. As a general note, if there is a native Music Assistant provider then devices should be added via that method instead of using the Home Assistant media player. Any limitations associated with the providers are described on the related Player Provider page in the [Music Assistant documentation](https://www.music-assistant.io/).
+Music Assistant supports a [wide range of devices](https://www.music-assistant.io/player-support/) both natively and through the [Home Assistant provider](https://www.music-assistant.io/player-support/home-assistant/). The Home Assistant provider, when installed, allows any Home Assistant media player to appear as a player in Music Assistant and thereby benefit from the advanced playback functionality that Music Assistant provides. As a general note, if there is a native Music Assistant provider then devices should be added via that method instead of using the Home Assistant media player. Any limitations associated with the providers are described on the related Player Provider page in the [Music Assistant documentation](https://www.music-assistant.io/).
 
 ## Known limitations
 

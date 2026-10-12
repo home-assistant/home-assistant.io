@@ -144,7 +144,7 @@ A read-only property which has only two states that can be toggled is represente
 
 ### Button
 
-A writable property which has only two states that can be toggled is represented as a binary sensor platform.
+A writable property that triggers an action, like starting or pausing a program, is represented as a button platform.
 
 | Device |Property |Action |
 | ------ |-------- | ------ |
@@ -162,7 +162,7 @@ The properties for controlling both the temperature and wind strength of the app
 
 ### Event
 
-A notification message pushed from the server is represented as an event platform. The **Notification codes** shows the full support range, and you can check the range of your device through the developer tools.
+A notification message pushed from the server is represented as an event platform. The **Notification codes** shows the full support range, and you can check the range of your device in **Settings** > **Tools**.
 
 | Device | Property | Notification codes |
 | ------ | -------- | ---------- |

@@ -20,7 +20,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Vacuum: Vacuum cleaner encountered an error**.
+4. From the search box, search for and select **Vacuum cleaner encountered an error**.
 5. Under **Targets**, pick the vacuum entities (or an area/floor) you want to monitor.
 6. Under **Trigger when**, pick **Each**, **First**, or **All** to control group behavior.
 7. Under **For at least**, enter how long the vacuum must remain in the error state before the trigger fires.
@@ -31,7 +31,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When more than one vacuum is targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted vacuum reports an error, **First** to fire only on the first error event, or **All** to fire only after all targeted vacuums have reported an error.
-  required: true
+  required: false
 For at least:
   description: The time the vacuum must remain in the error state before the trigger fires.
   required: false
@@ -62,7 +62,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple vacuums are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:

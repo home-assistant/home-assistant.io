@@ -30,10 +30,4 @@ The **Pentair ScreenLogic** {% term integration %} allows you to integrate your 
 
 {% include integrations/config_flow.md %}
 
-## Options
-
-ScreenLogic options are set via **Settings** > **Devices & services** > **Pentair ScreenLogic** > **Options**.
-
--= Seconds between scans - How many seconds between each polling of the ScreenLogic gateway.
-
 {% include integrations/actions.md %}

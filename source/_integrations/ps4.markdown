@@ -2,6 +2,7 @@
 title: Sony PlayStation 4
 description: Instructions on how to integrate a Sony PlayStation 4 into Home Assistant.
 ha_category:
+  - Gaming
   - Media player
 ha_release: 0.89
 ha_config_flow: true

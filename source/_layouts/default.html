@@ -2,6 +2,14 @@
 {% assign root = url_parts[1] %}
 {% assign doc = url_parts[2] %}
 
+{%- comment -%} Render the table of contents once; it is shown both in the
+top bar and in the sidebar. {%- endcomment -%}
+{%- if page.toc -%}
+  {%- unless page.no_toc -%}
+    {%- assign rendered_toc = content | toc_only -%}
+  {%- endunless -%}
+{%- endif -%}
+
 {% include site/head.html %}
   <body {% if page.body_id %} id="{{ page.body_id }}"{% elsif page.layout == "landingpage" %} id="landingpage"{% endif %} class="{% if root == 'docs' or root == 'dashboards' or root == 'voice_control' or root == 'installation' or root == 'getting-started' or root == 'common-tasks' or root == 'template-functions' or root == 'actions' or root == 'triggers' or root == 'conditions' %}documentation-page{% endif %} {% if root == 'integrations' or page.function_name or page.action or page.trigger or page.condition %}integration-page{% endif %} {% if page.blog_index %}blog-index{% endif %} {% if root == 'blog' %}blog-post {% if doc == 'categories' %}blog-category{% endif %}{% endif %}">
     <header class='site-header {% if page.dark_header %}dark{% endif %}'>
@@ -60,7 +68,7 @@
                 <section class="aside-module grid__item one-whole">
                   <div class='section'>
                     <label for="toc-toggle"><span class="title epsilon">{% icon "mdi:toc" %} On this page</span> <input type="checkbox" id="toc-toggle"/> <span class="toc-current"></span></label>
-                    {{ content | toc_only }}
+                    {{ rendered_toc }}
                   </div>
                 </section>
               </aside>

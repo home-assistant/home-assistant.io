@@ -14,6 +14,7 @@ ha_platforms:
   - light
 ha_integration_type: hub
 ha_quality_scale: bronze
+ha_dhcp: true
 ---
 
 The [AiDot](https://www.aidot.com/) {% term integration %} allows you to control Wi-Fi lights with Home Assistant.

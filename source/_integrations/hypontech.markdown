@@ -2,6 +2,7 @@
 title: Hypontech Cloud
 description: Instructions on how to integrate Hypontech Cloud solar inverters within Home Assistant.
 ha_category:
+  - Binary sensor
   - Energy
   - Sensor
 ha_release: 2026.3
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@jcisio'
 ha_domain: hypontech
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -69,6 +71,12 @@ All sensors are updated every minute. If there is no current clamp and no batter
 
 - Total power = PV power + Battery power
 - Load power = Total power + Grid power
+
+### Binary sensors
+
+Each Plant device has the following diagnostic binary sensor:
+
+- **Status**: On when Hypontech Cloud reports the plant as online, and off otherwise.
 
 ## Data updates
 

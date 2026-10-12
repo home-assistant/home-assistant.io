@@ -52,10 +52,10 @@ VAPID private key:
 
 Assuming you have already configured the platform:
 
-{% my profile badge %}
+{% my profile_browser badge %}
 
-1. Open the Home Assistant {% my profile title="**User profile**" %} page in [a supported browser](#supported-platforms).
-   - To open the page, select the **User Profile** link above or in Home Assistant, select your user account initials at the bottom of the sidebar.
+1. In [a supported browser](#supported-platforms), go to {% my profile_browser title="**User profile** > **This browser**" %}.
+   - To open your profile in Home Assistant, select your name at the bottom of the sidebar. Then select **This browser**.
 2. Assuming you have met all the [requirements](#prerequisites) above, you should see a **Receive notifications** toggle.
    - If the toggle is greyed out, make sure you are viewing Home Assistant via its external HTTPS address. 
    - Also, make sure you have added the {% my integrations title="**HTML5 Push Notifications**" domain="html5" %} integration to Home Assistant.
@@ -96,71 +96,6 @@ Each event includes **state attributes** that provide additional context:
 - Any extra data that was included in the payload of the notification.
 
 {% include integrations/actions.md %}
-
-## Automating notification events
-
-During the lifespan of a single push notification, Home Assistant will emit a few different events to the event bus which you can use to write automations against.
-
-Common event payload parameters are:
-
-| Parameter | Description                                                                                                                                                                                                                                                              |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `action`  | The `action` key that you set when sending the notification of the action clicked. Only appears in the `clicked` event.                                                                                                                                                  |
-| `data`    | The data dictionary you originally passed in the notify payload, minus any parameters that were added to the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`, `silent`). |
-| `tag`     | The unique identifier of the notification. Can be overridden when sending a notification to allow for replacing existing notifications.                                                                                                                                  |
-| `target`  | The target that this notification callback describes.                                                                                                                                                                                                                    |
-| `type`    | The type of event callback received. Can be `received`, `clicked` or `closed`.                                                                                                                                                                                           |
-
-You can use the `target` parameter to write automations against a single `target`. For more granularity, use `action` and `target` together to write automations which will do specific things based on what target clicked an action.
-
-### Received event
-
-You will receive an event named `html5_notification.received` when the
-notification is received on the device.
-
-{% example %}
-automation: |
-  alias: "HTML5 push notification received and displayed on device"
-  triggers:
-    - trigger: event
-      event_type: html5_notification.received
-{% endexample %}
-
-### Clicked event
-
-You will receive an event named `html5_notification.clicked` when the notification or a notification action button is clicked. The action button clicked is available as `action` in the `event_data`.
-
-{% example %}
-automation: |
-  alias: "HTML5 push notification clicked"
-  triggers:
-    - trigger: event
-      event_type: html5_notification.clicked
-{% endexample %}
-
-or
-
-{% example %}
-automation: |
-  alias: "HTML5 push notification action button clicked"
-  triggers:
-    - trigger: event
-      event_type: html5_notification.clicked
-      event_data:
-        action: open_door
-{% endexample %}
-
-### Closed event
-
-You will receive an event named `html5_notification.closed` when the notification is closed.
-
-{% example %}
-automation: |
-  alias: "HTML5 push notification clicked"
-  triggers:
-    - trigger: event
-      event_type: html5_notification.closed
-{% endexample %}
 
 ## Enabling HTML5 Push Notifications behind an NGINX reverse proxy with authentication
 

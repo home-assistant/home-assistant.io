@@ -26,7 +26,7 @@ A [Group helper](/integrations/group/) can combine entities and expose aggregate
 {% include template_functions/usage.md %}
 
 {% template_function_usage %}
-function: '{{ expand("group.living_room_lights") | map(attribute="entity_id") | list }}'
+function: '{{ expand("light.living_room_lights") | map(attribute="entity_id") | list }}'
 type: list
 output: |
   [
@@ -36,7 +36,7 @@ output: |
   ]
 
 ---
-filter: '{{ "group.living_room_lights" | expand | map(attribute="entity_id") | list }}'
+filter: '{{ "light.living_room_lights" | expand | map(attribute="entity_id") | list }}'
 type: list
 output: |
   [
@@ -82,7 +82,7 @@ args:
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("light.home_lights")
     | selectattr("state", "eq", "on")
     | list
     | count
@@ -98,7 +98,7 @@ Combine `expand` with [`average`](/template-functions/average/) to get the mean 
 {% example %}
 template: |
   {{
-    expand("group.temperature_sensors")
+    expand("sensor.temperature_sensors")
     | map(attribute="state")
     | map("float")
     | average
@@ -112,7 +112,7 @@ output: "21.3"
 {% example %}
 template: |
   {{
-    expand("group.temperature_sensors")
+    expand("sensor.temperature_sensors")
     | sort(attribute="state", reverse=true)
     | map(attribute="entity_id")
     | first

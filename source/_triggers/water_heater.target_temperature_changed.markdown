@@ -99,7 +99,7 @@ threshold:
 
     For `type: above` and `type: below`, use `value` with either `number` and `unit_of_measurement`, or `entity`. For `type: between` and `type: outside`, use `value_min` and `value_max`, each with either `number` and `unit_of_measurement`, or `entity`.
 
-    The `entity` value can reference an `input_number`, `sensor`, or `number` entity. When you use a helper, create the {% term helper %} separately before using it here.
+    The `entity` value can reference an input number, sensor, or number entity. When you use a helper, create the {% term helper %} separately before using it here.
   required: true
   type: map
 {% endoptions_yaml %}
@@ -108,10 +108,11 @@ threshold:
 
 ## Good to know
 
+- The target water heater entity must expose a target temperature attribute.
 - This trigger watches the target temperature setpoint, not the current measured water temperature.
 - To react only when the setpoint crosses a threshold boundary, use [Water heater target temperature crossed threshold](/triggers/water_heater.target_temperature_crossed_threshold/).
+- Threshold entities must provide temperature values. Supported threshold sources are temperature sensors, temperature number entities, and input number helpers.
 - When you use an entity as the threshold, Home Assistant uses that entity's current value when the setpoint changes.
-- The threshold entities must provide temperature values. Supported threshold sources are temperature sensors, temperature number entities, and `input_number` helpers.
 
 {% include triggers/try_it.md %}
 

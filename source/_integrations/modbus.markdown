@@ -1,8 +1,9 @@
 ---
 title: Modbus
-description: Instructions on how to integrate modbus and platforms.
+description: Instructions on how to manually register Modbus entities and platforms.
 ha_category:
   - Hub
+  - Modbus
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: modbus
@@ -20,13 +21,81 @@ related:
     title: Configuration file
 ---
 
-[modbus](http://www.modbus.org/) is a communication protocol to control PLCs (Programmable Logic Controller) and RTUs (Remote Terminal Unit).
+The **Modbus** {% term integration %} connects Home Assistant to devices that have a Modbus interface. Many integrations for these devices use the Modbus integration to connect, so you usually don't set it up yourself. To get started, refer to [Setting up Modbus control in Home Assistant](#setting-up-modbus-control-in-home-assistant).
 
-The integration adheres strictly to the [protocol specification](https://www.modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf) using [pymodbus](https://github.com/pymodbus-dev/pymodbus) for the protocol implementation.
+[Modbus](https://www.modbus.org/) is a communication protocol for industrial devices, such as controllers in heating, ventilation, and solar systems.
 
-The modbus {% term integration %} supports all devices adhering to the modbus standard. The communication to the device/devices can be serial (rs-485), TCP, or UDP connections. The modbus integration allows multiple communication channels e.g. a serial port connection combined with one or more TCP connections.
+## Supported devices
 
-# Configuring modbus communication
+Home Assistant supports devices with a Modbus interface through integrations for those devices. To find these integrations, browse the [Modbus-controlled category](/integrations/#modbus-controlled).
+
+If no integration supports your device, you can still get to its data by manually configuring the Modbus registers in YAML. For the steps, refer to [Setting up a Modbus hub in YAML](#setting-up-a-modbus-hub-in-yaml).
+
+## Setting up Modbus control in Home Assistant
+
+Some devices have a Modbus interface, such as solar inverters, heat pumps, and ventilation units. Home Assistant can read data from these devices and control them.
+
+To set up your Modbus device, add the integration for your device. For the steps, refer to [Setting up a device integration that uses Modbus](#setting-up-a-device-integration-that-uses-modbus).
+
+- To find out if an integration is available for your device, browse the [Modbus-controlled category](/integrations/#modbus-controlled).
+- You can also search for the brand of your device when you add an integration in {% my integrations title="**Settings** > **Devices & services**" %}.
+
+If no integration supports your device, you can configure its Modbus registers manually in YAML instead. For the steps, refer to [Setting up a Modbus hub in YAML](#setting-up-a-modbus-hub-in-yaml).
+
+### Setting up a device integration that uses Modbus
+
+Prerequisites:
+
+- You have administrator rights.
+- You have a device with a Modbus interface.
+- Home Assistant can reach the Modbus interface of the device in one of these ways:
+  - Over the network (Modbus TCP): the device, or a Modbus gateway that translates to Modbus TCP, is on your network.
+  - Over a serial connection (Modbus RTU): the RS-485 wires of the device are connected to one of these:
+    - A [USB-to-RS-485 adapter](/integrations/serial/#usb-to-serial-adapter) that is connected to your Home Assistant system.
+    - An [ESPHome serial proxy](/integrations/serial/#setting-up-an-esphome-serial-proxy) with an RS-485 port.
+    - A [serial device server](/integrations/serial/#serial-device-server) on your network.
+
+1. If needed, turn on the Modbus interface of your device.
+   - Many devices have Modbus TCP turned off by default. The documentation or the app of your device describes how to turn Modbus TCP on. Some integration pages describe the steps too, for example, [Fronius](/integrations/fronius/#modbus-tcp).
+2. Add the integration for your device, such as [SolarEdge Modbus](/integrations/solaredge_modbus/) or [STIEBEL ELTRON](/integrations/stiebel_eltron/).
+   - To add the integration, follow the steps in the integration documentation.
+   - During setup, enter how Home Assistant reaches the device:
+     - For a network connection, enter the host and the port. Use the port from the integration documentation. Many devices use `502`, but some use another port.
+     - For a serial connection, select the [serial port](/integrations/serial/#serial-port), and enter the [baud rate](/integrations/serial/#baud-rate).
+       - A serial proxy is listed with the serial ports.
+       - For a serial device server, select **Enter manually** and enter its URL. With a `socket://` URL, the baud rate isn't passed on, so set it on the serial device server itself.
+   - Some integrations also ask for the unit ID of the device. The unit ID identifies the device on the Modbus connection. Some integrations call it **Device ID**, and device manuals often call it slave ID. Most devices use `1`. Unless several devices share the connection, you can usually keep `1`. In YAML, it's `device_address`.
+   - Result: The entities of your device appear in Home Assistant.
+3. Optional: To check the connection, go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
+   - For details, refer to [Viewing your Modbus connections](#viewing-your-modbus-connections).
+
+### Setting up a Modbus hub in YAML
+
+Use a Modbus hub in YAML only if no integration supports your device. You then configure the Modbus registers of your device yourself.
+
+Prerequisites:
+
+- You have administrator rights.
+- You can edit your {% term "`configuration.yaml`" %} file.
+- You have a device with a Modbus interface, and its Modbus documentation with the addresses of the values you want to use.
+- Home Assistant can reach the Modbus interface of the device in one of these ways:
+  - Over the network (Modbus TCP or Modbus UDP): the device, or a Modbus gateway that translates to Modbus TCP or UDP, is on your network.
+  - Over a serial connection (Modbus RTU): the RS-485 wires of the device are connected to one of these, but not to an ESPHome serial proxy:
+    - A [USB-to-RS-485 adapter](/integrations/serial/#usb-to-serial-adapter) that is connected to your Home Assistant system.
+    - A [serial device server](/integrations/serial/#serial-device-server) on your network.
+
+1. If needed, turn on the Modbus interface of your device.
+2. In your {% term "`configuration.yaml`" %} file, add a Modbus hub for the connection to your device.
+   - For the options, refer to [Configuring modbus communication](#configuring-modbus-communication).
+   - For a serial device server, use `type: rtuovertcp`. Set the baud rate on the serial device server itself. For details, refer to [Configuring a TCP-RTU connection](#configuring-a-tcp-rtu-connection).
+3. Under the hub, add an entity for each value you want to read or control. Set `address` to where the device stores the value.
+   - For the options, refer to [Configuring modbus entities](#configuring-modbus-entities).
+4. Restart Home Assistant.
+   - Result: The entities of your device appear in Home Assistant.
+5. Optional: To check the connection, go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
+   - For details, refer to [Viewing your Modbus connections](#viewing-your-modbus-connections).
+
+## Configuring modbus communication
 
 Configure the modbus communication with modbus devices. This is a general setup needed establish access to the device.
 
@@ -58,7 +127,7 @@ name:
 timeout:
   description: "Timeout while waiting for a response in seconds."
   required: false
-  default: 5
+  default: 3
   type: integer
 type:
   description: "Type of modbus."
@@ -336,6 +405,30 @@ modbus:
     parity: E
     stopbits: 1
 ```
+
+## Viewing your Modbus connections
+
+You can see the connections to your Modbus devices in one place from the **Modbus** configuration panel. The panel lists the Modbus hubs that you configured in YAML, and the integrations that connect through the Modbus integration. For example, [SolarEdge Modbus](/integrations/solaredge_modbus/) and [STIEBEL ELTRON](/integrations/stiebel_eltron/) are listed. Integrations that manage their own Modbus connection, such as [Nibe Heat Pump](/integrations/nibe_heatpump/) and [NeoPool](/integrations/neopool/), don't appear in the panel.
+
+Prerequisites:
+
+- You have administrator rights.
+- You have set up an integration that connects through the Modbus integration, or a Modbus hub in YAML. Otherwise, **Modbus** doesn't appear under **Connectivity**.
+
+1. Go to {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}.
+   - At the top, a summary shows how many units (Modbus devices) are on how many connections.
+   - If no connection has been opened yet, the panel shows **No Modbus connections**.
+   - To load the list again, select **Refresh** {% icon "mdi:refresh" %} in the top right corner.
+2. Under **Connections**, you can see one item for each connection. A connection is the network address of a device or of a Modbus gateway, or a serial port, such as one with an RS-485 bus. A connection can reach several units, which are the Modbus devices behind it. The integrations in the panel that use the same address or port share one connection.
+3. Still under **Connections**, for each connection item, you can see:
+   - The network address, or the [device path](/integrations/serial/#device-path) of the serial port.
+   - The type of connection: **TCP**, **UDP**, or **Serial**. A hub that you configured in YAML is also marked **Configured in YAML**. Such a hub keeps a connection of its own, so the same device can be listed twice.
+   - Whether the connection is open right now:
+     - A network connection shows **Connected** or **Not connected**. A serial port shows **Open** or **Closed**.
+     - **Connected** or **Open**: The connection is open right now. For a serial port, **Open** only means that the port is open, not that the device answers.
+     - **Not connected** or **Closed**: The connection is not open right now. The connection opens again the next time an integration reads from the device. A device can also close a connection that isn't used.
+   - The integrations that use the connection, with the unit IDs they use. Select an integration to go to its settings. A hub that you configured in YAML is shown by its name instead, and can't be selected.
+4. For a serial connection, to see the port in the **Serial** panel, select **View this port under Serial**.
 
 # Configuring modbus entities
 
@@ -928,7 +1021,6 @@ modbus:
         offset: 0
         precision: 1
         scale: 0.1
-        max_temp: 30
         structure: ">f"
         target_temp_register: 2782
         target_temp_write_registers: true
@@ -1726,50 +1818,7 @@ Some parameters exclude other parameters, the following tables show what can be 
 | swap: word_byte | No     | No     | No  | Yes | Yes |
 
 
-# Actions
-
-The modbus integration provides two generic write actions in addition to the platform-specific actions.
-
-| Action                | Description                 |
-| --------------------- | --------------------------- |
-| modbus.write_register | Write register or registers |
-| modbus.write_coil     | Write coil or coils         |
-
-Description:
-
-| Attribute | Description                                                                                                                                                                                                                                                                                 |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| hub       | Hub name (defaults to 'modbus_hub' when omitted)                                                                                                                                                                                                                                            |
-| slave     | Slave address (0-255, defaults to 1 when omitted)                                                                                                                                                                                                                                           |
-| address   | Address of the Register (e.g. 138)                                                                                                                                                                                                                                                          |
-| value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
-| state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F                                                                                                                                        |
-
-## Example: writing a float32 type register
-
-To write a float32 datatype register use network format like `10.0` == `0x41200000` (network order float hexadecimal).
-
-```yaml
-action: modbus.write_register
-data:
-  address: <target register address>
-  slave: <target slave address>
-  hub: <hub name>
-  value: [0x4120, 0x0000]
-```
-
-## Action `modbus.set-temperature`
-
-| Action          | Description                                                                                                                                   |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| set_temperature | Set temperature. Requires `value` to be passed in, which is the desired target temperature. `value` should be in the same type as `data_type` |
-
-## Action `modbus.set_hvac_mode`
-
-| Action        | Description                                                                                                                                                                                                                                                                                                                           |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| set_hvac_mode | Set HVAC mode. Requires `value` to be passed in, which is the desired mode. `value` should be a valid HVAC mode. A mapping between the desired state and the value to be written to the HVAC mode register must exist. Performing this action will also set the On/Off register to an appropriate value, if such a register is defined. |
-
+{% include integrations/actions.md %}
 
 # Opening an issue
 

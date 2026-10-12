@@ -1,6 +1,6 @@
 ---
 title: WeatherflowCloud
-description: Instructions on the Cloud based WeatherFlow integration
+description: Instructions on how to integrate your WeatherFlow Tempest into Home Assistant through the WeatherFlow cloud.
 ha_release: 2024.3
 ha_category:
   - Environment
@@ -17,15 +17,16 @@ ha_domain: weatherflow_cloud
 ha_integration_type: hub
 ---
 
-The **WeatherFlow Cloud** {% term integration %} provides access to cloud provided Weather Forecast of a user's Tempest Weather Stations. To access the station, you will need to configure the integration with an [Api Key](https://weatherflow.github.io/Tempest/api/).
+The **WeatherFlow Cloud** {% term integration %} provides the cloud-based forecast and observations of your Tempest weather stations. To set it up, you need a [personal access token](https://apidocs.tempestwx.com/reference/quick-start) from your Tempest account.
 
-### Which integration(s) should I use
+## Which integration should I use?
 
 There are two integrations for WeatherFlow devices, and you are not limited to selecting just one.
 
-- [WeatherFlow](/integrations/weatherflow) is a *local only* `UDP`-based integration that will read data directly from the device. This integration does require the Home Assistant server and the WeatherFlow device to be on the same subnet.
+- [WeatherFlow](/integrations/weatherflow/) is a local-only, UDP-based integration that reads data directly from the device. This integration requires the Home Assistant server and the WeatherFlow device to be on the same subnet.
 
-- [WeatherFlow Cloud](/integrations/weatherflow_cloud) is a *cloud*-based integration that closely mirrors the data available via the Weatherflow Tempest mobile applications and is likely a good starting place for most users as it provides both **Forecast** and **Sensor** data. 
+- [WeatherFlow Cloud](/integrations/weatherflow_cloud/) is a cloud-based integration that closely mirrors the data available in the Tempest app and is likely a good starting place for most users as it provides both forecast and sensor data.
+
 {% include integrations/config_flow.md %}
 
 ### Temperature sensors
@@ -45,7 +46,7 @@ There are two integrations for WeatherFlow devices, and you are not limited to s
 | Sensor | Description |
 | --- | --- |
 | Air density | The mass per unit volume of Earth's atmosphere. |
-| Pressure barometric | The pressure exerted by the atmosphere at the earth's surface. |
+| Pressure barometric | The pressure exerted by the atmosphere at Earth's surface. |
 | Pressure sea level | The atmospheric pressure at mean sea level. |
 | Pressure station | The atmospheric pressure at the station level. |
 

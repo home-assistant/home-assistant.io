@@ -43,24 +43,30 @@ See device section for support information: [buttons](#buttons), [covers](#cover
 
 The WMS WebControl pro *may* also be discovered on your local network via DHCP.
 
-## Buttons
+{% include integrations/actions.md %}
+
+## Supported functionality
+
+The **WMS WebControl pro** integration provides the following entities.
+
+### Buttons
 
 - All devices that support an identification activity (for example, winking an awning or blinking a light) can be triggered to perform such activity.
 
-## Covers
+### Covers
 
 - *Awnings*, *volant awnings* (vertical drop sun shades), and *roller shutters/blinds* can be opened, closed, set to a certain position, and stopped.
 - *Slat-based blinds* can additionally have their slats rotated open, closed, or to a specific rotation angle.
 
-### Rotation support
+#### Rotation support
 
 Home Assistant treats the slat rotation as a linear scale from fully open to fully closed. The integration uses the maximum rotation angle as the fully closed position, but the minimum (opposite) angle is not treated as fully open. Instead when you set the slats to the open position in Home Assistant, they move to the position where the slats are parallel to the ground as expected. You can change the minimum and maximum rotation angles via configuration [number](#numbers) entities or [automatic learning](#automatic-learning).
 
-## Lights
+### Lights
 
 - Dimmers (with brightness control) and switches are fully supported.
 
-## Numbers
+### Numbers
 
 - *Slat-based blinds* have configuration entities to overwrite the minimum and maximum rotation angle.
   This is required as the WMS WebControl pro currently reports invalid minimum and maximum rotation values.
@@ -69,15 +75,21 @@ Home Assistant treats the slat rotation as a linear scale from fully open to ful
 - *Slat-based covers* like roofs that only have rotation, but not position control, only have this entity.
    For covers with rotation only, this entity appears as the main control.
 
-### Automatic learning
+#### Automatic learning
 
 The number entities persist across Home Assistant restarts. They are updated automatically on slat rotation to allow automatic learning of the valid rotation range based on the current rotation angle. For learning, it is sufficient to rotate *slat-based blinds* to both end positions while Home Assistant is connected and wait until the position has updated.
 
-## Scenes
+### Scenes
 
 - Scenes can be activated, but not changed or monitored.
 - Scenes are accessible via a virtual device per room.
 
-## Switches
+### Switches
 
 - Load switches (for example, a connected heater) can be turned on and off.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

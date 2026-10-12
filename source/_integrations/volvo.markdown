@@ -11,6 +11,8 @@ ha_config_flow: true
 ha_category:
   - Binary sensor
   - Button
+  - Car
+  - Device tracker
   - Lock
   - Sensor
 ha_platforms:
@@ -232,13 +234,12 @@ Go to Volvo's developer portal to view [the list of supported models](https://de
 
 ## Examples
 
-### Notify if doors are left open
+### Automation: Notify if doors are left open
 
-Send a notification to your mobile phone if at least one door is open for 5 minutes.
+This example sends a notification when one of the selected doors or the tailgate remains open for five minutes.
 
 ```yaml
-alias: Notify me if doors are left open for 5 minutes
-description: ""
+alias: "Notify if Volvo doors are left open"
 triggers:
   - trigger: state
     entity_id:
@@ -249,18 +250,13 @@ triggers:
       - binary_sensor.volvo_YOUR_MODEL_tailgate
     to: "on"
     for:
-      hours: 0
       minutes: 5
-      seconds: 0
-conditions: []
 actions:
-  - data:
-      data:
-        url: /lovelace/volvo
-      title: 🚘 Volvo
-      message: You've left some doors open. Don't give thiefs a chance!
-    action: notify.mobile_app_phone_john_doe
-mode: single
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "A Volvo door or the tailgate has been left open for five minutes."
 ```
 
 ### Estimated charging finish time
@@ -270,7 +266,8 @@ The Volvo API only provides an estimated charging time (in minutes). To calculat
 {% raw %}
 
 ```jinja2
-{% set charging_time = states('sensor.volvo_YOUR_MODEL_estimated_charging_time') | int(0) %}
+{% set charging_time =
+  states('sensor.volvo_YOUR_MODEL_estimated_charging_time') | int(0) %}
 {% if charging_time > 0 -%}
   {% set new_time = now() + timedelta(minutes=charging_time) %}
   {{ new_time }}

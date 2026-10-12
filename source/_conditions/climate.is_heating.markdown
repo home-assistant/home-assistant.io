@@ -82,7 +82,7 @@ for:
 
 When the bedroom thermostat is actively heating, slow down the ceiling fan to help push warm air down from the ceiling without creating a chill. This optimizes heat distribution only during active heating cycles.
 
-- **Trigger**: State: Bedroom thermostat started heating
+- **Trigger**: State changed: Bedroom thermostat started heating
 - **Condition**: Thermostat is heating
   - **Target**: Bedroom thermostat
 - **Action**: Set fan speed to 30%

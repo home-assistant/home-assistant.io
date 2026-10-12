@@ -15,7 +15,7 @@ To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
-3. Add an action and search for **Vacuum: Send command to vacuum cleaner**.
+3. Add an action and search for **Send command to vacuum cleaner**.
 4. Enter the desired command.
 5. Optionally add parameters.
 6. Select the vacuum target and save.

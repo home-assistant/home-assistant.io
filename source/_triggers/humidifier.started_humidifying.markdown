@@ -35,6 +35,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted humidifier starts humidifying.
     - **First**: fires only on the first humidifier that starts humidifying.
     - **All**: fires only after every targeted humidifier starts humidifying.
+  required: false
 For at least:
   description: How long the humidifier must be actively humidifying before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -132,9 +133,9 @@ When the bedroom humidifier starts humidifying, turn on a low-speed fan to distr
 
 - **Trigger**: Humidifier started humidifying
   - **Target**: Bedroom humidifier
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
-- **Action**: Fan: Turn on
+- **Action**: Turn on fan
+  - **Target**: Bedroom fan
+  - **Percentage**: `30`%
 
 {% details "YAML example for running a fan when humidifying starts" %}
 
@@ -145,9 +146,6 @@ automation: |
     - trigger: humidifier.started_humidifying
       target:
         entity_id: humidifier.bedroom
-      options:
-        behavior: each
-        for: "00:00:00"
   actions:
     - action: fan.turn_on
       target:

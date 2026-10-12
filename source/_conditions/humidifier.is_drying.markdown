@@ -87,7 +87,7 @@ When the basement dehumidifier is actively removing moisture, open the basement 
 - **Condition**: Humidifier is drying
   - **Target**: Basement dehumidifier
   - **Condition passes if**: Any
-- **Action**: Cover: Open cover
+- **Action**: Open cover
 
 {% details "YAML example for opening a vent while the dehumidifier is active" %}
 

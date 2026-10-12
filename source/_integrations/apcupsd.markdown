@@ -91,10 +91,6 @@ Some sensors are disabled by default, since they are primarily useful for diagno
   - **Description**: Total (cumulative) time on batteries in seconds since apcupsd startup.
   - **Available for machines**: all
 
-- **Date and Time**
-  - **Description**: The time and date that the STATUS record was written.
-  - **Available for machines**: all
-
 - **Transfer High**
   - **Description**: The line voltage above which the UPS will switch to batteries.
   - **Available for machines**: all
@@ -273,33 +269,13 @@ Some sensors are disabled by default, since they are primarily useful for diagno
   - **Description**: The ambient temperature as measured by the UPS.
   - **Available for machines**: Smart-UPS with optional accessories (e.g., temperature/humidity sensors or SNMP network cards).
 
-- **Status Data**
-  - **Description**: Header record indicating the STATUS format revision level, the number of records that follow the APC statement, and the number of bytes that follow the record.
-  - **Available for machines**: all
-  - **Remarks**: Disabled by default.
-
-- **Model**
-  - **Description**: The old APC model identification code.
-  - **Available for machines**: Smart-UPS
-  - **Remarks**: Disabled by default.
-
 - **Cable Type**
   - **Description**: The cable as specified in the configuration file (UPSCABLE).
   - **Available for machines**: all
   - **Remarks**: Disabled by default.
 
-- **Status Date**
-  - **Description**: The date and time that the information was last obtained from the UPS.
-  - **Available for machines**: all
-  - **Remarks**: Disabled by default.
-
 - **Driver**
   - **Description**: The driver used to communicate with the UPS.
-  - **Available for machines**: all
-  - **Remarks**: Disabled by default.
-
-- **Firmware Version**
-  - **Description**: The firmware revision number as reported by the UPS.
   - **Available for machines**: all
   - **Remarks**: Disabled by default.
 
@@ -316,11 +292,6 @@ Some sensors are disabled by default, since they are primarily useful for diagno
 - **Manufacture Date**
   - **Description**: The date the UPS was manufactured.
   - **Available for machines**: Smart-UPS
-  - **Remarks**: Disabled by default.
-
-- **Model**
-  - **Description**: The UPS model as derived from information from the UPS.
-  - **Available for machines**: all
   - **Remarks**: Disabled by default.
 
 - **Register 1 Fault**
@@ -343,47 +314,30 @@ Some sensors are disabled by default, since they are primarily useful for diagno
   - **Available for machines**: all
   - **Remarks**: Disabled by default.
 
-- **Serial Number**
-  - **Description**: The UPS serial number.
-  - **Available for machines**: all
-  - **Remarks**: Disabled by default.
-
 - **Status Flag**
   - **Description**: Status flag. English version is given by STATUS.
   - **Available for machines**: all
   - **Remarks**: Disabled by default.
 
-- **Name**
-  - **Description**: The name of the UPS as stored in the EEPROM or in the UPSNAME directive in the configuration file.
-  - **Available for machines**: all
-  - **Remarks**: Disabled by default.
-
-- **Daemon Info**
-  - **Description**: The apcupsd release number, build date, and platform.
-  - **Available for machines**: all
-  - **Remarks**: Disabled by default.
-
 ## Examples
 
-### Send me a push notification when UPS load is high
+### Automation: Notify when UPS load is high
 
+This example sends a notification when the UPS load rises above 80%.
 
 ```yaml
-alias: "APC UPS Load High Notification"
-description: "Notify when APC UPS load is too high"
-mode: single
+alias: "APC UPS load high notification"
 triggers:
   - trigger: numeric_state
-    entity_id:
-      - sensor.apc_ups_load
+    entity_id: sensor.apc_ups_load
     above: 80
-conditions: []
 actions:
-  - action: notify.notify
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
-      message: "APC UPS load is high: {{ states('sensor.apc_ups_load') }}%"
+      message: "APC UPS load is above 80%."
 ```
-
 
 ## Data updates
 

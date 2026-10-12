@@ -18,14 +18,17 @@ The **EufyLife** {% term integration %} allows you to integrate Eufy smart scale
 
 ## Supported devices
 
-- [Smart Scale (T9140)](https://support.eufy.com/s/product/a085g000000Nm5FAAS/smart-scale(t9140))
-- [Smart Scale C1 (T9146)](https://us.eufy.com/products/t9146)
-- [Smart Scale P1 (T9147)](https://us.eufy.com/products/t9147)
-- [Smart Scale P2 (T9148)](https://us.eufy.com/products/t9148)
-- [Smart Scale P2 Pro (T9149)](https://us.eufy.com/products/t9149111)
+- [Smart Scale (T9140)](https://service.eufy.com/product-description/a085g000000Nm5FAAS)
+- [Smart Scale A1 (T9120)](https://service.eufy.com/product-description/a08J1000000XqjzIAC)
+- [Smart Scale C1 (T9146)](https://service.eufy.com/product-description/a085g000000NxQJAA0)
+- [Smart Scale C20 (T9130)](https://service.eufy.com/product-description/a08J1000000XnJ9IAK/)
+- [Smart Scale P1 (T9147)](https://service.eufy.com/product-description/a085g000000NxQIAA0)
+- [Smart Scale P2 (T9148)](https://service.eufy.com/product-description/a085g000004wnz4AAA)
+- [Smart Scale P2 Pro (T9149)](https://service.eufy.com/product-description/a085g000004wpGjAAI)
+- [Smart Scale P3 (T9150)](https://service.eufy.com/product-description/a085g000004zMopAAE)
 
 {% note %}
-This integration does not support the Wi-Fi capabilities of the P2 and P2 Pro. It can only connect to your smart scale via Bluetooth.
+This integration does not support the Wi-Fi capabilities of the P2, P2 Pro and P3. It can only connect to your smart scale via Bluetooth.
 {% endnote %}
 
 ## Features

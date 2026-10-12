@@ -122,7 +122,7 @@ If you are checking the mower after dark, this automation keeps the porch light 
 - **Condition**: Lawn mower is encountering an error
   - **Target**: Backyard mower
   - **For at least**: 00:00:30
-- **Condition**: Sun: after sunset
+- **Condition**: Sun is set
 - **Action**: Turn on light
 
 {% details "YAML example for keeping the porch light on" %}
@@ -139,8 +139,7 @@ automation: |
         entity_id: lawn_mower.backyard
       options:
         for: "00:00:30"
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

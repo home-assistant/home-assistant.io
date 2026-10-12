@@ -20,6 +20,10 @@ The **SolaX Power** {% term integration %} connects Home Assistant to Solax sola
 
 {% include integrations/config_flow.md %}
 
+### Inverter model selection
+
+This integration automatically detects your inverter model. If auto-detection results in multiple compatible inverter models, you can manually select your inverter model from the dropdown list during setup.
+
 ### Optional template sensor
 
 If you would like to convert the values from multiple panels or view the total power the house is using, you can use the [template platform](/integrations/template).
@@ -43,3 +47,7 @@ There are generally at least 3 sensors from your inverter that you need to confi
 - The consumption sensor (in kWh) for the **Grid Consumption**.
 - The feed-in sensor (in kWh) for the **Return to grid**, for example, the solar panel energy you do not consume and return to the grid instead.
 - The on-grid yield sensor (in kWh) for the **Solar production**.
+
+If your inverter reports battery energy and power, you can also add the battery to the Energy dashboard. Configure the available battery charge and discharge energy sensors and, for the **Energy distribution** card on the **Now** tab, the battery power sensor.
+
+Check the direction reported by the battery power sensor. If it reports a positive value while charging and a negative value while discharging, set **Type of power measurement** to **Inverted**. This makes the **Energy distribution** card on the **Now** tab use the expected battery power direction.

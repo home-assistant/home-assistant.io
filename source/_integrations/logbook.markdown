@@ -14,15 +14,28 @@ related:
     title: Configuration file
 ---
 
-<img src='/images/screenshots/activity-panel.png' style='margin-left:10px; float: right;' height="100" />
+The **Activity** {% term integration %} provides a different perspective on the history of your house by showing all the changes that happened to your house in reverse chronological order. It depends on the [Recorder](/integrations/recorder/) integration for storing the data. This means that if the Recorder integration is set up to use a database such as MySQL or PostgreSQL, the Activity integration uses that database instead of the default SQLite database.
 
-The **Activity** {% term integration %} provides a different perspective on the history of your
-house by showing all the changes that happened to your house in reverse
-chronological order. It depends on
-the [`recorder`](/integrations/recorder/) integration for storing the data. This means that if the
-[`recorder`](/integrations/recorder/) integration is set up to use e.g., MySQL or
-PostgreSQL as data store, the `activity` integration does not use the default
-SQLite database to store data.
+## Viewing activity in the Activity panel
+
+The **Activity** panel shows recorded changes and events in your home, with the most recent events first. You can narrow it down to the areas, devices, or entities you are interested in.
+
+1. In the sidebar, select **Activity**.
+   - On a wide screen, the **Sources** pane opens on the left.
+   - On a narrow screen, such as a phone, select **Sources** {% icon "mdi:tune-variant" %} in the toolbar to open it.
+2. Optional: To see only part of your activity, in the **Sources** pane, select **Add target**, then select the floors, areas, devices, entities, or labels you want to see.
+3. Optional: To narrow down the activity further, use the filters below the targets. The filters also work without a target.
+   - **Type**: shows only activity of entities of the selected types. For example, select the **Motion** type under **Binary sensor** to see only motion activity.
+   - **Integrations**: shows only activity of entities that are provided by the selected integrations.
+   - Home Assistant remembers your targets and filters the next time you open the panel. To remove all of them, select **Clear filter** {% icon "mdi:filter-variant-remove" %} at the top of the pane.
+4. To change the time period, select the date range in the toolbar.
+   - To move to the previous or next period, select the arrows next to the date range.
+5. Optional: In the top right corner, select **Menu** {% icon "mdi:dots-vertical" %} for more options:
+   - **Refresh**: loads the latest activity.
+   - **Download data**: exports the activity that is currently shown in CSV format.
+   - **Reset**: removes your targets and filters and goes back to the default time period.
+
+## Configuration
 
 This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your {% term "`configuration.yaml`" %} file. If that is the case, the following example shows you how to enable this integration manually, by adding it to your {% term "`configuration.yaml`" %} file:
 
@@ -33,44 +46,46 @@ logbook:
 
 {% configuration %}
 exclude:
-  description: "Configure which integrations should **not** should not track activity. ([Configure Filter](#configure-filter))"
+  description: "Entities and domains to hide from the **Activity** panel. ([Configure filter](#configure-filter))"
   required: false
   type: map
   keys:
     entities:
-      description: The list of entity ids to be excluded from tracking activity.
+      description: The list of entity IDs to hide from the **Activity** panel.
       required: false
       type: list
     entity_globs:
-      description: Exclude all entities matching a listed pattern from tracking activity (e.g., `sensor.weather_*`).
+      description: The entities that match a listed pattern to hide from the **Activity** panel (for example, `sensor.weather_*`).
       required: false
       type: list
     domains:
-      description: The list of domains to be excluded from tracking activity.
+      description: The list of domains to hide from the **Activity** panel.
       required: false
       type: list
 include:
-  description: Configure which integrations should tracking activity. ([Configure Filter](#configure-filter))
+  description: "Entities and domains to show in the **Activity** panel. ([Configure filter](#configure-filter))"
   required: false
   type: map
   keys:
     entities:
-      description: The list of entity ids to be included when tracking activity.
+      description: The list of entity IDs to show in the **Activity** panel.
       required: false
       type: list
     entity_globs:
-      description: Include all entities matching a listed pattern when tracking activity (e.g., `sensor.weather_*`).
+      description: The entities that match a listed pattern to show in the **Activity** panel (for example, `sensor.weather_*`).
       required: false
       type: list
     domains:
-      description: The list of domains to be included when tracking activity.
+      description: The list of domains to show in the **Activity** panel.
       required: false
       type: list
 {% endconfiguration %}
 
 ## Configure filter
 
-By default, the activity will use the same filter as the recorder. To limit which entities are being exposed to `Logbook`, you can use the `include` and `exclude` parameters.
+To narrow down what you see in the **Activity** panel, use the **Sources** pane, as described in [Viewing activity in the Activity panel](#viewing-activity-in-the-activity-panel). If you want to hide some entities from the activity for all the users, all the time, you can set up a filter in your {% term "`configuration.yaml`" %} file.
+
+By default, the **Activity** panel uses the same filter as the [Recorder](/integrations/recorder/) integration. To limit which entities are shown in the **Activity** panel, use the `include` and `exclude` parameters.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -90,8 +105,7 @@ logbook:
 
 ### Common filtering examples
 
-If you want to exclude messages of some entities or domains from activity tracking,
-just add the `exclude` parameter like:
+To hide the activity of some entities or domains, add the `exclude` parameter:
 
 ```yaml
 # Example of excluding domains and entities from activity tracking (formerly called logbook)
@@ -106,8 +120,7 @@ logbook:
       - sun
 ```
 
-In case you just want to see messages from some specific entities or domains, use
-the `include` configuration:
+To see only the activity of specific entities or domains, use the `include` parameter:
 
 ```yaml
 # Example to show how to only track the activity of the listed domains and entities
@@ -139,46 +152,28 @@ logbook:
       - sensor.weather_*
 ```
 
-### Exclude events
+### Hiding entities and domains
 
-If you have `sensor.date` to show the current date in the UI,
-but you do not want activity tracking for that sensor every day, it can be excluded.
-To exclude these entities, just add them to the `exclude` > `entities` list in
-the configuration of the activity tracking.
+If you have `sensor.date` to show the current date in the UI, but you do not want to see its change every day in the **Activity** panel, you can hide it. To hide entities, add them to the `exclude` > `entities` list.
 
-To exclude all events from a whole domain, add it to the `exclude` > `domain`
-list. For instance, if you use the `sun` domain only to trigger automations on the
-`azimuth` attribute, then you are possibly not interested in activity tracking
-for sun rise and sun set.
+To hide all activity of a whole domain, add it to the `exclude` > `domains` list. For example, if you use the `sun` domain only in automations, you might not want to see every sunrise and sunset in the **Activity** panel.
 
-Excluded entities still take up space in the database. It may be advisable to
-exclude them in `recorder` instead.
+Hidden entities still take up space in the database. To save space, exclude them in the [Recorder](/integrations/recorder/) integration instead.
 
 ### Custom entries
 
-It is possible to add custom entries to activity tracking by using the script
-integration to fire an event.
-
-```yaml
-# Example configuration.yaml entry
-script:
-  add_logbook_entry:
-    alias: "Add activity"
-    sequence:
-      - action: logbook.log
-        data:
-          name: Kitchen
-          message: is being used
-          # Optional
-          entity_id: light.kitchen
-          domain: light
-```
-
+To add your own entries to the **Activity** panel, use the [**Log activity**](/actions/logbook.log/) action in an automation or a script.
 
 {% important %}
 When calling the `logbook.log` action without a `domain` or `entity_id`, entries will be added with the `logbook` domain. Ensure that the `logbook` domain is not filtered away if you want these entries to appear in your **Activity** panel.
 {% endimportant %}
 
 {% note %}
-Sensor entities that have been assigned units (for example, have a `unit_of_measurement` attribute) are assumed to change frequently and those sensors are automatically excluded from activity tracking.
+Some entities change so often that they would fill the **Activity** panel. Home Assistant does not show the activity of these entities:
+
+- Sensors that have a unit of measurement, a state class, or a numeric device class, such as temperature or power.
+- Counter, image, and proximity entities.
+
 {% endnote %}
+
+{% include integrations/actions.md %}
