@@ -40,7 +40,7 @@ If an automation has several conditions, all of them must be met. To combine con
 
 - **Or**: met if at least one of the conditions inside is met.
 - **Not**: met if none of the conditions inside are met.
-- **And**: met if all conditions inside are met. Use it inside an **Or** or **Not** block.
+- [**And**](/conditions/and/): met if all conditions inside are met. Use it inside an **Or** or **Not** block.
 
 You can also check a condition between the actions under **Then do**:
 
