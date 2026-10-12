@@ -113,6 +113,7 @@ output: "nothing"
 ## Type errors
 
 <a id="typeerror-can-only-concatenate-str-not-int-to-str"></a>
+<a id="typeerror-unsupported-operand-types-for--str-and-int"></a>
 
 {% details "TypeError: can only concatenate str (not &quot;int&quot;) to str" %}
 
@@ -162,7 +163,7 @@ output: "True"
 
 {% enddetails %}
 
-<a id="valueerror-float-got-invalid-input"></a>
+<a id="valueerror-template-error-float-got-invalid-input-unavailable-when-rendering-template--but-no-default-was-specified"></a>
 
 {% details "ValueError: Template error: float got invalid input 'unavailable' when rendering template '...' but no default was specified" %}
 
@@ -216,7 +217,7 @@ For details, refer to [Iterables look like lists, but are not](/docs/templating/
 
 ## Syntax errors
 
-<a id="templatesyntaxerror-expected-token-end-of-statement-block"></a>
+<a id="templatesyntaxerror-expected-token-end-of-statement-block-got-x"></a>
 
 {% details "TemplateSyntaxError: expected token 'end of statement block', got 'X'" %}
 
@@ -315,7 +316,7 @@ Check the filter name against the [template functions reference](/template-funct
 
 ## Other template errors
 
-<a id="templateerror-invalid-entity-id"></a>
+<a id="templateerror-invalid-entity-id-sensortemperature"></a>
 
 {% details "TemplateError: Invalid entity ID 'sensor.Temperature'" %}
 
@@ -360,7 +361,7 @@ Move the part that uses these functions to a place that supports full templates.
 
 {% enddetails %}
 
-<a id="securityerror-access-to-attribute-is-unsafe"></a>
+<a id="securityerror-access-to-attribute-append-of-list-object-is-unsafe"></a>
 
 {% details "SecurityError: access to attribute 'append' of 'list' object is unsafe" %}
 
@@ -388,7 +389,7 @@ output: "['kitchen', 'hall']"
 
 {% enddetails %}
 
-<a id="templateerror-template-output-exceeded-maximum-size"></a>
+<a id="templateerror-template-output-exceeded-maximum-size-of-262144-characters"></a>
 
 {% details "TemplateError: Template output exceeded maximum size of 262144 characters" %}
 
@@ -409,6 +410,7 @@ Return less data. For example, filter a list down to the entities you need, or r
 ## YAML errors
 
 <a id="invalid-key-in-yaml"></a>
+<a id="yaml-error-could-not-find-expected-"></a>
 
 {% details "invalid key: &quot;{&quot;states('sensor.temperature')&quot;: None}&quot;" %}
 
