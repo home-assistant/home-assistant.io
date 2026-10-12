@@ -140,7 +140,7 @@ automation: |
         entity_id: climate.thermostat
       data:
         temperature: 15
-    - action: notify.notify
+    - action: notify.send_message
       target:
         label_id: all_household_members
       data:
