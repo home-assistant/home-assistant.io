@@ -133,6 +133,7 @@ The select platform lets you choose between a set of predefined options. Select 
 - Motion Detector II that supports it: a **Motion sensitivity** select, letting you choose between **high**, **medium**, or **low**. In YAML, the medium option is `middle`.
 - Door/Window Contact II Plus: a **Vibration sensitivity** select, letting you choose between **very high**, **high**, **medium**, **low**, or **very low**. In YAML, the options are `very_high`, `high`, `medium`, `low`, and `very_low`.
 - Smoke Detector that supports it: a **Smoke sensitivity** select, letting you choose between **high**, **medium**, or **low**. In YAML, the medium option is `middle`.
+- Thermostat II and Room Thermostat II: a **Display orientation** select (**normal** or **rotated by 180°**) and a **Displayed temperature** select, letting you choose whether the display shows the **set temperature** or the **measured** temperature. In YAML, the options are `normal` and `reversed`, and `setpoint` and `measured`.
 
 ### Sensors
 
