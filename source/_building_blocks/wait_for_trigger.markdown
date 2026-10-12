@@ -107,7 +107,7 @@ After the wait ends, because a trigger reacted or because the timeout ended, the
 - The wait only reacts to a change that happens after the wait starts. If the state is already there, the automation or script keeps waiting. To continue right away in that case, use [**Wait for a template**](/docs/scripts/#wait-for-a-template). For more about this difference, refer to [Triggers react to changes](/docs/automation/how-automations-react-to-changes/#triggers-react-to-changes).
 - **Continue on timeout** is turned on by default. To check whether a trigger reacted, use `wait.completed`.
 - A restart of Home Assistant stops automations and scripts that are waiting. They don't continue after the restart.
-- The triggers can use the [trigger variables](/docs/automation/trigger/#trigger-variables), [variables](/docs/scripts/#define-variables), and [script variables](/integrations/script/#variables) that are defined before the wait.
+- The triggers can use the [trigger variables](/docs/automation/trigger/#trigger-variables), [variables](/building-blocks/variables/), and [script variables](/integrations/script/#variables) that are defined before the wait.
 - The **Triggered by** condition only lists the triggers of the automation itself, not the triggers of the wait. To check which trigger ended the wait, use `wait.trigger.id`, as shown in [Wait for a trigger in YAML](#wait-for-a-trigger-in-yaml).
 
 ## Examples
