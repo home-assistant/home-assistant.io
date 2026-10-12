@@ -39,7 +39,7 @@ For everything the editor shows, refer to [Template editor tab](/docs/tools/dev-
 When a template misbehaves in an automation, a script, or a template entity, fix it in the editor first.
 
 1. Copy the template from your automation, script, or template entity.
-2. Go to {% my tools_template title="**Settings** > **Tools** > **Template**" %}, and paste the template into the **Template editor**.
+2. Go to {% my tools_template title="**Settings** > **Tools** > **Template**" %} and paste the template into the **Template editor**.
    - If the template uses `trigger` or `this`, define them at the top with `{% set %}`. For the steps, refer to [Testing a template](/docs/tools/dev-tools/#testing-a-template).
 3. Under **Result**, check the output.
    - If a message is shown above the result, refer to [Troubleshooting template errors](/docs/templating/errors/).
