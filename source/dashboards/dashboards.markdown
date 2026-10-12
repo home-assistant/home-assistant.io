@@ -97,7 +97,11 @@ The predefined **Activity** dashboard is powered by the [Activity integration](/
 
 ### Map dashboard
 
-The predefined **Map** dashboard is populated by the [Map card](/dashboards/map/). You can edit this dashboard like any other dashboard. For example, you can edit the [view](/dashboards/views/) to use the **Sidebar** instead of the default **Panel** view type if you like.
+The predefined **Map** dashboard is populated by the [Map card](/dashboards/map/). On top of the map, you can see your [people, devices, and zones](/dashboards/map/#people-devices-and-zones-in-a-panel-view), and their recent activity.
+
+You can edit this dashboard like any other dashboard. For example, you can edit the [view](/dashboards/views/) to use the **Sidebar** instead of the default **Panel** view type if you like. The **People**, **Devices**, and **Zones** tabs are only available in the **Panel** view type, so they are no longer shown when you switch. To change the look of the map, such as its **Map style**, edit the map card and expand **Appearance**.
+
+The base map comes from the [Map tiles](/integrations/map_tiles/) integration, which needs no setup. If you want another map, for example with other entities or settings, you can [create a new dashboard](#creating-a-new-dashboard) from the **Map** template.
 
 #### Maps and presence detection
 
@@ -171,8 +175,8 @@ The default dashboard is the dashboard that is shown when you open Home Assistan
 
    4. **Result**: This dashboard is shown to all users when they open Home Assistant.
 - To change your personal default dashboard, you don't need administrator rights.
-   1. Go to {% my profile title="**User profile**" %}.
-   2. On the **General** tab, next to **Dashboard**, select your default dashboard.
+   1. Go to {% my profile_preferences title="**User profile** > **Appearance**" %}.
+   2. Next to **Dashboard**, select your default dashboard.
 
       ![Changing your own default dashboard](/images/dashboards/dashboard-change-your-default.png)
    3. If you want your wall tablet to use a different dashboard than your other devices, use a separate user profile for your wall tablet.
@@ -249,8 +253,8 @@ To add or remove a dashboard from the sidebar:
 
 You can define which elements are shown in the sidebar and the order in which they appear.
 
-1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
-2. Under **User preferences**, next to **Change the order and hide items from the sidebar**, select **Edit**.
+1. Go to {% my profile_preferences title="**User profile** > **Appearance**" %}.
+2. Next to **Change the order and hide items from the sidebar**, select **Edit**.
 3. Drag and drop items to reorder them, and toggle items to show or hide them.
 4. Select **Save**.
 
@@ -258,8 +262,8 @@ You can define which elements are shown in the sidebar and the order in which th
 
 If you have customized your sidebar by hiding items or changing their order, you can restore the sidebar to its default settings.
 
-1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
-2. Under **User preferences**, next to **Change the order and hide items from the sidebar**, select **Edit**.
+1. Go to {% my profile_preferences title="**User profile** > **Appearance**" %}.
+2. Next to **Change the order and hide items from the sidebar**, select **Edit**.
 3. Select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reset to defaults**.
 
 ## Adding YAML dashboards

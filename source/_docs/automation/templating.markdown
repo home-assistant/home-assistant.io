@@ -1,13 +1,13 @@
 ---
-title: "Automation templates"
-description: "Use templates inside an automation to access trigger data, build dynamic messages, and pass calculated values to actions."
+title: "Trigger data in templates"
+description: "Look up the data that each type of trigger passes to the templates in your automation, and the state of the automation itself."
 ---
 
 Automations support [templating](/docs/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/templating/) available to scripts, the `trigger` and `this` template variables are available for automations.
 
 Example of variables used in templates:
 
-- `{{ this.name }}` is the name of the automation executing from this trigger
+- `{{ this.attributes.friendly_name }}` is the name of the automation executing from this trigger
 - `{{ trigger.platform }}` is the type of trigger object, like `calendar`
 
 ## Available state data
@@ -49,6 +49,7 @@ These are the properties available for a [Calendar trigger](/docs/automation/tri
 | `trigger.calendar_event.all_day`     | Indicates the event spans the entire day.
 | `trigger.calendar_event.description` | A detailed description of the calendar event, if available.
 | `trigger.calendar_event.location`    | Location information for the calendar event, if available. 
+| `trigger.calendar_event.status`      | The status of the calendar event, either `confirmed` or `tentative`, if available. This is the status of the event itself, not your reply to an invitation.
 | `trigger.offset`                     | Timedelta object with offset to the event, if any.
 
 ### Device
@@ -167,7 +168,7 @@ These are the properties available for a [Tag trigger](/docs/automation/trigger/
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `tag`
-| `trigger.tag_id` | The tag ID captured.
+| `trigger.event.data.tag_id` | The tag ID captured.
 | `trigger.event.data.device_id` | Optional device ID that captured the tag.
 
 ### Template

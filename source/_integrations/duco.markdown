@@ -3,19 +3,25 @@ title: Duco
 description: Instructions on how to integrate Duco ventilation with Home Assistant.
 ha_release: 2026.5
 ha_category:
+  - Binary Sensor
   - Fan
+  - Number
   - Select
   - Sensor
+  - Switch
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@ronaldvdmeer'
 ha_domain: duco
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - fan
+  - number
   - select
   - sensor
+  - switch
 ha_integration_type: hub
 ha_quality_scale: platinum
 ha_dhcp: true
@@ -49,7 +55,7 @@ Other Duco systems that expose public API version 2.1 or newer can also be set u
 
 The following node types are supported:
 
-- **BOX**: The main ventilation box; provides fan control, ventilation state select, ventilation state, target flow level, state end time, air temperatures, and Wi-Fi signal strength. Models that expose a filter timer also provide a filter remaining sensor.
+- **BOX**: The main ventilation box; provides fan control, ventilation state select, ventilation state, target flow level, state end time, air temperatures, and Wi-Fi signal strength. Models that expose a filter timer also provide a filter remaining sensor. Models that expose bypass supply targets provide temperature controls for each zone reported by the system.
 - **BSCO2**: CO₂ sensor module wired directly to the DucoBox PCB; provides CO₂ concentration and CO₂ air quality index.
 - **UCCO2**: Wall-mounted CO₂ sensor unit; provides CO₂ concentration and CO₂ air quality index.
 - **BSRH**: Humidity sensor module installed in the duct inlet of the DucoBox, wired directly to the PCB via cable; provides relative humidity and humidity air quality index.
@@ -108,6 +114,18 @@ The percentages 33%, 66%, and 100% are abstract speed levels used in the Home As
 The ventilation state select is available for the main ventilation box (BOX) and for supported valve or extract nodes when that node advertises selectable ventilation states. It lets you choose the Duco ventilation state codes exposed by your system, such as `AUTO`, `CNT1`, `CNT2`, `CNT3`, `MAN1`, `MAN2`, `MAN3`, or `EMPT`.
 
 Home Assistant only shows the options advertised by your Duco system for that specific node, so the available choices can vary by model, node type, or firmware. After you change the option, Home Assistant refreshes the state from the box and shows the state the box reports back.
+
+### Number
+
+#### Bypass supply target temperatures
+
+Some Duco systems expose bypass supply target temperatures. When available, Home Assistant creates a number entity for each zone reported by your Duco system. You can use these entities to view and set the target temperature in your configured temperature unit. The available range and increment come from your Duco system.
+
+If your Duco system does not expose a target for a zone, Home Assistant does not create the related number entity.
+
+### Switch
+
+The **Identify** switch lets you activate or deactivate identification for a specific Duco node. Home Assistant creates this switch only for nodes that advertise an on/off identification action through the Duco API.
 
 ### Sensors
 
@@ -186,9 +204,17 @@ Indoor air quality ranges for humidity:
 - 35–50%: Temporarily acceptable
 - 5–20%: Poor
 
-#### Wi-Fi signal strength
+#### Diagnostic entities
 
-Available for the main ventilation box (BOX). Shows the Wi-Fi signal strength in dBm. This entity is disabled by default.
+The following diagnostic entities may be available for the main ventilation box (BOX), depending on your model and firmware:
+
+- **Ventilation**: Indicates whether the ventilation subsystem reports a problem.
+- **Filter**: Indicates whether the filter subsystem reports a problem.
+- **Ventilation cooling**: Indicates whether the ventilation cooling subsystem reports a problem. This entity is disabled by default.
+- **Sun control**: Indicates whether the sun control subsystem reports a problem. This entity is disabled by default.
+- **Wi-Fi signal strength**: Shows the Wi-Fi signal strength in dBm. This entity is disabled by default.
+
+The subsystem problem entities turn on when Duco reports `Error` or `Disable` and remain off when Duco reports `OK`.
 
 ## Use cases
 
@@ -285,7 +311,6 @@ The integration {% term polling polls %} the Duco box every 10 seconds. If you a
 - The Duco box enforces a rate limit of 200 write requests per day. When the limit is reached, the integration shows a notification and stops sending write requests until the quota resets automatically around midnight.
 - Timed speed overrides set by a connected wall unit (such as a UCCO2) cannot be triggered from Home Assistant. They are read-only: the current ventilation level is shown as a percentage, but setting a speed from Home Assistant always uses the permanent manual mode (a continuous override with no time limit).
 - Some model-specific sensors are not yet exposed in Home Assistant. This currently affects parts of the DucoBox Energy sensor surface, and VOC-capable node families currently expose only the ventilation-related entities.
-- Integration diagnostics are available, but subsystem-specific diagnostics for the different Duco models are not yet exposed separately.
 - When you deregister a sensor module via the Duco app or firmware, the node disappears from the Duco API and Home Assistant removes it automatically on the next data update. However, a BSRH humidity sensor that is physically disconnected from the box PCB (rather than deregistered via software) is not treated as deregistered by the firmware. Its node remains in the API indefinitely, so its entities will stay in Home Assistant until you deregister it through the Duco app.
 
 ## Troubleshooting
@@ -338,11 +363,11 @@ This can happen when your system uses an older Communication Board V1, or when t
 4. If your system does not meet these requirements, Home Assistant cannot set up a new integration for that system.
 5. If your system should be supported, collect diagnostics and open an issue in Home Assistant Core with your Duco model, board details, and firmware information.
 
-### Failed to set ventilation state (rate limit)
+### Failed to control a Duco device (rate limit)
 
 #### Symptom
 
-Setting the fan speed or preset mode fails with a notification in the Home Assistant UI:
+Changing a Duco control, such as the fan speed or an **Identify** switch, fails with a notification in the Home Assistant UI:
 
 > The Duco device has reached its daily write limit. Try again tomorrow.
 
@@ -352,12 +377,12 @@ The Duco box enforces a daily API write limit of 200 write requests. When the li
 
 #### Resolution
 
-1. Check if the daily write limit has been reached. 
+1. Check if the daily write limit has been reached.
    - Under **Settings** > **System** > **Repairs**, open the {% icon "mdi:dots-vertical" %} menu in the top-right corner.
    - Select **System information**.
    - In the Duco section, you should see if the daily write limit has been reached.
 2. If the limit has been reached, wait until shortly after midnight for the quota to reset.
-3. To avoid hitting the limit again, reduce the frequency of automations that change the ventilation state.
+3. To avoid hitting the limit again, reduce the frequency of automations that send commands to your Duco system.
 
 ## Reconfiguring the integration
 

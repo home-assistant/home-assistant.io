@@ -24,7 +24,7 @@ This is a quick way to turn a UNIX timestamp into a readable local date and time
 {% template_function_usage %}
 filter: '{{ 1710510600 | timestamp_local }}'
 type: string
-output: "2024-03-15 14:30:00+01:00"
+output: "2024-03-15T14:50:00+01:00"
 {% endtemplate_function_usage %}
 
 {% include template_functions/signatures.md %}
@@ -75,7 +75,7 @@ Convert the last changed timestamp of an entity to a readable local time string.
 template: |
   {{ as_timestamp(states.sensor.temperature.last_changed) | timestamp_local }}
 type: string
-output: "2024-03-15 14:30:00+01:00"
+output: "2024-03-15T14:30:00+01:00"
 {% endexample %}
 
 ### Show the current time as a formatted string
@@ -85,7 +85,7 @@ Convert the current UNIX timestamp to a local datetime string.
 {% example %}
 template: '{{ as_timestamp(now()) | timestamp_local }}'
 type: string
-output: "2024-03-15 14:30:00+01:00"
+output: "2024-03-15T14:30:00+01:00"
 {% endexample %}
 
 ### Use in a notification

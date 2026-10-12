@@ -11,7 +11,7 @@ related_triggers:
 The **MQTT message received** trigger fires an automation when Home Assistant receives a message on a specific MQTT topic. Use it when a device or service publishes MQTT messages that you want to use in an automation, and the device is not already represented by an entity.
 
 {% note %}
-This trigger listens directly to an MQTT topic. It is different from [MQTT device triggers](/integrations/device_trigger.mqtt/), which are discovered as part of an MQTT device and appear as device triggers in the automation editor.
+This trigger listens directly to an MQTT topic. It is different from [MQTT device triggers](/integrations/device_trigger.mqtt/), which are discovered as part of an MQTT device and appear as device triggers in the visual automation editor.
 {% endnote %}
 
 ## Prerequisites

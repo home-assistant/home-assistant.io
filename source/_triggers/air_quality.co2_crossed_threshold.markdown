@@ -56,8 +56,6 @@ This fires whenever the bedroom CO2 sensor crosses 1,000 ppm in either direction
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >

@@ -12,7 +12,11 @@
 // `sass/homeassistant/base/_navigation.scss` and the `.site-header`,
 // `.menu` and `.docsearch` rules in `sass/homeassistant/_overrides.scss`.
 //
-// Three deliberate differences from the Jekyll markup, all agreed:
+// Four deliberate differences from the Jekyll markup, all agreed:
+//   - The "Get started" call to action is the design system's Button
+//     (primary, navy secondary on the dark header over the hero) in
+//     sentence case, instead of the uppercase `.nav-cta` pill. It no
+//     longer stays highlighted on the installation pages.
 //   - Icons are inline SVGs instead of `<iconify-icon>` elements, so
 //     the header does not depend on the Iconify CDN script.
 //   - The DocSearch container is rendered empty, exactly as Jekyll
@@ -22,6 +26,7 @@
 //     makes it `position: fixed` so content scrolls underneath; that
 //     belongs to the page layout, not to the header.
 import "../styles/tokens.scss";
+import Button from "./Button.astro";
 // Both logos come from the Open Home Foundation brand assets API and
 // are downloaded into src/assets/brands/ when the build starts (see
 // integrations/brand-assets.mjs and the list in astro.config.mjs).
@@ -43,8 +48,6 @@ const root = pathname.split("/")[1];
 const menuId = `site-menu-${crypto.randomUUID().slice(0, 8)}`;
 
 const icons = {
-  "arrow-right":
-    '<path fill="currentColor" d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z"/>',
   "chevron-down":
     '<path fill="currentColor" d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z"/>',
   "code-braces":
@@ -188,20 +191,15 @@ const versionTitle =
         </li>
 
         <li class="nav-cta">
-          <a
-            class:list={{
-              active: root === "getting-started" || root === "installation",
-            }}
+          {/* Navy over the homepage hero, where the primary cyan would
+              blend into the hero's gradient. */}
+          <Button
             href="/installation/"
+            scheme={dark ? "secondary" : "primary"}
+            icon
           >
             Get started
-            <svg
-              class="icon"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-              set:html={icons["arrow-right"]}
-            />
-          </a>
+          </Button>
         </li>
       </ul>
     </nav>
@@ -210,6 +208,7 @@ const versionTitle =
 
 <style lang="scss">
   @use "../styles/breakpoints";
+  @use "../styles/layout";
 
   /* Mobile first: the menu is a panel that drops out of the bar and is
      opened by the checkbox, which is what the Jekyll header does below
@@ -243,9 +242,7 @@ const versionTitle =
     gap: var(--layout-gutter);
     height: var(--header-height);
     justify-content: space-between;
-    margin: 0 auto;
-    max-width: var(--layout-max-width);
-    padding: 0 var(--layout-gutter);
+    @include layout.container;
   }
 
   /* Logo and version badge */
@@ -345,14 +342,18 @@ const versionTitle =
       padding: 0;
     }
 
-    a {
+    /* Navigation links only: Astro also gives the call to action's
+       Button root this component's scope, so a bare `a` would restyle it. */
+    a:not(.button) {
       align-items: center;
       border-radius: var(--radius-small);
       color: inherit;
       display: flex;
       font-size: var(--font-size-medium);
       gap: var(--space-small);
-      line-height: 1.2;
+      /* A whole-pixel line height keeps the bar's items, and the call
+         to action's artwork, on the pixel grid. */
+      line-height: 1rem;
       margin: 0 var(--layout-gutter);
       padding: var(--space-medium);
       text-decoration: none;
@@ -385,28 +386,12 @@ const versionTitle =
   }
 
   .nav-cta {
+    margin-left: var(--layout-gutter);
     order: -2;
   }
 
   .nav-search {
     order: -1;
-  }
-
-  .nav-cta a {
-    background: var(--color-link);
-    border-radius: var(--radius-pill);
-    color: var(--color-text-inverse);
-    font-weight: 600;
-    line-height: 1;
-    padding: var(--space-medium) var(--space-large);
-    text-transform: uppercase;
-
-    &:hover,
-    &:focus-visible,
-    &.active {
-      background: var(--color-highlight-shade);
-      color: var(--color-text-inverse);
-    }
   }
 
   /* Desktop bar */
@@ -416,10 +401,6 @@ const versionTitle =
       --nav-color: var(--color-text-inverse);
       --nav-color-active: var(--color-text-inverse);
       --nav-wash: var(--color-hover-wash-inverse);
-    }
-
-    .bar {
-      padding: 0 var(--layout-gutter-wide);
     }
 
     .menu-button {
@@ -436,7 +417,7 @@ const versionTitle =
       padding: 0;
       position: static;
 
-      a {
+      a:not(.button) {
         margin: 0;
       }
 
@@ -478,8 +459,8 @@ const versionTitle =
       order: 0;
     }
 
-    .nav-cta a {
-      margin-left: 0.5rem;
+    .nav-cta {
+      margin-left: var(--space-small);
     }
   }
 </style>

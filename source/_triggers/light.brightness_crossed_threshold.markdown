@@ -53,8 +53,6 @@ This fires whenever the living room light crosses 50% brightness in either direc
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >

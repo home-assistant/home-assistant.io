@@ -27,8 +27,12 @@ Home Assistant has a built-in template editor that shows the result of a templat
 The editor is the fastest feedback loop you have. It:
 
 - Shows the output of your template live.
-- Points at errors with a red message.
-- Has access to all your entities, which means you can try the template against real data.
+- Shows errors and warnings as a message above the result.
+- Shows the type of the result, for example **Result type: string** or **Result type: boolean**.
+- Shows when the template updates, for example, when an entity it listens to changes.
+- Has access to all your entities, so you can try a template against real data.
+
+For everything the editor shows, refer to [Template editor tab](/docs/tools/dev-tools/#template-editor-tab).
 
 When a template misbehaves in an automation or template entity, copy it into the editor, adjust until it produces what you want, then paste it back.
 
@@ -182,7 +186,7 @@ A template trigger only reacts when the result of the template changes from fals
 ## Common mistakes
 
 - **Sensor gives text, not a number.** Use `| float(0)` or `| int(0)`.
-- **Entity is `unknown` or `unavailable`.** Add a fallback with `| default(...)` or an `if has_value(...)` check.
+- **Entity is `unknown` or `unavailable`.** Check it first with `if has_value(...)`, or give `float` and `int` a fallback, such as `| float(0)`.
 - **Variable changes inside a loop are lost.** Use [`namespace`](/template-functions/namespace/).
 - **YAML refuses to load your template.** Check quoting. See [Templates in YAML](/docs/templating/yaml/).
 - **Template appears as literal text in output.** The field does not support templating, or the template is inside a `{% raw %}` / `{% endraw %}` block.

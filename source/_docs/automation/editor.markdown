@@ -10,6 +10,22 @@ The automation editors let you create and edit automations. You can do it direct
 
 If you're new to automations, start with the [Tutorial: Create your first automation](/getting-started/automation/). It walks you through creating your first automations in the visual editor, step by step.
 
+## Finding and organizing automations
+
+All your automations are listed in a table under {% my automations title="**Settings** > **Automations & scenes**" %}. In this table, you can:
+
+- Search for an automation. The search matches the name, the entity ID, and the names of the area, category, and labels.
+- Filter the table with **Filters**, by areas and floors, devices, entities, labels, categories, voice assistants, or blueprints. For example, filter by a device to see all automations that use it.
+- Group the automations with **Group by**, by category, area, or state. By default, the automations are grouped by category.
+- Change several automations at once. Select **Enter selection mode**, select the automations, and then select one of the following:
+  - **Move to category**
+  - **Move to area**
+  - **Add label**, **Enable**, or **Disable**, in the **Action** {% icon "mdi:dots-vertical" %} menu
+
+Automations without an `id` can't be selected. Only automations that you wrote in a YAML file can be missing an `id`.
+
+The table works like the other tables in Home Assistant. For the steps, refer to [Working with tables](/docs/organizing/tables/). To use categories in tables, refer to [Categories](/docs/organizing/categories/).
+
 ## Editing an automation in the visual editor
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
@@ -102,7 +118,9 @@ To try an automation without one of its triggers, conditions, or actions, turn i
 
 ### Continuing after an action fails
 
-By default, an automation stops when an action fails. To continue with the next action after an error Home Assistant can handle, in the **Menu** {% icon "mdi:dots-vertical" %} of the action, select **Continue on error**. The action then shows {% icon "mdi:alert-circle-check" %}. This option does not ignore misconfiguration or errors Home Assistant cannot handle. Only use it for actions whose failure does not matter for the rest of the automation.
+By default, an automation stops when an action fails. To continue with the next action after an error, in the **Menu** {% icon "mdi:dots-vertical" %} of the action, select **Continue on error**. The action then shows {% icon "mdi:alert-circle-check" %}. This option does not ignore errors in the automation's configuration, such as a broken template. Only use it for actions whose failure does not matter for the rest of the automation.
+
+An action whose target is unavailable or doesn't exist doesn't fail. Home Assistant skips that target, so the next action runs even without **Continue on error**. If the target doesn't exist, the log shows a warning.
 
 ### Deleting a trigger, condition, or action
 

@@ -1,6 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import { getComponentPreviews } from "../../lib/component-previews.mjs";
+import PreviewDemo from "../../lib/PreviewDemo.astro";
 
 // Tiled browser for the Astro components built during the migration.
 // Every src/components/**/<Name>.fixtures.mjs file is discovered
@@ -45,12 +46,10 @@ const entries = getComponentPreviews();
             </header>
             {Component ? (
               variants.map((variant) => (
-                <div class="variant">
+                <div class:list={["variant", { dark: variant.dark }]}>
                   <h3>{variant.name}</h3>
                   <div class="demo">
-                    <Component {...(variant.props ?? {})}>
-                      {variant.slot && <Fragment set:html={variant.slot} />}
-                    </Component>
+                    <PreviewDemo Component={Component} variant={variant} />
                   </div>
                 </div>
               ))
@@ -133,6 +132,14 @@ const entries = getComponentPreviews();
     /* Horizontal scroll instead of spilling into the next tile. */
     overflow-x: auto;
     padding: 0.75rem;
+  }
+  .variant.dark {
+    /* Variants meant for dark backgrounds (fixture `dark: true`): the
+       whole variant, title included, renders on black. */
+    background: #000;
+  }
+  .variant.dark h3 {
+    color: #9ca3af;
   }
   .tile.wide .demo {
     /* Full-width components render edge to edge, as on a page. */

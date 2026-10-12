@@ -29,12 +29,7 @@ To make something happen, such as turning on a light, add an action. Each action
 
 ### Adding an action in the editor
 
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
-2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
-3. Search for and select the action, for example, **Turn on light**.
-   - You can also first select what you want to control under **By target**, and then select the action.
-4. If the action has targets, select what it should control under **Targets**. Then fill in the other options.
-5. Select **Save**.
+To add an action in the automation or script editor, follow the steps in [Adding an action in the editor](/docs/scripts/perform-actions/#adding-an-action-in-the-editor).
 
 ### Performing an action in YAML
 
@@ -494,7 +489,7 @@ The **Condition** building block checks a condition in the middle of a sequence.
 
 {% options_ui %}
 Condition type:
-  description: The condition to check. Each condition type has its own options. For the available conditions, refer to [conditions](/docs/scripts/conditions/).
+  description: The condition to check. Each condition type has its own options. For the available conditions, refer to the [list of available conditions](/conditions/).
   required: true
 {% endoptions_ui %}
 
@@ -2054,7 +2049,9 @@ action: |
       message: "I'm fine..."
 {% endexample %}
 
-**Continue on error** doesn't ignore errors in the configuration, or errors that Home Assistant can't handle. The error is still shown in the trace and in the logs.
+**Continue on error** doesn't ignore errors in the configuration, such as a broken template. The error is still shown in the trace and in the logs.
+
+An action whose target is unavailable or doesn't exist doesn't fail. Home Assistant skips that target, so the next step runs even without **Continue on error**. If the target doesn't exist, the log shows a warning.
 
 <a id="disabling-an-action"></a>
 
@@ -2092,5 +2089,5 @@ actions:
 ```
 
 [conditions page]: /docs/scripts/conditions/
-[shorthand-template]: /docs/scripts/conditions/#template-condition-shorthand-notation
+[shorthand-template]: /conditions/template/#shorthand-notation
 [script variables]: /integrations/script/#variables

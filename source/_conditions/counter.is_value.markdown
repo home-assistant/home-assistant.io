@@ -95,8 +95,6 @@ This passes when `counter.daily_check_ins` is between `2` and `4`.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: |

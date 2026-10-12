@@ -1,6 +1,6 @@
 ---
 title: "People and user configuration"
-description: "Manage the people who use your Home Assistant, such as changing display names, usernames, and authentication settings."
+description: "Manage your own profile and the people who use your Home Assistant, such as display names, usernames, and authentication settings."
 related:
   - docs: /docs/authentication/
     title: Authentication
@@ -14,7 +14,7 @@ related:
     title: Home information
 ---
 
-Each person who uses Home Assistant can have their own display name and login credentials. This page explains how to change a person's display name, change a username, and where to find authentication settings.
+Each person who uses Home Assistant can have their own display name and login credentials. This page explains how to change your own profile, and how administrators and the owner manage other people's display names, usernames, and accounts.
 
 ## About persons and users
 
@@ -37,52 +37,78 @@ To create a user that is not linked to a person, add it from the **Users** tab i
 
 When you start Home Assistant for the first time, the _owner_ user account is created. The owner has the highest level of access and can manage every part of the system, including creating and managing other user accounts.
 
+Only the owner can:
+
+- Change usernames.
+- Change the password of other users.
+
+The owner account cannot be deleted, and it is always an administrator. If you lose the owner's password, refer to [Lost owner password](/docs/authentication/#lost-owner-password).
+
 User accounts come in two levels of access:
 
-- _Administrators_ can configure integrations, devices, and system settings, and manage other users. The owner is always an administrator.
+- _Administrators_ can configure integrations, devices, and system settings, and manage other users.
 - _Non-administrator users_ have restricted access. They can use Home Assistant and see their own dashboards, but cannot reach the configuration and system settings.
 
 You set whether a user is an administrator with the **Administrator** toggle when you create or edit their account.
 
-### About your account profile
+## About your account profile
 
 Once you're signed in, you can manage your personal settings on the {% my profile title="**User profile**" %} page. To open it, select your name at the very bottom of the sidebar.
 
-The profile page has two tabs: **General** and **Security**. The **General** tab holds your personal preferences. They only affect your own account and the device you are using.
+The profile page shows your account details, a **Theme** card, and a list of sections you can open:
 
-The **Security** tab is where you manage how you sign in, such as your password, multi-factor authentication, and access tokens. For more information, refer to [Authentication](/docs/authentication/).
+- **Appearance**: Set your default dashboard and organize your sidebar.
+- **Localization**: Set your language, time zone, and how dates, times, and numbers are shown.
+- **This browser** (called **This mobile app** in the companion app): Adjust settings for the device you are currently using.
+- **Security**: Manage how you sign in, such as your password, multi-factor authentication, and access tokens. For more information, refer to [Authentication](/docs/authentication/).
 
-You can also sign out of Home Assistant from the profile page.
+From the profile page, you can also [change your name and picture](#changing-your-name-and-picture), and sign out of Home Assistant.
 
-#### Changing the theme and organizing your sidebar
+## Changing your name and picture
+
+You can change your own name and picture. Your name is used for both your user and the person linked to it, so it is the same everywhere, such as in the sidebar, on your profile, and on dashboards. Your picture is stored on that person.
+
+### Prerequisites
+
+- To change your picture, your user must be linked to a person that was created in the UI.
+  - If it isn't, ask an administrator to link your user to a person. For the steps, refer to [Linking an existing user account to a person](/integrations/person/#linking-an-existing-user-account-to-a-person).
+
+### To change your name and picture
+
+1. Go to {% my profile title="**User profile**" %} and select **Edit profile**.
+2. To change your picture, drop an image file into the picture field or select it, and then crop it. Supported formats are JPEG, PNG, and GIF.
+   - To remove your picture, select **Clear picture**.
+3. Under **Name**, enter your name.
+4. Select **Save**.
+   - Result: Your new name and picture are shown in the sidebar and on your profile.
+
+## Changing the theme and organizing your sidebar
 
 User preferences are tied to your account and follow you across the devices you sign in to.
 
-1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
-2. Under **User preferences**, adjust any of the following:
-   - **Theme**: How Home Assistant looks.
-   - **Default dashboard**: The dashboard that opens when you start Home Assistant.
+1. Go to {% my profile title="**User profile**" %} and, under **Theme**, select the theme you want to use.
+2. Go to {% my profile_preferences title="**User profile** > **Appearance**" %} and, under **Default dashboard**, choose the dashboard that opens when you start Home Assistant.
 3. To change which items appear in the sidebar and in what order, select **Edit** next to **Change the order and hide items from the sidebar**.
 
-#### Changing your localization settings
+## Changing your localization settings
 
 Localization settings control how dates, times, and numbers are shown. They are tied to your account.
 
-1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
-2. Under **User preferences** > **Language**, select the language of the interface.
-3. Under **Localization**, adjust any of the following:
-   - **Time zone**.
-   - **Number format**.
-   - **Time format**.
-   - **Date format**.
-   - **First day of the week**.
+1. Go to {% my profile_localization title="**User profile** > **Localization**" %}.
+2. Under **Language**, select the language of the interface.
+3. Adjust any of the following:
+   - **Time zone**
+   - **Number format**
+   - **Time format**
+   - **Date format**
+   - **First day of the week**
 
-#### Changing your browser settings
+## Changing your browser settings
 
-Browser settings apply only to the device you are currently using and may reset when you sign out or clear local data. In the companion app, this section is called **Mobile app settings**.
+These settings apply only to the device you are currently using and may reset when you sign out or clear local data. In the companion app, this section is called **This mobile app**.
 
-1. Go to {% my profile title="**User profile**" %} and open the **General** tab.
-2. Under **Browser settings** (or **Mobile app settings**), adjust any of the available options, such as:
+1. Go to {% my profile_browser title="**User profile** > **This browser**" %}.
+2. Adjust any of the available options, such as:
    - Always hide the sidebar.
    - Prevent automatic logout.
    - Enable keyboard shortcuts.
@@ -92,31 +118,31 @@ Browser settings apply only to the device you are currently using and may reset 
 
 To add a new person and optionally create a user account for them, refer to [adding a person to Home Assistant](/integrations/person/#adding-a-person-to-home-assistant).
 
-## Changing a person's display name
+## Changing another person's display name
 
-The display name is the name that is shown in Home Assistant. It can differ from the username, which is the name used to log in.
+The display name is the name that is shown in Home Assistant. It can differ from the username, which is the name used to log in. Administrators can change the display name of any person. To change your own name, refer to [Changing your name and picture](#changing-your-name-and-picture).
 
 ### Prerequisites
 
-- You need administrator rights to change a display name.
+- You need administrator rights.
 
-### To change a person's display name
+### To change another person's display name
 
-1. To edit the display name of a person using Home Assistant, go to {% my people title="**Settings** > **People**" %}.
-2. Select the person for whom you want to change the display name.
+1. Go to {% my people title="**Settings** > **People**" %}.
+2. Select the person whose display name you want to change.
 3. Change the **Name**, and then select **Save**.
 
 ## Changing a username
 
-The username is the name that is used to log in. It can differ from the display name.
+The username is the name that is used to log in. It can differ from the display name. Only the owner can change usernames, for any user, including their own. Other users can't change their own username.
 
 ### Prerequisites
 
-- You need owner rights to change a username.
+- You need owner rights.
 
 ### To change a username
 
-1. To edit the username of a person using Home Assistant, go to {% my people title="**Settings** > **People**" %}.
+1. Go to {% my people title="**Settings** > **People**" %}.
 2. Select the person whose username you want to change.
 3. Next to the username, select {% icon "mdi:pencil" %} **Edit**.
 4. In the **Change username** dialog, enter the **New username** and select **Change**.
@@ -128,19 +154,19 @@ The username is the name that is used to log in. It can differ from the display 
 To learn how to edit authentication settings such as password or multi-factor authentication, refer to the following topics:
 
 - [Authentication](/docs/authentication/)
-- [multi-factor authentication](/docs/authentication/multi-factor-auth/)
+- [Multi-factor authentication](/docs/authentication/multi-factor-auth/)
 - [Help, I'm locked out](/docs/locked_out/)
 
 ## Deleting a user or person
 
-Because a person and a user are [two different concepts](#about-persons-and-users), you can delete one without the other:
+Administrators can delete other people and their user accounts. Because a person and a user are [two different concepts](#about-persons-and-users), you can delete one without the other:
 
 - If you delete the person, the linked user account is deleted as well.
 - If you delete only the user, the person stays. The person can no longer sign in, but it can still be used for presence detection, shown on the map, and used in automations.
 
 ### Prerequisites
 
-- You need owner or administrator rights to delete a user or person.
+- You need administrator rights.
 - You cannot delete the owner account or the account you are currently signed in with.
 
 ### To delete a person and its user account

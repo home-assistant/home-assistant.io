@@ -166,7 +166,7 @@ Check our [community forums](https://community.home-assistant.io/c/29) to find t
 
 When themes are enabled in your {% term "`configuration.yaml`" %} file, you can apply them in two ways.
 
-The first is per user. A theme selector appears on the user profile page, which you can access by selecting your user account initials at the bottom of the sidebar. Choose any installed theme from the dropdown list, and it is applied immediately. This choice is saved to your user profile, so it applies across your devices. It also overrides any theme set through the actions below.
+The first is per user. A theme selector appears on the {% my profile title="**User profile**" %} page, which you can access by selecting your name at the bottom of the sidebar. Choose any installed theme from the dropdown list, and it is applied immediately. This choice is saved to your user profile, so it applies across your devices. It also overrides any theme set through the actions below.
 
 <p class='img'>
   <img src='/images/frontend/user-theme.png' alt='Screenshot showing the theme selector on the user profile page' />
@@ -199,7 +199,7 @@ The ES5 and module versions are never both loaded. Depending on whether the devi
 
 ### Manual language selection
 
-The browser language is automatically detected. To use a different language, go to the user profile page (which you can access by selecting your user account initials at the bottom of the sidebar) and select one. It is applied immediately.
+The browser language is automatically detected. To use a different language, go to {% my profile_localization title="**User profile** > **Localization**" %} and select one. It is applied immediately.
 
 <p class='img'>
   <img src='/images/frontend/user-language.png' alt='Screenshot showing the language selector on the user profile page' />
