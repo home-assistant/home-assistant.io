@@ -33,7 +33,7 @@ To reach Home Assistant remotely through Tailscale, install Tailscale on your Ho
 To set up the integration, you need your Tailnet name and an OAuth client from the [Tailscale admin console](https://login.tailscale.com/admin):
 
 - **Tailnet name**: The name of your Tailscale network. You can find it in the top-left corner of the admin console, next to the Tailscale logo. It is usually an email address or an organization name.
-- **OAuth client**: Create one under **Settings** > **OAuth clients** in the admin console. Select **Generate OAuth client**, grant it the **Devices** > **Core** > **Read** scope, then copy the client ID and client secret. The client secret is only shown once. OAuth clients do not expire, so you do not need to replace them periodically.
+- **OAuth client**: Open the [**Trust credentials** page](https://console.tailscale.com/admin/settings/trust-credentials) in the admin console, then select **Credential** > **OAuth**. Grant it the **Devices** > **Core** > **Read** scope, select **Generate credential**, then copy the client ID and client secret. The client secret is only shown once. OAuth clients do not expire, so you do not need to replace them periodically.
 
 {% include integrations/config_flow.md %}
 
@@ -117,4 +117,4 @@ This integration follows standard integration removal. No extra steps are requir
 
 {% include integrations/remove_device_service.md %}
 
-Removing the integration does not revoke your Tailscale credentials. If you no longer need the OAuth client, revoke it under [**Settings** > **OAuth clients**](https://login.tailscale.com/admin/settings/oauth) in the Tailscale admin console.
+Removing the integration does not revoke your Tailscale credentials. If you no longer need the OAuth client, open the [**Trust credentials** page](https://console.tailscale.com/admin/settings/trust-credentials) in the Tailscale admin console and select **Revoke** next to it. If you previously used an API access token with this integration, revoke that token in the **API access tokens** section of the [**Keys** page](https://console.tailscale.com/admin/settings/keys) if you no longer need it. Migrating to OAuth does not revoke the legacy API access token.
