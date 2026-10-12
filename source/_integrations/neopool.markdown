@@ -78,7 +78,7 @@ For a **network** connection, make sure:
 
 For a **serial** connection, make sure:
 
-- The controller's RS-485 bus is wired to the machine running Home Assistant, either through a USB RS-485 adapter or through an ESPHome serial proxy that exposes the bus as a local port.
+- The controller's RS-485 bus is wired to a USB-to-RS485 adapter on your Home Assistant host. Alternatively, an ESPHome serial proxy with an RS-485 interface can share the port with Home Assistant over the network. To set one up, refer to [Setting up an ESPHome serial proxy](/integrations/serial/#setting-up-an-esphome-serial-proxy).
 - You know which serial port the bus is wired to, for example `/dev/ttyUSB0`.
 
 {% note %}
@@ -106,7 +106,7 @@ For a serial connection:
 
 {% configuration_basic %}
 Serial device:
-  description: The serial port the controller's RS-485 bus is wired to, for example `/dev/ttyUSB0`.
+  description: The serial port the controller's RS-485 bus is wired to, for example `/dev/ttyUSB0`. Ports shared over the network by an ESPHome serial proxy are listed alongside the local ones.
 Baud rate:
   description: The baud rate of the RS-485 bus. NeoPool controllers use `19200`.
 {% endconfiguration_basic %}
