@@ -43,7 +43,7 @@ import screenshotUrl from "../assets/demo-phone-screenshot.png?url";
   >
     <img
       src={screenshotUrl}
-      alt="Home Assistant screenshot"
+      alt="Open the live Home Assistant demo"
       width="400"
       height="828"
       loading="lazy"
@@ -53,17 +53,29 @@ import screenshotUrl from "../assets/demo-phone-screenshot.png?url";
 
 <script>
   // Load the demo on the first interaction rather than with the page.
-  // Hidden frames (small screens show the screenshot) are left alone.
-  const events = ["scroll", "click", "mousemove", "touchstart", "keydown"];
+  // A hidden frame (small screens show the screenshot) is skipped but
+  // stays pending, so it still loads once a later interaction, such as
+  // widening the window, finds it visible.
+  const events = [
+    "scroll",
+    "click",
+    "mousemove",
+    "touchstart",
+    "keydown",
+    "resize",
+  ];
   const controller = new AbortController();
 
   const load = () => {
-    controller.abort();
-    for (const frame of document.querySelectorAll<HTMLIFrameElement>(
+    const pending = document.querySelectorAll<HTMLIFrameElement>(
       "iframe[data-demo-src]",
-    )) {
-      if (frame.checkVisibility()) frame.src = frame.dataset.demoSrc ?? "";
+    );
+    for (const frame of pending) {
+      if (!frame.checkVisibility()) continue;
+      frame.src = frame.dataset.demoSrc ?? "";
+      delete frame.dataset.demoSrc;
     }
+    if (!document.querySelector("iframe[data-demo-src]")) controller.abort();
   };
 
   for (const type of events) {

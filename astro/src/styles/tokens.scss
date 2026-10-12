@@ -46,8 +46,9 @@
 
 	/* The site's content gutter, its maximum width and the header bar.
 	   The maximum width is the content alone, gutters come on top (see
-	   _layout.scss); the Jekyll site's 1560px wrapper includes its
-	   gutters, which leaves 1464px of content. */
+	   _layout.scss): 1488px of content, 1584px with the wide gutters.
+	   Deliberately a little wider than the Jekyll site, whose 1560px
+	   wrapper includes its gutters and leaves 1464px of content. */
 	--layout-max-width: 93rem;
 	--layout-gutter: 1.5rem;
 	--layout-gutter-wide: 3rem;
