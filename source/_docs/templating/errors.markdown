@@ -327,7 +327,7 @@ The template editor or the log shows the error `TemplateError: Invalid entity ID
 
 The entity ID in the template isn't a valid entity ID, and no entity matches it. For example, it contains capital letters or spaces. Entity IDs only use lowercase letters, numbers, and underscores, with one period between the domain and the name. Neither part can start or end with an underscore, and the entity ID can't contain two underscores in a row.
 
-You only get this error with dot notation, such as `states.sensor.Temperature`, and with [`state_translated`](/template-functions/state_translated/) and [`state_attr_translated`](/template-functions/state_attr_translated/). Functions like [`states`](/template-functions/states/), [`is_state`](/template-functions/is_state/), and [`state_attr`](/template-functions/state_attr/) don't check the entity ID. If they can't find the entity, they return `unknown`, `false`, or `none`.
+You only get this error with dot or bracket notation, such as `states.sensor.Temperature` or `states['sensor.Temperature']`, and with [`state_translated`](/template-functions/state_translated/) and [`state_attr_translated`](/template-functions/state_attr_translated/). Functions like [`states`](/template-functions/states/), [`is_state`](/template-functions/is_state/), and [`state_attr`](/template-functions/state_attr/) don't check the entity ID. If they can't find the entity, they return `unknown`, `false`, or `none`.
 
 #### Resolution
 
