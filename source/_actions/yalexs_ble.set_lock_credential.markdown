@@ -58,6 +58,19 @@ action: |
 
 Put the PIN in quotes, so a PIN that starts with `0` is kept exactly as you typed it.
 
+To change the PIN in slot 10 and keep its existing name, leave out the `name` field:
+
+{% example %}
+action: |
+  action: yalexs_ble.set_lock_credential
+  target:
+    entity_id: lock.front_door
+  data:
+    credential_type: pin
+    credential_data: "731604"
+    credential_index: 10
+{% endexample %}
+
 ### Options in YAML
 
 {% options_yaml %}
@@ -84,7 +97,7 @@ name:
 
 ## Good to know
 
-- Only administrators can use this action.
+- Only administrators can run this action.
 - Each PIN can only be in one slot. If the PIN is already used in another slot, the action fails and the lock is not changed.
 - Home Assistant stores slot names, not the lock. If you remove the integration and add it again, you need to set the names again.
 - PINs you set from Home Assistant are not shown in the Yale app. The Yale app or a Yale Connect bridge can overwrite or remove them when it syncs with the lock. Manage your PINs in one place.

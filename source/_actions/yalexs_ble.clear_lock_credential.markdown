@@ -49,6 +49,18 @@ action: |
     credential_index: 10
 {% endexample %}
 
+To remove a guest PIN from every Yale Access Bluetooth lock in an area, for example at the end of a stay, target the area instead of a single lock. This works when the guest PIN uses the same slot on each lock:
+
+{% example %}
+action: |
+  action: yalexs_ble.clear_lock_credential
+  target:
+    area_id: guest_house
+  data:
+    credential_type: pin
+    credential_index: 20
+{% endexample %}
+
 ### Options in YAML
 
 {% options_yaml %}
@@ -67,7 +79,7 @@ credential_index:
 
 ## Good to know
 
-- Only administrators can use this action.
+- Only administrators can run this action.
 - The lock's master code is not stored in a numbered slot and cannot be cleared with this action.
 
 {% include actions/stuck.md %}

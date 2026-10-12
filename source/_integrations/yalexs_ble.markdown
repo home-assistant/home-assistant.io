@@ -119,7 +119,7 @@ master_code: false
 
 {% include docs/paste_yaml_tip.md %}
 
-### Automation: get notified when the dog walker arrives
+### Automation: get notified when the dog walker uses their PIN
 
 If you gave someone their own PIN and named the slot, you can get a notification each time they use it. This automation sends a notification when the PIN named "Dog walker" is used on the front door keypad.
 

@@ -50,6 +50,32 @@ action: |
   response_variable: slot_status
 {% endexample %}
 
+To set a new PIN only when the slot is still free, check the slot first and use the response in a condition. The response is keyed by the entity ID of the lock:
+
+{% example %}
+script: |
+  sequence:
+    - action: yalexs_ble.get_lock_credential_status
+      target:
+        entity_id: lock.front_door
+      data:
+        credential_type: pin
+        credential_index: 20
+      response_variable: slot_status
+    - if:
+        - condition: template
+          value_template: "{{ not slot_status['lock.front_door'].credential_exists }}"
+      then:
+        - action: yalexs_ble.set_lock_credential
+          target:
+            entity_id: lock.front_door
+          data:
+            credential_type: pin
+            credential_data: "590274"
+            credential_index: 20
+            name: "Guest"
+{% endexample %}
+
 ### Options in YAML
 
 {% options_yaml %}
@@ -83,7 +109,7 @@ lock.front_door:
 
 ## Good to know
 
-- Only administrators can use this action.
+- Only administrators can run this action.
 - The action asks the lock directly, so it also reports PINs that were added at the keypad or in the Yale app. Those slots have no name unless you set one with the [Set lock credential](/actions/yalexs_ble.set_lock_credential/) action.
 
 {% include actions/stuck.md %}
