@@ -57,23 +57,29 @@ The Modbus protocol implemented here follows the official _NeoPool Control Syste
 
 ## Prerequisites
 
-Before setting up the NeoPool integration, make sure:
+Your NeoPool controller is reached either over your network through a Modbus TCP gateway, or over a direct serial (RS-485) connection. Either way, the RS-485 wiring is connected to the controller's `WIFI` or `EXTERNAL` port (do **not** use `DISPLAY` unless the internal LCD is disconnected). The pinout (top to bottom) is:
+
+```text
+.  ___
+1 |*  |– +12V (from internal power supply)
+2 |*  |– NC (not connected)
+3 |*  |– Modbus A+
+4 |*  |– Modbus B-
+5 |*__|– GND
+```
+
+The connector is a standard 2.54 mm 5-pin PCB female header. The NeoPool bus runs at 19200 baud, 1 stop bit, no parity, Modbus RTU.
+
+For a **network** connection, make sure:
 
 - Your NeoPool controller is connected to a Modbus TCP gateway (any RS-485 to TCP converter, such as the USR-DR164) on your home network.
 - The gateway is configured for 19200 baud, 1 stop bit, no parity, Modbus RTU.
 - You know the hostname or IP address and TCP port of the gateway.
-- The RS-485 wiring is connected to the controller's `WIFI` or `EXTERNAL` port (do **not** use `DISPLAY` unless the internal LCD is disconnected). The pinout (top to bottom) is:
 
-  ```text
-  .  ___
-  1 |*  |– +12V (from internal power supply)
-  2 |*  |– NC (not connected)
-  3 |*  |– Modbus A+
-  4 |*  |– Modbus B-
-  5 |*__|– GND
-  ```
+For a **serial** connection, make sure:
 
-  The connector is a standard 2.54 mm 5-pin PCB female header.
+- The controller's RS-485 bus is wired to the machine running Home Assistant, either through a USB RS-485 adapter or through an ESPHome serial proxy that exposes the bus as a local port.
+- You know which serial port the bus is wired to, for example `/dev/ttyUSB0`.
 
 {% note %}
 The NeoPool device acts as a Modbus _server_. This integration is a Modbus _client_. Only one Modbus client can be connected to a given Modbus connector at a time.
@@ -81,17 +87,35 @@ The NeoPool device acts as a Modbus _server_. This integration is a Modbus _clie
 
 {% include integrations/config_flow.md %}
 
+Setting up starts by picking how the controller is reached, **Network (Modbus TCP / RTU-over-socket)** or **Serial (USB RS485 adapter or ESPHome serial proxy)**.
+
 ### Configuration parameters
+
+For a network connection:
 
 {% configuration_basic %}
 Host:
   description: The hostname or IP address of your Modbus TCP gateway, for example `192.168.1.50` or `pool-gateway.local`.
 Port:
   description: The TCP port of your Modbus gateway. Defaults to `502`.
-Unit ID:
-  description: The Modbus unit (server) ID of the NeoPool controller. Defaults to `1`.
 Modbus framer:
-  description: Protocol framer to use. `tcp` works for most gateways. Pick `rtu` only if your gateway forwards raw RTU frames over TCP.
+  description: Protocol framer to use. `tcp` works for most gateways. Pick `rtu` only if your gateway forwards raw RTU frames over TCP, such as an ESPHome stream server.
+{% endconfiguration_basic %}
+
+For a serial connection:
+
+{% configuration_basic %}
+Serial device:
+  description: The serial port the controller's RS-485 bus is wired to, for example `/dev/ttyUSB0`.
+Baud rate:
+  description: The baud rate of the RS-485 bus. NeoPool controllers use `19200`.
+{% endconfiguration_basic %}
+
+Both connection types share the collapsed **More options** section:
+
+{% configuration_basic %}
+Unit ID:
+  description: The Modbus unit (server) ID of the NeoPool controller. Defaults to `1`. Change it only if the controller was given another ID, for example because several devices share one connection.
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
