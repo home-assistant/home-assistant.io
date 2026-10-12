@@ -81,9 +81,11 @@ When the TV is requested to turn on, this automation first switches on the smart
 
 - **Trigger**: Device is requested to turn on
   - **Targeted device**: `my_samsungtv_device_id`
-- **Action**: Switch: Turn on (living room AV strip)
-- **Action**: Delay: 5 seconds (to allow the TV to receive power)
-- **Action**: Wake-on-LAN: Send magic packet
+- **Action**: Turn on switch
+  - **Target**: Living room AV strip
+- **Action**: Wait for time to pass (delay)
+  - **Duration**: `5` ss
+- **Action**: Send magic packet
 
 {% details "YAML example for turning on a smart strip and sending a WoL packet when the TV is requested to turn on" %}
 

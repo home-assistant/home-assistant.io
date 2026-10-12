@@ -73,7 +73,7 @@ behavior:
 
 - The trigger fires on any crossing, up or down. If you only want one direction, gate the automation with a numeric condition that checks whether the light's brightness is above or below the threshold.
 - The threshold is measured against the light's brightness percentage. A light at 0% (off) and the same light at 1% are both below a 50% threshold.
-- Pair this trigger with [Light is brightness](/conditions/light.is_brightness/) in follow-up conditions to double-check the final state.
+- Pair this trigger with [Light brightness](/conditions/light.is_brightness/) in follow-up conditions to double-check the final state.
 
 {% include triggers/try_it.md %}
 
