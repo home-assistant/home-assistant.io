@@ -20,7 +20,7 @@ toc: true
     <div class="component-search">
       <form onsubmit="event.preventDefault(); return false">
         <input type="text" name="search" id="search" class="search text-input"
-          placeholder="Search template functions..." autofocus />
+          placeholder="Search template functions..." aria-label="Search template functions" autofocus />
       </form>
     </div>
   </div>
@@ -31,7 +31,7 @@ toc: true
         {%- assign cat_functions = all_functions | where: 'category', cat.key -%}
         {%- if cat_functions.size > 0 -%}
         <div class="tf-category" data-category="{{ cat.key }}">
-          <h3 id="{{ cat.key }}"><iconify-icon inline icon="{{ cat.icon }}"></iconify-icon> {{ cat.label }}</h3>
+          <h2 id="{{ cat.key }}"><iconify-icon inline icon="{{ cat.icon }}"></iconify-icon> {{ cat.label }}</h2>
           {%- if cat.description -%}<p>{{ cat.description }}</p>{%- endif -%}
           <ul class="tf-list">
             {%- for func in cat_functions -%}
