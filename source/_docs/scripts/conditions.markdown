@@ -10,39 +10,6 @@ Unlike a {% term trigger %}, which is always `or`, conditions are `and` by defau
 
 All conditions support an optional `alias`.
 
-## Logical conditions
-
-### NOT condition
-
-Test multiple conditions in one condition statement. Passes if all embedded conditions are **not** true.
-
-```yaml
-conditions:
-  - alias: "Paulus not home AND alarm not disarmed"
-    condition: not
-    conditions:
-      - condition: state
-        entity_id: device_tracker.paulus
-        state: "home"
-      - condition: state
-        entity_id: alarm_control_panel.home_alarm
-        state: "disarmed"
-```
-
-The NOT condition also has a shorthand form. The following configuration works the same as the one listed above:
-
-```yaml
-conditions:
-  alias: "Paulus not home AND alarm not disarmed"
-  not:
-    - condition: state
-      entity_id: device_tracker.paulus
-      state: "home"
-    - condition: state
-      entity_id: alarm_control_panel.home_alarm
-      state: disarmed
-```
-
 ## Types of conditions
 
 For individual condition pages, refer to the [list of available conditions](/conditions/).
@@ -57,8 +24,9 @@ The conditions that are built into Home Assistant are:
 - <a id="device-conditions"></a>[Device](/conditions/device/)
 - <a id="sun-condition"></a><a id="sun-conditions"></a><a id="sun-state-condition"></a><a id="sun-elevation-condition"></a><a id="sunsetsunrise-condition"></a>[Sun](/conditions/sun/)
 - <a id="zone-condition"></a><a id="zone-conditions"></a>[Zone](/conditions/zone/)
-- <a id="and-condition"></a>[And](/conditions/and/)
+- <a id="logical-conditions"></a><a id="and-condition"></a>[And](/conditions/and/)
 - <a id="or-condition"></a><a id="mixed-and-and-or-conditions"></a>[Or](/conditions/or/)
+- <a id="not-condition"></a>[Not](/conditions/not/)
 
 ## Examples
 
