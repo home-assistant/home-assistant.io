@@ -185,7 +185,7 @@ template: |
 output: "0"
 {% endexample %}
 
-Or skip the calculation when the value is missing using [`has_value`](/template-functions/has_value/).
+If the value is the state of an entity, you can also check first whether the entity has a valid state, using [`has_value`](/template-functions/has_value/). `has_value` only checks entity states, not attributes.
 
 {% enddetails %}
 
