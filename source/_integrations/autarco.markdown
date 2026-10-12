@@ -74,6 +74,46 @@ If you have a battery connected to your system, you can monitor the battery stat
 - Charged energy this month (kWh)
 - Charged energy total (kWh)
 
+## Examples
+
+### Automation: Act when solar production is high
+
+This example sends a notification when solar power production remains above 2 kW for two minutes.
+
+```yaml
+alias: "Autarco high solar production"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.autarco_power_production
+    above: 2000
+    for:
+      minutes: 2
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "Autarco solar production has remained above 2 kW for two minutes."
+```
+
+### Automation: Act when battery charge is low
+
+This example sends a notification when the battery state of charge drops below 20%.
+
+```yaml
+alias: "Autarco low battery charge"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.autarco_battery_state_of_charge
+    below: 20
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "The Autarco battery state of charge is below 20%."
+```
+
 ## Known limitations
 
 The integration does not show data about your self-sufficiency or CO2 savings.

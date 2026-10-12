@@ -48,7 +48,7 @@ value:
 
 ## Good to know
 
-- Raises an error when the sequence is empty. Chain with [`| default(value)`](/template-functions/default/) for a fallback.
+- If the sequence is empty, the result is undefined. It shows as empty, and the template editor shows a warning. If the template uses that result further, for example, in `(items | last).name`, you get an error. Chain with [`| default(value)`](/template-functions/default/) for a fallback.
 - After a generator-producing filter like [`select`](/template-functions/select/) or [`map`](/template-functions/map/), add [`| list`](/template-functions/list/) first. Otherwise the entire sequence is consumed just to find the end.
 
 {% include template_functions/try_it.md %}

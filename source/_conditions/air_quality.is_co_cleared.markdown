@@ -44,8 +44,6 @@ This passes when the hallway carbon monoxide sensor is no longer detecting CO.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -55,7 +53,7 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md domain="binary_sensor" %}
 
 {% include conditions/behavior.md %}
 
@@ -73,7 +71,7 @@ behavior:
 
 After a CO event, you want the alarm to keep sounding until every room is safe. This automation triggers when you press the silence button, but the condition requires _every_ CO sensor in the house to read clear before the siren actually turns off. If any sensor still detects carbon monoxide, the alarm keeps going.
 
-- **Trigger**: State: Silence alarm button pressed
+- **Trigger**: State changed: Silence alarm button pressed
 - **Condition**: Air Quality: Carbon monoxide cleared
   - **Target**: All CO sensors (hallway, basement)
   - **Condition passes if**: All

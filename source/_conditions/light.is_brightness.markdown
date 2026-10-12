@@ -53,8 +53,6 @@ This passes when the living room light's brightness is at or above 50%.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >
@@ -85,7 +83,7 @@ behavior:
 
 When the movie-night button is pressed, only start the movie scene if the living room light is dimmer than 40%. If the room is still bright, prompt for manual dimming first.
 
-- **Trigger**: State: Movie night button pressed
+- **Trigger**: State changed: Movie night button pressed
 - **Condition**: Light brightness
 - **Target**: Living room light
 - **Threshold type**: 40

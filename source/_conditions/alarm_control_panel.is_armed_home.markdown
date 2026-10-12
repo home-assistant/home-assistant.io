@@ -47,8 +47,6 @@ This passes when the hallway alarm panel is currently armed in home mode.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -82,7 +80,7 @@ for:
 
 When an exterior motion sensor detects movement, turn on the porch and driveway lights, but only while the alarm is armed in home mode. During the day when the alarm is disarmed, you probably don't need those lights.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Exterior motion sensor
   - **To**: On
 - **Condition**: Alarm is armed home

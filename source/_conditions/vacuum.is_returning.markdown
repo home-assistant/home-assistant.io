@@ -50,8 +50,6 @@ This passes when `vacuum.downstairs` is returning to its dock.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >

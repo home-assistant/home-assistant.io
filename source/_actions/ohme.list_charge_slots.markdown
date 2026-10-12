@@ -98,7 +98,7 @@ slots:
 
 Charge slots are only returned if a charge is in progress. This automation fires the moment the car is plugged in, fetches the planned charge slots, and sends them as a notification. With this automation you can confirm the charger has scheduled charging in the cheapest and lowest-carbon window without opening the app.
 
-- **Trigger**: State (sensor `sensor.ohme_home_pro_status` changes from `unplugged`)
+- **Trigger**: State changed (sensor `sensor.ohme_home_pro_status` changes from `unplugged`)
 - **Action**: Ohme: List charge slots
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)

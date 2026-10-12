@@ -119,9 +119,29 @@ The integration provides an update entity that shows whether a firmware update i
 
 ## Notifications
 
-You can send notifications to your LaMetric device using the [Notifications](/integrations/notify) integration.
+You can send notifications to your LaMetric device in two ways: using the notify entity (recommended) or the legacy notify action.
 
-Each LaMetric device added to Home Assistant has its own `notify.` action. The action name matches the name of your device as shown in your LaMetric account. For example, if you have a device called "My LaMetric", the action becomes `notify.my_lametric`.
+### Notify entity
+
+Each LaMetric device provides a notify entity that you can use with the [`notify.send_message`](/actions/notify.send_message/) action. This is the recommended way to send notifications.
+
+The entity is named after your device. For example, a device called "My LaMetric" provides the entity `notify.my_lametric`.
+
+To send a message, target the entity and provide the message text:
+
+```yaml
+action: notify.send_message
+target:
+  entity_id: notify.my_lametric
+data:
+  message: "Hello from Home Assistant!"
+```
+
+The notify entity supports only the message text. To use the additional options described below, use the legacy notify action.
+
+### Legacy notify action
+
+Each LaMetric device added to Home Assistant also has its own `notify.` action. The action name matches the name of your device as shown in your LaMetric account. For example, if you have a device called "My LaMetric", the action becomes `notify.my_lametric`.
 
 The notification action against a LaMetric device accepts the following additional optional parameters:
 
@@ -274,6 +294,12 @@ If you see a "Cannot connect" error when adding the device manually, verify that
 1. The device is powered on and connected to your network.
 2. The hostname or IP address you entered is correct.
 3. The API key matches the one shown in the LaMetric developer portal.
+
+### Notifications do not show in kiosk mode
+
+When the LaMetric device is in kiosk mode, it only accepts notifications with the `critical` priority, and refuses all others with the message "Only notifications with priority 'critical' are allowed in current mode".
+
+The notify entity always sends notifications with the `info` priority. To send a notification to a device in kiosk mode, use the `lametric.message` action or the [legacy notify action](#legacy-notify-action) with the priority set to `critical`.
 
 ## Use your own LaMetric application credentials
 

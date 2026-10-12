@@ -47,8 +47,6 @@ This fires whenever the backyard ozone sensor reading changes by at least 10 ppb
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >

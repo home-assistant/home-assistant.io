@@ -1,5 +1,5 @@
 ---
-title: "Numeric state"
+title: "Numeric state crossed threshold"
 trigger: numeric_state
 domain: homeassistant
 description: "Triggers when a numeric value crosses a threshold."
@@ -8,9 +8,9 @@ related_triggers:
   - time
 ---
 
-The **Numeric state** trigger is a general trigger for reacting when a numeric value crosses a threshold. Use it when you need to watch an exact numeric state or attribute value, or when the automation editor does not offer a trigger named after what you want to watch.
+The **Numeric state crossed threshold** trigger is a general trigger for reacting when a numeric value crosses a threshold. Use it when you need to watch an exact numeric state or attribute value, or when the visual automation editor does not offer a trigger named after what you want to watch.
 
-If the automation editor shows a trigger named after the measurement you care about, use that one instead. For example, use [Temperature crossed threshold](/triggers/temperature.crossed_threshold/) for temperature readings or [Power crossed threshold](/triggers/power.crossed_threshold/) for power readings. These triggers are easier to read later and can handle compatible units automatically.
+If the visual automation editor shows a trigger named after the measurement you care about, use that one instead. For example, use [Temperature crossed threshold](/triggers/temperature.crossed_threshold/) for temperature readings or [Power crossed threshold](/triggers/power.crossed_threshold/) for power readings. These triggers are easier to read later and can handle compatible units automatically.
 
 {% include triggers/ui_header.md %}
 
@@ -19,7 +19,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. Search for and select the **Numeric state** trigger.
+4. Search for and select the **Numeric state crossed threshold** trigger.
 5. In **Entity**, select the entity whose numeric value Home Assistant should watch.
 6. Optional: Select **Add entity** to select additional entities whose numeric value Home Assistant should watch.
 7. Optional: In **Attribute**, select an attribute instead of the main state.
@@ -27,7 +27,7 @@ To use this trigger in an automation:
 9. Optional: In **Below**, enter a number to fire the trigger only if the value of the numeric state or attribute is below that number. Instead of a **Fixed number**, you can select **Value of an entity** and then select an entity from the list. This fires the trigger if the value of the numeric state or attribute is below the value of the selected entity.
 10. Optional: Enter a number in both **Above** and **Below** to fire the trigger if the value of the numeric state or attribute is inside the range. If you don't set **Above** and **Below**, the trigger fires on every change of the numeric state or attribute value.
 11. Optional: In **Value template**, enter a template that will be used to calculate the numeric value.
-12. Optional: In **For**, enter how long the numeric state or attribute value must remain unchanged or stay within the configured threshold before the trigger fires. You can enter a template by selecting **Template** instead of **Duration**.
+12. Optional: In **For at least**, enter how long the numeric state or attribute value must remain unchanged or stay within the configured threshold before the trigger fires. You can enter a template by selecting **Template** instead of **Duration**.
 13. Select **Save**.
 
 ### Options in the UI
@@ -48,7 +48,7 @@ Below:
 Value template:
   description: The limited template to use for calculating the numeric value.
   required: false
-For:
+For at least:
   description: The amount of time the value of the numeric state or attribute must remain unchanged or stay within the configured threshold. Default is `0` hours, `00` minutes and `00` seconds (fires immediately).
   required: false
 {% endoptions_ui %}
@@ -113,7 +113,7 @@ This trigger watches one or more entities selected in the UI options **Entity** 
 - If you set both **Above** and **Below**, the trigger fires when the value enters that range.
 - This trigger compares the raw numeric value you enter. It does not convert between units. For measurements with units, use a trigger named after that measurement when one is available.
 - If you use an entity in **Above** (`above`) or **Below** (`below`), Home Assistant compares the value of the watched entity against the value of that entity only when the watched entity updates.
-- If you use **For** (`for`), the timer resets if Home Assistant restarts or automations reload.
+- If you use **For at least** (`for`), the timer resets if Home Assistant restarts or automations reload.
 - When you use `value_template`, the `state` variable is the [state object](/docs/configuration/state_object) for the entity you selected with `entity_id`.
 
 {% include triggers/try_it.md %}
@@ -124,7 +124,7 @@ This trigger watches one or more entities selected in the UI options **Entity** 
 
 If the freezer temperature rises above a safe value, this automation sends a message to your phone.
 
-- **Trigger**: Numeric state
+- **Trigger**: Numeric state crossed threshold
   - **Entity**: Freezer temperature sensor (`sensor.freezer_temperature`)
   - **Above**: `-10`
 - **Action**: Send a notification message
@@ -153,10 +153,10 @@ automation: |
 
 If a battery-powered device stays below a set level for a while, this automation reminds you to charge or replace it.
 
-- **Trigger**: Numeric state
+- **Trigger**: Numeric state crossed threshold
   - **Entity**: Door lock battery sensor (`sensor.front_door_lock_battery`)
   - **Below**: `20`
-  - **For**: 30 minutes
+  - **For at least**: 30 minutes
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

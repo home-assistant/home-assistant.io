@@ -18,19 +18,19 @@ Keeps track of the locks in your environment, their state, and lets you control 
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a lock entity
+## Lock states
 
-A lock entity can have the following states. The three main states line up with the actions you can run on a lock.
+A lock entity can have the following states. The three main states line up with the actions you can run on a lock. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
 
-- **Locked**: The lock is secured. This is the state a lock reaches after the [Lock](/actions/lock.lock/) action.
-- **Locking**: The lock is in the process of being locked.
-- **Unlocked**: The lock is no longer secured, the result of the [Unlock](/actions/lock.unlock/) action. On a lock with a separate latch, the door can still be held shut until you turn the handle.
-- **Unlocking**: The lock is in the process of being unlocked.
-- **Open**: The lock is no longer secured and has released its latch, so the door can be pushed open without turning the handle. This is the state a lock reaches after the [Open](/actions/lock.open/) action, which is only available on locks that support it.
-- **Opening**: The lock is in the process of releasing its latch.
-- **Jammed**: The lock tried to move but got stuck before it finished, for example because the bolt is misaligned or something is blocking it.
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Locked** (`locked`): The lock is secured. This is the state a lock reaches after the [Lock](/actions/lock.lock/) action.
+- **Locking** (`locking`): The lock is in the process of being locked.
+- **Unlocked** (`unlocked`): The lock is no longer secured, the result of the [Unlock](/actions/lock.unlock/) action. On a lock with a separate latch, the door can still be held shut until you turn the handle.
+- **Unlocking** (`unlocking`): The lock is in the process of being unlocked.
+- **Open** (`open`): The lock is no longer secured and has released its latch, so the door can be pushed open without turning the handle. This is the state a lock reaches after the [Open](/actions/lock.open/) action, which is only available on locks that support it.
+- **Opening** (`opening`): The lock is in the process of releasing its latch.
+- **Jammed** (`jammed`): The lock tried to move but got stuck before it finished, for example because the bolt is misaligned or something is blocking it.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 {% include integrations/triggers_conditions_actions.md %}
 

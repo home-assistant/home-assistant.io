@@ -47,8 +47,6 @@ This passes when the hallway alarm panel is currently armed in away mode.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -82,7 +80,7 @@ for:
 
 When a water leak sensor detects a leak, turn the thermostat down to prevent further damage, but only if the alarm is armed in away mode. If someone is home, they should handle it themselves.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Water leak sensor
   - **To**: On
 - **Condition**: Alarm is armed away

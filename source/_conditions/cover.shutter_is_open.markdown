@@ -50,8 +50,6 @@ This passes when `cover.kitchen_shutter` is currently open.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >

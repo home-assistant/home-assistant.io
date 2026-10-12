@@ -1,0 +1,285 @@
+---
+// Homepage hero: the "Awaken your home" headline, lead text, calls to
+// action, the GitHub top-project badge and the live demo phone.
+//
+// Ports the structure and layout of `source/_includes/site/hero_unit.html`
+// and `source/_includes/custom/welcome.html` (placed by
+// `source/_layouts/default.html` when a page sets `hero_unit: true`).
+// Styling copies the structure and cleans the surface, as agreed: the
+// five one-off breakpoints, `!important` font sizes and the negative
+// margin on the second headline line in
+// `sass/homeassistant/homepage/_hero_unit.scss` become theme tokens, one
+// scaling display size and the site's desk breakpoint; the inuitcss
+// float grid becomes a CSS grid.
+//
+// Deliberate differences from the Jekyll rendering, all agreed:
+//   - The hero does not pull itself under the header. Jekyll gives it
+//     `margin-top: -88px` and ships the script that keeps the header
+//     dark while the page is scrolled to the top; both belong to the
+//     page layout. The hero only reserves `--header-height` at its top
+//     so its content clears a header drawn over it.
+//   - Below the desk breakpoint (1140px) the hero stacks, centered,
+//     with the demo screenshot peeking up from its bottom edge. Jekyll
+//     kept two columns down to 760px.
+//   - The calls to action always stack: the "Get started" pill above
+//     the two text links. Jekyll put them side by side above 1280px.
+//   - Content sits in the site's shared container
+//     (`src/styles/_layout.scss`), so it lines up with the header and
+//     footer instead of an extra 64px indent. The badge sizes to its
+//     content instead of a fixed 330px.
+//   - The "Get started" arrow is an inline SVG instead of an
+//     `<iconify-icon>`. The commented-out "As seen on" block and the
+//     bottom margin (spacing to the next section is the layout's) are
+//     not carried over.
+import "../styles/tokens.scss";
+import DemoPhone from "./DemoPhone.astro";
+import githubLogoUrl from "../assets/hero-github-logo.svg?url";
+import trophyUrl from "../assets/hero-trophy.svg?url";
+
+// Number of integrations with a category and title. Shown rounded down
+// to the hundred; subtracting 1 keeps the milestone conservative, so
+// 1600 still reads "1500+" and it flips over at 1601.
+const { integrationCount } = Astro.props;
+const integrationMilestone = Math.floor((integrationCount - 1) / 100) * 100;
+---
+
+<div class="home-hero">
+  <div class="content">
+    <div class="welcome">
+      <h1>Awaken<br />your home</h1>
+      <p class="lead">
+        Open source home automation that puts local control and privacy
+        first. Powered by a worldwide community of tinkerers and DIY
+        enthusiasts.
+      </p>
+
+      <div class="actions">
+        <a class="primary" href="/installation/">
+          Get started
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z"
+            ></path>
+          </svg>
+        </a>
+        <div class="secondary">
+          <a href="https://demo.home-assistant.io" target="_blank" rel="noopener">
+            View live demos
+          </a>
+          <a href="/integrations/">Browse {integrationMilestone}+ integrations</a>
+        </div>
+      </div>
+
+      <a
+        class="badge"
+        href="https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/#the-top-open-source-projects-by-contributors"
+        target="_blank"
+        rel="noopener"
+      >
+        <img src={githubLogoUrl} alt="GitHub logo" width="48" height="48" />
+        <img
+          src={trophyUrl}
+          alt="Top open source project trophy"
+          width="48"
+          height="48"
+        />
+        <span><strong>Top open source project</strong> by contributors in 2025</span>
+      </a>
+    </div>
+
+    <div class="demo">
+      <DemoPhone />
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../styles/breakpoints";
+  @use "../styles/layout";
+
+  /* Mobile first: one centered column with the demo screenshot below,
+     cropped by the hero's bottom edge. From the desk width, text and
+     the live demo phone sit side by side in a viewport-high hero. */
+
+  .home-hero {
+    background: linear-gradient(
+      340deg,
+      hsl(200deg 100% 50%) 0%,
+      hsl(195deg 100% 50%) 50%,
+      hsl(185deg 100% 50%) 100%
+    );
+    border-bottom: 1px solid rgb(0 0 0 / 10%);
+    /* The viewport-high minimum includes the header room on top. */
+    box-sizing: border-box;
+    color: var(--color-text-inverse);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-large);
+    line-height: 1.5;
+    overflow: hidden;
+    padding-top: calc(var(--header-height) + var(--space-xlarge));
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  .content {
+    display: grid;
+    gap: var(--space-xxlarge);
+    @include layout.container;
+  }
+
+  .welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  h1 {
+    background: linear-gradient(125deg, #fff 29.3%, #80fff4 90%);
+    background-clip: text;
+    color: transparent;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-display);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin: 0 0 var(--space-xlarge);
+    /* Room for the descender of "y": the gradient only paints inside
+       the box, so a glyph that hangs below it would be invisible. */
+    padding-bottom: 0.1em;
+  }
+
+  .lead {
+    font-size: var(--font-size-xlarge);
+    margin: 0 0 var(--space-xlarge);
+    /* Keeps lines readable while the hero is one centered column. */
+    max-width: 42rem;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-small);
+    margin-bottom: var(--space-xxlarge);
+  }
+
+  .primary {
+    align-items: center;
+    background: var(--color-link);
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xlarge);
+    font-weight: 700;
+    gap: var(--space-small);
+    padding: var(--space-small) var(--space-large) var(--space-small)
+      var(--space-xlarge);
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    svg {
+      height: 1em;
+      width: 1em;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background: var(--color-highlight-shade);
+    }
+  }
+
+  .secondary {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: var(--space-xlarge);
+    font-weight: 600;
+    padding: var(--space-small) var(--space-medium);
+
+    a:hover,
+    a:focus-visible {
+      text-decoration: underline;
+    }
+  }
+
+  .badge {
+    align-items: center;
+    border: 1px solid var(--color-footer-surface);
+    border-radius: var(--radius-small);
+    display: flex;
+    gap: var(--space-medium);
+    line-height: 1.25;
+    opacity: 0.75;
+    padding: var(--space-medium);
+    text-align: left;
+    transition: opacity 0.5s;
+
+    span {
+      max-width: 12rem;
+    }
+
+    strong {
+      display: block;
+      font-weight: 600;
+    }
+
+    &:hover,
+    &:focus-visible {
+      opacity: 1;
+    }
+  }
+
+  /* Only the top of the screenshot shows: the phone rises from the
+     hero's bottom edge. */
+  .demo {
+    max-height: 18rem;
+    overflow: hidden;
+  }
+
+  @media only screen and (min-width: breakpoints.$desk) {
+    .home-hero {
+      align-content: center;
+      display: grid;
+      min-height: min(100svh, 67.5rem);
+      padding-bottom: var(--space-xlarge);
+    }
+
+    .content {
+      align-items: center;
+      grid-template-columns: 3fr 2fr;
+    }
+
+    .welcome,
+    .actions {
+      align-items: flex-start;
+      text-align: start;
+    }
+
+    .lead {
+      font-size: var(--font-size-xxlarge);
+      max-width: none;
+    }
+
+    .primary {
+      font-size: var(--font-size-xxlarge);
+    }
+
+    .secondary {
+      justify-content: flex-start;
+    }
+
+    .badge {
+      margin-top: var(--space-xlarge);
+    }
+
+    .demo {
+      max-height: none;
+      overflow: visible;
+    }
+  }
+</style>

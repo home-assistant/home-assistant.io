@@ -61,7 +61,7 @@ The Xbox media player platform will create media player entities for each consol
 
 To launch an app or return to the Xbox dashboard, use the [**Play specified media**](/actions/media_player.play_media/) action and select your Xbox media player as the target. Set **Media content ID** to `Home` to return to the dashboard, or enter an app product ID.
 
-You can find product IDs by listening to the `call_service` event in {% my developer_events title="**Settings** > **Tools** > **Events**" %}. In another browser tab, open the media browser for your console and select an app or game. The event data shows the product ID.
+You can find product IDs by listening to the `call_service` event in {% my tools_events title="**Settings** > **Tools** > **Events**" %}. In another browser tab, open the media browser for your console and select an app or game. The event data shows the product ID.
 
 ## Remote
 
@@ -374,7 +374,6 @@ The **Xbox binary sensor platform** automatically tracks the online status and a
 | -------------------------------- | ---------------------------------------------------------------------- |
 | (*Gamertag* )                    | Shows the account's online status. The entity's attributes provide extra information, including real name and bio. |
 | **In game**                      | Shows whether the account is currently playing a game.                   |
-| **Subscribed to Xbox Game Pass** | Indicates whether the account is currently subscribed to Xbox Game Pass. |
 
 ## Sensor
 
@@ -403,13 +402,19 @@ These sensors track the storage on your own **Xbox consoles** and connected stor
 
 ## Image
 
-For your account and each of your friends, several image entities are available:
+Image entities provide artwork for the Xbox account or the game the account is currently playing. Game-related image entities are only available while a game is actively being played.
 
-| Entity Name      | Description                                                                            |
+| Entity name      | Description                                                                            |
 | ---------------- | -------------------------------------------------------------------------------------- |
 | **Avatar**       | Shows the classic Xbox avatar for you or your friends, if available. You can create or customize your own avatar using the [Xbox Original Avatars app](https://apps.microsoft.com/detail/9nblgggz5qdq?ocid=webpdpshare). |
 | **Gamerpic**     | Shows the current **Gamerpic** that represents you or your friends across the Xbox Network. |
 | **Now playing**  | Displays the cover art of the game you or your friends are currently playing.          |
+| **Box art**      | The game's official box art. Image size: 1080 × 1080 px.         |
+| **Poster**       | The game's official poster artwork. Image size: 720 × 1080 px.         |
+| **Branded key art** | The game's physical case artwork, featuring the branded front cover of the game package. Image size: 584 × 800 px. |
+| **Feature promotional square art** | The game's promotional artwork in a square format. Image size: 1080 × 1080 px. |
+| **Superhero art** |	The game's hero artwork featuring key characters, themes, or visual elements. Image size: 1920 × 1080 px. |
+| **Titled hero art** |	The game's hero artwork with the game title or logo incorporated into the artwork. Image size: 1920 × 1080 px. |
 
 ## Media source
 

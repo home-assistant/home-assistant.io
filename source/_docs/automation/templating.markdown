@@ -1,13 +1,13 @@
 ---
-title: "Automation templates"
-description: "Use templates inside an automation to access trigger data, build dynamic messages, and pass calculated values to actions."
+title: "Trigger data in templates"
+description: "Look up the data that each type of trigger passes to the templates in your automation, and the state of the automation itself."
 ---
 
 Automations support [templating](/docs/templating/) in the same way as scripts do. In addition to the [Home Assistant template extensions](/docs/templating/) available to scripts, the `trigger` and `this` template variables are available for automations.
 
 Example of variables used in templates:
 
-- `{{ this.name }}` is the name of the automation executing from this trigger
+- `{{ this.attributes.friendly_name }}` is the name of the automation executing from this trigger
 - `{{ trigger.platform }}` is the type of trigger object, like `calendar`
 
 ## Available state data
@@ -49,6 +49,7 @@ These are the properties available for a [Calendar trigger](/docs/automation/tri
 | `trigger.calendar_event.all_day`     | Indicates the event spans the entire day.
 | `trigger.calendar_event.description` | A detailed description of the calendar event, if available.
 | `trigger.calendar_event.location`    | Location information for the calendar event, if available. 
+| `trigger.calendar_event.status`      | The status of the calendar event, either `confirmed` or `tentative`, if available. This is the status of the event itself, not your reply to an invitation.
 | `trigger.offset`                     | Timedelta object with offset to the event, if any.
 
 ### Device
@@ -76,12 +77,15 @@ These are the properties available for an [Event trigger](/docs/automation/trigg
 
 ### Geolocation
 
-These are the properties available for a [Geolocation trigger](/docs/automation/trigger/#geolocation-trigger). 
+These are the properties available for a [Geolocation trigger](/triggers/geo_location/). 
 
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `geo_location`
-| `trigger.event` | The trigger event type, either `enter`  or `leave`.
+| `trigger.entity_id` | Entity ID of the geolocation entity.
+| `trigger.from_state` | Previous [state object] of the entity. `None` if the entity was just created.
+| `trigger.to_state` | New [state object] of the entity. `None` if the entity was removed.
+| `trigger.event` | The trigger event type, either `enter` or `leave`.
 | `trigger.source` | The Geolocation platform creating the trigger event.
 | `trigger.zone` | State object of the zone.
 
@@ -110,7 +114,7 @@ These are the properties available for an [MQTT trigger](/docs/automation/trigge
 
 ### Numeric state
 
-These are the properties available for a [numeric state trigger](/docs/automation/trigger/#numeric-state-trigger).
+These are the properties available for a [Numeric state crossed threshold trigger](/docs/automation/trigger/#numeric-state-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -137,7 +141,7 @@ These are the properties available for a [Sentence trigger](/docs/automation/tri
 
 ### State
 
-These are the properties available for a [State trigger](/docs/automation/trigger/#state-trigger).
+These are the properties available for a [State changed trigger](/docs/automation/trigger/#state-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -164,7 +168,7 @@ These are the properties available for a [Tag trigger](/docs/automation/trigger/
 | Template variable | Data |
 | ---- | ---- |
 | `trigger.platform` | Hardcoded: `tag`
-| `trigger.tag_id` | The tag ID captured.
+| `trigger.event.data.tag_id` | The tag ID captured.
 | `trigger.event.data.device_id` | Optional device ID that captured the tag.
 
 ### Template

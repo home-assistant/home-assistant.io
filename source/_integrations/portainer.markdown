@@ -53,6 +53,7 @@ There is currently support for the following device types within Home Assistant:
 ### Binary sensors
 
 - **Status**: Reports whether a container is running.
+- **Out of memory**: Reports a problem when the container was stopped because it ran out of memory. It resets when the container starts again.
 
 ### Buttons
 
@@ -61,6 +62,7 @@ There is currently support for the following device types within Home Assistant:
 - **Resume container**: Resumes the container.
 - **Recreate container**: Recreates the container by pulling the latest tagged image.
 - **Prune unused images**: Removes unused Docker images from the endpoint.
+- **Update stack**: Pulls the latest images and redeploys the stack. Stacks deployed from a Git repository are redeployed from that repository. The stack keeps its environment variables and settings. Not available for Kubernetes stacks.
 
 ### Events
 
@@ -76,6 +78,8 @@ There is currently support for the following device types within Home Assistant:
 - **Memory usage**: Current memory usage of the container.
 - **Memory usage percentage**: Memory usage as a percentage of the container's limit.
 - **Memory limit**: Memory limit configured for the container.
+- **Started**: When the container was last started.
+- **Restart count**: How often Docker restarted the container, for example, because of its restart policy.
 
 #### Endpoint sensors
 
@@ -149,7 +153,7 @@ Each Docker container is a child device under its endpoint or stack. Container d
 
 ### Stacks
 
-Each Docker Compose or Swarm stack is a child device under its endpoint. Stack devices expose a status sensor, a type sensor, a container count sensor, and a switch to start or stop the entire stack.
+Each Docker Compose or Swarm stack is a child device under its endpoint. Stack devices expose a status sensor, a type sensor, a container count sensor, a switch to start or stop the entire stack, and a button to update it.
 
 Docker API Engine needs to be equal to or above version 1.44. Older versions are [deprecated](https://docs.docker.com/reference/api/engine/#deprecated-api-versions). 
 

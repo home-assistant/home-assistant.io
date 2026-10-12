@@ -26,7 +26,7 @@ To see which datapoints your nextcloud instance exposes, browse to this url: `ht
 
 ![Nextcloud Example Sensor](/images/screenshots/nextcloud-sample-sensor.png)
 
-## Configuration
+## Prerequisites
 
 This integration has the following Nextcloud Server prerequisites:
 

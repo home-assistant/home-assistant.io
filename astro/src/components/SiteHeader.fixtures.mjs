@@ -43,6 +43,7 @@ export default {
     },
     {
       name: "dark, over a hero image",
+      dark: true,
       props: {
         pathname: "/",
         dark: true,

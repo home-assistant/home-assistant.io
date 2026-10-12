@@ -52,8 +52,6 @@ This passes when `assist_satellite.living_room` is currently listening for a voi
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -90,7 +88,7 @@ for:
 
 This automation pauses a media player only when a satellite in the same area has already started listening, ensuring media is not paused unnecessarily when the satellite is idle and no voice interaction is taking place.
 
-- **Trigger**: State change of any media player in the living room to `playing`
+- **Trigger**: State changed, when any media player in the living room changes to `playing`
 - **Condition**: Satellite is listening
   - **Target**: Assist satellite of living room
 - **Action**: Pause media

@@ -14,6 +14,8 @@ Treat `https://raw.githubusercontent.com/home-assistant/developers.home-assistan
 Treat `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/yaml-style-guide.md` as the YAML style source for all YAML examples.
 Do not loosely imitate it.
 Follow its structure closely unless Core implementation makes a specific section inapplicable.
+Follow the dedicated integration page structure and templates before applying the [topic-based authoring guide](https://raw.githubusercontent.com/home-assistant/developers.home-assistant/refs/heads/master/docs/documenting/topic-based-authoring.md).
+Apply topic-based authoring to the remaining content and to any choices the dedicated guidance does not define.
 
 ## Stage 1: inventory with a sub-agent
 

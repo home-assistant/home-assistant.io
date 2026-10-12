@@ -293,6 +293,7 @@ const icons = {
 
 <style lang="scss">
   @use "../styles/breakpoints";
+  @use "../styles/layout";
 
   /* Mobile first: one column, then two from the lap width and four
      from the desk width, which is what the inuitcss grid classes on
@@ -321,10 +322,8 @@ const icons = {
      every width and is clipped on narrow screens rather than scaled. */
 
   .skyline {
-    margin: 0 auto;
-    max-width: var(--layout-max-width);
     overflow: hidden;
-    padding: 0 var(--layout-gutter);
+    @include layout.container;
 
     img {
       display: block;
@@ -340,9 +339,8 @@ const icons = {
     display: grid;
     gap: 0 var(--layout-gutter);
     grid-template-columns: 1fr;
-    margin: 0 auto;
-    max-width: var(--layout-max-width);
-    padding: var(--space-xxlarge) var(--layout-gutter);
+    padding-block: var(--space-xxlarge);
+    @include layout.container;
   }
 
   .column {
@@ -437,12 +435,6 @@ const icons = {
   }
 
   @media only screen and (min-width: breakpoints.$desk) {
-    .skyline,
-    .columns {
-      padding-left: var(--layout-gutter-wide);
-      padding-right: var(--layout-gutter-wide);
-    }
-
     .columns {
       grid-template-columns: repeat(4, 1fr);
     }

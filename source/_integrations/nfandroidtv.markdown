@@ -155,7 +155,7 @@ These examples show how to use the TV notify entity in automations. Replace the 
 
 Show a notification on the TV when the doorbell detects motion.
 
-- **Trigger**: State, doorbell motion changes to detected
+- **Trigger**: State changed, doorbell motion changes to detected
 - **Action**: Send a notification via `notify.living_room_tv`
   - **Message**: Someone is at the front door.
   - **Data**:

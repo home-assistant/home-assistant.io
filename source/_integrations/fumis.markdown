@@ -36,7 +36,7 @@ Any pellet stove, pellet boiler, or hybrid wood and pellet stove equipped with a
   - [Clou Duo](https://www.austroflamm.com/en/our-stoves/hybrid-stoves/clou-duo-170) (hybrid wood and pellet stove)
   - [MO DUO](https://www.austroflamm.com/en/our-stoves/hybrid-stoves/mo-duo-pellet-67666) (hybrid wood and pellet stove)
   - Polly 2.0 (pellet stove)
-- [Eco Spar](https://ecospar.com.mk/)
+- [EcoSpar](https://ecospar.com.mk/)
   - [Auriga](https://ecospar.com.mk/product/aurega/) (pellet boiler)
   - Solara (pellet stove)
   - Tukana (pellet stove)

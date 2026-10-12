@@ -48,8 +48,6 @@ This passes when the living room remote is currently on.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -83,7 +81,7 @@ for:
 
 When you press a button on a dashboard, only forward a media command if the living room remote is currently on so the command does not get lost.
 
-- **Trigger**: State: Dashboard button pressed
+- **Trigger**: State changed: Dashboard button pressed
 - **Condition**: Remote is on
   - **Target**: Living room remote
 - **Action**: Send remote command

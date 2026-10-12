@@ -29,7 +29,7 @@ automations as
 [a condition with an optional offset to test if the sun has already set or risen][sun_condition].
 
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
-[sun_condition]: /docs/scripts/conditions/#sun-condition
+[sun_condition]: /conditions/sun/
 
 ## Configured by default
 
@@ -60,7 +60,7 @@ sun:
 
 ## Automation trigger
 
-Home Assistant provides a set of dedicated sun triggers for sunrise, sunset, dawn, dusk, solar noon, solar midnight, and the sun's elevation. See the [list of triggers](#list-of-triggers) below for the full set.
+Home Assistant provides a set of dedicated sun triggers for sunrise, sunset, dawn, dusk, solar noon, solar midnight, golden hour, blue hour, midnight sun, polar night, and the sun's elevation. See the [list of triggers](#list-of-triggers) below for the full set.
 
 The classic `sun` trigger described here is still supported.
 

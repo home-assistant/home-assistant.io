@@ -6,6 +6,7 @@ description: "Sets the type of radar imagery shown by an Environment Canada rada
 related_actions:
   - environment_canada.get_alerts
   - environment_canada.get_forecasts
+  - environment_canada.get_precipitation_forecast
 ---
 
 Use this action to set the type of radar imagery that an Environment Canada radar camera retrieves. By default, the camera shows rain radar from 1 April to 30 November and snow radar from 1 December to 31 March. With this action, you can switch the layer yourself, for example to show snow radar during an early cold snap.
