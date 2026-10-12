@@ -49,6 +49,7 @@ The **MELCloud Home** {% term integration %} provides the following entities.
 
 - **Error**: Indicates if the unit reported an error.
 - **Standby**: Indicates if the unit is in standby mode.
+- **Holiday mode**: Indicates if a holiday is running right now. It stays off while a scheduled holiday hasn't started yet.
 - **Forced hot water**: Indicates if the force hot water is activated (applicable only for Air-to-Water units).
 - **Frost protection**: Indicates if the prost protection, if enabled, is activated.
 - **Overheat protection**: Indicates if the overheat protection, if enabled, is activated.
