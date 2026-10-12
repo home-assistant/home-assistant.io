@@ -77,11 +77,12 @@ The integration provides the following sensor entity:
 #### GDS/GSC devices
 
 - **Device status** - Overall device status showing:
-  - `online` - Device is connected and responding
+  - `available` - Device is idle with an available account
+  - `busy` - Device is currently on a call
+  - `ringing` - Device is ringing
+  - `preview` - Device is in call preview state
+  - `no_available_account` - No account is available on the device
   - `offline` - Device is not reachable
-  - `account_locked` - User account is temporarily locked
-  - `auth_failed` - Authentication failed
-  - `ha_control_disabled` - Home Assistant control is disabled on device
 
 ## Troubleshooting
 
