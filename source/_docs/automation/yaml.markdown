@@ -105,7 +105,7 @@ triggers:
           description: "The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable."
           type: any
 conditions:
-  description: Conditions that have to be `true` to start the automation. By default all conditions listed have to be `true`, you can use [logical conditions](/docs/scripts/conditions/#logical-conditions) to change this default behavior.
+  description: Conditions that have to be `true` to start the automation. By default, all conditions listed have to be `true`. To change this, use the [And](/conditions/and/), [Or](/conditions/or/), and [Not](/conditions/not/) conditions.
   required: false
   type: list
 actions:

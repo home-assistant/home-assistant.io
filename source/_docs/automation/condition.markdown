@@ -4,8 +4,6 @@ description: "Conditions decide whether an automation continues after a trigger 
 related:
   - docs: /conditions/
     title: List of available conditions
-  - docs: /docs/scripts/conditions/
-    title: Conditions reference
   - docs: /docs/automation/how-automations-react-to-changes/
     title: How automations react to changes
   - docs: /docs/automation/testing/
