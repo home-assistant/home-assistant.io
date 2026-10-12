@@ -899,8 +899,8 @@ The automation has an old key and the new key in the same place. Home Assistant 
 
 1. In the YAML file, find the automation and the keys that the error names.
 2. Remove the old key:
-   - For `trigger` and `triggers`, `condition` and `conditions`, or `action` and `actions`, move the items from the old list into the new list. Then remove the old key.
-   - For `platform` and `trigger` in one trigger, or `service` and `action` in one action, keep the key with the value you want. Remove the other one.
+   - For `trigger:` and `triggers:`, `condition:` and `conditions:`, or `action:` and `actions:`, move the items from the old list into the new list. Then remove the old key.
+   - For `platform:` and `trigger:` in one trigger, or `service:` and `action:` in one action, keep the key with the value you want. Remove the other one.
      - If you need both values, add a separate trigger or action for each.
 3. Reload your automations. For the steps, refer to [Reloading automations](/docs/automation/yaml/#reloading-automations).
 
