@@ -118,13 +118,25 @@ By the end of this section you will have configured the OAuth consent screen, ne
    - **User support email**: Select your Google account email.
    - **Developer contact email**: Enter your email address under Developer contact information.
    
-   Leave all other fields (App logo, App domain, Authorized domains) empty to avoid triggering Google's verification process. Click **Save**.
+  
+   - **Application home page**: Enter `https://www.home-assistant.io`.
+   - **Application privacy policy link**: Enter `https://www.home-assistant.io/privacy`.
+   - **Terms of service**: Leave this field blank.
+   - **Authorized domains**: Click **+ Add domain** and enter `home-assistant.io` without `https://` or a path.
+   - **App logo**: Leave this field empty to avoid triggering additional verification requirements.
+
+   Click **Save**.
+
 
 4. Click **Audience** in the left sidebar.
    - Under **User type**, confirm it shows **External**.
    - Under **Test users**, click **+ Add users** and add your Google account email (e.g. your @gmail.com address). Click **Save**.
 
-5. Still on the **Audience** page, under **Publishing status**, click **Publish app** to set the status to **In production**.
+
+5. Still on the **Audience** page, under **Publishing status**, click **Publish app**, then click **Confirm**.
+
+   Verify that the publishing status changes to **In production**.
+
 
    Make sure the status is not **Testing**, or you will get logged out every 7 days.
 
