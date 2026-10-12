@@ -23,7 +23,7 @@ enables using MCP Servers in Home Assistant for providing additional tools to us
 supports memory functionality, or that can search the web using functionality not already
 available in Home Assistant.
 
-Controlling Home Assistant is done by providing MCP clients access to the Assist API of Home
+Controlling Home Assistant is done by providing MCP clients access to the **Device control** API of Home
 Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}.
 
 ## Prerequisites
@@ -56,7 +56,7 @@ This {% term integration %} can provide additional functionality for LLM convers
 
 Home Assistant acts as a client to the MCP server you specify. Home Assistant will
 poll the MCP server SSE endpoint and query the list of available tools. The tools are
-made available for use by Home Assistant conversation agents, similar to the Assist API.
+made available for use by Home Assistant conversation agents, similar to the **Device control** API.
 See the [Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction#general-architecture)
 for more details on the protocol.
 
