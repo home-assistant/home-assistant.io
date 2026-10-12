@@ -52,8 +52,9 @@ Require an administrator account:
     it stays turned off so that your clients keep working.
 Read-only:
   description: If MCP clients can only use controls that do not change anything, such as getting
-    the current state of your home. This applies to the `/api/mcp` endpoint. This option is
-    turned off by default.
+    the current state of your home. This applies only to the `/api/mcp` endpoint. Endpoints for
+    a specific LLM API, such as `/api/mcp/assist`, are not affected. This option is turned off
+    by default.
 {% endconfiguration_basic %}
 
 ## Architecture overview
