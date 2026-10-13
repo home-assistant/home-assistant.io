@@ -133,7 +133,7 @@ double_tap_action:
 
 ## Alert badge
 
-The alert badge is the badge version of the [alert card](/dashboards/alert/). It highlights an entity that needs attention, showing its name and state over a colored background that can pulse to draw the eye. Select the badge to open the **More info** dialog.
+The alert badge is the badge version of the [alert card](/dashboards/alert/). It highlights an entity that needs attention, showing its name and state over a colored background that can pulse to draw the eye. By default, selecting the badge opens the **More info** dialog. This badge supports [actions](/dashboards/actions/).
 
 Like the card, it supports alarm control panel, binary sensor, cover, and lock entities, and only shows its color and pulse while the entity is in an [alert state](/dashboards/alert/). The rest of the time, it uses the clear color, if you set one. To hide the badge when nothing needs attention, add a [visibility condition](/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally) on the entity's state.
 
@@ -157,6 +157,14 @@ entity:
   required: true
   description: Entity ID of an alarm control panel, binary sensor, cover, or lock.
   type: string
+name:
+  required: false
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
+icon:
+  required: false
+  description: Overwrites the entity icon.
+  type: string
 alert_color:
   required: false
   description: The color of the icon and background while the entity is in an alert state. Accepts a [color token](/dashboards/tile/#available-colors) or hex color code. Set to `none` for no color.
@@ -172,6 +180,48 @@ pulse:
   description: Animates the colored background while the entity is in an alert state. When reduced motion is turned on in your system settings, the background stays tinted instead.
   type: boolean
   default: false
+show_entity_picture:
+  required: false
+  description: If your entity has a picture, it will replace the icon.
+  type: boolean
+  default: false
+show_name:
+  required: false
+  description: Show the name.
+  type: boolean
+  default: "true"
+show_icon:
+  required: false
+  description: Show the icon.
+  type: boolean
+  default: "true"
+show_state:
+  required: false
+  description: Show the state.
+  type: boolean
+  default: "true"
+state_content:
+  required: false
+  description: >
+    Content to display for the state. Can be `state`, `last_changed`, `last_updated`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
+  type: [string, list]
+time_format:
+  required: false
+  description: >
+    Controls how timestamps in `state_content` are formatted. Valid values are `relative`, `total`, `date`, `time`, and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`).
+  type: [string, map]
+tap_action:
+  required: false
+  description: Action taken on badge tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.
+  type: map
+hold_action:
+  required: false
+  description: Action taken on tap-and-hold. See [action documentation](/dashboards/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on double tap. See [action documentation](/dashboards/actions/#double-tap-action).
+  type: map
 {% endconfiguration %}
 
 ## Shortcut badge
