@@ -21,8 +21,9 @@
 //   - The dark-background frames: `onDark` prop.
 //
 // Deliberate differences from the Figma file, all agreed:
-//   - On Fill buttons the icon circle stays white in every state;
-//     Figma's icon-only Default scheme turns it navy when active.
+//   - On Fill buttons the icon circle keeps one color in every state
+//     (white, navy on dark backgrounds); Figma's icon-only buttons
+//     switch between the two by state.
 //   - Borders and focus rings are drawn inside the pill (inset box
 //     shadows), so the 1px, 2px and 4px state borders never change its
 //     size; the redundant 1px same-color border on the Tertiary,
@@ -84,15 +85,19 @@ const tagAttributes = href
     --button-ink: #002e3e;
     --button-disabled: #d3e5f5;
     --button-disabled-text: #fff;
+    --button-disabled-arrow: #fff;
     --button-outline-text: var(--button-ink);
+    /* The arrow circle on Fill buttons. */
+    --button-icon-surface: #fff;
+    --button-icon-arrow: var(--button-ink);
 
     /* What the current state shows; changed by style and state. */
     --surface: var(--scheme);
     --text: var(--scheme-text);
     --ring: transparent;
     --ring-width: 0;
-    --icon-surface: #fff;
-    --icon-color: var(--button-ink);
+    --icon-surface: var(--button-icon-surface);
+    --icon-color: var(--button-icon-arrow);
 
     align-items: center;
     background: var(--surface);
@@ -217,7 +222,7 @@ const tagAttributes = href
     --text: var(--button-disabled-text);
     --ring-width: 0;
     --icon-surface: var(--button-disabled);
-    --icon-color: var(--button-disabled-text);
+    --icon-color: var(--button-disabled-arrow);
     cursor: default;
 
     &.outline {
@@ -248,9 +253,9 @@ const tagAttributes = href
 
   .secondary {
     --scheme: #002e3e;
-    --scheme-hover: #006787;
-    --scheme-active: #009ac7;
-    --scheme-focus: #37c8fd;
+    --scheme-hover: #009ac7;
+    --scheme-active: #18bcf2;
+    --scheme-focus: #7bd4fb;
     --scheme-text: #fff;
     --scheme-text-hover: #fff;
     --scheme-text-active: #fff;
@@ -295,7 +300,10 @@ const tagAttributes = href
   .on-dark {
     --button-disabled: #384956;
     --button-disabled-text: #b7c9d9;
+    --button-disabled-arrow: #d3e5f5;
     --button-outline-text: #fff;
+    --button-icon-surface: var(--button-ink);
+    --button-icon-arrow: #fff;
 
     &.primary {
       --scheme-focus: #18bcf2;
@@ -304,7 +312,8 @@ const tagAttributes = href
     &.secondary {
       --scheme: #006787;
       --scheme-hover: #004156;
-      --scheme-focus: #006787;
+      --scheme-active: #009ac7;
+      --scheme-focus: #b9e6fc;
     }
 
     &.tertiary {

@@ -54,13 +54,13 @@ task :generate do
   abort("Generating newsletter data failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
-  # The Astro build runs on every deploy so both stacks stay buildable
-  # (see astro/README.md). Every website route is still produced by
-  # Jekyll; the Astro output appears only under the unlinked,
-  # noindexed /astro-preview/ path. Previews and CI abort on failure
-  # (that is what gates merges), while production deploys only warn,
-  # so a failed Astro build cannot block publishing the Jekyll site.
-  # Make production fatal again once Astro serves real routes.
+  # The Astro build runs on every deploy (see astro/README.md). Jekyll
+  # builds every route; the routes in astro/served-routes.json are then
+  # replaced with Astro's pages, and the whole Astro output is also
+  # browsable under the unlinked, noindexed /astro-preview/ path.
+  # Previews and CI abort on failure (that is what gates merges), while
+  # production deploys only warn: a failed Astro build then publishes
+  # Jekyll's version of the served routes instead of blocking the site.
   # pnpm comes from the root devDependencies (npx resolves it there),
   # since Node.js 25+ no longer bundles Corepack.
   astro_env = { "ASTRO_TELEMETRY_DISABLED" => "1" }
@@ -85,6 +85,12 @@ task :generate do
     # output.
     FileUtils.rm_rf("#{public_dir}_astro")
     FileUtils.cp_r("astro/dist/_astro", "#{public_dir}_astro") if File.directory?("astro/dist/_astro")
+    # Serve the routes listed in astro/served-routes.json from Astro:
+    # their pages replace the ones Jekyll built at the same URL. If the
+    # Astro build failed (production only warns), Jekyll's pages stay.
+    JSON.parse(File.read("astro/served-routes.json")).each do |route|
+      FileUtils.cp("astro/dist/#{route}index.html", "#{public_dir}#{route}index.html")
+    end
   end
   if ENV["CONTEXT"] != 'production'
     File.open("#{public_dir}robots.txt", 'w') do |f|
