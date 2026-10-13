@@ -27,18 +27,4 @@ The [Device trigger](/triggers/device/) starts an automation when something happ
 
 ## Using device automations in YAML
 
-If you need YAML for an automation that is not managed in the UI, create the trigger in the visual automation editor first, then copy the YAML from the trigger.
-
-Example:
-
-```yaml
-- alias: "Light turns off"
-  triggers:
-    - trigger: device
-      device_id: 7a92d5ee74014a0b86903fc669b0bcd6
-      domain: light
-      type: turned_off
-      entity_id: light.bowl
-  actions:
-    - action: camera.turn_off
-```
+If you need YAML for an automation that is not managed in the UI, create the trigger in the visual automation editor first, then copy the YAML from the trigger. For examples, refer to the [Device trigger](/triggers/device/#more-examples) page.
