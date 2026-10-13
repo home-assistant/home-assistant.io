@@ -67,8 +67,11 @@ To sign in:
 2. Sign in and approve the requested access, including the permission to use your ChatGPT plan.
 3. Your browser is redirected to `http://127.0.0.1:1455/auth/callback?...` and the page cannot load. This is expected: the callback address is a loopback address on the device running the browser, which is usually not the device running Home Assistant.
 4. Copy the complete address from the browser address bar and paste it into the form in Home Assistant.
+5. Choose the model to use. The models offered by a ChatGPT plan differ from the API models; Home Assistant lists the ones your plan provides.
 
 Home Assistant stores the authorization, refreshes it automatically, and asks you to sign in again if the access was revoked in ChatGPT.
+
+The model and the other options of the conversation agent can be changed later from the OpenAI integration entry.
 
 ### Limitations
 
