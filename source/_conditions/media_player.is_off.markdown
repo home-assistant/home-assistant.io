@@ -98,7 +98,7 @@ for:
 
 ### Automation: only run the vacuum when the TV is off
 
-When everyone leaves home, start the vacuum only if the bedroom TV is off.
+When Alex leaves home, start the vacuum only if the bedroom TV is off.
 
 - **Trigger**: Zone left
   - **Target**: Alex

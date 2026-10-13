@@ -89,6 +89,7 @@ If the front door lock stays open while you carry things inside, it helps to kee
 - **Condition passes if**: Any
 - **For at least**: 00:00:10
 - **Action**: Turn on light
+  - **Target**: Hallway light
 
 {% details "YAML example for keeping a light on while the lock is open" %}
 

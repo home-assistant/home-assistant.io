@@ -114,6 +114,7 @@ Use this condition to avoid arming the alarm while a departure timer is still ru
   - **Target**: Departure timer
 - **Condition passes if**: Any
 - **Action**: Arm alarm away
+  - **Target**: Home alarm
 
 {% details "YAML example for checking that a departure timer is idle before arming the alarm" %}
 

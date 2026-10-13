@@ -98,7 +98,7 @@ for:
 
 ### Automation: start the vacuum only when the TV is not playing
 
-When everyone leaves home, start the vacuum only if the living room TV is not playing.
+When Alex leaves home, start the vacuum only if the living room TV is not playing.
 
 - **Trigger**: Zone left
   - **Target**: Alex

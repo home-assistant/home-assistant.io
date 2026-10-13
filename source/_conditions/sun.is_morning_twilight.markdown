@@ -79,7 +79,7 @@ type:
 
 ### Automation: gentle wake-up light at civil dawn
 
-When your alarm helper is on, fade the bedroom light in during civil morning twilight so you wake with the brightening sky.
+When motion is detected in the bedroom, fade the bedroom light in during civil morning twilight so you wake with the brightening sky.
 
 - **Trigger**: State changed
   - **Entity**: Bedroom motion sensor

@@ -171,6 +171,7 @@ Battery-powered nodes only accept commands while they are awake. This automation
   - **Devices**: Motion sensor
   - **Status**: Awake
 - **Action**: Refresh values
+  - **Target**: Motion sensor air temperature
 
 {% details "YAML example for refreshing a node while it is awake" %}
 

@@ -124,6 +124,7 @@ Once the front door has stayed locked for a while, you may not need the porch li
 - **For at least**: 00:05:00
 - **Condition**: Sun is set
 - **Action**: Turn off light
+  - **Target**: Porch light
 
 {% details "YAML example for turning off the porch light" %}
 

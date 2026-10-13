@@ -128,6 +128,7 @@ Extra light can make it easier to see why a lock is stuck. This automation runs 
 - **For at least**: 00:00:15
 - **Condition**: Sun is set
 - **Action**: Turn on light
+  - **Target**: Porch light
 
 {% details "YAML example for lighting an area while a lock is jammed" %}
 

@@ -122,7 +122,7 @@ automation: |
 
 ### Automation: alert you if the garage door is still open when you leave home
 
-When the last person leaves home, this automation checks whether the garage door is still open. If it is, Home Assistant sends an alert so you can close it before getting too far away.
+When Frenck leaves home, this automation checks whether the garage door is still open. If it is, Home Assistant sends an alert so Frenck can close it before getting too far away.
 
 - **Trigger**: Zone left
   - **Target**: Frenck

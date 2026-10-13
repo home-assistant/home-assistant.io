@@ -163,7 +163,7 @@ automation: |
 
 ### Automation: only start the cleaning robot when every player is below a volume limit
 
-When everyone leaves home, start the robot vacuum only if every targeted media player downstairs is below 20% volume.
+When Alex leaves home, start the robot vacuum only if every targeted media player downstairs is below 20% volume.
 
 - **Trigger**: Zone left
   - **Target**: Alex

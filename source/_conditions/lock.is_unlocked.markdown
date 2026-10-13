@@ -128,6 +128,7 @@ If an outside door stays unlocked after dark, a visible reminder can help. This 
 - **For at least**: 00:05:00
 - **Condition**: Sun is set
 - **Action**: Turn on light
+  - **Target**: Living room lamp
 
 {% details "YAML example for a visual unlocked reminder" %}
 
