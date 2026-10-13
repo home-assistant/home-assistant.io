@@ -111,11 +111,17 @@ automation: |
 
 {% enddetails %}
 
-## Minutes until an event starts
+## Template helper examples
+
+You can create optional Template helpers from the Axle Energy timestamp sensors. These helpers are separate from the entities created by the integration.
+
+### Minutes until an event starts
 
 For a numeric countdown, you can create an optional [Template helper](/integrations/template/#creating-a-template-helper-from-the-user-interface) from the existing **Event start** and **Event end** sensors. This helper is separate from the entities created by the Axle Energy integration.
 
 It shows the minutes until the event starts, rounded up to the next whole minute. It shows `0` while the event is in progress, **Unknown** when there is no event or the event has ended, and **Unavailable** when either source sensor is unavailable. The helper updates when either source changes and at the start of each minute, without requesting data from Axle. For an automation at an exact event time, use the timestamp sensors with a [time trigger](/docs/automation/trigger/#time-trigger).
+
+{% details "Create a minutes until event start helper" %}
 
 1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} and select **Create helper**.
 2. Select **Template**, then **Sensor**.
@@ -144,11 +150,15 @@ template: |
 
 6. Select **Submit**. You can then add the helper to your dashboard.
 
-## Minutes remaining in an event
+{% enddetails %}
+
+### Minutes remaining in an event
 
 To see how much time is left in an active event, create an optional [Template helper](/integrations/template/#creating-a-template-helper-from-the-user-interface) from the existing **Event start** and **Event end** sensors. This helper is separate from the entities created by the Axle Energy integration.
 
 It shows the minutes remaining, rounded up to the next whole minute, while the event is in progress. It shows `0` before the event starts or after it ends, **Unknown** when either timestamp is missing or invalid, and **Unavailable** when either source sensor is unavailable. The helper updates when either source changes and at the start of each minute, without requesting data from Axle. For an automation at an exact event time, use the timestamp sensors with a [time trigger](/docs/automation/trigger/#time-trigger).
+
+{% details "Create a minutes remaining helper" %}
 
 1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} and select **Create helper**.
 2. Select **Template**, then **Sensor**.
@@ -180,6 +190,8 @@ template: |
 {% endexample %}
 
 6. Select **Submit**. You can then add the helper to your dashboard.
+
+{% enddetails %}
 
 ## Data updates
 
