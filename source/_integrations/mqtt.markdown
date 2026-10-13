@@ -518,7 +518,7 @@ After removing a component, you should send another update with the removed comp
 }
 ```
 
-A component that was discovered through device discovery can only be removed through its device discovery topic. An empty payload published to a single component discovery topic does not remove it.
+A component that was discovered through device discovery can only be removed through its device discovery topic. An empty payload published to its old single component discovery topic, for example after a [migration to device discovery](#migration-from-single-component-to-device-discovery), does not remove it.
 
 When an entity that was discovered through device discovery is removed from Home Assistant, the device discovery payload is not cleared, as that would remove all components of the device. The entity will be added again when a device discovery payload is received that still contains the component. To prevent this, disable the entity instead, or remove the component from the device discovery payload as described above.
 
