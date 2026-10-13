@@ -115,6 +115,7 @@ Your morning routine turns on the lights, starts the coffee maker, and bumps the
 - **Trigger**: Time: 06:30 on weekdays
 - **Condition**: Not
   - **Condition**: Alarm is armed vacation
+    - **Target**: Home alarm
 - **Action**: Run the morning routine script
 
 {% details "YAML example for skipping the morning routine on vacation" %}

@@ -88,6 +88,7 @@ When the living room thermostat is actively drying the air, increase the ceiling
 - **Condition**: Thermostat is drying
   - **Target**: Living room thermostat
 - **Action**: Set fan speed
+  - **Target**: Living room ceiling fan
   - **Percentage**: `60` %
 
 {% details "YAML example for boosting fan during drying" %}

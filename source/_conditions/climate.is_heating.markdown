@@ -86,6 +86,7 @@ When the bedroom thermostat is actively heating, slow down the ceiling fan to he
 - **Condition**: Thermostat is heating
   - **Target**: Bedroom thermostat
 - **Action**: Set fan speed
+  - **Target**: Bedroom ceiling fan
   - **Percentage**: `30` %
 
 {% details "YAML example for adjusting fan during heating" %}

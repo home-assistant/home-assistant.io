@@ -119,6 +119,7 @@ When the bedroom thermostat's target humidity is set to 60% or above, turn on a 
 
 - **Trigger**: State changed, for the `humidity` attribute of the bedroom thermostat
 - **Condition**: Thermostat target humidity
+  - **Target**: Bedroom thermostat
   - **Threshold type**: Above `60` %
 - **Action**: Turn on switch
   - **Target**: Dehumidifier

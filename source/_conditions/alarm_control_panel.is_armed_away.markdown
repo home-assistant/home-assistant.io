@@ -122,6 +122,7 @@ Your thermostat normally follows a comfort schedule throughout the day. When the
 - **Trigger**: Time: 07:00 (morning schedule)
 - **Condition**: Not
   - **Condition**: Alarm is armed away
+    - **Target**: Home alarm
 - **Action**: Set thermostat target temperature
   - **Target temperature**: `21`°C
 

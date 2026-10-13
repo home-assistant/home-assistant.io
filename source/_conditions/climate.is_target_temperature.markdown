@@ -167,10 +167,11 @@ for:
 
 ### Automation: close window covers when heating setpoint is high
 
-When the living room thermostat's target temperature is set to 22°C or above, close the window covers to help retain heat. This automation triggers when the thermostat's temperature setpoint changes.
+When the living room thermostat's target temperature is set above 22°C, close the window covers to help retain heat. This automation triggers when the thermostat's temperature setpoint changes.
 
 - **Trigger**: State changed, for the `temperature` attribute of the living room thermostat
 - **Condition**: Thermostat target temperature
+  - **Target**: Living room thermostat
   - **Threshold type**: Above `22`°C
 - **Action**: Close cover
   - **Target**: Living room blinds
