@@ -117,10 +117,10 @@ This example creates a persistent notification one hour before a scheduled Axle 
 
 - **Trigger**: Time, using the Axle Energy **Event start** sensor
 - **Condition**: State, with the Axle Energy **Event type** sensor set to `export`
-- **Action**: Create persistent notification
+- **Action**: Create notification
   - **Message**: Your Axle export event starts in one hour.
 
-The one-hour offset is set in the optional YAML example. To send the reminder two hours before the event, change the offset to `-02:00:00` and update the automation alias and notification message to say two hours.
+To set the reminder in the UI, select **Value of a date/time helper or timestamp-class sensor** in the **Time** trigger, choose your **Event start** sensor, and enter `-01:00:00` in **Offset**. To send the reminder two hours before the event, change the offset to `-02:00:00` and update the automation alias and notification message to say two hours.
 
 {% details "YAML example for an export event reminder" %}
 
