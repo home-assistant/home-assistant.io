@@ -11,7 +11,7 @@ related_building_blocks:
 
 The **Condition** building block checks a condition in the middle of a sequence. If the condition is met, the next steps run. If it is not met, the sequence stops. Use it when the next steps should only run in certain situations, for example, only when someone is home.
 
-## Adding Condition in the editor
+## Using this building block from the user interface
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
@@ -27,7 +27,7 @@ Condition type:
   required: true
 {% endoptions_ui %}
 
-## Condition in YAML
+## Using this building block in YAML
 
 In YAML, use `condition` with the condition type and its options. For the available conditions, refer to the [conditions page](/docs/scripts/conditions/). This example only continues if Paulus is home:
 

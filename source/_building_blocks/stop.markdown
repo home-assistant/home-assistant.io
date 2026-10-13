@@ -10,7 +10,7 @@ related_building_blocks:
 
 The **Stop** building block stops the automation or script. The next steps don't run. Use it to end a run early, for example, inside an **If-then** when something is not as expected. A script can also use it to return a response.
 
-## Adding Stop in the editor
+## Using this building block from the user interface
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
@@ -34,7 +34,7 @@ Stop because of an unexpected error:
   required: false
 {% endoptions_ui %}
 
-## Stop in YAML
+## Using this building block in YAML
 
 In YAML, use `stop` with the reason:
 

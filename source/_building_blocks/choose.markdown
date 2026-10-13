@@ -10,7 +10,7 @@ related_building_blocks:
 
 The **Choose** building block has several options, each with its own conditions and actions. It runs the actions of the first option whose conditions are all met. If no option matches, it runs the default actions, if you added them. Use it when the automation or script should do one of several things, for example, something different in the morning, during the day, and at night.
 
-## Adding Choose in the editor
+## Using this building block from the user interface
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
@@ -35,7 +35,7 @@ Default actions:
   required: false
 {% endoptions_ui %}
 
-## Choose in YAML
+## Using this building block in YAML
 
 In YAML, use `choose` with a list of options, each with `conditions` and a `sequence`. Optionally, add a `default` sequence. This works like "if, else if, else". This example runs a different script in the morning, during the day, and at night:
 

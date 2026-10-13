@@ -10,7 +10,7 @@ related_building_blocks:
 
 The **If-then** building block runs actions only if its conditions are met. Optionally, it runs other actions if they are not met. Use it when the automation or script should do something different depending on the situation, for example, start the vacuum only when no one is home.
 
-## Adding If-then in the editor
+## Using this building block from the user interface
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
@@ -34,7 +34,7 @@ Else:
   required: false
 {% endoptions_ui %}
 
-## If-then in YAML
+## Using this building block in YAML
 
 In YAML, use `if`, `then`, and optionally `else`:
 
