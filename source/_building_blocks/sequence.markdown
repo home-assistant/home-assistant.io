@@ -9,7 +9,7 @@ related_building_blocks:
 
 The **Run in sequence** building block groups actions that run one after the other. Each action starts after the previous one has finished. Use it to keep related actions together, so you can collapse them in the editor, or to run a group of actions in order inside [**Run in parallel**](/building-blocks/parallel/).
 
-## Adding Run in sequence in the editor
+## Using this building block from the user interface
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
@@ -22,7 +22,7 @@ The **Run in sequence** building block groups actions that run one after the oth
 
 This building block has no options. You add the actions inside it.
 
-## Run in sequence in YAML
+## Using this building block in YAML
 
 In YAML, use `sequence` with a list of actions. To give the group a name, add an `alias`:
 
