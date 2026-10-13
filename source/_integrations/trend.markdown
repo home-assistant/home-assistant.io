@@ -129,6 +129,8 @@ use a gradient of (-2) / (60 x 60) = -0.00055
 
 The current number of stored samples is displayed on the States page.
 
+{% include integrations/actions.md %}
+
 ## Examples
 
 In this section you find some real-life examples of how to use this sensor.

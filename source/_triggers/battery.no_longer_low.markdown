@@ -37,6 +37,7 @@ Trigger when:
     - **First**: fires only when the first targeted sensor stops reporting a low battery.
     - **All**: fires only after every targeted sensor stops reporting a low battery.
   required: false
+  default: Each
 For at least:
   description: How long the sensor or sensors must remain reporting a normal battery level before the trigger fires. The default is `0` hours, `00` minutes and `00` seconds (fires immediately).
   required: false
@@ -91,8 +92,9 @@ for:
 
 ## Good to know
 
-- This trigger works with `binary_sensor` entities that have the `battery` device class. These are separate from battery percentage sensors (`sensor` entities with the `battery` device class). If your device only exposes a percentage sensor, use [Battery level crossed threshold](/triggers/battery.level_crossed/) instead.
+- Use a binary sensor entity with the battery device class.
 - What counts as "low" depends on the device and its integration. The battery binary sensor is controlled by the device or its integration, not by Home Assistant.
+- For battery percentage sensors, use [Battery level crossed threshold](/triggers/battery.level_crossed_threshold/) instead.
 - Use this trigger together with [Battery low](/triggers/battery.became_low/) to build a complete low-battery workflow: alert when a device goes low, and confirm or log when it is healthy again.
 
 {% include triggers/try_it.md %}

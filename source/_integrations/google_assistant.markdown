@@ -366,3 +366,64 @@ If you're having trouble with _Account linking failed_ after you unlinked your s
 ### Failed linking - Could not update the setting. Please check your connection
 
 If you're having trouble linking your account, with the error message `Could not update the setting. Please check your connection` after logging into your Home Assistant instance, try setting `expose_by_default: false` then exposing a single simple device (light or switch preferably). It is also worth checking if any home ad blocker is disabled if you are having issues.
+
+{% include integrations/actions.md %}
+
+## Google Assistant automation examples
+
+With the manual setup, Google doesn't always notice right away when your devices change. These examples keep the Google Home app up to date for you.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: sync with Google after Home Assistant starts
+
+When you add or remove devices in your YAML configuration, restart Home Assistant. This automation then asks Google to sync, so the Google Home app shows your devices right away.
+
+- **Trigger**: Home Assistant
+  - **Event**: Start
+- **Action**: Google Assistant: Request sync
+  - **Agent user ID**: Your Home Assistant user ID
+
+{% details "YAML example for syncing with Google after a restart" %}
+
+{% example %}
+automation: |
+  alias: "Sync devices with Google after a restart"
+  triggers:
+    - trigger: homeassistant
+      event: start
+  actions:
+    - action: google_assistant.request_sync
+      data:
+        agent_user_id: "YOUR_USER_ID"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: sync with Google when you add a new entity
+
+When a new entity is added to Home Assistant, ask Google to sync, so a new device shows up in the Google Home app without saying "Hey Google, sync my devices".
+
+- **Trigger**: Manual event received
+  - **Event type**: `entity_registry_updated`
+  - **Event data**: `action: create`
+- **Action**: Google Assistant: Request sync
+  - **Agent user ID**: Your Home Assistant user ID
+
+{% details "YAML example for syncing with Google when an entity is added" %}
+
+{% example %}
+automation: |
+  alias: "Sync devices with Google when an entity is added"
+  triggers:
+    - trigger: event
+      event_type: entity_registry_updated
+      event_data:
+        action: create
+  actions:
+    - action: google_assistant.request_sync
+      data:
+        agent_user_id: "YOUR_USER_ID"
+{% endexample %}
+
+{% enddetails %}

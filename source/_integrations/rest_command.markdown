@@ -88,6 +88,8 @@ service_name:
       default: false
 {% endconfiguration %}
 
+{% include integrations/actions.md %}
+
 ## Examples
 
 ### Basic example which uses PUT method and payload encoded as form data

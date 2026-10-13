@@ -7,6 +7,7 @@ ha_category:
 ha_release: 2026.5
 ha_iot_class: Local Push
 ha_config_flow: true
+ha_dhcp: true
 ha_codeowners:
   - '@Miggets7'
 ha_domain: earn_e_p1
@@ -32,8 +33,12 @@ The **EARN-E P1 Meter** integration provides the following entities.
 
 - **Power imported**: Current power being imported from the grid (kW)
 - **Power exported**: Current power being exported to the grid (kW)
-- **Voltage L1**: Voltage on phase 1 (V)
-- **Current L1**: Current on phase 1 (A)
+- **Voltage phase 1**: Voltage on phase 1 (V)
+- **Voltage phase 2**: Voltage on phase 2 (V)
+- **Voltage phase 3**: Voltage on phase 3 (V)
+- **Current phase 1**: Current on phase 1 (A)
+- **Current phase 2**: Current on phase 2 (A)
+- **Current phase 3**: Current on phase 3 (A)
 
 ### Meter reading sensors (~60 second updates)
 
@@ -43,6 +48,8 @@ The **EARN-E P1 Meter** integration provides the following entities.
 - **Energy exported tariff 2**: Total energy exported on tariff 2 (kWh)
 - **Gas consumed**: Total gas consumed (m³)
 - **Wi-Fi RSSI**: Wi-Fi signal strength of the device (dBm)
+
+Home Assistant only creates entities for the values your meter broadcasts. If you have a single-phase meter, the **Voltage phase 2**, **Voltage phase 3**, **Current phase 2**, and **Current phase 3** entities are not created. If no gas meter is connected to your smart meter, the **Gas consumed** entity does not appear.
 
 ## Prerequisites
 
@@ -54,7 +61,9 @@ The EARN-E energy monitor must be:
 
 {% include integrations/config_flow.md %}
 
-When adding the integration, it will automatically listen for UDP broadcasts for approximately 10 seconds. If your EARN-E device is found, you will see a confirmation screen with its IP address.
+The EARN-E energy monitor is discovered automatically on your network using [DHCP discovery](/integrations/dhcp/). When it is detected, it appears in the **Discovered** section under **Settings** > **Devices & services**, ready to be set up with a single confirmation.
+
+When adding the integration manually, it will automatically listen for UDP broadcasts for approximately 10 seconds. If your EARN-E device is found, you will see a confirmation screen with its IP address.
 
 If no device is discovered (for example, if the meter is on a different subnet), you will be asked to enter the IP address manually. The integration will then listen for data from that IP address to verify connectivity.
 
@@ -65,7 +74,6 @@ IP Address:
 
 ## Known limitations
 
-- Only single-phase meters are supported (L1 voltage and current). Three-phase support depends on the EARN-E device firmware.
 - The device must be on the same network subnet as Home Assistant, or UDP broadcast traffic must be routed between subnets.
 
 ## Troubleshooting

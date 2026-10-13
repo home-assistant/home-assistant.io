@@ -1,0 +1,15 @@
+# Netlify headers, applied only when `astro/dist` is a site's publish
+# directory -- that is, the standalone Astro preview site. Netlify
+# reads `_headers` at the publish root only, so this file does nothing
+# when the build is copied into a subdirectory of another site.
+#
+# Keeps every response out of search engines while the Astro build is
+# not the published website. `robots.txt` alongside this file allows
+# crawling on purpose, so that crawlers fetch each page and see this
+# header.
+#
+# Remove at cutover, and never copy this file over the Jekyll site's
+# `_headers` when merging output: that file carries the website's
+# caching and security headers.
+/*
+  X-Robots-Tag: noindex

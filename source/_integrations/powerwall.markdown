@@ -35,6 +35,15 @@ The following devices are known to be supported by the integration:
 The following devices are not supported by the integration:
 - Tesla Powerwall 1
 
+## Prerequisites
+
+Before setting up the integration, make sure you have the following information:
+
+- IP address: The local IP address assigned to your Powerwall or Backup Gateway. Home Assistant may discover this automatically. If it does not, check your router or DHCP server for the address assigned to the device.
+- Password:
+  - If a password is printed inside the Backup Gateway, use the last 5 characters of that password.
+  - If there is no separate password, use the last 5 characters of the Backup Gateway serial number. You can find the serial number in the Tesla app.
+
 {% include integrations/config_flow.md %}
 
 ## Supported functionality

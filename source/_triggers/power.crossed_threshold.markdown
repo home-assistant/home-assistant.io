@@ -53,6 +53,7 @@ Trigger when:
     - **All**: fires only after every targeted entity crosses the threshold.
 
     This corresponds to the `behavior` field in YAML. Default is **Each**.
+  required: false
 For at least:
   description: How long the reading must remain past the threshold before the trigger fires. For example, set it to `0:05:00` to wait 5 minutes before running the automation. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -134,7 +135,7 @@ behavior:
   description: |
     When multiple entities are targeted, controls when the trigger fires:
 
-    - `each`: fires every time any targeted entity crosses the threshold.
+    - `each` (default): fires every time any targeted entity crosses the threshold.
     - `first`: fires only on the first threshold crossing.
     - `all`: fires only after every targeted entity crosses the threshold.
   required: false

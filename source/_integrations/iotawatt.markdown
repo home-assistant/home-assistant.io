@@ -10,6 +10,7 @@ ha_domain: iotawatt
 ha_codeowners:
   - '@gtdiehl'
   - '@jyavenard'
+  - '@agners'
 ha_platforms:
   - sensor
 ha_integration_type: device

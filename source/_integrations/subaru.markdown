@@ -12,6 +12,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@G-Two'
+  - '@jpettitt'
 ha_domain: subaru
 ha_platforms:
   - binary_sensor
@@ -21,6 +22,7 @@ ha_platforms:
   - lock
   - sensor
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 This {% term integration %} retrieves vehicle information and actuates remote services provided by [MySubaru Connected Services](https://www.subaru.com/vehicle-info/connected-services/mysubaru-connected-services.html)(formerly known as Subaru STARLINK). This service is currently only available in the USA and Canada.
@@ -196,3 +198,11 @@ Vehicle polling draws power from the 12V battery. Long term use without driving 
 **Q:** Should I enable the vehicle polling option?
 
 **A:** Probably not. One use case is if you have a PHEV and want to monitor your charging progress. Otherwise, the data isn't going to change much after you've shutdown your vehicle (tire pressures are only updated when the vehicle is in motion). A future revision will expose vehicle polling as an action to enable incorporation into automations.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+If you also want to revoke Home Assistant's access to your MySubaru account, log in to [MySubaru](https://www.mysubaru.com) and remove the Home Assistant device under **Settings** > **Devices**.

@@ -86,13 +86,13 @@ The JVC Projector binary sensor platform will create the following [Binary Senso
   - **Description**: Indicates whether the projector is powered on. Returns true when the projector has a status of "on" or "warming", and false when the status is "cooling" or "standby".
   - **Available for models**: all
 
+## Device information
+
+The JVC Projector device information includes the projector model and firmware version. The firmware version is exposed as the device `sw_version` rather than as a separate sensor.
+
 ## Sensor
 
-The JVC Projector sensor platform will create the following [Sensors](/integrations/sensor/) entities. Some of these sensors are disabled by default and may not be available for your model.
-
-- **Model name**
-  - **Description**: The model series of the JVC Projector. Note this value will be different than your projector model name since the JVC communication protocol only identifies the model series by an internal code. In parentheses is the library's own identifier for the communication protocol version being used.
-  - **Available for models**: all
+The JVC Projector sensor platform will create the following [Sensors](/integrations/sensor/) entities. The Color depth, Color space, HDR, Resolution, Colorimetry, and Link Rate sensors are disabled by default. Some sensors may not be available for your model.
 
 - **Status**
   - **Description**: The power status of the projector.
@@ -103,7 +103,7 @@ The JVC Projector sensor platform will create the following [Sensors](/integrati
   - **Available for models**: all
 
 - **Color depth**
-  - **Description**: The signal color depth.
+  - **Description**: The signal color depth. Note: The projector may incorrectly report 8-bit on YCbCr 4:2:2 signals according to JVC documentation.
   - **Available for models**: all
 
 - **Color space**
@@ -114,9 +114,21 @@ The JVC Projector sensor platform will create the following [Sensors](/integrati
   - **Description**: The signal HDR mode.
   - **Available for models**: 2017-present
 
+- **Resolution**
+  - **Description**: The current input resolution.
+  - **Available for models**: all supported models
+
+- **Colorimetry**
+  - **Description**: The color space metadata, such as BT.709 and BT.2020.
+  - **Available for models**: selected 2017-present models
+
+- **Link rate**
+  - **Description**: The HDMI link rate and lane configuration.
+  - **Available for models**: selected 2022-present models
+
 ## Select
 
-The JVC Projector select platform will create the following [Select](/integrations/select/) entities. Some of these selects are disabled by default and may not be available for your model.
+The JVC Projector select platform will create the following [Select](/integrations/select/) entities. Some are disabled by default, and some may not be available for your model.
 
 - **Input**
   - **Description**: The HDMI input source.
@@ -143,6 +155,11 @@ The JVC Projector select platform will create the following [Select](/integratio
   - **Options**: Dependent on your detected model.
   - **Available for models**: all
 
+- **Motion enhance** (disabled by default)
+  - **Description**: The motion enhancement setting.
+  - **Options**: high, low, off
+  - **Available for models**: selected 2016-present models
+
 - **Anamorphic**
   - **Description**: The anamorphic setting.
   - **Options**: Dependent on your detected model.
@@ -160,7 +177,7 @@ The JVC Projector select platform will create the following [Select](/integratio
 
 ## Switch
 
-The JVC Projector switch platform will create the following Switch entities. Some of these switches are disabled by default and may not be available for your model.
+The JVC Projector switch platform will create the following Switch entities. Some may not be available for your model.
 
 - **E-Shift**
   - **Description**: The E-Shift mode setting.

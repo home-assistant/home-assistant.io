@@ -9,27 +9,23 @@
 # - aliases: A list of aliases for the term (optional)
 #
 - term: Action
-  definition: |-
-    Actions are used in several places in Home Assistant. As part of a script or
-    automation, actions define what is going to happen once a trigger is
-    activated. In scripts, an action is called *sequence*. An action is a **software
-    function that interacts with targets to make something happen**. Actions can use other actions
-    and/or scenes to interact with entities and cause these entities to do
-    something. Actions can also include conditions and a delay. An action can
-    perform multiple actions at the same time. For example, if your presence is
-    detected in a room, an action may perform one action to turn on a light and
-    perform another action to start playing music after a delay. Actions are also
-    used on the dashboard, for example as tap or hold action on a UI element.
-    When triggered, the action performs another action. Home Assistant provides a series of predefined actions,
-    such as `homeassistant.turn_on`, `homeassistant.toggle`, or
-    `homeassistant.reload`.
+  definition: >-
+    An action makes Home Assistant do something, for example, turn on a light,
+    send a notification, or activate a scene. Automations and scripts run a
+    list of actions. A dashboard card can also perform an action when you tap
+    it. This is one of several [dashboard actions](/dashboards/actions/), next
+    to others like opening another dashboard. Events are different: an event
+    tells you that something happened.
+    For more information, refer to [events and
+    actions](/docs/configuration/events/#events-and-actions).
   aliases:
     - actions
   link: /docs/automation/action/
-  excerpt: >
-    Actions are used in several places in Home Assistant. As part of a script or
-    automation, actions define what is going to happen once a trigger is
-    activated. In scripts, an action is called *sequence*.
+  excerpt: >-
+    An action makes Home Assistant do something, for example, turn on a light,
+    send a notification, or activate a scene. Automations and scripts run a
+    list of actions.
+
 - term: Actor
   definition: |-
     An entity that receives a control signal and performs an action in a system.
@@ -176,8 +172,11 @@
     Better known as: Integrations. Integrations used to be known as components.
 - term: Condition
   definition: >-
-    Conditions are an optional part of an automation that will prevent an action
-    from firing if they are not met.
+    Conditions check whether something is true at that moment, for example,
+    whether a door is closed. You can use them in automations and scripts. If a
+    condition is not met, the actions that come after it in the same sequence do
+    not run. At the top level of an automation or script, this stops the
+    automation or script.
   link: /docs/scripts/conditions/
   aliases:
     - conditions
@@ -278,16 +277,18 @@
     - entities
 - term: Event
   definition: >-
-    Every time something happens in Home Assistant, an event is fired. There are different types of events, such as state change events, when an action was triggered, or the time changed. All entities produce state change events. Every time a state changes, a state change event is produced. Events can be used to trigger automations or scripts. For example, you can trigger an automation when a light is turned on, then a speaker turns on in that room. Events can also be used to trigger actions in the frontend. For example, you can trigger an action when a button is pressed.
+    Every time something happens in Home Assistant, an event is fired. Different types of events are fired when, for example, an entity's state changes, an action such as `light.turn_on` is performed, or Home Assistant starts. All entities produce state change events. Every time the state or the attributes of an entity change, a state change event is produced. Events can be used to trigger automations. For example, you can trigger an automation to turn on a speaker in a room when a light in that room turns on.
   link: /docs/configuration/events/
   aliases:
     - events
 - term: Event entity
   definition: >-
-    Events are signals that are emitted when something happens, for example,
-    when a user presses a physical button like a doorbell or when a button on a
-    remote control is pressed.
-  link: /integrations/event
+    An event entity represents a momentary occurrence without a lasting state,
+    for example, when you press a doorbell or a button on a remote control.
+    Instead of a state such as on or off, the event entity keeps track of when
+    the last event was detected and its event type, such as a single press or a
+    long press.
+  link: /integrations/event/
 - term: Floor
   definition: >-
     A floor in Home Assistant is a [logical grouping](/docs/organizing/) of areas that are meant to
@@ -325,7 +326,7 @@
     A helper is a virtual entity you create inside Home Assistant. It is not backed by a physical device. Helpers store values, track state, or do calculations that your automations and dashboards need.
   aliases:
     - helpers
-  link: /integrations/#helper
+  link: /docs/configuration/helpers/
 - term: HASS
   definition: >-
     HASS is an abbreviation for Home Assistant that was commonly used in the past.
@@ -549,10 +550,11 @@
     - scenes
 
 - term: Script
-  definition: >
-    Scripts are components that allow you to specify a sequence of actions to
-    be executed by Home Assistant when turned on.
-  link: /docs/scripts/
+  definition: >-
+    A script is a saved list of steps that runs when you start it, for
+    example, from a dashboard, with Assist, or from an automation. Unlike an
+    automation, a script has no triggers, so it doesn't start by itself.
+  link: /docs/script/
   aliases:
     - scripts
 - term: Sensor
@@ -586,14 +588,13 @@
 - term: State
   definition: |-
     The state holds the information of interest of an entity. For example, if a
-    light is on or off, the current temperature, or the amount of energy used. Entities store 3
-    timestamps related to the state: `last_updated`, `last_changed`, and `last_reported`. Each
-    entity has exactly one state and the state only holds one value at a time.
-    However, entities can store attributes related to that state. For example,
+    light is on or off, the current temperature, or the amount of energy used. The state
+    object stores 3 timestamps related to the state: `last_updated`, `last_changed`, and
+    `last_reported`. Each entity has exactly one state and the state only holds one value
+    at a time. However, entities can store attributes related to that state. For example,
     the state of a light is _on_, and the related state attributes could be its
-    current brightness and color values. State change events can be used as triggers.
-    The current state can be used in conditions.
-
+    current brightness and color values. To start an automation when a state changes, use
+    the [**State changed** trigger](/triggers/state/). The current state can be used in conditions.
   link: /docs/configuration/state_object/
   aliases:
     - states
@@ -602,6 +603,16 @@
     light is on or off. Each entity has exactly one state and the state only
     holds one value at a time. However, entities can store attributes related to
     that state such as brightness, color, or a unit of measurement.
+- term: State object
+  definition: >-
+    The state object is a record of the state and other data of an entity at a specific
+    moment. It holds the state, the attributes, the entity ID, three timestamps,
+    and the context. Other information about the entity, such as its device and
+    area, is not part of it. Templates, automations, and the frontend can access
+    the state object.
+  link: /docs/configuration/state_object/
+  aliases:
+    - state objects
 - term: Switch
   definition: >-
     Switches are things that have two states you can select between, such as
@@ -649,8 +660,9 @@
     - Thread border routers
 - term: Trigger
   definition: >-
-    A trigger is a set of values or conditions of a platform that are defined to
-    cause an automation to run.
+    A trigger is the part of an automation that makes the automation start when
+    something specific happens, for example, when the sun sets, a door opens,
+    or a button is pressed.
   link: /docs/automation/trigger/
   aliases:
     - triggers
@@ -696,8 +708,12 @@
     - zones
 - term: Long-term statistics
   definition: >-
-    Home Assistant saves long-term statistics for a sensor if the entity has a state_class of measurement, total, or total_increasing. For short-term statistics, a snapshot is taken every 5 minutes. For long-term statistics, an hourly aggregate is stored of the short-term statistics. Short-term statistics are automatically purged after a predefined period (default is 10 days). Long-term statistics are never purged.
-  link: /blog/2021/08/04/release-20218/#long-term-statistics
+    Home Assistant keeps statistics for sensors that have a state class, such
+    as measurement, total, or total increasing. Every 5 minutes, it saves
+    short-term statistics, which are deleted after 10 days by default. Every
+    hour, it saves long-term statistics, which are never deleted
+    automatically. The Energy dashboard and statistics cards use them.
+  link: /docs/configuration/long-term-statistics/
 - term: boolean
   definition: >-
     A value that is either true or false. Used for on/off states, yes/no conditions, and similar binary choices.

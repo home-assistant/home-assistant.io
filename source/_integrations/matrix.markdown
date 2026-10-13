@@ -48,7 +48,7 @@ username:
   required: true
   type: string
 password:
-  description: The password for your Matrix account.
+  description: "The password for your Matrix account. It is only used when there is no valid access token stored yet. See [Authentication](#authentication)."
   required: true
   type: string
 homeserver:
@@ -97,6 +97,50 @@ commands:
 {% warning %}
 To prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
 {% endwarning %}
+
+### Authentication
+
+The integration signs in with the username and password from your configuration. After a successful sign-in, it saves the access token that the homeserver returned to a file named `.matrix.conf` in your configuration directory, next to your {% term "`configuration.yaml`" %} file.
+
+On every restart, the integration first tries the saved access token and only signs in with the password if the homeserver rejects that token. The file is only created after the first successful sign-in, so it is normal that it is not there yet on a new installation.
+
+Because `.matrix.conf` starts with a dot, some backup and file copy tools skip it. Include it when you back up, move, or rebuild your installation, so that the integration keeps its session.
+
+#### Setting up authentication with an access token
+
+Some homeservers don't allow accounts to sign in with a password. For example, on a homeserver that uses Matrix Authentication Service together with an external single sign-on provider and has password sign-in turned off.
+
+In this case, the integration can't sign in with single sign-on, but it works with an access token that you create yourself:
+
+{% important %}
+
+**Risk of unauthorized account access**
+
+The access token grants full access to the Matrix account. If the token is exposed, anyone who obtains it can read and send messages as this account until the token is revoked.
+
+To reduce this risk:
+
+- Store the token as securely as a password.
+- If the token is ever exposed, end that session on your homeserver and create a new token.
+{% endimportant %}
+1. On your homeserver, create an access token for the Matrix account that Home Assistant uses. How you do this depends on your homeserver:
+
+   - On a homeserver that uses [Matrix Authentication Service](https://element-hq.github.io/matrix-authentication-service/), an administrator can create a long-lived compatibility token with the [`mas-cli manage issue-compatibility-token`](https://element-hq.github.io/matrix-authentication-service/reference/cli/manage.html#manage-issue-compatibility-token) command. It takes the local part of the Matrix ID, for example `my_matrix_bot`, and not the full Matrix ID. The token is shown only once, so copy it right away.
+   - On a Synapse homeserver without Matrix Authentication Service, an administrator can use the [login as a user](https://element-hq.github.io/synapse/latest/admin_api/user_admin_api.html#login-as-a-user) admin API. By default, the tokens it returns do not expire.
+    
+2. Create or edit the file `.matrix.conf` in your configuration directory. It holds one entry per Matrix ID:
+
+   ```json
+   {
+     "@my_matrix_bot:example.com": "YOUR_ACCESS_TOKEN"
+   }
+   ```
+
+   If the file already exists, change only the value that belongs to your Matrix ID and leave the rest of the file as it is. Make sure Home Assistant can read the file.
+
+3. Keep the `password` option in your configuration. It is required, but it is not used while the access token works. If the account has no password, you can enter any text as its value.
+
+4. Restart Home Assistant and send a test message. A full restart is needed, because the integration only reads `.matrix.conf` during startup.
 
 ### Event data
 
@@ -282,3 +326,26 @@ data:
 ```
 
 {% include integrations/actions.md %}
+
+## Troubleshooting
+
+### Home Assistant stopped sending Matrix messages
+
+#### Symptom: "Login failed, both token and username/password are invalid"
+
+Messages are no longer delivered to your Matrix rooms, and {% my logs title="**Settings** > **System** > **Logs**" %} shows the message `Login failed, both token and username/password are invalid`.
+
+#### Description
+
+The homeserver rejected the saved access token, and signing in with the password did not work either. The saved access token stops working when one of the following happens:
+
+- The session or the device of the Matrix account was ended on the homeserver, for example by signing the account out everywhere.
+- The file `.matrix.conf` was deleted.
+- The homeserver ends sessions that were inactive for a long time.
+
+Normally, the integration then signs in again with the password. On a homeserver that doesn't allow password sign-in, that is not possible, so the integration stays signed out until you provide a new access token.
+
+#### Resolution
+
+- If your homeserver allows password sign-in, check the `username` and `password` options in your {% term "`configuration.yaml`" %} file, then restart Home Assistant.
+- If your homeserver doesn't allow password sign-in, create a new access token and save it in `.matrix.conf`, as described in [Homeservers that don't allow password sign-in](#homeservers-that-dont-allow-password-sign-in).

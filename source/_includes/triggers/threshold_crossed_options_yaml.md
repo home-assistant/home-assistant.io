@@ -12,6 +12,8 @@ Parameters:
                       example. Requires unit_label, unit_options_code, unit_default,
                       unit_example_entity, and unit_example_value.
   unit_label          Unit label. For example: "temperature unit", "energy unit".
+  strict_unit         Set (to anything) when entity thresholds must report one of the
+                      allowed units (no system-unit fallback).
   unit_options_code   Inline code list of allowed units. For example: "`°C` or `°F`".
   unit_default        Default unit used in the example. For example: "°C".
   unit_example_entity Entity reference used in the example. For example:
@@ -30,7 +32,7 @@ threshold:
 
 {% if include.has_unit %}
 
-    When using the `number` key, you must also include `unit_of_measurement` to specify the {{ include.unit_label }} ({{ include.unit_options_code }}). When using the `entity` key, the unit is taken from the entity itself, or assumed to be the system {{ include.unit_label }} if the entity has no unit.
+    When using the `number` key, you must also include `unit_of_measurement` to specify the {{ include.unit_label }} ({{ include.unit_options_code }}). When using the `entity` key, the unit is taken from the entity itself{% if include.strict_unit %}, so the entity must report its unit as {{ include.unit_options_code }}{% else %}, or assumed to be the system {{ include.unit_label }} if the entity has no unit{% endif %}.
 
     For example:
 
@@ -62,12 +64,12 @@ behavior:
   description: |
     When multiple entities are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted entity crosses the threshold.
-    - `first` (**First** in the UI): fires only on the first threshold crossing.
-    - `last` (**All** in the UI): fires only after every targeted entity crosses the threshold.
+    - `each` (default): fires every time any targeted entity crosses the threshold.
+    - `first`: fires only on the first threshold crossing.
+    - `all`: fires only after every targeted entity crosses the threshold.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: |
     How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the reading has stayed past the threshold for 5 minutes.
