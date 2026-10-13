@@ -16,7 +16,7 @@ This page lists template error messages you might run into, what each one means 
 
 For a general debugging workflow, refer to [Debugging templates](/docs/templating/debugging/).
 
-## Undefined values
+## Undefined value errors
 
 <a id="undefinederror-foo-is-undefined"></a>
 
