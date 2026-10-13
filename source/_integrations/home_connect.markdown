@@ -186,7 +186,7 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 
 - **Refrigerator door camera**:
   - **Description**: Shows the latest image taken by the camera in the refrigerator door.
-  - **Availability**: Fridge freezer, Refrigerator (with a built-in camera)
+  - **Availability**: Fridge freezer (with a built-in camera), Refrigerator (with a built-in camera)
 - **Refrigerator interior camera**:
   - **Description**: Shows the latest image taken by the camera inside the refrigerator.
   - **Availability**: Fridge freezer, Refrigerator (with a built-in camera)
