@@ -6,6 +6,8 @@ description: "The alert card highlights an entity that needs attention, with an 
 related:
   - docs: /dashboards/tile/
     title: Tile card
+  - docs: /dashboards/badges/#alert-badge
+    title: Alert badge
   - docs: /dashboards/cards/
     title: Dashboard cards
 ---
