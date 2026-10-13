@@ -35,12 +35,10 @@ The rest of the time, the card uses the clear color, if you set one, and doesn't
 {% configuration_basic %}
 Entity:
   description: The entity to show. Only alarm control panel, binary sensor, cover, and lock entities are supported.
-Content:
-  description: The name, icon, and state content to show, and whether to show the entity picture. These options work the same as on the [tile card](/dashboards/tile/).
 Alert:
   description: The alert color while the entity is in an alert state (red by default), the clear color for the rest of the time, and whether the background pulses during an alert. Colors accept a [color token](/dashboards/tile/#available-colors) or a hex color code. With no color, the background isn't colored and the icon is gray. When reduced motion is turned on in your system settings, a pulsing background stays tinted instead.
-Layout:
-  description: Show the icon above the name and state, or hide the state.
+Content:
+  description: The name, icon, state content, and layout, whether to hide the state, and whether to show the entity picture. These options work the same as on the [tile card](/dashboards/tile/).
 Interactions:
   description: The actions to perform when you select the card or its icon. See [card actions](/dashboards/actions/).
 {% endconfiguration_basic %}
