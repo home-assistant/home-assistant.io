@@ -203,7 +203,7 @@ show_state:
 state_content:
   required: false
   description: >
-    Content to display for the state. Can be `state`, `last_changed`, `last_updated`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
+    Content to display for the state. Can be `name`, `state`, `last_changed`, `last_updated`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
   type: [string, list]
 time_format:
   required: false

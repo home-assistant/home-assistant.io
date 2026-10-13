@@ -12,7 +12,7 @@ related:
     title: Dashboard cards
 ---
 
-The alert card highlights an {% term entity %} that needs attention, such as a door left open, a leak, or a triggered alarm. It looks like a [tile card](/dashboards/tile/) with a colored background that can pulse to draw the eye. Below the name, it shows the state, when it last changed, and the entity's area, unless you choose your own state content. By default, selecting the card opens the **More info** dialog. This card supports [actions](/dashboards/actions/).
+The alert card highlights an {% term entity %} that needs attention, such as a door left open, a leak, or a triggered alarm. It looks like a [tile card](/dashboards/tile/) with a colored background that can pulse to draw the eye. Below the name, it shows the state, when it last changed, and the entity's area, unless you choose your own state content or hide the state. By default, selecting the card opens the **More info** dialog. This card supports [actions](/dashboards/actions/).
 
 The card supports alarm control panel, binary sensor, cover, and lock entities. Its color and pulse only show while the entity is in an alert state:
 
