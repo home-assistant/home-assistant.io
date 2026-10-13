@@ -100,7 +100,9 @@ for:
 
 When the doorbell rings, send a mobile notification only if the living room TV is muted.
 
-- **Trigger**: Doorbell pressed
+- **Trigger**: State changed
+  - **Entity**: Front doorbell sensor
+  - **To**: On
 - **Condition**: Media player is muted
   - **Target**: Living room TV
 - **Action**: Send a notification message

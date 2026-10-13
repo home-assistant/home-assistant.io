@@ -84,8 +84,9 @@ In the evening, if the living room is currently occupied, this automation sets t
 - **Trigger**: Time (at 19:00)
 - **Condition**: Occupancy is detected
   - **Target**: Living room occupancy sensor
-- **Action**: Set temperature (21 °C)
+- **Action**: Set thermostat target temperature
   - **Target**: Living room thermostat
+  - **Target temperature**: `21`°C
 
 {% details "YAML example for warming the living room in the evening if occupied" %}
 
