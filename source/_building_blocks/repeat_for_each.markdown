@@ -110,12 +110,19 @@ Every evening, this automation goes through all entities with the {% term label 
 
 The list comes from a template, so it changes when you add the label to more sensors. Inside the repeat, `repeat.item` is the entity ID of the current sensor.
 
-- **Trigger**: Time, at 20:00
+- **Trigger**: Time
+  - **At time**: `20:00`
 - **Action**: Repeat for each
   - **For each item in list**: `{{ label_entities('Battery check') }}`
-  - **Actions**: If-then
-    - **If**: A **Template** condition with `{{ states(repeat.item) | float(100) < 20 }}`
-    - **Then**: Send a notification message, with the name and battery level of the sensor
+  - **Actions**:
+    - **Action**: If-then
+      - **If**:
+        - **Condition**: Template
+          - **Value template**: `{{ states(repeat.item) | float(100) < 20 }}`
+      - **Then**:
+        - **Action**: Send a notification message
+          - **Target**: My Device (`notify.my_device`)
+          - **Message**: `{{ state_attr(repeat.item, 'friendly_name') }} has {{ states(repeat.item) }}% battery left.`
 
 {% details "YAML example" %}
 

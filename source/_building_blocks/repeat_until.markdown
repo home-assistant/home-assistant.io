@@ -86,8 +86,14 @@ When `binary_sensor.xyz` turns on, this automation runs a shell command, and rep
   - **Entity**: `binary_sensor.something`
   - **State**: Off
 - **Action**: Repeat until
-  - **Actions**: Run the shell command, then wait 200 milliseconds
-  - **Until conditions**: `binary_sensor.something` is on
+  - **Actions**:
+    - **Action**: `shell_command.turn_something_on`
+    - **Action**: Wait for time to pass (delay)
+      - **Duration**: `200` milliseconds
+  - **Until conditions**:
+    - **Condition**: State
+      - **Entity**: `binary_sensor.something`
+      - **State**: On
 
 {% details "YAML example" %}
 
