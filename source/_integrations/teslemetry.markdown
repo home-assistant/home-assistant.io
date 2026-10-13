@@ -368,6 +368,7 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 
 |Domain|Name|Enabled|Data|
 |---|---|---|---|
+|Sensor|Energy delivered|Yes|Streaming|
 |Sensor|Fault state|No|Polling|
 |Sensor|Power|Yes|Polling|
 |Sensor|State|Yes|Polling|
@@ -409,6 +410,8 @@ The integration does not wake a sleeping vehicle to fetch data. Updates pause un
 ### Energy site data
 
 Energy sites are cloud-polled: live status and site information every 30 seconds, and energy history every 60 seconds.
+
+The **Energy delivered** sensor of each Wall Connector is the energy it delivered on the current day, in the site's time zone. Teslemetry streams it while a Wall Connector at the site is charging, and once more after charging stops. A charging session counts on the day it started, so a session that continues past midnight adds to the previous day.
 
 ## Known limitations
 
