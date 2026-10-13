@@ -81,7 +81,7 @@ When the hallway motion sensor detects motion, this automation turns on the hall
 - **Action**: Turn on light
   - **Target**: Hallway light (`light.hallway`)
 - **Action**: Wait for time to pass (delay)
-  - **Duration**: 5 minutes
+  - **Duration**: `5` minutes
 - **Action**: Turn off light
   - **Target**: Hallway light (`light.hallway`)
 - **Mode**: Restart. To change it, select **Menu** {% icon "mdi:dots-vertical" %} > **Change mode**.
