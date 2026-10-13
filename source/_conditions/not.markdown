@@ -131,7 +131,8 @@ automation: |
 
 At 23:00, this automation turns off the living room lights, but not while the TV is playing.
 
-- **Trigger**: Time: 23:00
+- **Trigger**: Time
+  - **At time**: `23:00`
 - **Condition**: Not
   - **Condition**: State
     - **Entity**: Living room TV (`media_player.living_room_tv`)
