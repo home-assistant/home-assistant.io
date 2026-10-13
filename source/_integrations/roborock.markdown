@@ -164,6 +164,10 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 - **Selected map**
   - **Description**: Choose the map that is loaded on the vacuum.
 
+- **Cleaning cycles**
+  - **Description**: Sets how many times the vacuum cleans each area (1x or 2x).
+  - **Availability**: For Q7 series vacuums
+
 - **Empty mode**
   - **Description**: You can set the "empty mode" setting including Max, Light, Balanced, and Smart.
   - **Availability**: For vacuum equipped with an auto-empty dock
