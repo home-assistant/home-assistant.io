@@ -33,7 +33,11 @@ To use **Media player source** in an automation:
 Source:
   description: The source or sources to check for. The list shows the sources the targeted media players offer, and you can also type one that isn't listed. Sources are device-specific and typically include inputs like **HDMI 1**, **TV**, **Bluetooth**, or **Phono**.
 Condition passes if:
-  description: When multiple media players are targeted, controls how results combine. Pick **Any** to pass if at least one targeted media player is on the selected source, or **All** to pass only when every targeted media player that reports a source is on it. Default is **Any**.
+  description: |
+    When multiple media players are targeted, controls how results combine:
+
+    - **Any**: Passes if at least one targeted media player is on one of the selected sources (default).
+    - **All**: Passes only when every targeted media player that reports a source is on one of the selected sources.
 For at least:
   description: How long the media player must stay on the selected source before the condition passes. Default is `0` (passes immediately).
 {% endoptions_ui %}
@@ -77,8 +81,11 @@ source:
   required: true
   type: [string, list]
 behavior:
-  description: >
-    When multiple media players are targeted, controls how results combine. Accepts `all` or `any`.
+  description: |
+    When multiple media players are targeted, controls how results combine:
+
+    - `any` (**Any** in the UI, default): passes if at least one targeted media player is on one of the selected sources.
+    - `all` (**All** in the UI): passes only when every targeted media player that reports a source is on one of the selected sources.
   required: false
   type: string
   default: any
@@ -153,7 +160,7 @@ Every evening, if the amplifier is on one of its external inputs, send a reminde
 
 {% example %}
 automation: |
-  alias: "Remind me the amplifier is on an external input"
+  alias: "Remind me that the amplifier is on an external input"
   triggers:
     - trigger: time
       at: "22:00:00"
@@ -165,7 +172,6 @@ automation: |
         source:
           - "Coax1"
           - "Opt1"
-        behavior: any
   actions:
     - action: notify.send_message
       target:
