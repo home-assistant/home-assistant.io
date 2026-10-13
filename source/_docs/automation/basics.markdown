@@ -144,6 +144,8 @@ The {% term state %} shows whether the automation is enabled. It doesn't show wh
 - **Off** (`off`): The automation is disabled. It ignores its triggers.
 - **Unavailable** (`unavailable`): The configuration of the automation isn't valid, so Home Assistant can't set it up. For details, refer to [Automation is unavailable after an update](/docs/automation/troubleshooting/#automation-is-unavailable-after-an-update-automation-is-unavailable-or-failed-to-set-up).
 
+When Home Assistant restarts, each automation keeps its on or off state, unless it has an [initial state](/docs/automation/yaml/#automation-initial-state) set in YAML.
+
 ### Automation attributes
 
 The attributes tell you more about an automation, such as when it last ran, or whether it's running right now. You can use them to check an automation without opening it, or to make another automation depend on it.
