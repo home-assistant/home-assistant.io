@@ -10,9 +10,16 @@ related:
     title: Dashboard cards
 ---
 
-The alert card highlights an {% term entity %} that needs attention, such as a door left open, detected motion, or an armed alarm. It looks like a [tile card](/dashboards/tile/) with a colored background that can pulse to draw the eye. Below the name, it shows the state, when it last changed, and the entity's area. Select the card to open the **More info** dialog.
+The alert card highlights an {% term entity %} that needs attention, such as a door left open, a leak, or a triggered alarm. It looks like a [tile card](/dashboards/tile/) with a colored background that can pulse to draw the eye. Below the name, it shows the state, when it last changed, and the entity's area. Select the card to open the **More info** dialog.
 
-To show the card only when something needs attention, add a [visibility condition](/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally) on the entity's state.
+The card supports alarm control panel, binary sensor, cover, and lock entities. Its color and pulse only show while the entity is in an alert state:
+
+- Alarm control panel: triggered
+- Binary sensor: on
+- Cover: open
+- Lock: jammed, unlocked, or open
+
+The rest of the time, the card uses the inactive color, if you set one, and doesn't pulse. To hide the card when nothing needs attention, add a [visibility condition](/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally) on the entity's state.
 
 <p class='img'>
   <img src='/images/dashboards/alert_card.png' alt='Screenshot of alert cards'>
@@ -25,11 +32,13 @@ To show the card only when something needs attention, add a [visibility conditio
 
 {% configuration_basic %}
 Entity:
-  description: The entity to show.
+  description: The entity to show. Only alarm control panel, binary sensor, cover, and lock entities are supported.
 Color:
-  description: The color of the icon and background. Accepts a [color token](/dashboards/tile/#available-colors) or a hex color code. With no color, the background isn't colored and the icon is gray.
+  description: The color of the icon and background while the entity is in an alert state. Accepts a [color token](/dashboards/tile/#available-colors) or a hex color code. With no color, the background isn't colored and the icon is gray.
+Inactive color:
+  description: The color of the icon and background when the entity isn't in an alert state. With no color, the background isn't colored and the icon is gray.
 Pulse:
-  description: Animates the colored background. When reduced motion is turned on in your system settings, the background stays tinted instead.
+  description: Animates the colored background while the entity is in an alert state. When reduced motion is turned on in your system settings, the background stays tinted instead.
 {% endconfiguration_basic %}
 
 ## YAML configuration
@@ -43,28 +52,43 @@ type:
   type: string
 entity:
   required: true
-  description: Entity ID.
+  description: Entity ID of an alarm control panel, binary sensor, cover, or lock.
   type: string
 color:
   required: false
-  description: The color of the icon and background. Accepts a [color token](/dashboards/tile/#available-colors) or hex color code. Set to `none`, or leave it out, for no color.
+  description: The color of the icon and background while the entity is in an alert state. Accepts a [color token](/dashboards/tile/#available-colors) or hex color code. Set to `none`, or leave it out, for no color.
+  type: string
+  default: none
+inactive_color:
+  required: false
+  description: The color of the icon and background when the entity isn't in an alert state. Accepts the same values as `color`.
   type: string
   default: none
 pulse:
   required: false
-  description: Animates the colored background.
+  description: Animates the colored background while the entity is in an alert state.
   type: boolean
   default: false
 {% endconfiguration %}
 
 ## Examples
 
-A red alert for motion in the garden:
+A red alert for a leak:
 
 ```yaml
 type: alert
-entity: binary_sensor.garden_motion
+entity: binary_sensor.kitchen_leak
 color: red
+```
+
+A pulsing alert for the front door, which is green while the door is closed:
+
+```yaml
+type: alert
+entity: binary_sensor.front_door
+color: deep-orange
+inactive_color: green
+pulse: true
 ```
 
 A pulsing alert, shown only while the front door is open:
