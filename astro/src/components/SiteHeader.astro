@@ -143,7 +143,9 @@ const versionTitle =
         id={menuId}
         aria-label="Main menu"
       />
-      <label class="menu-button" for={menuId}></label>
+      <label class="menu-button" for={menuId}>
+        <span class="bars" aria-hidden="true"></span>
+      </label>
 
       <ul class="menu">
         {
@@ -265,14 +267,18 @@ const versionTitle =
     width: auto;
   }
 
+  /* A small tag beside the logo, nudged down to sit with the
+     wordmark rather than dead center. */
   .version {
     background: var(--color-surface-subtle);
-    border-radius: var(--radius-small);
+    border-radius: var(--radius-xsmall);
     color: var(--color-link);
     flex: none;
-    font-size: var(--font-size-small);
-    padding: 0 var(--space-small);
+    font-size: var(--font-size-xsmall);
+    font-weight: 500;
+    padding: 0.125rem 0.375rem;
     text-decoration: none;
+    translate: 0 0.1875rem;
   }
 
   /* Menu button (the checkbox drives the panel, no JavaScript) */
@@ -301,17 +307,62 @@ const versionTitle =
     user-select: none;
     width: 2rem;
 
-    &::after {
-      content: "☰";
-    }
-
     &:hover,
     .menu-state:focus-visible + & {
       background: var(--color-highlight-shade);
     }
+  }
 
-    .menu-state:checked + &::after {
-      content: "⨉";
+  /* Three bars: the span is the middle one, its pseudo-elements the
+     outer two. Opening the menu fades the middle bar and turns the
+     outer two into a cross. */
+  .bars {
+    --bar-gap: 0.3125rem;
+    --bar-weight: 0.125rem;
+
+    background: currentColor;
+    height: var(--bar-weight);
+    position: relative;
+    transition: background-color 0.2s;
+    width: 0.875rem;
+
+    &::before,
+    &::after {
+      background: currentColor;
+      content: "";
+      height: var(--bar-weight);
+      left: 0;
+      position: absolute;
+      transition: transform 0.2s;
+      width: 100%;
+    }
+
+    &::before {
+      transform: translateY(calc(var(--bar-gap) * -1));
+    }
+
+    &::after {
+      transform: translateY(var(--bar-gap));
+    }
+
+    .menu-state:checked + .menu-button & {
+      background-color: transparent;
+
+      &::before {
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      &,
+      &::before,
+      &::after {
+        transition: none;
+      }
     }
   }
 
@@ -462,6 +513,7 @@ const versionTitle =
       /* Dropdowns: hover for pointers, focus-within for keyboards. */
       > li > ul {
         background: var(--color-surface);
+        border-radius: var(--radius-small);
         box-shadow: var(--shadow-panel);
         color: var(--color-text);
         display: none;
@@ -470,9 +522,20 @@ const versionTitle =
         margin: 0;
         padding: var(--space-small);
         position: absolute;
-        top: 100%;
+        top: calc(100% + var(--space-small));
         /* Absolute boxes shrink to the item above them without this. */
         width: max-content;
+
+        /* An invisible bridge over the gap above, so the pointer can
+           cross it without leaving the item and closing the dropdown. */
+        &::before {
+          content: "";
+          height: var(--space-small);
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: calc(var(--space-small) * -1);
+        }
       }
 
       > li:hover > ul,
