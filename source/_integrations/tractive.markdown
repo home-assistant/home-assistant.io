@@ -26,6 +26,13 @@ The Tractive integration allows you to monitor locations of your pets from withi
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Email:
+  description: The email address of your Tractive account.
+Password:
+  description: The password of your Tractive account.
+{% endconfiguration_basic %}
+
 ## Integration entities
 
 The Tractive integration adds one device tracker and several sensors and switches per registered pet:
