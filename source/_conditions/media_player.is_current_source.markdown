@@ -1,5 +1,5 @@
 ---
-title: "Media player source"
+title: "Media player current source"
 condition: media_player.is_current_source
 domain: media_player
 description: "Tests if one or more media players are set to a specific source."
@@ -9,19 +9,19 @@ related_conditions:
   - media_player.is_volume
 ---
 
-The **Media player source** condition passes when a media player {% term entity %} is set to one of the sources you select. Sources are the inputs a device can switch between, and they are device-specific: a TV might offer **HDMI 1**, **HDMI 2**, and **TV**, while an amplifier might offer **Phono**, **Stream**, or **Coax1**. Use **Media player source** when you want an automation to run only while a media player is on a particular input, for example to dim the lights only when the receiver is switched to your Blu-ray player.
+The **Media player current source** condition passes when a media player {% term entity %} is set to one of the sources you select. Sources are the inputs a device can switch between, and they are device-specific: a TV might offer **HDMI 1**, **HDMI 2**, and **TV**, while an amplifier might offer **Phono**, **Stream**, or **Coax1**. Use **Media player current source** when you want an automation to run only while a media player is on a particular input, for example to dim the lights only when the receiver is switched to your Blu-ray player.
 
 When you target more than one media player, the condition's **Condition passes if** option controls how the check combines results. You can require any targeted media player to be on the selected source, or demand that all of them are.
 
 {% include conditions/ui_header.md %}
 
-To use **Media player source** in an automation:
+To use **Media player current source** in an automation:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
 4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your media player is in, or select a device, a specific entity, a floor, or a label.
-5. From the conditions shown for that target, select **Media player source**.
+5. From the conditions shown for that target, select **Media player current source**.
 6. Under **Source**, select one or more sources to check for. The list shows the sources the targeted media players offer. You can also type a source that isn't listed.
 7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 8. Under **For at least**, enter how long the media player must stay on the selected source before the condition passes.
@@ -44,7 +44,7 @@ For at least:
 
 {% include conditions/yaml_header.md %}
 
-In YAML, **Media player source** is referred to as `media_player.is_current_source`. A basic example looks like this:
+In YAML, **Media player current source** is referred to as `media_player.is_current_source`. A basic example looks like this:
 
 {% example %}
 condition: |
@@ -117,7 +117,7 @@ for:
 When you press the movie night button, activate the cinema {% term scene %}, but only if the living room receiver is already switched to the **HDMI 1** (Blu-ray) source.
 
 - **Trigger**: State: Movie night button pressed
-- **Condition**: Media player source
+- **Condition**: Media player current source
   - **Target**: Living room receiver
   - **Source**: HDMI 1
 - **Action**: Activate scene
@@ -150,7 +150,7 @@ automation: |
 Every evening, if the amplifier is on one of its external inputs, send a reminder to switch back to streaming.
 
 - **Trigger**: Time: 22:00:00
-- **Condition**: Media player source
+- **Condition**: Media player current source
   - **Target**: Amplifier
   - **Source**: Coax1, Opt1
 - **Action**: Send a notification message
