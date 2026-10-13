@@ -100,7 +100,8 @@ for:
 
 When you press a remote shortcut, brighten the living room only if the TV is paused.
 
-- **Trigger**: Button pressed
+- **Trigger**: State changed
+  - **Entity**: Pause lights button helper
 - **Condition**: Media player is paused
   - **Target**: Living room TV
 - **Action**: Turn on light
