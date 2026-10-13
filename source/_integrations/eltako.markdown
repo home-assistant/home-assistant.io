@@ -18,13 +18,13 @@ ha_brand: true
 
 {% include integrations/wwha.md url="https://www.eltako.com" name="Eltako" %}
 
-## Certified devices
+## Works with Home Assistant certified devices
 
 {% include integrations/device_list.html brand="eltako" %}
 
 ## Other supported devices
 
-In addition, the following devices are also supported:
+In addition to the certified devices, the following devices are also supported:
 
 - [4-channel-remote FMH4S](https://www.eltako.com/en/catalog/products/281/fmh4s-an) (via [EnOcean add-on](https://www.eltako.com/en/catalog/products/1762/eoa64))
 - [Door / window sensor FPE-1](https://www.eltako.com/en/catalog/products/483/fpe-1) (via [EnOcean add-on](https://www.eltako.com/en/catalog/products/1762/eoa64))

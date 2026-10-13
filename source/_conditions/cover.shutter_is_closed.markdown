@@ -114,7 +114,9 @@ automation: |
 
 If the shutter is still closed when motion is detected, this automation turns on a nearby light so the area is easier to see.
 
-- **Trigger**: Motion detected
+- **Trigger**: State changed
+  - **Entity**: Hallway motion sensor
+  - **To**: Detected
 - **Condition**: Shutter is closed
   - **Target**: Kitchen shutter
 - **Action**: Turn on light

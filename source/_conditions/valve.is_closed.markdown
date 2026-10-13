@@ -125,7 +125,9 @@ automation: |
 
 A resource-preservation automation that blocks the boiler from starting if the gas supply valve is closed. It avoids wasted ignition cycles and protects the boiler from dry-running while no gas is available.
 
-- **Trigger**: Thermostat started heating
+- **Trigger**: State changed
+  - **Entity**: Boiler switch
+  - **To**: On
 - **Condition**: Valve is closed
   - **Target**: `valve.gas_supply`
 - **Action**: Turn off switch

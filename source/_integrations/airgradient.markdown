@@ -36,11 +36,9 @@ AirGradient creates indoor, outdoor, and portable air quality monitors that enab
 - Warn to open windows when CO2 levels are too high.
 - Control ventilation systems based on air quality.
 
-## Supported devices
+## Works with Home Assistant certified devices
 
-- [AirGradient Indoor Air Quality Monitor](https://www.airgradient.com/indoor/)
-- [AirGradient Outdoor Air Quality Monitor](https://www.airgradient.com/outdoor/)
-- [AirGradient Portable Air Quality Monitor](https://www.airgradient.com/portable/)
+{% include integrations/device_list.html brand="airgradient" %}
 
 {% important %}
 Devices using the legacy local API require [firmware](https://www.airgradient.com/documentation/firmwares) version 3.1.1 or later to be set up or discovered by Home Assistant. This minimum version does not apply to the portable monitor, AirGradient Go.

@@ -10,7 +10,7 @@ ha_domain: threema
 ha_platforms:
   - notify
 ha_integration_type: service
-ha_quality_scale: silver
+ha_quality_scale: bronze
 ha_codeowners:
   - '@LukasQ'
 ---

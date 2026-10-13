@@ -98,12 +98,14 @@ for:
 
 ### Automation: start the vacuum only when the TV is not playing
 
-When everyone leaves home, start the vacuum only if the living room TV is not playing.
+When Alex leaves home, start the vacuum only if the living room TV is not playing.
 
-- **Trigger**: Person leaves home
+- **Trigger**: Zone left
+  - **Target**: Alex
+  - **Zone**: Home
 - **Condition**: Media player is not playing
   - **Target**: Living room TV
-- **Action**: Start vacuuming
+- **Action**: Start vacuum cleaner
   - **Target**: Robot vacuum
 
 {% details "YAML example for starting the vacuum only when playback is idle" %}
@@ -112,10 +114,11 @@ When everyone leaves home, start the vacuum only if the living room TV is not pl
 automation: |
   alias: "Start the vacuum only when the TV is not playing"
   triggers:
-    - trigger: zone
-      entity_id: person.alex
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.alex
+      options:
+        zone: zone.home
   conditions:
     - condition: media_player.is_not_playing
       target:
@@ -132,7 +135,7 @@ automation: |
 
 At sunrise, open the media room blinds only if every targeted media player is not playing.
 
-- **Trigger**: Sun rises
+- **Trigger**: Sunrise
 - **Condition**: Media player is not playing
   - **Target**: Media room
   - **Condition passes if**: All
@@ -145,8 +148,7 @@ At sunrise, open the media room blinds only if every targeted media player is no
 automation: |
   alias: "Open the blinds only when the media room is quiet"
   triggers:
-    - trigger: sun
-      event: sunrise
+    - trigger: sun.sunrise
   conditions:
     - condition: media_player.is_not_playing
       target:

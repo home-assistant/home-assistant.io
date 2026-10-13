@@ -88,7 +88,8 @@ conditions:
 
 At 07:30, this automation sends a reminder to take a jacket, but only if Alex is home, and it's raining or the outdoor temperature is below 10 °C. The **State** condition and the **Or** condition are both in the **And if** section, so both must pass. Inside the **Or** condition, one of the two conditions is enough.
 
-- **Trigger**: Time: 07:30
+- **Trigger**: Time
+  - **At time**: `07:30`
 - **Condition**: State
   - **Entity**: Alex (`person.alex`)
   - **State**: Home
@@ -98,7 +99,7 @@ At 07:30, this automation sends a reminder to take a jacket, but only if Alex is
     - **State**: Rainy
   - **Condition**: Numeric state
     - **Entity**: Outdoor temperature (`sensor.outdoor_temperature`)
-    - **Below**: 10
+    - **Below**: `10`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
   - **Message**: Take a jacket today.
@@ -146,7 +147,7 @@ When motion is detected in the hallway, this automation turns on the hallway lig
     - **State**: Below horizon
   - **Condition**: Numeric state
     - **Entity**: Hallway illuminance (`sensor.hallway_illuminance`)
-    - **Below**: 20
+    - **Below**: `20`
 - **Action**: Turn on light
   - **Target**: Hallway light (`light.hallway`)
 
