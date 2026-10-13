@@ -34,7 +34,7 @@ The rest of the time, the card uses the inactive color, if you set one, and does
 Entity:
   description: The entity to show. Only alarm control panel, binary sensor, cover, and lock entities are supported.
 Color:
-  description: The color of the icon and background while the entity is in an alert state. Accepts a [color token](/dashboards/tile/#available-colors) or a hex color code. With no color, the background isn't colored and the icon is gray.
+  description: The color of the icon and background while the entity is in an alert state. Red by default. Accepts a [color token](/dashboards/tile/#available-colors) or a hex color code. With no color, the background isn't colored and the icon is gray.
 Inactive color:
   description: The color of the icon and background when the entity isn't in an alert state. With no color, the background isn't colored and the icon is gray.
 Pulse:
@@ -56,9 +56,9 @@ entity:
   type: string
 color:
   required: false
-  description: The color of the icon and background while the entity is in an alert state. Accepts a [color token](/dashboards/tile/#available-colors) or hex color code. Set to `none`, or leave it out, for no color.
+  description: The color of the icon and background while the entity is in an alert state. Accepts a [color token](/dashboards/tile/#available-colors) or hex color code. Set to `none` for no color.
   type: string
-  default: none
+  default: red
 inactive_color:
   required: false
   description: The color of the icon and background when the entity isn't in an alert state. Accepts the same values as `color`.
@@ -73,12 +73,11 @@ pulse:
 
 ## Examples
 
-A red alert for a leak:
+A red alert for a leak, using the default color:
 
 ```yaml
 type: alert
 entity: binary_sensor.kitchen_leak
-color: red
 ```
 
 A pulsing alert for the front door, which is green while the door is closed:
