@@ -145,7 +145,6 @@ Like the card, it supports alarm control panel, binary sensor, cover, and lock e
 ```yaml
 type: alert
 entity: binary_sensor.kitchen_leak
-color: red
 inactive_color: green
 ```
 
@@ -160,9 +159,9 @@ entity:
   type: string
 color:
   required: false
-  description: The color of the icon and background while the entity is in an alert state. Accepts a [color token](/dashboards/tile/#available-colors) or hex color code. Set to `none`, or leave it out, for no color.
+  description: The color of the icon and background while the entity is in an alert state. Accepts a [color token](/dashboards/tile/#available-colors) or hex color code. Set to `none` for no color.
   type: string
-  default: none
+  default: red
 inactive_color:
   required: false
   description: The color of the icon and background when the entity isn't in an alert state. Accepts the same values as `color`.
