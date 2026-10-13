@@ -93,12 +93,14 @@ The script `get_outdoor_temperature` puts the outdoor temperature in a variable,
 To receive a response, the automation must call the script directly, as `script.get_outdoor_temperature`. The `script.turn_on` action doesn't wait for the script and doesn't return a response. For details, refer to [Waiting for a script to complete](/docs/script/#waiting-for-a-script-to-complete).
 
 - **Script**: Get outdoor temperature
-  - **Action**: Define variables, with `result` set to the temperature
+  - **Action**: Define variables
+    - `result`: the outdoor temperature
   - **Action**: Stop
-    - **Reason for stopping**: Return the outdoor temperature
+    - **Reason for stopping**: `Return the outdoor temperature`
     - **The name of the variable to use as response**: `result`
 - **Automation**: Morning temperature
-  - **Trigger**: Time, at 07:00
+  - **Trigger**: Time
+    - **At time**: `07:00`
   - **Action**: Get outdoor temperature (the script)
     - **Response variable**: `weather`
   - **Action**: Send a notification message

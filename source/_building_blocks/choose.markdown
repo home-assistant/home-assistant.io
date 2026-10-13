@@ -150,15 +150,29 @@ automation: |
 When the sun gets low, this automation turns on the porch and garden lights. If the TV in the living room is on, someone is probably in that room, so it also turns on the living room lights. The same goes for the computer in the studio. The two **Choose** building blocks don't depend on each other.
 
 - **Trigger**: Numeric state crossed threshold
-  - **Entity**: Sun (`sun.sun`), attribute **Elevation**
-  - **Below**: 4
-- **Action**: Turn on the porch and garden lights
+  - **Entity**: Sun (`sun.sun`)
+  - **Attribute**: Elevation
+  - **Below**: `4`
+- **Action**: Turn on light
+  - **Target**: Porch light (`light.porch`) and Garden light (`light.garden`)
 - **Action**: Choose
-  - **Conditions**: The living room TV is on
-  - **Actions**: Turn on the living room lights
+  - **Option 1**:
+    - **Conditions**:
+      - **Condition**: State
+        - **Entity**: Living room TV (`binary_sensor.livingroom_tv`)
+        - **State**: On
+    - **Actions**:
+      - **Action**: Turn on light
+        - **Target**: Living room light (`light.livingroom`)
 - **Action**: Choose
-  - **Conditions**: The studio computer is on
-  - **Actions**: Turn on the studio lights
+  - **Option 1**:
+    - **Conditions**:
+      - **Condition**: State
+        - **Entity**: Studio computer (`binary_sensor.studio_pc`)
+        - **State**: On
+    - **Actions**:
+      - **Action**: Turn on light
+        - **Target**: Studio light (`light.studio`)
 
 {% details "YAML example" %}
 
