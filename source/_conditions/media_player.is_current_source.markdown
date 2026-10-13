@@ -1,6 +1,6 @@
 ---
 title: "Media player source"
-condition: media_player.is_source
+condition: media_player.is_current_source
 domain: media_player
 description: "Tests if one or more media players are set to a specific source."
 related_conditions:
@@ -40,11 +40,11 @@ For at least:
 
 {% include conditions/yaml_header.md %}
 
-In YAML, **Media player source** is referred to as `media_player.is_source`. A basic example looks like this:
+In YAML, **Media player source** is referred to as `media_player.is_current_source`. A basic example looks like this:
 
 {% example %}
 condition: |
-  condition: media_player.is_source
+  condition: media_player.is_current_source
   target:
     entity_id: media_player.amplifier
   options:
@@ -57,7 +57,7 @@ To check for any one of several sources:
 
 {% example %}
 condition: |
-  condition: media_player.is_source
+  condition: media_player.is_current_source
   target:
     entity_id: media_player.living_room_tv
   options:
@@ -125,7 +125,7 @@ automation: |
     - trigger: state
       entity_id: input_button.movie_night
   conditions:
-    - condition: media_player.is_source
+    - condition: media_player.is_current_source
       target:
         entity_id: media_player.living_room_receiver
       options:
@@ -158,7 +158,7 @@ automation: |
     - trigger: time
       at: "22:00:00"
   conditions:
-    - condition: media_player.is_source
+    - condition: media_player.is_current_source
       target:
         entity_id: media_player.amplifier
       options:
