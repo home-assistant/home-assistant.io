@@ -13,9 +13,11 @@
 //   - Icons are `<Icon>` (MDI paths in src/lib/icons.ts) instead of
 //     `<iconify-icon>`; Iconify's `mdi:feedback` and `mdi:edit` are
 //     aliases of the `comment-quote` and `pencil` icons used here.
-//   - The heading's `<b>` is dropped (the heading is bold already), and
-//     the sentence before the links is a paragraph instead of loose
-//     text in the card.
+//   - The heading is an `h2` (Jekyll's `h4` skips levels after a
+//     page's sections) carrying the `#feedback_section` target itself,
+//     instead of an empty link; its `<b>` is dropped (the heading is
+//     bold already). The sentence before the links is a paragraph
+//     instead of loose text in the card.
 //   - Only the variant for regular pages is ported. Integration pages
 //     (`ha_domain`) link to labelled issues instead; that variant comes
 //     along with the first integration page served from Astro.
@@ -54,11 +56,10 @@ const links = [
 ---
 
 <div class="feedback">
-  <h4>
+  <h2 id="feedback_section">
     <Icon name="comment-quote" />
     Help us improve our documentation
-    <a href="#feedback_section" class="title-link" name="feedback_section"></a>
-  </h4>
+  </h2>
 
   <div class="page-rating">
     <div class="page-rating-ask">
@@ -158,7 +159,7 @@ const links = [
     }
   }
 
-  h4 {
+  h2 {
     align-items: center;
     color: var(--color-text-muted);
     display: flex;
