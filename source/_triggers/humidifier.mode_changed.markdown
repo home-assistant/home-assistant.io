@@ -117,7 +117,8 @@ When the bedroom humidifier switches to sleep mode, dim the lights and activate 
   - **Target**: Bedroom humidifier
   - **Mode**: sleep
   - **Trigger when**: Each
-- **Action**: Turn on light (night scene)
+- **Action**: Activate scene
+  - **Target**: Bedroom night scene
 
 {% details "YAML example for a sleep-mode scene" %}
 

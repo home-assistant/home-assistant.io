@@ -21,6 +21,8 @@ automation kitchen:
 
 You can add as many labeled `automation` blocks as you want.
 
+After you change automations in a YAML file, reload them. For the steps, refer to [Reloading automations](#reloading-automations).
+
 {% configuration %}
 alias:
   description: Name of the automation.
@@ -279,3 +281,17 @@ When automations remain visible in the Home Assistant dashboard, even after havi
 To delete them completely, go to UI {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and find the automation in the search field or by scrolling down.
 
 Check the square box aside of the automation you wish to delete and from the top-right of your screen, select 'REMOVE SELECTED'.
+
+## Reloading automations
+
+After you change automations in a YAML file, reload them to apply the changes. Reloading only affects the automations that you changed:
+
+- If one of them is running, the run stops.
+- If one of them has a **For at least** duration in progress, the duration is lost.
+
+For details, refer to [When a run stops before it finishes](/docs/automation/modes/#when-a-run-stops-before-it-finishes).
+
+1. Go to {% my tools_yaml title="**Settings** > **Tools** > **YAML**" %}.
+2. Under **YAML configuration reloading**, select **Automations**.
+
+To reload automations from an automation or a script, use the [Reload automations](/actions/automation.reload/) action.

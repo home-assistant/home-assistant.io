@@ -125,7 +125,7 @@ In a fire, fumbling with a lock in the dark costs precious seconds. This automat
 - **Target**: All smoke sensors (by label)
 - **Trigger when**: Each
 - **For at least**: 00:00:30
-- **Action**: Lock: Unlock
+- **Action**: Unlock lock
 
 {% details "YAML example for unlocking the door on smoke detection" %}
 

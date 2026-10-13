@@ -80,7 +80,9 @@ period:
 
 When someone is home during the evening blue hour, turn on the garden lights so the yard is lit as the sky darkens.
 
-- **Trigger**: Someone comes home
+- **Trigger**: State changed
+  - **Entity**: Alex person
+  - **To**: Home
 - **Condition**: It is blue hour
   - **Period**: Evening
 - **Action**: Turn on light
