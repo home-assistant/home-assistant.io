@@ -3,30 +3,22 @@ title: aerosmart
 description: Instructions on how to integrate an aerosmart ventilation and heat-pump system with Home Assistant.
 ha_release: 2026.11
 ha_category:
-  - Binary sensor
-  - Number
-  - Select
   - Sensor
-  - Switch
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@kayloehmann'
 ha_domain: aerosmart
 ha_platforms:
-  - binary_sensor
   - diagnostics
-  - number
-  - select
   - sensor
-  - switch
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The **aerosmart** {% term integration %} lets you monitor and control a combined aerosmart ventilation and heat-pump installation. Home Assistant connects locally through a Modbus TCP gateway, without a cloud service.
+The **aerosmart** {% term integration %} lets you monitor a combined aerosmart ventilation and heat-pump installation. Home Assistant connects locally through a Modbus TCP gateway, without a cloud service.
 
-The integration represents the ventilation controller and heat-pump controller as one device. It provides operating values, fault indicators, filter information, and selected controls.
+The integration represents the ventilation controller and heat-pump controller as one device. It provides operating values, filter information, and controller status.
 
 ## Supported devices
 
@@ -64,7 +56,7 @@ Before saving the new settings, Home Assistant checks that both controllers answ
 
 ## Supported functionality
 
-The integration provides entities for the complete installation. Entity names reflect the source controller register names and can include German technical terms.
+The integration provides sensor entities for the complete installation.
 
 ### Sensors
 
@@ -76,86 +68,34 @@ Sensors report information such as:
 - Filter operating hours, service life, and volume values.
 - Operating-hour counters and controller information.
 
-### Binary sensors
-
-Binary sensors report:
-
-- Controller faults and communication timeouts.
-- Filter replacement indicators.
-- Installed components and available functions.
-- Heat, hot-water, cooling, ventilation, and utility lockout requests.
-
-### Controls
-
-The integration provides number, select, and switch entities for settings such as target temperatures, airflow, operating mode, and temporary boost functions.
-
-{% caution %}
-The number and switch registers were identified as writable from their names, not from an official manufacturer specification. The operating-mode select and its option codes were confirmed against manufacturer documentation. All controls are disabled by default. Verify each control against your own installation before enabling it or using it in an automation.
-{% endcaution %}
-
 ### Diagnostics
 
 You can download diagnostics from the aerosmart device page. The diagnostics include the latest value of every known register and the state of both polling cycles. The gateway host is redacted.
 
-## Aerosmart automation examples
+## Aerosmart automation example
 
-You can use the standard state of any aerosmart entity in an automation.
+The following example sends a notification when the measured carbon dioxide level rises above 1000 ppm. Replace the notification entity with one from your installation.
 
 {% include docs/paste_yaml_tip.md %}
 
-### Automation: Notify when the controller reports a fault
-
-Use an aerosmart problem binary sensor as the trigger and send a notification when it turns on. Choose the specific fault entity that is relevant to your installation.
-
-{% details "YAML example for a controller fault notification" %}
-
-Replace the example entity IDs with the fault sensor and notification entity from your installation.
-
 {% example %}
 automation: |
-  alias: "Notify when aerosmart reports a fault"
+  alias: "Notify when aerosmart CO2 is high"
   triggers:
-    - trigger: state
-      entity_id: binary_sensor.aerosmart_storung_summenstorung
-      to: "on"
+    - trigger: numeric_state
+      entity_id: sensor.aerosmart_co2
+      above: 1000
   actions:
     - action: notify.send_message
       target:
         entity_id: notify.my_device
       data:
-        message: "The aerosmart controller reports a fault."
+        message: "The aerosmart CO2 level is above 1000 ppm."
 {% endexample %}
-
-{% enddetails %}
-
-### Automation: Remind when a filter needs replacement
-
-Use a filter replacement binary sensor as the trigger for a notification or task. This follows the controller's filter status instead of a fixed calendar schedule.
-
-{% details "YAML example for a filter replacement reminder" %}
-
-Replace the example entity IDs with the filter sensor and notification entity from your installation.
-
-{% example %}
-automation: |
-  alias: "Remind when the aerosmart filter needs replacement"
-  triggers:
-    - trigger: state
-      entity_id: binary_sensor.aerosmart_feinstaubfilter_wechseln
-      to: "on"
-  actions:
-    - action: notify.send_message
-      target:
-        entity_id: notify.my_device
-      data:
-        message: "The aerosmart fine-dust filter needs replacement."
-{% endexample %}
-
-{% enddetails %}
 
 ## Data updates
 
-The integration {% term polling polls %} operating values, faults, and the controller clock every 60 seconds. It polls filter counters and other slow-changing settings every 10 minutes and refreshes settings immediately after a write.
+The integration {% term polling polls %} operating values and the controller clock every 60 seconds. It polls filter counters and other slow-changing values every 10 minutes.
 
 Requests to both units are serialized because some serial-to-Modbus-TCP gateways need quiet time between requests. If one subsystem does not answer, only its entities become unavailable. Values from subsystems that answered remain available.
 
@@ -163,7 +103,7 @@ The first update runs in the background so a slow gateway does not delay Home As
 
 ## Known limitations
 
-- The register map was derived from one physical installation, not from an official manufacturer specification. Entity names, units, and writable controls might not match every aerosmart installation.
+- The register map was derived from one physical installation, not from an official manufacturer specification. Entity names and units might not match every aerosmart installation.
 - The integration creates one Home Assistant device for the whole installation, even though the ventilation controller and heat-pump controller use separate Modbus units.
 - Other Modbus clients can interfere with communication if the gateway accepts only one TCP client at a time.
 - Each value is read separately because the reference controller rejects larger combined register reads. A complete update can therefore take more than 30 seconds through a slow gateway.
@@ -203,16 +143,15 @@ A slow gateway, a busy serial line, or another client can cause a polling cycle 
 
 {% details "A specific entity shows an unexpected value" %}
 
-### Symptom: A value or control does not match the installation
+### Symptom: A value does not match the installation
 
 The register map might differ from the map used by the reference installation.
 
 #### Resolution
 
-1. Do not use the affected writable entity in an automation.
-2. Download diagnostics from the aerosmart device page.
-3. Compare the raw value with the value shown by the aerosmart controller.
-4. Include the affected entity and diagnostics when reporting the mismatch to the integration owner.
+1. Download diagnostics from the aerosmart device page.
+2. Compare the raw value with the value shown by the aerosmart controller.
+3. Include the affected entity and diagnostics when reporting the mismatch to the integration owner.
 
 {% enddetails %}
 
