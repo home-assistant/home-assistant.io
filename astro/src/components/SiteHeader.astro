@@ -242,16 +242,26 @@ const versionTitle =
 
   /* Logo and version badge */
 
+  /* On the narrowest phones the logo scales down (keeping its
+     proportions) so the bar never overflows; the version badge and the
+     menu button keep their size. */
   .brand {
     align-items: center;
     display: flex;
     gap: var(--space-small);
+    min-width: 0;
     white-space: nowrap;
+  }
+
+  .site-title {
+    min-width: 0;
   }
 
   .site-title img {
     display: block;
-    height: 2rem;
+    height: auto;
+    max-height: 2rem;
+    max-width: 100%;
     width: auto;
   }
 
@@ -259,6 +269,7 @@ const versionTitle =
     background: var(--color-surface-subtle);
     border-radius: var(--radius-small);
     color: var(--color-link);
+    flex: none;
     font-size: var(--font-size-small);
     padding: 0 var(--space-small);
     text-decoration: none;
