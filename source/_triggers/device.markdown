@@ -68,8 +68,11 @@ Above:
 Below:
   description: Only for some triggers, such as a sensor value. The trigger fires when the value drops below this number. For a sensor, set at least one of **Above** or **Below**. No default.
   required: false
+From:
+  description: Only for some triggers, such as an option change on a select entity. The state to change from. If you leave it empty, the trigger fires on a change from any state.
+  required: false
 To:
-  description: Only for some triggers, such as **Thermostat HVAC mode changed**. Required for those triggers. The new state to react to, such as **Heat**.
+  description: Only for some triggers. The new state to react to, such as **Heat**. Required for some triggers, such as **Thermostat HVAC mode changed**. Optional for others, such as an option change on a select entity.
   required: false
 Zone:
   description: Only for some triggers, such as **Phone enters a zone**. Required for those triggers. The zone to watch.
@@ -93,7 +96,7 @@ This trigger fires when the light of this device turns on.
 
 ### Options in YAML
 
-In YAML, the options have different names. **Device** becomes `device_id`. The **Trigger** you select becomes `domain`, `type`, and, depending on the trigger, `entity_id` or `subtype`. **Duration**, **Above**, **Below**, **To**, and **Zone** become `for`, `above`, `below`, `to`, and `zone`.
+In YAML, the options have different names. **Device** becomes `device_id`. The **Trigger** you select becomes `domain`, `type`, and, depending on the trigger, `entity_id` or `subtype`. **Duration**, **Above**, **Below**, **From**, **To**, and **Zone** become `for`, `above`, `below`, `from`, `to`, and `zone`.
 
 The following list shows the common options. Some integrations add their own options. For example, some Z-Wave triggers also need `command_class`. To get the exact options for your device, create the trigger in the editor and copy its YAML.
 
@@ -135,8 +138,12 @@ below:
   description: Only for some triggers. The trigger fires when the value drops below this number. For a sensor, set at least one of `above` or `below`. No default.
   required: false
   type: float
+from:
+  description: Only for some triggers, such as an option change on a select entity. The state to change from. If you leave it out, the trigger fires on a change from any state.
+  required: false
+  type: string
 to:
-  description: Only for some triggers, such as an HVAC mode change on a thermostat. Required for those triggers. The new state to react to, such as `heat`.
+  description: Only for some triggers. The new state to react to, such as `heat`. Required for some triggers, such as an HVAC mode change on a thermostat. Optional for others, such as an option change on a select entity.
   required: false
   type: string
 zone:
@@ -192,37 +199,37 @@ automation: |
 
 {% enddetails %}
 
-### Automation: get a notification when the garage light stays on
+### Automation: turn off all lights on a floor with a long press
 
-When the garage light has been on for 30 minutes, this automation sends a notification.
+When you press and hold the "Turn off" button on a Zigbee remote, this automation turns off all lights on the ground floor.
 
 - **Trigger**: Device
-  - **Device**: Garage light
-  - **Trigger**: Garage light turned on
-  - **Duration**: 30 minutes
-- **Action**: Send a notification message
-  - **Target**: My Device (`notify.my_device`)
+  - **Device**: Living room remote
+  - **Trigger**: "Turn off" continuously pressed
+- **Action**: Turn off light
+  - **Target**: Ground floor (floor)
 
-{% details "YAML example for a garage light reminder" %}
+{% details "YAML example for a long press" %}
+
+<!-- Disable terminology test, because the ZHA domain key is lowercase. -->
+<!-- textlint-disable terminology -->
 
 {% example %}
 automation: |
-  alias: "Garage light left on"
+  alias: "Turn off the ground floor lights with the remote"
   triggers:
     - trigger: device
-      device_id: 1d4f7a0c3e6b9d2f5a8c1e4b7d0a3f6c
-      entity_id: 6a9c2e5b8d1f4a7c0e3b6d9f2a5c8e1b
-      domain: light
-      type: turned_on
-      for:
-        minutes: 30
+      device_id: 5b8e1d4a7c0f3e6b9d2a5c8f1e4b7d0a
+      domain: zha
+      type: remote_button_long_press
+      subtype: turn_off
   actions:
-    - action: notify.send_message
+    - action: light.turn_off
       target:
-        entity_id: notify.my_device
-      data:
-        message: "The garage light has been on for 30 minutes."
+        floor_id: ground_floor
 {% endexample %}
+
+<!-- textlint-enable terminology -->
 
 {% enddetails %}
 
