@@ -170,8 +170,10 @@ for:
 When the living room thermostat's target temperature is set to 22°C or above, close the window covers to help retain heat. This automation triggers when the thermostat's temperature setpoint changes.
 
 - **Trigger**: State changed, for the `temperature` attribute of the living room thermostat
-- **Condition**: Target temperature is 22°C or higher
-- **Action**: Close the living room blinds
+- **Condition**: Thermostat target temperature
+  - **Threshold type**: Above `22`°C
+- **Action**: Close cover
+  - **Target**: Living room blinds
 
 {% example %}
 automation: |
@@ -201,8 +203,11 @@ automation: |
 When the bedroom thermostat's target temperature is set within the comfort range of 20-22°C, set the ceiling fan to low speed. This provides gentle air circulation without creating drafts.
 
 - **Trigger**: State changed, for the `temperature` attribute of the bedroom thermostat
-- **Condition**: Target temperature is between 20°C and 22°C
-- **Action**: Set ceiling fan to low speed
+- **Condition**: Thermostat target temperature
+  - **Threshold type**: In range, from `20`°C to `22`°C
+- **Action**: Set fan speed
+  - **Target**: Bedroom ceiling fan
+  - **Percentage**: `20` %
 
 {% example %}
 automation: |

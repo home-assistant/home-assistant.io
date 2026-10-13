@@ -70,7 +70,7 @@ for:
 
 ## Good to know
 
-- A thermostat can be set to heat mode but not actively heating if it has already reached its target temperature and is idling. Use [Thermostat is in HVAC mode](/conditions/climate.is_hvac_mode/) if you only care about the mode setting.
+- A thermostat can be set to heat mode but not actively heating if it has already reached its target temperature and is idling. Use [Thermostat HVAC mode](/conditions/climate.is_hvac_mode/) if you only care about the mode setting.
 - Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as actively heating. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted thermostat is unavailable.
 - This condition checks the current action of the thermostat, not its mode. To check if a thermostat is simply on (any active mode) or off, use [Thermostat is on](/conditions/climate.is_on/) or [Thermostat is off](/conditions/climate.is_off/).
 
@@ -85,7 +85,8 @@ When the bedroom thermostat is actively heating, slow down the ceiling fan to he
 - **Trigger**: State changed: Bedroom thermostat started heating
 - **Condition**: Thermostat is heating
   - **Target**: Bedroom thermostat
-- **Action**: Set fan speed to 30%
+- **Action**: Set fan speed
+  - **Percentage**: `30` %
 
 {% details "YAML example for adjusting fan during heating" %}
 
