@@ -39,6 +39,7 @@ Duration:
   required: false
 Entity:
   description: The Evohome controller's climate entity to set the mode on.
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
