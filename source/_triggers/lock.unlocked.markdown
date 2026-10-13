@@ -87,7 +87,7 @@ If you often arrive home with your hands full, it helps when the light is alread
 - **Target**: Front door lock
 - **Trigger when**: Each
 - **For at least**: 00:00:00
-- **Action**: Turn on
+- **Action**: Turn on light
 
 {% details "YAML example for turning on the hallway light" %}
 

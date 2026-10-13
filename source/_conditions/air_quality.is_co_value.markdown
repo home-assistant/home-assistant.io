@@ -84,7 +84,7 @@ When you pull into the driveway, you want to know if the air inside is safe befo
 - **Trigger**: Zone entered
   - **Target**: Frenck
   - **Zone**: Home
-- **Condition**: Air Quality: Carbon monoxide value
+- **Condition**: Carbon monoxide value
   - **Target**: Hallway CO sensor
   - **Threshold type**: 20
   - **Condition passes if**: Any
