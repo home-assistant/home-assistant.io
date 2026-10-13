@@ -120,11 +120,17 @@ When the window opens, this automation waits up to 5 minutes for it to close aga
   - **Entity**: Living room window (`binary_sensor.living_room_window`)
   - **To**: Open
 - **Action**: Wait for a trigger
-  - **Trigger**: State changed, for the living room window, **To**: Closed
-  - **Timeout**: 5 minutes
+  - **Timeout**: `5` minutes
+  - **Trigger**: State changed
+    - **Entity**: Living room window (`binary_sensor.living_room_window`)
+    - **To**: Closed
 - **Action**: If-then
-  - **If**: A **Template** condition with `{{ not wait.completed }}`, which is met if the wait ended because of the timeout
-  - **Then**: Turn off the living room thermostat (`climate.living_room`)
+  - **If**:
+    - **Condition**: Template
+      - **Value template**: `{{ not wait.completed }}` (met if the wait ended because of the timeout)
+  - **Then**:
+    - **Action**: Turn off thermostat
+      - **Target**: Living room thermostat (`climate.living_room`)
 
 {% details "YAML example" %}
 
