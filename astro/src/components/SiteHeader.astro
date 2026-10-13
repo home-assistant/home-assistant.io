@@ -368,16 +368,22 @@ const versionTitle =
 
   /* Menu panel */
 
+  /* The panel scrolls on its own when it is taller than the screen:
+     its height, padding included, stops at the visible area below the
+     bar (dvh leaves out the space behind a mobile browser's toolbars),
+     and scrolling past its end does not move the page behind it. */
   .menu {
     background: var(--color-surface);
     box-shadow: var(--shadow-panel);
+    box-sizing: border-box;
     display: none;
     flex-wrap: wrap;
     left: 0;
     list-style: none;
     margin: 0;
-    max-height: calc(100vh - var(--header-height));
+    max-height: calc(100dvh - var(--header-height));
     overflow-y: auto;
+    overscroll-behavior: contain;
     padding: var(--layout-gutter) 0;
     position: absolute;
     right: 0;
