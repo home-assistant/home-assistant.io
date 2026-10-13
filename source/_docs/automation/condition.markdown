@@ -38,7 +38,7 @@ For examples, refer to [Conditions check the current state](/docs/automation/how
 
 If an automation has several conditions, all of them must be met. To combine conditions in a different way, select **Add condition**, and then select **Blocks**:
 
-- **Or**: met if at least one of the conditions inside is met.
+- [**Or**](/conditions/or/): met if at least one of the conditions inside is met.
 - **Not**: met if none of the conditions inside are met.
 - [**And**](/conditions/and/): met if all conditions inside are met. Use it inside an **Or** or **Not** block.
 
