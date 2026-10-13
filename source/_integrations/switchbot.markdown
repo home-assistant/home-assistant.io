@@ -820,13 +820,14 @@ Features:
 
 #### Circulator Fan Pro
 
-This is an encrypted device.
+This is an encrypted device. To set it up, follow [Adding encrypted SwitchBot devices](#adding-encrypted-switchbot-devices).
 
 The Circulator Fan Pro combines a fan with a built-in night light. It adds the following entities:
 
 - A fan that supports turning on or off, setting the speed, setting the mode (including hurricane), and oscillating.
 - A light for the two-level (high and low) night light.
 - A switch for vertical oscillation.
+- A sensor for the battery level.
 
 ### Air Purifiers
 
