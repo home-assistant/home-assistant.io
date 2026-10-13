@@ -155,6 +155,21 @@ To reconfigure the integration:
 3. From the list of gateways, find the one you want to reconfigure.
 4. Next to that gateway, select the three dots menu ({% icon "mdi:dots-vertical" %}), then select **Reconfigure**.
 
+## Supported functionality
+
+### Atlantic heat pump zones
+
+For Atlantic and Sauter heat pumps with zone control, such as Zone Control 2.0, each zone has a climate entity. Each zone also gets the following number entities, which you can find on the device page under **Configuration**:
+
+- **Comfort heating target temperature**
+- **Eco heating target temperature**
+- **Comfort cooling target temperature**
+- **Eco cooling target temperature**
+
+The available entities depend on what your zone supports.
+
+These entities change the comfort and eco temperatures used by the time program of the zone. When you change the target temperature of the climate entity, the zone switches to a temporary override and stops following its time program. When you change one of these number entities instead, the zone keeps following its time program with the new temperature. For example, you can lower the comfort cooling temperature while your solar panels produce more power than your home uses.
+
 {% include integrations/actions.md %}
 
 ## Data updates
