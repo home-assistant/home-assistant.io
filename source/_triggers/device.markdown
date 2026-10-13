@@ -119,7 +119,8 @@ subtype:
   required: false
   type: string
 for:
-  description: Only for some triggers. How long the device must stay in the new state before the trigger fires. Use a mapping with `days`, `hours`, `minutes`, `seconds`, or `milliseconds`, such as `minutes: 30`. A time string such as `"00:30:00"` doesn't work here. By default, the trigger fires right away.
+  description: >
+    Only for some triggers. How long the device must stay in the new state before the trigger fires. Use a mapping with `days`, `hours`, `minutes`, `seconds`, or `milliseconds`, such as `minutes: 30`. A time string such as `"00:30:00"` doesn't work here. By default, the trigger fires right away.
   required: false
   type: map
 above:
