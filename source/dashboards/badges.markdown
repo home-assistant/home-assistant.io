@@ -135,7 +135,7 @@ double_tap_action:
 
 The alert badge is the badge version of the [alert card](/dashboards/alert/). It highlights an entity that needs attention, showing its name and state over a colored background that can pulse to draw the eye. Select the badge to open the **More info** dialog.
 
-To show the badge only when something needs attention, add a [visibility condition](/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally) on the entity's state.
+Like the card, it supports alarm control panel, binary sensor, cover, and lock entities, and only shows its color and pulse while the entity is in an [alert state](/dashboards/alert/). The rest of the time, it uses the inactive color, if you set one. To hide the badge when nothing needs attention, add a [visibility condition](/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally) on the entity's state.
 
 <p class="img">
   <img src="/images/dashboards/alert_badge.png" alt="Screenshot of alert badges">
@@ -144,8 +144,9 @@ To show the badge only when something needs attention, add a [visibility conditi
 
 ```yaml
 type: alert
-entity: binary_sensor.garden_motion
+entity: binary_sensor.kitchen_leak
 color: red
+inactive_color: green
 ```
 
 {% configuration alert %}
@@ -155,16 +156,21 @@ type:
   type: string
 entity:
   required: true
-  description: Entity ID.
+  description: Entity ID of an alarm control panel, binary sensor, cover, or lock.
   type: string
 color:
   required: false
-  description: The color of the icon and background. Accepts a [color token](/dashboards/tile/#available-colors) or hex color code. Set to `none`, or leave it out, for no color.
+  description: The color of the icon and background while the entity is in an alert state. Accepts a [color token](/dashboards/tile/#available-colors) or hex color code. Set to `none`, or leave it out, for no color.
+  type: string
+  default: none
+inactive_color:
+  required: false
+  description: The color of the icon and background when the entity isn't in an alert state. Accepts the same values as `color`.
   type: string
   default: none
 pulse:
   required: false
-  description: Animates the colored background. When reduced motion is turned on in your system settings, the background stays tinted instead.
+  description: Animates the colored background while the entity is in an alert state. When reduced motion is turned on in your system settings, the background stays tinted instead.
   type: boolean
   default: false
 {% endconfiguration %}
