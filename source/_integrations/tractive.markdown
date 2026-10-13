@@ -24,21 +24,19 @@ ha_integration_type: device
 
 The Tractive integration allows you to monitor locations of your pets from within Home Assistant and set up automations based on the information.
 
-## Prerequisites
-
-To use the integration you must be a premium tractive client.
-
 {% include integrations/config_flow.md %}
-
-{% important %}
-Due to Tractive API limitations, trackers (pets) that are shared from another account to your account are not visible in Home Assistant. You need to configure all Tractive accounts from which trackers (pets) come from with Home Assistant.
-{% endimportant %}
 
 ## Integration entities
 
 The Tractive integration adds one device tracker and several sensors and switches per registered pet:
 
 ![Tractive device tracker](/images/integrations/tractive/device_tracker.png)
+
+## Known limitations
+
+- The integration requires a Tractive Premium subscription.
+- Your Tractive account must allow signing in with an email address and password. Accounts that can only sign in with a Google or Apple account are not supported.
+- Trackers (pets) that are shared from another account to your account are not visible in Home Assistant. You need to set up each Tractive account that owns a tracker (pet) as a separate integration entry.
 
 ## Removing the integration
 
