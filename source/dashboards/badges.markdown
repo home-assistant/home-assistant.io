@@ -131,6 +131,44 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
+## Alert badge
+
+The alert badge is the badge version of the [alert card](/dashboards/alert/). It highlights an entity that needs attention, showing its name and state over a colored background that can pulse to draw the eye. Select the badge to open the **More info** dialog.
+
+To show the badge only when something needs attention, add a [visibility condition](/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally) on the entity's state.
+
+<p class="img">
+  <img src="/images/dashboards/alert_badge.png" alt="Screenshot of alert badges">
+  Alert badges with red, orange, amber, and no color.
+</p>
+
+```yaml
+type: alert
+entity: binary_sensor.garden_motion
+color: red
+```
+
+{% configuration alert %}
+type:
+  required: true
+  description: "`alert`"
+  type: string
+entity:
+  required: true
+  description: Entity ID.
+  type: string
+color:
+  required: false
+  description: The color of the icon and background. Accepts a [color token](/dashboards/tile/#available-colors) or hex color code. Set to `none`, or leave it out, for no color.
+  type: string
+  default: none
+pulse:
+  required: false
+  description: Animates the colored background. When reduced motion is turned on in your system settings, the background stays tinted instead.
+  type: boolean
+  default: false
+{% endconfiguration %}
+
 ## Shortcut badge
 
 The shortcut badge gives you a quick way to trigger an action from your dashboard. You can use it to navigate to another page, open a URL, launch the voice assistant, or perform an action.
