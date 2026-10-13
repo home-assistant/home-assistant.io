@@ -150,6 +150,47 @@ automation: |
 
 You can create optional Template helpers from the Axle Energy timestamp sensors. These helpers are separate from the entities created by the integration.
 
+### Event later today
+
+Create an optional, user-created [Template helper](/integrations/template/#creating-a-template-helper-from-the-user-interface) to show whether the next Axle Energy event starts later today. The helper is separate from the Axle Energy entities. It shows **Off** when there is no event, the timestamp is invalid, the event is not today, or its start time has passed. It shows **Unavailable** when the source sensor is unavailable.
+
+{% details "Create an event later today helper" %}
+
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} and select **Create helper**.
+2. Select **Template**, then **Binary sensor**.
+3. Enter `Axle Energy event later today` as the **Name**.
+4. Paste this into **State**. Replace the entity ID if you renamed your Axle sensor.
+
+{% example %}
+template: |
+  {% set raw = states('sensor.axle_energy_event_start') %}
+  {% set start = as_timestamp(raw, none) %}
+  {% set current = as_timestamp(now()) %}
+  {% set local_now = as_local(as_datetime(current)) %}
+  {% if raw == 'unknown' %}
+    {{ false }}
+  {% elif start is not none %}
+    {% set event_date = as_local(as_datetime(start)).date() %}
+    {{ event_date == local_now.date()
+       and start > current }}
+  {% else %}
+    {{ false }}
+  {% endif %}
+{% endexample %}
+
+5. Expand **Additional options** and paste this into **Availability**, using the same entity ID.
+
+{% example %}
+template: |
+  {{ not is_state('sensor.axle_energy_event_start', 'unavailable') }}
+{% endexample %}
+
+6. Select **Submit**. You can then add the helper to your dashboard.
+
+{% enddetails %}
+
+The helper updates when its source sensor changes and at the start of each minute. It uses the event timestamp to check whether the start time is still in the future and the local calendar date to determine whether the event is today. An invalid timestamp is handled as **Off** instead of causing a template error.
+
 ### Minutes until an event starts
 
 For a numeric countdown, you can create an optional [Template helper](/integrations/template/#creating-a-template-helper-from-the-user-interface) from the existing **Event start** and **Event end** sensors. This helper is separate from the entities created by the Axle Energy integration.
