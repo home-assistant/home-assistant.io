@@ -43,14 +43,14 @@ When a template misbehaves in an automation, a script, or a template entity, fix
    - If the template uses `trigger` or `this`, define them at the top with `{% set %}`. For the steps, refer to [Testing a template](/docs/tools/dev-tools/#testing-a-template).
 3. Under **Result**, check the output.
    - If a message is shown above or instead of the result, refer to [Troubleshooting template errors](/docs/templating/errors/).
-   - Check the **Result type**. If you expected a number and see `string`, refer to [Check what a value actually is](#check-what-a-value-actually-is).
+   - Check the **Result type**. The editor converts the result before it shows it, so a sensor state shows as a number even when it's text inside the template. To check a value inside the template, refer to [Check what a value actually is](#check-what-a-value-actually-is).
    - Below the result, check what the template listens to. If neither the entity you expect nor its domain is listed, the template doesn't update when that entity changes. If the editor says that the template listens for all state changed events, it updates when any entity changes. For details, refer to [When does my template run?](#when-does-my-template-run).
 4. Change the template until the result is what you expect. If the template is long, take it apart first. For the steps, refer to [Narrow down the problem](#narrow-down-the-problem).
 5. If you defined `trigger` or `this` with `{% set %}`, remove those lines. Then copy the template, and paste it back into your automation, script, or template entity.
 
 ## Narrow down the problem
 
-When a long template does not work, the trick is to take it apart. Start with the smallest piece you can and add one thing at a time. The moment the result goes wrong, you know exactly which piece broke. This sounds slow but it is always faster than staring at the whole thing and hoping the problem jumps out.
+When a long template doesn't work, the trick is to take it apart. Start with the smallest piece you can and add one thing at a time. The moment the result goes wrong, you know exactly which piece broke. This sounds slow, but it's usually faster than staring at the whole thing and hoping the problem jumps out.
 
 {% example %}
 template: |
@@ -83,7 +83,7 @@ output: "It is 22.5°C outside."
 
 ## Check what a value actually is
 
-When a template gives the wrong result, show the raw value to see what you are working with.
+When a template gives the wrong result, show the raw value to see what you're working with.
 
 {% example %}
 template: |
@@ -91,7 +91,7 @@ template: |
 output: "22.5"
 {% endexample %}
 
-That result looks like a number, but it is actually text. Many sensors return text even when the content looks numeric. Use [`typeof`](/template-functions/typeof/) to be sure:
+In the editor, this result shows as a number, because the editor converts the result before it shows it. Inside the template, the value is text. Many sensors return text even when the content looks numeric. Use [`typeof`](/template-functions/typeof/) to see the type inside the template:
 
 {% example %}
 template: |
