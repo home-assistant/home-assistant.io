@@ -214,13 +214,15 @@ The table below shows, per device type, which connection mode is required. See [
 **Smart Detections**: Smart detections depend on the camera. Home Assistant creates the detection entities for the detection types your camera reports as supported in UniFi Protect.
 {% endnote %}
 
+The SSH, analytics, insights, mount type, paired camera, lens type, and voltage entities are deprecated and will be removed in 2027.1.0. New installations and newly added devices no longer get them. Manage these settings in the UniFi Protect app.
+
 Each UniFi Protect camera will get a device in Home Assistant with the following:
 
 - **Camera** - A camera {% term entity %} for each active RTSPS quality (up to four: high, medium, low, and package). Only the highest-quality stream is enabled by default.
   - If your camera is a G4 Doorbell Pro, an additional camera {% term entity %} is added for the package camera. The package camera has a very low frame rate, so its live feed can be choppy, but it works the same way as the other streams.
 - **Media Player** - If your camera has a speaker, you will get a media player {% term entity %} that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say action](/integrations/tts/#action-say).
 - **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
-- **Sensors** - Sensors include "Is Dark", "Motion Detected", detected object sensors (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
+- **Sensors** - Sensors include "Is Dark", "Motion Detected", detected object sensors (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats.
   - There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected. Package detection is the exception: it is exposed as an event {% term entity %} (see **Events**) rather than a binary sensor.
 - **Events** - Cameras expose event entities for momentary motion and supported smart detections. Smart detection event entities include the raw Protect `event_source`, which distinguishes zone, line-crossing, and loitering detections. Package detection is provided as an event entity (`event.*_package`) rather than a binary sensor, because UniFi Protect reports it as a single, already-ended detection that a sustained binary sensor cannot represent.
 - **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
@@ -265,7 +267,7 @@ The USL GlassBreak detects motion as well as glass break acoustically, but only 
   - **Alarm Sound** - An alarm sensor will be available if the mount type is not set to "Leak" and the alarm sound sensor is enabled. The Alarm Sound sensor can have the values "none", "smoke" and "co". More values may be added over time automatically as UniFi Protect adds support for detecting more alarms.
   - **Leak** - A moisture sensor will be available if the mount type is set to "Leak", or if the sensor supports water leak detection and leak detection is enabled.
   - **Tamper** - A binary sensor to detect tampering.
-- **Device Configuration** - Smart sensors will get configuration controls for the Status Light, enabling/disabling all of the main sensors, selecting the Paired Camera, and changing the Mount Type of the sensor.
+- **Device Configuration** - Smart sensors will get configuration controls for the Status Light and for enabling/disabling all of the main sensors.
 - **Button** - A button to clear the tampered state as well as a disabled by default button to restart the device.
 
 #### Tamper sensor
