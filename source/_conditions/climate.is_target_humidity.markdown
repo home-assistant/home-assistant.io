@@ -115,7 +115,7 @@ for:
 
 ### Automation: turn on the dehumidifier when humidity setpoint is high
 
-When the bedroom thermostat's target humidity is set to 60% or above, turn on a standalone dehumidifier to help reach the target. This automation triggers when the thermostat's humidity setpoint changes.
+When the bedroom thermostat's target humidity is set above 60%, turn on a standalone dehumidifier to help reach the target. This automation triggers when the thermostat's humidity setpoint changes.
 
 - **Trigger**: State changed, for the `humidity` attribute of the bedroom thermostat
 - **Condition**: Thermostat target humidity
