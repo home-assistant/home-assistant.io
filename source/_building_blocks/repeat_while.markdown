@@ -11,7 +11,7 @@ related_building_blocks:
 
 The **Repeat while** building block runs a group of actions as long as its conditions are met. The conditions are checked before each round. Use it when the actions should keep running while something is true, for example, while a mode is turned on.
 
-## Adding Repeat while in the editor
+## Using this building block from the user interface
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
@@ -31,7 +31,7 @@ Actions:
   required: true
 {% endoptions_ui %}
 
-## Repeat while in YAML
+## Using this building block in YAML
 
 In YAML, use `repeat` with `while` and `sequence`. This example repeats a script as long as `input_boolean.do_something` is on, and at most 20 times:
 

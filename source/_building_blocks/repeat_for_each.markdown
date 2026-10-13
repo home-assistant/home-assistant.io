@@ -11,7 +11,7 @@ related_building_blocks:
 
 The **Repeat for each** building block runs a group of actions once for each item in a list. Use it when you want to do the same thing for several items, for example, to turn off a list of lights one by one.
 
-## Adding Repeat for each in the editor
+## Using this building block from the user interface
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
@@ -37,7 +37,7 @@ Actions:
   required: true
 {% endoptions_ui %}
 
-## Repeat for each in YAML
+## Using this building block in YAML
 
 In YAML, use `repeat` with `for_each` and `sequence`. This example turns off three lights:
 

@@ -11,7 +11,7 @@ related_building_blocks:
 
 The **Repeat multiple times** building block runs a group of actions a set number of times. Use it when you know in advance how often the actions should run, for example, to flash a light 3 times.
 
-## Adding Repeat multiple times in the editor
+## Using this building block from the user interface
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
@@ -31,7 +31,7 @@ Actions:
   required: true
 {% endoptions_ui %}
 
-## Repeat multiple times in YAML
+## Using this building block in YAML
 
 In YAML, use `repeat` with `count` and `sequence`. The count can be a template. The template is rendered when the repeat starts. This example has two scripts. The second script calls the first one to flash the hallway light 3 times:
 

@@ -11,7 +11,7 @@ related_building_blocks:
 
 The **Repeat until** building block runs a group of actions until its conditions are met. The conditions are checked after each round, so the actions always run at least once. Use it when you want to try something again until it works, for example, until a device reports that it turned on.
 
-## Adding Repeat until in the editor
+## Using this building block from the user interface
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
@@ -31,7 +31,7 @@ Actions:
   required: true
 {% endoptions_ui %}
 
-## Repeat until in YAML
+## Using this building block in YAML
 
 In YAML, use `repeat` with `sequence` and `until`. `until` also accepts a [shorthand notation of a template condition](/conditions/template/#shorthand-notation):
 
