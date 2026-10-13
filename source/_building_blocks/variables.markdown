@@ -10,7 +10,7 @@ related_building_blocks:
 
 The **Define variables** building block sets variables that templates in the next steps can use. Use it when you want to give a value a clear name, or calculate a value once and use it in several steps. For variables that the whole script can use, refer to [script variables](/integrations/script/#variables).
 
-## Adding Define variables in the editor
+## Using this building block from the user interface
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
@@ -23,7 +23,7 @@ The **Define variables** building block sets variables that templates in the nex
 
 This building block has no options in the UI. You enter the variables in YAML.
 
-## Define variables in YAML
+## Using this building block in YAML
 
 In YAML, use `variables`. This example sets two variables, and uses them in the next step:
 
