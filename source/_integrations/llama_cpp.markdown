@@ -33,7 +33,7 @@ If you are using Ollama, you should prefer the official [Ollama](/integrations/o
 If you are using OpenRouter, you should prefer the official [OpenRouter](/integrations/open_router/) integration.
 {% endnote %}
 
-Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
+Controlling Home Assistant is done by providing the AI access to the **Device control** API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 

@@ -123,6 +123,7 @@ The number platform lets you fine-tune numeric device settings:
 - A Micromodule Relay configured in impulse-switch mode gets a **Pulse length** value, controlling how long the relay stays closed for each trigger.
 - A Shutter Contact II gets a **Break function timeout** value (1 to 15 minutes), controlling how long an active break function stays in effect before it expires automatically. It has no effect while the break function is set to never expire.
 - A Smart Plug or Smart Plug Compact that supports energy-saving mode gets an **Energy-saving power threshold** value (0 to 3680 W), controlling the power draw below which the plug switches off automatically.
+- A Smart Plug or Smart Plug Compact gets an **Energy-saving enter duration** value (1 to 3600 seconds), controlling how long the plug stays below the power threshold before energy-saving mode is entered.
 
 ### Select
 
@@ -131,6 +132,7 @@ The select platform lets you choose between a set of predefined options. Select 
 - Outdoor Siren: a **Siren volume** select, letting you choose between reduced, medium, or loud
 - Motion Detector II that supports it: a **Motion sensitivity** select, letting you choose between **high**, **medium**, or **low**. In YAML, the medium option is `middle`.
 - Door/Window Contact II Plus: a **Vibration sensitivity** select, letting you choose between **very high**, **high**, **medium**, **low**, or **very low**. In YAML, the options are `very_high`, `high`, `medium`, `low`, and `very_low`.
+- Smoke Detector that supports it: a **Smoke sensitivity** select, letting you choose between **high**, **medium**, or **low**. In YAML, the medium option is `middle`.
 
 ### Sensors
 
