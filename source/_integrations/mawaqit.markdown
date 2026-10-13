@@ -23,7 +23,7 @@ The **MAWAQIT Prayer Times** {% term integration %} retrieves prayer times from 
 You need a free MAWAQIT account to set up this integration.
 
 1. Go to [mawaqit.net](https://mawaqit.net) and create an account.
-2. If you want to search for the nearest mosques during setup, make sure your Home Assistant location is set. You can check it under {% my general title="**Settings** > **System** > **General**" %}.
+2. Make sure your Home Assistant location is set near your mosque, as the setup lists the mosques closest to it. You can check it under {% my general title="**Settings** > **System** > **General**" %}.
 
 {% include integrations/config_flow.md %}
 
@@ -36,15 +36,11 @@ Password:
     description: "Your MAWAQIT account password."
 {% endconfiguration_basic %}
 
-After signing in, you choose how to find your mosque, then select it:
+After signing in, you select your mosque:
 
 {% configuration_basic %}
-Search method:
-    description: "How to find your mosque. Select **Search for the nearest mosques to your location** to list mosques close to the location set in your Home Assistant settings, or **Search for a mosque by keyword** to look one up by name or city."
-Search:
-    description: "Only shown when searching by keyword. Enter the name or location of the mosque you are looking for. Results are paginated, so you can move between pages if your mosque is not on the first one."
 Mosque:
-    description: "The mosque whose prayer times you want to follow. When searching by location, you select from the nearest mosques. When searching by keyword, you select from the search results."
+    description: "The mosque whose prayer times you want to follow, among the mosques nearest to the location set in your Home Assistant settings."
 {% endconfiguration_basic %}
 
 Only one MAWAQIT entry can be set up per Home Assistant instance.
@@ -53,9 +49,7 @@ Only one MAWAQIT entry can be set up per Home Assistant instance.
 
 The MAWAQIT integration does not have additional options to configure after setup.
 
-To follow a different mosque, reconfigure the existing entry. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the MAWAQIT integration, open the {% icon "mdi:dots-vertical" %} menu, and select **Reconfigure**. You can then pick a new mosque using the same search methods as during setup.
-
-If your MAWAQIT password changes, Home Assistant automatically asks you to sign in again so it can keep retrieving your prayer times.
+To follow a different mosque, remove the integration and set it up again.
 
 ## Supported functionality
 
@@ -63,32 +57,30 @@ If your MAWAQIT password changes, Home Assistant automatically asks you to sign 
 
 The integration provides the following sensors. All prayer and Iqama times are timestamp sensors.
 
+The daily prayer and Iqama times show today's times until the middle of the night, between Maghrib and the next Fajr, and then switch to the next day's times.
+
 #### Daily prayer times
 
-- **Fajr Prayer**: The Fajr prayer time for today.
-- **Shuruq**: The sunrise time for today, which marks the end of the Fajr prayer. This is a calculated value and may differ from the astronomical sunrise.
-- **Dhuhr Prayer**: The Dhuhr prayer time for today.
-- **Asr Prayer**: The Asr prayer time for today.
-- **Maghrib Prayer**: The Maghrib prayer time for today.
-- **Isha Prayer**: The Isha prayer time for today.
+- **Fajr prayer**: The Fajr prayer time.
+- **Shuruq**: The sunrise time, which marks the end of the Fajr prayer. This is a calculated value and may differ from the astronomical sunrise.
+- **Dhuhr prayer**: The Dhuhr prayer time.
+- **Asr prayer**: The Asr prayer time.
+- **Maghrib prayer**: The Maghrib prayer time.
+- **Isha prayer**: The Isha prayer time.
 
 #### Friday prayer
 
-- **Jumua Prayer**: The Jumua (Friday prayer) time.
-- **Second Jumua Prayer** and **Third Jumua Prayer**: Additional Friday prayer times. These sensors are only created when the selected mosque publishes a second or third Jumua time.
+- **Jumua prayer**: The Jumua (Friday prayer) time of the next Friday, or of today on Fridays.
+- **Second Jumua prayer** and **Third Jumua prayer**: Additional Friday prayer times. These sensors are only created when the selected mosque publishes a second or third Jumua time.
 
 #### Next prayer
 
-- **Next Salat Name**: The name of the next upcoming prayer.
-- **Next Salat Time**: The time of the next upcoming prayer.
+- **Next salat**: The name of the next prayer. On Fridays, Jumua replaces Dhuhr.
+- **Next salat time**: The time of the next prayer.
 
 #### Iqama (congregation) times
 
-- **Fajr Iqama**, **Dhuhr Iqama**, **Asr Iqama**, **Maghrib Iqama**, and **Isha Iqama**: The congregation (Iqama) start time for each daily prayer. These sensors are only created when the selected mosque has Iqama times enabled.
-
-#### Mosque
-
-- **Mosque information**: The name of the mosque you selected.
+- **Fajr iqama**, **Dhuhr iqama**, **Asr iqama**, **Maghrib iqama**, and **Isha iqama**: The congregation (Iqama) start time for each daily prayer. These sensors are only created when the selected mosque has Iqama times enabled.
 
 ## MAWAQIT prayer times automation examples
 
@@ -100,7 +92,7 @@ The prayer time sensors are timestamp sensors, so you can use them directly as t
 
 This automation sends a notification to your phone when it is time for the Maghrib prayer.
 
-- **Trigger**: Time, at the **Maghrib Prayer** sensor
+- **Trigger**: Time, at the **Maghrib prayer** sensor
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -124,24 +116,21 @@ automation: |
 
 ## Data updates
 
-This integration is a cloud {% term polling %} integration. Mosque information is refreshed once a day. Prayer times are fetched from MAWAQIT about twice a day, and the **Next Salat Name** and **Next Salat Time** sensors are re-evaluated every minute so they always point to the upcoming prayer.
+This integration is a cloud {% term polling %} integration. The prayer times of the whole year are fetched from MAWAQIT every 12 hours. The sensors change at the prayer times themselves, without waiting for the next fetch. If MAWAQIT cannot be reached, the sensors keep using the prayer times fetched last.
 
 ## Known limitations
 
-- You can set up only one MAWAQIT account and mosque per Home Assistant instance. To follow a different mosque, reconfigure the existing entry.
-- The **Iqama** sensors and the **Second Jumua Prayer** and **Third Jumua Prayer** sensors are only created when the selected mosque publishes those times in MAWAQIT.
-- The nearest mosques search relies on the location set in your Home Assistant settings. If no mosque is found nearby, check your location under {% my general title="**Settings** > **System** > **General**" %}, or use the keyword search instead.
+- You can set up only one MAWAQIT account and mosque per Home Assistant instance. To follow a different mosque, remove the integration and set it up again.
+- The **Iqama** sensors and the **Second Jumua prayer** and **Third Jumua prayer** sensors are only created when the selected mosque publishes those times in MAWAQIT.
+- The setup only lists the mosques nearest to the location set in your Home Assistant settings. Searching for a mosque by name is not supported yet.
 
 ## Troubleshooting
 
 ### No mosque found near my location
 
-When searching for the nearest mosques, the setup shows that no mosque was found in your area.
+The setup shows that no mosque was found near your Home Assistant location.
 
-This usually means the location configured in Home Assistant has no MAWAQIT mosque nearby, or the location is not set accurately. To resolve this:
-
-1. Check your location under {% my general title="**Settings** > **System** > **General**" %}.
-2. If your location is correct and no mosque is listed, set up the integration again and use **Search for a mosque by keyword** instead.
+This usually means the location configured in Home Assistant has no MAWAQIT mosque nearby, or the location is not set accurately. To resolve this, check your location under {% my general title="**Settings** > **System** > **General**" %}, then set up the integration again.
 
 ### Cannot connect to the MAWAQIT server
 
@@ -155,17 +144,7 @@ This means Home Assistant could not reach MAWAQIT. To resolve this:
 
 ### My MAWAQIT login no longer works
 
-If your prayer time sensors stop updating after changing your MAWAQIT password, Home Assistant starts a reauthentication flow and prompts you to sign in again. Enter your current MAWAQIT email and password to restore the connection.
-
-## Diagnostics
-
-This integration provides downloadable diagnostics to help reproduce, test, and debug issues. The downloaded file contains no personal information. It includes:
-
-- Your configuration entry, with the API key and your Home Assistant location (latitude and longitude) redacted.
-- The public information of your selected mosque, such as its name, address, and prayer-time settings.
-- The most recent prayer times fetched from MAWAQIT.
-
-To download the diagnostics, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the MAWAQIT integration, open the {% icon "mdi:dots-vertical" %} menu on the integration entry, and select **Download diagnostics**. Attach the downloaded file when you report an issue to help the maintainers investigate.
+Signing in again is not supported yet. If the integration fails to set up after your MAWAQIT credentials changed, remove the integration and set it up again with your current MAWAQIT email and password.
 
 ## Removing the integration
 
