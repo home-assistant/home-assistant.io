@@ -88,7 +88,8 @@ When the movie-night button is pressed, only start the movie scene if the living
 - **Target**: Living room light
 - **Threshold type**: 40
 - **Condition passes if**: Any
-- **Action**: Scene: Movie night
+- **Action**: Activate scene
+  - **Target**: Movie night
 
 {% details "YAML example for a dim-gated movie scene" %}
 

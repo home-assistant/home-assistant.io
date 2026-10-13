@@ -7,7 +7,7 @@ related_conditions:
   - lock.is_locked
 ---
 
-The **Lock is open** condition helps you check whether a lock is no longer secured and has released its latch, so the door can be pushed open without turning the handle. A lock reaches this state through the [Open](/actions/lock.open/) action on locks that support it. Use it when an automation should continue only while the lock is in the open state.
+The **Lock is open** condition helps you check whether a lock is no longer secured and has released its latch, so the door can be pushed open without turning the handle. A lock reaches this state through the [Open lock](/actions/lock.open/) action on locks that support it. Use it when an automation should continue only while the lock is in the open state.
 
 {% include conditions/ui_header.md %}
 
@@ -72,7 +72,7 @@ for:
 ## Good to know
 
 - Locks in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
-- Only locks that support the [Open](/actions/lock.open/) action can reach the open state. On other locks, this condition never passes.
+- Only locks that support the [Open lock](/actions/lock.open/) action can reach the open state. On other locks, this condition never passes.
 - To check for the secured state instead, use [Lock is locked](/conditions/lock.is_locked/).
 
 {% include conditions/try_it.md %}
@@ -88,7 +88,7 @@ If the front door lock stays open while you carry things inside, it helps to kee
 - **Target**: Front door lock
 - **Condition passes if**: Any
 - **For at least**: 00:00:10
-- **Action**: Turn on
+- **Action**: Turn on light
 
 {% details "YAML example for keeping a light on while the lock is open" %}
 

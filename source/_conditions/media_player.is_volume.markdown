@@ -123,7 +123,9 @@ for:
 
 When the washer finishes, send a spoken announcement only if the receiver volume is below 35%.
 
-- **Trigger**: Washer finished
+- **Trigger**: State changed
+  - **Entity**: Washer finished sensor
+  - **To**: On
 - **Condition**: Media player volume
   - **Target**: Living room receiver
   - **Threshold**: Below 35%
@@ -163,12 +165,14 @@ automation: |
 
 When everyone leaves home, start the robot vacuum only if every targeted media player downstairs is below 20% volume.
 
-- **Trigger**: Person leaves home
+- **Trigger**: Zone left
+  - **Target**: Alex
+  - **Zone**: Home
 - **Condition**: Media player volume
   - **Target**: Downstairs
   - **Threshold**: Below 20%
   - **Condition passes if**: All
-- **Action**: Start vacuuming
+- **Action**: Start vacuum cleaner
   - **Target**: Robot vacuum
 
 {% details "YAML example for checking room volume before starting the robot vacuum" %}
@@ -177,10 +181,11 @@ When everyone leaves home, start the robot vacuum only if every targeted media p
 automation: |
   alias: "Start the vacuum only when every player is quiet"
   triggers:
-    - trigger: zone
-      entity_id: person.alex
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.alex
+      options:
+        zone: zone.home
   conditions:
     - condition: media_player.is_volume
       target:

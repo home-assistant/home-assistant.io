@@ -100,10 +100,12 @@ for:
 
 When everyone leaves home, start the vacuum only if the bedroom TV is off.
 
-- **Trigger**: Person leaves home
+- **Trigger**: Zone left
+  - **Target**: Alex
+  - **Zone**: Home
 - **Condition**: Media player is off
   - **Target**: Bedroom TV
-- **Action**: Start vacuuming
+- **Action**: Start vacuum cleaner
   - **Target**: Robot vacuum
 
 {% details "YAML example for starting the vacuum only when the TV is off" %}
@@ -112,10 +114,11 @@ When everyone leaves home, start the vacuum only if the bedroom TV is off.
 automation: |
   alias: "Start the vacuum only when the TV is off"
   triggers:
-    - trigger: zone
-      entity_id: person.alex
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.alex
+      options:
+        zone: zone.home
   conditions:
     - condition: media_player.is_off
       target:

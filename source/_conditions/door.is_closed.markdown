@@ -119,7 +119,7 @@ At bedtime, this automation arms the house only if the front door, back door, an
 - **Condition**: Door is closed
 - **Target**: Front door, back door, and garage door
 - **Condition passes if**: All
-- **Action**: Alarm control panel: Arm away
+- **Action**: Arm alarm away
 
 {% details "YAML example for arming only after all doors are closed" %}
 

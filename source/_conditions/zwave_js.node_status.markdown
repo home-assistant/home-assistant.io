@@ -164,11 +164,13 @@ automation: |
 
 Battery-powered nodes only accept commands while they are awake. This automation refreshes a sensor's values when the node checks in.
 
-- **Trigger**: Z-Wave JS node status changed, to Awake
+- **Trigger**: State changed
+  - **Entity**: Motion sensor node status sensor
+  - **To**: Awake
 - **Condition**: Z-Wave JS node status
   - **Devices**: Motion sensor
   - **Status**: Awake
-- **Action**: Z-Wave refresh value
+- **Action**: Refresh values
 
 {% details "YAML example for refreshing a node while it is awake" %}
 

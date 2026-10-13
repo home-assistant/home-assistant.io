@@ -84,7 +84,8 @@ for:
 
 This automation checks every 15 minutes whether the hallway vacuum is paused. If it is, Home Assistant sends a reminder so you can decide whether to resume it or clear an obstacle.
 
-- **Trigger**: Every 15 minutes
+- **Trigger**: Time pattern
+  - **Minutes**: `/15`
 - **Condition**: Vacuum cleaner is paused
   - **Target**: Hallway vacuum
 - **Action**: Send a notification message
