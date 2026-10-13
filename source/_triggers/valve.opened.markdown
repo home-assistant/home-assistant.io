@@ -34,6 +34,7 @@ Trigger when:
     - **Each** (default) fires every time any targeted valve opens.
     - **First** fires only when the first of a group opens.
     - **All** fires only after every targeted valve is open.
+  required: false
 For at least:
   description: How long the valve must stay open before the trigger fires. Default is 0 (fires immediately). Useful to ignore brief, accidental openings.
 {% endoptions_ui %}
@@ -80,7 +81,7 @@ for:
 
 ## Good to know
 
-- The trigger fires when the valve reaches the **Open** state. It does not fire during the transitional **Opening** state while the valve is still moving. You can check the available states in [The state of a valve entity](/integrations/valve/#the-state-of-a-valve-entity).
+- This trigger reacts when the valve reaches the **Open** state. It does not react to the transitional **Opening** state while the valve is still moving. You can check the available states in [Valve states](/integrations/valve/#valve-states).
 - Valves that report position (0 to 100%) are considered open as soon as their position is above 0.
 - Use the **For at least** option to avoid false alarms from brief or accidental openings, such as a momentary network glitch that causes a valve to re-report its state.
 - This trigger works with any valve entity in Home Assistant, including water, gas, and air valves from integrations such as MQTT, Z-Wave, Zigbee, and ESPHome.

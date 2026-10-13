@@ -54,9 +54,9 @@ After setup, you can fine-tune the forecast. Go to {% my integrations title="**S
 API key:
   description: "The API key for your Forecast.Solar account. An account is only needed for more frequent updates or more than one plane. See [Using a Forecast.Solar account](#using-a-forecastsolar-account)."
 Damping factor (morning):
-  description: "Lower the forecast for the morning. See [Tweaking the estimations](#tweaking-the-estimations)."
+  description: "Lower the forecast for the morning using a value between `0` and `1`. See [Tweaking the estimations](#tweaking-the-estimations)."
 Damping factor (evening):
-  description: "Lower the forecast for the evening. See [Tweaking the estimations](#tweaking-the-estimations)."
+  description: "Lower the forecast for the evening using a value between `0` and `1`. See [Tweaking the estimations](#tweaking-the-estimations)."
 Inverter size (Watt):
   description: "The maximum power of your inverter. See [Tweaking the estimations](#tweaking-the-estimations)."
 {% endconfiguration_basic %}
@@ -85,7 +85,7 @@ To use your account, add the API key in the integration's configuration options,
 A forecast will never perfectly match what your panels produce, because it is based on weather and historical data rather than the power you actually generate. Even so, you can make it more accurate for your situation in a few ways:
 
 - Fine-tune the **azimuth** and **declination** if the real orientation of your panels differs slightly from what you first entered. To change these, reconfigure the plane from the integration page.
-- Set a damping factor for the morning and the evening if your panels catch some shade early or late in the day. Damping lowers the forecast at those times, making it less optimistic and closer to your reality.
+- Set a damping factor between `0` and `1` for the morning and the evening if your panels catch some shade early or late in the day. A value of `0` applies no damping; higher values lower the forecast more. For example, if trees shade your panels in the morning but not in the evening, set the morning damping factor above `0` and leave the evening damping factor at `0`. Adjust the value over time by comparing the forecast with your actual production.
 - Set the inverter size if your inverter can deliver less power than your panels can produce together, so the forecast does not exceed what your inverter can handle.
 
 You can change the damping factors and inverter size at any time under [Configuration options](#configuration-options). For more background on damping, see the [Forecast.Solar damping documentation](https://doc.forecast.solar/damping).
@@ -123,6 +123,45 @@ To add the forecast:
 4. Save your changes.
 
 The Energy dashboard now overlays the expected production on your solar graph.
+
+{% include integrations/actions.md %}
+
+## Examples
+
+### Automation: Act on a high solar forecast for tomorrow
+
+This example sends a notification when the estimated energy production for tomorrow rises above 10 kWh.
+
+```yaml
+alias: "High solar forecast tomorrow"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.energy_production_tomorrow
+    above: 10
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "More than 10 kWh of solar production is forecast for tomorrow."
+```
+
+### Automation: Act at the solar production peak
+
+This example sends a notification at today's forecast highest-power-peak time.
+
+```yaml
+alias: "Forecast.Solar production peak"
+triggers:
+  - trigger: time
+    at: sensor.power_highest_peak_time_today
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "The forecast solar production peak has started."
+```
 
 ## Data updates
 

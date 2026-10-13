@@ -36,7 +36,7 @@ Any pellet stove, pellet boiler, or hybrid wood and pellet stove equipped with a
   - [Clou Duo](https://www.austroflamm.com/en/our-stoves/hybrid-stoves/clou-duo-170) (hybrid wood and pellet stove)
   - [MO DUO](https://www.austroflamm.com/en/our-stoves/hybrid-stoves/mo-duo-pellet-67666) (hybrid wood and pellet stove)
   - Polly 2.0 (pellet stove)
-- [Eco Spar](https://ecospar.com.mk/)
+- [EcoSpar](https://ecospar.com.mk/)
   - [Auriga](https://ecospar.com.mk/product/aurega/) (pellet boiler)
   - Solara (pellet stove)
   - Tukana (pellet stove)
@@ -158,6 +158,8 @@ The error sensor shows the currently active error on your stove. When an error o
 - **Flue gas overtemperature** (E113): The flue gas temperature is too high. Clean the chimney or heat exchanger.
 - **Fuel ignition timeout** (E114): The fuel did not ignite in time. The burning pot may be empty, or the pellet tank needs refilling.
 - **General error** (E115): A general error has occurred. Contact your service technician.
+
+{% include integrations/triggers.md %}
 
 ## Examples
 

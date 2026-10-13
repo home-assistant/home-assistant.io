@@ -85,10 +85,10 @@ Fertilizer off-gassing raises N2O levels overnight in an enclosed greenhouse, es
 
 - **Trigger**: Sunrise
 - **Condition**: Air Quality: Nitrous oxide value
-- **Target**: Greenhouse N2O sensor
-- **Threshold type**: 500
-- **Condition passes if**: Any
-- **Action**: Fan: Turn on
+  - **Target**: Greenhouse N2O sensor
+  - **Threshold type**: 500
+- **Action**: Turn on fan
+  - **Target**: Greenhouse ventilation
 
 {% details "YAML example for morning greenhouse ventilation on high N2O" %}
 
@@ -103,7 +103,6 @@ automation: |
         entity_id: sensor.greenhouse_n2o
       options:
         threshold: 500
-        behavior: any
   actions:
     - action: fan.turn_on
       target:

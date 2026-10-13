@@ -31,15 +31,3 @@ Before setting up, you should assign a static IP address/DHCP reservation on you
 The username and password required for this integration are the same credentials you use to log in to the Control4 mobile app and the customer portal at [https://customer.control4.com/](https://customer.control4.com/).
 
 {% include integrations/config_flow.md %}
-
-## Options
-
-The Control4 {% term integration %} offers additional options in {% my integrations title="**Settings** > **Devices & services**" %} > **Control4** > **Options**:
-
-{% configuration %}
-Seconds between updates:
-  description: How often Home Assistant will poll the Control4 controller for state updates. Very frequent polling could cause the controller to lag, especially with many devices.
-  required: false
-  type: integer
-  default: 5
-{% endconfiguration %}

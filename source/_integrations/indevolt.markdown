@@ -43,7 +43,10 @@ Beyond basic monitoring, the Indevolt integration enables advanced energy manage
 The integration supports the following devices:
 
 - BK1600 / BK1600 Ultra
-- SolidFlex 1200 / SolidFlex 2000 / PowerFlex 2000
+- SolidFlex 1200
+- SolidFlex 2000 / PowerFlex 2000
+- SolidFlex 3000 / PowerFlex 3000
+- SolidFlex 3600 / PowerFlex 3600
 
 ## Prerequisites
 
@@ -60,6 +63,10 @@ Host:
   description: "The IP address of your device. You can find it in your router or in the Indevolt app."
 
 {% endconfiguration_basic %}
+
+By default, the Indevolt sensors will be updated every 30 seconds. You can disable polling using system options and use the [update entity](/actions/homeassistant.update_entity/) action to define your own update frequency.
+
+{% include common-tasks/define_custom_polling.md %}
 
 ## Supported functionality
 
@@ -153,19 +160,19 @@ In addition to the read-only sensors listed above, the Indevolt integration also
 
 {% include integrations/actions.md %}
 
-## Examples
+## Indevolt automation examples
 
-### Setting emergency SOC based on forecasted minimum temperatures
+### Automation: Setting emergency SOC based on forecasted minimum temperatures
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/indevolt_manage_auto_emergency_soc.yml" %}
+{% blueprint_example blueprint="indevolt/manage_auto_emergency_soc.yaml" %}
 
-### Dynamically control battery discharge based on battery state, grid import/export and solar production
+### Automation: Dynamically control battery discharge based on battery state, grid import/export and solar production
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/indevolt_smart_discharge.yml" %}
+{% blueprint_example blueprint="indevolt/smart_discharge.yaml" %}
 
 ## Data updates
 
-The Indevolt integration automatically retrieves data from your devices by polling the OpenData API every 30 seconds. If an update fails, the integration will retry again at the set interval (self-recovery).
+The Indevolt integration automatically retrieves data from your devices by polling the OpenData API every 30 seconds, unless custom polling has been enabled (see the [configuration](/integrations/indevolt/#configuration) section). If an update fails, the integration will retry again at the set interval (self-recovery).
 
 ## Known limitations
 

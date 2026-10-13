@@ -16,6 +16,7 @@ related:
     title: Saunum Leil product page
 ha_category:
   - Climate
+  - Modbus-controlled
 ha_platforms:
   - binary_sensor
   - climate

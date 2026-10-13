@@ -83,11 +83,12 @@ for:
 
 When the bedroom humidifier is confirmed to be in an active humidification cycle, turn on the air purifier alongside it. This keeps both devices running together during active cycles without running the purifier while the humidifier idles.
 
-- **Trigger**: Time pattern: Every 5 minutes
+- **Trigger**: Time pattern
+  - **Minutes**: `/5`
 - **Condition**: Humidifier is humidifying
   - **Target**: Bedroom humidifier
-  - **Condition passes if**: Any
-- **Action**: Fan: Turn on
+- **Action**: Turn on fan
+  - **Target**: Bedroom purifier
 
 {% details "YAML example for running a purifier alongside the humidifier" %}
 
@@ -101,8 +102,6 @@ automation: |
     - condition: humidifier.is_humidifying
       target:
         entity_id: humidifier.bedroom
-      options:
-        behavior: any
   actions:
     - action: fan.turn_on
       target:

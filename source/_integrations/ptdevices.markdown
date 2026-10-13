@@ -2,7 +2,7 @@
 title: PTDevices
 description: Instructions on how to integrate your PTLevel into Home Assistant.
 ha_release: 2026.6
-ha_category: 
+ha_category:
   - Binary sensor
   - Sensor
 ha_platforms:

@@ -32,7 +32,7 @@ related:
 
 The **Google Gemini** {% term integration %} adds a conversation agent, speech-to-text, and text-to-speech entities powered by [Google Gemini](https://ai.google.dev/) to Home Assistant. The conversation agent can optionally be allowed to control Home Assistant.
 
-Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
+Controlling Home Assistant is done by providing the AI access to the **Device control** API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 
@@ -73,6 +73,10 @@ Top K:
   description: Number of top-scored tokens to consider during generation.
 Maximum Tokens to Return in Response:
   description: The maximum number of words or "tokens" that the AI model should generate.
+Thinking budget:
+  description: The token budget for internal reasoning before the model generates a response (Gemini 2.5 models only). Set this to `-1` to let the model decide automatically, `0` to disable reasoning (not available for Gemini 2.5 Pro), or a positive number for a custom budget.
+Thinking level:
+  description: The level of internal reasoning for Gemini 3 models. For Gemini Flash series models, you can choose **Minimal**, **Auto**, **Low**, **Medium**, or **High**. For Gemini 3.1 Pro, you can choose **Auto**, **Low**, **Medium**, or **High**. This setting is ignored for Gemini 2.5 models, which use the thinking budget instead.
 Safety settings:
   description: Thresholds for different [harmful categories](https://ai.google.dev/gemini-api/docs/safety-settings).
 Enable Google Search tool:
@@ -88,7 +92,7 @@ But you can do the following workaround that exposes a script to voice assistant
 
 1. Add a second Google Gemini conversation agent.
 2. Select **Configure**
-3. In the **Control Home Assistant** section, uncheck **Assist** and any other options.
+3. In the **Control Home Assistant** section, uncheck **Device control** and any other options.
 4. Uncheck **Recommended model settings**
 5. Select **Submit**
 6. Check **Enable Google Search tool**

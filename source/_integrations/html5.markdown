@@ -52,10 +52,10 @@ VAPID private key:
 
 Assuming you have already configured the platform:
 
-{% my profile badge %}
+{% my profile_browser badge %}
 
-1. Open the Home Assistant {% my profile title="**User profile**" %} page in [a supported browser](#supported-platforms).
-   - To open the page, select the **User Profile** link above or in Home Assistant, select your user account initials at the bottom of the sidebar.
+1. In [a supported browser](#supported-platforms), go to {% my profile_browser title="**User profile** > **This browser**" %}.
+   - To open your profile in Home Assistant, select your name at the bottom of the sidebar. Then select **This browser**.
 2. Assuming you have met all the [requirements](#prerequisites) above, you should see a **Receive notifications** toggle.
    - If the toggle is greyed out, make sure you are viewing Home Assistant via its external HTTPS address. 
    - Also, make sure you have added the {% my integrations title="**HTML5 Push Notifications**" domain="html5" %} integration to Home Assistant.

@@ -56,10 +56,10 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple shutters are targeted, controls when the trigger fires.
-    Accepts `any`, `first`, or `last`.
+    Accepts `each`, `first`, or `all`.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
     How long the shutter must stay closed before the trigger fires.
@@ -75,9 +75,9 @@ for:
 
 ## Good to know
 
-- This trigger works only with `cover` entities that use the `shutter` device class.
-- If a shutter comes back from `unavailable` or `unknown`, that recovery does not count as the closing.
-- The `for` option fires the automation only if the shutter stays closed for the entire time you set.
+- Use a cover entity with the shutter device class.
+- If a shutter comes back from **Unavailable** or **Unknown**, that recovery does not count as the closing.
+- The **For at least** option fires the automation only if the shutter stays closed for the entire time you set.
 
 {% include triggers/try_it.md %}
 

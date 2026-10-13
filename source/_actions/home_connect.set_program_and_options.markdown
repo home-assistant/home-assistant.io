@@ -82,8 +82,13 @@ For the full list, see [Program options](#program-options).
 
 The options you can set depend on the type of appliance. In the UI, they appear in collapsible groups. In YAML, you add them as extra keys in the `data` section.
 
+{% note %}
+All the temperature options are in degrees Celsius. If your appliance uses Fahrenheit, Home Assistant automatically converts the values to Fahrenheit when sending them to the appliance.
+{% endnote %}
+
 Air conditioner options:
 
+- `heating_ventilation_air_conditioning_air_conditioner_option_setpoint_temperature`: the target temperature, which will be held by the air conditioner.
 - `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_percentage`: the fan speed as a percentage (1 to 100).
 - `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_mode`: the fan speed mode, manual or automatic.
 

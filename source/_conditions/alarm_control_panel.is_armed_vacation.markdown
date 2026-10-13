@@ -84,10 +84,10 @@ Every evening, toggle the living room lamp on or off to make the house look live
 
 Don't forget to pair it with an automation to turn the lamp off, or you'll come back from vacation to a high energy bill!
 
-- **Trigger**: Time: 20:30
+- **Trigger**: Time
+  - **At time**: 08:30:00 PM
 - **Condition**: Alarm is armed vacation
-- **Target**: Hallway alarm panel
-- **Condition passes if**: Any
+  - **Target**: Hallway alarm panel
 - **Action**: Toggle light
 
 {% details "YAML example for an evening lamp toggle on vacation" %}
@@ -102,8 +102,6 @@ automation: |
     - condition: alarm_control_panel.is_armed_vacation
       target:
         entity_id: alarm_control_panel.hallway
-      options:
-        behavior: any
   actions:
     - action: light.toggle
       target:

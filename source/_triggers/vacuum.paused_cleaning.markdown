@@ -31,7 +31,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When monitoring more than one vacuum, controls when the trigger fires. Pick **Each** to fire every time any targeted vacuum pauses, **First** to fire only on the first pause event, or **All** to fire only after all targeted vacuums have paused.
-  required: true
+  required: false
 For at least:
   description: The time the vacuum must remain paused before the trigger fires.
   required: false
@@ -60,7 +60,7 @@ YAML sometimes provides additional options for more complex use cases that are n
 behavior:
   description: >
     When multiple vacuums are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:

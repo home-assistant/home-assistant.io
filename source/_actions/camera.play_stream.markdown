@@ -12,7 +12,7 @@ related_actions:
   - camera.disable_motion_detection
 ---
 
-Use this action to send a live camera stream to a media player, for example to show the front door camera on a TV when someone rings the doorbell. This action needs the [stream](/integrations/stream/) integration to be set up.
+Use this action to send a live camera stream to a media player, for example to show the front door camera on a TV when someone rings the doorbell.
 
 {% include actions/ui_header.md %}
 
@@ -71,7 +71,8 @@ format:
 
 ## Good to know
 
-- This action only works with camera entities, and needs the [stream](/integrations/stream/) integration to be set up.
+- The target must be a camera entity.
+- The [stream](/integrations/stream/) integration must be set up.
 
 {% include actions/try_it.md %}
 
