@@ -8,7 +8,7 @@ related_actions:
   - knx.send
 ---
 
-The **Restart device** action restarts a single KNX device, addressed by its individual address. It sends a basic restart. The device keeps its parameters and application program. Only administrators can use this action.
+The **Restart device** action restarts a single KNX device, addressed by its individual address. It sends a basic restart. The device keeps its parameters and application program.
 
 This is useful when a device stops responding as expected and you want to restart it without opening ETS or switching off the bus voltage.
 
@@ -67,6 +67,7 @@ individual_address:
 
 ## Good to know
 
+- Only administrators can run this action.
 - The device does not confirm a basic restart. The action succeeds as soon as the restart request is sent to the KNX bus. It does not wait for the device to start up again.
 - While it restarts, the device does not react to telegrams for a short time. Afterward, it behaves as configured in ETS for a restart. Depending on its parameters, an actuator can switch its outputs or a device can send its current values.
 
