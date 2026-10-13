@@ -48,22 +48,6 @@ When a template misbehaves in an automation, a script, or a template entity, fix
 4. Change the template until the result is what you expect. If the template is long, take it apart first. For the steps, refer to [Narrow down the problem](#narrow-down-the-problem).
 5. If you defined `trigger` or `this` with `{% set %}`, remove those lines. Then copy the template, and paste it back into your automation, script, or template entity.
 
-## Read the error message
-
-When a template has a mistake, Home Assistant shows an error. The message is often more helpful than it looks.
-
-**`UndefinedError: 'foo' is undefined`**
-Something in your template refers to a variable that does not exist. Check the spelling and make sure anything you `{% set %}` is defined before you use it.
-
-**`TypeError: unsupported operand type(s)`**
-You are trying to do something to a value of the wrong type, like adding a number to some text. Convert with [`float`](/template-functions/float/) or [`int`](/template-functions/int/) first, and remember to add a fallback.
-
-**`TemplateSyntaxError`**
-A typo in the template itself. Count your brackets, check that every `{% if %}` has an `{% endif %}`, and that every `{% for %}` has an `{% endfor %}`.
-
-**`No first item, sequence was empty`**
-You used [`first`](/template-functions/first/) or [`last`](/template-functions/last/) on an empty list. Add an `if` check, or use the [`default`](/template-functions/default/) filter.
-
 ## Narrow down the problem
 
 When a long template does not work, the trick is to take it apart. Start with the smallest piece you can and add one thing at a time. The moment the result goes wrong, you know exactly which piece broke. This sounds slow but it is always faster than staring at the whole thing and hoping the problem jumps out.
