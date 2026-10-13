@@ -10,7 +10,7 @@ related_building_blocks:
 
 The **Wait for time to pass (delay)** building block pauses the automation or script for a set time. Use it when the next steps should run a while later, for example, to turn off a light 5 minutes after it turned on.
 
-## Adding Wait for time to pass (delay) in the editor
+## Using this building block from the user interface
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
@@ -26,7 +26,7 @@ Duration:
   required: true
 {% endoptions_ui %}
 
-## Wait for time to pass (delay) in YAML
+## Using this building block in YAML
 
 In YAML, use `delay`. You can enter the duration in several formats:
 

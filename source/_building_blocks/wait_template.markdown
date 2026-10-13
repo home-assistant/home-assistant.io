@@ -10,7 +10,7 @@ related_building_blocks:
 
 The **Wait for a template** building block pauses the automation or script until a template is true. If the template is already true when the wait starts, the next steps run right away. Use it when the next steps should only run once something is in a certain state, for example, when the media player has stopped.
 
-## Adding Wait for a template in the editor
+## Using this building block from the user interface
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
@@ -34,7 +34,7 @@ Continue on timeout:
   required: false
 {% endoptions_ui %}
 
-## Wait for a template in YAML
+## Using this building block in YAML
 
 In YAML, use `wait_template`:
 
