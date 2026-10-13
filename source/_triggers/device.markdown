@@ -161,7 +161,9 @@ zone:
 - This is different from Home Assistant replacing a device with one or more new devices, for example, when it splits one device into separate devices per integration. In that case, the trigger keeps working, because Home Assistant uses the replacement device from the same integration. The editor still opens and, under **Device**, shows which device replaced the old one. Selecting that device and saving is optional. It updates the trigger to refer to the new device directly.
 - If you use the **Duration** (`for`) option, a restart or reload cancels the running timer. The trigger only fires after the device changes to the new state again and stays there for the full duration.
 
-{% include triggers/try_it.md %}
+## Try it yourself
+
+Ready to test this? Go to {% my automations title="**Settings** > **Automations & scenes**" %}, create a new automation, and add this trigger. Save the automation. Then do what you selected under **Trigger**, such as pressing the button on your remote, to watch the trigger fire.
 
 {% include triggers/more_examples.md %}
 
