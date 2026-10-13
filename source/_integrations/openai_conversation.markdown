@@ -29,11 +29,11 @@ ha_codeowners:
 
 The **OpenAI** {% term integration %} adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
 
-Controlling Home Assistant is done by providing the AI access to the **Device control** API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
+Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 
-This integration requires an API key to use, [which you can generate here.](https://platform.openai.com/account/api-keys). This is a paid service, we advise you to monitor your costs in the [OpenAI portal](https://platform.openai.com/account) closely and configure [usage limits](https://platform.openai.com/account/billing/limits) to avoid unwanted costs associated with using the service.
+This integration can authenticate with an OpenAI API key, [which you can generate here](https://platform.openai.com/account/api-keys), or with **Sign in with ChatGPT**, which uses the ChatGPT plan of an eligible account (Plus, Pro or Go) instead of API billing. When an API key is used, this is a paid service, we advise you to monitor your costs in the [OpenAI portal](https://platform.openai.com/account) closely and configure [usage limits](https://platform.openai.com/account/billing/limits) to avoid unwanted costs associated with using the service.
 
 ## Prerequisites
 
@@ -56,6 +56,30 @@ API key:
 {% endconfiguration_basic %}
 
 To change the API key after setup, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the three dots {% icon "mdi:dots-vertical" %} menu on the OpenAI integration entry, then select **Reconfigure**.
+
+## Sign in with ChatGPT
+
+Instead of an API key, the integration can use an eligible ChatGPT plan. Choose **Sign in with ChatGPT** while adding the integration.
+
+To sign in:
+
+1. Home Assistant shows a link to `auth.openai.com`. Open it on any device where you are signed in to ChatGPT.
+2. Sign in and approve the requested access, including the permission to use your ChatGPT plan.
+3. Your browser is redirected to `http://127.0.0.1:1455/auth/callback?...` and the page cannot load. This is expected: the callback address is a loopback address on the device running the browser, which is usually not the device running Home Assistant.
+4. Copy the complete address from the browser address bar and paste it into the form in Home Assistant.
+
+Home Assistant stores the authorization, refreshes it automatically, and asks you to sign in again if the access was revoked in ChatGPT.
+
+### Limitations
+
+The ChatGPT plan usage route supports a subset of the OpenAI API:
+
+- Speech-to-text and text-to-speech are not available, so those subentries are not added.
+- Image generation, Code Interpreter, file search, and the web search options are not available.
+- **Maximum Tokens to Return in Response**, **Temperature**, and **Top P** do not apply.
+- Requests count towards the ChatGPT plan. You can review and limit that usage in ChatGPT settings, under **Usage**.
+
+Plan usage is only available for eligible accounts and plans; see OpenAI's [Sign in with ChatGPT documentation](https://developers.openai.com/siwc/) for details.
 
 {% include integrations/option_flow.md %}
 
@@ -95,7 +119,7 @@ Service tier:
 Pro mode:
   description: Perform more model work to improve reliability on difficult tasks and return a single final answer. Enable it when quality matters more than latency and token usage. Pro mode aggregates the model work performed to produce the final answer and bills those tokens at the selected model’s standard token rates. Pro mode performs more model work than standard mode, increasing token usage and cost. This parameter is only applicable to GPT-5.6 and above; existing Pro model IDs keep their current behavior and pricing.
 Enable web search:
-  description: Enable the OpenAI-provided [web search tool](https://openai.com/index/new-tools-for-building-agents/#web-search). Conversation and AI Task subentries offer this option for supported models. Web search and code interpreter can be enabled together for AI tasks, including tasks with structured output.
+  description: Enable OpenAI-provided [Web search tool](https://openai.com/index/new-tools-for-building-agents/#web-search). Note that it is only available for gpt-4o and newer models.
 Search context size:
   description: The search is performed with a separate fine-tuned model with its own context and its own [pricing](https://platform.openai.com/docs/pricing#built-in-tools). This parameter controls how much context is retrieved from the web to help the tool formulate a response. The tokens used by the search tool do not affect the context window of the main model. These tokens are also not carried over from one turn to another — they're simply used to formulate the tool response and then discarded. This parameter would affect the search quality, cost, and latency.
 Include home location:
