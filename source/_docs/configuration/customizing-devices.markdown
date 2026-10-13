@@ -46,7 +46,7 @@ To change entity attributes, follow these steps:
      - The ID must not start or end with an underscore.
       - To undo the change and revert the ID to the default, select the {% icon "mdi:restore" %} icon.
       - To recreate all the entity IDs for a device, go to {% my devices title="**Settings** > **Devices & services** > **Devices**" %}, select the device and then select **Menu** {% icon "mdi:dots-vertical" %} > **Recreate entity IDs**.
-      - This recreates the entity IDs using the current entity ID format.
+        Recreating entity IDs recreates the entity IDs using the current entity ID format.
         It does not change entity names.
       - The terms used to generate the entity ID depend on a few factors. Prioritization is as follows:
         1. If you changed the name of the entity, the entity name will be used.
