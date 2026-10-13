@@ -166,7 +166,7 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 
 - **Cleaning cycles**
   - **Description**: Sets how many times the vacuum cleans each area (1x or 2x).
-  - **Availability**: For Q7 series vacuums
+  - **Availability**: For Q7 series vacuums.
 
 - **Empty mode**
   - **Description**: You can set the "empty mode" setting including Max, Light, Balanced, and Smart.
