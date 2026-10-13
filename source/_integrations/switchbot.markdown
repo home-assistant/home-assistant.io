@@ -672,14 +672,22 @@ Features:
 
 #### RGBICWW Ceiling Light
 
-To set up this encrypted device, follow [Adding encrypted SwitchBot devices](#adding-encrypted-switchbot-devices).
+This is an encrypted device. To set it up, follow [Adding encrypted SwitchBot devices](#adding-encrypted-switchbot-devices).
 
-The RGBICWW Ceiling Light exposes two separate light entities that you can control independently:
+It exposes two light entities that you can control independently. You can turn on either one on its own or use both at the same time.
 
-- A main light (warm white) that supports turning on or off, changing brightness, and changing color temperature.
-- A color light (RGB) that supports turning on or off, changing brightness, changing color, and setting an effect.
+Main light (warm white) features:
 
-You can turn on either light separately or use both at the same time.
+- turn on or off
+- change brightness
+- change color temperature
+
+Color light (RGB) features:
+
+- turn on or off
+- change brightness
+- change color
+- set effect
 
 #### RGBICWW Light Bars
 
