@@ -60,10 +60,16 @@ When motion is detected, this automation runs two groups of actions: one that tu
 - **Trigger**: State changed
   - **Entity**: `binary_sensor.motion`
   - **To**: On
-- **Action**: Run in sequence, named **Turn on devices**
-  - Turn on the ceiling light and the siren
-- **Action**: Run in sequence, named **Send notifications**
-  - Send a notification to two people
+- **Action**: Run in sequence, renamed to `Turn on devices`
+  - **Action**: Turn on light
+    - **Target**: Ceiling light (`light.ceiling`)
+  - **Action**: Turn on siren
+    - **Target**: Noise maker (`siren.noise_maker`)
+- **Action**: Run in sequence, renamed to `Send notifications`
+  - **Action**: `notify.person1`
+    - **Message**: `The motion sensor was triggered!`
+  - **Action**: `notify.person2`
+    - **Message**: `Oh oh, someone triggered the motion sensor...`
 
 {% details "YAML example" %}
 
