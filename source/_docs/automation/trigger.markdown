@@ -29,11 +29,21 @@ For a list of all triggers, refer to [All triggers](/triggers/). The general tri
 
 ## Choosing a trigger
 
-After you select **Add trigger** in the automation editor, Home Assistant shows triggers that match the target or type that you selected. For many devices and measurements, the best choice is the trigger named after the thing you want to happen. For example, select **Door opened** for a door sensor, **Temperature crossed threshold** for a temperature reading, or **Power crossed threshold** for a power reading.
+When you select **Add trigger** in the automation editor, Home Assistant offers several kinds of triggers:
 
-These specific triggers handle Home Assistant details for you. Measurement triggers, such as temperature and power triggers, compare compatible units automatically. For example, a temperature sensor can report in Fahrenheit while the trigger threshold is set in Celsius.
+- Triggers named after what happens, such as [**Door opened**](/triggers/door.opened/), [**Light turned on**](/triggers/light.turned_on/), or [**Temperature crossed threshold**](/triggers/temperature.crossed_threshold/). To find them, select **By target**, and then select an area, device, entity, or label. Home Assistant shows the triggers that fit. These triggers handle details for you. For example, temperature triggers compare compatible units automatically, so a sensor can report in Fahrenheit while the threshold is set in Celsius.
+- General triggers: [**State changed**](/triggers/state/) and [**Numeric state crossed threshold**](/triggers/numeric_state/). They work with any entity, and let you watch an exact state or an attribute.
+- The [**Device**](/triggers/device/) trigger: You select a device first, and then select one of the triggers that its integration offers. Some devices, such as some Zigbee remotes, report button presses without an entity. The **Device** trigger is the only trigger that lists these button presses.
+- Triggers for things other than devices, such as [**Time**](/triggers/time/), [**Sunrise**](/triggers/sun.sunrise/), [**Sunset**](/triggers/sun.sunset/), [**Sentence**](#sentence-trigger) for something you say to Assist, [**Tag**](/triggers/tag/), [**Webhook**](#webhook-trigger), or [**Home Assistant**](/triggers/homeassistant/) starting.
 
-General triggers, such as **State changed** and **Numeric state crossed threshold**, are still available. Use them when you need to watch an exact state, use an attribute, work with a trigger that does not have a more specific option, or edit existing YAML.
+### Which trigger to use
+
+Go through these questions in order, and use the first trigger that fits:
+
+1. Should the automation start at a time, when you say something to Assist, when you scan a tag, or when Home Assistant starts? Use the trigger for it, such as **Time**, **Sentence**, **Tag**, or **Home Assistant**.
+2. Is there a trigger named after what you want to happen? Use it. For example, select **Door opened** for a door sensor, **Power crossed threshold** for a power reading, or **Sunset** to start at sunset.
+3. Is it a button press on a remote that has no entity for its buttons? Use the **Device** trigger.
+4. For anything else, use **State changed** or **Numeric state crossed threshold**. They're also the right choice when you need an exact state or an attribute, or when you work with existing YAML.
 
 ## Using several triggers
 
