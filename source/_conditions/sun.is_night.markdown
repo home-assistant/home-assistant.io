@@ -54,7 +54,7 @@ When motion is detected in the hallway during full darkness, turn the light on a
 - **Condition**: It is night
 - **Action**: Turn on light
   - **Target**: Hallway light
-  - **Brightness**: `10` %
+  - **Brightness**: `10`%
 
 {% details "YAML example for a dim night light" %}
 
