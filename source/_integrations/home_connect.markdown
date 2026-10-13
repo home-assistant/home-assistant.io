@@ -4,6 +4,7 @@ description: Instructions on how to set up the Home Connect integration within H
 ha_category:
   - Binary sensor
   - Button
+  - Camera
   - Climate
   - Fan
   - Hub
@@ -24,6 +25,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - button
+  - camera
   - climate
   - diagnostics
   - fan
@@ -177,6 +179,23 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
   - **Availability**: Oven
 
 {% enddetails %}
+
+### Camera
+
+{% details "List of cameras" %}
+
+- **Refrigerator door camera**:
+  - **Description**: Shows the latest image taken by the camera in the refrigerator door.
+  - **Availability**: Fridge freezer (with a built-in camera), Refrigerator (with a built-in camera)
+- **Refrigerator interior camera**:
+  - **Description**: Shows the latest image taken by the camera inside the refrigerator.
+  - **Availability**: Fridge freezer, Refrigerator (with a built-in camera)
+
+{% enddetails %}
+
+{% note %}
+The appliance takes new images when its door is closed. The integration fetches the list of images one minute after a door is closed and shows the newest one. Cameras not yet known to the integration are named after their Home Connect key.
+{% endnote %}
 
 ### Climate
 
@@ -1265,6 +1284,7 @@ If a new appliance is added to the account, the integration will request data fo
 
 - The Home Connect API does not fully match the Home Connect app. Some programs, options, or settings available in the app may not be accessible or usable via the API.
 - This integration supports only one integration entry, as the Home Connect API does not allow for the unique identification of an account.
+- The Home Connect API does not announce new camera images. Images are refreshed after a door is closed and whenever the appliance connects, so a new image can take a minute to appear.
 
 ## Troubleshooting
 
