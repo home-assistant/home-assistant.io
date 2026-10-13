@@ -74,7 +74,7 @@ When zones that have a temperature sensor are available, the unit can be put int
 
 - The controller’s current temperature follows the controlling zone’s room sensor.
 - The `control_zone_source` attribute is the climate entity ID of the controlling zone when a zone is driving the unit.
-- Set the temperature target on the individual zone climate entities.
+- The controller has no target temperature in this mode, so `climate.set_temperature` on the controller fails. Set the target on the individual zone climate entities instead.
 
 Because the controlling zone can change, the controller’s current temperature can jump when the selection changes.
 
