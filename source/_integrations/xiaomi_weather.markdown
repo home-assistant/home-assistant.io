@@ -3,7 +3,7 @@ title: Xiaomi Weather
 description: Get current weather and forecasts for mainland China cities with Xiaomi Weather in Home Assistant.
 ha_category:
   - Weather
-ha_release: "2026.10"
+ha_release: "2026.11"
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -17,7 +17,7 @@ related:
     title: Weather entity
 ---
 
-The **Xiaomi Weather** {% term integration %} provides current weather and daily, hourly, and twice-daily forecasts for cities in mainland China. You can choose a city or use the coordinates of your home or another location.
+The **Xiaomi Weather** {% term integration %} provides current weather and daily, hourly, and twice-daily forecasts for cities in mainland China. Select a location on the map during setup, and the integration finds a matching city.
 
 ## Prerequisites
 
@@ -25,38 +25,22 @@ Your Home Assistant instance needs internet access to retrieve data from Xiaomi 
 
 {% include integrations/config_flow.md %}
 
-1. Choose how to find your weather location:
-   - **Use Home or another zone**: Select a zone. The integration uses its coordinates to find a city. The default is your home zone.
-   - **Search for a city**: Enter a city name, such as `北京`, or a nine-digit city code, such as `101010100` for Beijing.
-   - **Enter coordinates**: Enter the latitude and longitude to find a city.
-2. On **Choose a city**, check the city name, region, and code, then select the matching city. Select a city even if only one result is shown.
-3. On **Review location**, check the city and coordinates, then submit to verify weather access and finish setup. To go back, select **Choose a different location** and submit.
+1. On **Choose a location**, select a location in mainland China on the map. The initial selection is your Home Assistant home location.
+2. If more than one city matches, **Choose a city** appears. Check the city name, region, and city code, then select the matching city.
+3. On **Review location**, check the city and coordinates, then submit to verify weather access and finish setup.
 
 To add another city, add the integration again. Each city can be configured only once, even if you use different coordinates.
 
-### Location settings
+### Configuration options
 
 {% configuration_basic %}
-Zone:
-  description: "The zone whose coordinates you want to use. Available with **Use Home or another zone** and defaults to your home zone. The location name defaults to the zone name."
-City name or code:
-  description: "A mainland China city name or a nine-digit weather city code starting with `101`. Required with **Search for a city**. For zone or coordinate setup, expand **Specify a city (optional)** to choose a city instead of matching one automatically."
-Latitude:
-  description: "The latitude of your weather location, from -90 to 90. Required with **Enter coordinates**. When searching for a city, expand **Specify coordinates (optional)** to override the city center. Enter both coordinates or leave both empty to use the city center."
-Longitude:
-  description: "The longitude of your weather location, from -180 to 180. Use it together with latitude. If you specify a city during zone or coordinate setup, the coordinates you provided are retained."
+Location:
+  description: "The location to use for weather data. Select it on the map. It defaults to your Home Assistant home location, and the integration matches its coordinates to a city."
+City:
+  description: "The city to use for weather data. This option appears only when multiple cities match the selected coordinates."
 {% endconfiguration_basic %}
 
-## Reconfiguring the location
-
-Zone coordinates are saved during setup. Changes to a zone do not automatically update the weather location.
-
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Xiaomi Weather**.
-2. Next to the entry you want to change, select the three dots {% icon "mdi:dots-vertical" %} menu, then **Reconfigure**.
-3. Choose a location source and enter the updated details. If you search for a city without specifying coordinates, the integration uses the city center rather than your previous coordinates.
-4. Select the same city as the existing entry, review the location, and submit.
-
-Reconfiguration keeps the existing weather entity. To use a different city, add another integration entry.
+The selected coordinates are saved during setup. Moving your Home Assistant home location does not change this weather location. To change a configured location, remove its integration entry and add it again.
 
 ## Supported functionality
 
@@ -75,7 +59,7 @@ The entity supports these forecast types:
 - Hourly: Temperature, conditions, and wind
 - Twice daily: Separate daytime and nighttime temperatures, conditions, and wind
 
-Missing measurements or unusable forecast periods are omitted. The number of forecast periods depends on the available data.
+Missing measurements are omitted, but other available measurements for the same forecast period are retained. Forecast periods without a usable date or time are omitted. The number of forecast periods depends on the available data.
 
 Use the standard [**Get weather forecasts**](/actions/weather.get_forecasts/) action to retrieve daily, hourly, or twice-daily forecasts.
 
@@ -139,7 +123,7 @@ The integration retrieves weather data every 15 minutes. Forecast requests use t
 
 ### No matching city
 
-Try a more specific city name or its nine-digit weather code. Check the region and code in the results to distinguish cities with similar names. If automatic matching from a zone or coordinates does not find the city you want, expand **Specify a city (optional)** and enter its name or code.
+Check that the selected location is in mainland China. If no city matches, select a nearby location on the map and try again. When multiple cities are listed, check the region and city code to distinguish cities with similar names.
 
 ### Weather cannot be retrieved
 
