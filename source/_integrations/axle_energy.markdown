@@ -228,6 +228,46 @@ template: |
 
 {% enddetails %}
 
+### Event tomorrow
+
+Create an optional, user-created [Template helper](/integrations/template/#creating-a-template-helper-from-the-user-interface) to show whether Axle Energy has an event scheduled for tomorrow. The helper is separate from the Axle Energy entities. It shows **Off** when there is no event, the timestamp is invalid, or the event is not tomorrow. It shows **Unavailable** when the source sensor is unavailable.
+
+{% details "Create an event tomorrow helper" %}
+
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} and select **Create helper**.
+2. Select **Template**, then **Binary sensor**.
+3. Enter `Axle Energy event tomorrow` as the **Name**.
+4. Paste this into **State**. Replace the entity ID if you renamed your Axle sensor.
+
+{% example %}
+template: |
+  {% set raw = states('sensor.axle_energy_event_start') %}
+  {% set start = as_timestamp(raw, none) %}
+  {% set current = as_timestamp(now()) %}
+  {% set local_now = as_local(as_datetime(current)) %}
+  {% if raw == 'unknown' %}
+    {{ false }}
+  {% elif start is not none %}
+    {% set event_date = as_local(as_datetime(start)).date() %}
+    {{ event_date == (local_now.date() + timedelta(days=1)) }}
+  {% else %}
+    {{ false }}
+  {% endif %}
+{% endexample %}
+
+5. Expand **Additional options** and paste this into **Availability**, using the same entity ID.
+
+{% example %}
+template: |
+  {{ not is_state('sensor.axle_energy_event_start', 'unavailable') }}
+{% endexample %}
+
+6. Select **Submit**. You can then add the helper to your dashboard.
+
+{% enddetails %}
+
+The helper updates when its source sensor changes and at the start of each minute. It compares local calendar dates, including across daylight saving time changes. An invalid timestamp is handled as **Off** instead of causing a template error.
+
 ## Data updates
 
 The integration {% term polling polls %} Axle every 10 minutes. All three sensors use the same update. Changes to the published schedule appear after the next successful update.
