@@ -10,7 +10,7 @@ related_building_blocks:
 
 The **Wait for a trigger** building block pauses the automation or script until one of its triggers reacts to a change. Use it when the next steps should only run after something happens, for example, a door closing.
 
-## Adding Wait for a trigger in the editor
+## Using this building block from the user interface
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
@@ -33,7 +33,7 @@ Continue on timeout:
   required: false
 {% endoptions_ui %}
 
-## Wait for a trigger in YAML
+## Using this building block in YAML
 
 In YAML, use `wait_for_trigger` with a list of triggers. This example waits for a custom event, or for a light to turn on and stay on for 10 seconds:
 
