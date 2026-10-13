@@ -9,13 +9,21 @@ related_triggers:
   - event
 ---
 
-The **Device** trigger starts an {% term automation %} when something happens to a {% term device %}. You select a device first, and then select one of the triggers that the device offers, such as **Living room light turned on**, or **"Turn on" pressed** for a button on a remote. The list comes from the device's {% term integration %}, and not every device offers triggers.
+The **Device** trigger starts an {% term automation %} when something happens to a {% term device %}, such as a button press on a remote. You select a device first, and then select one of the triggers that the device offers, such as **"Turn on" pressed**. The list comes from the device's {% term integration %}, and not every device offers triggers.
+
+For most changes, such as a door opening or a light turning on, use a purpose-specific trigger instead, such as [Door opened](/triggers/door.opened/) or [Light turned on](/triggers/light.turned_on/). Use the **Device** trigger for button presses and other events that no other trigger covers.
+
+## Choosing between the Device trigger and other triggers
+
+Use the **Device** trigger for button presses and other {% term events %} that have no entity.
+
+For changes that other triggers also cover, use those triggers instead, such as **Door opened** or **Temperature crossed threshold**. They're easier to set up and to read. If you target an entity or an area instead of a device, they're also easier to share in YAML, and they keep working when you replace the device, as long as the new entity gets the same entity ID or is in the same area.
 
 ## How the Device trigger differs from other triggers
 
 Most triggers are named after what you want to react to, such as **Door opened**. The **Device** trigger starts from the device and shows the triggers that its integration offers for it. They fall into two groups:
 
-- Many of them react to changes you can also select with other triggers, such as a light turning on. Here, the **Device** trigger is another way to get to the same result.
+- Many of them react to changes that a purpose-specific trigger also covers, such as a light turning on. For these, use the purpose-specific trigger instead.
 - Some devices, such as some Zigbee remotes, report button presses without an {% term entity %}. The **Device** trigger is the only trigger that lists these button presses, so you can select them. Otherwise, you'd need to enter the event details yourself in a **Manual event received** trigger.
 
 ## Two ways to start from a device
@@ -27,12 +35,6 @@ Under **By target**, you can select a device and then pick from the triggers tha
 The two lists often have triggers that react to the same thing, such as **Door opened** and **Front door opened**. Button presses without an entity only show up in the **Device** trigger.
 
 To tell them apart, look at the name. Many **Device** triggers include the name of your entity, such as **Front door opened**. The other triggers have a general name, such as **Door opened**.
-
-## Choosing between the Device trigger and other triggers
-
-Use the **Device** trigger for button presses and other {% term events %} that have no entity.
-
-For changes that other triggers also cover, use those triggers instead, such as **Door opened** or **Temperature crossed threshold**. They're easier to set up and to read. If you target an entity or an area instead of a device, they're also easier to share in YAML, and they keep working when you replace the device, as long as the new entity gets the same entity ID or is in the same area.
 
 {% include triggers/ui_header.md %}
 
@@ -92,6 +94,8 @@ This trigger fires when the light of this device turns on.
 ### Options in YAML
 
 In YAML, the options have different names. **Device** becomes `device_id`. The **Trigger** you select becomes `domain`, `type`, and, depending on the trigger, `entity_id` or `subtype`. **Duration**, **Above**, **Below**, **To**, and **Zone** become `for`, `above`, `below`, `to`, and `zone`.
+
+The following list shows the common options. Some integrations add their own options. For example, some Z-Wave triggers also need `command_class`. To get the exact options for your device, create the trigger in the editor and copy its YAML.
 
 {% options_yaml %}
 trigger:
