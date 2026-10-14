@@ -117,7 +117,7 @@ event_data:
 
 ### Examples of Fire manual event
 
-#### Automation: fire a custom event when a switch turns on
+#### Automation: Fire a custom event when a switch turns on
 
 When the kitchen switch turns on, this automation fires the custom event `event_light_state_changed`, with the new state as event data. The actions could also be part of a script.
 
@@ -138,7 +138,7 @@ automation: |
 
 {% enddetails %}
 
-#### Automation: react to the custom event
+#### Automation: React to the custom event
 
 This automation reacts to `event_light_state_changed` with a [**Manual event received** trigger](/triggers/event/), and uses the `state` from the event data in a notification. For the data you can use, refer to [available trigger data](/docs/automation/templating/#available-trigger-data).
 
@@ -221,7 +221,7 @@ set_conversation_response:
 
 ### Examples of Set conversation response
 
-#### Automation: answer whether the garage door is open
+#### Automation: Answer whether the garage door is open
 
 When you ask Assist "Is the garage door open?", this automation answers with the current state of the garage door, for example, "The garage door is closed."
 

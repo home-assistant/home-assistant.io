@@ -112,7 +112,7 @@ After the wait ends, because a trigger reacted or because the timeout ended, the
 
 ## Examples
 
-### Automation: turn off the heating when a window stays open
+### Automation: Turn off the heating when a window stays open
 
 When the window opens, this automation waits up to 5 minutes for it to close again. If the window is still open after 5 minutes, it turns off the heating.
 
@@ -158,7 +158,7 @@ automation: |
 
 {% enddetails %}
 
-### Script: wait a total of 10 seconds
+### Script: Wait a total of 10 seconds
 
 This script uses two waits, with one timeout of 10 seconds for both. The second wait uses `wait.remaining`, the time that is left after the first wait.
 
