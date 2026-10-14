@@ -24,7 +24,7 @@ The **If-then** building block runs actions only if its conditions are met. Opti
 
 {% options_ui %}
 If:
-  description: The [conditions](/docs/scripts/conditions/) to check. All conditions must be met.
+  description: The [conditions](/conditions/) to check. All conditions must be met.
   required: true
 Then:
   description: The actions to run if all conditions are met.

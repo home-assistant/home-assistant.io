@@ -25,7 +25,7 @@ The **Choose** building block has several options, each with its own conditions 
 
 {% options_ui %}
 Conditions:
-  description: The [conditions](/docs/scripts/conditions/) of the option. The option is used if all conditions are met.
+  description: The [conditions](/conditions/) of the option. The option is used if all conditions are met.
   required: true
 Actions:
   description: The actions to run if the option is used.

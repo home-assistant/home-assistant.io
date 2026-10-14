@@ -24,7 +24,7 @@ The **Repeat while** building block runs a group of actions as long as its condi
 
 {% options_ui %}
 While conditions:
-  description: The [conditions](/docs/scripts/conditions/) that are checked before each round. The actions run as long as all conditions are met.
+  description: The [conditions](/conditions/) that are checked before each round. The actions run as long as all conditions are met.
   required: true
 Actions:
   description: The actions to repeat.

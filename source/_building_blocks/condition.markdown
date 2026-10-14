@@ -29,7 +29,7 @@ Condition type:
 
 ## Using this building block in YAML
 
-In YAML, use `condition` with the condition type and its options. For the available conditions, refer to the [conditions page](/docs/scripts/conditions/). This example only continues if Paulus is home:
+In YAML, use `condition` with the condition type and its options. For the available conditions, refer to the [Conditions page](/conditions/). This example only continues if Paulus is home:
 
 {% example %}
 action: |
