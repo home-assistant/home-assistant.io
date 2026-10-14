@@ -208,6 +208,22 @@ Specify the visibility of the card based on the current user's location. The loc
 
 Select zones directly, or by label, area, or floor. By default, the card is visible when the person is in any of the selected zones. This matches against the `in_zones` attribute of the `person` entity, which lists every zone the person is in, including passive zones and zones that contain a smaller zone. Set `match_mode: active_zone` to only match the zone shown as the person's state instead. Some older device trackers don't report the zones a person is in, other than Home. For those, both match modes compare the person's state with the names of the selected zones. Set `away: true` to also show the card when the person is away (state `not_home`). Passive zones don't change the person's state, so a person who is only in passive zones is away.
 
+In the dashboard editor, the **Location** condition has the following options.
+
+{% options_ui %}
+Zones:
+  description: The zones to match. You can select zones directly, or by label, area, or floor.
+  required: false
+Match:
+  description: "How the zones are matched. **Any zone they are in** is true when the person is in any of the selected zones, including passive zones. **Zone shown as their state** is true only when one of the selected zones is shown as the person's state, so passive zones never match. Default: **Any zone they are in**."
+  required: false
+Away:
+  description: "Also show the card when the person is away, including when they are only in passive zones. Default: off."
+  required: false
+{% endoptions_ui %}
+
+In YAML, these options are `target`, `match_mode`, and `away`.
+
 ```yaml
 condition: location
 target:
