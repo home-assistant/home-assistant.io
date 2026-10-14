@@ -22,8 +22,8 @@ The **SenseCAP** {% term integration %} adds [Seeed Studio SenseCAP](https://www
 
 | Model | Sensors |
 | --- | --- |
-| S2101 | Temperature (°C), relative humidity (%) |
-| S2102 | Illuminance (lx) |
+| S2101 | Temperature (°C), relative humidity (%), battery (%) |
+| S2102 | Illuminance (lx), battery (%) |
 
 Other SenseCAP models are not supported by this integration.
 
@@ -42,6 +42,8 @@ Home Assistant discovers SenseCAP from the available LoRaWAN connections. Confir
 ## Data updates
 
 Readings update when a device sends an uplink. Sensors show **Unknown** until their first reading after Home Assistant starts. If a LoRaWAN connection is lost, its sensors become unavailable until the connection recovers.
+
+The **Battery** sensor appears under **Diagnostic**. It uses the LoRaWAN device-status battery percentage when available, otherwise the battery percentage in SenseCAP uplinks. It shows **Unknown** until a battery report arrives.
 
 Devices added to or removed from a connected application are added to or removed from Home Assistant when the connection integration reports the change.
 
