@@ -20,7 +20,7 @@ A target can be a single {% term entity %}, or a group of entities, such as all 
 
 ## Types of targets
 
-To add a target to a trigger, condition, or action, select **Add target**. You can add one or more of the following, and combine them, for example, one entity and a whole area.
+To add a target to a trigger, condition, or action, select **Add target**. You can add one or more of the following, and combine them, for example, one entity and an entire area.
 
 - **Entity**: That one entity, for example, the hallway light.
 - **Device**: The matching entities of that device. If the device has [sub-devices](/docs/configuration/customizing-devices/#about-parent-devices-and-sub-devices), such as the outlets of a power strip, their matching entities are included as well.
@@ -72,7 +72,7 @@ Under **Trigger when**, select one of the following:
 
 For **First** and **All**, Home Assistant skips targets that are **Unavailable** or **Unknown**. Most triggers also don't react when a target comes back from **Unavailable** or **Unknown**. For details, refer to [Unavailable and unknown state behavior in triggers](/docs/automation/trigger/#unavailable-and-unknown-state-behavior-in-triggers).
 
-When an automation starts, the trigger data describes the one entity that made the change, not the whole target. For example, `trigger.entity_id` is the light that turned on, and `trigger.from_state` and `trigger.to_state` are the states of that light before and after the change. To learn how to use this data, refer to [Trigger data in templates](/docs/automation/templating/).
+When an automation starts, the trigger data describes the one entity that made the change, not the entire target. For example, `trigger.entity_id` is the light that turned on, and `trigger.from_state` and `trigger.to_state` are the states of that light before and after the change. To learn how to use this data, refer to [Trigger data in templates](/docs/automation/templating/).
 
 ### Conditions: Any and All
 
