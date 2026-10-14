@@ -12,7 +12,7 @@ related:
     title: Dashboard cards
 ---
 
-The alert card highlights an {% term entity %} that needs attention, such as a door left open, a leak, or a triggered alarm. It looks like a [tile card](/dashboards/tile/) with a colored background that can pulse to draw the eye. Below the name, it shows the state, when it last changed, and the entity's area, unless you choose your own state content or hide the state. By default, selecting the card opens the **More info** dialog. This card supports [actions](/dashboards/actions/).
+The alert card highlights an {% term entity %} that needs attention, such as a door left open, a leak, or a triggered alarm. It looks like a [tile card](/dashboards/tile/) with a colored background that can pulse to draw the eye. Below the name, it shows the state, when it last changed, and the entity's area, unless you hide the state. By default, selecting the card opens the **More info** dialog. This card supports [actions](/dashboards/actions/).
 
 The card supports alarm control panel, binary sensor, cover, and lock entities. Its color and pulse only show while the entity is in an alert state:
 
@@ -38,9 +38,9 @@ Entity:
 Alert:
   description: The alert color while the entity is in an alert state (red by default), the clear color for the rest of the time, and whether the background pulses during an alert. Colors accept a [color token](/dashboards/tile/#available-colors) or a hex color code. With no color, the background isn't colored and the icon is gray. When reduced motion is turned on in your system settings, a pulsing background stays tinted instead.
 Content:
-  description: The name, icon, state content, and layout, whether to hide the state, and whether to show the entity picture. These options work the same as on the [tile card](/dashboards/tile/).
+  description: The name, icon, and layout, and whether to hide the state. These options work the same as on the [tile card](/dashboards/tile/).
 Interactions:
-  description: The actions to perform when you select the card or its icon. See [card actions](/dashboards/actions/).
+  description: The actions to perform when you select the card. See [card actions](/dashboards/actions/).
 {% endconfiguration_basic %}
 
 ## YAML configuration
@@ -79,11 +79,6 @@ pulse:
   description: Animates the colored background while the entity is in an alert state.
   type: boolean
   default: false
-show_entity_picture:
-  required: false
-  description: If your entity has a picture, it will replace the icon.
-  type: boolean
-  default: false
 vertical:
   required: false
   description: Displays the icon above the name and state.
@@ -94,16 +89,6 @@ hide_state:
   description: Hide the entity state.
   type: boolean
   default: false
-state_content:
-  required: false
-  description: >
-    Content to display for the state. Can be `state`, `last_changed`, `last_updated`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. By default, the card shows the state, when it last changed, and the entity's area.
-  type: [string, list]
-time_format:
-  required: false
-  description: >
-    Controls how timestamps in `state_content` are formatted. Valid values are `relative`, `total`, `date`, `time`, and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`).
-  type: [string, map]
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.
@@ -115,18 +100,6 @@ hold_action:
 double_tap_action:
   required: false
   description: Action taken on double tap. See [action documentation](/dashboards/actions/#double-tap-action).
-  type: map
-icon_tap_action:
-  required: false
-  description: Action taken on icon card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will `toggle` the entity (if possible), otherwise, it does nothing.
-  type: map
-icon_hold_action:
-  required: false
-  description: Action taken on icon tap-and-hold. See [action documentation](/dashboards/actions/#hold-action).
-  type: map
-icon_double_tap_action:
-  required: false
-  description: Action taken on icon double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
 {% endconfiguration %}
 
@@ -162,13 +135,11 @@ visibility:
     state: "on"
 ```
 
-A vertical alert for the alarm, showing the state and when it last changed:
+A vertical alert for the alarm, with its own name:
 
 ```yaml
 type: alert
 entity: alarm_control_panel.home
+name: Alarm
 vertical: true
-state_content:
-  - state
-  - last_changed
 ```
