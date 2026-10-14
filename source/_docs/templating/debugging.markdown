@@ -43,7 +43,7 @@ When a template misbehaves in an automation, a script, or a template entity, fix
    - If the template uses `trigger` or `this`, define them at the top with `{% set %}`. For the steps, refer to [Testing a template](/docs/tools/dev-tools/#testing-a-template).
 3. Under **Result**, check the output.
    - If a message is shown above or instead of the result, refer to [Troubleshooting template errors](/docs/templating/errors/).
-   - Check the **Result type**. The editor converts the rendered result before showing it, so a numeric-looking sensor state can appear as a number even though its value is text inside the template. To check a value inside the template, refer to [Check what a value actually is](#check-what-a-value-actually-is).
+   - Check the **Result type**. Home Assistant converts the final result of a template to the type it looks like, so a numeric-looking sensor state can appear as a number even though its value is text inside the template. To check a value inside the template, refer to [Check what a value actually is](#check-what-a-value-actually-is).
    - Below the result, check what the template listens to. If neither the entity you expect nor its domain is listed, the template doesn't update when that entity changes. If the editor says that the template listens for all state changed events, it updates when any entity changes. For details, refer to [When does my template run?](#when-does-my-template-run).
 4. Change the template until the result is what you expect. If the template is long, take it apart first. For the steps, refer to [Narrow down the problem](#narrow-down-the-problem).
 5. If you defined `trigger` or `this` with `{% set %}`, remove those lines. Then copy the template, and paste it back into your automation, script, or template entity.
@@ -91,7 +91,7 @@ template: |
 output: "22.5"
 {% endexample %}
 
-In the editor, this result shows as a number, because the editor converts the result before it shows it. Inside the template, the value is text. Many sensors return text even when the content looks numeric. Use [`typeof`](/template-functions/typeof/) to see the type inside the template:
+In the editor, this result shows as a number, because Home Assistant converts the final result of a template to the type it looks like. Inside the template, the value is text. Entity states are always text, even when they look like numbers. Use [`typeof`](/template-functions/typeof/) to see the type inside the template:
 
 {% example %}
 template: |
