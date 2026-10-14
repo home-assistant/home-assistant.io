@@ -19,7 +19,7 @@ To send text to a conversation agent from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Conversation: Process conversation**.
+5. From the search box, search for and select **Process conversation**.
 6. Enter the **Text** to process. Optionally, choose an **Agent**, a **Language**, and a **Conversation ID**.
 7. Select **Save**.
 
@@ -97,9 +97,13 @@ The reply text is then available as `{{ agent_response.response.speech.plain.spe
 
 When a message arrives from a chat integration, forward its text to the conversation agent, then send the agent's spoken reply back to the chat. This processes the message and uses the response in a single automation.
 
-- **Trigger**: A chat integration receives a new message
-- **Action**: Conversation: Process conversation, using the message text, and store the result in a response variable
-- **Action**: Send the agent's reply back to the chat
+- **Trigger**: Manual event received
+  - **Event type**: `chat_message_received`
+- **Action**: Process conversation
+  - **Text**: `{{ trigger.event.data.message }}`
+- **Action**: Send a notification message
+  - **Target**: My chat
+  - **Message**: `{{ agent_response.response.speech.plain.speech }}`
 
 {% details "YAML example for replying to a received message" %}
 
