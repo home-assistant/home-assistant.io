@@ -22,7 +22,7 @@ To paint a theme from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Paint theme**.
+5. From the search box, search for and select **LIFX: Paint theme**.
 6. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the area your LIFX lights are in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
 7. Pick a value in **Theme**, or fill in **Palette** with your own colors. Use **Transition** to control how long the change takes.
 8. Select **Save**.
@@ -107,18 +107,17 @@ The [Themes](/integrations/lifx/#themes) section of the LIFX integration page li
 
 When the sun sets, ease the living room lights into the `warming` theme over ten seconds so the room shifts to an evening mood on its own.
 
-- **Trigger**: Sun: sunset
-- **Action**: Paint theme
+- **Trigger**: Sunset
+- **Action**: LIFX: Paint theme
   - **Target**: Living room (`light.living_room`)
-  - **Theme**: warming
-  - **Transition**: 10
+  - **Theme**: Warming
+  - **Transition**: `10` seconds
 
 {% example %}
 automation: |
   alias: "Paint a warm theme in the living room at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: lifx.paint_theme
       target:
@@ -132,9 +131,13 @@ automation: |
 
 When a person arrives home, paint your own two-color palette across the hallway lights and send a notification to your phone.
 
-- **Trigger**: Person enters the Home zone
-- **Action**: Paint theme
+- **Trigger**: Zone entered
+  - **Target**: Me
+  - **Zone**: Home
+- **Action**: LIFX: Paint theme
   - **Target**: Hallway (`light.hallway`)
+  - **Palette**: `[[30, 70, 80, 3000], [200, 60, 60, 4000]]`
+  - **Transition**: `3` seconds
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -142,10 +145,11 @@ When a person arrives home, paint your own two-color palette across the hallway 
 automation: |
   alias: "Welcome home lighting in the hallway"
   triggers:
-    - trigger: zone
-      entity_id: person.me
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.me
+      options:
+        zone: zone.home
   actions:
     - action: lifx.paint_theme
       target:
@@ -167,7 +171,7 @@ automation: |
 
 At sunset, repaint the `tranquil` theme across the living room strip every minute with a one-minute transition, until the strip is turned off. Each paint arranges the colors differently, so the strip drifts slowly from one arrangement to the next.
 
-- **Trigger**: Sun: sunset
+- **Trigger**: Sunset
 - **Action**: Repeat while the strip is on
   - **Action**: Paint theme
     - **Target**: Living room strip (`light.living_room_strip`)
@@ -179,8 +183,7 @@ At sunset, repaint the `tranquil` theme across the living room strip every minut
 automation: |
   alias: "Drift through a theme on the living room strip"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - repeat:
         while:

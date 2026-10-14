@@ -1,5 +1,5 @@
 ---
-title: "Toggle a light"
+title: "Toggle light"
 action: light.toggle
 domain: light
 description: "Flip a light between on and off. If it's off, it turns on. If it's on, it turns off."
@@ -139,7 +139,7 @@ profile:
 - The **Toggle light** action works on any light {% term entity %}, such as bulbs, groups, fixtures, or strips.
 - When **Toggle light** turns a light on, any brightness, color, or transition options you set are applied. When it turns a light off, those options are ignored.
 - If you use **Toggle light** on a group of lights, each light in the group flips its own state. Some lights may turn on while others turn off. To treat a group as one unit, create a dedicated [light group](/integrations/group/) first.
-- If you already know the state you want, use [Turn on a light](/actions/light.turn_on/) or [Turn off a light](/actions/light.turn_off/) instead. They make the intent clearer in the automation's name.
+- If you already know the state you want, use [Turn on light](/actions/light.turn_on/) or [Turn off light](/actions/light.turn_off/) instead. They make the intent clearer in the automation's name.
 
 {% include actions/try_it.md %}
 
@@ -150,7 +150,7 @@ profile:
 Wire a physical button or a dashboard tile to a single toggle action so it acts like a light switch.
 
 - **Action**: Toggle light
-- **Target**: Hallway light
+  - **Target**: Hallway light
 
 {% details "YAML example for a one-button hallway toggle" %}
 
@@ -168,9 +168,11 @@ action: |
 When the toggle turns the kitchen light on, have it come up dim and warm instead of at full blast.
 
 - **Action**: Toggle light
-- **Target**: Kitchen light
-- **Brightness percentage**: 40
-- **Color**: warm_white
+  - **Target**: Kitchen light
+  - **Brightness percentage**: 40
+  - **Color**: warm_white
+  - **Brightness**: `40`%
+  - **Color name**: Warm white
 
 {% details "YAML example for a warm toggle" %}
 
@@ -192,7 +194,7 @@ Keep a smart button on the wall and flip the hallway light whenever you press it
 
 - **Trigger**: Device: Button pressed
 - **Action**: Toggle light
-- **Target**: Hallway light
+  - **Target**: Hallway light
 
 {% details "YAML example for a button-driven hallway toggle" %}
 
@@ -219,9 +221,11 @@ automation: |
 
 When the bathroom motion sensor fires, flip the light. The next motion event flips it back, so you can also use the same automation to cut the light when you leave.
 
-- **Trigger**: Motion sensor detects motion
+- **Trigger**: State changed
+  - **Entity**: Bathroom motion sensor
+  - **To**: Detected
 - **Action**: Toggle light
-- **Target**: Bathroom light
+  - **Target**: Bathroom light
 
 {% details "YAML example for toggling the bathroom light on motion" %}
 
@@ -244,9 +248,11 @@ automation: |
 
 When the pantry door opens, flip the light. Close the door and the same trigger flips it back off the next time around.
 
-- **Trigger**: Door sensor opens
+- **Trigger**: State changed
+  - **Entity**: Pantry door sensor
+  - **To**: Open
 - **Action**: Toggle light
-- **Target**: Pantry light
+  - **Target**: Pantry light
 
 {% details "YAML example for a pantry door toggle" %}
 
