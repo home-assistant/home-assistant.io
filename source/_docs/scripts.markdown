@@ -62,7 +62,7 @@ The **Fire manual event** action fires an [event](/docs/configuration/events/). 
 
 ### Adding Fire manual event in the editor
 
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select an automation. To edit a script, go to the **Scripts** tab and select the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
 3. Search for and select **Fire manual event**.
 4. In **Event type**, enter the name of the event, for example, `event_light_state_changed`.

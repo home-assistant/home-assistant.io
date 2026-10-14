@@ -12,7 +12,7 @@ The **Wait for a template** building block pauses the automation or script until
 
 ## Using this building block from the user interface
 
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select an automation. To edit a script, go to the **Scripts** tab and select the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
 3. Select **Blocks**, then select **Wait for a template**.
 4. In **Wait template**, enter the template to wait for, for example, `{{ is_state('media_player.living_room', 'idle') }}`.

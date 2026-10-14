@@ -12,7 +12,7 @@ The **Stop** building block stops the automation or script. The next steps don't
 
 ## Using this building block from the user interface
 
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select an automation. To edit a script, go to the **Scripts** tab and select the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
 3. Select **Blocks**, then select **Stop**.
 4. Optional: In **Reason for stopping**, enter why the run stops. The reason is shown in the logs and in the [trace](/docs/automation/testing/#traces).

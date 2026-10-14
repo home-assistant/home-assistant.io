@@ -22,7 +22,7 @@ You add an action in the automation or script editor. There, you choose what the
 
 ## Adding an action in the editor
 
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select an automation. To edit a script, go to the **Scripts** tab and select the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
 3. Search for and select the action, for example, **Turn on light**.
    - You can also first select what you want to control under **By target**, and then select the action.
