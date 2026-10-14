@@ -191,6 +191,53 @@ template: |
 
 The helper updates when its source sensor changes and at the start of each minute. It uses the event timestamp to check whether the start time is still in the future and the local calendar date to determine whether the event is today. An invalid timestamp is handled as **Off** instead of causing a template error.
 
+### Event phase
+
+Create an optional, user-created [Template helper](/integrations/template/#creating-a-template-helper-from-the-user-interface) to show the phase of an Axle Energy event. The helper is separate from the Axle Energy entities. It shows `No event` when both sensors are **Unknown**, and **Unknown** when only one timestamp is present, either timestamp is invalid, or the end is not after the start. It shows **Unavailable** when either source sensor is unavailable.
+
+{% details "Create an event phase helper" %}
+
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} and select **Create helper**.
+2. Select **Template**, then **Sensor**.
+3. Enter `Axle Energy event phase` as the **Name**. Leave **Unit of measurement**, **Device class**, and **State class** empty.
+4. Paste this into **State**. Replace the entity IDs if you renamed your Axle sensors.
+
+{% example %}
+template: |
+  {% set start_raw = states('sensor.axle_energy_event_start') %}
+  {% set end_raw = states('sensor.axle_energy_event_end') %}
+  {% set current = as_timestamp(now()) %}
+  {% if start_raw == 'unknown' and end_raw == 'unknown' %}
+    No event
+  {% else %}
+    {% set start = as_timestamp(start_raw, none) %}
+    {% set end = as_timestamp(end_raw, none) %}
+    {% if start is none or end is none or end <= start %}
+      {{ none }}
+    {% elif current < start %}
+      Upcoming
+    {% elif current < end %}
+      In progress
+    {% else %}
+      Finished
+    {% endif %}
+  {% endif %}
+{% endexample %}
+
+5. Expand **Additional options** and paste this into **Availability**, using the same entity IDs.
+
+{% example %}
+template: |
+  {{ not is_state('sensor.axle_energy_event_start', 'unavailable')
+     and not is_state('sensor.axle_energy_event_end', 'unavailable') }}
+{% endexample %}
+
+6. Select **Submit**. You can then add the helper to your dashboard.
+
+{% enddetails %}
+
+The helper updates when either source sensor changes and at the start of each minute. Its custom states are `Upcoming`, `In progress`, and `Finished`. **Finished** is shown only while Axle retains that event in its current sensor data. This helper does not keep event history.
+
 ### Minutes until an event starts
 
 For a numeric countdown, you can create an optional [Template helper](/integrations/template/#creating-a-template-helper-from-the-user-interface) from the existing **Event start** and **Event end** sensors. This helper is separate from the entities created by the Axle Energy integration.
