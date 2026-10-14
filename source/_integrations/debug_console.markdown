@@ -31,13 +31,9 @@ Never run code you do not understand yourself.
 
 - You need an administrator account. The debug console is not available to other users.
 
-## Configuration
-
-On development and nightly versions of Home Assistant, the debug console is enabled automatically the first time Home Assistant starts.
-
-On beta and stable versions, you enable it yourself. While adding the integration, you confirm that you understand the risks:
-
 {% include integrations/config_flow.md %}
+
+On development and nightly versions of Home Assistant, the debug console is enabled automatically the first time Home Assistant starts. On beta and stable versions, you add the integration yourself, and confirm that you understand the risks while adding it.
 
 On beta and stable versions, each administrator also sees a warning the first time they open the console. The warning explains the risks, and you can only continue after reading it for a few seconds and confirming that you understand them. Everything that runs in the console is written to the Home Assistant log, together with who ran it.
 
@@ -48,7 +44,7 @@ Once enabled, you find the console under **Settings** > **Tools** > **Debug cons
 Type Python code at the prompt and press <kbd>Enter</kbd> to run it. The `hass` object is available, along with anything you assign or import.
 
 - When your code is not complete yet, such as after `for state in hass.states.async_all():`, <kbd>Enter</kbd> starts a new line. Like the Python REPL, an empty line ends an indented block.
-- <kbd>Shift</kbd>+<kbd>Enter</kbd> always starts a new line, and <kbd>Ctrl</kbd>+<kbd>Enter</kbd> always runs the code.
+- <kbd>Shift</kbd>+<kbd>Enter</kbd> always starts a new line, and <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (<kbd>Cmd</kbd>+<kbd>Enter</kbd> on macOS) always runs the code.
 - You can use `await` directly, without wrapping your code in a function.
 - The value of the last expression shows below your code, and is available as `_` afterwards.
 - Objects, lists, and dictionaries can be expanded to explore their contents. Properties show as `(...)` and only run when you select them, because reading them can have side effects.
@@ -82,7 +78,7 @@ await hass.services.async_call(
 
 ## Removing the integration
 
-This integration follows standard integration removal. Removing it disables the debug console right away, and stops any code that is still running.
+This integration follows standard integration removal. Removing it disables the debug console right away, and cancels code that is still running in the console. Work that code started in the background, such as tasks or blocking work in an executor, can keep running until it finishes.
 
 On development and nightly versions, the debug console is not enabled again after you remove it. To enable it again, add the integration.
 
