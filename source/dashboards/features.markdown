@@ -1071,7 +1071,7 @@ style:
 
 ## Target temperature
 
-Widget that displays buttons or a slider to select the target temperature for a [climate](/integrations/climate) or a [water heater](/integrations/water_heater). When the climate entity has a target temperature range, it shows a control for the low and the high target.
+Widget that displays buttons or a slider to select the target temperature for a [climate](/integrations/climate) or a [water heater](/integrations/water_heater). For climate entities with a target temperature range, the feature shows separate controls for the low and high targets.
 
 <p class='img'>
   <img src='/images/dashboards/features/target_temperature.png' alt='Screenshot of tile cards with the target temperature feature, using the buttons style and the slider style'>
