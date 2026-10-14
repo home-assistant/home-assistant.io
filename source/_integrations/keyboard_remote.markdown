@@ -67,7 +67,7 @@ The `keyboard_remote_command_received` event is fired whenever a key event occur
 - `device_descriptor` — The configured path of the device
 - `device_name` — The human-readable name of the device
 
-For a device set up through the UI with a `/dev/input/by-id/` link, `device_descriptor` is that link. For a device without one, it is the `/dev/input/event*` node the device is connected on, which can change when the device reconnects, so match on `device_name` instead. An entry imported from YAML reports the `device_descriptor` from your YAML configuration, or the node the device is connected on if it was configured by `device_name`. Copy the exact value from **Developer tools** > **Events** when matching on it in an automation.
+For a device set up through the UI with a `/dev/input/by-id/` link, `device_descriptor` is that link. For a device without one, it is the `/dev/input/event*` node the device is connected on, which can change when the device reconnects, so match on `device_name` instead. An entry imported from YAML reports the `device_descriptor` from your YAML configuration, or the node the device is connected on if it was configured by `device_name`. Copy the exact value from **Settings** > **Tools** > **Events** when matching on it in an automation.
 
 ### Keyboard remote connected
 
@@ -85,7 +85,7 @@ The `keyboard_remote_disconnected` event is fired when a configured device is di
 
 ## Automation examples
 
-### Automation: Triggering an automation when a key is released
+### Automation: Turning on all lights with a key
 
 The following example turns on all lights when a specific key is released on a specific device:
 
@@ -98,7 +98,7 @@ automation:
         event_data:
           # Target a specific device by its path, as shown in the event data
           device_descriptor: "/dev/input/by-id/usb-Example_Keyboard-event-kbd"
-          # Find your key code via Developer Tools > Events
+          # Find your key code in Settings > Tools > Events
           key_code: 107
           # Only trigger on key released events
           type: key_up
@@ -112,7 +112,7 @@ You can include `device_descriptor` or `device_name` in the event data to target
 
 You can also include `type` to limit the trigger to a specific event type, such as `key_down`, `key_up`, or `key_hold`.
 
-### Responding to device connections and disconnections
+### Automation: Responding to device connections and disconnections
 
 The integration automatically handles reconnections without requiring a restart. The following example plays a sound through a media player whenever a keyboard connects or disconnects, which is useful for Bluetooth devices that power off to save battery:
 
@@ -251,13 +251,13 @@ services:
     image: ghcr.io/homeassistant/home-assistant:stable
     volumes:
       - config:/config/
-      - /dev/input:/dev/input/ # this is needed to read input events.
+      - /dev/input:/dev/input/ # This is needed to read input events.
     restart: unless-stopped
     device_cgroup_rules:
       # Allow creation of /dev/input/* with mknod
       - 'c 13:* rmw'
     devices:
-      # since input id may change, pass them all in
+      # Since input IDs may change, pass them all in
       - "/dev/input/"
     ...
 
