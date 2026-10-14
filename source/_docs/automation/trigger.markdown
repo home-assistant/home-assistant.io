@@ -418,25 +418,23 @@ Most triggers that have an entity as the target do not react when an entity tran
 
 ## Disabling a trigger
 
-Every individual trigger in an automation can be disabled, without removing it.
-To do so, add `enabled: false` to the trigger. For example:
+You can disable a trigger without removing it. In the automation editor, select the three dots {% icon "mdi:dots-vertical" %} menu on the trigger, then select **Disable**. In YAML, add `enabled: false` to the trigger. For example:
 
 ```yaml
-# Example script with a disabled trigger
+# Example automation with a disabled trigger
 automation:
   triggers:
-    # This trigger will not trigger, as it is disabled.
-    # This automation does not run when the sun is set.
+    # This trigger is disabled, so the automation
+    # does not start at sunset.
     - enabled: false
-      trigger: sun
-      event: sunset
+      trigger: sun.sunset
 
     # This trigger reacts, as it is not disabled.
     - trigger: time
       at: "15:32:00"
 ```
 
-Triggers can also be disabled based on limited templates or blueprint inputs. These are only evaluated once when the automation is loaded.
+Triggers can also be disabled based on [limited templates](/docs/templating/where-to-use/#limited-templates) or blueprint inputs. These are only evaluated once when the automation is loaded.
 
 ```yaml
 blueprint:
@@ -456,11 +454,9 @@ blueprint:
     _enable_number: !input input_number
 
   triggers:
-    - trigger: sun
-      event_type: sunrise
+    - trigger: sun.sunrise
       enabled: !input input_boolean
-    - trigger: sun
-      event_type: sunset
+    - trigger: sun.sunset
       enabled: "{{ _enable_number < 50 }}"
 ```
 
