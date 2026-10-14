@@ -13,7 +13,7 @@ The **Repeat for each** building block runs a group of actions once for each ite
 
 ## Using this building block from the user interface
 
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select an automation. To edit a script, go to the **Scripts** tab and select the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
 3. Select **Blocks**, then select **Repeat for each**.
 4. In **For each item in list**, enter the list of items in YAML, for example:
