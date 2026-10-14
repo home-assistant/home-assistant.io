@@ -74,7 +74,7 @@ If carbon monoxide built up while the family was out, the first person home need
 - **Trigger**: Zone entered
   - **Target**: Frenck
   - **Zone**: Home
-- **Condition**: Air Quality: Carbon monoxide detected
+- **Condition**: Carbon monoxide detected
   - **Target**: Hallway CO sensor
   - **Condition passes if**: Any
 - **Action**: Send a notification message

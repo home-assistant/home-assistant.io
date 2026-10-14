@@ -74,7 +74,7 @@ Rush-hour traffic sends NO levels spiking near the road, and knowing the pattern
 - **Trigger**: Nitrogen monoxide level changed
 - **Target**: Driveway NO sensor
 - **Threshold type**: 10
-- **Action**: Log entry via logbook
+- **Action**: Activity: Log activity
 
 {% details "YAML example for NO pollution logging" %}
 

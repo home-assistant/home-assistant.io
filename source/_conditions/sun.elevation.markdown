@@ -89,7 +89,9 @@ threshold:
 
 When the patio is occupied, close the west-facing blinds, but only while the sun sits low in the sky (below 15° of elevation), where it causes the most glare.
 
-- **Trigger**: Patio occupancy detected
+- **Trigger**: State changed
+  - **Entity**: Patio occupancy sensor
+  - **To**: Detected
 - **Condition**: Sun elevation (below 15°)
 - **Action**: Close cover
   - **Target**: West-facing blinds

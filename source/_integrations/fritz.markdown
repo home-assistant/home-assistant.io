@@ -107,6 +107,10 @@ This integration fetches the data every 30 seconds from the FRITZ!Box router.
 
 ## Additional information
 
+{% note %}
+Network devices removed from the FRITZ!Box's list of known devices are also removed from Home Assistant, including their [device tracker](#device-tracker) and [parental control switch](#parental-control-switches) entities. In the home network, this only happens when you remove a device manually in the FRITZ!Box. In the guest network, the FRITZ!Box removes devices as soon as they disconnect. To keep a guest device, customize it in the FRITZ!Box under **Home Network** > **Network** > **Network Connections**, for example, by giving it a custom name.
+{% endnote %}
+
 ### Parental control switches
 
 Parental control {% term switches %} can be used to enable and disable internet access of individual devices. You can also find the current blocking state of the individual devices in the UI of the FRITZ!Box under **Internet** > **Filters** > **Parental Controls** > **Device Block**.

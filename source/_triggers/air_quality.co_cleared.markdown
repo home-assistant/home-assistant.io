@@ -85,7 +85,7 @@ After a carbon monoxide alarm, a blaring siren and anxious waiting are the last 
   - **Target**: All CO sensors (by label)
   - **Trigger when**: All
   - **For at least**: 00:15:00
-- **Action**: Siren: Turn off
+- **Action**: Turn off siren
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

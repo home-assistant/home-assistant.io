@@ -1,11 +1,11 @@
 ---
 title: Satellite started processing
-trigger: assist_satellite.started_processing
+trigger: assist_satellite.processing
 domain: assist_satellite
 description: Triggers after one or more Assist satellites start processing a voice command.
 related_triggers:
-  - assist_satellite.started_listening
-  - assist_satellite.started_responding
+  - assist_satellite.listening
+  - assist_satellite.responding
   - assist_satellite.idle
 ---
 
@@ -44,11 +44,11 @@ For at least:
 
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `assist_satellite.started_processing`. A basic example looks like this:
+In YAML, refer to this trigger as `assist_satellite.processing`. A basic example looks like this:
 
 {% example %}
 trigger: |
-  trigger: assist_satellite.started_processing
+  trigger: assist_satellite.processing
   target:
     entity_id: assist_satellite.living_room
 {% endexample %}
@@ -106,7 +106,7 @@ When a satellite starts processing a voice command, this automation turns off a 
 automation: |
   alias: "Turn off kitchen display while satellite is processing"
   triggers:
-    - trigger: assist_satellite.started_processing
+    - trigger: assist_satellite.processing
       target:
         entity_id: assist_satellite.kitchen
   actions:

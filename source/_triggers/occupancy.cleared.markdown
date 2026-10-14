@@ -99,7 +99,8 @@ When the office occupancy sensor reports the room as empty for 15 minutes, this 
   - **Target**: Office occupancy sensor
   - **For at least**: 00:15:00
 - **Action**: Turn off light (in the office)
-- **Action**: Set HVAC mode to off (office HVAC)
+- **Action**: Set thermostat HVAC mode
+  - **HVAC mode**: Off
 
 {% details "YAML example for turning off the office when empty" %}
 
