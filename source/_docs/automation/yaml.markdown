@@ -289,9 +289,10 @@ To remove an automation that you wrote in {% term YAML %}:
 2. Delete the entire automation. It starts with a line that begins with `-`, such as `- id:`, `- alias:`, or `- triggers:`. It ends before the next line that begins with `-` at the same indentation.
 3. [Check the configuration](/docs/configuration/#validating-the-configuration), and then [reload your automations](#reloading-automations).
    - Result: The automation is removed. If it had an `id`, its entity stays until you delete it.
-4. To delete the entity, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
-5. Select **Enter selection mode**, and then select the automation.
-6. Select the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Delete selected**. Confirm the deletion.
+4. If the automation had an `id`, delete its entity:
+   1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
+   2. Select **Enter selection mode**, and then select the automation.
+   3. Select the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Delete selected**. Confirm the deletion.
 
 ## Reloading automations
 
