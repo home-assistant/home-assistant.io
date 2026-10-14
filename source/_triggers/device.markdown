@@ -60,16 +60,16 @@ Trigger:
   description: What should start the automation. The list shows the triggers that this device offers, such as **Living room light turned on** or **"Turn on" pressed**.
   required: true
 Duration:
-  description: Only for some triggers, such as a light turning on or off. The trigger only fires after the device has been in the new state for this long. By default, the trigger fires right away.
+  description: Only for some triggers, such as a light turning on or off. The trigger only reacts after the device has been in the new state for this long. By default, the trigger reacts right away.
   required: false
 Above:
-  description: Only for some triggers, such as a sensor value. The trigger fires when the value rises above this number. For a sensor, set at least one of **Above** or **Below**. No default.
+  description: Only for some triggers, such as a sensor value. The trigger reacts when the value rises above this number. For a sensor, set at least one of **Above** or **Below**. No default.
   required: false
 Below:
-  description: Only for some triggers, such as a sensor value. The trigger fires when the value drops below this number. For a sensor, set at least one of **Above** or **Below**. No default.
+  description: Only for some triggers, such as a sensor value. The trigger reacts when the value drops below this number. For a sensor, set at least one of **Above** or **Below**. No default.
   required: false
 From:
-  description: Only for some triggers, such as an option change on a select entity. The state to change from. If you leave it empty, the trigger fires on a change from any state.
+  description: Only for some triggers, such as an option change on a select entity. The state to change from. If you leave it empty, the trigger reacts to a change from any state.
   required: false
 To:
   description: Only for some triggers. The new state to react to, such as **Heat**. Required for some triggers, such as **Thermostat HVAC mode changed**. Optional for others, such as an option change on a select entity.
@@ -92,7 +92,7 @@ trigger: |
   type: turned_on
 {% endexample %}
 
-This trigger fires when the light of this device turns on.
+This trigger reacts when the light of this device turns on.
 
 ### Options in YAML
 
@@ -127,19 +127,19 @@ subtype:
   type: string
 for:
   description: >
-    Only for some triggers. How long the device must stay in the new state before the trigger fires. Use a mapping with `days`, `hours`, `minutes`, `seconds`, or `milliseconds`, such as `minutes: 30`. A time string such as `"00:30:00"` doesn't work here. By default, the trigger fires right away.
+    Only for some triggers. How long the device must stay in the new state before the trigger reacts. Use a mapping with `days`, `hours`, `minutes`, `seconds`, or `milliseconds`, such as `minutes: 30`. A time string such as `"00:30:00"` doesn't work here. By default, the trigger reacts right away.
   required: false
   type: map
 above:
-  description: Only for some triggers. The trigger fires when the value rises above this number. For a sensor, set at least one of `above` or `below`. No default.
+  description: Only for some triggers. The trigger reacts when the value rises above this number. For a sensor, set at least one of `above` or `below`. No default.
   required: false
   type: float
 below:
-  description: Only for some triggers. The trigger fires when the value drops below this number. For a sensor, set at least one of `above` or `below`. No default.
+  description: Only for some triggers. The trigger reacts when the value drops below this number. For a sensor, set at least one of `above` or `below`. No default.
   required: false
   type: float
 from:
-  description: Only for some triggers, such as an option change on a select entity. The state to change from. If you leave it out, the trigger fires on a change from any state.
+  description: Only for some triggers, such as an option change on a select entity. The state to change from. If you leave it out, the trigger reacts to a change from any state.
   required: false
   type: string
 to:
@@ -156,14 +156,14 @@ zone:
 
 - When you create the trigger in the editor, it uses internal IDs, so you can rename the device or change the entity ID without editing the trigger. After you change an entity ID, restart Home Assistant or {% term reload %} your automations. The trigger then picks up the new entity ID automatically.
 - If you write an entity ID, such as `light.living_room`, in YAML, update the trigger when that entity ID changes.
-- If you remove the device or its entity, for example, because you swapped it for a new physical device, the automation stops working. After the next restart or reload, {% my repairs title="**Settings** > **System** > **Repairs**" %} shows that the automation failed to set up. The error is `Unknown device` or `Unknown entity`, with the ID.
+- If you remove the device, for example, because you swapped it for a new physical device, the automation stops working. After the next restart or reload, {% my repairs title="**Settings** > **System** > **Repairs**" %} shows that the automation failed to set up, with an `Unknown device` error. If you remove only the entity, the error is `Unknown entity`. If you wrote the entity ID in YAML, such as `light.living_room`, no error is shown. The trigger stays set up but doesn't react until you update it.
 - For a removed device, the editor shows **Editor not available for unknown device**. To fix the automation, delete the trigger and add it again with the new device.
-- This is different from Home Assistant replacing a device with one or more new devices, for example, when it splits one device into separate devices per integration. In that case, the trigger keeps working, because Home Assistant uses the replacement device from the same integration. The editor still opens and, under **Device**, shows which device replaced the old one. Selecting that device and saving is optional. It updates the trigger to refer to the new device directly.
-- If you use the **Duration** (`for`) option, a restart or reload cancels the running timer. The trigger only fires after the device changes to the new state again and stays there for the full duration.
+- This is different from Home Assistant replacing a device with one or more new devices, for example, when it splits one device into separate devices per integration. In that case, the trigger keeps working. For a trigger that an integration provides, such as a button press on a remote, Home Assistant uses the replacement device from that integration. For other triggers, such as a light turning on, Home Assistant keeps using the old device. The editor still opens and, under **Device**, shows which device replaced the old one. Selecting that device and saving is optional. It updates the trigger to refer to the new device directly.
+- If you use the **Duration** (`for`) option, a restart or reload cancels the running timer. The trigger only reacts after the device changes to the new state again and stays there for the full duration.
 
 ## Try it yourself
 
-Ready to test this? Go to {% my automations title="**Settings** > **Automations & scenes**" %}, create a new automation, and add this trigger. Save the automation. Then do what you selected under **Trigger**, such as pressing the button on your remote, to watch the trigger fire.
+Ready to test this? Go to {% my automations title="**Settings** > **Automations & scenes**" %}, create a new automation, and add this trigger. Save the automation. Then do what you selected under **Trigger**, such as pressing the button on your remote, to see the trigger react.
 
 {% include triggers/more_examples.md %}
 
