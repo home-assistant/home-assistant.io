@@ -14,7 +14,7 @@ related:
     title: Grouping your assets
 ---
 
-A target is what a {% term trigger %}, a {% term condition %}, or an {% term action %} works with, in both {% term automation automations %} and {% term script scripts %}. A trigger watches its targets for a change, a condition checks the {% term state %} of its targets, and an action controls its targets. For example, the **Light turned on** trigger reacts when a targeted light turns on, and the **Turn on light** action turns on the targeted lights.
+A target is what a {% term trigger %}, a {% term condition %}, or an {% term action %} works with, in both {% term automations %} and {% term scripts %}. A trigger watches its targets for a change, a condition checks the {% term state %} of its targets, and an action controls its targets. For example, the **Light turned on** trigger reacts when a targeted light turns on, and the **Turn on light** action turns on the targeted lights.
 
 A target can be a single {% term entity %}, or a group of entities, such as all lights in an {% term area %}, like a room in your home. Home Assistant finds the matching entities for you.
 
