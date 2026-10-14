@@ -91,7 +91,7 @@ attribute:
   required: false
   type: string
 for:
-  description: The amount of time the new state or new attribute value must remain unchanged before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds.
+  description: The amount of time the new state or new attribute value must remain unchanged before the trigger fires. With a list of states in `to`, the entity must stay in the state it changed to; changing to another state in the list starts the time again. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds.
   required: false
   type: string
   default: "00:00:00"
@@ -111,6 +111,7 @@ This trigger watches one or more entities:
 - In the UI, **Any state (ignoring attribute changes)** for **From** or **To** means "match any state, but only when the state changes." In YAML, this appears as `from: null` or `to: null` (the key is present, but the value is empty), which prevents attribute-only changes from firing. This is useful for sensors that update attributes often while their main state changes less often.
 - You cannot combine the options `from` with `not_from`, or `to` with `not_to`.
 - If you use the **For at least** (`for`) option, the timer resets if Home Assistant restarts or automations reload.
+- If you use **For at least** (`for`) with several states in **To** (`to`), the entity must stay in the state it changed to for the whole time. The time isn't added up across the states: a change from one of the states to another starts the time again. For example, with `to: ["off", "unavailable"]` and `for: "00:05:00"`, a light that is off for 3 minutes and then unavailable for 3 minutes doesn't fire the trigger after 5 minutes. It fires once the light has been unavailable for 5 minutes.
 
 {% include triggers/try_it.md %}
 
