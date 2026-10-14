@@ -1848,7 +1848,7 @@ In an automation, templates in the steps can use the `trigger` variable, which d
 
 ## Options for any step
 
-These options work on every step, both actions and building blocks.
+These options work on every step, both actions and building blocks. The only exception is **Continue on error**, which conditions don't have.
 
 <a id="continuing-on-error"></a>
 
@@ -1877,7 +1877,7 @@ action: |
 
 **Continue on error** doesn't ignore errors in the configuration, such as a broken template. The error is still shown in the trace and in the logs.
 
-An action whose target is unavailable or doesn't exist doesn't fail. Home Assistant skips that target, so the next step runs even without **Continue on error**. If the target doesn't exist, the log shows a warning.
+An action whose target is unavailable or doesn't exist doesn't fail. Home Assistant skips that target and logs a warning, so the next step runs even without **Continue on error**. The action does fail if an entity that you selected directly doesn't support it, or if the action should return response data and none of its targets match.
 
 <a id="disabling-an-action"></a>
 
