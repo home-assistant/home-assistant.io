@@ -1,11 +1,11 @@
 ---
 title: Satellite started responding
-trigger: assist_satellite.started_responding
+trigger: assist_satellite.responding
 domain: assist_satellite
 description: Triggers after one or more Assist satellites start playing back a response.
 related_triggers:
-  - assist_satellite.started_listening
-  - assist_satellite.started_processing
+  - assist_satellite.listening
+  - assist_satellite.processing
   - assist_satellite.idle
 ---
 
@@ -44,11 +44,11 @@ For at least:
 
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `assist_satellite.started_responding`. A basic example looks like this:
+In YAML, refer to this trigger as `assist_satellite.responding`. A basic example looks like this:
 
 {% example %}
 trigger: |
-  trigger: assist_satellite.started_responding
+  trigger: assist_satellite.responding
   target:
     entity_id: assist_satellite.living_room
 {% endexample %}
@@ -106,7 +106,7 @@ When a satellite starts responding, this automation lowers the volume of any mus
 automation: |
   alias: "Lower music volume while satellite responds"
   triggers:
-    - trigger: assist_satellite.started_responding
+    - trigger: assist_satellite.responding
       target:
         entity_id: assist_satellite.living_room
   actions:

@@ -51,7 +51,7 @@ Some media players expose their sound mode as a select entity, for example `sele
 
 - **Trigger**: Dropdown selection changed
   - **Target**: Living room soundbar sound mode
-- **Action**: Send TTS message
+- **Action**: Speak
   - **Target**: Living room speaker
 
 {% details "YAML example for announcing the sound mode" %}

@@ -83,11 +83,12 @@ for:
 When the alarm is armed in away mode, nobody is home. Save energy by turning off the climate system and make sure the garage door is closed.
 
 - **Trigger**: Alarm armed away
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Turn off the thermostat
-- **Action**: Close the garage door
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Turn off thermostat
+- **Action**: Close cover
+  - **Target**: Garage door
 
 {% details "YAML example for energy saving on away arm" %}
 
@@ -120,7 +121,8 @@ When the alarm switches to away mode, start recording on all security cameras so
 - **Target**: Home alarm panel
 - **Trigger when**: Each
 - **For at least**: 00:00:00
-- **Action**: Turn on security cameras
+- **Action**: Turn on switch
+  - **Target**: Security cameras (by label)
 
 {% details "YAML example for camera recording on away" %}
 

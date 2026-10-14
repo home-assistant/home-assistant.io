@@ -84,7 +84,9 @@ for:
 
 When movie mode starts, this automation first checks whether the living room vacuum is actively cleaning. If it is, Home Assistant pauses it so the room is quiet.
 
-- **Trigger**: Movie mode turns on
+- **Trigger**: State changed
+  - **Entity**: Movie mode helper
+  - **To**: On
 - **Condition**: Vacuum cleaner is cleaning
 - **Target**: Living room vacuum
 - **Action**: Pause vacuum cleaner

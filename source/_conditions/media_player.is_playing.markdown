@@ -133,7 +133,8 @@ automation: |
 
 When the movie scene starts, dim the room only if every targeted media player in the media room is already playing.
 
-- **Trigger**: Button pressed
+- **Trigger**: State changed
+  - **Entity**: Movie scene button helper
 - **Condition**: Media player is playing
   - **Target**: Media room
   - **Condition passes if**: All

@@ -78,7 +78,9 @@ When the outdoor temperature drops below 10°C during winter, automatically turn
 - **Condition**: Thermostat is off
   - **Target**: All thermostats
   - **Condition passes if**: Any
-- **Action**: Turn on thermostats and set to heat mode
+- **Action**: Set thermostat HVAC mode
+  - **Target**: Living room, Bedroom, and Office thermostats
+  - **HVAC mode**: Heat
 
 {% example %}
 automation: |

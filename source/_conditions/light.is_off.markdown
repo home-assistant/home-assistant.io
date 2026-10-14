@@ -72,7 +72,8 @@ behavior:
 At 07:00 on weekdays, start the morning wake-up routine, but only if the bedroom light is still off. Skip the routine on days you're already awake.
 
 - **Trigger**: Time: 07:00
-- **Condition**: Day of the week is Monday to Friday
+- **Condition**: Time
+  - **Days of the week**: Monday, Tuesday, Wednesday, Thursday, Friday
 - **Condition**: Light is off
 - **Target**: Bedroom light
 - **Condition passes if**: All

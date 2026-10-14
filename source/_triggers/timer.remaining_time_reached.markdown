@@ -1,5 +1,5 @@
 ---
-title: "Timer time remaining"
+title: "Timer remaining time reached"
 trigger: timer.remaining_time_reached
 domain: timer
 description: "Triggers when one or more timers reach a specific remaining time."
@@ -8,7 +8,7 @@ related_triggers:
   - timer.started
 ---
 
-The **Timer time remaining** trigger fires when a running timer reaches the remaining time you set. Use it for reminders shortly before a timer finishes.
+The **Timer remaining time reached** trigger fires when a running timer reaches the remaining time you set. Use it for reminders shortly before a timer finishes.
 
 {% include triggers/ui_header.md %}
 
@@ -18,7 +18,7 @@ To use this trigger in an automation:
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the timer you want to watch. You can also select an area, a floor, a device, or a label.
-5. From the triggers shown for that target, select **Timer time remaining**.
+5. From the triggers shown for that target, select **Timer remaining time reached**.
 6. Under **Time remaining**, enter the remaining time that should trigger the automation.
 7. Select **Save**.
 
@@ -68,7 +68,7 @@ remaining:
 
 Get a reminder before the cycle finishes so you can be ready to empty the machine.
 
-- **Trigger**: Timer time remaining
+- **Trigger**: Timer remaining time reached
   - **Target**: Laundry timer
 - **Time remaining**: 00:05:00
 - **Action**: Send a notification message
@@ -99,7 +99,7 @@ automation: |
 
 Use a short visual warning before a timed hallway light is about to turn off.
 
-- **Trigger**: Timer time remaining
+- **Trigger**: Timer remaining time reached
   - **Target**: Entry timer
 - **Time remaining**: 00:01:00
 - **Action**: Turn on light

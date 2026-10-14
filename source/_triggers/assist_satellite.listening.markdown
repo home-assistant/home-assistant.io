@@ -1,11 +1,11 @@
 ---
 title: Satellite started listening
-trigger: assist_satellite.started_listening
+trigger: assist_satellite.listening
 domain: assist_satellite
 description: Triggers after one or more Assist satellites start listening for a voice command.
 related_triggers:
-  - assist_satellite.started_processing
-  - assist_satellite.started_responding
+  - assist_satellite.processing
+  - assist_satellite.responding
   - assist_satellite.idle
 ---
 
@@ -44,11 +44,11 @@ For at least:
 
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `assist_satellite.started_listening`. A basic example looks like this:
+In YAML, refer to this trigger as `assist_satellite.listening`. A basic example looks like this:
 
 {% example %}
 trigger: |
-  trigger: assist_satellite.started_listening
+  trigger: assist_satellite.listening
   target:
     entity_id: assist_satellite.living_room
 {% endexample %}
@@ -107,7 +107,7 @@ When a satellite starts listening, this automation pauses active media players i
 automation: |
   alias: "Pause media when a satellite starts listening"
   triggers:
-    - trigger: assist_satellite.started_listening
+    - trigger: assist_satellite.listening
       target:
         label_id: assist_satellites_living_room
   actions:
