@@ -231,6 +231,7 @@ target:
 away: true
 ```
 
+In this example, the card is shown when you're in any zone with the `grocery_stores` label, or when you're away.
 {% configuration %}
 condition:
   required: true
