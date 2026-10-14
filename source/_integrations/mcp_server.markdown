@@ -223,23 +223,6 @@ The following command can save the long-lived access token in your shell history
 4. Replace `<your_access_token_here>` with your access token and `<your_home_assistant_url>` with the complete URL of your Home Assistant instance, including the port if required. For example, use `http://homeassistant.local:8123` for a typical local connection.
 5. Start `copilot` and type `/mcp show homeassistant` to confirm the server is connected and to see its tools.
 
-The command saves the server, including your access token, in `~/.copilot/mcp-config.json`. Instead of running the command, you can add the server to this file yourself. Add the following to your `mcpServers` configuration:
-
-```json
-{
-  "mcpServers": {
-    "homeassistant": {
-      "type": "http",
-      "url": "<your_home_assistant_url>/api/mcp",
-      "headers": {
-        "Authorization": "Bearer <your_access_token_here>"
-      },
-      "tools": ["*"]
-    }
-  }
-}
-```
-
 ### Example: Antigravity CLI
 
 1.  Install the Antigravity CLI if you haven't already. You can find installation instructions at [https://antigravity.google](https://antigravity.google).
