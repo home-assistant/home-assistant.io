@@ -21,7 +21,7 @@ You add conditions in the **And if** section of the automation editor, with **Ad
 - Conditions that come with an integration are named after what they check. Integration conditions include **Light is on** and **Sun is up**.
 - Conditions that are built into Home Assistant aren't tied to an integration. You can use them with entities from any integration. Built-in conditions include **State**, **Numeric state**, **Time**, and **Template**.
 
-For all conditions, refer to the [list of available conditions](/conditions/). The built-in conditions are in the [General](/conditions/#homeassistant) group. The **Device** condition is in the [Device automation](/conditions/#device_automation) group. To combine conditions in YAML, refer to [Conditions](/docs/scripts/conditions/).
+For all conditions, refer to the [list of available conditions](/conditions/). The built-in conditions are in the [General](/conditions/#homeassistant) group. The **Device** condition is in the [Device automation](/conditions/#device_automation) group.
 
 ## Conditions check the current state
 
@@ -39,7 +39,7 @@ For examples, refer to [Conditions check the current state](/docs/automation/how
 If an automation has several conditions, all of them must be met. To combine conditions in a different way, select **Add condition**, and then select **Blocks**:
 
 - [**Or**](/conditions/or/): met if at least one of the conditions inside is met.
-- **Not**: met if none of the conditions inside are met.
+- [**Not**](/conditions/not/): met if none of the conditions inside are met.
 - [**And**](/conditions/and/): met if all conditions inside are met. Use it inside an **Or** or **Not** block.
 
 You can also check a condition between the actions under **Then do**:
