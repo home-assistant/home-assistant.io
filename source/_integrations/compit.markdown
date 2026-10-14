@@ -420,7 +420,7 @@ The available sensors depend on your specific Compit device configuration. Not a
   - **Available for devices**: SPM - Nano Color 2 (Air quality sensor connected to Nano Color 2)
 
 - **Ventilation filter dirty**
-  - **Description**: Indicates whether the ventilation filter is dirty and needs to be cleaned or replaced. The controller signals this when the filter cleaning period set on the thermostat has elapsed or, with AERO 3 and AERO 5 modules, when the pressure switch reports a dirty filter.
+  - **Description**: Indicates whether the ventilation filter is dirty and needs to be cleaned or replaced. When it does, the sensor shows **Problem**. Otherwise, it shows **OK**. The controller reports a dirty filter when the filter cleaning period set on the thermostat has elapsed. With AERO 3 and AERO 5 modules, it reports when the pressure switch reports a dirty filter.
   - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
 
 Binary sensors provide status information about your Compit devices.
