@@ -440,6 +440,7 @@ source/_integrations/hardware.markdown @home-assistant/core
 source/_integrations/harman_luxury.markdown @sbesh91
 source/_integrations/harmony.markdown @ehendrix23 @bdraco @mkeesey @Aohzan
 source/_integrations/harvey.markdown @Jordi1990
+source/_integrations/hase_iq.markdown @bbayszczak
 source/_integrations/hassio.markdown @home-assistant/supervisor
 source/_integrations/havana_shade.markdown @starkillerOG
 source/_integrations/hdfury.markdown @glenndehaan
