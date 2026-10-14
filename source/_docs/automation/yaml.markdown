@@ -274,13 +274,26 @@ If you want to migrate your manual automations to use the editor, you'll have to
 ```
 
 
-### Deleting automations
+<a id="deleting-automations"></a>
 
-When automations remain visible in the Home Assistant dashboard, even after having deleted in the {% term YAML %} file, you have to delete them in the UI.
+## Removing an automation from a YAML file
 
-To delete them completely, go to UI {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and find the automation in the search field or by scrolling down.
+To delete an automation that you manage in the UI, use the automation editor. For the steps, refer to [Duplicating, turning off, or deleting an automation](/docs/automation/editor/#duplicating-turning-off-or-deleting-an-automation).
 
-Check the square box aside of the automation you wish to delete and from the top-right of your screen, select 'REMOVE SELECTED'.
+Before you remove an automation, check whether another automation, a script, or a dashboard uses it.
+
+To remove an automation that you wrote in {% term YAML %}:
+
+1. Open the YAML file that contains the automation, such as `configuration.yaml`. For how to set up file access and an editor, refer to [Editing `configuration.yaml`](/docs/configuration/#editing-configurationyaml).
+   - If the automation is in `automations.yaml` and has an `id`, delete it in the automation editor instead.
+2. Delete the entire automation. It starts with a line that begins with `-`, such as `- id:`, `- alias:`, or `- triggers:`. It ends before the next line that begins with `-` at the same indentation.
+   - If you split your automations into one file per automation with [`!include_dir_list`](/docs/configuration/splitting_configuration/#example-include_dir_list), the file contains only this automation, without a `-` at the start. Delete the entire file instead.
+3. [Check the configuration](/docs/configuration/#validating-the-configuration), and then [reload your automations](#reloading-automations).
+   - Result: The automation is removed. If it had an `id`, its entity stays until you delete it.
+4. If the automation had an `id`, delete its entity:
+   1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
+   2. Select **Enter selection mode**, and then select the automation.
+   3. Select the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Delete selected**. Confirm the deletion.
 
 ## Reloading automations
 
