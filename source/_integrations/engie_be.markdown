@@ -122,20 +122,20 @@ The integration polls the ENGIE API once an hour. Contracted prices only change 
 
 For an address on a dynamic tariff, the integration also fetches the EPEX day-ahead prices once an hour. The EPEX sensors refresh on every quarter-hour boundary, so the current and next prices switch on time. If the prices cannot be fetched during startup, the sensors stay unavailable and come back once a retry succeeds.
 
-If the session is revoked, the integration can no longer reach the API and its sensors become unavailable. The usual cause is signing in to the same ENGIE account somewhere else, so a dedicated user (see [Prerequisites](#prerequisites)) avoids it. To recover, delete the integration and set it up again.
+If the session is revoked, the integration can no longer reach the API and its sensors become unavailable. The usual cause is signing in to the same ENGIE account somewhere else, so a dedicated user (see [Prerequisites](#prerequisites)) avoids it. Home Assistant will ask you to sign in again.
 
 Your password is only used to sign in, and it is never stored. The integration keeps only the tokens ENGIE hands back, and refreshes them when needed.
 
 ## Known limitations
 
 - Price sensors appear only while a price period covers the current day. During a gap between contract periods, they become unavailable until a new price period starts.
-- If Home Assistant restarts at the exact moment the sign-in tokens are being renewed, the integration can lose the session and its sensors become unavailable until you set it up again.
+- If Home Assistant restarts at the exact moment the sign-in tokens are being renewed, the integration can lose the session and its sensors stay unavailable until you sign in again.
 
 ## Troubleshooting
 
 ### Sensors stopped updating
 
-This almost always means the ENGIE account is shared between the integration and engie.be or the ENGIE Smart App. Every sign-in somewhere else revokes the integration's session, so its sensors become unavailable. Set up a dedicated ENGIE user (see [Prerequisites](#prerequisites)) to avoid this, then delete the integration and set it up again to recover.
+This almost always means the ENGIE account is shared between the integration and engie.be or the ENGIE Smart App. Every sign-in somewhere else revokes the integration's session, so its sensors become unavailable. Set up a dedicated ENGIE user (see [Prerequisites](#prerequisites)) to avoid this, then sign in again when prompted.
 
 ### The EPEX price sensors are unavailable
 
