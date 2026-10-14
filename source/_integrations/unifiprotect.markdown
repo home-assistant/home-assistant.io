@@ -214,7 +214,7 @@ The table below shows, per device type, which connection mode is required. See [
 **Smart Detections**: Smart detections depend on the camera. Home Assistant creates the detection entities for the detection types your camera reports as supported in UniFi Protect.
 {% endnote %}
 
-The SSH, analytics, insights, mount type, paired camera, lens type, and voltage entities are deprecated and will be removed in 2027.1.0. New installations and newly added devices no longer get them. Manage these settings in the UniFi Protect app.
+The SSH, analytics, insights, mount type, paired camera, lens type, and voltage entities are deprecated and will be removed in 2027.1.0. The same applies to the uptime and link speed sensors, the NVR CPU, memory and temperature sensors, and the camera storage and data rate sensors. New installations and newly added devices no longer get them.
 
 Each UniFi Protect camera will get a device in Home Assistant with the following:
 
@@ -222,7 +222,7 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
   - If your camera is a G4 Doorbell Pro, an additional camera {% term entity %} is added for the package camera. The package camera has a very low frame rate, so its live feed can be choppy, but it works the same way as the other streams.
 - **Media Player** - If your camera has a speaker, you will get a media player {% term entity %} that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say action](/integrations/tts/#action-say).
 - **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
-- **Sensors** - Sensors include "Is Dark", "Motion Detected", detected object sensors (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats.
+- **Sensors** - Sensors include "Is Dark", "Motion Detected", detected object sensors (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Wireless cameras also get a Wi-Fi signal strength sensor.
   - There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected. Package detection is the exception: it is exposed as an event {% term entity %} (see **Events**) rather than a binary sensor.
 - **Events** - Cameras expose event entities for momentary motion and supported smart detections. Smart detection event entities include the raw Protect `event_source`, which distinguishes zone, line-crossing, and loitering detections. Package detection is provided as an event entity (`event.*_package`) rather than a binary sensor, because UniFi Protect reports it as a single, already-ended detection that a sustained binary sensor cannot represent.
 - **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
@@ -323,7 +323,7 @@ Your main UniFi Protect <abbr title="Network Video Recorder">NVR</abbr> device a
 - **Alarm Manager**: An alarm control panel entity to arm and disarm the NVR Alarm Manager. It arms using the currently selected alarm profile and always reports the generic _armed away_ state. The name of the active profile is shown by the **Alarm profile** entity instead.
 - **Alarm profile**: A select entity that lets you switch between the alarm profiles configured in UniFi Protect. The state reflects the currently active alarm profile. You can only change the profile while the alarm is disarmed. To switch profiles while armed, disarm first, select the new profile, and arm again.
 - **Disk Health**: Each disk installed in your <abbr title="Network Video Recorder">NVR</abbr> will have a disk health sensor. These are simple good/bad sensors, and the order is not promised to match the order in UniFi OS. The disk model number is provided as a state attribute to help map the sensor to the disk.
-- **Utilization and Storage Sensors**: Several other sensors are also added for uptime, hardware utilization, and distribution details of the video on disk.
+- **Storage Sensors**: Sensors for storage utilization, recording capacity, and the distribution of the video on disk.
 
 {% important %}
 The **Alarm Manager** and **Alarm profile** entities are only available when the UniFi Protect Alarm Manager is set to _Local_ mode. While it is in _Global_ mode, these entities do not appear, because arm profiles are currently not exposed by the public API in that mode.
