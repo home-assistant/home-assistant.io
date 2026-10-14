@@ -11,7 +11,7 @@ The **Run in sequence** building block groups actions that run one after the oth
 
 ## Using this building block from the user interface
 
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select an automation. To edit a script, go to the **Scripts** tab and select the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
 3. Select **Blocks**, then select **Run in sequence**.
 4. Inside the building block, select **Add action**, and add the actions of the group.
