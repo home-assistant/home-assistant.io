@@ -19,7 +19,7 @@ To send key presses from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the alarm panel you want to send key presses to.
 6. From the actions shown for that target, select **Key press**.
-7. Enter the **AlarmDecoder: Key press** string to send.
+7. In the **Key press** field, enter the string to send.
 8. Select **Save**.
 
 ### Options in the UI
