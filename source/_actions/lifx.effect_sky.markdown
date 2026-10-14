@@ -36,7 +36,10 @@ Power on:
   description: Turn the light on before the effect starts. This is on by default. Turn it off to leave a light that is already off untouched.
   required: false
 Speed:
-  description: For the **Sunrise** and **Sunset** sky types, how long the effect takes to complete, in seconds. For the **Clouds** sky type, how fast the clouds move across the light. Accepts 1 to 86400 seconds, and defaults to 50.
+  description: For the **Sunrise** and **Sunset** sky types, how long the effect takes to complete, in seconds. For the **Clouds** sky type, how fast the clouds move across the light. Accepts 0 to 86400 seconds, and defaults to 50. At 0, the effect plays once across the **Duration**, which you then have to set.
+  required: false
+Duration:
+  description: How long the effect runs, in seconds, from 0 to 86400. Defaults to 0, which runs the effect until you stop it.
   required: false
 Sky type:
   description: The style of sky to animate. Choose **Clouds**, **Sunrise**, or **Sunset**. Defaults to **Clouds**.
@@ -77,10 +80,15 @@ power_on:
   type: boolean
   default: true
 speed:
-  description: For the `Sunrise` and `Sunset` sky types, how long the effect takes to complete, in seconds. For the `Clouds` sky type, how fast the clouds move across the light. Accepts 1 to 86400 seconds.
+  description: For the `Sunrise` and `Sunset` sky types, how long the effect takes to complete, in seconds. For the `Clouds` sky type, how fast the clouds move across the light. Accepts 0 to 86400 seconds. At 0, the effect plays once across the `duration`, which you then have to set.
   required: false
   type: integer
   default: 50
+duration:
+  description: How long the effect runs, in seconds, from 0 to 86400. At 0, the effect runs until you stop it.
+  required: false
+  type: integer
+  default: 0
 sky_type:
   description: "The style of sky to animate. One of `Clouds`, `Sunrise`, or `Sunset`."
   required: false
@@ -108,7 +116,8 @@ palette:
 
 - The Sky effect needs a matrix light running firmware 4 or later. The LIFX Ceiling, Luna, Mirror, E26 Candle, and E26 Tube ship with it. Matrix lights still on firmware 3, such as the E12 Candle, do not support the effect. LIFX lights that are not matrix lights are skipped without an error, so you can point this action at an area that also holds other lights. A matrix light on firmware 3, however, makes the whole action fail, so leave those lights out of the target.
 - How much detail you see depends on the light. The **Clouds** sky type spreads a pattern across the pixels, so it looks most detailed on a light with many of them, like the Ceiling. On a light with only a handful of zones, such as the Path, you still get a blue sky with lighter shapes drifting past, just a coarser one. The **Sunrise** and **Sunset** sky types shift color over time instead, so they look much the same on any supported light.
-- In the **Effect** option of the [Turn on a light](/actions/light.turn_on/) action, Sky is currently offered on LIFX Ceiling lights only. On the other supported lights, use this action instead.
+- In the **Effect** option of the [Turn on a light](/actions/light.turn_on/) action, Sky is offered on every matrix light running firmware 4 or later.
+- To play a sunrise or sunset once over a set time, set **Speed** to 0 and **Duration** to how long it should take, such as 1800 for 30 minutes. Speed 0 without a duration fails with an error, because the effect would otherwise run at a default speed instead.
 - When you target lights by entity and none of them is a LIFX light, the action fails with the message "The targets of action lifx.effect_sky include no LIFX light". If they include LIFX lights but no matrix light, it fails with "The targets of action lifx.effect_sky include no LIFX matrix light". When you target an area, floor, device, or label instead, lights the effect cannot run on are left alone and no error is returned.
 - The palette is shared between all three sky types. It takes 1 to 6 colors, which are used in this order:
   1. Sky: the background sky color for the **Clouds** sky type.

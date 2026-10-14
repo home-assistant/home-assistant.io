@@ -12,6 +12,8 @@ Parameters:
                       example. Requires unit_label, unit_options_code, unit_default,
                       unit_example_entity, and unit_example_value.
   unit_label          Unit label. For example: "temperature unit", "energy unit".
+  strict_unit         Set (to anything) when entity thresholds must report one of the
+                      allowed units (no system-unit fallback).
   unit_options_code   Inline code list of allowed units. For example: "`°C` or `°F`".
   unit_default        Default unit used in the example. For example: "°C".
   unit_example_entity Entity reference used in the example. For example:
@@ -30,7 +32,7 @@ threshold:
 
 {% if include.has_unit %}
 
-    When using the `number` key, you must also include `unit_of_measurement` to specify the {{ include.unit_label }} ({{ include.unit_options_code }}). When using the `entity` key, the unit is taken from the entity itself, or assumed to be the system {{ include.unit_label }} if the entity has no unit.
+    When using the `number` key, you must also include `unit_of_measurement` to specify the {{ include.unit_label }} ({{ include.unit_options_code }}). When using the `entity` key, the unit is taken from the entity itself{% if include.strict_unit %}, so the entity must report its unit as {{ include.unit_options_code }}{% else %}, or assumed to be the system {{ include.unit_label }} if the entity has no unit{% endif %}.
 
     For example:
 

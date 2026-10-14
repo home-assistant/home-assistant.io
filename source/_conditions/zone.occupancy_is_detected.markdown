@@ -76,8 +76,9 @@ for:
 
 When the front door contact sensor turns on after sunset, this automation turns on the entry light only if the home zone is occupied.
 
-- **Trigger**: State changes to on
+- **Trigger**: State changed
   - **Target**: Front door contact sensor (`binary_sensor.front_door`)
+  - **To**: On
 - **Condition**: Zone occupancy is detected
   - **Zone**: Home (`zone.home`)
 - **Condition**: Sun is below horizon

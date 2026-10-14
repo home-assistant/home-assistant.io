@@ -139,7 +139,7 @@ If you want more control over when an entity updates, you can define triggers. T
 
 Whenever a trigger fires, all related entities re-render and have access to [the trigger data](/docs/automation/templating/) in the templates.
 
-Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [state trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
+Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [State changed trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
 
 The state, including attributes, of trigger-based sensors and binary sensors is restored when Home Assistant is restarted. The state of other trigger-based template entities is not restored.
 
@@ -412,6 +412,10 @@ Device:
   description: An existing device to attach this helper to.
 Availability:
   description: A template that gets the available state of the entity.
+Delay on:
+  description: The amount of time the template state must be met before this sensor switches to `on`. You find this option under **Additional options**.
+Delay off:
+  description: The amount of time the template state must not be met before this sensor switches to `off`. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
@@ -949,7 +953,7 @@ cover:
   keys:
     attributes:
       description: >
-        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `is_closed`, `current_position`, `current_tilt_position`, and `device_class`.
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `is_closed`, `current_position`, `current_tilt_position`, `supported_speeds`, and `device_class`.
       required: false
       type: [map, template]
       keys:
@@ -979,7 +983,7 @@ cover:
       required: false
       type: template
     set_cover_position:
-      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` contains the entity's set position.
+      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` contains the entity's set position. If `supported_speeds` is specified, the variable `speed` contains the requested speed.
       required: false
       type: action
     set_cover_tilt_position:
@@ -994,6 +998,10 @@ cover:
       description: Defines an action to stop the cover.
       required: false
       type: action
+    supported_speeds:
+      description: List of speeds the cover supports, for example `normal` and `fast`. If specified, the `open_cover`, `close_cover`, and `set_cover_position` actions receive the requested speed in the variable `speed`. The variable is `none` if no speed was requested.
+      required: false
+      type: [string, list]
     tilt:
       description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open). If the template produces a `None` value, the current tilt state is set to `unknown`.
       required: false
@@ -1039,6 +1047,30 @@ template:
           action: script.close_garage_door
         stop_cover:
           action: script.stop_garage_door
+```
+
+```yaml
+# Example configuration.yaml entry for a cover with two speeds
+template:
+  - cover:
+      - name: "Living room shutter"
+        state: "{{ states('cover.living_room_shutter_motor') }}"
+        supported_speeds:
+          - "normal"
+          - "fast"
+        open_cover:
+          - action: script.open_living_room_shutter
+            data:
+              # Falls back to normal if no speed was requested
+              speed: "{{ speed or 'normal' }}"
+        close_cover:
+          - action: script.close_living_room_shutter
+            data:
+              speed: "{{ speed or 'normal' }}"
+        stop_cover:
+          - action: cover.stop_cover
+            target:
+              entity_id: cover.living_room_shutter_motor
 ```
 
 ### Cover Optimistic Mode
@@ -2558,7 +2590,7 @@ Unit of measurement:
 Device class:
   description: The [device class](/integrations/sensor/#device-class) used to pick display formatting and the icon.
 State class:
-  description: The [state class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes), which controls number formatting and whether the sensor's history is kept as long-term statistics.
+  description: The [state class](/integrations/sensor/#state-class), which controls whether the sensor's history is kept as long-term statistics.
 Device:
   description: An existing device to attach this helper to.
 Availability:
@@ -2976,7 +3008,7 @@ Backup:
 Specific version:
   description: Enables or disables using a specific version (`specific_version`) in the installation actions **Actions on install**. Defaults to disabled.
 Device class:
-  description: The [device class](/integrations/update/#device-class) used to pick the frontend state and icon.
+  description: The [device class](/integrations/update/#device-class) of the update.
 Device:
   description: An existing device to attach this helper to.
 Availability:
@@ -3007,7 +3039,7 @@ update:
       required: false
       type: boolean
     device_class:
-      description: Sets the [device class](/integrations/update/#device-class), changing the device state and icon that is displayed in the UI.
+      description: Sets the [device class](/integrations/update/#device-class) of the update.
       required: false
       type: device_class
       default: None

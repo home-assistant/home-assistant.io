@@ -5,6 +5,7 @@ ha_release: 0.96
 ha_category:
   - Binary sensor
   - Energy
+  - Modbus-controlled
   - Sensor
 ha_codeowners:
   - '@farmio'
@@ -20,6 +21,9 @@ ha_platforms:
 ha_dhcp: true
 ha_integration_type: hub
 ha_quality_scale: platinum
+related:
+  - docs: /integrations/modbus/
+    title: Modbus
 ---
 
 The **Fronius** {% term integration %} polls a [Fronius](https://www.fronius.com/) solar inverter or datalogger for details of a Fronius SolarNet setup and integrate it in your Home Assistant installation.

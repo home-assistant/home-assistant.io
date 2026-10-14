@@ -27,6 +27,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: device
+ha_quality_scale: gold
 ---
 
 The **MikroTik** {% term integration %} offers presence detection and device management for [MikroTik](https://mikrotik.com) routers, switches, and Cloud Hosted Routers (CHR) running RouterOS.

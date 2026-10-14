@@ -284,6 +284,10 @@ layout: null
 /docs/automation/services /docs/automation/automation_integration_actions/
 /docs/automation/services/ /docs/automation/automation_integration_actions/
 
+# LIFX blueprints moved into a subfolder
+/blueprints/integrations/lifx_pulse_on_state_change.yaml /blueprints/integrations/lifx/pulse_on_state_change.yaml 301
+/blueprints/integrations/lifx_sky_effect_at_sunset.yaml /blueprints/integrations/lifx/sky_effect_at_sunset.yaml 301
+
 # Redirect for the QR Codes on the S3 Box
 /s3-box-no-wifi /voice_control/troubleshooting_the_s3_box/#error-unable-to-connect-to-wi-fi
 /s3-box-no-ha /voice_control/troubleshooting_the_s3_box/#error-no-home-assistant
@@ -334,7 +338,7 @@ layout: null
 /docs/mqtt/logging /integrations/mqtt/#logging
 /docs/mqtt/service /integrations/mqtt/#publish--dump-services
 /docs/mqtt/testing /integrations/mqtt/#testing-your-setup
-/docs/script/editor /docs/scripts/editor
+/docs/script/editor /docs/script/
 /docs/z-wave /integrations/zwave_js
 /docs/z-wave/adding /integrations/zwave_js#how-can-i-add-include-a-new-device-to-my-z-wave-network
 /docs/z-wave/control-panel /integrations/zwave_js#using-z-wave-js
@@ -360,7 +364,7 @@ layout: null
 /integrations/auth /docs/authentication
 /integrations/automation /docs/automation
 /integrations/blueprint /docs/automation/using_blueprints
-/integrations/trace /docs/automation/troubleshooting
+/integrations/trace /docs/automation/testing/#traces
 /integrations/hassio /hassio
 /integrations/cloud.alexa /cloud/alexa
 /integrations/imap_email_content /integrations/imap/#using-events
@@ -519,7 +523,7 @@ layout: null
 /docs/tools/keyring/ /docs/configuration/secrets
 /docs/tools/credstash/ /docs/configuration/secrets
 /docs/tools/quick-bar/ /docs/tools/quick-search
-/docs/scripts/editor/ /docs/scripts
+/docs/scripts/editor/ /docs/script/
 /getting-started/devices /integrations
 /integrations/map /dashboards/map/
 

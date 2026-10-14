@@ -38,7 +38,13 @@ With your players connected, you can fold them into your everyday routines. For 
 
 ## Supported devices
 
-Any Yoto player that is linked to your Yoto family in the Yoto app is supported.
+The following Yoto players are known to be supported:
+
+- Yoto Player (2nd gen)
+- Yoto Player (3rd gen)
+- Yoto Player (4th gen)
+- Yoto Mini
+- Yoto Mini (4th gen)
 
 ## Prerequisites
 

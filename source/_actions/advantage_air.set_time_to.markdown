@@ -70,7 +70,7 @@ minutes:
 
 When the last person leaves the home zone, set the "time to off" timer to 30 minutes. This gives a short buffer in case someone returns quickly, while ensuring the system does not run indefinitely in an empty house.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Home
   - **To**: 0
 - **Condition**: not

@@ -82,7 +82,7 @@ for:
 
 When an exterior motion sensor detects movement, turn on the porch and driveway lights, but only while the alarm is armed in home mode. During the day when the alarm is disarmed, you probably don't need those lights.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Exterior motion sensor
   - **To**: On
 - **Condition**: Alarm is armed home

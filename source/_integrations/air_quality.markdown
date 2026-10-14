@@ -10,7 +10,7 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The **Air quality** {% term integration %} brings together all the air quality sensors and detectors in your home. It gives you purpose-built triggers and conditions for pollutants like particulate matter (PM2.5, PM10), carbon dioxide (CO2), carbon monoxide (CO), volatile organic compounds (VOCs), ozone, nitrogen dioxide (NO2), and gas or smoke detectors.
+The **Air quality** {% term integration %} brings together all the air quality sensors and detectors in your home. It gives you purpose-built triggers and conditions for pollutants like particulate matter (PM2.5, PM10), carbon dioxide (CO2), carbon monoxide (CO), volatile organic compounds (VOCs), ozone, nitrogen dioxide (NO2), radon, and gas or smoke detectors.
 
 Instead of writing complex template triggers to watch sensor values, you get dedicated triggers that understand pollutant thresholds, unit conversions, and multi-sensor behavior out of the box. Pair them with conditions to build automations that respond intelligently to the air around you.
 

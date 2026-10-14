@@ -10,6 +10,7 @@ ha_iot_class: Local Polling
 ha_domain: librenms
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
 ha_codeowners:
   - '@mib1185'
