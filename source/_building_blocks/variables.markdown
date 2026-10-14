@@ -74,7 +74,7 @@ variables:
 
 ## Examples
 
-### Script: count the people who are home
+### Script: Count the people who are home
 
 This script starts with `people` set to `0`. If Paulus is home, a **Define variables** step inside **If-then** adds 1. After the **If-then**, `people` still has the new value.
 
