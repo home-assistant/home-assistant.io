@@ -457,10 +457,10 @@ blueprint:
 
   triggers:
     - trigger: sun
-      event_type: sunrise
+      event: sunrise
       enabled: !input input_boolean
     - trigger: sun
-      event_type: sunset
+      event: sunset
       enabled: "{{ _enable_number < 50 }}"
 ```
 
