@@ -47,8 +47,6 @@ This fires whenever the driveway NO sensor reading changes by at least 10 ppb.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >
@@ -76,7 +74,7 @@ Rush-hour traffic sends NO levels spiking near the road, and knowing the pattern
 - **Trigger**: Nitrogen monoxide level changed
 - **Target**: Driveway NO sensor
 - **Threshold type**: 10
-- **Action**: Log entry via logbook
+- **Action**: Activity: Log activity
 
 {% details "YAML example for NO pollution logging" %}
 

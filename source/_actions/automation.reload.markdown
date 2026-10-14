@@ -38,7 +38,7 @@ This reloads all your automations.
 
 ## Good to know
 
-- Reloading stops the actions that automations are running at that moment.
+- Reloading stops the actions of the automations you changed. Automations you didn't change keep running.
 - Automations you removed from your configuration disappear, and the ones you added show up.
 - To reload everything that supports it in one step, use [Reload all](/actions/homeassistant.reload_all/).
 

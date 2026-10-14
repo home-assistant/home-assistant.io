@@ -281,8 +281,10 @@ layout: null
 /docs/assist/voice_remote_local_assistant/ /voice_control/voice_remote_local_assistant/
 /skyconnect /connectzbt1#from-skyconnect
 /glossary/ /docs/glossary/
-/docs/automation/services /docs/automation/automation_integration_actions/
-/docs/automation/services/ /docs/automation/automation_integration_actions/
+/docs/automation/services /docs/automation/basics/#actions-for-automations
+/docs/automation/services/ /docs/automation/basics/#actions-for-automations
+/docs/automation/automation_integration_actions /docs/automation/basics/#actions-for-automations
+/docs/automation/automation_integration_actions/ /docs/automation/basics/#actions-for-automations
 
 # Redirect for the QR Codes on the S3 Box
 /s3-box-no-wifi /voice_control/troubleshooting_the_s3_box/#error-unable-to-connect-to-wi-fi
@@ -382,7 +384,8 @@ layout: null
 /getting-started/scripts /docs/scripts
 /getting-started/scripts-service-calls /docs/scripts/perform-actions/
 /docs/scripts/service-calls /docs/scripts/perform-actions/
-/getting-started/scripts-conditions /docs/scripts/conditions
+/getting-started/scripts-conditions /conditions/
+/docs/scripts/conditions /conditions/
 /getting-started/securing /docs/configuration/securing
 /getting-started/updating /common-tasks/os
 /getting-started/yaml /docs/configuration/yaml
@@ -520,6 +523,7 @@ layout: null
 /docs/tools/credstash/ /docs/configuration/secrets
 /docs/tools/quick-bar/ /docs/tools/quick-search
 /docs/scripts/editor/ /docs/script/
+/docs/scene/editor/ /docs/scene/#live-edit-and-review-mode-in-the-scene-editor
 /getting-started/devices /integrations
 /integrations/map /dashboards/map/
 

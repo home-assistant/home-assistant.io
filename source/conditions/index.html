@@ -9,7 +9,7 @@ toc: true
 {%- assign all_conditions = site.conditions | sort: 'condition' -%}
 
 <p>
-  Conditions gate an automation. After a trigger fires, Home Assistant checks every condition, and only runs the actions if they all pass. Use them to make sure an automation only runs when it should, like only dimming the lights after sunset, or only notifying you when you're home.
+  Conditions gate an automation. After a trigger reacts, Home Assistant checks every condition, and only runs the actions if they all pass. Use them to make sure an automation only runs when it should, like only dimming the lights after sunset, or only notifying you when you're home.
 </p>
 <p>
   Browse the full list below, or use the search box to find a specific condition by name or description. Each condition has its own page with a step-by-step UI walkthrough, examples, and a complete field reference.
@@ -31,6 +31,17 @@ toc: true
   <div class="grid__item six-sixths lap-one-whole palm-one-whole">
     <div id="tf-container">
       {%- assign domain_keys = all_conditions | map: 'domain' | uniq | sort -%}
+      {%- comment -%} Show the general Home Assistant group first. {%- endcomment -%}
+      {%- assign ordered_keys = "" | split: "" -%}
+      {%- if domain_keys contains "homeassistant" -%}
+        {%- assign ordered_keys = ordered_keys | push: "homeassistant" -%}
+      {%- endif -%}
+      {%- for key in domain_keys -%}
+        {%- if key != "homeassistant" -%}
+          {%- assign ordered_keys = ordered_keys | push: key -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- assign domain_keys = ordered_keys -%}
       {%- for domain_key in domain_keys -%}
         {%- assign domain_conditions = all_conditions | where: 'domain', domain_key -%}
         {%- assign domain_entry = site.data.condition_domain_lookup[domain_key] -%}
@@ -61,6 +72,39 @@ toc: true
     </div>
   </div>
 </div>
+
+<script>
+// /docs/scripts/conditions/ redirects here. Send links to its old sections to the new pages.
+(function () {
+  var moved = {
+    "logical-conditions": "/conditions/and/",
+    "and-condition": "/conditions/and/",
+    "or-condition": "/conditions/or/",
+    "mixed-and-and-or-conditions": "/conditions/or/#automation-remind-you-to-take-a-jacket-when-its-cold-or-rainy",
+    "not-condition": "/conditions/not/",
+    "state-condition": "/conditions/state/",
+    "numeric-state-condition": "/conditions/numeric_state/",
+    "time-condition": "/conditions/time/",
+    "template-condition": "/conditions/template/",
+    "template-condition-shorthand-notation": "/conditions/template/#shorthand-notation",
+    "trigger-condition": "/conditions/trigger/",
+    "triggered-by-condition": "/conditions/trigger/",
+    "device-conditions": "/conditions/device/",
+    "sun-condition": "/conditions/sun/",
+    "sun-conditions": "/conditions/sun/",
+    "sun-state-condition": "/conditions/sun/",
+    "sun-elevation-condition": "/conditions/sun/",
+    "sunsetsunrise-condition": "/conditions/sun/",
+    "zone-condition": "/conditions/zone/",
+    "zone-conditions": "/conditions/zone/",
+    "disabling-a-condition": "/docs/automation/condition/#disabling-a-condition"
+  };
+  var key = window.location.hash.slice(1);
+  if (Object.prototype.hasOwnProperty.call(moved, key)) {
+    window.location.replace(moved[key]);
+  }
+})();
+</script>
 
 <script>
 (function () {

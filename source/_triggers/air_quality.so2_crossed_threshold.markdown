@@ -56,8 +56,6 @@ This fires whenever the outdoor SO2 sensor crosses 40 in either direction.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >

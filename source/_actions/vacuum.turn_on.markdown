@@ -34,8 +34,6 @@ The `entity_id` target is optional. If omitted, all targeted supported vacuums t
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 target:
   description: The vacuum, area, or device to turn on.

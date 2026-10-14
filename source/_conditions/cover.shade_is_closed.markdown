@@ -50,8 +50,6 @@ This passes when `cover.bedroom_shade` is currently closed.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -116,7 +114,9 @@ automation: |
 
 If the shade is still closed when motion is detected, this automation turns on a nearby light so the area is easier to see.
 
-- **Trigger**: Motion detected
+- **Trigger**: State changed
+  - **Entity**: Hallway motion sensor
+  - **To**: Detected
 - **Condition**: Shade is closed
   - **Target**: Bedroom shade
 - **Action**: Turn on light

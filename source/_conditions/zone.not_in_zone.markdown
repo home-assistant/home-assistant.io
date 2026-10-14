@@ -57,8 +57,6 @@ This passes when `person.nina` is not in `zone.home`.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 zone:
   description: The zone to test against.
@@ -147,7 +145,8 @@ automation: |
 
 At 08:30, this automation sends a notification if a tracked phone is not in the school zone.
 
-- **Trigger**: Time is 08:30
+- **Trigger**: Time
+  - **At time**: `08:30`
 - **Condition**: Is not in zone
   - **Target**: Phone (`device_tracker.phone`)
   - **Zone**: School (`zone.school`)

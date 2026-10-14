@@ -47,8 +47,6 @@ This passes when `timer.guest_room` is idle.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: When multiple timers are targeted, controls how results combine. Accepts `all` or `any`.
@@ -109,11 +107,14 @@ automation: |
 
 Use this condition to avoid arming the alarm while a departure timer is still running.
 
-- **Trigger**: Person leaves home zone
+- **Trigger**: Zone left
+  - **Target**: Alex
+  - **Zone**: Home
 - **Condition**: Timer is idle
   - **Target**: Departure timer
 - **Condition passes if**: Any
-- **Action**: Arm away
+- **Action**: Arm alarm away
+  - **Target**: Home alarm
 
 {% details "YAML example for checking that a departure timer is idle before arming the alarm" %}
 
@@ -121,10 +122,11 @@ Use this condition to avoid arming the alarm while a departure timer is still ru
 automation: |
   alias: "Arm the alarm only if the departure timer is idle"
   triggers:
-    - trigger: zone
-      entity_id: person.alex
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.alex
+      options:
+        zone: zone.home
   conditions:
     - condition: timer.is_idle
       target:

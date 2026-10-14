@@ -50,8 +50,6 @@ This passes when the outdoor ozone sensor reads at or above 100 µg/m³.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >
@@ -66,7 +64,7 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md domain="sensor" %}
 
 {% include conditions/behavior.md %}
 
@@ -84,7 +82,7 @@ behavior:
 On hot summer days, ozone builds up through the afternoon and peaks around 3 PM. This automation triggers at that time and checks whether outdoor ozone is at or above 100 μg/m3. If the reading is still high, the windows stay shut, and you get a notification explaining why. On breezy days with lower ozone, the automation does nothing, and you enjoy fresh air as usual.
 
 - **Trigger**: Time: 15:00
-- **Condition**: Air Quality: Ozone value
+- **Condition**: Ozone value
   - **Target**: Outdoor ozone sensor
   - **Threshold type**: 100
   - **Condition passes if**: Any

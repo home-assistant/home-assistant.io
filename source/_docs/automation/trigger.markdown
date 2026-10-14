@@ -84,9 +84,11 @@ Home Assistant creates and manages the trigger IDs needed for those selections.
 To set a specific trigger ID yourself, edit the automation in YAML.
 All triggers can be assigned an optional `id`.
 If the ID is omitted, Home Assistant uses the trigger's position in the trigger list.
-You can reference the `id` in [trigger conditions and actions](/docs/scripts/conditions/#triggered-by-condition).
+You can reference the `id` in [Triggered by](/conditions/trigger/) conditions and in actions.
 IDs do not have to be unique.
-You can use the same ID to group similar triggers, such as triggers of different types that should all turn an entity on.
+To check for several triggers in one condition, select all of them in the **Triggered by** condition instead of giving them the same ID.
+If triggers share an ID, the editor shows a warning and offers to fix it.
+For details, refer to [Triggered by](/conditions/trigger/#good-to-know).
 
 Trigger IDs allow you to set up an automation with many actions, each action depending on a different trigger.
 An action is connected to a trigger through the trigger ID and runs only if that trigger reacted.
@@ -416,25 +418,23 @@ Most triggers that have an entity as the target do not react when an entity tran
 
 ## Disabling a trigger
 
-Every individual trigger in an automation can be disabled, without removing it.
-To do so, add `enabled: false` to the trigger. For example:
+You can disable a trigger without removing it. In the automation editor, select the three dots {% icon "mdi:dots-vertical" %} menu on the trigger, then select **Disable**. In YAML, add `enabled: false` to the trigger. For example:
 
 ```yaml
-# Example script with a disabled trigger
+# Example automation with a disabled trigger
 automation:
   triggers:
-    # This trigger will not trigger, as it is disabled.
-    # This automation does not run when the sun is set.
+    # This trigger is disabled, so the automation
+    # does not start at sunset.
     - enabled: false
-      trigger: sun
-      event: sunset
+      trigger: sun.sunset
 
     # This trigger reacts, as it is not disabled.
     - trigger: time
       at: "15:32:00"
 ```
 
-Triggers can also be disabled based on limited templates or blueprint inputs. These are only evaluated once when the automation is loaded.
+Triggers can also be disabled based on [limited templates](/docs/templating/where-to-use/#limited-templates) or blueprint inputs. These are only evaluated once when the automation is loaded.
 
 ```yaml
 blueprint:
@@ -454,11 +454,9 @@ blueprint:
     _enable_number: !input input_number
 
   triggers:
-    - trigger: sun
-      event_type: sunrise
+    - trigger: sun.sunrise
       enabled: !input input_boolean
-    - trigger: sun
-      event_type: sunset
+    - trigger: sun.sunset
       enabled: "{{ _enable_number < 50 }}"
 ```
 

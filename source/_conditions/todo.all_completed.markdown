@@ -46,8 +46,6 @@ This passes when `todo.evening_checklist` has no incomplete items left.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >

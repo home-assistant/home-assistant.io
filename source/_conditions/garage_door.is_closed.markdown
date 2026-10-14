@@ -48,8 +48,6 @@ This passes when `cover.garage_door` is currently closed.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -84,7 +82,9 @@ for:
 
 If you have created a bedtime {% term helper %} separately, this automation waits for that helper to turn on, then checks that the garage door has stayed closed for 10 minutes before it arms the alarm.
 
-- **Trigger**: User-created bedtime helper turns on
+- **Trigger**: State changed
+  - **Entity**: Bedtime mode helper
+  - **To**: On
 - **Condition**: Garage door is closed
   - **Target**: Garage door
   - **For at least**: 00:10:00

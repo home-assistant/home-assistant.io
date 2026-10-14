@@ -50,8 +50,6 @@ This passes when `cover.office_blind` is currently closed.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -116,7 +114,9 @@ automation: |
 
 If the blind is still closed when motion is detected, this automation turns on a nearby light so the area is easier to see.
 
-- **Trigger**: Motion detected
+- **Trigger**: State changed
+  - **Entity**: Hallway motion sensor
+  - **To**: Detected
 - **Condition**: Blind is closed
   - **Target**: Office blind
 - **Action**: Turn on light

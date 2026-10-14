@@ -29,7 +29,7 @@ automations as
 [a condition with an optional offset to test if the sun has already set or risen][sun_condition].
 
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
-[sun_condition]: /docs/scripts/conditions/#sun-condition
+[sun_condition]: /conditions/sun/
 
 ## Configured by default
 

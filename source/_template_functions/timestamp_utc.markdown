@@ -24,7 +24,7 @@ This is useful when you need to display or log times in UTC, share timestamps wi
 {% template_function_usage %}
 filter: '{{ 1710510600 | timestamp_utc }}'
 type: string
-output: "2024-03-15 13:30:00+00:00"
+output: "2024-03-15T13:50:00+00:00"
 {% endtemplate_function_usage %}
 
 {% include template_functions/signatures.md %}
@@ -75,7 +75,7 @@ Convert the last changed timestamp of an entity to a UTC datetime string.
 template: |
   {{ as_timestamp(states.sensor.temperature.last_changed) | timestamp_utc }}
 type: string
-output: "2024-03-15 13:30:00+00:00"
+output: "2024-03-15T13:30:00+00:00"
 {% endexample %}
 
 ### Compare local and UTC representations
@@ -89,8 +89,8 @@ template: |
   UTC: {{ ts | timestamp_utc }}
 type: string
 output: |
-  Local: 2024-03-15 14:30:00+01:00
-  UTC: 2024-03-15 13:30:00+00:00
+  Local: 2024-03-15T14:30:00+01:00
+  UTC: 2024-03-15T13:30:00+00:00
 {% endexample %}
 
 ### Log an event time in UTC

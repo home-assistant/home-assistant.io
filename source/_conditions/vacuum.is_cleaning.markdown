@@ -50,8 +50,6 @@ This passes when `vacuum.living_room` is actively cleaning.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -86,7 +84,9 @@ for:
 
 When movie mode starts, this automation first checks whether the living room vacuum is actively cleaning. If it is, Home Assistant pauses it so the room is quiet.
 
-- **Trigger**: Movie mode turns on
+- **Trigger**: State changed
+  - **Entity**: Movie mode helper
+  - **To**: On
 - **Condition**: Vacuum cleaner is cleaning
 - **Target**: Living room vacuum
 - **Action**: Pause vacuum cleaner

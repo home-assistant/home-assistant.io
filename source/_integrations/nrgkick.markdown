@@ -36,7 +36,7 @@ You can use the NRGkick integration to:
 - **Optimize your home energy management** - Add your charger to the Home Assistant energy dashboard to integrate EV charging into your overall energy monitoring system.
 - **Create smart charging automations** such as:
   - Receiving notifications when charging stops or reaches an energy target
-  - Controlling charging current based on solar surplus
+  - Controlling charging current based on solar surplus (see the [solar surplus charging example](#automation-charge-your-ev-from-solar-surplus))
   - Pausing charging during expensive peak hours
   - Reacting to warnings or errors reported by the charger
 - **Track charger location on SIM models** - Use the GPS device tracker in map views and zone-based automations.
@@ -240,6 +240,27 @@ Entity IDs depend on your device name in Home Assistant. The examples below assu
 - `number.nrgkick_phase_count`: Set the number of phases.
 - `switch.nrgkick_charging_enabled`: Turn on to enable charging. Turn off to pause charging.
 
+## NRGkick automation examples
+
+You can combine the NRGkick controls with other sensors in your home to build smart charging automations. Here is an idea to get you started.
+
+### Automation: Charge your EV from solar surplus
+
+Charge your EV with solar power that would otherwise be exported to the grid. This blueprint adjusts the charging current to match the available surplus, can switch between 1 and 3 phases, and pauses charging when there isn't enough surplus power.
+
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/nrgkick-charge-your-ev-from-solar-surplus-dynamic-current-1-3-phase-switching/1027907" %}
+
+To use this blueprint, you need a grid power sensor that measures the power at your grid connection point, including the power used by the NRGkick. The sensor must update at least every 10 seconds. A solar production sensor alone is not enough.
+
+The blueprint uses the following NRGkick entities:
+
+- **Total active power**
+- **Charging enabled**
+- **Charging current**
+- **Phase count**
+
+While the automation is turned on, it controls charging. To charge from the grid instead, turn off the automation. For the full list of settings, see the [blueprint discussion on the community forum](https://community.home-assistant.io/t/nrgkick-charge-your-ev-from-solar-surplus-dynamic-current-1-3-phase-switching/1027907).
+
 ## Data updates
 
 The integration {% term polling polls %} the device for updates.
@@ -248,7 +269,7 @@ The integration {% term polling polls %} the device for updates.
 
 ## Known limitations
 
-- The integration can only expose monitoring data and controls that are available through the NRGkick local JSON API. Settings and features that are only available in the NRGkick app and are not exposed through the local JSON API cannot be managed from Home Assistant (for example, time-controlled charging, solar charging). However, you can build similar functionality in Home Assistant using the available controls and automations.
+- The integration can only expose monitoring data and controls that are available through the NRGkick local JSON API. Settings and features that are only available in the NRGkick app and are not exposed through the local JSON API cannot be managed from Home Assistant (for example, time-controlled charging, solar charging). However, you can build similar functionality in Home Assistant using the available controls and automations. For solar charging, you can use the [solar surplus charging blueprint](#automation-charge-your-ev-from-solar-surplus).
 - SIM-specific entities, such as cellular sensors and the GPS device tracker, are only available on SIM-capable models because only those devices provide that data.
 
 ## Troubleshooting

@@ -50,8 +50,6 @@ This passes when `cover.bedroom_shade` is currently open.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -116,7 +114,9 @@ automation: |
 
 When you leave home, this automation checks whether the shade is still open. If it is, Home Assistant sends a reminder so you can close it.
 
-- **Trigger**: Person leaves home zone
+- **Trigger**: Zone left
+  - **Target**: Morgan
+  - **Zone**: Home
 - **Condition**: Shade is open
   - **Target**: Bedroom shade
 - **Action**: Send a notification message
@@ -128,10 +128,11 @@ When you leave home, this automation checks whether the shade is still open. If 
 automation: |
   alias: "Warn me if the shade is open when I leave home"
   triggers:
-    - trigger: zone
-      entity_id: person.morgan
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.morgan
+      options:
+        zone: zone.home
   conditions:
     - condition: cover.shade_is_open
       target:

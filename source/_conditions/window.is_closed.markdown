@@ -48,8 +48,6 @@ This passes when `binary_sensor.bedroom_window` is currently closed.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -87,7 +85,8 @@ Before locking up for the night, you can check that every downstairs window is a
 - **Condition**: Window is closed
 - **Target**: Downstairs windows label
 - **Condition passes if**: All
-- **Action**: Lock: Lock
+- **Action**: Lock lock
+  - **Target**: Front door lock
 
 {% details "YAML example for locking up after all windows are closed" %}
 

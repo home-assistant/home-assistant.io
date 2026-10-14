@@ -34,8 +34,6 @@ Omitting `entity_id` targets all supported vacuums.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 target:
   description: The vacuum, area, or group to spot clean.
