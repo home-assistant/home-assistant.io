@@ -1244,7 +1244,6 @@ The **Run in sequence** building block groups actions that run one after the oth
 
 The **Run in parallel** building block starts several actions at the same time, instead of one after the other. For the steps, options, and examples, refer to [Run in parallel](/building-blocks/parallel/).
 
-
 <a id="stopping-a-script-sequence"></a>
 
 ## Stop

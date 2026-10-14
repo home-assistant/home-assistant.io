@@ -66,9 +66,11 @@ When motion is detected, this automation runs two groups of actions: one that tu
   - **Action**: Turn on siren
     - **Target**: Noise maker (`siren.noise_maker`)
 - **Action**: Run in sequence, renamed to `Send notifications`
-  - **Action**: `notify.person1`
+  - **Action**: Send a notification message
+    - **Target**: Person 1 device (`notify.person1_device`)
     - **Message**: `The motion sensor was triggered!`
-  - **Action**: `notify.person2`
+  - **Action**: Send a notification message
+    - **Target**: Person 2 device (`notify.person2_device`)
     - **Message**: `Oh oh, someone triggered the motion sensor...`
 
 {% details "YAML example" %}
@@ -90,10 +92,14 @@ automation: |
             entity_id: siren.noise_maker
     - alias: "Send notifications"
       sequence:
-        - action: notify.person1
+        - action: notify.send_message
+          target:
+            entity_id: notify.person1_device
           data:
             message: "The motion sensor was triggered!"
-        - action: notify.person2
+        - action: notify.send_message
+          target:
+            entity_id: notify.person2_device
           data:
             message: "Oh oh, someone triggered the motion sensor..."
 {% endexample %}

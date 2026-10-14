@@ -34,10 +34,14 @@ automation: |
       to: "on"
   actions:
     - parallel:
-        - action: notify.person1
+        - action: notify.send_message
+          target:
+            entity_id: notify.person1_device
           data:
             message: "These messages are sent at the same time!"
-        - action: notify.person2
+        - action: notify.send_message
+          target:
+            entity_id: notify.person2_device
           data:
             message: "These messages are sent at the same time!"
 {% endexample %}
@@ -62,7 +66,7 @@ parallel:
 
 ### Script: Wait for motion in one group, and send a message right away in another
 
-This script runs two things at the same time. The first is a group that waits for motion and then sends a message. The second sends a message right away, without waiting for the first group.
+This script runs a sequence and an action at the same time. The first is a group that waits for motion and then sends a message. The second sends a message right away, without waiting for the first group.
 
 {% details "YAML example" %}
 
@@ -76,10 +80,14 @@ script: |
                   - trigger: state
                     entity_id: binary_sensor.motion
                     to: "on"
-              - action: notify.person1
+              - action: notify.send_message
+                target:
+                  entity_id: notify.person1_device
                 data:
                   message: "This message awaited the motion trigger"
-          - action: notify.person2
+          - action: notify.send_message
+            target:
+              entity_id: notify.person2_device
             data:
               message: "I am sent immediately and do not await the above action!"
 {% endexample %}
