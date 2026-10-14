@@ -4,7 +4,7 @@ description: Instructions on how to integrate Grandstream devices with Home Assi
 ha_category:
   - Sensor
 ha_release: 2026.11
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@wtxu-gs'
