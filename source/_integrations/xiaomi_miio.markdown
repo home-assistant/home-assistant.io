@@ -306,6 +306,10 @@ The list includes device name, model number (if available), and model.
 - **Air Humidifier CB1**: `zhimi.humidifier.cb1`
 - **Air Humidifier JSQ**: `deerma.humidifier.jsq`
 - **Air Humidifier JSQ1**: `deerma.humidifier.jsq1`
+- **Air Humidifier JSQ2W**: `deerma.humidifier.jsq2w`
+- **Air Humidifier JSQ3**: `deerma.humidifier.jsq3`
+- **Air Humidifier JSQ5**: `deerma.humidifier.jsq5`
+- **Air Humidifier JSQS**: `deerma.humidifier.jsqs`
 - **Air Humidifier MJJSQ**: `deerma.humidifier.mjjsq`
 - **Standing Fan 1X**: `dmaker.fan.p5`
 - **Inverter Pedestal Fan**: `zhimi.fan.za1`
@@ -747,7 +751,7 @@ These models use newer MiOT communication protocol.
 - Attributes (fan platform)
   - `use_time`
   - `extra_features`
-- Sensor entities|
+- Sensor entities
   - **Carbon Dioxide**: The current carbon dioxide measured in ppm. Enabled by default.
   - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
   - **Filter Use**: Filter usage time in hours. Enabled by default.
@@ -1036,7 +1040,7 @@ Clean mode and Motor speed can only be set when the device is turned on.
 | Water Tank       | Indicates whether the water tank is connected or not |
 | Water Tank Empty | Indicates whether the water tank is empty or not     |
 
-- Sensor entities|
+- Sensor entities
   - **Humidity**: The current humidity measured. Enabled by default.
   - **Temperature**: The current temperature measured. Enabled by default.
   - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
@@ -1047,6 +1051,47 @@ Clean mode and Motor speed can only be set when the device is turned on.
 | ------ | ---------------------- |
 | Buzzer | Turn on/off the buzzer |
 | LED    | Turn on/off the LED    |
+
+### Air Humidifier JSQ2W/JSQ3/JSQ5/JSQS
+
+Supported models:
+
+- `deerma.humidifier.jsq2w`
+- `deerma.humidifier.jsq3`
+- `deerma.humidifier.jsq5`
+- `deerma.humidifier.jsqs`
+<!-- -->
+
+- On, Off
+- Operation modes (low, medium, high, auto)
+- Target humidity (40 - 70)
+- Attributes (humidifier platform)
+
+| Attribute         | Description                               |
+| ----------------- | ----------------------------------------- |
+| `available_modes` | A list with the operation modes available |
+| `humidity`        | The current target humidity               |
+| `max_humidity`    | The maximum settable target humidity      |
+| `min_humidity`    | The minimum settable target humidity      |
+| `mode`            | The current operation mode selected       |
+
+- Binary sensor entities
+
+| Binary sensor         | Description                                          |
+| --------------------- | ---------------------------------------------------- |
+| Water shortage faulty | Indicates whether the humidifier is out of water     |
+| Water Tank            | Indicates whether the water tank is connected or not |
+
+- Sensor entities|
+  - **Humidity**: The current relative humidity measured. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+
+- Switch entities
+
+| Switch    | Description               |
+| --------- | ------------------------- |
+| Buzzer    | Turn on/off the buzzer    |
+| LED Light | Turn on/off the LED light |
 
 ### Standing Fan 1X (dmaker.fan.p5)
 
