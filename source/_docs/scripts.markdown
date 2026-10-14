@@ -365,197 +365,30 @@ The **Repeat while** building block runs a group of actions as long as its condi
 
 ## Run in sequence
 
-<!-- future frontmatter:
-title: "Run in sequence"
-building_block: sequence
-description: "Group actions that run one after the other."
-related_building_blocks: [parallel]
--->
-
-The **Run in sequence** building block groups actions that run one after the other. Each action starts after the previous one has finished. Use it to keep related actions together, so you can collapse them in the editor, or to run a group of actions in order inside [**Run in parallel**](#run-in-parallel).
-
-### Adding Run in sequence in the editor
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
-2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
-3. Select **Blocks**, then select **Run in sequence**.
-4. Inside the building block, select **Add action**, and add the actions of the group.
-5. Optional: To give the group a name, select **Menu** {% icon "mdi:dots-vertical" %} > **Rename**.
-6. Select **Save**.
-
+<a id="adding-run-in-sequence-in-the-editor"></a>
 <a id="run-in-sequence-options-in-the-ui"></a>
-
-#### Options in the UI
-
-This building block has no options. You add the actions inside it.
-
-### Run in sequence in YAML
-
-In YAML, use `sequence` with a list of actions. To give the group a name, add an `alias`:
-
-{% example %}
-action: |
-  alias: "Turn on devices"
-  sequence:
-    - action: light.turn_on
-      target:
-        entity_id: light.ceiling
-    - action: siren.turn_on
-      target:
-        entity_id: siren.noise_maker
-{% endexample %}
-
+<a id="run-in-sequence-in-yaml"></a>
 <a id="run-in-sequence-options-in-yaml"></a>
+<a id="good-to-know-about-run-in-sequence"></a>
+<a id="examples-of-run-in-sequence"></a>
+<a id="automation-turn-on-devices-then-send-notifications"></a>
 
-#### Options in YAML
+The **Run in sequence** building block groups actions that run one after the other. For the steps, options, and examples, refer to [Run in sequence](/building-blocks/sequence/).
 
-{% options_yaml %}
-sequence:
-  description: The actions of the group. They run one after the other.
-  required: true
-  type: list
-{% endoptions_yaml %}
-
-### Good to know about Run in sequence
-
-- The actions of an automation or script already run one after the other. **Run in sequence** doesn't change that. It helps you organize them.
-
-### Examples of Run in sequence
-
-#### Automation: turn on devices, then send notifications
-
-When motion is detected, this automation runs two groups of actions: one that turns on devices, and one that sends notifications. The groups and their actions run one after the other, four actions in total.
-
-- **Trigger**: State changed
-  - **Entity**: `binary_sensor.motion`
-  - **To**: On
-- **Action**: Run in sequence, named **Turn on devices**
-  - Turn on the ceiling light and the siren
-- **Action**: Run in sequence, named **Send notifications**
-  - Send a notification to two people
-
-{% details "YAML example" %}
-
-{% example %}
-automation: |
-  triggers:
-    - trigger: state
-      entity_id: binary_sensor.motion
-      to: "on"
-  actions:
-    - alias: "Turn on devices"
-      sequence:
-        - action: light.turn_on
-          target:
-            entity_id: light.ceiling
-        - action: siren.turn_on
-          target:
-            entity_id: siren.noise_maker
-    - alias: "Send notifications"
-      sequence:
-        - action: notify.person1
-          data:
-            message: "The motion sensor was triggered!"
-        - action: notify.person2
-          data:
-            message: "Oh oh, someone triggered the motion sensor..."
-{% endexample %}
-
-{% enddetails %}
 
 <a id="parallelizing-actions"></a>
 
 ## Run in parallel
 
-<!-- future frontmatter:
-title: "Run in parallel"
-building_block: parallel
-description: "Start several actions at the same time."
-related_building_blocks: [sequence]
--->
-
-The **Run in parallel** building block starts several actions at the same time, instead of one after the other. Use it when the actions don't depend on each other and the order doesn't matter, for example, to send several notifications at once.
-
-### Adding Run in parallel in the editor
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
-2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
-3. Select **Blocks**, then select **Run in parallel**.
-4. Inside the building block, select **Add action**, and add the actions to start at the same time.
-   - To run some of them in order, add a [**Run in sequence**](#run-in-sequence) building block, and add those actions to it.
-5. Select **Save**.
-
+<a id="adding-run-in-parallel-in-the-editor"></a>
 <a id="run-in-parallel-options-in-the-ui"></a>
-
-#### Options in the UI
-
-This building block has no options. You add the actions inside it.
-
-### Run in parallel in YAML
-
-In YAML, use `parallel` with a list of actions. This example sends two messages at the same time:
-
-{% example %}
-automation: |
-  triggers:
-    - trigger: state
-      entity_id: binary_sensor.motion
-      to: "on"
-  actions:
-    - parallel:
-        - action: notify.person1
-          data:
-            message: "These messages are sent at the same time!"
-        - action: notify.person2
-          data:
-            message: "These messages are sent at the same time!"
-{% endexample %}
-
+<a id="run-in-parallel-in-yaml"></a>
 <a id="run-in-parallel-options-in-yaml"></a>
+<a id="good-to-know-about-run-in-parallel"></a>
+<a id="examples-of-run-in-parallel"></a>
+<a id="script-wait-for-motion-in-one-group-and-send-a-message-right-away-in-another"></a>
 
-#### Options in YAML
-
-{% options_yaml %}
-parallel:
-  description: The actions to start at the same time. To run some of them in order, put them in a `sequence`.
-  required: true
-  type: list
-{% endoptions_yaml %}
-
-### Good to know about Run in parallel
-
-- Most automations and scripts work well with actions that run one after the other. Use **Run in parallel** only when the actions don't depend on each other.
-- The actions start at the same time, but they don't always finish in the same order.
-- If one action fails, the other actions keep running until they are finished or fail too.
-- Variables that one action creates or changes can conflict with variables of another action. Give them different names.
-
-### Examples of Run in parallel
-
-#### Script: wait for motion in one group, and send a message right away in another
-
-This script runs two things at the same time. The first is a group that waits for motion and then sends a message. The second sends a message right away, without waiting for the first group.
-
-{% details "YAML example" %}
-
-{% example %}
-script: |
-  example_script:
-    sequence:
-      - parallel:
-          - sequence:
-              - wait_for_trigger:
-                  - trigger: state
-                    entity_id: binary_sensor.motion
-                    to: "on"
-              - action: notify.person1
-                data:
-                  message: "This message awaited the motion trigger"
-          - action: notify.person2
-            data:
-              message: "I am sent immediately and do not await the above action!"
-{% endexample %}
-
-{% enddetails %}
+The **Run in parallel** building block starts several actions at the same time, instead of one after the other. For the steps, options, and examples, refer to [Run in parallel](/building-blocks/parallel/).
 
 <a id="stopping-a-script-sequence"></a>
 
