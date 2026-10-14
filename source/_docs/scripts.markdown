@@ -217,7 +217,7 @@ set_conversation_response:
 
 - Assist uses the response when the automation finishes. If the automation sets the response more than once, the last one is used.
 - If the automation didn't start from a conversation, for example, from a time trigger, the response isn't used.
-- Set the response in the automation itself. If the automation runs a script, a response that the script sets doesn't reach Assist. To use data from a script, let the script [return a response](#examples-of-stop) with **Stop**, and use that data in the automation's **Set conversation response**.
+- Set the response in the automation itself. If the automation runs a script, a response that the script sets doesn't reach Assist. To use data from a script, let the script [return a response](/building-blocks/stop/#examples) with **Stop**, and use that data in the automation's **Set conversation response**.
 
 ### Examples of Set conversation response
 
@@ -249,292 +249,30 @@ automation: |
 
 ## Choose
 
-<!-- future frontmatter:
-title: "Choose"
-building_block: choose
-description: "Run the first group of actions whose conditions are met."
-related_building_blocks: [if, condition]
--->
-
-The **Choose** building block has several options, each with its own conditions and actions. It runs the actions of the first option whose conditions are all met. If no option matches, it runs the default actions, if you added them. Use it when the automation or script should do one of several things, for example, something different in the morning, during the day, and at night.
-
-### Adding Choose in the editor
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
-2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
-3. Select **Blocks**, then select **Choose**.
-4. Under **Option 1**, add the conditions under **Conditions**, and the actions under **Actions**.
-5. Optional: To give the option a name, select **Menu** {% icon "mdi:dots-vertical" %} > **Rename option**.
-6. Optional: To add another option, select **Add option**.
-7. Optional: To add actions that run if no option matches, select **Add default actions**.
-8. Select **Save**.
-
+<a id="adding-choose-in-the-editor"></a>
 <a id="choose-options-in-the-ui"></a>
-
-#### Options in the UI
-
-{% options_ui %}
-Conditions:
-  description: The [conditions](/docs/scripts/conditions/) of the option. The option is used if all conditions are met.
-  required: true
-Actions:
-  description: The actions to run if the option is used.
-  required: true
-Default actions:
-  description: The actions to run if no option matches.
-  required: false
-{% endoptions_ui %}
-
-### Choose in YAML
-
-In YAML, use `choose` with a list of options, each with `conditions` and a `sequence`. Optionally, add a `default` sequence. This works like "if, else if, else". This example runs a different script in the morning, during the day, and at night:
-
-{% example %}
-automation: |
-  triggers:
-    - trigger: state
-      entity_id: input_boolean.simulate
-      to: "on"
-  mode: restart
-  actions:
-    - choose:
-        # IF morning
-        - conditions:
-            - condition: template
-              value_template: "{{ now().hour < 9 }}"
-          sequence:
-            - action: script.sim_morning
-        # ELIF day
-        - conditions:
-            - condition: template
-              value_template: "{{ now().hour < 18 }}"
-          sequence:
-            - action: light.turn_off
-              target:
-                entity_id: light.living_room
-            - action: script.sim_day
-      # ELSE night
-      default:
-        - action: light.turn_off
-          target:
-            entity_id: light.kitchen
-        - delay:
-            minutes: "{{ range(1, 11) | random }}"
-        - action: light.turn_off
-          target:
-            entity_id: all
-{% endexample %}
-
+<a id="choose-in-yaml"></a>
 <a id="choose-options-in-yaml"></a>
+<a id="good-to-know-about-choose"></a>
+<a id="examples-of-choose"></a>
+<a id="automation-run-a-different-script-depending-on-the-home-mode"></a>
+<a id="automation-turn-on-lights-in-rooms-that-are-in-use"></a>
 
-#### Options in YAML
+The **Choose** building block has several options, each with its own conditions and actions. For the steps, options, and examples, refer to [Choose](/building-blocks/choose/).
 
-{% options_yaml %}
-choose:
-  description: The list of options.
-  required: true
-  type: list
-  keys:
-    alias:
-      description: The name of the option.
-      required: false
-      type: string
-    conditions:
-      description: The conditions of the option. The option is used if all conditions are met. You can also use a template.
-      required: true
-      type: [list, template]
-    sequence:
-      description: The actions to run if the option is used.
-      required: true
-      type: list
-default:
-  description: The actions to run if no option matches.
-  required: false
-  type: list
-{% endoptions_yaml %}
-
-### Good to know about Choose
-
-- Only the first option whose conditions are met runs, even if the conditions of later options are also met.
-- To check several things that don't depend on each other, use a separate **Choose** for each, one after the other. For an example, refer to [Automation: turn on lights in rooms that are in use](#automation-turn-on-lights-in-rooms-that-are-in-use).
-
-### Examples of Choose
-
-#### Automation: run a different script depending on the home mode
-
-When the home mode changes, this automation runs a different script depending on the new mode. The conditions use the [shorthand notation of a template condition][shorthand-template].
-
-{% details "YAML example" %}
-
-{% example %}
-automation: |
-  triggers:
-    - trigger: state
-      entity_id: input_select.home_mode
-  actions:
-    - choose:
-        - conditions: >
-            {{ trigger.to_state.state == 'Home' and
-               is_state('binary_sensor.all_clear', 'on') }}
-          sequence:
-            - action: script.arrive_home
-              data:
-                ok: true
-        - conditions: >
-            {{ trigger.to_state.state == 'Home' and
-               is_state('binary_sensor.all_clear', 'off') }}
-          sequence:
-            - action: script.turn_on
-              target:
-                entity_id: script.flash_lights
-            - action: script.arrive_home
-              data:
-                ok: false
-        - conditions: "{{ trigger.to_state.state == 'Away' }}"
-          sequence:
-            - action: script.left_home
-{% endexample %}
-
-{% enddetails %}
-
-#### Automation: turn on lights in rooms that are in use
-
-When the sun gets low, this automation turns on the porch and garden lights. If the TV in the living room is on, someone is probably in that room, so it also turns on the living room lights. The same goes for the computer in the studio. The two **Choose** building blocks don't depend on each other.
-
-- **Trigger**: Numeric state crossed threshold
-  - **Entity**: Sun (`sun.sun`), attribute **Elevation**
-  - **Below**: 4
-- **Action**: Turn on the porch and garden lights
-- **Action**: Choose
-  - **Conditions**: The living room TV is on
-  - **Actions**: Turn on the living room lights
-- **Action**: Choose
-  - **Conditions**: The studio computer is on
-  - **Actions**: Turn on the studio lights
-
-{% details "YAML example" %}
-
-{% example %}
-automation: |
-  alias: "Turn lights on when the sun gets dim and if some room is occupied"
-  triggers:
-    - trigger: numeric_state
-      entity_id: sun.sun
-      attribute: elevation
-      below: 4
-  actions:
-    # This must always apply
-    - action: light.turn_on
-      data:
-        brightness: 255
-        color_temp_kelvin: 2732
-      target:
-        entity_id:
-          - light.porch
-          - light.garden
-    # IF an entity is ON
-    - choose:
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.livingroom_tv
-              state: "on"
-          sequence:
-            - action: light.turn_on
-              data:
-                brightness: 255
-                color_temp_kelvin: 2732
-              target:
-                entity_id: light.livingroom
-    # IF another entity not related to the previous, is ON
-    - choose:
-        - conditions:
-            - condition: state
-              entity_id: binary_sensor.studio_pc
-              state: "on"
-          sequence:
-            - action: light.turn_on
-              data:
-                brightness: 255
-                color_temp_kelvin: 2732
-              target:
-                entity_id: light.studio
-{% endexample %}
-
-{% enddetails %}
 
 <a id="test-a-condition"></a>
 
 ## Condition
 
-<!-- future frontmatter:
-title: "Condition"
-building_block: condition
-description: "Continue the automation or script only if a condition is met."
-related_building_blocks: [if, choose, stop]
--->
-
-The **Condition** building block checks a condition in the middle of a sequence. If the condition is met, the next steps run. If it is not met, the sequence stops. Use it when the next steps should only run in certain situations, for example, only when someone is home.
-
-### Adding Condition in the editor
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
-2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
-3. Select **Blocks**, then select **Condition**.
-4. In **Condition type**, select the condition to check, for example, **State**, and fill in its options.
-5. Select **Save**.
-
+<a id="adding-condition-in-the-editor"></a>
 <a id="condition-options-in-the-ui"></a>
-
-#### Options in the UI
-
-{% options_ui %}
-Condition type:
-  description: The condition to check. Each condition type has its own options. For the available conditions, refer to the [list of available conditions](/conditions/).
-  required: true
-{% endoptions_ui %}
-
-### Condition in YAML
-
-In YAML, use `condition` with the condition type and its options. For the available conditions, refer to the [conditions page]. This example only continues if Paulus is home:
-
-{% example %}
-action: |
-  alias: "Check if Paulus is home"
-  condition: state
-  entity_id: device_tracker.paulus
-  state: "home"
-{% endexample %}
-
-`condition` can also be a list of conditions. The sequence then only continues if all conditions are met:
-
-{% example %}
-action: |
-  alias: "Check if Paulus is home and the temperature is below 20"
-  condition:
-    - condition: state
-      entity_id: device_tracker.paulus
-      state: "home"
-    - condition: numeric_state
-      entity_id: sensor.temperature
-      below: 20
-{% endexample %}
-
+<a id="condition-in-yaml"></a>
 <a id="condition-options-in-yaml"></a>
+<a id="good-to-know-about-condition"></a>
 
-#### Options in YAML
+The **Condition** building block checks a condition in the middle of a sequence. For the steps, options, and examples, refer to [Condition](/building-blocks/condition/).
 
-{% options_yaml %}
-condition:
-  description: The condition type, for example, `state`, followed by the options of that condition. Or a list of conditions, which must all be met, or a template.
-  required: true
-  type: [string, list, template]
-{% endoptions_yaml %}
-
-### Good to know about Condition
-
-- **Condition** only stops the sequence it is in. Inside another building block, it only stops the actions of that building block. For example, inside a [**Repeat**](#repeat-multiple-times) building block, it only stops the current round of the repeat. Inside [**Choose**](#choose), it only stops the actions of that option. Inside [**Run in parallel**](#run-in-parallel), it only stops its own branch.
-- To run different actions depending on whether the condition is met, use [**If-then**](#if-then) or [**Choose**](#choose) instead.
-- The condition checks the state at the moment the step runs. It isn't checked again later, so the sequence doesn't continue when the condition is met later. For more, refer to [Conditions check the current state](/docs/automation/how-automations-react-to-changes/#conditions-check-the-current-state).
 
 <a id="variables"></a>
 
@@ -657,86 +395,14 @@ script: |
 
 ## If-then
 
-<!-- future frontmatter:
-title: "If-then"
-building_block: if
-description: "Run actions only if conditions are met, and other actions if they are not."
-related_building_blocks: [choose, condition]
--->
-
-The **If-then** building block runs actions only if its conditions are met. Optionally, it runs other actions if they are not met. Use it when the automation or script should do something different depending on the situation, for example, start the vacuum only when no one is home.
-
-### Adding If-then in the editor
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
-2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
-3. Select **Blocks**, then select **If-then**.
-4. Under **If**, select **Add condition**, and add the conditions to check.
-5. Under **Then**, select **Add action**, and add the actions to run if all conditions are met.
-6. Optional: Under **Else**, select **Add action**, and add the actions to run if the conditions are not met.
-7. Select **Save**.
-
+<a id="adding-if-then-in-the-editor"></a>
 <a id="if-then-options-in-the-ui"></a>
-
-#### Options in the UI
-
-{% options_ui %}
-If:
-  description: The [conditions](/docs/scripts/conditions/) to check. All conditions must be met.
-  required: true
-Then:
-  description: The actions to run if all conditions are met.
-  required: true
-Else:
-  description: The actions to run if the conditions are not met.
-  required: false
-{% endoptions_ui %}
-
-### If-then in YAML
-
-In YAML, use `if`, `then`, and optionally `else`:
-
-{% example %}
-action: |
-  if:
-    - alias: "If no one is home"
-      condition: state
-      entity_id: zone.home
-      state: "0"
-  then:
-    - alias: "Then start cleaning already!"
-      action: vacuum.start
-      target:
-        area_id: living_room
-  else:
-    - action: notify.notify
-      data:
-        message: "Skipped cleaning, someone is home!"
-{% endexample %}
-
+<a id="if-then-in-yaml"></a>
 <a id="if-then-options-in-yaml"></a>
+<a id="good-to-know-about-if-then"></a>
 
-#### Options in YAML
+The **If-then** building block runs actions only if its conditions are met. For the steps, options, and examples, refer to [If-then](/building-blocks/if/).
 
-{% options_yaml %}
-if:
-  description: The conditions to check. All conditions must be met. You can also use a template.
-  required: true
-  type: [list, template]
-then:
-  description: The actions to run if all conditions are met.
-  required: true
-  type: list
-else:
-  description: The actions to run if the conditions are not met.
-  required: false
-  type: list
-{% endoptions_yaml %}
-
-### Good to know about If-then
-
-- All conditions under **If** must be met. To run the actions if any of them is met, put them in an **Or** condition.
-- You can put an **If-then** inside another **If-then**. If you find yourself adding more **If-then** building blocks under **Else**, use [**Choose**](#choose) instead.
 
 <a id="repeat-a-group-of-actions"></a>
 <a id="for-each"></a>
@@ -1415,145 +1081,16 @@ script: |
 
 ## Stop
 
-<!-- future frontmatter:
-title: "Stop"
-building_block: stop
-description: "Stop the automation or script, optionally with a response or as an error."
-related_building_blocks: [condition, if]
--->
-
-The **Stop** building block stops the automation or script. The next steps don't run. Use it to end a run early, for example, inside an **If-then** when something is not as expected. A script can also use it to return a response.
-
-### Adding Stop in the editor
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
-2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
-3. Select **Blocks**, then select **Stop**.
-4. Optional: In **Reason for stopping**, enter why the run stops. The reason is shown in the logs and in the [trace](/docs/automation/testing/#traces).
-5. Optional: To return a response from a script, in **The name of the variable to use as response**, enter the name of the variable that holds the response.
-6. Optional: To mark the run as failed, turn on **Stop because of an unexpected error**.
-7. Select **Save**.
-
+<a id="adding-stop-in-the-editor"></a>
 <a id="stop-options-in-the-ui"></a>
-
-#### Options in the UI
-
-{% options_ui %}
-Reason for stopping:
-  description: Why the run stops. Shown in the logs and in the trace.
-  required: false
-The name of the variable to use as response:
-  description: The variable that holds the response of the script. The variable must contain a mapping of keys and values. You can't use it together with **Stop because of an unexpected error**.
-  required: false
-Stop because of an unexpected error:
-  description: If turned on, the run is marked as failed. Turned off by default.
-  required: false
-{% endoptions_ui %}
-
-### Stop in YAML
-
-In YAML, use `stop` with the reason:
-
-{% example %}
-action: |
-  stop: "Stop running the rest of the sequence"
-{% endexample %}
-
-To return a response from a script, add `response_variable` with the name of the variable that holds the response:
-
-{% example %}
-action: |
-  stop: "Stop running the rest of the sequence"
-  response_variable: "my_response_variable"
-{% endexample %}
-
-To mark the run as failed, add `error: true`:
-
-{% example %}
-action: |
-  stop: "Well, that was unexpected!"
-  error: true
-{% endexample %}
-
+<a id="stop-in-yaml"></a>
 <a id="stop-options-in-yaml"></a>
+<a id="good-to-know-about-stop"></a>
+<a id="examples-of-stop"></a>
+<a id="script-and-automation-return-the-outdoor-temperature-from-a-script"></a>
 
-#### Options in YAML
+The **Stop** building block stops the automation or script. For the steps, options, and examples, refer to [Stop](/building-blocks/stop/).
 
-{% options_yaml %}
-stop:
-  description: >
-    Why the run stops. Shown in the logs and in the trace. You must add `stop`, but you can leave the reason empty, for example, `stop: ""`.
-  required: true
-  type: string
-response_variable:
-  description: The name of the variable that holds the response of the script. The variable must contain a mapping of keys and values. You can't combine it with `error`.
-  required: false
-  type: string
-error:
-  description: If `true`, the run is marked as failed.
-  required: false
-  type: boolean
-  default: false
-{% endoptions_yaml %}
-
-### Good to know about Stop
-
-- **Stop** ends the whole run, not only the current building block. Inside **Run in parallel**, the other actions that already started still finish.
-- To only stop the steps that follow in the current sequence when something is not true, use a [**Condition**](#condition) building block instead.
-- If the variable in **The name of the variable to use as response** doesn't exist, the run stops with an error.
-
-### Examples of Stop
-
-#### Script and automation: return the outdoor temperature from a script
-
-The script `get_outdoor_temperature` puts the outdoor temperature in a variable, and returns it with **Stop**. The automation calls the script every morning, receives the response in its own variable, and sends it in a notification.
-
-To receive a response, the automation must call the script directly, as `script.get_outdoor_temperature`. The `script.turn_on` action doesn't wait for the script and doesn't return a response. For details, refer to [Waiting for a script to complete](/docs/script/#waiting-for-a-script-to-complete).
-
-- **Script**: Get outdoor temperature
-  - **Action**: Define variables, with `result` set to the temperature
-  - **Action**: Stop
-    - **Reason for stopping**: Return the outdoor temperature
-    - **The name of the variable to use as response**: `result`
-- **Automation**: Morning temperature
-  - **Trigger**: Time, at 07:00
-  - **Action**: Get outdoor temperature (the script)
-    - **Response variable**: `weather`
-  - **Action**: Send a notification message
-    - **Target**: My Device (`notify.my_device`)
-    - **Message**: `It's {{ weather.temperature }} °C outside.`
-
-{% details "YAML example" %}
-
-{% example %}
-script: |
-  get_outdoor_temperature:
-    alias: "Get outdoor temperature"
-    sequence:
-      - variables:
-          result:
-            temperature: "{{ states('sensor.outdoor_temperature') }}"
-      - stop: "Return the outdoor temperature"
-        response_variable: result
-{% endexample %}
-
-{% example %}
-automation: |
-  alias: "Morning temperature"
-  triggers:
-    - trigger: time
-      at: "07:00:00"
-  actions:
-    - action: script.get_outdoor_temperature
-      response_variable: weather
-    - action: notify.send_message
-      target:
-        entity_id: notify.my_device
-      data:
-        message: "It's {{ weather.temperature }} °C outside."
-{% endexample %}
-
-{% enddetails %}
 
 ## Wait for time to pass (delay)
 

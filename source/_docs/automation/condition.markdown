@@ -44,8 +44,8 @@ If an automation has several conditions, all of them must be met. To combine con
 
 You can also check a condition between the actions under **Then do**:
 
-- To stop the remaining actions when a condition isn't met, use the [**Condition**](/docs/scripts/#condition) building block.
-- To do different things depending on a condition, use [**If-then**](/docs/scripts/#if-then) or [**Choose**](/docs/scripts/#choose).
+- To stop the remaining actions when a condition isn't met, use the [**Condition**](/building-blocks/condition/) building block.
+- To do different things depending on a condition, use [**If-then**](/building-blocks/if/) or [**Choose**](/building-blocks/choose/).
 
 ## Testing conditions
 
