@@ -15,7 +15,7 @@ The **Define variables** building block sets variables that templates in the nex
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select an automation. To edit a script, go to the **Scripts** tab and select the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
 3. Select **Blocks**, then select **Define variables**.
-   - The building block opens in YAML.
+   - Result: The building block opens in YAML.
 4. Under `variables`, enter each variable as a name and a value, for example, `brightness: 100`.
 5. Select **Save**.
 
