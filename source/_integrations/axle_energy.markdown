@@ -236,7 +236,7 @@ template: |
 
 {% enddetails %}
 
-The helper updates when either source sensor changes and at the start of each minute. Its custom states are `Upcoming`, `In progress`, and `Finished`. **Finished** is shown only while Axle retains that event in its current sensor data. This helper does not keep event history.
+The helper updates when either source sensor changes and at the start of each minute. Its custom states are `Upcoming`, `In progress`, and `Finished`. **Finished** is shown only while Axle retains that event in its current sensor data. The helper uses only the current event data. Its state history is retained according to your Recorder settings.
 
 ### Minutes until an event starts
 
