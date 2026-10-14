@@ -114,7 +114,9 @@ automation: |
 
 If the blind is still closed when motion is detected, this automation turns on a nearby light so the area is easier to see.
 
-- **Trigger**: Motion detected
+- **Trigger**: State changed
+  - **Entity**: Hallway motion sensor
+  - **To**: Detected
 - **Condition**: Blind is closed
   - **Target**: Office blind
 - **Action**: Turn on light

@@ -23,6 +23,6 @@ ha_brand: true
 
 {% include integrations/wwha.md url="https://www.aqara.com/" %}
 
-## Supported devices
+## Works with Home Assistant certified devices
 
 {% include integrations/device_list.html brand="aqara" %}

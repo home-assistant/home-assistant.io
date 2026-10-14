@@ -74,7 +74,7 @@ On a scorching summer afternoon, ground-level ozone peaks just when you want fre
 - **Trigger**: Ozone level changed
 - **Target**: Outdoor ozone sensor
 - **Threshold type**: 10
-- **Action**: Select HVAC preset
+- **Action**: Set thermostat preset mode
 
 {% details "YAML example for ozone-driven HVAC recirculation" %}
 

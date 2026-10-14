@@ -49,6 +49,7 @@ The full brand personality guide is at [`personality.markdown`](https://raw.gith
 - Do not use "master/slave". Use alternatives such as "client/server", "leader/follower", "main/replica", or "controller/device".
 - Match the official capitalization of brand names, services, protocols, integrations, and platforms. For example, use "Z-Wave", not "Zwave", "Z-wave", "Z Wave", or "ZWave".
 - Follow the terminology rules listed in `.textlintrc.json`.
+- For textlint commands, follow the linting guidance in `home-assistant-markdown-liquid-style`.
 
 ## Lists
 

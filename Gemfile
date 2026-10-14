@@ -7,7 +7,7 @@ group :development do
   gem 'jekyll', '4.4.1'
   gem 'stringex', '2.8.6'
   gem 'sass-embedded', '1.105.1'
-  gem 'rubocop', '1.91.0'
+  gem 'rubocop', '1.92.0'
   gem 'ruby-lsp', '0.26.11'
   gem 'rackup', '2.3.1'
 end

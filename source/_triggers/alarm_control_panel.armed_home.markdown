@@ -83,10 +83,11 @@ for:
 When you arm the alarm in home mode for the evening, make sure every exterior door locks automatically. You settle in for the night knowing the perimeter is secure.
 
 - **Trigger**: Alarm armed home
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Lock all exterior doors
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Lock lock
+  - **Target**: All exterior doors
 
 {% details "YAML example for locking doors on home arm" %}
 
@@ -113,10 +114,12 @@ automation: |
 When you arm the alarm in home mode, dim the porch light to a gentle glow. It stays on enough to light the walkway, but signals that the house is locked up for the evening.
 
 - **Trigger**: Alarm armed home
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Dim porch light to 20%
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Turn on light
+  - **Target**: Porch light
+  - **Brightness**: `20` %
 
 {% details "YAML example for dimming porch lights" %}
 

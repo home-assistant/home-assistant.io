@@ -4,9 +4,9 @@ trigger: assist_satellite.idle
 domain: assist_satellite
 description: "Triggers when one or more Assist satellites become idle after having processed a command."
 related_triggers:
-  - assist_satellite.started_listening
-  - assist_satellite.started_processing
-  - assist_satellite.started_responding
+  - assist_satellite.listening
+  - assist_satellite.processing
+  - assist_satellite.responding
 ---
 
 The **Satellite became idle** trigger fires when one or more Assist satellite {% term entities %} return to the idle state. This happens after a voice pipeline run is fully complete: the wake word was detected, the command was listened to, processed, and the spoken response has finished playing.

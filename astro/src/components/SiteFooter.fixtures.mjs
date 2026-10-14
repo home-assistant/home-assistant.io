@@ -6,7 +6,7 @@
 // Jekyll layout leaves 64px above the skyline.
 export default {
   title: "Site footer",
-  // Full-width component: give it a whole row in the component browser.
+  // Full-width component: render it edge to edge in the component browser.
   wide: true,
   description:
     "Skyline, wordmark, link groups, social links and the contact, " +

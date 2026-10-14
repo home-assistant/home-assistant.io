@@ -85,7 +85,8 @@ Before locking up for the night, you can check that every downstairs window is a
 - **Condition**: Window is closed
 - **Target**: Downstairs windows label
 - **Condition passes if**: All
-- **Action**: Lock: Lock
+- **Action**: Lock lock
+  - **Target**: Front door lock
 
 {% details "YAML example for locking up after all windows are closed" %}
 
