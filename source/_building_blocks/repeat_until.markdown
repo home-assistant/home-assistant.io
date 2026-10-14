@@ -24,7 +24,7 @@ The **Repeat until** building block runs a group of actions until its conditions
 
 {% options_ui %}
 Until conditions:
-  description: The [conditions](/docs/scripts/conditions/) that are checked after each round. The repeat ends when all conditions are met.
+  description: The [conditions](/conditions/) that are checked after each round. The repeat ends when all conditions are met.
   required: true
 Actions:
   description: The actions to repeat.

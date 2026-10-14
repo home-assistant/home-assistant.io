@@ -4,8 +4,6 @@ description: "Conditions decide whether an automation continues after a trigger 
 related:
   - docs: /conditions/
     title: List of available conditions
-  - docs: /docs/scripts/conditions/
-    title: Conditions reference
   - docs: /docs/automation/how-automations-react-to-changes/
     title: How automations react to changes
   - docs: /docs/automation/testing/
@@ -46,6 +44,12 @@ You can also check a condition between the actions under **Then do**:
 
 - To stop the remaining actions when a condition isn't met, use the [**Condition**](/building-blocks/condition/) building block.
 - To do different things depending on a condition, use [**If-then**](/building-blocks/if/) or [**Choose**](/building-blocks/choose/).
+
+## Disabling a condition
+
+To try an automation without one of its conditions, disable the condition instead of deleting it. In the editor, in the **Menu** {% icon "mdi:dots-vertical" %} of the condition, select **Disable**. For details, refer to [Turning off a trigger, condition, or action](/docs/automation/editor/#turning-off-a-trigger-condition-or-action).
+
+A disabled condition is skipped, as if it isn't there. In YAML, add `enabled: false` to the condition. `enabled` can also be a limited template or a blueprint input. For conditions in the **And if** section, Home Assistant checks the value once, when the automation loads.
 
 ## Testing conditions
 
