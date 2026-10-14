@@ -222,7 +222,7 @@ condition:
   type: string
 target:
   required: false
-  description: The zones to match.
+  description: The zones to match. You can select zones directly, or by label, area, or floor.
   type: map
   keys:
     entity_id:
@@ -232,6 +232,14 @@ target:
     label_id:
       required: false
       description: One or more label IDs. Every zone with one of these labels is matched.
+      type: [string, list]
+    area_id:
+      required: false
+      description: One or more area IDs. Every zone in one of these areas is matched.
+      type: [string, list]
+    floor_id:
+      required: false
+      description: One or more floor IDs. Every zone in an area on one of these floors is matched.
       type: [string, list]
 match_mode:
   required: false
