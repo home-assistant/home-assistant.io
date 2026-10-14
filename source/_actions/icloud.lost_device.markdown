@@ -9,7 +9,7 @@ related_actions:
   - icloud.update
 ---
 
-The **Lost device** action puts a compatible Apple device into Lost Mode. The device shows a message and a phone number so that whoever finds it can reach you.
+The **Apple iCloud: Lost device** action puts a compatible Apple device into Lost Mode. The device shows a message and a phone number so that whoever finds it can reach you.
 
 This is useful when a device goes missing and you want to lock it and display a way to contact you.
 
@@ -93,7 +93,10 @@ message:
 
 When a device has not been home for a while, put it into Lost Mode with your contact details.
 
-- **Trigger**: A device stays away from home for an hour
+- **Trigger**: State changed
+  - **Entity**: Family ipad device tracker
+  - **To**: Away
+  - **For at least**: `01:00:00`
 - **Action**: Apple iCloud: Lost device
 
 {% details "YAML example for setting a device to lost" %}
