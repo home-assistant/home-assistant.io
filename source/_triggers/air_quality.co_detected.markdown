@@ -83,7 +83,7 @@ Imagine everyone in your home is fast asleep and carbon monoxide starts building
 
 - **Trigger**: Carbon monoxide detected
   - **Target**: All CO sensors (by label)
-- **Action**: Siren: Turn on
+- **Action**: Turn on siren
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

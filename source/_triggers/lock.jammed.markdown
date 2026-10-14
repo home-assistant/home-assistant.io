@@ -122,7 +122,7 @@ If a lock at an outside entry jams after dark, extra light can help you see what
 - **Trigger when**: Each
 - **For at least**: 00:00:10
 - **Condition**: Sun is below the horizon
-- **Action**: Turn on
+- **Action**: Turn on light
 
 {% details "YAML example for lighting the entry when a lock jams" %}
 

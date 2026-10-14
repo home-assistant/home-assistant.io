@@ -131,7 +131,7 @@ When the patio speakers stop playing, set the patio climate back to a more comfo
 
 - **Trigger**: Media player stopped playing
   - **Target**: Patio speakers
-- **Action**: Set temperature
+- **Action**: Set thermostat target temperature
   - **Target**: Patio thermostat
 
 {% details "YAML example for restoring temperature after playback stops" %}

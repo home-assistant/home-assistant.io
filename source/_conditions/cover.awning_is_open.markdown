@@ -114,7 +114,9 @@ automation: |
 
 When you leave home, this automation checks whether the awning is still open. If it is, Home Assistant sends a reminder so you can close it.
 
-- **Trigger**: Person leaves home zone
+- **Trigger**: Zone left
+  - **Target**: Morgan
+  - **Zone**: Home
 - **Condition**: Awning is open
   - **Target**: Patio awning
 - **Action**: Send a notification message
@@ -126,10 +128,11 @@ When you leave home, this automation checks whether the awning is still open. If
 automation: |
   alias: "Warn me if the awning is open when I leave home"
   triggers:
-    - trigger: zone
-      entity_id: person.morgan
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.morgan
+      options:
+        zone: zone.home
   conditions:
     - condition: cover.awning_is_open
       target:

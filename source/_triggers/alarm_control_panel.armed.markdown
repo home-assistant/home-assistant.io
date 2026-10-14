@@ -85,11 +85,13 @@ for:
 When someone arms the alarm in any mode, the house locks down. The front door locks, the living room lights turn off, and you get a quick confirmation that everything is secured.
 
 - **Trigger**: Alarm armed
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Lock the front door
-- **Action**: Turn off the living room lights
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Lock lock 
+  - **Target**: Front door
+- **Action**: Turn off light
+  - **Target**: Living room lights
 
 {% details "YAML example for locking down on arm" %}
 

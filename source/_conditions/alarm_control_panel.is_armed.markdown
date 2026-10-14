@@ -84,7 +84,8 @@ At midnight, power off standby appliances like the TV and coffee maker, but only
 - **Condition**: Alarm is armed
 - **Target**: Hallway alarm panel
 - **Condition passes if**: Any
-- **Action**: Switch: Turn off (TV, coffee maker)
+- **Action**: Turn off switch
+  - **Target**: TV plug, Coffee maker
 
 {% details "YAML example for turning off appliances when armed at midnight" %}
 

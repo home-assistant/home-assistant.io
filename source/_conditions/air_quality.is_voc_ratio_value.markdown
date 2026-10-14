@@ -82,7 +82,7 @@ behavior:
 After a full night with the door closed, the bedroom VOC ratio creeps up from off-gassing furniture and bedding. This automation triggers when your morning alarm goes off and checks the current VOC ratio. If the reading is at or above 150, you get a reminder to crack a window. On nights when you already slept with the window open, the ratio stays low and no notification is sent.
 
 - **Trigger**: Time: 07:00
-- **Condition**: Air Quality: Volatile organic compounds ratio value
+- **Condition**: Volatile organic compounds ratio value
   - **Target**: Bedroom VOC ratio sensor
   - **Threshold type**: 150
   - **Condition passes if**: Any
