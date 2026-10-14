@@ -29,7 +29,8 @@ alias:
   required: false
   type: string
 id:
-  description: A unique id for your automation, will allow you to make changes to the name and entity_id in the UI, and will enable debug traces.
+  description: >
+    A unique ID for your automation. With an ID, you can change the name and entity ID in the UI, and the automation stores debug traces. The ID must be text. To use a number, put it in quotes, for example `id: "1700000000000"`.
   required: false
   type: string
 description:
@@ -38,10 +39,10 @@ description:
   default: ''
   type: string
 initial_state:
-  description: Used to define the state of your automation at startup. When not set, the state will be restored from the last run. See [Automation initial state](#automation-initial-state).
+  description: Used to define the state of your automation at startup. When not set, the state will be restored from the last run. If there is no state to restore, the automation is turned on. See [Automation initial state](#automation-initial-state).
   required: false
   type: boolean
-  default: Restored from last run
+  default: Restored from last run, otherwise `true`
 trace:
   description: "Configuration values for the traces stored, currently only `stored_traces` can be configured."
   required: false
@@ -63,7 +64,7 @@ variables:
       description: "The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable."
       type: any
 trigger_variables:
-  description: "Variables that will be available inside your [templates triggers](/docs/automation/trigger/#template-trigger)."
+  description: "Variables that you can use in the [limited templates](/docs/templating/where-to-use/#limited-templates) of all triggers, for example, in a [template trigger](/docs/automation/trigger/#template-trigger), in the `enabled` option of a trigger, in the `event_type` of an event trigger, in the `webhook_id` of a webhook trigger, or in the `topic` of an MQTT trigger. Home Assistant sets them when it sets up the triggers, for example, when it loads the automation or when you turn the automation on."
   required: false
   default: {}
   type: map
@@ -77,7 +78,7 @@ mode:
   type: string
   default: single
 max:
-  description: "Controls maximum number of runs executing and/or queued up to run at a time. Only valid with modes `queued` and `parallel`."
+  description: "Controls maximum number of runs executing and/or queued up to run at a time. Only valid with modes `queued` and `parallel`. The minimum is 2."
   required: false
   type: integer
   default: 10
@@ -91,10 +92,19 @@ triggers:
   required: true
   type: list
   keys:
-    id:
-      description: "An ID that can be used in the automation to determine which trigger caused the automation to start."
+    alias:
+      description: "A name for the trigger. It's shown in the automation editor and in the trace."
       type: string
       required: false
+    id:
+      description: "An ID that can be used in the automation to determine which trigger caused the automation to start. The ID must be text. To use a number, put it in quotes."
+      type: string
+      required: false
+    enabled:
+      description: "Set to `false` to disable the trigger. You can also use a [limited template](/docs/templating/where-to-use/#limited-templates). For details, refer to [Disabling a trigger](/docs/automation/trigger/#disabling-a-trigger)."
+      type: [boolean, template]
+      required: false
+      default: true
     variables:
       description: "Variables that will be available in the conditions and action sequence."
       required: false
