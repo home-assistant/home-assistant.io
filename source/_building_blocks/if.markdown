@@ -12,7 +12,7 @@ The **If-then** building block runs actions only if its conditions are met. Opti
 
 ## Using this building block from the user interface
 
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select an automation. To edit a script, go to the **Scripts** tab and select the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
 3. Select **Blocks**, then select **If-then**.
 4. Under **If**, select **Add condition**, and add the conditions to check.
