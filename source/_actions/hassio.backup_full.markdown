@@ -130,7 +130,7 @@ Create a full backup whenever an update for Home Assistant Core becomes availabl
 
 - **Trigger**: State changed
   - **Entity**: Home Assistant core update
-  - **To**: On
+  - **To**: Update available
 - **Action**: Home Assistant Supervisor: Create a full backup
   - **Name**: `Before core update`
 
