@@ -943,7 +943,7 @@ Device:
 Availability:
   description: A template that gets the available state of the entity.
 Supported speeds:
-  description: The speeds the cover supports. If set, the actions on open, close, and set position receive the requested speed in the variable `speed`. You find this option under **Additional options**.
+  description: The speeds the cover supports. If set, the actions on open, close, and set position receive the requested speed in the variable `speed`, which is `none` if no speed was requested. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
