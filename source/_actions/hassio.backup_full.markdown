@@ -129,7 +129,7 @@ automation: |
 Create a full backup whenever an update for Home Assistant Core becomes available, so you can roll back if the update causes trouble.
 
 - **Trigger**: State changed
-  - **Entity**: Home assistant core update
+  - **Entity**: Home Assistant core update
   - **To**: On
 - **Action**: Home Assistant Supervisor: Create a full backup
   - **Name**: `Before core update`
