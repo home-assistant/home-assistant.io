@@ -21,7 +21,7 @@ related:
 
 [ecosmart](https://www.ecosmart.co.nz/) is a New Zealand electricity retailer that passes the half-hourly wholesale (spot) price of electricity straight through to its customers.
 
-The **ecosmart** {% term integration %} brings that price, and the published forward curve, into Home Assistant, so you can move consumption into the cheap half hours.
+The **ecosmart** {% term integration %} brings that price into Home Assistant, so you can move consumption into the cheap half hours.
 
 ecosmart publishes the price signal. It never controls your inverter, battery, or charger.
 
@@ -48,39 +48,25 @@ API key:
 
 The integration creates one service device for every <abbr title="Installation Control Point">ICP</abbr> the API key can reach. An ICP is the fifteen-character number that identifies a New Zealand electricity connection, and it appears on your bill. If you have several properties, you get one device per property, each named by its ICP and modeled by its grid exit point, which is the substation where the local network draws power off the national grid.
 
-Every device carries two sensors. Both report cents per kWh including <abbr title="goods and services tax">GST</abbr>, the unit New Zealand power bills are written in. Prices can be negative when the market is oversupplied. That is genuine, and the sensors pass it straight through.
+Every device carries one sensor. It reports cents per kWh including <abbr title="goods and services tax">GST</abbr>, the unit New Zealand power bills are written in. Prices can be negative when the market is oversupplied. That is genuine, and the sensor passes it straight through.
 
 ### Sensors
 
 - **Spot price**
   - **Description**: The wholesale price at your grid exit point right now.
-  - **Attributes**:
-    - `price_cents_per_kwh_excl_gst`: the same price excluding GST.
-    - `price_dollars_per_mwh`: the same price in dollars per megawatt hour, the unit the wholesale market itself quotes.
-    - `observed_at`: when the market published this price, in <abbr title="Coordinated Universal Time">UTC</abbr>.
-    - `gst_rate_percent`: the GST rate applied.
-- **Forecast price**
-  - **Description**: The forecast price for the half hour now in progress, taken from the published forward schedules.
-  - **Attributes**:
-    - `points`: the whole published curve, up to 48 hours ahead. Each point carries `starts_at`, `trading_date`, `trading_period`, `schedule`, and the price including GST, excluding GST, and in dollars per megawatt hour.
-    - `covered_hours`: how far the curve actually reaches. This is usually well short of 48 hours, and it is the number to trust. Do not assume the requested horizon.
-    - `published_at`: when the schedule behind the forecast was published, in UTC.
-  - **Remarks**: The `points` attribute is excluded from the recorder. It holds up to 96 entries, it is republished every half hour, and once superseded it has no value worth storing.
 
 ## Data updates
 
 The integration {% term polling polls %} the ecosmart API for each grid exit point rather than for each ICP, so several properties behind the same substation share one request.
 
-- The spot price is republished by the market roughly every five minutes and is polled on the same cadence.
-- The forecast is polled every 30 minutes.
+The market republishes the spot price roughly every five minutes, and the integration polls on the same cadence.
 
 ## Known limitations
 
-Neither sensor guesses. When it does not have a value it can stand behind, it reports `unavailable`, and your automations should handle that.
+The sensor does not guess. When it does not have a value it can stand behind, it reports `unavailable`, and your automations should handle that.
 
 - The spot price is unavailable when the most recent published price is stale, or carries no value. A price more than about fifteen minutes old must never be what tells a battery to charge.
-- The forecast price is unavailable when the market has published nothing reaching this far ahead.
-- Both sensors are unavailable while the ecosmart API cannot be reached, and they recover on the next successful poll.
+- The spot price is unavailable while the ecosmart API cannot be reached, and it recovers on the next successful poll.
 
 Re-authentication is not supported yet. If a newer key has replaced the one Home Assistant holds, remove the integration and add it again with the current key.
 
@@ -90,7 +76,7 @@ Re-authentication is not supported yet. If a newer key has replaced the one Home
 
 The key is valid, but no property is attached to it yet. This is normal while a switch to ecosmart is still in progress. Try again once the property is live.
 
-### The sensors stopped updating and the entry reports an authentication failure
+### The sensor stopped updating and the entry reports an authentication failure
 
 The API key was replaced. Creating a key anywhere else disables the key Home Assistant is using. Remove the integration, create a new key in the ecosmart app, and add the integration again. Entity IDs are derived from the ICP, so they come back identical and your automations keep working.
 
