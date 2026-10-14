@@ -100,11 +100,11 @@ When a message arrives from a chat integration, forward its text to the conversa
 - **Trigger**: Manual event received
   - **Event type**: `chat_message_received`
 - **Action**: Process conversation
-  - **Text**: `{{ trigger.event.data.message }}`
+  - **Text**: {% raw %}`{{ trigger.event.data.message }}`{% endraw %}
   - **Response variable**: `agent_response`
 - **Action**: Send a notification message
   - **Target**: My chat
-  - **Message**: `{{ agent_response.response.speech.plain.speech }}`
+  - **Message**: {% raw %}`{{ agent_response.response.speech.plain.speech }}`{% endraw %}
 
 {% details "YAML example for replying to a received message" %}
 
