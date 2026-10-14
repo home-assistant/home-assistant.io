@@ -31,6 +31,8 @@ Other SenseCAP models are not supported by this integration.
 
 Set up a LoRaWAN connection integration, such as [ChirpStack](/integrations/chirpstack/), and select the applications containing your sensors. Devices must have a recognized SenseCAP manufacturer and model identity in the backend's device catalog.
 
+The connection must be available and expose at least one S2101 or S2102 before you can add SenseCAP.
+
 For ChirpStack, use the global device profile for the S2101 or S2102. A custom profile without the corresponding catalog identity cannot be identified automatically.
 
 {% include integrations/config_flow.md %}
