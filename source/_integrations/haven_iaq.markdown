@@ -5,11 +5,11 @@ ha_category:
   - Health
   - Sensor
 ha_config_flow: true
-ha_release: 2026.10
+ha_release: "2026.11"
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@krhtzoa'
-ha_domain: haven
+ha_domain: haven_iaq
 ha_platforms:
   - sensor
 ha_integration_type: device
