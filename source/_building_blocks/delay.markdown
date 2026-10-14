@@ -71,7 +71,7 @@ delay:
 
 ## Examples
 
-### Automation: turn off the light 5 minutes after the last motion
+### Automation: Turn off the light 5 minutes after the last motion
 
 When the hallway motion sensor detects motion, this automation turns on the hallway light, waits 5 minutes, and turns the light off again. The automation uses the **Restart** [mode](/docs/automation/modes/): each time the sensor detects new motion, the automation starts over, and the 5 minutes start again. With the default **Single** mode, the light turns off 5 minutes after the first motion, even if the sensor detects new motion in the meantime.
 

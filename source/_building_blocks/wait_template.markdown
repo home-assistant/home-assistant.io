@@ -88,7 +88,7 @@ After the wait ends, because the template is true or because the timeout ended, 
 
 ## Examples
 
-### Script: take different actions depending on whether the door opened
+### Script: Take different actions depending on whether the door opened
 
 This script waits up to 10 seconds for the door to open, and then uses `wait.completed` to decide what to do.
 

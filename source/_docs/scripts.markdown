@@ -1567,7 +1567,6 @@ automation: |
 
 The **Wait for time to pass (delay)** building block pauses the automation or script for a set time. For the steps, options, and examples, refer to [Wait for time to pass (delay)](/building-blocks/delay/).
 
-
 <a id="wait"></a>
 
 ## Wait for a template
