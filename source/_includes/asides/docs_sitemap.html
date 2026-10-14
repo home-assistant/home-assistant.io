@@ -1,9 +1,10 @@
 {%- comment -%}
-  The automation branch stays open on the trigger, condition, and action
-  reference pages, so you keep the automation context when you browse them.
+  The automation branch stays open on the trigger, condition, action, and
+  building block reference pages, so you keep the automation context when you
+  browse them.
 {%- endcomment -%}
 {%- assign in_automation_reference = false -%}
-{%- if root == 'triggers' or root == 'conditions' or root == 'actions' -%}
+{%- if root == 'triggers' or root == 'conditions' or root == 'actions' or root == 'building-blocks' -%}
   {%- assign in_automation_reference = true -%}
 {%- endif -%}
 
@@ -63,8 +64,17 @@
     </li>
     <li>
       {% icon "mdi:script-text" %} {% active_link /docs/scripts/ Building blocks and actions %}
-      {% if doc == 'scripts' or include.docs_index %}
+      {% if doc == 'scripts' or root == 'building-blocks' or include.docs_index %}
       <ul>
+        <li>
+          {% active_link /building-blocks/ All building blocks %}
+          <ul>
+            {%- assign sitemap_building_blocks = site.building_blocks | sort: "title" -%}
+            {%- for block in sitemap_building_blocks %}
+            <li>{% active_link {{block.url}} {{block.title}} %}</li>
+            {%- endfor %}
+          </ul>
+        </li>
         <li>{% active_link /docs/scripts/perform-actions/ Performing actions %}</li>
         <li>{% active_link /docs/scripts/conditions/ Conditions %}</li>
       </ul>
