@@ -20,6 +20,7 @@ ha_category:
   - Switch
   - Update
   - Vacuum
+  - Water heater
   - Weather
 ha_release: 0.12
 ha_iot_class: Local Push
@@ -46,6 +47,7 @@ ha_platforms:
   - switch
   - update
   - vacuum
+  - water_heater
   - weather
 ha_integration_type: helper
 ha_config_flow: true
@@ -85,6 +87,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 - [Update](#update)
 - [Vacuum](#vacuum)
+- [Water heater](#water-heater)
 - [Weather](#weather)
 
 {% include integrations/config_flow.md %}
