@@ -55,12 +55,11 @@ This action has no additional options in YAML.
 
 Take a new image with a Blink camera and then save it to a local file using the [camera snapshot](/integrations/camera/#action-snapshot) action.
 
-- **Trigger**: whatever should start the snapshot, such as a motion sensor
-  - **Action 1**: Blink: Trigger camera
-    - **Target**: Front door camera
-  - **Action 2**: Camera: Take snapshot
-    - **Target**: Front door camera
-    - **Filename**: the path where the image is saved
+- **Action 1**: Blink: Trigger camera
+  - **Target**: Front door camera
+- **Action 2**: Camera: Take snapshot
+  - **Target**: Front door camera
+  - **Filename**: the path where the image is saved
 
 {% details "YAML example for taking a picture and saving it locally" %}
 
