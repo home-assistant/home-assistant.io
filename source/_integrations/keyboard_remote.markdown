@@ -32,7 +32,7 @@ Before setting up the integration, make sure you meet the following requirements
 
 {% configuration_basic %}
 Input device:
-  description: "The input device to use. The dropdown lists the connected devices that can send key events and are not set up yet. A device with a `/dev/input/by-id/` link is shown as `Device Name (link-name)` and is identified by that link. A device without one, such as a Bluetooth remote or a PS/2 keyboard, is shown as `Device Name (address)`, or as `Device Name (eventN)` if it reports no address, and is identified by its address and name. If your device is not listed, see [Device not listed during setup](#device-not-listed-during-setup). Add a separate integration entry for each device you want to use."
+  description: "The input device to use. The dropdown lists the connected devices that can send key events and are not set up yet. A device with a `/dev/input/by-id/` link is shown as `Device Name (link-name)` and is identified by that link. A device without one, such as a Bluetooth remote or a PS/2 keyboard, is shown as `Device Name (address)` and is identified by its address and name. If it reports no address, it is shown as `Device Name (eventN)` and is identified by name alone. If your device is not listed, see [Device not listed during setup](#device-not-listed-during-setup). Add a separate integration entry for each device you want to use."
 {% endconfiguration_basic %}
 
 ## Configuration options
@@ -55,12 +55,12 @@ Key hold repeat interval:
 The integration does not create any entities. Instead, it fires events on the Home Assistant event bus that you can use as triggers in your automations.
 
 {% tip %}
-To discover the key codes for your device, go to {% my developer_events title="**Settings** > **Developer tools** > **Events**" %}. In the **Listen to events** section, enter `keyboard_remote_command_received` and select **Start listening**. Then press a key on your device to see its key code and other event data.
+To discover the key codes for your device, go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}. In the **Listen to events** section, enter `keyboard_remote_command_received` and select **Start listening**. Then press a key on your device to see its key code and other event data.
 {% endtip %}
 
 ### Keyboard remote command received
 
-The `keyboard_remote_command_received`event is fired whenever a key event occurs that matches your configured event types.
+The `keyboard_remote_command_received` event is fired whenever a key event occurs that matches your configured event types.
 
 - `key_code` — The numeric key code (evdev) for the key involved in the event
 - `type` — The event type: `key_up`, `key_down`, or `key_hold`
@@ -85,9 +85,9 @@ The `keyboard_remote_disconnected` event is fired when a configured device is di
 
 ## Automation examples
 
-### Triggering an automation on a key press
+### Automation: Triggering an automation when a key is released
 
-The following example turns on all lights when a specific key is pressed on a specific device:
+The following example turns on all lights when a specific key is released on a specific device:
 
 ```yaml
 automation:
@@ -254,7 +254,7 @@ services:
       - /dev/input:/dev/input/ # this is needed to read input events.
     restart: unless-stopped
     device_cgroup_rules:
-      # allow creation of /dev/input/* with mknod
+      # Allow creation of /dev/input/* with mknod
       - 'c 13:* rmw'
     devices:
       # since input id may change, pass them all in
