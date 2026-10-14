@@ -75,7 +75,7 @@ While the actions repeat, the `repeat` variable shows which round is running. Yo
 
 ## Examples
 
-### Automation: repeat a command until it works
+### Automation: Repeat a command until it works
 
 When `binary_sensor.xyz` turns on, this automation runs a shell command, and repeats it until `binary_sensor.something` is on.
 

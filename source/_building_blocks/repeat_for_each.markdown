@@ -104,7 +104,7 @@ While the actions repeat, the `repeat` variable shows which item is used:
 
 ## Examples
 
-### Automation: send a notification for each sensor with low battery
+### Automation: Send a notification for each sensor with low battery
 
 Every evening, this automation goes through all entities with the {% term label %} "Battery check", and sends a separate notification for each one that is below 20%. The notification includes the name of the sensor. Create the label yourself, and add it to your battery sensors, in {% my labels title="**Settings** > **Areas, labels & zones** > **Labels**" %}.
 
