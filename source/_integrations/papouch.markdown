@@ -36,18 +36,7 @@ Currently, only Ethernet devices in **WEB** mode are supported. The integration 
 
 ## Configuration
 
-{% configuration_basic %}
-IP address:
-  description: The IP address of your Papouch device on the local network.
-Polling interval:
-  description: The frequency in seconds at which Home Assistant will fetch new data from the device.
-Password:
-  description: An optional password to access the device if authentication is enabled.
-{% endconfiguration_basic %}
-
-Setup:
-
-1. Enter the device's IP address, your preferred polling interval, and the admin password (if set).
+1. Enter the device's IP address, HTTP port (default is 80) and the admin password (if set).
 2. In the final step, you can assign the device to an area and customize its name.
 
 {% note %}
