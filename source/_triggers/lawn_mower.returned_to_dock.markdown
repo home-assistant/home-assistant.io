@@ -26,6 +26,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple lawn mowers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted mower docks, **First** to fire only when the first targeted mower docks, or **All** to fire only after every targeted mower has docked.
+  required: false
 For at least:
   description: How long the mower must stay docked before the trigger fires. Leave it at zero to fire immediately.
 {% endoptions_ui %}

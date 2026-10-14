@@ -81,7 +81,7 @@ for:
 
 If rain starts while the mower is active, check that it is really mowing before sending it back to the dock.
 
-- **Trigger**: State: Rain sensor turned on
+- **Trigger**: State changed: Rain sensor turned on
 - **Condition**: Lawn mower is mowing
   - **Target**: Backyard mower
 - **Action**: Return lawn mower to dock
@@ -111,7 +111,7 @@ automation: |
 
 If guests are about to arrive in the backyard, only pause the mower if it is actually mowing at that moment.
 
-- **Trigger**: State: Gate opened
+- **Trigger**: State changed: Gate opened
 - **Condition**: Lawn mower is mowing
   - **Target**: Backyard mower
   - **For at least**: 00:02:00

@@ -5,6 +5,7 @@ domain: ai_task
 description: "Uses AI to generate an image from a set of instructions."
 related_actions:
   - ai_task.generate_data
+  - ai_task.clear_images
 ---
 
 The **Generate image** action uses AI to generate an image from a set of instructions, and returns information about the result as response data. The generated image is also saved in the first media directory, so you can browse it with the [Media source](/integrations/media_source/) integration.
@@ -97,6 +98,8 @@ The response data is a mapping with the following fields:
 ## Good to know
 
 The image is saved in the first media directory and can be browsed with the [Media source](/integrations/media_source/) integration. Files are named using the format `{date}_{time}_{sanitized_task_name}.{ext}`, for example `2025-01-19_123456_home-security-camera.png`.
+
+Home Assistant doesn't delete these images on its own. To remove old ones, use the [Clear images](/actions/ai_task.clear_images/) action.
 
 {% include actions/try_it.md %}
 

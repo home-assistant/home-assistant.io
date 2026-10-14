@@ -154,6 +154,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 - [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
 - [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
+- RGBICWW Light Bars
 - [Permanent Outdoor Light](https://www.switch-bot.com/products/switchbot-permanent-outdoor-light)
 - [Candle Warmer Lamp](https://www.switch-bot.com/products/switchbot-candle-warmer-lamp)
 
@@ -196,6 +197,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 ### Fans
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
+- [Circulator Fan Pro](https://www.switch-bot.com/products/switchbot-battery-circulator-fan-2-pro)
 
 ### Vacuums
 - [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
@@ -576,6 +578,8 @@ Features:
 - get battery
 - motion detection state
 - light detection state
+- on button press event
+- off button press event
 
 #### Keypad Vision (Pro)
 
@@ -657,6 +661,18 @@ Features:
 - set effect
 
 #### RGBICWW Floor Lamp
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
+
+#### RGBICWW Light Bars
 
 This is an encrypted device.
 
@@ -835,6 +851,17 @@ Features:
 - set mode
 - oscillate left and right
 - get battery level (Battery Circulator Fan only)
+
+#### Circulator Fan Pro
+
+This is an encrypted device. To set it up, follow [Adding encrypted SwitchBot devices](#adding-encrypted-switchbot-devices).
+
+The Circulator Fan Pro combines a fan with a built-in night light. It adds the following entities:
+
+- A fan that supports turning on or off, setting the speed, setting the mode (including hurricane), and oscillating.
+- A light for the two-level (high and low) night light.
+- A switch for vertical oscillation.
+- A sensor for the battery level.
 
 ### Air Purifiers
 

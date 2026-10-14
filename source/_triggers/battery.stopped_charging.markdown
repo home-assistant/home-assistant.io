@@ -6,7 +6,7 @@ description: "Triggers when one or more battery-powered devices stop charging."
 related_triggers:
   - battery.started_charging
   - battery.level_changed
-  - battery.level_crossed
+  - battery.level_crossed_threshold
 ---
 
 The **Battery stopped charging** trigger fires when a battery-powered device transitions from actively charging to not charging. A device stops charging when it is unplugged, removed from its dock, or when it reaches full charge and the charger cuts off. Use this trigger to detect when a device is unplugged unexpectedly, confirm when a charge cycle completes, or start automations that should run once a device is ready to use.
@@ -34,6 +34,8 @@ Trigger when:
     - **Each** (default): fires every time any targeted device stops charging.
     - **First**: fires only on the first device that stops charging.
     - **All**: fires only after every targeted device stops charging.
+  required: false
+  default: Each
 For at least:
   description: How long the device must remain not charging before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -83,7 +85,7 @@ for:
 - Use a binary sensor with the battery charging device class.
 - **Battery stopped charging** fires both when a device is unplugged and when it finishes charging naturally. If you only want to react when the battery is full, combine this trigger with a condition that checks the battery level.
 - To react when a device starts charging, use [Battery started charging](/triggers/battery.started_charging/).
-- To fire when the battery level crosses a specific percentage, use [Battery level crossed threshold](/triggers/battery.level_crossed/) instead.
+- To fire when the battery level crosses a specific percentage, use [Battery level crossed threshold](/triggers/battery.level_crossed_threshold/) instead.
 
 {% include triggers/try_it.md %}
 

@@ -160,23 +160,22 @@ This creates a new sensor, e.g. `sensor.ohme_energy`, reporting cumulative energ
 
 ## Examples
 
-### Send a notification on status change
+### Automation: Notify when charger status changes
 
-To be notified when the status of the charger changes, for example when a vehicle is plugged in, you can use an automation.
+This example sends a notification when the charger leaves the `unplugged` state.
 
 ```yaml
-# Example automation
+alias: "Ohme charger status changed"
 triggers:
   - trigger: state
-    entity_id:
-      - sensor.ohme_home_pro_status
-    from: unplugged
+    entity_id: sensor.ohme_home_pro_status
+    from: "unplugged"
 actions:
   - action: notify.send_message
     target:
       entity_id: notify.my_device
     data:
-      message: "Vehicle plugged in"
+      message: "Vehicle plugged in."
 ```
 
 ## Troubleshooting

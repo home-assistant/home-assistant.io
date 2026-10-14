@@ -32,7 +32,7 @@ related:
 
 The **Google Gemini** {% term integration %} adds a conversation agent, speech-to-text, and text-to-speech entities powered by [Google Gemini](https://ai.google.dev/) to Home Assistant. The conversation agent can optionally be allowed to control Home Assistant.
 
-Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
+Controlling Home Assistant is done by providing the AI access to the **Device control** API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 
@@ -92,7 +92,7 @@ But you can do the following workaround that exposes a script to voice assistant
 
 1. Add a second Google Gemini conversation agent.
 2. Select **Configure**
-3. In the **Control Home Assistant** section, uncheck **Assist** and any other options.
+3. In the **Control Home Assistant** section, uncheck **Device control** and any other options.
 4. Uncheck **Recommended model settings**
 5. Select **Submit**
 6. Check **Enable Google Search tool**

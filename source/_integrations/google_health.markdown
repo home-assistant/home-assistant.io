@@ -10,14 +10,17 @@ ha_codeowners:
   - '@allenporter'
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: service
-ha_quality_scale: gold
+ha_quality_scale: platinum
+api: Google Health API
+api_link: https://console.cloud.google.com/apis/library/health.googleapis.com
 related:
   - url: https://developers.google.com/health-api
     title: Google Health API
   - url: https://console.cloud.google.com/apis/library/health.googleapis.com
-    title: Google Developers Console
+    title: Google Cloud console
 ---
 
 The **Google Health** {% term integration %} allows you to expose health and fitness data from Google Health (including Fitbit, Pixel Watch, and other devices connected to your Google Account) to Home Assistant.
@@ -26,32 +29,7 @@ The **Google Health** {% term integration %} allows you to expose health and fit
 
 You need to configure developer credentials to allow Home Assistant to access your Google Account. These credentials are the same as the ones for [Google Photos](/integrations/google_photos), [Nest](/integrations/nest), [Google Tasks](/integrations/google_tasks), and [Google Mail](/integrations/google_mail).
 
-If you have already set up the correct credentials, you can enable the API and then skip the consent screen and credential creation steps.
-
-{% details "Generate client ID and client secret" %}
-
-This section explains how to enable the API, configure the consent screen, and generate a client ID and client secret on the Google Developers Console.
-
-1. First, go to the Google Developers Console to enable the [Google Health API](https://console.cloud.google.com/apis/library/health.googleapis.com).
-2. Select a project and select **Continue**. Verify that the API is enabled.
-3. Go to the [Branding page](https://console.cloud.google.com/auth/branding) in the Google Auth Platform Console.
-4. If prompted to configure OAuth, select **Get started** and follow the setup wizard. When the wizard asks for the user type, select **External**, and continue once the OAuth consent configuration is created.
-5. Select **Branding** in the left sidebar. Fill in the required fields:
-   - **App name**: Enter a name (like *Home Assistant*). This is shown during the OAuth login flow.
-   - **User support email**: Select your Google Account email.
-   - **Developer contact email**: Enter your email address.
-   Leave all other fields empty to avoid triggering Google's verification process. Select **Save**.
-6. Select **Audience** in the left sidebar.
-   - Under **User type**, confirm it shows **External**.
-   - Under **Test users**, select **+ Add users** and add your Google Account email address. Select **Save**.
-7. Under **Publishing status**, select **Publish app** to set the status to **In production**. Make sure the status is not **Testing**, or your authentication token will expire every 7 days.
-8. Select **Credentials** in the left sidebar.
-9. Select **Create Credentials** at the top of the page, then select **OAuth client ID**.
-10. Set the Application type to **Web application** and give these credentials a name (like *Home Assistant Credentials*).
-11. Under **Authorized redirect URIs**, enter `https://my.home-assistant.io/redirect/oauth` and select **Create**. This is not a placeholder and is the URI that must be used.
-12. Copy the **Client ID** and **Client Secret** from the pop-up, or select the pencil icon next to your client ID to view them later.
-
-{% enddetails %}
+{% include integrations/google_client_secret.md %}
 
 {% include integrations/config_flow.md %}
 
@@ -163,7 +141,7 @@ automation: |
 
 Notify you if your daily resting heart rate goes above a certain threshold (for example, 80 bpm), which could indicate fatigue or stress.
 
-- **Trigger**: State: resting heart rate sensor state changes
+- **Trigger**: State changed: resting heart rate sensor state changes
 - **Condition**: Numeric state: resting heart rate is above 80 bpm
 - **Action**: Send a notification
 
@@ -209,13 +187,39 @@ The integration updates sensors on different intervals based on the data type:
 
 ## Troubleshooting
 
-### Resetting a broken or incorrect configuration
+{% details "Configuration is broken or incorrect" %}
 
-If the Google Health integration was initially configured incorrectly, you can delete the credentials in the [Application Credentials](/integrations/application_credentials/) user interface and start the setup again.
+### Symptom: Integration doesn't work as expected
 
-### Connection failed after authorization
+The Google Health integration was set up with incorrect settings, for example, the wrong client ID or client secret, and does not work as expected.
 
-If authorization appears to succeed but Home Assistant returns a connection error, verify that you granted the required **Profile** permission. Home Assistant requires the profile scope to verify your account identity and setup the integration.
+#### Description
+
+Home Assistant stores the credentials you entered during the initial setup as application credentials. Setting up the integration again reuses these stored credentials, so the incorrect configuration persists until you remove them.
+
+#### Resolution
+
+1. Delete the credentials in the [Application Credentials](/integrations/application_credentials/) user interface.
+2. Set up the integration again.
+
+{% enddetails %}
+
+{% details "Connection failed after authorization" %}
+
+### Symptom: Home Assistant returns an error
+
+The authorization appears to succeed, but Home Assistant returns a connection error.
+
+#### Description
+
+After you authorize access, Home Assistant uses your Google Account profile to verify your identity and checks that the account is linked to Google Health. If either of these steps fails, the setup cannot be completed.
+
+#### Resolution
+
+- Verify that you granted the required **Profile** permission. Home Assistant requires the profile scope to verify your account identity and set up the integration.
+- Verify that you selected the correct Google Account and that this account is set up in Google Health. If the account is not linked to Google Health, the Home Assistant logs show the message `The account is not linked to Google Health`.
+
+{% enddetails %}
 
 ## Removing the integration
 

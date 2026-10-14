@@ -1,5 +1,5 @@
 ---
-title: ISEO Argo BLE
+title: ISEO Argo BLE Lock
 description: Instructions on how to integrate your ISEO Argo smart lock into Home Assistant via Bluetooth.
 ha_category:
   - Lock

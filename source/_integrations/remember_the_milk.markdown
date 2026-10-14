@@ -2,6 +2,7 @@
 title: Remember The Milk
 description: Instructions on how to use Remember The Milk with Home Assistant.
 ha_category:
+  - Calendar
   - To-do list
 ha_iot_class: Cloud Polling
 ha_release: 0.57
@@ -18,6 +19,8 @@ related:
     title: List of to-do list integrations
   - docs: /dashboards/todo-list/
     title: To-do list card
+ha_codeowners:
+  - '@MartinHjelmare'
 ---
 
 The **Remember The Milk** {% term integration %} connects your [Remember The Milk](https://www.rememberthemilk.com) (<abbr title="Remember The Milk">RTM</abbr>) account to Home Assistant. Your RTM lists appear as [to-do lists](/integrations/todo/) in Home Assistant, so you can manage list items from the **To-do list** dashboard or the [**To-do list** card](/dashboards/todo-list/) and add tasks from automations. The integration supports connecting several Remember The Milk accounts.

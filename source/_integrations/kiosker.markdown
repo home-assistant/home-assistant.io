@@ -19,7 +19,7 @@ ha_platforms:
   - switch
 ha_integration_type: device
 ha_zeroconf: true
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 [Kiosker](https://kiosker.io) is a powerful yet easy-to-use web kiosk for iPad and iPhone. This integration gives you control over your Kiosker app via the Kiosker API.

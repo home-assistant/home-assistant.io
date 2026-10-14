@@ -76,5 +76,6 @@ If you don't want to automatically track new detected device, disable the integr
 
 ## Padavan custom firmware (The rt-n56u project)
 
-The [rt-n56u project](https://bitbucket.org/padavan/rt-n56u) does not store `dnsmasq.leases` which is used to track devices at `/var/lib/misc/` as `asuswrt` do. However this integration can still be used for the rt-n56u project by changing the dnsmasq location using the `dnsmasq` variable to `dnsmasq: '/tmp'`
-Also, to get the statistics for the `WAN` port, specify `interface: 'eth3'` as this is the interface used in the rt-n56u project
+The [rt-n56u project](https://bitbucket.org/padavan/rt-n56u) does not store `dnsmasq.leases` in `/var/lib/misc/`, where `asuswrt` stores the file used to track connected devices. However, this integration can still be used with the rt-n56u project by setting the `dnsmasq` option to `/tmp`.
+
+To collect statistics for the `WAN` port, set the `interface` option to `eth3`, which is the interface used by the rt-n56u project.

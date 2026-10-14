@@ -87,7 +87,7 @@ behavior:
 
 On spring mornings, pollen and dust push PM10 readings up before you even notice. This automation triggers when you open the bedroom window cover and checks the outdoor PM10 reading first. If the level is at or above 50 μg/m3, the cover closes right back and you get a notification explaining why. On clean-air mornings, nothing happens and you enjoy the fresh breeze.
 
-- **Trigger**: State: Bedroom window cover opened
+- **Trigger**: State changed: Bedroom window cover opened
 - **Condition**: Air Quality: PM10 value
   - **Target**: Outdoor PM10 sensor
   - **Threshold type**: 50

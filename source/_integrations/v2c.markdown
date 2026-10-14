@@ -14,7 +14,7 @@ ha_platforms:
   - diagnostics
   - light
   - number
-  - select  
+  - select
   - sensor
   - switch
 ha_integration_type: device

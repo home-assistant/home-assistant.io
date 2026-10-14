@@ -3,6 +3,7 @@ title: Honeywell String Lights
 description: Instructions on how to integrate Honeywell String Lights into Home Assistant.
 ha_category:
   - Light
+  - Radio frequency-controlled
 ha_release: 2026.5
 ha_iot_class: Assumed State
 ha_config_flow: true
@@ -17,7 +18,11 @@ ha_quality_scale: bronze
 
 The **Honeywell String Lights** {% term integration %} lets you control a Honeywell radio frequency (RF) remote-controlled string light set from Home Assistant.
 
-The integration uses the [Radio Frequency](/integrations/radio_frequency/) {% term entity %} platform to send the turn on and turn off commands. This means you need a compatible RF transmitter (for example, an ESPHome device with a 433.92&nbsp;MHz OOK transmitter) set up before you can add the Honeywell String Lights.
+## Prerequisites
+
+{% include integrations/radio_frequency_controlled.md %}
+
+The transmitter must support 433.92&nbsp;MHz OOK transmissions. For example, you can use an ESPHome device with an OOK transmitter.
 
 {% include integrations/config_flow.md %}
 

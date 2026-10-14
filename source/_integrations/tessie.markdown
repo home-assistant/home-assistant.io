@@ -160,7 +160,7 @@ Keep accessory power mode continues powering the USB ports and 12V outlets while
 The integration will create a climate entity to control the vehicle's climate control system. This entity can:
 
 - Change the driver's set temperature
-- Change to one of the three keep modes: Keep, Dog, and Camp
+- Change to one of the three keep modes: Keep, Pet, and Camp
 - Turn on and off
 
 The passenger set temperature is shown as a sensor but cannot be changed by Tessie.
@@ -424,7 +424,7 @@ automation:
           entity_id: switch.my_tesla_charge
 ```
 
-### Stop charging when battery reaches target
+### Automation: Stop charging when battery reaches target
 
 This automation stops charging when the desired charge level is reached:
 
@@ -463,28 +463,27 @@ automation:
           entity_id: cover.garage_door
 ```
 
-### Notify when charging is complete
+### Automation: Notify when charging is complete
 
-This automation sends a notification when your vehicle has finished charging:
+This example sends a notification when the vehicle stops charging after reaching at least 80% state of charge.
 
 ```yaml
-automation:
-  - alias: "Notify when Tesla charging complete"
-    triggers:
-      - trigger: state
-        entity_id: binary_sensor.my_tesla_battery_charging
-        from: "on"
-        to: "off"
-    conditions:
-      - condition: numeric_state
-        entity_id: sensor.my_tesla_battery_level
-        above: 79
-    actions:
-      - action: notify.send_message
-        target:
-          entity_id: notify.my_device
-        data:
-          message: "Tesla charging is complete at {{ states('sensor.my_tesla_battery_level') }}%"
+alias: "Notify when Tessie charging is complete"
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.my_tesla_battery_charging
+    from: "on"
+    to: "off"
+conditions:
+  - condition: numeric_state
+    entity_id: sensor.my_tesla_battery_level
+    above: 79
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "Tesla charging is complete at {{ states('sensor.my_tesla_battery_level') }}%."
 ```
 
 ## Troubleshooting
