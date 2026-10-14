@@ -101,6 +101,7 @@ When a message arrives from a chat integration, forward its text to the conversa
   - **Event type**: `chat_message_received`
 - **Action**: Process conversation
   - **Text**: `{{ trigger.event.data.message }}`
+  - **Response variable**: `agent_response`
 - **Action**: Send a notification message
   - **Target**: My chat
   - **Message**: `{{ agent_response.response.speech.plain.speech }}`
