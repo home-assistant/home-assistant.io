@@ -346,12 +346,14 @@ How the device information is set depends on the configuration method.
 
 A physical device can be split into child devices, for example, the outlets of a power strip, or the channels of a multi-channel switch. A child device is a part of its parent device, and has its own name and entities. A child device uses the area of its parent device, unless another area is assigned to it, and is removed together with its parent device.
 
-A child device is set with the `child_device` mapping, which can be abbreviated as `cdev` in discovery messages. The `device` mapping then describes the parent device.
+With YAML and single component discovery, a child device is set with the `child_device` mapping, which can be abbreviated as `cdev` in discovery messages. The `device` mapping then describes the parent device. With device discovery, child devices are listed in `child_devices` (`cdevs`), together with their components, see [device configuration with device discovery](#device-configuration-with-device-discovery).
 
 - Only `identifiers` and `name` can be set for a child device. The `identifiers` are required. Other device information, like the `manufacturer`, belongs to the parent device.
 - A child device requires the entity to have a `unique_id`.
 - Child devices are not supported for device triggers, tags, and subentries.
 - A child device can't be used as the `via_device` of another device.
+
+When a discovery update adds, changes, or removes the `child_device` of an entity, the entity is moved to the new device, and a child device that is no longer used is removed. When discovered items are removed, a parent device is kept as long as it has child devices, and is removed after its last child device when no other items use it.
 
 When the `identifiers` of an existing MQTT device are used for a child device, the existing device is converted into a child device. It keeps its device ID, so automations that use the device keep working. If the existing device is still in use as a regular device, the conversion fails and a warning is logged. In that case, update the configuration of all items that use the device, and reload the MQTT integration.
 
@@ -409,7 +411,14 @@ mqtt:
 
 With [device discovery](#device-discovery-payload), the `device` (`dev`) mapping is required and is set once, at the root of the discovery payload. It applies to all components in the payload and can't be overridden per component. Entity components must have a `unique_id`.
 
-A [child device](#child-devices) is set per component with the `child_device` (`cdev`) mapping. A `child_device` mapping is not allowed in the `device` mapping at the root of the discovery payload. In the example below, each switch is linked to a child device of the power strip, and the power sensor is linked to the power strip itself:
+[Child devices](#child-devices) are listed in `child_devices`, which can be abbreviated as `cdevs`. Each child device has its `identifiers`, an optional `name`, and its own `components` (`cmps`), which are linked to the child device. The components of the device itself are listed in `components` at the root of the discovery payload, which is optional when child devices are listed. A `child_device` mapping is not allowed in the `device` mapping at the root of the discovery payload.
+
+- Only entity components can be part of a child device, device triggers and tags can't.
+- The component IDs must be unique over the device and its child devices, as they identify each component.
+- The `identifiers` of a child device must be unique, and must differ from the `identifiers` of the device.
+- The shared options at the root of the discovery payload, like `origin` and the `availability` options, also apply to the components of the child devices.
+
+In the example below, each switch is linked to a child device of the power strip, and the power sensor is linked to the power strip itself:
 
 ```json
 {
@@ -421,27 +430,33 @@ A [child device](#child-devices) is set per component with the `child_device` (`
   "o": {
     "name": "bla2mqtt"
   },
+  "cdevs": [
+    {
+      "ids": "power_strip_outlet_1",
+      "name": "Outlet 1",
+      "cmps": {
+        "outlet_1": {
+          "p": "switch",
+          "name": "Switch",
+          "uniq_id": "power_strip_outlet_1_switch",
+          "cmd_t": "power_strip/outlet_1/set"
+        }
+      }
+    },
+    {
+      "ids": "power_strip_outlet_2",
+      "name": "Outlet 2",
+      "cmps": {
+        "outlet_2": {
+          "p": "switch",
+          "name": "Switch",
+          "uniq_id": "power_strip_outlet_2_switch",
+          "cmd_t": "power_strip/outlet_2/set"
+        }
+      }
+    }
+  ],
   "cmps": {
-    "outlet_1": {
-      "p": "switch",
-      "name": "Switch",
-      "uniq_id": "power_strip_outlet_1_switch",
-      "cmd_t": "power_strip/outlet_1/set",
-      "cdev": {
-        "ids": "power_strip_outlet_1",
-        "name": "Outlet 1"
-      }
-    },
-    "outlet_2": {
-      "p": "switch",
-      "name": "Switch",
-      "uniq_id": "power_strip_outlet_2_switch",
-      "cmd_t": "power_strip/outlet_2/set",
-      "cdev": {
-        "ids": "power_strip_outlet_2",
-        "name": "Outlet 2"
-      }
-    },
     "power": {
       "p": "sensor",
       "name": "Power",
@@ -454,11 +469,15 @@ A [child device](#child-devices) is set per component with the `child_device` (`
 }
 ```
 
+A component can be moved between the device and its child devices, or between child devices, by moving it to another `components` mapping with the same component ID. To remove a component of a child device, send the component with only its `platform` option, as for the other components.
+
 ### Device configuration with single component discovery
 
 With [single component discovery](#single-component-discovery-payload), the `device` (`dev`) mapping is added to the discovery payload of each component that is part of the device. For device triggers, the `device` mapping is required. Device triggers and tags don't need a `unique_id`.
 
-To link an entity to a [child device](#child-devices), add a `child_device` (`cdev`) mapping to the `device` mapping, the same way as in YAML. For example:
+To link an entity to a [child device](#child-devices), add a `child_device` (`cdev`) mapping to the `device` mapping, the same way as in YAML. In the example below, the switch is linked to the child device `Outlet 1`, which is a part of the power strip.
+
+Discovery topic: `homeassistant/switch/power_strip_outlet_1/config`
 
 ```json
 {
@@ -468,10 +487,35 @@ To link an entity to a [child device](#child-devices), add a `child_device` (`cd
   "dev": {
     "ids": "power_strip",
     "name": "Power strip",
+    "mf": "Bla electronics",
     "cdev": {
       "ids": "power_strip_outlet_1",
       "name": "Outlet 1"
     }
+  },
+  "o": {
+    "name": "bla2mqtt"
+  }
+}
+```
+
+The power sensor is linked to the power strip itself, as its `device` mapping has no `child_device` mapping.
+
+Discovery topic: `homeassistant/sensor/power_strip_power/config`
+
+```json
+{
+  "name": "Power",
+  "uniq_id": "power_strip_power",
+  "stat_t": "power_strip/power",
+  "dev_cla": "power",
+  "unit_of_meas": "W",
+  "dev": {
+    "ids": "power_strip",
+    "name": "Power strip"
+  },
+  "o": {
+    "name": "bla2mqtt"
   }
 }
 ```
@@ -527,7 +571,7 @@ device:
       required: false
       type: string
     child_device:
-      description: The [child device](#child-devices) of the device the entity is linked to. Requires a `unique_id`. Not supported for device triggers and tags. With device discovery, the `child_device` mapping is set per component.
+      description: The [child device](#child-devices) of the device the entity is linked to. Requires a `unique_id`. Not supported for device triggers and tags. With device discovery, child devices are listed in `child_devices` instead, see [device configuration with device discovery](#device-configuration-with-device-discovery).
       required: false
       type: map
       keys:
@@ -613,6 +657,8 @@ The shared options at the root level of the JSON message must include:
 - `origin` mapping (abbreviated as `o`)
 
 These mappings are mandatory and cannot be overridden at the entity/component level.
+
+The components are listed in the `components` mapping (abbreviated as `cmps`). Components of [child devices](#child-devices) are listed in the `child_devices` list (abbreviated as `cdevs`), see [device configuration with device discovery](#device-configuration-with-device-discovery). At least one of them must be set.
 
 Supported shared options are:
 
@@ -745,7 +791,7 @@ When an entity that was discovered through device discovery is removed from Home
 
 <div class='note warning'>
 
-A component config part in a device discovery payload must have the `platform` (`p`) option set with the name of the `component` and also must have at least one component specific config option. Entity components must have set the `unique_id` option and have a `device` context.
+A component config part in a device discovery payload must have the `platform` (`p`) option set with the name of the `component` and also must have at least one component specific config option. Entity components must have set the `unique_id` option and have a `device` context. The component IDs must be unique over the device and its child devices.
 
 </div>
 
@@ -975,7 +1021,7 @@ support_url:
     'bri_stat_t':          'brightness_state_topic',
     'bri_tpl':             'brightness_template',
     'bri_val_tpl':         'brightness_value_template',
-    'cdev':                'child_device',
+    'cdevs':               'child_devices',
     'clr_temp_cmd_tpl':    'color_temp_command_template',
     'clr_temp_cmd_t':      'color_temp_command_topic',
     'clr_temp_k':           'color_temp_kelvin',
