@@ -143,4 +143,4 @@ The integration provides [diagnostics](/docs/configuration/troubleshooting/#down
 - The integration download contains the account information and the data Apple reports for every device.
 - Each device page has its own download, containing the data Apple reports for that device. For devices Apple no longer reports, the download falls back to the account information.
 
-Your username and password, device and person identifiers, location coordinates, family member names, and the Lost Mode contact number and message are redacted. The device name is kept so you can tell the downloads apart.
+Your username and password, device and personal identifiers, location coordinates, family member names, and the Lost Mode contact number and message are redacted. The device name is kept so you can tell the downloads apart.
