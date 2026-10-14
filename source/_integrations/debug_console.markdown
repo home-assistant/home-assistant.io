@@ -53,7 +53,7 @@ Type Python code at the prompt and press <kbd>Enter</kbd> to run it. The `hass` 
 - Use the arrow keys to go back through code you ran before.
 - Pasting is blocked until you type `allow pasting` and press <kbd>Enter</kbd>, like in the console of a web browser. This protects against people who try to trick you into pasting code.
 
-Variables and imports are kept per browser tab. Reloading the page, or going to another page and back, continues where you left off. A session is removed 30 minutes after its browser tab disconnected, and when Home Assistant restarts.
+Variables and imports are kept per browser tab, also when you reload the page. Going to another page and back keeps what the console showed as well; reloading the page starts with an empty console. A session is removed 30 minutes after its browser tab disconnected, and when Home Assistant restarts.
 
 ## Examples
 
@@ -81,5 +81,7 @@ await hass.services.async_call(
 This integration follows standard integration removal. Removing it disables the debug console right away, and cancels code that is still running in the console. Work that code started in the background, such as tasks or blocking work in an executor, can keep running until it finishes.
 
 On development and nightly versions, the debug console is not enabled again after you remove it. To enable it again, add the integration.
+
+Removing the integration does not remove what stays behind elsewhere: the code you ran before is kept in your web browser, so you can go back to it with the arrow keys, and the Home Assistant log keeps what was logged.
 
 {% include integrations/remove_device_service.md %}
