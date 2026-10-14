@@ -20,6 +20,7 @@ ha_codeowners:
 ha_domain: vesync
 ha_platforms:
   - binary_sensor
+  - button
   - diagnostics
   - fan
   - humidifier
@@ -140,7 +141,7 @@ All VeSync air purifiers expose the remaining filter lifetime, and some also exp
 
 | Button                  | Description                                                                        |
 | ----------------------- | ---------------------------------------------------------------------------------- |
-| `reset_filter`          | Resets the filter life to 100%. Press it after replacing the filter. (Core200S)    |
+| `reset_filter`          | Resets the filter life to 100%. Press it after replacing the filter. (Core 200S)   |
 
 ## Fan exposed attributes
 
