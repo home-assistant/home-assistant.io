@@ -91,7 +91,7 @@ action: |
 
 Some actions return data that you can use in later steps of your automation or script. This data is called _action response data_. Actions return response data for information that is dynamic or large, and that doesn't fit well in an entity state. For example, response data can be the upcoming calendar events for the next week, or detailed driving directions.
 
-To use the response data, store it in a [variable](/docs/scripts/#variables). You can choose any name for the variable.
+To use the response data, store it in a [variable](/building-blocks/variables/). You can choose any name for the variable.
 
 - In the editor, actions that return data show a **Response variable** field. If the response is optional for the action, first select the checkbox next to the field. Then enter the name of the variable.
 - In YAML, use `response_variable`.
