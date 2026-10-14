@@ -287,6 +287,7 @@ To remove an automation that you wrote in {% term YAML %}:
 1. Open the YAML file that contains the automation, such as `configuration.yaml`. For how to set up file access and an editor, refer to [Editing `configuration.yaml`](/docs/configuration/#editing-configurationyaml).
    - If the automation is in `automations.yaml` and has an `id`, delete it in the automation editor instead.
 2. Delete the entire automation. It starts with a line that begins with `-`, such as `- id:`, `- alias:`, or `- triggers:`. It ends before the next line that begins with `-` at the same indentation.
+   - If you split your automations into one file per automation with [`!include_dir_list`](/docs/configuration/splitting_configuration/#example-include_dir_list), the file contains only this automation, without a `-` at the start. Delete the entire file instead.
 3. [Check the configuration](/docs/configuration/#validating-the-configuration), and then [reload your automations](#reloading-automations).
    - Result: The automation is removed. If it had an `id`, its entity stays until you delete it.
 4. If the automation had an `id`, delete its entity:
