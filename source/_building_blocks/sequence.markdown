@@ -53,7 +53,7 @@ sequence:
 
 ## Examples
 
-### Automation: turn on devices, then send notifications
+### Automation: Turn on devices, then send notifications
 
 When motion is detected, this automation runs two groups of actions: one that turns on devices, and one that sends notifications. The groups and their actions run one after the other, four actions in total.
 

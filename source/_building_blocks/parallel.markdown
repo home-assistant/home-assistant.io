@@ -60,7 +60,7 @@ parallel:
 
 ## Examples
 
-### Script: wait for motion in one group, and send a message right away in another
+### Script: Wait for motion in one group, and send a message right away in another
 
 This script runs two things at the same time. The first is a group that waits for motion and then sends a message. The second sends a message right away, without waiting for the first group.
 
