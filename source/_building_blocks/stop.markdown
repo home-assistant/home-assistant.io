@@ -86,7 +86,7 @@ error:
 
 ## Examples
 
-### Script and automation: return the outdoor temperature from a script
+### Script and automation: Return the outdoor temperature from a script
 
 The script `get_outdoor_temperature` puts the outdoor temperature in a variable, and returns it with **Stop**. The automation calls the script every morning, receives the response in its own variable, and sends it in a notification.
 

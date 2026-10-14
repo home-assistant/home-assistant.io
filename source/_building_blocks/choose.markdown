@@ -108,7 +108,7 @@ default:
 
 ## Examples
 
-### Automation: run a different script depending on the home mode
+### Automation: Run a different script depending on the home mode
 
 When the home mode changes, this automation runs a different script depending on the new mode. The conditions use the [shorthand notation of a template condition](/conditions/template/#shorthand-notation).
 
@@ -145,7 +145,7 @@ automation: |
 
 {% enddetails %}
 
-### Automation: turn on lights in rooms that are in use
+### Automation: Turn on lights in rooms that are in use
 
 When the sun gets low, this automation turns on the porch and garden lights. If the TV in the living room is on, someone is probably in that room, so it also turns on the living room lights. The same goes for the computer in the studio. The two **Choose** building blocks don't depend on each other.
 
