@@ -99,8 +99,6 @@ Modifying specific number-based settings allows you to fine-tune your setup.
 
 - **Maximum boiler temperature setpoint**
   - **Description**: Adjust the temperature setpoint for the space heating function.
-- **Domestic hot water setpoint**
-  - **Description**: Adjust the temperature setpoint for the domestic hot water function.
 - **Temperature offset**
   - **Description**: Fine-tune the perceived temperature.
 
