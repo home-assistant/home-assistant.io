@@ -79,17 +79,17 @@ The iCloud integration adds binary sensors for each device on your Apple Account
 - **Low power mode**: Whether Low Power Mode is turned on.
 - **Activation lock**: Whether Activation Lock is turned on.
 - **Location services**: Whether location services are turned on.
-- **Old location**: Whether Apple reports the last known location as outdated.
-- **Inaccurate location**: Whether Apple reports the last known location as inaccurate.
+- **Location current**: Whether Apple considers the last known location to be current.
+- **Location accurate**: Whether Apple considers the last known location to be accurate.
 - **Wipe in progress**: Whether an erase is currently running on the device.
 - **Remote lock**: Whether Apple has accepted a remote lock that has not been applied to the device yet.
 - **Locating**: Whether the device is being located right now. The integration asks Apple for a location on every update, so this entity is on most of the time and is disabled by default.
 
-The location entities are only added for devices that report a location.
+The location entities are only added for devices that report a location. **Location current** and **Location accurate** show **Problem** when Apple flags the last known location as outdated or inaccurate.
 
 ### Button
 
-The iCloud integration adds a button for each device on your Apple Account.
+The iCloud integration adds a button for each device that can play a sound.
 
 - **Play sound**: Plays the Lost device sound on the device, which is useful for finding a misplaced device. The device rings even when it is set to **Mute** or **Do not disturb**.
 
@@ -113,12 +113,12 @@ The iCloud integration adds a battery sensor for each device on your Apple Accou
 - **Location type**: How the location was determined, such as GPS, Wi-Fi, or cellular.
 - **Location accuracy**: How accurate the location is, in meters.
 - **Altitude**: The altitude of the location, in meters.
-- **Floor**: The floor level of the location.
+- **Floor**: The floor level of the location, where Apple reports one.
 - **Last locked**: When the device was last locked.
 - **Last lost**: When the device was last put into Lost Mode.
 - **Last wiped**: When the device was last erased.
 
-The location sensors are only added for devices that report a location, and the lock, Lost Mode, and erase sensors only for devices that support those features. The **Last locked**, **Last lost**, and **Last wiped** entities are disabled by default.
+The location sensors are only added for devices that report a location, and the lock, Lost Mode, and erase sensors only for devices that support those features. The **Floor**, **Last locked**, **Last lost**, and **Last wiped** entities are disabled by default.
 
 ### To-do list
 
