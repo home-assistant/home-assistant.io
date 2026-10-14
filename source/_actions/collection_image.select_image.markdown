@@ -72,7 +72,7 @@ Show a festive picture on your dashboard on December 31. This example uses the *
 - **Trigger**: Template, {% raw %}`{{ states('sensor.date').endswith('-12-31') }}`{% endraw %}
 - **Action**: Collection image: Select image
   - **Target**: My photos (`image.my_photos`)
-  - **Image**: (set in YAML)
+  - **Image**: Select `happy_new_year.jpg` from the `holidays` folder in the media browser
 
 {% details "YAML example for showing a holiday image on New Year's Eve" %}
 
