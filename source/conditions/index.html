@@ -99,9 +99,9 @@ toc: true
     "zone-conditions": "/conditions/zone/",
     "disabling-a-condition": "/docs/automation/condition/#disabling-a-condition"
   };
-  var target = moved[window.location.hash.slice(1)];
-  if (target) {
-    window.location.replace(target);
+  var key = window.location.hash.slice(1);
+  if (Object.prototype.hasOwnProperty.call(moved, key)) {
+    window.location.replace(moved[key]);
   }
 })();
 </script>
