@@ -77,7 +77,7 @@ automation: |
 When a new Home Assistant update appears, create a fresh backup right away. That way you always have a recent backup to fall back on before you install the update.
 
 - **Trigger**: State changed
-  - **Entity**: Home assistant core update
+  - **Entity**: Home Assistant core update
   - **To**: On
 - **Action**: Backup: Create automatic backup
 
