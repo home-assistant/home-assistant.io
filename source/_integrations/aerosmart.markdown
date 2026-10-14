@@ -72,11 +72,26 @@ Sensors report information such as:
 
 You can download diagnostics from the aerosmart device page. The diagnostics include the latest value of every known register and the state of both polling cycles. The gateway host is redacted.
 
-## Aerosmart automation example
+## Aerosmart automation examples
 
-The following example sends a notification when the measured carbon dioxide level rises above 1000 ppm. Replace the notification entity with one from your installation.
+Use the aerosmart sensors in automations to react to changes in your installation. Create an automation in {% my automations title="**Settings** > **Automations & scenes**" %} with the trigger and action below.
 
 {% include docs/paste_yaml_tip.md %}
+
+### Automation: Notify when the CO2 level is high
+
+This automation sends a notification when the measured carbon dioxide level rises above 1000 ppm.
+
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Aerosmart CO2 (`sensor.aerosmart_co2`)
+  - **Above**: `1000`
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: The aerosmart CO2 level is above 1000 ppm.
+
+{% details "YAML example for a high CO2 notification" %}
+
+Replace the entity IDs with the ones from your aerosmart installation and notification device.
 
 {% example %}
 automation: |
@@ -92,6 +107,8 @@ automation: |
       data:
         message: "The aerosmart CO2 level is above 1000 ppm."
 {% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 
