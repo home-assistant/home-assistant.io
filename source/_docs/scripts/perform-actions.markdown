@@ -41,7 +41,7 @@ To check what an action does, run it on its own, without running the whole autom
 
 ## Action targets
 
-The target is what an action controls. Under **Targets**, you can select entities, devices, areas, floors, and labels, or a combination of these. When you select an area, a floor, or a label, the action controls the matching entities that support it. For example, if **Turn on light** targets an area, all lights in that area turn on.
+The target is what an action controls. Under **Targets**, you can select entities, devices, areas, floors, and labels, or a combination of these. When you select an area, a floor, or a label, the action controls the matching entities that support it. For example, if **Turn on light** targets an area, all lights in that area turn on. To learn which entities a target includes, refer to [Automation targets](/docs/automation/targets/).
 
 In YAML, enter the action under `action`, for example, `light.turn_on`. Enter what it controls under `target`. The `target` contains at least one of the following: `entity_id`, `device_id`, `area_id`, `floor_id`, or `label_id`. Each of these can be a list. Use the IDs in lowercase, not the names.
 

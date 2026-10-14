@@ -23,6 +23,8 @@ You add conditions in the **And if** section of the automation editor, with **Ad
 
 For all conditions, refer to the [list of available conditions](/conditions/). The built-in conditions are in the [General](/conditions/#homeassistant) group. The **Device** condition is in the [Device automation](/conditions/#device_automation) group. To combine conditions in YAML, refer to [Conditions](/docs/scripts/conditions/).
 
+Many conditions check a target, such as a light or all windows in an area. If the target covers several entities, the **Condition passes if** option decides whether one or all of them must match. For details, refer to [Automation targets](/docs/automation/targets/#conditions-any-and-all).
+
 ## Conditions check the current state
 
 A condition checks the state at the moment the automation runs.
