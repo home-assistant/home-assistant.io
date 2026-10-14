@@ -19,14 +19,14 @@ The **SmartyPlants** {% term integration %} connects your SmartyPlants plant sen
 Each sensor measures soil moisture, temperature, humidity, and light for the plant it is attached to.
 SmartyPlants combines those readings with the plant's species to produce a health score and a fertilizing countdown.
 
-Every plant appears as a {% term device %} with its readings as {% term entities %}.
+Each sensor appears as a {% term device %} with its readings as {% term entities %}, named after the plant it is attached to.
 You can put them on a dashboard, chart them over time, and build automations, such as a reminder to water a plant when its soil dries out, a warning when a sensor's battery runs down, or a grow light that turns on after a dim day.
 
 ## Supported devices
 
 The integration works with any SmartyPlants soil sensor that reports to the SmartyPlants cloud.
 Sensors are taken from your account, so there is nothing to pair in Home Assistant.
-Whatever appears in the SmartyPlants app appears here.
+Every sensor on your account appears here, including any that is not yet attached to a plant.
 
 ## Prerequisites
 
@@ -45,8 +45,7 @@ Webhook secret:
 
 ### Live updates with a webhook
 
-By default, the integration polls every minute.
-To have readings arrive immediately instead:
+The integration polls every minute. To have readings arrive immediately as well:
 
 1. During setup, copy the webhook URL shown on the second step.
 2. In the SmartyPlants app, add that URL as your Home Assistant webhook.
@@ -100,7 +99,7 @@ Soil moisture falls slowly, so a short dip below the threshold is usually noise 
 Waiting an hour before notifying avoids a reminder that has already fixed itself.
 
 - **Trigger**: Numeric state of **Soil moisture** below 25 for one hour
-- **Action**: Send a notification
+- **Action**: Notifications "Send a notification message", targeting your notify entity
 
 {% details "YAML example for a watering reminder" %}
 
@@ -114,7 +113,9 @@ automation: |
       for:
         hours: 1
   actions:
-    - action: notify.mobile_app_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "The Monstera's soil is dry. Time to water it."
 {% endexample %}
@@ -155,7 +156,7 @@ automation: |
 Checking before sunset avoids turning a lamp on for a plant that has run out of daylight anyway.
 
 - **Trigger**: Numeric state of **Light quality** below 40 for two hours
-- **Condition**: Sun is before sunset
+- **Condition**: Sun is after sunrise and before sunset
 - **Action**: Turn on light
 
 {% details "YAML example for topping up the light" %}
@@ -171,6 +172,7 @@ automation: |
         hours: 2
   conditions:
     - condition: sun
+      after: sunrise
       before: sunset
   actions:
     - action: light.turn_on
