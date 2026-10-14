@@ -19,7 +19,7 @@ works_with:
 
 {% include integrations/wwha.md url="https://www.evehome.com/" %}
 
-## Supported devices
+## Works with Home Assistant certified devices
 
 {% include integrations/device_list.html brand="eve" %}
 

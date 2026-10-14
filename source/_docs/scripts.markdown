@@ -1585,7 +1585,6 @@ The **Wait for time to pass (delay)** building block pauses the automation or sc
 
 The **Wait for a template** building block pauses the automation or script until a template is true. For the steps, options, and examples, refer to [Wait for a template](/building-blocks/wait_template/).
 
-
 ## Wait for a trigger
 
 <a id="adding-wait-for-a-trigger-in-the-editor"></a>

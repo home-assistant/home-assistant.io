@@ -87,7 +87,9 @@ At 22:00, lower the bedroom humidity target for sleeping, but only if the humidi
 - **Condition**: Humidifier is on
   - **Target**: Bedroom humidifier
   - **Condition passes if**: Any
-- **Action**: Humidifier: Set humidity
+- **Action**: Set humidifier target humidity
+  - **Target**: Bedroom humidifier
+  - **Humidity**: `45`%
 
 {% details "YAML example for a gated humidity adjustment" %}
 

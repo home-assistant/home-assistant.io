@@ -87,7 +87,7 @@ This automation waits until the back door has stayed closed for 30 seconds, then
 - **Trigger**: Door closed
 - **Target**: Back door sensor
 - **For at least**: 00:00:30
-- **Action**: Lock: Lock
+- **Action**: Lock lock
 
 {% details "YAML example for locking the back door after it closes" %}
 

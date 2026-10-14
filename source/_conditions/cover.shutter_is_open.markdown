@@ -114,7 +114,9 @@ automation: |
 
 When you leave home, this automation checks whether the shutter is still open. If it is, Home Assistant sends a reminder so you can close it.
 
-- **Trigger**: Person leaves home zone
+- **Trigger**: Zone left
+  - **Target**: Morgan
+  - **Zone**: Home
 - **Condition**: Shutter is open
   - **Target**: Kitchen shutter
 - **Action**: Send a notification message
@@ -126,10 +128,11 @@ When you leave home, this automation checks whether the shutter is still open. I
 automation: |
   alias: "Warn me if the shutter is open when I leave home"
   triggers:
-    - trigger: zone
-      entity_id: person.morgan
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.morgan
+      options:
+        zone: zone.home
   conditions:
     - condition: cover.shutter_is_open
       target:

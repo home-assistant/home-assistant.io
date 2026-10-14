@@ -95,10 +95,8 @@ condition: |
 This automation has two triggers. A **Choose** block uses **Triggered by** to close the blinds at sunset, and to open them at sunrise.
 
 - **Triggers**:
-  - Sun
-    - **Event**: Sunset
-  - Sun
-    - **Event**: Sunrise
+  - Sunset
+  - Sunrise
 - **Action**: Choose
   - **Option 1**:
     - **Condition**: Triggered by
@@ -117,11 +115,9 @@ This automation has two triggers. A **Choose** block uses **Triggered by** to cl
 automation: |
   alias: "Blinds follow the sun"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
       id: sunset
-    - trigger: sun
-      event: sunrise
+    - trigger: sun.sunrise
       id: sunrise
   actions:
     - choose:

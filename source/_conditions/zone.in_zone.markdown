@@ -146,7 +146,8 @@ automation: |
 
 At 09:00, this automation sends a reminder if both selected people are in the work zone.
 
-- **Trigger**: Time is 09:00
+- **Trigger**: Time
+  - **At time**: `09:00`
 - **Condition**: Is in zone
   - **Target**: Nina and Alex
   - **Zone**: Work (`zone.work`)

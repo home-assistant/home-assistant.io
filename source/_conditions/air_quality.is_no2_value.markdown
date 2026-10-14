@@ -83,7 +83,7 @@ behavior:
 If you have a daily running routine, you want to know whether the outdoor air is safe before heading out. This automation triggers at 6:30 AM and checks whether outdoor NO2 is at or above 40 μg/m3. If it is, you get a friendly suggestion to exercise indoors instead. On clean-air mornings, you never hear a thing and head out as usual.
 
 - **Trigger**: Time: 06:30
-- **Condition**: Air Quality: Nitrogen dioxide value
+- **Condition**: Nitrogen dioxide value
   - **Target**: Outdoor NO2 sensor
   - **Threshold type**: 40
   - **Condition passes if**: Any
