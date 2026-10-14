@@ -114,7 +114,7 @@ When you leave the home zone, send an urgent message to the shared shopping list
 - **Action**: Bring!: Send a notification
   - **Notification type**: `Attention! Attention! - We still urgently need: [Items]`
   - **Target**: Bring shoppinglist to-do list
-  - **Item**: ``
+  - **Item**: `Item 1`
 
 {% details "YAML example for notifying list members when leaving home to shop" %}
  
@@ -133,7 +133,7 @@ automation: |
         entity_id: todo.bring_shoppinglist
       data:
         message: urgent_message
-        item: ""
+        item: "Item 1"
 {% endexample %}
 
 {% enddetails %}
