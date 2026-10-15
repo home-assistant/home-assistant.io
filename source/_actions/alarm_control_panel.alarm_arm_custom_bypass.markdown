@@ -84,9 +84,9 @@ code:
 
 Set up a quick action on your dashboard to arm the alarm while keeping certain zones open. Useful when you know a window is cracked or the dog door is in use.
 
-- **Action**: Alarm control panel: Arm alarm with custom bypass
-- **Target**: Home alarm
-- **Code**: 1234
+- **Action**: Arm alarm with custom bypass
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for arming with custom bypass" %}
 
@@ -105,10 +105,15 @@ action: |
 
 If you leave the house and a window is still open, arm the alarm with custom bypass instead of leaving the alarm off entirely. This way, the rest of the house stays protected.
 
-- **Trigger**: Person: Paulus changes to not_home
-- **Condition**: Window sensor is open
-- **Action**: Alarm control panel: Arm alarm with custom bypass
-- **Target**: Home alarm
+- **Trigger**: State changed
+  - **Entity**: Paulus person
+  - **To**: Away
+- **Condition**: State
+  - **Entity**: Living room window sensor
+  - **State**: Open
+- **Action**: Arm alarm with custom bypass
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for arming with bypass on open window" %}
 
