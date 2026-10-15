@@ -7,7 +7,7 @@ related_actions:
   - logbook.log
 ---
 
-Use this action to fire an [event](/docs/configuration/events/). Other automations can react to it with a [**Manual event received** trigger](/triggers/event/). Use it to let one automation or script tell another that something happened, and to pass data along.
+Use this action to fire an [event](/docs/configuration/events/). Other automations can react to it with a [**Manual event received** trigger](/triggers/event/). This lets one automation or script tell another that something happened, and pass data along.
 
 {% include actions/ui_header.md %}
 
@@ -33,15 +33,16 @@ Event data:
 
 {% include actions/yaml_header.md %}
 
-In YAML, use `event` with the event type, and optionally `event_data`. The event data accepts templates:
+In YAML, use `event` with the event type, and optionally `event_data`:
 
 {% example %}
 action: |
   event: MY_EVENT
   event_data:
-    name: myEvent
-    customData: "{{ myCustomVariable }}"
+    room: kitchen
 {% endexample %}
+
+The values in `event_data` can be templates.
 
 ### Options in YAML
 
@@ -58,6 +59,7 @@ event_data:
 
 ## Good to know
 
+- To fire an event by hand, for example, to test an automation that reacts to it, go to {% my tools_events title="**Settings** > **Tools** > **Events**" %}. For details, refer to [Firing an event](/docs/tools/dev-tools/#firing-an-event).
 - To add an entry to the **Activity** panel, use the [**Log activity**](/actions/logbook.log/) action.
 
 {% include actions/more_examples.md %}

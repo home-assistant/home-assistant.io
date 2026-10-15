@@ -5,7 +5,7 @@ domain: built_in
 description: "Sets what Assist says or shows when a sentence starts the automation."
 ---
 
-Use this action to set what Assist says, or shows, when a voice command or sentence starts the automation. Use it with a [sentence trigger](/docs/automation/trigger/#sentence-trigger) to answer a custom command.
+Use this action to set what Assist says, or shows, when a voice command or sentence starts the automation. Together with a [sentence trigger](/docs/automation/trigger/#sentence-trigger), it answers a custom command.
 
 {% include actions/ui_header.md %}
 
