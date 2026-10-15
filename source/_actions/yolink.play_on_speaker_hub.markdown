@@ -102,7 +102,7 @@ This automation plays a spoken alert on your YoLink SpeakerHub when the front do
   - **To**: Open
   - **For at least**: `00:02:00`
 - **Action**: YoLink: Play on SpeakerHub
-  - **SpeakerHub device**: `12a34b56c7d8ef9ghijklm0n1op2345q`
+  - **SpeakerHub device**: Your SpeakerHub
   - **Text message**: `The front door is open`
   - **Tone**: Alert
 
