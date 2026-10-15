@@ -24,7 +24,7 @@ To run a query from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **SQL: Query**.
-6. Enter the **SQL: Query**, and optionally a **Database URL**.
+6. Enter the **Query**, and optionally a **Database URL**.
 7. In the **Response variable** field, enter a name to store the result, for example, `query_result`.
 8. Select **Save**.
 
