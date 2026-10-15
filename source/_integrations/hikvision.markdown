@@ -142,6 +142,7 @@ Supported event types are:
 - Recording Failure
 - Exiting Region
 - Entering Region
+- Thermometry (thermal cameras, as a **Temperature alarm** heat sensor)
 
 ### Availability
 
