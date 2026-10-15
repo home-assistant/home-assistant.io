@@ -1,6 +1,6 @@
 ---
 title: "Automation targets: entities, devices, areas, floors, and labels"
-description: "Use areas, floors, labels, and devices as targets in automations. Learn which entities are included, and how triggers and conditions react when a target covers several entities."
+description: "Use areas, floors, labels, and devices as targets in automations. Learn which entities a target covers, and how triggers and conditions react when a target covers several entities."
 related:
   - docs: /docs/automation/basics/
     title: Understanding automations
@@ -14,7 +14,7 @@ related:
     title: Grouping your assets
 ---
 
-A target is what a {% term trigger %}, a {% term condition %}, or an {% term action %} works with, in both {% term automations %} and {% term scripts %}. A trigger watches its targets for a change, a condition checks the {% term state %} of its targets, and an action controls its targets. For example, the **Light turned on** trigger reacts when a targeted light turns on, and the **Turn on light** action turns on the targeted lights.
+A target is what a {% term trigger %}, a {% term condition %}, or an {% term action %} works with, in both {% term automations %} and {% term scripts %}. A trigger monitors its targets for a change, a condition checks the {% term state %} of its targets, and an action controls its targets. For example, the **Light turned on** trigger reacts when a targeted light turns on, and the **Turn on light** action turns on the targeted lights.
 
 A target can be a single {% term entity %}, or a group of entities, such as all lights in an {% term area %}, like a room in your home. Home Assistant finds the matching entities for you.
 
@@ -30,33 +30,34 @@ To add a target to a trigger, condition, or action, select **Add target**. You c
 
 ## How Home Assistant finds the entities in a target
 
-When a target is a {% term device %}, an area, a {% term floor %}, or a {% term label %}, Home Assistant looks up the entities that belong to it.
+When a target is a {% term device %}, an area, a {% term floor %}, or a {% term label %}, each entity is either part of the target or not. The trigger monitors the entities that are part of the target, the condition checks them, and the action controls them. Home Assistant ignores all other entities.
 
-### Only matching entities are included
+### Entities that are part of a target
 
-A trigger, condition, or action only includes the entities it can work with. For example, a **Light turned on** trigger that targets the living room area watches all lights in the living room, and ignores the switches and sensors in that room. Some triggers and conditions also check the device class. For example, **Window opened** includes window sensors and skips door sensors.
-
-Triggers and conditions don't look inside old-style groups, such as `group.downstairs_lights`. Actions do include the members of an old-style group. To target several lights together, put a label on them, or select their area. You can also use a light group, which acts as one light. To learn how to create one, refer to the [Group](/integrations/group/) integration.
-
-### Entities that belong to an area
+An entity is part of a target if it belongs to the device, area, floor, or label you selected, and the trigger, condition, or action can work with it. For example, a **Light turned on** trigger that targets the living room area monitors all lights in the living room.
 
 An entity belongs to an area if one of the following is true:
 
 - The entity is assigned to that area.
 - The device of the entity is in that area, and the entity has no area of its own.
 
-If you assign an entity to a different area than its device, the entity belongs to its own area only. To learn how to assign devices and entities to areas, refer to [Grouping your assets](/docs/organizing/).
+To learn how to assign devices and entities to areas, refer to [Grouping your assets](/docs/organizing/).
 
-### Entities that are left out
+If you select an entity directly, it's always part of the target, even if it's one of the entities listed in the next section.
 
-When you select an entity directly, it's included even if it's hidden, or a configuration or diagnostic entity. When Home Assistant finds the entities for you, it leaves some of them out:
+### Entities that are not part of a target
 
-- Hidden entities are not included.
-- Configuration and diagnostic entities, such as a firmware update or the signal strength of a device, are not included when you target a device, an area, or a floor. The same applies to a label on a device or an area. If you put a label on the entity itself, the entity is included.
+The following entities are not part of a target, even if they belong to the device, area, floor, or label you selected:
+
+- Entities that the trigger, condition, or action can't work with. For example, for **Light turned on**, the switches and sensors in the room are not part of the target. Some triggers and conditions also check the device class. For example, for **Window opened**, door sensors are not part of the target.
+- Entities that you assigned to a different area than their device, when you target the area of the device. These entities belong to their own area only.
+- Hidden entities. For example, if an action turns on all lights in the living room, a hidden light in that room stays off.
+- Configuration and diagnostic entities, such as a firmware update or the signal strength of a device. If you put a label on the entity itself, and target that label, the entity is part of the target.
+- For triggers and conditions, the members of [old-style groups](/integrations/group/#old-style-groups). These are groups set up in YAML, with an entity ID that starts with `group.`, such as `group.downstairs_lights`. The groups you create in the UI aren't old-style groups. For actions, the members are part of the target. To target several lights together in a trigger or condition, put a label on them, select their area, or use a [light group](/integrations/group/), which acts as one light.
 
 ### Targets stay up to date
 
-Home Assistant keeps the entities in a target up to date. If you add a light to the area, or add a label to another device, triggers, conditions, and actions include it right away. You don't need to edit the automation.
+Home Assistant keeps the entities in a target up to date. If you've selected an area as a target, and later add a light to that area, the light becomes part of the target right away. You don't need to edit the automation.
 
 ## When a target covers several entities
 
