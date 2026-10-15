@@ -114,9 +114,6 @@ actions:
   type: list
 {% endconfiguration %}
 
-### Automation modes
-
-The `mode` option decides what happens when an automation starts while it is still running. The values are `single` (default), `restart`, `queued`, and `parallel`. For what each mode does, refer to [Automation modes](/docs/automation/modes/).
 
 ## YAML example
 
