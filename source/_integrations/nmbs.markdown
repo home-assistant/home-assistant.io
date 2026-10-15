@@ -12,6 +12,7 @@ ha_domain: nmbs
 ha_platforms:
   - sensor
 ha_integration_type: service
+ha_quality_scale: bronze
 related:
   - url: https://developers.home-assistant.io/docs/documenting/standards
     title: Documentation standard
