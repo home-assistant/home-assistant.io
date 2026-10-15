@@ -447,7 +447,7 @@ To see what each abbreviation stands for, refer to the [list of supported abbrev
 
 The components id's under the `components` (`cmps`) key, are used as part of the discovery identification. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
 
-To remove the components, publish an empty (retained) string payload to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
+To remove the components, publish an empty (retained) string payload to the discovery topic. This will remove all components of the device, including disabled entities, and clear the published discovery payload. It will also remove the device entry if there are no further references to it. Removing the device in Home Assistant also clears the published device discovery payload.
 
 An empty config can be published as an update to remove a single component from the device discovery. Note that adding the `platform` (`p`) option is still required.
 
@@ -518,6 +518,10 @@ After removing a component, you should send another update with the removed comp
 }
 ```
 
+To remove a single component that was discovered through device discovery, use its device discovery topic. An empty payload published to its old single component discovery topic, for example after a [migration to device discovery](#migration-from-single-component-to-device-discovery), does not remove it.
+
+When an entity that was discovered through device discovery is removed from Home Assistant, the device discovery payload is not cleared, as that would remove all components of the device. The entity will be added again when a device discovery payload is received that still contains the component. To prevent this, disable the entity instead, or remove the component from the device discovery payload as described above.
+
 <div class='note warning'>
 
 A component config part in a device discovery payload must have the `platform` (`p`) option set with the name of the `component` and also must have at least one component specific config option. Entity components must have set the `unique_id` option and have a `device` context.
@@ -534,7 +538,7 @@ To allow a smooth migration from single component discovery to device discovery:
 4. Ensure the `unique_id` matches and the `device` context has the correct identifiers.
 5. Send the following payload to all existing single component discovery topics: `{"migrate_discovery": true }`. This will unload the discovered item, but its settings will be retained.
 6. Switch the discovery topic to the device discovery topic and include all the component configurations.
-7. Clean up the single component discovery messages with an empty payload.
+7. Clean up the single component discovery messages with an empty payload. This clears the retained messages at the broker, but does not remove the migrated components.
 
 During the migration steps, INFO messages will be logged to inform you about the progress of the migration.
 
@@ -642,7 +646,7 @@ Check the logs to ensure the migration was successful.
 
 **Step 4: Clean up after successful migration:**
 
-After the logs show a successful migration, the single component discovery topics can be cleaned up safely by publishing an empty payload to them.
+After the logs show a successful migration, the single component discovery topics can be cleaned up safely by publishing an empty payload to them. This does not remove the migrated components.
 The logs should indicate if the discovery migration was successful.
 
 **Optional: Rolling back the migration:**
