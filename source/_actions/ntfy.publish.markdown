@@ -404,7 +404,7 @@ You can send a notification with a camera snapshot, for example when someone rin
 - **Action**: ntfy: Publish notification
   - **Target**: ntfy topic
   - **Title**: `Someone is at the door`
-  - **Attach local file**: (set in YAML)
+  - **Attach local file**: Select Demo camera (`camera.demo_camera`) in the media picker
   - **Attachment filename**: `camera-snapshot.jpg`
   - **Tags/Emojis**: `["bellhop_bell"]`
 
@@ -525,7 +525,10 @@ This action sends a notification that allows you to copy a value to the clipboar
   - **Target**: ntfy topic
   - **Title**: `Guest Wi-Fi Password`
   - **Message**: `Here is the guest Wi-Fi password for today.`
-  - **Action buttons**: `[{"type": "copy", "label": "Copy Password", "value": "GuestPass1234!"}]`
+  - **Action buttons**:
+    - **Action type**: Copy to clipboard
+    - **Label**: `Copy Password`
+    - **Value**: `GuestPass1234!`
 
 {% details "YAML example for a notification with a copy to clipboard button" %}
 
