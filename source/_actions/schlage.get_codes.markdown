@@ -78,7 +78,7 @@ lock.front_door:
 
 The `schedule` field describes when a PIN is active. It is `null` for permanent PINs, or one of the following shapes:
 
-**Temporary** — set via the `start_datetime` and `end_datetime` fields:
+**Temporary**: set via the `start_datetime` and `end_datetime` fields:
 
 ```json
 {
@@ -88,7 +88,7 @@ The `schedule` field describes when a PIN is active. It is `null` for permanent 
 }
 ```
 
-**Recurring** — a single recurring schedule set through the Schlage app:
+**Recurring**: a single recurring schedule set through the Schlage app:
 
 ```json
 {
@@ -102,14 +102,18 @@ The `schedule` field describes when a PIN is active. It is `null` for permanent 
     "fri": true,
     "sat": false
   },
-  "start_hour": 8,
-  "start_minute": 0,
-  "end_hour": 17,
-  "end_minute": 0
+  "start_time": "08:00:00",
+  "end_time": "17:00:00"
 }
 ```
 
-**Multi-recurring** — two time windows, also set through the Schlage app:
+A recurring schedule has the following fields:
+
+- **days_of_week**: One boolean per day of the week, indicating whether the schedule is active on that day.
+- **start_time**: The time of day the schedule starts, as a string in `HH:MM:SS` format.
+- **end_time**: The time of day the schedule ends, as a string in `HH:MM:SS` format.
+
+**Multi-recurring**: two time windows, also set through the Schlage app:
 
 ```json
 {
@@ -125,10 +129,8 @@ The `schedule` field describes when a PIN is active. It is `null` for permanent 
         "fri": true,
         "sat": false
       },
-      "start_hour": 8,
-      "start_minute": 0,
-      "end_hour": 12,
-      "end_minute": 0
+      "start_time": "08:00:00",
+      "end_time": "12:00:00"
     },
     {
       "days_of_week": {
@@ -140,14 +142,14 @@ The `schedule` field describes when a PIN is active. It is `null` for permanent 
         "fri": true,
         "sat": false
       },
-      "start_hour": 13,
-      "start_minute": 0,
-      "end_hour": 17,
-      "end_minute": 0
+      "start_time": "13:00:00",
+      "end_time": "17:00:00"
     }
   ]
 }
 ```
+
+Each window in a multi_recurring schedule uses the same fields as a recurring schedule.
 
 Recurring and multi_recurring schedules are configured through the Schlage app and cannot be set through Home Assistant service actions.
 
