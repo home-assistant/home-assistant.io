@@ -63,7 +63,7 @@ Total Watt peak power of your solar modules:
   description: "The combined maximum power of all panels in this group, in Watt peak."
 {% endconfiguration_basic %}
 
-The form doesn't accept a sensor whose current state isn't a usable angle, such as a non-numeric or out-of-range value. A sensor that is `unavailable`, `unknown`, or has no state yet is accepted. When you reconfigure a plane, a sensor it already uses isn't checked again, so a sensor that is briefly unusable doesn't stop you from changing other settings.
+The form doesn't accept a sensor whose current state isn't a usable angle, such as a non-numeric or out-of-range value. It also doesn't accept a sensor that doesn't exist, and shows **The selected sensor doesn't exist.** A sensor that is `unavailable` or `unknown` is accepted. A sensor that has no state yet is accepted only if Home Assistant already knows about it, for example, when its integration hasn't finished loading. When you reconfigure a plane, a sensor it already uses isn't checked again, so a sensor that is briefly unusable doesn't stop you from changing other settings.
 
 If you rename a sensor's entity ID, the plane keeps using it automatically.
 
