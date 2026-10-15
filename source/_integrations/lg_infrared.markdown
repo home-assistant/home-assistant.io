@@ -119,11 +119,11 @@ A climate entity is created for each LG air conditioner device you set up.
 
 - **LG AC**
   - **Description**: Represents the LG split air conditioner and allows you to control it via IR commands.
-  - **Supported features**: Set HVAC mode, set fan mode, set swing mode, and set horizontal swing mode. Set target temperature is also available when **Cool** or **Heat** is one of the supported modes you selected during setup.
+  - **Supported features**: Turn on, turn off, set HVAC mode, set fan mode, set swing mode, and set horizontal swing mode. Set target temperature is also available when **Cool** or **Heat** is one of the supported modes you selected during setup.
 
 #### Supported modes
 
-The climate entity offers the modes you selected during setup.
+The climate entity offers the modes you selected during setup. Turning the air conditioner on resumes the mode it was last in, or the first mode you selected if it has not been on yet.
 
 - **Cool**: Cools to a set temperature.
 - **Heat**: Heats to a set temperature. Not all LG air conditioner models have it.
