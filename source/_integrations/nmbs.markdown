@@ -92,7 +92,7 @@ The integration polls the iRail API every 60 seconds, and only fetches the data 
 
 ### The departure and arrival station cannot be the same
 
-Select two different stations. To follow the departures of a single station, pick any second station for the connection and use that station's liveboard sensor.
+Select two different stations. To follow the departures of a single station, pick any second station for the connection and use the liveboard sensor for the station you want to monitor.
 
 ### The API is currently unavailable
 
