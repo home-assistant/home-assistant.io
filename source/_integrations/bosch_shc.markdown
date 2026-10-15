@@ -2,11 +2,14 @@
 title: Bosch SHC
 description: Integrate Bosch SHC.
 ha_category:
+  - Alarm
   - Binary sensor
   - Button
+  - Climate
   - Cover
   - Event
   - Hub
+  - Light
   - Number
   - Select
   - Sensor
@@ -20,10 +23,13 @@ ha_codeowners:
   - '@mosandlt'
 ha_domain: bosch_shc
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
+  - climate
   - cover
   - event
+  - light
   - number
   - select
   - sensor
@@ -49,6 +55,7 @@ The integration supports devices connected to a Bosch Smart Home Controller, inc
 - Light Switches
 - Shutter Controls
 - Micromodule Shutter Controls and Micromodule Blinds
+- Light Control micromodule dimmers
 - Bosch Smart Home cameras (selected controls only)
 
 The entities available for a device depend on the capabilities reported by the controller.
@@ -67,6 +74,10 @@ During registration, Home Assistant generates a client certificate and key and r
 
 ## Supported functionality
 
+### Alarm control panel
+
+The Intrusion Detection System of your Smart Home Controller is exposed as an alarm control panel. It supports **Arm away** (full protection), **Arm home** (partial protection), **Arm custom bypass** (individual protection), and **Disarm**. No code is required.
+
 ### Binary sensors
 
 The binary sensor platform allows you to monitor the states of your shutter contact and battery sensors. Binary sensor devices are added for each of the following devices:
@@ -78,6 +89,16 @@ The binary sensor platform allows you to monitor the states of your shutter cont
 ### Buttons
 
 - A Smoke Detector gets a **Test alarm** button that starts the device's self-test.
+- A Motion Detector II that supports it gets a **Reset tamper** button that confirms the device is back in place and clears an active tamper alarm.
+
+### Climate
+
+The climate platform lets you monitor and control each room's climate control. The entity is named after the room and shows the current and target temperature.
+
+- **Modes**: **Auto** follows the schedule in the Bosch Smart Home app, **Heat** holds the manual target temperature, and **Off** switches the room off. **Cool** is only available in rooms that support cooling.
+- **Presets**: **Boost** and **Eco** override the current mode temporarily. A preset is only available if the room supports it.
+
+Setting a target temperature while a room is off has no effect. Turn the room on first, or set the mode in the same action.
 
 ### Covers
 
@@ -91,6 +112,10 @@ Shutter Control and Micromodule Shutter Control devices support opening, closing
 - A Smoke Detector gets an event entity that fires whenever its alarm state changes.
 - A Smoke Detection System gets an event entity that fires whenever its alarm state changes: **Idle** (`alarm_off`), **Alarm** (`alarm_on`), or **Alarm muted** (`alarm_muted`).
 
+### Light
+
+A Light Control micromodule dimmer gets a light entity that supports turning on and off and setting the brightness.
+
 ### Number
 
 The number platform lets you fine-tune numeric device settings:
@@ -98,6 +123,7 @@ The number platform lets you fine-tune numeric device settings:
 - A Micromodule Relay configured in impulse-switch mode gets a **Pulse length** value, controlling how long the relay stays closed for each trigger.
 - A Shutter Contact II gets a **Break function timeout** value (1 to 15 minutes), controlling how long an active break function stays in effect before it expires automatically. It has no effect while the break function is set to never expire.
 - A Smart Plug or Smart Plug Compact that supports energy-saving mode gets an **Energy-saving power threshold** value (0 to 3680 W), controlling the power draw below which the plug switches off automatically.
+- A Smart Plug or Smart Plug Compact gets an **Energy-saving enter duration** value (1 to 3600 seconds), controlling how long the plug stays below the power threshold before energy-saving mode is entered.
 
 ### Select
 
@@ -105,6 +131,8 @@ The select platform lets you choose between a set of predefined options. Select 
 
 - Outdoor Siren: a **Siren volume** select, letting you choose between reduced, medium, or loud
 - Motion Detector II that supports it: a **Motion sensitivity** select, letting you choose between **high**, **medium**, or **low**. In YAML, the medium option is `middle`.
+- Door/Window Contact II Plus: a **Vibration sensitivity** select, letting you choose between **very high**, **high**, **medium**, **low**, or **very low**. In YAML, the options are `very_high`, `high`, `medium`, `low`, and `very_low`.
+- Smoke Detector that supports it: a **Smoke sensitivity** select, letting you choose between **high**, **medium**, or **low**. In YAML, the medium option is `middle`.
 
 ### Sensors
 
@@ -163,7 +191,7 @@ The valve platform provides a diagnostic entity showing the current valve positi
 
 Get a reminder if a shutter contact stays open for too long, so an open window doesn't go unnoticed.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Front door (binary sensor)
   - **To**: On
   - **For**: `00:10:00`

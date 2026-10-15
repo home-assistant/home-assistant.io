@@ -12,6 +12,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@G-Two'
+  - '@jpettitt'
 ha_domain: subaru
 ha_platforms:
   - binary_sensor
@@ -21,6 +22,7 @@ ha_platforms:
   - lock
   - sensor
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 This {% term integration %} retrieves vehicle information and actuates remote services provided by [MySubaru Connected Services](https://www.subaru.com/vehicle-info/connected-services/mysubaru-connected-services.html)(formerly known as Subaru STARLINK). This service is currently only available in the USA and Canada.

@@ -13,7 +13,7 @@ ha_config_flow: true
 ha_platforms:
   - image
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Collection image** {% term integration %} creates an [image entity](/integrations/image/) based on one or more [media source folders](/integrations/media_source) selected during integration setup. From the selected folders, a single image is randomly chosen and shown in the image entity.
@@ -51,4 +51,3 @@ tap_action:
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
-

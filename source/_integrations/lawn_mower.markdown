@@ -16,18 +16,18 @@ Use it to monitor whether your mower is mowing, paused, idle, returning to dock,
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a lawn mower entity
+## Lawn mower states
 
-A lawn mower entity can have the following states:
+A lawn mower entity can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
 
-- **Mowing**: The lawn mower is currently mowing.
-- **Docked**: The lawn mower is done mowing and is currently docked.
-- **Paused**: The lawn mower was active and is now paused.
-- **Idle**: The lawn mower is stopped, not docked, not paused, and does not have any errors.
-- **Returning**: The lawn mower is returning to the dock.
-- **Error**: The lawn mower encountered an error while active and needs assistance.
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Mowing** (`mowing`): The lawn mower is currently mowing.
+- **Docked** (`docked`): The lawn mower is in its dock.
+- **Paused** (`paused`): The lawn mower was active and is now paused.
+- **Idle** (`idle`): The lawn mower is stopped, but is not docked or paused.
+- **Returning** (`returning`): The lawn mower is returning to the dock.
+- **Error** (`error`): The lawn mower is in an error state and needs assistance.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 {% include integrations/triggers.md %}
 
@@ -74,7 +74,7 @@ automation: |
 
 If rain starts while the mower is active, you can stop the run early and send it back to the dock.
 
-- **Trigger**: State: Rain sensor turned on
+- **Trigger**: State changed: Rain sensor turned on
 - **Condition**: Lawn mower is mowing
   - **Target**: Backyard mower
 - **Action**: Return lawn mower to dock

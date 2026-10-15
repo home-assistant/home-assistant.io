@@ -160,7 +160,7 @@ Keep accessory power mode continues powering the USB ports and 12V outlets while
 The integration will create a climate entity to control the vehicle's climate control system. This entity can:
 
 - Change the driver's set temperature
-- Change to one of the three keep modes: Keep, Dog, and Camp
+- Change to one of the three keep modes: Keep, Pet, and Camp
 - Turn on and off
 
 The passenger set temperature is shown as a sensor but cannot be changed by Tessie.

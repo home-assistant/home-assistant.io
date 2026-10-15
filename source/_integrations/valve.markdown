@@ -20,27 +20,36 @@ The **Valve** entity in Home Assistant provides an interface to control valves s
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a valve entity
+## Valve states
 
-The valve {% term entity %} can have the following states:
+A valve {% term entity %} can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
 
-- **Open**: The valve is fully open.
-- **Opening**: The valve is in the process of opening.
-- **Closed**: The valve is fully closed.
-- **Closing**: The valve is in the process of closing.
-- **Stopped**: The valve has stopped moving before reaching a fully open or closed position.
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Open** (`open`): The valve is open. A valve that reports its position is open at any position above 0.
+- **Opening** (`opening`): The valve is in the process of opening.
+- **Closed** (`closed`): The valve is fully closed.
+- **Closing** (`closing`): The valve is in the process of closing.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 ## Device class
 
-{% include integrations/device_class_intro.md %}
+The device class tells Home Assistant what flows through a valve, such as water or gas. Home Assistant uses the device class to choose the icon.
 
-The following device classes are supported for valves:
+The integration that provides the valve sets the device class.
 
-- **None**: Generic valve. This is the default and doesn't need to be set.
-- **water**: Valve that controls the flow of water through a system.
-- **gas**: Valve that controls the flow of gas through a system.
+### Device classes in automations and templates
+
+- Automations: The device class doesn't change how a valve works in automations.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `gas`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
+
+### List of available device classes
+
+A valve without a device class is a generic valve and shows the same icons as a water valve.
+
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
+
+- {% icon "mdi:valve-open" %} **Water** (`water`): A valve that controls the flow of water through a system.
+- {% icon "mdi:meter-gas" %} **Gas** (`gas`): A valve that controls the flow of gas through a system.
 
 {% include integrations/triggers.md %}
 

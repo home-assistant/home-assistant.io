@@ -9,12 +9,14 @@
 
 <li>
   <iconify-icon icon="mdi:robot-happy"></iconify-icon> {% active_link /docs/automation/ Automations %}
-  {% if doc == 'automation' or doc == 'blueprint' or doc == 'scripts' or doc == 'scene' or in_automation_reference or include.docs_index %}
+  {% if doc == 'automation' or doc == 'blueprint' or doc == 'scripts' or doc == 'script' or doc == 'scene' or in_automation_reference or include.docs_index %}
   <ul>
     <li>
       {% icon "mdi:robot-happy" %} {% active_link /docs/automation/basics/ Understanding automations %}
       {% if doc == 'automation' or in_automation_reference or include.docs_index %}
       <ul>
+        <li>{% active_link /docs/automation/how-automations-react-to-changes/ How automations react to changes %}</li>
+        <li>{% active_link /docs/automation/which-tool-to-use/ Which tool to use %}</li>
         <li>{% active_link /docs/automation/using_blueprints/ Using automation blueprints %}</li>
         <li>{% active_link /docs/automation/editor/ Automation editor %}</li>
         <li>
@@ -39,7 +41,8 @@
         <li>{% active_link /docs/automation/modes/ Automation modes %}</li>
         <li>{% active_link /docs/automation/templating/ Automation templates %}</li>
         <li>{% active_link /docs/automation/yaml/ Automations in YAML %}</li>
-        <li>{% active_link /docs/automation/troubleshooting/ Testing and troubleshooting automations %}</li>
+        <li>{% active_link /docs/automation/testing/ Testing automations %}</li>
+        <li>{% active_link /docs/automation/troubleshooting/ Troubleshooting automations %}</li>
       </ul>
       {% endif %}
     </li>
@@ -52,6 +55,9 @@
       {% endif %}
     </li>
     <li>
+      {% icon "mdi:script-text-play" %} {% active_link /docs/script/ Scripts %}
+    </li>
+    <li>
       {% icon "mdi:palette-swatch" %} {% active_link /docs/blueprint/ Blueprints %}
       {% if doc == 'blueprint' or include.docs_index %}
       <ul>
@@ -62,7 +68,7 @@
       {% endif %}
     </li>
     <li>
-      {% icon "mdi:script-text" %} {% active_link /docs/scripts/ Scripts %}
+      {% icon "mdi:script-text" %} {% active_link /docs/scripts/ Building blocks and actions %}
       {% if doc == 'scripts' or include.docs_index %}
       <ul>
         <li>{% active_link /docs/scripts/perform-actions/ Actions %}</li>
@@ -265,7 +271,9 @@
     <li>{% active_link /docs/configuration/packages/ Packages %}</li>
     <li>{% active_link /docs/configuration/events/ Events %}</li>
     <li>{% active_link /docs/configuration/state_object/ State and state object %}</li>
+    <li>{% active_link /docs/configuration/long-term-statistics/ Long-term statistics %}</li>
     <li>{% active_link /docs/configuration/entities_domains/ Entities and domains %}</li>
+    <li>{% active_link /docs/configuration/helpers/ Helpers %}</li>
     <li>{% active_link /docs/configuration/platform_options/ Entity component platform options %}</li>
   </ul>
   {% endif %}

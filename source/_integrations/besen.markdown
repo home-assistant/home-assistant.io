@@ -11,13 +11,14 @@ ha_codeowners:
 ha_domain: besen
 ha_bluetooth: true
 ha_platforms:
+  - diagnostics
   - number
   - select
   - sensor
   - switch
 ha_config_flow: true
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
 The **Besen** {% term integration %} connects Home Assistant to Besen EV chargers over Bluetooth Low Energy.

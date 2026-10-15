@@ -24,16 +24,13 @@ If you want a straightforward and organized Home Assistant setup, create a simpl
 To change entity attributes, follow these steps:
 
 1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity from the list.
-2. In the top-right corner, select the {% icon "mdi:cog" %} cog icon.
-
-   ![Entity dialog box with cog icon.](/images/docs/configuration/customizing-entity-dialog.png)
-
+2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
 3. Enter or edit the attributes:
-   - For example, the entity ID here could be shortened to `binary_sensor.lumi_sensor_aq2_opening`.
+   - Enter or edit the entity ID, for example, to shorten it to `binary_sensor.lumi_sensor_aq2_opening`.
      - You can use lowercase letters, numbers, and underscores.
      - The ID must not start or end with an underscore.
      - To undo the change and revert the ID to the default, select the {% icon "mdi:restore" %} icon.
-     - To revert all the entity IDs for a device, on the device page, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Recreate entity IDs**.
+     - To revert all the entity IDs for a device, go to {% my devices title="**Settings** > **Devices & services** > **Devices**" %}, select the device and then select **Menu** {% icon "mdi:dots-vertical" %} > **Recreate entity IDs**.
      - Result: This resets the entity ID and applies the current default naming convention.
        - The terms used to generate the entity ID depend on a few factors. Prioritization is as follows:
          1. If you changed the name of the entity, the entity name will be used.
@@ -42,11 +39,9 @@ To change entity attributes, follow these steps:
             - If something other than Latin script is used, the entity ID is based on the English default name. This is because entity IDs must use lowercase letters, numbers, and underscores.
 
    - Enter or edit the entity name.
-     - In this example, this would change "Opening".
-   - If needed, from the **Shown as** menu, you can select a different [device class](/integrations/homeassistant/#device-class).
+     - If the entity belongs to a device, you can turn on **Use device name** instead. The entity is then called by the name of its device. For example, if a smart plug called `Coffee machine` has an entity called `Power`, the entity is shown as `Coffee machine` instead of `Coffee machine Power`. The entity also uses the area of its device. To rename the device, select **change the device name**.
+   - If needed, from the **Show as** menu, you can select a different [device class](/integrations/homeassistant/#device-class).
    - If you like, add a [label](/docs/organizing/labels/).
-
-   ![Settings for entity.](/images/docs/configuration/customizing-entity.png)
 
 4. To apply the changes, select **Update**.
 5. If you changed the entity ID and use this entity in automations or scripts, update the entity ID there as well.
@@ -55,7 +50,7 @@ To change entity attributes, follow these steps:
 
 ## Changing the entity ID format for new entities
 
-Home Assistant generates entity IDs for new entities based on parts of your setup, like the area that is assigned to the entity, the device it belongs to, and the entity name. For example, a temperature sensor on a thermostat in the living room might have the entity ID `sensor.living_room_thermostat_temperature`. The default format of entity IDs uses the area, device, and entity name, in that order. To get the most out of the default entity ID format, check the [recommendations on entity naming and related elements](#recommendations-on-entity-naming-and-related-elements).
+Home Assistant generates entity IDs for new entities based on parts of your setup, like the area that is assigned to the entity, the device it belongs to, and the entity name. For example, a temperature sensor on a thermostat in the living room might have the entity ID `sensor.living_room_thermostat_temperature`. The default format of entity IDs uses the area, the parent device, the device, and the entity name, in that order. For more information about parent devices, refer to [About parent devices and sub-devices](#about-parent-devices-and-sub-devices). Parts without a value are left out. To get the most out of the default entity ID format, check the [recommendations on entity naming and related elements](#recommendations-on-entity-naming-and-related-elements).
 
 However, you can change the default format of entity IDs by defining which parts will be used and its order. The new format that you set will only be used when Home Assistant generates a new entity ID, so existing entities keep their current entity IDs. You can still rename the entity IDs afterwards in the entity settings.
 
@@ -66,7 +61,7 @@ Some integrations suggest their own entity ID for new entities. In that case, th
 To change the format:
 
 1. Go to **Settings** > **System** > **Entity ID format**.
-2. Add, remove, or reorder the **Floor**, **Area**, **Device**, and **Entity** parts to build the format you want. The **Preview** shows an example of the result.
+2. Add, remove, or reorder the **Floor**, **Area**, **Parent device**, **Device**, and **Entity** parts to build the format you want. The **Examples** show the result for a device with a parent device and for one without.
 3. Select **Save**.
 
 If you want to go back to the default format, select **Reset to default**.
@@ -76,3 +71,13 @@ When you recreate the entity IDs for a device, Home Assistant will use the new f
 ## Customizing an entity in YAML
 
 If your entity is not supported, or you could not customize what you need via the user interface, you need to edit the settings in your {% term "`configuration.yaml`" %} file. For a detailed description of the entity configuration variables and [device class](/integrations/homeassistant/#device-class) information, refer to the [Home Assistant Core integration documentation](/integrations/homeassistant/).
+
+## About parent devices and sub-devices
+
+Some devices are made up of smaller parts that each act like a device of their own. For example, a power strip can show each of its outlets as a separate device. In Home Assistant, the power strip is the _parent device_, and each outlet is a _sub-device_ with its own entities, such as the power use of that outlet.
+
+Whether a device has sub-devices is decided by the integration that provides it. You can't add or change this yourself.
+
+You can see which devices belong together in several places, for example, on the page of a parent device, which lists its sub-devices, and on the page of a sub-device, which shows the device it is part of.
+
+By default, new entity IDs include the name of the parent device. For more information, refer to [Changing the entity ID format for new entities](#changing-the-entity-id-format-for-new-entities).

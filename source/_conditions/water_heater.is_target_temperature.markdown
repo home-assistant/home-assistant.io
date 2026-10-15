@@ -133,7 +133,7 @@ for:
 
 When you leave home, enable away mode only if the water heater target temperature is already below your normal daytime setting.
 
-- **Trigger**: State: Person changes to not_home
+- **Trigger**: State changed: Person changes to not_home
 - **Condition**: Water heater target temperature
   - **Target**: Utility room water heater
   - **Threshold type**: Below (50°C)

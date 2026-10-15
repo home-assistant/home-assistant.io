@@ -15,6 +15,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - event
   - number
   - select
   - sensor
