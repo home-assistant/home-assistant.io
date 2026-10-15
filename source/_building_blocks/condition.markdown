@@ -64,6 +64,6 @@ condition:
 
 ## Good to know
 
-- **Condition** only stops the sequence it is in. Inside another building block, it only stops the actions of that building block. For example, inside a [**Repeat**](/docs/scripts/#repeat-multiple-times) building block, it only stops the current round of the repeat. Inside [**Choose**](/building-blocks/choose/), it only stops the actions of that option. Inside [**Run in parallel**](/docs/scripts/#run-in-parallel), it only stops its own branch.
+- **Condition** only stops the sequence it is in. Inside another building block, it only stops the actions of that building block. For example, inside a [**Repeat**](/building-blocks/repeat_count/) building block, it only stops the current round of the repeat. Inside [**Choose**](/building-blocks/choose/), it only stops the actions of that option. Inside [**Run in parallel**](/building-blocks/parallel/), it only stops its own branch.
 - To run different actions depending on whether the condition is met, use [**If-then**](/building-blocks/if/) or [**Choose**](/building-blocks/choose/) instead.
 - The condition checks the state at the moment the step runs. It isn't checked again later, so the sequence doesn't continue when the condition is met later. For more, refer to [Conditions check the current state](/docs/automation/how-automations-react-to-changes/#conditions-check-the-current-state).
