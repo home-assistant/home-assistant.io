@@ -275,8 +275,10 @@ If the doorbell rings, receive an actionable notification with a camera snapshot
   - **Target**: My desktop (`notify.my_desktop`)
   - **Title**: `🔔 The doorbell rang.`
   - **Message**: `Someone is at the entrance door.`
-  - **Icon**: `https://homeassistant.example.com/www/entrancecamera_snapshot.jpg`
-  - **Action buttons**: `[{"action": "open-door", "title": "Open door"}]`
+  - **Icon**: `/local/entrancecamera_snapshot.jpg`
+  - **Action buttons**:
+    - **Action identifier**: `open-door`
+    - **Title**: `Open door`
   - **Require interaction**: `True`
   - **Time to live**: `00:05:00`
   - **Urgency**: High
@@ -295,7 +297,7 @@ automation: |
       data:
         title: 🔔 The doorbell rang.
         message: Someone is at the entrance door.
-        icon: https://homeassistant.example.com/www/entrancecamera_snapshot.jpg
+        icon: /local/entrancecamera_snapshot.jpg
         actions:
           - action: open-door
             title: Open door
@@ -307,7 +309,7 @@ automation: |
 
 - **Trigger**: Event received
   - **Target**: Pc event
-  - **Event type**: `["clicked"]`
+  - **Event type**: Clicked
 - **Condition**: Template
 - **Action**: Open lock
   - **Target**: Entrance door
