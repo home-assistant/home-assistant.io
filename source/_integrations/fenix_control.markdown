@@ -93,8 +93,9 @@ Home Assistant asks you to sign in to FENIX Control again, and the thermostats a
 
 #### Resolution
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the FENIX Control entry that needs attention and enter your current FENIX Control password.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **FENIX Control**.
+2. Under **Needs attention**, select **Reconfigure** next to your account.
+3. Enter your current FENIX Control password.
 
 ### The thermostats are unavailable
 
