@@ -68,7 +68,7 @@ Create an automation with a numeric state trigger for the sensor's **Carbon diox
 
 ## Data updates
 
-Home Assistant {% term polling polls %} the sensor every five seconds. Air quality, temperature, humidity, and pressure readings expire 60 seconds after acquisition. Illuminance readings expire after 20 seconds. Network delay counts toward these limits.
+Home Assistant {% term polling polls %} the sensor every 15 seconds. This keeps scheduled polling within the sensor's 20-second illuminance freshness limit. Air quality, temperature, humidity, and pressure readings expire 60 seconds after acquisition. Illuminance readings expire after 20 seconds. Network delay counts toward these limits.
 
 Missing, warming, cleaning, invalid, or stale readings appear as unavailable. Unavailable readings are never replaced with zero. Readings missed during a connection outage are not added to the history later.
 
