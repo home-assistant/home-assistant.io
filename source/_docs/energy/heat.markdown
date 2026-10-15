@@ -53,8 +53,6 @@ To be selectable as a heating source, a sensor needs these attributes:
   - Volume: `L`, `m³`, `gal`, `ft³`, `CCF`, or `MCF`
   - Mass: `kg` or `lb`
 
-Optionally, you can add a sensor for the current heating rate. This can be a power sensor, such as the power a heat meter reports in kW, or a volume flow rate sensor, such as the fuel flow of an oil burner in L/h.
-
 If your sensor doesn't show up, see [Troubleshooting missing entities](/docs/energy/faq/#troubleshooting-missing-entities).
 
 ## Add heating to the Energy dashboard
@@ -62,10 +60,9 @@ If your sensor doesn't show up, see [Troubleshooting missing entities](/docs/ene
 1. Go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %} and open the **Heating** tab.
 2. Select **Add heating source**.
 3. Under **Heating consumption**, select the sensor that measures your heating.
-4. Optional: Under **Heating power or fuel flow rate**, select a sensor for the current heating rate.
-5. Optional: Under **Display name**, enter a name such as `Pellets`.
-6. Choose how Home Assistant should track your heating costs. For details, see [Track heating costs](#track-heating-costs).
-7. Select **Save**.
+4. Optional: Under **Display name**, enter a name such as `Pellets`.
+5. Choose how Home Assistant should track your heating costs. For details, see [Track heating costs](#track-heating-costs).
+6. Select **Save**.
 
 It can take up to 2 hours for new data to show up in the Energy dashboard.
 
