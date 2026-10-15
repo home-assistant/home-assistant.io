@@ -3376,7 +3376,7 @@ Temperature unit:
 Device:
   description: An existing device to attach this helper to.
   required: false
-Availability template:
+Availability:
   description: A template that gets the available state of the entity.
   required: false
 Minimum temperature:
