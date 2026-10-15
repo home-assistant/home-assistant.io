@@ -4,3 +4,7 @@
 - key: automation
   label: Automation
   icon: mdi:robot
+- key: built_in
+  label: Built-in actions
+  icon: mdi:home-assistant
+  description: "These actions are part of automations and scripts themselves, not of an integration."
