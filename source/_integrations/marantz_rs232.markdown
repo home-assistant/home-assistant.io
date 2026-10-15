@@ -3,6 +3,7 @@ title: Marantz RS-232
 description: Instructions on how to integrate a Marantz receiver via its RS-232 serial port into Home Assistant.
 ha_category:
   - Media player
+  - Serial-controlled
 ha_iot_class: Local Push
 ha_release: 2026.11
 ha_codeowners:
@@ -17,11 +18,13 @@ ha_quality_scale: bronze
 
 The **Marantz RS-232** {% term integration %} lets you control a [Marantz](https://www.marantz.com/) receiver through its RS-232 serial port. It provides local control and receives state changes from the receiver over the serial connection.
 
-With it, you can include the receiver in a movie-night scene that selects the TV input and sets the listening volume, control the multi-room output independently from the main listening area, or put an output in standby at bedtime so it isn't left on overnight.
+With it, you can include the receiver in a movie-night scene that selects the TV input and sets the listening volume, control an additional zone independently from the main listening area, or put a zone in standby at bedtime so it isn't left on overnight.
 
-_This integration currently only supports the 2007 Marantz protocol._
+## Supported devices
 
-## Tested models
+The integration supports Marantz receivers that use the 2007 Marantz RS-232 protocol.
+
+### Tested models
 
 The integration has been tested with the following models:
 
@@ -31,8 +34,9 @@ Other receivers using the 2007 Marantz protocol may also work but have not been 
 
 ## Prerequisites
 
-- A Marantz receiver with an RS-232 port.
-- A direct serial connection between the receiver and the system running Home Assistant, or an [ESPHome Serial Proxy](/integrations/serial/#serial-proxy) connected to the receiver.
+{% include integrations/serial_connected.md %}
+
+- A Marantz receiver with an RS-232 port that uses the 2007 Marantz protocol.
 - Turn the receiver on for the initial setup.
 
 {% include integrations/config_flow.md %}
@@ -46,11 +50,11 @@ There are no additional configuration options after setup.
 
 ## Supported functionality
 
-Home Assistant adds a media player {% term entity %} for the main zone and another for the multi-room output when it responds during setup.
+Home Assistant adds a media player {% term entity %} for each supported zone, allowing you to control the zones independently. The main zone is always added. If the receiver reports an additional **Multi-room A** zone when Home Assistant connects, Home Assistant adds a separate media player named **Multi-room** for that zone.
 
-Both entities support:
+Each zone's media player supports:
 
-- Turning the output on and off.
+- Turning the zone on and off.
 - Setting the volume and stepping it up or down.
 - Muting and unmuting.
 - Selecting an input source.
