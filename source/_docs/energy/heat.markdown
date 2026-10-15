@@ -28,7 +28,9 @@ Use a sensor that measures energy if you have one. Energy can be compared direct
 
 ### Fuel volume
 
-For heating oil, you can track the volume of fuel you burn, for example in liters, cubic meters, or gallons. Common sources are tank level sensors and burner run time multiplied by the nozzle flow rate. Gas meters measuring a volume of gas can also be used.
+For heating oil, you can track the total volume of fuel you have burned, for example in liters, cubic meters, or gallons. A common way to get this is the burner run time multiplied by the nozzle flow rate. Gas meters that count the total volume of gas can also be used.
+
+A tank level sensor shows how much fuel is left in the tank, not how much you have burned. The level goes down while you heat and jumps up when the tank is refilled, so it can't be used as a heating source directly. To use it, first create a sensor that adds up the decreases of the tank level and ignores refills.
 
 ### Fuel mass
 
