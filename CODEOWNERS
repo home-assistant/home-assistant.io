@@ -334,6 +334,7 @@ source/_integrations/fan.markdown @home-assistant/core
 source/_integrations/fan.mqtt.markdown @emontnemery @jbouwh @bdraco
 source/_integrations/fastdotcom.markdown @rohankapoorcom @erwindouna
 source/_integrations/feedreader.markdown @mib1185
+source/_integrations/fenix_control.markdown @baracudaz
 source/_integrations/fibaro.markdown @rappenze
 source/_integrations/file.markdown @fabaff
 source/_integrations/file_upload.markdown @home-assistant/core
