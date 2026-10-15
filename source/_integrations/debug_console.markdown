@@ -8,7 +8,6 @@ ha_quality_scale: internal
 ha_domain: debug_console
 ha_codeowners:
   - '@frenck'
-ha_config_flow: true
 ha_integration_type: service
 ---
 
@@ -31,9 +30,26 @@ Never run code you do not understand yourself.
 
 - You need an administrator account. The debug console is not available to other users.
 
-{% include integrations/config_flow.md %}
+## Configuration
 
-On development and nightly versions of Home Assistant, the debug console is enabled automatically the first time Home Assistant starts. On beta and stable versions, you add the integration yourself, and confirm that you understand the risks while adding it.
+On development and nightly versions of Home Assistant, the debug console is enabled automatically.
+
+On beta and stable versions, you enable it by adding the following to your {% term "`configuration.yaml`" %} file, and restarting Home Assistant afterwards:
+
+```yaml
+# Example configuration.yaml entry
+debug_console:
+```
+
+The debug console can only be enabled this way, not from the Home Assistant user interface. That way, code running in your web browser, like a custom card, cannot enable it for you.
+
+{% configuration %}
+enabled:
+  description: Set to `false` to disable the debug console, also on development and nightly versions.
+  required: false
+  type: boolean
+  default: true
+{% endconfiguration %}
 
 On beta and stable versions, each administrator also sees a warning the first time they open the console. The warning explains the risks, and you can only continue after reading it for a few seconds and confirming that you understand them. Everything that runs in the console is written to the Home Assistant log, together with who ran it.
 
@@ -76,12 +92,13 @@ await hass.services.async_call(
 - Code runs in the event loop of Home Assistant. Blocking calls, like `time.sleep()` or slow file access, freeze Home Assistant until they finish. Use `await` with asynchronous functions instead, or run blocking work with `await hass.async_add_executor_job(...)`.
 - Duplicating a browser tab copies its session, so both tabs share the same variables.
 
-## Removing the integration
+## Disabling the debug console
 
-This integration follows standard integration removal. Removing it disables the debug console right away, and cancels code that is still running in the console. Work that code started in the background, such as tasks or blocking work in an executor, can keep running until it finishes.
+To disable the debug console on beta and stable versions, remove `debug_console:` from your {% term "`configuration.yaml`" %} file, and restart Home Assistant. On development and nightly versions, add the following instead:
 
-On development and nightly versions, the debug console is not enabled again after you remove it. To enable it again, add the integration.
+```yaml
+debug_console:
+  enabled: false
+```
 
-Removing the integration does not remove what stays behind elsewhere: the code you ran before is kept in your web browser, so you can go back to it with the arrow keys, and the Home Assistant log keeps what was logged.
-
-{% include integrations/remove_device_service.md %}
+Disabling the debug console does not remove what stays behind elsewhere: the code you ran before is kept in your web browser, so you can go back to it with the arrow keys, and the Home Assistant log keeps what was logged.
