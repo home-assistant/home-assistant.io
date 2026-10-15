@@ -40,7 +40,7 @@ Arrival station:
 Direct connections only:
   description: Exclude connections with transfers.
 Display on map:
-  description: Add the departure station's coordinates to the travel time sensor so it can be displayed at that station on a map. This does not track the train's location.
+  description: Add the departure station's coordinates to the travel time sensor, so the sensor can be placed on a map at that station. This does not track the train's location.
 {% endconfiguration_basic %}
 
 You pick both stations from a dropdown that lists the stations of the Belgian railway.
@@ -67,7 +67,7 @@ The travel time sensor has the following attributes:
 - `delay`: the current delay of the train, for example `5 minutes`
 - `delay_minutes`: the same delay as a number of minutes
 - `canceled`: whether the train from the departure station is canceled. When it is, `departure` and `departure_minutes` have no value. A canceled transfer train is not reported.
-- `via`: the station where you change trains, together with `via_arrival_platform`, `via_transfer_platform` and `via_transfer_time` (the time you have to change trains, delay included). These attributes appear when the connection has a transfer and **Direct connections only** is not selected.
+- `via`: the station where you change trains, together with `via_arrival_platform`, `via_transfer_platform` and `via_transfer_time` (the time you have for the transfer, delay included). These attributes appear when the connection has a transfer and **Direct connections only** is not selected.
 - `latitude` and `longitude`: the coordinates of the departure station, when **Display on map** is selected.
 
 Each liveboard sensor has the following attributes:
@@ -101,7 +101,7 @@ Setup stops when the iRail API cannot be reached. Wait a while and try again.
 
 ### A configured station no longer exists
 
-One of the stations of the integration is no longer in the station list of the iRail API. Delete the integration and set it up again with a station that exists.
+One of the stations you set up is no longer in the station list of the iRail API. Delete the integration and set it up again with a station that exists.
 
 ## Removing the integration
 
