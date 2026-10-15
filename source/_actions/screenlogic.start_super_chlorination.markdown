@@ -8,7 +8,7 @@ related_actions:
   - screenlogic.set_color_mode
 ---
 
-The **Start super chlorination** action begins a super chlorination cycle on your ScreenLogic gateway, raising the chlorine level to shock the pool. You can set how long it runs, or leave it at the default of 24 hours.
+The **Pentair ScreenLogic: Start super chlorination** action begins a super chlorination cycle on your ScreenLogic gateway, raising the chlorine level to shock the pool. You can set how long it runs, or leave it at the default of 24 hours.
 
 This is handy for scheduling a shock treatment automatically, for example after a busy weekend or a spell of hot weather.
 
