@@ -1,5 +1,5 @@
 ---
-title: GKP
+title: GKP Home
 description: Instructions on how to control GKP Wi-Fi radiators from Home Assistant.
 ha_category:
   - Climate
@@ -16,7 +16,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **GKP** {% term integration %} lets you control your [GKP](https://www.gkp.se/) Wi-Fi radiators directly from Home Assistant.
+The **GKP Home** {% term integration %} lets you control your [GKP](https://www.gkp.se/) Wi-Fi radiators directly from Home Assistant.
 
 GKP Wi-Fi radiators are electric radiators that you set up and control with the **GKP Home** mobile app. Each radiator connects to your home Wi-Fi network and to the GKP cloud on its own, without a gateway. In the app, you group your radiators by room in one or more installations.
 
@@ -106,9 +106,9 @@ actions:
 
 ## Data updates
 
-The integration {% term polling polls %} the GKP cloud for the state of your radiators every 60 seconds.
+The integration {% term polling polls %} the GKP cloud for the state of your radiators every 2 minutes.
 
-GKP radiators only send their current temperature and heating status to the cloud when they are asked to. To keep this information up to date, the integration asks all your radiators for a new reading every 10 minutes, and reads their answer a few seconds later. Changes you make on the radiator itself or in the **GKP Home** app show up within a minute.
+GKP radiators only send their current temperature and heating status to the cloud when they are asked to. To keep this information up to date, the integration asks all your radiators for a new reading every 10 minutes, and reads their answer a few seconds later. Changes you make on the radiator itself or in the **GKP Home** app show up within 2 minutes.
 
 After you send a command, such as a new temperature or mode, the integration checks the radiator every 5 seconds for one minute, so you see the result quickly.
 
