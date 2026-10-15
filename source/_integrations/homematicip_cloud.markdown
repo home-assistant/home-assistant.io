@@ -196,6 +196,7 @@ Floor heating actuators are operated through the climate group and don't need th
 - Soil moisture sensor (`ELV-SH-SMSI`)
 - Door lock pad (`HmIP-DLP`)
 - Carbon dioxide sensors (`HmIP-SCTH230`, `HmIP-WGTC`, `HmIPW-SCTHD`)
+- Water flow of the water stop and supply unit (`HmIP-WSS`, `HmIP-WSS-GB`)
 
 ### Switches
 
