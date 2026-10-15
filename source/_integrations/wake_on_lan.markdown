@@ -12,8 +12,6 @@ ha_config_flow: true
 ha_platforms:
   - button
   - switch
-ha_codeowners:
-  - '@ntilley905'
 ha_integration_type: service
 related:
   - docs: /docs/configuration/

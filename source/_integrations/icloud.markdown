@@ -43,15 +43,24 @@ For the notification, press "Allow", then "OK".
 
 To prevent excessive battery drainage, a dynamic interval is used for each individual device instead of a fixed interval for all devices linked to one account. The dynamic interval is based on the current zone of a device, the distance towards home and the battery level of the device.
 
-## Two Factor Authentication
+## Two-factor authentication
 
-{% important %}
-You need to use an [app-specific password](https://support.apple.com/102654) to set up this integration.
-{% endimportant %}
+Use your regular Apple Account password when setting up the integration. If Apple requires two-factor authentication, Home Assistant asks you to enter the six-digit verification code displayed on one of your trusted Apple devices or sent to your trusted phone number.
+
+If you do not receive a verification code, select **Request a new verification code** in the verification step to ask Apple to send another code.
 
 ## In case of troubleshooting
 
 Delete the integration's configuration (most likely in `/config/.storage/icloud`), then retry.
+
+## Configuration options
+
+The integration provides the following configuration options:
+
+{% configuration_basic %}
+Include completed reminders:
+  description: Fetch completed reminders as well as unfinished ones. Defaults to `false`.
+{% endconfiguration_basic %}
 
 ## Platforms
 
@@ -69,7 +78,7 @@ The iCloud integration will add a battery sensor for each iCloud devices availab
 
 ### To-do list
 
-The iCloud integration adds a to-do list entity for each of your Apple Reminders lists. You can add, edit, complete, and delete reminders, including their due date and notes. Changes sync back to your Apple devices.
+The iCloud integration adds a to-do list entity for each of your Apple Reminders lists. You can add, edit, complete, and delete reminders, including their due date and notes. Changes sync back to your Apple devices. By default, only unfinished reminders are fetched. To also fetch completed reminders, enable **Include completed reminders** in the [configuration options](#configuration-options).
 
 Reminder groups hold other lists rather than reminders, so they do not appear as to-do lists. Home Assistant to-do lists are flat, so subtasks appear as regular items rather than nested under a parent. They are listed directly below the reminder they belong to, the way you see them in Reminders on your Apple devices.
 

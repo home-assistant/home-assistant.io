@@ -48,7 +48,7 @@ A climate entity and three switch entities are created for each Gree air conditi
 
 - **Gree AC**
   - **Description**: Represents the Gree air conditioner and allows you to control it using infrared commands.
-  - **Supported features**: Set HVAC mode, set target temperature, and set fan mode.
+  - **Supported features**: Turn on, turn off, set HVAC mode, set target temperature, and set fan mode.
 - **Turbo**
   - **Description**: Enables or disables turbo mode, which runs the unit at maximum output.
 - **Panel light**
@@ -60,7 +60,7 @@ These three features are switches rather than buttons because the Gree remote se
 
 ### Supported modes
 
-The climate entity offers the modes you selected during setup, in addition to **Off**.
+The climate entity offers the modes you selected during setup, in addition to **Off**. Turning the air conditioner on resumes the mode it was last in.
 
 - **Cool**: Cools to a set temperature.
 - **Heat**: Heats to a set temperature. Not all Gree air conditioner models have it.

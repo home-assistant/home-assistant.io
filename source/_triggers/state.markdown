@@ -1,5 +1,5 @@
 ---
-title: "State"
+title: "State changed"
 trigger: state
 domain: homeassistant
 description: "Triggers when the state or an attribute changes."
@@ -8,7 +8,7 @@ related_triggers:
   - time
 ---
 
-The **State** trigger is useful when you want an automation to react to a change in an entity or one of its attributes. Use it when you care about a device turning on or off, a door opening or closing, or a person arriving home.
+The **State changed** trigger is useful when you want an automation to react to a change in an entity or one of its attributes. Use it when you care about a device turning on or off, a door opening or closing, or a person arriving home.
 
 {% include triggers/ui_header.md %}
 
@@ -17,7 +17,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. Search for and select the **State** trigger.
+4. Search for and select the **State changed** trigger.
 5. In **Entity**, select the entity whose state or attribute value Home Assistant should watch.
 6. Optional: Select **Add entity** to watch additional entities.
 7. Optional: In **Attribute**, select an attribute instead of the main state.
@@ -120,7 +120,7 @@ This trigger watches one or more entities:
 
 If a door stays open longer than expected, this automation sends a message to your phone.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Back door sensor (`binary_sensor.back_door`)
   - **To**: On
   - **For**: 5 minutes
@@ -151,7 +151,7 @@ automation: |
 
 If you want a message when a person arrives, this automation watches for a state change to `home`.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Person entity (`person.sam`)
   - **To**: Home
 - **Action**: Send a notification message
@@ -180,7 +180,7 @@ automation: |
 
 If you want to know when a sensor value has not changed for a period, use **Any state (ignoring attribute changes)** for **To** and set **For** to the amount of time you want to wait.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Power sensor (`sensor.current_power`)
   - **To**: Any state (ignoring attribute changes)
   - **For**: 30 minutes

@@ -8,6 +8,7 @@ ha_category:
   - Cover
   - Energy
   - Event
+  - Infrared
   - Light
   - Media player
   - Number
@@ -36,6 +37,7 @@ ha_platforms:
   - cover
   - diagnostics
   - event
+  - infrared
   - light
   - media_player
   - number
@@ -73,7 +75,7 @@ Bluetooth scanner mode:
 
 There are four generations of devices and all generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
 
-Shelly BLU series devices (e.g. Shelly BLU H&T) are not supported; please use BTHome integration to configure such devices with Home Assistant. The exception to this is Shelly BLU TRV, which is supported by this integration via Shelly BLU Gateway Gen3.
+Shelly BLU series devices (for example, Shelly BLU H&T) are not supported; please use the BTHome integration to configure such devices with Home Assistant. The exception to this is Shelly BLU TRV, which is supported by this integration via Shelly BLU Gateway Gen3 or other Shelly devices with built-in BLU TRV support.
 
 ## Shelly Enhanced Security
 
@@ -217,6 +219,8 @@ Shelly 2PM Gen3 supports `tilt` for `cover` entities. To enable this feature, yo
 - Change the device profile to `Cover` (**Settings** > **Device profile**)
 - Calibrate the cover (**Home** > **Cover** > **Calibration** > **Start**)
 - Enable and configure **Slat control** (**Home** > **Cover** > **Slat control**)
+
+To move a cover and its tilt to target positions with a single command, use the [**Set cover position and tilt**](/actions/shelly.set_cover_position_and_tilt/) action.
 
 ## Binary input sensors
 

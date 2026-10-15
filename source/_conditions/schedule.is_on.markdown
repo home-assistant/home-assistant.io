@@ -83,7 +83,7 @@ for:
 
 If you only want a motion-based automation at certain times, you can use a schedule to decide when it is allowed to run.
 
-- **Trigger**: State: Motion detected
+- **Trigger**: State changed: Motion detected
 - **Condition**: Schedule is on
   - **Target**: Night hallway schedule
 - **Action**: Turn on light

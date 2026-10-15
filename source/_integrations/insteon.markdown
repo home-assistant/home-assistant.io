@@ -93,9 +93,22 @@ In order for any two Insteon devices to talk with one another, they must be link
 
 Insteon scenes can be created, changed, or deleted using the **Scenes** tab of the [Insteon configuration panel](#insteon-configuration-panel). To control an Insteon scene, see [Controlling Insteon scenes](#controlling-insteon-scenes) below.
 
+### Device overview
+
+Selecting a device from the list of devices in the [Insteon configuration panel](#insteon-configuration-panel) opens the **Overview** tab for that device.
+
+The tab shows the device's buttons arranged as they are on the device itself. Select a button to see the links stored on the device for that button, listed under **Controls** and **Controlled by**. Records that are not tied to a button are grouped under **Other links**. The **All-Link Database** tab lists every record.
+
+Two warnings can appear for the selected button. Each offers an **Add default links** action, which writes the missing links to the device and to the modem:
+
+- **Home Assistant has no control link to this device**: the device does not store a responder record pointing at the modem, so Home Assistant cannot control it.
+- **Home Assistant is not notified when this button is used**: the device does not store a controller record for this button pointing at the modem, so the modem is not told when the button is used.
+
+For the modem itself, the tab lists the Insteon scenes it holds and the number of devices Home Assistant can control.
+
 ### Device properties
 
-Insteon device properties, such as the LED brightness, can be managed using the Insteon configuration panel. To see the available properties of a device, select the device from the list of devices in the Insteon configuration panel. This will display the list of available properties for the specific device on the **Properties** tab. Each device type will have a different set of properties and not all devices have properties.
+Insteon device properties, such as the LED brightness, can be managed using the Insteon configuration panel. To see the available properties of a device, select the device from the list of devices in the Insteon configuration panel, then select the **Properties** tab. Each device type will have a different set of properties and not all devices have properties.
 
 - **Read device properties**:  Reads the properties from the device.
 - **Change device properties**: Allows you to select a specific property from a list of properties and edit the property values. This does not write the change to the device.
@@ -130,6 +143,7 @@ Editing a device's All-Link Database can cause the device to become unresponsive
 - **Change the modem connection**: Reconfigure the modem connection information such as USB port or Hub IP address.
 - **Configure device overrides**: Add or remove device overrides. See [Device overrides](#device-overrides) below.
 - **Delete device**: Delete an Insteon device from the network using the device's Insteon address.
+- **Missing modem links**: Read every device's link database and list the devices Home Assistant cannot control, and the buttons whose use is not reported to Home Assistant.
 
 ## Controlling Insteon scenes
 

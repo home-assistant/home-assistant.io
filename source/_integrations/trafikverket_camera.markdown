@@ -1,6 +1,6 @@
 ---
 title: Trafikverket Camera
-description: Instructions how to integrate Trafikverket Camera within Home Assistant.
+description: Instructions on how to integrate Trafikverket Camera within Home Assistant.
 ha_category:
   - Binary sensor
   - Camera
@@ -26,7 +26,7 @@ When more than one camera has the same name, use the more precise location in yo
 
 ## Prerequisites
 
-Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obtain the API key.
+Please click [here](https://data.trafikverket.se/) and register to obtain the API key.
 
 {% include integrations/config_flow.md %}
 

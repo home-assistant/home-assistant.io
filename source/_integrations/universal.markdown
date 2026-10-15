@@ -391,3 +391,5 @@ media_player:
          media_player.sony_tv_cast
       {% endif %}
 ```
+
+{% include integrations/actions.md %}

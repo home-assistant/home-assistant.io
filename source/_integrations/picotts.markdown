@@ -9,43 +9,41 @@ ha_domain: picotts
 ha_platforms:
   - tts
 ha_integration_type: service
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
 ha_codeowners:
-  - '@rooggiieerr'
+  - '@rrooggiieerr'
 ha_config_flow: true
 ---
 
 The **Pico TTS** {% term integration %} uses [Pico TTS library](https://github.com/naggety/picotts) to read out text with natural sounding voices.
 Pico TTS is a powerful open-source engine that runs locally (cloudless) so it can work even without an internet connection.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable text-to-speech with Pico, add the following lines to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% configuration_basic %}
+Language:
+  description: "The language to use. Supported languages are `en-US`, `en-GB`, `de-DE`, `es-ES`, `fr-FR`, and `it-IT`."
+{% endconfiguration_basic %}
 
-```yaml
-# Example configuration.yaml entry
-tts:
-  - platform: picotts
-```
+## Supported functionality
 
-{% configuration %}
-language:
-  description: "The language to use. Supported languages are `en-US`, `en-GB`, `de-DE`, `es-ES`, `fr-FR` and `it-IT`."
-  required: false
-  type: string
-  default: "`en-US`"
-{% endconfiguration %}
+The **Pico TTS** integration provides the following entities.
 
-## Full configuration example
+### Text-to-speech
 
-The configuration sample below shows how an entry can look like:
+The **Pico TTS** {% term integration %} adds a text-to-speech entity for your configured language. To convert text to speech, you can use the [**Text-to-speech (TTS): Speak** (`tts.speak`)](/actions/tts.speak) {% term action %}.
 
-```yaml
-# Example configuration.yaml entry
-tts:
-  - platform: picotts
-    language: "fr-FR"
-```
+{% example %}
+action: |
+  action: tts.speak
+  target:
+    entity_id: tts.pico_tts_en_us
+  data:
+    media_player_entity_id: media_player.living_room
+    message: "The frogs have escaped from their containment!"
+{% endexample %}
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}

@@ -8,7 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: willow
 ha_codeowners:
-  - "@paxprz"
+  - '@paxprz'
 ha_platforms:
   - sensor
 ha_integration_type: hub

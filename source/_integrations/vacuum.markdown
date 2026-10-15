@@ -15,18 +15,18 @@ The **Vacuum** {% term integration %} enables the ability to control home cleani
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a vacuum entity
+## Vacuum states
 
-A vacuum {% term entity %} can have the following states:
+A vacuum {% term entity %} can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
 
-- **Cleaning**: The vacuum is currently cleaning.
-- **Docked**: The vacuum is currently docked. It is assumed that docked can also mean charging.
-- **Error**: The vacuum encountered an error while cleaning.
-- **Idle**: The vacuum is not paused, not docked, and does not have any errors.
-- **Paused**: The vacuum was cleaning but was paused without returning to the dock.
-- **Returning**: The vacuum is done cleaning and is currently returning to the dock, but not yet docked.
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Cleaning** (`cleaning`): The vacuum is currently cleaning.
+- **Docked** (`docked`): The vacuum is currently docked. It is assumed that docked can also mean charging.
+- **Error** (`error`): The vacuum is in an error state.
+- **Idle** (`idle`): The vacuum is not paused, not docked, and does not have any errors.
+- **Paused** (`paused`): The vacuum was cleaning but was paused without returning to the dock.
+- **Returning to dock** (`returning`): The vacuum is returning to the dock, but is not docked yet.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 ## Creating an automation to send the vacuum to clean specific areas
 
