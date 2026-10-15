@@ -84,7 +84,8 @@ Reuse a notification script and pass the message to it, without holding up the r
   - **Target**: Bedroom light
 - **Action**: Script: Turn on script
   - **Target**: Notify Pushover
-  - **Variables**: `{"title": "State change", "message": "The light is on!"}`
+
+To pass the title and message with this action, edit the action in YAML as shown below.
 
 {% details "Show example YAML" %}
 
