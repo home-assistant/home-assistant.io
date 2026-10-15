@@ -100,24 +100,27 @@ An action controls all of its targets. For example, if **Turn on light** targets
 
 In {% term YAML %}, enter the targets under `target`. Use one or more of the following keys: `entity_id`, `device_id`, `area_id`, `floor_id`, and `label_id`. Each key can contain a single ID or a list of IDs. Use the IDs, not the names.
 
-For triggers, set **Trigger when** with `behavior` under `options`. The values are `each`, `first`, and `all`.
+For triggers, set **Trigger when** with `behavior` under `options`. The values are `each`, `first`, and `all`. For conditions, set **Condition passes if** the same way. The values are `any` and `all`.
+
+The following automation reacts when the first light in the living room turns on. If all lights upstairs are off, it turns on the hallway lights.
 
 {% example %}
-trigger: |
-  trigger: light.turned_on
-  target:
-    area_id: living_room
-  options:
-    behavior: first
-{% endexample %}
-
-For conditions, set **Condition passes if** with `behavior` under `options`. The values are `any` and `all`.
-
-{% example %}
-condition: |
-  condition: light.is_on
-  target:
-    floor_id: upstairs
-  options:
-    behavior: all
+automation: |
+  alias: "Hallway lights with living room"
+  triggers:
+    - trigger: light.turned_on
+      target:
+        area_id: living_room
+      options:
+        behavior: first
+  conditions:
+    - condition: light.is_off
+      target:
+        floor_id: upstairs
+      options:
+        behavior: all
+  actions:
+    - action: light.turn_on
+      target:
+        area_id: hallway
 {% endexample %}
