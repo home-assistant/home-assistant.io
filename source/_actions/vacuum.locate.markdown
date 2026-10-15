@@ -1,5 +1,5 @@
 ---
-title: Locate vacuum
+title: "Locate vacuum cleaner"
 action: vacuum.locate
 domain: vacuum
 description: "Plays a sound or flashes lights to help you find the vacuum."
@@ -56,9 +56,11 @@ target:
 Some vacuum integrations expose a binary sensor when the dust bin is full (for example, [iRobot Roomba and Braava](/integrations/roomba/)).
 If your vacuum reports that its bin needs attention, this automation makes it play its locate signal so you can find it quickly.
 
-- **Trigger**: Roomba bin full sensor turns on
-- **Action**: Locate vacuum
-- **Target**: Upstairs vacuum
+- **Trigger**: State changed
+  - **Entity**: Roomba bin full sensor
+  - **To**: On
+- **Action**: Locate vacuum cleaner
+  - **Target**: Upstairs vacuum
 
 {% details "YAML example for locating a vacuum that needs emptying" %}
 

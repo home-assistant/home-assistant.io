@@ -1,5 +1,5 @@
 ---
-title: Return to base
+title: "Return vacuum cleaner to dock"
 action: vacuum.return_to_base
 domain: vacuum
 description: "Sends the vacuum to the charging dock."
@@ -56,8 +56,8 @@ target:
 At the end of the evening, this automation sends the vacuum back to its dock so the floor is clear and the robot is charging overnight.
 
 - **Trigger**: Time: 22:30
-- **Action**: Return to base
-- **Target**: Downstairs vacuum
+- **Action**: Return vacuum cleaner to dock
+  - **Target**: Downstairs vacuum
 
 {% details "YAML example for sending a vacuum home at night" %}
 
