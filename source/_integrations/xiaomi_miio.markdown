@@ -1067,31 +1067,31 @@ Supported models:
 - Target humidity (40 - 70)
 - Attributes (humidifier platform)
 
-| Attribute         | Description                               |
-| ----------------- | ----------------------------------------- |
-| `available_modes` | A list with the operation modes available |
-| `humidity`        | The current target humidity               |
-| `max_humidity`    | The maximum settable target humidity      |
-| `min_humidity`    | The minimum settable target humidity      |
-| `mode`            | The current operation mode selected       |
+  | Attribute         | Description                               |
+  | ----------------- | ----------------------------------------- |
+  | `available_modes` | A list with the operation modes available |
+  | `humidity`        | The current target humidity               |
+  | `max_humidity`    | The maximum settable target humidity      |
+  | `min_humidity`    | The minimum settable target humidity      |
+  | `mode`            | The current operation mode selected       |
 
 - Binary sensor entities
 
-| Binary sensor         | Description                                          |
-| --------------------- | ---------------------------------------------------- |
-| Water shortage faulty | Indicates whether the humidifier is out of water     |
-| Water Tank            | Indicates whether the water tank is connected or not |
+  | Binary sensor         | Description                                          |
+  | --------------------- | ---------------------------------------------------- |
+  | Water shortage faulty | Indicates whether the humidifier is out of water     |
+  | Water Tank            | Indicates whether the water tank is connected or not |
 
-- Sensor entities|
+- Sensor entities
   - **Humidity**: The current relative humidity measured. Enabled by default.
   - **Temperature**: The current temperature measured. Enabled by default.
 
 - Switch entities
 
-| Switch    | Description               |
-| --------- | ------------------------- |
-| Buzzer    | Turn on/off the buzzer    |
-| LED Light | Turn on/off the LED light |
+  | Switch    | Description               |
+  | --------- | ------------------------- |
+  | Buzzer    | Turn on/off the buzzer    |
+  | LED Light | Turn on/off the LED light |
 
 ### Standing Fan 1X (dmaker.fan.p5)
 
