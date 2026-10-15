@@ -9,7 +9,7 @@ related_actions:
   - yeelight.set_music_mode
 ---
 
-The **Start flow** action starts a color flow on a Yeelight light, using a list of transitions that you define.
+The **Yeelight: Start flow** action starts a color flow on a Yeelight light, using a list of transitions that you define.
 
 This is useful for creating dynamic lighting effects, such as a slow fade through colors or a flickering candle effect.
 
@@ -22,7 +22,7 @@ To start a flow from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Yeelight light you want to control.
-6. From the actions shown for that target, select **Start flow**.
+6. From the actions shown for that target, under **Yeelight**, select **Start flow**.
 7. Enter the **Transitions**, and optionally a **Count** and an **Action**.
 8. Select **Save**.
 
