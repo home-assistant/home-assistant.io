@@ -36,7 +36,7 @@ You can group cards without using horizontal or vertical stack cards.
    - Smaller screens fit fewer sections side by side, and phones stack them one under the other.
 4. Under **Dense section placement**, select if you want to allow the cards to be arranged automatically in order to fill gaps between cards.
    - This will remove some gaps, but it also means you have less control over the order of the cards.
-   - Note that this only applies to horizontal gaps if some sections are wider than **Single**.
+   - Note that this only applies to horizontal gaps if you made some sections wider.
 5. When you are done, select **Save**.
    - You are now presented with a new, empty view.
    - If you chose a background image, the page is filled with that image.
