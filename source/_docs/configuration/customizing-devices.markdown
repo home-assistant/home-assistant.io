@@ -92,9 +92,10 @@ To hide several entities at once, follow these steps:
 
 1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
 2. Above the table, select **Enter selection mode** {% icon "mdi:format-list-checks" %}, and then select the entities.
-3. Select **Hide selected**.
+3. Select **Action** {% icon "mdi:dots-vertical" %} > **Hide selected**.
+4. To confirm, select **Hide**.
 
-To show them again, select **Unhide selected**.
+To show them again, select **Action** {% icon "mdi:dots-vertical" %} > **Unhide selected**.
 
 ## Disabling or enabling an entity
 
@@ -113,14 +114,16 @@ To enable an entity, follow these steps:
 2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
 3. Turn on **Enabled**.
 4. Select **Update**.
-   - Result: Home Assistant adds the entity after a short delay.
+   - Result: Home Assistant adds the entity after a short delay. If it asks you to restart, restart Home Assistant to finish enabling the entity.
 
 To disable or enable several entities at once, follow these steps:
 
 1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
    - To enable entities, change the filters to show disabled entities.
 2. Above the table, select **Enter selection mode** {% icon "mdi:format-list-checks" %}, and then select the entities.
-3. Select **Disable selected** or **Enable selected**.
+3. Select **Action** {% icon "mdi:dots-vertical" %} > **Disable selected** or **Enable selected**.
+4. To confirm, select **Disable** or **Enable**.
+   - Result: When you enable entities, Home Assistant adds them after a short delay. If it asks you to restart, restart Home Assistant to finish enabling them.
 
 ## Changing the entity ID format for new entities
 
