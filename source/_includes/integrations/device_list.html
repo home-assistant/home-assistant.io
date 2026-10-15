@@ -5,7 +5,7 @@
 {%- if include.hide_list -%}
 For the full list of {{ company.devices | size }} certified {{ include.name | default: include.brand }} devices, see our <a href="https://works-with.home-assistant.io/certified-products/?brand={{ include.brand | downcase | url_encode }}" target="_blank" rel="noopener">filtered device list</a>.
 {%- else -%}
-<ul>
+<ul class="wwha-device-list">
 {%- for device in company.devices %}
 {%- assign show_device = true -%}
 {%- if include.protocol -%}
@@ -26,7 +26,7 @@ For the full list of {{ company.devices | size }} certified {{ include.name | de
 {%- assign hub = device.relatedProducts -%}
 {%- if hub.text and hub.text != empty %}
 {%- capture hub_name -%}{%- if hub.url != empty -%}<a href="{{ hub.url | escape }}" target="_blank" rel="noopener">{{ hub.text | escape_once }}</a>{%- else -%}{{ hub.text | escape_once }}{%- endif -%}{%- endcapture %}
-<ul><li>{% if hub.text contains "require" %}{{ hub_name }}{% else %}Requires a vendor hub: {{ hub_name }}{% endif %}</li></ul>
+<ul class="wwha-device-hub"><li>{% if hub.text contains "require" %}{{ hub_name }}{% else %}Requires a vendor hub: {{ hub_name }}{% endif %}</li></ul>
 {%- endif -%}
 </li>
 {%- endif -%}
