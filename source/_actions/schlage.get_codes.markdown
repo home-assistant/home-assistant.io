@@ -1,5 +1,5 @@
 ---
-title: "Get the PIN codes of a Schlage lock"
+title: "Get PIN codes"
 action: schlage.get_codes
 domain: schlage
 description: "Returns all PIN codes stored on a Schlage lock."
@@ -21,7 +21,7 @@ To get the PIN codes from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Schlage lock.
-6. From the actions shown for that target, select **Schlage: Get PIN codes**.
+6. From the actions shown for that target, under **Schlage**, select **Get PIN codes**.
 7. Select **Save**.
 
 ### Options in the UI
