@@ -151,8 +151,6 @@ When you start winding down in the evening, dim the kitchen light to a warm whit
 
 - **Action**: Turn on light
   - **Target**: Kitchen light
-  - **Brightness percentage**: 80
-  - **Color**: warm_white
   - **Brightness**: `80`%
   - **Color name**: Warm white
 

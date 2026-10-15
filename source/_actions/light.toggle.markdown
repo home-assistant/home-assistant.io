@@ -169,8 +169,6 @@ When the toggle turns the kitchen light on, have it come up dim and warm instead
 
 - **Action**: Toggle light
   - **Target**: Kitchen light
-  - **Brightness percentage**: 40
-  - **Color**: warm_white
   - **Brightness**: `40`%
   - **Color name**: Warm white
 
