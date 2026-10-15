@@ -8,7 +8,7 @@ related_actions:
   - hydrawise.start_watering
 ---
 
-The **Resume automatic watering** action restarts an irrigation zone's automatic watering schedule after it has been suspended.
+The **Hunter Hydrawise: Resume automatic watering** action restarts an irrigation zone's automatic watering schedule after it has been suspended.
 
 This is handy when you want to bring a zone back to its normal schedule early, for example resuming watering once a dry spell returns instead of waiting for a suspension to expire.
 
@@ -21,7 +21,7 @@ To resume watering from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the irrigation zone's **Watering** binary sensor.
-6. From the actions shown for that target, select **Resume automatic watering**.
+6. From the actions shown for that target, under **Hunter Hydrawise**, select **Resume automatic watering**.
 7. Select **Save**.
 
 This action has no additional options in the UI.
