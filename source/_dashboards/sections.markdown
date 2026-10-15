@@ -32,8 +32,7 @@ You can group cards without using horizontal or vertical stack cards.
 1. If you have multiple dashboards, in the left sidebar, select the dashboard to which you want to add the sections view.
 2. Follow the steps on [adding a new view](/dashboards/views/#adding-a-view-to-a-dashboard).
    - Under **View type**, select **Sections**.
-3. Under **Max sections side by side**, select how many sections can be placed next to each other: **1**, **2**, **3**, or **4**.
-   - To allow more, select **More** and enter a number up to 10.
+3. Under **Max sections side by side**, select how many sections can be placed next to each other.
    - Smaller screens fit fewer sections side by side, and phones stack them one under the other.
 4. Under **Dense section placement**, select if you want to allow the cards to be arranged automatically in order to fill gaps between cards.
    - This will remove some gaps, but it also means you have less control over the order of the cards.
@@ -103,22 +102,7 @@ You can customize the default background color and the section corner rounding i
 
 ## Changing the width of a section
 
-A section is one section wide by default. You can make it wider to fit more cards side by side. The cards keep their size: a wider section gives them more room on each row.
-
-1. To edit your dashboard, in the top right corner, select the edit {% icon "mdi:edit" %} button.
-2. Select the edit {% icon "mdi:edit" %} button on the section you want to change.
-3. On the **Appearance** tab, under **Width**, select **Single**, **Double**, **Triple**, or **Full width**.
-   - The choices depend on the **Max sections side by side** setting of the view. **Full width** uses that maximum.
-   - If the view allows more than 4 sections side by side, use the slider instead.
-   - If the view allows only 1 section side by side, the width setting is not shown.
-4. The preview next to the settings shows the result. For sections wider than **Single**, use the switch above the preview to see the section on mobile or on desktop.
-5. Select **Save**.
-
-Smaller screens may show a section narrower than its width, and phones stack sections one under the other.
-
-{% note %}
-**Full width** keeps the number of sections it had when you selected it. If you later increase **Max sections side by side** for the view, the section no longer takes the whole row. Select **Full width** again to update it.
-{% endnote %}
+To make a section wider, select the edit {% icon "mdi:edit" %} button on the section, and on the **Appearance** tab, select a **Width**. The cards keep their size: a wider section fits more of them on each row.
 
 ## Deleting a section
 
