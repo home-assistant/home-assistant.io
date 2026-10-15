@@ -130,3 +130,8 @@
   automation-turn-off-the-heating-when-a-window-stays-open: /building-blocks/wait_for_trigger/
   script-wait-a-total-of-10-seconds: /building-blocks/wait_for_trigger/
   wait-for-a-trigger: /building-blocks/wait_for_trigger/
+"/common-tasks/general/":
+  enabling-or-disabling-entities: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
+  enabling-entities: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
+  to-enable-or-disable-a-single-entity: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
+  to-enable-or-disable-multiple-entities: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity

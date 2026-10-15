@@ -123,7 +123,7 @@ In addition to the entities for each tracked repository, the integration provide
 - **Public gists**: Shows the number of public gists on your account
 - **Public repositories**: Shows the number of public repositories on your account
 
-To use one of these sensors, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity. Select the cogwheel {% icon "mdi:cog-outline" %} and [enable it](https://www.home-assistant.io/common-tasks/general/#to-enable-or-disable-a-single-entity).
+To use one of these sensors, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity. Select the cogwheel {% icon "mdi:cog-outline" %} and [enable it](https://www.home-assistant.io/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 ## Automation
 

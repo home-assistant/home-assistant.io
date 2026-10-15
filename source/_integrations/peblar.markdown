@@ -92,7 +92,7 @@ or warning.
 
 {% important %}
 Some of these binary sensors are disabled by default. If you want to use them, you need
-to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
+to enable them first. See the [enabling or disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
 documentation for information on how to do this.
 {% endimportant %}
 
@@ -111,7 +111,7 @@ the charger. The following buttons are available:
 
 {% important %}
 Some of these buttons are disabled by default. If you want to use them, you need
-to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
+to enable them first. See the [enabling or disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
 documentation for information on how to do this.
 {% endimportant %}
 
@@ -245,7 +245,7 @@ as a device.
 
 {% important %}
 The sensors marked with \*\* are disabled by default. If you want to use them,
-you need to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
+you need to enable them first. See the [enabling or disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
 documentation for information on how to do this.
 {% endimportant %}
 
