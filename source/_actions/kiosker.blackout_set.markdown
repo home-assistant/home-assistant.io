@@ -169,9 +169,7 @@ Show a styled overlay the user can tap away when ready.
   - **Device**: Meeting room display
   - **Visible**: On
   - **Text**: `Meeting in progress`
-  - **Background**: [10, 10, 60]
   - **Icon**: `person.2.fill`
-  - **Expire**: 3600
   - **Dismissible**: On
   - **Button text**: `Dismiss`
   - **Background color**: `[10, 10, 60]`
@@ -224,7 +222,6 @@ When everyone leaves, cover the screen so the display is not showing anything wh
 - **Action**: Kiosker: Set blackout
   - **Device**: Living room kiosk
   - **Visible**: On
-  - **Expire**: 0
   - **Expire time**: `0` seconds
 
 {% details "YAML example for blacking out when no one is home" %}
