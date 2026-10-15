@@ -3,7 +3,7 @@ title: KACO RS485
 description: Instructions on how to integrate KACO Powador solar inverters with Home Assistant over RS485.
 ha_category:
   - Energy
-ha_release: '2026.10'
+ha_release: '2026.11'
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@g4bri3lDev'
