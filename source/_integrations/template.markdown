@@ -168,7 +168,7 @@ template:
 
 {% configuration trigger-based %}
 actions:
-  description: Define actions to run when a trigger reacts (for trigger-based entities only). Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
+  description: Define actions to run when a trigger reacts (for trigger-based entities only). Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/automation/action/#action-response-data). [See action documentation](/docs/automation/action).
   required: false
   type: list
 conditions:
@@ -3523,7 +3523,7 @@ The `twice_daily` forecast should contain dictionaries, where each dictionary re
 
 ### Trigger based weather - Weather Forecast from response data
 
-This example demonstrates how to use an `action` to call a [action with response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data)
+This example demonstrates how to use an `action` to call a [action with response data](/docs/automation/action/#action-response-data)
 and use the response in a template.
 
 ```yaml
