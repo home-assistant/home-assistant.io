@@ -275,9 +275,23 @@ If these steps don't help, [open an issue on GitHub](https://github.com/home-ass
 
 1. Make sure the inverter is powered on. If it's connected through a Modbus TCP bridge or an ESPHome serial proxy, make sure that device is also powered on and reachable on your network.
 2. For a network connection, confirm the host and port are correct, and that nothing else is holding open the same Modbus connection.
-3. For a serial connection, confirm the serial port is correct and the baud rate matches the one set on the inverter. Check the RS485 wiring: if A and B are swapped, the inverter doesn't answer.
+3. For a serial connection, confirm the serial port is correct.
 4. Check that Modbus is enabled on the inverter, if it has a setting for this.
 5. If it still fails, include the connection type, the connection settings, and the Modbus unit ID in the issue report. If the integration is already added, also enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), reproduce the failure, and include the log.
+
+### Inverter isn't answering
+
+#### Description
+
+If setup reports that the adapter is reachable but the inverter behind it didn't answer, Home Assistant reached the Modbus TCP bridge or serial port, but the inverter didn't reply.
+
+#### Resolution
+
+1. A PV inverter switches off when there's no sunlight. If you're setting it up after dark, try again in daylight.
+2. Confirm the **Modbus unit ID** matches the one set on the inverter. The default is `1`.
+3. For a serial connection, or a Modbus TCP bridge wired to the inverter's RS485 port, confirm the baud rate matches the one set on the inverter. Check the RS485 wiring: if A and B are swapped, the inverter doesn't answer.
+4. Check that Modbus is enabled on the inverter, if it has a setting for this.
+5. If it still doesn't answer, include the connection type, the connection settings, and the Modbus unit ID in the issue report.
 
 ### Inverter isn't recognized
 
