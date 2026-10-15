@@ -30,7 +30,7 @@ ha_platforms:
   - siren
   - switch
 ha_integration_type: hub
-ha_quality_scale: gold
+ha_quality_scale: silver
 ---
 
 The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically.
@@ -209,37 +209,65 @@ The integration {% term polling polls %} the Imou cloud every 2 minutes. Each po
 
 ## Examples
 
-The entity IDs below are examples. Yours depend on the device name.
+{% include docs/paste_yaml_tip.md %}
 
-Notify when a device goes offline:
+Replace `notify.my_device` with your own notification entity, such as your phone.
 
-```yaml
-automation:
-  - alias: "Notify when the living room camera is offline"
-    triggers:
-      - trigger: state
-        entity_id: sensor.living_room_status
-        to: "offline"
-    actions:
-      - action: notify.notify
-        data:
-          message: "The living room camera is offline."
-```
+### Automation: Notify when a camera goes offline
 
-Notify when a door contact opens:
+- **Trigger**: State
+  - **Entity**: Living room Status
+  - **To**: offline
+- **Action**: Send a notification message
+  - **Target**: My device (`notify.my_device`)
+  - **Message**: The living room camera is offline.
 
-```yaml
-automation:
-  - alias: "Notify when the front door opens"
-    triggers:
-      - trigger: state
-        entity_id: binary_sensor.front_door
-        to: "on"
-    actions:
-      - action: notify.notify
-        data:
-          message: "The front door opened."
-```
+{% details "YAML example for an offline camera" %}
+
+{% example %}
+automation: |
+  alias: "Notify when the living room camera is offline"
+  triggers:
+    - trigger: state
+      entity_id: sensor.living_room_status
+      to: "offline"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The living room camera is offline."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Notify when a door opens
+
+- **Trigger**: State
+  - **Entity**: Front door
+  - **To**: on
+- **Action**: Send a notification message
+  - **Target**: My device (`notify.my_device`)
+  - **Message**: The front door opened.
+
+{% details "YAML example for an open door" %}
+
+{% example %}
+automation: |
+  alias: "Notify when the front door opens"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.front_door
+      to: "on"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The front door opened."
+{% endexample %}
+
+{% enddetails %}
 
 ## Security and privacy considerations
 
