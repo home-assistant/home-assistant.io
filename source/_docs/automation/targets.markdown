@@ -58,7 +58,7 @@ The following entities are not part of a target because of what the trigger, con
 The following entities are not part of a target because of how they are set up:
 
 - Entities that you assigned to a different area than their device, when you target the area of the device. These entities belong to their own area only.
-- Hidden entities. For example, if an action turns on all lights in the living room, a hidden light in that room stays off.
+- Hidden entities. To hide an entity, turn off **Visible** in its settings. For example, if an action turns on all lights in the living room, a hidden light in that room stays off.
 - Configuration and diagnostic entities, such as a firmware update or the signal strength of a device. If you put a label on the entity itself, and target that label, the entity is part of the target.
 
 ## Targets stay up to date
@@ -74,7 +74,7 @@ When a target covers more than one entity, you can decide how the trigger or con
 Under **Trigger when**, select one of the following:
 
 - **Each** (default): The trigger reacts every time one of the targets makes the change. For example, if three lights turn on, the automation starts three times.
-- **First**: The trigger reacts when the first target makes the change, while none of the other targets is in that state yet. It reacts again only after none of the targets is in that state anymore. For example, the automation starts when the first light in the living room turns on, and doesn't start again until all of them are off again.
+- **First**: The trigger reacts when the first target makes the change. It reacts again only after none of the targets is in that state anymore. For example, the automation starts when the first light in the living room turns on, and doesn't start again until all of them are off.
 - **All**: The trigger reacts when the last target makes the change, so that all targets are in that state. For example, the automation starts when the last window is closed.
 
 For **First** and **All**, Home Assistant skips targets that are **Unavailable** or **Unknown**. Most triggers also don't react when a target comes back from **Unavailable** or **Unknown**. For details, refer to [Unavailable and unknown state behavior in triggers](/docs/automation/trigger/#unavailable-and-unknown-state-behavior-in-triggers).
