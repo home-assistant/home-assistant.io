@@ -32,10 +32,12 @@ You can group cards without using horizontal or vertical stack cards.
 1. If you have multiple dashboards, in the left sidebar, select the dashboard to which you want to add the sections view.
 2. Follow the steps on [adding a new view](/dashboards/views/#adding-a-view-to-a-dashboard).
    - Under **View type**, select **Sections**.
-3. Under **Max number of sections wide**, select the maximum number of columns you want to see in the new sections view.
+3. Under **Max sections side by side**, select how many sections can be placed next to each other: **1**, **2**, **3**, or **4**.
+   - To allow more, select **More** and enter a number up to 10.
+   - Smaller screens fit fewer sections side by side, and phones stack them one under the other.
 4. Under **Dense section placement**, select if you want to allow the cards to be arranged automatically in order to fill gaps between cards.
    - This will remove some gaps, but it also means you have less control over the order of the cards.
-   - Note that this only applies to horizontal gaps if you used sections more than one column wide.
+   - Note that this only applies to horizontal gaps if some sections are wider than **Single**.
 5. When you are done, select **Save**.
    - You are now presented with a new, empty view.
    - If you chose a background image, the page is filled with that image.
@@ -97,6 +99,25 @@ If you have sections side by side on the same row, sections without a background
 If the cards in a section appear to take on the background color, your theme most likely uses a transparent card background. Set a card background color in your theme to keep the cards visually distinct.
 
 You can customize the default background color and the section corner rounding in a [custom theme](/integrations/frontend/#defining-themes) using the `ha-section-background-color` and `ha-section-border-radius` variables.
+{% endnote %}
+
+## Changing the width of a section
+
+A section is one section wide by default. You can make it wider to fit more cards side by side. The cards keep their size: a wider section gives them more room on each row.
+
+1. To edit your dashboard, in the top right corner, select the edit {% icon "mdi:edit" %} button.
+2. Select the edit {% icon "mdi:edit" %} button on the section you want to change.
+3. On the **Appearance** tab, under **Width**, select **Single**, **Double**, **Triple**, or **Full width**.
+   - The choices depend on the **Max sections side by side** setting of the view. **Full width** uses that maximum.
+   - If the view allows more than 4 sections side by side, use the slider instead.
+   - If the view allows only 1 section side by side, the width setting is not shown.
+4. The preview next to the settings shows the result. For sections wider than **Single**, use the switch above the preview to see the section on mobile or on desktop.
+5. Select **Save**.
+
+Smaller screens may show a section narrower than its width, and phones stack sections one under the other.
+
+{% note %}
+**Full width** keeps the number of sections it had when you selected it. If you later increase **Max sections side by side** for the view, the section no longer takes the whole row. Select **Full width** again to update it.
 {% endnote %}
 
 ## Deleting a section
@@ -236,6 +257,11 @@ type:
   required: false
   description: "`sections`"
   type: string
+max_columns:
+  required: false
+  description: "Maximum number of sections placed side by side, from 1 to 10. Smaller screens fit fewer sections side by side."
+  type: integer
+  default: 4
 {% endconfiguration %}
 
 ## Header YAML configuration
@@ -260,6 +286,11 @@ card:
 ## Section YAML configuration
 
 {% configuration %}
+column_span:
+  required: false
+  description: "Width of the section, as a number of sections. For example, `2` makes the section twice as wide as a single section. It is limited by the `max_columns` setting of the view and by the screen size."
+  type: integer
+  default: 1
 background:
   required: false
   description: "Adds a colored background behind the section. Use `true` for the default color and opacity, or provide a map with `color` and `opacity` options."
