@@ -113,7 +113,9 @@ entity_id:
 
 When the last person leaves home, put the heating system into **Away** mode so it runs at a lower setpoint until someone returns.
 
-- **Trigger**: Everyone has left home
+- **Trigger**: State changed
+  - **Entity**: Home zone
+  - **To**: 0
 - **Action**: Honeywell Total Connect Comfort (Europe): Set system mode, with mode Away
 
 {% details "YAML example for switching to Away mode" %}

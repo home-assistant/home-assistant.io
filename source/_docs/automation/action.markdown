@@ -37,9 +37,9 @@ An automation runs its actions one after the other, from top to bottom.
 
 This is why:
 
-- If a condition between the actions isn't met, the actions after the condition don't run. For details, refer to [Condition](/docs/scripts/#condition).
+- If a condition between the actions isn't met, the actions after the condition don't run. For details, refer to [Condition](/building-blocks/condition/).
 - If an action fails, the actions after the failed action don't run. To continue anyway, refer to [Continuing when a step fails](/docs/scripts/#continuing-when-a-step-fails).
-- Actions don't run at the same time. To run actions at the same time, use [Run in parallel](/docs/scripts/#run-in-parallel).
+- Actions don't run at the same time. To run actions at the same time, use [Run in parallel](/building-blocks/parallel/).
 
 ## Actions and building blocks
 

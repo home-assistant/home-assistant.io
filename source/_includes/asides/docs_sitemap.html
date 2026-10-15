@@ -67,17 +67,8 @@
       {% icon "mdi:script-text" %} {% active_link /docs/scripts/ Building blocks and actions %}
       {% if doc == 'scripts' or root == 'building-blocks' or include.docs_index %}
       <ul>
-        <li>
-          {% active_link /building-blocks/ All building blocks %}
-          <ul>
-            {%- assign sitemap_building_blocks = site.building_blocks | sort: "title" -%}
-            {%- for block in sitemap_building_blocks %}
-            <li>{% active_link {{block.url}} {{block.title}} %}</li>
-            {%- endfor %}
-          </ul>
-        </li>
+        <li>{% active_link /building-blocks/ All building blocks %}</li>
         <li>{% active_link /docs/scripts/perform-actions/ Performing actions %}</li>
-        <li>{% active_link /docs/scripts/conditions/ Conditions %}</li>
       </ul>
       {% endif %}
     </li>

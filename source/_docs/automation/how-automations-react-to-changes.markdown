@@ -39,7 +39,7 @@ This is why:
 
 - If the condition isn't met when the trigger reacts, nothing happens, even if the condition is met a minute later.
 - If a switch is turned on and quickly off again, the automation starts, but a condition that checks whether the switch is on is not met anymore.
-- [**Wait for a template**](/docs/scripts/#wait-for-a-template) works like a condition: if the template is already true when the wait starts, the automation continues right away.
+- [**Wait for a template**](/building-blocks/wait_template/) works like a condition: if the template is already true when the wait starts, the automation continues right away.
 
 ## When two things must both be true
 

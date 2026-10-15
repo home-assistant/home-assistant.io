@@ -94,7 +94,9 @@ preannounce_media_id:
 
 When the washing machine finishes, announce it on the kitchen satellite.
 
-- **Trigger**: Washing machine power drops to idle
+- **Trigger**: State changed
+  - **Entity**: Washing machine status sensor
+  - **To**: Idle
 - **Action**: Announce on satellite
   - **Target**: Kitchen satellite
   - **Message**: The laundry is done

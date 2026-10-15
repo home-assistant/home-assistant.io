@@ -12,7 +12,7 @@ The **Wait for a trigger** building block pauses the automation or script until 
 
 ## Using this building block from the user interface
 
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select an automation. To edit a script, go to the **Scripts** tab and select the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
 3. Select **Blocks**, then select **Wait for a trigger**.
 4. Select **Add trigger**, and add the trigger to wait for.
@@ -84,7 +84,7 @@ wait_for_trigger:
   required: true
   type: list
 timeout:
-  description: The longest time to wait. Uses the same formats as [Wait for time to pass (delay)](/docs/scripts/#wait-for-time-to-pass-delay), including templates.
+  description: The longest time to wait. Uses the same formats as [Wait for time to pass (delay)](/building-blocks/delay/), including templates.
   required: false
   type: [string, integer, float, map, template]
 continue_on_timeout:
@@ -104,15 +104,15 @@ After the wait ends, because a trigger reacted or because the timeout ended, the
 
 ## Good to know
 
-- The wait only reacts to a change that happens after the wait starts. If the state is already there, the automation or script keeps waiting. To continue right away in that case, use [**Wait for a template**](/docs/scripts/#wait-for-a-template). For more about this difference, refer to [Triggers react to changes](/docs/automation/how-automations-react-to-changes/#triggers-react-to-changes).
+- The wait only reacts to a change that happens after the wait starts. If the state is already there, the automation or script keeps waiting. To continue right away in that case, use [**Wait for a template**](/building-blocks/wait_template/). For more about this difference, refer to [Triggers react to changes](/docs/automation/how-automations-react-to-changes/#triggers-react-to-changes).
 - **Continue on timeout** is turned on by default. To check whether a trigger reacted, use `wait.completed`.
 - A restart of Home Assistant stops automations and scripts that are waiting. They don't continue after the restart.
-- The triggers can use the [trigger variables](/docs/automation/trigger/#trigger-variables), [variables](/docs/scripts/#define-variables), and [script variables](/integrations/script/#variables) that are defined before the wait.
+- The triggers can use the [trigger variables](/docs/automation/trigger/#trigger-variables), [variables](/building-blocks/variables/), and [script variables](/integrations/script/#variables) that are defined before the wait.
 - The **Triggered by** condition only lists the triggers of the automation itself, not the triggers of the wait. To check which trigger ended the wait, use `wait.trigger.id`, as shown in [Using this building block in YAML](#using-this-building-block-in-yaml).
 
 ## Examples
 
-### Automation: turn off the heating when a window stays open
+### Automation: Turn off the heating when a window stays open
 
 When the window opens, this automation waits up to 5 minutes for it to close again. If the window is still open after 5 minutes, it turns off the heating.
 
@@ -158,7 +158,7 @@ automation: |
 
 {% enddetails %}
 
-### Script: wait a total of 10 seconds
+### Script: Wait a total of 10 seconds
 
 This script uses two waits, with one timeout of 10 seconds for both. The second wait uses `wait.remaining`, the time that is left after the first wait.
 
