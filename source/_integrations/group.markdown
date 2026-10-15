@@ -174,6 +174,8 @@ To add or remove entities from an existing group, click on `Group options`, all 
 
 ![Group members](/images/integrations/group/Group_members.png)
 
+To hide the members of the group, so that only the group shows, turn on **Hide members**. Home Assistant hides the member entities when you save, and shows them again when you turn the option off. For what hiding does, refer to [Hidden entities](/docs/configuration/customizing-devices/#hidden-entities).
+
 ### Group attributes
 
 These are the attributes available for a group.

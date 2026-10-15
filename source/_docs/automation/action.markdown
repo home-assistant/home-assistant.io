@@ -7,6 +7,8 @@ related:
     title: List of available actions
   - docs: /docs/scripts/
     title: Building blocks and actions
+  - docs: /docs/automation/targets/
+    title: Automation targets
   - docs: /docs/templating/
     title: Templating
   - docs: /docs/tools/dev-tools/#actions-tab
@@ -48,6 +50,15 @@ As a result:
 
 Building blocks control whether, when, and in which order the actions run. For example, a building block can check a condition, wait a few seconds, repeat steps, or choose between steps. To add a building block in the editor, select **Add action**, and then select **Blocks**. For how steps run, refer to [Building blocks and actions](/docs/scripts/). For all building blocks, refer to the [list of building blocks](/building-blocks/).
 
+## Built-in actions
+
+Most actions come from integrations. Two actions are [built into automations and scripts](/actions/#built_in):
+
+- [**Fire manual event**](/actions/event/): Lets one automation tell another that something happened.
+- [**Set conversation response**](/actions/set_conversation_response/): Sets what Assist says after a sentence trigger.
+
+Built-in actions only work as steps in an automation or script. You can't run them directly from {% my tools_actions title="**Settings** > **Tools** > **Actions**" %} or from a dashboard button, and they don't have targets.
+
 ## Adding an action in the editor
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select an automation. To edit a script, go to the **Scripts** tab and select the script.
@@ -85,7 +96,7 @@ action: |
 
 ## Action targets
 
-The target is what an action controls. Under **Targets**, you can select entities, devices, areas, floors, and labels, or a combination of these. When you select an area, a floor, or a label, the action controls the matching entities that support it. For example, if **Turn on light** targets an area, all lights in that area turn on.
+The target is what an action controls. Under **Targets**, you can select entities, devices, areas, floors, and labels, or a combination of these. When you select an area, a floor, or a label, the action controls the matching entities that support it. For example, if **Turn on light** targets an area, all lights in that area turn on. To learn which entities are part of a target, refer to [Automation targets](/docs/automation/targets/).
 
 In YAML, enter what the action controls under `target`. The `target` contains at least one of the following: `entity_id`, `device_id`, `area_id`, `floor_id`, or `label_id`. Each of these can be a list. Use the IDs in lowercase, not the names.
 

@@ -4,6 +4,8 @@ description: "Conditions decide whether an automation continues after a trigger 
 related:
   - docs: /conditions/
     title: List of available conditions
+  - docs: /docs/automation/targets/
+    title: Automation targets
   - docs: /docs/automation/how-automations-react-to-changes/
     title: How automations react to changes
   - docs: /docs/automation/testing/
@@ -20,6 +22,8 @@ You add conditions in the **And if** section of the automation editor, with **Ad
 - Conditions that are built into Home Assistant aren't tied to an integration. You can use them with entities from any integration. Built-in conditions include **State**, **Numeric state**, **Time**, and **Template**.
 
 For all conditions, refer to the [list of available conditions](/conditions/). The built-in conditions are in the [General](/conditions/#homeassistant) group. The **Device** condition is in the [Device automation](/conditions/#device_automation) group.
+
+Many conditions check a target, such as a light or all windows in an area. If the target covers several entities, the **Condition passes if** option decides whether one or all of them must match. For details, refer to [Automation targets](/docs/automation/targets/#conditions-any-and-all).
 
 ## Conditions check the current state
 

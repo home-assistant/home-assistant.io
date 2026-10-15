@@ -1,5 +1,5 @@
 ---
-title: Toggle vacuum power
+title: "Toggle vacuum cleaner"
 action: vacuum.toggle
 domain: vacuum
 description: "Toggles a vacuum cleaner on or off."
@@ -55,9 +55,10 @@ target:
 
 If you want a quick manual control, this automation toggles the vacuum power whenever a helper button is pressed.
 
-- **Trigger**: Helper button pressed
-- **Action**: Toggle vacuum power
-- **Target**: Downstairs vacuum
+- **Trigger**: State changed
+  - **Entity**: Toggle vacuum power helper
+- **Action**: Toggle vacuum cleaner
+  - **Target**: Downstairs vacuum
 
 {% details "YAML example for toggling vacuum power" %}
 
