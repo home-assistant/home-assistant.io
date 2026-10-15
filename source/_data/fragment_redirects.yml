@@ -135,3 +135,23 @@
   automation-turn-off-the-heating-when-a-window-stays-open: /building-blocks/wait_for_trigger/
   script-wait-a-total-of-10-seconds: /building-blocks/wait_for_trigger/
   wait-for-a-trigger: /building-blocks/wait_for_trigger/
+  fire-an-event: /actions/event/
+  fire-manual-event: /actions/event/
+  adding-fire-manual-event-in-the-editor: /actions/event/
+  fire-manual-event-options-in-the-ui: /actions/event/#options-in-the-ui
+  fire-manual-event-in-yaml: /actions/event/#options-in-yaml
+  fire-manual-event-options-in-yaml: /actions/event/#options-in-yaml
+  good-to-know-about-fire-manual-event: /actions/event/#good-to-know
+  raise-and-consume-custom-events: /actions/event/
+  examples-of-fire-manual-event: /actions/event/
+  automation-fire-a-custom-event-when-a-switch-turns-on: /actions/event/#automation-fire-a-custom-event-when-a-switch-turns-on
+  automation-react-to-the-custom-event: /actions/event/#automation-react-to-the-custom-event
+  respond-to-a-conversation: /actions/set_conversation_response/
+  set-conversation-response: /actions/set_conversation_response/
+  adding-set-conversation-response-in-the-editor: /actions/set_conversation_response/
+  set-conversation-response-options-in-the-ui: /actions/set_conversation_response/#options-in-the-ui
+  set-conversation-response-in-yaml: /actions/set_conversation_response/#options-in-yaml
+  set-conversation-response-options-in-yaml: /actions/set_conversation_response/#options-in-yaml
+  good-to-know-about-set-conversation-response: /actions/set_conversation_response/#good-to-know
+  examples-of-set-conversation-response: /actions/set_conversation_response/
+  automation-answer-whether-the-garage-door-is-open: /actions/set_conversation_response/#automation-answer-whether-the-garage-door-is-open

@@ -136,7 +136,7 @@ Thanks to our language leaders for extending the sentence support to all the var
 [ESPHome]: https://esphome.io
 [nabucasa]: https://www.nabucasa.com
 [sentence triggers]: /docs/automation/trigger/#sentence-trigger
-[conversation response]: /docs/scripts/#respond-to-a-conversation
+[conversation response]: /actions/set_conversation_response/
 [microWakeWord]: https://github.com/kahrendt/microWakeWord
 [Kevin Ahrendt]: https://www.kevinahrendt.com/
 [debugging tools]: /voice_control/troubleshooting/#test-a-sentence-per-language-without-voice-without-executing-commands

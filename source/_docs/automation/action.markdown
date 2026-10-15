@@ -45,6 +45,15 @@ This is why:
 
 Building blocks control whether, when, and in which order the actions run. For example, a building block can check a condition, wait a few seconds, repeat steps, or choose between steps. To add a building block in the editor, select **Add action**, and then select **Blocks**. For all building blocks, refer to [Building blocks and actions](/docs/scripts/).
 
+## Built-in actions
+
+Most actions come from integrations. Two actions are [built into automations and scripts](/actions/#built_in):
+
+- [**Fire manual event**](/actions/event/): Lets one automation tell another that something happened.
+- [**Set conversation response**](/actions/set_conversation_response/): Sets what Assist says after a sentence trigger.
+
+Built-in actions only work as steps in an automation or script. You can't run them directly from {% my tools_actions title="**Settings** > **Tools** > **Actions**" %} or from a dashboard button, and they don't have targets.
+
 ## Running the actions directly
 
 You can run the actions of an automation without waiting for its trigger: all actions at once, or a single action. For the steps, refer to [Testing all the actions](/docs/automation/testing/#testing-all-the-actions) and [Testing an action](/docs/automation/testing/#testing-an-action).
