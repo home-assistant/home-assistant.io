@@ -1,6 +1,6 @@
 ---
 title: "Actions in automations and scripts"
-description: "Actions are what an automation or script does, such as turning on a light or sending a notification. Learn how to add an action in the editor or in YAML, choose its targets, set its options, use response data and templates, and test it."
+description: "Actions are what an automation or script does. Learn how to add an action, choose its targets, set its options, and use response data and templates."
 toc: true
 related:
   - docs: /actions/
@@ -34,6 +34,20 @@ Many actions have some of the following parts:
 - Response data: what the action returns, for example, the calendar events of the next week.
   - For details, refer to [Action response data](#action-response-data).
 
+## Actions run in order
+
+An automation or script runs its actions one after the other, from top to bottom.
+
+As a result:
+
+- If a condition between the actions isn't met, the actions after the condition don't run. For details, refer to [Condition](/building-blocks/condition/).
+- If an action fails, the actions after the failed action don't run. To continue anyway, refer to [Continuing when a step fails](/docs/scripts/#continuing-when-a-step-fails).
+- Actions don't run at the same time. To run actions at the same time, use [Run in parallel](/building-blocks/parallel/).
+
+## Actions and building blocks
+
+Building blocks control whether, when, and in which order the actions run. For example, a building block can check a condition, wait a few seconds, repeat steps, or choose between steps. To add a building block in the editor, select **Add action**, and then select **Blocks**. For how steps run, refer to [Building blocks and actions](/docs/scripts/). For all building blocks, refer to the [list of building blocks](/building-blocks/).
+
 ## Adding an action in the editor
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select an automation. To edit a script, go to the **Scripts** tab and select the script.
@@ -46,9 +60,9 @@ Many actions have some of the following parts:
    - For details, refer to [Action options](#action-options).
 6. Select **Save**.
 
-## Performing an action in YAML
+## Adding an action in YAML
 
-In YAML, use `action` with the name of the action, and optionally `target` and `data`. You can give the step a name with `alias`:
+In YAML, use `action` with the name of the action, and optionally `target` and `data`. To give the action a name, use `alias`. In the editor, you set the same name with **Menu** {% icon "mdi:dots-vertical" %} > **Rename**. For details, refer to [Renaming a trigger, condition, or action](/docs/automation/editor/#renaming-a-trigger-condition-or-action).
 
 {% example %}
 action: |
@@ -60,7 +74,7 @@ action: |
     brightness: 100
 {% endexample %}
 
-For how actions fit in the list of steps of an automation or script, refer to [Writing steps in YAML](/docs/scripts/#writing-steps-in-yaml).
+For details on `target` and `data`, refer to [Action targets](#action-targets) and [Action options](#action-options). For how actions fit in the list of steps of an automation or script, refer to [Writing steps in YAML](/docs/scripts/#writing-steps-in-yaml).
 
 In older YAML, you may find a shortcut to activate a {% term scene %}. It does the same as the [**Activate scene**](/actions/scene.turn_on/) action. When you open the step in the editor, the editor changes it to `action: scene.turn_on`.
 
@@ -98,7 +112,7 @@ Most actions have options besides the target. For example, **Turn on light** has
 - The other options have a checkbox. To use one of these options, select its checkbox.
 - Some options only show up when the selected targets support them.
 
-Each action has its own page with all its options, for example, [Turn on light](/actions/light.turn_on/). For all actions, refer to the [list of available actions](/actions/).
+Each action has its own page with all its options, for example, [Turn on light](/actions/light.turn_on/).
 
 In YAML, the options go under `data`:
 
@@ -211,20 +225,6 @@ action: |
       }
     {% endif %}
 {% endexample %}
-
-## Actions run in order
-
-An automation or script runs its actions one after the other, from top to bottom.
-
-This is why:
-
-- If a condition between the actions isn't met, the actions after the condition don't run. For details, refer to [Condition](/building-blocks/condition/).
-- If an action fails, the actions after the failed action don't run. To continue anyway, refer to [Continuing when a step fails](/docs/scripts/#continuing-when-a-step-fails).
-- Actions don't run at the same time. To run actions at the same time, use [Run in parallel](/building-blocks/parallel/).
-
-## Actions and building blocks
-
-Building blocks control whether, when, and in which order the actions run. For example, a building block can check a condition, wait a few seconds, repeat steps, or choose between steps. To add a building block in the editor, select **Add action**, and then select **Blocks**. For how steps run, refer to [Building blocks and actions](/docs/scripts/). For all building blocks, refer to the [list of building blocks](/building-blocks/).
 
 <a id="running-the-actions-directly"></a>
 

@@ -131,5 +131,5 @@
   script-wait-a-total-of-10-seconds: /building-blocks/wait_for_trigger/
   wait-for-a-trigger: /building-blocks/wait_for_trigger/
   adding-an-action-in-the-editor: /docs/automation/action/#adding-an-action-in-the-editor
-  performing-an-action-in-yaml: /docs/automation/action/#performing-an-action-in-yaml
-  activate-a-scene: /docs/automation/action/#performing-an-action-in-yaml
+  performing-an-action-in-yaml: /docs/automation/action/#adding-an-action-in-yaml
+  activate-a-scene: /docs/automation/action/#adding-an-action-in-yaml
