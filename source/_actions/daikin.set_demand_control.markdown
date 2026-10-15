@@ -2,11 +2,11 @@
 title: "Set demand control"
 action: daikin.set_demand_control
 domain: daikin
-since: "2026.10"
+since: "2026.11"
 description: "Limit the maximum power of the unit to a percentage of its nominal power."
 ---
 
-Use this action to limit the maximum power of the unit to a percentage of its nominal power, for example to reduce power consumption during peak electricity price periods. It is only available on units that support demand control.
+Use this action to limit the unit's maximum power to a percentage of its nominal power, for example, to reduce power consumption during peak electricity price periods. Not all Daikin units support demand control. On units that don't, the action returns an error. It is only available on units that support demand control.
 
 {% include actions/ui_header.md %}
 
@@ -30,7 +30,7 @@ Enable:
   description: Whether demand control should be enabled.
   required: true
 Maximum power:
-  description: Maximum power as a percentage of the unit's nominal power, from 40 to 100. Defaults to 100.
+  description: Maximum power as a percentage of the unit's nominal power, from 40 to 100. Defaults to 100. Only used when **Enable** is on and **Mode** is **Manual**.
   required: false
 Mode:
   description: "The demand control mode. Select **Manual** or **Auto**. Defaults to **Manual**. In **Auto** mode, the unit manages the limit, and **Maximum power** is not applied."
@@ -50,7 +50,7 @@ action: |
     max_pow: 40
 {% endexample %}
 
-This sets the {% term device %} `17159993ce512ff1794b6c1abc6f3df3` demand control to 40% of the nominal power.
+This sets the {% term device %} `17159993ce512ff1794b6c1abc6f3df3` demand control to 40% of the nominal power. The easiest way to get the device ID is to create the action in the UI first. Then, on the action, select **Menu** {% icon "mdi:dots-vertical" %} > **Edit in YAML**.
 
 ### Options in YAML
 
@@ -64,7 +64,7 @@ en_demand:
   required: true
   type: boolean
 max_pow:
-  description: Maximum power as a percentage of the unit's nominal power, from 40 to 100.
+  description: Maximum power as a percentage of the unit's nominal power, from 40 to 100. Only used when `en_demand` is `true` and `mode` is `manual`.
   type: integer
   required: false
   default: 100
@@ -80,7 +80,6 @@ mode:
 
 - This action works with Daikin climate devices.
 - If multiple indoor units are connected to an outdoor unit, the outdoor unit automatically selects the least restrictive demand setting. For example, if one indoor unit is set to an 80% capacity limit and the other to a 50% capacity limit, the outdoor unit will operate at a maximum capacity of 80%.
-- `max_pow` is only applied in manual mode (`mode: manual`).
 
 {% include actions/try_it.md %}
 
