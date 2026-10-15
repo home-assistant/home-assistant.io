@@ -97,6 +97,8 @@ Add a bag of coffee to your Picnic cart at the start of each week, so it is read
 
 - **Trigger**: Time
   - **At time**: `09:00`
+- **Condition**: Time
+  - **Days of the week**: Monday
 - **Action**: Picnic: Add a product to the cart
 
 {% details "YAML example for adding coffee every Monday" %}

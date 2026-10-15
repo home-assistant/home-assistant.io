@@ -80,6 +80,8 @@ This automation prunes images that have been unused for more than a week, keepin
 
 - **Trigger**: Time
   - **At time**: `03:00`
+- **Condition**: Time
+  - **Days of the week**: Sunday
 - **Action**: Portainer: Prune unused images
 
 {% details "YAML example for weekly image cleanup" %}
