@@ -180,6 +180,8 @@ The evening before bin collection, add a Todoist task with a due date so it show
 
 - **Trigger**: Time
   - **At time**: `18:00`
+- **Condition**: Time
+  - **Days of the week**: Tuesday
 - **Action**: Todoist: New task
 
 {% details "YAML example for a bin collection reminder" %}
