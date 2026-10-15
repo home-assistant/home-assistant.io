@@ -1,6 +1,6 @@
 ---
 title: FENIX Control
-description: Instructions on how to integrate FENIX TFT WiFi thermostats with Home Assistant.
+description: Instructions on how to integrate FENIX TFT Wi-Fi thermostats with Home Assistant.
 ha_category:
   - Climate
 ha_release: 2026.11
@@ -15,7 +15,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **FENIX Control** {% term integration %} lets you control [FENIX](https://www.fenixgroup.cz/en/) TFT WiFi thermostats from Home Assistant. FENIX makes electric underfloor heating systems, and the [TFT WiFi thermostat](https://www.fenixgroup.cz/en/product/thermostats-and-controls/for-households-wi-fi/tft-wi-fi-rf-thermostat/) regulates them per room.
+The **FENIX Control** {% term integration %} lets you control [FENIX](https://www.fenixgroup.cz/en/) TFT Wi-Fi thermostats from Home Assistant. FENIX makes electric underfloor heating systems, and the TFT Wi-Fi thermostat regulates them per room. For the product range, see the [Wi-Fi thermostats](https://www.fenixgroup.cz/en/product-category/thermostats-and-controls/for-households-wi-fi/) on the FENIX website.
 
 The thermostats connect to the FENIX Control cloud, the same service the FENIX Control mobile app uses. The integration signs in with your FENIX Control account and creates a climate entity for every thermostat in your account. You can see the room temperature and whether the thermostat is heating, switch between the thermostat's operating modes, and set the target temperature.
 
@@ -23,7 +23,7 @@ The thermostats connect to the FENIX Control cloud, the same service the FENIX C
 
 The integration has been tested with the following device:
 
-- FENIX TFT WiFi thermostat
+- FENIX TFT Wi-Fi thermostat
 
 ## Prerequisites
 
