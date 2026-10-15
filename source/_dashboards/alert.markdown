@@ -33,10 +33,10 @@ The rest of the time, the card uses the clear color, if you set one, and doesn't
 {% configuration_basic %}
 Entity:
   description: The entity to show. Only alarm control panel, binary sensor, cover, and lock entities are supported.
-Alert color:
-  description: The color of the icon and background while the entity is in an alert state. Red by default. Accepts a [color token](/dashboards/tile/#available-colors) or a hex color code. With no color, the background isn't colored and the icon is gray.
 Clear color:
-  description: The color of the icon and background when the entity isn't in an alert state. With no color, the background isn't colored and the icon is gray.
+  description: The color of the icon and background when the entity isn't in an alert state. Accepts a [color token](/dashboards/tile/#available-colors) or a hex color code. With no color, the background isn't colored and the icon is gray.
+Alert color:
+  description: The color of the icon and background while the entity is in an alert state. Red by default. Accepts the same values as **Clear color**.
 Pulse:
   description: Animates the colored background while the entity is in an alert state. When reduced motion is turned on in your system settings, the background stays tinted instead.
 {% endconfiguration_basic %}
@@ -54,16 +54,16 @@ entity:
   required: true
   description: Entity ID of an alarm control panel, binary sensor, cover, or lock.
   type: string
-alert_color:
-  required: false
-  description: The color of the icon and background while the entity is in an alert state. Accepts a [color token](/dashboards/tile/#available-colors) or hex color code. Set to `none` for no color.
-  type: string
-  default: red
 clear_color:
   required: false
-  description: The color of the icon and background when the entity isn't in an alert state. Accepts the same values as `alert_color`.
+  description: The color of the icon and background when the entity isn't in an alert state. Accepts a [color token](/dashboards/tile/#available-colors) or hex color code. Set to `none` for no color.
   type: string
   default: none
+alert_color:
+  required: false
+  description: The color of the icon and background while the entity is in an alert state. Accepts the same values as `clear_color`.
+  type: string
+  default: red
 pulse:
   required: false
   description: Animates the colored background while the entity is in an alert state.
@@ -85,8 +85,8 @@ A pulsing alert for the front door, which is green while the door is closed:
 ```yaml
 type: alert
 entity: binary_sensor.front_door
-alert_color: deep-orange
 clear_color: green
+alert_color: deep-orange
 pulse: true
 ```
 
