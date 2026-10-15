@@ -48,13 +48,18 @@ If you select an entity directly, it's always part of the target, even if it's o
 
 ## Entities that are not part of a target
 
-The following entities are not part of a target, even if they belong to the device, area, floor, or label you selected:
+Some entities are not part of a target, even if they belong to the device, area, floor, or label you selected.
 
-- Entities that the trigger, condition, or action can't work with. For example, for **Light turned on**, the switches and sensors in the room are not part of the target, and for **Window opened**, door sensors are not, because the trigger checks the device class.
+The following entities are not part of a target because of what the trigger, condition, or action works with:
+
+- Entities of a different type. For example, for **Light turned on**, the switches and sensors in the room are not part of the target, and for **Window opened**, door sensors are not, because the trigger checks the device class.
+- For triggers and conditions, the members of [old-style groups](/integrations/group/#old-style-groups). These are groups set up in YAML, with an entity ID that starts with `group.`, such as `group.downstairs_lights`.
+
+The following entities are not part of a target because of how they are set up:
+
 - Entities that you assigned to a different area than their device, when you target the area of the device. These entities belong to their own area only.
 - Hidden entities. For example, if an action turns on all lights in the living room, a hidden light in that room stays off.
 - Configuration and diagnostic entities, such as a firmware update or the signal strength of a device. If you put a label on the entity itself, and target that label, the entity is part of the target.
-- For triggers and conditions, the members of [old-style groups](/integrations/group/#old-style-groups). These are groups set up in YAML, with an entity ID that starts with `group.`, such as `group.downstairs_lights`.
 
 ## Targets stay up to date
 
