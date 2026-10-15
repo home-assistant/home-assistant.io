@@ -106,7 +106,7 @@ The following automation reacts when the first light in the living room turns on
 
 {% example %}
 automation: |
-  alias: "Hallway lights with living room"
+  alias: "Hallway on when living room lights up"
   triggers:
     - trigger: light.turned_on
       target:
