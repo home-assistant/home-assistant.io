@@ -212,6 +212,35 @@ title:
 type: energy-gas-graph
 ```
 
+## Heating consumption graph
+
+The heating consumption graph card shows the amount of heat or fuel consumed per heating source. To learn how to add heating sources, see [Integrating your heating](/docs/energy/heat/).
+
+### YAML configuration
+
+The following YAML options are available:
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-heat-graph`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
+  type: string
+title:
+  required: false
+  description: When defined, shows a card header with the title string and total heating consumed chip.
+  type: string
+{% endconfiguration %}
+
+### Example
+
+```yaml
+type: energy-heat-graph
+```
+
 ## Water consumption graph
 
 <p class='img'>
@@ -445,7 +474,7 @@ type:
   type: string
 types:
   required: false
-  description: "If defined, table displays listed types of consumption only. Valid values are: `grid`, `solar`, `battery`, `gas`, and `water`."
+  description: "If defined, table displays listed types of consumption only. Valid values are: `grid`, `solar`, `battery`, `gas`, `heat`, and `water`."
   type: list
 show_only_totals:
   required: false
