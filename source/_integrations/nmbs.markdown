@@ -39,7 +39,7 @@ Arrival station:
 Direct connections only:
   description: Exclude connections with transfers.
 Display on map:
-  description: Add the coordinates of the departure station to the travel time sensor, so the train can be shown on a map.
+  description: Add the departure station's coordinates to the travel time sensor so it can be displayed at that station on a map. This does not track the train's location.
 {% endconfiguration_basic %}
 
 You pick both stations from a dropdown that lists the stations of the Belgian railway.
