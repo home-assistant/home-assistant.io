@@ -20,7 +20,7 @@ To press a button from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the TV you want to control.
 6. From the actions shown for that target, under **LG webOS TV**, select **Button**.
-7. Set the **LG webOS TV: Button** you want to press.
+7. Set the **Button** you want to press.
 8. Select **Save**.
 
 ### Options in the UI

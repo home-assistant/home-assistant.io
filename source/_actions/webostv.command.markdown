@@ -22,7 +22,7 @@ To send a command from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the TV you want to control.
 6. From the actions shown for that target, under **LG webOS TV**, select **Command**.
-7. Set the **LG webOS TV: Command** and, if needed, a **Payload**.
+7. Set the **Command** and, if needed, a **Payload**.
 8. Select **Save**.
 
 ### Options in the UI

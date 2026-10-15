@@ -80,7 +80,7 @@ Install an update at a quieter time, after checking that one is still available.
 - **Trigger**: Time: 21:00
 - **Condition**: State
   - **Entity**: Office router firmware update
-  - **State**: On
+  - **State**: Update available
 - **Action**: Install update
   - **Target**: Office router update
 

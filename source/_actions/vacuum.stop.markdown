@@ -57,7 +57,7 @@ If a leak sensor activates in the kitchen, this automation stops the vacuum imme
 
 - **Trigger**: State changed
   - **Entity**: Kitchen leak sensor
-  - **To**: Detected
+  - **To**: Wet
 - **Action**: Stop vacuum cleaner
   - **Target**: Downstairs vacuum
 
