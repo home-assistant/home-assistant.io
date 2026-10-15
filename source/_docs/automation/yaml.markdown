@@ -72,7 +72,7 @@ trigger_variables:
       description: "The value of the variable. Any YAML is valid. Only [limited templates](/docs/templating/where-to-use/#limited-templates) can be used."
       type: any
 mode:
-  description: "Controls what happens when the automation is invoked while it is still running from one or more previous invocations. See [Automation modes](#automation-modes)."
+  description: "Controls what happens when the automation is invoked while it is still running from one or more previous invocations. See [Automation modes](/docs/automation/modes/)."
   required: false
   type: string
   default: single
@@ -114,18 +114,6 @@ actions:
   type: list
 {% endconfiguration %}
 
-### Automation modes
-
-| Mode       | Description                                                                                                     |
-| ---------- | --------------------------------------------------------------------------------------------------------------- |
-| `single`   | Do not start a new run. Issue a warning.                                                                        |
-| `restart`  | Start a new run after first stopping previous run.                                                              |
-| `queued`   | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued. |
-| `parallel` | Start a new, independent run in parallel with previous runs.                                                    |
-
-<p class='img'>
-  <img src='/images/integrations/script/script_modes.jpg'>
-</p>
 
 ## YAML example
 
