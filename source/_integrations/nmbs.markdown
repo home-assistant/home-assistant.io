@@ -62,17 +62,17 @@ The travel time sensor has the following attributes:
 - `direction`: the direction of the train
 - `platform_departing` and `platform_arriving`: the track the train departs from and arrives at
 - `vehicle_id`: the vehicle ID of the train, for example `BE.NMBS.IC1832`
-- `departure`: how long until the train departs, for example `In 12 minutes`
+- `departure`: how long until the scheduled departure of the train, for example `In 12 minutes`. The delay is not included, so for a delayed train this can reach zero or turn negative before it departs.
 - `departure_minutes`: the same time as a number of minutes
 - `delay`: the current delay of the train, for example `5 minutes`
 - `delay_minutes`: the same delay as a number of minutes
-- `canceled`: whether the connection is canceled. When it is, `departure` and `departure_minutes` have no value.
+- `canceled`: whether the train from the departure station is canceled. When it is, `departure` and `departure_minutes` have no value. A canceled transfer train is not reported.
 - `via`: the station where you change trains, together with `via_arrival_platform`, `via_transfer_platform` and `via_transfer_time` (the time you have to change trains, delay included). These attributes appear when the connection has a transfer and **Direct connections only** is not selected.
 - `latitude` and `longitude`: the coordinates of the departure station, when **Display on map** is selected.
 
 Each liveboard sensor has the following attributes:
 
-- `departure`: how long until the next train departs
+- `departure`: how long until the scheduled departure of the next train. The delay is not included, so it can turn negative for a delayed train.
 - `departure_minutes`: the same time as a number of minutes
 - `vehicle_id`: the vehicle ID of the train
 - `monitored_station`: the station the sensor watches
