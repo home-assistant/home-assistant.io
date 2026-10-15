@@ -110,14 +110,17 @@ Claude Code connects to MCP servers over HTTPS only. Use the MCP server URL of y
 2. In your terminal, run the following command. Replace `<your_mcp_server_url>` with your MCP server URL.
 
    ```bash
-   claude mcp add home-assistant --transport http <your_mcp_server_url>
+   claude mcp add --transport http home-assistant <your_mcp_server_url>
    ```
 
-3. Start `claude` and type `/mcp`.
-4. Select `home-assistant`.
-5. Select **Authenticate**.
-6. Log in to your Home Assistant instance.
-7. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
+3. Run the following command:
+
+   ```bash
+   claude mcp login home-assistant
+   ```
+
+4. In your web browser, log in to your Home Assistant instance.
+5. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
 
 ### Example: Codex
 
