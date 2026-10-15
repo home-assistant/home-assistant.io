@@ -58,14 +58,14 @@ By default, create automations with the visual editor, one of the available [aut
         - A trigger.
      2. From the listed results, select **+** on the desired trigger.
 3. In the window on the right, you will have different options depending on the selected trigger. You might find the following ones, for example:
-   - Under **Targets**, you can select the first target or another one by selecting **Add target**.
+   - To select what the trigger monitors, select **Add target**. To learn which entities are part of a target, refer to [Automation targets](/docs/automation/targets/).
      1. Do one of the following:
         - Select an entity, device or service to monitor a specific one.
         - Select entities, devices or services in an area, floor or with a certain label to monitor a group of them.
      2. You can add more targets by selecting **Add target** again.
    - Under **Trigger when**, if you monitor more than one target, you can decide when the automation starts:
      - **Each**: Every time one of the targets makes the change that the trigger reacts to, for example, every time one of the lights turns on.
-     - **First**: The first time one of the targets makes that change. The trigger reacts again only after all targets have changed back.
+     - **First**: The first time one of the targets makes that change. The trigger reacts again only after none of the targets is in that state anymore.
      - **All**: Once all targets have made that change, for example, when the last of the lights turns on.
 4. Select **Save**.
 
@@ -95,10 +95,10 @@ Note that you don´t need to add a condition to create an automation.
         - A group of targets: an area or label.
         - A condition.
      2. From the listed results, select **+** on the desired condition.
-4. In the window on the right, you will have different options depending on the selected condition. Under **Targets**, you can add the first target or another one by selecting **Add target**.
+4. In the window on the right, you will have different options depending on the selected condition. To select what the condition checks, select **Add target**. To learn which entities are part of a target, refer to [Automation targets](/docs/automation/targets/).
    1. Do one of the following:
-      - Select an entity, device or service to monitor a specific one.
-      - Select entities, devices or services in an area, floor or with a certain label to monitor a group of them.
+      - Select an entity, device or service to check a specific one.
+      - Select entities, devices or services in an area, floor or with a certain label to check a group of them.
    2. You can add another target by selecting **Add target** again.
 5. Select **Save**.
 
@@ -125,10 +125,10 @@ Note that you don´t need to add a condition to create an automation.
         - A group of targets: an area or label.
         - An action.
      2. From the listed results, select **+** on the desired action.
-4. In the window on the right, you will have different options depending on the selected action. Under **Targets**, you can add the first target or another one by selecting **Add target**.
+4. In the window on the right, you will have different options depending on the selected action. To select what the action controls, select **Add target**. To learn which entities are part of a target, refer to [Automation targets](/docs/automation/targets/).
    1. Do one of the following:
-      - Select an entity, device or service to monitor a specific one.
-      - Select entities, devices or services in an area, floor or with a certain label to monitor a group of them.
+      - Select an entity, device or service to control a specific one.
+      - Select entities, devices or services in an area, floor or with a certain label to control a group of them.
    2. You can add another target by selecting **Add target** again.
 5. Select **Save**.
 
@@ -143,6 +143,8 @@ The {% term state %} shows whether the automation is enabled. It doesn't show wh
 - **On** (`on`): The automation is enabled. It reacts to its {% term triggers %}.
 - **Off** (`off`): The automation is disabled. It ignores its triggers.
 - **Unavailable** (`unavailable`): The configuration of the automation isn't valid, so Home Assistant can't set it up. For details, refer to [Automation is unavailable after an update](/docs/automation/troubleshooting/#automation-is-unavailable-after-an-update-automation-is-unavailable-or-failed-to-set-up).
+
+When Home Assistant restarts, each automation keeps its on or off state, unless it has an [initial state](/docs/automation/yaml/#automation-initial-state) set in YAML.
 
 ### Automation attributes
 

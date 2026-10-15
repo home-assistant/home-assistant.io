@@ -24,6 +24,7 @@
 		sans-serif;
 	--font-heading: "Figtree", "Helvetica Neue", Arial, sans-serif;
 
+	--font-size-xsmall: 0.625rem;
 	--font-size-small: 0.75rem;
 	--font-size-medium: 0.875rem;
 	--font-size-large: 1rem;
@@ -31,6 +32,10 @@
 	--font-size-xxlarge: 1.5rem;
 	/* Display type for a page's hero headline, scaling with the window. */
 	--font-size-display: clamp(4rem, 2rem + 8vw, 8rem);
+	/* Reading text: body copy, section headings and the page title. */
+	--font-size-prose: 1.125rem;
+	--font-size-heading: 1.75rem;
+	--font-size-title: clamp(2.5rem, 1.75rem + 3vw, 3.5rem);
 
 	--space-xsmall: 0.25rem;
 	--space-small: 0.5rem;
@@ -39,6 +44,7 @@
 	--space-xlarge: 1.5rem;
 	--space-xxlarge: 2.5rem;
 
+	--radius-xsmall: 0.25rem;
 	--radius-small: 0.5rem;
 	--radius-pill: 62.5rem;
 
@@ -50,6 +56,9 @@
 	   Deliberately a little wider than the Jekyll site, whose 1560px
 	   wrapper includes its gutters and leaves 1464px of content. */
 	--layout-max-width: 93rem;
+	/* Line length for running text, inside the content width: the
+	   widest column the Jekyll site gives its pages (844px). */
+	--layout-reading-width: 52.5rem;
 	--layout-gutter: 1.5rem;
 	--layout-gutter-wide: 3rem;
 	--header-height: 4.25rem;

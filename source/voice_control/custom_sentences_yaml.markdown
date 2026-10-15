@@ -3,8 +3,8 @@ title: "Setting up custom sentences in configuration.yaml"
 related:
   - docs: /voice_control/aliases/
     title: Create aliases
-  - docs: /docs/scripts/#respond-to-a-conversation
-    title: Conversation response script action
+  - docs: /actions/set_conversation_response/
+    title: Set conversation response action
   - docs: /docs/automation/trigger/#sentence-trigger
     title: Sentence triggers
   - docs: /docs/automation/trigger/#sentence-wildcards

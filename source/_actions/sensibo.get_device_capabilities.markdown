@@ -1,5 +1,5 @@
 ---
-title: "Get the mode capabilities of a Sensibo device"
+title: "Get device mode capabilities"
 action: sensibo.get_device_capabilities
 domain: sensibo
 description: "Returns the supported settings of a Sensibo climate device for a chosen HVAC mode."
@@ -21,7 +21,7 @@ To get the device capabilities from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Sensibo climate device.
-6. From the actions shown for that target, select **Sensibo: Get device mode capabilities**.
+6. From the actions shown for that target, under **Sensibo**, select **Get device mode capabilities**.
 7. Select the **HVAC mode** you want the capabilities for.
 8. Select **Save**.
 

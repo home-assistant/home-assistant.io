@@ -8,7 +8,7 @@ related_actions:
   - elkm1.sensor_zone_bypass
 ---
 
-The **Alarm bypass** action bypasses all zones associated with the specified Elk-M1 area. Bypassed zones are ignored while the system is armed.
+The **Elk-M1 Control: Alarm bypass** action bypasses all zones associated with the specified Elk-M1 area. Bypassed zones are ignored while the system is armed.
 
 This is useful when you want an automation to temporarily exclude all zones in an area, for example to arm the system while a door or window is intentionally left open.
 

@@ -4,8 +4,8 @@ description: "Conditions decide whether an automation continues after a trigger 
 related:
   - docs: /conditions/
     title: List of available conditions
-  - docs: /docs/scripts/conditions/
-    title: Conditions reference
+  - docs: /docs/automation/targets/
+    title: Automation targets
   - docs: /docs/automation/how-automations-react-to-changes/
     title: How automations react to changes
   - docs: /docs/automation/testing/
@@ -21,7 +21,9 @@ You add conditions in the **And if** section of the automation editor, with **Ad
 - Conditions that come with an integration are named after what they check. Integration conditions include **Light is on** and **Sun is up**.
 - Conditions that are built into Home Assistant aren't tied to an integration. You can use them with entities from any integration. Built-in conditions include **State**, **Numeric state**, **Time**, and **Template**.
 
-For all conditions, refer to the [list of available conditions](/conditions/). The built-in conditions are in the [General](/conditions/#homeassistant) group. The **Device** condition is in the [Device automation](/conditions/#device_automation) group. To combine conditions in YAML, refer to [Conditions](/docs/scripts/conditions/).
+For all conditions, refer to the [list of available conditions](/conditions/). The built-in conditions are in the [General](/conditions/#homeassistant) group. The **Device** condition is in the [Device automation](/conditions/#device_automation) group.
+
+Many conditions check a target, such as a light or all windows in an area. If the target covers several entities, the **Condition passes if** option decides whether one or all of them must match. For details, refer to [Automation targets](/docs/automation/targets/#conditions-any-and-all).
 
 ## Conditions check the current state
 
@@ -38,14 +40,20 @@ For examples, refer to [Conditions check the current state](/docs/automation/how
 
 If an automation has several conditions, all of them must be met. To combine conditions in a different way, select **Add condition**, and then select **Blocks**:
 
-- **Or**: met if at least one of the conditions inside is met.
-- **Not**: met if none of the conditions inside are met.
+- [**Or**](/conditions/or/): met if at least one of the conditions inside is met.
+- [**Not**](/conditions/not/): met if none of the conditions inside are met.
 - [**And**](/conditions/and/): met if all conditions inside are met. Use it inside an **Or** or **Not** block.
 
 You can also check a condition between the actions under **Then do**:
 
-- To stop the remaining actions when a condition isn't met, use the [**Condition**](/docs/scripts/#condition) building block.
-- To do different things depending on a condition, use [**If-then**](/docs/scripts/#if-then) or [**Choose**](/docs/scripts/#choose).
+- To stop the remaining actions when a condition isn't met, use the [**Condition**](/building-blocks/condition/) building block.
+- To do different things depending on a condition, use [**If-then**](/building-blocks/if/) or [**Choose**](/building-blocks/choose/).
+
+## Disabling a condition
+
+To try an automation without one of its conditions, disable the condition instead of deleting it. In the editor, in the **Menu** {% icon "mdi:dots-vertical" %} of the condition, select **Disable**. For details, refer to [Turning off a trigger, condition, or action](/docs/automation/editor/#turning-off-a-trigger-condition-or-action).
+
+A disabled condition is skipped, as if it isn't there. In YAML, add `enabled: false` to the condition. `enabled` can also be a limited template or a blueprint input. For conditions in the **And if** section, Home Assistant checks the value once, when the automation loads.
 
 ## Testing conditions
 

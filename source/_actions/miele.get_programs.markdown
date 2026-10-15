@@ -1,5 +1,5 @@
 ---
-title: "Get the programs of a Miele appliance"
+title: "Get programs"
 action: miele.get_programs
 domain: miele
 description: "Returns the available programs of a Miele appliance."

@@ -37,13 +37,22 @@ An automation runs its actions one after the other, from top to bottom.
 
 This is why:
 
-- If a condition between the actions isn't met, the actions after the condition don't run. For details, refer to [Condition](/docs/scripts/#condition).
+- If a condition between the actions isn't met, the actions after the condition don't run. For details, refer to [Condition](/building-blocks/condition/).
 - If an action fails, the actions after the failed action don't run. To continue anyway, refer to [Continuing when a step fails](/docs/scripts/#continuing-when-a-step-fails).
-- Actions don't run at the same time. To run actions at the same time, use [Run in parallel](/docs/scripts/#run-in-parallel).
+- Actions don't run at the same time. To run actions at the same time, use [Run in parallel](/building-blocks/parallel/).
 
 ## Actions and building blocks
 
 Building blocks control whether, when, and in which order the actions run. For example, a building block can check a condition, wait a few seconds, repeat steps, or choose between steps. To add a building block in the editor, select **Add action**, and then select **Blocks**. For all building blocks, refer to [Building blocks and actions](/docs/scripts/).
+
+## Built-in actions
+
+Most actions come from integrations. Two actions are [built into automations and scripts](/actions/#built_in):
+
+- [**Fire manual event**](/actions/event/): Lets one automation tell another that something happened.
+- [**Set conversation response**](/actions/set_conversation_response/): Sets what Assist says after a sentence trigger.
+
+Built-in actions only work as steps in an automation or script. You can't run them directly from {% my tools_actions title="**Settings** > **Tools** > **Actions**" %} or from a dashboard button, and they don't have targets.
 
 ## Running the actions directly
 

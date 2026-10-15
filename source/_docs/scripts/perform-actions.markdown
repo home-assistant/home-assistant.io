@@ -8,6 +8,8 @@ related:
     title: List of available actions
   - docs: /docs/scripts/
     title: Building blocks and actions
+  - docs: /docs/automation/targets/
+    title: Automation targets
   - docs: /docs/templating/
     title: Templating
   - docs: /docs/tools/dev-tools/#actions-tab
@@ -22,7 +24,7 @@ You add an action in the automation or script editor. There, you choose what the
 
 ## Adding an action in the editor
 
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open an automation. To edit a script, open the **Scripts** tab and open the script.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select an automation. To edit a script, go to the **Scripts** tab and select the script.
 2. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
 3. Search for and select the action, for example, **Turn on light**.
    - You can also first select what you want to control under **By target**, and then select the action.
@@ -41,7 +43,7 @@ To check what an action does, run it on its own, without running the whole autom
 
 ## Action targets
 
-The target is what an action controls. Under **Targets**, you can select entities, devices, areas, floors, and labels, or a combination of these. When you select an area, a floor, or a label, the action controls the matching entities that support it. For example, if **Turn on light** targets an area, all lights in that area turn on.
+The target is what an action controls. Under **Targets**, you can select entities, devices, areas, floors, and labels, or a combination of these. When you select an area, a floor, or a label, the action controls the matching entities that support it. For example, if **Turn on light** targets an area, all lights in that area turn on. To learn which entities are part of a target, refer to [Automation targets](/docs/automation/targets/).
 
 In YAML, enter the action under `action`, for example, `light.turn_on`. Enter what it controls under `target`. The `target` contains at least one of the following: `entity_id`, `device_id`, `area_id`, `floor_id`, or `label_id`. Each of these can be a list. Use the IDs in lowercase, not the names.
 
@@ -91,7 +93,7 @@ action: |
 
 Some actions return data that you can use in later steps of your automation or script. This data is called _action response data_. Actions return response data for information that is dynamic or large, and that doesn't fit well in an entity state. For example, response data can be the upcoming calendar events for the next week, or detailed driving directions.
 
-To use the response data, store it in a [variable](/docs/scripts/#variables). You can choose any name for the variable.
+To use the response data, store it in a [variable](/building-blocks/variables/). You can choose any name for the variable.
 
 - In the editor, actions that return data show a **Response variable** field. If the response is optional for the action, first select the checkbox next to the field. Then enter the name of the variable.
 - In YAML, use `response_variable`.

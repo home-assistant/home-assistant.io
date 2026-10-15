@@ -120,7 +120,7 @@ When a person arrives home after dark, send a short message to your device.
 - **Trigger**: State changed
   - **Entity**: Paulus (`person.paulus`)
   - **To**: Home
-- **Condition**: Sun is below horizon
+- **Condition**: Sun is set
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
   - **Message**: Paulus arrived home.
@@ -135,8 +135,7 @@ automation: |
       entity_id: person.paulus
       to: home
   conditions:
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: notify.send_message
       target:

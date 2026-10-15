@@ -1,5 +1,5 @@
 ---
-title: Clean spot
+title: "Clean spot with vacuum cleaner"
 action: vacuum.clean_spot
 domain: vacuum
 description: "Performs a spot cleaning at the vacuum's location."
@@ -55,9 +55,10 @@ target:
 
 If you notice a small mess, you can trigger a dedicated spot clean without starting a full-house run. This example starts a spot clean when a helper button is pressed.
 
-- **Trigger**: Helper button pressed
-- **Action**: Clean spot
-- **Target**: Office vacuum
+- **Trigger**: State changed
+  - **Entity**: Quick spot clean helper
+- **Action**: Clean spot with vacuum cleaner
+  - **Target**: Office vacuum
 
 {% details "YAML example for starting a quick spot clean" %}
 

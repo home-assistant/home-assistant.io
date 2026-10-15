@@ -1,5 +1,5 @@
 ---
-title: "Get the Sonos queue"
+title: "Get queue"
 action: sonos.get_queue
 domain: sonos
 description: "Returns the contents of a Sonos speaker's queue."
@@ -21,7 +21,7 @@ To get the Sonos queue from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the Sonos speaker you want to control. You can also select an area, a device, or a label.
-6. From the actions shown for that target, select **Get queue**.
+6. From the actions shown for that target, under **Sonos**, select **Get queue**.
 7. In the **Response variable** field, enter a name to store the queue data in, such as `queue`. You'll use this name to read the queue in later steps.
 8. Select **Save**.
 
@@ -68,7 +68,7 @@ media_player.living_room:
 
 ## Good to know
 
-- Use the [Remove from the Sonos queue](/actions/sonos.remove_from_queue/) action together with this one to clear specific tracks. The example below gets the queue, loops through it in reverse order, and removes any track whose title or album contains the word "holiday":
+- Use the [Remove from queue](/actions/sonos.remove_from_queue/) action together with this one to clear specific tracks. The example below gets the queue, loops through it in reverse order, and removes any track whose title or album contains the word "holiday":
 
 ```yaml
 - action: sonos.get_queue

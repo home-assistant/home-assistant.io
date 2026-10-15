@@ -7,7 +7,7 @@ related_actions:
   - growatt_server.read_time_segments
 ---
 
-The **Update time segment** action configures one of the nine time segments on a supported MIN inverter. Each segment combines a battery operation mode, a time range, and an enabled state, so you can automate when your battery charges, discharges, or prioritizes your home loads.
+The **Growatt Server: Update time segment** action configures one of the nine time segments on a supported MIN inverter. Each segment combines a battery operation mode, a time range, and an enabled state, so you can automate when your battery charges, discharges, or prioritizes your home loads.
 
 {% important %}
 This action changes your inverter's time-of-use scheduling. Incorrect settings can affect how your battery charges and discharges and what your energy costs are. Make sure you understand your electricity tariff before you make changes.
@@ -21,7 +21,7 @@ To update a time segment from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Growatt: Update time segment**.
+5. From the search box, search for and select **Growatt Server: Update time segment**.
 6. Choose the **Device**, then set the segment values you want.
 7. Select **Save**.
 

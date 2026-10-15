@@ -1,5 +1,5 @@
 ---
-title: Start or pause cleaning
+title: "Start/pause vacuum cleaner"
 action: vacuum.start_pause
 domain: vacuum
 description: "Starts, pauses, or resumes a vacuum cleaner's cleaning task."
@@ -55,9 +55,10 @@ target:
 
 If you want one control for both actions, this automation uses a helper button to start cleaning when the vacuum is idle and pause it when it is already running.
 
-- **Trigger**: Helper button pressed
-- **Action**: Start or pause cleaning
-- **Target**: Downstairs vacuum
+- **Trigger**: State changed
+  - **Entity**: Vacuum start pause helper
+- **Action**: Start/pause vacuum cleaner
+  - **Target**: Downstairs vacuum
 
 {% details "YAML example for starting or pausing a vacuum" %}
 

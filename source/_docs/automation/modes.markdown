@@ -83,7 +83,7 @@ If the timer runs out while Home Assistant is off, the **Timer finished** trigge
 
 For more combinations, refer to [Which tool to use](/docs/automation/which-tool-to-use/#combining-the-tools).
 
-## Example: throttled automation
+## Example: Throttled automation
 
 Some automations should only run once every 5 minutes, even when they are started more often. To do this, use the **Single** mode with a delay at the end, and silence the warning for the ignored starts.
 
@@ -100,7 +100,7 @@ automation:
           minutes: 5
 ```
 
-## Example: queued automation
+## Example: Queued automation
 
 Sometimes an automation controls a device that can't handle several commands at the same time. Then, use the **Queued** mode. Each new run waits until the previous runs have finished.
 

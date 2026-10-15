@@ -5,7 +5,7 @@ domain: google_assistant_sdk
 description: "Sends a command as a text query to Google Assistant."
 ---
 
-The **Send text command** action sends one or more commands as text queries to Google Assistant, just as if you had spoken them out loud. This lets you reach Google Assistant features that aren't otherwise available in Home Assistant, like controlling devices that are only linked to your Google account.
+The **Google Assistant SDK: Send text command** action sends one or more commands as text queries to Google Assistant, just as if you had spoken them out loud. This lets you reach Google Assistant features that aren't otherwise available in Home Assistant, like controlling devices that are only linked to your Google account.
 
 You can optionally have Google Assistant's spoken response played back on a media player, which is useful for commands that answer a question, such as asking for a joke or the weather.
 

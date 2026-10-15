@@ -1,6 +1,6 @@
 ---
 title: "Customizing entities"
-description: "Rename entities, choose how new entity IDs are created, and change entity icons or other properties."
+description: "Rename or hide entities, choose how new entity IDs are created, and change entity icons or other properties."
 related:
   - docs: /integrations/homeassistant/
   - docs: /docs/configuration/
@@ -63,6 +63,80 @@ To change entity attributes, follow these steps:
 5. If you changed the entity ID and use this entity in automations or scripts, update the entity ID there as well.
    - Changing only the entity name does not affect your automations or scripts because they refer to the entity ID.
    - Go to {% my automations title="**Settings** > **Automations & scenes**" %}, open the respective tab, and find your automation or script.
+
+## Hidden entities
+
+Hide an entity when you don't need to see it, but still want it to work. For example, if you combined several lights into a [light group](/integrations/group/), you can hide the individual lights and only show the group.
+
+A hidden entity keeps working:
+
+- Its state still updates, and its history is still recorded.
+- Automations, scripts, and dashboard cards that use the entity directly keep working.
+- You can still control it with actions.
+
+Home Assistant skips a hidden entity in these places:
+
+- Dashboards that Home Assistant fills in automatically. You can still add a hidden entity to a dashboard yourself.
+- Triggers, conditions, and actions that target an area, a device, or a label. To target a hidden entity, select the entity itself.
+- Voice assistants, such as Assist: a new entity that is hidden isn't exposed by default. Hiding an entity that is already exposed doesn't change that. To check which entities are exposed, go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and select the **Expose** tab.
+
+Some integrations hide entities for you. For example, if you create a [group helper](/integrations/group/#group-options) with **Hide members** turned on, the members of the group are hidden. The settings of these entities show who hid them, for example, **Hidden by Integration.**
+
+## Hidden versus disabled entities
+
+Hiding and disabling both keep an entity out of your way, but they work differently. A hidden entity keeps working, and Home Assistant only skips it in some places. A disabled entity isn't added to Home Assistant at all: it has no state, no history is recorded, and you can't control it.
+
+Hide an entity that you still need, but don't want to see. Disable an entity that you don't need at all.
+
+When you add a device, many integrations disable some of its less-used entities, such as signal strength. To use one of these entities, enable it. For the steps, refer to [Disabling or enabling an entity](#disabling-or-enabling-an-entity).
+
+## Hiding an entity
+
+To hide an entity, follow these steps:
+
+1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity from the list.
+2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
+3. Turn off **Visible**.
+4. Select **Update**.
+
+To show the entity again, turn on **Visible**.
+
+To hide several entities at once, follow these steps:
+
+1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
+2. Above the table, select **Enter selection mode** {% icon "mdi:format-list-checks" %}, and then select the entities.
+3. Select **Action** {% icon "mdi:dots-vertical" %} > **Hide selected**.
+4. To confirm, select **Hide**.
+
+To show them again, select **Action** {% icon "mdi:dots-vertical" %} > **Unhide selected**.
+
+## Disabling or enabling an entity
+
+To disable an entity, follow these steps:
+
+1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity from the list.
+2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
+3. Turn off **Enabled**.
+4. Select **Update**.
+
+To enable an entity, follow these steps:
+
+1. Find the disabled entity:
+   - On the page of its device, select the link with the number of disabled entities, for example, **+2 disabled entities**. Then select the entity.
+   - Or, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}. In **Filters**, under **Status**, select **Disabled**. Then select the entity.
+2. In the top-right corner, select **Settings** {% icon "mdi:cog-outline" %}.
+3. Turn on **Enabled**.
+4. Select **Update**.
+   - Result: A message tells you that the entity is added after a short delay, or that you need to restart Home Assistant first.
+
+To disable or enable several entities at once, follow these steps:
+
+1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
+   - To enable entities, in **Filters**, under **Status**, select **Disabled**.
+2. Above the table, select **Enter selection mode** {% icon "mdi:format-list-checks" %}, and then select the entities.
+3. Select **Action** {% icon "mdi:dots-vertical" %} > **Disable selected** or **Enable selected**.
+4. To confirm, select **Disable** or **Enable**.
+   - Result: When you enable entities, a message tells you that they are added after a short delay, or that you need to restart Home Assistant first.
 
 ## Changing the entity ID format for new entities
 
