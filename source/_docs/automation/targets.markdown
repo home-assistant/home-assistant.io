@@ -20,21 +20,22 @@ A target can be a single {% term entity %}, or a group of entities, such as all 
 
 ## Types of targets
 
-To add a target to a trigger, condition, or action, select **Add target**. You can add one or more of the following, and combine them, for example, one entity and an entire area.
+You can use one or more targets in a trigger, condition, or action. You can also combine different target types, for example, one entity and an entire area.
 
 - **Entity**: That one entity, for example, the hallway light.
-- **Device**: The matching entities of that device. If the device has [sub-devices](/docs/configuration/customizing-devices/#about-parent-devices-and-sub-devices), such as the outlets of a power strip, their matching entities are included as well.
+- **Device**: The matching entities of that {% term device %}. If the device has [sub-devices](/docs/configuration/customizing-devices/#about-parent-devices-and-sub-devices), such as the outlets of a power strip, their matching entities are part of the target as well.
 - **Area**: The matching entities in that area.
-- **Floor**: The matching entities in all areas on that floor.
-- **Label**: The matching entities that have that label. If the label is on a device or an area, the matching entities of that device or area are included as well.
+- **Floor**: The matching entities in all areas on that {% term floor %}.
+- **Label**: The matching entities that have that {% term label %}. If the label is on a device or an area, the matching entities of that device or area are part of the target as well.
 
-## How Home Assistant finds the entities in a target
+## Entities that are part of a target
 
-When a target is a {% term device %}, an area, a {% term floor %}, or a {% term label %}, each entity is either part of the target or not. The trigger monitors the entities that are part of the target, the condition checks them, and the action controls them. Home Assistant ignores all other entities.
+When a target is a device, an area, a floor, or a label, not every entity in that category is part of the target. An entity is part of a target if both of the following are true:
 
-### Entities that are part of a target
+- It belongs to the device, area, floor, or label you selected.
+- The trigger, condition, or action can work with it.
 
-An entity is part of a target if it belongs to the device, area, floor, or label you selected, and the trigger, condition, or action can work with it. For example, a **Light turned on** trigger that targets the living room area monitors all lights in the living room.
+For example, a **Light turned on** trigger that targets the living room area monitors all lights in the living room.
 
 An entity belongs to an area if one of the following is true:
 
@@ -45,17 +46,18 @@ To learn how to assign devices and entities to areas, refer to [Grouping your as
 
 If you select an entity directly, it's always part of the target, even if it's one of the entities listed in the next section.
 
-### Entities that are not part of a target
+## Entities that are not part of a target
 
 The following entities are not part of a target, even if they belong to the device, area, floor, or label you selected:
 
-- Entities that the trigger, condition, or action can't work with. For example, for **Light turned on**, the switches and sensors in the room are not part of the target. Some triggers and conditions also check the device class. For example, for **Window opened**, door sensors are not part of the target.
+- Entities that the trigger, condition, or action can't work with. For example, for **Light turned on**, the switches and sensors in the room are not part of the target.
+- Some triggers and conditions also check the device class. For example, for **Window opened**, door sensors are not part of the target.
 - Entities that you assigned to a different area than their device, when you target the area of the device. These entities belong to their own area only.
 - Hidden entities. For example, if an action turns on all lights in the living room, a hidden light in that room stays off.
 - Configuration and diagnostic entities, such as a firmware update or the signal strength of a device. If you put a label on the entity itself, and target that label, the entity is part of the target.
-- For triggers and conditions, the members of [old-style groups](/integrations/group/#old-style-groups). These are groups set up in YAML, with an entity ID that starts with `group.`, such as `group.downstairs_lights`. The groups you create in the UI aren't old-style groups. For actions, the members are part of the target. To target several lights together in a trigger or condition, put a label on them, select their area, or use a [light group](/integrations/group/), which acts as one light.
+- For triggers and conditions, the members of [old-style groups](/integrations/group/#old-style-groups). These are groups set up in YAML, with an entity ID that starts with `group.`, such as `group.downstairs_lights`.
 
-### Targets stay up to date
+## Targets stay up to date
 
 Home Assistant keeps the entities in a target up to date. If you've selected an area as a target, and later add a light to that area, the light becomes part of the target right away. You don't need to edit the automation.
 
