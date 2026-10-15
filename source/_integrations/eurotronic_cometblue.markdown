@@ -97,13 +97,13 @@ The device reports its current battery level, but the reading may not be very ac
 
 {% include integrations/actions.md %}
 
-## Eurotronic Comet Blue automation examples
+## Automation examples
 
 Use these examples as a starting point. Replace the entity IDs with the ones from your Home Assistant instance.
 
 {% include docs/paste_yaml_tip.md %}
 
-### Automation: Sync the thermostat clock after a daylight saving time change
+### Sync the thermostat clock after a daylight saving time change
 
 Home Assistant checks the daylight saving time status each day at 5:00 AM. When the status differs from the previous day, it presses the thermostat's **Sync time** button.
 
@@ -129,7 +129,7 @@ automation: |
 
 {% enddetails %}
 
-### Automation: Select the Comfort preset when you return home early
+### Select the Comfort preset when you return home early
 
 When a device tracker changes to **home**, this automation selects the **Comfort** preset. If holiday mode is active, Home Assistant cannot change the preset. To turn off holiday mode, press and hold the thermostat's `MENU` button until it resets.
 
