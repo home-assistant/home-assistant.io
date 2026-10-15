@@ -18,8 +18,6 @@ You add actions in the **Then do** section of the automation editor. For the ste
 
 Each action does one thing. For example, **Turn on light** turns on lights. For a description of all actions, refer to the [list of available actions](/actions/).
 
-Most actions come from integrations. A few are part of automations and scripts themselves, such as [**Fire manual event**](/actions/event/), which lets one automation tell another that something happened, and [**Set conversation response**](/actions/set_conversation_response/), which sets what Assist says after a sentence trigger.
-
 Some actions control automations themselves, for example, to turn off another automation. For these actions, refer to [Actions for automations](/docs/automation/basics/#actions-for-automations).
 
 ## Parts of an action
@@ -46,6 +44,15 @@ This is why:
 ## Actions and building blocks
 
 Building blocks control whether, when, and in which order the actions run. For example, a building block can check a condition, wait a few seconds, repeat steps, or choose between steps. To add a building block in the editor, select **Add action**, and then select **Blocks**. For all building blocks, refer to [Building blocks and actions](/docs/scripts/).
+
+## Built-in actions
+
+Most actions come from integrations. Two actions are [built into automations and scripts](/actions/#built_in):
+
+- [**Fire manual event**](/actions/event/): Lets one automation tell another that something happened.
+- [**Set conversation response**](/actions/set_conversation_response/): Sets what Assist says after a sentence trigger.
+
+Built-in actions only work as steps in an automation or script. You can't run them directly from {% my tools_actions title="**Settings** > **Tools** > **Actions**" %} or from a dashboard button, and they don't have targets.
 
 ## Running the actions directly
 

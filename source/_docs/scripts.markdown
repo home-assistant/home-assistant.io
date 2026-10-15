@@ -27,7 +27,7 @@ For how to create scripts, pass them variables, and wait for them to finish, ref
 
 To make something happen, such as turning on a light, add an action. Each action has its own page with its options, listed in the [actions reference](/actions/). For the options that most actions share, such as targets and data, refer to [Performing actions](/docs/scripts/perform-actions/).
 
-Most actions come from integrations. Two are part of automations and scripts themselves: [**Fire manual event**](/actions/event/) and [**Set conversation response**](/actions/set_conversation_response/).
+Most actions come from integrations. Two actions are [built into automations and scripts](/actions/#built_in): [**Fire manual event**](/actions/event/) and [**Set conversation response**](/actions/set_conversation_response/).
 
 ### Adding an action in the editor
 
