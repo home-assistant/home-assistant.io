@@ -4,7 +4,7 @@ description: Integration to control LG TVs and LG split air conditioners using a
 ha_category:
   - Climate
   - Event
-  - Infrared
+  - Infrared-controlled
   - Media player
   - Switch
 ha_release: 2026.4
@@ -37,7 +37,9 @@ The integration supports:
 
 ## Prerequisites
 
-Before setting up the LG Infrared integration, you need a working infrared emitter, an infrared receiver, or both, already set up in Home Assistant. Each must expose an [Infrared](/integrations/infrared/) entity. For example, you can use an ESPHome device with an IR LED pointed at your LG device to send commands, and an IR receiver module to capture commands from your LG remote.
+{% include integrations/infrared_controlled.md %}
+
+To send commands, you need an infrared emitter. To capture commands from your LG remote, you also need an infrared receiver. For example, you can use an ESPHome device with an IR LED pointed at your LG device to send commands, and an IR receiver module to capture commands from your remote.
 
 For an air conditioner, an infrared emitter is required. The **Air conditioner** option only appears once you have at least one infrared emitter available.
 
@@ -104,11 +106,11 @@ A climate entity is created for each LG air conditioner device you set up.
 
 - **LG AC**
   - **Description**: Represents the LG split air conditioner and allows you to control it via IR commands.
-  - **Supported features**: Set HVAC mode, set fan mode, set swing mode, and set horizontal swing mode. Set target temperature is also available when **Cool** or **Heat** is one of the supported modes you selected during setup.
+  - **Supported features**: Turn on, turn off, set HVAC mode, set fan mode, set swing mode, and set horizontal swing mode. Set target temperature is also available when **Cool** or **Heat** is one of the supported modes you selected during setup.
 
 #### Supported modes
 
-The climate entity offers the modes you selected during setup.
+The climate entity offers the modes you selected during setup. Turning the air conditioner on resumes the mode it was last in, or the first mode you selected if it has not been on yet.
 
 - **Cool**: Cools to a set temperature.
 - **Heat**: Heats to a set temperature. Not all LG air conditioner models have it.

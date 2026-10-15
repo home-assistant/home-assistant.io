@@ -4,7 +4,7 @@ description: Integration to control LED infrared lights using an infrared emitte
 ha_category:
   - Button
   - Event
-  - Infrared
+  - Infrared-controlled
   - Light
 ha_release: 2026.8
 ha_iot_class: Assumed State
@@ -65,7 +65,9 @@ This integration supports many branded and unbranded LED bulbs, lamps, and LED s
 
 ## Prerequisites
 
-Before setting up the LED Infrared integration, you need a working infrared transmitter set up in Home Assistant that exposes an [Infrared](/integrations/infrared/) entity. For example, you can use an ESPHome device with an IR LED pointed at your lights.
+{% include integrations/infrared_controlled.md %}
+
+For example, you can use an ESPHome device with an IR LED pointed at your lights.
 
 {% include integrations/config_flow.md %}
 

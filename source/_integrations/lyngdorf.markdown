@@ -56,7 +56,7 @@ Only the MP-60, TDAI-1120, TDAI-3400, and P200 have been tested against real har
 ## Prerequisites
 
 - Home Assistant must be able to reach the device on TCP port 84, which carries the control protocol.
-- The device is identified by the serial number in its UPnP description. Home Assistant locates the description with an SSDP request on UDP port 1900, then fetches it over HTTP from the port the device advertises. The device assigns that port itself and it is not fixed, so a firewall rule cannot rely on a particular number. This applies when adding a device by IP address as well as when one is discovered.
+- The device is identified by the serial number in its UPnP description. Home Assistant sends a unicast SSDP request to the device on UDP port 1900, then fetches the description over HTTP from the port the device advertises. The device assigns that port itself and it is not fixed, so a firewall rule cannot rely on a particular number. This applies when adding a device by IP address as well as when one is discovered.
 - Automatic discovery additionally needs the device on the same subnet as Home Assistant, because it relies on multicast SSDP. A device on another subnet can still be added by IP address.
 
 {% include integrations/config_flow.md %}
@@ -113,6 +113,7 @@ Diagnostic sensors report what the device is receiving and playing:
 - **Audio information** and **Video information**: The incoming signal formats.
 - **Streaming source**: The active streaming service.
 - **Zone B audio input** and **Zone B streaming source**: The same for Zone B, where present.
+- **Maximum volume**: The highest volume allowed by the device, set in its own menu. Commands to raise the volume above this limit have no effect. This sensor is only created on models that report a maximum. It is disabled by default.
 
 ## Use cases
 

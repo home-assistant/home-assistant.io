@@ -4,6 +4,7 @@ description: Instructions on how to integrate a Flexit air handling unit into Ho
 ha_category:
   - Binary sensor
   - Climate
+  - Modbus-controlled
   - Sensor
 ha_release: 0.47
 ha_iot_class: Local Polling

@@ -2,9 +2,9 @@
 title: Samsung Infrared
 description: Integration to control Samsung TVs and air conditioners using an infrared transmitter.
 ha_category:
-  - Infrared
-  - Media player
   - Climate
+  - Infrared-controlled
+  - Media player
 ha_release: 2026.6
 ha_iot_class: Assumed State
 ha_codeowners:
@@ -25,7 +25,9 @@ Because the integration communicates over infrared, it operates in a one-way, fi
 
 ## Prerequisites
 
-Before setting up the Samsung Infrared integration, you need a working infrared transmitter set up in Home Assistant that exposes an [Infrared](/integrations/infrared/) entity. For example, you can use an ESPHome device with an IR LED pointed at your Samsung TV or air conditioner.
+{% include integrations/infrared_controlled.md %}
+
+For example, you can use an ESPHome device with an IR LED pointed at your Samsung TV or air conditioner.
 
 {% include integrations/config_flow.md %}
 

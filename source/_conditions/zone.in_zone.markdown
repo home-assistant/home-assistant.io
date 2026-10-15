@@ -112,8 +112,9 @@ When you target more than one person or device tracker, the **Check when** optio
 
 When the front door contact sensor turns on, this automation unlocks the side door only if Nina is already in the home zone.
 
-- **Trigger**: State changes to on
+- **Trigger**: State changed
   - **Target**: Front door contact sensor (`binary_sensor.front_door`)
+  - **To**: On
 - **Condition**: Is in zone
   - **Target**: Nina (`person.nina`)
   - **Zone**: Home (`zone.home`)

@@ -4,7 +4,7 @@ trigger: battery.level_changed
 domain: battery
 description: "Triggers when the battery level of one or more batteries changes."
 related_triggers:
-  - battery.level_crossed
+  - battery.level_crossed_threshold
 ---
 
 The **Battery level changed** trigger fires after a battery level reading changes. Battery levels drain gradually as devices are used, recharge when plugged in, or spike briefly when sensors report a fresh reading. Use the threshold type to filter which changes matter to your automation.
@@ -124,7 +124,7 @@ threshold:
 - Use a sensor with the battery device class.
 - The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
 - Use **Any change** to fire on every reading update regardless of direction or where the new value lands.
-- To react only when a battery level first crosses a specific value, use [Battery level crossed threshold](/triggers/battery.level_crossed/) instead.
+- To react only when a battery level first crosses a specific value, use [Battery level crossed threshold](/triggers/battery.level_crossed_threshold/) instead.
 - Pair this trigger with the Battery level condition to verify the reading meets a threshold before continuing the automation.
 
 {% include triggers/try_it.md %}

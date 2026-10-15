@@ -6,17 +6,24 @@ related:
     title: Developer documentation on the integration quality scale
 ---
 
-The integration quality scale is a framework for Home Assistant to grade integrations based on user experience, features, code quality, and developer experience.
-To grade this, the project has come up with a set of tiers, each with its own set of criteria.
+The integration quality scale shows how polished an integration is. Home Assistant grades each integration on user experience, features, code quality, and developer experience, and places it in a tier. Each tier has its own set of rules.
+
+You see the tier of an integration as a badge on its page under {% my integrations title="**Settings** > **Devices & services**" %}, and on its documentation page. Selecting the badge brings you to the explanation of that tier on this page.
+
+A higher tier usually means a smoother experience: easier setup, better error handling, and more complete documentation. The tier describes the integration, not the device or service it connects to. An integration with a lower tier or no score can still work perfectly well for you.
+
+The tier of an integration is updated automatically with each Home Assistant release.
 
 ## Scaled tiers
 
-There are 4 scaled tiers, bronze, silver, gold, and platinum.
+There are four scaled tiers: bronze, silver, gold, and platinum.
 To reach a tier, the integration must fulfill all rules of that tier and the tiers below.
 
 These tiers are defined as follows.
 
 ### 🥉 Bronze
+
+A bronze integration can be set up from the UI and has the basic documentation to get you started.
 
 The bronze tier is the baseline standard and requirement for all new integrations. It meets the minimum requirements in code quality, functionality, and user experience. It complies with the fundamental expectations and provides a reliable foundation for users to interact with their devices and services.
 
@@ -28,10 +35,12 @@ The bronze tier has the following characteristics:
 
 - Can be easily set up through the UI.
 - The source code adheres to basic coding standards and development guidelines.
-- Automated tests that guard this integration can be configured correctly.
-- Offers basic end-user documentation that is enough to get users started step-by-step easily.
+- Has automated tests that make sure the integration can be set up correctly.
+- Offers basic end-user documentation that is enough to get you started, step by step.
 
 ### 🥈 Silver
+
+A silver integration is reliable in daily use. It recovers by itself when a device goes offline or a connection drops, and it asks you to sign in again when needed.
 
 The silver tier builds upon the _Bronze_ level by improving the reliability and robustness of integrations, ensuring a solid runtime experience. It ensures an integration handles errors properly, such as when authentication to a device or service fails, handles offline devices, and other errors.
 
@@ -44,11 +53,13 @@ The silver tier has the following characteristics:
 - Provides everything the _Bronze_ tier has.
 - Provides a stable user experience under various conditions.
 - Has one or more active code owners who help maintain the integration.
-- Correctly and automatically recover from connection errors or offline devices, without filling log files and without unnecessary messages.
+- Recovers correctly and automatically from connection errors or offline devices, without filling log files and without unnecessary messages.
 - Automatically triggers re-authentication if authentication with the device or service fails.
 - Offers detailed documentation of what the integration provides and instructions for troubleshooting issues.
 
 ### 🥇 Gold
+
+A gold integration offers the best experience for most people. When possible, it is discovered automatically and can update your device firmware. It also has extensive documentation written for everyone.
 
 The gold standard in integration user experience, providing extensive and comprehensive support for the integrated devices & services. A gold-tier integration aims to be user-friendly, fully featured, and accessible to a wider audience.
 
@@ -67,7 +78,7 @@ All integrations that have devices in the Works with Home Assistant program are 
 The gold tier has the following characteristics:
 
 - Provides everything the _Silver_ tier has.
-- Has the best end-user experience an integration can offer; streamlined and intuitive.
+- Has the best end-user experience an integration can offer: streamlined and intuitive.
 - Can be automatically discovered, simplifying the integration setup.
 - Integration can be reconfigured and adjusted.
 - Supports translations.
@@ -77,6 +88,8 @@ The gold tier has the following characteristics:
 - Required level for integrations providing devices in the Works with Home Assistant program.
 
 ### 🏆 Platinum
+
+A platinum integration offers everything a gold integration does, and is also built to be fast and light on your system and network.
 
 Platinum is the highest tier an integration can reach, the epitome of quality within Home Assistant. It not only provides the best user experience but also achieves technical excellence by adhering to the highest standards, supreme code quality, and well-optimized performance and efficiency.
 
@@ -89,12 +102,14 @@ The platinum tier has the following characteristics:
 
 ## Special tiers
 
-There are 4 special tiers that are used for integrations that don't have a place on the scaled tier list.
+There are four special tiers for integrations that don't have a place on the scaled tier list.
 This is because they are either an internal part of {% term "Home Assistant Core" %}, they are not in {% term "Home Assistant Core" %} at all, or they don't meet the minimum requirements to be graded against the scaled tiers.
 
 The special tiers are defined as follows.
 
 ### ❓ No score
+
+An integration with no score has not been graded yet. It can still work well for you.
 
 These integrations can be set up through the Home Assistant user interface. The _No score_ designation doesn’t imply that they are bad or buggy, instead, it indicates that they haven’t been assessed according to the quality scale or that they need some maintenance to reach the now-considered minimum _Bronze_ standard.
 
@@ -103,11 +118,13 @@ The _No score_ tier cannot be assigned to new integrations, as they are required
 Characteristics:
 
 - Not yet scored or lacks sufficient information for scoring.
-- Can be set up via the UI, but may need enhancements for a better experience.
+- Can be set up through the UI, but may need enhancements for a better experience.
 - May function correctly, but hasn’t been verified against current standards.
 - Documentation most often provides only basic setup steps.
 
 ### 🏠 Internal
+
+An internal integration is a building block of Home Assistant itself. You usually don't set it up yourself.
 
 The internal tier is assigned to integrations used internally by Home Assistant. These integrations provide basic components and building blocks for the Home Assistant Core program or for other integrations to build on top of it.
 
@@ -121,6 +138,8 @@ Characteristics:
 
 ### 💾 Legacy
 
+A legacy integration is an older integration that you usually set up in {% term YAML %} instead of the UI.
+
 Legacy integrations are older integrations that have been part of Home Assistant for many years, possibly since its inception. They can only be configured through {% term YAML %} files and often lack active maintainers (code owners). These integrations might be complex to set up and do not adhere to current/modern end-user expectations in their use and features.
 
 The Home Assistant project encourages the community to help migrate these integrations to the UI and update them to meet modern standards, making these integrations accessible to everyone.
@@ -133,6 +152,8 @@ Characteristics:
 - Documentation may still be aimed at developers.
 
 ### 📦 Custom
+
+A custom integration is made by the community and is not part of Home Assistant.
 
 Custom integrations are developed and distributed by the community, and offer additional functionalities and support for devices and services to Home Assistant. These integrations are not included in the official Home Assistant releases and can be installed manually or via third-party tools like HACS (Home Assistant Community Store).
 

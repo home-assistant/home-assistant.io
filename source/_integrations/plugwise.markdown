@@ -135,8 +135,6 @@ A generous number of sensors is provided for your climate setup. Examples includ
 
 - **Cooling**
   - **Description**: Toggle if cooling should be enabled.
-- **DHW Comfort Mode**
-  - **Description**: Toggle comfort mode for domestic hot water.
 
 #### Water heaters
 
@@ -308,7 +306,7 @@ automation:
       event: end
       # Calendar when your home is vacant
       entity_id: calendar.vacancy
-      # Offset by some time to allow to pre-condition
+      # Offset by some time to allow pre-conditioning
       offset: -04:00:00
   actions:
     # Change Adam operational mode

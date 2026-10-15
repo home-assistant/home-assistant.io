@@ -21,29 +21,36 @@ The **Humidifier** {% term integration %} is built for the controlling and monit
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a humidifier entity
+## Humidifier states
 
-The state of a humidifier entity can be either **On** or **Off**.
+A humidifier entity can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
+
+- **On** (`on`): The humidifier is turned on.
+- **Off** (`off`): The humidifier is turned off.
 
 In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 ## Device class
 
-{% include integrations/device_class_intro.md %}
+The device class tells Home Assistant whether a device adds humidity to the air or removes it. Google Assistant and Apple Home use the device class to show the device as a humidifier or a dehumidifier.
 
-The screenshot shows different text and UI for different device classes for humidifiers:
+The integration that provides the humidifier sets the device class.
 
-<p class='img'>
-<img src='/images/screenshots/humidifier_device_class.png' />
-Humidifier device classes.
-</p>
+### Device classes in automations and templates
 
-The following device classes are supported for humidifiers:
+- Automations: The device class doesn't change how a humidifier works in automations.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `dehumidifier`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
-- **Humidifier**: Adds humidity to the air around it.
-- **Dehumidifier**: Removes humidity from the air around it.
+### List of available device classes
+
+Without a device class, Home Assistant treats the device as a humidifier.
+
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it.
+
+- **Humidifier** (`humidifier`): Adds humidity to the air around it.
+- **Dehumidifier** (`dehumidifier`): Removes humidity from the air around it.
 
 {% include integrations/triggers_conditions_actions.md %}

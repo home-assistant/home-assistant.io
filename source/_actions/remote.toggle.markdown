@@ -60,7 +60,7 @@ This action has no additional YAML options.
 
 When a user-created {% term helper %} button, created separately, is pressed, toggle the living room remote.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Media toggle (`input_button.media_toggle`)
 - **Action**: Toggle via remote
   - **Target**: Living room remote

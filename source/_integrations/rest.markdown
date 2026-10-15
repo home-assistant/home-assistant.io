@@ -192,3 +192,5 @@ Use either `resource` or `resource_template`.
 
 
 {% include integrations/using_templates.md %}
+
+{% include integrations/actions.md %}

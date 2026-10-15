@@ -71,7 +71,7 @@ behavior:
 
 After a smoke event, you want to keep the emergency lights on until every room is safe. This automation triggers when you press the reset button, but the condition requires _every_ smoke sensor to read clear before the normal lighting scene restores. If any sensor still detects smoke, the emergency lights stay on.
 
-- **Trigger**: State: Reset lighting button pressed
+- **Trigger**: State changed: Reset lighting button pressed
 - **Condition**: Air Quality: Smoke cleared
   - **Target**: All smoke sensors (kitchen, hallway)
   - **Condition passes if**: All
