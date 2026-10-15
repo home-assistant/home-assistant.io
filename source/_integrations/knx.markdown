@@ -1883,6 +1883,8 @@ sync_state:
 
 The KNX scene platform allows you to activate KNX scenes and updates scene entities when the corresponding scene number is received on the KNX bus.
 
+To store the current state of the actuators in a KNX scene, use the [`knx.save_scene` action](/actions/knx.save_scene/).
+
 Scene entities can be created from the frontend in the KNX panel or via YAML.
 
 {% details "Configuration of KNX scene entities via YAML" %}
@@ -1900,7 +1902,7 @@ See also the [common entity configuration options](#common-entity-configuration-
 
 {% configuration %}
 address:
-  description: KNX group address for the scene. *DPT 17.001*
+  description: KNX group address for the scene. *DPT 17.001 or DPT 18.001*
   required: true
   type: [string, list]
 scene_number:
