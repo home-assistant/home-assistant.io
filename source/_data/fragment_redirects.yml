@@ -2,6 +2,11 @@
 # Server-side redirects can't see the part of a URL after the #, so a script
 # in site/head.html checks these on page load and sends the reader to the
 # new location. Keys are page URLs, then old anchor IDs mapped to new URLs.
+"/common-tasks/general/":
+  enabling-or-disabling-entities: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
+  enabling-entities: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
+  to-enable-or-disable-a-single-entity: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
+  to-enable-or-disable-multiple-entities: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
 "/docs/scripts/":
   choose-a-group-of-actions: /building-blocks/choose/
   adding-choose-in-the-editor: /building-blocks/choose/
