@@ -146,7 +146,9 @@ On supported cameras and gateways, the integration exposes a **Siren** entity wh
 - **Turn on** sounds the siren.
 - **Turn off** stops the siren.
 
-The cloud API does not report whether the siren is currently sounding. The state is unknown until a **Turn on** or **Turn off** command succeeds. When both commands are available, the state then reflects that action (assumed state) and may not match the device. **Alarm-linked siren** is a separate switch that only links the siren to alarm events.
+The cloud API doesn't report whether the siren is sounding. The state is **Unknown** until you turn the siren on or off. If the device supports both commands, the state then shows the last command you sent. This might not match the device, for example, when the siren stops by itself. Because Home Assistant can't read the real state, the dashboard shows separate on and off buttons instead of a toggle.
+
+**Alarm-linked siren** is a separate switch. It only links the siren to alarm events.
 
 ### Alarm control panel
 
