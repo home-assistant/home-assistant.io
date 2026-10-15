@@ -74,7 +74,7 @@ conditions:
 ## Good to know
 
 - The conditions are checked in order. As soon as one of them doesn't pass, the rest aren't checked.
-- The conditions in the **And if** section of an automation, and in building blocks like [**If-then**](/docs/scripts/#if-then), already must all pass. You don't need an **And** condition there.
+- The conditions in the **And if** section of an automation, and in building blocks like [**If-then**](/building-blocks/if/), already must all pass. You don't need an **And** condition there.
 - To pass if at least one condition passes, use [**Or**](/conditions/or/). To pass if none of them pass, use [**Not**](/conditions/not/).
 
 {% include conditions/try_it.md %}
