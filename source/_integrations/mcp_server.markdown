@@ -132,41 +132,20 @@ Claude Code connects to MCP servers over HTTPS only. Use the MCP server URL of y
 
 ### Example: OpenCode
 
-OpenCode can connect to Home Assistant as a remote MCP server by using OAuth. This example uses the configuration format of OpenCode v2.
-
 1. Install [OpenCode](https://opencode.ai).
-2. Edit or create your configuration file:
-   - To make the server available in every project, edit `~/.config/opencode/opencode.jsonc`.
-   - To use the server in one project only, edit `opencode.jsonc` in your project.
-3. Add the following to your configuration:
-
-   ```json
-   {
-     "$schema": "https://opencode.ai/config.json",
-     "mcp": {
-       "servers": {
-         "homeassistant": {
-           "type": "remote",
-           "url": "<your_mcp_server_url>",
-           "oauth": {
-             "client_id": "http://127.0.0.1:12345",
-             "callback_port": 12345
-           }
-         }
-       }
-     }
-   }
-   ```
-
-4. Replace `<your_mcp_server_url>` with your MCP server URL, as described in the [prerequisites](#prerequisites). The callback port and the port in `client_id` must match. The `client_id` value is the base URL of the local OAuth callback used by OpenCode. Do not replace it with your MCP server URL.
-5. Run the following command:
+2. In your terminal, run the following command. Replace `<your_mcp_server_url>` with your MCP server URL.
 
    ```bash
-   opencode mcp auth homeassistant
+   opencode mcp add home-assistant --url <your_mcp_server_url>
    ```
 
-6. Complete the authentication in your web browser and authorize OpenCode to access Home Assistant.
-7. Run `opencode mcp list` to confirm that the server is connected. The Home Assistant tools appear with the prefix `homeassistant_`.
+3. Run the following command:
+
+   ```bash
+   opencode mcp auth home-assistant
+   ```
+
+4. In your web browser, log in to your Home Assistant instance.
 
 ## Supported functionality
 
