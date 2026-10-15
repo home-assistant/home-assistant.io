@@ -30,7 +30,7 @@ You can use one or more targets in a trigger, condition, or action. You can also
 
 ## Entities that are part of a target
 
-When a target is a device, an area, a floor, or a label, not every entity in that category is part of the target. An entity is part of a target if both of the following are true:
+When a target is a device, an area, a floor, or a label, not every entity that belongs to it is part of the target. An entity is part of a target if both of the following are true:
 
 - It belongs to the device, area, floor, or label you selected.
 - The trigger, condition, or action can work with it.
@@ -50,8 +50,7 @@ If you select an entity directly, it's always part of the target, even if it's o
 
 The following entities are not part of a target, even if they belong to the device, area, floor, or label you selected:
 
-- Entities that the trigger, condition, or action can't work with. For example, for **Light turned on**, the switches and sensors in the room are not part of the target.
-- Some triggers and conditions also check the device class. For example, for **Window opened**, door sensors are not part of the target.
+- Entities that the trigger, condition, or action can't work with. For example, for **Light turned on**, the switches and sensors in the room are not part of the target, and for **Window opened**, door sensors are not, because the trigger checks the device class.
 - Entities that you assigned to a different area than their device, when you target the area of the device. These entities belong to their own area only.
 - Hidden entities. For example, if an action turns on all lights in the living room, a hidden light in that room stays off.
 - Configuration and diagnostic entities, such as a firmware update or the signal strength of a device. If you put a label on the entity itself, and target that label, the entity is part of the target.

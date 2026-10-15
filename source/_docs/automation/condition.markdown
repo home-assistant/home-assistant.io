@@ -6,6 +6,8 @@ related:
     title: List of available conditions
   - docs: /docs/scripts/conditions/
     title: Conditions reference
+  - docs: /docs/automation/targets/
+    title: Automation targets
   - docs: /docs/automation/how-automations-react-to-changes/
     title: How automations react to changes
   - docs: /docs/automation/testing/

@@ -58,7 +58,7 @@ By default, create automations with the visual editor, one of the available [aut
         - A trigger.
      2. From the listed results, select **+** on the desired trigger.
 3. In the window on the right, you will have different options depending on the selected trigger. You might find the following ones, for example:
-   - To select what the trigger watches, select **Add target**. To learn which entities a target includes, refer to [Automation targets](/docs/automation/targets/).
+   - To select what the trigger monitors, select **Add target**. To learn which entities are part of a target, refer to [Automation targets](/docs/automation/targets/).
      1. Do one of the following:
         - Select an entity, device or service to monitor a specific one.
         - Select entities, devices or services in an area, floor or with a certain label to monitor a group of them.
@@ -95,7 +95,7 @@ Note that you don´t need to add a condition to create an automation.
         - A group of targets: an area or label.
         - A condition.
      2. From the listed results, select **+** on the desired condition.
-4. In the window on the right, you will have different options depending on the selected condition. To select what the condition checks, select **Add target**. To learn which entities a target includes, refer to [Automation targets](/docs/automation/targets/).
+4. In the window on the right, you will have different options depending on the selected condition. To select what the condition checks, select **Add target**. To learn which entities are part of a target, refer to [Automation targets](/docs/automation/targets/).
    1. Do one of the following:
       - Select an entity, device or service to check a specific one.
       - Select entities, devices or services in an area, floor or with a certain label to check a group of them.
@@ -125,7 +125,7 @@ Note that you don´t need to add a condition to create an automation.
         - A group of targets: an area or label.
         - An action.
      2. From the listed results, select **+** on the desired action.
-4. In the window on the right, you will have different options depending on the selected action. Under **Targets**, you can add the first target or another one by selecting **Add target**. To learn which entities a target includes, refer to [Automation targets](/docs/automation/targets/).
+4. In the window on the right, you will have different options depending on the selected action. To select what the action controls, select **Add target**. To learn which entities are part of a target, refer to [Automation targets](/docs/automation/targets/).
    1. Do one of the following:
       - Select an entity, device or service to control a specific one.
       - Select entities, devices or services in an area, floor or with a certain label to control a group of them.

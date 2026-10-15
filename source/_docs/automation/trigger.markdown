@@ -4,6 +4,8 @@ description: "Triggers start an automation when something specific happens, such
 related:
   - docs: /voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation
     title: Adding a custom sentence to trigger an automation
+  - docs: /docs/automation/targets/
+    title: Automation targets
 ---
 
 A trigger is the part of an automation that makes the automation start when something specific happens, for example, when the sun sets, a door opens, or a button is pressed. You add triggers in the **When** section of the automation editor.
