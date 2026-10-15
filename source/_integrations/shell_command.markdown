@@ -65,7 +65,7 @@ Testing commands in a separate [Home Assistant Container](/installation/linux#in
 
 ## Response
 
-Shell commands provide an action response in a dictionary containing `stdout`, `stderr`, and `returncode`. You can use these in automations to act on the command results using [`response_variable`](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
+Shell commands provide an action response in a dictionary containing `stdout`, `stderr`, and `returncode`. You can use these in automations to act on the command results using [`response_variable`](/docs/automation/action/#action-response-data).
 
 {% include integrations/actions.md %}
 

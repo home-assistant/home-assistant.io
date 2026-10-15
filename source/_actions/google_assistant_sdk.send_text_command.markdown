@@ -65,7 +65,7 @@ media_player:
 
 - To control a specific device, like streaming a camera to a TV, include the device's name (as known by Google Assistant) in the text command itself. The **Media player entity** option only plays back the audio response and does not direct the command.
 - You can send multiple commands in the same conversation context, which is useful for commands that need a follow-up, such as unlocking a door or opening a cover that requires a PIN.
-- This action can optionally return Google Assistant's responses. Store them in a [response variable](/docs/scripts/perform-actions/#use-templates-to-handle-response-data) to use them later in your automation or script.
+- This action can optionally return Google Assistant's responses. Store them in a [response variable](/docs/automation/action/#action-response-data) to use them later in your automation or script.
 
 {% include actions/try_it.md %}
 

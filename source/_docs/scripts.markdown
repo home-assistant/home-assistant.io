@@ -25,36 +25,9 @@ For how to create scripts, pass them variables, and wait for them to finish, ref
 
 ## Performing an action
 
-To make something happen, such as turning on a light, add an action. Each action has its own page with its options, listed in the [actions reference](/actions/). For the options that most actions share, such as targets and data, refer to [Performing actions](/docs/scripts/perform-actions/).
+To make something happen, such as turning on a light, add an action. Each action has its own page with its options, listed in the [actions reference](/actions/). For how to add an action in the editor or in YAML, and for the options that most actions share, such as targets and data, refer to [Actions in automations and scripts](/docs/automation/action/).
 
 Most actions come from integrations. Two actions are [built into automations and scripts](/actions/#built_in): [**Fire manual event**](/actions/event/) and [**Set conversation response**](/actions/set_conversation_response/).
-
-### Adding an action in the editor
-
-To add an action in the automation or script editor, follow the steps in [Adding an action in the editor](/docs/scripts/perform-actions/#adding-an-action-in-the-editor).
-
-### Performing an action in YAML
-
-In YAML, use `action` with the name of the action, and optionally `target` and `data`:
-
-{% example %}
-action: |
-  alias: "Bedroom lights on"
-  action: light.turn_on
-  target:
-    entity_id: light.bedroom
-  data:
-    brightness: 100
-{% endexample %}
-
-<a id="activate-a-scene"></a>
-
-In older YAML, you may find a shortcut to activate a {% term scene %}. It does the same as the [**Activate scene**](/actions/scene.turn_on/) action. When you open the step in the editor, the editor changes it to `action: scene.turn_on`.
-
-{% example %}
-action: |
-  scene: scene.morning_living_room
-{% endexample %}
 
 ## Controlling how steps run
 

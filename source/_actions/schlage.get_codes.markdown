@@ -10,7 +10,7 @@ related_actions:
 
 Use this action to retrieve all PIN codes stored on a Schlage lock. For example, you can use it to check which codes are set before adding or removing one.
 
-This action returns its result as [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) and does not change anything on the lock.
+This action returns its result as [response data](/docs/automation/action/#action-response-data) and does not change anything on the lock.
 
 {% include actions/ui_header.md %}
 

@@ -8,8 +8,8 @@ related:
     title: Automation triggers
   - docs: /docs/automation/condition/
     title: Automation conditions
-  - docs: /docs/scripts/perform-actions/
-    title: Performing actions
+  - docs: /docs/automation/action/
+    title: Actions in automations and scripts
   - docs: /docs/organizing/
     title: Grouping your assets
 ---
@@ -94,7 +94,7 @@ Targets that are **Unavailable** or **Unknown** don't count. If all targets are 
 
 ### Actions
 
-An action controls all of its targets. For example, if **Turn on light** targets an area, all lights in that area turn on. For details, refer to [Action targets](/docs/scripts/perform-actions/#action-targets).
+An action controls all of its targets. For example, if **Turn on light** targets an area, all lights in that area turn on. For details, refer to [Action targets](/docs/automation/action/#action-targets).
 
 ## Targets in YAML
 
