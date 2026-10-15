@@ -49,9 +49,12 @@ The **MELCloud Home** {% term integration %} provides the following entities.
 
 - **Error**: Indicates if the unit reported an error.
 - **Standby**: Indicates if the unit is in standby mode.
+- **Holiday mode**: Indicates if a holiday is running right now. It stays off while a scheduled holiday hasn't started yet.
 - **Forced hot water**: Indicates if the force hot water is activated (applicable only for Air-to-Water units).
 - **Frost protection**: Indicates if the prost protection, if enabled, is activated.
 - **Overheat protection**: Indicates if the overheat protection, if enabled, is activated.
+- **Frost protection active**: Indicates if the frost protection is running right now. For Air-to-Water units, it's on when the frost protection runs in either zone.
+- **Overheat protection active**: Indicates if the overheat protection is running right now.
 
 ###  Climate
 
@@ -67,7 +70,6 @@ Each air conditioner or heat pump indoor unit is exposed as a climate entity wit
 - **Horizontal vane**: Auto, Swing, Left, Left centre, Centre, Right centre, Right
 - **Target temperature**
 - **Current room temperature**
-- **Outdoor temperature**
 
 #### Air-to-Water (ATW) units
 
@@ -85,11 +87,15 @@ The following entities are created per unit or zone, both for Air-to-Air and Air
 - **Room temperature**: Returns the current measured room temperature.
 - **RSSI**: The current WiFi signal strength.
 
+The following extra sensor is only applicable for the Air-to-Air units:
+
+- **Outdoor temperature**: The temperature measured by the outdoor unit. Created once the unit reports an outdoor temperature, which can take up to 15 minutes after setup.
+
 The following extra sensors are only applicable for the Air-to-Water units:
 
 - **Room zone temperature 1 & 2**: Either one or the two room temperatures are returned, if applicable for the setup.
 - **Tank water temperature**: The current measured tank water temperature.
-- **Operation status**: What the heat pump is doing: **Idle**, **Heating water**, **Heating zones**, or **Cooling**.
+- **Operation status**: What the heat pump is doing: **Idle**, **Heating water**, **Heating zones**, **Cooling**, or **Frost protection**.
 
 ### Number
 

@@ -62,15 +62,18 @@ Your LaMetric device must be powered on and connected to the same local network 
 
 {% configuration_basic %}
 Host:
-  description: "The hostname or IP address of your LaMetric device. Only required when adding the device manually."
+  description: "The hostname or IP address of your LaMetric device. Only required when adding the device manually, or with a press on its button."
 API key:
   description: "The device API key, which you can find in the LaMetric developer portal. Only required when adding the device manually."
 {% endconfiguration_basic %}
 
-During setup, you can choose between two methods:
+During setup, you can choose between three methods:
 
+- **Press the button**: Enter the device's hostname or IP address, then press the button on top of the device within a minute when it asks for it. The device hands out its API key itself. This method does not require a LaMetric account, and works on devices from 2022 onward.
 - **Automatic**: Sign in with your LaMetric account to let Home Assistant fetch your devices and their credentials for you.
 - **Manual**: Enter the device's hostname or IP address and API key. This method does not require a LaMetric account.
+
+When Home Assistant discovers your device, or asks you to re-authenticate it, it first checks whether the device supports the button press. If it does, setup goes straight to pressing the button. If it does not, like an older LaMetric TIME, only the other two methods are offered.
 
 ## Supported functionality
 
@@ -103,6 +106,9 @@ During setup, you can choose between two methods:
 - **Brightness mode**
   - **Description**: Choose whether the brightness is set manually or automatically based on ambient light.
   - **Entity category**: Configuration
+- **Screensaver mode**
+  - **Description**: Choose when the screensaver turns on: when it gets dark, or on a schedule set with the screensaver time entities. Only the modes the device supports are offered. To switch to the schedule, set its start and end time first. Not available on the LaMetric SKY.
+  - **Entity category**: Configuration
 
 ### Sensors
 
@@ -114,6 +120,9 @@ During setup, you can choose between two methods:
 
 - **Bluetooth**
   - **Description**: Toggle the device's Bluetooth radio on or off.
+  - **Entity category**: Configuration
+- **Screensaver**
+  - **Description**: Turn the screensaver on or off. This leaves the screensaver mode and schedule as they are. Not available on the LaMetric SKY.
   - **Entity category**: Configuration
 
 ### Times

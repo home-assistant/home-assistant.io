@@ -116,6 +116,7 @@ Removing the Teslemetry integration doesn't revoke the access key from your Powe
 
 These are the entities available in the Teslemetry integration. Not all entities are enabled by default, and not all values are always available.
 Entities in the device tracker platform specifically require the `Vehicle location` scope, and will appear unavailable otherwise. 
+The **Enable keep accessory power** and **Disable keep accessory power** buttons are only created for vehicles on firmware 2025.38 or newer.
 
 ### Vehicles
 
@@ -187,6 +188,8 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 |Binary sensor|User present|Yes|Polling|No|
 |Binary sensor|Wi-Fi|Yes|Streaming|No|
 |Binary sensor|Wiper heat|No|Streaming|No|
+|Button|Disable keep accessory power|Yes|—|Yes|
+|Button|Enable keep accessory power|Yes|—|Yes|
 |Button|Flash lights|Yes|—|Yes|
 |Button|HomeLink|Yes|—|Yes|
 |Button|Honk horn|Yes|—|Yes|

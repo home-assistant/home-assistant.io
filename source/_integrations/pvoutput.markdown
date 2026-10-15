@@ -72,8 +72,11 @@ The integration creates a device for each configured PVOutput system, with the f
 - **Voltage**
   - **Description**: DC or AC voltage reported by the system, in V. Only added once your system uploads voltage data. Disabled by default.
   - **Device class**: Voltage
+- **Last reported**
+  - **Description**: When your system last reported its status to PVOutput. Use this to spot an uploader that stopped sending data.
+  - **Device class**: Timestamp
 
-Which sensors you get depends on what your PVOutput uploader sends. The energy generation, power generation, and efficiency sensors are always added. The consumption, temperature, and voltage sensors are only added once your system reports a value for them. If your uploader starts sending one of these values later, the matching sensor is added automatically, without restarting Home Assistant.
+Which sensors you get depends on what your PVOutput uploader sends. The energy generation, power generation, efficiency, and last reported sensors are always added. The consumption, temperature, and voltage sensors are only added once your system reports a value for them. If your uploader starts sending one of these values later, the matching sensor is added automatically, without restarting Home Assistant.
 
 Sensors that were added by an earlier version of this integration are kept, even if your system does not report a value for them. Enabled sensors show as unknown.
 
@@ -81,53 +84,117 @@ Sensors that were added by an earlier version of this integration are kept, even
 
 The integration polls PVOutput every 2 minutes over the internet for updated system status. PVOutput itself imposes rate limits on its API, so the poll interval is fixed and cannot be shortened.
 
-## Examples
+## PVOutput automation examples
 
-### Notify when generation drops below a threshold
+Use the PVOutput sensors to get notified about your solar system, or to run appliances on solar power. Create an automation in {% my automations title="**Settings** > **Automations & scenes**" %} with the trigger, conditions, and actions below.
 
-Send a mobile notification if your solar system is generating less than 100 W during the day, which may indicate a cloud cover event, shading, or a problem with the system:
+{% include docs/paste_yaml_tip.md %}
 
-```yaml
-alias: "Low solar generation alert"
-triggers:
-  - trigger: numeric_state
-    entity_id: sensor.my_system_power_generation
-    below: 100
-    for:
-      minutes: 15
-conditions:
-  - condition: sun
-    after: sunrise
-    after_offset: "01:00:00"
-  - condition: sun
-    before: sunset
-    before_offset: "-01:00:00"
-actions:
-  - action: notify.send_message
-    target:
-      entity_id: notify.my_device
-    data:
-      title: "Solar"
-      message: "Power generation is unexpectedly low."
-```
+### Automation: Notify when generation drops below a threshold
 
-### Run appliances when solar production is high
+Send a notification if your solar system is generating less than 100 W during the day, which may indicate cloud cover, shading, or a problem with the system.
 
-Turn on a high-consumption appliance, such as a dishwasher or pool pump, when solar generation exceeds a threshold:
+- **Trigger**: Numeric state, with the PVOutput **Power generation** sensor below `100` for 15 minutes
+- **Conditions**:
+  - Sun, after sunrise with an offset of 1 hour
+  - Sun, before sunset with an offset of minus 1 hour
+- **Action**: Notifications: Send a notification message
+  - **Message**: Power generation is unexpectedly low.
 
-```yaml
-alias: "Run dishwasher on solar"
-triggers:
-  - trigger: numeric_state
-    entity_id: sensor.my_system_power_generation
-    above: 2000
-    for:
-      minutes: 5
-actions:
-  - action: switch.turn_on
-    target:
-      entity_id: switch.dishwasher
-```
+{% details "YAML example for a low generation notification" %}
+
+Replace the entity IDs with the ones of your PVOutput system and notification device.
+
+{% example %}
+automation: |
+  alias: "Low solar generation alert"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.my_system_power_generation
+      below: 100
+      for:
+        minutes: 15
+  conditions:
+    - condition: sun
+      after: sunrise
+      after_offset: "01:00:00"
+    - condition: sun
+      before: sunset
+      before_offset: "-01:00:00"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Solar"
+        message: "Power generation is unexpectedly low."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Notify when the uploader stops sending data
+
+When your uploader stops sending data, PVOutput keeps returning the last status of the day, so the other sensors keep showing their last values. Send a notification if your system has not reported anything for an hour while the sun is up.
+
+The template only becomes true during the day, so it resets every night and can trigger again the next day.
+
+- **Trigger**: Template, using the template from the YAML example below
+- **Action**: Notifications: Send a notification message
+  - **Message**: PVOutput has not received data from your system for over an hour.
+
+{% details "YAML example for a stalled uploader notification" %}
+
+Replace the entity IDs with the ones of your PVOutput system and notification device.
+
+{% example %}
+automation: |
+  alias: "PVOutput uploader stopped"
+  triggers:
+    - trigger: template
+      value_template: >
+        {{ is_state('sun.sun', 'above_horizon')
+           and has_value('sensor.my_system_last_reported')
+           and now() - states('sensor.my_system_last_reported') | as_datetime
+             > timedelta(hours=1) }}
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Solar"
+        message: "PVOutput has not received data from your system for over an hour."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Run appliances when solar production is high
+
+Turn on a high-consumption appliance, such as a dishwasher or pool pump, when solar generation exceeds a threshold.
+
+- **Trigger**: Numeric state, with the PVOutput **Power generation** sensor above `2000` for 5 minutes
+- **Action**: Switch: Turn on
+  - **Target**: your appliance switch
+
+{% details "YAML example for running an appliance on solar" %}
+
+Replace the entity IDs with the ones of your PVOutput system and appliance.
+
+{% example %}
+automation: |
+  alias: "Run dishwasher on solar"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.my_system_power_generation
+      above: 2000
+      for:
+        minutes: 5
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.dishwasher
+{% endexample %}
+
+{% enddetails %}
 
 ## Known limitations
 
@@ -135,6 +202,7 @@ actions:
 - Which sensors are added depends on what your PVOutput uploader sends. If your uploader only reports generation, the consumption, temperature, and voltage sensors are not added.
 - Sensors are never removed automatically. If your uploader stops sending a value, the matching sensor stays and shows as unknown.
 - The 2-minute polling interval is fixed to stay within PVOutput's API rate limits and cannot be changed.
+- PVOutput does not tell which time zone a system uses. The integration assumes your PVOutput system is in the same time zone as Home Assistant. If it is not, the last reported sensor is off by the difference.
 
 ## Troubleshooting
 
@@ -149,6 +217,10 @@ If all sensors are unavailable shortly after setup, verify that:
 1. Your PVOutput system is actively uploading data. You can check this on the [PVOutput live page](https://pvoutput.org/).
 2. The System ID you entered matches a system that belongs to your account.
 3. Your Home Assistant instance can reach the internet.
+
+### Sensors show outdated values
+
+If the sensors keep showing the same values, check the **Last reported** sensor. If it shows an old time, your uploader stopped sending data to PVOutput. Check your inverter, logger, or upload software, not the integration.
 
 ## Removing the integration
 

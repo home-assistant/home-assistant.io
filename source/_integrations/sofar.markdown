@@ -38,7 +38,7 @@ The **Sofar** integration brings your inverter's own measurements into Home Assi
 
 The integration supports Sofar inverters that use the current-generation Modbus register map, including HYD hybrid inverters and KTL-X and KTLM PV inverters. During setup, the integration reads the inverter's serial number to detect its type and the registers that apply to it.
 
-The current-generation detection recognizes these serial-number prefixes:
+The integration recognizes these serial-number prefixes directly:
 
 - `SP1`, `SP2`, `ZP1`, and `ZP2` for three-phase HYD hybrid models.
 - `SM2E` and `ZM2E` for single-phase HYD hybrid models.
@@ -46,7 +46,9 @@ The current-generation detection recognizes these serial-number prefixes:
 - `SH3E`, `SS2E`, `ZS2E`, `SQ1ES1`, and `SS1` for KTL-X, KTLM, and related PV models.
 - `SA1`, `SB1`, `SC1`, `SD1`, `SF4`, `SL1`, and `SJ2` for additional current-generation PV models.
 
-Some serial-number prefixes are also used by older Sofar models, so the marketed model name or serial prefix alone does not always identify the register generation. If the inverter answers but does not use the supported register map, setup fails.
+If the serial number starts with another prefix, the integration asks the inverter which registers it serves instead. From that answer, it works out whether the inverter is single-phase or three-phase, whether it's a hybrid or PV-only model, and how many PV strings it has. This means you can usually set up current-generation models that aren't on the list above, too.
+
+Some serial-number prefixes are also used by older Sofar models, so the marketed model name or serial prefix alone does not always identify the register generation. If the inverter answers but neither its serial number nor the registers it serves identify a supported model, setup fails.
 
 ## Unsupported devices
 
@@ -86,16 +88,24 @@ During setup, the integration also detects whether the inverter has EPS (Emergen
 
 ## Reconfiguration
 
-If the inverter becomes reachable somewhere else, for example after a DHCP lease change, when you replace the Modbus TCP bridge it's connected through, or when you rewire it to another serial port, you can update the connection settings without removing and re-adding the integration:
+You can update the connection settings without removing and adding the integration again. For example, in the following situations:
+
+- The inverter gets a new IP address after a DHCP lease change.
+- You replace the Modbus TCP bridge it's connected through.
+- You rewire it to another serial port.
+- You move it between a network and a serial connection.
+
+To update the connection settings:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and find the **Sofar** integration.
 2. Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reconfigure**.
-3. Update the connection settings as needed. For a network connection, these are the **Host**, **Port**, and **Modbus unit ID**. For a serial connection, these are the **Serial port**, **Baud rate**, and **Modbus unit ID**.
-4. Select **Submit** to save the new settings.
+3. Choose how the inverter is reached from now on: **Network (Modbus TCP)** or **Serial port (Modbus RTU)**.
+4. Enter the connection settings. For a network connection, these are the **Host**, **Port**, and **Modbus unit ID**. For a serial connection, these are the **Serial port**, **Baud rate**, and **Modbus unit ID**. 
+   - If you keep the same connection type, the current settings are filled in for you. 
+   - If you switch, only the **Modbus unit ID** carries over.
+5. Select **Submit** to save the new settings.
 
 The integration reads the serial number again and only accepts the new settings if they lead to the same inverter, so reconfiguring can't accidentally point an entry at a different device and take its history with it.
-
-Reconfiguring keeps the connection type you chose during setup. To switch between a network and a serial connection, remove the integration and add it again with the other connection type.
 
 ## Supported functionality
 
@@ -255,7 +265,6 @@ The **Sofar** {% term integration %} {% term polling polls %} the inverter's liv
 
 ## Known limitations
 
-- Switching an existing entry between a network and a serial connection isn't possible through reconfiguration. Remove the integration and add it again instead.
 - Serial connections use 8 data bits, no parity, and 1 stop bit (8N1), which is what Sofar inverters use on their RS485 port. Only the baud rate can be changed.
 
 ## Troubleshooting
@@ -266,15 +275,29 @@ If these steps don't help, [open an issue on GitHub](https://github.com/home-ass
 
 1. Make sure the inverter is powered on. If it's connected through a Modbus TCP bridge or an ESPHome serial proxy, make sure that device is also powered on and reachable on your network.
 2. For a network connection, confirm the host and port are correct, and that nothing else is holding open the same Modbus connection.
-3. For a serial connection, confirm the serial port is correct and the baud rate matches the one set on the inverter. Check the RS485 wiring: if A and B are swapped, the inverter doesn't answer.
+3. For a serial connection, confirm the serial port is correct.
 4. Check that Modbus is enabled on the inverter, if it has a setting for this.
 5. If it still fails, include the connection type, the connection settings, and the Modbus unit ID in the issue report. If the integration is already added, also enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), reproduce the failure, and include the log.
+
+### Inverter isn't answering
+
+#### Description
+
+If setup reports that the adapter is reachable but the inverter behind it didn't answer, Home Assistant reached the Modbus TCP bridge or serial port, but the inverter didn't reply.
+
+#### Resolution
+
+1. A PV inverter switches off when there's no sunlight. If you're setting it up after dark, try again in daylight.
+2. Confirm the **Modbus unit ID** matches the one set on the inverter. The default is `1`.
+3. For a serial connection, or a Modbus TCP bridge wired to the inverter's RS485 port, confirm the baud rate matches the one set on the inverter. Check the RS485 wiring: if A and B are swapped, the inverter doesn't answer.
+4. Check that Modbus is enabled on the inverter, if it has a setting for this.
+5. If it still doesn't answer, include the connection type, the connection settings, and the Modbus unit ID in the issue report.
 
 ### Inverter isn't recognized
 
 #### Description
 
-The integration only recognizes inverter models it knows the register map for. If setup fails with an unrecognized inverter error, your model isn't supported yet.
+The integration identifies the inverter by its serial number or by the registers it reports it serves. If setup fails with an unrecognized inverter error, neither matches a supported model. The inverter might use the older register map, or your model may not be supported yet.
 
 #### Resolution
 

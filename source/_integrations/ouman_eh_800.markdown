@@ -2,6 +2,7 @@
 title: Ouman EH-800
 description: Instructions on how to integrate the Ouman EH-800 heating controller with Home Assistant.
 ha_category:
+  - Binary sensor
   - Climate
   - Number
   - Select
@@ -14,6 +15,7 @@ ha_codeowners:
   - '@Markus98'
 ha_domain: ouman_eh_800
 ha_platforms:
+  - binary_sensor
   - climate
   - number
   - select
@@ -67,7 +69,7 @@ Password:
 
 ## Supported functionality
 
-The integration creates one **Ouman EH-800** device for the controller and one sub-device for each active heating circuit. Sub-devices are named **Heating circuit 1** and **Heating circuit 2** (referred to as H1 and H2 throughout this document and on the controller), with the circuit name configured on the controller appended when available (for example, `Heating circuit 1 Radiator heating`). Climate, number, select, sensor, and valve entities are assigned to the device they belong to.
+The integration creates one **Ouman EH-800** device for the controller and one sub-device for each active heating circuit. Sub-devices are named **Heating circuit 1** and **Heating circuit 2** (referred to as H1 and H2 throughout this document and on the controller), with the circuit name configured on the controller appended when available (for example, `Heating circuit 1 Radiator heating`). Climate, number, select, sensor, binary sensor, and valve entities are assigned to the device they belong to.
 
 ### Climate entities
 
@@ -128,6 +130,10 @@ Additional diagnostic sensors are exposed but disabled by default. See [enabling
 - **H1 room sensor potentiometer**: The room temperature offset from the room sensor's adjustment knob.
 - **H2 delayed outdoor temperature effect**: The delayed outdoor temperature effect applied to the H2 setpoint.
 - **H1/H2 autumn drying effect**: The temperature raise currently applied by autumn drying to the room temperature (with a room sensor) or supply water temperature (without a room sensor).
+
+### Binary sensor entities
+
+- **H1 Summer function**: **On** while the controller's summer function is holding the H1 mixing valve closed. The controller enables and disables the summer function automatically based on the outside temperature.
 
 ### Valve entities
 

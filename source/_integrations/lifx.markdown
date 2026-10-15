@@ -195,7 +195,7 @@ Firmware effects can be started and stopped whether the light is on or off. By d
 
 ### Themes
 
-The integration includes 157 predefined themes. Every category except Library matches a category in the LIFX app and holds the same themes. The Library themes are extras that the LIFX app does not have.
+The integration includes 369 predefined themes. Every category except Library matches a category in the LIFX app and holds the same themes. The Library themes are extras that the LIFX app does not have.
 
 Themes can be painted onto any LIFX light with the [**Paint theme**](/actions/lifx.paint_theme/) action. A multizone or matrix light spreads the theme across its zones, and a light with a single zone takes one color from the theme at random.
 
@@ -205,13 +205,14 @@ The following themes are available:
 
 | Category | Themes |
 | --- | --- |
-| Moods | `blissful`, `cheerful`, `dream`, `energising`, `gentle`, `mellow`, `peaceful`, `powerful`, `pride`, `romance`, `soothing`, `tranquil`, `warming` |
-| Nature | `aurora`, `beach`, `clouds`, `coral_reef`, `forrest`, `ocean`, `outback`, `storm_front` |
-| Holidays | `calaveras`, `canada_day`, `christmas`, `diwali`, `festive`, `halloween`, `hanukkah`, `independence`, `kwanzaa`, `memorial_day`, `oktoberfest`, `ramadan`, `st_patricks_day`, `thanksgiving`, `valentines` |
+| Moods | `blissful`, `cheerful`, `dream`, `energizing`, `focus`, `gentle`, `mellow`, `peaceful`, `powerful`, `pride`, `romance`, `sleepy`, `soothing`, `tranquil`, `warming` |
+| Nature | `aurora`, `beach`, `clouds`, `coral_reef`, `forrest`, `ocean`, `outback`, `storm_front`, `summer_dusk` |
+| Holidays | `calaveras`, `canada_day`, `christmas`, `diwali`, `festive`, `fireworks_finale`, `halloween`, `hanukkah`, `independence`, `kwanzaa`, `memorial_day`, `oktoberfest`, `ramadan`, `st_patricks_day`, `thanksgiving`, `valentines` |
 | Music | `classic_rock`, `classical`, `dance_pop`, `disco`, `funk`, `garage_rock`, `hip_hop_rap`, `indie_pop`, `jazz`, `lo_fi`, `pop`, `psychedelic_rock`, `punk`, `synthwave` |
 | Space | `earth`, `jupiter`, `mars`, `mercury`, `moon`, `neptune`, `pluto`, `saturn`, `sun`, `uranus`, `venus` |
 | Play | `exciting`, `fantasy`, `party`, `sci_fi`, `spacey`, `stardust`, `zombie` |
-| Art Series | `bijutsukai`, `gauguin`, `hokusai`, `kandinsky`, `klimt`, `matisse`, `mondrian`, `monet`, `rousseau`, `van_gogh` |
+| Art Series | `bijutsukai`, `gauguin`, `hokusai`, `kandinsky`, `klimt`, `marc`, `matisse`, `mondrian`, `monet`, `munch`, `rousseau`, `van_gogh`, `vermeer` |
+| Worldly | `afghanistan`, `albania`, `algeria`, `andorra`, `angola`, `antigua_and_barbuda`, `argentina`, `armenia`, `australia`, `austria`, `azerbaijan`, `bahamas`, `bahrain`, `bangladesh`, `barbados`, `belarus`, `belgium`, `belize`, `benin`, `bhutan`, `bolivia`, `bosnia_and_herzegovina`, `botswana`, `brazil`, `brunei`, `bulgaria`, `burkina_faso`, `burundi`, `cabo_verde`, `cambodia`, `cameroon`, `canada`, `central_african_republic`, `chad`, `chile`, `china`, `colombia`, `comoros`, `costa_rica`, `cote_divoire`, `croatia`, `cuba`, `curacao`, `cyprus`, `czechia`, `denmark`, `djibouti`, `dominica`, `dominican_republic`, `dr_congo`, `ecuador`, `egypt`, `el_salvador`, `england`, `equatorial_guinea`, `eritrea`, `estonia`, `eswatini`, `ethiopia`, `european_union`, `fiji`, `finland`, `france`, `gabon`, `gambia`, `georgia`, `germany`, `ghana`, `greece`, `grenada`, `guatemala`, `guinea`, `guinea_bissau`, `guyana`, `haiti`, `honduras`, `hong_kong`, `hungary`, `iceland`, `india`, `indonesia`, `iran`, `iraq`, `israel`, `italy`, `jamaica`, `japan`, `jordan`, `kazakhstan`, `kenya`, `kiribati`, `kosovo`, `kuwait`, `kyrgyzstan`, `laos`, `latvia`, `lebanon`, `lesotho`, `liberia`, `libya`, `liechtenstein`, `lithuania`, `luxembourg`, `madagascar`, `malawi`, `malaysia`, `maldives`, `mali`, `malta`, `marshall_islands`, `mauritania`, `mauritius`, `mexico`, `micronesia`, `moldova`, `monaco`, `mongolia`, `montenegro`, `morocco`, `mozambique`, `myanmar`, `namibia`, `nauru`, `nepal`, `netherlands`, `new_zealand`, `nicaragua`, `niger`, `nigeria`, `north_korea`, `north_macedonia`, `northern_ireland`, `norway`, `oman`, `pakistan`, `palau`, `palestine`, `panama`, `papua_new_guinea`, `paraguay`, `peru`, `philippines`, `poland`, `portugal`, `puerto_rico`, `qatar`, `republic_of_ireland`, `republic_of_the_congo`, `romania`, `russia`, `rwanda`, `saint_kitts_and_nevis`, `saint_lucia`, `saint_vincent_and_the_grenadines`, `samoa`, `san_marino`, `sao_tome_and_principe`, `saudi_arabia`, `scotland`, `senegal`, `serbia`, `seychelles`, `sierra_leone`, `singapore`, `slovakia`, `slovenia`, `solomon_islands`, `somalia`, `south_africa`, `south_korea`, `south_sudan`, `spain`, `sri_lanka`, `sudan`, `suriname`, `sweden`, `switzerland`, `syria`, `taiwan`, `tajikistan`, `tanzania`, `thailand`, `timor_leste`, `togo`, `tonga`, `trinidad_and_tobago`, `tunisia`, `turkiye`, `turkmenistan`, `tuvalu`, `uganda`, `ukraine`, `united_arab_emirates`, `united_kingdom`, `uruguay`, `usa`, `uzbekistan`, `vanuatu`, `vatican_city`, `venezuela`, `vietnam`, `wales`, `yemen`, `zambia`, `zimbabwe` |
 | Archives | `arlington`, `autumn_table`, `baubles`, `be_my_valentine`, `bedroom_glow_up`, `blood_moon`, `bloodlust`, `book_of_the_dead`, `candy_cane`, `candy_cane_twist`, `cranberry_harvest`, `crystal_twist`, `deck_the_halls`, `dinner_for_two`, `eternal`, `extraterrestrial`, `fall`, `fright_night`, `ghostly`, `gold_star`, `graveyard_chill`, `haunted_fog`, `leprechaun_treasure`, `lucky_shamrock`, `menorah`, `midnight_shadows`, `mistletoe`, `molly_malone`, `movie_night_romance`, `old_glory`, `parade`, `paranormal`, `pine_glow`, `poppy`, `pumpkin_glow`, `pumpkin_party`, `pumpkin_spice`, `redrum`, `sage_and_cedar`, `santas_candy`, `santas_workshop`, `scream_queen`, `self_care_sanctuary`, `slasher`, `snake_banisher`, `snowflake`, `spiders_lair`, `taps`, `the_tricolour`, `toxic_cauldron`, `turkey_dinner`, `vampires_den`, `warm_ember`, `whats_the_craic`, `wheat_glow`, `winter_night`, `winter_wonderland`, `witchs_ritual`, `witchy`, `zombie_apocalypse` |
 | Library | `arctic`, `autumn`, `bias_lighting`, `cherry_blossom`, `cyberpunk`, `deep_sea`, `desert`, `epic`, `evening`, `galaxy`, `hygge`, `neon`, `relaxing`, `serene`, `sports`, `spring`, `tropical`, `vaporwave`, `water` |
 
@@ -220,7 +221,7 @@ Some themes have been renamed or retired to match the LIFX app. The old names st
 | Theme | Use instead |
 | --- | --- |
 | `aurora_borealis` | `aurora` |
-| `energizing` | `energising` |
+| `energising` | `energizing` |
 | `fire` | `warm_ember` |
 | `focusing` | `gentle` |
 | `forest` | `forrest` |
