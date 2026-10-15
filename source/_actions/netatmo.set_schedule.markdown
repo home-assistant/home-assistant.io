@@ -75,7 +75,6 @@ Activate an energy-saving schedule when nobody is home.
   - **To**: 0
 - **Action**: Netatmo: Set heating schedule
   - **Target**: Living room thermostat
-  - **Schedule name**: Away
   - **Schedule**: `Away`
 
 {% details "Show example YAML" %}

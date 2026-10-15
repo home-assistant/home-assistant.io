@@ -20,7 +20,7 @@ To trigger an action from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the motionEye camera you want to control.
 6. From the actions shown for that target, under **motionEye**, select **Action**.
-7. Select the **motionEye: Action** to trigger.
+7. Select the **Action** to trigger.
 8. Select **Save**.
 
 ### Options in the UI

@@ -72,7 +72,7 @@ Warm air rises. When the air conditioner starts heating, let the vanes swing up 
 
 - **Trigger**: State changed
   - **Entity**: Living room thermostat
-  - **Attribute**: Hvac action
+  - **Attribute**: Current action
   - **To**: Heating
 - **Action**: MELCloud: Set vane vertical
   - **Target**: Living room air conditioner (`climate.living_room`)

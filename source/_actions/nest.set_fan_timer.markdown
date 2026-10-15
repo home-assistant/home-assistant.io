@@ -71,8 +71,6 @@ When a CO2 sensor crosses a threshold, run the fan to bring in fresh air until l
 
 - **Trigger**: Numeric state crossed threshold: CO2 sensor above 1000 ppm
 - **Action**: Google Nest: Set fan timer
-   - **Target**: Living room thermostat
-   - **Duration**: 30 minutes
   - **Target**: Living room thermostat
   - **Duration**: `00:30:00`
 
