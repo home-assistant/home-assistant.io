@@ -5,23 +5,28 @@ ha_category:
   - Presence detection
 ha_release: 0.33
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_codeowners:
   - '@fbradyirl'
 ha_domain: cisco_ios
 ha_platforms:
   - device_tracker
-ha_integration_type: integration
+ha_integration_type: hub
 related:
-  - docs: /docs/configuration/
-    title: Configuration file
+  - docs: /integrations/device_tracker/
+    title: Device tracker
 ha_quality_scale: legacy
 ---
 
 This is a presence detection scanner for [Cisco IOS](https://www.cisco.com/) devices.
 
-{% important %}
-This device tracker needs SSH to be enabled on the router.
-{% endimportant %}
+## Prerequisites
+
+To set up the integration, you need the following:
+
+- SSH enabled on the router.
+- The IP address of your router.
+- The username of a user with administrative privileges, and the password if one is set for that user.
 
 Before using this scanner it is recommended that you lower the ARP cache timeout on your router, as Cisco IOS normally comes with a 4 hour default ARP cache timeout.
 
@@ -53,31 +58,60 @@ If you have a very large number of devices on your VLan (+1000), then you may wa
 
 {% endnote %}
 
-To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-device_tracker:
-  - platform: cisco_ios
-    host: ROUTER_IP_ADDRESS
-    username: YOUR_ADMIN_USERNAME
-    password: YOUR_ADMIN_PASSWORD
-```
+{% configuration_basic %}
+Host:
+  description: "The IP address of your router, for example, `192.168.1.1`."
+Username:
+  description: "The username of a user with administrative privileges."
+Password:
+  description: "The password for your given admin account. Leave empty if no password is required."
+Port:
+  description: "The SSH port of your router (default: 22)."
+{% endconfiguration_basic %}
 
-{% configuration %}
-host:
-  description: The IP address of your router, for example, `192.168.1.1`.
-  required: true
-  type: string
-username:
-  description: The username of a user with administrative privileges.
-  required: true
-  type: string
-password:
-  description: The password for your given admin account.
-  required: true
-  type: string
-{% endconfiguration %}
+## Configuration options
 
-See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
+The integration provides the following configuration option:
+
+{% configuration_basic %}
+Consider home:
+  description: "The number of seconds to wait before marking a device as away after it was last seen in the ARP table of the router (default: 180)."
+Track new devices:
+  description: "Enable the entities of newly discovered devices automatically. Enabled for configurations imported from YAML, matching the previous `track_new_devices` behavior."
+{% endconfiguration_basic %}
+
+## Migrating from YAML configuration
+
+If you previously configured the integration through `configuration.yaml`, your configuration is imported automatically when Home Assistant starts, and a repair issue reminds you to clean up:
+
+1. Remove the `cisco_ios` entry under `device_tracker:` from your `configuration.yaml` file.
+2. Restart Home Assistant.
+
+## Supported functionality
+
+The integration creates a {% term "device tracker" %} entity for each device found in the ARP table of your router.
+You can use these entities to track the presence of people in your home. For more information on how to assign tracked devices to people, see the [device tracker integration page](/integrations/device_tracker/).
+
+## Data updates
+
+Home Assistant {% term polling polls %} your router every 30 seconds to read the ARP table and update the connection status of the tracked devices.
+
+If the default polling interval does not fit your setup, for example to reduce the SSH load on the router, you can define a custom polling interval. This replaces the `interval_seconds` setting of the YAML configuration.
+
+{% include common-tasks/define_custom_polling.md %}
+
+## Troubleshooting
+
+If the setup fails or the integration stops working, check the following:
+
+- Make sure the IP address of your router is correct and reachable from Home Assistant.
+- Make sure SSH is enabled on the router.
+- Make sure the username and password are correct and the user has administrative privileges. The integration signs in to your router over SSH to read the ARP table, so it needs valid credentials.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
