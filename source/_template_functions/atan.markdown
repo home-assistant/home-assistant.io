@@ -38,7 +38,7 @@ output: "0.7853981633974483"
 ```signature
 atan(
     value: Any,
-    default: Any = None,
+    default: Any = _SENTINEL,
 ) -> float
 ```
 

@@ -39,7 +39,7 @@ output: "21.5"
 ```signature
 median(
     *args: list | float,
-    default: Any = None,
+    default: Any = _SENTINEL,
 ) -> float
 ```
 

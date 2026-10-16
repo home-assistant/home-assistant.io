@@ -37,7 +37,7 @@ output: "2.0"
 log(
     value: Any,
     base: Any = e,
-    default: Any = None,
+    default: Any = _SENTINEL,
 ) -> float
 ```
 

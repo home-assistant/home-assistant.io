@@ -31,7 +31,7 @@ output: "2024-03-15T13:50:00+00:00"
 
 ```signature
 value | timestamp_utc(
-    default: Any = None,
+    default: Any = _SENTINEL,
 ) -> str | Any
 ```
 

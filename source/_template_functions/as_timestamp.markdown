@@ -40,7 +40,7 @@ output: "1710510600.0"
 ```signature
 as_timestamp(
     value: datetime | str,
-    default: Any = None,
+    default: Any = _SENTINEL,
 ) -> float | Any
 ```
 

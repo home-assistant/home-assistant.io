@@ -39,7 +39,7 @@ output: "0.7853981633974483"
 atan2(
     y: Any,
     x: Any,
-    default: Any = None,
+    default: Any = _SENTINEL,
 ) -> float
 ```
 
