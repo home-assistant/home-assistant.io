@@ -34,6 +34,10 @@ Host:
   description: "The hostname or IP address of your INDI Allsky web server (for example, `allsky.local` or `192.168.1.100`)."
 Port:
   description: "The web server port number for INDI Allsky (default: `443`)."
+Username:
+  description: "Username for your INDI Allsky user account, if authentication is enabled."
+Password:
+  description: "Password for your INDI Allsky user account, if authentication is enabled."
 SSL:
   description: "Whether to connect using HTTPS/SSL (default: `true`)."
 Verify SSL:
@@ -87,6 +91,10 @@ Additional hardware sensors connected to your INDI Allsky instance (such as ambi
 ## Data updates
 
 The camera entity fetches the latest image on-demand from the INDI Allsky server whenever requested by Home Assistant. Sensor data is pushed in real time via a persistent local WebSocket connection.
+
+## Known limitations
+
+- This integration does not support exclusive OpenID Connect (OIDC) authentication. For authenticated instances, native username and password authentication must be enabled in INDI Allsky.
 
 ## Removing the integration
 
