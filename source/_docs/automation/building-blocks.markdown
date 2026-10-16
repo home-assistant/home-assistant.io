@@ -19,7 +19,7 @@ The difference is when they run: an automation runs by itself when one of its tr
 
 To add a step in the editor, select **Add action**. To add a building block, select **Blocks** in that dialog. In YAML, you write actions and building blocks in the same list. For details, refer to [Writing steps in YAML](#writing-steps-in-yaml).
 
-For how to create scripts, pass them variables, and wait for them to finish, refer to the [Scripts integration](/integrations/script/).
+For how to create scripts, pass them values, and wait for them to finish, refer to [Scripts](/docs/script/). For scripts in YAML, refer to the [Scripts integration](/integrations/script/).
 
 ## Available building blocks
 
