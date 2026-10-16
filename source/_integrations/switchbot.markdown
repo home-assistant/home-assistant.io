@@ -890,6 +890,8 @@ Features:
 - set LED RGB
 - set LED brightness
 - get air quality level
+- get filter usage in hours
+- reset filter usage after replacing the filter
 - get PM2.5 value (US model only). Concentration of fine particulate matter (PM2.5) in the air, measured in µg/m³.
 
 #### Air Purifier Table
@@ -908,6 +910,8 @@ Features:
 - set LED RGB
 - set LED brightness
 - get air quality level
+- get filter usage in hours
+- reset filter usage after replacing the filter
 - get PM2.5 value (US model only). Concentration of fine particulate matter (PM2.5) in the air, measured in µg/m³.
 
 ### Vacuums
