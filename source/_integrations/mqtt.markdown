@@ -712,9 +712,11 @@ The component specific options are placed as mappings under the `components` key
 To see what each abbreviation stands for, refer to the [list of supported abbreviations in MQTT discovery messages](/integrations/mqtt/#supported-abbreviations-in-mqtt-discovery-messages).
 {% endnote %}
 
-The components id's under the `components` (`cmps`) key, are used as part of the discovery identification. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
+The components id's under the `components` (`cmps`) key, including those of the child devices, are used as part of the discovery identification, and must be unique within the payload. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
 
 To remove the components, publish an empty (retained) string payload to the discovery topic. This will remove all components of the device, including disabled entities, and clear the published discovery payload. It will also remove the device entry if there are no further references to it. Removing the device in Home Assistant also clears the published device discovery payload.
+
+Removing a child device in Home Assistant only removes the child device and its entities. The published device discovery payload is not cleared, so the child device and its components are added again when a new device discovery payload is received. To prevent this, remove the child device from the device discovery payload.
 
 An empty config can be published as an update to remove a single component from the device discovery. Note that adding the `platform` (`p`) option is still required.
 
