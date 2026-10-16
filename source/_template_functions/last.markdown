@@ -57,14 +57,15 @@ value:
 
 ### Get the highest temperature
 
-Convert the states of temperature sensors to numbers, sort them in ascending order, and pick the last (highest) one.
+Keep the states of temperature sensors that are numbers, convert them, sort them in ascending order, and pick the last (highest) one.
 
 {% example %}
 template: |
   {{
     expand("sensor.temperature_sensors")
     | map(attribute="state")
-    | map("float", 0)
+    | select("is_number")
+    | map("float")
     | sort
     | last
   }}
