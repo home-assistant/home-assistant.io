@@ -110,7 +110,7 @@ The **LaCrosse** integration provides the following entities:
 
 - **Temperature sensor**: Displays the temperature reading from the LaCrosse sensor.
 - **Humidity sensor**: Displays the humidity reading (available on compatible models like TX 29 DTH-IT).
-- **Battery sensor**: Displays the battery status as either **new** or **low**.
+- **Battery sensor**: Displays the battery status as either **ok** or **low**.
 
 ## Known limitations
 
@@ -129,7 +129,7 @@ If your configured LaCrosse sensors are not receiving data, verify the following
 - Ensure the LaCrosse receiver is properly connected to your Home Assistant system.
 - Confirm the correct receiver device path is configured (usually `/dev/ttyUSB0` on Linux).
 - Check that your sensors are powered on and within range of the receiver.
-- Verify the baud rate setting matches your sensor's requirements (default is 57600).
+- Verify the baud rate setting matches your LaCrosse receiver's requirements (default is 57600).
 - Try scanning for available sensor IDs using the `pylacrosse` command-line tool before configuring the integration.
 
 ### Sensors show offline
