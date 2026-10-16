@@ -234,7 +234,12 @@ This lets you work out the right template in the editor, then paste the finished
 
 ## Dashboards
 
-Most dashboard cards accept templates for titles, names, and other text fields. Support varies by card, and some cards need [`state_template`](/dashboards/markdown/) or similar fields to make templates work. The [Markdown card](/dashboards/markdown/) is the most flexible, as its entire content is a template.
+Most dashboard cards don't render templates. Two places do:
+
+- The [Markdown card](/dashboards/markdown/). Its entire content is a template.
+- The [**Template** visibility condition](/dashboards/conditional/#template). It shows or hides a card or badge based on a template.
+
+To show a calculated value on any other card, create a [template sensor](/integrations/template/), and add that sensor to the card.
 
 ## Not everywhere
 
@@ -242,7 +247,7 @@ Not every field accepts templates. As a rule:
 
 - Text, numbers, and lists in automation actions, conditions, triggers, and scripts can usually be templated.
 - Entity IDs and structural {% term YAML %} keys usually cannot.
-- Dashboards support templates in specific fields only. Check the card's documentation.
+- On dashboards, only the Markdown card and the **Template** visibility condition render templates.
 
 If a template is not being evaluated, it is most likely in a field that does not support templating. The [Debugging templates](/docs/templating/debugging/) page has more tips.
 
