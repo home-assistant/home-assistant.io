@@ -11,6 +11,7 @@ ha_category:
   - Valve
 ha_release: '0.60'
 ha_iot_class: Local Push
+ha_config_flow: true
 ha_domain: ads
 ha_platforms:
   - binary_sensor
@@ -20,7 +21,7 @@ ha_platforms:
   - sensor
   - switch
   - valve
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -41,33 +42,24 @@ There is currently support for the following device types within Home Assistant:
 - [Select](#select)
 - [Valve](#valve)
 
-<!-- omit in toc -->
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable ADS, add the following lines to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% configuration_basic %}
+AMS NetID:
+  description: The AMS NetID that identifies the ADS device, for example `192.168.1.10.1.1`.
+Port:
+  description: The AMS port of the PLC runtime, for example `851` for the first TwinCAT 3 runtime.
+IP address:
+  description: The IP address of the ADS device. If left empty, it is derived from the AMS NetID.
+Local AMS NetID:
+  description: The AMS NetID Home Assistant should identify itself with to the PLC. Leave empty to use the automatically generated NetID. Only supported when Home Assistant runs on Linux.
+{% endconfiguration_basic %}
 
-```yaml
-# Example configuration.yaml entry
-ads:
-  device: "127.0.0.1.1.1"
-  port: 801
-```
+Make sure a route to Home Assistant is configured on the ADS device before setting up the connection, otherwise it cannot be validated.
 
-{% configuration %}
-device:
-  description: The AMS NetId that identifies the device.
-  required: true
-  type: string
-port:
-  description: The port that runs the AMS server on the device, typically this would be 801 or 851.
-  required: true
-  type: integer
-ip_address:
-  description: The IP address of the ADS device, if not set the first 4 bytes of the device id will be used.
-  required: false
-  type: string
-{% endconfiguration %}
+{% note %}
+Configuring the ADS connection via {% term "`configuration.yaml`" %} is deprecated. Existing YAML configuration is automatically imported into a config entry, and a repair issue will guide you to remove the `ads:` key from your {% term "`configuration.yaml`" %} file. Entities configured with `platform: ads` are not affected by this change and keep working as described below.
+{% endnote %}
 
 {% include integrations/actions.md %}
 
