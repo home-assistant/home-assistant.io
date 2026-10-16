@@ -75,7 +75,7 @@ Your power station is added as a single device.
 - **Inverter status**: The inverter's current status.
 - **Inverter voltage**, **Inverter current**, **Total inverter power**: The inverter's output. The power is negative while the inverter charges the battery.
 
-The following are added as diagnostic entities: **Battery SoH**, **Battery type**, **Battery cycle count**, **Cell count**, **Temperature sensor count**, **Inverter type**, **Inverter count**, **PV 1 input type** to **PV 4 input type**, **DC PV input count**.
+The following are added as diagnostic entities: **Battery SoH**, **Battery cycle count**, **Cell count**, **Temperature sensor count**, **Inverter count**, **PV 1 input type** to **PV 4 input type**, **DC PV input count**.
 
 The device's charge limits (max charge / min discharge SoC) and its AC output, grid charging, and grid feed-in switches are not exposed by this integration yet, not even as read-only entities. See [Known limitations](#known-limitations) for the full list.
 
@@ -94,7 +94,7 @@ Home Assistant keeps one Modbus connection per address and shares it between the
 - Grid, AC output, and inverter voltage and current are only provided for the first phase.
 - The device is not discovered automatically yet; add it by its address.
 - There is no way yet to change a device's address, port, or device ID without removing and re-adding the integration.
-- Home Assistant identifies the device by its serial number: if the address ends up reassigned to a different physical unit, entities go unavailable instead of silently showing the wrong device's data, and a repair issue explains what happened.
+- Home Assistant identifies the device by its serial number: if the address ends up reassigned to a different physical unit, entities go unavailable instead of silently showing the wrong device's data, and the Home Assistant log says why.
 - A device accepts a limited number of Modbus TCP connections at the same time. If another system on your network already polls the device, Home Assistant may not be able to connect.
 
 ## Troubleshooting
@@ -122,7 +122,7 @@ Setup stops with this error when the device answers but reports no serial number
 
 ### A different device answers at the address
 
-If a repair issue says a different BLUETTI device answers at the address, the power station this entry was set up for has moved or been replaced. Its entities stay unavailable until it answers at that address again. If it has moved, remove the integration entry and add the power station again at its new address.
+If the entities are unavailable and the Home Assistant log says a different device answers at the address, the power station this entry was set up for has moved or been replaced. Its entities stay unavailable until it answers at that address again. If it has moved, remove the integration entry and add the power station again at its new address.
 
 ## Removing the integration
 
