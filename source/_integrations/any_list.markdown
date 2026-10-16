@@ -8,7 +8,7 @@ ha_release: 2026.10
 ha_config_flow: true
 ha_codeowners:
   - '@BookCatKid'
-ha_domain: anylist
+ha_domain: any_list
 ha_integration_type: service
 ha_platforms:
   - todo
