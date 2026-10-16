@@ -12,6 +12,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - event
   - select
   - sensor
   - switch
@@ -29,7 +30,7 @@ The **Sofar** integration brings your inverter's own measurements into Home Assi
 - Putting your solar production on the [Energy dashboard](/docs/energy/). Feed the inverter's own production, import, export, and battery energy totals into Home Assistant's Energy dashboard, measured at the inverter rather than estimated.
 - Running appliances on surplus solar. Start the dishwasher or washing machine once the inverter reports more production than the house is using, and raise or lower a car charger's rate as production rises and falls.
 - Automating around the battery. Use the battery's state of charge to decide when to run heavy loads, when to hold charge back for the evening, and when to warn that the reserve is nearly gone.
-- Noticing problems the same day they happen. The fault binary sensors and the system state sensor turn a silent underperforming string or a tripped inverter into a notification, instead of something you find weeks later in the monthly yield.
+- Noticing problems the same day they happen. The fault binary sensors, the fault event, and the system state sensor turn a silent underperforming string or a tripped inverter into a notification, instead of something you find weeks later in the monthly yield.
 - Keeping an eye on the hardware. Inverter, heatsink, and module temperatures, plus battery state of health and charge cycles, show how the installation is aging.
 - Stopping and resuming the inverter remotely. Put the inverter into its waiting state for grid work or an export ban, then bring it back, without going to the unit.
 
@@ -122,6 +123,13 @@ The inverter's power limits and its passive-mode setpoints each span several reg
 - **RTC sync**: Writes the current date and time to the inverter's clock.
 - **IV curve scan**: Starts a scan of the PV strings' I-V curves. Only shown for inverters with battery storage.
 
+### Events
+
+- **Fault**: Reports each fault the inverter records in its own fault log, by name, such as **Grid overvoltage** or **AC output hardware overcurrent**. You can use it to start an automation. Each fault shows its **Category**, its **Fault ID**, which is the fault code listed in your inverter's manual, and **Occurred at**, the time the inverter recorded it. It doesn't report when a fault clears. Only shown for inverters that keep a fault log.
+  - The fault log is more detailed than the alarm history in the Sofar app. It also records brief faults that the inverter clears by itself, so you may see faults here that the app doesn't show.
+  - Recent faults the inverter recorded while Home Assistant couldn't reach it are reported once the connection is back. Faults that were already in the log when you added the integration aren't reported.
+  - **Occurred at** uses the inverter's own clock. If the time looks wrong, select the **RTC sync** button to correct the clock.
+
 ### Selects
 
 - **Charger use mode**: The battery charger's operating mode, such as self use, time of use, or feed-in priority. Only shown for inverters with battery storage.
@@ -193,8 +201,9 @@ automation: |
       data:
         title: "Sofar inverter fault"
         message: >
-          The inverter reported a fault. Download the integration's
-          diagnostics for the decoded list of everything active.
+          The inverter reported a fault. Check the Fault entity's
+          history, or download the integration's diagnostics, to see
+          which fault it was.
 {% endexample %}
 
 {% enddetails %}
