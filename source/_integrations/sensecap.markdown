@@ -16,29 +16,23 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The **SenseCAP** {% term integration %} adds [Seeed Studio SenseCAP](https://www.seeedstudio.com/SenseCAP-c-1825.html) sensors from your [LoRaWAN](/integrations/lorawan/) connections. Use their readings to monitor a greenhouse or trigger automations when temperature, humidity, carbon dioxide, or light levels cross a threshold.
+The **SenseCAP** {% term integration %} adds [Seeed Studio SenseCAP](https://www.seeedstudio.com/SenseCAP-c-1825.html) sensors from your [LoRaWAN](/integrations/lorawan/) connections.
 
 ## Supported devices
 
-| Model | Sensors |
-| --- | --- |
-| S2101 | Temperature (°C), relative humidity (%), battery (%) |
-| S2102 | Illuminance (lx), battery (%) |
-| S2103 | Temperature (°C), relative humidity (%), carbon dioxide (ppm), battery (%) |
-
-Other SenseCAP models are not supported by this integration.
+- S2101: Temperature (°C), relative humidity (%), and battery (%).
+- S2102: Illuminance (lx) and battery (%).
+- S2103: Temperature (°C), relative humidity (%), carbon dioxide (ppm), and battery (%).
 
 ## Prerequisites
 
-Set up a LoRaWAN connection integration, such as [ChirpStack](/integrations/chirpstack/), and select the applications containing your sensors. Devices must have a recognized SenseCAP manufacturer and model identity in the backend's device catalog.
+Set up a LoRaWAN connection integration, such as [ChirpStack](/integrations/chirpstack/), and select the applications containing your sensors. The connection must be available and include at least one supported sensor before you can add SenseCAP.
 
-The connection must be available and expose at least one S2101, S2102, or S2103 before you can add SenseCAP.
-
-For ChirpStack, use the global device profile for the S2101, S2102, or S2103. A custom profile without the corresponding catalog identity cannot be identified automatically.
+Devices need a recognized SenseCAP manufacturer and model in the server's device catalog. For ChirpStack, use a device profile linked to the matching model in the global device catalog.
 
 {% include integrations/config_flow.md %}
 
-Home Assistant discovers SenseCAP from the available LoRaWAN connections. Confirm the discovered integration, or add SenseCAP manually. One SenseCAP entry handles supported devices across all connections; there are no credentials or connection selections in its setup.
+Confirm the discovered SenseCAP integration, or add it manually. One entry includes supported devices from all your LoRaWAN connections.
 
 ## Data updates
 
@@ -46,19 +40,17 @@ Readings update when a device sends an uplink. Sensors show **Unknown** until th
 
 The **Battery** sensor appears under **Diagnostic**. It uses the LoRaWAN device-status battery percentage when available, otherwise the battery percentage in SenseCAP uplinks. It shows **Unknown** until a battery report arrives.
 
-Devices added to or removed from a connected application are added to or removed from Home Assistant when the connection integration reports the change.
+Home Assistant updates its device list when a connection integration reports additions or removals.
 
 ## Troubleshooting
 
 ### A sensor does not appear
 
-Check that the device is an S2101, S2102, or S2103, belongs to a selected application, and uses a recognized catalog identity. Confirm the SenseCAP integration in **{% my integrations title="Settings > Devices & services" %}**.
+Check that the device is an S2101, S2102, or S2103, belongs to a selected application, and uses a recognized catalog identity. Confirm the SenseCAP integration in {% my integrations title="**Settings** > **Devices & services**" %}.
 
 ### Readings are unknown or unavailable
 
 For **Unknown** readings, check that uplinks appear in your LoRaWAN server and wait for the device's next transmission. For **Unavailable** sensors, check the connection integration and its credentials.
-
-The integration uses the [`sensecap-lorawan`](https://github.com/balloob/sensecap-lorawan) library to decode device payloads.
 
 ## Removing the integration
 
