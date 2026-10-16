@@ -3,7 +3,7 @@ title: Xiaomi Weather
 description: Get current weather and forecasts for mainland China cities with Xiaomi Weather in Home Assistant.
 ha_category:
   - Weather
-ha_release: "2026.11"
+ha_release: 2026.11
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -12,12 +12,15 @@ ha_domain: xiaomi_weather
 ha_platforms:
   - weather
 ha_integration_type: service
+ha_quality_scale: bronze
 related:
   - docs: /integrations/weather/
     title: Weather entity
 ---
 
 The **Xiaomi Weather** {% term integration %} provides current weather and daily, hourly, and twice-daily forecasts for cities in mainland China. Select a location on the map during setup, and the integration finds a matching city.
+
+You can show the current weather and forecast on your dashboard with a [weather forecast card](/dashboards/weather-forecast/). You can also use the weather in automations, such as the [morning rain reminder](#automation-show-a-morning-rain-reminder) below, which reminds you to take an umbrella when it rains.
 
 ## Prerequisites
 
@@ -84,7 +87,7 @@ Go to {% my automations title="**Settings** > **Automations & scenes**" %} and c
   - **Message**: `Xiaomi Weather reports rain. Remember your umbrella.`
   - **Notification ID**: `xiaomi_weather_morning_rain`
 
-If you use the YAML example, replace `weather.home` with your Xiaomi Weather entity. You can adjust the time to suit your routine. The notification ID makes subsequent reminders update the same notification.
+If you use the YAML example, replace `weather.home` with your Xiaomi Weather entity's ID. Its entity ID is based on the city name. You can adjust the time to suit your routine. The notification ID makes subsequent reminders update the same notification.
 
 {% details "YAML example for a morning rain reminder" %}
 
