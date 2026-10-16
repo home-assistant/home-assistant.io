@@ -1,10 +1,11 @@
 ---
 title: Airobot
-description: Instructions on how to integrate Airobot smart thermostats for intelligent floor heating control into Home Assistant.
+description: Instructions on how to integrate Airobot smart thermostats and ventilation units into Home Assistant.
 ha_release: 2025.12
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@mettolen'
+  - '@dmednis'
 ha_domain: airobot
 ha_integration_type: device
 ha_dhcp: true
@@ -15,8 +16,11 @@ related:
     title: Airobot
   - url: https://airobothome.com/heat-control-products/
     title: Airobot Heat Control Products
+  - url: https://airobothome.com/ventilation-products/
+    title: Airobot Ventilation Products
 ha_category:
   - Climate
+  - Sensor
 ha_platforms:
   - button
   - climate
@@ -28,15 +32,20 @@ ha_platforms:
 
 The **Airobot** {% term integration %} allows you to control and monitor [Airobot](https://airobothome.com/) smart thermostats for intelligent floor heating control via the local REST API. The thermostat uses adaptive learning with a <abbr title="Time Proportional Integral">TPI</abbr> algorithm to maintain stable temperatures and optimize energy efficiency. Optional built-in carbon dioxide and humidity sensors monitor indoor air quality for a healthier living environment.
 
-Use case: Create presence-based heating automations, use BOOST to quickly warm rooms before arrival, monitor air quality to trigger ventilation alerts, and track heating runtime patterns for energy optimization.
+The integration also supports Airobot ventilation units (heat recovery ventilators) through their local Modbus TCP interface. It reports the unit's temperatures, humidity, air quality, fan speeds, and heat recovery efficiency.
+
+Use case: Create presence-based heating automations, use BOOST to quickly warm rooms before arrival, monitor air quality to trigger ventilation alerts, track heating runtime patterns for energy optimization, and follow indoor air quality and heat recovery on your ventilation unit.
 
 ## Supported devices
 
 The following devices are supported by the integration:
 
 - Airobot Smart Thermostat TE1 with firmware version 1.8 or later
+- Airobot ventilation units with Modbus TCP: models L, L5, S1, S2, V3, V4, V6, and V8
 
 ## Prerequisites
+
+### Thermostat
 
 Before setting up the integration, ensure your Airobot thermostat is properly configured:
 
@@ -48,9 +57,19 @@ Before setting up the integration, ensure your Airobot thermostat is properly co
 
 After initial setup, the thermostat does not require internet connectivity to function with Home Assistant.
 
+### Ventilation unit
+
+1. Connect the unit to your local network over Wi-Fi or Ethernet. For a wired connection, connect an Ethernet cable to the RJ45 port on the unit's enclosure, typically near the power cable input. If there is no RJ45 port on the enclosure, connect the cable to the **LAN** socket on the controller board inside the unit.
+2. On the unit's control panel, go to **Menu** > **Settings** > **Other** > **Modbus TCP** and set it to **ON**. Modbus TCP is disabled by default. The unit reboots.
+3. Note the unit's IP address. You can find it in your router's list of connected devices.
+
+If your unit has no control panel, Airobot customer support can activate Modbus TCP remotely while the unit is connected to the internet.
+
 {% include integrations/config_flow.md %}
 
-The integration can be automatically discovered via DHCP when the thermostat is on the same network. If automatic discovery does not work, you can manually add the integration.
+Both device types can be automatically discovered via DHCP when they are on the same network as Home Assistant. A discovered thermostat asks for its password; a discovered ventilation unit only needs to be confirmed. If automatic discovery does not work, add the integration manually and choose **Thermostat** or **Ventilation unit**.
+
+Thermostat:
 
 {% configuration_basic %}
 Host:
@@ -61,9 +80,16 @@ Password:
     description: "The thermostat password. You can find this in the thermostat menu under **Connectivity** > **Mobile app** screen. This is the same credential used to pair the mobile app."
 {% endconfiguration_basic %}
 
+Ventilation unit:
+
+{% configuration_basic %}
+Host:
+    description: "The hostname or IP address of your Airobot ventilation unit. Modbus TCP must be enabled on the unit."
+{% endconfiguration_basic %}
+
 ## Reconfiguration
 
-If you need to update the connection settings for your thermostat (such as changing the IP address, Device ID, or password), you can reconfigure the integration without removing and re-adding it:
+If you need to update the connection settings for your thermostat (IP address or hostname, Device ID, or password) or your ventilation unit (IP address), you can reconfigure the integration without removing and re-adding it:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. On the **Airobot** integration, select the three-dot menu and choose **Reconfigure**.
@@ -72,13 +98,15 @@ If you need to update the connection settings for your thermostat (such as chang
 
 This is useful when:
 
-- Your thermostat's IP address has changed (for example, after a router restart or a DHCP lease renewal).
-- You need to update the Device ID or password.
-- You want to switch between IP address and hostname.
+- Your device's IP address has changed.
+- You need to update the thermostat's Device ID or password.
+- You want to switch the thermostat between IP address and hostname.
+
+For a ventilation unit, reconfiguration is refused if a different ventilation unit answers at the new address, or if the address already belongs to another configured ventilation unit. If the unit was identified by its MAC address when it was added, reconfiguration is also refused when the unit at the new address does not report its identity.
 
 ## Supported functionality
 
-The **Airobot** integration provides the following entities.
+The **Airobot** integration provides the following entities. The thermostat entities are described first, followed by the [ventilation unit](#ventilation-unit-sensors) entities.
 
 ### Climate
 
@@ -169,6 +197,70 @@ The integration provides switch entities for controlling thermostat features:
 - **Child lock**: Enable or disable the child lock feature on the thermostat. When enabled, the physical buttons on the thermostat are locked to prevent accidental or unauthorized changes to settings.
 - **Actuator exercise disabled**: Enable or disable the actuator exercise function. To prevent valve sticking, the actuator exercise periodically switches off the valve for 8 minutes at least every 96 hours. This entity is disabled by default.
 
+### Ventilation unit sensors
+
+The integration provides the following sensor entities for a ventilation unit.
+
+#### Temperature and humidity
+
+- **Extract air temperature** and **Extract air humidity**
+  - **Description**: Temperature and relative humidity of the air extracted from the rooms, measured before the heat exchanger.
+  - **Unit**: °C and %
+
+- **Supply air temperature** and **Supply air humidity**
+  - **Description**: Temperature and relative humidity of the fresh air supplied to the rooms, measured after the heat exchanger.
+  - **Unit**: °C and %
+
+- **Outside air temperature** and **Outside air humidity**
+  - **Description**: Temperature and relative humidity of the outdoor air taken in by the unit.
+  - **Unit**: °C and %
+
+- **Exhaust air temperature** and **Exhaust air humidity**
+  - **Description**: Temperature and relative humidity of the air blown outside, measured after the heat exchanger.
+  - **Unit**: °C and %
+
+- **Extra temperature** and **Extra humidity**
+  - **Description**: An optional extra sensor, used when the unit controls an external humidifier.
+  - **Unit**: °C and %
+  - **Remarks**: Only created if the extra sensor is installed.
+
+#### Air quality
+
+- **CO2 level**
+  - **Description**: The carbon dioxide concentration measured by the unit.
+  - **Unit**: ppm
+
+- **VOC index**
+  - **Description**: The volatile organic compounds index (0-500).
+
+- **PM2.5**
+  - **Description**: The fine particulate matter concentration.
+  - **Unit**: µg/m³
+  - **Remarks**: Only reports values on units with the optional PM2.5 sensor. The entity is always created; disable it if your unit has no PM2.5 sensor.
+
+#### Fans and heat recovery
+
+- **Supply fan level** and **Extract fan level**
+  - **Description**: The level each fan is currently running at (0-10).
+
+- **Supply fan speed** and **Extract fan speed**
+  - **Description**: The rotation speed of each fan.
+  - **Unit**: rpm
+
+- **Supply airflow** and **Extract airflow**
+  - **Description**: The measured airflow of each fan.
+  - **Unit**: m³/h
+  - **Remarks**: Only constant-flow models measure airflow. These entities are disabled by default; enable them if your unit is a constant-flow model.
+
+- **Heat recovery efficiency**
+  - **Description**: How much of the extracted air's heat is recovered into the supply air.
+  - **Unit**: %
+
+- **Working time**
+  - **Description**: The unit's operating time since its last reset.
+  - **Unit**: hours
+  - **Remarks**: Diagnostic sensor, disabled by default.
+
 ## Examples
 
 Examples of automations you can create using the Airobot integration.
@@ -221,13 +313,23 @@ actions:
 
 The **Airobot** integration {% term polling polls %} data from the thermostat every 30 seconds. This interval matches the thermostat's internal measurement cycle, ensuring efficient data synchronization without overwhelming the device.
 
+Ventilation units are also polled every 30 seconds, over Modbus TCP. The connection is managed by the [Modbus](/integrations/modbus/) integration, and you can check its status under {% my config_modbus title="**Settings** > **Connectivity** > **Modbus**" %}. A Modbus hub configured in YAML opens a connection of its own, which the unit counts as another client (see [Known limitations](#known-limitations)).
+
 ## Known limitations
 
-- **Local API only**: The integration only supports the local REST API. Cloud-based control through the Airobot cloud service is not supported.
+### Thermostat
+
+- **Local API only**: The integration connects to thermostats through their local REST API. Cloud-based control through the Airobot cloud service is not supported.
 - **Manual API enablement**: The local REST API must be manually enabled on the thermostat before the integration can connect. It is disabled by default for security reasons.
 - **Firmware requirements**: Only firmware version 1.8 or later is supported. Older firmware versions do not provide the local REST API.
 - **Heating only**: The thermostat is designed for floor heating control only and does not support cooling modes.
 - **Optional sensors**: Carbon dioxide and floor temperature sensors are only available if the corresponding hardware is installed in your thermostat model.
+
+### Ventilation unit
+
+- **Modbus TCP only**: Ventilation units are supported over Modbus TCP. Modbus RTU (serial) and the Airobot cloud service are not supported.
+- **One Modbus client**: The unit handles one active Modbus TCP connection at a time. While Home Assistant is connected, other Modbus clients, such as a building management system, a diagnostic tool, or a Modbus hub configured in YAML, may get no response.
+- **Identification**: The integration identifies a ventilation unit by its MAC address, which it reads from registers that Airobot's Modbus specification does not document. If your unit's firmware does not provide them, a manually added unit is tracked by its IP address until DHCP discovery supplies the MAC address. Until then, reconfiguration cannot check that the unit at the new address is the same unit.
 
 ## Troubleshooting
 
@@ -307,10 +409,45 @@ The integration loses connection to the thermostat, causing the entity to become
 
 {% enddetails %}
 
+{% details "Cannot connect to ventilation unit" %}
+
+**Symptom:** "Failed to connect" when adding a ventilation unit
+
+Home Assistant cannot reach the unit's Modbus TCP interface on port 502.
+
+1. **Check that Modbus TCP is enabled**:
+   - On the unit's control panel, go to **Menu** > **Settings** > **Other** > **Modbus TCP** and make sure it is **ON**.
+
+2. **Check the network connection**:
+   - Make sure the unit is connected to your network. If it uses Wi-Fi, check the signal strength at the unit; a wired Ethernet connection is more reliable.
+
+3. **Check the IP address**:
+   - Check your router's list of connected devices and make sure the unit's IP address matches the one you entered.
+
+4. **Check port 502**:
+   - From a computer on the same network, check that the port is open, for example with `nc -zv <unit-ip> 502`.
+
+5. **Disconnect other Modbus clients**:
+   - The unit answers one Modbus TCP client at a time. Disconnect any other Modbus client, such as a building management system or a diagnostic tool.
+
+{% enddetails %}
+
+{% details "Ventilation unit stops responding" %}
+
+**Symptom:** The ventilation unit's entities become unavailable and stay unavailable
+
+The unit can run out of network connections if other clients keep opening new Modbus connections without closing them.
+
+1. **Restart the unit** to clear its open connections.
+2. **Check other Modbus clients** on your network and configure them to close their connection after each poll.
+3. **Check the address**: If a different ventilation unit answers at the configured address, the entities become unavailable instead of showing the other unit's readings. The integration checks this at startup and whenever the connection to the unit is re-established. Reconfigure the integration with the unit's current address.
+
+{% enddetails %}
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
 
-You can optionally disable the local API on the thermostat after removing the integration by navigating to **Connectivity** > **Local API** > **Disable**.
+You can optionally disable the local API on the thermostat after removing the integration by navigating to **Connectivity** > **Local API** > **Disable**. On a ventilation unit, you can disable Modbus TCP under **Menu** > **Settings** > **Other** > **Modbus TCP**.
