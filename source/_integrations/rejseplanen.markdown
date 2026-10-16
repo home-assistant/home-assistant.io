@@ -5,7 +5,7 @@ ha_release: 0.88
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
-ha_quality_scale: legacy
+ha_quality_scale: silver
 ha_config_flow: true
 ha_codeowners:
   - '@Jawar19'
