@@ -174,7 +174,7 @@ output: |
 
 ### Nested JSON
 
-Real-world payloads often have nested structures. Use square brackets or more dots to reach deeper:
+Real-world payloads often have nested structures. Use square brackets to reach deeper:
 
 {% example %}
 template: |
@@ -183,13 +183,13 @@ template: |
     "values": {"temp": 26.09, "hum": 56.73}
   } %}
   Sensor ID: {{ value_json['sensor']['id'] }}
-  Temperature: {{ value_json.values.temp }}
+  Temperature: {{ value_json['values']['temp'] }}
 output: |
   Sensor ID: 12345
   Temperature: 26.09
 {% endexample %}
 
-Square brackets become necessary when a field name contains characters that dots don't handle, like a dash or a space.
+For simple field names, you can also use dots, such as `value_json.sensor.id`. Use square brackets when a field name contains characters that dots don't handle, like a dash or a space, or when it has the same name as a built-in function of a dictionary, such as `values`, `items`, `keys`, or `get`. For example, `value_json.values` returns the function instead of the field, so the template output is empty.
 
 ### JSON arrays
 
