@@ -7,7 +7,7 @@ ha_category:
   - Cover
   - Light
   - Media Player
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@lawtancool'
@@ -31,3 +31,9 @@ Before setting up, you should assign a static IP address/DHCP reservation on you
 The username and password required for this integration are the same credentials you use to log in to the Control4 mobile app and the customer portal at [https://customer.control4.com/](https://customer.control4.com/).
 
 {% include integrations/config_flow.md %}
+
+## Data updates
+
+This integration is mostly push-based over the local network. State changes are delivered in real time via a WebSocket connection to the Control4 Director. As a safety net for missed updates, the integration also re-fetches the state of all pushed devices every 60 seconds. The media player platform is the only exception. It polls a small set of room state (power, volume, mute, source, and playback status) on a fixed 5-second interval, since Control4 does not push updates for that data.
+
+During setup or when the integration reloads, the integration contacts the Control4 cloud to obtain a short-lived local token. The token has an expiry date and is refreshed automatically in the background.
