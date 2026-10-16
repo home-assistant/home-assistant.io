@@ -2,7 +2,7 @@
 title: "Quality scale"
 description: "Details about the classification of integrations."
 related:
-  - url: https://developers.home-assistant.io/docs/core/integration-quality-scale/
+  - url: https://contributors.home-assistant.io/core/quality-scale/
     title: Developer documentation on the integration quality scale
 ---
 

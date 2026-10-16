@@ -437,7 +437,7 @@
     Intent is a term used with voice assistants. The intent is what Home
     Assistant thinks you want it to do when it extracts a command from your
     voice or text utterance.
-  link: https://developers.home-assistant.io/docs/intent_builtin
+  link: https://contributors.home-assistant.io/core/internals/built-in-intents/
   aliases:
     - Intents
 - term: Label

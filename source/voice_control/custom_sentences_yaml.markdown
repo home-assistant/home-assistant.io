@@ -9,7 +9,7 @@ related:
     title: Sentence triggers
   - docs: /docs/automation/trigger/#sentence-wildcards
     title: Sentence wildcards
-  - url: https://developers.home-assistant.io/docs/intent_builtin/
+  - url: https://contributors.home-assistant.io/core/internals/built-in-intents/
     title: View existing intents
 ---
 

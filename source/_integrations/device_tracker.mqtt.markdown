@@ -75,7 +75,7 @@ default_entity_id:
   required: false
   type: string
 device:
-  description: "Information about the device this device tracker is a part of that ties it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this device tracker is a part of that ties it into the [device registry](https://contributors.home-assistant.io/core/integrations/device-registry/). At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:

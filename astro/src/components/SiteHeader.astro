@@ -29,7 +29,7 @@
 //     belongs to the page layout, not to the header.
 //
 // One behavior moves in from the page: right-clicking the logo opens
-// the brand guidelines on the design portal. Jekyll wires that up in
+// the brand guidelines on the contributors website. Jekyll wires that up in
 // `source/_includes/javascripts/scripts.html`; here the header's own
 // script does it, so every page that renders the header gets it.
 import "../styles/tokens.scss";
@@ -203,7 +203,9 @@ const versionTitle =
   for (const logo of document.querySelectorAll(".site-header .site-title")) {
     logo.addEventListener("contextmenu", (event) => {
       event.preventDefault();
-      location.assign("https://design.home-assistant.io/#brand/logo");
+      location.assign(
+        "https://contributors.home-assistant.io/brand/name-and-logo/",
+      );
     });
   }
 </script>
