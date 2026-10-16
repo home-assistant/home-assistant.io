@@ -70,6 +70,29 @@ Folder prefix:
   description: "Optional folder path inside the bucket. For example, `backups/homeassistant`"
 {% endconfiguration_basic %}
 
+## Reconfiguring the integration
+
+You can change the credentials, bucket, endpoint, or folder prefix of an existing entry without removing it.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Cloudflare R2**.
+2. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**.
+3. Update the fields and select **Submit**.
+
+Home Assistant verifies that the bucket is accessible with the new settings before saving them.
+
+{% note %}
+Changing the bucket or folder prefix does not move existing backups. Backups stored under the previous bucket or prefix are no longer listed in Home Assistant.
+{% endnote %}
+
+## Troubleshooting
+
+### Expired or revoked API token
+
+If the API token is rotated, expires, or is deleted in Cloudflare, Home Assistant asks you to reauthenticate. Create a new API token as described in [Prerequisites](#prerequisites), then select **Reconfigure** on the notification under {% my integrations title="**Settings** > **Devices & services**" %} and enter the new **Access key ID** and **Secret access key**.
+
+### Bucket does not exist
+
+If the configured bucket was deleted or renamed, the integration fails to set up and reports that the bucket does not exist. New credentials will not fix this. Create the bucket again or [reconfigure the integration](#reconfiguring-the-integration) to use an existing bucket.
 
 ## Removing the integration
 
