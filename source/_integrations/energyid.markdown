@@ -42,8 +42,8 @@ Provisioning Secret:
 1. After adding the integration, you will first be asked to enter your **Provisioning Key** and **Secret**.
     <p class='img'><img src='/images/integrations/energyid/image-2.png' alt="Screenshot of the EnergyID connection screen in Home Assistant, asking for Provisioning Key and Secret."/></p>
 2. If this is the first time you are connecting this Home Assistant instance, you will be directed to the EnergyID website to **claim** your device. This step links your Home Assistant instance to a specific record (such as your house) in your EnergyID account.
-3. Once claimed, the setup will automatically complete.
-4. Right after setup, you are asked whether to **receive EnergyID directives**. This is optional and can be changed later through the integration's options.
+3. Once claimed, the setup continues automatically.
+4. As the last step, you are asked whether to **receive EnergyID directives**. This is optional and can be changed later through the integration's options.
 
 ## Managing sensor mappings
 
