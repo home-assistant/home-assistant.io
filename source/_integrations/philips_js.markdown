@@ -173,7 +173,7 @@ On TVs that support it, you can add settings from the settings menu of the TV as
 
 To choose which settings to add, turn on the TV and open the [options](#options) of the integration. Then, select the settings under **Menu settings**.
 
-- The names of the settings come from the TV, in the language of its menu. A name includes the menus the setting is in, for example, **Ambilight / Extend Ambilight / Message / Turn on**. If several settings have the same name, the name is extended so you can tell them apart.
+The names of the settings come from the TV, in the language of its menu. A name includes the menus the setting is in, for example, **Ambilight / Extend Ambilight / Message / Turn on**.
 
 ## Binary sensor
 
