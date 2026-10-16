@@ -2,13 +2,19 @@
 title: "Write AC discharge times"
 action: growatt_server.write_ac_discharge_times
 domain: growatt_server
-description: "Writes AC discharge settings and periods to a supported SPH inverter."
+description: "Writes AC discharge settings and periods to a supported SPH or Mix inverter."
 related_actions:
   - growatt_server.read_ac_discharge_times
   - growatt_server.write_ac_charge_times
 ---
 
-The **Write AC discharge times** action writes the AC discharge settings and up to three discharge periods to a supported SPH inverter. You only need to provide the fields you want to change. Anything you leave out keeps its current value.
+The **Write AC discharge times** action writes the AC discharge settings and up to three discharge periods to a supported SPH or Mix inverter. You only need to provide the fields you want to change. Anything you leave out keeps its current value.
+
+This action works with SPH devices set up with API token authentication, and with Mix devices set up with username and password authentication. With username and password authentication, Growatt lists some SPH inverters as Mix devices, and those work too. Other combinations are not supported by this action.
+
+{% note %}
+On a Mix inverter, each write first reads the current settings from Growatt, so it makes two calls to the classic API. The classic API is rate limited, so avoid calling this action in a tight loop. If Growatt returns incomplete or invalid settings, the action stops without writing anything.
+{% endnote %}
 
 {% important %}
 This action changes your inverter's discharging behavior. Incorrect settings can affect battery lifespan and energy costs. Make changes only if you understand your battery and tariff setup.
@@ -32,7 +38,7 @@ This action does not support targets. In the UI, you are not prompted to choose 
 
 {% options_ui %}
 Device:
-  description: The Growatt SPH inverter to write to.
+  description: The Growatt SPH or Mix inverter to write to.
   required: true
 Discharge power:
   description: The discharge power limit, as a percentage (0 to 100).
@@ -92,7 +98,7 @@ This discharges the battery between 4 PM and 8 PM, down to 20% state of charge.
 {% options_yaml %}
 device_id:
   description: >
-    The Growatt SPH inverter to write to.
+    The Growatt SPH or Mix inverter to write to.
   required: true
   type: string
 discharge_power:
