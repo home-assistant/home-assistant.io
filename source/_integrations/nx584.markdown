@@ -7,10 +7,11 @@ ha_category:
 ha_release: 0.13
 ha_iot_class: Local Push
 ha_domain: nx584
+ha_config_flow: true
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -21,61 +22,27 @@ The **NX584** {% term integration %} provides integration with GE, Caddx, Interl
 
 There is currently support for the following device types within Home Assistant:
 
-- [Alarm](#alarm-control-panel)
+- Alarm
 - [Binary sensor](#binary-sensor)
 
-## Alarm control panel
+{% include integrations/config_flow.md %}
 
-To enable this, add the following lines to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% configuration_basic %}
+Host:
+  description: "Hostname or IP address of the system running the NX584 server. Use `localhost` if the server runs on the same system as Home Assistant."
+Port:
+  description: "TCP port of the NX584 server. The default is `5007`."
+{% endconfiguration_basic %}
 
-```yaml
-# Example configuration.yaml entry
-alarm_control_panel:
-  - platform: nx584
-```
-
-{% configuration %}
-host:
-  description: The host where the nx584 server process is running.
-  required: false
-  type: string
-  default: localhost
-name:
-  description: This parameter allows you to override the name.
-  required: false
-  type: string
-  default: NX584
-port:
-  description: The port where the alarm panel is listening.
-  required: false
-  type: integer
-  default: 5007
-{% endconfiguration %}
+If you configured this integration in your {% term "`configuration.yaml`" %} file, that configuration is imported automatically when Home Assistant starts.
 
 ## Binary sensor
 
-Enabling this binary sensor platform exposes all of your zones as binary sensors, which provides visibility through the UI as well as the ability to trigger automation actions instantly when something happens like a door opening, or a motion sensor trigger.
+The binary sensor platform exposes all of your zones as binary sensors, which provides visibility through the UI as well as the ability to trigger automation actions instantly when something happens like a door opening, or a motion sensor trigger.
 
-To enable this feature, add the following lines to your {% term "`configuration.yaml`" %}:
-
-```yaml
-# Example configuration.yaml entry
-binary_sensor:
-  platform: nx584
-```
+The `exclude_zones` and `zone_types` options can't be set from the UI. If you set them on the `nx584` binary sensor platform in your {% term "`configuration.yaml`" %} file, they are carried over when that configuration is imported.
 
 {% configuration %}
-host:
-  description: This is the host where the nx584 server process is running. If unset, it is assumed to be `localhost`, which will work if the server process is running on the same system as Home Assistant.
-  required: false
-  type: string
-  default: localhost
-port:
-  description: The port where the server process is running.
-  required: false
-  type: integer
-  default: 5007
 exclude_zones:
   description: This is a list of zone numbers that should be excluded. Use this to avoid exposing a zone that is of no interest or unconnected.
   required: false
