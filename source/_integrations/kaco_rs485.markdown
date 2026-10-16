@@ -75,9 +75,9 @@ Total yield does survive Home Assistant being down, where a daily counter loses 
 
 ## Data updates
 
-The **KACO RS485** {% term integration %} {% term polling polls %} every inverter on the bus every 30 seconds.
+The **KACO RS485** {% term integration %} waits about 30 seconds after each polling cycle finishes before starting the next one. Each cycle {% term polling polls %} enabled inverters that are due for a reading, one at a time. The time between readings therefore also depends on how long the cycle takes. Inverters that stop responding are polled less frequently.
 
-Requests are spaced one second apart, including between inverters. The hardware requires this: transmitting while a slow reply is still on the wire corrupts the request that follows it. Each inverter therefore costs about two seconds of every cycle, so disabling one you don't need shortens the cycle for the rest.
+Requests include a one-second pause between them, including between inverters, to avoid interfering with replies. Response times, timeouts, and retries add to the cycle duration. Disabling an inverter removes it from polling and shortens the cycle for the rest.
 
 ## Known limitations
 
