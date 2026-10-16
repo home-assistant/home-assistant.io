@@ -1,6 +1,6 @@
 ---
 title: SenseCAP
-description: Monitor SenseCAP temperature, humidity, carbon dioxide, and light sensors over LoRaWAN.
+description: Monitor SenseCAP sensors over LoRaWAN.
 ha_category:
   - Environment
   - Sensor
@@ -32,7 +32,7 @@ Devices need a recognized SenseCAP manufacturer and model in the server's device
 
 {% include integrations/config_flow.md %}
 
-Confirm the discovered SenseCAP integration, or add it manually. One entry includes supported devices from all your LoRaWAN connections.
+Confirm the discovered SenseCAP integration, or add it manually. One entry includes SenseCAP devices from all your LoRaWAN connections.
 
 ## Data updates
 
@@ -46,7 +46,7 @@ Home Assistant updates its device list when a connection integration reports add
 
 ### A sensor does not appear
 
-Check that the device is an S2101, S2102, or S2103, belongs to a selected application, and uses a recognized catalog identity. Confirm the SenseCAP integration in {% my integrations title="**Settings** > **Devices & services**" %}.
+Check that the device is listed under [Supported devices](#supported-devices), belongs to a selected application, and uses a recognized catalog identity. Confirm the SenseCAP integration in {% my integrations title="**Settings** > **Devices & services**" %}.
 
 ### Readings are unknown or unavailable
 
