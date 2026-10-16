@@ -12,7 +12,7 @@ ha_domain: anylist
 ha_integration_type: service
 ha_platforms:
   - todo
-ha_quality_scale: silver
+ha_quality_scale: bronze
 related:
   - docs: /integrations/todo
     title: To-do list integration documentation
@@ -28,7 +28,7 @@ You can add, rename, complete, uncomplete, edit the description of, and remove s
 
 ## Prerequisites
 
-You need an AnyList account with an email address and password. Home Assistant uses the password only while signing in and does not store it. The integration stores the access and refresh tokens returned by AnyList instead.
+You need an AnyList account with an email address and password.
 
 {% include integrations/config_flow.md %}
 
@@ -38,7 +38,7 @@ You need an AnyList account with an email address and password. Home Assistant u
 Email:
   description: "The email address associated with your AnyList account."
 Password:
-  description: "The password used to sign in to your AnyList account. The password is not stored by Home Assistant."
+  description: "The password used to sign in to your AnyList account."
 {% endconfiguration_basic %}
 
 ## To-do lists
@@ -52,10 +52,6 @@ The following item properties are synchronized:
 - Description
 
 Changes made in Home Assistant are sent to AnyList immediately. Changes made in AnyList are delivered to Home Assistant through AnyList's realtime connection.
-
-## Reauthentication
-
-If AnyList rejects the stored refresh token, Home Assistant asks you to reauthenticate. Enter your AnyList password to obtain new tokens. The password is not saved.
 
 ## Known limitations
 
