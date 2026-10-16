@@ -74,6 +74,7 @@ The response contains the following fields:
 - `sender`: The sender's email address.
 - `uid`: The UID of the message.
 - `parts`: A dictionary with metadata about the available parts in a multipart message. Each key is a part index that you can pass to the [Fetch message part](/actions/imap.fetch_part/) action. Each part includes its `content_type`, `content_transfer_encoding`, and, if set, its `filename`.
+- `date`: The date of the fetched email.
 
 An example of the `parts` data for a multipart message looks like this:
 

@@ -84,7 +84,7 @@ title:
 
 If the garage door stays open for 10 minutes, send a message to your phone.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Garage door (`binary_sensor.garage_door`)
   - **To**: On
   - **For**: 00:10:00
@@ -117,7 +117,7 @@ automation: |
 
 When a person arrives home after dark, send a short message to your device.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Paulus (`person.paulus`)
   - **To**: Home
 - **Condition**: Sun is below horizon

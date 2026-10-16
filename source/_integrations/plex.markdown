@@ -83,7 +83,7 @@ To create this automation from the UI:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Select **Create automation** > **Create new automation**.
-3. Add three **State** triggers:
+3. Add three **State changed** triggers:
    - **Entity**: Movies library sensor, for example `sensor.plex_library_movies`
    - **Entity**: Music library sensor, for example `sensor.plex_library_music`
    - **Entity**: TV shows library sensor, for example `sensor.plex_library_tv_shows`

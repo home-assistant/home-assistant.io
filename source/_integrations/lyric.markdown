@@ -2,6 +2,7 @@
 title: Honeywell Lyric
 description: How to integrate the Honeywell Lyric integration into Home Assistant.
 ha_category:
+  - Binary sensor
   - Climate
   - Select
   - Sensor
@@ -12,6 +13,7 @@ ha_codeowners:
   - '@timmo001'
 ha_domain: lyric
 ha_platforms:
+  - binary_sensor
   - climate
   - select
   - sensor
@@ -54,6 +56,13 @@ The integration setup will ask for the **Client ID** and **Client Secret**. Thes
 During setup, you will be redirected to Honeywell to sign in. Use your regular Resideo/Honeywell Home account here, not the developer account you created on the developer site. These are two separate accounts, even if they share the same email address.
 {% endimportant %}
 
+## Binary sensors
+
+This integration provides the following binary sensor:
+
+- **Device pairing enabled**
+  - **Description**: Indicates whether the thermostat is in pairing mode and can accept new room sensor accessories.
+
 ## Selects
 
 - **Room priority**
@@ -65,18 +74,34 @@ During setup, you will be redirected to Honeywell to sign in. Use your regular R
 
 This integration provides the following sensors:
 
-| Name                | Description                                 |
-| ------------------- | ------------------------------------------- |
-| Indoor Temperature  | The reported temperature from the device    |
-| Indoor Humidity     | The reported humidity from the device       |
-| Outdoor Temperature | Lyric's outdoor temperature report          |
-| Outdoor Humidity    | Lyric's outdoor humidity                    |
-| Next Period Time    | The next time the thermostat will change    |
-| Setpoint Status     | A description of the setpoint of the device |
+- **Indoor temperature**
+  - **Description**: The temperature reported by the thermostat.
 
-Additional sensors will be created for each room sensor accessory assigned to a thermostat device, if applicable:
+- **Indoor humidity**
+  - **Description**: The humidity reported by the thermostat.
 
-| Name                 | Description                                                       |
-| -------------------- | ----------------------------------------------------------------- |
-| Room Temperature     | The temperature reported from a room sensor accessory             |
-| Room Humidity        | The humidity reported from a room accessory                       |
+- **Outdoor temperature**
+  - **Description**: The outdoor temperature reported by Lyric.
+
+- **Outdoor humidity**
+  - **Description**: The outdoor humidity reported by Lyric.
+
+- **Next period time**
+  - **Description**: The next time the thermostat switches to another setpoint.
+
+- **Setpoint status**
+  - **Description**: A description of the thermostat's current setpoint, such as _Following Schedule_, _Held Permanently_, or _Held until_ a given time.
+
+- **Schedule status**
+  - **Description**: The thermostat's current schedule status, such as _Resume_.
+
+An extra set of sensors is created for each room sensor accessory paired with a thermostat:
+
+- **Room temperature**
+  - **Description**: The temperature reported by the room sensor accessory.
+
+- **Room humidity**
+  - **Description**: The humidity reported by the room sensor accessory.
+
+- **Room average temperature**
+  - **Description**: The average temperature measured in that room.

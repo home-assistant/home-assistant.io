@@ -154,6 +154,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 - [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
 - [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
+- RGBICWW Light Bars
 - [Permanent Outdoor Light](https://www.switch-bot.com/products/switchbot-permanent-outdoor-light)
 - [Candle Warmer Lamp](https://www.switch-bot.com/products/switchbot-candle-warmer-lamp)
 
@@ -196,6 +197,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 ### Fans
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
+- [Circulator Fan Pro](https://www.switch-bot.com/products/switchbot-battery-circulator-fan-2-pro)
 
 ### Vacuums
 - [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
@@ -426,6 +428,24 @@ Features:
 - set position
 - get position
 - get battery level
+- select motor speed
+
+The Roller Shade supports two motor speeds, which can be selected each time the shade is opened, closed, or moved to a position:
+
+| Speed         | Description                                          |
+| ------------- | ---------------------------------------------------- |
+| `performance` | Moves the shade at full speed. This is the default.  |
+| `quiet`       | Reduces motor noise, at the cost of slower movement. |
+
+To use a speed other than the default, set the **Speed** option on the [Open cover](/actions/cover.open_cover/), [Close cover](/actions/cover.close_cover/), or [Set cover position](/actions/cover.set_cover_position/) action:
+
+```yaml
+action: cover.close_cover
+target:
+  entity_id: cover.roller_shade
+data:
+  speed: quiet
+```
 
 #### Garage Door Opener
 
@@ -435,7 +455,7 @@ Features:
 
 ### Sensors
 
-Sensor entiteis are added for thermometer and hygrometer devices, motion sensor, contact sensor, leak sensor, presence sensor, remote button and climate panel.
+Sensor entities are added for thermometer and hygrometer devices, motion sensor, contact sensor, leak sensor, presence sensor, remote button, and climate panel.
 
 #### Meter
 
@@ -558,6 +578,8 @@ Features:
 - get battery
 - motion detection state
 - light detection state
+- on button press event
+- off button press event
 
 #### Keypad Vision (Pro)
 
@@ -639,6 +661,18 @@ Features:
 - set effect
 
 #### RGBICWW Floor Lamp
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
+
+#### RGBICWW Light Bars
 
 This is an encrypted device.
 
@@ -818,19 +852,41 @@ Features:
 - oscillate left and right
 - get battery level (Battery Circulator Fan only)
 
+#### Circulator Fan Pro
+
+This is an encrypted device. To set it up, follow [Adding encrypted SwitchBot devices](#adding-encrypted-switchbot-devices).
+
+The Circulator Fan Pro combines a fan with a built-in night light. It adds the following entities:
+
+- A fan that supports turning on or off, setting the speed, setting the mode (including hurricane), and oscillating.
+- A light for the two-level (high and low) night light.
+- A switch for vertical oscillation.
+- A sensor for the battery level.
+
 ### Air Purifiers
 
 Fan entities are added for Air Purifier, and Air Purifier Table.
 
 Air purifier currently supports three speed levels, which you can adjust by setting the mode.
 
+Note: Air purifiers are available as a US model and a JP model. When the light sensor is activated, turning the light on or off deactivates it.
+
+#### Air Purifier
+
 This is an encrypted device.
 
 Features:
 
-- turn on
-- turn off
-- set mode
+- turn on/off device
+- turn on/off LED
+- turn on/off child lock
+- turn on/off light sensor
+- set fan mode
+- set fan speed
+- set LED RGB
+- set LED brightness
+- get air quality level
+- get PM2.5 value (US model only). Concentration of fine particulate matter (PM2.5) in the air, measured in µg/m³.
 
 #### Air Purifier Table
 
@@ -838,9 +894,17 @@ This is an encrypted device.
 
 Features:
 
-- turn on
-- turn off
-- set mode
+- turn on/off device
+- turn on/off LED
+- turn on/off child lock
+- turn on/off wireless charging
+- turn on/off light sensor
+- set fan mode
+- set fan speed
+- set LED RGB
+- set LED brightness
+- get air quality level
+- get PM2.5 value (US model only). Concentration of fine particulate matter (PM2.5) in the air, measured in µg/m³.
 
 ### Vacuums
 

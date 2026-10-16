@@ -85,7 +85,7 @@ command:
 
 When a user-created {% term helper %} button, created separately, is pressed, delete a learned mute command.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Delete mute (`input_button.delete_mute`)
 - **Action**: Delete remote command
   - **Target**: Living room remote
@@ -115,7 +115,7 @@ automation: |
 
 When a user-created {% term helper %} button, created separately, is pressed, delete several TV commands that you want to learn again.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Delete TV commands (`input_button.delete_tv_commands`)
 - **Action**: Delete remote command
   - **Target**: Living room remote

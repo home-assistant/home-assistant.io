@@ -14,7 +14,7 @@ ha_platforms:
   - sensor
 ha_integration_type: device
 ha_zeroconf: true
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The Solarman {% term integration %} enables direct local communication between Home Assistant and your [Solarman](https://www.solarmanpv.com/) devices. This solution provides real-time monitoring of energy production and consumption while enabling device control, all through secure local communication.

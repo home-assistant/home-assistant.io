@@ -321,25 +321,23 @@ Some sensors are disabled by default, since they are primarily useful for diagno
 
 ## Examples
 
-### Send me a push notification when UPS load is high
+### Automation: Notify when UPS load is high
 
+This example sends a notification when the UPS load rises above 80%.
 
 ```yaml
-alias: "APC UPS Load High Notification"
-description: "Notify when APC UPS load is too high"
-mode: single
+alias: "APC UPS load high notification"
 triggers:
   - trigger: numeric_state
-    entity_id:
-      - sensor.apc_ups_load
+    entity_id: sensor.apc_ups_load
     above: 80
-conditions: []
 actions:
-  - action: notify.notify
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
-      message: "APC UPS load is high: {{ states('sensor.apc_ups_load') }}%"
+      message: "APC UPS load is above 80%."
 ```
-
 
 ## Data updates
 

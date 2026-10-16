@@ -2,7 +2,10 @@
 title: Flow-it
 description: Instructions on how to integrate Flow-it ventilation systems into Home Assistant.
 ha_category:
+  - Binary sensor
   - Fan
+  - Sensor
+  - Switch
 ha_release: 2026.9
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -10,7 +13,10 @@ ha_codeowners:
   - '@albertogeniola'
 ha_domain: flow_it
 ha_platforms:
+  - binary_sensor
   - fan
+  - sensor
+  - switch
 ha_integration_type: device
 ha_quality_scale: bronze
 ha_zeroconf: true
@@ -21,7 +27,7 @@ related:
 
 The **Flow-it** {% term integration %} lets you monitor and control your Flow-it ventilation system in Home Assistant.
 
-Use case: You can control the fan speed, activate preset modes such as Auto or Boost, and automate your Flow-it ventilation system alongside other smart home devices.
+You can control the fan speed, turn intake and exhaust airflow on or off, activate preset modes like Auto or Boost, monitor air quality, temperature, humidity, filter status, and system alerts, and automate your Flow-it ventilation system alongside other smart home devices.
 
 ## Supported devices
 
@@ -55,11 +61,67 @@ Password:
 
 The **Flow-it** integration provides the following entities.
 
+### Binary sensors
+
+- **Bypass active**
+  - **Description**: Indicates whether the bypass is active.
+- **Condensation alert**
+  - **Description**: Indicates whether condensation is detected.
+  - **Entity category**: Diagnostic.
+- **General issue**
+  - **Description**: Indicates whether a general issue is detected.
+  - **Entity category**: Diagnostic.
+- **Ice alert**
+  - **Description**: Indicates whether ice formation is detected.
+  - **Entity category**: Diagnostic.
+- **Service required**
+  - **Description**: Indicates whether maintenance or service is required.
+  - **Entity category**: Diagnostic.
+- **Update reboot pending**
+  - **Description**: Indicates whether a restart is pending to complete a firmware update.
+  - **Entity category**: Diagnostic.
+- **Warmup mode**
+  - **Description**: Indicates whether warmup mode is active.
+  - **Entity category**: Diagnostic.
+  - **Remarks**: Disabled by default.
+
 ### Fans
 
 - **Fan**
   - **Description**: Controls the fan state, speed (levels 1 through 5), and preset modes.
   - **Presets**: `Auto`, `Boost`.
+
+### Sensors
+
+- **G4 filter status**
+  - **Description**: Shows the status of the G4 filter.
+  - **Entity category**: Diagnostic.
+  - **Options**: `Clean`, `0%`, `25%`, `50%`, `75%`.
+- **HEPA filter status**
+  - **Description**: Shows the status of the HEPA filter.
+  - **Entity category**: Diagnostic.
+  - **Options**: `Clean`, `0%`, `25%`, `50%`, `75%`.
+- **Indoor air humidity**
+  - **Description**: Measures the relative humidity of the indoor air.
+- **Indoor air pressure**
+  - **Description**: Measures the air pressure of the indoor airflow.
+- **Indoor air quality**
+  - **Description**: Measures the indoor air quality (CO₂ concentration).
+- **Indoor air temperature**
+  - **Description**: Measures the temperature of the indoor air.
+- **Outdoor air humidity**
+  - **Description**: Measures the relative humidity of the outdoor air.
+- **Outdoor air pressure**
+  - **Description**: Measures the air pressure of the outdoor airflow.
+- **Outdoor air temperature**
+  - **Description**: Measures the temperature of the outdoor air.
+
+### Switches
+
+- **Air intake**
+  - **Description**: Turns the intake airflow on or off.
+- **Air exhaust**
+  - **Description**: Turns the exhaust airflow on or off.
 
 ## Data updates
 

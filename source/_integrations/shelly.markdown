@@ -8,6 +8,7 @@ ha_category:
   - Cover
   - Energy
   - Event
+  - Infrared
   - Light
   - Media player
   - Number
@@ -36,6 +37,7 @@ ha_platforms:
   - cover
   - diagnostics
   - event
+  - infrared
   - light
   - media_player
   - number
@@ -73,13 +75,13 @@ Bluetooth scanner mode:
 
 There are four generations of devices and all generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
 
-Shelly BLU series devices (e.g. Shelly BLU H&T) are not supported; please use BTHome integration to configure such devices with Home Assistant. The exception to this is Shelly BLU TRV, which is supported by this integration via Shelly BLU Gateway Gen3.
+Shelly BLU series devices (for example, Shelly BLU H&T) are not supported; please use the BTHome integration to configure such devices with Home Assistant. The exception to this is Shelly BLU TRV, which is supported by this integration via Shelly BLU Gateway Gen3 or other Shelly devices with built-in BLU TRV support.
 
 ## Shelly Enhanced Security
 
-Enhanced Security is a firmware 2.0.0 feature for Gen2+ devices that enables additional security measures required for compliance with the Radio Equipment Directive (RED). When enabled, the device uses HTTPS and enforces secure communication. Devices shipped from factory with firmware 2.0.0+ come with HTTPS already enabled using certificates issued by Shelly's internal PKI. Devices that were updated to firmware 2.0.0+ (but not originally shipped with it) do not have factory-provisioned certificates and serve only plain HTTP by default, so you must upload your own certificate before using this feature. See [the official guide](https://shelly-api-docs.shelly.cloud/gen2/General/CustomHTTPSCertificates/) for instructions on creating and installing a certificate.
+Enhanced Security is a firmware 2.0.0 feature for Gen2+ devices that enables additional security measures required for compliance with the European Union's Radio Equipment Directive (RED). When enabled, the device uses HTTPS and enforces secure communication. Devices shipped from factory with firmware 2.0.0+ come with HTTPS already enabled using certificates issued by Shelly's internal PKI. Devices that were updated to firmware 2.0.0+ (but not originally shipped with it) do not have factory-provisioned certificates and serve only plain HTTP by default, so you must enable Enhanced Security manually and upload your own certificate to enable HTTPS. See [the official guide](https://shelly-api-docs.shelly.cloud/gen2/General/CustomHTTPSCertificates/) for instructions on creating and installing a certificate. Enhanced Security can also be enabled without uploading a HTTPS certificate, allowing you to preserve compatibility with 3rd-party HTTP-only integrations.
 
-The Shelly integration automatically detects whether Enhanced Security is enabled on the device and always communicates with that device over HTTPS using port 443. If you uploaded a certificate signed by a certificate authority your Home Assistant instance trusts, enable **Verify SSL**; otherwise, leave it disabled.
+The Shelly integration automatically detects whether HTTPS is configured on the device and always communicates with that device over HTTPS using port 443. If you uploaded a certificate signed by a certificate authority your Home Assistant instance trusts, enable **Verify SSL**; otherwise, leave it disabled.
 
 ## Data updates
 
@@ -217,6 +219,8 @@ Shelly 2PM Gen3 supports `tilt` for `cover` entities. To enable this feature, yo
 - Change the device profile to `Cover` (**Settings** > **Device profile**)
 - Calibrate the cover (**Home** > **Cover** > **Calibration** > **Start**)
 - Enable and configure **Slat control** (**Home** > **Cover** > **Slat control**)
+
+To move a cover and its tilt to target positions with a single command, use the [**Set cover position and tilt**](/actions/shelly.set_cover_position_and_tilt/) action.
 
 ## Binary input sensors
 
@@ -522,7 +526,8 @@ Please check from the device Web UI that the configured server is reachable.
   - Shelly Dimmer 2
   - Shelly RGBW2
   - Shelly Vintage
-- Generation 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
+- Generation 1 Shelly 4Pro and Shelly Sense are not supported (devices based on old CoAP v1 protocol).
+- Shelly AZ H&T is not supported (the device does not support Outbound WebSocket, which is required for real-time communication with the integration).
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
 - For battery-powered devices, the `update` platform entities only inform about the availability of firmware updates but are not able to trigger the update process.
 - Using the `homeassistant.update_entity` action for an entity belonging to a battery-powered device is not possible because most of the time these devices are sleeping (are offline).

@@ -88,7 +88,7 @@ behavior:
 
 During wildfire season, outdoor PM2.5 readings spike overnight while you sleep. This automation triggers when you open the living room window cover and checks the outdoor PM2.5 reading first. If the level is at or above 35 μg/m3, the cover closes right back and you get a notification letting you know the air outside is not safe for ventilation. On clear mornings, nothing happens and you enjoy the fresh air.
 
-- **Trigger**: State: Living room window cover opened
+- **Trigger**: State changed: Living room window cover opened
 - **Condition**: Air Quality: PM2.5 value
   - **Target**: Outdoor PM2.5 sensor
   - **Threshold type**: 35

@@ -39,6 +39,8 @@ This integration communicates with a **Qbus** controller over an MQTT server.
 
 The controllers cannot communicate directly with MQTT. Therefore, you need to install the Qbus gateway before enabling this integration. The Qbus gateway is a software tool that runs on all Linux platforms. It can be installed by running a script or a Docker container. For detailed instructions, please refer to the [Qbus MQTT Gateway documentation](https://github.com/Qbus-iot/qbus-mqttgw).
 
+The Qbus gateway finds your controller by searching your local network. For this to work, the gateway must be on the same subnet as the controller. If the gateway is on a different subnet, the controller is not discovered.
+
 For information on setting up Home Assistant with a **Qbus** controller, refer to the [Qbus documentation](https://iot.qbus.be/). The documentation is currently only available in Dutch, but translations are planned for the future.
 
 Once the Qbus controller is connected to the MQTT server, you need to set up an MQTT client in Home Assistant to enable communication between Home Assistant and your **Qbus** system. This client should connect to the same MQTT Server as your Qbus controller. For detailed instructions, refer to the [MQTT integration documentation](/integrations/mqtt/).
@@ -142,7 +144,7 @@ The integration does not provide a way to update the firmware on the devices. Th
 
 ## Troubleshooting
 
-### Can’t set up the device
+### Can't set up the device
 
 #### Symptom: "No devices are discovered"
 
@@ -158,5 +160,6 @@ To resolve this issue, try the following steps:
 
 1. Make sure your controller is online and not connected to System Manager.
 2. Make sure you have an MQTT broker running.
-3. Make sure that the gateway software is up and running (see [Prerequisites](#prerequisites)) and connected to the broker.
-4. Make sure you have an MQTT client integration (see [Prerequisites](#prerequisites)) connected to the broker.
+3. Make sure that the gateway software is up and running and connected to the broker.
+4. Make sure the gateway is on the same subnet as your controller. If it isn't, the controller is not discovered.
+5. Make sure you have an MQTT client integration connected to the broker.

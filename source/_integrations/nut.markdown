@@ -314,7 +314,7 @@ This automation sends a notification when the UPS status sensor changes to **On 
 
 In the automation editor:
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: UPS status (`sensor.ups_status`)
   - **To**: `On Battery, Battery Discharging`
 - **Action**: Send a notification message
@@ -346,7 +346,7 @@ This automation sends a notification when the UPS battery charge drops below 25 
 
 In the automation editor:
 
-- **Trigger**: Numeric state
+- **Trigger**: Numeric state crossed threshold
   - **Entity**: UPS battery charge (`sensor.ups_battery_charge`)
   - **Below**: `25`
 - **Action**: Send a notification message
