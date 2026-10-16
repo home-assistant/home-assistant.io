@@ -57,6 +57,7 @@ Type Python code at the prompt and press <kbd>Enter</kbd> to run it. The `hass` 
 - `print()` works like `console.log` in a web browser: objects you print can be expanded too.
 - The console completes names, attributes, imports, and keyword arguments while you type. Inside a call, it shows the signature of the function you are calling.
 - Use the arrow keys to go back through code you ran before.
+- Code that waits, like `await event.wait()`, does not hold up the console. You can run more code meanwhile, and its result shows once it is done. While code runs, **Stop** stops it, and so does <kbd>Ctrl</kbd>+<kbd>C</kbd> when no text is selected.
 - Pasting is blocked until you type `allow pasting` and press <kbd>Enter</kbd>, like in the console of a web browser. This protects against people who try to trick you into pasting code.
 
 Variables and imports are kept per browser tab, also when you reload the page. Going to another page and back keeps what the console showed as well; reloading the page starts with an empty console. A session is removed 30 minutes after its browser tab disconnected, and when Home Assistant restarts.
@@ -79,8 +80,7 @@ await hass.services.async_call(
 
 ## Known limitations
 
-- Code runs in the event loop of Home Assistant. Blocking calls, like `time.sleep()` or slow file access, freeze Home Assistant until they finish. Use `await` with asynchronous functions instead, or run blocking work with `await hass.async_add_executor_job(...)`.
-- Duplicating a browser tab copies its session, so both tabs share the same variables.
+- Code runs in the event loop of Home Assistant. Blocking calls, like `time.sleep()` or slow file access, freeze Home Assistant until they finish, and **Stop** cannot stop them. Use `await` with asynchronous functions instead, or run blocking work with `await hass.async_add_executor_job(...)`.
 
 ## Disabling the debug console
 
