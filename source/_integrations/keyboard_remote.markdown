@@ -14,7 +14,7 @@ ha_integration_type: hub
 ha_quality_scale: legacy
 ---
 
-The **Keyboard Remote** {% term integration %} lets you use a USB or Bluetooth keyboard, remote control, or any Linux `evdev`-compatible input device to trigger automations in Home Assistant. Instead of creating entities, the integration fires events whenever a key is pressed, released, or held down. You can listen for these events in your automations to control lights, media players, or anything else in your smart home.
+The **Keyboard Remote** {% term integration %} lets you use a USB or Bluetooth keyboard, remote control, or any Linux `evdev`-compatible input device to trigger automations in Home Assistant. Instead of creating entities, the integration fires events whenever a key is pressed, released, or held down. It can also detect clicks, double clicks, and long clicks, so a single button can do different things depending on how you press it. You can listen for these events in your automations to control lights, media players, or anything else in your smart home.
 
 Each input device is added as a separate integration entry, so you can connect multiple keyboards or remotes and configure them independently.
 
@@ -41,13 +41,19 @@ After setup, you can adjust the following options for each device. To access the
 
 {% configuration_basic %}
 Key event types:
-  description: "Which key events the integration listens for. You can select one or more of: `key_up` (key released), `key_down` (key pressed), and `key_hold` (key held down). By default, only `key_up` is enabled. Be aware that `key_hold` can generate a large number of events very quickly."
+  description: "Which key events the integration listens for. You can select one or more of: `key_up` (key released), `key_down` (key pressed), `key_hold` (key held down), `click`, `double_click`, and `long_click`. The click types are detected from how long and how often a key is pressed. For details, see [Click detection](#click-detection). By default, only `key_up` is enabled. Be aware that `key_hold` can generate a large number of events very quickly."
 Emulate key hold:
   description: "When enabled, the integration emulates `key_hold` events in software for devices that do not send them natively. Disabled by default."
 Key hold delay:
   description: "The number of seconds to wait before the first emulated key hold event is fired (0.01 to 5.0 seconds). Only applies when **Emulate key hold** is enabled. Default: 0.250 seconds."
 Key hold repeat interval:
   description: "The number of seconds to wait between subsequent emulated key hold events (0.001 to 1.0 seconds). Only applies when **Emulate key hold** is enabled. Default: 0.033 seconds."
+Click threshold:
+  description: "Presses shorter than this number of seconds are clicks, and longer presses are long clicks (0.05 to 2.0 seconds). Only applies when a click type is selected in **Key event types**. Default: 0.4 seconds."
+Double click timeout:
+  description: "The number of seconds to wait for the second press of a double click (0.05 to 1.0 seconds). Only applies when `double_click` is selected in **Key event types**. Default: 0.3 seconds."
+Long click maximum:
+  description: "Presses held longer than this number of seconds fire no click event, so a stuck or accidentally held key is ignored (0.1 to 10.0 seconds). Must be at least the **Click threshold**. Only applies when `long_click` is selected in **Key event types**. Default: 3.0 seconds."
 {% endconfiguration_basic %}
 
 ## Events
@@ -63,7 +69,7 @@ To discover the key codes for your device, go to {% my developer_events title="*
 The `keyboard_remote_command_received` event is fired whenever a key event occurs that matches your configured event types.
 
 - `key_code` — The numeric key code (evdev) for the key involved in the event
-- `type` — The event type: `key_up`, `key_down`, or `key_hold`
+- `type` — The event type: `key_up`, `key_down`, `key_hold`, `click`, `double_click`, or `long_click`
 - `device_descriptor` — The configured path of the device
 - `device_name` — The human-readable name of the device
 
@@ -82,6 +88,20 @@ The `keyboard_remote_disconnected` event is fired when a configured device is di
 
 - `device_descriptor` — The configured path of the device
 - `device_name` — The human-readable name of the device
+
+## Click detection
+
+With click detection, one key can trigger different actions depending on how you press it. To use it, select one or more of the following in **Key event types**:
+
+- `click`: The key is pressed and released within the **Click threshold**.
+- `double_click`: The key is clicked twice, with the second press starting within the **Double click timeout**.
+- `long_click`: The key is held for at least the **Click threshold**, and at most the **Long click maximum**.
+
+These events are fired as `keyboard_remote_command_received`, with the same event data as the other key events. Each press fires only one of them: a double click does not also fire two clicks, and a long click does not also fire a click. They are fired in addition to any `key_up`, `key_down`, or `key_hold` events you selected, and each key is tracked separately.
+
+{% note %}
+When `double_click` is selected, each `click` is fired after the **Double click timeout** has passed, because the integration waits to see whether a second press follows. Without `double_click`, a `click` is fired as soon as you release the key.
+{% endnote %}
 
 ## Automation examples
 
@@ -110,7 +130,60 @@ automation:
 
 You can include `device_descriptor` or `device_name` in the event data to target a specific keyboard. This is especially useful when you have multiple Bluetooth remotes controlling different devices. Omit both to trigger the automation for any connected keyboard.
 
-You can also include `type` to limit the trigger to a specific event type, such as `key_down`, `key_up`, or `key_hold`.
+You can also include `type` to limit the trigger to a specific event type, such as `key_down`, `key_up`, or `click`.
+
+### Automation: Different actions for a click, double click, and long click
+
+The following example gives one key three actions. A click toggles a light, a double click activates a scene, and a long click dims the light:
+
+```yaml
+automation:
+  - alias: "Living room button"
+    triggers:
+      - trigger: event
+        event_type: keyboard_remote_command_received
+        event_data:
+          key_code: 30
+          type: click
+        id: click
+      - trigger: event
+        event_type: keyboard_remote_command_received
+        event_data:
+          key_code: 30
+          type: double_click
+        id: double_click
+      - trigger: event
+        event_type: keyboard_remote_command_received
+        event_data:
+          key_code: 30
+          type: long_click
+        id: long_click
+    actions:
+      - choose:
+          - conditions:
+              - condition: trigger
+                id: click
+            sequence:
+              - action: light.toggle
+                target:
+                  entity_id: light.living_room
+          - conditions:
+              - condition: trigger
+                id: double_click
+            sequence:
+              - action: scene.turn_on
+                target:
+                  entity_id: scene.movie_mode
+          - conditions:
+              - condition: trigger
+                id: long_click
+            sequence:
+              - action: light.turn_on
+                target:
+                  entity_id: light.living_room
+                data:
+                  brightness_pct: 20
+```
 
 ### Automation: Responding to device connections and disconnections
 
