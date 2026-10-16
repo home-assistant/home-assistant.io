@@ -31,9 +31,9 @@ output: "14:50"
 
 ```signature
 value | timestamp_custom(
-    format_string: str = "%Y-%m-%d %H:%M:%S",
-    local_time: bool = True,
-    default: Any = None,
+    date_format: str = "%Y-%m-%d %H:%M:%S",
+    local: bool = True,
+    default: Any = _SENTINEL,
 ) -> str | Any
 ```
 
@@ -42,13 +42,13 @@ value | timestamp_custom(
 The following parameters can be provided to this filter.
 
 {% function_parameters %}
-format_string:
+date_format:
   description: >
     The format string describing the desired output. Uses Python strftime format codes such as `%Y` (year), `%m` (month), `%d` (day), `%H` (hour), `%M` (minute), `%S` (second).
   required: false
   default: '"%Y-%m-%d %H:%M:%S"'
   type: string
-local_time:
+local:
   description: >
     Whether to convert the timestamp to the local time zone before formatting. Set to `false` to format in UTC.
   required: false

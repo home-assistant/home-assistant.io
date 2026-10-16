@@ -123,7 +123,7 @@ The Tibber integration provides binary sensors.
 
 ## Actions
 
-The energy prices are exposed using an action that returns [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the price data.
+The energy prices are exposed using an action that returns [response data](/docs/automation/action/#action-response-data) with the price data.
 
 {% include integrations/actions.md %}
 

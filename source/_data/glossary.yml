@@ -437,7 +437,7 @@
     Intent is a term used with voice assistants. The intent is what Home
     Assistant thinks you want it to do when it extracts a command from your
     voice or text utterance.
-  link: https://developers.home-assistant.io/docs/intent_builtin
+  link: https://contributors.home-assistant.io/core/internals/built-in-intents/
   aliases:
     - Intents
 - term: Label
@@ -695,7 +695,7 @@
   definition: >-
     Variables are used to store values in memory that can be processed for
     example, in a script.
-  link: /docs/scripts/#variables
+  link: /building-blocks/variables/
 - term: YAML
   definition: >-
     YAML is a human-readable data serialization language. It is used to store and transmit data in a structured format. In Home Assistant, YAML is used for configuration, for example in the `configuration.yaml` or `automations.yaml` files.

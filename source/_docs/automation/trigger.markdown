@@ -4,6 +4,8 @@ description: "Triggers start an automation when something specific happens, such
 related:
   - docs: /voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation
     title: Adding a custom sentence to trigger an automation
+  - docs: /docs/automation/targets/
+    title: Automation targets
 ---
 
 A trigger is the part of an automation that makes the automation start when something specific happens, for example, when the sun sets, a door opens, or a button is pressed. You add triggers in the **When** section of the automation editor.
@@ -39,7 +41,7 @@ General triggers, such as **State changed** and **Numeric state crossed threshol
 
 An automation can have more than one trigger. Any of them can start the automation. If the automation is still running when a trigger reacts, its [mode](/docs/automation/modes/) decides what happens. To do different things depending on which trigger reacted, add a **Triggered by** condition and select the trigger. For the steps, refer to [Creating an automation with actions that depend on different triggers](#creating-an-automation-with-actions-that-depend-on-different-triggers).
 
-One trigger can also watch several targets, for example, all lights in a room. Its **Trigger when** option decides whether it reacts each time one of the targets changes, only for the first one, until all targets have changed back, or once all targets have made the change. For details, refer to [Understanding automations](/docs/automation/basics/).
+One trigger can also watch several targets, for example, all lights in a room. Its **Trigger when** option decides whether it reacts each time one of the targets changes, only for the first one, or once all targets have made the change. For details, refer to [Automation targets](/docs/automation/targets/#triggers-each-first-and-all).
 
 To start an automation only when two things are both true, add a trigger for each change, and a condition for each of the two things. For an example, refer to [when two things must both be true](/docs/automation/how-automations-react-to-changes/#when-two-things-must-both-be-true).
 
@@ -418,50 +420,48 @@ Most triggers that have an entity as the target do not react when an entity tran
 
 ## Disabling a trigger
 
-Every individual trigger in an automation can be disabled, without removing it.
-To do so, add `enabled: false` to the trigger. For example:
+You can disable a trigger without removing it. In the automation editor, select the three dots {% icon "mdi:dots-vertical" %} menu on the trigger, then select **Disable**. In YAML, add `enabled: false` to the trigger. For example:
 
 ```yaml
-# Example script with a disabled trigger
+# Example automation with a disabled trigger
 automation:
   triggers:
-    # This trigger will not trigger, as it is disabled.
-    # This automation does not run when the sun is set.
+    # This trigger is disabled, so the automation
+    # does not start at sunset.
     - enabled: false
-      trigger: sun
-      event: sunset
+      trigger: sun.sunset
 
     # This trigger reacts, as it is not disabled.
     - trigger: time
       at: "15:32:00"
 ```
 
-Triggers can also be disabled based on limited templates or blueprint inputs. These are only evaluated once when the automation is loaded.
+Triggers can also be disabled based on [limited templates](/docs/templating/where-to-use/#limited-templates) or blueprint inputs. These are only evaluated once when the automation is loaded.
 
 ```yaml
 blueprint:
+  name: "Sunrise and sunset"
+  domain: automation
   input:
     input_boolean:
-      name: Boolean
+      name: "Boolean"
       selector:
         boolean:
     input_number:
-      name: Number
+      name: "Number"
       selector:
         number:
           min: 0
           max: 100
 
-  trigger_variables:
-    _enable_number: !input input_number
+trigger_variables:
+  _enable_number: !input input_number
 
-  triggers:
-    - trigger: sun
-      event_type: sunrise
-      enabled: !input input_boolean
-    - trigger: sun
-      event_type: sunset
-      enabled: "{{ _enable_number < 50 }}"
+triggers:
+  - trigger: sun.sunrise
+    enabled: !input input_boolean
+  - trigger: sun.sunset
+    enabled: "{{ _enable_number < 50 }}"
 ```
 
 ## Merging lists of triggers

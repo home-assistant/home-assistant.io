@@ -12,8 +12,8 @@ ha_integration_type: system
 related:
   - docs: /integrations/recorder/
     title: Recorder integration
-  - url: https://data.home-assistant.io
-    title: Home Assistant Data Science Portal
+  - url: https://contributors.home-assistant.io/data/
+    title: Data on the Home Assistant contributors website
 ---
 
 The **History** {% term integration %} shows how the states of your entities changed over time, so you can browse through what happened in your home. It depends on the [Recorder](/integrations/recorder/) integration for storing the data and uses the same database. If an entity is excluded from the Recorder, no history is available for that entity.

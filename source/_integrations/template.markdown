@@ -168,7 +168,7 @@ template:
 
 {% configuration trigger-based %}
 actions:
-  description: Define actions to run when a trigger reacts (for trigger-based entities only). Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
+  description: Define actions to run when a trigger reacts (for trigger-based entities only). Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/automation/action/#action-response-data). [See action documentation](/docs/automation/action).
   required: false
   type: list
 conditions:
@@ -2644,7 +2644,7 @@ sensor:
       required: true
       type: template
     state_class:
-      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in {% term "Long-term statistics" %}, include this key and assign the appropriate value."
+      description: "The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor. This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in {% term "Long-term statistics" %}, include this key and assign the appropriate value."
       required: false
       type: string
       default: None
@@ -3523,7 +3523,7 @@ The `twice_daily` forecast should contain dictionaries, where each dictionary re
 
 ### Trigger based weather - Weather Forecast from response data
 
-This example demonstrates how to use an `action` to call a [action with response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data)
+This example demonstrates how to use an `action` to call a [action with response data](/docs/automation/action/#action-response-data)
 and use the response in a template.
 
 ```yaml

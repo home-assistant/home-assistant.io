@@ -59,7 +59,8 @@ This action has no additional YAML options beyond the target.
 
 Stop a cover each time you press a button, for example to halt it at any point.
 
-- **Trigger**: Button is pressed
+- **Trigger**: State changed
+  - **Entity**: Stop blind helper
 - **Action**: Stop cover
   - **Target**: Living room blind
 

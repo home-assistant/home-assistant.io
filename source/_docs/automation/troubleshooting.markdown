@@ -374,14 +374,14 @@ When you add a trigger, the device or entity is not in the list.
 
 #### Description
 
-The device or entity is disabled. Disabled devices and entities are not shown when you add a trigger.
+The device or entity is disabled. Disabled devices and entities are not shown when you add a trigger. For what disabling does, refer to [Hidden versus disabled entities](/docs/configuration/customizing-devices/#hidden-versus-disabled-entities).
 
 #### Resolution
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Do one of the following:
    - For a device, open the **Devices** tab, and select the device. Select **Edit settings** {% icon "mdi:pencil" %}, turn on **Enable device**, and select **Update**.
-   - For an entity, open the **Entities** tab, and select the entity. You might need to change the filters of the list to show disabled entities. Select **Settings** {% icon "mdi:cog-outline" %}, turn on **Enabled**, and select **Update**.
+   - For an entity, open the **Entities** tab. To show disabled entities, in **Filters**, under **Status**, select **Disabled**. Select the entity, then select **Settings** {% icon "mdi:cog-outline" %}, turn on **Enabled**, and select **Update**.
 
 {% enddetails %}
 

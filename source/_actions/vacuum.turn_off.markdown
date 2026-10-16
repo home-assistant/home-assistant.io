@@ -1,5 +1,5 @@
 ---
-title: Turn off vacuum
+title: "Turn off vacuum cleaner"
 action: vacuum.turn_off
 domain: vacuum
 description: "Turns off a vacuum cleaner."
@@ -56,8 +56,8 @@ target:
 If your vacuum supports a separate power state, this automation turns it off after it has finished cleaning and returned to the dock.
 
 - **Trigger**: Vacuum cleaner returned to dock
-- **Action**: Turn off vacuum
-- **Target**: Downstairs vacuum
+- **Action**: Turn off vacuum cleaner
+  - **Target**: Downstairs vacuum
 
 {% details "YAML example for turning off a vacuum after docking" %}
 

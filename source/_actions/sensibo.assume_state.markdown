@@ -1,5 +1,5 @@
 ---
-title: "Assume the state of a Sensibo device"
+title: "Assume state"
 action: sensibo.assume_state
 domain: sensibo
 description: "Tells Sensibo whether an HVAC device is on or off without sending a command to it."
@@ -18,7 +18,7 @@ To assume a state from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Sensibo climate device.
-6. From the actions shown for that target, select **Sensibo: Assume state**.
+6. From the actions shown for that target, under **Sensibo**, select **Assume state**.
 7. Select whether the device is **on** or **off**.
 8. Select **Save**.
 

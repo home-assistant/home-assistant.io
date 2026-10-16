@@ -3,6 +3,7 @@ title: Dacia
 description: Connect and control your Dacia devices using the Renault integration
 ha_category:
   - Binary sensor
+  - Button
   - Car
   - Number
   - Presence detection

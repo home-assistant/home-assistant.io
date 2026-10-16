@@ -19,12 +19,12 @@ This {% term integration %} allows you to write Python scripts that are exposed 
 | `time`     | The stdlib `time` available as limited access.                                                                                             |
 | `datetime` | The stdlib `datetime` available as limited access.                                                                                         |
 | `dt_util`  | The ` homeassistant.util.dt` module.                                                                                                       |
-| `output`   | An empty dictionary. Add items to return data as [`response_variable`](/docs/scripts/perform-actions#use-templates-to-handle-response-data). |
+| `output`   | An empty dictionary. Add items to return data as [`response_variable`](/docs/automation/action/#action-response-data). |
 
 Other imports like `min`, `max` are available as builtins. See the [python_script](https://github.com/home-assistant/core/blob/dev/homeassistant/components/python_script/__init__.py) source code for up-to-date information on the available objects inside the script.
   
 
-[hass-api]: https://developers.home-assistant.io/docs/dev_101_hass/
+[hass-api]: https://contributors.home-assistant.io/core/internals/hass/
 [logger-api]: https://docs.python.org/3.7/library/logging.html#logger-objects
 
 {% note %}
@@ -138,7 +138,7 @@ current_forecast = hass.services.call("weather", "get_forecasts", service_data, 
 
 ## Returning data
 
-Python script itself can respond with data. Just add items to the `output` variable in your `python_script` and the whole dictionary will be returned. These can be used in automations to act upon the command results using [`response_variable`](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
+Python script itself can respond with data. Just add items to the `output` variable in your `python_script` and the whole dictionary will be returned. These can be used in automations to act upon the command results using [`response_variable`](/docs/automation/action/#action-response-data).
 
 ```python
 # hello_world.py

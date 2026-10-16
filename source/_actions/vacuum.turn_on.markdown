@@ -1,5 +1,5 @@
 ---
-title: Turn on vacuum
+title: "Turn on vacuum cleaner"
 action: vacuum.turn_on
 domain: vacuum
 description: "Turns on a vacuum cleaner."
@@ -56,8 +56,8 @@ target:
 If your vacuum uses a separate power state, this automation turns it on a few minutes before a scheduled cleaning run starts.
 
 - **Trigger**: Time: 08:55
-- **Action**: Turn on vacuum
-- **Target**: Downstairs vacuum
+- **Action**: Turn on vacuum cleaner
+  - **Target**: Downstairs vacuum
 
 {% details "YAML example for turning on a vacuum before cleaning" %}
 

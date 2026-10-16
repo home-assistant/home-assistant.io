@@ -32,8 +32,8 @@ output: "2024-03-15 14:30:00"
 ```signature
 strptime(
     string: str,
-    format: str,
-    default: Any = None,
+    fmt: str,
+    default: Any = _SENTINEL,
 ) -> datetime | Any
 ```
 
@@ -46,7 +46,7 @@ string:
   description: The date/time string to parse.
   required: true
   type: string
-format:
+fmt:
   description: >
     The format string describing the structure of the date/time string. Uses Python strftime format codes such as `%Y` (year), `%m` (month), `%d` (day), `%H` (hour), `%M` (minute), `%S` (second).
   required: true

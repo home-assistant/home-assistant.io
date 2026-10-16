@@ -58,7 +58,7 @@ The following selectors are currently available:
   - [Example - Merging with existing triggers](#example---merging-with-existing-triggers)
 
 Interactive demos of each of these selectors can be found on the
-[Home Assistant Design portal](https://design.home-assistant.io/#components/ha-selector).
+[Home Assistant contributors website](https://contributors.home-assistant.io/design/components/selector/).
 
 If no selector is defined, a text input for a single line will be shown.
 
@@ -195,7 +195,7 @@ entity:
       description: >
         Limits the list of areas to areas that have entities with a certain
         supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
-        For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
+        For a list of supported features for each entity type, refer to the [entity documentation](https://contributors.home-assistant.io/core/entities/entity-class/).
       type: list
       required: false
 multiple:
@@ -605,7 +605,7 @@ entity:
       description: >
         Limits the list of devices to devices that have entities with a certain
         supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
-        For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
+        For a list of supported features for each entity type, refer to the [entity documentation](https://contributors.home-assistant.io/core/entities/entity-class/).
       type: list
       required: false
 filter:
@@ -1364,7 +1364,7 @@ translation_key:
     Allows translations provided by an integration where `translation_key`
     is the translation key that is providing the unit_of_measurement string
     translation. See the documentation on
-    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
+    [Backend Localization](https://contributors.home-assistant.io/core/integrations/translations/#selectors)
     for more information.
   type: string
   required: false
@@ -1472,7 +1472,7 @@ translation_key:
     Allows translations provided by an integration where `translation_key`
     is the translation key that is providing the selector option strings
     translation. See the documentation on
-    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
+    [Backend Localization](https://contributors.home-assistant.io/core/integrations/translations/#selectors)
     for more information.
   type: string
   required: false
@@ -1582,7 +1582,7 @@ translation_key:
     Allows translations provided by an integration where `translation_key`
     is the translation key that is providing the selector option strings
     translation. See the documentation on
-    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
+    [Backend Localization](https://contributors.home-assistant.io/core/integrations/translations/#selectors)
     for more information.
   type: string
   required: false
@@ -1787,7 +1787,7 @@ entity:
       description: >
         Limits the targets to entities with a certain supported feature, for example,
         `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
-        For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
+        For a list of supported features for each entity type, refer to the [entity documentation](https://contributors.home-assistant.io/core/entities/entity-class/).
       type: list
       required: false
 {% endconfiguration %}

@@ -122,8 +122,9 @@ Once the front door has stayed locked for a while, you may not need the porch li
 - **Target**: Front door lock
 - **Condition passes if**: Any
 - **For at least**: 00:05:00
-- **Condition**: Sun is below the horizon
-- **Action**: Turn off
+- **Condition**: Sun is set
+- **Action**: Turn off light
+  - **Target**: Porch light
 
 {% details "YAML example for turning off the porch light" %}
 
@@ -140,8 +141,7 @@ automation: |
       options:
         behavior: any
         for: "00:05:00"
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_off
       target:

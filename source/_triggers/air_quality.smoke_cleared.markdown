@@ -85,7 +85,7 @@ After a smoke event, your front door was unlocked to help everyone evacuate safe
   - **Target**: All smoke sensors (by label)
   - **Trigger when**: All
   - **For at least**: 00:15:00
-- **Action**: Lock: Lock
+- **Action**: Lock lock
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

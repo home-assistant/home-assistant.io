@@ -26,7 +26,7 @@ type: dict
 output: "{'domain': 'hue', 'issue_id': 'deprecated_bridge', 'severity': 'warning', ...}"
 
 ---
-filter: '{{ "deprecated_bridge" | issue("hue") }}'
+filter: '{{ "hue" | issue("deprecated_bridge") }}'
 type: dict
 output: "{'domain': 'hue', 'issue_id': 'deprecated_bridge', 'severity': 'warning', ...}"
 {% endtemplate_function_usage %}
@@ -47,7 +47,7 @@ The following parameters can be provided to this function.
 {% function_parameters %}
 domain:
   description: >
-    The integration domain that created the issue (for example, `hue`, `zwave`, or `mqtt`).
+    The integration domain that created the issue (for example, `hue`, `zwave_js`, or `mqtt`).
   required: true
   type: string
 issue_id:
@@ -106,7 +106,7 @@ Send a notification only when a specific repair issue is active.
 action: |
   action:
     - condition: template
-      value_template: '{{ issue("zwave", "config_error") is not none }}'
+      value_template: '{{ issue("zwave_js", "config_error") is not none }}'
     - action: notify.mobile
       data:
         message: "Z-Wave configuration error detected. Check repairs."

@@ -17,6 +17,10 @@
     {% include asides/condition_left_sidebar.html %}
   {%- endif -%}
 
+  {%- if page.building_block -%}
+    {% include asides/building_block_left_sidebar.html %}
+  {%- endif -%}
+
   {%- if page.ha_category.first -%}
     <section id="category-module" class="aside-module grid__item one-whole lap-one-half">
       <div class='section'>
@@ -71,6 +75,17 @@
         <h2 class="h1 title epsilon">{% icon "mdi:book-open-variant" %} Learn more</h2>
         <ul class='divided'>
           {% include asides/condition_learn_more.html %}
+        </ul>
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- if page.building_block -%}
+    <section id="learn-more-module" class="aside-module grid__item one-whole lap-one-half">
+      <div class='section'>
+        <h2 class="h1 title epsilon">{% icon "mdi:book-open-variant" %} Learn more</h2>
+        <ul class='divided'>
+          {% include asides/building_block_learn_more.html %}
         </ul>
       </div>
     </section>

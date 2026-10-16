@@ -39,7 +39,7 @@ Duration:
   required: false
 Entity:
   description: The Evohome controller's climate entity to set the mode on.
-  required: false
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -102,7 +102,7 @@ entity_id:
 ## Good to know
 
 - The `period` and `duration` options can't be combined. Use `duration` with **AutoWithEco**, and `period` with **Away**, **DayOff**, or **Custom**. The **Auto** and **HeatingOff** modes don't take a time.
-- Specify the controller's climate entity with `entity_id` so the action knows which system to set.
+- The `entity_id` option is required. Set it to the controller's climate entity so the action knows which system to set.
 - For everyday changes, the generic [climate actions](/integrations/climate/) also work. The native Evohome actions add access to the time-limited modes, which can be useful when integrating with third-party systems such as Amazon Alexa or Google Home.
 
 {% include actions/try_it.md %}
@@ -113,7 +113,9 @@ entity_id:
 
 When the last person leaves home, put the heating system into **Away** mode so it runs at a lower setpoint until someone returns.
 
-- **Trigger**: Everyone has left home
+- **Trigger**: State changed
+  - **Entity**: Home zone
+  - **To**: 0
 - **Action**: Honeywell Total Connect Comfort (Europe): Set system mode, with mode Away
 
 {% details "YAML example for switching to Away mode" %}

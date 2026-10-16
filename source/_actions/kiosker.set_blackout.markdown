@@ -1,6 +1,6 @@
 ---
 title: "Set blackout"
-action: kiosker.blackout_set
+action: kiosker.set_blackout
 domain: kiosker
 description: "Show or hide a blackout overlay on the Kiosker device, optionally with a message, icon, and dismiss button."
 since: "2026.5"
@@ -8,7 +8,7 @@ related_actions:
   - kiosker.navigate_url
 ---
 
-The **Set blackout** action displays a full-screen overlay on your Kiosker device. Use it to show a status message, hide the screen during a meeting, or block the display until a condition clears. You can customize the overlay with a message, icon, colors, and a dismiss button.
+The **Kiosker: Set blackout** action displays a full-screen overlay on your Kiosker device. Use it to show a status message, hide the screen during a meeting, or block the display until a condition clears. You can customize the overlay with a message, icon, colors, and a dismiss button.
 
 To hide the overlay again, call this action with **Visible** turned off, or use the **Clear blackout** button entity in the UI.
 
@@ -69,11 +69,11 @@ Sound:
 
 {% include actions/yaml_header.md %}
 
-In YAML, refer to this action as `kiosker.blackout_set`. A basic example looks like this:
+In YAML, refer to this action as `kiosker.set_blackout`. A basic example looks like this:
 
 {% example %}
 action: |
-  action: kiosker.blackout_set
+  action: kiosker.set_blackout
   data:
     device_id: YOUR_DEVICE_ID
     visible: true
@@ -166,20 +166,24 @@ sound:
 Show a styled overlay the user can tap away when ready.
 
 - **Action**: Kiosker: Set blackout
-- **Device**: Meeting room display
-- **Visible**: on
-- **Text**: Meeting in progress
-- **Background**: [10, 10, 60]
-- **Icon**: person.2.fill
-- **Expire**: 3600
-- **Dismissible**: on
-- **Button text**: Dismiss
+  - **Device**: Meeting room display
+  - **Visible**: On
+  - **Text**: `Meeting in progress`
+  - **Icon**: `person.2.fill`
+  - **Dismissible**: On
+  - **Button text**: `Dismiss`
+  - **Background color**: `[10, 10, 60]`
+  - **Foreground color**: `[255, 255, 255]`
+  - **Expire time**: `3600` seconds
+  - **Button background color**: `[255, 255, 255]`
+  - **Button foreground color**: `[10, 10, 60]`
+  - **Sound**: `1007`
 
 {% details "YAML example for a dismissible overlay with custom colors" %}
 
 {% example %}
 action: |
-  action: kiosker.blackout_set
+  action: kiosker.set_blackout
   data:
     device_id: YOUR_DEVICE_ID
     visible: true
@@ -216,9 +220,9 @@ When everyone leaves, cover the screen so the display is not showing anything wh
 - **Trigger**: Zone occupancy cleared
   - **Zone**: Home (`zone.home`)
 - **Action**: Kiosker: Set blackout
-- **Device**: Living room kiosk
-- **Visible**: on
-- **Expire**: 0
+  - **Device**: Living room kiosk
+  - **Visible**: On
+  - **Expire time**: `0` seconds
 
 {% details "YAML example for blacking out when no one is home" %}
 
@@ -230,7 +234,7 @@ automation: |
       options:
         zone: zone.home
   actions:
-    - action: kiosker.blackout_set
+    - action: kiosker.set_blackout
       data:
         device_id: YOUR_DEVICE_ID
         visible: true
@@ -246,8 +250,8 @@ When the first person gets home, remove the overlay and restore the normal displ
 - **Trigger**: Zone occupancy detected
   - **Zone**: Home (`zone.home`)
 - **Action**: Kiosker: Set blackout
-- **Device**: Living room kiosk
-- **Visible**: off
+  - **Device**: Living room kiosk
+  - **Visible**: Off
 
 {% details "YAML example for clearing the blackout on arrival" %}
 
@@ -259,7 +263,7 @@ automation: |
       options:
         zone: zone.home
   actions:
-    - action: kiosker.blackout_set
+    - action: kiosker.set_blackout
       data:
         device_id: YOUR_DEVICE_ID
         visible: false

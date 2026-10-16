@@ -27,7 +27,7 @@ ha_platforms:
 ha_ssdp: true
 ha_integration_type: hub
 related:
-  - docs: /common-tasks/general/#enabling-or-disabling-entities
+  - docs: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
     title: Enabling or disabling entities
 ha_quality_scale: gold
 ---
@@ -106,6 +106,10 @@ This integration fetches the data every 30 seconds from the FRITZ!Box router.
 {% include integrations/actions.md %}
 
 ## Additional information
+
+{% note %}
+Network devices removed from the FRITZ!Box's list of known devices are also removed from Home Assistant, including their [device tracker](#device-tracker) and [parental control switch](#parental-control-switches) entities. In the home network, this only happens when you remove a device manually in the FRITZ!Box. In the guest network, the FRITZ!Box removes devices as soon as they disconnect. To keep a guest device, customize it in the FRITZ!Box under **Home Network** > **Network** > **Network Connections**, for example, by giving it a custom name.
+{% endnote %}
 
 ### Parental control switches
 
