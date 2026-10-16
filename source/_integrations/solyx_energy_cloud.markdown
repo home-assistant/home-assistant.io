@@ -1,7 +1,7 @@
 ---
-title: Solyx Energy
+title: Solyx Energy Cloud
 description: Monitor and control your Solyx Energy devices within Home Assistant
-ha_release: 2026.8
+ha_release: 2026.10
 ha_category: Energy
 ha_platforms:
   - number
@@ -12,7 +12,7 @@ ha_quality_scale: bronze
 ha_config_flow: true
 ha_codeowners:
   - '@MartinaeyNL'
-ha_domain: solyx_energy
+ha_domain: solyx_energy_cloud
 ha_integration_type: device
 related:
   - url: https://www.solyxenergy.nl
@@ -21,11 +21,11 @@ related:
     title: Frequently asked questions
   - url: https://www.solyxenergy.nl/contact/
     title: Ask a question or report device issues
-  - url: https://github.com/home-assistant/core/issues?q=label%3A%22integration%3A+solyx_energy%22
+  - url: https://github.com/home-assistant/core/issues?q=label%3A%22integration%3A+solyx_energy_cloud%22
     title: Issues list for the Solyx Energy integration
 ---
 
-The **Solyx Energy** {% term integration %} is used to integrate with Nymo devices from [Solyx Energy](https://www.solyxenergy.nl). The Nymo controls an electric boiler with exactly the amount of solar energy that would otherwise be fed back into the grid. It allows households to store their surplus solar power and minimize feed-in, without huge investments.
+The **Solyx Energy Cloud** {% term integration %} is used to integrate with Nymo devices from [Solyx Energy](https://www.solyxenergy.nl). The Nymo controls an electric boiler with exactly the amount of solar energy that would otherwise be fed back into the grid. It allows households to store their surplus solar power and minimize feed-in, without huge investments.
 
 ## Prerequisites
 
@@ -43,13 +43,11 @@ Client ID:
     description: "The Client ID of your Nymo device. You can find it under **Change device settings** in the Solyx Energy app."
 Client Secret:
     description: "The Client Secret of your Nymo device. You can find it under **Change device settings** in the Solyx Energy app."
-Nymo device ID:
-    description: "The internal device ID of your Nymo device. You can find it under **Change device settings** in the Solyx Energy app."
 {% endconfiguration_basic %}
 
 ## Supported functionality
 
-The **Solyx Energy** integration provides the following entities.
+The **Solyx Energy Cloud** integration provides the following entities.
 
 ### Sensors
 
@@ -82,11 +80,11 @@ The **Solyx Energy** integration provides the following entities.
 
 ## Data updates
 
-The **Solyx Energy** integration polls data from the device every minute. This uses a cloud connection; therefore, an internet connection is required for the integration to work.
+The **Solyx Energy Cloud** integration polls data from the device every minute. This uses a cloud connection; therefore, an internet connection is required for the integration to work.
 
 ## Known limitations
 
-The integration uses a cloud connection; therefore, full local control is not possible at this time.
+The integration uses a cloud connection; therefore, full local control is not possible.
 
 ## Troubleshooting
 
@@ -94,7 +92,7 @@ The integration uses a cloud connection; therefore, full local control is not po
 
 #### Authentication error
 
-Verify that you have copied the correct credentials and device ID from the Solyx Energy app. To re-authenticate, go to {% my integration domain="solyx_energy" title="**Settings** > **Devices & services** > **Solyx Energy**" %} and select **Re-authenticate**.
+Verify that you have copied the correct credentials and device ID from the Solyx Energy app. To re-authenticate, go to {% my integration domain="solyx_energy_cloud" title="**Settings** > **Devices & services** > **Solyx Energy Cloud**" %} and select **Re-authenticate**.
 
 #### Couldn't retrieve device data due to a communication error
 
