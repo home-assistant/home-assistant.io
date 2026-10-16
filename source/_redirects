@@ -40,6 +40,7 @@ layout: null
 
 # Older development pages
 /developers https://developers.home-assistant.io
+/developers/credits https://github.com/home-assistant/core/graphs/contributors
 /developers/add_new_platform https://developers.home-assistant.io/docs/creating_platform_index/
 /developers/api https://developers.home-assistant.io/docs/api/rest
 /developers/architecture_components https://developers.home-assistant.io/docs/architecture_components/
