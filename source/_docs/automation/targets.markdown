@@ -58,7 +58,7 @@ The following entities are not part of a target because of what the trigger, con
 The following entities are not part of a target because of how they are set up:
 
 - Entities that you assigned to a different area than their device, when you target the area of the device. These entities belong to their own area only.
-- Hidden entities. To hide an entity, turn off **Visible** in its settings. For example, if an action turns on all lights in the living room, a hidden light in that room stays off.
+- [Hidden entities](/docs/configuration/customizing-devices/#hidden-entities). For example, if an action turns on all lights in the living room, a hidden light in that room stays off. To hide or show an entity, refer to [Hiding an entity](/docs/configuration/customizing-devices/#hiding-an-entity).
 - Configuration and diagnostic entities, such as a firmware update or the signal strength of a device. If you put a label on the entity itself, and target that label, the entity is part of the target.
 
 ## Targets stay up to date
