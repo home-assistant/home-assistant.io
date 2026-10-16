@@ -14,11 +14,18 @@ ha_platforms:
   - binary_sensor
   - button
   - cover
+  - light
+  - lock
   - sensor
 ha_integration_type: device
 ---
 
 The **OpenGarage** {% term integration %} lets you control the open-source [OpenGarage.io](https://opengarage.io/) device through Home Assistant.
 
-
 {% include integrations/config_flow.md %}
+
+## Supported functionality
+
+This {% term integration %} provides entities to control and monitor your garage door. On devices that support it, it also adds a **Light** entity and **Remote control lock** entity.
+
+{% include integrations/actions.md %}
