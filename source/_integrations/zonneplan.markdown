@@ -62,8 +62,8 @@ If your account has a Zonneplan home battery, the integration adds a device for 
 
 - **Battery**: The state of charge, in %.
 - **Power**: The power the battery delivers, in W. Positive while discharging, negative while charging.
-- **Battery state**: Whether the battery is `Charging`, `Discharging`, or `Operative`.
-- **Inverter state**: Whether the battery inverter is `Charging`, `Discharging`, or `Operative`.
+- **Battery state**: What the battery is doing: `Charging`, `Discharging`, `Operative`, `Standby`, `Sleeping`, `Starting`, `Throttled`, `Shutting down`, `Off`, `Updating`, `Cooling`, `Preheating`, `Backup power active`, `Fault`, `Permanent fault`, or `Unknown state`.
+- **Inverter state**: What the battery inverter is doing, with the same states as **Battery state**.
 - **Total earned**: What the battery has earned in total since it was installed.
 - **Earned today**: What the battery has earned so far today. This can be negative.
 - **Energy charged today**: The energy charged into the battery so far today, in kWh.

@@ -440,6 +440,7 @@ source/_integrations/hardware.markdown @home-assistant/core
 source/_integrations/harman_luxury.markdown @sbesh91
 source/_integrations/harmony.markdown @ehendrix23 @bdraco @mkeesey @Aohzan
 source/_integrations/harvey.markdown @Jordi1990
+source/_integrations/hase_iq.markdown @bbayszczak
 source/_integrations/hassio.markdown @home-assistant/supervisor
 source/_integrations/havana_shade.markdown @starkillerOG
 source/_integrations/hdfury.markdown @glenndehaan
@@ -1428,6 +1429,7 @@ source/_actions/cover.stop_cover.markdown @home-assistant/core
 source/_actions/cover.stop_cover_tilt.markdown @home-assistant/core
 source/_actions/cover.toggle.markdown @home-assistant/core
 source/_actions/cover.toggle_cover_tilt.markdown @home-assistant/core
+source/_actions/daikin.set_demand_control.markdown @fredrike
 source/_actions/date.set_value.markdown @home-assistant/core
 source/_actions/datetime.set_value.markdown @home-assistant/core
 source/_actions/debugpy.start.markdown @frenck
