@@ -20,9 +20,23 @@ The **SenseCAP** {% term integration %} adds [Seeed Studio SenseCAP](https://www
 
 ## Supported devices
 
-- S2101: Temperature (°C), relative humidity (%), and battery (%).
-- S2102: Illuminance (lx) and battery (%).
-- S2103: Temperature (°C), relative humidity (%), carbon dioxide (ppm), and battery (%).
+| Model | Measurements |
+| --- | --- |
+| S2101 | Temperature, relative humidity |
+| S2102 | Illuminance |
+| S2103 | Temperature, relative humidity, carbon dioxide |
+| S2104 | Soil temperature, soil moisture |
+| S2105 | Soil temperature, soil moisture, electrical conductivity |
+| S2106 | Temperature, pH |
+| S2107 | Temperature from three probes |
+| S2120 | Temperature, relative humidity, illuminance, UV index, atmospheric pressure, wind speed, wind direction, wind gust, rainfall intensity, accumulated rainfall |
+| First-generation air temperature and humidity sensor | Temperature, relative humidity |
+| First-generation CO2 sensor | Carbon dioxide |
+| First-generation light sensor | Illuminance |
+| First-generation barometric pressure sensor | Atmospheric pressure |
+| First-generation soil temperature and moisture sensor | Soil temperature, soil moisture |
+
+All supported models also expose battery percentage. S2106 and S2107 require ChirpStack catalog identities; first-generation sensors require The Things Stack catalog identities.
 
 ## Prerequisites
 
