@@ -73,7 +73,7 @@ The media player entity gives you complete control over your WiiM device from Ho
 
 - **Media Browsing**: Browse presets, playlists, and the device’s current playback queue, enabling dynamic selection of media from the Home Assistant interface.
 
-### Audio Output
+### Audio output
 
 Devices with HTTP API support provide an **Audio Output** select entity. Use it to switch between the outputs reported by your device, such as Line Out or Optical Out. Available options depend on the device and its connected audio hardware.
 
