@@ -48,6 +48,7 @@ This action has no additional YAML options beyond the target.
 ## Good to know
 
 - The value increases by the `step` you configured for the input number and never goes above the configured `max`.
+- If the input number has a device class and its state is shown in another unit, the value changes by `step` in the helper's own unit. For more information, see [Unit conversion](/integrations/input_number/#unit-conversion).
 
 {% include actions/try_it.md %}
 
