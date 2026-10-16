@@ -87,6 +87,8 @@ The following sensors are disabled by default:
 - **Scheduled start**: Start time of a scheduled charging session. For a session that starts immediately, such as one started with the **Charge** switch, this is the time charging was requested.
 - **Charging time limit**: Time after which the charger ends the charging session in minutes (min). The value is unknown when no limit is set, which includes sessions started with the **Charge** switch.
 
+The **Scheduled start** and **Charging time limit** sensors report values only while a scheduled start is pending or a charging session is running. Otherwise, their state is unknown.
+
 To set a scheduled start or a charging time limit from Home Assistant, use the [**Start charging** action](/actions/besen.start_charging/). The sensors also report values set elsewhere, for example in the charger's mobile app.
 
 The following diagnostic sensors are disabled by default:
