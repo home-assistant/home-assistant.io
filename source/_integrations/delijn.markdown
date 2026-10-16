@@ -1,84 +1,91 @@
 ---
 title: De Lijn
-description: Instructions on how to integrate De Lijn (Flemish public transport company) departure times into Home Assistant.
-ha_release: 0.97
+description: Instructions on how to integrate De Lijn public transport departures within Home Assistant.
 ha_category:
   - Sensor
   - Transport
+ha_release: 0.97
 ha_iot_class: Cloud Polling
+ha_config_flow: true
 ha_codeowners:
   - '@bollewolle'
   - '@Emilv2'
 ha_domain: delijn
 ha_platforms:
   - sensor
-ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
+ha_integration_type: service
 ha_quality_scale: legacy
 ---
 
-The **De Lijn** {% term integration %} will give you the departure time of the next bus, tram or subway at a specific stop of the De Lijn public transport network in Flanders (Belgium).
+The **De Lijn** {% term integration %} shows real-time departure information
+for stops of [De Lijn](https://www.delijn.be/), the public transport company
+of Flanders (Belgium).
 
-## Setup
+## Prerequisites
 
-Create a developer account at [De Lijn Open Data portal](https://data.delijn.be/) to get a free API subscription key.
-For valid stop IDs check for the 6 digits at the physical stops or visit the [stops page](https://www.delijn.be/en/haltes/) of the De Lijn website.
+You need a free De Lijn Open Data API key:
 
-## Configuration
+1. Create a developer account at the [De Lijn API portal](https://data.delijn.be/).
+2. Subscribe to the free **Open Data** product.
+3. Copy the subscription key from your profile page.
 
-To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: delijn
-    api_key: "API_SUBSCRIPTION_KEY"
-    next_departure:
-    - stop_id: 'STOP_ID'
-```
+{% configuration_basic %}
+API key:
+  description: Your De Lijn Open Data subscription key. It is entered once and shared by all your stops; you can view or change it later via the integration's reconfigure option.
+{% endconfiguration_basic %}
 
-{% configuration %}
-api_key:
-  description: "API Subscription key needed to access De Lijn APIs."
-  required: true
-  type: string
-next_departure:
-  description: One or multiple departure sensors.
-  required: true
-  type: list
-  keys:
-    stop_id:
-      description: "ID of the stop, for example, `200552`."
-      required: true
-      type: string
-    number_of_departures:
-      description: "Specify the maximum number of departures/passages at a stop to retrieve"
-      required: false
-      default: 5
-      type: integer
-{% endconfiguration %}
+Existing YAML configuration is imported automatically: one integration
+entry is created for the API key, and each configured stop is added to it.
+After the import, the YAML configuration can be removed from your
+`configuration.yaml`.
 
-## Examples
+## Adding stops
 
-### Full configuration
+Each stop is added under the De Lijn entry with the **Add stop** button:
 
-The example below shows a full configuration with two sensors, only the abcdefg needs to be replaced with an actual API subscription key. The first stop_id will return the default next 5 passages, the second stop_id has been forced to return the next 20 passages.
+{% configuration_basic %}
+Stop:
+  description: A De Lijn stop number (shown on the physical stop sign and on delijn.be), or part of a stop name to search for. Leave empty to get suggestions near a location instead.
+Search near a location:
+  description: Pick a location on the map to find nearby stops. If both fields are left empty, stops near your Home Assistant home location are suggested.
+{% endconfiguration_basic %}
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  # De Lijn public transport
-  - platform: delijn
-    api_key: "abcdefg"
-    next_departure:
-    - stop_id: '200018'
-    - stop_id: '201169'
-      number_of_departures: 20
-```
+Before a stop is added, a confirmation step shows its next departures and
+links to the stop's location, so you can verify you picked the platform in
+the right direction - useful when both sides of the road share a stop name.
 
-## Custom dashboard card
+Stops can be renamed or removed individually, and each stop's settings can
+be changed via its settings icon:
 
-Works best with the following custom dashboard card: [delijn-card](https://github.com/bollewolle/delijn-card)
+{% configuration_basic %}
+Number of departures:
+  description: How many upcoming departures to keep as sensor attributes (1-20, default 5).
+{% endconfiguration_basic %}
+
+## Sensors
+
+Each stop provides a **Next departure** timestamp sensor. Its attributes
+contain the details of the upcoming departures, including the line number,
+destination, transport type, real-time status, cancellation status, and the
+line's display colors — in the same format as earlier versions of this
+integration, so existing dashboard cards keep working.
+
+The stop's device page shows the stop number and links to the stop's page
+on delijn.be, where you can see its location and live departure board.
+
+## Data updates
+
+The integration polls the De Lijn API once per minute per stop. If the API
+is unreachable, the sensors become unavailable until the connection is
+restored; if the API key is no longer valid, you are asked to
+reauthenticate once for all stops.
+
+## Removing the integration
+
+This integration follows standard integration removal; individual stops
+can also be removed separately from the De Lijn entry. No extra steps are
+required.
+
+{% include integrations/remove_device_service.md %}
