@@ -44,7 +44,7 @@ conditions:
 actions:
   - action: persistent_notification.create
     data:
-      title: "SOLARMAN voltage reminder"
+      title: "Solarman voltage reminder"
       message: >
         {{ state_attr(trigger.entity_id, 'friendly_name') or trigger.entity_id }}:
         {{ states(trigger.entity_id) }} V in Home Assistant, above your
