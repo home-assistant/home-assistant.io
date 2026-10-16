@@ -185,8 +185,6 @@ To resolve this issue:
 
 This is expected when a vehicle is parked and not reporting data. Each sensor keeps showing the newest value ABRP has.
 
-To check when ABRP last received telemetry and where it came from, open the sensor and look at its `last_reported_at` and `provider` attributes.
-
 Home Assistant shows the same data as the A Better Routeplanner app and website, so you can compare them. If the value looks just as old in ABRP, your vehicle has not sent fresh telemetry yet and there is nothing to fix in Home Assistant.
 
 ### The integration shows as unavailable
