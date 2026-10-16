@@ -107,7 +107,7 @@ intent_script:
 ```
 
 
-More complex [actions](/docs/scripts/) can be done in `intent_script`, such as performing actions and firing events.
+More complex [actions](/docs/automation/building-blocks/) can be done in `intent_script`, such as performing actions and firing events.
 
 ## Extending built-in intents
 

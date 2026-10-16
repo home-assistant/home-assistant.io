@@ -1,15 +1,15 @@
 ---
-title: "Building blocks and actions in automations and scripts"
-description: "Wait, repeat, choose, and perform steps at the same time in your automations and scripts, in the editor or in YAML."
+title: "Building blocks in automations and scripts"
+description: "Use building blocks to wait, repeat, choose, and run steps at the same time in your automations and scripts, in the editor or in YAML."
 toc: true
 ---
 
 When an automation or script runs, it goes through a list of steps. Each step is an action or a building block:
 
-- An **action** makes something happen, for example, turning on a light or sending a notification. Home Assistant performs the action on the targets you choose. For a list of all actions, refer to the [actions reference](/actions/).
-- A **building block** controls whether, when, and in which order the other steps run. It can check a condition, wait, repeat steps, choose between steps, or perform steps at the same time.
+- A **building block** controls whether, when, and in which order the other steps run. It can check a condition, wait, repeat steps, choose between steps, or run steps at the same time.
+- An **action** makes something happen, for example, turning on a light or sending a notification. For more about actions, refer to [Actions in automations and scripts](/docs/automation/action/).
 
-Automations and scripts use the same actions and building blocks.
+Automations and scripts use the same building blocks.
 
 ## How automations and scripts run their steps
 
@@ -21,17 +21,9 @@ To add a step in the editor, select **Add action**. To add a building block, sel
 
 For how to create scripts, pass them variables, and wait for them to finish, refer to the [Scripts integration](/integrations/script/).
 
-<a id="perform-an-action"></a>
+## Available building blocks
 
-## Performing an action
-
-To make something happen, such as turning on a light, add an action. Each action has its own page with its options, listed in the [actions reference](/actions/). For how to add an action in the editor or in YAML, and for the options that most actions share, such as targets and data, refer to [Actions in automations and scripts](/docs/automation/action/).
-
-Most actions come from integrations. Two actions are [built into automations and scripts](/actions/#built_in): [**Fire manual event**](/actions/event/) and [**Set conversation response**](/actions/set_conversation_response/).
-
-## Controlling how steps run
-
-Building blocks control the flow of your automation or script. They make decisions, repeat steps, wait, run steps together, and store values in variables. Each building block has its own page with its options and examples, grouped by categories in the [list of building blocks](/building-blocks/).
+Each building block has its own page with its options and examples, grouped by categories in the [list of building blocks](/building-blocks/).
 
 ## Writing steps in YAML
 
@@ -138,7 +130,3 @@ actions:
   - delay: "0:35"
     enabled: !input input_boolean
 ```
-
-[conditions page]: /conditions/
-[shorthand-template]: /conditions/template/#shorthand-notation
-[script variables]: /integrations/script/#variables

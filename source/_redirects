@@ -381,7 +381,8 @@ layout: null
 /getting-started/installation-docker /docs/installation/docker
 /getting-started/installation-virtualenv /docs/installation/virtualenv
 /getting-started/installation-raspberry-pi /docs/installation/raspberry-pi
-/getting-started/scripts /docs/scripts
+/getting-started/scripts /docs/automation/building-blocks/
+/docs/scripts /docs/automation/building-blocks/
 /getting-started/scripts-service-calls /docs/automation/action/
 /docs/scripts/service-calls /docs/automation/action/
 /docs/scripts/perform-actions /docs/automation/action/
