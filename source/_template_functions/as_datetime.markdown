@@ -55,7 +55,7 @@ value:
   type: [string, float]
 default:
   description: >
-    Value to return if the conversion fails. If not provided, an error is raised on invalid input.
+    Value to return if the conversion fails. If not provided, invalid text returns `None`, and other invalid input raises an error.
   required: false
   type: any
 {% endfunction_parameters %}
@@ -72,7 +72,7 @@ output: "2024-03-15 13:50:00+00:00"
 
 ## Using a default value
 
-If the input string might be invalid, provide a default value to avoid errors.
+If the input string might be invalid, provide a default value to use instead of `None`.
 
 {% example %}
 template: '{{ as_datetime("not a date", default="unknown") }}'
@@ -82,9 +82,9 @@ output: "unknown"
 
 ## Good to know
 
-- Strings without a time zone are treated as local time; strings with an offset or `Z` suffix keep the original zone.
+- A string without a time zone gives a datetime without a time zone. To compare it with [`now`](/template-functions/now/), add `| as_local` to treat it as local time. Strings with an offset or `Z` suffix keep their time zone.
 - UNIX timestamps are interpreted in UTC, so chain with [`as_local`](/template-functions/as_local/) if you need local time.
-- Without a default, an unparseable input raises an error.
+- Without a default, invalid text returns `None`. Other invalid input, such as a list, raises an error.
 
 {% include template_functions/try_it.md %}
 
