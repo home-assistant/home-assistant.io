@@ -4,6 +4,7 @@ description: Instructions on how to integrate Matter with Home Assistant.
 ha_category:
   - Binary sensor
   - Button
+  - Camera
   - Car
   - Climate
   - Cover
@@ -30,6 +31,7 @@ ha_domain: matter
 ha_platforms:
   - binary_sensor
   - button
+  - camera
   - climate
   - cover
   - diagnostics
@@ -418,6 +420,14 @@ Home Assistant Matter updates currently don't work for Thread devices on a Threa
 {% endnote %}
 
 {% include integrations/actions.md %}
+
+## Camera
+
+A Matter camera that exposes the WebRTC camera device type (the `WebRTCTransportProvider` and `CameraAvStreamManagement` clusters) appears in Home Assistant as a camera entity, with a live WebRTC view and still snapshots.
+
+{% note %}
+This requires a Matter server that supports the camera streaming commands. Two-way talk is not yet supported.
+{% endnote %}
 
 ## Automate on a button press
 
