@@ -8,7 +8,7 @@ related_actions:
   - schlage.get_codes
 ---
 
-Use this action to add a new PIN code to a Schlage lock, for example to give a guest or family member their own code.
+Use this action to add a new PIN code to a Schlage lock, for example to give a guest or family member their own code. You can create a permanent PIN or a temporary PIN that is only active during a specific time window.
 
 {% include actions/ui_header.md %}
 
@@ -21,19 +21,34 @@ To add a PIN code from an automation or a script:
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Schlage lock.
 6. From the actions shown for that target, select **Schlage: Add PIN code**.
 7. Enter the **PIN name** and the **PIN code**.
-8. Select **Save**.
+8. To create a temporary PIN, enter a **Start time** and **End time**. Leave both empty for a permanent PIN.
+9. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 PIN name:
-  description: A name for the PIN code. Must be unique to the lock, regardless of capitalization.
+  description: The name of the PIN code. Must be unique to the lock, regardless of capitalization.
 PIN code:
-  description: The PIN code to add. Must be unique to the lock and between 4 and 8 digits long.
+  description: The PIN code to add. Must be unique to the lock and be between 4 and 8 digits long.
 Notify when PIN is used:
-  description: Send the native Schlage notification when this PIN is used. On by default.
+  description: Whether the native Schlage notification should be sent when this PIN is used. On by default.
+  required: false
+Start time:
+  description: When this PIN becomes active. Providing a start time makes the PIN temporary; both a start and an end time are required.
+  required: false
+End time:
+  description: When this PIN stops working. Required together with the start time; leaving both empty creates a permanent PIN.
   required: false
 {% endoptions_ui %}
+
+### Temporary vs. permanent PINs
+
+When you add a PIN without a start or end time, it becomes a permanent PIN that works until you delete it. If you provide both a start time and an end time, the PIN becomes a temporary PIN that is only active during that window.
+
+You must provide both times together or leave both empty. If you provide only one, you get an error: `Start and end times are required together. Provide both to create a temporary PIN, or neither for a permanent one.`
+
+The start time must be before the end time. If the start time is the same as or after the end time, you get an error: `Start time must be before end time.`
 
 {% include actions/yaml_header.md %}
 
@@ -49,22 +64,44 @@ action: |
     code: "3333"
 {% endexample %}
 
+To add a temporary PIN in YAML:
+
+{% example %}
+action: |
+  action: schlage.add_code
+  target:
+    entity_id: lock.front_door
+  data:
+    name: Guest
+    code: "1234"
+    start_datetime: "2026-09-01T15:00:00"
+    end_datetime: "2026-09-01T16:00:00"
+{% endexample %}
+
 ### Options in YAML
 
 {% options_yaml %}
 name:
-  description: A name for the PIN code. Must be unique to the lock, regardless of capitalization.
+  description: The name of the PIN code. Must be unique to the lock, regardless of capitalization.
   required: true
   type: string
 code:
-  description: The PIN code to add. Must be unique to the lock and between 4 and 8 digits long.
+  description: The PIN code to add. Must be unique to the lock and be between 4 and 8 digits long.
   required: true
   type: string
 notify_on_use:
-  description: Send the native Schlage notification when this PIN is used.
+  description: Whether the native Schlage notification should be sent when this PIN is used.
   required: false
   type: boolean
   default: true
+start_datetime:
+  description: When this PIN becomes active. Providing a start time makes the PIN temporary; both a start and an end time are required.
+  required: false
+  type: datetime
+end_datetime:
+  description: When this PIN stops working. Required together with the start time; leaving both empty creates a permanent PIN.
+  required: false
+  type: datetime
 {% endoptions_yaml %}
 
 {% include actions/targets.md domain="lock" %}
