@@ -965,6 +965,7 @@ Note: Users need to preset images in the app.
 Features:
 - next image
 - previous image
+- random image
 
 {% include integrations/actions.md %}
 
