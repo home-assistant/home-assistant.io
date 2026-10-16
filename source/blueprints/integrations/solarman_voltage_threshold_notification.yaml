@@ -8,7 +8,7 @@ blueprint:
   domain: automation
   input:
     voltage_sensor:
-      name: "SOLARMAN voltage sensor (V)"
+      name: "Solarman voltage sensor (V)"
       description: >
         Select a voltage sensor whose unit is V. Sensors with other units will
         not send a notification.
