@@ -95,11 +95,69 @@ Number entities provide specific settings that affect automatic thermostat behav
 
 The device reports its current battery level, but the reading may not be very accurate.
 
+{% include integrations/actions.md %}
+
+## Automation examples
+
+Use these examples as a starting point. Replace the entity IDs with the ones from your Home Assistant instance.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Sync the thermostat clock after a daylight saving time change
+
+Home Assistant checks the daylight saving time status each day at 5:00 AM. When the status differs from the previous day, it presses the thermostat's **Sync time** button.
+
+- **Trigger**: At 5:00 AM
+- **Condition**: Daylight saving time status changed since the previous day
+- **Action**: Press **Sync time**
+
+{% details "YAML example for syncing the thermostat clock after a daylight saving time change" %}
+
+{% example %}
+automation: |
+  alias: "Sync thermostat clock after daylight saving time change"
+  triggers:
+    - trigger: time
+      at: "05:00:00"
+  conditions:
+    - "{{ now().timetuple().tm_isdst != (now() - timedelta(days=1)).timetuple().tm_isdst}}"
+  actions:
+    - action: button.press
+      target:
+        entity_id: button.living_room_sync_time
+{% endexample %}
+
+{% enddetails %}
+
+### Select the Comfort preset when you return home early
+
+When a device tracker changes to **home**, this automation selects the **Comfort** preset. If holiday mode is active, Home Assistant cannot change the preset. To turn off holiday mode, press and hold the thermostat's `MENU` button until it resets.
+
+- **Trigger**: Device tracker changes to **home**
+- **Action**: Set the thermostat preset to **Comfort**
+
+{% details "YAML example for selecting Comfort when you return home" %}
+
+{% example %}
+automation: |
+  alias: "Set thermostat to Comfort when I get home"
+  triggers:
+    - trigger: state
+      entity_id: device_tracker.phone
+      to: "home"
+  actions:
+    - action: climate.set_preset_mode
+      target:
+        entity_id: climate.living_room_radiator
+      data:
+        preset_mode: comfort
+{% endexample %}
+
+{% enddetails %}
+
 ## Data updates
 
 The integration {% term polling polls %} data from the thermostat every 5 minutes by default.
-
-{% include integrations/actions.md %}
 
 ## Known limitations
 
