@@ -9,46 +9,77 @@ ha_domain: prowl
 ha_platforms:
   - notify
 ha_integration_type: service
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
 ha_config_flow: true
 ---
 
 The **Prowl** {% term integration %} uses [Prowl](https://www.prowlapp.com/) to deliver push notifications from Home Assistant to your iOS device.
 
+## Prerequisites
+
 Go to the [Prowl website](https://www.prowlapp.com/) and create a new API key.
 
-To add Prowl notifications to your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-notify:
-  - name: NOTIFIER_NAME
-    platform: prowl
-    api_key: YOUR_API_KEY
-```
+{% configuration_basic %}
+API key:
+  description: "The Prowl API key you created on the Prowl website."
+{% endconfiguration_basic %}
 
-{% configuration %}
-name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
-  required: false
-  default: notify
-  type: string
-api_key:
-  description: The Prowl API key to use.
-  required: true
-  type: string
-{% endconfiguration %}
+## Sending notifications
 
-### Prowl action data
+The **Prowl** integration adds a notify {% term entity %} for each configured API key. To send a notification, use the [**Send a notification message**](/actions/notify.send_message/) (`notify.send_message`) {% term action %} and select the Prowl notify entity as the target. To set a priority or attach a URL, use the [**Prowl: Send message**](/actions/prowl.send_message/) (`prowl.send_message`) action instead.
 
-The following attributes can be placed `data` for extended functionality.
+{% example %}
+action: |
+  action: notify.send_message
+  target:
+    entity_id: notify.prowl
+  data:
+    title: "Reminder"
+    message: "Have you considered frogs?"
+{% endexample %}
 
-| Data attribute | Optional | Default | Description                                                                                                     |
-| ---------------------- | -------- | ------- | --------------------------------------------------------------------------------------------------------------- |
-| `priority`             | yes      | 0       | Priority level, for more info refer to the [Prowl API documentation](https://www.prowlapp.com/api.php#add).     |
-| `url`                  | yes      | n/a     | URL to be attached, for more info refer to the [Prowl API documentation](https://www.prowlapp.com/api.php#add). |
+{% include integrations/actions.md %}
 
-To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+## Prowl automation examples
+
+You can use this integration to send a push notification to your iOS device when something happens in your home.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: send a notification when the front door opens
+
+This automation sends a high-priority notification when the front door opens.
+
+- **Trigger**: Door opened
+  - **Target**: Front door (`binary_sensor.front_door`)
+- **Action**: Send message
+  - **Target**: Prowl (`notify.prowl`)
+  - **Priority**: High
+
+{% details "YAML example for a notification when the front door opens" %}
+
+{% example %}
+automation: |
+  alias: "Prowl: front door opened"
+  triggers:
+    - trigger: door.opened
+      target:
+        entity_id: binary_sensor.front_door
+  actions:
+    - action: prowl.send_message
+      target:
+        entity_id: notify.prowl
+      data:
+        title: "Front door"
+        message: "The front door was opened."
+        priority: high
+{% endexample %}
+
+{% enddetails %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
