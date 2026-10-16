@@ -21,13 +21,29 @@ The **Adax** {% term integration %} integrates Adax heaters into Home Assistant 
 
 ## Local integration
 
-The local integration only works with newer Adax heaters with both Bluetooth and Wi-Fi. Home Assistant uses Bluetooth LE to configure the heaters, this means the machine _running_ Home Assistant needs to have a Bluetooth adapter and the heater needs to be in range during setup. Using local control will disable cloud communication and the Adax app will not work.
+The local integration only works with newer Adax heaters that support both Bluetooth and Wi-Fi. Home Assistant uses Bluetooth Low Energy to configure the heaters automatically. For automatic local setup, the system running Home Assistant needs a Bluetooth adapter, and the heater needs to be in range. Bluetooth is not required for manual local setup. Using local control disables cloud communication, so the Adax app will not work.
 
 1. Reset the heater by pressing **+** and **OK** until the display shows **Reset**.
 2. Press and hold the **OK** button on the heater until the blue LED starts blinking.
 3. Press **Submit**.
 
 This process may take several minutes.
+
+### Local manual integration
+
+If your Adax heater is already connected to your local network (Wi-Fi) or was provisioned outside Home Assistant, you can configure it directly using the manual local option without re-provisioning.
+
+This is particularly useful when running Home Assistant in a Docker container, virtual machine, or on a remote server that lacks Bluetooth hardware or access required for the initial BLE provisioning flow, while still having network access to the heater.
+
+To configure an existing heater manually, select **Local (manual)** in the setup flow and provide:
+
+- **IP address**: The local IP address assigned to the heater on your network.
+- **MAC address**: The local MAC address of the heater, for example, `AA:BB:CC:DD:EE:FF`.
+- **Token**: The local authentication/access token for the heater.
+
+{% note %}
+The access token and MAC address can be obtained via Bluetooth Low Energy (BLE). For instructions on configuring device credentials via BLE, refer to the [official Adax API documentation](https://adax.no/wi-fi/api-development/#local).
+{% endnote %}
 
 ## Cloud integration
 
