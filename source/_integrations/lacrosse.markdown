@@ -56,7 +56,7 @@ If your receiver is connected via USB, select it from **Serial device**. If auto
 
 {% configuration_basic %}
 Serial device:
-   description: Select the Jeelink receiver connected via USB.
+  description: Select the LaCrosse receiver connected via USB.
 Baud rate:
    description: The serial baud rate.
 {% endconfiguration_basic %}
@@ -86,19 +86,23 @@ Once the receiver is configured, you can add one or more sensors. A sensor must 
 Optionally, it can report battery level. Battery status is shown as **ok** or **low**, and it is not reported as a percentage.
 
 {% configuration_basic %}
-ID:
-  description: "The ID of the sensor being added. If the sensor has a display, calculate the ID with: `hex2dec(ID_on_display) / 4`."
-Type:
-  description: "The type of the sensor. Options: `battery`, `humidity`, `temperature`. Select at least one of `humidity` or `temperature`."
-Name:
-  description: The name of the sensor.
-Expire after:
+ Sensor ID:
+   description: "The ID of the sensor being added. If the sensor has a display, calculate the ID with: `hex2dec(ID_on_display) / 4`."
+ Reports temperature:
+   description: "Select this if the sensor reports temperature. Select at least either this option or `Reports humidity`."
+ Reports humidity:
+   description: "Select this if the sensor reports humidity. Select at least either this option or `Reports temperature`."
+ Reports battery state:
+   description: Select this if the sensor reports battery state.
+ Name:
+   description: The name of the sensor.
+ Mark unavailable after (seconds):
    description: "Time after which sensors are marked unavailable if no update is received. If not set, the default of 300 seconds is used."
 {% endconfiguration_basic %}
 
 ## Reconfiguration and device replacement
 
-You can reconfigure the integration to add or remove sensors, or change a sensor's type or ID after a power cycle.
+You can reconfigure the integration to add or remove LaCrosse sensors, update their IDs after a power cycle, or change the entities exposed by each LaCrosse sensor.
 
 ## Supported functionality
 
@@ -122,7 +126,7 @@ To resolve ID conflicts, restart one of the sensors to force it to select a new 
 
 If your configured LaCrosse sensors are not receiving data, verify the following:
 
-- Ensure the Jeelink receiver dongle is properly connected to your Home Assistant system.
+- Ensure the LaCrosse receiver is properly connected to your Home Assistant system.
 - Confirm the correct receiver device path is configured (usually `/dev/ttyUSB0` on Linux).
 - Check that your sensors are powered on and within range of the receiver.
 - Verify the baud rate setting matches your sensor's requirements (default is 57600).
@@ -133,7 +137,7 @@ If your configured LaCrosse sensors are not receiving data, verify the following
 If sensors appear offline in Home Assistant, they may not be transmitting data. Verify:
 
 - The sensor has fresh batteries and is powered on.
-- The sensor is within range of the Jeelink receiver.
+- The sensor is within range of the LaCrosse receiver.
 - The **Expire after** timeout is set appropriately (default is 300 seconds).
 - No interference is affecting the wireless signal.
 
