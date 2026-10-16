@@ -74,6 +74,33 @@ Password:
 
 If the credentials on the charger change later, Home Assistant prompts you to re-enter them through the reauthentication flow without removing and re-adding the integration.
 
+{% include integrations/option_flow.md %}
+
+You can configure Home Assistant sensor entities to automatically push live measurements to your OpenEVSE charger. When the state of any configured sensor changes, Home Assistant pushes the updated value to the charger.
+
+{% configuration_basic %}
+"Grid import/export sensor":
+  description: "Sensor measuring grid import (positive value) and export (negative value) power in W or kW. Used by the charger for solar divert."
+"Invert grid import/export":
+  description: "Invert the sign of the grid power sensor if your sensor reports export as positive and import as negative."
+"Solar production sensor":
+  description: "Sensor measuring solar photovoltaic power generation in W or kW. Used by the charger for solar divert."
+"Grid voltage sensor":
+  description: "Sensor measuring grid electrical voltage in V."
+"Live household power consumption":
+  description: "Sensor measuring total household live power consumption in W or kW. Used by the charger's current shaper."
+"Vehicle state of charge sensor":
+  description: "Sensor measuring the vehicle's battery state of charge (percentage)."
+"Vehicle range sensor":
+  description: "Sensor measuring the vehicle's estimated battery range in miles or kilometers."
+"Vehicle time-to-full-charge sensor":
+  description: "Sensor reporting either the estimated time remaining (in seconds, minutes, hours, or days) until the vehicle is fully charged, or a datetime/timestamp of when charging will finish."
+"Home battery state of charge sensor":
+  description: "Sensor measuring home storage battery state of charge (percentage)."
+"Home battery power sensor":
+  description: "Sensor measuring home storage battery power in W or kW."
+{% endconfiguration_basic %}
+
 ## Supported functionality
 
 The integration adds a single device per charger to Home Assistant and exposes the following entities. Some entities are disabled by default to keep the device page tidy. You can enable them from the device page if you need them.
@@ -152,9 +179,7 @@ Diagnostic sensors that help with troubleshooting and that are disabled by defau
 
 - **Current shaper**: Enables or disables the power shaper feature to dynamically limit charging power based on whole-home electrical load.
 - **Manual override**: Toggles manual override on the charger to start or pause charging regardless of scheduled or automatic claim states.
-- **Solar PV divert**: Enables or disables solar divert (eco) mode to dynamically match charging output to surplus solar power generation.
-
-Home Assistant only enables or disables solar divert mode. It does not send solar production or grid import/export data from other Home Assistant integrations to the charger. For solar divert to operate, configure the OpenEVSE firmware with a live solar generation or grid import/export feed. Refer to the [OpenEVSE solar divert documentation](https://github.com/OpenEVSE/openevse_esp32_firmware/blob/master/docs/user/solar-divert.md) for setup instructions.
+- **Solar PV divert**: Enables or disables solar divert (eco) mode to dynamically match charging output to surplus solar power generation. You can configure Home Assistant to push solar production or grid import/export sensor data to the charger using the [Options](#options) flow, or configure the feeds directly in the OpenEVSE firmware. Refer to the [OpenEVSE solar divert documentation](https://github.com/OpenEVSE/openevse_esp32_firmware/blob/master/docs/user/solar-divert.md) for details on solar divert.
 
 ### Select
 
