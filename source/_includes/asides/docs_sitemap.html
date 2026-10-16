@@ -1,9 +1,10 @@
 {%- comment -%}
-  The automation branch stays open on the trigger, condition, and action
-  reference pages, so you keep the automation context when you browse them.
+  The automation branch stays open on the trigger, condition, action, and
+  building block reference pages, so you keep the automation context when you
+  browse them.
 {%- endcomment -%}
 {%- assign in_automation_reference = false -%}
-{%- if root == 'triggers' or root == 'conditions' or root == 'actions' -%}
+{%- if root == 'triggers' or root == 'conditions' or root == 'actions' or root == 'building-blocks' -%}
   {%- assign in_automation_reference = true -%}
 {%- endif -%}
 
@@ -16,6 +17,7 @@
       {% if doc == 'automation' or in_automation_reference or include.docs_index %}
       <ul>
         <li>{% active_link /docs/automation/how-automations-react-to-changes/ How automations react to changes %}</li>
+        <li>{% active_link /docs/automation/targets/ Targets %}</li>
         <li>{% active_link /docs/automation/which-tool-to-use/ Which tool to use %}</li>
         <li>{% active_link /docs/automation/using_blueprints/ Using automation blueprints %}</li>
         <li>{% active_link /docs/automation/editor/ Automation editors %}</li>
@@ -63,10 +65,9 @@
     </li>
     <li>
       {% icon "mdi:script-text" %} {% active_link /docs/scripts/ Building blocks and actions %}
-      {% if doc == 'scripts' or include.docs_index %}
+      {% if doc == 'scripts' or root == 'building-blocks' or include.docs_index %}
       <ul>
-        <li>{% active_link /docs/scripts/perform-actions/ Performing actions %}</li>
-        <li>{% active_link /docs/scripts/conditions/ Conditions %}</li>
+        <li>{% active_link /building-blocks/ All building blocks %}</li>
       </ul>
       {% endif %}
     </li>
@@ -227,7 +228,7 @@
     <li>{% active_link /docs/templating/python-methods/ Python methods %}</li>
     <li>{% active_link /docs/templating/patterns/ Common patterns %}</li>
     <li>{% active_link /docs/templating/debugging/ Debugging templates %}</li>
-    <li>{% active_link /docs/templating/errors/ Error messages %}</li>
+    <li>{% active_link /docs/templating/errors/ Troubleshooting template errors %}</li>
     <li>{% active_link /docs/templating/custom-templates/ Custom templates and macros %}</li>
     <li>{% active_link /docs/templating/tutorial-battery-alerts/ Tutorial: Low battery alerts %}</li>
     <li>{% active_link /docs/templating/tutorial-average-temperature/ Tutorial: Average temperature %}</li>

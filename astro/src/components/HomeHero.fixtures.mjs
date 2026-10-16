@@ -7,7 +7,7 @@
 // layout draws the header over it; here that band stays empty.
 export default {
   title: "Homepage hero",
-  // Full-width component: give it a whole row in the component browser.
+  // Full-width component: render it edge to edge in the component browser.
   wide: true,
   description:
     "Headline, lead, calls to action, GitHub badge and the live demo " +

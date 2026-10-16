@@ -74,6 +74,39 @@ toc: true
 </div>
 
 <script>
+// /docs/scripts/conditions/ redirects here. Send links to its old sections to the new pages.
+(function () {
+  var moved = {
+    "logical-conditions": "/conditions/and/",
+    "and-condition": "/conditions/and/",
+    "or-condition": "/conditions/or/",
+    "mixed-and-and-or-conditions": "/conditions/or/#automation-remind-you-to-take-a-jacket-when-its-cold-or-rainy",
+    "not-condition": "/conditions/not/",
+    "state-condition": "/conditions/state/",
+    "numeric-state-condition": "/conditions/numeric_state/",
+    "time-condition": "/conditions/time/",
+    "template-condition": "/conditions/template/",
+    "template-condition-shorthand-notation": "/conditions/template/#shorthand-notation",
+    "trigger-condition": "/conditions/trigger/",
+    "triggered-by-condition": "/conditions/trigger/",
+    "device-conditions": "/conditions/device/",
+    "sun-condition": "/conditions/sun/",
+    "sun-conditions": "/conditions/sun/",
+    "sun-state-condition": "/conditions/sun/",
+    "sun-elevation-condition": "/conditions/sun/",
+    "sunsetsunrise-condition": "/conditions/sun/",
+    "zone-condition": "/conditions/zone/",
+    "zone-conditions": "/conditions/zone/",
+    "disabling-a-condition": "/docs/automation/condition/#disabling-a-condition"
+  };
+  var key = window.location.hash.slice(1);
+  if (Object.prototype.hasOwnProperty.call(moved, key)) {
+    window.location.replace(moved[key]);
+  }
+})();
+</script>
+
+<script>
 (function () {
   var searchEl = document.getElementById('search');
   var categories = document.querySelectorAll('.tf-category');

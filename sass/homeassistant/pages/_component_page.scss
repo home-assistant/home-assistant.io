@@ -472,3 +472,14 @@ a.option-card:hover {
     opacity: 0;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .wwha-device-list {
+    margin-left: 1.2rem;
+  }
+}
+
+.wwha-device-hub {
+  font-size: 1rem;
+  margin-left: 1.2rem;
+}

@@ -3,8 +3,8 @@ title: "Adding a custom sentence to trigger an automation"
 related:
   - docs: /voice_control/aliases/
     title: Create aliases
-  - docs: /docs/scripts/#respond-to-a-conversation
-    title: Conversation response script action
+  - docs: /actions/set_conversation_response/
+    title: Set conversation response action
   - docs: /docs/automation/trigger/#sentence-trigger
     title: Sentence triggers
   - docs: /docs/automation/trigger/#sentence-wildcards
@@ -55,7 +55,7 @@ This is the easiest method to get started with custom sentences for automations.
       ```
 
 
-   - For more details, refer to [conversation response script action](/docs/scripts/#respond-to-a-conversation).
+   - For more details, refer to the [**Set conversation response**](/actions/set_conversation_response/) action.
  
 6. To test the automation, go to **Overview** and in the top right corner, open Assist.
    - Enter one of the sentences.

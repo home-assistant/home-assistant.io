@@ -24,7 +24,7 @@ The **System monitor** {% term integration %} allows you to monitor disk usage, 
 
 {% note %}
 
-All entities are disabled by default, you need to [enable the entities](/common-tasks/general/#enabling-or-disabling-entities) that you wish to use.
+All entities are disabled by default, you need to [enable the entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) that you wish to use.
 
 All sensors are also marked as diagnostic and won't be automatically added to automatic dashboards.
 

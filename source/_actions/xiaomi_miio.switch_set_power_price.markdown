@@ -7,7 +7,7 @@ related_actions:
   - xiaomi_miio.switch_set_power_mode
 ---
 
-The **Switch set power price** action stores a power price on a Xiaomi power strip. The power strip uses this value to calculate energy cost.
+The **Xiaomi Home: Switch set power price** action stores a power price on a Xiaomi power strip. The power strip uses this value to calculate energy cost.
 
 {% include actions/ui_header.md %}
 

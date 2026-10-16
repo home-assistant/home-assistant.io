@@ -9,7 +9,7 @@ related_actions:
   - blink.save_recent_clips
 ---
 
-The **Record** action asks a Blink camera to record a new video clip.
+The **Blink: Record** action asks a Blink camera to record a new video clip.
 
 This is handy when you want to capture a clip from an automation or a script, for example when motion is detected somewhere else in your home.
 
@@ -22,7 +22,7 @@ To record a clip from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Blink camera you want to record with.
-6. From the actions shown for that target, select **Blink: Record**.
+6. From the actions shown for that target, under **Blink**, select **Record**.
 7. Select **Save**.
 
 This action has no additional options in the UI.

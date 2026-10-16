@@ -1,5 +1,5 @@
 ---
-title: "Append sheet"
+title: "Append data to Google sheet"
 action: google_sheets.append_sheet
 domain: google_sheets
 description: "Adds rows of data to a Google Sheets document."
@@ -17,7 +17,7 @@ To append data from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Google Sheets: Append sheet**.
+5. From the search box, search for and select **Google Sheets: Append data to Google sheet**.
 6. Under **Integration**, select the **Sheet** you want to add to.
 7. Optionally, set the **Worksheet** and whether to add a **Created** column.
 8. Set the **Data** to append.

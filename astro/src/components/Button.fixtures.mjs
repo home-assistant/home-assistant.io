@@ -27,7 +27,6 @@ export default {
   description:
     "Call-to-action pill in five color schemes, fill or outline, with an " +
     "optional arrow. Mobile size below 480px.",
-  wide: true,
   variants: schemes.flatMap((scheme) => [
     { name: scheme, rows: grid({ scheme }) },
     {

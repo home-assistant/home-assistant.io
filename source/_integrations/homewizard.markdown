@@ -229,7 +229,7 @@ It may happen that you can't find your devices or they won't show up in the inte
     
 ## I can't find entities like voltage, current, or battery group charging strategy
 
-Some entities are disabled by default. You can enable them in the integration setup. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities) documentation for more information.
+Some entities are disabled by default. You can enable them in the integration setup. See the [enabling or disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) documentation for more information.
 
 ## Removing the integration
 

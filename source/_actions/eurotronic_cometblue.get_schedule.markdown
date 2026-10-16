@@ -8,7 +8,7 @@ related_actions:
   - eurotronic_cometblue.set_schedule
 ---
 
-The **Get schedule** action retrieves the current schedule from a Eurotronic Comet Blue thermostat.
+The **Eurotronic Comet Blue: Get schedule** action retrieves the current schedule from a Eurotronic Comet Blue thermostat.
 
 During the times when the schedule is active, the device will automatically try to reach the **Comfort** preset. When inactive, the **Eco** preset is used.
 

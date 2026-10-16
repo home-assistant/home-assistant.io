@@ -382,9 +382,11 @@ layout: null
 /getting-started/installation-virtualenv /docs/installation/virtualenv
 /getting-started/installation-raspberry-pi /docs/installation/raspberry-pi
 /getting-started/scripts /docs/scripts
-/getting-started/scripts-service-calls /docs/scripts/perform-actions/
-/docs/scripts/service-calls /docs/scripts/perform-actions/
-/getting-started/scripts-conditions /docs/scripts/conditions
+/getting-started/scripts-service-calls /docs/automation/action/
+/docs/scripts/service-calls /docs/automation/action/
+/docs/scripts/perform-actions /docs/automation/action/
+/getting-started/scripts-conditions /conditions/
+/docs/scripts/conditions /conditions/
 /getting-started/securing /docs/configuration/securing
 /getting-started/updating /common-tasks/os
 /getting-started/yaml /docs/configuration/yaml

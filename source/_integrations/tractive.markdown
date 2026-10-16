@@ -82,6 +82,10 @@ The **Tractive** integration provides the following entities for each pet regist
 The switches are unavailable while the tracker is in a power saving zone.
 {% endnote %}
 
+## Data updates
+
+The **Tractive** integration receives push updates from the Tractive API. When the integration starts, it fetches the current state of your trackers and pets once. After that, the Tractive API sends state changes, such as a new location, battery level, or activity data, to Home Assistant as they happen, so the entities update in near real time without {% term polling %}.
+
 ## Known limitations
 
 - The integration requires a Tractive Premium subscription.

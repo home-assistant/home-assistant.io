@@ -1,5 +1,5 @@
 ---
-title: "Profiler: Stop log object sources"
+title: "Stop logging object sources"
 action: profiler.stop_log_object_sources
 domain: profiler
 description: "Stops logging the growth of objects with sources in memory."
@@ -9,7 +9,7 @@ related_actions:
   - profiler.dump_log_objects
 ---
 
-Use this action to stop logging the growth of objects with sources in memory that you started with [Profiler: Start log object sources](/actions/profiler.start_log_object_sources/).
+Use this action to stop logging the growth of objects with sources in memory that you started with [Start logging object sources](/actions/profiler.start_log_object_sources/).
 
 This action requires an administrator account.
 
@@ -21,7 +21,7 @@ To stop logging object sources from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Profiler: Stop log object sources**.
+5. Search for and select **Profiler: Stop logging object sources**.
 6. Select **Save**.
 
 {% include actions/yaml_header.md %}

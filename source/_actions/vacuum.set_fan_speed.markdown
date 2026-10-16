@@ -1,5 +1,5 @@
 ---
-title: Set fan speed
+title: "Set vacuum cleaner fan speed"
 action: vacuum.set_fan_speed
 domain: vacuum
 description: "Sets the fan/power level for cleaning."
@@ -62,8 +62,8 @@ Before the weekday cleaning run starts, this automation sets the vacuum to a str
 
 - **Trigger**: Time: 09:00
 - **Action**: Set fan speed
-- **Target**: Main vacuum
-- **Fan speed**: turbo
+  - **Target**: Main vacuum
+  - **Fan speed**: turbo
 
 {% details "YAML example for increasing vacuum suction before cleaning" %}
 
