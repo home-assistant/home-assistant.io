@@ -1,6 +1,6 @@
 ---
 title: SenseCAP
-description: Monitor SenseCAP temperature, humidity, and light sensors over LoRaWAN.
+description: Monitor SenseCAP temperature, humidity, carbon dioxide, and light sensors over LoRaWAN.
 ha_category:
   - Environment
   - Sensor
@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The **SenseCAP** {% term integration %} adds [Seeed Studio SenseCAP](https://www.seeedstudio.com/SenseCAP-c-1825.html) sensors from your [LoRaWAN](/integrations/lorawan/) connections. Use their readings to monitor a greenhouse or trigger automations when temperature, humidity, or light levels cross a threshold.
+The **SenseCAP** {% term integration %} adds [Seeed Studio SenseCAP](https://www.seeedstudio.com/SenseCAP-c-1825.html) sensors from your [LoRaWAN](/integrations/lorawan/) connections. Use their readings to monitor a greenhouse or trigger automations when temperature, humidity, carbon dioxide, or light levels cross a threshold.
 
 ## Supported devices
 
@@ -24,6 +24,7 @@ The **SenseCAP** {% term integration %} adds [Seeed Studio SenseCAP](https://www
 | --- | --- |
 | S2101 | Temperature (°C), relative humidity (%), battery (%) |
 | S2102 | Illuminance (lx), battery (%) |
+| S2103 | Temperature (°C), relative humidity (%), carbon dioxide (ppm), battery (%) |
 
 Other SenseCAP models are not supported by this integration.
 
@@ -31,9 +32,9 @@ Other SenseCAP models are not supported by this integration.
 
 Set up a LoRaWAN connection integration, such as [ChirpStack](/integrations/chirpstack/), and select the applications containing your sensors. Devices must have a recognized SenseCAP manufacturer and model identity in the backend's device catalog.
 
-The connection must be available and expose at least one S2101 or S2102 before you can add SenseCAP.
+The connection must be available and expose at least one S2101, S2102, or S2103 before you can add SenseCAP.
 
-For ChirpStack, use the global device profile for the S2101 or S2102. A custom profile without the corresponding catalog identity cannot be identified automatically.
+For ChirpStack, use the global device profile for the S2101, S2102, or S2103. A custom profile without the corresponding catalog identity cannot be identified automatically.
 
 {% include integrations/config_flow.md %}
 
@@ -51,7 +52,7 @@ Devices added to or removed from a connected application are added to or removed
 
 ### A sensor does not appear
 
-Check that the device is an S2101 or S2102, belongs to a selected application, and uses a recognized catalog identity. Confirm the SenseCAP integration in **{% my integrations title="Settings > Devices & services" %}**.
+Check that the device is an S2101, S2102, or S2103, belongs to a selected application, and uses a recognized catalog identity. Confirm the SenseCAP integration in **{% my integrations title="Settings > Devices & services" %}**.
 
 ### Readings are unknown or unavailable
 
