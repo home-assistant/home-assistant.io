@@ -154,6 +154,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 - [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
 - [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
+- [RGBICWW Ceiling Light](https://www.switch-bot.com/products/switchbot-rgbicww-ceiling-light)
 - RGBICWW Light Bars
 - [Permanent Outdoor Light](https://www.switch-bot.com/products/switchbot-permanent-outdoor-light)
 - [Candle Warmer Lamp](https://www.switch-bot.com/products/switchbot-candle-warmer-lamp)
@@ -669,6 +670,25 @@ Features:
 - turn on or off
 - change brightness
 - change color temperature
+- change color
+- set effect
+
+#### RGBICWW Ceiling Light
+
+This is an encrypted device. To set it up, follow [Adding encrypted SwitchBot devices](#adding-encrypted-switchbot-devices).
+
+It exposes two light entities that you can control independently. You can turn on either one on its own or use both at the same time.
+
+Main light (warm white) features:
+
+- turn on or off
+- change brightness
+- change color temperature
+
+Color light (RGB) features:
+
+- turn on or off
+- change brightness
 - change color
 - set effect
 
