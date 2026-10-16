@@ -43,7 +43,7 @@ Infrared receiver:
 Supported modes:
   description: "The operating modes your air conditioner supports. Select at least one of **Cool**, **Heat**, **Dry**, **Fan only**, and **Auto**. Check your remote or the manual of your unit to see which modes it has. Not all Gree models support heat. Selecting a mode your unit does not have breaks nothing. Your air conditioner simply does not respond to it."
 Remote model:
-  description: "The remote profile to use. **Generic Gree** matches existing setups. **YAP1F / YAP1FB** matches Cooper&Hunter units with a YAP1F or YAP1FB remote and enables extra options. You can only choose this during setup. To change it later, delete the device and add it again."
+  description: "The remote profile to use. **Generic Gree** matches existing setups. **YAP1F / YAP1FB** matches Cooper&Hunter units with a YAP1F or YAP1FB remote and enables extra options. Choose the profile during setup. To change it later, select **Reconfigure** for the device."
 Expose Generic remote options:
   description: "Show Turbo, Display light, Health ionizer, and X-Fan for the Generic profile. Sleep, Fresh air, and Timer are always shown."
 {% endconfiguration_basic %}
