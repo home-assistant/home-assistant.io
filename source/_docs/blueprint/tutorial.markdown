@@ -7,7 +7,7 @@ related:
   - docs: /docs/configuration/yaml/
   - docs: /docs/automation/yaml/
     title: "YAML used in automations"
-  - docs: /docs/scripts/
+  - docs: /docs/script/
     title: Scripts
   - docs: /docs/blueprint/selectors/
     title: Blueprint selectors
@@ -32,7 +32,7 @@ In this tutorial, we're going to create an automation blueprint that controls a 
 - This tutorial assumes knowledge in the following topics:
   - [Editing the configuration file](/docs/configuration/)
   - [YAML](/docs/configuration/yaml/), and specifically, [YAML used in automations](/docs/automation/yaml/)
-  - [Scripts](/docs/scripts/)
+  - [Scripts](/docs/script/)
 
 ### Creating an automation
 

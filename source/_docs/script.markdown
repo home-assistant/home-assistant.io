@@ -4,15 +4,15 @@ description: "A script is a saved list of steps that Home Assistant runs when yo
 related:
   - docs: /integrations/script/
     title: Scripts integration
-  - docs: /docs/scripts/
-    title: Building blocks and actions
+  - docs: /docs/automation/building-blocks/
+    title: Building blocks
   - docs: /docs/automation/which-tool-to-use/
     title: Which tool to use
 ---
 
 A {% term script %} is a saved list of steps that Home Assistant runs when you start it. For example, a "Good morning" script can turn on the lights, start the coffee machine, and read out the weather. Unlike an {% term automation %}, a script has no triggers, and no conditions that are checked before it starts. It runs its steps as soon as you start it: from a dashboard, with Assist, from an automation, or from another script. If a script should only continue in certain situations, it can check a condition as one of its steps, with the [**Condition**](/building-blocks/condition/) building block.
 
-The steps of a script are the same actions and building blocks you use in automations. For all steps you can use, refer to [Building blocks and actions](/docs/scripts/). For the script entity, scripts in YAML, and the actions that start or stop scripts, refer to the [Scripts integration](/integrations/script/).
+The steps of a script are the same actions and building blocks you use in automations. For how the steps run, refer to [Building blocks](/docs/automation/building-blocks/). For all actions, refer to the [list of actions](/actions/). For the script entity, scripts in YAML, and the actions that start or stop scripts, refer to the [Scripts integration](/integrations/script/).
 
 ## When to use a script
 

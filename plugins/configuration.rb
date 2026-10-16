@@ -1,7 +1,7 @@
 module Jekyll
   class ConfigurationBlock < Liquid::Block
     TYPE_LINKS = {
-      'action'       => '/docs/scripts/',
+      'action'       => '/docs/automation/building-blocks/',
       'device_class' => '/integrations/homeassistant/#device-class',
       'template'     => '/docs/configuration/templating/',
       'icon'         => '/integrations/homeassistant/#icon',
