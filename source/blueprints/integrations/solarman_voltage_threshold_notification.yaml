@@ -1,5 +1,5 @@
 blueprint:
-  name: "SOLARMAN voltage threshold notification"
+  name: "Solarman voltage threshold notification"
   description: >
     Create a Home Assistant persistent notification when a SOLARMAN voltage
     sensor stays above your threshold for 5 minutes. This is not a safety alarm.
