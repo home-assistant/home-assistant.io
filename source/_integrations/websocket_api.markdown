@@ -22,7 +22,7 @@ The **Home Assistant WebSocket API** {% term integration %} set up a WebSocket A
 websocket_api:
 ```
 
-For details to use the WebSocket API, please refer to the [WebSocket API documentation](https://developers.home-assistant.io/docs/api/websocket) .
+For details to use the WebSocket API, please refer to the [WebSocket API documentation](https://contributors.home-assistant.io/core/internals/websocket-api/) .
 
 ## Track current connections
 

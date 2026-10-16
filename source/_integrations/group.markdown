@@ -361,7 +361,7 @@ device_class:
   type: string
   required: false
 state_class:
-  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](https://developers.home-assistant.io/docs/core/entity/sensor/#available-state-classes).
+  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](https://contributors.home-assistant.io/core/entities/sensor/#state-classes).
   type: string
   required: false
 {% endconfiguration %}

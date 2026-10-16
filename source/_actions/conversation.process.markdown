@@ -85,7 +85,7 @@ conversation_id:
 
 ## Response data
 
-When you store the result in a response variable, this action returns the conversation agent's response, including the spoken reply and the result of the intent. The response has the same structure as the [`/api/conversation/process` API](https://developers.home-assistant.io/docs/intent_conversation_api#conversation-response).
+When you store the result in a response variable, this action returns the conversation agent's response, including the spoken reply and the result of the intent. The response has the same structure as the [`/api/conversation/process` API](https://contributors.home-assistant.io/core/internals/conversation-api/#the-response).
 
 The reply text is then available as `{{ agent_response.response.speech.plain.speech }}`. The automation below shows how to capture this reply and send it back to a chat.
 

@@ -72,12 +72,12 @@ module Jekyll
           if attr['type'].kind_of? Array
             attr['type'].each do |type|
               raise ArgumentError, "Configuration type '#{type}' for key '#{key}' is not a valid type in the documentation."\
-              " See: https://developers.home-assistant.io/docs/documenting/create-page#configuration" unless \
+              " See: https://contributors.home-assistant.io/writing/reference/integration-page/#the-configuration-block" unless \
                 TYPES.include? type
             end
           else
             raise ArgumentError, "Configuration type '#{attr['type']}' for key '#{key}' is not a valid type in the documentation."\
-            " See: https://developers.home-assistant.io/docs/documenting/create-page#configuration" unless \
+            " See: https://contributors.home-assistant.io/writing/reference/integration-page/#the-configuration-block" unless \
               TYPES.include? attr['type']
           end
 
