@@ -70,10 +70,35 @@ trigger: |
 output: "True (fires when the washing machine power drops between 0 and 5 W)"
 {% endexample %}
 
-{% note %}
-<a id="limited-templates"></a>
-**Limited templates.** Some trigger types, and the `trigger_variables` section of an automation, only support a reduced set of template features. This is called a "limited template". Most of Home Assistant's state-reading functions (like `states()`, `state_attr()`, and the area/device/label helpers) are not available there. If a template works in the editor but fails in a trigger configuration, the limited-template scope is a likely cause. Check the specific trigger's documentation for the details.
-{% endnote %}
+## Limited templates
+
+A few fields only accept limited templates. Home Assistant renders most of them when it sets up an automation, before anything has happened. A limited template can't read the current state of your home, even when it's rendered later. Use limited templates to fill in values that are known in advance, such as blueprint inputs.
+
+### Fields that use limited templates
+
+- In automations, the [`trigger_variables`](/docs/automation/trigger/#trigger-variables) section, and the `enabled` option of triggers
+- In automations and scripts, the `enabled` option of conditions and of other steps
+- These trigger options:
+  - [Event trigger](/triggers/event/): `event_type`, `event_data`, and `context`
+  - [MQTT trigger](/triggers/mqtt/): `topic`
+  - [Time trigger](/triggers/time/): `at`
+  - [Webhook trigger](/docs/automation/trigger/#webhook-trigger): `webhook_id`
+
+Home Assistant renders the trigger options, `trigger_variables`, the `enabled` option of triggers, and the `enabled` option of conditions in **And if** once, when it sets up the automation. For a condition inside the steps, it renders `enabled` the first time the condition is checked. The automation keeps these results until you reload it. When you turn the automation off and on again, Home Assistant renders the trigger options, `trigger_variables`, and the `enabled` option of triggers again. The `enabled` option of other steps is rendered each time the step runs.
+
+In trigger options, `trigger_variables`, and the `enabled` option of triggers, you can use the values from `trigger_variables` and [`this`](/docs/automation/templating/#available-state-data). The `trigger` variable isn't available, because nothing has triggered yet. The `enabled` option of conditions and other steps can't use any variables. Use a fixed value or a blueprint input there.
+
+### What limited templates can't use
+
+Limited templates support everything else, such as math, text and list filters, and `if` statements. These functions aren't available:
+
+- Functions that read the state of entities, such as `states`, `is_state`, `state_attr`, `has_value`, and `expand`
+- Functions that use the current date or time, such as `now`, `utcnow`, `today_at`, `relative_time`, `time_since`, and `time_until`
+- Some area, floor, label, device, and entity functions, such as `area_name`, `device_attr`, `floor_name`, `label_name`, and `entity_name`
+- The location functions `distance` and `closest`
+- The hash and encoding functions `md5`, `sha1`, `sha256`, `sha512`, `base64_encode`, and `base64_decode`
+
+Each [template function](/template-functions/) page shows whether the function is available in limited templates. If you use one that isn't, the template fails with an error. For how to fix it, refer to [Use of 'states' is not supported in limited templates](/docs/templating/errors/#templateerror-use-of-states-is-not-supported-in-limited-templates).
 
 ## Template entities
 

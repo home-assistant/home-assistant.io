@@ -346,12 +346,7 @@ The log shows the error `TemplateError: Use of 'states' is not supported in limi
 
 #### Description
 
-The template runs in a place that only supports [limited templates](/docs/templating/where-to-use/#limited-templates), such as `trigger_variables`, some trigger options, or the `enabled` option of a trigger, condition, or action. These functions aren't available there:
-
-- Functions that read the state of entities, like `states`, `state_attr`, or `is_state`
-- Functions that use the current date or time, like `now`, `utcnow`, `today_at`, or `relative_time`
-- Some area, floor, label, device, and entity functions, like `area_name`, `device_attr`, or `entity_name`
-- `md5`, the `sha` functions, and `base64_encode` and `base64_decode`
+The template runs in a place that only supports [limited templates](/docs/templating/where-to-use/#limited-templates), such as `trigger_variables`, some trigger options, or the `enabled` option of a trigger, condition, or action. For the functions that aren't available there, refer to [What limited templates can't use](/docs/templating/where-to-use/#what-limited-templates-cant-use).
 
 People most often run into this with `now()` in `trigger_variables`.
 

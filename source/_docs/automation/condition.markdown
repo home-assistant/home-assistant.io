@@ -53,7 +53,7 @@ You can also check a condition between the actions under **Then do**:
 
 To try an automation without one of its conditions, disable the condition instead of deleting it. In the editor, in the **Menu** {% icon "mdi:dots-vertical" %} of the condition, select **Disable**. For details, refer to [Turning off a trigger, condition, or action](/docs/automation/editor/#turning-off-a-trigger-condition-or-action).
 
-A disabled condition is skipped, as if it isn't there. In YAML, add `enabled: false` to the condition. `enabled` can also be a limited template or a blueprint input. For conditions in the **And if** section, Home Assistant checks the value once, when the automation loads.
+A disabled condition is skipped, as if it isn't there. In YAML, add `enabled: false` to the condition. `enabled` can also be a [limited template](/docs/templating/where-to-use/#limited-templates) or a blueprint input. For conditions in the **And if** section, Home Assistant checks the value once, when the automation loads.
 
 ## Testing conditions
 
