@@ -1,7 +1,7 @@
 ---
 title: Solyx Energy Cloud
 description: Monitor and control your Solyx Energy devices within Home Assistant
-ha_release: 2026.10
+ha_release: 2026.11
 ha_category: Energy
 ha_platforms:
   - sensor
@@ -90,7 +90,7 @@ The integration uses a cloud connection; therefore, full local control is not po
 
 #### Authentication error
 
-Verify that you have copied the correct credentials and device ID from the Solyx Energy app. To re-authenticate, go to {% my integration domain="solyx_energy_cloud" title="**Settings** > **Devices & services** > **Solyx Energy Cloud**" %} and select **Re-authenticate**.
+Verify that you have copied the correct credentials and device ID from the Solyx Energy app. To re-authenticate, remove the integration and set it up again.
 
 #### Couldn't retrieve device data due to a communication error
 
