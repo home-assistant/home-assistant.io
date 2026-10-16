@@ -32,9 +32,10 @@ The **LIFX** {% term integration %} controls [LIFX](https://www.lifx.com) lights
 
 - Keep your lights responding when your internet connection is down, because Home Assistant talks to them directly over your local network instead of through the LIFX cloud.
 - Use a light as a notification. Pulse the living room lights when the doorbell rings or the washing machine finishes, which reaches people that a spoken announcement does not.
-- Wake up to a sunrise, or wind down to a sunset, by starting the Sky effect on a LIFX Ceiling on a schedule.
-- Paint a theme across a Beam or a Z so a whole run of zones changes together, instead of setting one color across the entire light.
-- Run a LIFX Clean cycle in a bathroom while the house is empty, and stop it automatically when someone comes home.
+- Wake up to a sunrise, or wind down to a sunset, by scheduling the Sky effect on any LIFX light that runs it.
+- Light a room softly at night with only the uplight of a LIFX Ceiling or the backlight of a LIFX Mirror. Switch on the other component when you need more light.
+- Paint a theme onto a group of lights, so each light shows one of its colors. On a light with many zones, such as a Beam or a Tile, the theme spreads across the zones.
+- Run an HEV cycle on a LIFX Clean light overnight, for example from 2 AM to 4 AM, while nobody is using the room.
 
 ## Supported devices
 
@@ -44,7 +45,8 @@ The integration supports every LIFX light. Which features you get depends on wha
 - **Color lights**, such as the LIFX Color, Mini, GU10, BR30, PAR38, and Downlight, add full color control.
 - **Multizone lights** have a line of individually controlled zones.
 - **Matrix lights** have a grid of individually controlled zones.
-- **LIFX Clean** lights add an HEV cycle, and **LIFX Nightvision** lights add infrared LEDs.
+- **LIFX Clean** lights add HEV LEDs. HEV stands for [high-energy visible light](https://www.lifx.com/pages/an-informational-guide-to-hev-disinfection). LIFX has [tested it](https://support.lifx.com/hc/en-us/articles/14509275849623-Using-antibacterial-HEV-on-your-LIFX-Clean) to eliminate over 90% of S. aureus and E. coli bacteria on surfaces, depending on the distance and time. Running these LEDs for a set time is called an HEV cycle, or a Clean cycle.
+- **LIFX Nightvision** lights add infrared LEDs.
 
 {% note %}
 Several lights are sold in more than one version. The Candle and the Downlight, for example, each come in a color version and a color temperature only version, and only some versions of the Candle have a grid of zones. Home Assistant asks the light what it supports, so you only see the controls it can actually use.
@@ -93,7 +95,26 @@ The **LIFX** integration provides the following entities.
 - **Light**
   - **Description**: Controls the power, brightness, color, and effects of the light. The entity uses the device name.
   - **Available for**: all LIFX lights
-  - **Remarks**: Color, color temperature, and transition support depend on the model.
+  - **Remarks**: Color, color temperature, and transition support depend on the model. A multizone or matrix light shows a single color, the average of all its zones. Home Assistant cannot show the color of each zone.
+
+- **Uplight** and **Downlight**
+  - **Description**: Control the two components of a LIFX Ceiling. The uplight shines onto the ceiling, and the downlight lights the room.
+  - **Available for**: LIFX Ceiling lights
+  - **Remarks**: Disabled by default. Refer to [Ceiling and Mirror components](#ceiling-and-mirror-components).
+
+- **Front** and **Back**
+  - **Description**: Control the two components of a LIFX Mirror. The front light is a ring around the mirror glass that faces into the room. The backlight glows onto the wall behind the mirror.
+  - **Available for**: LIFX Mirror lights
+  - **Remarks**: Disabled by default. Refer to [Ceiling and Mirror components](#ceiling-and-mirror-components).
+
+#### Ceiling and Mirror components
+
+By default, the LIFX Ceiling and LIFX Mirror each show as a single light. Each also has two components that you can enable and control separately. The main light entity always controls the whole light. Enabling or disabling one component's light entity does the same to the other. Home Assistant needs to know the state of each component when it controls the other, for example to decide whether turning one off should power off the whole light. Disabling the main light entity also disables its components, and enabling a component also enables the main light entity.
+
+- Turning off one component leaves the other as is. If one component is off and the other is turned off, the main light entity will be powered off instead.
+- Home Assistant tries to turn a component back on with the color and brightness it had when it was turned off, even after a restart. This is not always possible. If the color was changed in the LIFX app in the meantime, the component turns on with the new color. If Home Assistant does not know the brightness, it uses the brightness of the other component. If that is not possible, it sets the component to 80% brightness.
+- We recommend turning components on and off using Home Assistant because it saves the component's color and brightness when it turns the component off. This makes it more likely that the component turns back on the way it was.
+- A component cannot run effects. Start effects on the main light entity, which runs them across the whole light.
 
 ### Buttons
 
@@ -144,10 +165,8 @@ Which effects a light offers depends on its type:
 - White lights: Pulse and Stop.
 - Color lights: Color loop, Pulse, and Stop.
 - Multizone lights, such as the LIFX Z, Beam, and Neon Flex: Color loop, Move, Pulse, and Stop.
-- Matrix lights, such as the LIFX Tile, Candle, Path, and Tube: Color loop, Flame, Morph, Pulse, and Stop.
-- LIFX Ceiling: everything a matrix light offers, plus Sky.
-
-The LIFX Luna, Mirror, E26 Candle, and E26 Tube also run the Sky effect, but it is not offered in the **Effect** option yet. On those lights, use the [**Sky effect**](/actions/lifx.effect_sky/) action instead.
+- Matrix lights, such as the LIFX Ceiling, Tile, Candle, Path, and Tube: Color loop, Flame, Morph, Pulse, and Stop, plus Sky on lights running firmware 4 or later.
+- LIFX Mirror: everything a matrix light offers, plus [Color sweep](/actions/lifx.effect_colorsweep/). The LIFX app offers this effect as **Makeup Check**, the default action of the Mirror's **FX** button.
 
 The LIFX smartphone app splits the Sky effect into three separate effects, **Clouds**, **Sunrise**, and **Sunset**. In Home Assistant, they are one action with a **Sky type** option.
 
@@ -176,7 +195,7 @@ Firmware effects can be started and stopped whether the light is on or off. By d
 
 ### Themes
 
-The integration includes 157 predefined themes. Every category except Library matches a category in the LIFX app and holds the same themes. The Library themes are extras that the LIFX app does not have.
+The integration includes 369 predefined themes. Every category except Library matches a category in the LIFX app and holds the same themes. The Library themes are extras that the LIFX app does not have.
 
 Themes can be painted onto any LIFX light with the [**Paint theme**](/actions/lifx.paint_theme/) action. A multizone or matrix light spreads the theme across its zones, and a light with a single zone takes one color from the theme at random.
 
@@ -186,13 +205,14 @@ The following themes are available:
 
 | Category | Themes |
 | --- | --- |
-| Moods | `blissful`, `cheerful`, `dream`, `energising`, `gentle`, `mellow`, `peaceful`, `powerful`, `pride`, `romance`, `soothing`, `tranquil`, `warming` |
-| Nature | `aurora`, `beach`, `clouds`, `coral_reef`, `forrest`, `ocean`, `outback`, `storm_front` |
-| Holidays | `calaveras`, `canada_day`, `christmas`, `diwali`, `festive`, `halloween`, `hanukkah`, `independence`, `kwanzaa`, `memorial_day`, `oktoberfest`, `ramadan`, `st_patricks_day`, `thanksgiving`, `valentines` |
+| Moods | `blissful`, `cheerful`, `dream`, `energizing`, `focus`, `gentle`, `mellow`, `peaceful`, `powerful`, `pride`, `romance`, `sleepy`, `soothing`, `tranquil`, `warming` |
+| Nature | `aurora`, `beach`, `clouds`, `coral_reef`, `forrest`, `ocean`, `outback`, `storm_front`, `summer_dusk` |
+| Holidays | `calaveras`, `canada_day`, `christmas`, `diwali`, `festive`, `fireworks_finale`, `halloween`, `hanukkah`, `independence`, `kwanzaa`, `memorial_day`, `oktoberfest`, `ramadan`, `st_patricks_day`, `thanksgiving`, `valentines` |
 | Music | `classic_rock`, `classical`, `dance_pop`, `disco`, `funk`, `garage_rock`, `hip_hop_rap`, `indie_pop`, `jazz`, `lo_fi`, `pop`, `psychedelic_rock`, `punk`, `synthwave` |
 | Space | `earth`, `jupiter`, `mars`, `mercury`, `moon`, `neptune`, `pluto`, `saturn`, `sun`, `uranus`, `venus` |
 | Play | `exciting`, `fantasy`, `party`, `sci_fi`, `spacey`, `stardust`, `zombie` |
-| Art Series | `bijutsukai`, `gauguin`, `hokusai`, `kandinsky`, `klimt`, `matisse`, `mondrian`, `monet`, `rousseau`, `van_gogh` |
+| Art Series | `bijutsukai`, `gauguin`, `hokusai`, `kandinsky`, `klimt`, `marc`, `matisse`, `mondrian`, `monet`, `munch`, `rousseau`, `van_gogh`, `vermeer` |
+| Worldly | `afghanistan`, `albania`, `algeria`, `andorra`, `angola`, `antigua_and_barbuda`, `argentina`, `armenia`, `australia`, `austria`, `azerbaijan`, `bahamas`, `bahrain`, `bangladesh`, `barbados`, `belarus`, `belgium`, `belize`, `benin`, `bhutan`, `bolivia`, `bosnia_and_herzegovina`, `botswana`, `brazil`, `brunei`, `bulgaria`, `burkina_faso`, `burundi`, `cabo_verde`, `cambodia`, `cameroon`, `canada`, `central_african_republic`, `chad`, `chile`, `china`, `colombia`, `comoros`, `costa_rica`, `cote_divoire`, `croatia`, `cuba`, `curacao`, `cyprus`, `czechia`, `denmark`, `djibouti`, `dominica`, `dominican_republic`, `dr_congo`, `ecuador`, `egypt`, `el_salvador`, `england`, `equatorial_guinea`, `eritrea`, `estonia`, `eswatini`, `ethiopia`, `european_union`, `fiji`, `finland`, `france`, `gabon`, `gambia`, `georgia`, `germany`, `ghana`, `greece`, `grenada`, `guatemala`, `guinea`, `guinea_bissau`, `guyana`, `haiti`, `honduras`, `hong_kong`, `hungary`, `iceland`, `india`, `indonesia`, `iran`, `iraq`, `israel`, `italy`, `jamaica`, `japan`, `jordan`, `kazakhstan`, `kenya`, `kiribati`, `kosovo`, `kuwait`, `kyrgyzstan`, `laos`, `latvia`, `lebanon`, `lesotho`, `liberia`, `libya`, `liechtenstein`, `lithuania`, `luxembourg`, `madagascar`, `malawi`, `malaysia`, `maldives`, `mali`, `malta`, `marshall_islands`, `mauritania`, `mauritius`, `mexico`, `micronesia`, `moldova`, `monaco`, `mongolia`, `montenegro`, `morocco`, `mozambique`, `myanmar`, `namibia`, `nauru`, `nepal`, `netherlands`, `new_zealand`, `nicaragua`, `niger`, `nigeria`, `north_korea`, `north_macedonia`, `northern_ireland`, `norway`, `oman`, `pakistan`, `palau`, `palestine`, `panama`, `papua_new_guinea`, `paraguay`, `peru`, `philippines`, `poland`, `portugal`, `puerto_rico`, `qatar`, `republic_of_ireland`, `republic_of_the_congo`, `romania`, `russia`, `rwanda`, `saint_kitts_and_nevis`, `saint_lucia`, `saint_vincent_and_the_grenadines`, `samoa`, `san_marino`, `sao_tome_and_principe`, `saudi_arabia`, `scotland`, `senegal`, `serbia`, `seychelles`, `sierra_leone`, `singapore`, `slovakia`, `slovenia`, `solomon_islands`, `somalia`, `south_africa`, `south_korea`, `south_sudan`, `spain`, `sri_lanka`, `sudan`, `suriname`, `sweden`, `switzerland`, `syria`, `taiwan`, `tajikistan`, `tanzania`, `thailand`, `timor_leste`, `togo`, `tonga`, `trinidad_and_tobago`, `tunisia`, `turkiye`, `turkmenistan`, `tuvalu`, `uganda`, `ukraine`, `united_arab_emirates`, `united_kingdom`, `uruguay`, `usa`, `uzbekistan`, `vanuatu`, `vatican_city`, `venezuela`, `vietnam`, `wales`, `yemen`, `zambia`, `zimbabwe` |
 | Archives | `arlington`, `autumn_table`, `baubles`, `be_my_valentine`, `bedroom_glow_up`, `blood_moon`, `bloodlust`, `book_of_the_dead`, `candy_cane`, `candy_cane_twist`, `cranberry_harvest`, `crystal_twist`, `deck_the_halls`, `dinner_for_two`, `eternal`, `extraterrestrial`, `fall`, `fright_night`, `ghostly`, `gold_star`, `graveyard_chill`, `haunted_fog`, `leprechaun_treasure`, `lucky_shamrock`, `menorah`, `midnight_shadows`, `mistletoe`, `molly_malone`, `movie_night_romance`, `old_glory`, `parade`, `paranormal`, `pine_glow`, `poppy`, `pumpkin_glow`, `pumpkin_party`, `pumpkin_spice`, `redrum`, `sage_and_cedar`, `santas_candy`, `santas_workshop`, `scream_queen`, `self_care_sanctuary`, `slasher`, `snake_banisher`, `snowflake`, `spiders_lair`, `taps`, `the_tricolour`, `toxic_cauldron`, `turkey_dinner`, `vampires_den`, `warm_ember`, `whats_the_craic`, `wheat_glow`, `winter_night`, `winter_wonderland`, `witchs_ritual`, `witchy`, `zombie_apocalypse` |
 | Library | `arctic`, `autumn`, `bias_lighting`, `cherry_blossom`, `cyberpunk`, `deep_sea`, `desert`, `epic`, `evening`, `galaxy`, `hygge`, `neon`, `relaxing`, `serene`, `sports`, `spring`, `tropical`, `vaporwave`, `water` |
 
@@ -201,7 +221,7 @@ Some themes have been renamed or retired to match the LIFX app. The old names st
 | Theme | Use instead |
 | --- | --- |
 | `aurora_borealis` | `aurora` |
-| `energizing` | `energising` |
+| `energising` | `energizing` |
 | `fire` | `warm_ember` |
 | `focusing` | `gentle` |
 | `forest` | `forrest` |
@@ -231,28 +251,7 @@ Pulse the living room lights a few times so you notice the doorbell even if the 
 
 Use the blueprint to pick the sensor, the lights, and the flash color without writing any YAML.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/lifx_pulse_on_state_change.yaml" %}
-
-{% details "YAML example for flashing the lights on a doorbell press" %}
-
-{% example %}
-automation: |
-  alias: "Flash the living room lights on a doorbell press"
-  triggers:
-    - trigger: state
-      entity_id: binary_sensor.doorbell
-      to: "on"
-  actions:
-    - action: lifx.effect_pulse
-      target:
-        entity_id: light.living_room
-      data:
-        mode: breathe
-        color_name: "white"
-        cycles: 3
-{% endexample %}
-
-{% enddetails %}
+{% blueprint_example blueprint="lifx/pulse_on_state_change.yaml" %}
 
 ### Automation: Show a sky scene on the ceiling light in the evening
 
@@ -264,64 +263,19 @@ Start the Sky effect on a LIFX Ceiling light at sunset, using the slow sunset sc
 
 Use the blueprint to choose the lights, the sky type, the speed, and how long after sunset the effect starts.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/lifx_sky_effect_at_sunset.yaml" %}
+{% blueprint_example blueprint="lifx/sky_effect_at_sunset.yaml" %}
 
-{% details "YAML example for a sky scene in the evening" %}
+### Automation: Run an HEV cycle overnight
 
-{% example %}
-automation: |
-  alias: "Sky scene on the bedroom ceiling in the evening"
-  triggers:
-    - trigger: sun
-      event: sunset
-  actions:
-    - action: lifx.effect_sky
-      target:
-        entity_id: light.bedroom_ceiling
-      data:
-        sky_type: Sunset
-        speed: 120
-{% endexample %}
+Start a two-hour HEV cycle on a LIFX Clean light at 2 AM every night. The example runs from 2 AM to 4 AM, when rooms are most likely to be empty. If your schedule is different, adjust the start time. We strongly recommend running each cycle for at least two continuous hours.
 
-{% enddetails %}
-
-### Automation: Run a clean cycle when everyone leaves
-
-Start a two-hour HEV cycle on a LIFX Clean light once the last person leaves home, so the room is cleaned while nobody is in it.
-
-- **Trigger**: Zone: Person leaves home
-- **Condition**: Nobody is home
+- **Trigger**: Time: 02:00
 - **Action**: Set HEV cycle state
   - **Target**: Bathroom (`light.bathroom`)
 
-Use the blueprint to choose the zone to watch, the LIFX Clean lights, and how long the cycle runs.
+Use the blueprint to choose the start time, the LIFX Clean lights, and how long the cycle runs.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/lifx_clean_cycle_when_empty.yaml" %}
-
-{% details "YAML example for running a clean cycle when everyone leaves" %}
-
-{% example %}
-automation: |
-  alias: "Run a LIFX clean cycle when everyone leaves"
-  triggers:
-    - trigger: zone
-      entity_id: person.jane_doe
-      zone: zone.home
-      event: leave
-  conditions:
-    - condition: numeric_state
-      entity_id: zone.home
-      below: 1
-  actions:
-    - action: lifx.set_hev_cycle_state
-      target:
-        entity_id: light.bathroom
-      data:
-        power: true
-        duration: 7200
-{% endexample %}
-
-{% enddetails %}
+{% blueprint_example blueprint="lifx/clean_cycle_overnight.yaml" %}
 
 ## Data updates
 
@@ -337,7 +291,15 @@ Older versions of the integration could add every LIFX light under one shared **
 
 ### Sky effect
 
-The Sky effect needs a matrix light running firmware 4 or later. In the **Effect** option of the light, it is only offered on the LIFX Ceiling. On the Luna, Mirror, E26 Candle, and E26 Tube, start it with the [**Sky effect**](/actions/lifx.effect_sky/) action instead.
+The Sky effect needs a matrix light running firmware 4 or later. It is not offered on matrix lights still on firmware 3, such as the E12 Candle.
+
+### Effects on Ceiling and Mirror components
+
+The component entities of a LIFX Ceiling or Mirror cannot run effects. Start effects on the main light entity instead, which runs them across the whole light. For more details, refer to [Ceiling and Mirror components](#ceiling-and-mirror-components).
+
+### Individual zones on matrix lights
+
+Home Assistant cannot set the color of individual zones on a matrix light, such as a Tile, Ceiling, or Mirror. The **Zones** option of the [**Set state**](/actions/lifx.set_state/) action only works on multizone lights. To show several colors on a matrix light, use the [**Paint theme**](/actions/lifx.paint_theme/) action or an effect.
 
 ### HomeKit Accessory Protocol
 

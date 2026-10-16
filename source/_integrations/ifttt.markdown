@@ -78,7 +78,7 @@ ifttt:
 
 ### Testing your trigger
 
-You can use **Tools** to test your [Webhooks](https://ifttt.com/maker_webhooks) trigger. To do this, go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}. Select `IFTTT: Trigger` as the action and fill in the following values:
+You can use **Tools** to test your [Webhooks](https://ifttt.com/maker_webhooks) trigger. To do this, go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}. Select `IFTTT: Trigger` as the action and fill in the following values:
 
 {% configuration_basic %}
 event:
@@ -159,3 +159,67 @@ ifttt_notify:
     - action: ifttt.trigger
       data: {"event":"TestHA_Trigger", "value1":"{{ value1 }}", "value2":"{{ value2 }}", "value3":"{{ value3 }}"}
 ```
+
+{% include integrations/actions.md %}
+
+## IFTTT automation examples
+
+With the IFTTT trigger action, anything that happens in Home Assistant can start an IFTTT applet.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: tell IFTTT when Home Assistant starts
+
+Send an event to IFTTT every time Home Assistant starts. In IFTTT, an applet with the **Webhooks** trigger for the `home_assistant_started` event can then send you a notification.
+
+- **Trigger**: Home Assistant
+  - **Event**: Start
+- **Action**: Trigger
+  - **Event**: `home_assistant_started`
+  - **Value 1**: `Home Assistant is up and running`
+
+{% details "YAML example for telling IFTTT when Home Assistant starts" %}
+
+{% example %}
+automation: |
+  alias: "Tell IFTTT when Home Assistant starts"
+  triggers:
+    - trigger: homeassistant
+      event: start
+  actions:
+    - action: ifttt.trigger
+      data:
+        event: home_assistant_started
+        value1: "Home Assistant is up and running"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: tell IFTTT when the front door opens
+
+Send an event to IFTTT when the front door opens, for example to log it in a spreadsheet with an IFTTT applet.
+
+- **Trigger**: State changed
+  - **Entity**: Front door (`binary_sensor.front_door`)
+  - **To**: Open
+- **Action**: IFTTT: Trigger
+  - **Event**: `front_door_opened`
+  - **Value 1**: `Front door`
+
+{% details "YAML example for telling IFTTT when the front door opens" %}
+
+{% example %}
+automation: |
+  alias: "Tell IFTTT when the front door opens"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.front_door
+      to: "on"
+  actions:
+    - action: ifttt.trigger
+      data:
+        event: front_door_opened
+        value1: "Front door"
+{% endexample %}
+
+{% enddetails %}

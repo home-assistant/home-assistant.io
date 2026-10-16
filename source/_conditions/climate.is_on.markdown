@@ -77,7 +77,7 @@ behavior:
 
 When the outdoor temperature drops below 18°C, increase the target temperature to help warm up faster, but only if the heating is already running. Prevents the automation from adjusting the thermostat if someone deliberately left it off.
 
-- **Trigger**: Numeric state: Temperature below 18°C
+- **Trigger**: Numeric state crossed threshold: Temperature below 18°C
 - **Condition**: Thermostat is on
   - **Target**: Living room thermostat
 - **Action**: Set thermostat target temperature

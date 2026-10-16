@@ -16,7 +16,7 @@ This page covers a few common situations where Home Assistant doesn't behave as 
 
 ## Home Assistant went into recovery mode
 
-### Symptom: Home Assistant is in recovery mode
+### Symptom
 
 Your dashboard shows a **Recovery mode activated** card instead of your usual cards.
 

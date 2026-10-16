@@ -117,6 +117,12 @@ If you run Home Assistant in a container, you can run a Docker image of the [Mat
 
 Each Matter network is called a fabric. Each home automation controller that controls Matter devices has its own "fabric". You can add devices directly to the fabric of your Home Assistant instance, or share them from another fabric (for example from Google or Apple) to Home Assistant's fabric. We're going to explore all these options below.
 
+The following diagram provides an overview of the steps involved in adding a Matter device, depending on whether your device is new or already in use on another platform, and whether it uses Wi-Fi or Thread.
+
+<object type="image/svg+xml" data="/images/integrations/matter/matter-add-device-overview.svg" width="800" style="max-width: 100%; height: auto;" aria-label="Workflow for adding a Matter device">
+  <img src="/images/integrations/matter/matter-add-device-overview.png" alt="Workflow for adding a Matter device: prepare Home Assistant, then either share a device that is already in use, or check the logos on the device, prepare your phone, and add the device with the Android or iOS Companion app. Thread devices need a Thread border router.">
+</object>
+
 Note: The section below mentions third-party Thread border routers such as the Nest Hub (2nd Gen) or the HomePod Mini. This doesn’t mean you have to add your devices to these ecosystems. Home Assistant only uses them to access the Thread radio network. The communication between the Home Assistant Matter controller and your Matter devices is encrypted. The Thread border router passes the data along. It cannot read its content.
 
 ### Prerequisites

@@ -1,9 +1,9 @@
 ---
 title: HETA
-description: Connect and control your HETA pellet stove using the Fumis integration
+description: Connect and control your HETA devices using the Fumis integration
 ha_category:
   - Climate
-ha_release: '2026.10'
+ha_release: 2026.5
 ha_domain: heta
 ha_integration_type: virtual
 ha_supporting_domain: fumis

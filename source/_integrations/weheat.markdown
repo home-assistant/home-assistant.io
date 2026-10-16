@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: weheat
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
 ha_integration_type: hub
 ---

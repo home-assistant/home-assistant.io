@@ -88,6 +88,10 @@ card:
 
 ## Conditions options
 
+You can use conditions about the person viewing the dashboard and their device, such as **User**, **Screen**, **Location**, and **Time**. You can also use the same conditions as in automations, such as **Entity state**, **Entity numeric state**, **Template**, **Sun**, **Zone**, and **Device**.
+
+When you add or change an **Entity state** or **Entity numeric state** condition in the UI, it is saved in the same format as in automations, with `entity_id` instead of `entity`. The format described in this section keeps working.
+
 ### State
 
 Tests if an entity has a specified state.
@@ -200,25 +204,81 @@ users:
 
 ### Location
 
-Specify the visibility of the card based on the current user's current location. The location is based on the state of the `person` entity associated with the current user. If the current user does not have a `person` entity, this condition will always resolve to false.
+Specify the visibility of the card based on the current user's location. The location is based on the `person` entity associated with the current user. If the current user does not have a `person` entity, this condition will always resolve to false.
+
+Select zones directly, or by label, area, or floor. By default, the card is visible when the person is in any of the selected zones. This matches against the `in_zones` attribute of the `person` entity, which lists every zone the person is in, including passive zones and zones that contain a smaller zone. Set `match_mode: active_zone` to only match the zone shown as the person's state instead. Some older device trackers don't report the zones a person is in, other than Home. For those, both match modes compare the person's state with the names of the selected zones. Set `away: true` to also show the card when the person is away (state `not_home`). Passive zones don't change the person's state, so a person who is only in passive zones is away.
+
+In the dashboard editor, the **Location** condition has the following options.
+
+{% options_ui %}
+Zones:
+  description: The zones to match. You can select zones directly, or by label, area, or floor.
+  required: false
+Match:
+  description: "How the zones are matched. **Any zone they are in** is true when the person is in any of the selected zones, including passive zones. **Zone shown as their state** is true only when one of the selected zones is shown as the person's state, so passive zones never match. Default: **Any zone they are in**."
+  required: false
+Away:
+  description: "Also show the card when the person is away, including when they are only in passive zones. Default: off."
+  required: false
+{% endoptions_ui %}
+
+In YAML, these options are `target`, `match_mode`, and `away`.
 
 ```yaml
 condition: location
-locations:
-  - home
-  - Home Neighborhood
+target:
+  label_id: grocery_stores
+away: true
 ```
 
+In this example, the card is shown when you're in any zone with the `grocery_stores` label, or when you're away.
 {% configuration %}
 condition:
   required: true
   description: "`location`"
   type: string
+target:
+  required: false
+  description: The zones to match. You can select zones directly, or by label, area, or floor.
+  type: map
+  keys:
+    entity_id:
+      required: false
+      description: One or more zone entity IDs, such as `zone.home`.
+      type: [string, list]
+    label_id:
+      required: false
+      description: One or more label IDs. Every zone with one of these labels is matched.
+      type: [string, list]
+    area_id:
+      required: false
+      description: One or more area IDs. Every zone in one of these areas is matched.
+      type: [string, list]
+    floor_id:
+      required: false
+      description: One or more floor IDs. Every zone in an area on one of these floors is matched.
+      type: [string, list]
+match_mode:
+  required: false
+  description: "How the zones are matched. `any_zone` is true when the person is in any of the zones, including passive zones. `active_zone` is true only when one of the zones is shown as the person's state, which is the smallest non-passive zone they are in, so passive zones never match."
+  type: string
+  default: any_zone
+away:
+  required: false
+  description: Also show the card when the person is away (state `not_home`), including when they are only in passive zones.
+  type: boolean
+  default: false
 locations:
-  required: true
-  description: A list of zones, which if any match the current state of the `person`, will cause this condition to be true.
+  required: false
+  description: "Older format: a list of zone names, which if any match the current state of the `person`, will cause this condition to be true. Use `home` for the Home zone and `not_home` for away."
   type: list
 {% endconfiguration %}
+
+At least one of `target`, `away: true`, or `locations` must be used for this condition to be valid. `target` and `away` can be combined; the condition is true if either matches. `locations` can be combined with `away`, but not with `target` or `match_mode`.
+
+Conditions using `locations` keep working. When you open one in the dashboard editor, the editor shows it as zones with **Zone shown as their state** selected, so it matches the same way as before. Each zone name is shown as every zone with that name, `home` as the Home zone, and `not_home` as **Away**. Names that match no zone are kept and shown as not found, so you can remove them.
+
+Opening the condition does not change your configuration. It keeps using `locations` until you change something in it. When you do, it is saved as `target` with `match_mode: active_zone`.
 
 ### Time
 
@@ -256,6 +316,22 @@ weekdays:
 {% endconfiguration %}
 
 At least one of `after` or `before` must be used for this condition to be valid. Both can be used together to define a time range as in the example above.
+
+### Template
+
+Tests if a template renders `true`. This condition works the same way as the [Template condition](/docs/scripts/conditions/#template-condition) in automations and uses the same options.
+
+### Sun
+
+Tests the position of the sun, for example, whether it is after sunset. This condition works the same way as the [Sun conditions](/docs/scripts/conditions/#sun-conditions) in automations and uses the same options.
+
+### Zone
+
+Tests if a person or device tracker is in a zone. This condition works the same way as the [Zone conditions](/docs/scripts/conditions/#zone-conditions) in automations and uses the same options.
+
+### Device
+
+Tests a condition that a device provides, for example, whether a light is on. This condition works the same way as the [Device conditions](/docs/scripts/conditions/#device-conditions) in automations. Set it up in the UI, because the options depend on the device.
 
 ### And
 

@@ -56,7 +56,7 @@ If you want to add cameras from [Surveillance Station](https://www.synology.com/
 
 If you want to use a shared folder from the [File Station](https://www.synology.com/en-us/dsm/feature/file_sharing) as {% term backup %} location, the user needs application permission for [File Station](https://www.synology.com/en-us/dsm/feature/file_sharing) and read/write permissions on the specific [shared folder](https://kb.synology.com/en-us/DSM/help/DSM/AdminCenter/file_share_desc).
 
-### If you utilize 2-Step Verification or Two Factor Authentication (2FA) with your Synology NAS
+### Two-step verification or two-factor authentication
 
 If you have the "Enforce 2-step verification for the following users" option checked under **Control Panel > Security > Account > 2-Factor Authentication**, you'll need to configure the 2-step verification/one-time password (OTP) for the user you just created before the credentials for this user will work with Home Assistant.
 
@@ -80,15 +80,13 @@ Don't manually delete or rename the files in the backup path on the NAS. This co
 
 ### Example
 
-Assume there is a shared folder called `HA Backup`, with two directories in it `productive_instance` and `test_instance`.
-
-<img src="/images/integrations/synology_dsm/synology_file_station.png" />
+Assume there is a shared folder called `HA Backup`, with two directories in it: `production_instance` and `test_instance`.
 
 #### Use an existing path
 
 1. Select `HA Backup` as shared folder.
-2. Define `productive_instance` as backup path (_without trailing slash_).
-    - **Result**: The existing `productive_instance` will be used as backup location.
+2. Define `production_instance` as backup path (_without trailing slash_).
+    - **Result**: The existing `production_instance` will be used as backup location.
 
 #### Use a non-existing path
 

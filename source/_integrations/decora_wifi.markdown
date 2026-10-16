@@ -11,7 +11,6 @@ ha_platforms:
 ha_integration_type: hub
 ha_config_flow: true
 ha_quality_scale: legacy
-ha_config_flow: true
 ---
 
 The **Leviton Decora Wi-Fi** {% term integration %} connects your [Leviton Decora Smart Wi-Fi](https://leviton.com/products/residential/smart-home/smart-switches) dimmers and switches to Home Assistant via the MyLeviton API.

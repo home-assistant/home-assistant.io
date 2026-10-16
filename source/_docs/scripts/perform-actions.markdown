@@ -10,7 +10,7 @@ The configuration options to perform action are the same between all integration
 Examples on this page will be given as part of an automation integration configuration but different approaches can be used for other integrations too.
 
 {% tip %}
-Use the **Actions** tab under {% my developer_services title="**Settings** > **Tools** > **Actions**" %} to discover available actions.
+Use the **Actions** tab under {% my tools_actions title="**Settings** > **Tools** > **Actions**" %} to discover available actions.
 {% endtip %}
 
 ### The basics
@@ -28,7 +28,7 @@ target:
 Instead of targeting an entity, you can also target an {% term area %} or {% term device %}. Or a combination of these.
 This is done with the `target` key.
 
-A `target` is a map that contains at least one of the following: `area_id`, `device_id`, `entity_id`.
+A `target` is a map that contains at least one of the following: `entity_id`, `device_id`, `area_id`, `floor_id`, or `label_id`.
 Each of these can be a list. The values should be lower-cased.
 
 The following example uses a single action to turn on the lights in the
@@ -56,37 +56,34 @@ target:
   entity_id: light.living_room
 data:
   brightness: 120
-  rgb_color: [255, 0, 0]
+  rgb_color:
+    - 255
+    - 0
+    - 0
 ```
 
-A full list of the parameters for an action can be found on the documentation page of each integration, in the same way as it's done for the `light.turn_on` [action](/actions/light.turn_on/).
+Each action has its own page with all its options, for example, [Turn on light](/actions/light.turn_on/). For all actions, refer to the [list of available actions](/actions/).
 
 ### Use templates to decide which action to perform
 
-You can use [templating] support to dynamically choose which action to perform. For example, you can perform a certain action based on if a light is on.
+You can use [templating] support to dynamically choose which action to perform. For example, you can turn a switch on or off based on the temperature.
 
 
 ```yaml
 action: >
-  {% if states('sensor.temperature') | float > 15 %}
+  {% if states('sensor.temperature') | float(15) > 15 %}
     switch.turn_on
   {% else %}
     switch.turn_off
   {% endif %}
-entity_id: switch.ac
+target:
+  entity_id: switch.ac
 ```
 
 
-### Using the Actions developer tool
+### Testing an action in Tools
 
-You can use the **Actions** developer tool to test data to pass in an action.
-For example, you may test turning a [light group](/integrations/group/) on or off.
-
-To turn a light group on or off, pass the following info:
-
-- Domain: `homeassistant`
-- Action: `turn_on`
-- Action data: `{ "entity_id": "light.kitchen" }`
+To try an action and its data before you use it in an automation or a script, use the **Actions** tab in {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}. For the steps, refer to the [Actions tab](/docs/tools/dev-tools/#actions-tab).
 
 ### Use templates to determine the attributes
 
@@ -94,13 +91,13 @@ Templates can also be used for the data that you pass to the action.
 
 
 ```yaml
-action: thermostat.set_temperature
+action: climate.set_temperature
 target:
   entity_id: >
     {% if is_state('device_tracker.paulus', 'home') %}
-      thermostat.upstairs
+      climate.upstairs
     {% else %}
-      thermostat.downstairs
+      climate.downstairs
     {% endif %}
 data:
   temperature: "{{ 22 - distance(states.device_tracker.paulus) }}"
@@ -113,7 +110,7 @@ You can use a template returning a native dictionary as well, which is useful if
 ```yaml
 action: climate.set_temperature
 data: >
-  {% if states('sensor.temperature_living') < 19 %}
+  {% if states('sensor.temperature_living') | float(19) < 19 %}
     {"hvac_mode": "heat", "temperature": 19 }
   {% else %}
     {"hvac_mode": "auto" }
@@ -169,17 +166,17 @@ data:
 
 ### `homeassistant` actions
 
-There are four `homeassistant` actions that aren't tied to any single domain, these are:
+The `homeassistant` integration provides four actions that work on entities of any domain:
 
-- `homeassistant.turn_on` - Turns on an entity (that supports being turned on), such as an `automation` or `switch`.
-- `homeassistant.turn_off` - Turns off an entity (that supports being turned off), such as an `automation` or `switch`.
-- `homeassistant.toggle` - Turns off an entity that is on, or turns on an entity that is off (that supports being turned on and off)
-- `homeassistant.update_entity` - Request the update of an entity, rather than waiting for the next scheduled update, for example [Google travel time] sensor, a [template sensor], or a [light]
+- `homeassistant.turn_on`: Turns on an entity (that supports being turned on), such as an `automation` or `switch`.
+- `homeassistant.turn_off`: Turns off an entity (that supports being turned off), such as an `automation` or `switch`.
+- `homeassistant.toggle`: Turns off an entity that is on, or turns on an entity that is off (that supports being turned on and off).
+- `homeassistant.update_entity`: Requests the update of an entity, rather than waiting for the next scheduled update, for example, a [Google travel time] sensor, a [template sensor], or a [light].
 
-Complete action details and examples can be found on the [Home Assistant integration][homeassistant-integration-actions] page.
+The `homeassistant` integration also provides other actions, for example, to restart Home Assistant or to reload parts of the configuration. For all of them, with details and examples, refer to the [Home Assistant integration][homeassistant-integration-actions] page.
 
 [templating]: /docs/templating/
 [google travel time]: /integrations/google_travel_time/
 [template sensor]: /integrations/template/
 [light]: /integrations/light/
-[homeassistant-integration-actions]: /integrations/homeassistant#actions
+[homeassistant-integration-actions]: /integrations/homeassistant/#list-of-actions
