@@ -20,25 +20,24 @@ The **Water heater** {% term integration %} lets you monitor and control hot wat
 
 {% endwarning %}
 
-## The state of a water heater entity
+## Water heater states
 
-A water heater entity state reflects the current operation of the device. Common states include:
+The state of a water heater entity is its current operation mode. Home Assistant knows the following operation modes. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
 
-- **On**: The water heater is on.
-- **Off**: The water heater is off.
-- **Eco**: Energy efficient mode, provides energy savings and fast heating.
-- **Electric**: Electric only mode. This mode uses the most energy.
-- **Performance**: High performance mode.
-- **High demand**: Meet high demands when the water heater is undersized.
-- **Heat pump**: Heat pump is the slowest to heat, but it uses less energy.
-- **Gas**: Gas only mode. This mode uses the most energy.
+- **Off** (`off`): The water heater is off.
+- **Eco** (`eco`): Energy efficient mode, provides energy savings and fast heating.
+- **Electric** (`electric`): Electric only mode. This mode uses the most energy.
+- **Performance** (`performance`): High performance mode.
+- **High demand** (`high_demand`): Meet high demands when the water heater is undersized.
+- **Heat pump** (`heat_pump`): Heat pump is the slowest to heat, but it uses less energy.
+- **Gas** (`gas`): Gas only mode.
 
-The exact states depend on the platform and the water heater model.
+Integrations can also report other operation modes, such as `on`. The exact states depend on the integration and the water heater model.
 
 In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 {% include integrations/triggers.md %}
 
@@ -84,7 +83,7 @@ automation: |
 
 When everybody leaves home, enable away mode only if the target temperature is already below your normal daytime setting.
 
-- **Trigger**: State: Person changes to not_home
+- **Trigger**: State changed: Person changes to not_home
 - **Condition**: Water heater target temperature
   - **Target**: Utility room water heater
   - **Threshold type**: Below (50°C)

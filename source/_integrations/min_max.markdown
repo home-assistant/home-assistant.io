@@ -76,3 +76,5 @@ unique_id:
   required: false
   type: string
 {% endconfiguration %}
+
+{% include integrations/actions.md %}

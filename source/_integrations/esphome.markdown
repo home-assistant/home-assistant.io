@@ -16,6 +16,7 @@ ha_codeowners:
   - '@jesserockz'
   - '@kbx81'
   - '@bdraco'
+  - '@arturpragacz'
 ha_domain: esphome
 ha_zeroconf: true
 ha_platforms:
@@ -31,12 +32,10 @@ ha_platforms:
   - diagnostics
   - event
   - fan
-  - infrared
   - light
   - lock
   - media_player
   - number
-  - radio_frequency
   - select
   - sensor
   - switch

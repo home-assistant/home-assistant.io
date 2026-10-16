@@ -87,7 +87,7 @@ for:
 
 When you tell the alarm to arm, this automation checks whether any of your door and window sensors are reporting a low battery. If one is, it sends a notification so you can decide whether to replace it before arming.
 
-- **Trigger**: State: Alarm panel changes to "arming"
+- **Trigger**: State changed: Alarm panel changes to "arming"
 - **Condition**: Battery is low
   - **Target**: Door and window sensor batteries
   - **Condition passes if**: Any

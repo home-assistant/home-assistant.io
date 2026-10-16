@@ -19,13 +19,24 @@ related:
 ha_quality_scale: legacy
 ---
 
-The **SAJ Solar Inverter** {% term integration %} will poll a [SAJ](https://www.saj-electric.com/) solar inverter and present the values as sensors in Home Assistant.
+The **SAJ Solar Inverter** {% term integration %} polls a [SAJ](https://www.saj-electric.com/) solar inverter through its local web interface and presents the values as sensors in Home Assistant.
 
-This sensor uses the web interface and to use it, you have to be able to connect to the solar inverter from your favorite web browser.
-Not all inverters appear to support the local interface.
+Before you start, make sure you can open the inverter's local web interface in a browser on your network. Not every SAJ connection module provides a local web interface.
 
-There is a difference between inverters that are connected via an Ethernet module and those connected via a Wi-Fi module.
-The Wi-Fi module requires a username and password for authentication where the Ethernet module does not.
+There is a difference between inverters that are connected via an Ethernet module and those connected via a Wi-Fi module. The Wi-Fi module requires a username and password for authentication where the Ethernet module does not.
+
+## Supported devices
+
+The following connection modules are known to work with this integration when they expose a local web interface:
+
+- Ethernet connection modules
+- Older Wi-Fi modules such as WiFi-D and OLED
+
+## Unsupported devices
+
+The following connection modules are not supported by this integration:
+
+- **AIO3**. This module does not expose the local web interface required by this integration.
 
 ## Configuration
 
@@ -85,3 +96,5 @@ The diagnostic sensors are:
 This integration does not support automatic discovery. Set it up manually by entering the inverter IP address or hostname.
 
 For Wi-Fi connections, ensure you're using the correct credentials.
+
+If setup fails because Home Assistant cannot reach the inverter, confirm that you can open the inverter's local web interface in a browser. If there is no local web interface (for example with an AIO3 module), this integration cannot connect. See [Unsupported devices](#unsupported-devices).

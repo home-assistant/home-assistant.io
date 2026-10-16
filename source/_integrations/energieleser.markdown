@@ -7,7 +7,7 @@ ha_category:
   - Sensor
 ha_codeowners:
   - '@AjinkyaGokhale'
-  - '@amitkio'
+  - '@NiccoFink'
 ha_quality_scale: platinum
 ha_domain: energieleser
 ha_integration_type: device

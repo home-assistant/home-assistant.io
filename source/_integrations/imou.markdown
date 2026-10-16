@@ -2,11 +2,13 @@
 title: Imou
 description: Integrate Imou smart devices into Home Assistant.
 ha_category:
+  - Alarm
   - Binary sensor
   - Button
   - Camera
   - Select
   - Sensor
+  - Siren
   - Switch
 ha_iot_class: Cloud Polling
 ha_release: 2026.7
@@ -16,11 +18,14 @@ ha_domain: imou
 ha_codeowners:
   - '@Imou-OpenPlatform'
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - button
   - camera
+  - diagnostics
   - select
   - sensor
+  - siren
   - switch
 ha_integration_type: hub
 ha_quality_scale: silver
@@ -28,7 +33,7 @@ ha_quality_scale: silver
 
 The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically.
 
-Channel devices expose **Live view SD** and **Live view HD** camera entities. Depending on what the cloud API reports for each device, the integration also creates button, switch, select, binary sensor, and sensor entities. See [Supported functionality](#supported-functionality) for the full list.
+Channel devices expose **Live view SD** and **Live view HD** camera entities. Depending on what the cloud API reports for each device, the integration also creates alarm control panel, button, switch, siren, select, binary sensor, and sensor entities. See [Supported functionality](#supported-functionality) for the full list.
 
 ## Supported devices
 
@@ -69,6 +74,18 @@ When adding the integration, select **Server region** to match your Open Platfor
 
 These regions correspond to the API endpoints used by the integration.
 
+### Updating credentials and server region
+
+After setup, you can change the **App secret** and **Server region** without removing the integration:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select the **Imou** integration, then **Configure**.
+3. Enter the updated **App secret** and choose the correct **Server region**.
+
+Home Assistant validates the credentials against the Imou Open Platform before saving the changes.
+
+If the platform rejects your App ID or App secret during normal operation, Home Assistant prompts you to **Reauthenticate** instead. Use that flow when only the App secret changed and you are fixing an authentication error.
+
 ## API usage
 
 Imou Open Platform API usage limits apply to your App ID:
@@ -83,10 +100,10 @@ Imou Open Platform API usage limits apply to your App ID:
 
 Each device channel with a camera feed exposes two camera entities:
 
-- **Live view SD**: Standard-definition cloud live stream.
-- **Live view HD**: High-definition cloud live stream.
+- **Live view SD**: Standard-definition cloud live stream (enabled by default).
+- **Live view HD**: High-definition cloud live stream (disabled by default; enable it in the entity settings if you need HD).
 
-Both are enabled by default. You can view a still image or start a live stream when the device is online.
+You can view a still image or start a live stream when the device is online.
 
 ### Buttons
 
@@ -99,7 +116,9 @@ The integration exposes button entities when the cloud API reports that the acti
 
 ### Switches
 
-When the cloud API reports that the toggle is supported for a device, the integration exposes the following switch entities:
+When the cloud API reports that the toggle is supported for a device, the integration exposes switch entities.
+
+Primary controls:
 
 - **Abnormal sound alarm**: Toggle abnormal sound detection alarms.
 - **Audio recording**: Toggle audio recording on supported cameras.
@@ -109,6 +128,31 @@ When the cloud API reports that the toggle is supported for a device, the integr
 - **Plug switch**: Control the main power relay on supported IoT socket devices.
 - **Privacy mode**: Enable privacy mode that closes or disables the camera lens on supported models.
 - **White light**: Manually toggle the camera white LED illuminator on supported models.
+
+Device settings (**Configuration** category):
+
+- **Alarm-linked siren**: Link the device siren to alarm events on supported models.
+- **Alarm-linked white light**: Link the white light to alarm events on supported models.
+- **Flip image**: Flip the camera image vertically on supported models.
+- **Pet detection**: Toggle pet detection on supported cameras.
+- **Prompt sound**: Toggle prompt sounds on supported models.
+- **Smart tracking**: Toggle smart tracking on supported cameras.
+- **Wide dynamic range**: Toggle wide dynamic range on supported cameras.
+
+### Siren
+
+On supported cameras and gateways, the integration exposes a **Siren** entity when the cloud API reports that the siren can be started or stopped.
+
+- **Turn on** sounds the siren.
+- **Turn off** stops the siren.
+
+The cloud API doesn't report whether the siren is sounding. The state is **Unknown** until you turn the siren on or off. If the device supports both commands, the state then shows the last command you sent. This might not match the device, for example, when the siren stops by itself. Because Home Assistant can't read the real state, the dashboard shows separate on and off buttons instead of a toggle.
+
+**Alarm-linked siren** is a separate switch. It only links the siren to alarm events.
+
+### Alarm control panel
+
+On supported gateways and hubs, the integration exposes an alarm control panel entity named after the device. In the UI, use **Arm home**, **Arm away**, and **Disarm** when the cloud API reports those actions for the device. The entity state shows armed home, armed away, or disarmed accordingly.
 
 ### Selects
 
@@ -159,7 +203,7 @@ This integration communicates with Imou cloud services. Device control commands 
 
 Verify that **App ID**, **App secret**, and **Server region** match your Imou Open Platform application and account region.
 
-If you changed the **App secret**, Home Assistant will ask you to reauthenticate the Imou integration. Enter the new **App secret**; you do not need to remove the integration.
+If you changed the **App secret**, Home Assistant may ask you to reauthenticate the Imou integration. Enter the new **App secret**; you do not need to remove the integration. You can also update the **App secret** and **Server region** at any time from **Configure** (see [Updating credentials and server region](#updating-credentials-and-server-region)).
 
 ### API quota is used quickly
 
@@ -186,6 +230,14 @@ Binary sensors are unavailable when a device is offline or no longer on your acc
 Most sensors are unavailable when a device is offline or no longer on your account. Ensure the device has power and network connectivity and appears online in the Imou app.
 
 The **Status** sensor is an exception: it stays available when the device is offline and reports `offline` instead of becoming unavailable.
+
+### A siren is unavailable
+
+The siren is unavailable when the device is offline or no longer on your account. Ensure the device appears online in the Imou app.
+
+### An alarm control panel is unavailable
+
+The alarm control panel is unavailable when the device is offline or no longer on your account. Ensure the gateway or hub appears online in the Imou app.
 
 ## Removing the integration
 

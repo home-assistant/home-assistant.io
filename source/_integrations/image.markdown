@@ -15,13 +15,13 @@ The **Image** {% term integration %} allows other integrations to display a stat
 
 {% include integrations/building_block_integration.md %}
 
-## The state of an image entity
+## Image states
 
-The state of an image entity is a timestamp, showing the date and time when the image was last changed.
+The {% term state %} of an image entity is a timestamp showing the date and time when the image was last changed, for example, `2026-01-01T12:00:00.123456+00:00`. The Home Assistant interface shows it in your local date and time format.
 
-In addition, the entity can have the following states:
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 {% include integrations/actions.md %}
