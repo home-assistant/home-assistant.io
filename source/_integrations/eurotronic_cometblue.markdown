@@ -30,10 +30,10 @@ You can use this integration to read thermostat status, adjust temperatures, and
 
 You can also combine your thermostats with other Home Assistant entities to automate heating around your routine. For example, you can:
 
-- Adjust daily heating schedules based on calendar events or outdoor temperatures, such as starting heating earlier on colder days, and restore your regular schedule when those conditions no longer apply
-- Select the **Comfort** preset when a device tracker detects that you have returned home early, rather than waiting for the next scheduled heating period
-- Synchronize the thermostat's clock after a daylight saving time change to keep heating schedules aligned with local time
-- Compare the thermostat's temperature reading with a separate room sensor to help adjust the **Setpoint offset**, since the thermostat measures temperature at the radiator
+- Adjust daily heating schedules based on calendar events or outdoor temperatures, such as starting heating earlier on colder days, and restore your regular schedule when those conditions no longer apply.
+- Select the **Comfort** preset when a device tracker detects that you have returned home early, rather than waiting for the next scheduled heating period.
+- Synchronize the thermostat's clock after a daylight saving time change to keep heating schedules aligned with local time.
+- Compare the thermostat's temperature reading with a separate room sensor to help adjust the **Setpoint offset**, since the thermostat measures temperature at the radiator.
 
 ## Supported devices
 
