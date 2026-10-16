@@ -21,7 +21,7 @@ Before you enable the debug console, be aware that:
 - People who ask you to run or paste code in the console may be trying to take over your Home Assistant or steal your data.
 - Code runs with the same access as Home Assistant itself. It can read and change everything, including your configuration, passwords, and tokens.
 - There are no safety checks. Code can change or delete data, and blocking code freezes Home Assistant until it finishes.
-- On beta and stable versions, everything that runs in the console is written to the Home Assistant log.
+- Everything that runs in the console is written to the Home Assistant log.
 
 Never run code you do not understand yourself.
 {% endwarning %}
@@ -32,9 +32,7 @@ Never run code you do not understand yourself.
 
 ## Configuration
 
-On development and nightly versions of Home Assistant, the debug console is enabled automatically.
-
-On beta and stable versions, you enable it by adding the following to your {% term "`configuration.yaml`" %} file, and restarting Home Assistant afterwards:
+To enable the debug console, add the following to your {% term "`configuration.yaml`" %} file, and restart Home Assistant afterwards:
 
 ```yaml
 # Example configuration.yaml entry
@@ -43,15 +41,7 @@ debug_console:
 
 The debug console can only be enabled this way, not from the Home Assistant user interface. That way, code running in your web browser, like a custom card, cannot enable it for you.
 
-{% configuration %}
-enabled:
-  description: Set to `false` to disable the debug console, also on development and nightly versions.
-  required: false
-  type: boolean
-  default: true
-{% endconfiguration %}
-
-On beta and stable versions, each administrator also sees a warning the first time they open the console. The warning explains the risks, and you can only continue after reading it for a few seconds and confirming that you understand them. Everything that runs in the console is written to the Home Assistant log, together with who ran it.
+Each administrator also sees a warning the first time they open the console. The warning explains the risks, and you can only continue after reading it for a few seconds and confirming that you understand them. Everything that runs in the console is written to the Home Assistant log, together with who ran it.
 
 ## Supported functionality
 
@@ -94,11 +84,6 @@ await hass.services.async_call(
 
 ## Disabling the debug console
 
-To disable the debug console on beta and stable versions, remove `debug_console:` from your {% term "`configuration.yaml`" %} file, and restart Home Assistant. On development and nightly versions, add the following instead:
-
-```yaml
-debug_console:
-  enabled: false
-```
+To disable the debug console, remove `debug_console:` from your {% term "`configuration.yaml`" %} file, and restart Home Assistant.
 
 Disabling the debug console does not remove what stays behind elsewhere: the code you ran before is kept in your web browser, so you can go back to it with the arrow keys, and the Home Assistant log keeps what was logged.
