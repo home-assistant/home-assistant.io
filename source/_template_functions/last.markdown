@@ -55,20 +55,21 @@ value:
 
 {% include template_functions/more_examples.md %}
 
-### Get the entity with the highest temperature
+### Get the highest temperature
 
-Sort temperature sensors in ascending order and pick the last (highest) one.
+Convert the states of temperature sensors to numbers, sort them in ascending order, and pick the last (highest) one.
 
 {% example %}
 template: |
   {{
     expand("sensor.temperature_sensors")
-    | sort(attribute="state")
-    | map(attribute="entity_id")
+    | map(attribute="state")
+    | map("float", 0)
+    | sort
     | last
   }}
-type: string
-output: "sensor.kitchen_temperature"
+type: float
+output: "23.5"
 {% endexample %}
 
 ### Get the most recently changed entity
@@ -81,6 +82,7 @@ template: |
     expand("light.home_lights")
     | sort(attribute="last_changed")
     | map(attribute="entity_id")
+    | list
     | last
   }}
 type: string
