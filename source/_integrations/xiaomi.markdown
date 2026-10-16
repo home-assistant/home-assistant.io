@@ -4,13 +4,14 @@ description: Instructions on how to integrate a video feed (via FFmpeg) as a cam
 ha_category:
   - Camera
   - Presence detection
+ha_config_flow: true
 ha_release: 0.72
 ha_iot_class: Local Polling
 ha_domain: xiaomi
 ha_platforms:
   - camera
   - device_tracker
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: configuration.yaml file
@@ -139,39 +140,33 @@ camera:
 
 The **Xiaomi** router integration offers presence detection by looking at connected devices to a [Xiaomi](http://miwifi.com) router.
 
-### Configuration
+### Prerequisites
 
-To use an Xiaomi router in your installation, add the following to your {% term "`configuration.yaml`" %} file:
-
-```yaml
-# Example configuration.yaml entry
-device_tracker:
-  - platform: xiaomi
-    host: YOUR_ROUTER_IP
-    password: YOUR_ADMIN_PASSWORD
-```
-
-{% configuration %}
-host:
-  description: "The IP address of your router, e.g., `192.168.0.1`."
-  required: true
-  type: string
-username:
-  description: The admin username.
-  required: false
-  default: admin
-  type: string
-password:
-  description: The password for the admin account.
-  required: true
-  type: string
-{% endconfiguration %}
-
-See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
-
-### Compatibility test
-
-To ensure that your router is compatible, navigate to `http://YOUR_ROUTER_IP/api/misystem/devicelist`.
+Before you add the integration, check that your router is compatible: navigate to `http://YOUR_ROUTER_IP/api/misystem/devicelist`.
 You should see a listing of the device currently connected to your router.
 
-However, some users report that even when the previous URL does not work, they have been able to integrate their Mi Router 3 in Home Assistant. E.g., some users with the Mi Router 3 and firmware version 2.10.46 Stable have integrated their routers successfully and an alternative URL to test integration with is `http://YOUR_ROUTER_IP/cgi-bin/luci/api/misystem/devicelist`. Navigating to this page should show the `{"code":401,"msg":"Invalid token"}` message.
+However, some users report that even when the previous URL does not work, they have been able to integrate their Mi Router 3 in Home Assistant. For example, some users with the Mi Router 3 and firmware version 2.10.46 Stable have integrated their routers successfully and an alternative URL to test integration with is `http://YOUR_ROUTER_IP/cgi-bin/luci/api/misystem/devicelist`. Navigating to this page should show the `{"code":401,"msg":"Invalid token"}` message.
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+  description: "The IP address of your router, for example `192.168.0.1`."
+Username:
+  description: "The admin username (default: admin)."
+Password:
+  description: "The password for the admin account."
+{% endconfiguration_basic %}
+
+This configuration sets up the router (presence detection). The camera platform is configured separately in the [Camera](#camera) section above and remains a {% term "`configuration.yaml`" %} configuration.
+
+## Migrating from YAML configuration
+
+If you previously configured the router integration through your {% term "`configuration.yaml`" %} file, the configuration is imported automatically at startup, so your existing setup keeps working without any changes.
+
+A repair issue in {% my integrations title="**Settings** > **Devices & services**" %} is created to guide you through the migration:
+
+1. Remove the `xiaomi` entry under `device_tracker:` from your {% term "`configuration.yaml`" %} file. Keep any Xiaomi `camera:` entries in place.
+2. Restart Home Assistant.
+
+See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
