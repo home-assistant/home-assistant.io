@@ -10,6 +10,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Update
 ha_codeowners:
   - '@milanmeu'
   - '@frenck'
@@ -22,6 +23,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - update
 ha_integration_type: hub
 ---
 
@@ -86,6 +88,12 @@ The entities you see depend on your model. The battery and charging entities app
 - **Fill**: How full the current fragrance cartridge is.
 - **Perfume**: The name of the fragrance cartridge currently in the diffuser.
 - **Wi-Fi signal**: The strength of the diffuser's Wi-Fi connection, as a percentage.
+
+### Update
+
+- **Firmware**: Shows the firmware the diffuser runs and the newest firmware Rituals has for it, and lets you install that update. When Rituals numbers its firmware builds, the version includes that number, like `5.4 (127)`.
+
+Rituals doesn't report how far along a firmware update is. Home Assistant shows the update as in progress until the diffuser reports the new firmware, for up to 30 minutes.
 
 ## Examples
 
