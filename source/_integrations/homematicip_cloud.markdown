@@ -134,6 +134,7 @@ The list below shows which Home Assistant entities each supported Homematic IP d
 - Acceleration and tilt sensors (`HmIP-SAM`, `HmIP-STV`)
 - Rain sensor (`HmIP-SRD`)
 - Water sensor (`HmIP-SWD`)
+- Water alarm of the water stop and supply unit (`HmIP-WSS`, `HmIP-WSS-GB`)
 - Alarm sirens (`HmIP-ASIR`, `HmIP-ASIR-O`, `HmIP-ASIR-B1`)
 - Pluggable power supply monitoring (`HmIP-PMFS`)
 - Wired input module – 32 channels (`HmIPW-DRI32`)
@@ -198,6 +199,7 @@ Floor heating actuators are operated through the climate group and don't need th
 - Soil moisture sensor (`ELV-SH-SMSI`)
 - Door lock pad (`HmIP-DLP`)
 - Carbon dioxide sensors (`HmIP-SCTH230`, `HmIP-WGTC`, `HmIPW-SCTHD`)
+- Water flow of the water stop and supply unit (`HmIP-WSS`, `HmIP-WSS-GB`)
 
 ### Switches
 
@@ -216,6 +218,7 @@ Floor heating actuators are operated through the climate group and don't need th
 ### Valves
 
 - Smart watering actuator (`ELV-SH-WSM`)
+- Water stop and supply unit (`HmIP-WSS`, `HmIP-WSS-GB`)
 
 ### Weather
 
