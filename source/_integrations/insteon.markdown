@@ -11,6 +11,8 @@ ha_category:
   - Lock
   - Sensor
   - Switch
+ha_categories:
+  - hubs_protocols.wireless_protocols
 ha_iot_class: Local Push
 ha_release: 0.39
 ha_domain: insteon

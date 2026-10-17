@@ -3,6 +3,8 @@ title: Bluetooth
 description: Discover, connect, and monitor bluetooth devices.
 ha_category:
   - Utility
+ha_categories:
+  - hubs_protocols.wireless_protocols
 ha_iot_class: Local Push
 ha_release: 2022.8
 ha_domain: bluetooth

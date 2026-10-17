@@ -4,6 +4,9 @@ description: Instructions for how to integrate The Things Network within Home As
 ha_category:
   - Hub
   - Sensor
+ha_categories:
+  - hubs_protocols.wireless_protocols
+  - diy_makers.web_data_connectors
 ha_release: 0.55
 ha_iot_class: Cloud Polling
 ha_codeowners:

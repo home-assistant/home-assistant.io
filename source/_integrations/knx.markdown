@@ -20,6 +20,8 @@ ha_category:
   - Text
   - Time
   - Weather
+ha_categories:
+  - hubs_protocols.building_automation
 ha_release: 0.24
 ha_iot_class: Local Push
 ha_codeowners:

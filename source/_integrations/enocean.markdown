@@ -7,6 +7,8 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_categories:
+  - hubs_protocols.wireless_protocols
 ha_release: 0.21
 ha_iot_class: Local Push
 ha_domain: enocean
