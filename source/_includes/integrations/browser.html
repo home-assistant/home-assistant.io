@@ -25,21 +25,32 @@ join: ',' | split: ',' -%}
 <div class="integrations-browser">
 
 {%- comment -%}
-  A list on wide screens, a collapsed menu on phones. The active category
-  shows its subcategories underneath.
+  On wide screens the categories are a sidebar and the filters sit above the
+  integrations. On phones both are a button that opens a full-screen panel.
+  Which one shows is up to the CSS, so resizing the window just works.
 {%- endcomment -%}
-<details class="category-nav" open>
-  <summary>
+<div class="browse-toolbar">
+  <button type="button" class="browse-button" data-open-panel="category-panel">
     <iconify-icon icon="{% if current_category %}{{ current_category.icon }}{% else %}mdi:view-grid-outline{% endif %}"></iconify-icon>
-    <span class="category-nav-current">{% if current_category %}{{ current_category.name }}{% else %}All integrations{% endif %}</span>
-    <span class="category-nav-subcategory"></span>
-    <span class="category-nav-label">Categories</span>
-  </summary>
-  <script>
-    if (window.matchMedia('(max-width: 1139px)').matches) {
-      document.currentScript.parentElement.open = false;
-    }
-  </script>
+    <span class="browse-button-label">
+      {%- if current_category %}{{ current_category.name }}{% else %}All categories{% endif -%}
+      <span class="browse-button-subcategory"></span>
+    </span>
+  </button>
+  <button type="button" class="browse-button" data-open-panel="filters-panel">
+    <iconify-icon icon="mdi:tune-variant"></iconify-icon>
+    <span class="browse-button-label">Filters <span class="filters-count"></span></span>
+  </button>
+</div>
+
+<dialog class="browse-panel category-panel" id="category-panel" aria-label="Categories">
+  <div class="browse-panel-header">
+    <h2>Categories</h2>
+    <button type="button" class="browse-panel-close" data-close-panel aria-label="Close">
+      <iconify-icon icon="mdi:close"></iconify-icon>
+    </button>
+  </div>
+  <div class="browse-panel-content">
   <nav class="category-sidebar" aria-label="Integration categories">
     <a href="/integrations/" class="category-link{% unless current_category %} active{% endunless %}">
       <iconify-icon icon="mdi:view-grid-outline"></iconify-icon>
@@ -66,7 +77,11 @@ join: ',' | split: ',' -%}
     {%- endif %}
     {%- endfor %}
   </nav>
-</details>
+  </div>
+  <div class="browse-panel-footer">
+    <button type="button" class="browse-panel-show" data-close-panel>Show integrations</button>
+  </div>
+</dialog>
 
 <div class="integrations-main">
 
@@ -79,19 +94,14 @@ join: ',' | split: ',' -%}
 </header>
 {%- endif %}
 
-<div class="grid">
-
-<details class="filters-nav" open>
-  <summary>
-    <iconify-icon icon="mdi:filter-variant"></iconify-icon>
-    <span class="filters-nav-label">Filters</span>
-    <span class="filters-nav-count"></span>
-  </summary>
-  <script>
-    if (window.matchMedia('(max-width: 1139px)').matches) {
-      document.currentScript.parentElement.open = false;
-    }
-  </script>
+<dialog class="browse-panel filters-panel" id="filters-panel" aria-label="Filters">
+  <div class="browse-panel-header">
+    <h2>Filters</h2>
+    <button type="button" class="browse-panel-close" data-close-panel aria-label="Close">
+      <iconify-icon icon="mdi:close"></iconify-icon>
+    </button>
+  </div>
+  <div class="browse-panel-content grid">
 
   <div class="grid__item six-sixths lap-one-whole palm-one-whole">
     <fieldset class="integration-filter integration-filter-radio">
@@ -171,7 +181,13 @@ join: ',' | split: ',' -%}
       </div>
     </div>
   </div>
-</details>
+  </div>
+  <div class="browse-panel-footer">
+    <button type="button" class="browse-panel-show" data-close-panel>Show integrations</button>
+  </div>
+</dialog>
+
+<div class="grid">
 
   <div class="grid__item six-sixths lap-one-whole palm-one-whole">
     <div class="component-search">
@@ -227,7 +243,8 @@ join: ',' | split: ',' -%}
   (function () {
     const pageCategory = "{{ current_category.slug }}";
     const subcategoryLinks = [...document.querySelectorAll('.subcategory-link')];
-    const categoryNav = document.querySelector('.category-nav');
+    const panels = [...document.querySelectorAll('.browse-panel')];
+    const desktop = window.matchMedia('(min-width: 1140px)');
     let filteredComponents = {};
     const baseHashRegex = /(^.*)(?=\?)/;
     const integrationSelectFilterElements = [...document.querySelectorAll('.integration-filter select')];
@@ -483,6 +500,10 @@ join: ',' | split: ',' -%}
       componentContainerEl.classList.remove('remove-items');
       componentContainerEl.innerHTML = rendered;
       componentContainerEl.classList.add('show-items');
+      document.querySelectorAll('.browse-panel-show').forEach(button => {
+        const count = data.components.length;
+        button.textContent = `Show ${count} integration${count === 1 ? '' : 's'}`;
+      });
     }
 
     // add / update a filter in the url, upated # urls to query string urls
@@ -811,9 +832,9 @@ join: ',' | split: ',' -%}
 
     function updateFiltersCount(query) {
       const count = query ? Object.keys(query).filter(key => key !== 'search' && key !== 'subcategory').length : 0;
-      const badge = document.querySelector('.filters-nav-count');
+      const badge = document.querySelector('.filters-count');
       if (badge) {
-        badge.textContent = count ? `· ${count}` : '';
+        badge.textContent = count ? `(${count})` : '';
       }
     }
 
@@ -830,9 +851,9 @@ join: ',' | split: ',' -%}
           link.removeAttribute('aria-current');
         }
       });
-      const current = document.querySelector('.category-nav-subcategory');
+      const current = document.querySelector('.browse-button-subcategory');
       if (current) {
-        current.textContent = activeName ? `› ${activeName}` : '';
+        current.textContent = activeName ? ` › ${activeName}` : '';
       }
     }
 
@@ -845,10 +866,19 @@ join: ',' | split: ',' -%}
         setQueryURL('subcategory', link.dataset.subcategory);
       }
       applyFilter();
-      if (window.matchMedia('(max-width: 1139px)').matches) {
-        categoryNav.open = false;
-      }
+      closePanels();
     }));
+
+    function closePanels() {
+      panels.forEach(panel => panel.open && panel.close());
+    }
+
+    document.querySelectorAll('[data-open-panel]').forEach(button => button.addEventListener('click', () => {
+      document.getElementById(button.dataset.openPanel).showModal();
+    }));
+    document.querySelectorAll('[data-close-panel]').forEach(button => button.addEventListener('click', closePanels));
+    // A panel that is open when the window gets wide would stay a modal.
+    desktop.addEventListener('change', closePanels);
 
     function buildImageEl(component) {
       const urlBase = [
