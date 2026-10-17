@@ -41,7 +41,7 @@ To create an access key that has access to the bucket:
 2. Follow the steps on [creating an access key](https://www.idrive.com/s3-storage-e2/videos) in the iDrive documentation.
 3. When prompted to define a name, make it descriptive (for example, `home-assistant-backup`).
 4. When adjusting the settings:
-   - **Access key expiry**: [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). It is recommended to leave it disabled.
+   - **Access key expiry**: Disabled by default. It is recommended to leave it disabled.
    - **Access permission**: Read and write (default).
      - **Allow deletion of objects**: Enabled by default. It is recommended to leave it enabled.
      - **Allow bucket deletion**: *Disable this option* (unchecked).
