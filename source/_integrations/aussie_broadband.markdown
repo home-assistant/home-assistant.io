@@ -4,6 +4,8 @@ description: Instructions on how to integrate Aussie Broadband within Home Assis
 ha_category:
   - Network
   - Sensor
+ha_categories:
+  - computers_network
 ha_release: 2022.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true

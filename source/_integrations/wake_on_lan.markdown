@@ -5,6 +5,8 @@ ha_category:
   - Button
   - Network
   - Switch
+ha_categories:
+  - computers_network
 ha_release: 0.49
 ha_iot_class: Local Push
 ha_domain: wake_on_lan
