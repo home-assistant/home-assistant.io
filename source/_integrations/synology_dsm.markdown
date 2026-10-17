@@ -121,7 +121,7 @@ Entities reporting the current network transfer rates of the NAS. Both upload an
 
 ### General sensors
 
-Entities reporting the internal temperature and the uptime of the NAS. The uptime sensor is disabled by default.
+Entities reporting the internal temperature and the uptime of the NAS. The uptime sensor is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 ### Disk sensors
 

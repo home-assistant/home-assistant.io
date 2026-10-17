@@ -88,7 +88,7 @@ For more details about each of these, see the sections below.
 
 The Traccar Server integration will create a [binary_sensor](/integrations/binary_sensor) entity for each device registered in Traccar Server to show the motion reported by the Traccar Server.
 
-This entity is disabled by default.
+This entity is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 {% configuration_basic %}
 Name:

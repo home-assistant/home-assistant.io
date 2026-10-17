@@ -89,7 +89,7 @@ It also exposes [Netatmo Smart Door and Window Sensors](https://www.netatmo.com/
 ## Button
 
 The `netatmo` button sensor platform provides support for moving compatible shutters to a preferred position.
-Not all covers support this functionality, and we cannot automatically determine the capability, so these entities are disabled by default.
+Not all covers support this functionality, and we cannot automatically determine the capability, so these entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 ## Camera
 

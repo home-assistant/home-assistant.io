@@ -353,7 +353,7 @@ The list includes device name, model number (if available), and model.
 - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
 - **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
 - **Temperature**: The current temperature measured. Enabled by default.
-- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+- **Use Time**: The accumulative number of seconds the device has been in use. [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 - Switch entities
 

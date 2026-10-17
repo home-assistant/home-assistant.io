@@ -80,7 +80,7 @@ By default, the Hebrew date, sunrise (Netz Hachama), sunset (Shkia), and nightfa
 
 ### Learning schedule
 
-The learning schedule calendar shows daily study schedules. This calendar is disabled by default and can be enabled through the entity settings. The following event types can be configured:
+The learning schedule calendar shows daily study schedules. This calendar is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) and can be enabled through the entity settings. The following event types can be configured:
 
 - **Daf Yomi**: The daily Talmud study page according to the Daf Yomi cycle
 

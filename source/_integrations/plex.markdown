@@ -122,7 +122,7 @@ automation: |
 {% enddetails %}
 
 {% important %}
-The library sensors are disabled by default, but can be enabled via the Plex integration page. After the sensors are enabled, you may need to add a new item to your library before the last added media attribute is populated.
+The library sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity), but can be enabled via the Plex integration page. After the sensors are enabled, you may need to add a new item to your library before the last added media attribute is populated.
 {% endimportant %}
 
 ## Button

@@ -37,7 +37,7 @@ The weather entity provides the current state of the weather as well as detailed
 
 The integration creates entities showing the current state of some additional weather and fire metrics.
 
-The following weather sensors are provided (cloud sensors are disabled by default):
+The following weather sensors are provided (cloud sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)):
 
 - **Thunder probability** (%): Probability of thunder
 - **Total cloud coverage** (%): Mean value of total cloud cover

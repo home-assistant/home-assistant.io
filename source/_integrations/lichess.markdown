@@ -44,7 +44,7 @@ The API token is used to authenticate requests to the Lichess API. To generate a
 
 The integration creates sensors for your rating in Bullet, Blitz, Rapid, and Classical, and also the number of games played in each of these formats.
 
-Entities for your rating and the number of games played in the following formats are also available, but are disabled by default:
+Entities for your rating and the number of games played in the following formats are also available, but are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity):
 - Puzzles
 - Ultra Bullet
 - Correspondence

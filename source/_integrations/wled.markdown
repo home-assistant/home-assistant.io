@@ -123,7 +123,7 @@ for the following information from WLED:
 - Estimated current (in mA, only when a automatic brightness limiter is configured on the device)
 - Max current (in mA, only when a automatic brightness limiter is configured on the device)
 - LED count
-- Uptime (disabled by default)
+- Uptime ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
 - Free memory (in bytes, disabled by default)
 - Wi-Fi Signal Strength (in %, disabled by default)
 - Wi-Fi Signal Strength (RSSI in dBm, disabled by default)

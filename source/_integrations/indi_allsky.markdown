@@ -77,7 +77,7 @@ The **INDI Allsky** {% term integration %} provides the following entities:
 - **Wind direction**: Measured wind direction (in degrees).
 
 - **Binning mode** (disabled by default): The binning mode used for capture.
-- **Camera ID** (disabled by default): The identifier of the camera.
+- **Camera ID** ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)): The identifier of the camera.
 - **CPU temperature** (disabled by default): Server host CPU temperature (in °C).
 - **Exposure creation time** (disabled by default): Timestamp when the exposure was created.
 - **Filename** (disabled by default): The filename of the latest captured image.

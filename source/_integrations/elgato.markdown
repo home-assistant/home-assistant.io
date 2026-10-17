@@ -106,7 +106,7 @@ The integration creates a light entity for each Elgato Light device. You can con
   - **Entity category**: Diagnostic
 
 - **Wi-Fi RSSI**
-  - **Description**: The same signal in dBm, the unit the device itself reports. Disabled by default.
+  - **Description**: The same signal in dBm, the unit the device itself reports. [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
   - **Entity category**: Diagnostic
 
 ### Switches

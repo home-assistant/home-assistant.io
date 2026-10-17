@@ -136,7 +136,7 @@ The integration provides the following number entities:
 - **Open position limitation**: The minimum opening position allowed for a cover device.
 - **Closed position limitation**: The maximum closing position allowed for a cover device.
 
-The open and close position limitation entities are configuration entities and disabled by default. Note that some cover devices may refuse setting an open or close limitation, resulting in an error when trying to do so.
+The open and close position limitation entities are configuration entities and [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). Note that some cover devices may refuse setting an open or close limitation, resulting in an error when trying to do so.
 
 ### Scene
 

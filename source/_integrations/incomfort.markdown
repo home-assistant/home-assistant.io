@@ -81,7 +81,7 @@ Some older room thermostats might report the wrong setpoint when the setpoint is
 
 ### Sensors for diagnostics
 
-Note that **all** sensors are disabled by default.
+Note that **all** sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 - **Sensors**
   - Boiler Pressure: Indicates the boilers pressure.

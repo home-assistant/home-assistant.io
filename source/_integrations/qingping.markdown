@@ -56,7 +56,7 @@ The Qingping integration will automatically discover devices once the [Bluetooth
 All devices provide the following diagnostic sensors:
 
 - **Battery**: the device battery percentage.
-- **Signal strength**: the Bluetooth signal strength (disabled by default).
+- **Signal strength**: the Bluetooth signal strength ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)).
 
 Depending on the model, the devices provide the following sensors:
 

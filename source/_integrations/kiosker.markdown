@@ -71,7 +71,7 @@ The **Kiosker** integration provides the following entities.
   - Shows when motion was last detected. This is available if a screensaver with motion detection is scheduled or if the camera sensor is enabled.
 - **Ambient light**
   - Shows the current ambient light level. This is available if a screensaver with motion detection is scheduled or if the camera sensor is enabled.
-- **Blackout text** (disabled by default)
+- **Blackout text** ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
   - Shows the text currently displayed on the blackout screen. Defaults to unknown if no visible blackout.
 - **Blackout icon** (disabled by default)
   - Shows the SF Symbol icon name currently displayed on the blackout screen. Defaults to unknown if no visible blackout.

@@ -98,7 +98,7 @@ Some entities depend on the type of internet line, which the integration detects
 
 - **DSL attenuation down** and **DSL attenuation up**
   - **Description**: Signal attenuation of the DSL line, in dB, for download and upload
-  - **Remarks**: Only available on DSL lines. These entities are disabled by default
+  - **Remarks**: Only available on DSL lines. These entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
 - **DSL connect count**
   - **Description**: Number of DSL connection attempts
   - **Remarks**: Only available on DSL lines. This entity is disabled by default

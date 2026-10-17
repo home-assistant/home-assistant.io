@@ -93,7 +93,7 @@ If the heat pump supports cooling, the following sensors are available:
 - **Cooling pause reason**: Why the last cooling cycle paused, such as **Water temperature colder than setpoint**.
 - **Cooling stop reason**: Why the last cooling cycle stopped, such as **Stopped by control method**.
 
-The heat pump checks a set of conditions before it starts cooling, and each one is available as a diagnostic binary sensor. These entities are disabled by default. You can [enable them in the entity settings](/docs/configuration/customizing-devices/).
+The heat pump checks a set of conditions before it starts cooling, and each one is available as a diagnostic binary sensor. These entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). You can [enable them in the entity settings](/docs/configuration/customizing-devices/).
 
 - **Cooling allowed by control method**
 - **No cooling-related faults**

@@ -37,7 +37,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Switch
 
-Note that some entities are disabled by default. If you are missing a sensor or binary sensor, check the configured integration!
+Note that some entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). If you are missing a sensor or binary sensor, check the configured integration!
 
 {% include integrations/config_flow.md %}
 

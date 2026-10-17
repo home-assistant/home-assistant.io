@@ -66,7 +66,7 @@ This integration provides the following {% term buttons %} for each game server 
 - Stop server
 - Restart server
 
-The following button is provided as well, but disabled by default:
+The following button is provided as well, but [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity):
 
 - Force stop server
 

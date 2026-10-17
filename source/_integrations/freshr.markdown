@@ -72,7 +72,7 @@ The integration provides the following sensors:
 - **Dew point**
   - **Description**: Dew point temperature of the indoor air, in °C.
   - **Available for**: All devices
-  - **Remarks**: Disabled by default.
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 - **Temperature**
   - **Description**: Indoor temperature, in °C.
