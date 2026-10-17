@@ -3,6 +3,8 @@ title: Slide Local
 description: Instructions on how to integrate the Innovation in Motion Slide covers with Home Assistant.
 ha_category:
   - Cover
+ha_categories:
+  - blinds_curtains
 ha_iot_class: Local Polling
 ha_release: 2025.1
 ha_config_flow: true

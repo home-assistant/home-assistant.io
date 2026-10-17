@@ -8,6 +8,8 @@ ha_category:
   - Irrigation
   - Sensor
   - Switch
+ha_categories:
+  - garden_plants
 ha_config_flow: true
 ha_release: 0.61
 ha_iot_class: Local Polling

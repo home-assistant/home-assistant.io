@@ -4,6 +4,8 @@ description: Instructions on how to integrate your Sensoterra probes with Home A
 ha_release: '2024.10'
 ha_category:
   - Sensor
+ha_categories:
+  - garden_plants
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: sensoterra

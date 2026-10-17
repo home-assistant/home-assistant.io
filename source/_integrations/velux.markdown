@@ -4,6 +4,8 @@ description: Instructions on how to integrate the Velux KLF 200 with Home Assist
 ha_category:
   - Cover
   - Scene
+ha_categories:
+  - blinds_curtains
 ha_release: 0.49
 ha_config_flow: true
 ha_iot_class: Local Polling

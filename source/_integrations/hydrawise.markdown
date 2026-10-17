@@ -7,6 +7,8 @@ ha_category:
   - Sensor
   - Switch
   - Valve
+ha_categories:
+  - garden_plants
 ha_config_flow: true
 ha_release: 0.71
 ha_iot_class: Cloud Polling

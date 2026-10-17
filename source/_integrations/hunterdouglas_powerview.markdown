@@ -8,6 +8,8 @@ ha_category:
   - Scene
   - Select
   - Sensor
+ha_categories:
+  - blinds_curtains
 ha_release: 0.15
 ha_domain: hunterdouglas_powerview
 ha_iot_class: Local Polling
