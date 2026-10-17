@@ -905,6 +905,7 @@ layout: null
 /conditions/climate.target_humidity /conditions/climate.is_target_humidity/ 301
 /conditions/climate.target_temperature /conditions/climate.is_target_temperature/ 301
 /integrations/axle /integrations/axle_energy 301
+/integrations/sensecap/ /integrations/sensecap_lorawan/ 301
 
 # Any trigger or condition without its own page shows an explanation instead of a plain 404.
 # Keep these rules below all other /triggers/ and /conditions/ redirects.

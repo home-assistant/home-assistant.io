@@ -10,7 +10,7 @@ ha_quality_scale: bronze
 ha_config_flow: true
 ha_codeowners:
   - '@balloob'
-ha_domain: sensecap
+ha_domain: sensecap_lorawan
 ha_platforms:
   - sensor
 ha_integration_type: hub
