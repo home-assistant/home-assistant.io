@@ -4,6 +4,8 @@ description: Instructions on how to integrate motionEye into Home Assistant.
 ha_category:
   - Camera
   - Media source
+ha_categories:
+  - security_safety.cameras
 ha_release: 2021.5
 ha_iot_class: Local Polling
 ha_domain: motioneye

@@ -7,6 +7,8 @@ ha_category:
   - Event
   - Light
   - Switch
+ha_categories:
+  - security_safety.cameras
 ha_config_flow: true
 ha_release: 0.45
 ha_iot_class: Local Push

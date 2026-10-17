@@ -6,6 +6,9 @@ ha_category:
   - Doorbell
   - Media source
   - Update
+ha_categories:
+  - security_safety.cameras
+  - security_safety.doorbells_intercoms
 ha_iot_class: Local Push
 ha_release: 2023.1
 ha_domain: reolink
