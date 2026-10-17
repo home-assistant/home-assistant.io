@@ -87,7 +87,7 @@ The entities you see depend on your model. The battery and charging entities app
 - **Battery**: The remaining battery charge, as a percentage. Available on the battery-powered model only.
 - **Fill**: How full the current fragrance cartridge is.
 - **Perfume**: The name of the fragrance cartridge currently in the diffuser.
-- **Wi-Fi signal**: The strength of the diffuser's Wi-Fi connection, as a percentage.
+- **Wi-Fi signal**: The strength of the diffuser's Wi-Fi connection, as a percentage. This sensor is disabled by default. You can turn it on from the entity's settings if you want to use it.
 
 ### Update
 
@@ -117,7 +117,11 @@ automation:
 
 ## Data updates
 
-Home Assistant {% term polling polls %} your Rituals account for updates every few minutes. With a single diffuser, it polls every 3 minutes. Each additional diffuser on your account lengthens that interval, which keeps Home Assistant within the limits of the Rituals service.
+Home Assistant {% term polling polls %} your Rituals account for updates. Rituals limits how often its service can be used, so not everything is updated equally often:
+
+- The state of your diffusers, such as whether they are on, the perfume amount, and the room size, is updated every 5 minutes. All diffusers on your account are updated at once.
+- The battery, charging, perfume, and Wi-Fi signal sensors are updated every hour. Only the sensors that are enabled are updated, so disabling a sensor you don't use saves a request.
+- The fill level is updated once a day, and also when the hourly update finds a different cartridge.
 
 ## Known limitations
 
