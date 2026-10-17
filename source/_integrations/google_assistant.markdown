@@ -138,19 +138,69 @@ For secure remote access, use a reverse proxy such as the {% my supervisor_addon
    1. Download `app.js` from [here](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/releases/latest)
    2. Select **Upload your JavaScript targeting Node** and upload the `app.js` from step 4.1.
    3. Select **Upload your JavaScript targeting Chrome (browser)** and upload the same `app.js` from step 4.1.
-5. Check the box **Support local queries**.
-6. Add device scan configuration:
+5. Set the **Testing URLs** to a copy of the app that is served by Home Assistant.
+
+   {% important %}
+   The files uploaded in step 4 are currently not delivered to your devices. The console stores them in a bucket that enforces public access prevention, so the device cannot fetch the app and silently falls back to cloud fulfillment. This is tracked in [this Google issue](https://issuetracker.google.com/issues/512514638) and in [NabuCasa/home-assistant-google-assistant-local-sdk#39](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/issues/39). Until it is resolved, the **Testing URLs** are what actually delivers the app to your devices.
+   {% endimportant %}
+
+   1. Create a `local-home` folder inside the `www` folder next to your {% term "`configuration.yaml`" %}, creating `www` first if it does not exist.
+   2. Copy the `app.js` from step 4.1 into `www/local-home/`.
+   3. Create a file `www/local-home/index.html` with the following content:
+
+      ```html
+      <html>
+        <head>
+          <script src="https://www.gstatic.com/eureka/smarthome/smarthome_sdk.js"></script>
+          <script src="./app.js"></script>
+        </head>
+      </html>
+      ```
+
+   4. If you had to create the `www` folder in step 5.1, restart Home Assistant now. The `/local/` path is only served if the `www` folder already exists when Home Assistant starts.
+   5. Confirm both files are reachable by opening `http://<HOME_ASSISTANT_IP>:8123/local/local-home/index.html` and `http://<HOME_ASSISTANT_IP>:8123/local/local-home/app.js` in a browser.
+   6. Set **Testing URL for Chrome** to `http://<HOME_ASSISTANT_IP>:8123/local/local-home/index.html`.
+   7. Set **Testing URL for Node** to `http://<HOME_ASSISTANT_IP>:8123/local/local-home/app.js`.
+
+   The two fields must point to different files. Devices with a Chrome runtime, such as Nest Hubs and other displays, navigate to the URL as a web page and need the HTML file that loads the Local Home SDK before the app. Devices with a Node runtime load the JavaScript directly.
+6. Check the box **Support local queries**.
+7. Add device scan configuration:
    1. Select **+ Add scan configuration** if no configuration exists.
    2. For Discovery protocol select **mDNS**.
    3. Set **Enter mDNS service name** to `_home-assistant._tcp.local`
    4. Select **Add field**, then under **Select a field**, choose **Name**.
    5. Enter a new **Value** field set to `.*\._home-assistant\._tcp\.local`
-7. Scroll to bottom of page and **Save** your changes.
-8. Either wait for 30 minutes, or restart all your Google Assistant devices.
-9. Restart Home Assistant Core.
-10. With a Google Assistant device, try saying "OK Google, sync my devices." This can be helpful to avoid issues, especially if you are enabling local fulfillment sometime after adding cloud Google Assistant support.
+8. Scroll to bottom of page and **Save** your changes.
+9. Either wait for 30 minutes, or restart all your Google Assistant devices.
+10. Restart Home Assistant Core.
+11. With a Google Assistant device, try saying "OK Google, sync my devices." This can be helpful to avoid issues, especially if you are enabling local fulfillment sometime after adding cloud Google Assistant support.
 
 You can debug the setup by following [these instructions](https://developers.home.google.com/local-home/test#debugging_from_chrome).
+
+#### Verifying local fulfillment
+
+Devices fall back to cloud fulfillment silently, so a working setup and a broken one behave the same from your point of view. To confirm which one you have, enable debug logging:
+
+```yaml
+logger:
+  logs:
+    homeassistant.components.google_assistant: debug
+```
+
+Note that this is `google_assistant`. The `google_assistant_sdk` integration is unrelated and logs nothing for local fulfillment.
+
+Restart Home Assistant, then give a voice command to one of your Google Assistant devices. A command served locally logs two lines:
+
+```txt
+Received local message <requestId> from <device IP> (JS <version>)
+Processing message: ...
+```
+
+A command that went through the cloud logs only `Processing message`. If `Received local message` never appears, local fulfillment is not being used.
+
+Test with a regular device such as a light. Commands for [secure devices](#secure-devices) always go through the cloud by design and never produce a `Received local message` line.
+
+The device IP in that line tells you which device answered. Local fulfillment is established per device, so check each speaker and display separately. A device that has not picked up the configuration yet usually starts working after a power cycle followed by "OK Google, sync my devices".
 
 ### YAML configuration
 
