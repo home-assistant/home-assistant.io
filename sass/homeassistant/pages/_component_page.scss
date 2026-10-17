@@ -837,3 +837,54 @@ a.option-card:hover {
     font-size: 13px;
   }
 }
+
+// Nothing to show: a big message in the middle, like the empty pages in
+// Home Assistant itself.
+#components-page {
+  .empty-state {
+    grid-column: 1 / -1;
+    padding: 64px 16px;
+    text-align: center;
+
+    iconify-icon {
+      font-size: 96px;
+      color: $gray;
+    }
+
+    h2 {
+      margin: 16px 0 8px;
+      font-size: 28px;
+    }
+
+    .empty-state-text {
+      max-width: 520px;
+      margin: 0 auto 24px;
+      color: $gray;
+      font-size: 17px;
+    }
+  }
+
+  .empty-state-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .empty-state-action {
+    padding: 8px 18px;
+    border: 2px solid $blueDark;
+    border-radius: 8px;
+    background: none;
+    color: $blueDark;
+    font: inherit;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $blueDark;
+      color: white;
+    }
+  }
+}

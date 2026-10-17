@@ -328,6 +328,7 @@ join: ',' | split: ',' -%}
 <script type="text/javascript">
   (function () {
     const pageCategory = "{{ current_category.slug }}";
+    const pageCategoryName = {{ current_category.name | default: "" | jsonify }};
     // Letters that are not a letter with an accent, so removing the accents
     // does not turn them into a plain letter.
     const SPECIAL_LETTERS = { ß: 'ss', ø: 'o', æ: 'ae', œ: 'oe', ł: 'l', đ: 'd', þ: 'th', ı: 'i' };
@@ -592,6 +593,9 @@ join: ',' | split: ',' -%}
         integration.card.style.display = shownCards.has(integration) ? '' : 'none';
       });
       noResultsEl.style.display = data.components.length > 0 ? 'none' : '';
+      if (!data.components.length) {
+        updateEmptyState(query || {});
+      }
       const total = integrations.filter(i => !pageCategory || inCategory(i, pageCategory)).length;
       const shown = data.components.length;
       document.querySelector('.results-count').textContent =
@@ -974,6 +978,30 @@ join: ',' | split: ',' -%}
       return scores;
     }
 
+    // Say why nothing shows, and offer only the ways out that apply.
+    function updateEmptyState(query) {
+      const search = query.search;
+      const filters = Object.keys(query).filter(key => key !== 'search');
+      const where = pageCategoryName ? ` in ${pageCategoryName}` : '';
+      const text = noResultsEl.querySelector('.empty-state-text');
+      if (search && filters.length) {
+        text.textContent = `Nothing matches “${searchInputEl.value}”${where} with these filters.`;
+      } else if (search) {
+        text.textContent = `Nothing matches “${searchInputEl.value}”${where}.`;
+      } else {
+        text.textContent = `No integrations${where} match these filters.`;
+      }
+
+      const show = (action, visible) => {
+        noResultsEl.querySelector(`[data-empty-action="${action}"]`).style.display = visible ? '' : 'none';
+      };
+      show('search', Boolean(search));
+      show('everywhere', Boolean(search && pageCategory));
+      show('filters', filters.length > 0);
+      noResultsEl.querySelector('[data-empty-action="everywhere"]').href =
+        `/integrations/?search=${encodeURIComponent(searchInputEl.value)}`;
+    }
+
     function renderCards() {
       if (noResultsEl) {
         return;
@@ -984,12 +1012,30 @@ join: ',' | split: ',' -%}
           <div class="img-container">${buildImageEl(component)}</div>
           <div class='title'>${component.title}</div>
         </a>
-        `).join('\n') + '<div class="alert alert-note" style="display: none"><p class="alert-content">No results matching this filter</p></div>';
+        `).join('\n') + `
+        <div class="empty-state" style="display: none">
+          <iconify-icon icon="mdi:magnify-close"></iconify-icon>
+          <h2>No integrations found</h2>
+          <p class="empty-state-text"></p>
+          <div class="empty-state-actions">
+            <button type="button" class="empty-state-action" data-empty-action="search">Clear search</button>
+            <a class="empty-state-action" data-empty-action="everywhere" href="/integrations/">Search all categories</a>
+            <button type="button" class="empty-state-action" data-empty-action="filters">Clear filters</button>
+          </div>
+        </div>`;
       const cards = componentContainerEl.querySelectorAll('.option-card');
       integrations.forEach((integration, index) => {
         integration.card = cards[index];
       });
-      noResultsEl = componentContainerEl.querySelector('.alert');
+      noResultsEl = componentContainerEl.querySelector('.empty-state');
+      noResultsEl.querySelector('[data-empty-action="search"]').addEventListener('click', clearSearch);
+      noResultsEl.querySelector('[data-empty-action="filters"]').addEventListener('click', () => {
+        featuredByDefault = false;
+        Object.keys(buildQueryFromURL() || {})
+          .filter(key => key !== 'search')
+          .forEach(key => removeQueryFromURL(key));
+        applyFilter();
+      });
     }
 
     function buildImageEl(component) {
