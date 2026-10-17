@@ -7,7 +7,7 @@ ha_category:
   - Sensor
   - Weather
 ha_categories:
-  - weather_alerts.forecasts
+  - weather_alerts
 ha_codeowners:
   - '@adrianmo'
 ha_config_flow: true
