@@ -5,6 +5,8 @@ ha_category:
   - Binary sensor
   - Light
   - Sensor
+ha_categories:
+  - lighting.lighting_systems
 ha_release: 2025.11
 ha_iot_class: Local Push
 ha_config_flow: true

@@ -4,6 +4,8 @@ description: Instructions on how to integrate an Elgato Light with Home Assistan
 ha_category:
   - Light
   - Update
+ha_categories:
+  - lighting.bulbs_lamps
 ha_release: 0.104
 ha_iot_class: Local Polling
 ha_config_flow: true

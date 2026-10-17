@@ -6,6 +6,8 @@ ha_category:
   - Event
   - Infrared-controlled
   - Light
+ha_categories:
+  - lighting
 ha_release: 2026.8
 ha_iot_class: Assumed State
 ha_codeowners:

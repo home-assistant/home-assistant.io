@@ -11,6 +11,10 @@ ha_category:
   - Scene
   - Select
   - Switch
+ha_categories:
+  - lighting.lighting_systems
+  - plugs_switches
+  - blinds_curtains
 ha_release: 0.37
 ha_iot_class: Local Polling
 ha_codeowners:

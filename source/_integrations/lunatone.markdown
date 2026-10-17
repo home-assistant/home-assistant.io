@@ -6,6 +6,9 @@ ha_category:
   - Hub
   - Light
   - Sensor
+ha_categories:
+  - lighting.lighting_systems
+  - hubs_protocols.building_automation
 ha_release: 2025.11
 ha_iot_class: Local Polling
 ha_codeowners:
