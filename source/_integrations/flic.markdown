@@ -3,6 +3,8 @@ title: Flic
 description: Instructions on how to integrate flic buttons within Home Assistant.
 ha_category:
   - Binary sensor
+ha_categories:
+  - buttons_remotes
 ha_iot_class: Local Push
 ha_release: 0.35
 ha_domain: flic
