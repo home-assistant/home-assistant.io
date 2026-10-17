@@ -9,6 +9,8 @@ ha_category:
   - Number
   - Scene
   - Switch
+ha_categories:
+  - blinds_curtains
 ha_release: '2024.10'
 ha_iot_class: Local Polling
 ha_codeowners:

@@ -11,6 +11,8 @@ ha_category:
   - Switch
   - Text
   - Valve
+ha_categories:
+  - garden_plants
 ha_release: '2023.8'
 ha_iot_class: Local Polling
 ha_codeowners:

@@ -4,6 +4,8 @@ description: Instructions on how to integrate the Innovation in Motion Slide cov
 ha_category:
   - Cover
   - Hub
+ha_categories:
+  - blinds_curtains
 ha_iot_class: Cloud Polling
 ha_release: 0.99
 ha_codeowners:

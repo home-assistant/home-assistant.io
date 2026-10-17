@@ -12,6 +12,8 @@ ha_category:
   - Select
   - Sensor
   - Switch
+ha_categories:
+  - garden_plants
 ha_release: 2024.3
 ha_iot_class: Cloud Push
 ha_config_flow: true

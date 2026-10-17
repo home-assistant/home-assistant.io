@@ -7,6 +7,8 @@ ha_category:
   - Sensor
   - Switch
   - Update
+ha_categories:
+  - garden_plants
 ha_release: 0.69
 ha_iot_class: Local Polling
 ha_config_flow: true
