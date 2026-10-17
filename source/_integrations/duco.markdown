@@ -9,6 +9,8 @@ ha_category:
   - Select
   - Sensor
   - Switch
+ha_categories:
+  - climate.fans_ventilation
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:

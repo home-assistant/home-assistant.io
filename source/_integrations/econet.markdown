@@ -7,6 +7,9 @@ ha_category:
   - Sensor
   - Switch
   - Water heater
+ha_categories:
+  - climate.water_heaters
+  - climate.thermostats_heating
 ha_release: 0.61
 ha_iot_class: Cloud Push
 ha_domain: econet

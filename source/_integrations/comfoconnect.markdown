@@ -4,6 +4,8 @@ description: Instructions on how to integrate Zehnder ComfoAir Q350/450/600 vent
 ha_category:
   - Fan
   - Sensor
+ha_categories:
+  - climate.fans_ventilation
 ha_release: 0.48
 ha_iot_class: Local Push
 ha_codeowners:

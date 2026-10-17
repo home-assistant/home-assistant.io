@@ -11,6 +11,8 @@ related:
   - url: https://prana.ua
     title: Prana
 ha_category: []
+ha_categories:
+  - climate.fans_ventilation
 ha_quality_scale: bronze
 ha_platforms:
   - fan
