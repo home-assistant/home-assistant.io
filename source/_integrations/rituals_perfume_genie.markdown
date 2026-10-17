@@ -71,7 +71,7 @@ The entities you see depend on your model. The battery and charging entities app
 ### Switch
 
 - **Diffuser**: The main switch for the diffuser. Turn it on to start diffusing fragrance, and off to stop. This switch carries the name of your diffuser.
-- **Standby LED**: Turns the light on or off, depending on whether the diffuser is in `standby`, `on`, or `off`. Available on diffusers that support it.
+- **Standby LED**: Turns on or off the light that shows while the diffuser is on standby, for example to keep it from lighting up a bedroom at night. Available on diffusers that support it.
 
 ### Number
 
