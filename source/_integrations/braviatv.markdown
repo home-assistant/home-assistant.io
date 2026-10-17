@@ -4,7 +4,9 @@ description: Instructions on how to integrate a Sony Bravia TV into Home Assista
 ha_category:
   - Button
   - Media player
+  - Number
   - Remote
+  - Select
 ha_release: 0.23
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -16,7 +18,9 @@ ha_platforms:
   - button
   - diagnostics
   - media_player
+  - number
   - remote
+  - select
 ha_ssdp: true
 ha_integration_type: device
 ---
@@ -295,3 +299,9 @@ This behavior can be caused not only by the integration, but also by some applic
 ### For TVs older than 2013
 
 Users of TVs older than 2013 can control their devices using [HDMI-CEC](/integrations/hdmi_cec/), [Broadlink](/integrations/broadlink/) or [Kodi](/integrations/kodi/) integrations.
+
+### Picture controls only populate when the TV is on
+
+Conforming with normal Home Assistant behavior, the picture controls are unavailable when the TV is off. This causes a slight delay, where turning the TV on does not immediately allow you to modify these settings. They will be exposed at the next poll. If polling is disabled as described above, this will not work and polling will have to be done manually.
+
+As a side note: picture controls are saved independently for each source, so if you, for example, set a brightness for HDMI 1, this will not influence the brightness previously set for HDMI 2. This is normal behavior for this TV. Changing them only applies to the currently active source.
