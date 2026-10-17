@@ -3,6 +3,8 @@ title: EPH Controls
 description: Instructions on how to integrate EPH Controls EMBER thermostats within Home Assistant.
 ha_category:
   - Climate
+ha_categories:
+  - climate.thermostats_heating
 ha_release: 0.57
 ha_iot_class: Local Polling
 ha_codeowners:

@@ -15,6 +15,10 @@ ha_category:
   - Sensor
   - Switch
   - Weather
+ha_categories:
+  - climate.thermostats_heating
+  - security_safety.cameras
+  - weather_alerts.forecasts
 ha_release: '0.20'
 ha_iot_class: Cloud Polling
 ha_codeowners:

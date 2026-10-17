@@ -9,6 +9,10 @@ ha_category:
   - Hub
   - Media source
   - Sensor
+ha_categories:
+  - climate.thermostats_heating
+  - security_safety.cameras
+  - security_safety.doorbells_intercoms
 ha_iot_class: Cloud Push
 ha_release: 0.7
 ha_config_flow: true

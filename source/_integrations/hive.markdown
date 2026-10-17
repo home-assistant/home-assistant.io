@@ -9,6 +9,10 @@ ha_category:
   - Sensor
   - Switch
   - Water heater
+ha_categories:
+  - climate.thermostats_heating
+  - lighting.bulbs_lamps
+  - plugs_switches
 ha_release: 0.59
 ha_iot_class: Cloud Polling
 ha_codeowners:

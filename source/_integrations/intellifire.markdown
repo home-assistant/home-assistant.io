@@ -9,6 +9,8 @@ ha_category:
   - Number
   - Sensor
   - Switch
+ha_categories:
+  - climate.thermostats_heating
 ha_iot_class: Local Polling
 ha_release: 2022.2
 ha_codeowners:

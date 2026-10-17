@@ -4,6 +4,8 @@ description: Instructions on how to integrate Adax heater into Home Assistant.
 ha_category:
   - Climate
   - Sensor
+ha_categories:
+  - climate.thermostats_heating
 ha_release: 2021.8
 ha_iot_class: Local Polling
 ha_codeowners:

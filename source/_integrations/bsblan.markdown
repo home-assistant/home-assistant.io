@@ -6,6 +6,9 @@ ha_category:
   - Climate
   - Sensor
   - Water heater
+ha_categories:
+  - climate.thermostats_heating
+  - diy_makers.boards_hardware
 ha_release: '0.110'
 ha_iot_class: Local Polling
 ha_config_flow: true

@@ -10,6 +10,8 @@ ha_category:
   - Sensor
   - Switch
   - Weather
+ha_categories:
+  - climate.thermostats_heating
 ha_release: 0.9
 ha_iot_class: Cloud Polling
 ha_config_flow: true

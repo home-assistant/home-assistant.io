@@ -6,6 +6,8 @@ ha_category:
   - Climate
   - Sensor
   - Water heater
+ha_categories:
+  - climate.thermostats_heating
 ha_release: 0.93
 ha_iot_class: Local Polling
 ha_codeowners:

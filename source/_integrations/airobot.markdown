@@ -17,6 +17,8 @@ related:
     title: Airobot Heat Control Products
 ha_category:
   - Climate
+ha_categories:
+  - climate.thermostats_heating
 ha_platforms:
   - button
   - climate
