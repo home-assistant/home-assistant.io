@@ -9,6 +9,8 @@ ha_category:
   - Switch
   - Update
   - Vacuum
+ha_categories:
+  - pets
 ha_iot_class: Cloud Push
 ha_release: 2021.3
 ha_config_flow: true

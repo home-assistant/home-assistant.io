@@ -10,6 +10,8 @@ ha_category:
   - Sensor
   - Switch
   - Time
+ha_categories:
+  - pets
 ha_release: 2025.1
 ha_iot_class: Local Polling
 ha_config_flow: true
