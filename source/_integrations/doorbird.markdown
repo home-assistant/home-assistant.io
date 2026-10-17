@@ -7,6 +7,8 @@ ha_category:
   - Doorbell
   - Event
   - Image
+ha_categories:
+  - security_safety.doorbells_intercoms
 ha_release: 0.54
 ha_iot_class: Local Push
 ha_config_flow: true

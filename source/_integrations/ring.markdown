@@ -11,6 +11,9 @@ ha_category:
   - Number
   - Sensor
   - Switch
+ha_categories:
+  - security_safety.doorbells_intercoms
+  - security_safety.cameras
 ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_config_flow: true

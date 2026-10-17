@@ -4,6 +4,8 @@ description: Instructions on how to integrate Interlogix/GE Concord4 into Home A
 ha_category:
   - Alarm
   - Binary sensor
+ha_categories:
+  - security_safety.alarm_systems
 ha_iot_class: Local Polling
 ha_release: 0.31
 ha_domain: concord232

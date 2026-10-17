@@ -4,6 +4,8 @@ description: Instructions on how to integrate a Ness D8x/D16x alarm system with 
 ha_category:
   - Alarm
   - Binary sensor
+ha_categories:
+  - security_safety.alarm_systems
 ha_release: 0.85
 ha_iot_class: Local Push
 ha_codeowners:
