@@ -18,6 +18,8 @@ ha_category:
   - Switch
   - Vacuum
   - Valve
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_iot_class: Cloud Push
 ha_release: 0.74
 ha_config_flow: true

@@ -11,6 +11,8 @@ ha_category:
   - Sensor
   - Switch
   - Valve
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: 2021.6
 ha_iot_class: Local Push
 ha_config_flow: true

@@ -10,6 +10,10 @@ ha_category:
   - Presence detection
   - Remote
   - Vacuum
+ha_categories:
+  - hubs_protocols.smart_home_hubs
+  - climate.air_purifiers_humidifiers
+  - appliances_cleaning.cleaning
 ha_iot_class: Local Polling
 ha_release: 0.51
 ha_codeowners:

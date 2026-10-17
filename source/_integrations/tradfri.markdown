@@ -11,6 +11,9 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
+  - lighting.bulbs_lamps
 ha_domain: tradfri
 ha_homekit: true
 ha_platforms:

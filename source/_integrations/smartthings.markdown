@@ -23,6 +23,8 @@ ha_category:
   - Vacuum
   - Valve
   - Water heater
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: 0.87
 ha_iot_class: Cloud Push
 ha_config_flow: true

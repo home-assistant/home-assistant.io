@@ -15,6 +15,8 @@ ha_category:
   - Select
   - Sensor
   - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: 0.28
 ha_iot_class: Local Push
 ha_domain: isy994
