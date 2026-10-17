@@ -7,6 +7,8 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_categories:
+  - diy_makers.boards_hardware
 ha_release: 0.114
 ha_iot_class: Local Push
 ha_codeowners:

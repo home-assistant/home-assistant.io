@@ -3,6 +3,8 @@ title: Serial
 description: Instructions on how to integrate data from serial connected sensors into Home Assistant.
 ha_category:
   - Sensor
+ha_categories:
+  - diy_makers.boards_hardware
 ha_release: 0.56
 ha_iot_class: Local Polling
 ha_codeowners:

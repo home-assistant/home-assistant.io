@@ -5,6 +5,8 @@ ha_category:
   - Binary sensor
   - DIY
   - Event
+ha_categories:
+  - diy_makers.boards_hardware
 ha_bluetooth: true
 ha_release: 2026.4
 ha_iot_class: Local Push

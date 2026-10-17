@@ -3,6 +3,8 @@ title: Apache Kafka
 description: Send data and events to Apache Kafka.
 ha_category:
   - History
+ha_categories:
+  - diy_makers.web_data_connectors
 ha_release: 0.97
 ha_codeowners:
   - '@bachya'

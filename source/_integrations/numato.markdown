@@ -6,6 +6,8 @@ ha_category:
   - DIY
   - Sensor
   - Switch
+ha_categories:
+  - diy_makers.boards_hardware
 ha_release: '0.110'
 ha_iot_class: Local Push
 ha_domain: numato
