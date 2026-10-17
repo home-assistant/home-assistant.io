@@ -6,6 +6,8 @@ ha_category:
   - Switch
   - System monitor
   - Update
+ha_categories:
+  - computers_network.routers_network
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: 0.28

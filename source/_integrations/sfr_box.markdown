@@ -3,6 +3,8 @@ title: SFR Box
 description: Instructions on how to integrate your SFR Box broadband router into Home Assistant.
 ha_category:
   - Sensor
+ha_categories:
+  - computers_network.routers_network
 ha_release: 2023.2
 ha_iot_class: Local Polling
 ha_config_flow: true

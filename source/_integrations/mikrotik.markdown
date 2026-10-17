@@ -10,6 +10,9 @@ ha_category:
   - Sensor
   - Switch
   - Update
+ha_categories:
+  - computers_network.routers_network
+  - presence_location.network_presence
 ha_release: 0.44
 ha_codeowners:
   - '@engrbm87'

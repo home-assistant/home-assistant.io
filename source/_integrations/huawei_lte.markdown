@@ -10,6 +10,8 @@ ha_category:
   - Select
   - Sensor
   - Switch
+ha_categories:
+  - computers_network.routers_network
 ha_release: 0.79
 ha_iot_class: Local Polling
 ha_config_flow: true

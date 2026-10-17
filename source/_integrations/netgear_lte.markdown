@@ -7,6 +7,9 @@ ha_category:
   - Network
   - Notifications
   - Sensor
+ha_categories:
+  - computers_network.routers_network
+  - messaging_notifications.email_sms_calls
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: netgear_lte
