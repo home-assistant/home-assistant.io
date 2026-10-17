@@ -7,6 +7,8 @@ ha_category:
   - Select
   - Sensor
   - Switch
+ha_categories:
+  - health_wellbeing
 ha_iot_class: Cloud Push
 ha_release: 2025.3
 ha_config_flow: true
