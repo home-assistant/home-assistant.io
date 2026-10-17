@@ -12,6 +12,9 @@ ha_domain: gree_infrared
 ha_config_flow: true
 ha_platforms:
   - climate
+  - number
+  - select
+  - switch
 ha_integration_type: device
 ha_quality_scale: silver
 ---
@@ -39,6 +42,10 @@ Infrared receiver:
   description: "The infrared receiver entity to use for receiving commands from your Gree remote. This must be an entity provided by a hardware integration (such as ESPHome) that has already been set up with an IR receiver. It is optional and keeps the climate entity in sync with the physical remote."
 Supported modes:
   description: "The operating modes your air conditioner supports. Select at least one of **Cool**, **Heat**, **Dry**, **Fan only**, and **Auto**. Check your remote or the manual of your unit to see which modes it has. Not all Gree models support heat. Selecting a mode your unit does not have breaks nothing. Your air conditioner simply does not respond to it."
+Remote model:
+  description: "The remote profile to use. **Generic Gree** matches existing setups. **YAP1F / YAP1FB** matches Cooper&Hunter units with a YAP1F or YAP1FB remote and enables extra options. Choose the profile during setup. To change it later, select **Reconfigure** for the device."
+Expose Generic remote options:
+  description: "Show Turbo, Display light, Health ionizer, and X-Fan for the Generic profile. Sleep, Fresh air, and Timer are always shown."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -47,7 +54,35 @@ A climate entity is created for each Gree air conditioner device you set up.
 
 - **Gree AC**
   - **Description**: Represents the Gree air conditioner and allows you to control it using infrared commands.
-  - **Supported features**: Turn on, turn off, set HVAC mode, set target temperature, and set fan mode.
+  - **Supported features**: Turn on, turn off, set HVAC mode, set target temperature, set fan mode, and set vertical and horizontal swing.
+
+### Remote models
+
+Select the remote profile during setup. **Generic Gree** matches existing setups. **YAP1F / YAP1FB** matches Cooper&Hunter units with a YAP1F or YAP1FB remote and enables extra options. The YAP1FB remote is the same as the YAP1F, but its screen has a backlight; both use the same profile. If you use an infrared receiver with a YAP1F or YAP1FB remote, select **YAP1F / YAP1FB**. With **Generic Gree** selected, the receiver ignores signals from these remotes.
+
+### Switches
+
+Switches send a full new command each time, like the climate entity. When the air conditioner is off, it stores changes and sends them with the next command. They use assumed state: there is no feedback from the unit.
+
+- **Sleep**: Both profiles. Not available in Auto, Fan only, or Off. Changing the mode or turning off clears it.
+- **Turbo**: YAP1F always. Generic only when **Expose Generic remote options** is on.
+- **Display light**: YAP1F always. Generic only when **Expose Generic remote options** is on.
+- **Health ionizer**: YAP1F always. Generic only when **Expose Generic remote options** is on.
+- **X-Fan**: YAP1F always. Generic only when **Expose Generic remote options** is on.
+- **I-Feel**: YAP1F only.
+- **Econo**: YAP1F only, Cool mode only. Switching to another mode turns it off.
+- **Absence**: YAP1F only, Heat mode only. Switching to another mode turns it off.
+
+### Selects and timer
+
+Selects and the timer also send a full new command each time and use assumed state.
+
+- **Fresh air**: Both profiles. Off, Level 1, Level 2.
+- **Timer**: Both profiles. Countdown in hours, 0 to 24 in 0.5-hour steps. 0 means off. When the countdown ends, the timer returns to 0.
+- **Vertical vane position**: YAP1F only. **Auto** follows the climate entity's swing setting. Selecting a numbered position parks the vane there and turns off vertical swing.
+- **Horizontal vane position**: YAP1F only. Off, Auto, Maximum left, Left, Middle, Right, Maximum right.
+- **Display temperature**: YAP1F only. Off, Setpoint, Indoor, Outdoor.
+- **Unit display scale**: YAP1F only. Celsius or Fahrenheit display on the unit.
 
 ### Supported modes
 
