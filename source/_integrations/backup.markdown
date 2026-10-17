@@ -5,6 +5,8 @@ ha_category:
   - Event
   - Other
   - Sensor
+ha_categories:
+  - computers_network
 ha_release: 2022.4
 ha_quality_scale: internal
 ha_domain: backup

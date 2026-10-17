@@ -6,6 +6,8 @@ ha_config_flow: true
 ha_release: '2023.10'
 ha_category:
   - Cover
+ha_categories:
+  - health_wellbeing
 ha_domain: idasen_desk
 ha_bluetooth: true
 ha_platforms:
