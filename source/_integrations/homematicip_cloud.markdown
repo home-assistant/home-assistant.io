@@ -139,6 +139,7 @@ The list below shows which Home Assistant entities each supported Homematic IP d
 - Wired input module – 32 channels (`HmIPW-DRI32`)
 - Battery sensors on remote controls (`HmIP-RC8`, `HmIP-WRC2`, `HmIP-WRCC2`, `HmIP-WRC6`, `HmIP-WRC6-230`, `HmIPW-WRC6`, `HmIP-KRC4`, `HmIP-KRCA`, `HmIP-BRC2`, `HmIP-MOD-RC8`)
 - Full Flush Lock Controller glass-break and lock state sensors (`HmIP-FLC`)
+- Heating output of wall thermostats, shown when the thermostat's switching output is enabled (`HmIP-BWTH`, `HmIP-WGT`, `HmIP-WGT-A`, `HmIP-WGTC`)
 
 ### Buttons
 
