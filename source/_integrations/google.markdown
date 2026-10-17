@@ -57,7 +57,7 @@ Individual Calendar *Events* are what is powering automations such as:
 - Send a notification *5 minutes before the start of any event*
 - Stop the media player *30 minutes after* the *end* of the event named *Exercise*.
 
-See [calendar automations](/integrations/calendar#automation) for an overview, and read more about [calendar trigger variables](/docs/automation/trigger-data/#calendar) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
+See [calendar automations](/integrations/calendar#automation) for an overview, and read more about [calendar trigger variables](/docs/automation/trigger-data/#calendar-triggers) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
 
 ## Calendar entity attributes
 

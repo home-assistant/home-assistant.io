@@ -96,7 +96,7 @@ automation: |
 - Combining values with `and` or `or` doesn't always render `true` or `false`. For example, `{{ my_list is defined and my_list }}` renders the list itself. The condition then doesn't pass, even if the list isn't empty. To get `true` or `false`, use a comparison, such as `{{ my_list is defined and my_list | length > 0 }}`.
 - If the template has an error, the condition fails with an error. The error is shown in the trace.
 - If an entity in the template is unavailable or unknown, `float` and `int` can't convert its state, and the template fails with an error. Give them a default value, such as `float(0)`, or check the entity first with `has_value()`.
-- In an automation, the template can use the `trigger` variable, which describes what started the automation. For details, refer to [Available trigger data](/docs/automation/trigger-data/#available-trigger-data).
+- In an automation, the template can use the `trigger` variable, which describes what started the automation. For details, refer to [Available trigger data](/docs/automation/trigger-data/#trigger-properties).
 - This condition checks the template right now. To start an automation when a template becomes true, use the [Template trigger](/docs/automation/trigger/#template-trigger).
 - For more about templates, refer to [Templates in automation conditions](/docs/templating/where-to-use/#automation-conditions).
 

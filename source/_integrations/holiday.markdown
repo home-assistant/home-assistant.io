@@ -50,7 +50,7 @@ Individual holiday *Events* are what powers automations such as:
 - Turn on the Christmas lights at the *start* of Christmas Day.
 - Prevent your covers from being opened on public holidays.
 
-For an overview, refer to [calendar automations](/integrations/calendar#automation). You can use [calendar trigger variables](/docs/automation/trigger-data/#calendar) in a condition or action such as the event `summary`, `description`, `location` and in other places.
+For an overview, refer to [calendar automations](/integrations/calendar#automation). You can use [calendar trigger variables](/docs/automation/trigger-data/#calendar-triggers) in a condition or action such as the event `summary`, `description`, `location` and in other places.
 
 ## Data updates
 

@@ -160,3 +160,24 @@
   good-to-know-about-set-conversation-response: /actions/set_conversation_response/#good-to-know
   examples-of-set-conversation-response: /actions/set_conversation_response/
   automation-answer-whether-the-garage-door-is-open: /actions/set_conversation_response/#automation-answer-whether-the-garage-door-is-open
+"/docs/automation/trigger-data/":
+  available-state-data: /docs/automation/trigger-data/#state-of-the-automation
+  available-trigger-data: /docs/automation/trigger-data/#trigger-properties
+  all: /docs/automation/trigger-data/#properties-of-all-triggers
+  calendar: /docs/automation/trigger-data/#calendar-triggers
+  device: /docs/automation/trigger-data/#device-triggers
+  event: /docs/automation/trigger-data/#event-triggers
+  geolocation: /docs/automation/trigger-data/#geolocation-triggers
+  home-assistant: /docs/automation/trigger-data/#home-assistant-triggers
+  mqtt: /docs/automation/trigger-data/#mqtt-triggers
+  numeric-state: /docs/automation/trigger-data/#numeric-state-triggers
+  sentence: /docs/automation/trigger-data/#sentence-triggers
+  state: /docs/automation/trigger-data/#state-triggers
+  sun: /docs/automation/trigger-data/#sun-triggers
+  tag: /docs/automation/trigger-data/#tag-triggers
+  template: /docs/automation/trigger-data/#template-triggers
+  time: /docs/automation/trigger-data/#time-triggers
+  time-pattern: /docs/automation/trigger-data/#time-pattern-triggers
+  persistent-notification: /docs/automation/trigger-data/#persistent-notification-triggers
+  webhook: /docs/automation/trigger-data/#webhook-triggers
+  zone: /docs/automation/trigger-data/#zone-triggers

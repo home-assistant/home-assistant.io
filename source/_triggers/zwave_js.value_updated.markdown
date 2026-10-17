@@ -117,7 +117,7 @@ to:
 
 ### Available trigger data
 
-In addition to the [standard automation trigger data](/docs/automation/trigger-data/#all), this trigger exposes the following template variables:
+In addition to the [standard automation trigger data](/docs/automation/trigger-data/#properties-of-all-triggers), this trigger exposes the following template variables:
 
 - `trigger.device_id`: Device ID for the device in the device registry.
 - `trigger.node_id`: Z-Wave node ID.
