@@ -5,6 +5,8 @@ ha_release: 0.106
 ha_category:
   - Binary sensor
   - Sensor
+ha_categories:
+  - media_entertainment.gaming
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:

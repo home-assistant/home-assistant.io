@@ -3,6 +3,8 @@ title: Pocket Casts
 description: Instructions on how to set up Pocket Casts sensors within Home Assistant.
 ha_category:
   - Multimedia
+ha_categories:
+  - media_entertainment.music_radio_services
 ha_release: 0.39
 ha_iot_class: Cloud Polling
 ha_domain: pocketcasts

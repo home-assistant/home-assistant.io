@@ -7,6 +7,8 @@ ha_category:
   - Media player
   - Media source
   - Remote
+ha_categories:
+  - media_entertainment.gaming
 ha_iot_class: Cloud Polling
 ha_release: 0.117
 ha_codeowners:

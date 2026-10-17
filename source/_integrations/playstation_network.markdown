@@ -6,6 +6,8 @@ ha_category:
   - Gaming
   - Media player
   - Sensor
+ha_categories:
+  - media_entertainment.gaming
 ha_release: 2025.7
 ha_iot_class: Cloud Polling
 ha_domain: playstation_network
