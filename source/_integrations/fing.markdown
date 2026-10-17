@@ -4,6 +4,8 @@ description: Instructions on integrating your Fing Agent with Home Assistant
 ha_release: '2025.11'
 ha_category:
   - Presence detection
+ha_categories:
+  - presence_location.network_presence
 ha_platforms:
   - device_tracker
 ha_iot_class: Local Polling

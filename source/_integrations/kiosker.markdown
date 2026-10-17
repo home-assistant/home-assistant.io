@@ -6,6 +6,8 @@ ha_category:
   - Button
   - Sensor
   - Switch
+ha_categories:
+  - presence_location.phones_companion_apps
 ha_release: 2026.5
 ha_iot_class: Local Polling
 ha_config_flow: true

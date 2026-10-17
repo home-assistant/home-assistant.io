@@ -4,6 +4,9 @@ description: Instructions on how to set up Proximity monitoring within Home Assi
 ha_category:
   - Automation
   - Presence detection
+ha_categories:
+  - presence_location
+  - helpers.calculate_value
 ha_release: 0.13
 ha_quality_scale: internal
 ha_domain: proximity
