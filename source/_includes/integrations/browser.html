@@ -357,11 +357,6 @@ join: ',' | split: ',' -%}
     let orderedBy = null;
     let shownPlace = null;
 
-    // The main page starts with Featured on. That is only a starting point:
-    // it goes away as soon as you search or pick a filter, unless you turned
-    // Featured on yourself. The history remembers it per entry.
-    let featuredByDefault = false;
-
     function findCategory(slug) {
       return CATEGORIES.find(category => category.slug === slug);
     }
@@ -385,8 +380,23 @@ join: ',' | split: ',' -%}
         const value = (params.get(key) || '').trim();
         if (value) state[key] = value;
       });
-      if (state.featured && state.partners) delete state.featured;
+      // Featured is "true" when you turned it on. On the main page it is on
+      // by default, so "false" there means you turned it off.
+      if (!['true', 'false'].includes(state.featured) || state.partners) delete state.featured;
+      if (state.featured === 'false' && state.category) delete state.featured;
       return state;
+    }
+
+    // The main page as you land on it: nothing picked yet.
+    function isLanding(state) {
+      return !state.category && !QUERY_KEYS.some(key => state[key]);
+    }
+
+    // The main page starts with Featured on. That is only a starting point,
+    // so it stays out of the URL: it goes away as soon as you search or pick
+    // a filter, and it never goes along to a category.
+    function showsFeatured(state) {
+      return state.featured === 'true' || isLanding(state);
     }
 
     function urlFor(state) {
@@ -404,17 +414,13 @@ join: ',' | split: ',' -%}
       return query ? `${path}?${query}` : path;
     }
 
-    function go(state, { replace = false, featuredDefault = false } = {}) {
-      featuredByDefault = featuredDefault;
-      history[replace ? 'replaceState' : 'pushState']({ featuredByDefault }, '', urlFor(state));
+    // Undoing everything on the main page shows all integrations, not the
+    // Featured ones you started with. Only a link to the main page lands
+    // there again.
+    function go(state, { replace = false, landing = false } = {}) {
+      if (!landing && isLanding(state)) state.featured = 'false';
+      history[replace ? 'replaceState' : 'pushState'](null, '', urlFor(state));
       render();
-    }
-
-    // A new state with the automatic Featured taken out.
-    function nextState() {
-      const state = readState();
-      if (featuredByDefault) delete state.featured;
-      return state;
     }
 
     // Switching category does not load a new page: every integration is
@@ -424,11 +430,7 @@ join: ',' | split: ',' -%}
         if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
         event.preventDefault();
 
-        const state = readState(new URL(link.href, location.href));
-        // Like opening the main page: it starts with Featured on.
-        const featuredDefault = !state.category && !QUERY_KEYS.some(key => state[key]);
-        if (featuredDefault) state.featured = 'true';
-        go(state, { featuredDefault });
+        go(readState(new URL(link.href, location.href)), { landing: true });
 
         closePanels();
         if (componentContainerEl.getBoundingClientRect().top < 0) window.scrollTo(0, 0);
@@ -456,14 +458,8 @@ join: ',' | split: ',' -%}
         state[hashKey] = hashValue.join('/');
       }
       if (state.featured && state.partners) delete state.featured;
-
-      const showAll = hash === 'all';
-      const empty = !Object.keys(state).length;
-      if (empty && !showAll) {
-        state.featured = 'true';
-        featuredByDefault = true;
-      }
-      history.replaceState({ featuredByDefault }, '', urlFor(state));
+      if (hash === 'all' && isLanding(state)) state.featured = 'false';
+      history.replaceState(null, '', urlFor(state));
     }
 
     function init() {
@@ -474,10 +470,7 @@ join: ',' | split: ',' -%}
       upgradeOldURL();
       render();
 
-      window.addEventListener('popstate', event => {
-        featuredByDefault = Boolean(event.state && event.state.featuredByDefault);
-        render();
-      });
+      window.addEventListener('popstate', render);
 
       setTimeout(() => searchInputEl.focus(), 1);
     }
@@ -499,7 +492,8 @@ join: ',' | split: ',' -%}
         select.parentElement.classList.toggle('active', Boolean(state[select.dataset.id]));
       });
       quickFilterButtons.forEach(button => {
-        button.setAttribute('aria-pressed', Boolean(state[button.dataset.quickFilter]));
+        const isOn = button.dataset.quickFilter === 'featured' ? showsFeatured(state) : Boolean(state.partners);
+        button.setAttribute('aria-pressed', isOn);
       });
       // Only overwrite the search field when it says something else, so typing
       // is never interrupted.
@@ -515,7 +509,7 @@ join: ',' | split: ',' -%}
       const scores = state.search ? searchScores(state.search) : null;
       const shown = integrations.filter(integration => {
         if (!inPlace(integration, state)) return false;
-        if (state.featured && !integration.featured) return false;
+        if (showsFeatured(state) && !integration.featured) return false;
         if (state.partners && !integration.wwha) return false;
         if (FILTERS.some(key => state[key] && integration[key] != state[key])) return false;
         if (scores && !scores.has(integration)) return false;
@@ -650,7 +644,7 @@ join: ',' | split: ',' -%}
       QUERY_KEYS.forEach(key => {
         if (state[key]) carried[key] = state[key];
       });
-      if (featuredByDefault) delete carried.featured;
+      if (carried.featured === 'false') delete carried.featured;
 
       categoryLinks.forEach(link => {
         link.href = urlFor({ ...carried, category: link.dataset.category });
@@ -670,7 +664,7 @@ join: ',' | split: ',' -%}
     subcategoryLinks.forEach(followInPage);
 
     filterSelects.forEach(select => select.addEventListener('change', () => {
-      const state = nextState();
+      const state = readState();
       if (select.value === '#') {
         delete state[select.dataset.id];
       } else {
@@ -683,7 +677,7 @@ join: ',' | split: ',' -%}
     quickFilterButtons.forEach(button => button.addEventListener('click', () => {
       const key = button.dataset.quickFilter;
       const state = readState();
-      const wasOn = Boolean(state[key]);
+      const wasOn = key === 'featured' ? showsFeatured(state) : Boolean(state.partners);
       QUICK_FILTERS.forEach(quickFilter => delete state[quickFilter]);
       if (!wasOn) state[key] = 'true';
       go(state);
@@ -705,7 +699,7 @@ join: ',' | split: ',' -%}
     }
 
     function clearSearch() {
-      const state = nextState();
+      const state = readState();
       delete state.search;
       searchInputEl.value = '';
       go(state);
@@ -718,7 +712,7 @@ join: ',' | split: ',' -%}
       const value = searchInputEl.value.trim();
       const current = readState();
       if (value === (current.search || '')) return;
-      const state = nextState();
+      const state = readState();
       if (value) {
         state.search = value;
       } else {
@@ -860,7 +854,7 @@ join: ',' | split: ',' -%}
 
     // Say why nothing shows, and offer only the ways out that apply.
     function updateEmptyState(state) {
-      const filters = [...QUICK_FILTERS, ...FILTERS].filter(key => state[key]);
+      const filters = [...QUICK_FILTERS, ...FILTERS].filter(key => state[key] && state[key] !== 'false');
       const placeName = CATEGORY_NAMES[state.subcategory ? `${state.category}.${state.subcategory}` : state.category];
       const where = placeName ? ` in ${placeName}` : '';
       const text = noResultsEl.querySelector('.empty-state-text');
