@@ -344,10 +344,10 @@ For setup steps, YAML options, and examples for the time trigger, see [Time trig
 
 ### Webhook trigger
 
-Webhook trigger reacts when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. The `webhook_id` can either be a static value or computed using [limited templates](/docs/templating/limited-templates/).
+Webhook trigger reacts when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. The `webhook_id` can either be a static value or computed using a [template](/docs/templating/).
 
 {% note %}
-The `webhook_id` template is only evaluated when setting up the trigger, they will not be re-evaluated for incoming webhook triggers.
+Home Assistant renders the `webhook_id` template once, when it sets up the trigger: when the automation loads, is reloaded, or is turned on. It doesn't render the template again when a webhook call comes in, or when a state the template uses changes. In a **Wait for a trigger** step, Home Assistant renders the template each time the wait starts, and the template can use the variables of the run.
 {% endnote %}
 
 ```yaml
