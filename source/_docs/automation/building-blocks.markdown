@@ -98,7 +98,7 @@ automation: |
         entity_id: light.ceiling
 {% endexample %}
 
-`enabled` can also be a limited template. The limited template can't use variables, such as `trigger`, `this`, or values from the `variables` section. It also can't use the state of entities or the current time. If the limited template refers to a variable, Home Assistant skips the step or stops the run with an error.
+`enabled` can also be a [limited template](/docs/templating/limited-templates/). The limited template can't use variables, such as `trigger`, `this`, or values from the `variables` section. It also can't use the state of entities or the current time. If the limited template refers to a variable, Home Assistant skips the step or stops the run with an error.
 
 In a {% term blueprint %}, set `enabled` directly to a blueprint input with `!input`, not through a template:
 
