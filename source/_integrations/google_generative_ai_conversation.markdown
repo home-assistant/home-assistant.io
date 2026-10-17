@@ -6,6 +6,9 @@ ha_category:
   - Speech-to-text
   - Text-to-speech
   - Voice
+ha_categories:
+  - ai_voice.ai_models
+  - ai_voice.speech
 ha_release: 2023.6
 ha_iot_class: Cloud Polling
 ha_config_flow: true

@@ -4,6 +4,9 @@ description: Instructions on how to integrate OpenAI as a conversation agent
 ha_category:
   - AI
   - Voice
+ha_categories:
+  - ai_voice.ai_models
+  - ai_voice.speech
 ha_release: 2023.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true

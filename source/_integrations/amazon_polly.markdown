@@ -3,6 +3,8 @@ title: Amazon Polly
 description: Instructions on how to set up Amazon Polly with Home Assistant.
 ha_category:
   - Text-to-speech
+ha_categories:
+  - ai_voice.speech
 ha_release: 0.37
 ha_domain: amazon_polly
 ha_iot_class: Cloud Push
