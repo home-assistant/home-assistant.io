@@ -3,6 +3,8 @@ title: Switchmate SimplySmart Home
 description: Instructions on how to set up Switchmate switches.
 ha_category:
   - Switch
+ha_categories:
+  - plugs_switches
 ha_release: 0.78
 ha_iot_class: Local Polling
 ha_codeowners:

@@ -5,6 +5,9 @@ ha_category:
   - Network
   - Sensor
   - Switch
+ha_categories:
+  - plugs_switches
+  - sensors
 ha_iot_class: Local Polling
 ha_release: 0.13
 ha_domain: mfi

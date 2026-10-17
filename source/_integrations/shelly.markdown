@@ -17,6 +17,10 @@ ha_category:
   - Text
   - Update
   - Valve
+ha_categories:
+  - plugs_switches
+  - lighting.bulbs_lamps
+  - energy.meters_monitoring
 ha_release: 0.115
 ha_codeowners:
   - '@bieniu'

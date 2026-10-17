@@ -7,6 +7,10 @@ ha_category:
   - Irrigation
   - Light
   - Switch
+ha_categories:
+  - plugs_switches
+  - lighting
+  - blinds_curtains
 ha_release: 0.115
 ha_config_flow: true
 ha_iot_class: Local Polling

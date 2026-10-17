@@ -6,6 +6,9 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_categories:
+  - plugs_switches
+  - lighting.bulbs_lamps
 ha_release: 0.43
 ha_iot_class: Local Polling
 ha_config_flow: true

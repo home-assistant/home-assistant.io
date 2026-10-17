@@ -4,6 +4,8 @@ description: Instructions on how to integrate Ankuoo REC Switch into Home Assist
 ha_release: 0.81
 ha_category:
   - Switch
+ha_categories:
+  - plugs_switches
 ha_iot_class: Local Polling
 ha_domain: recswitch
 ha_platforms:
