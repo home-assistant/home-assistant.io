@@ -65,7 +65,7 @@ We're grateful to Kevin for developing microWakeWord, and making it a part of th
 
 Adding custom sentences to Assist is as easy as adding a [sentence trigger][sentence triggers] to an automation. This allows you to trigger any action in Home Assistant with whatever sentences you want.
 
-Now with the new [conversation response] action in HA 2024.2, you can also customize the response spoken or printed back to you. Using [templating](/docs/automation/templating/#sentence), your response can refer to the current state of your home.
+Now with the new [conversation response] action in HA 2024.2, you can also customize the response spoken or printed back to you. Using [templating](/docs/automation/trigger-data/#sentence), your response can refer to the current state of your home.
 
 <p><img src='/images/blog/2024-02-21-voice-chapter-6/assist-custom-response-editor.png' class='no-shadow' /></p>
 

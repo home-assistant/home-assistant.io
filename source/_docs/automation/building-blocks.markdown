@@ -61,7 +61,7 @@ script: |
         message: "Turned on the ceiling light!"
 {% endexample %}
 
-In an automation, templates in the steps can use the `trigger` variable, which describes what started the automation. For details, refer to [available trigger data](/docs/automation/templating/#available-trigger-data).
+In an automation, templates in the steps can use the `trigger` variable, which describes what started the automation. For details, refer to [available trigger data](/docs/automation/trigger-data/#available-trigger-data).
 
 ## Options for any step
 

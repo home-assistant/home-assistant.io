@@ -90,7 +90,7 @@ automation:
 
 Calendar triggers should not generally use automation mode `single` to ensure the trigger can fire when multiple events start at the same time. For example, use `queued` or `parallel` instead. Note that calendars are read once every 15 minutes. When testing, make sure you do not plan events less than 15 minutes away from the current time, or your {% term trigger %} might not fire.
 
-See [Automation Trigger Variables: Calendar](/docs/automation/templating/#calendar) for additional trigger data available for conditions or actions.
+See [Automation Trigger Variables: Calendar](/docs/automation/trigger-data/#calendar) for additional trigger data available for conditions or actions.
 
 ### Automation recipes
 

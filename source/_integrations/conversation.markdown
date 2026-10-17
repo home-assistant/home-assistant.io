@@ -51,7 +51,7 @@ For a complete example, see [adding a custom sentence to trigger an automation](
 
 ### Sentence wildcards
 
-You can use lists as wildcards to capture text from the matched sentence. Captured text is available in `trigger.slots`. For the full data structure, including `trigger.details`, see [sentence trigger data](/docs/automation/templating/#sentence).
+You can use lists as wildcards to capture text from the matched sentence. Captured text is available in `trigger.slots`. For the full data structure, including `trigger.details`, see [sentence trigger data](/docs/automation/trigger-data/#sentence).
 
 {% example %}
 automation: |
