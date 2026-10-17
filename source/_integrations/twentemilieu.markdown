@@ -5,6 +5,8 @@ ha_category:
   - Calendar
   - Environment
   - Sensor
+ha_categories:
+  - local_services
 ha_release: 0.97
 ha_iot_class: Cloud Polling
 ha_config_flow: true
