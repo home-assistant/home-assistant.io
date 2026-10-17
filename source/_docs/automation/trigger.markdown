@@ -118,7 +118,7 @@ automation:
 
 There are two different types of variables available for triggers. Both work like [script level variables](/integrations/script/#variables).
 
-The first variant allows you to define variables that are set when the trigger reacts. The variables will be able to use templates and have access to [the `trigger` variable](/docs/automation/templating#available-trigger-data).
+The first variant allows you to define variables that are set when the trigger reacts. The variables will be able to use templates and have access to [the `trigger` variable](/docs/automation/trigger-data/#trigger-properties).
 
 The second variant is setting variables that are available when attaching a trigger when the trigger can contain templated values. These are defined using the `trigger_variables` key at an automation level. These variables can only contain [limited templates](/docs/templating/limited-templates/). The triggers will not re-apply if the value of the template changes. Trigger variables are a feature meant to support using blueprint inputs in triggers.
 

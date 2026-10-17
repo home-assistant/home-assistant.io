@@ -73,7 +73,7 @@ Which variables a limited template can use depends on the field that contains th
 Limited templates in trigger options, in `trigger_variables`, and in the `enabled` option of triggers can use:
 
 - The values from `trigger_variables`
-- [`this`](/docs/automation/templating/#available-state-data)
+- [`this`](/docs/automation/trigger-data/#state-of-the-automation)
 
 The `trigger` variable isn't available, because nothing has triggered yet.
 
