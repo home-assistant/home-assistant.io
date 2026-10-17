@@ -684,6 +684,10 @@ a.option-card:hover {
     border-left: 2px solid $grayLighter;
     list-style: none;
 
+    &[hidden] {
+      display: none;
+    }
+
     li {
       margin: 0;
     }

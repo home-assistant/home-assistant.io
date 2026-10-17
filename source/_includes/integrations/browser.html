@@ -106,17 +106,20 @@ join: ',' | split: ',' -%}
     const params = new URLSearchParams(location.search);
     params.delete('cat');
     const [category, subcategory] = OLD_CATEGORIES[old].split('.');
-    if (subcategory) params.set('subcategory', subcategory);
     const query = params.toString() ? `?${params}` : '';
     location.replace(
       category
-        ? `/integrations/category/${category}/${query}`
+        ? `/integrations/category/${category}/${subcategory ? `${subcategory}/` : ''}${query}`
         : `/integrations/${query || '#all'}`
     );
   })();
 </script>
 {%- endunless %}
 {%- assign current_category = site.data.integration_categories | where: "slug", include.category | first -%}
+{%- if current_category and include.subcategory -%}
+  {%- assign current_subcategory = current_category.subcategories | where: "slug", include.subcategory | first -%}
+{%- endif -%}
+{%- assign main_page = site.pages | where: "url", "/integrations/" | first -%}
 
 <div class="integrations-browser">
 
@@ -127,10 +130,10 @@ join: ',' | split: ',' -%}
 {%- endcomment -%}
 <div class="browse-toolbar">
   <button type="button" class="browse-button" data-open-panel="category-panel">
-    <iconify-icon icon="{% if current_category %}{{ current_category.icon }}{% else %}mdi:view-grid-outline{% endif %}"></iconify-icon>
+    <iconify-icon class="browse-button-icon" icon="{% if current_category %}{{ current_category.icon }}{% else %}mdi:view-grid-outline{% endif %}"></iconify-icon>
     <span class="browse-button-label">
-      {%- if current_category %}{{ current_category.name }}{% else %}All categories{% endif -%}
-      <span class="browse-button-subcategory"></span>
+      <span class="browse-button-category">{% if current_category %}{{ current_category.name }}{% else %}All categories{% endif %}</span>
+      <span class="browse-button-subcategory">{% if current_subcategory %} › {{ current_subcategory.name }}{% endif %}</span>
     </span>
   </button>
   <button type="button" class="browse-button" data-open-panel="filters-panel">
@@ -148,24 +151,28 @@ join: ',' | split: ',' -%}
   </div>
   <div class="browse-panel-content">
   <nav class="category-sidebar" aria-label="Integration categories">
-    <a href="/integrations/" class="category-link{% unless current_category %} active{% endunless %}">
+    <a href="/integrations/" class="category-link{% unless current_category %} active{% endunless %}" data-category=""{% unless current_category %} aria-current="page"{% endunless %}>
       <iconify-icon icon="mdi:view-grid-outline"></iconify-icon>
       <span class="category-name">All integrations</span>
     </a>
     {%- for category in site.data.integration_categories %}
-    <a href="/integrations/category/{{ category.slug }}/" class="category-link{% if current_category.slug == category.slug %} active{% endif %}"{% if current_category.slug == category.slug %} aria-current="page"{% endif %}>
+    {%- assign is_current = false %}
+    {%- if current_category.slug == category.slug %}{% assign is_current = true %}{% endif %}
+    <a href="/integrations/category/{{ category.slug }}/" class="category-link{% if is_current %} active{% endif %}" data-category="{{ category.slug }}"{% if is_current %}{% unless current_subcategory %} aria-current="page"{% endunless %}{% endif %}>
       <iconify-icon icon="{{ category.icon }}"></iconify-icon>
       <span class="category-name">{{ category.name }}</span>
       <span class="category-count" data-category-count="{{ category.slug }}"></span>
     </a>
-    {%- if current_category.slug == category.slug and category.subcategories.size > 0 %}
-    <ul class="subcategory-nav" aria-label="Subcategories of {{ category.name }}">
+    {%- if category.subcategories.size > 0 %}
+    <ul class="subcategory-nav" data-category="{{ category.slug }}" aria-label="Subcategories of {{ category.name }}"{% unless is_current %} hidden{% endunless %}>
       {%- for subcategory in category.subcategories %}
+      {%- assign is_current_subcategory = false %}
+      {%- if is_current and current_subcategory.slug == subcategory.slug %}{% assign is_current_subcategory = true %}{% endif %}
       <li>
-        <a href="?subcategory={{ subcategory.slug }}" class="subcategory-link" data-subcategory="{{ subcategory.slug }}">
+        <a href="/integrations/category/{{ category.slug }}/{{ subcategory.slug }}/" class="subcategory-link{% if is_current_subcategory %} active{% endif %}" data-category="{{ category.slug }}" data-subcategory="{{ subcategory.slug }}"{% if is_current_subcategory %} aria-current="page"{% endif %}>
           <iconify-icon icon="{{ subcategory.icon }}"></iconify-icon>
           <span class="category-name">{{ subcategory.name }}</span>
-          <span class="category-count" data-subcategory-count="{{ subcategory.slug }}"></span>
+          <span class="category-count" data-subcategory-count="{{ category.slug }}.{{ subcategory.slug }}"></span>
         </a>
       </li>
       {%- endfor %}
@@ -295,14 +302,12 @@ join: ',' | split: ',' -%}
       </button>
       <span class="results-count" aria-live="polite"></span>
     </div>
-    {%- if current_category %}
-    <header class="category-header">
+    <header class="category-header"{% unless current_category %} hidden{% endunless %}>
       <p class="category-description">
         <iconify-icon icon="{{ current_category.icon }}"></iconify-icon>
-        {{ current_category.description }}
+        <span class="category-description-text">{{ current_category.description }}</span>
       </p>
     </header>
-    {%- endif %}
   </div>
 
 
@@ -312,102 +317,96 @@ join: ',' | split: ',' -%}
 </div>
 
 <script type="text/javascript">
-  // This object contains all components we have
-  const integrations = [
-    {%- for component in components -%}
-      {%- if component.ha_category or component.ha_categories -%}
-        {%- assign sliced_version = component.ha_release | split: '.' -%}
-        {%- assign minor_version = sliced_version[1] | plus: 0 -%}
-        {%- assign major_version = sliced_version[0] | plus: 0 -%}
-        {
-          url: {{ component.url | jsonify }},
-          title: {{ component.title | jsonify }},
-          categories: {% if component.ha_categories %}{{ component.ha_categories | jsonify }}{% else %}[]{% endif %},
-          connection: "{% if component.ha_iot_class contains 'Local' %}local{% elsif component.ha_iot_class contains 'Cloud' %}cloud{% endif %}",
-          featured: {{ component.featured }},
-          version: "{{major_version}}.{{minor_version}}",
-          domain: {{ component.ha_domain | default: '' | jsonify }},
-          ha_brand: {{ component.ha_brand | default: false | jsonify }},
-          wwha: {% if component.works_with %} true{% else %} false{% endif %},
-          iot_class: "{{component.ha_iot_class | slugify }}",
-          quality_scale: {{ component.ha_quality_scale | default: '' | jsonify }}
-        },
-      {% endif -%}
-    {%- endfor -%}
-    false
-  ];
-  integrations.pop(); // remove placeholder element at the end
-</script>
-
-<script type="text/javascript">
   (function () {
-    const pageCategory = "{{ current_category.slug }}";
-    const pageCategoryName = {{ current_category.name | default: "" | jsonify }};
+    const SITE_TITLE = {{ site.title | jsonify }};
+    const MAIN_TITLE = {{ main_page.title | jsonify }};
+    const CATEGORIES = {{ site.data.integration_categories | jsonify }};
     // Letters that are not a letter with an accent, so removing the accents
     // does not turn them into a plain letter.
     const SPECIAL_LETTERS = { ß: 'ss', ø: 'o', æ: 'ae', œ: 'oe', ł: 'l', đ: 'd', þ: 'th', ı: 'i' };
-    const CATEGORY_NAMES = {
-      {%- for category in site.data.integration_categories %}
-      "{{ category.slug }}": {{ category.name | jsonify }},
-      {%- for subcategory in category.subcategories %}
-      "{{ category.slug }}.{{ subcategory.slug }}": {{ subcategory.name | jsonify }},
-      {%- endfor %}
-      {%- endfor %}
-    };
+    const CATEGORY_NAMES = {};
+    CATEGORIES.forEach(category => {
+      CATEGORY_NAMES[category.slug] = category.name;
+      category.subcategories.forEach(subcategory => {
+        CATEGORY_NAMES[`${category.slug}.${subcategory.slug}`] = subcategory.name;
+      });
+    });
 
-    // The state of the page lives in the query string, and only there: the
-    // URL can be shared, and Back and Forward just work. Every action builds
-    // the next state and adds one entry to the history; render() then makes
-    // every control and the list match the state.
+    // The state of the page lives in the URL, and only there: the category
+    // and subcategory in the path, the filters and the search in the query
+    // string. The URL can be shared, and Back and Forward just work. Every
+    // action builds the next state and adds one entry to the history;
+    // render() then makes the page, the controls, and the list match it.
     const FILTERS = ['connection', 'version', 'iot_class', 'quality_scale'];
     const QUICK_FILTERS = ['featured', 'partners'];
-    const STATE_KEYS = [...QUICK_FILTERS, ...FILTERS, 'search', 'subcategory'];
-    // The filters that go along to another category. The subcategory belongs
-    // to the current category, so it stays behind.
-    const CARRIED_KEYS = [...QUICK_FILTERS, ...FILTERS, 'search'];
+    const QUERY_KEYS = [...QUICK_FILTERS, ...FILTERS, 'search'];
 
     const filterSelects = [...document.querySelectorAll('.integration-filter select')];
     const quickFilterButtons = [...document.querySelectorAll('.quick-filter')];
-    const subcategoryLinks = [...document.querySelectorAll('.subcategory-link')];
     const categoryLinks = [...document.querySelectorAll('.category-link')];
+    const subcategoryLists = [...document.querySelectorAll('.subcategory-nav')];
+    const subcategoryLinks = [...document.querySelectorAll('.subcategory-link')];
     const panels = [...document.querySelectorAll('.browse-panel')];
     const desktop = window.matchMedia('(min-width: 1140px)');
     const searchInputEl = document.querySelector('.component-search input');
     const searchClearEl = document.querySelector('.search-clear');
     const componentContainerEl = document.querySelector('#componentContainer');
+    const resultsCountEl = document.querySelector('.results-count');
+    let integrations = [];
     let noResultsEl;
     let orderedBy = null;
+    let shownPlace = null;
 
     // The main page starts with Featured on. That is only a starting point:
     // it goes away as soon as you search or pick a filter, unless you turned
     // Featured on yourself. The history remembers it per entry.
     let featuredByDefault = false;
 
-    function readState() {
-      const params = new URLSearchParams(location.search);
+    function findCategory(slug) {
+      return CATEGORIES.find(category => category.slug === slug);
+    }
+
+    // /integrations/category/climate/water_heaters/ is Climate, narrowed down
+    // to Water heaters.
+    function readState(url = location) {
       const state = {};
-      STATE_KEYS.forEach(key => {
+      const [, category, subcategory] =
+        url.pathname.match(/^\/integrations\/category\/([^/]+)\/(?:([^/]+)\/)?/) || [];
+      const categoryData = findCategory(category);
+      if (categoryData) {
+        state.category = category;
+        if (categoryData.subcategories.some(item => item.slug === subcategory)) {
+          state.subcategory = subcategory;
+        }
+      }
+
+      const params = new URLSearchParams(url.search);
+      QUERY_KEYS.forEach(key => {
         const value = (params.get(key) || '').trim();
         if (value) state[key] = value;
       });
-      if (!pageCategory) delete state.subcategory;
       if (state.featured && state.partners) delete state.featured;
       return state;
     }
 
-    function queryString(state) {
+    function urlFor(state) {
+      let path = '/integrations/';
+      if (state.category) {
+        path += `category/${state.category}/`;
+        if (state.subcategory) path += `${state.subcategory}/`;
+      }
+
       const params = new URLSearchParams();
-      STATE_KEYS.forEach(key => {
+      QUERY_KEYS.forEach(key => {
         if (state[key]) params.set(key, state[key]);
       });
       const query = params.toString();
-      return query ? `?${query}` : '';
+      return query ? `${path}?${query}` : path;
     }
 
-    function go(state, { replace = false } = {}) {
-      featuredByDefault = false;
-      const url = `${location.pathname}${queryString(state)}`;
-      history[replace ? 'replaceState' : 'pushState']({ featuredByDefault: false }, '', url);
+    function go(state, { replace = false, featuredDefault = false } = {}) {
+      featuredByDefault = featuredDefault;
+      history[replace ? 'replaceState' : 'pushState']({ featuredByDefault }, '', urlFor(state));
       render();
     }
 
@@ -418,15 +417,36 @@ join: ',' | split: ',' -%}
       return state;
     }
 
-    // Old URLs keep working: they are turned into the query string once, when
+    // Switching category does not load a new page: every integration is
+    // already here. Opening a link in a new tab still works as usual.
+    function followInPage(link) {
+      link.addEventListener('click', event => {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+
+        const state = readState(new URL(link.href, location.href));
+        // Like opening the main page: it starts with Featured on.
+        const featuredDefault = !state.category && !QUERY_KEYS.some(key => state[key]);
+        if (featuredDefault) state.featured = 'true';
+        go(state, { featuredDefault });
+
+        closePanels();
+        if (componentContainerEl.getBoundingClientRect().top < 0) window.scrollTo(0, 0);
+      });
+    }
+
+    // Old URLs keep working: they are turned into the current form once, when
     // the page loads. Old category links are handled at the top of the page.
     function upgradeOldURL() {
       const params = new URLSearchParams(location.search);
       const hash = decodeURIComponent(location.hash.slice(1));
-      const state = {};
-      STATE_KEYS.forEach(key => {
-        if (params.get(key)) state[key] = params.get(key);
-      });
+      const state = readState();
+
+      const category = findCategory(state.category);
+      const subcategory = params.get('subcategory');
+      if (category && category.subcategories.some(item => item.slug === subcategory)) {
+        state.subcategory = subcategory;
+      }
       const brand = params.get('brands');
       if (brand === 'featured' || brand === 'partners') state[brand] = 'true';
       if (hash === 'featured') state.featured = 'true';
@@ -439,11 +459,11 @@ join: ',' | split: ',' -%}
 
       const showAll = hash === 'all';
       const empty = !Object.keys(state).length;
-      if (empty && !pageCategory && !showAll) {
+      if (empty && !showAll) {
         state.featured = 'true';
         featuredByDefault = true;
       }
-      history.replaceState({ featuredByDefault }, '', `${location.pathname}${queryString(state)}`);
+      history.replaceState({ featuredByDefault }, '', urlFor(state));
     }
 
     function init() {
@@ -463,7 +483,15 @@ join: ',' | split: ',' -%}
     }
 
     function render() {
+      // Still loading the integrations; init() renders once they are in.
+      if (!noResultsEl) return;
+
       const state = readState();
+      const place = `${state.category || ''}/${state.subcategory || ''}`;
+      if (place !== shownPlace) {
+        showPlace(state);
+        shownPlace = place;
+      }
 
       // Controls
       filterSelects.forEach(select => {
@@ -479,16 +507,14 @@ join: ',' | split: ',' -%}
         searchInputEl.value = state.search || '';
       }
       updateSearchClear();
-      updateSubcategoryLinks(state);
-      updateCategoryLinks(state);
+      updateBrowseLinks(state);
       const filterCount = FILTERS.filter(key => state[key]).length;
       document.querySelector('.filters-count').textContent = filterCount ? `(${filterCount})` : '';
 
       // The list
       const scores = state.search ? searchScores(state.search) : null;
       const shown = integrations.filter(integration => {
-        if (pageCategory && !inCategory(integration, pageCategory)) return false;
-        if (state.subcategory && !integration.categories.includes(`${pageCategory}.${state.subcategory}`)) return false;
+        if (!inPlace(integration, state)) return false;
         if (state.featured && !integration.featured) return false;
         if (state.partners && !integration.wwha) return false;
         if (FILTERS.some(key => state[key] && integration[key] != state[key])) return false;
@@ -516,8 +542,8 @@ join: ',' | split: ',' -%}
       noResultsEl.style.display = shown.length ? 'none' : '';
       if (!shown.length) updateEmptyState(state);
 
-      const total = integrations.filter(i => !pageCategory || inCategory(i, pageCategory)).length;
-      document.querySelector('.results-count').textContent =
+      const total = integrations.filter(integration => inPlace(integration, state)).length;
+      resultsCountEl.textContent =
         shown.length === total
           ? `${total.toLocaleString('en-US')} integrations`
           : `${shown.length.toLocaleString('en-US')} of ${total.toLocaleString('en-US')} integrations`;
@@ -526,68 +552,122 @@ join: ',' | split: ',' -%}
       });
     }
 
+    // The category and subcategory decide the title, the breadcrumbs, the
+    // description, and what is active in the sidebar. A page that was loaded
+    // has them right already; this keeps them right when you switch.
+    function showPlace(state) {
+      const category = findCategory(state.category);
+      const subcategory = category && category.subcategories.find(item => item.slug === state.subcategory);
+      const title = subcategory
+        ? `${subcategory.name} integrations`
+        : category ? `${category.name} integrations` : MAIN_TITLE;
+      document.title = `${title} - ${SITE_TITLE}`;
+      document.querySelector('h1.title').textContent = title;
+      updateBreadcrumbs(category, subcategory);
+
+      const headerEl = document.querySelector('.category-header');
+      headerEl.hidden = !category;
+      if (category) {
+        headerEl.querySelector('iconify-icon').setAttribute('icon', category.icon);
+        headerEl.querySelector('.category-description-text').textContent = category.description;
+      }
+
+      document.querySelector('.browse-button-icon').setAttribute('icon', category ? category.icon : 'mdi:view-grid-outline');
+      document.querySelector('.browse-button-category').textContent = category ? category.name : 'All categories';
+      document.querySelector('.browse-button-subcategory').textContent = subcategory ? ` › ${subcategory.name}` : '';
+
+      categoryLinks.forEach(link => {
+        const isCurrent = link.dataset.category === (state.category || '');
+        link.classList.toggle('active', isCurrent);
+        setCurrentPage(link, isCurrent && !subcategory);
+      });
+      subcategoryLists.forEach(list => {
+        list.hidden = list.dataset.category !== state.category;
+      });
+      subcategoryLinks.forEach(link => {
+        const isCurrent = link.dataset.category === state.category && link.dataset.subcategory === state.subcategory;
+        link.classList.toggle('active', isCurrent);
+        setCurrentPage(link, isCurrent);
+      });
+    }
+
+    function setCurrentPage(link, isCurrent) {
+      if (isCurrent) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    }
+
+    // Home ▸ Integrations ▸ Climate, like the layout builds them.
+    function updateBreadcrumbs(category, subcategory) {
+      let breadcrumbsEl = document.querySelector('article.page .breadcrumbs');
+      if (!breadcrumbsEl) {
+        breadcrumbsEl = document.createElement('div');
+        breadcrumbsEl.className = 'breadcrumbs';
+        document.querySelector('h1.title').before(breadcrumbsEl);
+      }
+
+      const crumbs = [['/', 'Home']];
+      if (category) crumbs.push(['/integrations/', 'Integrations']);
+      if (subcategory) crumbs.push([`/integrations/category/${category.slug}/`, category.name]);
+      breadcrumbsEl.hidden = crumbs.length === 1;
+      breadcrumbsEl.replaceChildren(...crumbs.flatMap(([href, name], index) => {
+        const link = document.createElement('a');
+        link.href = href;
+        link.textContent = name;
+        return index ? [' ▸ ', link] : [link];
+      }));
+    }
+
     // An integration is in a category when it lists the category itself, or
     // one of its subcategories.
     function inCategory(integration, category) {
       return integration.categories.some(c => c === category || c.startsWith(`${category}.`));
     }
 
-    // The number of integrations per category in the sidebar, and per
-    // subcategory under the category of this page.
+    function inPlace(integration, state) {
+      if (state.subcategory) {
+        return integration.categories.includes(`${state.category}.${state.subcategory}`);
+      }
+      return !state.category || inCategory(integration, state.category);
+    }
+
+    // The number of integrations per category and subcategory in the sidebar.
     function showCategoryCounts() {
       document.querySelectorAll('[data-category-count]').forEach(el => {
         el.textContent = integrations.filter(i => inCategory(i, el.dataset.categoryCount)).length;
       });
       document.querySelectorAll('[data-subcategory-count]').forEach(el => {
-        const subcategory = `${pageCategory}.${el.dataset.subcategoryCount}`;
-        el.textContent = integrations.filter(i => i.categories.includes(subcategory)).length;
+        el.textContent = integrations.filter(i => i.categories.includes(el.dataset.subcategoryCount)).length;
       });
     }
 
-    function updateSubcategoryLinks(state) {
-      let activeName = '';
-      subcategoryLinks.forEach(link => {
-        const isActive = link.dataset.subcategory === state.subcategory;
-        link.classList.toggle('active', isActive);
-        if (isActive) {
-          link.setAttribute('aria-current', 'true');
-          activeName = link.querySelector('.category-name').textContent;
-        } else {
-          link.removeAttribute('aria-current');
-        }
-        // A real link, so it also works in a new tab.
-        link.href = queryString({ ...state, subcategory: isActive ? '' : link.dataset.subcategory }) || location.pathname;
-      });
-      const current = document.querySelector('.browse-button-subcategory');
-      if (current) {
-        current.textContent = activeName ? ` › ${activeName}` : '';
-      }
-    }
-
-    // The filters you picked go along to another category.
-    function updateCategoryLinks(state) {
+    // The links in the sidebar are real links, so they also work in a new
+    // tab. The filters you picked go along.
+    function updateBrowseLinks(state) {
       const carried = {};
-      CARRIED_KEYS.forEach(key => {
+      QUERY_KEYS.forEach(key => {
         if (state[key]) carried[key] = state[key];
       });
       if (featuredByDefault) delete carried.featured;
+
       categoryLinks.forEach(link => {
-        link.href = `${link.pathname}${queryString(carried)}`;
+        link.href = urlFor({ ...carried, category: link.dataset.category });
+      });
+      subcategoryLinks.forEach(link => {
+        // Selecting the current subcategory again shows the whole category.
+        const isCurrent = link.dataset.category === state.category && link.dataset.subcategory === state.subcategory;
+        link.href = urlFor({
+          ...carried,
+          category: link.dataset.category,
+          subcategory: isCurrent ? '' : link.dataset.subcategory,
+        });
       });
     }
 
-    // Selecting the active subcategory again shows the whole category.
-    subcategoryLinks.forEach(link => link.addEventListener('click', event => {
-      event.preventDefault();
-      const state = nextState();
-      if (state.subcategory === link.dataset.subcategory) {
-        delete state.subcategory;
-      } else {
-        state.subcategory = link.dataset.subcategory;
-      }
-      go(state);
-      closePanels();
-    }));
+    categoryLinks.forEach(followInPage);
+    subcategoryLinks.forEach(followInPage);
 
     filterSelects.forEach(select => select.addEventListener('change', () => {
       const state = nextState();
@@ -780,8 +860,9 @@ join: ',' | split: ',' -%}
 
     // Say why nothing shows, and offer only the ways out that apply.
     function updateEmptyState(state) {
-      const filters = Object.keys(state).filter(key => key !== 'search');
-      const where = pageCategoryName ? ` in ${pageCategoryName}` : '';
+      const filters = [...QUICK_FILTERS, ...FILTERS].filter(key => state[key]);
+      const placeName = CATEGORY_NAMES[state.subcategory ? `${state.category}.${state.subcategory}` : state.category];
+      const where = placeName ? ` in ${placeName}` : '';
       const text = noResultsEl.querySelector('.empty-state-text');
       if (state.search && filters.length) {
         text.textContent = `Nothing matches “${state.search}”${where} with these filters.`;
@@ -795,10 +876,10 @@ join: ',' | split: ',' -%}
         noResultsEl.querySelector(`[data-empty-action="${action}"]`).style.display = visible ? '' : 'none';
       };
       show('search', Boolean(state.search));
-      show('everywhere', Boolean(state.search && pageCategory));
+      show('everywhere', Boolean(state.search && state.category));
       show('filters', filters.length > 0);
       noResultsEl.querySelector('[data-empty-action="everywhere"]').href =
-        `/integrations/?search=${encodeURIComponent(state.search || '')}`;
+        urlFor({ search: state.search });
     }
 
     // The cards are built once; filters only show, hide, and order them, so
@@ -827,9 +908,10 @@ join: ',' | split: ',' -%}
       });
       noResultsEl = componentContainerEl.querySelector('.empty-state');
       noResultsEl.querySelector('[data-empty-action="search"]').addEventListener('click', clearSearch);
+      followInPage(noResultsEl.querySelector('[data-empty-action="everywhere"]'));
       noResultsEl.querySelector('[data-empty-action="filters"]').addEventListener('click', () => {
         const state = readState();
-        go(state.search ? { search: state.search } : {});
+        go({ category: state.category, subcategory: state.subcategory, search: state.search });
         searchInputEl.focus();
       });
     }
@@ -845,7 +927,15 @@ join: ',' | split: ',' -%}
       return `<img src="${urlBase}.png" srcset="${urlBase}@2x.png 2x" loading="lazy">`;
     }
 
-    init();
+    fetch('/integrations/data.json')
+      .then(response => response.json())
+      .then(data => {
+        integrations = data;
+        init();
+      })
+      .catch(() => {
+        resultsCountEl.textContent = "The integrations couldn't be loaded. Reload the page to try again.";
+      });
   })();
 </script>
 
@@ -854,8 +944,8 @@ join: ',' | split: ',' -%}
 
 {%- comment -%}
   Without JavaScript, the category panel can't open on phones, so the
-  categories are listed here too. A category page only lists its own
-  integrations.
+  categories are listed here too. A category or subcategory page only lists
+  its own integrations.
 {%- endcomment -%}
 <noscript>
   <nav class="noscript-categories" aria-label="Integration categories">
@@ -870,7 +960,11 @@ join: ',' | split: ',' -%}
     {%- for component in components -%}
     {%- if component.ha_category or component.ha_categories -%}
     {%- assign listed = true -%}
-    {%- if current_category -%}
+    {%- if current_subcategory -%}
+      {%- assign wanted = current_category.slug | append: '.' | append: current_subcategory.slug -%}
+      {%- assign listed = false -%}
+      {%- if component.ha_categories contains wanted -%}{%- assign listed = true -%}{%- endif -%}
+    {%- elsif current_category -%}
       {%- assign listed = false -%}
       {%- for category in component.ha_categories -%}
         {%- assign parent = category | split: '.' | first -%}
