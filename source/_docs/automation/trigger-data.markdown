@@ -227,7 +227,7 @@ These are the properties available for a [**Time** trigger](/triggers/time/).
 These are the properties available for a [**Time pattern** trigger](/triggers/time_pattern/).
 
 - `trigger.platform`: `time_pattern`.
-- `trigger.now`: DateTime object that triggered the time pattern trigger, in your local time zone.
+- `trigger.now`: DateTime object that triggered the time pattern trigger. Use `as_local(trigger.now)` to ensure it's in your local time zone.
 
 ### Webhook triggers
 
