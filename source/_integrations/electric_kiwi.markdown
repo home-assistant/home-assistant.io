@@ -3,6 +3,8 @@ title: Electric Kiwi
 description: Instructions on how to set up the Electric Kiwi service in Home Assistant.
 ha_category:
   - Energy
+ha_categories:
+  - energy.energy_prices
 ha_release: '2023.8'
 ha_iot_class: Cloud Polling
 ha_codeowners:

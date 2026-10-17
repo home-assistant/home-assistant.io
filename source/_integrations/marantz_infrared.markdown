@@ -4,6 +4,8 @@ description: Integration to control Marantz amplifiers using an infrared transmi
 ha_category:
   - Infrared-controlled
   - Media player
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_release: 2026.6
 ha_iot_class: Assumed State
 ha_codeowners:

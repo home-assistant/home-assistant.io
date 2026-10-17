@@ -71,7 +71,7 @@ for:
 ## Good to know
 
 - The target climate system must support dry mode.
-- A thermostat can be set to dry mode but not actively drying if it has already reached comfortable humidity levels and is idling. Use [Thermostat is in HVAC mode](/conditions/climate.is_hvac_mode/) if you only care about the mode setting.
+- A thermostat can be set to dry mode but not actively drying if it has already reached comfortable humidity levels and is idling. Use [Thermostat HVAC mode](/conditions/climate.is_hvac_mode/) if you only care about the mode setting.
 - Thermostats in the **Unavailable** or **Unknown** state do not count as actively drying. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted thermostat is **Unavailable**.
 - This condition checks the current action of the thermostat, not its mode. To check if a thermostat is simply on (any active mode) or off, use [Thermostat is on](/conditions/climate.is_on/) or [Thermostat is off](/conditions/climate.is_off/).
 - Dry mode is typically found in air conditioning systems with dehumidification features.
@@ -84,10 +84,12 @@ for:
 
 When the living room thermostat is actively drying the air, increase the ceiling fan speed to improve air circulation and help distribute the dehumidified air throughout the room. This optimizes moisture removal only during active drying cycles.
 
-- **Trigger**: State: Living room thermostat started drying
+- **Trigger**: State changed: Living room thermostat started drying
 - **Condition**: Thermostat is drying
   - **Target**: Living room thermostat
-- **Action**: Set fan speed to 60%
+- **Action**: Set fan speed
+  - **Target**: Living room ceiling fan
+  - **Percentage**: `60` %
 
 {% details "YAML example for boosting fan during drying" %}
 

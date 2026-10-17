@@ -10,6 +10,9 @@ ha_category:
   - Sensor
   - Switch
   - Water heater
+ha_categories:
+  - climate.thermostats_heating
+  - energy.meters_monitoring
 ha_iot_class: Local Polling
 ha_release: 0.98
 ha_codeowners:
@@ -135,8 +138,6 @@ A generous number of sensors is provided for your climate setup. Examples includ
 
 - **Cooling**
   - **Description**: Toggle if cooling should be enabled.
-- **DHW Comfort Mode**
-  - **Description**: Toggle comfort mode for domestic hot water.
 
 #### Water heaters
 

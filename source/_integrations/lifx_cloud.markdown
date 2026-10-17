@@ -3,6 +3,8 @@ title: LIFX Cloud
 description: Instructions on using native LIFX scenes with Home Assistant.
 ha_category:
   - Scene
+ha_categories:
+  - lighting.bulbs_lamps
 ha_iot_class: Cloud Push
 ha_release: 0.43
 ha_domain: lifx_cloud

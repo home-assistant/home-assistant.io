@@ -46,8 +46,6 @@ This passes when the living room light is currently on.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -63,7 +61,7 @@ behavior:
 
 - Lights that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as on. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted light is unavailable.
 - To gate an automation on a light being off instead, use [Light is off](/conditions/light.is_off/).
-- Pair with [Light is brightness](/conditions/light.is_brightness/) when you also want to check whether the light's brightness meets a threshold.
+- Pair with [Light brightness](/conditions/light.is_brightness/) when you also want to check whether the light's brightness meets a threshold.
 
 {% include conditions/try_it.md %}
 
@@ -73,7 +71,7 @@ behavior:
 
 When the doorbell rings, only announce it through the living room speaker if the living room light is already on. Keeps the house quiet when the room is empty.
 
-- **Trigger**: State: Doorbell button pressed
+- **Trigger**: State changed: Doorbell button pressed
 - **Condition**: Light is on
 - **Target**: Living room light
 - **Condition passes if**: Any

@@ -50,8 +50,6 @@ This passes when the hallway CO sensor reads at or above 35 ppm.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >
@@ -66,7 +64,7 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md domain="sensor" %}
 
 {% include conditions/behavior.md %}
 
@@ -86,7 +84,7 @@ When you pull into the driveway, you want to know if the air inside is safe befo
 - **Trigger**: Zone entered
   - **Target**: Frenck
   - **Zone**: Home
-- **Condition**: Air Quality: Carbon monoxide value
+- **Condition**: Carbon monoxide value
   - **Target**: Hallway CO sensor
   - **Threshold type**: 20
   - **Condition passes if**: Any

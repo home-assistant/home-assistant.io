@@ -4,6 +4,8 @@ description: Instructions on how to integrate SolarEdge sensor within Home Assis
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.solar_batteries
 ha_release: 0.85
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -48,7 +50,7 @@ To get detailed per-module production data, you need:
 
 The integration fetches energy production for the past 7 days every 12 hours and inserts the data into statistics.
 
-You can find the created statistics under {% my developer_statistics title="**Settings** > **Tools** > **Statistics**" %}, searching for `solaredge:`.
+You can find the created statistics under {% my tools_statistics title="**Settings** > **Tools** > **Statistics**" %}, searching for `solaredge:`.
 
 You can show them in the UI using the [`Statistic card`](/dashboards/statistic/) or [`Statistics graph card`](/dashboards/statistics-graph/).
 You can use them in automations using the [`SQL`](/integrations/sql/) integration.

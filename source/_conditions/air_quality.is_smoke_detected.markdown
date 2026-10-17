@@ -43,8 +43,6 @@ This passes when the kitchen smoke sensor is currently detecting smoke.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -54,7 +52,7 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md domain="binary_sensor" %}
 
 {% include conditions/behavior.md %}
 
@@ -72,7 +70,7 @@ behavior:
 During a smoke event, a single notification is easy to miss. This automation fires every 5 minutes and checks whether the kitchen smoke sensor is still detecting smoke. As long as smoke is present, you keep getting reminders so you stay up to date.
 
 - **Trigger**: Time pattern: Every 5 minutes
-- **Condition**: Air Quality: Smoke detected
+- **Condition**: Smoke detected
   - **Target**: Kitchen smoke sensor
   - **Condition passes if**: Any
 - **Action**: Send a notification message

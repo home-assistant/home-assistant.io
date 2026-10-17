@@ -57,8 +57,6 @@ This passes when `person.nina` is in `zone.home`.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 zone:
   description: The zone to test against.
@@ -112,8 +110,9 @@ When you target more than one person or device tracker, the **Check when** optio
 
 When the front door contact sensor turns on, this automation unlocks the side door only if Nina is already in the home zone.
 
-- **Trigger**: State changes to on
+- **Trigger**: State changed
   - **Target**: Front door contact sensor (`binary_sensor.front_door`)
+  - **To**: On
 - **Condition**: Is in zone
   - **Target**: Nina (`person.nina`)
   - **Zone**: Home (`zone.home`)
@@ -147,7 +146,8 @@ automation: |
 
 At 09:00, this automation sends a reminder if both selected people are in the work zone.
 
-- **Trigger**: Time is 09:00
+- **Trigger**: Time
+  - **At time**: `09:00`
 - **Condition**: Is in zone
   - **Target**: Nina and Alex
   - **Zone**: Work (`zone.work`)

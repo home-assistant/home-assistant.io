@@ -113,13 +113,13 @@ The appliance you want to control, such as a remote outlet, garage door, or stri
 
 The Home Assistant representation of a single transmitter. This is what you select when configuring an integration for a radio frequency-controlled device.
 
-## About the state of a radio frequency entity
+## Radio frequency states
 
-The radio frequency entity is stateless in the traditional sense, as in, it cannot have a state like `on` or `off`. Instead, the state is a timestamp showing the date and time when an RF command was last sent through the transmitter.
+A radio frequency entity has no `on` or `off` state. Its {% term state %} is a timestamp showing the date and time when an RF command was last sent through the transmitter. Home Assistant stores the timestamp in UTC, for example, `2026-01-01T12:00:00.123+00:00`. The Home Assistant interface shows it in your local date and time format.
 
-In addition, the entity can have the following states:
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 Because the {% term state %} of a radio frequency entity is a timestamp, it changes every time an RF command is sent. This means you can use it to track when the transmitter was last used. The logbook can also show context about which {% term integration %} or {% term action %} triggered the transmission.

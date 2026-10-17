@@ -22,35 +22,35 @@ Every template author has stared at a template that refuses to work and wondered
 
 ## The template editor
 
-Home Assistant has a built-in template editor that shows the result of a template while you type. Open it from {% my developer_template title="**Settings** > **Tools** > **Template**" %}.
+Home Assistant has a built-in template editor that shows the result of a template while you type. Open it from {% my tools_template title="**Settings** > **Tools** > **Template**" %}.
 
 The editor is the fastest feedback loop you have. It:
 
 - Shows the output of your template live.
-- Points at errors with a red message.
-- Has access to all your entities, which means you can try the template against real data.
+- Shows errors and warnings as a message above the result.
+- Shows the type of the result, for example **Result type: string** or **Result type: boolean**.
+- Shows when the template updates, for example, when an entity it listens to changes.
+- Has access to all your entities, so you can try a template against real data.
 
-When a template misbehaves in an automation or template entity, copy it into the editor, adjust until it produces what you want, then paste it back.
+For everything the editor shows, refer to [Template editor tab](/docs/tools/dev-tools/#template-editor-tab).
 
-## Read the error message
+## Finding the problem in a template
 
-When a template has a mistake, Home Assistant shows an error. The message is often more helpful than it looks.
+When a template misbehaves in an automation, a script, or a template entity, fix it in the editor first.
 
-**`UndefinedError: 'foo' is undefined`**
-Something in your template refers to a variable that does not exist. Check the spelling and make sure anything you `{% set %}` is defined before you use it.
-
-**`TypeError: unsupported operand type(s)`**
-You are trying to do something to a value of the wrong type, like adding a number to some text. Convert with [`float`](/template-functions/float/) or [`int`](/template-functions/int/) first, and remember to add a fallback.
-
-**`TemplateSyntaxError`**
-A typo in the template itself. Count your brackets, check that every `{% if %}` has an `{% endif %}`, and that every `{% for %}` has an `{% endfor %}`.
-
-**`No first item, sequence was empty`**
-You used [`first`](/template-functions/first/) or [`last`](/template-functions/last/) on an empty list. Add an `if` check, or use the [`default`](/template-functions/default/) filter.
+1. Copy the template from your automation, script, or template entity.
+2. Go to {% my tools_template title="**Settings** > **Tools** > **Template**" %} and paste the template into the **Template editor**.
+   - If the template uses `trigger` or `this`, define them at the top with `{% set %}`. For the steps, refer to [Testing a template](/docs/tools/dev-tools/#testing-a-template).
+3. Under **Result**, check the output.
+   - If a message is shown above or instead of the result, refer to [Troubleshooting template errors](/docs/templating/errors/).
+   - Check the **Result type**. Home Assistant converts the final result of a template to the type it looks like, so a numeric-looking sensor state can appear as a number even though its value is text inside the template. To check a value inside the template, refer to [Check what a value actually is](#check-what-a-value-actually-is).
+   - Below the result, check what the template listens to. If neither the entity you expect nor its domain is listed, the template doesn't update when that entity changes. If the editor says that the template listens for all state changed events, it updates when any entity changes. For details, refer to [When does my template run?](#when-does-my-template-run).
+4. Change the template until the result is what you expect. If the template is long, take it apart first. For the steps, refer to [Narrow down the problem](#narrow-down-the-problem).
+5. If you defined `trigger` or `this` with `{% set %}`, remove those lines. Then copy the template, and paste it back into your automation, script, or template entity.
 
 ## Narrow down the problem
 
-When a long template does not work, the trick is to take it apart. Start with the smallest piece you can and add one thing at a time. The moment the result goes wrong, you know exactly which piece broke. This sounds slow but it is always faster than staring at the whole thing and hoping the problem jumps out.
+When a long template doesn't work, the trick is to take it apart. Start with the smallest piece you can and add one thing at a time. The moment the result goes wrong, you know exactly which piece broke. This sounds slow, but it's usually faster than staring at the whole thing and hoping the problem jumps out.
 
 {% example %}
 template: |
@@ -83,7 +83,7 @@ output: "It is 22.5°C outside."
 
 ## Check what a value actually is
 
-When a template gives the wrong result, show the raw value to see what you are working with.
+When a template gives the wrong result, show the raw value to see what you're working with.
 
 {% example %}
 template: |
@@ -91,7 +91,7 @@ template: |
 output: "22.5"
 {% endexample %}
 
-That result looks like a number, but it is actually text. Many sensors return text even when the content looks numeric. Use [`typeof`](/template-functions/typeof/) to be sure:
+In the editor, this result shows as a number, because Home Assistant converts the final result of a template to the type it looks like. Inside the template, the value is text. Entity states are always text, even when they look like numbers. Use [`typeof`](/template-functions/typeof/) to see the type inside the template:
 
 {% example %}
 template: |
@@ -182,7 +182,7 @@ A template trigger only reacts when the result of the template changes from fals
 ## Common mistakes
 
 - **Sensor gives text, not a number.** Use `| float(0)` or `| int(0)`.
-- **Entity is `unknown` or `unavailable`.** Add a fallback with `| default(...)` or an `if has_value(...)` check.
+- **Entity is `unknown` or `unavailable`.** Check it first with `if has_value(...)`, or give `float` and `int` a fallback, such as `| float(0)`.
 - **Variable changes inside a loop are lost.** Use [`namespace`](/template-functions/namespace/).
 - **YAML refuses to load your template.** Check quoting. See [Templates in YAML](/docs/templating/yaml/).
 - **Template appears as literal text in output.** The field does not support templating, or the template is inside a `{% raw %}` / `{% endraw %}` block.
@@ -214,7 +214,7 @@ The Home Assistant community is quick to help: join [Discord](https://discord.gg
 - The template you are using (copied from the editor, where you can see what it runs against).
 - What you expected the result to be.
 - What the actual result or error was.
-- The entity IDs involved (from {% my developer_states title="**Settings** > **Tools** > **States**" %}).
+- The entity IDs involved (from {% my tools_states title="**Settings** > **Tools** > **States**" %}).
 
 {% tip %}
 AI assistants like ChatGPT or Claude can also explain or fix templates when you describe what you want in plain language.

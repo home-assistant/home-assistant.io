@@ -9,6 +9,8 @@ ha_category:
   - Select
   - Sensor
   - Switch
+ha_categories:
+  - climate.fans_ventilation
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -184,7 +186,7 @@ Available for the supported node types with a built-in humidity sensor listed in
 
 #### CO₂ air quality index
 
-Available for CO₂ sensor modules and valve actuators with a built-in CO₂ sensor. Shows the CO₂ air quality score as a percentage (0–100%). This entity is disabled by default.
+Available for CO₂ sensor modules and valve actuators with a built-in CO₂ sensor. Shows the CO₂ air quality score as a percentage (0–100%). This entity is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 Indoor air quality ranges for CO₂:
 

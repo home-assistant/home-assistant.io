@@ -3,6 +3,8 @@ title: AirVisual Cloud
 description: Instructions on how to use AirVisual data within Home Assistant
 ha_category:
   - Health
+ha_categories:
+  - weather_alerts.air_quality_pollen
 ha_release: 0.53
 ha_iot_class: Cloud Polling
 ha_codeowners:

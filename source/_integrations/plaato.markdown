@@ -4,6 +4,8 @@ description: Instructions on how to integrate Plaato Airlock and Keg sensors wit
 ha_release: 0.95
 ha_category:
   - Sensor
+ha_categories:
+  - appliances_cleaning.cooking
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:

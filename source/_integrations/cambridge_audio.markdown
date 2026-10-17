@@ -4,6 +4,8 @@ description: Instructions on how to integrate Cambridge Audio Receivers into Hom
 ha_category:
   - Media player
   - Select
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_release: '2024.10'
 ha_iot_class: Local Push
 ha_domain: cambridge_audio

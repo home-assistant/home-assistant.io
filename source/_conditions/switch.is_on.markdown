@@ -79,7 +79,7 @@ for:
 
 When you leave home, this automation checks whether the iron's power plug is still on and sends a notification so you can switch it off remotely.
 
-- **Trigger**: State: Person leaves home
+- **Trigger**: State changed: Person leaves home
 - **Condition**: Switch is on
   - **Target**: Iron power plug
 - **Action**: Send a notification message

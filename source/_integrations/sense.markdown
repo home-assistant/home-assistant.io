@@ -5,6 +5,8 @@ ha_category:
   - Binary sensor
   - Energy
   - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_iot_class: Cloud Polling
 ha_release: 0.82
 ha_config_flow: true

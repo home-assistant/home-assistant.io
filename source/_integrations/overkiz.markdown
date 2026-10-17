@@ -18,6 +18,8 @@ ha_category:
   - Siren
   - Switch
   - Water heater
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: 2022.2
 ha_config_flow: true
 ha_iot_class: Local Polling

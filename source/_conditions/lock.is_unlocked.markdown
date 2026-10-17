@@ -48,8 +48,6 @@ This passes when `lock.front_door` is currently unlocked.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -128,8 +126,9 @@ If an outside door stays unlocked after dark, a visible reminder can help. This 
 - **Target**: Outside door locks (by label)
 - **Condition passes if**: Any
 - **For at least**: 00:05:00
-- **Condition**: Sun is below the horizon
-- **Action**: Turn on
+- **Condition**: Sun is set
+- **Action**: Turn on light
+  - **Target**: Living room lamp
 
 {% details "YAML example for a visual unlocked reminder" %}
 
@@ -146,8 +145,7 @@ automation: |
       options:
         behavior: any
         for: "00:05:00"
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

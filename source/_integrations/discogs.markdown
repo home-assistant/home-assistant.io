@@ -3,6 +3,8 @@ title: Discogs
 description: Instructions on how to set up Discogs sensors within Home Assistant.
 ha_category:
   - Multimedia
+ha_categories:
+  - media_entertainment.music_radio_services
 ha_release: 0.61
 ha_iot_class: Cloud Polling
 ha_codeowners:

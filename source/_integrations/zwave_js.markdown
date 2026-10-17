@@ -19,6 +19,8 @@ ha_category:
   - Siren
   - Switch
   - Update
+ha_categories:
+  - hubs_protocols.wireless_protocols
 ha_release: '2021.2'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -422,7 +424,7 @@ The Z-Wave integration provides several special entities, some of which are avai
 
 ### Entities available for every Z-Wave device
 
-1. **Node status** sensor: This sensor shows the node status for a given Z-Wave device. The sensor is disabled by default. The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status). They can be used in state change automations. For example to ping a device when it is dead, or refresh values when it wakes up.
+1. **Node status** sensor: This sensor shows the node status for a given Z-Wave device. The sensor is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status). They can be used in state change automations. For example to ping a device when it is dead, or refresh values when it wakes up.
 2. **Ping** button: This button can be pressed to ping a device. It is an alternative to the `zwave_js.ping` action.
 3. **Adapter/node statistics** sensors: Z-Wave JS collects statistics about communications between [nodes](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot) and the [adapter](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot). The statistics can be used to troubleshoot RF issues in your environment. These statistics are available in the network configuration and device info panels. But they are also available as sensors which are disabled by default.
 
@@ -492,7 +494,7 @@ The following features can be accessed from the device panel of any Z-Wave devic
 
 ## Events
 
-There are two types of events that are fired, notification events and value notification events. You can test what events come in using the event {% my developer_events title="tools in Home Assistant" %} and subscribing to the `zwave_js_notification` or `zwave_js_value_notification` events respectively. Once you know what the event data looks like, you can use this to create automations.
+There are two types of events that are fired, notification events and value notification events. You can test what events come in using the event {% my tools_events title="tools in Home Assistant" %} and subscribing to the `zwave_js_notification` or `zwave_js_value_notification` events respectively. Once you know what the event data looks like, you can use this to create automations.
 
 ### Node events (Notification)
 

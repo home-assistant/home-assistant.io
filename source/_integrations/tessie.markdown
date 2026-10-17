@@ -16,6 +16,9 @@ ha_category:
   - Switch
   - Text
   - Update
+ha_categories:
+  - vehicles_transport.cars_evs
+  - energy.solar_batteries
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -160,7 +163,7 @@ Keep accessory power mode continues powering the USB ports and 12V outlets while
 The integration will create a climate entity to control the vehicle's climate control system. This entity can:
 
 - Change the driver's set temperature
-- Change to one of the three keep modes: Keep, Dog, and Camp
+- Change to one of the three keep modes: Keep, Pet, and Camp
 - Turn on and off
 
 The passenger set temperature is shown as a sensor but cannot be changed by Tessie.

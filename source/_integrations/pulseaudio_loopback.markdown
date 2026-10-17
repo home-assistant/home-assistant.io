@@ -3,6 +3,8 @@ title: PulseAudio Loopback
 description: Instructions on how to use Pulseaudio loopback modules to build a flexible whole-home audio system.
 ha_category:
   - Switch
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_release: 0.16
 ha_iot_class: Local Polling
 ha_domain: pulseaudio_loopback

@@ -6,6 +6,9 @@ ha_category:
   - Select
   - Sensor
   - Switch
+ha_categories:
+  - water.meters_leak_detection
+  - water.water_treatment
 ha_config_flow: true
 ha_codeowners:
   - '@ChandlerSystems'

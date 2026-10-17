@@ -9,6 +9,9 @@ ha_category:
   - Number
   - Sensor
   - Switch
+ha_categories:
+  - climate.fans_ventilation
+  - lighting.bulbs_lamps
 ha_release: 2021.7
 ha_iot_class: Local Polling
 ha_config_flow: true

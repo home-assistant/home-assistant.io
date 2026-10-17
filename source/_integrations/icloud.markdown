@@ -7,6 +7,10 @@ ha_category:
   - Presence detection
   - Sensor
   - To-do list
+ha_categories:
+  - presence_location.phones_companion_apps
+  - productivity_information.calendars_todos
+  - productivity_information.documents_photos
 ha_iot_class: Cloud Polling
 ha_release: '0.10'
 ha_config_flow: true
@@ -53,6 +57,15 @@ If you do not receive a verification code, select **Request a new verification c
 
 Delete the integration's configuration (most likely in `/config/.storage/icloud`), then retry.
 
+## Configuration options
+
+The integration provides the following configuration options:
+
+{% configuration_basic %}
+Include completed reminders:
+  description: Fetch completed reminders as well as unfinished ones. Defaults to `false`.
+{% endconfiguration_basic %}
+
 ## Platforms
 
 ### Calendar
@@ -69,7 +82,7 @@ The iCloud integration will add a battery sensor for each iCloud devices availab
 
 ### To-do list
 
-The iCloud integration adds a to-do list entity for each of your Apple Reminders lists. You can add, edit, complete, and delete reminders, including their due date and notes. Changes sync back to your Apple devices.
+The iCloud integration adds a to-do list entity for each of your Apple Reminders lists. You can add, edit, complete, and delete reminders, including their due date and notes. Changes sync back to your Apple devices. By default, only unfinished reminders are fetched. To also fetch completed reminders, enable **Include completed reminders** in the [configuration options](#configuration-options).
 
 Reminder groups hold other lists rather than reminders, so they do not appear as to-do lists. Home Assistant to-do lists are flat, so subtasks appear as regular items rather than nested under a parent. They are listed directly below the reminder they belong to, the way you see them in Reminders on your Apple devices.
 

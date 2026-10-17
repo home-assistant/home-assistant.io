@@ -74,7 +74,8 @@ text_command:
 
 Make an Alexa device tell you the time when you press a dashboard button.
 
-- **Trigger**: A user-created button is pressed
+- **Trigger**: State changed
+  - **Entity**: Ask time helper
 - **Action**: Alexa Devices: Send text command
 
 {% details "YAML example for announcing the time" %}

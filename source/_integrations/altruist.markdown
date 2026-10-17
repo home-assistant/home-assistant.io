@@ -4,6 +4,8 @@ description: Instructions on how to set up Altruist Sensors in Home Assistant.
 ha_category:
   - Health
   - Sensor
+ha_categories:
+  - sensors.air_quality
 ha_config_flow: true
 ha_release: 2025.7
 ha_iot_class: Local Polling

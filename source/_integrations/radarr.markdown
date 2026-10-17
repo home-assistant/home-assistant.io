@@ -3,6 +3,8 @@ title: Radarr
 description: Instructions on how to integrate Radarr sensors with Home Assistant
 ha_category:
   - Downloading
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: 0.47
 ha_config_flow: true
 ha_iot_class: Local Polling
@@ -36,7 +38,7 @@ A calendar entity will be created indicating the day of release and the type of 
 ### Sensors
 
 - **Disk space**: Shows the disk space available to Radarr in gigabytes. A separate sensor is created for each storage path configured in Radarr (for example: `sensor.radarr_disk_space_movies`).
-- **Movies**: Shows the number of movies in the Radarr database. (disabled by default)
+- **Movies**: Shows the number of movies in the Radarr database. ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
 - **Queue**: The number of movies in the download queue. (disabled by default)
 - **Start time**: The time when Radarr was last restarted. (disabled by default)
 

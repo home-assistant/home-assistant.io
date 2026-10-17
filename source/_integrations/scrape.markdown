@@ -3,6 +3,8 @@ title: Scrape
 description: Instructions on how to integrate Web scrape sensors into Home Assistant.
 ha_category:
   - Sensor
+ha_categories:
+  - diy_makers.web_data_connectors
 ha_release: 0.31
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -154,7 +156,7 @@ sensor:
       type: string
       default: None
     state_class:
-      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
+      description: "The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
       required: false
       type: string
       default: None

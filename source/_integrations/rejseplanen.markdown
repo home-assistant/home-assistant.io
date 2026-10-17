@@ -1,10 +1,12 @@
 ---
-title: "Rejseplanen"
-description: "Instructions on how to integrate timetable data for Danish Rejseplanen within Home Assistant."
+title: Rejseplanen
+description: Instructions on how to integrate timetable data for Danish Rejseplanen within Home Assistant.
 ha_release: 0.88
 ha_category:
   - Transport
-ha_iot_class: "Cloud Polling"
+ha_categories:
+  - vehicles_transport.public_transport
+ha_iot_class: Cloud Polling
 ha_quality_scale: legacy
 ha_config_flow: true
 ha_codeowners:
@@ -350,7 +352,8 @@ automation:
 {% enddetails %}
 
 {% important %}
-Be mindful of the API rate limit (50,000 calls per month for private keys). Frequent updates across multiple stops can quickly use up your allocation. Monitor your usage and adjust your intervals.
+Be mindful of the API rate limit (50,000 calls per month for private keys). Frequent updates can quickly use up your allocation. Monitor your usage and adjust your intervals.
+Each data update uses one API call, regardless of the number of configured stops.
 {% endimportant %}
 
 ## Data updates

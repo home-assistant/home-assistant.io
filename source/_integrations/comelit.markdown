@@ -9,6 +9,9 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
+  - security_safety.alarm_systems
 ha_release: '2023.9'
 ha_domain: comelit
 ha_config_flow: true

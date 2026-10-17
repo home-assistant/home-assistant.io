@@ -3,6 +3,9 @@ title: Ruuvi Gateway
 description: Support for Ruuvi Gateway devices acting as BLE remote scanners.
 ha_category:
   - Sensor
+ha_categories:
+  - sensors
+  - hubs_protocols.wireless_protocols
 ha_release: '2023.2'
 ha_iot_class: Local Polling
 ha_config_flow: true

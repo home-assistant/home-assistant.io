@@ -5,6 +5,8 @@ ha_category:
   - Helper
   - Sensor
   - Utility
+ha_categories:
+  - helpers
 ha_iot_class: Local Polling
 ha_release: 0.49
 ha_quality_scale: internal

@@ -1,5 +1,5 @@
 ---
-title: Delete a meal plan
+title: "Delete a mealplan"
 action: mealie.delete_mealplan
 domain: mealie
 description: "Delete an existing meal plan in Mealie."
@@ -21,7 +21,7 @@ To delete a meal plan from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Mealie: Delete a meal plan**.
+5. From the search box, search for and select **Mealie: Delete a mealplan**.
 6. Select the **Mealie instance** you want to use, and add the existing meal plan ID you want to delete.
 7. Select **Save**.
 

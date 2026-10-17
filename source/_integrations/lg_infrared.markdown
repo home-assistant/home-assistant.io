@@ -7,6 +7,9 @@ ha_category:
   - Infrared-controlled
   - Media player
   - Switch
+ha_categories:
+  - media_entertainment.tv_streaming
+  - climate.heat_pumps_air_conditioning
 ha_release: 2026.4
 ha_iot_class: Assumed State
 ha_codeowners:
@@ -58,6 +61,19 @@ Supported modes:
 
 For a TV, select at least one of **Infrared emitter** or **Infrared receiver**. Select both if you want to be able to send commands to your TV and react to commands from the remote.
 
+## Reconfiguring the integration
+
+If you replace your infrared emitter, add a receiver later, or want to change the modes of your air conditioner, you can update the device without removing and re-adding the integration.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the **LG Infrared** integration and select it.
+3. Next to the device you want to change, select the three dots {% icon "mdi:dots-vertical" %} menu and choose **Reconfigure**.
+4. Change the options and select **Submit**.
+
+The same rules as during setup apply: an air conditioner needs an infrared emitter, and a TV needs at least one infrared emitter or receiver. The device type cannot be changed. To switch between a TV and an air conditioner, add the integration again.
+
+If you remove the infrared emitter or receiver from a TV, the entities that depend on it are no longer provided. For example, the media player and buttons need an emitter, and the events need a receiver. You can delete those entities from the entity settings. If you remove the mode your air conditioner is currently in, its climate entity shows **Off** until you select another mode.
+
 ## Supported functionality
 
 ### TV
@@ -106,11 +122,11 @@ A climate entity is created for each LG air conditioner device you set up.
 
 - **LG AC**
   - **Description**: Represents the LG split air conditioner and allows you to control it via IR commands.
-  - **Supported features**: Set HVAC mode, set fan mode, set swing mode, and set horizontal swing mode. Set target temperature is also available when **Cool** or **Heat** is one of the supported modes you selected during setup.
+  - **Supported features**: Turn on, turn off, set HVAC mode, set fan mode, set swing mode, and set horizontal swing mode. Set target temperature is also available when **Cool** or **Heat** is one of the supported modes you selected during setup.
 
 #### Supported modes
 
-The climate entity offers the modes you selected during setup.
+The climate entity offers the modes you selected during setup. Turning the air conditioner on resumes the mode it was last in, or the first mode you selected if it has not been on yet.
 
 - **Cool**: Cools to a set temperature.
 - **Heat**: Heats to a set temperature. Not all LG air conditioner models have it.
@@ -154,7 +170,7 @@ When an infrared emitter is configured, these button entities are created for th
 
 - **Jet mode**: Runs the unit at maximum power for fast cooling or heating.
 - **Eco mode**: Reduces the unit's power draw. Some remotes label this button Diet.
-- **Viraat mode**: Runs an extra boost mode, separate from **Jet mode**. Only LG India models offer it, so this button is disabled by default. Enable it if your remote has a Viraat button.
+- **Viraat mode**: Runs an extra boost mode, separate from **Jet mode**. Only LG India models offer it, so this button is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). Enable it if your remote has a Viraat button.
 - **AI mode**: Turns on the automatic AI operating mode.
 
 To turn one of these modes off, select any other mode, such as **Cool**.

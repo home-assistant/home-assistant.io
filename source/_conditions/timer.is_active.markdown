@@ -47,8 +47,6 @@ This passes when `timer.entryway` is active.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: When multiple timers are targeted, controls how results combine. Accepts `all` or `any`.
@@ -80,7 +78,9 @@ for:
 
 If you start a timer to keep the bathroom fan running after a shower, this automation turns the fan off when you open the bathroom window, but only if that timer is still active. If the timer already finished or was cancelled, the condition fails and the fan is left alone.
 
-- **Trigger**: Window opens
+- **Trigger**: State changed
+  - **Entity**: Bathroom window sensor
+  - **To**: Open
 - **Condition**: Timer is active
   - **Target**: Bathroom fan timer
 - **Condition passes if**: Any

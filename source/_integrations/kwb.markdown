@@ -3,6 +3,8 @@ title: KWB Easyfire
 description: Instructions on how to integrate the KWB Easyfire sensor into Home Assistant.
 ha_category:
   - Sensor
+ha_categories:
+  - climate.thermostats_heating
 ha_iot_class: Local Polling
 ha_release: '0.40'
 ha_domain: kwb

@@ -6,6 +6,8 @@ ha_category:
   - Energy
   - Sensor
   - Switch
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_release: 0.59
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -168,3 +170,5 @@ Currently known region codes:
 - TH
 
 If you experience problems with certain apps such as the Daikin ONECTA, try setting a lowercase region code (for example, `eu`).
+
+{% include integrations/actions.md %}

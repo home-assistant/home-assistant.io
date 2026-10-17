@@ -6,6 +6,9 @@ ha_category:
   - Hub
   - Light
   - Switch
+ha_categories:
+  - lighting.lighting_systems
+  - hubs_protocols.building_automation
 ha_iot_class: Local Push
 ha_release: 0.106
 ha_codeowners:

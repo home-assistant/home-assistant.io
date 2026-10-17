@@ -7,6 +7,8 @@ ha_category:
   - Image
   - Sensor
   - To-do list
+ha_categories:
+  - productivity_information.calendars_todos
 ha_release: 0.78
 ha_iot_class: Cloud Polling
 ha_domain: habitica

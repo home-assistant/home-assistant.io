@@ -4,6 +4,8 @@ description: Instructions on how to integrate the Velux KLF 200 with Home Assist
 ha_category:
   - Cover
   - Scene
+ha_categories:
+  - blinds_curtains
 ha_release: 0.49
 ha_config_flow: true
 ha_iot_class: Local Polling
@@ -24,6 +26,7 @@ ha_platforms:
 ha_integration_type: hub
 ha_dhcp: true
 ha_quality_scale: silver
+ha_zeroconf: true
 ---
 
 The [Velux](https://www.velux.com/) {% term integration %} for Home Assistant allows you to connect to a Velux KLF 200 interface so you can control [io-homecontrol](http://www.io-homecontrol.com) devices, such as windows, blinds, lights, and switches. The integration lets you start scenes configured on the KLF 200.
@@ -133,7 +136,7 @@ The integration provides the following number entities:
 - **Open position limitation**: The minimum opening position allowed for a cover device.
 - **Closed position limitation**: The maximum closing position allowed for a cover device.
 
-The open and close position limitation entities are configuration entities and disabled by default. Note that some cover devices may refuse setting an open or close limitation, resulting in an error when trying to do so.
+The open and close position limitation entities are configuration entities and [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). Note that some cover devices may refuse setting an open or close limitation, resulting in an error when trying to do so.
 
 ### Scene
 

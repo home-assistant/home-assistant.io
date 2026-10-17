@@ -3,6 +3,8 @@ title: Swiss public transport
 description: Instructions on how to integrate timetable data for traveling in Switzerland within Home Assistant.
 ha_category:
   - Transport
+ha_categories:
+  - vehicles_transport.public_transport
 ha_iot_class: Cloud Polling
 ha_release: pre 0.7
 ha_config_flow: true

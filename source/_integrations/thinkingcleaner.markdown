@@ -4,6 +4,8 @@ description: Instructions on how to integrate a ThinkingCleaner within Home Assi
 ha_category:
   - Sensor
   - Switch
+ha_categories:
+  - appliances_cleaning.cleaning
 ha_iot_class: Local Polling
 ha_release: 0.18
 ha_domain: thinkingcleaner

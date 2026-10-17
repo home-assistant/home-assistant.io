@@ -3,6 +3,8 @@ title: Google Calendar
 description: Instructions on how to use Google Calendar in Home Assistant.
 ha_category:
   - Calendar
+ha_categories:
+  - productivity_information.calendars_todos
 ha_iot_class: Cloud Polling
 ha_release: 0.33
 ha_config_flow: true

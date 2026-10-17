@@ -5,6 +5,8 @@ ha_category:
   - Button
   - Event
   - Light
+ha_categories:
+  - lighting.lighting_systems
 ha_codeowners:
   - '@milanmeu'
   - '@joostlek'

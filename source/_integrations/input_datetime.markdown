@@ -4,6 +4,8 @@ description: Instructions on how to integrate the Input Datetime integration int
 ha_category:
   - Automation
   - Helper
+ha_categories:
+  - helpers.store_value
 ha_release: 0.55
 ha_quality_scale: internal
 ha_codeowners:

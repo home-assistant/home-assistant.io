@@ -7,6 +7,8 @@ ha_category:
   - Event
   - Light
   - Switch
+ha_categories:
+  - blinds_curtains
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:

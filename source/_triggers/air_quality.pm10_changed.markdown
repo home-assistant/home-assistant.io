@@ -47,8 +47,6 @@ This fires whenever the hallway PM10 sensor reading changes by at least 20 micro
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >
@@ -76,7 +74,7 @@ A construction project nearby or a windy spring day sends dust everywhere. This 
 - **Trigger**: PM10 level changed
 - **Target**: Hallway PM10 sensor
 - **Threshold type**: 25
-- **Action**: Start vacuum
+- **Action**: Start vacuum cleaner
 
 {% details "YAML example for PM10-triggered vacuuming" %}
 

@@ -6,6 +6,8 @@ ha_category:
   - Switch
   - System monitor
   - Update
+ha_categories:
+  - computers_network.routers_network
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: 0.28
@@ -59,4 +61,20 @@ The integration creates a switch for the Pi-hole allowing you to toggle ad-block
 
 ## Sensors
 
-The integration creates several sensors that report various ad-blocking metrics as well as diagnostic information about the Pi-hole itself.
+The integration provides nine sensors with statistics about DNS queries, blocked domains, and clients. Some sensor names differ between Pi-hole v5 and v6:
+
+<!-- textlint-disable terminology -->
+
+- **Ads blocked today** (v5) / **Ads blocked** (v6): Number of blocked DNS queries.
+- **Ads percentage blocked today** (v5) / **Ads percentage blocked** (v6): Percentage of DNS queries that were blocked.
+- **Seen clients**: Total number of clients seen by Pi-hole.
+- **DNS queries today** (v5) / **DNS queries** (v6): Number of DNS queries processed.
+- **Domains blocked**: Number of domains on the blocklist.
+- **DNS queries cached**: Number of DNS queries answered from the cache.
+- **DNS queries forwarded**: Number of DNS queries forwarded to upstream DNS servers.
+- **DNS unique clients**: Number of unique clients (active clients in v6).
+- **DNS unique domains**: Number of unique domains queried.
+
+<!-- textlint-enable terminology -->
+
+In Pi-hole v5, the sensors labeled *today* report daily statistics. Pi-hole v6 uses counters without the daily distinction.

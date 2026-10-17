@@ -8,6 +8,8 @@ ha_category:
   - Button
   - Event
   - Lock
+ha_categories:
+  - security_safety.alarm_systems
 ha_config_flow: true
 ha_codeowners:
   - '@bachya'

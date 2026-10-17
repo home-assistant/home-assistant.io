@@ -6,6 +6,8 @@ ha_iot_class: Cloud Polling
 ha_category:
   - Sensor
   - Weather
+ha_categories:
+  - weather_alerts
 ha_codeowners:
   - '@adrianmo'
 ha_config_flow: true

@@ -3,6 +3,8 @@ title: Torque
 description: Instructions on how to integrate Torque sensors into Home Assistant.
 ha_category:
   - Car
+ha_categories:
+  - vehicles_transport.cars_evs
 ha_release: '0.10'
 ha_iot_class: Local Push
 ha_domain: torque

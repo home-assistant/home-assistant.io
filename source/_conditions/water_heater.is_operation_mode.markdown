@@ -68,8 +68,6 @@ condition: |
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 operation_mode:
   description: >
@@ -109,7 +107,7 @@ for:
 
 When the kitchen motion sensor detects activity, run the hot water recirculation pump only if the utility room water heater is already in **Performance** mode.
 
-- **Trigger**: State: Kitchen motion changes to on
+- **Trigger**: State changed: Kitchen motion changes to on
 - **Condition**: Water heater operation mode
   - **Target**: Utility room water heater
   - **Operation mode**: Performance

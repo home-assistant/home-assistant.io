@@ -11,6 +11,10 @@ ha_category:
   - Sensor
   - Switch
   - Update
+ha_categories:
+  - climate.heat_pumps_air_conditioning
+  - climate.air_purifiers_humidifiers
+  - sensors.air_quality
 ha_release: 0.44
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -68,7 +72,7 @@ API key:
 
 {% note %}
 
-Some entities are disabled by default, so you need to [enable them](/common-tasks/general/#to-enable-or-disable-a-single-entity) to use them.
+Some entities are disabled by default, so you need to [enable them](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) to use them.
 
 Depending on device support, some entities might not be available as the device does not support them.
 

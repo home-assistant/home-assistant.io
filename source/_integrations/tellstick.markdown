@@ -8,6 +8,8 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_categories:
+  - hubs_protocols.wireless_protocols
 ha_iot_class: Assumed State
 ha_domain: tellstick
 ha_platforms:

@@ -61,8 +61,6 @@ condition: |
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -97,7 +95,7 @@ for:
 
 When a utility-rate sensor reports a low-price period, switch the water heater to **Performance** mode, but only if it is currently off.
 
-- **Trigger**: State: Utility rate changes to low
+- **Trigger**: State changed: Utility rate changes to low
 - **Condition**: Water heater is off
   - **Target**: Utility room water heater
 - **Action**: Set water heater operation mode

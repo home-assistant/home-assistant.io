@@ -6,6 +6,8 @@ ha_category:
   - Climate
   - Health
   - Light
+ha_categories:
+  - water.pools_spas
 ha_domain: tolo
 ha_config_flow: true
 ha_codeowners:

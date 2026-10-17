@@ -5,6 +5,8 @@ ha_release: 2021.3
 ha_category:
   - Sensor
   - Weather
+ha_categories:
+  - weather_alerts.forecasts
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: aemet

@@ -5,6 +5,8 @@ ha_category:
   - Helper
   - Sensor
   - Utility
+ha_categories:
+  - helpers.calculate_value
 ha_release: 0.65
 ha_iot_class: Local Push
 ha_quality_scale: internal

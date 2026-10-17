@@ -8,6 +8,8 @@ ha_category:
   - Sensor
   - Switch
   - Update
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_iot_class: Cloud Polling
 ha_release: '2024.2'
 ha_domain: myuplink

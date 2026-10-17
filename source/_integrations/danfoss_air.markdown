@@ -6,6 +6,8 @@ ha_category:
   - Climate
   - Sensor
   - Switch
+ha_categories:
+  - climate.fans_ventilation
 ha_release: 0.87
 ha_iot_class: Local Polling
 ha_domain: danfoss_air

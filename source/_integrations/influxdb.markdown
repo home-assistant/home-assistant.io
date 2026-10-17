@@ -4,6 +4,8 @@ description: Record events in InfluxDB.
 ha_category:
   - History
   - Sensor
+ha_categories:
+  - diy_makers.web_data_connectors
 ha_release: 0.9
 ha_iot_class: Local Push
 ha_codeowners:

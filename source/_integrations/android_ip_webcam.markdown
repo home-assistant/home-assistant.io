@@ -7,6 +7,8 @@ ha_category:
   - Hub
   - Sensor
   - Switch
+ha_categories:
+  - security_safety.cameras
 ha_release: '0.40'
 ha_iot_class: Local Polling
 ha_config_flow: true

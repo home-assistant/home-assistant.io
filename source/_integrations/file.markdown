@@ -5,6 +5,8 @@ ha_category:
   - Notifications
   - Sensor
   - Utility
+ha_categories:
+  - diy_makers.web_data_connectors
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_codeowners:

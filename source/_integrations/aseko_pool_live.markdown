@@ -6,6 +6,8 @@ ha_config_flow: true
 ha_release: 2022.2
 ha_category:
   - Sensor
+ha_categories:
+  - water.pools_spas
 ha_codeowners:
   - '@milanmeu'
 ha_domain: aseko_pool_live

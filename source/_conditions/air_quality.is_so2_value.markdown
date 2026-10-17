@@ -50,8 +50,6 @@ This passes when the outdoor SO2 sensor reads at or above 40 µg/m³.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >
@@ -66,7 +64,7 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md domain="sensor" %}
 
 {% include conditions/behavior.md %}
 
@@ -84,7 +82,7 @@ behavior:
 If you live near an industrial area, SO2 readings sometimes spike overnight. This automation triggers at 7:00 AM and checks the outdoor SO2 level. If the reading is at or above 40 μg/m3, you get a notification recommending you stay indoors. On mornings with clean air, you can leave without interruption.
 
 - **Trigger**: Time: 07:00
-- **Condition**: Air Quality: Sulphur dioxide value
+- **Condition**: Sulphur dioxide value
   - **Target**: Outdoor SO2 sensor
   - **Threshold type**: 40
   - **Condition passes if**: Any

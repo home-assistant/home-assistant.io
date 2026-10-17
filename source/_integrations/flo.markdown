@@ -6,6 +6,8 @@ ha_category:
   - Sensor
   - Switch
   - Water management
+ha_categories:
+  - water.meters_leak_detection
 ha_config_flow: true
 ha_codeowners:
   - '@dmulcahey'

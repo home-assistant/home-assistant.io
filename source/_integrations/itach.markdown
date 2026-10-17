@@ -3,6 +3,8 @@ title: Global Caché iTach TCP/IP to IR
 description: Instructions on how to integrate a Global Caché iTach IP2IR gateway into Home Assistant.
 ha_category:
   - Remote
+ha_categories:
+  - buttons_remotes
 ha_iot_class: Assumed State
 ha_release: 0.39
 ha_domain: itach
@@ -86,7 +88,7 @@ devices:
           type: string
 {% endconfiguration %}
 
-You can call the integration in {% my developer_services title="**Settings** > **Tools** > **Actions**" %} using the `remote.send_command` action: `{ "entity_id":"remote.tv", "command":"menu" }`
+You can call the integration in {% my tools_actions title="**Settings** > **Tools** > **Actions**" %} using the `remote.send_command` action: `{ "entity_id":"remote.tv", "command":"menu" }`
 
 Note: Global Cache devices expect data in their own format of "sendir...". This integration converts hex code to Global Cache IR form.
 

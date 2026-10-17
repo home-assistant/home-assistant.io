@@ -6,6 +6,8 @@ ha_category:
   - Binary sensor
   - Sensor
   - Water Heater
+ha_categories:
+  - climate.water_heaters
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@osohotwateriot'

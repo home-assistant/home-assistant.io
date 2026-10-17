@@ -6,6 +6,8 @@ ha_category:
   - Switch
   - Valve
   - Water management
+ha_categories:
+  - water.meters_leak_detection
 ha_release: '2025.1'
 ha_iot_class: Local Push
 ha_config_flow: true

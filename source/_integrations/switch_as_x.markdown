@@ -10,6 +10,8 @@ ha_category:
   - Siren
   - Switch
   - Valve
+ha_categories:
+  - helpers
 ha_release: 2022.4
 ha_iot_class: Calculated
 ha_quality_scale: internal

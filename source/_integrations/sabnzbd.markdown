@@ -4,6 +4,8 @@ description: Instructions on how to integrate SABnzbd with Home Assistant.
 ha_category:
   - Downloading
   - Sensor
+ha_categories:
+  - computers_network.nas_servers
 ha_release: 0.7
 ha_config_flow: true
 ha_iot_class: Local Polling

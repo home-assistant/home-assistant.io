@@ -9,6 +9,8 @@ ha_category:
   - Event
   - Number
   - Sensor
+ha_categories:
+  - appliances_cleaning.cooking
 ha_domain: togrill
 ha_bluetooth: true
 ha_platforms:

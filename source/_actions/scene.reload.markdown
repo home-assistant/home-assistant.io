@@ -41,7 +41,8 @@ This reloads the scenes from your YAML configuration.
 ## Good to know
 
 - Reloading also removes the scenes you created with [Create scene](/actions/scene.create/), because those only live until the scenes are loaded again.
-- Scenes you create in the UI are stored separately and are not affected by this action.
+- Scenes you create in the UI are stored in `scenes.yaml`, which is part of your YAML configuration, so this action reloads them as well. When you save a scene in the scene editor, Home Assistant reloads the scenes for you.
+- Scenes that an integration provides, such as scenes from a Philips Hue bridge, are not affected by this action.
 
 {% include actions/try_it.md %}
 

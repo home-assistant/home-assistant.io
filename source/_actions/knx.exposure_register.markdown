@@ -9,7 +9,7 @@ related_actions:
   - knx.event_register
 ---
 
-The **Expose to KNX bus** action adds or removes an exposure that sends a Home Assistant entity state or attribute to a KNX group address. Once registered, state and attribute updates are written to the bus, and GroupValueRead requests for that address are answered.
+The **KNX: Expose to KNX bus** action adds or removes an exposure that sends a Home Assistant entity state or attribute to a KNX group address. Once registered, state and attribute updates are written to the bus, and GroupValueRead requests for that address are answered.
 
 This is useful when you want other KNX devices to react to or read Home Assistant values, and to manage those exposures dynamically instead of defining them all up front.
 

@@ -8,7 +8,7 @@ related_actions:
   - elkm1.alarm_display_message
 ---
 
-The **Speak phrase** action plays one of the Elk-M1 panel's built-in phrases through its voice output.
+The **Elk-M1 Control: Speak phrase** action plays one of the Elk-M1 panel's built-in phrases through its voice output.
 
 This is useful when you want an automation to announce something out loud, for example a spoken alert or a status message.
 

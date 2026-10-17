@@ -3,6 +3,8 @@ title: Environment Agency Flood Gauges
 description: Monitor nearby water levels and be prepared for flooding with the UK Environment Agency API integration.
 ha_category:
   - Sensor
+ha_categories:
+  - weather_alerts.public_warnings
 ha_release: 0.115
 ha_iot_class: Cloud Polling
 ha_config_flow: true

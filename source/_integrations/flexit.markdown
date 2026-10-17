@@ -6,6 +6,8 @@ ha_category:
   - Climate
   - Modbus-controlled
   - Sensor
+ha_categories:
+  - climate.fans_ventilation
 ha_release: 0.47
 ha_iot_class: Local Polling
 ha_domain: flexit

@@ -4,6 +4,8 @@ description: Get how many outages are in your county
 ha_release: 2022.4
 ha_category:
   - Sensor
+ha_categories:
+  - local_services
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:

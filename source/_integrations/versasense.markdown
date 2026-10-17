@@ -7,6 +7,9 @@ ha_category:
   - Hub
   - Sensor
   - Switch
+ha_categories:
+  - sensors
+  - hubs_protocols.wireless_protocols
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@imstevenxyz'

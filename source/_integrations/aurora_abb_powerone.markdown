@@ -4,6 +4,8 @@ description: Instructions on how to integrate an Aurora ABB PowerOne solar inver
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.solar_batteries
 ha_release: 0.96
 ha_iot_class: Local Polling
 ha_codeowners:

@@ -4,6 +4,8 @@ description: Instructions on how to integrate official GeoSphere Austria weather
 ha_category:
   - Sensor
   - Weather
+ha_categories:
+  - weather_alerts.public_warnings
 ha_release: 2026.8
 ha_iot_class: Cloud Polling
 ha_domain: geosphere_austria_warnings
@@ -90,7 +92,7 @@ Get a notification when a weather warning becomes active.
 
 Entities are named after the monitored municipality, for example `sensor.innsbruck_warning_level`.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Innsbruck warning level (`sensor.innsbruck_warning_level`)
   - **To**: Yellow
   - **To**: Orange

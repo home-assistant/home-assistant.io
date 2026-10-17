@@ -3,6 +3,8 @@ title: V2C
 description: Instructions on how to integrate V2C Trydan EVSE with Home Assistant.
 ha_category:
   - Car
+ha_categories:
+  - energy.ev_charging
 ha_release: '2023.12'
 ha_iot_class: Local Polling
 ha_config_flow: true

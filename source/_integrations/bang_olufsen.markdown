@@ -6,6 +6,8 @@ ha_category:
   - Media Player
   - Multimedia
   - Sensor
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_release: 2024.2
 ha_iot_class: Local Push
 ha_domain: bang_olufsen
@@ -112,7 +114,7 @@ Many devices have the same button layout, but not all of them. These are the dif
 
 #### Beoremote One
 
-A Home Assistant device is created for each paired Beoremote One via their paired Mozart device. Event entities are created for each of the compatible keys on the remote. These event entities are disabled by default.
+A Home Assistant device is created for each paired Beoremote One via their paired Mozart device. Event entities are created for each of the compatible keys on the remote. These event entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 Beoremote One devices are automatically added as they are detected.
 

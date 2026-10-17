@@ -4,6 +4,8 @@ description: Instructions on how to integrate Husqvarna Automower BLE lawn mower
 ha_category:
   - Lawn Mower
   - Sensor
+ha_categories:
+  - garden_plants
 ha_release: 2024.11
 ha_iot_class: Local Polling
 ha_config_flow: true

@@ -7,6 +7,8 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_categories:
+  - water.pools_spas
 ha_release: 2021.3
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -16,6 +18,7 @@ ha_domain: smarttub
 ha_platforms:
   - binary_sensor
   - climate
+  - diagnostics
   - light
   - sensor
   - switch

@@ -3,6 +3,8 @@ title: Ghost
 description: Instructions on how to integrate Ghost with Home Assistant.
 ha_category:
   - Sensor
+ha_categories:
+  - news_social_media
 ha_release: '2026.3'
 ha_iot_class: Cloud Polling
 ha_config_flow: true

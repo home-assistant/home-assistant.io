@@ -4,6 +4,8 @@ description: Instructions on setting up Rollease Acmeda Automate within Home Ass
 ha_category:
   - Cover
   - Hub
+ha_categories:
+  - blinds_curtains
 ha_iot_class: Local Push
 ha_release: 0.111
 ha_config_flow: true

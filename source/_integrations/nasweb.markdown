@@ -6,6 +6,8 @@ ha_category:
   - Climate
   - Sensor
   - Switch
+ha_categories:
+  - hubs_protocols.building_automation
 ha_release: '2024.12'
 ha_codeowners:
   - '@nasWebio'

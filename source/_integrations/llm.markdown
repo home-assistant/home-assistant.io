@@ -12,7 +12,7 @@ ha_domain: llm
 ha_integration_type: system
 ---
 
-The **LLM** {% term integration %} organizes the [LLM APIs](https://developers.home-assistant.io/docs/core/llm/) that large language models can use to interact with Home Assistant. An <abbr title="Large Language Model">LLM</abbr> <abbr title="application programming interface">API</abbr> is a set of tools that a model can call. For example, to control your devices or answer questions about your home.
+The **LLM** {% term integration %} organizes the [LLM APIs](https://contributors.home-assistant.io/core/internals/llm-api/) that large language models can use to interact with Home Assistant. An <abbr title="Large Language Model">LLM</abbr> <abbr title="application programming interface">API</abbr> is a set of tools that a model can call. For example, to control your devices or answer questions about your home.
 
 This integration provides the framework that lets other integrations contribute tools to an LLM API. It is set up automatically when needed and has no configuration options.
 

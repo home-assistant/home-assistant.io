@@ -5,6 +5,8 @@ ha_category:
   - Device tracker
   - Presence detection
   - Sensor
+ha_categories:
+  - presence_location.trackers
 ha_release: '2022.10'
 ha_iot_class: Local Push
 ha_domain: ibeacon

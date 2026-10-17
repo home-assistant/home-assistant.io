@@ -8,6 +8,10 @@ ha_category:
   - Presence detection
   - Sensor
   - Switch
+ha_categories:
+  - computers_network.routers_network
+  - presence_location.network_presence
+  - security_safety.alarm_systems
 ha_release: 0.85
 ha_iot_class: Local Polling
 ha_codeowners:

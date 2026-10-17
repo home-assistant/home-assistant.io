@@ -6,6 +6,9 @@ ha_category:
   - Hub
   - Light
   - Sensor
+ha_categories:
+  - lighting.lighting_systems
+  - hubs_protocols.building_automation
 ha_release: 2025.11
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -87,11 +90,11 @@ The following sensor entities are available from your Lunatone gateway and conne
 
 - **Air quality index**
   - **Description**: Shows the overall air quality index reported by the connected sensor device.
-  - **Available for devices**: All
+  - **Available for devices**: All but the basic variant of the DALI-2 Display 4''
 
 - **Carbon dioxide**
   - **Description**: Shows the measured carbon dioxide concentration.
-  - **Available for devices**: All
+  - **Available for devices**: All but the basic variant of the DALI-2 Display 4''
 
 - **DALI line status**
   - **Description**: Shows the status of each DALI line. Possible states: `OK`, `Low bus power`, `Bus power failure`, `Charging`, `Not reachable`.
@@ -99,23 +102,23 @@ The following sensor entities are available from your Lunatone gateway and conne
 
 - **Humidity**
   - **Description**: Shows the measured relative humidity.
-  - **Available for devices**: All
+  - **Available for devices**: All but the basic variant of the DALI-2 Display 4''
 
 - **Illuminance**
   - **Description**: Shows the measured ambient light level.
-  - **Available for devices**: All
+  - **Available for devices**: All but the basic variant of the DALI-2 Display 4''
 
 - **Pressure**
   - **Description**: Shows the measured air pressure.
-  - **Available for devices**: All
+  - **Available for devices**: All but the basic variant of the DALI-2 Display 4''
 
 - **Temperature**
   - **Description**: Shows the measured temperature.
-  - **Available for devices**: All
+  - **Available for devices**: All but the basic variant of the DALI-2 Display 4''
 
 - **Volatile organic compounds**
   - **Description**: Shows the measured level of volatile organic compounds.
-  - **Available for devices**: All
+  - **Available for devices**: All but the basic variant of the DALI-2 Display 4''
 
 ## Removing the integration
 

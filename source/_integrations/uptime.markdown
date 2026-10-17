@@ -4,6 +4,8 @@ description: Instructions on how to integrate an uptime sensor into Home Assista
 ha_category:
   - Sensor
   - Utility
+ha_categories:
+  - computers_network.monitoring
 ha_iot_class: Local Push
 ha_release: 0.56
 ha_quality_scale: internal

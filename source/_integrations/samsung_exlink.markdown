@@ -4,6 +4,8 @@ description: Instructions on how to integrate Samsung TVs via their ExLink (RS-2
 ha_category:
   - Media player
   - Serial-controlled
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_iot_class: Local Polling
 ha_release: 2026.9
 ha_codeowners:

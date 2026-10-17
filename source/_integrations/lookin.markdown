@@ -6,6 +6,8 @@ ha_category:
   - Light
   - Media player
   - Sensor
+ha_categories:
+  - buttons_remotes
 ha_release: 2021.11
 ha_iot_class: Local Push
 ha_codeowners:

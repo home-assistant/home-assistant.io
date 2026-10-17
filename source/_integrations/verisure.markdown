@@ -9,6 +9,8 @@ ha_category:
   - Lock
   - Sensor
   - Switch
+ha_categories:
+  - security_safety.alarm_systems
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
 ha_domain: verisure

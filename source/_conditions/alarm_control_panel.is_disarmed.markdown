@@ -47,8 +47,6 @@ This passes when the hallway alarm panel is currently disarmed.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -82,7 +80,7 @@ for:
 
 When a person arrives home, turn on the entryway lights and start playing music, but only if the alarm is already disarmed. If the alarm is still armed, the person probably hasn't entered yet.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Jane
   - **To**: Home
 - **Condition**: Alarm is disarmed

@@ -4,6 +4,9 @@ description: Connect and control Xthings Cloud smart home devices with Home Assi
 ha_release: 2026.6
 ha_category:
   - Light
+ha_categories:
+  - lighting.bulbs_lamps
+  - security_safety.locks_access
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:

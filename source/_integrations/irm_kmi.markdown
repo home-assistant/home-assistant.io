@@ -12,6 +12,8 @@ related:
   - url: https://community.home-assistant.io/t/660421
     title: Community forum thread
 ha_category: []
+ha_categories:
+  - weather_alerts.forecasts
 ha_quality_scale: bronze
 ha_platforms:
   - weather
@@ -35,7 +37,7 @@ Location:
 
 {% configuration_basic %}
 Language:
-    description: "Override the Home Assistant language for the textual weather forecast. Useful if your Home Assistant language is not supported by the Royal Meteorological Institute of Belgium."
+    description: "Override the Home Assistant language for forecast texts. Defaults to **Follow Home Assistant server language**. If that language is not English, French, Dutch, or German, English is used."
 {% endconfiguration_basic %}
 
 ## Supported features

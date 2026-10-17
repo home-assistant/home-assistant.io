@@ -4,6 +4,8 @@ description: Instructions on how to integrate Garages Amsterdam within Home Assi
 ha_category:
   - Binary sensor
   - Sensor
+ha_categories:
+  - local_services
 ha_release: 2021.6
 ha_codeowners:
   - '@klaasnicolaas'

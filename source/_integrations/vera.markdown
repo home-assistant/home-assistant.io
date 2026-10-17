@@ -11,6 +11,8 @@ ha_category:
   - Scene
   - Sensor
   - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -69,7 +71,7 @@ You can find the Vera device id either via the advanced properties of the device
 
 ### Using Z-Wave devices in automation
 
-If you want to use a Z-Wave device from the Vera controller in Home Assistant automation, you'll need the {% term entity %} id. In the Home Assistant UI you'll find all entities listed under {% my developer_states title="**Settings** > **Tools** > **States**" %}. Look for entities that contain 'Vera Device Id' in their attributes, and you'll find the {% term entity %} id on the left.
+If you want to use a Z-Wave device from the Vera controller in Home Assistant automation, you'll need the {% term entity %} id. In the Home Assistant UI you'll find all entities listed under {% my tools_states title="**Settings** > **Tools** > **States**" %}. Look for entities that contain 'Vera Device Id' in their attributes, and you'll find the {% term entity %} id on the left.
 
 ### Sensor
 

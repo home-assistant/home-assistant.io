@@ -3,6 +3,9 @@ title: DLNA Digital Media Server
 description: Instructions on how to access media stored on a DLNA DMS device with Home Assistant.
 ha_category:
   - Media source
+ha_categories:
+  - media_entertainment
+  - computers_network.nas_servers
 ha_release: 2022.3
 ha_iot_class: Local Polling
 ha_config_flow: true

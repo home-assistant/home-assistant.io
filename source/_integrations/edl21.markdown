@@ -3,6 +3,8 @@ title: EDL21
 description: Instructions on how to integrate SML-based EDL21 smart meters into Home Assistant.
 ha_category:
   - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_iot_class: Local Push
 ha_release: 0.107
 ha_domain: edl21

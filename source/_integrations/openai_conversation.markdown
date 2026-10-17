@@ -4,6 +4,9 @@ description: Instructions on how to integrate OpenAI as a conversation agent
 ha_category:
   - AI
   - Voice
+ha_categories:
+  - ai_voice.ai_models
+  - ai_voice.speech
 ha_release: 2023.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -29,7 +32,7 @@ ha_codeowners:
 
 The **OpenAI** {% term integration %} adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
 
-Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
+Controlling Home Assistant is done by providing the AI access to the **Device control** API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 
@@ -95,7 +98,7 @@ Service tier:
 Pro mode:
   description: Perform more model work to improve reliability on difficult tasks and return a single final answer. Enable it when quality matters more than latency and token usage. Pro mode aggregates the model work performed to produce the final answer and bills those tokens at the selected model’s standard token rates. Pro mode performs more model work than standard mode, increasing token usage and cost. This parameter is only applicable to GPT-5.6 and above; existing Pro model IDs keep their current behavior and pricing.
 Enable web search:
-  description: Enable OpenAI-provided [Web search tool](https://openai.com/index/new-tools-for-building-agents/#web-search). Note that it is only available for gpt-4o and newer models.
+  description: Enable the OpenAI-provided [web search tool](https://openai.com/index/new-tools-for-building-agents/#web-search). Conversation and AI Task subentries offer this option for supported models. Web search and code interpreter can be enabled together for AI tasks, including tasks with structured output.
 Search context size:
   description: The search is performed with a separate fine-tuned model with its own context and its own [pricing](https://platform.openai.com/docs/pricing#built-in-tools). This parameter controls how much context is retrieved from the web to help the tool formulate a response. The tokens used by the search tool do not affect the context window of the main model. These tokens are also not carried over from one turn to another — they're simply used to formulate the tool response and then discarded. This parameter would affect the search quality, cost, and latency.
 Include home location:

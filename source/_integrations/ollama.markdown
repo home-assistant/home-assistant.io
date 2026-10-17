@@ -4,6 +4,8 @@ description: Instructions on how to integrate Ollama
 ha_category:
   - AI
   - Voice
+ha_categories:
+  - ai_voice.ai_models
 ha_release: 2024.4
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -24,7 +26,7 @@ ha_platforms:
 
 The **Ollama** {% term integration %} adds a conversation agent in Home Assistant powered by a local [Ollama](https://ollama.com/) server.
 
-Controlling Home Assistant is an experimental feature that provides the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
+Controlling Home Assistant is an experimental feature that provides the AI access to the **Device control** API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 

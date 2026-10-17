@@ -9,6 +9,8 @@ ha_category:
   - Sensor
   - Switch
   - Update
+ha_categories:
+  - diy_makers.boards_hardware
 ha_iot_class: Local Polling
 ha_release: 2024.8
 ha_config_flow: true

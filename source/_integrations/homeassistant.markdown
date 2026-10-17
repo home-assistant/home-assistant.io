@@ -377,12 +377,12 @@ automation: |
 
 ### Automation: send a reminder when a door stays open for 5 minutes
 
-If a door stays open longer than expected, this automation sends a message to your phone. It uses the **State** trigger to wait until the entity stays in the `on` state for 5 minutes.
+If a door stays open longer than expected, this automation sends a message to your phone. It uses the **State changed** trigger to wait until the entity stays in the `on` state for 5 minutes.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Back door sensor (`binary_sensor.back_door`)
   - **To**: `on`
-  - **For**: 5 minutes
+  - **For at least**: 5 minutes
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

@@ -5,6 +5,9 @@ ha_category:
   - Binary sensor
   - Sensor
   - Weather
+ha_categories:
+  - sensors
+  - weather_alerts
 ha_release: 2022.9
 ha_iot_class: Local Push
 ha_domain: ecowitt

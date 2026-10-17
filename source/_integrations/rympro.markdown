@@ -3,6 +3,8 @@ title: Read Your Meter Pro
 description: Instructions on how to integrate water meters through Read Your Meter Pro.
 ha_category:
   - Sensor
+ha_categories:
+  - water.meters_leak_detection
 ha_release: '2023.2'
 ha_iot_class: Cloud Polling
 ha_config_flow: true

@@ -5,6 +5,8 @@ ha_category:
   - Binary sensor
   - Lock
   - Sensor
+ha_categories:
+  - security_safety.locks_access
 ha_bluetooth: true
 ha_release: 2022.9
 ha_iot_class: Local Push

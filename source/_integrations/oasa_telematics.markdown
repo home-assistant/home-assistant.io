@@ -4,6 +4,8 @@ description: Instructions on how to integrate bus and trolley arrival data for G
 ha_category:
   - Sensor
   - Transport
+ha_categories:
+  - vehicles_transport.public_transport
 ha_iot_class: Cloud Polling
 ha_release: 0.92
 ha_domain: oasa_telematics

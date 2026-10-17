@@ -4,6 +4,8 @@ description: Instructions on how to integrate a WebDav calendar into Home Assist
 ha_category:
   - Calendar
   - To-do List
+ha_categories:
+  - productivity_information.calendars_todos
 ha_iot_class: Cloud Polling
 ha_release: '0.60'
 ha_domain: caldav
@@ -161,6 +163,10 @@ verify_ssl:
 {% endconfiguration %}
 
 {% enddetails %}
+
+## Canceled events
+
+A CalDAV server keeps a canceled event in the calendar instead of deleting it. Home Assistant leaves it out: it doesn't appear in the calendar, doesn't change the state of the calendar entity, and doesn't trigger [calendar automations](/integrations/calendar/#automation).
 
 ## Calendar Event Automations
 

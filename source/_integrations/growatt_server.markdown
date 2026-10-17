@@ -4,6 +4,8 @@ description: Instructions on how to integrate your Growatt server solar inverter
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.solar_batteries
 ha_release: 0.99
 ha_iot_class: Cloud Polling
 ha_domain: growatt_server

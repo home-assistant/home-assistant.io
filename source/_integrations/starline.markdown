@@ -9,6 +9,8 @@ ha_category:
   - Presence detection
   - Sensor
   - Switch
+ha_categories:
+  - vehicles_transport.cars_evs
 ha_release: 0.103
 ha_iot_class: Cloud Polling
 ha_config_flow: true

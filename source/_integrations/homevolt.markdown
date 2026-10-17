@@ -4,6 +4,8 @@ description: Connect Homevolt batteries locally to expose sensors and controls i
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.solar_batteries
 ha_iot_class: Local Polling
 ha_domain: homevolt
 ha_platforms:

@@ -13,6 +13,8 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+ha_categories:
+  - hubs_protocols.wireless_protocols
 ha_release: 0.61
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -134,7 +136,7 @@ Specific gestures for the Aqara Magic Cube are:
 
 ### Finding your events
 
-Go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}. In the section **Listen to events** add `deconz_event` and press **START LISTENING**. All events from deCONZ will now be shown and by pushing your remote button while monitoring the log it should be fairly easy to find the events you are looking for.
+Go to {% my tools_events title="**Settings** > **Tools** > **Events**" %}. In the section **Listen to events** add `deconz_event` and press **START LISTENING**. All events from deCONZ will now be shown and by pushing your remote button while monitoring the log it should be fairly easy to find the events you are looking for.
 
 ### Device triggers
 
@@ -362,7 +364,7 @@ The sensor also has an attribute called "daylight" that has the value `true` whe
 
 These states can be used in automations as a trigger (for example, trigger when a certain phase of daylight starts or ends) or condition (for example, trigger only if in a certain phase of daylight).
 
-The deCONZ daylight sensor is disabled by default in Home Assistant. It can be enabled manually by going to your deCONZ controller device in the Home Assistant UI.
+The deCONZ daylight sensor is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) in Home Assistant. It can be enabled manually by going to your deCONZ controller device in the Home Assistant UI.
 
 ### Siren
 

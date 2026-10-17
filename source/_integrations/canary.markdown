@@ -5,6 +5,9 @@ ha_category:
   - Alarm
   - Camera
   - Sensor
+ha_categories:
+  - security_safety.cameras
+  - security_safety.alarm_systems
 ha_release: '0.60'
 ha_config_flow: true
 ha_iot_class: Cloud Polling

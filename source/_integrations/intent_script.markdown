@@ -3,6 +3,8 @@ title: Intent Script
 description: Instructions on how to set up scripts to run on intents.
 ha_category:
   - Intent
+ha_categories:
+  - ai_voice.voice_assistants
 ha_release: '0.50'
 ha_quality_scale: internal
 ha_domain: intent_script
@@ -54,7 +56,7 @@ intent:
       default: false
       type: boolean
     mode:
-      description: The [script mode](/integrations/script/#script-modes) in which to run the intent script. Use this to define if the intent should be able to run multiple times in parallel.
+      description: The [script mode](/docs/script/#script-modes) in which to run the intent script. Use this to define if the intent should be able to run multiple times in parallel.
       required: false
       default: single
       type: string

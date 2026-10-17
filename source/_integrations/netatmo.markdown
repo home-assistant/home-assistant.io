@@ -15,6 +15,10 @@ ha_category:
   - Sensor
   - Switch
   - Weather
+ha_categories:
+  - climate.thermostats_heating
+  - security_safety.cameras
+  - weather_alerts
 ha_release: '0.20'
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -85,7 +89,7 @@ It also exposes [Netatmo Smart Door and Window Sensors](https://www.netatmo.com/
 ## Button
 
 The `netatmo` button sensor platform provides support for moving compatible shutters to a preferred position.
-Not all covers support this functionality, and we cannot automatically determine the capability, so these entities are disabled by default.
+Not all covers support this functionality, and we cannot automatically determine the capability, so these entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 ## Camera
 
@@ -265,7 +269,7 @@ During the process you have to choose the new Application Credentials name.
 
 ### Receiving events
 
-To confirm your Home Assistant instance is receiving events via webhooks, you can listen to `netatmo_event` in {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
+To confirm your Home Assistant instance is receiving events via webhooks, you can listen to `netatmo_event` in {% my tools_events title="**Settings** > **Tools** > **Events**" %}.
 
 ### Light
 

@@ -77,7 +77,7 @@ output: |
 
 ### The `>-` and `|-` variants
 
-A trailing `-` strips the final newline. You will see this used often for `value_template` where you do not want a trailing blank line.
+A trailing `-` strips the final newline from the YAML text. You will see this used often for `value_template`. For the result of a template, it makes no difference: Home Assistant removes whitespace at the start and the end of every result anyway.
 
 {% example %}
 automation: |

@@ -5,6 +5,8 @@ ha_category:
   - Binary sensor
   - Climate
   - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_iot_class: Local Polling
 ha_release: 2022.12
 ha_config_flow: true

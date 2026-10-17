@@ -3,6 +3,8 @@ title: OpenEnergyMonitor WiFi Thermostat
 description: Instructions on how to integrate an OpenEnergyMonitor thermostat with Home Assistant.
 ha_category:
   - Climate
+ha_categories:
+  - climate.thermostats_heating
 ha_release: 0.39
 ha_iot_class: Local Polling
 ha_domain: oem
