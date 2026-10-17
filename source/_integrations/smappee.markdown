@@ -10,6 +10,7 @@ ha_category:
 ha_categories:
   - energy.meters_monitoring
   - plugs_switches
+  - water.meters_leak_detection
 ha_iot_class: Cloud Polling
 ha_release: 0.64
 ha_config_flow: true
