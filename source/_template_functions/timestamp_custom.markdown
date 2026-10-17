@@ -33,7 +33,7 @@ output: "14:50"
 value | timestamp_custom(
     date_format: str = "%Y-%m-%d %H:%M:%S",
     local: bool = True,
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> str | Any
 ```
 
@@ -56,7 +56,7 @@ local:
   type: boolean
 default:
   description: >
-    Value to return if the formatting fails. If not provided, an error is raised on invalid input.
+    The value to return if the formatting fails, such as `"unknown"`. If you leave out `default` and the formatting fails, `timestamp_custom` raises an error and the template fails.
   required: false
   type: any
 {% endfunction_parameters %}
