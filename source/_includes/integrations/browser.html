@@ -185,15 +185,6 @@ join: ',' | split: ',' -%}
 <div class="integrations-main">
 
 
-{%- if current_category %}
-<header class="category-header">
-  <p class="category-description">
-    <iconify-icon icon="{{ current_category.icon }}"></iconify-icon>
-    {{ current_category.description }}
-  </p>
-</header>
-{%- endif %}
-
 <dialog class="browse-panel filters-panel" id="filters-panel" aria-label="Filters">
   <div class="browse-panel-header">
     <h2>Filters</h2>
@@ -294,6 +285,14 @@ join: ',' | split: ',' -%}
       </button>
       <span class="results-count" aria-live="polite"></span>
     </div>
+    {%- if current_category %}
+    <header class="category-header">
+      <p class="category-description">
+        <iconify-icon icon="{{ current_category.icon }}"></iconify-icon>
+        {{ current_category.description }}
+      </p>
+    </header>
+    {%- endif %}
   </div>
 
 
