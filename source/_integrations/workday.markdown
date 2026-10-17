@@ -5,6 +5,9 @@ ha_category:
   - Binary sensor
   - Calendar
   - Utility
+ha_categories:
+  - productivity_information.calendars_todos
+  - helpers.calculate_value
 ha_iot_class: Local Polling
 ha_release: 0.41
 ha_quality_scale: internal

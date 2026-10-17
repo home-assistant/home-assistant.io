@@ -3,6 +3,8 @@ title: Jewish Calendar
 description: Instructions on integrating the Jewish Calendar integration within Home Assistant.
 ha_category:
   - Calendar
+ha_categories:
+  - productivity_information.calendars_todos
 ha_iot_class: Calculated
 ha_release: 0.79
 ha_codeowners:
