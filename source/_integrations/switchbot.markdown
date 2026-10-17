@@ -867,6 +867,10 @@ The Circulator Fan Pro combines a fan with a built-in night light. It adds the f
 
 Fan entities are added for Air Purifier, and Air Purifier Table.
 
+The **Filter usage** diagnostic sensor shows the number of hours the filter has been used, as reported by the device.
+
+After replacing the filter, use the **Reset filter usage** button under **Configuration** on the device page to reset the device counter. The sensor reports zero after the device confirms the reset.
+
 Air purifier currently supports three speed levels, which you can adjust by setting the mode.
 
 Note: Air purifiers are available as a US model and a JP model. When the light sensor is activated, turning the light on or off deactivates it.
@@ -886,6 +890,8 @@ Features:
 - set LED RGB
 - set LED brightness
 - get air quality level
+- get filter usage in hours
+- reset filter usage after replacing the filter
 - get PM2.5 value (US model only). Concentration of fine particulate matter (PM2.5) in the air, measured in µg/m³.
 
 #### Air Purifier Table
@@ -904,6 +910,8 @@ Features:
 - set LED RGB
 - set LED brightness
 - get air quality level
+- get filter usage in hours
+- reset filter usage after replacing the filter
 - get PM2.5 value (US model only). Concentration of fine particulate matter (PM2.5) in the air, measured in µg/m³.
 
 ### Vacuums
