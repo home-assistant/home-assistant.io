@@ -17,6 +17,9 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+ha_categories:
+  - security_safety.cameras
+  - security_safety.doorbells_intercoms
 ha_release: 2022.2
 ha_iot_class: Local Push
 ha_config_flow: true
