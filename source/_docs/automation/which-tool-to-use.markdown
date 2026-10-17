@@ -80,6 +80,8 @@ You create helpers in {% my helpers title="**Settings** > **Devices & services**
 
 Some helpers calculate their value with a [template](/docs/templating/), a small piece of code that, for example, combines the values of several sensors.
 
+For details, refer to [Helpers](/docs/configuration/helpers/).
+
 ## Combining the tools
 
 Most of the time, you combine the tools. These combinations come up often:

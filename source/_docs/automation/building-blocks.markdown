@@ -2,6 +2,19 @@
 title: "Building blocks in automations and scripts"
 description: "Use building blocks to wait, repeat, choose, and run steps at the same time in your automations and scripts, in the editor or in YAML."
 toc: true
+related:
+  - docs: /building-blocks/
+    title: List of building blocks
+  - docs: /docs/automation/action/
+    title: Actions
+  - docs: /docs/script/
+    title: Scripts
+  - docs: /docs/automation/editor/
+    title: Automation editors
+  - docs: /docs/automation/yaml/
+    title: Automations in YAML
+  - docs: /docs/automation/templating/
+    title: Trigger data in templates
 ---
 
 When an automation or script runs, it goes through a list of steps. Each step is an action or a building block:
@@ -24,44 +37,6 @@ For how to create scripts, pass them values, and wait for them to finish, refer 
 ## Available building blocks
 
 Each building block has its own page with its options and examples, grouped by categories in the [list of building blocks](/building-blocks/).
-
-## Writing steps in YAML
-
-In YAML, the steps are a list under `actions:` in an automation, or under `sequence:` in a script. If there is only one step, you can leave out the list.
-
-Every step can have an `alias`. The alias is the name of the step that the editor and the trace show. In the editor, you set it with **Rename**.
-
-In an automation, the steps go under `actions:`:
-
-{% example %}
-automation: |
-  actions:
-    - alias: "Turn on ceiling light"
-      action: light.turn_on
-      target:
-        entity_id: light.ceiling
-    - alias: "Notify that ceiling light is turned on"
-      action: notify.notify
-      data:
-        message: "Turned on the ceiling light!"
-{% endexample %}
-
-In a script, the same steps go under `sequence:`:
-
-{% example %}
-script: |
-  sequence:
-    - alias: "Turn on ceiling light"
-      action: light.turn_on
-      target:
-        entity_id: light.ceiling
-    - alias: "Notify that ceiling light is turned on"
-      action: notify.notify
-      data:
-        message: "Turned on the ceiling light!"
-{% endexample %}
-
-In an automation, templates in the steps can use the `trigger` variable, which describes what started the automation. For details, refer to [available trigger data](/docs/automation/templating/#available-trigger-data).
 
 ## Options for any step
 
@@ -123,10 +98,50 @@ automation: |
         entity_id: light.ceiling
 {% endexample %}
 
-`enabled` can also be a limited template, which can't use the state of entities. In a {% term blueprint %}, it can be a blueprint input. Home Assistant checks the value each time the step is about to run.
+`enabled` can also be a [limited template](/docs/templating/limited-templates/). The limited template can't use variables, such as `trigger`, `this`, or values from the `variables` section. It also can't use the state of entities or the current time. If the limited template refers to a variable, Home Assistant skips the step or stops the run with an error.
+
+In a {% term blueprint %}, set `enabled` directly to a blueprint input with `!input`, not through a template:
 
 ```yaml
 actions:
   - delay: "0:35"
     enabled: !input input_boolean
 ```
+
+## Writing steps in YAML
+
+In YAML, the steps are a list under `actions:` in an automation, or under `sequence:` in a script. If there is only one step, you can leave out the list.
+
+Every step can have an `alias`. The alias is the name of the step that the editor and the trace show. In the editor, you set it with **Rename**.
+
+In an automation, the steps go under `actions:`:
+
+{% example %}
+automation: |
+  actions:
+    - alias: "Turn on ceiling light"
+      action: light.turn_on
+      target:
+        entity_id: light.ceiling
+    - alias: "Notify that ceiling light is turned on"
+      action: notify.notify
+      data:
+        message: "Turned on the ceiling light!"
+{% endexample %}
+
+In a script, the same steps go under `sequence:`:
+
+{% example %}
+script: |
+  sequence:
+    - alias: "Turn on ceiling light"
+      action: light.turn_on
+      target:
+        entity_id: light.ceiling
+    - alias: "Notify that ceiling light is turned on"
+      action: notify.notify
+      data:
+        message: "Turned on the ceiling light!"
+{% endexample %}
+
+In an automation, templates in the steps can use the `trigger` variable, which describes what started the automation. For details, refer to [available trigger data](/docs/automation/templating/#available-trigger-data).

@@ -33,7 +33,7 @@ output: "2024-03-15 14:30:00"
 strptime(
     string: str,
     fmt: str,
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> datetime | Any
 ```
 
@@ -53,7 +53,7 @@ fmt:
   type: string
 default:
   description: >
-    Value to return if the string cannot be parsed with the given format. If not provided, an error is raised on invalid input.
+    The value to return if the text can't be parsed with the given format, such as `"unknown"`. If you leave out `default` and the text can't be parsed, `strptime` raises an error and the template fails.
   required: false
   type: any
 {% endfunction_parameters %}
