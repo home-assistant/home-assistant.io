@@ -15,6 +15,10 @@ ha_category:
   - Sensor
   - Switch
   - Vacuum
+ha_categories:
+  - sensors
+  - blinds_curtains
+  - plugs_switches
 ha_release: '2023.10'
 ha_iot_class: Cloud Polling
 ha_codeowners:

@@ -9,6 +9,8 @@ ha_codeowners:
 ha_domain: uhoo
 ha_integration_type: hub
 ha_category: []
+ha_categories:
+  - sensors.air_quality
 ha_quality_scale: silver
 ha_platforms:
   - sensor

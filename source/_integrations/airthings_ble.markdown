@@ -5,6 +5,8 @@ ha_category:
   - Environment
   - Health
   - Sensor
+ha_categories:
+  - sensors.air_quality
 ha_release: '2022.11'
 ha_iot_class: Local Polling
 ha_codeowners:

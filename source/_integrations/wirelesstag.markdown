@@ -6,6 +6,8 @@ ha_category:
   - Hub
   - Sensor
   - Switch
+ha_categories:
+  - sensors
 ha_iot_class: Cloud Push
 ha_release: 0.68
 ha_domain: wirelesstag

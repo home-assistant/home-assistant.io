@@ -3,6 +3,8 @@ title: SensorPush Cloud
 description: Instructions on how to integrate SensorPush Cloud devices into Home Assistant.
 ha_category:
   - Sensor
+ha_categories:
+  - sensors.temperature_humidity
 ha_release: 2025.3
 ha_iot_class: Cloud Polling
 ha_codeowners:

@@ -4,6 +4,9 @@ description: Instructions on how to integrate Qingping devices into Home Assista
 ha_category:
   - Binary sensor
   - Sensor
+ha_categories:
+  - sensors.temperature_humidity
+  - sensors.air_quality
 ha_bluetooth: true
 ha_release: 2022.9
 ha_iot_class: Local Push

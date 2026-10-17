@@ -5,6 +5,8 @@ ha_category:
   - Environment
   - Health
   - Sensor
+ha_categories:
+  - sensors.air_quality
 ha_release: '2024.5'
 ha_iot_class: Cloud Polling
 ha_codeowners:
