@@ -3,6 +3,9 @@ title: Ambient Weather Station
 description: How to integrate Ambient Weather station within Home Assistant.
 ha_category:
   - Weather
+ha_categories:
+  - weather_alerts
+  - sensors.temperature_humidity
 ha_release: 0.85
 ha_iot_class: Cloud Push
 ha_config_flow: true
