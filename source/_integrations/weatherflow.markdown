@@ -6,7 +6,7 @@ ha_category:
   - Environment
   - Sensor
 ha_categories:
-  - weather_alerts.forecasts
+  - weather_alerts
 ha_platforms:
   - event
   - sensor

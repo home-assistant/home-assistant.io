@@ -18,7 +18,7 @@ ha_category:
 ha_categories:
   - climate.thermostats_heating
   - security_safety.cameras
-  - weather_alerts.forecasts
+  - weather_alerts
 ha_release: '0.20'
 ha_iot_class: Cloud Polling
 ha_codeowners:

@@ -4,7 +4,7 @@ description: Instructions how to integrate Trafikverket WeatherStation within Ho
 ha_category:
   - Weather
 ha_categories:
-  - weather_alerts.forecasts
+  - weather_alerts
 ha_release: 0.66
 ha_iot_class: Cloud Polling
 ha_config_flow: true

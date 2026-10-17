@@ -13,6 +13,7 @@ ha_category:
   - Weather
 ha_categories:
   - climate.thermostats_heating
+  - climate.heat_pumps_air_conditioning
 ha_release: 0.41
 ha_iot_class: Cloud Polling
 ha_codeowners:
