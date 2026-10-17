@@ -440,26 +440,28 @@ Triggers can also be disabled based on [limited templates](/docs/templating/wher
 
 ```yaml
 blueprint:
+  name: "Sunrise and sunset"
+  domain: automation
   input:
     input_boolean:
-      name: Boolean
+      name: "Boolean"
       selector:
         boolean:
     input_number:
-      name: Number
+      name: "Number"
       selector:
         number:
           min: 0
           max: 100
 
-  trigger_variables:
-    _enable_number: !input input_number
+trigger_variables:
+  _enable_number: !input input_number
 
-  triggers:
-    - trigger: sun.sunrise
-      enabled: !input input_boolean
-    - trigger: sun.sunset
-      enabled: "{{ _enable_number < 50 }}"
+triggers:
+  - trigger: sun.sunrise
+    enabled: !input input_boolean
+  - trigger: sun.sunset
+    enabled: "{{ _enable_number < 50 }}"
 ```
 
 ## Merging lists of triggers

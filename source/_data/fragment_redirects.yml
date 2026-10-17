@@ -7,7 +7,7 @@
   enabling-entities: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
   to-enable-or-disable-a-single-entity: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
   to-enable-or-disable-multiple-entities: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
-"/docs/scripts/":
+"/docs/automation/building-blocks/":
   choose-a-group-of-actions: /building-blocks/choose/
   adding-choose-in-the-editor: /building-blocks/choose/
   choose-options-in-the-ui: /building-blocks/choose/
@@ -70,6 +70,8 @@
   examples-of-repeat-until: /building-blocks/repeat_until/
   automation-repeat-a-command-until-it-works: /building-blocks/repeat_until/
   adding-an-action-in-the-editor: /docs/automation/action/#adding-an-action-in-the-editor
+  perform-an-action: /docs/automation/action/
+  performing-an-action: /docs/automation/action/
   performing-an-action-in-yaml: /docs/automation/action/#adding-an-action-in-yaml
   activate-a-scene: /docs/automation/action/#adding-an-action-in-yaml
   repeat-until: /building-blocks/repeat_until/

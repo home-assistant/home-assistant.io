@@ -174,7 +174,7 @@ output: |
 
 ### Nested JSON
 
-Real-world payloads often have nested structures. Use square brackets or more dots to reach deeper:
+Real-world payloads often have nested structures. Use square brackets to reach deeper:
 
 {% example %}
 template: |
@@ -183,13 +183,13 @@ template: |
     "values": {"temp": 26.09, "hum": 56.73}
   } %}
   Sensor ID: {{ value_json['sensor']['id'] }}
-  Temperature: {{ value_json.values.temp }}
+  Temperature: {{ value_json['values']['temp'] }}
 output: |
   Sensor ID: 12345
   Temperature: 26.09
 {% endexample %}
 
-Square brackets become necessary when a field name contains characters that dots don't handle, like a dash or a space.
+For simple field names, you can also use dots, such as `value_json.sensor.id`. Use square brackets when a field name contains characters that dots don't handle, like a dash or a space, or when it has the same name as a built-in function of a dictionary, such as `values`, `items`, `keys`, or `get`. For example, `value_json.values` returns the function instead of the field, so the template output is empty.
 
 ### JSON arrays
 
@@ -234,7 +234,12 @@ This lets you work out the right template in the editor, then paste the finished
 
 ## Dashboards
 
-Most dashboard cards accept templates for titles, names, and other text fields. Support varies by card, and some cards need [`state_template`](/dashboards/markdown/) or similar fields to make templates work. The [Markdown card](/dashboards/markdown/) is the most flexible, as its entire content is a template.
+Most dashboard cards don't render templates. Two places do:
+
+- The [Markdown card](/dashboards/markdown/). Its entire content is a template.
+- The [**Template** visibility condition](/dashboards/conditional/#template). It shows or hides a card or badge based on a template.
+
+To show a calculated value on any other card, create a [template sensor](/integrations/template/), and add that sensor to the card.
 
 ## Not everywhere
 
@@ -242,7 +247,7 @@ Not every field accepts templates. As a rule:
 
 - Text, numbers, and lists in automation actions, conditions, triggers, and scripts can usually be templated.
 - Entity IDs and structural {% term YAML %} keys usually cannot.
-- Dashboards support templates in specific fields only. Check the card's documentation.
+- On dashboards, only the Markdown card and the **Template** visibility condition render templates.
 
 If a template is not being evaluated, it is most likely in a field that does not support templating. The [Debugging templates](/docs/templating/debugging/) page has more tips.
 

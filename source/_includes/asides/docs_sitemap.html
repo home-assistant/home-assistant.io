@@ -10,7 +10,7 @@
 
 <li>
   <iconify-icon icon="mdi:robot-happy"></iconify-icon> {% active_link /docs/automation/ Automations %}
-  {% if doc == 'automation' or doc == 'blueprint' or doc == 'scripts' or doc == 'script' or doc == 'scene' or in_automation_reference or include.docs_index %}
+  {% if doc == 'automation' or doc == 'blueprint' or doc == 'script' or doc == 'scene' or in_automation_reference or include.docs_index %}
   <ul>
     <li>
       {% icon "mdi:robot-happy" %} {% active_link /docs/automation/basics/ Understanding automations %}
@@ -37,6 +37,12 @@
           {% active_link /docs/automation/action/ Actions %}
           <ul>
             <li>{% active_link /actions/ All actions %}</li>
+            <li>
+              {% active_link /docs/automation/building-blocks/ Building blocks %}
+              <ul>
+                <li>{% active_link /building-blocks/ All building blocks %}</li>
+              </ul>
+            </li>
           </ul>
         </li>
         <li>{% active_link /docs/automation/modes/ Automation modes %}</li>
@@ -60,14 +66,6 @@
         <li>{% active_link /docs/blueprint/tutorial/ Tutorial %}</li>
         <li>{% active_link /docs/blueprint/schema/ Blueprint schema %}</li>
         <li>{% active_link /docs/blueprint/selectors/ Selectors %}</li>
-      </ul>
-      {% endif %}
-    </li>
-    <li>
-      {% icon "mdi:script-text" %} {% active_link /docs/scripts/ Building blocks and actions %}
-      {% if doc == 'scripts' or root == 'building-blocks' or include.docs_index %}
-      <ul>
-        <li>{% active_link /building-blocks/ All building blocks %}</li>
       </ul>
       {% endif %}
     </li>
@@ -122,7 +120,7 @@
         <li>{% active_link /dashboards/actions/ Dashboard actions %}</li>
         <li><a
             class="external-link"
-            href="https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card/"
+            href="https://contributors.home-assistant.io/frontend/custom-ui/card/"
             >Developing custom cards
                      </a></li>
       </ul>

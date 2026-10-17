@@ -330,4 +330,4 @@ hold_action:
 
 ## Limitations
 
-It is not possible to use templates for actions. But calling a [script](/docs/scripts/) is a good alternative.
+It is not possible to use templates for actions. But calling a [script](/docs/script/) is a good alternative.
