@@ -9,6 +9,9 @@ ha_category:
   - Select
   - Sensor
   - Switch
+ha_categories:
+  - security_safety.alarm_systems
+  - security_safety.locks_access
 ha_release: 0.78
 ha_iot_class: Cloud Polling
 ha_config_flow: true

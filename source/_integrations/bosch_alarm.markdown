@@ -6,6 +6,8 @@ ha_category:
   - Binary Sensor
   - Sensor
   - Switch
+ha_categories:
+  - security_safety.alarm_systems
 ha_release: 2025.4
 ha_iot_class: Local Push
 ha_config_flow: true

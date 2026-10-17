@@ -5,6 +5,8 @@ ha_category:
   - Alarm
   - Binary sensor
   - Button
+ha_categories:
+  - security_safety.alarm_systems
 ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_config_flow: true

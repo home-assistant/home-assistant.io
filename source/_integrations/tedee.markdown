@@ -6,6 +6,8 @@ ha_category:
   - Binary sensor
   - Lock
   - Sensor
+ha_categories:
+  - security_safety.locks_access
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: tedee

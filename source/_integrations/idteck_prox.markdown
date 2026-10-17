@@ -3,6 +3,8 @@ title: IDTECK Proximity Reader
 description: How to use IDTECK proximity card readers.
 ha_category:
   - Other
+ha_categories:
+  - security_safety.locks_access
 ha_release: 0.85
 ha_iot_class: Local Push
 ha_domain: idteck_prox
