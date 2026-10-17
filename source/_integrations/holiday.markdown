@@ -3,6 +3,8 @@ title: Holiday
 description: Instructions on how to use holiday calendars in Home Assistant.
 ha_category:
   - Calendar
+ha_categories:
+  - productivity_information.calendars_todos
 ha_iot_class: Local Polling
 ha_release: 2024.1
 ha_config_flow: true

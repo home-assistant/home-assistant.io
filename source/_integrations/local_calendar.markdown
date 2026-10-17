@@ -3,6 +3,8 @@ title: Local calendar
 description: Instructions on how to use local calendars in Home Assistant.
 ha_category:
   - Calendar
+ha_categories:
+  - productivity_information.calendars_todos
 ha_iot_class: Local Polling
 ha_release: 2022.12
 ha_config_flow: true

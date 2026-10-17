@@ -5,6 +5,8 @@ ha_category:
   - Sensor
   - Switch
   - Time
+ha_categories:
+  - productivity_information
 ha_release: 2026.4
 ha_iot_class: Cloud Polling
 ha_config_flow: true

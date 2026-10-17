@@ -3,6 +3,8 @@ title: Google Sheets
 description: Instructions on how to use Google Sheets in Home Assistant.
 ha_category:
   - Utility
+ha_categories:
+  - productivity_information.documents_photos
 ha_iot_class: Cloud Polling
 ha_release: '2022.10'
 ha_config_flow: true

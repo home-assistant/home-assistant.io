@@ -6,6 +6,9 @@ ha_category:
   - Calendar
   - To-do list
   - To-do list
+ha_categories:
+  - productivity_information.shopping_groceries
+  - appliances_cleaning.cooking
 ha_iot_class: Cloud Polling
 ha_release: 2025.1
 ha_config_flow: true

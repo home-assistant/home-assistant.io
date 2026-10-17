@@ -3,6 +3,8 @@ title: Picnic
 description: How to set up and use the Picnic integration in Home Assistant.
 ha_category:
   - Other
+ha_categories:
+  - productivity_information.shopping_groceries
 ha_release: 2021.5
 ha_iot_class: Cloud Polling
 ha_config_flow: true
