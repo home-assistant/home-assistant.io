@@ -261,7 +261,7 @@ These are the most useful properties of `this`:
 - `this.attributes.last_triggered`: When the automation last ran before this run, or `None` if the automation never ran. A run only counts if the conditions of the automation were met. Use it to limit how often the automation does something, for example, to send a notification at most once an hour.
 - `this.entity_id`: The entity ID of the automation. Use it to refer to the automation itself, for example, in a {% term blueprint %}, where you don't know the entity ID in advance.
 - `this.attributes.friendly_name`: The name of the automation.
-- `this.attributes.current`: The number of runs of the automation that were already running. Only useful if the [mode](/docs/automation/modes/) of the automation is **Parallel** or **Queued**.
+- `this.attributes.current`: The number of runs of the automation that already existed. In **Queued** mode, this includes the runs that are waiting in the queue. Only useful if the [mode](/docs/automation/modes/) of the automation is **Parallel** or **Queued**.
 - `this.attributes.id`: The ID of the automation, if it has one.
 
 ## Context of the run
