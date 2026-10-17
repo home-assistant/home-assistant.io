@@ -115,7 +115,7 @@ The following sensors are enabled by default:
 - `Outgoing frame rate`: The frame rate of the outgoing video signal.
 - `Outgoing resolution`: The resolution of the outgoing video signal.
 
-The following sensors are disabled by default:
+The following sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity):
 
 - `Aspect ratio integer`: The aspect ratio as an integer ratio.
 - `Aspect ratio name`: The name of the current aspect ratio.

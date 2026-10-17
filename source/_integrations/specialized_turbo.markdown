@@ -152,7 +152,7 @@ The **Specialized Turbo** integration provides 26 sensor entities.
 - **ECO assist**
   - **Description**: Configured assistance for Eco mode
   - **Category**: Diagnostic
-  - **Remarks**: Disabled by default
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
 
 - **Trail assist**
   - **Description**: Configured assistance for Trail mode

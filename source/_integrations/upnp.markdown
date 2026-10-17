@@ -48,7 +48,7 @@ Some routers don't report these counters correctly, and the correction can misfi
 - **Packet download speed (no rollover handling)**
 - **Packet upload speed (no rollover handling)**
 
-These sensors are disabled by default. Enable them from the integration's device page, and optionally disable the original speed sensors.
+These sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). Enable them from the integration's device page, and optionally disable the original speed sensors.
 
 ### Debugging the integration
 

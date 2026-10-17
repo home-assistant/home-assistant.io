@@ -69,7 +69,7 @@ The **NextDNS** integration provides the following entities.
   - **Description**: Shows the percentage of blocked DNS queries
 - **DNS-over-HTTP/3 queries**
   - **Description**: Shows the number of DNS queries via DNS-over-HTTP/3
-  - **Remarks**: This entity is disabled by default
+  - **Remarks**: This entity is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
 - **DNS-over-HTTP/3 queries ratio**
   - **Description**: Shows the percentage of DNS queries via DNS-over-HTTP/3
   - **Remarks**: This entity is disabled by default

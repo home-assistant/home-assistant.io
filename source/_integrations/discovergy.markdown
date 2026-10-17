@@ -142,7 +142,7 @@ If your sensors are not showing data or values are stale, check the following:
 ### Missing sensors
 
 - **Production sensors**: The electricity production sensor is only available for bidirectional meters. If you have such a meter but don't see it, check your data in the inexogy portal.
-- **Phase sensors**: Per-phase power and voltage sensors are disabled by default and not available for all meters. You can enable them on the integration page under "Entities".
+- **Phase sensors**: Per-phase power and voltage sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) and not available for all meters. You can enable them on the integration page under "Entities".
 
 ### Network issues
 

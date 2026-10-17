@@ -74,7 +74,7 @@ The **CentriConnect/MyPropane** integration provides the following entities:
 
 - **Device Temperature**
   - **Description**: Current temperature measured by the device in °F
-  - **Remarks**: Disabled by default. Not particularly useful as a thermometer since the value updates 2-3 times per day.
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). Not particularly useful as a thermometer since the value updates 2-3 times per day.
 
 - **LTE Signal Level**
   - **Description**: Current cellular signal level as a percentage

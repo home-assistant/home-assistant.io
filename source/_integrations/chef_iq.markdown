@@ -43,7 +43,7 @@ A probe exposes the following sensors:
 
 - **Food temperature**: the food (internal) temperature at the probe tip.
 - **Ambient temperature**: the ambient (cooking environment) temperature.
-- **Probe tip 1 through 4 temperatures**: the temperatures measured along the probe shaft (disabled by default).
+- **Probe tip 1 through 4 temperatures**: the temperatures measured along the probe shaft ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)).
 - **Battery**: the probe battery percentage.
 - **SoC temperature**: the temperature of the probe's system-on-chip (SoC), its internal electronics (diagnostic, disabled by default).
 - **Signal strength**: the Bluetooth signal strength (diagnostic, disabled by default).

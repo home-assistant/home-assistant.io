@@ -65,7 +65,7 @@ Make sure to configure the following settings on the app registration:
 
 The integration provides the following sensors, which are updated every 5 minutes:
 
-- **Total available storage**: The total size of your drive (disabled by default).
+- **Total available storage**: The total size of your drive ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)).
 - **Used storage**: The amount of storage you have used up.
 - **Remaining storage**: The amount of storage that is left in your drive.
 - **Drive state**: Calculated state of your drive, based on the storage left. Possible values: `Normal`, `Nearing limit`, `Critical`, `Exceeded`.

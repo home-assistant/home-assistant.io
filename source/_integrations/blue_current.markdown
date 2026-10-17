@@ -54,7 +54,7 @@ The Blue Current integration provides the following sensors:
 - Total power (estimate)
 - Vehicle status
 
-The following sensors are created as well, but disabled by default:
+The following sensors are created as well, but [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity):
 
 - Current phase 1-3
 - offline max usage

@@ -113,7 +113,7 @@ The integration provides sensors that give you insight into your stove's operati
 - **Misfires**: Number of failed ignition attempts.
 - **Time to service**: Hours remaining until the next scheduled maintenance.
 
-Some additional sensors are available but disabled by default because they are primarily useful for troubleshooting: fan speeds, Wi-Fi RSSI, and combustion chamber pressure. You can enable them from the entity settings if needed.
+Some additional sensors are available but [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) because they are primarily useful for troubleshooting: fan speeds, Wi-Fi RSSI, and combustion chamber pressure. You can enable them from the entity settings if needed.
 
 #### Binary sensors
 

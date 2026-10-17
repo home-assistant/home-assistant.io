@@ -100,7 +100,7 @@ The Toon integration provides the following binary sensors:
 - OpenTherm Connection* (only with OpenTherm)
 - Thermostat Program Override*
 
-Binary sensors marked with `*` are disabled by default, but can be enabled
+Binary sensors marked with `*` are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity), but can be enabled
 from the UI, by clicking on the device and enabling the specific entity.
 
 ## Climate

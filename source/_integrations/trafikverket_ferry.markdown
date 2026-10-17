@@ -35,7 +35,7 @@ Please click [here](https://api.trafikinfo.trafikverket.se/) and register to obt
 ## Sensors
 
 - Departure date and time by made selections.
-- Departure sensor for following two departures after next (disabled by default)
+- Departure sensor for following two departures after next ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
 - Departure harbor.
 - Destination harbor.
 - Modified time (this sensor is deactivated as standard).

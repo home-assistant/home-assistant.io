@@ -77,7 +77,7 @@ Host:
 - **Signal strength**
   - **Description**: Wi-Fi signal strength (dBm).
   - **Available for devices**: all
-  - **Remarks**: Disabled by default.
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 ### Switches
 

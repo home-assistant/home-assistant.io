@@ -56,7 +56,7 @@ This integration may also work with [JBL](https://www.jblsynthesis.com/products/
 
 ### Binary sensors
 
-The integration provides the following diagnostic binary sensors, one for each zone. They are disabled by default.
+The integration provides the following diagnostic binary sensors, one for each zone. They are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 - **Zone incoming video interlaced**
   - **Description**: Indicates whether the incoming video signal is using interlaced scanning. It is `on` when the signal is interlaced, `off` when it is progressive, and `unknown` when video parameters are not available.

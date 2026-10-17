@@ -158,7 +158,7 @@ Example templates:
 ```
 
 {% tip %}
-The Sonos favorites sensor (`sensor.sonos_favorites`) is disabled by default. It can be found and enabled from the entities associated with the Sonos integration on your {% my integrations %} page.
+The Sonos favorites sensor (`sensor.sonos_favorites`) is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). It can be found and enabled from the entities associated with the Sonos integration on your {% my integrations %} page.
 {% endtip %}
 
 ## Playing media

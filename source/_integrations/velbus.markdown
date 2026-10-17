@@ -106,7 +106,7 @@ Every dimmer module will be represented as a light entity in Home Assistant. You
 For each input module, a light entity will be created to control the LED of the push buttons. You can turn the LED on and off and set the flash mode.
 
 {% note %}
-The pushbutton LEDs of input modules are disabled by default. These can be enabled from the **Devices** panel in the **Configuration** page of the web interface.
+The pushbutton LEDs of input modules are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). These can be enabled from the **Devices** panel in the **Configuration** page of the web interface.
 {% endnote %}
 
 ### Binary sensor

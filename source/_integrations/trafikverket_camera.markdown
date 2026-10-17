@@ -91,7 +91,7 @@ The **Trafikverket Camera** integration provides the following entities for each
   - **Description**: The date and time when the latest picture was taken.
 - **Modified**
   - **Description**: The date and time when the camera information was last changed.
-  - **Remarks**: Disabled by default.
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 - **Photo URL**
   - **Description**: The web address of the latest picture.
   - **Remarks**: Disabled by default.
