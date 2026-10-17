@@ -235,7 +235,7 @@ In addition to the certified devices, the following devices are also supported:
 
 ### Plugs and switches
 
-Switch entities are added for Bot, Plug Mini, and Relay Switch.
+Switch entities are added for Bot, Plug Mini, and Relay Switch. A Bot can be added as a button entity instead. See the [Bot](#bot) options.
 
 #### Bot
 
@@ -249,6 +249,16 @@ Features:
 
 Attributes:
 - `Switch mode`: Specifies the mode of the device. If `true`, the device is in Pull/Retract mode for toggle switches otherwise the device is in momentary switch mode.
+
+Options:
+
+By default, the Bot is added as a switch entity. A Bot in press mode (momentary switch mode) has no on/off state, so the switch only shows the last command that was sent. For such a Bot, you can use a button entity that presses the Bot instead of the switch entity.
+
+1. To use a button instead of a switch, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the Bot and select **Configure**.
+3. In the **Options** dialog, enable **Use a button instead of a switch**. This option is disabled by default.
+
+After you save the options, the integration reloads and the Bot has a button entity instead of a switch entity. The switch entity is removed. Disabling the option removes the button entity and adds the switch entity again.
 
 #### Plug Mini
 
@@ -933,6 +943,8 @@ Features:
 ### Buttons
 
 button entities are added for art frame.
+
+A Bot can also be added as a button entity. See the [Bot](#bot) options.
 
 This is an encrypted device.
 
