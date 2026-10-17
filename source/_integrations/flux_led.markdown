@@ -8,6 +8,9 @@ ha_category:
   - Select
   - Sensor
   - Switch
+ha_categories:
+  - lighting.led_strips_controllers
+  - lighting.bulbs_lamps
 ha_iot_class: Local Push
 ha_release: 0.25
 ha_domain: flux_led

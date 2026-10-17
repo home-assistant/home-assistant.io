@@ -7,6 +7,9 @@ ha_category:
   - Light
   - Select
   - Sensor
+ha_categories:
+  - lighting.bulbs_lamps
+  - health_wellbeing
 ha_bluetooth: true
 ha_release: 2026.4
 ha_iot_class: Local Polling

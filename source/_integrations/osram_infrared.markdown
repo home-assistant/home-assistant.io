@@ -4,6 +4,8 @@ description: Instructions on how to control OSRAM and LEDVANCE RGB lights using 
 ha_category:
   - Infrared-controlled
   - Light
+ha_categories:
+  - lighting.bulbs_lamps
 ha_release: '2026.10'
 ha_iot_class: Assumed State
 ha_codeowners:

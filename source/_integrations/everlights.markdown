@@ -3,6 +3,8 @@ title: EverLights
 description: Instructions on how to set up EverLights within Home Assistant.
 ha_category:
   - Light
+ha_categories:
+  - lighting.lighting_systems
 ha_iot_class: Local Polling
 ha_release: 0.87
 ha_domain: everlights

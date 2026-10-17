@@ -6,6 +6,9 @@ ha_category:
   - Sensor
   - Switch
   - Update
+ha_categories:
+  - lighting.led_strips_controllers
+  - diy_makers.boards_hardware
 ha_release: 0.102
 ha_iot_class: Local Push
 ha_config_flow: true

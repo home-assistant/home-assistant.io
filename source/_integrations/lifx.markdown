@@ -7,6 +7,8 @@ ha_category:
   - Light
   - Select
   - Sensor
+ha_categories:
+  - lighting.bulbs_lamps
 ha_iot_class: Local Polling
 ha_release: 0.81
 ha_config_flow: true
