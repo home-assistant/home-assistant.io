@@ -258,9 +258,13 @@ join: ',' | split: ',' -%}
     const baseHashRegex = /(^.*)(?=\?)/;
     const integrationSelectFilterElements = [...document.querySelectorAll('.integration-filter select')];
     const quickFilterButtons = [...document.querySelectorAll('.quick-filter')];
-    // Featured and Works with Home Assistant are chips you turn on and off,
-    // and they combine with every other filter.
+    // Featured and Works with Home Assistant are chips: one of them, or
+    // neither. They combine with every other filter.
     const QUICK_FILTERS = ['featured', 'partners'];
+    // The main page starts with Featured on. That is only a starting point:
+    // it goes away as soon as you search or pick a filter, unless you turned
+    // Featured on yourself.
+    let featuredByDefault = false;
     const searchInputEl = document.querySelector('.component-search input');
     const searchClearEl = document.querySelector('.search-clear');
     const componentContainerEl = document.querySelector('#componentContainer');
@@ -306,6 +310,11 @@ join: ',' | split: ',' -%}
       // Old links use ?brands=featured or ?brands=partners. Turn those into the
       // new filters, or the chips could never be turned off again.
       const oldParams = new URLSearchParams(location.search);
+      if (oldParams.has('featured') && oldParams.has('partners')) {
+        oldParams.delete('featured');
+        const search = oldParams.toString();
+        history.replaceState(null, '', `${location.pathname}?${search}${location.hash}`);
+      }
       if (oldParams.has('brands')) {
         const brand = oldParams.get('brands');
         oldParams.delete('brands');
@@ -322,6 +331,7 @@ join: ',' | split: ',' -%}
       if (query !== null) {
         if (Object.keys(query).length === 0 && !pageCategory) {
           setQueryURL('featured', 'true');
+          featuredByDefault = true;
         } else if (Object.keys(query).some(key => key !== 'featured')) {
           searchInputDirty = true;
         }
@@ -1054,6 +1064,11 @@ join: ',' | split: ',' -%}
       let id = select.dataset.id;
       let value = select.value;
 
+      if (featuredByDefault) {
+        removeQueryFromURL('featured');
+        featuredByDefault = false;
+      }
+
       if (value !== '#') {
         setQueryURL(id, value);
       } else {
@@ -1068,9 +1083,13 @@ join: ',' | split: ',' -%}
 
     quickFilterButtons.forEach(button => button.addEventListener('click', () => {
       const key = button.dataset.quickFilter;
+      featuredByDefault = false;
       if (button.getAttribute('aria-pressed') === 'true') {
         removeQueryFromURL(key);
       } else {
+        QUICK_FILTERS
+          .filter(other => other !== key && new URLSearchParams(location.search).has(other))
+          .forEach(other => removeQueryFromURL(other));
         setQueryURL(key, 'true');
       }
       applyFilter();
