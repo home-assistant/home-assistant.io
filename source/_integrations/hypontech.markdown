@@ -5,6 +5,8 @@ ha_category:
   - Binary sensor
   - Energy
   - Sensor
+ha_categories:
+  - energy.solar_batteries
 ha_release: 2026.3
 ha_iot_class: Cloud Polling
 ha_config_flow: true

@@ -4,6 +4,8 @@ description: Instructions on how to integrate a Sofar solar inverter with Home A
 ha_category:
   - Energy
   - Modbus-controlled
+ha_categories:
+  - energy.solar_batteries
 ha_release: 2026.9
 ha_iot_class: Local Polling
 ha_codeowners:

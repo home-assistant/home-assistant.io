@@ -4,6 +4,8 @@ description: Instructions on how to integrate Solar-Log sensors within Home Assi
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.solar_batteries
 ha_release: 0.101
 ha_iot_class: Local Polling
 ha_config_flow: true
