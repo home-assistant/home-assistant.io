@@ -18,7 +18,7 @@ The **Keyboard Remote** {% term integration %} lets you use a USB or Bluetooth k
 
 Each input device is added as a separate integration entry, so you can connect multiple keyboards or remotes and configure them independently.
 
-Because the integration uses the Linux `evdev` interface, it works only on Linux-based Home Assistant installations. The integration captures the device exclusively. This means a keyboard you add here can no longer be used for regular typing.
+Because the integration uses the Linux `evdev` interface, it works only on Linux-based Home Assistant installations. By default, the integration captures the device exclusively. This means a keyboard you add here can no longer be used for regular typing. If other programs should keep receiving the device's events, for example a gamepad that is also used to play games, turn off **Exclusive access** in the [configuration options](#configuration-options).
 
 ## Prerequisites
 
@@ -42,6 +42,8 @@ After setup, you can adjust the following options for each device. To access the
 {% configuration_basic %}
 Key event types:
   description: "Which key events the integration listens for. You can select one or more of: `key_up` (key released), `key_down` (key pressed), and `key_hold` (key held down). By default, only `key_up` is enabled. Be aware that `key_hold` can generate a large number of events very quickly."
+Exclusive access:
+  description: "When enabled, the integration grabs the device so that no other program, including the operating system, receives its key presses. Enabled by default. Turn it off to share the device with other programs, for example a gamepad that is also used to play games. Home Assistant then receives the events alongside them."
 Emulate key hold:
   description: "When enabled, the integration emulates `key_hold` events in software for devices that do not send them natively. Disabled by default."
 Key hold delay:
