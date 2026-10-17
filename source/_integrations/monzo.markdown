@@ -5,6 +5,8 @@ ha_category:
   - Event
   - Finance
   - Sensor
+ha_categories:
+  - finance
 ha_release: 2024.6
 ha_iot_class: Cloud Polling
 ha_codeowners:

@@ -3,6 +3,8 @@ title: Bitcoin
 description: Instructions on how to integrate Bitcoin data within Home Assistant.
 ha_category:
   - Finance
+ha_categories:
+  - finance
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
 ha_domain: bitcoin
