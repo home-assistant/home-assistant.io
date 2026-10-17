@@ -3,6 +3,9 @@ title: IFTTT
 description: Instructions on how to set up IFTTT within Home Assistant.
 ha_category:
   - Automation
+ha_categories:
+  - diy_makers.web_data_connectors
+  - other_ecosystems
 ha_iot_class: Cloud Push
 ha_release: 0.8
 ha_config_flow: true

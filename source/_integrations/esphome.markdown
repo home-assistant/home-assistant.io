@@ -9,6 +9,8 @@ ha_category:
   - Radio frequency
   - Serial
   - Update
+ha_categories:
+  - diy_makers.boards_hardware
 ha_release: 0.85
 ha_iot_class: Local Push
 ha_config_flow: true

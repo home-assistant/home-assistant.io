@@ -4,6 +4,8 @@ description: Instructions on how to manually register Modbus entities and platfo
 ha_category:
   - Hub
   - Modbus
+ha_categories:
+  - diy_makers
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: modbus

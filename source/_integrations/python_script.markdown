@@ -3,6 +3,8 @@ title: Python Scripts
 description: Instructions on how to set up Python scripts within Home Assistant.
 ha_category:
   - Automation
+ha_categories:
+  - diy_makers
 ha_release: 0.47
 ha_quality_scale: internal
 ha_domain: python_script

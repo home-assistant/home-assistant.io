@@ -4,6 +4,8 @@ description: Instructions on how to set up MQTT within Home Assistant.
 ha_category:
   - Hub
   - Update
+ha_categories:
+  - diy_makers
 featured: true
 ha_release: pre 0.7
 ha_iot_class: Local Push

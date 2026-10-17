@@ -4,6 +4,8 @@ description: Shows information about your Hardkernel ODROID board in Home Assist
 ha_release: 2022.6
 ha_category:
   - Other
+ha_categories:
+  - diy_makers.boards_hardware
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: hardkernel

@@ -7,6 +7,8 @@ ha_category:
   - Notifications
   - Sensor
   - Utility
+ha_categories:
+  - diy_makers
 ha_release: 0.12
 ha_iot_class: Local Polling
 ha_domain: command_line

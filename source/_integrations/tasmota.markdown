@@ -8,6 +8,9 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_categories:
+  - diy_makers
+  - plugs_switches
 ha_release: '0.117'
 ha_iot_class: Local Push
 ha_config_flow: true
