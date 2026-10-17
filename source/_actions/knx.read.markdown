@@ -7,6 +7,7 @@ related_actions:
   - knx.send
   - knx.event_register
   - knx.exposure_register
+  - knx.restart_device
 ---
 
 The **Read from KNX bus** action sends a GroupValueRead request to one or more KNX group addresses. The response can be used in automations through the [KNX telegram](/integrations/knx/#telegram-trigger) trigger, and it is processed in KNX entities.
