@@ -178,6 +178,9 @@ join: ',' | split: ',' -%}
       <form onsubmit="event.preventDefault(); return false">
         <input type="text" name="search" id="search" data-id="search" class="search text-input"
           placeholder="Search integrations..." autofocus />
+        <button type="button" class="search-clear" aria-label="Clear search" style="display: none">
+          <iconify-icon icon="mdi:close-circle"></iconify-icon>
+        </button>
       </form>
     </div>
     <div class="quick-filters" role="group" aria-label="Quick filters">
@@ -259,6 +262,7 @@ join: ',' | split: ',' -%}
     // and they combine with every other filter.
     const QUICK_FILTERS = ['featured', 'partners'];
     const searchInputEl = document.querySelector('.component-search input');
+    const searchClearEl = document.querySelector('.search-clear');
     const componentContainerEl = document.querySelector('#componentContainer');
     let noResultsEl;
     let searchInputDirty = false;
@@ -444,6 +448,7 @@ join: ',' | split: ',' -%}
       updateFilterButtons(query);
       updateFilterElements(query);
       updateSubcategoryLinks(query);
+      updateSearchClear();
       updateFiltersCount(query);
       quickFilterButtons.forEach(button => {
         button.setAttribute('aria-pressed', Boolean(query && query[button.dataset.quickFilter]));
@@ -794,7 +799,7 @@ join: ',' | split: ',' -%}
     // create a filter button if it's missing from current applied filter // used in updateFilterButtons
     function createFilterButtons(buttonParent, query) {
       for (key in query) {
-        if (QUICK_FILTERS.includes(key)) continue;
+        if (QUICK_FILTERS.includes(key) || key === 'search') continue;
         if (document.querySelector(`.component-search .active-filter[data-id="${key}"]`) === null) {
           let button = document.createElement('button');
           button.innerHTML = `<span>${getButtonText(key, query[key])} <iconify-icon icon="mdi:close-circle"></iconify-icon></span>`;
@@ -1083,6 +1088,26 @@ join: ',' | split: ',' -%}
 
     // update view by search text
     let lastSearchText = '';
+
+    function updateSearchClear() {
+      searchClearEl.style.display = searchInputEl.value ? '' : 'none';
+    }
+
+    function clearSearch() {
+      searchInputEl.value = '';
+      lastSearchText = '';
+      removeQueryFromURL('search');
+      applyFilter();
+      searchInputEl.focus();
+    }
+
+    searchClearEl.addEventListener('click', clearSearch);
+    searchInputEl.addEventListener('input', updateSearchClear);
+    searchInputEl.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && searchInputEl.value) {
+        clearSearch();
+      }
+    });
     searchInputEl.addEventListener('input', debounce(() => {
       let value = searchInputEl.value
         .toLowerCase()

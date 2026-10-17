@@ -758,6 +758,32 @@ a.option-card:hover {
     margin-bottom: 16px;
   }
 
+  .component-search form {
+    position: relative;
+
+    input {
+      padding-right: 40px;
+    }
+  }
+
+  .search-clear {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    display: flex;
+    padding: 4px;
+    border: 0;
+    background: none;
+    color: $gray;
+    font-size: 20px;
+    cursor: pointer;
+    transform: translateY(-50%);
+
+    &:hover {
+      color: $blueDark;
+    }
+  }
+
   .quick-filters {
     display: flex;
     flex-wrap: wrap;
