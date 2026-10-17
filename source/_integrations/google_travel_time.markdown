@@ -22,7 +22,7 @@ You need to register for an API key by following the instructions [here](https:/
 
 Google requires billing to be enabled (and a valid credit card loaded) to access Google Maps APIs.
 
-By default, the integration requests traffic-aware routing, which triggers use of the Compute Routes Pro SKU (5,000 free requests per month). The sensor will update the travel time every 10 minutes, making approximately 144 calls per day. Note that at this rate, using more than 1 sensor will exceed the free credit limit. As the update frequency cannot be decreased, if you require more frequent data updates, consider triggering on-demand updates (see the automation example below).
+By default, the integration requests traffic-aware routing, which uses the Compute Routes Pro SKU (5,000 free requests per month). The sensor will update the travel time every 10 minutes, making approximately 144 calls per day. Note that at this rate, using more than 1 sensor will exceed the free credit limit. As the update frequency cannot be decreased, if you require more frequent data updates, consider triggering on-demand updates (see the automation example below).
 
 The integration also supports routing without considering live traffic. These requests are billed as Compute Routes Essentials, which provides 10,000 free requests per month. To use this for a sensor, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Google Maps Travel Time** integration, select **Configure**, and set **Travel routing preference** to **Traffic-unaware**. For action calls, set **Travel routing preference** in the [Get travel times](/actions/google_travel_time.get_travel_times/) action.
 
