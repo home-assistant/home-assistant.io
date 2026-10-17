@@ -139,6 +139,7 @@ source/_integrations/bluemaestro.markdown @bdraco
 source/_integrations/bluesound.markdown @thrawnarn @LouisChrist
 source/_integrations/bluetooth.markdown @bdraco
 source/_integrations/bluetooth_adapters.markdown @bdraco
+source/_integrations/bmx_monitor.markdown @andystewart999
 source/_integrations/bond.markdown @bdraco @prystupa @joshs85 @marciogranzotto
 source/_integrations/bosch_alarm.markdown @mag1024 @sanjay900
 source/_integrations/bosch_shc.markdown @tschamm @mosandlt
