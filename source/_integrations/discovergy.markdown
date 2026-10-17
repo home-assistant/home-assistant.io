@@ -4,6 +4,8 @@ description: Instructions on how to integrate inexogy smart meters within Home A
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_release: '2023.7'
 ha_iot_class: Cloud Polling
 ha_codeowners:

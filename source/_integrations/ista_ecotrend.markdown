@@ -4,6 +4,9 @@ description: Instructions on how to integrate ista EcoTrend with Home Assistant.
 ha_release: 2024.7
 ha_category:
   - Energy
+ha_categories:
+  - energy.meters_monitoring
+  - water.meters_leak_detection
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@tr4nt0r'

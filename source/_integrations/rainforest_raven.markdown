@@ -4,6 +4,8 @@ description: Instructions on how to set up Rainforest RAVEn devices with Home As
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_release: 2024.2
 ha_iot_class: Local Polling
 ha_codeowners:

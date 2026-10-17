@@ -5,6 +5,8 @@ ha_release: 2025.3
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_codeowners:
   - '@jukrebs'
 ha_quality_scale: bronze

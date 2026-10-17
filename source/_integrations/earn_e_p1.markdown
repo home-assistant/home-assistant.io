@@ -4,6 +4,8 @@ description: Monitor your smart meter's energy and gas data in real-time with th
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_release: 2026.5
 ha_iot_class: Local Push
 ha_config_flow: true

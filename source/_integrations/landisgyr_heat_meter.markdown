@@ -4,6 +4,8 @@ description: Instructions on how to integrate your Landis+Gyr Heat Meter device 
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: 2022.9

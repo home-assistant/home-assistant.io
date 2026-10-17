@@ -4,6 +4,9 @@ description: Instructions on how to integrate Powerfox Cloud within Home Assista
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.meters_monitoring
+  - water.meters_leak_detection
 ha_release: 2025.1
 ha_iot_class: Cloud Polling
 ha_config_flow: true

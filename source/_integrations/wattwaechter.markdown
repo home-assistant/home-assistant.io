@@ -5,6 +5,8 @@ ha_category:
   - Energy
   - Sensor
   - Update
+ha_categories:
+  - energy.meters_monitoring
 ha_release: 2026.7
 ha_iot_class: Local Polling
 ha_config_flow: true
