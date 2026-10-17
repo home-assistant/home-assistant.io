@@ -3,6 +3,8 @@ title: Minio
 description: Integration for interacting with Minio object storage.
 ha_category:
   - Utility
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_iot_class: Cloud Push
 ha_release: 0.98
 ha_codeowners:

@@ -3,6 +3,8 @@ title: Profiler
 description: Profile Home Assistant.
 ha_category:
   - Utility
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_release: 0.117
 ha_quality_scale: internal
 ha_domain: profiler

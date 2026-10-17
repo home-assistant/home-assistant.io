@@ -7,6 +7,8 @@ ha_category:
   - Sensor
   - Switch
   - Update
+ha_categories:
+  - computers_network.nas_servers
 ha_iot_class: Local Polling
 ha_release: 0.42
 ha_domain: hassio

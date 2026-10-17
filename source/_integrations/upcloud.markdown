@@ -5,6 +5,8 @@ ha_category:
   - Binary sensor
   - Switch
   - System monitor
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_release: 0.65
 ha_config_flow: true
 ha_iot_class: Cloud Polling

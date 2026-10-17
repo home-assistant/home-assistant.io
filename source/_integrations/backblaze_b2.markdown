@@ -4,6 +4,8 @@ description: Instructions on how to set up a Backblaze B2 bucket to be used as a
 ha_release: 2025.12
 ha_category:
   - Backup
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: backblaze_b2
