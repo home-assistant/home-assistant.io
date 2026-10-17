@@ -6,6 +6,8 @@ ha_category:
   - Media Player
   - Multimedia
   - Sensor
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_release: 2024.2
 ha_iot_class: Local Push
 ha_domain: bang_olufsen

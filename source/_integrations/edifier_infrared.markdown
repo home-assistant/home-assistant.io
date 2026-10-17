@@ -5,6 +5,8 @@ ha_category:
   - Button
   - Infrared-controlled
   - Media player
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_release: 2026.7
 ha_iot_class: Assumed State
 ha_codeowners:

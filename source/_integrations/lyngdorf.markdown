@@ -7,6 +7,8 @@ ha_category:
   - Remote
   - Select
   - Sensor
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_release: 2026.8
 ha_iot_class: Local Push
 ha_config_flow: true

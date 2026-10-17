@@ -3,6 +3,8 @@ title: LinkPlay
 description: Connect and control your LinkPlay media players using the LinkPlay integration
 ha_category:
   - Media player
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_domain: linkplay
 ha_zeroconf: true
 ha_integration_type: hub
