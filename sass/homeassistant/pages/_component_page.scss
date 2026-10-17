@@ -714,10 +714,6 @@ a.option-card:hover {
   }
 
   // The filters: a label above a bordered box, like the category menu.
-  .integration-filter-radio {
-    margin-bottom: 16px;
-  }
-
   .filter-title {
     position: static;
     margin: 0 0 4px;
@@ -749,5 +745,69 @@ a.option-card:hover {
       background-color: transparent;
       text-align-last: left;
     }
+  }
+}
+
+// Featured and Works with Home Assistant: chips you turn on and off, with the
+// number of integrations shown next to them.
+#components-page {
+  // The search field reserved room for the active filter buttons, which
+  // left a gap above the chips.
+  .component-search {
+    min-height: 0;
+    margin-bottom: 16px;
+  }
+
+  .quick-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .quick-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border: 1px solid #c3cbd5;
+    border-radius: 999px;
+    background: white;
+    color: inherit;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+
+    iconify-icon {
+      font-size: 16px;
+      color: $gray;
+    }
+
+    @media only screen and (max-width: $lap-end) {
+      padding: 5px 11px;
+      font-size: 13px;
+    }
+
+    &:hover {
+      border-color: $blueDark;
+    }
+
+    &[aria-pressed="true"] {
+      border-color: $blueDark;
+      background-color: rgba(3, 169, 244, 0.12);
+      color: $blueDark;
+      font-weight: 600;
+
+      iconify-icon {
+        color: inherit;
+      }
+    }
+  }
+
+  .results-count {
+    margin-left: auto;
+    color: $gray;
+    font-size: 13px;
   }
 }

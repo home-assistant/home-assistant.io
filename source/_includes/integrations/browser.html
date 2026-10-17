@@ -103,22 +103,6 @@ join: ',' | split: ',' -%}
   </div>
   <div class="browse-panel-content grid">
 
-  <div class="grid__item six-sixths lap-one-whole palm-one-whole">
-    <fieldset class="integration-filter integration-filter-radio">
-      <div class="filter-button">
-        <input type="radio" id="brandsAll" name="brands" value="all" data-id="brands" checked="checked" />
-        <label for="brandsAll">All</label>
-      </div>
-      <div class="filter-button">
-        <input type="radio" id="brandsFeatured" name="brands" value="featured" data-id="brands" />
-        <label for="brandsFeatured">Featured</label>
-      </div>
-      <div class="filter-button">
-        <input type="radio" id="brandsPartners" name="brands" value="partners" data-id="brands" />
-        <label for="brandsPartners">Partners</label>
-      </div>
-    </fieldset>
-  </div>
 
   <div class="grid-filters">
     <div class="grid__item one-quarter lap-one-whole palm-one-whole">
@@ -196,6 +180,17 @@ join: ',' | split: ',' -%}
           placeholder="Search integrations..." autofocus />
       </form>
     </div>
+    <div class="quick-filters" role="group" aria-label="Quick filters">
+      <button type="button" class="quick-filter" data-quick-filter="featured" aria-pressed="false">
+        <iconify-icon icon="mdi:star"></iconify-icon>
+        Featured
+      </button>
+      <button type="button" class="quick-filter" data-quick-filter="partners" aria-pressed="false">
+        <iconify-icon icon="mdi:check-decagram"></iconify-icon>
+        Works with Home Assistant
+      </button>
+      <span class="results-count" aria-live="polite"></span>
+    </div>
   </div>
 
 
@@ -248,7 +243,10 @@ join: ',' | split: ',' -%}
     let filteredComponents = {};
     const baseHashRegex = /(^.*)(?=\?)/;
     const integrationSelectFilterElements = [...document.querySelectorAll('.integration-filter select')];
-    const integrationRadioFilterElements = [...document.querySelectorAll('.integration-filter input[name="brands"]')];
+    const quickFilterButtons = [...document.querySelectorAll('.quick-filter')];
+    // Featured and Works with Home Assistant are chips you turn on and off,
+    // and they combine with every other filter.
+    const QUICK_FILTERS = ['featured', 'partners'];
     const searchInputEl = document.querySelector('.component-search input');
     const componentContainerEl = document.querySelector('#componentContainer');
     let searchInputDirty = false;
@@ -280,7 +278,6 @@ join: ',' | split: ',' -%}
       window.$iot_classFilter = document.querySelector('.integration-filter select[data-id="iot_class"]');
       window.$quality_scaleFilter = document.querySelector('.integration-filter select[data-id="quality_scale"]');
       window.$searchFilter = document.querySelector('.component-search input');
-      window.$brandsFilter = [...document.querySelectorAll('.integration-filter input[name="brands"]')]
       window.$connectionFilter = document.querySelector('.integration-filter select[data-id="connection"]');
 
       showCategoryCounts();
@@ -289,16 +286,27 @@ join: ',' | split: ',' -%}
       window.addEventListener('hashchange', applyFilter);
       window.addEventListener('popstate', applyFilter);
 
+      // Old links use ?brands=featured or ?brands=partners. Turn those into the
+      // new filters, or the chips could never be turned off again.
+      const oldParams = new URLSearchParams(location.search);
+      if (oldParams.has('brands')) {
+        const brand = oldParams.get('brands');
+        oldParams.delete('brands');
+        if (brand === 'featured' || brand === 'partners') {
+          oldParams.set(brand, 'true');
+        }
+        const search = oldParams.toString();
+        history.replaceState(null, '', `${location.pathname}${search ? `?${search}` : ''}${location.hash}`);
+      }
+
       //on initial page load, if there's no active filters set the default to featured
       let query = buildQueryFromURL();
 
       if (query !== null) {
         if (Object.keys(query).length === 0 && !pageCategory) {
-          setQueryURL('brands', 'featured');
-        } else {
-          if (query['brands'] !== 'featured') {
-            searchInputDirty = true;
-          }
+          setQueryURL('featured', 'true');
+        } else if (Object.keys(query).some(key => key !== 'featured')) {
+          searchInputDirty = true;
         }
       }
       applyFilter();
@@ -338,16 +346,12 @@ join: ',' | split: ',' -%}
       let hash = location.hash || '';
       let queryParams = new URLSearchParams(location.search);
 
-      if (hash.startsWith('#featured') || queryParams.get('brands') === 'featured') {
-        // only show those with featured = true
-        let query = getQueryValue('brands');
-        queryFilter.brands = query;
+      if (hash.startsWith('#featured') || queryParams.get('brands') === 'featured' || queryParams.has('featured')) {
+        queryFilter.featured = 'true';
       }
 
-      if (hash.startsWith('#works-with-home-assistant') || queryParams.get('brands') === 'partners') {
-        // only show those with partners = true
-        let query = getQueryValue('brands');
-        queryFilter.brands = query;
+      if (hash.startsWith('#works-with-home-assistant') || queryParams.get('brands') === 'partners' || queryParams.has('partners')) {
+        queryFilter.partners = 'true';
       }
 
       if (hash.startsWith('#search/') || queryParams.has('search')) {
@@ -430,6 +434,9 @@ join: ',' | split: ',' -%}
       updateFilterElements(query);
       updateSubcategoryLinks(query);
       updateFiltersCount(query);
+      quickFilterButtons.forEach(button => {
+        button.setAttribute('aria-pressed', Boolean(query && query[button.dataset.quickFilter]));
+      });
 
       data.components = integrations.filter(integration => {
         if (pageCategory && !inCategory(integration, pageCategory)) {
@@ -456,18 +463,18 @@ join: ',' | split: ',' -%}
             if (!integration[key].includes(query[key])) return false;
           }
 
-          // check for matching featured brands in integration
-          if (key === 'brands' && query[key] === 'featured') {
-            if (!(integration['featured'])) return false;
+          if (key === 'featured') {
+            if (!integration.featured) return false;
+            continue;
           }
 
-          // check for matching partner brands in integration
-          if (key === 'brands' && query[key] === 'partners') {
-            if (!integration['wwha']) return false;
+          if (key === 'partners') {
+            if (!integration.wwha) return false;
+            continue;
           }
 
           // check for version / iot / quality matches
-          if (!(key === 'cat' || key === 'search' || key === 'brands')) {
+          if (!(key === 'cat' || key === 'search')) {
             if (
               integration[key] == undefined // match doesn't exist
               || integration[key] != query[key] // strings dont match
@@ -500,6 +507,12 @@ join: ',' | split: ',' -%}
       componentContainerEl.classList.remove('remove-items');
       componentContainerEl.innerHTML = rendered;
       componentContainerEl.classList.add('show-items');
+      const total = integrations.filter(i => !pageCategory || inCategory(i, pageCategory)).length;
+      const shown = data.components.length;
+      document.querySelector('.results-count').textContent =
+        shown === total
+          ? `${total.toLocaleString('en-US')} integrations`
+          : `${shown.toLocaleString('en-US')} of ${total.toLocaleString('en-US')} integrations`;
       document.querySelectorAll('.browse-panel-show').forEach(button => {
         const count = data.components.length;
         button.textContent = `Show ${count} integration${count === 1 ? '' : 's'}`;
@@ -623,12 +636,6 @@ join: ',' | split: ',' -%}
       } else if (id === 'subcategory') {
         // the sidebar follows the filter in updateSubcategoryLinks()
         return;
-      } else if (id === 'brands') {
-        $filterElement.forEach(option => {
-          if (option.value.trim() === query.trim() && !option.checked) {
-            option.checked = true;
-          }
-        });
       } else {
         let options = [...$filterElement.querySelectorAll('option')];
         //set the value of select dropdown if it doesn't currently match the query in the url
@@ -683,8 +690,6 @@ join: ',' | split: ',' -%}
         let queryId = element.getAttribute('data-id');
         if (queryId === 'search') {
           matchFilterElementToQuery(queryId, '');
-        } else if (queryId === 'brands') {
-          matchFilterElementToQuery(queryId, 'all');
         } else {
           matchFilterElementToQuery(queryId, '#');
         }
@@ -780,6 +785,7 @@ join: ',' | split: ',' -%}
     // create a filter button if it's missing from current applied filter // used in updateFilterButtons
     function createFilterButtons(buttonParent, query) {
       for (key in query) {
+        if (QUICK_FILTERS.includes(key)) continue;
         if (document.querySelector(`.component-search .active-filter[data-id="${key}"]`) === null) {
           let button = document.createElement('button');
           button.innerHTML = `<span>${getButtonText(key, query[key])} <iconify-icon icon="mdi:close-circle"></iconify-icon></span>`;
@@ -831,7 +837,9 @@ join: ',' | split: ',' -%}
     }
 
     function updateFiltersCount(query) {
-      const count = query ? Object.keys(query).filter(key => key !== 'search' && key !== 'subcategory').length : 0;
+      const count = query
+        ? Object.keys(query).filter(key => !['search', 'subcategory', ...QUICK_FILTERS].includes(key)).length
+        : 0;
       const badge = document.querySelector('.filters-count');
       if (badge) {
         badge.textContent = count ? `(${count})` : '';
@@ -897,10 +905,6 @@ join: ',' | split: ',' -%}
       let value = select.value;
 
       if (value !== '#') {
-        // Clear any existing brand filter when selecting a category
-        if (id === 'cat') {
-          removeQueryFromURL('brands');
-        }
         setQueryURL(id, value);
       } else {
         // clear current filter
@@ -912,22 +916,15 @@ join: ',' | split: ',' -%}
       return false;
     }));
 
-    // update view on radio change
-    integrationRadioFilterElements.forEach(radioInput => radioInput.addEventListener("click", () => {
-      let id = radioInput.name;
-      let value = radioInput.value;
-
-      if (radioInput.checked && value !== 'all') {
-        //clear all current filters, append new brand filter selection
-        applyFilter({ 'brands': value });
-      } else if (radioInput.checked && value === 'all') {
-        // clear current filter
-        removeQueryFromURL(id);
-        applyFilter();
+    quickFilterButtons.forEach(button => button.addEventListener('click', () => {
+      const key = button.dataset.quickFilter;
+      if (button.getAttribute('aria-pressed') === 'true') {
+        removeQueryFromURL(key);
+      } else {
+        setQueryURL(key, 'true');
       }
-
-      return false;
-    }))
+      applyFilter();
+    }));
     /**
      * Simple debounce implementation
      */
