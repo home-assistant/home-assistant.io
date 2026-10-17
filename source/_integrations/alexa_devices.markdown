@@ -10,6 +10,9 @@ ha_category:
   - Sensor
   - Switch
   - To-do list
+ha_categories:
+  - ai_voice.voice_assistants
+  - media_entertainment.speakers_audio
 ha_release: '2025.6'
 ha_domain: alexa_devices
 ha_config_flow: true
