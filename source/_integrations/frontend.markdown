@@ -109,6 +109,27 @@ frontend:
 
 The example above defines red color for open garage doors and brown color for inactive media players.
 
+### Panel, toolbar and table backgrounds
+
+The following variables are not set by default. If you leave them unset, the existing backgrounds remain unchanged.
+
+| Variable | Description |
+| -------- | ----------- |
+| `ha-panel-background` | Background of the area behind all panels, such as Settings, History, Logbook, Energy, Map and Profile. Accepts any CSS `background` value (color, gradient, image, including `fixed`). Dashboards are not affected, they keep using `lovelace-background`. |
+| `ha-panel-toolbar-background` | Background of the sticky search bars (Integrations, Installed apps) and of the tab bars in the automation and script traces. | 
+| `ha-data-table-background` | Background of data tables, including the group headers of grouped tables. |
+
+```yaml
+frontend:
+  themes:
+    my_theme:
+      ha-panel-background: "linear-gradient(135deg, #1e3c72, #2a5298) fixed"
+      ha-panel-toolbar-background: "rgba(0, 0, 0, 0.3)"
+      ha-data-table-background: "transparent"
+```
+
+Surfaces such as cards, menus and form fields keep their own colors. To see the panel background through cards, also set `ha-card-background` to a semi-transparent value.
+
 ### Unsupported theme variables
 
 Although we do our best to keep things working, the behavior of other theme variables can change between releases. For a partial list of variables used by the main frontend see [color.globals.ts](https://github.com/home-assistant/frontend/blob/master/src/resources/theme/color/color.globals.ts).
