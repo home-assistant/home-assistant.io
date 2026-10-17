@@ -57,6 +57,14 @@ command_line:
           description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
           required: false
           type: string
+        json_attributes:
+          description: Defines a list of keys to extract values from a JSON dictionary result and then set as binary sensor attributes.
+          required: false
+          type: [string, list]
+        json_attributes_path:
+          description: A [JSONPath](https://goessner.net/articles/JsonPath/) that references the location of the `json_attributes` in the JSON content.
+          required: false
+          type: string
         name:
           description: Let you overwrite the name of the device.
           required: false
@@ -490,6 +498,22 @@ command_line:
       payload_off: "inactive"
 ```
 
+### Usage of JSON attributes in a binary sensor
+
+If the command returns JSON, a binary sensor can take its state from one key and keep other keys as attributes. Here `open` sets the state, and `battery` and `rssi` become attributes:
+
+```yaml
+command_line:
+  - binary_sensor:
+      name: Door
+      command: "cat /tmp/door.json"
+      value_template: "{{ 'on' if value_json.open else 'off' }}"
+      payload_on: "on"
+      payload_off: "off"
+      json_attributes:
+        - battery
+        - rssi
+```
 
 ## Example cover platform
 
