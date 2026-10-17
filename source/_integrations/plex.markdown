@@ -6,6 +6,8 @@ ha_category:
   - Media player
   - Sensor
   - Update
+ha_categories:
+  - media_entertainment.tv_streaming
 featured: true
 ha_release: 0.7.4
 ha_iot_class: Local Push

@@ -5,6 +5,8 @@ ha_category:
   - Media player
   - Media source
   - Notifications
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_codeowners:

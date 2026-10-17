@@ -3,6 +3,8 @@ title: Tautulli
 description: Instructions on how to set up Tautulli sensors in Home Assistant.
 ha_category:
   - Sensor
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_config_flow: true
 ha_release: 0.82
 ha_iot_class: Local Polling

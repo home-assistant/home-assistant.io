@@ -6,6 +6,8 @@ ha_category:
   - Number
   - Select
   - Sensor
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: 2024.1
 ha_iot_class: Local Push
 ha_config_flow: true

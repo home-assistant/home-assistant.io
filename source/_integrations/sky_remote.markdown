@@ -3,6 +3,8 @@ title: Sky Remote Control
 description: The Sky Remote integration allows you to control a Sky box with Home Assistant.
 ha_category:
   - Remote
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: 2024.12
 ha_domain: sky_remote
 ha_config_flow: true

@@ -7,6 +7,9 @@ ha_category:
   - Infrared-controlled
   - Media player
   - Switch
+ha_categories:
+  - media_entertainment.tv_streaming
+  - climate.heat_pumps_air_conditioning
 ha_release: 2026.4
 ha_iot_class: Assumed State
 ha_codeowners:
