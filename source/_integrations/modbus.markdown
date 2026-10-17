@@ -1699,7 +1699,7 @@ sensors:
       required: false
       type: integer
     state_class:
-      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor."
+      description: "The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor."
       required: false
       type: string
     structure:

@@ -79,7 +79,7 @@ default_entity_id:
   required: false
   type: string
 device:
-  description: "Device information for this infrared entity. Used to link the entity to a device in the [device registry](https://developers.home-assistant.io/docs/device_registry_index). Only works when [`unique_id`](#unique_id) is set. At least one of `identifiers` or `connections` is required to identify the device."
+  description: "Device information for this infrared entity. Used to link the entity to a device in the [device registry](https://contributors.home-assistant.io/core/integrations/device-registry/). Only works when [`unique_id`](#unique_id) is set. At least one of `identifiers` or `connections` is required to identify the device."
   required: false
   type: map
   keys:
@@ -142,7 +142,7 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://contributors.home-assistant.io/core/entities/entity-class/#generic-properties) of the entity.
   required: false
   type: string
 entity_picture:
@@ -261,7 +261,7 @@ default_entity_id:
   required: false
   type: string
 device:
-  description: "Device information for this infrared entity. Used to link the entity to a device in the [device registry](https://developers.home-assistant.io/docs/device_registry_index). Only works when [`unique_id`](#unique_id) is set. At least one of `identifiers` or `connections` is required to identify the device."
+  description: "Device information for this infrared entity. Used to link the entity to a device in the [device registry](https://contributors.home-assistant.io/core/integrations/device-registry/). Only works when [`unique_id`](#unique_id) is set. At least one of `identifiers` or `connections` is required to identify the device."
   required: false
   type: map
   keys:
@@ -324,7 +324,7 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://contributors.home-assistant.io/core/entities/entity-class/#generic-properties) of the entity.
   required: false
   type: string
 entity_picture:

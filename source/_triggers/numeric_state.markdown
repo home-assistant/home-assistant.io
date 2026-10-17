@@ -46,7 +46,7 @@ Below:
   description: The upper threshold value for the numeric state or attribute value. Use a **Fixed number** or a **Value of an entity**.
   required: false
 Value template:
-  description: The limited template to use for calculating the numeric value.
+  description: The template to use for calculating the numeric value.
   required: false
 For at least:
   description: The amount of time the value of the numeric state or attribute must remain unchanged or stay within the configured threshold. Default is `0` hours, `00` minutes and `00` seconds (fires immediately).
@@ -90,7 +90,7 @@ attribute:
   required: false
   type: string
 value_template:
-  description: The limited template to use for calculating the numeric value.
+  description: The template to use for calculating the numeric value.
   required: false
   type: string
 for:

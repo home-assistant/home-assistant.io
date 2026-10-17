@@ -68,7 +68,7 @@ default_entity_id:
   required: false
   type: string
 device:
-  description: "Information about the device this sensor is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/device_registry_index/). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this sensor is a part of to tie it into the [device registry](https://contributors.home-assistant.io/core/integrations/device-registry/). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
@@ -135,7 +135,7 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity. When set, the entity category must be `diagnostic` for sensors.
+  description: The [category](https://contributors.home-assistant.io/core/entities/entity-class/#generic-properties) of the entity. When set, the entity category must be `diagnostic` for sensors.
   required: false
   type: string
 entity_picture:
@@ -205,7 +205,7 @@ qos:
   type: integer
   default: 0
 state_class:
-  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  description: The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor.
   required: false
   type: string
 state_topic:

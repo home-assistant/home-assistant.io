@@ -51,7 +51,7 @@ value:
 
 - Sets are unordered, so add [`| list | sort`](/template-functions/sort/) when you need a stable ordering.
 - All items must be hashable. Lists and dicts inside the input raise an error.
-- A quick way to count distinct values is `| set | list | count`.
+- A quick way to count distinct values is `set(values) | count`. `set` is a function, not a filter, so `values | set` doesn't work.
 
 {% include template_functions/try_it.md %}
 
@@ -64,10 +64,7 @@ Find out how many distinct states exist among a group of {% term entities %}.
 {% example %}
 template: |
   {{
-    expand("light.home_lights")
-    | map(attribute="state")
-    | set
-    | list
+    set(expand("light.home_lights") | map(attribute="state"))
     | count
   }}
 type: integer

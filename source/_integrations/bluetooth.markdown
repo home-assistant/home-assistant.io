@@ -304,7 +304,7 @@ The following methods are known to work to add multiple adapters:
 - USB-Ethernet extenders
 - [USB/IP](https://usbip.sourceforge.net/)
 
-Integrations that have followed the [Best practices for library authors](https://developers.home-assistant.io/docs/bluetooth/?_highlight=Best+practices#best-practices-for-library-authors) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
+Integrations that have followed the [Best practices for library authors](https://contributors.home-assistant.io/core/integrations/bluetooth/#best-practices) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
 
 ## Scanning modes
 

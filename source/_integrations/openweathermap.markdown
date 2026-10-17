@@ -100,7 +100,7 @@ If you want to change the weather location, you will need to delete and re-add t
 | Condition                | Description                                                                                                                       |
 | :----------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
 | `cloud_coverage`         | Cloudiness, %.                                                                                                                    |
-| `condition`              | [Weather condition](https://developers.home-assistant.io/docs/core/entity/weather/#recommended-values-for-state-and-condition).   |
+| `condition`              | [Weather condition](https://contributors.home-assistant.io/core/entities/weather/#conditions).   |
 | `dew_point`              | Atmospheric temperature below which water droplets begin to condense and dew can form, ºC.                                        |
 | `feels_like_temperature` | Temperature accounting for the human perception of weather, ºC.                                                                   |
 | `humidity`               | Humidity, %.                                                                                                                      |
