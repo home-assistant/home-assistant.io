@@ -18,7 +18,7 @@ ha_codeowners:
   - '@VIKTORVAV99'
 ---
 
-The **Electricity Maps** {% term integration %} (formerly known as CO2Signal) queries the [Electricity Maps](https://electricitymaps.com/free-tier) API for the CO2 intensity of a specific region. 
+The **Electricity Maps** {% term integration %} (formerly known as CO2Signal) queries the [Electricity Maps](https://app.electricitymaps.com/home-assistant) API for the CO2 intensity of a specific region. 
 Data can be collected for your home by using the home location, latitude/longitude, or a zone key.
 
 This API uses the same data as shown on the [Electricity Maps app](https://app.electricitymaps.com/map/). 
@@ -36,9 +36,9 @@ The Electricity Maps integration helps you understand the carbon intensity of yo
 
 ## Prerequisites
 
-To configure and use this integration, you need to obtain a free API key from Electricity Maps by signing up to the Free Tier product on the [Electricity Maps API Portal](https://electricitymaps.com/free-tier).
+To configure and use this integration, you need to obtain a free API key from Electricity Maps by activating Home Assistant access on the [Electricity Maps Home Assistant page](https://app.electricitymaps.com/home-assistant).
 
-Please be aware that the Free Tier API is limited to one location, called a zone. A zone represents a specific electricity grid region. These zones don't match your utility provider. You need to select and specify the zone for your home location when creating your account. For example, the United States has multiple zones like `US-CENT-SWPP` (Southwest Power Pool), `US-CAR-DUK` (Duke Energy Carolinas), or `US-CAR-CPLE` (Duke Energy Progress East).
+Please be aware that the API key is limited to one location, called a zone. A zone represents a specific electricity grid region. These zones don't match your utility provider. You need to select and specify the zone for your home location when activating access. For example, the United States has multiple zones like `US-CENT-SWPP` (Southwest Power Pool), `US-CAR-DUK` (Duke Energy Carolinas), or `US-CAR-CPLE` (Duke Energy Progress East).
 
 To find your zone identifier, you can:
 - Check the [Electricity Maps app](https://app.electricitymaps.com/map/live/fifteen_minutes) to see which zone covers your location. You can get the exact zone key from the URL. For France, the URL looks like `.../map/zone/FR/live/...`. The zone key is after `.../zone/{zone key}`. In this case, it would be `FR`.
@@ -163,8 +163,7 @@ The integration {% term polling polls %} data from the Electricity Maps API ever
 
 ## Known limitations
 
-- The Free Tier API is limited to one zone. A zone represents a specific electricity grid region. You need to specify the zone when creating your account. If you need to change zones, you will need to delete and reconfigure the integration.
-- The Free Tier API has a limit of 50 requests per hour, but the integration is designed to poll at a rate that won't exceed this limit.
+- The API key is limited to one zone. A zone represents a specific electricity grid region. You need to specify the zone when activating access.
 - Not all geographic regions are supported by Electricity Maps. Check their app to see if your region has coverage.
 
 ## Troubleshooting
