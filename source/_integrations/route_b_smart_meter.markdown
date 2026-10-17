@@ -4,6 +4,8 @@ description: Integrate your Smart Meter using B Route.
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_release: '2025.10'
 ha_iot_class: Local Polling
 ha_codeowners:

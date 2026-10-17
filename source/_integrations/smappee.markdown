@@ -7,6 +7,9 @@ ha_category:
   - Hub
   - Sensor
   - Switch
+ha_categories:
+  - energy.meters_monitoring
+  - plugs_switches
 ha_iot_class: Cloud Polling
 ha_release: 0.64
 ha_config_flow: true

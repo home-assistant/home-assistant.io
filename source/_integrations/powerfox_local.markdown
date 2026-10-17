@@ -4,6 +4,8 @@ description: Instructions on how to integrate a Powerfox device locally with Hom
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_release: 2026.3
 ha_iot_class: Local Polling
 ha_config_flow: true

@@ -3,6 +3,9 @@ title: Emoncms History
 description: Instructions on how to integrate Emoncms history into Home Assistant.
 ha_category:
   - History
+ha_categories:
+  - energy.meters_monitoring
+  - diy_makers.web_data_connectors
 ha_iot_class: Local Polling
 ha_release: 0.31
 ha_domain: emoncms_history

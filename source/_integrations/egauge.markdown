@@ -4,6 +4,8 @@ description: eGauge Energy Monitors
 ha_release: 2026.1
 ha_category:
   - Energy
+ha_categories:
+  - energy.meters_monitoring
 ha_quality_scale: bronze
 ha_iot_class: Local Polling
 ha_codeowners:

@@ -14,6 +14,8 @@ ha_quality_scale: silver
 ha_category:
   - Energy
   - Serial-controlled
+ha_categories:
+  - energy.meters_monitoring
 ---
 
 The **Teleinfo** {% term integration %} reads data from the French electricity metering system known as Télé-Information Client (TIC). This protocol is used by Linky smart meters and older electronic meters deployed by [Enedis](https://www.enedis.fr/), the French electricity distribution network operator.

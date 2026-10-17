@@ -5,6 +5,9 @@ ha_release: 2026.7
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.meters_monitoring
+  - water.meters_leak_detection
 ha_codeowners:
   - '@AjinkyaGokhale'
   - '@NiccoFink'

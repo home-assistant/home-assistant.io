@@ -5,6 +5,8 @@ ha_release: 0.99
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@baqs'
