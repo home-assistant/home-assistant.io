@@ -443,8 +443,8 @@ blueprint:
   name: "Sunrise and sunset"
   domain: automation
   input:
-    input_boolean:
-      name: "Boolean"
+    enable_sunrise:
+      name: "React to sunrise"
       selector:
         boolean:
     input_number:
@@ -459,7 +459,7 @@ trigger_variables:
 
 triggers:
   - trigger: sun.sunrise
-    enabled: !input input_boolean
+    enabled: !input enable_sunrise
   - trigger: sun.sunset
     enabled: "{{ _enable_number < 50 }}"
 ```
