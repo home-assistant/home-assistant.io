@@ -111,7 +111,7 @@ The example above defines red color for open garage doors and brown color for in
 
 ### Panel, toolbar and table backgrounds
 
-The following variables are not set by default. When a variable is not set, the fallback listed below is used and nothing changes.
+The following variables are not set by default. If you leave them unset, the existing backgrounds remain unchanged.
 
 | Variable | Description |
 | -------- | ----------- |
