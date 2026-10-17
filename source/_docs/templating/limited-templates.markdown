@@ -14,9 +14,19 @@ related:
 
 A limited template is a template that can only use part of what templates normally can. A limited template can't read the state of your home or the current time.
 
-Limited templates are used in fields that set up an automation, rather than run the automation, such as the MQTT topic an automation listens to, the time an automation triggers at, or whether a trigger is turned on. Home Assistant needs the values of setup fields before anything can happen. So Home Assistant works out most limited templates once, when the automation is set up, and keeps the result until you reload the automation. Limited templates are allowed in setup fields so that a blueprint can build setup values from your inputs, such as an MQTT topic that contains a device name you picked.
+## When to use limited templates
 
-Limited templates can't read your home, because a limited template would only see the state of your home at the moment the automation is set up. The automation wouldn't follow later changes, and Home Assistant wouldn't warn you. To make an automation depend on the current state of your home, use a [condition](/docs/automation/condition/) instead.
+You don't choose to write a limited template. You write a limited template when you put a template in a field that sets up an automation, such as the MQTT topic an automation listens to, the time an automation triggers at, or whether a trigger is turned on. For all fields that only accept limited templates, refer to [Fields that use limited templates](#fields-that-use-limited-templates).
+
+Most limited templates are in blueprints. A blueprint can use a limited template to build a setup value from your inputs, such as an MQTT topic that contains a device name you picked.
+
+To make an automation depend on the current state of your home, don't use a limited template. Use a [condition](/docs/automation/condition/) instead.
+
+## Why some fields only accept limited templates
+
+Home Assistant needs the values of setup fields before anything can happen. So Home Assistant works out most limited templates once, when the automation is set up, and keeps the result until you reload the automation.
+
+If a limited template could read your home, the limited template would only see the state of your home at the moment the automation is set up. The automation wouldn't follow later changes, and Home Assistant wouldn't warn you. That's why limited templates can't read the state of your home or the current time.
 
 ## What limited templates can use
 
@@ -33,14 +43,12 @@ Limited templates support most of what templates can do. You can use:
 Limited templates can't use functions that read the state of your home or the current time, and a few other functions. The following functions aren't available in limited templates:
 
 - Functions that read the state of entities, such as `states`, `is_state`, `state_attr`, `has_value`, and `expand`
-- Date and time functions, such as `now`, `utcnow`, `today_at`, `relative_time`, `time_since`, `time_until`, and `timedelta_string`
+- Functions that use the current date or time, such as `now`, `utcnow`, `today_at`, `relative_time`, `time_since`, and `time_until`
 - Some area, floor, label, device, and entity functions, such as `area_name`, `device_attr`, `floor_name`, `label_name`, and `entity_name`
 - The location functions `distance` and `closest`
 - The hash and encoding functions `md5`, `sha1`, `sha256`, `sha512`, `base64_encode`, and `base64_decode`
 
-Each [template function](/template-functions/) page shows whether the function is available in limited templates. If a limited template calls a function that isn't available, such as `states('light.kitchen')`, the limited template fails with the error `Use of 'states' is not supported in limited templates`. For how to fix the error, refer to [Use of 'states' is not supported in limited templates](/docs/templating/errors/#templateerror-use-of-states-is-not-supported-in-limited-templates).
-
-If a limited template uses `states` without calling it, the result is different. For example, `states.light.kitchen.state` fails with the error `'function object' has no attribute 'light'`. And `states.light | list` doesn't fail at all: the result is an empty list, and Home Assistant only logs a warning.
+Each [template function](/template-functions/) page shows whether the function is available in limited templates. If a limited template uses a function that isn't available, the limited template fails with an error. For how to fix the error, refer to [Use of 'states' is not supported in limited templates](/docs/templating/errors/#templateerror-use-of-states-is-not-supported-in-limited-templates).
 
 ## Fields that use limited templates
 
