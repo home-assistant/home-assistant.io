@@ -310,6 +310,8 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 
 You can use the navigation actions to get your car ready for the trip before you get in.
 
+For a trip with intermediate stops, use [Navigate to waypoints](/actions/tesla_fleet.navigate_to_waypoints/) and supply Google Place IDs in travel order, with the final destination last.
+
 {% include docs/paste_yaml_tip.md %}
 
 ### Automation: navigate to your next appointment
