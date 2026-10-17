@@ -13,13 +13,12 @@
   {% if doc == 'automation' or doc == 'blueprint' or doc == 'script' or doc == 'scene' or in_automation_reference or include.docs_index %}
   <ul>
     <li>
+      {% icon "mdi:sign-direction" %} {% active_link /docs/automation/which-tool-to-use/ Which tool to use %}
+    </li>
+    <li>
       {% icon "mdi:robot-happy" %} {% active_link /docs/automation/basics/ Understanding automations %}
       {% if doc == 'automation' or in_automation_reference or include.docs_index %}
       <ul>
-        <li>{% active_link /docs/automation/how-automations-react-to-changes/ How automations react to changes %}</li>
-        <li>{% active_link /docs/automation/targets/ Targets %}</li>
-        <li>{% active_link /docs/automation/which-tool-to-use/ Which tool to use %}</li>
-        <li>{% active_link /docs/automation/using_blueprints/ Using automation blueprints %}</li>
         <li>{% active_link /docs/automation/editor/ Automation editors %}</li>
         <li>
           {% active_link /docs/automation/trigger/ Triggers %}
@@ -45,9 +44,11 @@
             </li>
           </ul>
         </li>
+        <li>{% active_link /docs/automation/targets/ Targets %}</li>
+        <li>{% active_link /docs/automation/how-automations-react-to-changes/ How automations react to changes %}</li>
         <li>{% active_link /docs/automation/modes/ Automation modes %}</li>
-        <li>{% active_link /docs/automation/templating/ Trigger data in templates %}</li>
         <li>{% active_link /docs/automation/yaml/ Automations in YAML %}</li>
+        <li>{% active_link /docs/automation/templating/ Trigger data in templates %}</li>
         <li>{% active_link /docs/automation/testing/ Testing automations %}</li>
         <li>{% active_link /docs/automation/troubleshooting/ Troubleshooting automations %}</li>
       </ul>
@@ -61,8 +62,9 @@
     </li>
     <li>
       {% icon "mdi:palette-swatch" %} {% active_link /docs/blueprint/ Blueprints %}
-      {% if doc == 'blueprint' or include.docs_index %}
+      {% if doc == 'blueprint' or page.url == '/docs/automation/using_blueprints/' or include.docs_index %}
       <ul>
+        <li>{% active_link /docs/automation/using_blueprints/ Using automation blueprints %}</li>
         <li>{% active_link /docs/blueprint/tutorial/ Tutorial %}</li>
         <li>{% active_link /docs/blueprint/schema/ Blueprint schema %}</li>
         <li>{% active_link /docs/blueprint/selectors/ Selectors %}</li>
