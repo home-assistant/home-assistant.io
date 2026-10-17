@@ -49,7 +49,7 @@ value:
 
 ## Good to know
 
-- Sets are unordered, so add [`| list | sort`](/template-functions/sort/) when you need a stable ordering.
+- Sets are unordered, so add [`| list | sort`](/template-functions/sort/) when you need a stable ordering. To remove duplicates and keep the original order, use the [`unique`](/template-functions/unique/) filter instead.
 - All items must be hashable. Lists and dicts inside the input raise an error.
 - A quick way to count distinct values is `set(values) | count`. `set` is a function, not a filter, so `values | set` doesn't work.
 
@@ -73,12 +73,12 @@ output: "2"
 
 ### Deduplicate a list
 
-Remove duplicates from a list of detected objects.
+Remove duplicates from a list of detected objects. A set has no order, so sort the result to get the same order every time.
 
 {% example %}
-template: '{{ set(["person", "car", "person", "dog", "car"]) | list }}'
+template: '{{ set(["person", "car", "person", "dog", "car"]) | list | sort }}'
 type: list
-output: '["person", "car", "dog"]'
+output: '["car", "dog", "person"]'
 {% endexample %}
 
 {% include template_functions/stuck.md %}
