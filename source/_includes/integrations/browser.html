@@ -20,6 +20,47 @@ join: ',' | split: ',' -%}
 | split: "|"
 %}
 
+{%- assign current_category = site.data.integration_categories | where: "slug", include.category | first -%}
+
+<div class="integrations-browser">
+
+<nav class="category-sidebar" aria-label="Integration categories">
+  <a href="/integrations/" class="category-link{% unless current_category %} active{% endunless %}">
+    <iconify-icon icon="mdi:view-grid-outline"></iconify-icon>
+    <span class="category-name">All integrations</span>
+  </a>
+  {%- for category in site.data.integration_categories %}
+  <a href="/integrations/category/{{ category.slug }}/" class="category-link{% if current_category.slug == category.slug %} active{% endif %}">
+    <iconify-icon icon="{{ category.icon }}"></iconify-icon>
+    <span class="category-name">{{ category.name }}</span>
+    <span class="category-count" data-category-count="{{ category.slug }}"></span>
+  </a>
+  {%- endfor %}
+</nav>
+
+<div class="integrations-main">
+
+{%- if current_category %}
+<header class="category-header">
+  <p class="category-description">
+    <iconify-icon icon="{{ current_category.icon }}"></iconify-icon>
+    {{ current_category.description }}
+  </p>
+  {%- if current_category.subcategories.size > 0 %}
+  <div class="subcategory-chips" role="group" aria-label="Subcategories">
+    <button type="button" class="subcategory-chip active" data-subcategory="">All</button>
+    {%- for subcategory in current_category.subcategories %}
+    <button type="button" class="subcategory-chip" data-subcategory="{{ subcategory.slug }}">
+      <iconify-icon icon="{{ subcategory.icon }}"></iconify-icon>
+      {{ subcategory.name }}
+      <span class="category-count" data-subcategory-count="{{ subcategory.slug }}"></span>
+    </button>
+    {%- endfor %}
+  </div>
+  {%- endif %}
+</header>
+{%- endif %}
+
 <div class="grid">
 
   <div class="grid__item six-sixths lap-one-whole palm-one-whole">
@@ -41,6 +82,17 @@ join: ',' | split: ',' -%}
 
   <div class="grid-filters">
     <div class="grid__item one-quarter lap-one-whole palm-one-whole">
+      <div class="integration-filter integration-filter-select">
+        <h3 class="filter-title">Connection</h3>
+        <select class="ha_category" name="connection" data-id="connection">
+          <option value="#">All</option>
+          <option value="local">Local</option>
+          <option value="cloud">Cloud</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="grid__item one-quarter lap-one-whole palm-one-whole" hidden>
       <div class="integration-filter integration-filter-select">
         <h3 class="filter-title">Category</h3>
         <select class="ha_category" name="category" data-id="cat">
@@ -145,7 +197,7 @@ join: ',' | split: ',' -%}
   // This object contains all components we have
   const integrations = [
     {%- for component in components -%}
-      {%- if component.ha_category -%}
+      {%- if component.ha_category or component.ha_categories -%}
         {%- assign sliced_version = component.ha_release | split: '.' -%}
         {%- assign minor_version = sliced_version[1] | plus: 0 -%}
         {%- assign major_version = sliced_version[0] | plus: 0 -%}
@@ -158,6 +210,8 @@ join: ',' | split: ',' -%}
           url: "{{ component.url }}",
           title: "{{component.title}}",
           cat: [{{ categories| join: ","}}],
+          categories: {% if component.ha_categories %}{{ component.ha_categories | jsonify }}{% else %}[]{% endif %},
+          connection: "{% if component.ha_iot_class contains 'Local' %}local{% elsif component.ha_iot_class contains 'Cloud' %}cloud{% endif %}",
           featured: {{ component.featured }},
           version: "{{major_version}}.{{minor_version}}",
           logo: "{{component.logo}}",
@@ -176,6 +230,8 @@ join: ',' | split: ',' -%}
 
 <script type="text/javascript">
   (function () {
+    const pageCategory = "{{ current_category.slug }}";
+    const subcategoryChips = [...document.querySelectorAll('.subcategory-chip')];
     let filteredComponents = {};
     const baseHashRegex = /(^.*)(?=\?)/;
     const integrationSelectFilterElements = [...document.querySelectorAll('.integration-filter select')];
@@ -212,6 +268,9 @@ join: ',' | split: ',' -%}
       window.$quality_scaleFilter = document.querySelector('.integration-filter select[data-id="quality_scale"]');
       window.$searchFilter = document.querySelector('.component-search input');
       window.$brandsFilter = [...document.querySelectorAll('.integration-filter input[name="brands"]')]
+      window.$connectionFilter = document.querySelector('.integration-filter select[data-id="connection"]');
+
+      showCategoryCounts();
 
       //listen for changes in the hash / user clicking back or forward button in browser
       window.addEventListener('hashchange', applyFilter);
@@ -221,7 +280,7 @@ join: ',' | split: ',' -%}
       let query = buildQueryFromURL();
 
       if (query !== null) {
-        if (Object.keys(query).length === 0) {
+        if (Object.keys(query).length === 0 && !pageCategory) {
           setQueryURL('brands', 'featured');
         } else {
           if (query['brands'] !== 'featured') {
@@ -302,6 +361,7 @@ join: ',' | split: ',' -%}
         && !(hash.startsWith('#version'))
         && !(hash.startsWith('#iot_class'))
         && !(hash.startsWith('#quality_scale'))
+        && !(hash.startsWith('#connection'))
       ) {
         // regular filter categories
         let query = getQueryValue('cat');
@@ -316,6 +376,14 @@ join: ',' | split: ',' -%}
       if (hash.startsWith('#quality_scale/') || queryParams.has('quality_scale')) {
         let query = getQueryValue('quality_scale');
         queryFilter.quality_scale = query;
+      }
+
+      if (queryParams.has('connection')) {
+        queryFilter.connection = getQueryValue('connection');
+      }
+
+      if (pageCategory && queryParams.has('subcategory')) {
+        queryFilter.subcategory = queryParams.get('subcategory');
       }
 
       if (hash.startsWith('#all')) {
@@ -347,9 +415,18 @@ join: ',' | split: ',' -%}
       // update dom elements to match new filters
       updateFilterButtons(query);
       updateFilterElements(query);
+      updateSubcategoryChips(query);
 
       data.components = integrations.filter(integration => {
+        if (pageCategory && !inCategory(integration, pageCategory)) {
+          return false;
+        }
         for (let key in query) {
+          // check for the subcategory of the category of this page
+          if (key === 'subcategory') {
+            if (!integration.categories.includes(`${pageCategory}.${query[key]}`)) return false;
+            continue;
+          }
           // compare against search string and categories in integration
           if (key === 'search') {
             if (
@@ -522,6 +599,9 @@ join: ',' | split: ',' -%}
           // set value of search input
           $filterElement.value = query;
         }
+      } else if (id === 'subcategory') {
+        // the chips follow the filter in updateSubcategoryChips()
+        return;
       } else if (id === 'brands') {
         $filterElement.forEach(option => {
           if (option.value.trim() === query.trim() && !option.checked) {
@@ -608,6 +688,13 @@ join: ',' | split: ',' -%}
         case 'quality_scale':
           category = 'Quality scale';
           break;
+        case 'connection':
+          category = 'Connection';
+          break;
+        case 'subcategory': {
+          const chip = subcategoryChips.find(chip => chip.dataset.subcategory === key);
+          return `Subcategory: ${chip ? chip.textContent.replace(/\d+\s*$/, '').trim() : key}`;
+        }
         default:
           category = id;
       }
@@ -701,6 +788,42 @@ join: ',' | split: ',' -%}
       buttonsToRemove.forEach(button => button.remove());
     }
 
+    // An integration is in a category when it lists the category itself, or
+    // one of its subcategories.
+    function inCategory(integration, category) {
+      return integration.categories.some(c => c === category || c.startsWith(`${category}.`));
+    }
+
+    // The number of integrations per category in the sidebar, and per
+    // subcategory in the chips of a category page.
+    function showCategoryCounts() {
+      document.querySelectorAll('[data-category-count]').forEach(el => {
+        el.textContent = integrations.filter(i => inCategory(i, el.dataset.categoryCount)).length;
+      });
+      document.querySelectorAll('[data-subcategory-count]').forEach(el => {
+        const subcategory = `${pageCategory}.${el.dataset.subcategoryCount}`;
+        el.textContent = integrations.filter(i => i.categories.includes(subcategory)).length;
+      });
+    }
+
+    function updateSubcategoryChips(query) {
+      const active = (query && query.subcategory) || '';
+      subcategoryChips.forEach(chip => {
+        const isActive = chip.dataset.subcategory === active;
+        chip.classList.toggle('active', isActive);
+        chip.setAttribute('aria-pressed', isActive);
+      });
+    }
+
+    subcategoryChips.forEach(chip => chip.addEventListener('click', () => {
+      if (chip.dataset.subcategory) {
+        setQueryURL('subcategory', chip.dataset.subcategory);
+      } else {
+        removeQueryFromURL('subcategory');
+      }
+      applyFilter();
+    }));
+
     function buildImageEl(component) {
       const urlBase = [
         'https://brands.home-assistant.io',
@@ -789,10 +912,13 @@ join: ',' | split: ',' -%}
   })();
 </script>
 
+</div>
+</div>
+
 <noscript>
   <ul>
     {%- for component in components -%}
-    {%- if component.ha_category -%}
+    {%- if component.ha_category or component.ha_categories -%}
     <li><a href='{{ component.url }}'>{{ component.title }}</a></li>
     {%- endif -%}
     {%- endfor -%}

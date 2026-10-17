@@ -483,3 +483,117 @@ a.option-card:hover {
   font-size: 1rem;
   margin-left: 1.2rem;
 }
+
+// Browsing by category: a sidebar with the categories next to the
+// integrations, and a header with subcategory chips on a category page.
+#components-page {
+  .integrations-browser {
+    @media only screen and (min-width: $desk-start) {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 32px;
+      align-items: start;
+    }
+  }
+
+  .category-sidebar {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    overflow-x: auto;
+
+    @media only screen and (min-width: $desk-start) {
+      position: sticky;
+      top: 80px;
+      flex-direction: column;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+    }
+  }
+
+  .category-link {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    color: inherit;
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 20px;
+
+    &:hover {
+      background-color: $grayLighter;
+    }
+
+    &.active {
+      background-color: $blueDark;
+      color: white;
+
+      .category-count {
+        color: inherit;
+      }
+    }
+
+    iconify-icon {
+      flex: none;
+      font-size: 20px;
+    }
+
+    .category-name {
+      flex: 1;
+    }
+  }
+
+  .category-count {
+    color: $gray;
+    font-size: 13px;
+  }
+
+  .category-header {
+    margin-bottom: 24px;
+  }
+
+  .category-description {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+
+    iconify-icon {
+      flex: none;
+      font-size: 32px;
+      color: $blueDark;
+    }
+  }
+
+  .subcategory-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .subcategory-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 14px;
+    border: 2px solid $blueDark;
+    border-radius: 24px;
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-size: 15px;
+    cursor: pointer;
+
+    &.active {
+      background-color: $blueDark;
+      color: white;
+
+      .category-count {
+        color: inherit;
+      }
+    }
+  }
+}
