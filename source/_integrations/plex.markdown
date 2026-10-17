@@ -55,6 +55,8 @@ Several options are provided to adjust the behavior of `media_player` entities. 
 
 **Ignore Plex Web clients**: Do not create `media_player` entities for Plex Web clients.
 
+**Fuzzy search**: Find media even when the title is misspelled or misheard, for example when you search with a voice assistant. This is turned off by default. It applies to searches from the media browser and the [**Search media**](#searching-for-media) action of the Plex media players. The [**Search**](/actions/plex.search/) action can turn it on or off for a single call.
+
 ### Manual configuration
 
 Alternatively, you can manually configure a Plex server connection by selecting the "Configure Plex server manually" when configuring a Plex integration. This will allow you to specify the server connection options which will be validated before setup is completed. The available options are described below:
@@ -212,7 +214,7 @@ The `media_content_id` value can be a JSON payload that identifies the Plex medi
 
 - `library_name`: The Plex library to search. Required for most searches.
 - `shuffle`: Shuffles the playback order of the media. Use `true` to enable it.
-- `resume`: Resumes playback at the last partially watched position if available. Otherwise, playback starts from the beginning.
+- `resume`: Resumes playback at the last partially watched position if available. Otherwise, playback starts from the beginning. When the media is a TV show, playback continues with the next episode that is on deck.
 - `offset`: The playback start position in seconds.
 - `allow_multiple`: Allows multiple matches in a search and enqueues all found items for playback. Use `true` to enable it.
 - `username`: The local Plex user account to use. This is only needed when the Plex server has multiple users and you want to play media for a specific user.
@@ -317,6 +319,19 @@ action: |
 {% endexample %}
 
 {% enddetails %}
+
+### Searching for media
+
+The Plex media players support the **Search media** action (`media_player.search_media`). Voice assistants use it to find media by name, for example when you say "play Carrie on the living room TV".
+
+- Without a media class filter, the search returns movies and TV shows. To find other media, such as episodes, albums, artists, or tracks, set the media class filter.
+- Results are ordered by how well the title matches your search. The best match comes first, which is the result a voice assistant plays.
+- Playing a result continues where you stopped. A movie or episode resumes at its last position, and a TV show continues with the next episode that is on deck.
+- Turn on **Fuzzy search** in the [integration options](#integration-options) to also find titles when the search text is misspelled or misheard.
+
+Only Plex clients can search, and Plex clients only show up while the app is running. Casting devices, such as a Chromecast or a Google Nest Hub, do not support the **Search media** action. You can still play Plex media on them with the **Play specified media** action. To look up media first, use the [**Search**](/actions/plex.search/) action.
+
+To get information about media on your server, or the list of media you can continue watching, use the [**Search**](/actions/plex.search/) and [**On deck**](/actions/plex.on_deck/) actions.
 
 ### Compatibility
 
