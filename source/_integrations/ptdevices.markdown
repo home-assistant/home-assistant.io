@@ -5,6 +5,8 @@ ha_release: 2026.6
 ha_category:
   - Binary sensor
   - Sensor
+ha_categories:
+  - water
 ha_platforms:
   - binary_sensor
   - sensor

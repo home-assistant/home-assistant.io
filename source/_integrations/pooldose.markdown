@@ -8,6 +8,8 @@ ha_category:
   - Sensor
   - Switch
   - Water Management
+ha_categories:
+  - water.pools_spas
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: '2025.9'

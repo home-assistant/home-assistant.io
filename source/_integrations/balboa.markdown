@@ -7,6 +7,8 @@ ha_category:
   - Fan
   - Light
   - Select
+ha_categories:
+  - water.pools_spas
 ha_release: 2021.12
 ha_iot_class: Local Push
 ha_domain: balboa

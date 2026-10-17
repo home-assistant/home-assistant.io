@@ -3,6 +3,8 @@ title: AquaCell
 description: Instructions on how to integrate AquaCell with Home Assistant.
 ha_category:
   - Sensor
+ha_categories:
+  - water.water_treatment
 ha_release: 2024.7
 ha_iot_class: Cloud Polling
 ha_config_flow: true
