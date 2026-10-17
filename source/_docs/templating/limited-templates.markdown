@@ -16,11 +16,11 @@ A limited template is a template that can only use part of what templates normal
 
 ## When to use limited templates
 
-You don't choose to write a limited template. You write a limited template when you put a template in a field that sets up an automation, such as the MQTT topic an automation listens to, the time an automation triggers at, or whether a trigger is turned on.
+You don't choose to write a limited template. You write a limited template when you put a template in a field that sets up an automation, such as the time an automation triggers at, or whether a trigger is turned on.
 
 The automation editor doesn't mark which fields only accept limited templates. The documentation of each trigger says which options are limited, and [Fields that use limited templates](#fields-that-use-limited-templates) lists all of them. If a limited template uses a function that isn't available, Home Assistant logs an error. For what else happens, depending on the field, refer to [How you notice a limited template error](#how-you-notice-a-limited-template-error).
 
-Most limited templates are in blueprints. A blueprint can use a limited template to build a setup value from your inputs, such as an MQTT topic that contains a device name you picked.
+Most limited templates are in blueprints. A blueprint can use a limited template to build a setup value from your inputs, such as the type of event an automation listens for.
 
 To make an automation depend on the current state of your home, don't use a limited template. Use a [condition](/docs/automation/condition/) instead.
 
@@ -60,7 +60,6 @@ Only a few fields use limited templates. Other fields that accept templates supp
 - In automations and scripts, the `enabled` option of conditions and of other steps
 - The following trigger options:
   - [Event trigger](/triggers/event/): `event_type`, `event_data`, and `context`
-  - [MQTT trigger](/triggers/mqtt/): `topic`
   - [Time trigger](/triggers/time/): `at`
   - [Webhook trigger](/docs/automation/trigger/#webhook-trigger): `webhook_id`
 
