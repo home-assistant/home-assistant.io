@@ -6,6 +6,9 @@ ha_category:
   - Presence detection
   - Sensor
   - Switch
+ha_categories:
+  - computers_network.monitoring
+  - presence_location.network_presence
 ha_iot_class: Local Polling
 ha_release: 0.57
 ha_domain: snmp

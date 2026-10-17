@@ -3,6 +3,8 @@ title: Datadog
 description: Send data and events to Datadog.
 ha_category:
   - History
+ha_categories:
+  - computers_network.monitoring
 ha_iot_class: Local Push
 ha_release: 0.45
 ha_domain: datadog

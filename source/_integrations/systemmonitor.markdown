@@ -3,6 +3,8 @@ title: System monitor
 description: Instructions on how to monitor the Home Assistant host.
 ha_category:
   - System monitor
+ha_categories:
+  - computers_network.monitoring
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_domain: systemmonitor

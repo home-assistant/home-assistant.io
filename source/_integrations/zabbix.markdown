@@ -4,6 +4,8 @@ description: Instructions on how to integrate Zabbix into Home Assistant.
 ha_category:
   - Sensor
   - System monitor
+ha_categories:
+  - computers_network.monitoring
 ha_release: 0.37
 ha_iot_class: Local Polling
 ha_domain: zabbix

@@ -4,6 +4,8 @@ description: How to use Iperf3 within Home Assistant to measure your network ban
 ha_category:
   - Sensor
   - System monitor
+ha_categories:
+  - computers_network.monitoring
 ha_release: 0.71
 ha_iot_class: Local Polling
 ha_codeowners:
