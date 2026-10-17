@@ -3,6 +3,9 @@ title: Autoskope
 description: Instructions on how to integrate Autoskope devices into Home Assistant.
 ha_category:
   - Device tracker
+ha_categories:
+  - presence_location.trackers
+  - vehicles_transport.cars_evs
 ha_release: 2026.4
 ha_iot_class: Cloud Polling
 ha_domain: autoskope

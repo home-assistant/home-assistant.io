@@ -5,6 +5,9 @@ ha_category:
   - Binary sensor
   - Network
   - Presence detection
+ha_categories:
+  - presence_location.network_presence
+  - computers_network.monitoring
 ha_release: 0.43
 ha_iot_class: Local Polling
 ha_quality_scale: internal

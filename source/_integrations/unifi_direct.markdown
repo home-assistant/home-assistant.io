@@ -3,6 +3,8 @@ title: UniFi AP
 description: Instructions on how to use a UniFi AP as a device tracker.
 ha_category:
   - Presence detection
+ha_categories:
+  - presence_location.network_presence
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: 0.59

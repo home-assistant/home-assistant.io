@@ -5,6 +5,8 @@ ha_release: 0.83
 ha_category:
   - Car
   - Presence detection
+ha_categories:
+  - presence_location.phones_companion_apps
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:

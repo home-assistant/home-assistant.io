@@ -5,6 +5,8 @@ ha_release: 2024.2
 ha_category:
   - Car
   - Presence detection
+ha_categories:
+  - presence_location.trackers
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: traccar_server

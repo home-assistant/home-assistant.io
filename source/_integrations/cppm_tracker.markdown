@@ -3,6 +3,8 @@ title: Aruba ClearPass
 description: Instructions on how to integrate Aruba ClearPass into Home Assistant.
 ha_category:
   - Presence Detection
+ha_categories:
+  - presence_location.network_presence
 ha_release: '0.90'
 ha_iot_class: Local Polling
 ha_domain: cppm_tracker

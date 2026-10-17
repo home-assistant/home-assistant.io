@@ -3,6 +3,8 @@ title: OwnTracks
 description: Instructions on how to use OwnTracks to track devices in Home Assistant.
 ha_category:
   - Presence detection
+ha_categories:
+  - presence_location.phones_companion_apps
 ha_iot_class: Local Push
 ha_release: 0.7.4
 ha_config_flow: true

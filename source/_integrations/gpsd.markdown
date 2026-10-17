@@ -3,6 +3,9 @@ title: GPSD
 description: Instructions on how to integrate GPSD into Home Assistant.
 ha_category:
   - Utility
+ha_categories:
+  - presence_location.trackers
+  - diy_makers.boards_hardware
 ha_release: 0.26
 ha_config_flow: true
 ha_iot_class: Local Polling
