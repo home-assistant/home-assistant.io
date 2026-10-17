@@ -56,7 +56,7 @@ value:
   type: [string, datetime]
 default:
   description: >
-    Value to return if the conversion fails. If not provided, an error is raised on invalid input.
+    The value to return if the conversion fails, such as `0`. If you leave out `default` and the conversion fails, `as_timestamp` raises an error and the template fails.
   required: false
   type: any
 {% endfunction_parameters %}

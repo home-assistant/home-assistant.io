@@ -6,7 +6,7 @@ Function parameters that have a `=` with a value after them are optional. If you
 
 Function parameters without a `=` are usually required. A few optional parameters have no default value, so the signature shows them without a `=` as well. To check whether a parameter is required, look at the parameter list below the signature. Each parameter is marked as **Required** or **Optional**.
 
-The most common optional parameter without a default value is `default`. The `default` parameter sets the value a function returns when the function can't produce a result, for example, when `float` gets text that isn't a number. If you leave out `default`, there is no fallback value, so the function raises an error and the template fails. If you set `default`, the function returns your value instead of raising an error.
+The most common optional parameter without a default value is `default`. The `default` parameter sets the value a function returns when the function can't produce a result, for example, when `float` gets text that isn't a number. If you leave out `default`, there is no fallback value, so most functions raise an error and the template fails. The parameter list of each function says what happens. If you set `default`, the function returns your value instead.
 
 {% details "How to read a signature" %}
 
@@ -22,7 +22,7 @@ round(
 ```
 
 - `round` is the name of the function.
-- Between the parentheses are the parameters. Each one has a name, followed by a colon and the type of value it expects.
+- Between the parentheses are the parameters. Each parameter has a name, followed by a colon and the type of value the parameter expects. The type only tells you what kind of value to pass. For `default: Any`, you pass a value of any type, such as `0` or `"unknown"`, not the word `Any`.
 - `= 0` and `= "common"` are default values. You can leave out `precision` and `method`, and `round` uses these default values.
 - `default` has no `=`, but the parameter list marks `default` as optional. If you leave out `default` and `round` gets a value that isn't a number, `round` raises an error.
 - `->` shows the type of value the function returns.

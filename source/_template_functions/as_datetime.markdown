@@ -55,7 +55,7 @@ value:
   type: [string, float]
 default:
   description: >
-    Value to return if the conversion fails. If not provided, invalid text returns `None`, and other invalid input raises an error.
+    The value to return if the conversion fails, such as `"unknown"`. If you leave out `default` and the input is invalid text, `as_datetime` returns `None`. For other invalid input, `as_datetime` raises an error and the template fails.
   required: false
   type: any
 {% endfunction_parameters %}
