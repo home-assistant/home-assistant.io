@@ -62,7 +62,6 @@ Only a few fields use limited templates. Other fields that accept templates supp
   - [Event trigger](/triggers/event/): `event_type`, `event_data`, and `context`
   - [MQTT trigger](/triggers/mqtt/): `topic`
   - [Time trigger](/triggers/time/): `at`
-  - [Webhook trigger](/docs/automation/trigger/#webhook-trigger): `webhook_id`
 
 ## Variables in limited templates
 
