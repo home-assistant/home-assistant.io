@@ -4,6 +4,8 @@ description: Instructions on how to integrate Gatus with Home Assistant.
 ha_category:
   - Binary sensor
   - Sensor
+ha_categories:
+  - computers_network.monitoring
 ha_release: 2026.8
 ha_iot_class: Local Polling
 ha_config_flow: true

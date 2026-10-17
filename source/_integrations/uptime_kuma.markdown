@@ -5,6 +5,8 @@ ha_category:
   - Sensor
   - System monitor
   - Update
+ha_categories:
+  - computers_network.monitoring
 ha_iot_class: Cloud Polling
 ha_release: 2025.8
 ha_config_flow: true

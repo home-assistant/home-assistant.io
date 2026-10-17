@@ -4,6 +4,8 @@ description: Instructions on how to integrate a LibreNMS instance into Home Assi
 ha_category:
   - Binary Sensor
   - Sensor
+ha_categories:
+  - computers_network.monitoring
 ha_release: 2026.9
 ha_config_flow: true
 ha_iot_class: Local Polling
