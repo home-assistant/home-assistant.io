@@ -5,6 +5,8 @@ ha_iot_class: Cloud Push
 ha_release: 0.65
 ha_category:
   - Notifications
+ha_categories:
+  - messaging_notifications.chat_apps
 ha_domain: synology_chat
 ha_platforms:
   - notify

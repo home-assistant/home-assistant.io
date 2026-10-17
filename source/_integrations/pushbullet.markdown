@@ -4,6 +4,8 @@ description: Instructions on how to read user pushes in Home Assistant
 ha_category:
   - Notifications
   - Sensor
+ha_categories:
+  - messaging_notifications.push_notifications
 ha_release: 0.44
 ha_iot_class: Cloud Polling
 ha_domain: pushbullet

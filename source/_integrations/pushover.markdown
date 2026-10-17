@@ -3,6 +3,8 @@ title: Pushover
 description: Instructions on how to add Pushover notifications to Home Assistant.
 ha_category:
   - Notifications
+ha_categories:
+  - messaging_notifications.push_notifications
 ha_release: pre 0.7
 ha_config_flow: true
 ha_iot_class: Cloud Push
