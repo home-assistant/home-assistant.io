@@ -4,6 +4,8 @@ description: Instructions on how to integrate the Input text integration into Ho
 ha_category:
   - Automation
   - Helper
+ha_categories:
+  - helpers.store_value
 ha_release: 0.53
 ha_quality_scale: internal
 ha_codeowners:

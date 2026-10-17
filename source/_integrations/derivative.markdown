@@ -6,6 +6,8 @@ ha_category:
   - Helper
   - Sensor
   - Utility
+ha_categories:
+  - helpers.calculate_value
 ha_release: 0.105
 ha_iot_class: Calculated
 ha_qa_scale: internal

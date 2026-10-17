@@ -16,6 +16,8 @@ ha_category:
   - Sensor
   - Switch
   - Valve
+ha_categories:
+  - helpers.calculate_value
 ha_release: pre 0.7
 ha_iot_class: Calculated
 ha_quality_scale: internal
