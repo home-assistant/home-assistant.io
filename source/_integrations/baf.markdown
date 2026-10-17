@@ -9,6 +9,8 @@ ha_category:
   - Number
   - Sensor
   - Switch
+ha_categories:
+  - climate.fans_ventilation
 ha_zeroconf: true
 ha_release: 2022.6
 ha_iot_class: Local Push

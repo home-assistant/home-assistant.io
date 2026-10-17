@@ -8,6 +8,8 @@ ha_category:
   - Number
   - Switch
   - Time
+ha_categories:
+  - climate.fans_ventilation
 ha_release: 2023.7
 ha_iot_class: Local Polling
 ha_config_flow: true
