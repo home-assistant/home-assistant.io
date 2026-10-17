@@ -81,6 +81,7 @@ The entities you see depend on your model. The battery and charging entities app
 
 ### Binary sensor
 
+- **Cartridge**: Shows whether a fragrance cartridge is inserted in the diffuser.
 - **Charging**: Shows whether the diffuser's battery is charging. Available on the battery-powered model only.
 
 ### Sensors
