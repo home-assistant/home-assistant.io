@@ -5,6 +5,8 @@ ha_category:
   - Car
   - Energy
   - Update
+ha_categories:
+  - energy.ev_charging
 ha_release: 2025.1
 ha_iot_class: Local Polling
 ha_config_flow: true

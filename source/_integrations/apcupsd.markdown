@@ -5,6 +5,8 @@ ha_category:
   - Binary sensor
   - Sensor
   - System monitor
+ha_categories:
+  - energy.backup_power
 ha_release: 0.13
 ha_iot_class: Local Polling
 ha_domain: apcupsd

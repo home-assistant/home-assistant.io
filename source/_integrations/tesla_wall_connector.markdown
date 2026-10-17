@@ -5,6 +5,8 @@ ha_category:
   - Binary sensor
   - Energy
   - Sensor
+ha_categories:
+  - energy.ev_charging
 ha_release: 2021.12
 ha_iot_class: Local Polling
 ha_config_flow: true

@@ -4,6 +4,8 @@ description: Instructions on how to use Axle Energy grid event schedules in Home
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy
 ha_release: '2026.10'
 ha_iot_class: Cloud Polling
 ha_config_flow: true

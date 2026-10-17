@@ -3,6 +3,8 @@ title: TechnoVE
 description: Instructions on how to integrate TechnoVE smart EV charging stations with Home Assistant.
 ha_category:
   - Car
+ha_categories:
+  - energy.ev_charging
 ha_release: 2024.2
 ha_iot_class: Local Polling
 ha_domain: technove

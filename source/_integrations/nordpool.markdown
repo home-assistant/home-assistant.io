@@ -5,6 +5,8 @@ ha_category:
   - Energy
   - Finance
   - Sensor
+ha_categories:
+  - energy.energy_prices
 ha_release: 2024.12
 ha_iot_class: Cloud Polling
 ha_config_flow: true

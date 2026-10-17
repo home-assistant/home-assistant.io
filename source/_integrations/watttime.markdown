@@ -5,6 +5,8 @@ ha_category:
   - Energy
   - Environment
   - Sensor
+ha_categories:
+  - energy
 ha_release: '2021.10'
 ha_iot_class: Cloud Polling
 ha_domain: watttime

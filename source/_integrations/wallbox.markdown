@@ -3,6 +3,8 @@ title: Wallbox
 description: Instructions on how to integrate sensors Wallbox EV chargers to Home Assistant
 ha_category:
   - Car
+ha_categories:
+  - energy.ev_charging
 ha_release: 2021.6
 ha_iot_class: Cloud Polling
 ha_domain: wallbox
