@@ -9,6 +9,8 @@ ha_category:
   - Sensor
   - Switch
   - Time
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_iot_class: Cloud Push
 ha_release: 2026.6
 ha_quality_scale: platinum

@@ -3,6 +3,8 @@ title: Bose SoundTouch
 description: Instructions on how to integrate Bose SoundTouch devices into Home Assistant.
 ha_category:
   - Media player
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_release: 0.34
 ha_iot_class: Local Polling
 ha_domain: soundtouch
