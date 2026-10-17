@@ -3,6 +3,8 @@ title: Chef iQ
 description: Instructions on how to integrate Chef iQ wireless probes with Home Assistant.
 ha_category:
   - Sensor
+ha_categories:
+  - appliances_cleaning.cooking
 ha_release: 2026.7
 ha_iot_class: Local Push
 ha_config_flow: true

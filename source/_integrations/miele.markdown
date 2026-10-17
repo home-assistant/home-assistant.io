@@ -12,6 +12,8 @@ ha_category:
   - Sensor
   - Switch
   - Vacuum
+ha_categories:
+  - appliances_cleaning
 ha_iot_class: Cloud Push
 ha_release: '2025.5'
 ha_domain: miele

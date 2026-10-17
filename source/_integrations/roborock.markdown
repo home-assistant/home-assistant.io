@@ -11,6 +11,9 @@ ha_category:
   - Switch
   - Time
   - Vacuum
+ha_categories:
+  - appliances_cleaning.cleaning
+  - appliances_cleaning.laundry
 ha_iot_class: Local Polling
 ha_release: 2023.5
 ha_config_flow: true
