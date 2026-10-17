@@ -100,6 +100,6 @@ If a limited template uses a function that isn't available, Home Assistant logs 
 - In `trigger_variables`, none of the triggers react. The automation still shows as turned on.
 - In the `enabled` option of a condition in **And if**, the automation doesn't load.
 - In the `enabled` option of a step, the run stops at the step.
-- In a trigger of a **Wait for a trigger** step, the wait ends right away, and the run continues with the next step.
+- In a **Wait for a trigger** step, a trigger whose limited template fails isn't set up. The step still waits for any remaining triggers or the timeout. If no triggers can be set up, the wait ends right away, and the run continues with the next step.
 
 For how to fix the error, refer to [Use of 'states' is not supported in limited templates](/docs/templating/errors/#templateerror-use-of-states-is-not-supported-in-limited-templates).
