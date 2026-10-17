@@ -122,6 +122,7 @@ query:
 fuzzy:
   description: Find titles even when the search text is misspelled or misheard. When you leave this out, the **Fuzzy search** option of the integration decides.
   required: false
+  default: The integration option
   type: boolean
 media_type:
   description: Only return one type of media, one of `movie`, `show`, `season`, `episode`, `artist`, `album`, `track`, or `playlist`.
@@ -182,7 +183,7 @@ year:
 filters:
   description: More Plex library filters as key and value pairs.
   required: false
-  type: dictionary
+  type: map
 include_on_deck:
   description: For TV shows, also return the next episode that is on deck in an `on_deck` field. This takes one extra request for each show.
   required: false
