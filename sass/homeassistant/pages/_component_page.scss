@@ -709,6 +709,12 @@ a.option-card:hover {
     font-size: 13px;
   }
 
+  // Nothing in this category matches your search or filters. The one you
+  // are in stays clear, so you still see where you are.
+  .no-results:not(.active) {
+    opacity: 0.5;
+  }
+
   .category-description {
     display: flex;
     align-items: flex-start;
@@ -943,6 +949,40 @@ a.option-card:hover {
       margin: 0 auto 24px;
       color: $gray;
       font-size: 17px;
+    }
+  }
+
+  // Where your search does find something.
+  .empty-state-elsewhere {
+    margin-bottom: 24px;
+
+    p {
+      margin: 0 0 12px;
+      font-weight: 500;
+    }
+  }
+
+  .empty-state-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .empty-state-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border: 1px solid #c3cbd5;
+    border-radius: 999px;
+    color: inherit;
+    font-size: 14px;
+    text-decoration: none;
+
+    &:hover {
+      border-color: $blueDark;
+      color: $blueDark;
     }
   }
 

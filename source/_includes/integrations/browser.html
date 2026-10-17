@@ -154,6 +154,7 @@ join: ',' | split: ',' -%}
     <a href="/integrations/" class="category-link{% unless current_category %} active{% endunless %}" data-category=""{% unless current_category %} aria-current="page"{% endunless %}>
       <iconify-icon icon="mdi:view-grid-outline"></iconify-icon>
       <span class="category-name">All integrations</span>
+      <span class="category-count" data-category-count=""></span>
     </a>
     {%- for category in site.data.integration_categories %}
     {%- assign is_current = false %}
@@ -464,7 +465,6 @@ join: ',' | split: ',' -%}
       integrations.forEach(prepareSearch);
       integrations.sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()));
       renderCards();
-      showCategoryCounts();
       render();
     }
 
@@ -498,14 +498,12 @@ join: ',' | split: ',' -%}
       // The list, once the integrations are in.
       if (!noResultsEl) return;
       const scores = state.search ? searchScores(state.search) : null;
-      const shown = integrations.filter(integration => {
-        if (!inPlace(integration, state)) return false;
-        if (showsFeatured(state) && !integration.featured) return false;
-        if (state.partners && !integration.wwha) return false;
-        if (FILTERS.some(key => state[key] && integration[key] != state[key])) return false;
-        if (scores && !scores.has(integration)) return false;
-        return true;
-      });
+      const featured = showsFeatured(state);
+      const shown = integrations.filter(
+        integration => inPlace(integration, state) && passesFilters(integration, state, scores, featured)
+      );
+      const counts = countPerCategory(state, scores);
+      showCategoryCounts(state, counts);
 
       // While searching, the best matches come first. The cards move in the
       // page itself, so the keyboard and screen readers follow the same order.
@@ -529,7 +527,7 @@ join: ',' | split: ',' -%}
       });
 
       noResultsEl.style.display = shown.length ? 'none' : '';
-      if (!shown.length) updateEmptyState(state);
+      if (!shown.length) updateEmptyState(state, counts);
 
       const total = integrations.filter(integration => inPlace(integration, state)).length;
       resultsCountEl.textContent =
@@ -627,24 +625,55 @@ join: ',' | split: ',' -%}
       return !state.category || inCategory(integration, state.category);
     }
 
-    // The number of integrations per category and subcategory in the sidebar.
-    function showCategoryCounts() {
-      document.querySelectorAll('[data-category-count]').forEach(el => {
-        el.textContent = integrations.filter(i => inCategory(i, el.dataset.categoryCount)).length;
+    // Everything except the category: the search and the filters.
+    function passesFilters(integration, state, scores, featured) {
+      if (featured && !integration.featured) return false;
+      if (state.partners && !integration.wwha) return false;
+      if (FILTERS.some(key => state[key] && integration[key] != state[key])) return false;
+      if (scores && !scores.has(integration)) return false;
+      return true;
+    }
+
+    // How many integrations each category shows with the search and filters
+    // that go along when you switch: the numbers in the sidebar, and where
+    // the empty state points to. The key '' is all integrations.
+    function countPerCategory(state, scores) {
+      const counts = new Map();
+      const add = key => counts.set(key, (counts.get(key) || 0) + 1);
+      integrations.forEach(integration => {
+        if (!passesFilters(integration, state, scores, state.featured === 'true')) return;
+        add('');
+        new Set(integration.categories.map(category => category.split('.')[0])).forEach(add);
+        integration.categories.filter(category => category.includes('.')).forEach(add);
       });
-      document.querySelectorAll('[data-subcategory-count]').forEach(el => {
-        el.textContent = integrations.filter(i => i.categories.includes(el.dataset.subcategoryCount)).length;
+      return counts;
+    }
+
+    // While you search or filter, a category without matches fades.
+    function showCategoryCounts(state, counts) {
+      const filtering = QUERY_KEYS.some(key => state[key] && state[key] !== 'false');
+      document.querySelectorAll('[data-category-count], [data-subcategory-count]').forEach(el => {
+        const count = counts.get(el.dataset.categoryCount ?? el.dataset.subcategoryCount) || 0;
+        el.textContent = count.toLocaleString('en-US');
+        el.closest('a').classList.toggle('no-results', filtering && count === 0);
       });
     }
 
-    // The links in the sidebar and the breadcrumbs are real links, so they
-    // also work in a new tab. The filters you picked go along.
-    function updateBrowseLinks(state) {
+    // The search and the filters that go along to another category. Featured
+    // only when you turned it on yourself.
+    function carriedState(state) {
       const carried = {};
       QUERY_KEYS.forEach(key => {
         if (state[key]) carried[key] = state[key];
       });
       if (carried.featured === 'false') delete carried.featured;
+      return carried;
+    }
+
+    // The links in the sidebar and the breadcrumbs are real links, so they
+    // also work in a new tab. The filters you picked go along.
+    function updateBrowseLinks(state) {
+      const carried = carriedState(state);
 
       [...categoryLinks, ...document.querySelectorAll('article.page .breadcrumbs a[data-category]')].forEach(link => {
         link.href = urlFor({ ...carried, category: link.dataset.category });
@@ -855,7 +884,7 @@ join: ',' | split: ',' -%}
     }
 
     // Say why nothing shows, and offer only the ways out that apply.
-    function updateEmptyState(state) {
+    function updateEmptyState(state, counts) {
       const filters = [...QUICK_FILTERS, ...FILTERS].filter(key => state[key] && state[key] !== 'false');
       const placeName = CATEGORY_NAMES[state.subcategory ? `${state.category}.${state.subcategory}` : state.category];
       const where = placeName ? ` in ${placeName}` : '';
@@ -871,11 +900,34 @@ join: ',' | split: ',' -%}
       const show = (action, visible) => {
         noResultsEl.querySelector(`[data-empty-action="${action}"]`).style.display = visible ? '' : 'none';
       };
+      // Matches in other categories: point there, best first.
+      const carried = carriedState(state);
+      const elsewhere = state.category
+        ? CATEGORIES.filter(category => counts.get(category.slug))
+          .sort((a, b) => counts.get(b.slug) - counts.get(a.slug))
+          .slice(0, 6)
+        : [];
+      noResultsEl.querySelector('.empty-state-elsewhere').hidden = !elsewhere.length;
+      noResultsEl.querySelector('.empty-state-categories').replaceChildren(...elsewhere.map(category => {
+        const link = document.createElement('a');
+        link.className = 'empty-state-category';
+        link.href = urlFor({ ...carried, category: category.slug });
+        link.textContent = `${category.name} `;
+        const count = document.createElement('span');
+        count.className = 'category-count';
+        count.textContent = counts.get(category.slug).toLocaleString('en-US');
+        link.append(count);
+        followInPage(link);
+        return link;
+      }));
+
+      const everywhere = state.category ? counts.get('') || 0 : 0;
       show('search', Boolean(state.search));
-      show('everywhere', Boolean(state.search && state.category));
+      show('everywhere', everywhere > 0);
       show('filters', filters.length > 0);
-      noResultsEl.querySelector('[data-empty-action="everywhere"]').href =
-        urlFor({ search: state.search });
+      const everywhereEl = noResultsEl.querySelector('[data-empty-action="everywhere"]');
+      everywhereEl.href = urlFor(carried);
+      everywhereEl.textContent = `Show all ${everywhere.toLocaleString('en-US')} in every category`;
     }
 
     // The cards are built once; filters only show, hide, and order them, so
@@ -892,6 +944,10 @@ join: ',' | split: ',' -%}
           <iconify-icon icon="mdi:magnify-close"></iconify-icon>
           <h2>No integrations found</h2>
           <p class="empty-state-text"></p>
+          <div class="empty-state-elsewhere" hidden>
+            <p>Found in other categories:</p>
+            <div class="empty-state-categories"></div>
+          </div>
           <div class="empty-state-actions">
             <button type="button" class="empty-state-action" data-empty-action="search">Clear search</button>
             <a class="empty-state-action" data-empty-action="everywhere" href="/integrations/">Search all categories</a>
