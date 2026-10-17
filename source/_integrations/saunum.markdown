@@ -17,6 +17,9 @@ related:
 ha_category:
   - Climate
   - Modbus-controlled
+ha_categories:
+  - water.pools_spas
+  - climate.thermostats_heating
 ha_platforms:
   - binary_sensor
   - climate

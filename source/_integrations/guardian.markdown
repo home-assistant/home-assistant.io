@@ -9,6 +9,8 @@ ha_category:
   - Sensor
   - Switch
   - Valve
+ha_categories:
+  - water.meters_leak_detection
 ha_config_flow: true
 ha_codeowners:
   - '@bachya'

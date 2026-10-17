@@ -8,6 +8,8 @@ ha_category:
   - Hub
   - Sensor
   - Switch
+ha_categories:
+  - water.pools_spas
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_dhcp: true

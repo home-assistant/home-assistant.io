@@ -8,6 +8,8 @@ ha_category:
   - Number
   - Select
   - Sensor
+ha_categories:
+  - water.pools_spas
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:

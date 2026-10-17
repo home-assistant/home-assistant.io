@@ -10,6 +10,8 @@ ha_category:
   - Sensor
   - Switch
   - Time
+ha_categories:
+  - water.pools_spas
 ha_release: 2026.6
 ha_iot_class: Cloud Push
 ha_config_flow: true
