@@ -7,7 +7,7 @@ ha_category:
   - Weather
 ha_categories:
   - sensors
-  - weather_alerts.forecasts
+  - weather_alerts
 ha_release: 2022.9
 ha_iot_class: Local Push
 ha_domain: ecowitt
