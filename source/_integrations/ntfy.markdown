@@ -5,6 +5,8 @@ ha_category:
   - Event
   - Notifications
   - Update
+ha_categories:
+  - messaging_notifications.push_notifications
 ha_iot_class: Cloud Push
 ha_release: 2025.5
 ha_config_flow: true

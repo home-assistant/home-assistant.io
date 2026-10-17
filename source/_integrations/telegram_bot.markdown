@@ -3,6 +3,8 @@ title: Telegram bot
 description: Telegram bot support
 ha_category:
   - Notifications
+ha_categories:
+  - messaging_notifications.chat_apps
 ha_release: 0.42
 ha_iot_class: Cloud Push
 ha_config_flow: true

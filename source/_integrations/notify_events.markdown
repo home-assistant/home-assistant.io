@@ -4,6 +4,8 @@ description: Instructions on how to integrate Notify.Events service with your Ho
 ha_release: 0.112
 ha_category:
   - Notifications
+ha_categories:
+  - messaging_notifications.push_notifications
 ha_domain: notify_events
 ha_codeowners:
   - '@matrozov'

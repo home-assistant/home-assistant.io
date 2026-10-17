@@ -4,6 +4,8 @@ description: Instructions on how to use the HTML5 push notifications platform fr
 ha_category:
   - Event
   - Notifications
+ha_categories:
+  - messaging_notifications.push_notifications
 ha_release: 0.27
 ha_config_flow: true
 ha_iot_class: Cloud Push

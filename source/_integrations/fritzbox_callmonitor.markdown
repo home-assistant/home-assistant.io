@@ -3,6 +3,8 @@ title: FRITZ!Box Call Monitor
 description: Instructions on how to integrate a phone call monitor for FRITZ!Box routers into Home Assistant.
 ha_category:
   - System monitor
+ha_categories:
+  - messaging_notifications.email_sms_calls
 ha_release: 0.27
 ha_iot_class: Local Polling
 ha_domain: fritzbox_callmonitor
