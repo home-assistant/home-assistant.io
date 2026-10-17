@@ -1,5 +1,7 @@
 "use strict";
 
+const lintHaCategories = require("./remark/lint-ha-categories");
+
 const remarkrc = {
   settings: {
     bullet: "-",
@@ -25,6 +27,9 @@ const remarkrc = {
     ["remark-lint-unordered-list-marker-style", "-"],
     ["remark-lint-ordered-list-marker-style", "."],
     ["remark-lint-ordered-list-marker-value"],
+
+    // Integration categories in the front matter
+    [lintHaCategories],
 
     // Branding and consistency
     [
