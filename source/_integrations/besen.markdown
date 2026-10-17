@@ -81,6 +81,8 @@ The following sensors are enabled by default:
 - **Charging status**: High-level charging state reported by the charger.
 - **Charging message**: Additional guidance reported for the current charging state.
 
+The **Charging status** sensor reports **Scheduled** (`scheduled`) while a scheduled start is pending. If your automations, scripts, or templates use `canceled` for this state, change it to `scheduled`.
+
 The following sensors are disabled by default:
 
 - **Session current limit**: Current limit recorded for the charging session in amperes (A). This usually matches the **Charging current** setting.
