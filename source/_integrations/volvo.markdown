@@ -15,6 +15,8 @@ ha_category:
   - Device tracker
   - Lock
   - Sensor
+ha_categories:
+  - vehicles_transport.cars_evs
 ha_platforms:
   - binary_sensor
   - button

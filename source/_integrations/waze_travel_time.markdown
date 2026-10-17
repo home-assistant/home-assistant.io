@@ -3,6 +3,8 @@ title: Waze Travel Time
 description: Instructions on how to add Waze Travel Time to Home Assistant.
 ha_category:
   - Transport
+ha_categories:
+  - vehicles_transport
 ha_iot_class: Cloud Polling
 ha_release: 0.67
 ha_config_flow: true

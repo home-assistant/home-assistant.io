@@ -3,6 +3,8 @@ title: Transports Metropolitans de Barcelona
 description: Instructions on how to integrate TMB iBus sensor within Home Assistant.
 ha_category:
   - Transport
+ha_categories:
+  - vehicles_transport.public_transport
 ha_release: 0.104
 ha_iot_class: Local Polling
 ha_codeowners:

@@ -4,6 +4,8 @@ description: Instructions on how to integrate timetable data for Danish Rejsepla
 ha_release: 0.88
 ha_category:
   - Transport
+ha_categories:
+  - vehicles_transport.public_transport
 ha_iot_class: Cloud Polling
 ha_quality_scale: legacy
 ha_config_flow: true

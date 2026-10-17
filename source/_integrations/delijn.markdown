@@ -5,6 +5,8 @@ ha_release: 0.97
 ha_category:
   - Sensor
   - Transport
+ha_categories:
+  - vehicles_transport.public_transport
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@bollewolle'

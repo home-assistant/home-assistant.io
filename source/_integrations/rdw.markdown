@@ -5,6 +5,8 @@ ha_category:
   - Binary sensor
   - Car
   - Sensor
+ha_categories:
+  - vehicles_transport.cars_evs
 ha_release: 2021.12
 ha_iot_class: Cloud Polling
 ha_config_flow: true

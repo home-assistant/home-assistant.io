@@ -5,6 +5,9 @@ ha_release: 2026.6
 ha_category:
   - Sensor
   - Transport
+ha_categories:
+  - vehicles_transport.public_transport
+  - local_services
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@Crocmagnon'

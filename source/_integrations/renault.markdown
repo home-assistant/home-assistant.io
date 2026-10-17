@@ -9,6 +9,8 @@ ha_category:
   - Presence detection
   - Select
   - Sensor
+ha_categories:
+  - vehicles_transport.cars_evs
 ha_release: 2021.8
 ha_iot_class: Cloud Polling
 ha_config_flow: true
