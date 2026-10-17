@@ -2,6 +2,8 @@
 title: Apple iCloud
 description: Instructions on how to use iCloud to track devices in Home Assistant.
 ha_category:
+  - Binary sensor
+  - Button
   - Calendar
   - Media source
   - Presence detection
@@ -15,6 +17,8 @@ ha_codeowners:
   - '@nzapponi'
 ha_domain: icloud
 ha_platforms:
+  - binary_sensor
+  - button
   - calendar
   - device_tracker
   - sensor
@@ -26,6 +30,8 @@ The **Apple iCloud** {% term integration %} allows you to detect presence using 
 
 There is currently support for the following platforms within Home Assistant:
 
+- [Binary sensor](#binary-sensor)
+- [Button](#button)
 - [Calendar](#calendar)
 - [Device tracker](#device-tracker)
 - [Sensor](#sensor)
@@ -64,6 +70,29 @@ Include completed reminders:
 
 ## Platforms
 
+### Binary sensor
+
+The iCloud integration adds binary sensors for each device on your Apple Account. Which entities you get depends on what each device reports about itself, so a device that cannot be locked or erased does not get those entities.
+
+- **Online**: Whether the device can currently be reached.
+- **Lost mode**: Whether Lost Mode is turned on.
+- **Low power mode**: Whether Low Power Mode is turned on.
+- **Activation lock**: Whether Activation Lock is turned on.
+- **Location services**: Whether location services are turned on.
+- **Location current**: Whether Apple considers the last known location to be current.
+- **Location accurate**: Whether Apple considers the last known location to be accurate.
+- **Wipe in progress**: Whether an erase is currently running on the device.
+- **Remote lock**: Whether Apple has accepted a remote lock that has not been applied to the device yet.
+- **Locating**: Whether the device is being located right now. The integration asks Apple for a location on every update, so this entity is on most of the time and is disabled by default.
+
+The location entities are only added for devices that report a location. **Location current** and **Location accurate** show **Problem** when Apple flags the last known location as outdated or inaccurate.
+
+### Button
+
+The iCloud integration adds a button for each device that can play a sound.
+
+- **Play sound**: Plays the Lost device sound on the device, which is useful for finding a misplaced device. The device rings even when it is set to **Mute** or **Do not disturb**.
+
 ### Calendar
 
 The iCloud integration adds a calendar entity for each of your iCloud calendars, showing the event in progress or the next one due. Calendars are read-only, so events cannot be created or edited from Home Assistant.
@@ -74,7 +103,22 @@ The iCloud integration will track available devices on your iCloud account.
 
 ### Sensor
 
-The iCloud integration will add a battery sensor for each iCloud devices available on your iCloud account.
+The iCloud integration adds a battery sensor for each device on your Apple Account, and the following sensors for devices that report the data:
+
+- **Battery**: The battery level of the device.
+- **Battery status**: Whether the battery is charging, full, or not charging.
+- **Status**: The status Apple reports for the device, such as online, offline, or pending.
+- **Owner**: The family member the device belongs to, or the owner of the Apple Account if you did not set up the integration with family sharing.
+- **Last located**: When the device was last located.
+- **Location type**: How the location was determined, such as GPS, Wi-Fi, or cellular.
+- **Location accuracy**: How accurate the location is, in meters.
+- **Altitude**: The altitude of the location, in meters.
+- **Floor**: The floor level of the location, where Apple reports one.
+- **Last locked**: When the device was last locked.
+- **Last lost**: When the device was last put into Lost Mode.
+- **Last wiped**: When the device was last erased.
+
+The location sensors are only added for devices that report a location, and the lock, Lost Mode, and erase sensors only for devices that support those features. The **Floor**, **Last locked**, **Last lost**, and **Last wiped** entities are disabled by default.
 
 ### To-do list
 
@@ -91,3 +135,12 @@ If you have [Advanced Data Protection](https://support.apple.com/en-us/102651) t
 ## Media source
 
 iCloud photo albums and shared streams are displayed in the media browser, "Media" > "iCloud". This will display a list of configured iCloud accounts, selecting the account will give a choice of "Albums" and "Shared Streams". Selection of these will give a list of available photo albums, and selecting these will display the current contents of the album.
+
+## Diagnostics
+
+The integration provides [diagnostics](/docs/configuration/troubleshooting/#download-diagnostics) to help with troubleshooting. There are two downloads:
+
+- The integration download contains the account information and the data Apple reports for every device.
+- Each device page has its own download, containing the data Apple reports for that device. For devices Apple no longer reports, the download falls back to the account information.
+
+Your username and password, device and personal identifiers, location coordinates, family member names, and the Lost Mode contact number and message are redacted. The device name is kept so you can tell the downloads apart.
