@@ -4,6 +4,8 @@ description: Instructions on how to integrate Epion Air CO2 sensors with Home As
 ha_category:
   - Environment
   - Sensor
+ha_categories:
+  - sensors.air_quality
 ha_release: '2024.2'
 ha_iot_class: Cloud Polling
 ha_codeowners:

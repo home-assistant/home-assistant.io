@@ -3,6 +3,9 @@ title: ThermoPro
 description: Instructions on how to integrate ThermoPro devices into Home Assistant.
 ha_category:
   - Sensor
+ha_categories:
+  - sensors.temperature_humidity
+  - appliances_cleaning.cooking
 ha_bluetooth: true
 ha_release: 2022.9
 ha_iot_class: Local Push
