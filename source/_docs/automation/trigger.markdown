@@ -443,25 +443,25 @@ blueprint:
   name: "Sunrise and sunset"
   domain: automation
   input:
-    input_boolean:
-      name: "Boolean"
+    enable_sunrise:
+      name: "React to sunrise"
       selector:
         boolean:
-    input_number:
-      name: "Number"
+    sunset_threshold:
+      name: "Sunset threshold"
       selector:
         number:
           min: 0
           max: 100
 
 trigger_variables:
-  _enable_number: !input input_number
+  _sunset_threshold: !input sunset_threshold
 
 triggers:
   - trigger: sun.sunrise
-    enabled: !input input_boolean
+    enabled: !input enable_sunrise
   - trigger: sun.sunset
-    enabled: "{{ _enable_number < 50 }}"
+    enabled: "{{ _sunset_threshold < 50 }}"
 ```
 
 ## Merging lists of triggers
