@@ -404,7 +404,11 @@ Not all functionality of the Peblar charger is available through this integratio
 
 - The Peblar APIs currently don't communicate when the charger is awaiting authentication (for example, using an RFID card) before it can start charging. As a result, you will see a suspended charging status in Home Assistant when the charger is actually awaiting authentication.
 - Home Assistant manages the charger's local REST API for you. If it is switched off, setting up this integration switches it on, and it stays on afterwards. You can keep using that API yourself alongside the integration.
-- Peblar is also sold as white-label products, such as [CoolBlue BlueBuilt](https://www.coolblue.nl/en/charging-stations/our-charging-stations), [Eneco Connectric®](https://www.eneco.nl/campagnes/laadpalen/) and [Shell Recharge](https://www.shell.nl/b2b-business/shell-fleet-solutions/electric-charging/at-home-ev-charging.html#thuisladers). This integration has been tested only with Peblar branded products, and it's unknown whether it works with these white-label versions.
+- Peblar is also sold as white-label products, such as [CoolBlue BlueBuilt](https://www.coolblue.nl/en/charging-stations/our-charging-stations), [Eneco Connectric®](https://www.eneco.nl/campagnes/laadpalen/) and [Shell Recharge](https://www.shell.nl/bedrijven/shell-fleet-solutions/elektrisch-laden/charging-at-home-and-office.html#laadoplossingen-voor-thuis). Some of these run firmware that is locked by the reseller: they reject generic Peblar firmware and may stay on an older version. On a CoolBlue BlueBuilt charger with firmware 1.6.1+1+COOLBLUE-1, the integration works, with these exceptions:
+  - The **Firmware** and **Customization** update entities are not created, because the charger does not report any available update.
+  - The **Session authorization** event entity stays unavailable, because this firmware does not provide the meter history it is read from.
+  - The **List autocharge vehicles**, **Add autocharge vehicle** and **Delete autocharge vehicle** actions do not work, because this firmware does not provide the autocharge vehicle list.
+  - The **Custom solar** smart charging mode is not offered, as it needs firmware 1.10 or later.
 
 ## Troubleshooting
 
