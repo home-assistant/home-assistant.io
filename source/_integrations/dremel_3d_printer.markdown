@@ -4,6 +4,8 @@ description: Instructions on how to integrate a Dremel 3D Printer into Home Assi
 ha_category:
   - 3D printing
   - Sensor
+ha_categories:
+  - computers_network.printers
 ha_iot_class: Local Polling
 ha_release: 2023.7
 ha_config_flow: true
