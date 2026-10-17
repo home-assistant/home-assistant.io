@@ -447,21 +447,21 @@ blueprint:
       name: "React to sunrise"
       selector:
         boolean:
-    input_number:
-      name: "Number"
+    sunset_threshold:
+      name: "Sunset threshold"
       selector:
         number:
           min: 0
           max: 100
 
 trigger_variables:
-  _enable_number: !input input_number
+  _sunset_threshold: !input sunset_threshold
 
 triggers:
   - trigger: sun.sunrise
     enabled: !input enable_sunrise
   - trigger: sun.sunset
-    enabled: "{{ _enable_number < 50 }}"
+    enabled: "{{ _sunset_threshold < 50 }}"
 ```
 
 ## Merging lists of triggers
