@@ -3,6 +3,8 @@ title: Rehlko
 description: Support for Rehlko devices (formerly Oncue and Kohler Energy)
 ha_category:
   - Sensor
+ha_categories:
+  - energy.backup_power
 ha_iot_class: Cloud Polling
 ha_release: 2025.5
 ha_config_flow: true

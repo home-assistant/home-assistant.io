@@ -8,6 +8,8 @@ ha_category:
   - Select
   - Sensor
   - Switch
+ha_categories:
+  - energy.ev_charging
 ha_release: 0.38
 ha_iot_class: Local Push
 ha_config_flow: true

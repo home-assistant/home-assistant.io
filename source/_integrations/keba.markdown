@@ -6,6 +6,8 @@ ha_category:
   - Lock
   - Notifications
   - Sensor
+ha_categories:
+  - energy.ev_charging
 ha_iot_class: Local Polling
 ha_release: 0.98
 ha_codeowners:

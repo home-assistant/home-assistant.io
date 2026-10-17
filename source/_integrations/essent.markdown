@@ -3,6 +3,8 @@ title: Essent
 description: Monitor dynamic energy prices from Essent Netherlands
 ha_category:
   - Energy
+ha_categories:
+  - energy.energy_prices
 ha_release: 2025.12
 ha_iot_class: Cloud Polling
 ha_config_flow: true

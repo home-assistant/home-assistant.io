@@ -5,6 +5,8 @@ ha_category:
   - Car
   - Sensor
   - Switch
+ha_categories:
+  - energy.ev_charging
 ha_release: 2024.1
 ha_iot_class: Cloud Push
 ha_config_flow: true

@@ -6,6 +6,8 @@ ha_category:
   - Number
   - Select
   - Sensor
+ha_categories:
+  - energy.ev_charging
 ha_platforms:
   - number
   - select
