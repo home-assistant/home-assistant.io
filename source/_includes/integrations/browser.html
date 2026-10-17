@@ -1,18 +1,5 @@
-{%- comment -%}Can't use where to count nil because of https://github.com/jekyll/jekyll/issues/6038{%- endcomment -%}
-{%- assign tot = 0 -%}
-{%- for comp in site.integrations -%}
-{%- if comp.ha_category -%}
-{%- if comp.ha_category.first -%}
-{%- assign tot = tot | plus: comp.ha_category.size -%}
-{%- else -%}
-{%- assign tot = tot | plus: 1 -%}
-{%- endif -%}
-{%- endif %}
-{%- endfor -%}
-
 {%- assign components = site.integrations | sort: 'title' -%}
 {%- assign components_by_version = site.integrations | group_components_by_release -%}
-{%- assign categories = components | map: 'ha_category' | join: ',' | downcase | split: ',' | uniq | sort -%}
 {%- assign iot_classes = "Local Push,Local Polling,Cloud Push,Cloud Polling,Assumed State,Calculated,Configurable" |
 join: ',' | split: ',' -%}
 {% assign quality_scales =
@@ -20,6 +7,113 @@ join: ',' | split: ',' -%}
 | split: "|"
 %}
 
+{%- unless include.category %}
+<script>
+  // Old links to a category, like /integrations/#climate or ?cat=climate, go
+  // to the page of the new category that fits best. Labels that only said what
+  // Home Assistant creates, like Number or Select, go to all integrations.
+  // This runs in the page, because a browser never sends the # part of a URL.
+  (function () {
+    const OLD_CATEGORIES = {
+      '3d-printing': 'computers_network.printers',
+      'ai': 'ai_voice',
+      'alarm': 'security_safety.alarm_systems',
+      'alarm-control-panel': 'security_safety.alarm_systems',
+      'automation': '',
+      'backup': 'computers_network',
+      'binary-sensor': 'sensors',
+      'button': 'buttons_remotes',
+      'calendar': 'productivity_information.calendars_todos',
+      'camera': 'security_safety.cameras',
+      'car': 'vehicles_transport.cars_evs',
+      'climate': 'climate',
+      'cover': 'blinds_curtains',
+      'date': '',
+      'date-time': '',
+      'device-automation': '',
+      'device-tracker': 'presence_location',
+      'diy': 'diy_makers',
+      'doorbell': 'security_safety.doorbells_intercoms',
+      'downloading': 'computers_network',
+      'energy': 'energy',
+      'environment': 'weather_alerts',
+      'event': '',
+      'fan': 'climate.fans_ventilation',
+      'finance': 'finance',
+      'front-end': '',
+      'gaming': 'media_entertainment.gaming',
+      'geolocation': 'weather_alerts.public_warnings',
+      'health': 'health_wellbeing',
+      'helper': 'helpers',
+      'history': 'helpers',
+      'hub': 'hubs_protocols',
+      'humidifier': 'climate.air_purifiers_humidifiers',
+      'image': '',
+      'image-processing': 'ai_voice.image_recognition',
+      'infrared': 'buttons_remotes',
+      'infrared-controlled': 'buttons_remotes',
+      'intent': 'ai_voice',
+      'irrigation': 'garden_plants',
+      'lawn-mower': 'garden_plants',
+      'light': 'lighting',
+      'lock': 'security_safety.locks_access',
+      'mailbox': 'messaging_notifications',
+      'media-player': 'media_entertainment',
+      'media-source': 'media_entertainment',
+      'modbus': 'diy_makers.boards_hardware',
+      'modbus-controlled': 'diy_makers.boards_hardware',
+      'multimedia': 'media_entertainment',
+      'network': 'computers_network.routers_network',
+      'notifications': 'messaging_notifications',
+      'number': '',
+      'organization': 'productivity_information',
+      'other': '',
+      'plug': 'plugs_switches',
+      'postal-service': 'productivity_information',
+      'presence-detection': 'presence_location',
+      'pump': 'water',
+      'radio-frequency': 'buttons_remotes',
+      'radio-frequency-controlled': 'buttons_remotes',
+      'remote': 'buttons_remotes',
+      'scene': '',
+      'select': '',
+      'sensor': 'sensors',
+      'serial': 'diy_makers.boards_hardware',
+      'serial-controlled': 'diy_makers.boards_hardware',
+      'siren': 'security_safety.alarm_systems',
+      'social': 'news_social_media',
+      'speech-to-text': 'ai_voice.speech',
+      'switch': 'plugs_switches',
+      'system-monitor': 'computers_network.monitoring',
+      'tag-scanner': '',
+      'text': '',
+      'text-to-speech': 'ai_voice.speech',
+      'time': '',
+      'to-do-list': 'productivity_information.calendars_todos',
+      'transport': 'vehicles_transport.public_transport',
+      'update': '',
+      'utility': '',
+      'vacuum': 'appliances_cleaning.cleaning',
+      'valve': 'water',
+      'voice': 'ai_voice.voice_assistants',
+      'water-heater': 'climate.water_heaters',
+      'water-management': 'water',
+      'weather': 'weather_alerts.forecasts',
+    };
+    const NOT_A_CATEGORY = ['all', 'featured', 'works-with-home-assistant', 'search/', 'version/', 'iot_class/', 'quality_scale/', 'connection'];
+    const hash = decodeURIComponent(location.hash.slice(1)).toLowerCase();
+    const old = new URLSearchParams(location.search).get('cat')
+      || (hash && !NOT_A_CATEGORY.some(prefix => hash.startsWith(prefix)) ? hash : '');
+    if (!(old in OLD_CATEGORIES)) return;
+    const [category, subcategory] = OLD_CATEGORIES[old].split('.');
+    location.replace(
+      category
+        ? `/integrations/category/${category}/${subcategory ? `?subcategory=${subcategory}` : ''}`
+        : '/integrations/'
+    );
+  })();
+</script>
+{%- endunless %}
 {%- assign current_category = site.data.integration_categories | where: "slug", include.category | first -%}
 
 <div class="integrations-browser">
@@ -210,15 +304,9 @@ join: ',' | split: ',' -%}
         {%- assign sliced_version = component.ha_release | split: '.' -%}
         {%- assign minor_version = sliced_version[1] | plus: 0 -%}
         {%- assign major_version = sliced_version[0] | plus: 0 -%}
-        {%- assign categories = "" | split: ',' -%}
-        {%- for ha_category in component.ha_category -%}
-          {% capture category %} "{{ ha_category | slugify | downcase }}"{% endcapture %}
-          {% assign categories = categories | push: category %}
-        {%- endfor -%}
         {
           url: "{{ component.url }}",
           title: "{{component.title}}",
-          cat: [{{ categories| join: ","}}],
           categories: {% if component.ha_categories %}{{ component.ha_categories | jsonify }}{% else %}[]{% endif %},
           connection: "{% if component.ha_iot_class contains 'Local' %}local{% elsif component.ha_iot_class contains 'Cloud' %}cloud{% endif %}",
           featured: {{ component.featured }},
@@ -294,7 +382,6 @@ join: ',' | split: ',' -%}
       });
 
       //add these to the window for dynamic grabbing in matchFilterElementToQuery()
-      window.$catFilter = document.querySelector('.integration-filter select[data-id="cat"]');
       window.$versionFilter = document.querySelector('.integration-filter select[data-id="version"]');
       window.$iot_classFilter = document.querySelector('.integration-filter select[data-id="iot_class"]');
       window.$quality_scaleFilter = document.querySelector('.integration-filter select[data-id="quality_scale"]');
@@ -346,9 +433,6 @@ join: ',' | split: ',' -%}
     // get query value pair that matches provided id from url. // for buildQueryFromURL()
     function getQueryValue(id) {
       let index = id.length + 2; // id + '#' and '/' => '#search/'
-      if (id === 'cat' || id === 'brands') {
-        index = 1;
-      }
 
       // get value from #hash url
       let query = decodeURIComponent(location.hash).substring(index).toLowerCase();
@@ -395,23 +479,6 @@ join: ',' | split: ',' -%}
         queryFilter.version = query;
       }
 
-      if (
-        // check for old # categories urls
-        (hash.startsWith('#') || queryParams.has("cat"))
-        && !(hash.startsWith('#all'))
-        && !(hash.startsWith('#featured'))
-        && !(hash.startsWith('#works-with-home-assistant'))
-        && !(hash.startsWith('#search'))
-        && !(hash.startsWith('#version'))
-        && !(hash.startsWith('#iot_class'))
-        && !(hash.startsWith('#quality_scale'))
-        && !(hash.startsWith('#connection'))
-      ) {
-        // regular filter categories
-        let query = getQueryValue('cat');
-        queryFilter.cat = query;
-      }
-
       if (hash.startsWith('#iot_class/') || queryParams.has('iot_class')) {
         let query = getQueryValue('iot_class');
         queryFilter.iot_class = query;
@@ -455,7 +522,6 @@ join: ',' | split: ',' -%}
       }
 
       // update dom elements to match new filters
-      updateFilterButtons(query);
       updateFilterElements(query);
       updateSubcategoryLinks(query);
       updateSearchClear();
@@ -481,11 +547,6 @@ join: ',' | split: ',' -%}
             continue;
           }
 
-          // check for matching categories in integration's category array
-          if (key === 'cat') {
-            if (!integration[key].includes(query[key])) return false;
-          }
-
           if (key === 'featured') {
             if (!integration.featured) return false;
             continue;
@@ -497,7 +558,7 @@ join: ',' | split: ',' -%}
           }
 
           // check for version / iot / quality matches
-          if (!(key === 'cat' || key === 'search')) {
+          if (key !== 'search') {
             if (
               integration[key] == undefined // match doesn't exist
               || integration[key] != query[key] // strings dont match
@@ -553,7 +614,7 @@ join: ',' | split: ',' -%}
       if (hashExists) {
         location.hash = '';
 
-        if (query !== null) {
+        if (query !== null && Object.keys(query).length) {
           let currentId = Object.keys(query)[0];
           let currentVal = Object.values(query)[0];
           queryParams.set(currentId, currentVal);
@@ -723,123 +784,6 @@ join: ',' | split: ',' -%}
     function resetAllFilters() {
       clearURL();
       applyFilter()
-    }
-
-    // filter button name cleanup. used in updateFilterButtons()
-    function getButtonText(id, key) {
-      let category;
-      switch (id) {
-        case 'cat':
-          category = 'Category';
-          break;
-        case 'iot_class':
-          category = 'IoT class';
-          break;
-        case 'quality_scale':
-          category = 'Quality scale';
-          break;
-        case 'connection':
-          category = 'Connection';
-          break;
-        case 'subcategory': {
-          const link = subcategoryLinks.find(link => link.dataset.subcategory === key);
-          return `Subcategory: ${link ? link.querySelector('.category-name').textContent : key}`;
-        }
-        default:
-          category = id;
-      }
-
-      if (id !== 'search' && id !== 'brands') {
-        let $filterElement = window[`$${id}Filter`];
-        if (!$filterElement) {
-          return `${category}: ${key}`;
-        }
-        let options = [...$filterElement.querySelectorAll('option')]
-        let filteredOption = options.filter(option => option.value === key)[0];
-
-        if (filteredOption) {
-          return `${category}: ${filteredOption.innerText}`;
-        } else {
-          return `${category}: Not Found`;
-        }
-
-      } else {
-        return `${category}: ${key}`;
-      }
-    }
-
-    // update all filter buttons to match current obj filter
-    function updateFilterButtons(queryFilter) {
-      let filterButtonParent = document.querySelector('.component-search');
-      let currentFilterButtons = [...document.querySelectorAll('.component-search .active-filter')];
-
-      if (queryFilter === null) {
-        currentFilterButtons.forEach(button => button.remove());
-        return;
-      }
-
-      // update text of buttons if filter value has changed
-      updateFilterButtonsText(currentFilterButtons, queryFilter);
-
-      // create a filter button if missing for current filter
-      createFilterButtons(filterButtonParent, queryFilter)
-
-      // remove buttons that don't match current filter
-      if (currentFilterButtons.length >= Object.keys(queryFilter).length) {
-        // filter out buttons that don't match query obj
-        removeFilterButtons(currentFilterButtons, queryFilter)
-      }
-    }
-
-    // update text of buttons if filter value has changed // used in updateFilterButtons
-    function updateFilterButtonsText(buttons, query) {
-      buttons.forEach(button => {
-        for (key in query) {
-          if (button.dataset.id === key) {
-            // check for mismatched filter value
-            if (button.dataset.filter !== query[key]) {
-              button.dataset.filter = query[key];
-              button.innerHTML = `<span>${getButtonText(key, query[key])} <iconify-icon icon="mdi:close-circle"></iconify-icon></span>`;
-            }
-          }
-        }
-      });
-    }
-
-    // create a filter button if it's missing from current applied filter // used in updateFilterButtons
-    function createFilterButtons(buttonParent, query) {
-      for (key in query) {
-        if (QUICK_FILTERS.includes(key) || key === 'search') continue;
-        if (document.querySelector(`.component-search .active-filter[data-id="${key}"]`) === null) {
-          let button = document.createElement('button');
-          button.innerHTML = `<span>${getButtonText(key, query[key])} <iconify-icon icon="mdi:close-circle"></iconify-icon></span>`;
-          button.classList.add('active-filter');
-          button.dataset.id = key;
-          button.dataset.filter = query[key]
-          // add click listener to button to remove filter
-          button.addEventListener('click', function () {
-            removeQueryFromURL(this.dataset.id);
-            applyFilter();
-            // remove event listener after click
-          }, { once: true });
-
-          //add button to the dom
-          buttonParent.appendChild(button);
-        }
-      }
-    }
-
-    // remove buttons that don't match current filter // used in updateFilterButtons
-    function removeFilterButtons(buttons, query) {
-      let buttonsToRemove = buttons.filter(button => {
-        for (key in query) {
-          if (button.dataset.id === key) {
-            return false;
-          }
-        }
-        return true;
-      });
-      buttonsToRemove.forEach(button => button.remove());
     }
 
     // An integration is in a category when it lists the category itself, or
