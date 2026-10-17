@@ -4,6 +4,9 @@ description: Instructions on how to integrate NETGEAR routers into Home Assistan
 ha_category:
   - Presence detection
   - Update
+ha_categories:
+  - computers_network.routers_network
+  - presence_location.network_presence
 ha_iot_class: Local Polling
 ha_release: pre 0.7
 ha_domain: netgear

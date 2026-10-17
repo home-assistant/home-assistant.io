@@ -3,6 +3,8 @@ title: NextDNS
 description: Instructions on how to integrate NextDNS within Home Assistant.
 ha_category:
   - Network
+ha_categories:
+  - computers_network.routers_network
 ha_release: 2022.8
 ha_iot_class: Cloud Polling
 ha_config_flow: true

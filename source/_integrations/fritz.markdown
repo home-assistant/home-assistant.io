@@ -7,6 +7,9 @@ ha_category:
   - Presence detection
   - Sensor
   - Update
+ha_categories:
+  - computers_network.routers_network
+  - presence_location.network_presence
 ha_release: '0.10'
 ha_domain: fritz
 ha_config_flow: true

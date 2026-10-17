@@ -7,6 +7,8 @@ ha_category:
   - Button
   - Sensor
   - Update
+ha_categories:
+  - computers_network.routers_network
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: qnap_qsw

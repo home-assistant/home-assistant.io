@@ -5,6 +5,8 @@ ha_category:
   - Binary sensor
   - Network
   - Sensor
+ha_categories:
+  - computers_network.routers_network
 ha_release: 0.18
 ha_iot_class: Local Polling
 ha_config_flow: true

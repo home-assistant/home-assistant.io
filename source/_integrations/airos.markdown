@@ -4,6 +4,8 @@ description: Ubiquiti UISP airOS integration.
 ha_category:
   - Sensor
   - Update
+ha_categories:
+  - computers_network.routers_network
 ha_iot_class: Local Polling
 ha_release: 2025.8
 ha_codeowners:

@@ -9,6 +9,8 @@ ha_category:
   - Sensor
   - Switch
   - Update
+ha_categories:
+  - computers_network.routers_network
 ha_release: '2021.12'
 ha_iot_class: Local Polling
 ha_config_flow: true
