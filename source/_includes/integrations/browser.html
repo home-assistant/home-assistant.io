@@ -249,6 +249,7 @@ join: ',' | split: ',' -%}
     const QUICK_FILTERS = ['featured', 'partners'];
     const searchInputEl = document.querySelector('.component-search input');
     const componentContainerEl = document.querySelector('#componentContainer');
+    let noResultsEl;
     let searchInputDirty = false;
 
     function init() {
@@ -418,8 +419,6 @@ join: ',' | split: ',' -%}
         components: []
       };
 
-      // fade-out css effect on the old elements. This is actually not visible on fast browsers
-      componentContainerEl.classList.add('remove-items');
 
       // make sure no query exists and its not an event object being passed in
       if (!query || query.target) {
@@ -487,26 +486,14 @@ join: ',' | split: ',' -%}
         return true;
       });
 
-      // let rendered = Mustache.render(template, data);
-      let rendered;
-      if (data.components.length > 0) {
-        // Note: Assumes all data has already been sanitized
-        rendered = data.components.map(component => `
-          <a href="${component.url}" class="option-card">
-            <div class="img-container">${buildImageEl(component)}</div>
-            <div class='title'>${component.title}</div>
-          </a>
-          `).join('\n');
-      } else {
-        rendered = '<div class="alert alert-note"><p class="alert-content">No results matching this filter</p></div>';
-      }
-
-      // remove previous elements and css classes, add the new stuff and then trigger the fade-in css animation
-      componentContainerEl.innerHTML = '';
-      componentContainerEl.classList.remove('show-items');
-      componentContainerEl.classList.remove('remove-items');
-      componentContainerEl.innerHTML = rendered;
-      componentContainerEl.classList.add('show-items');
+      // The cards are built once; a filter only shows and hides them, so the
+      // list updates at once and loaded logos stay loaded.
+      renderCards();
+      const shownCards = new Set(data.components);
+      integrations.forEach(integration => {
+        integration.card.style.display = shownCards.has(integration) ? '' : 'none';
+      });
+      noResultsEl.style.display = data.components.length > 0 ? 'none' : '';
       const total = integrations.filter(i => !pageCategory || inCategory(i, pageCategory)).length;
       const shown = data.components.length;
       document.querySelector('.results-count').textContent =
@@ -887,6 +874,24 @@ join: ',' | split: ',' -%}
     document.querySelectorAll('[data-close-panel]').forEach(button => button.addEventListener('click', closePanels));
     // A panel that is open when the window gets wide would stay a modal.
     desktop.addEventListener('change', closePanels);
+
+    function renderCards() {
+      if (noResultsEl) {
+        return;
+      }
+      // Note: Assumes all data has already been sanitized
+      componentContainerEl.innerHTML = integrations.map(component => `
+        <a href="${component.url}" class="option-card">
+          <div class="img-container">${buildImageEl(component)}</div>
+          <div class='title'>${component.title}</div>
+        </a>
+        `).join('\n') + '<div class="alert alert-note" style="display: none"><p class="alert-content">No results matching this filter</p></div>';
+      const cards = componentContainerEl.querySelectorAll('.option-card');
+      integrations.forEach((integration, index) => {
+        integration.card = cards[index];
+      });
+      noResultsEl = componentContainerEl.querySelector('.alert');
+    }
 
     function buildImageEl(component) {
       const urlBase = [
