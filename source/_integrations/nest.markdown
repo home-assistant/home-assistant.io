@@ -113,18 +113,24 @@ By the end of this section you will have configured the OAuth consent screen, ne
 
 2. If prompted to configure OAuth, click **Get started** and follow the setup wizard. When the wizard asks for user type, select **External**, and only continue once the OAuth consent configuration has been created.
 
-3. Click **Branding** in the left sidebar. Fill in the required fields:
+3. 3. Click **Branding** in the left sidebar. Fill in the required fields:
+
    - **App name**: Enter a name (e.g. Home Assistant). This is shown during the OAuth login flow.
    - **User support email**: Select your Google account email.
    - **Developer contact email**: Enter your email address under Developer contact information.
-   
+
    Leave all other fields (App logo, App domain, Authorized domains) empty to avoid triggering Google's verification process. Click **Save**.
+
 
 4. Click **Audience** in the left sidebar.
    - Under **User type**, confirm it shows **External**.
    - Under **Test users**, click **+ Add users** and add your Google account email (e.g. your @gmail.com address). Click **Save**.
 
-5. Still on the **Audience** page, under **Publishing status**, click **Publish app** to set the status to **In production**.
+
+5. Still on the **Audience** page, under **Publishing status**, click **Publish app**, then click **Confirm**.
+
+   Verify that the publishing status changes to **In production**.
+
 
    Make sure the status is not **Testing**, or you will get logged out every 7 days.
 
