@@ -79,6 +79,36 @@ This integrations provides a set of {% term "Binary sensor" %} and {% term Senso
 As the data of [tankerkoenig.de](https://www.tankerkoenig.de/) is based on data from the German market transparency office for fuels (_[Markttransparenzstelle für Kraftstoffe](https://www.bundeskartellamt.de/DE/Aufgaben/MarkttransparenzstelleFuerKraftstoffe/MTS-K_Infotext/mts-k_node.html) MTS-K_), only the three base fuel types `Diesel`, `Super`, and `Super E10` are available.
 {% endnote %}
 
+## Actions
+
+The integration provides the following action.
+
+### Action `tankerkoenig.get_opening_times`
+
+The `tankerkoenig.get_opening_times` action returns the opening times of one or more gas stations. Target the `Status` binary sensor of each gas station.
+
+Each opening time has `days`, `start_time`, and `end_time`. A gas station that is open 24 hours a day returns a single opening time with `days` `Mo-So`, `start_time` `00:00:00`, and `end_time` `23:59:59`. A gas station without any known opening times returns an empty list.
+
+```yaml
+action: tankerkoenig.get_opening_times
+target:
+  entity_id: binary_sensor.my_favorite_gas_station_status
+response_variable: opening_times
+```
+
+The response is keyed by entity ID:
+
+```yaml
+binary_sensor.my_favorite_gas_station_status:
+  opening_times:
+    - days: Mo-Fr
+      start_time: "06:00:00"
+      end_time: "22:00:00"
+    - days: Sa-So
+      start_time: "08:00:00"
+      end_time: "20:00:00"
+```
+
 ## Usage examples
 
 ### Show current fuel price only when station is opened
