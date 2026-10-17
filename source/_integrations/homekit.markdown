@@ -4,6 +4,8 @@ description: Instructions on how to set up the HomeKit Bridge integration in Hom
 featured: true
 ha_category:
   - Voice
+ha_categories:
+  - other_ecosystems
 ha_release: 0.64
 ha_iot_class: Local Push
 ha_domain: homekit
