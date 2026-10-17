@@ -5,6 +5,8 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_categories:
+  - plugs_switches
 ha_config_flow: true
 ha_platforms:
   - diagnostics

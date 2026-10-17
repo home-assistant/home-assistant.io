@@ -7,6 +7,9 @@ ha_category:
   - Hub
   - Light
   - Switch
+ha_categories:
+  - plugs_switches
+  - lighting.bulbs_lamps
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_config_flow: true

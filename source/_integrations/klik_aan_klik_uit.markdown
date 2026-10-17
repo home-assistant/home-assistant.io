@@ -4,6 +4,8 @@ description: Instructions on how to integrate KlikAanKlikUit and compatible devi
 ha_category:
   - Radio frequency-controlled
   - Switch
+ha_categories:
+  - plugs_switches
 ha_release: 2026.7
 ha_iot_class: Assumed State
 ha_config_flow: true
