@@ -115,6 +115,8 @@ To pair your Powerwall or Backup Gateway:
 
 Once paired, Home Assistant stores your Powerwall's address and password and sends energy commands to it directly, falling back to the cloud automatically whenever your Powerwall can't be reached.
 
+A paired energy site also gets extra entities that are only available from your Powerwall over your local network, such as **Grid OK** and **Contactor closed**. They are marked **Local** in the [energy site entity table](#energy-sites). Each one is only created when your Powerwall reports its value, and it becomes unavailable while your Powerwall can't be reached. If your Powerwall can't be reached when Home Assistant starts, these entities are still created and stay unavailable, then update on their own once your Powerwall responds, with no reload needed.
+
 {% note %}
 Removing the Teslemetry integration doesn't revoke the access key from your Powerwall system, so other apps or integrations using the same key keep working.
 {% endnote %}
@@ -338,9 +340,16 @@ Only vehicle controls send commands over Bluetooth. While a paired vehicle that 
 |Domain|Name|Enabled|Data|
 |---|---|---|---|
 |Binary sensor|Backup capable|Yes|Polling|
+|Binary sensor|Contactor closed|Yes|Local|
+|Binary sensor|ESCAN firmware updating|Yes|Local|
+|Binary sensor|Grid OK|Yes|Local|
 |Binary sensor|Grid services active|Yes|Polling|
 |Binary sensor|Grid services enabled|Yes|Polling|
 |Binary sensor|Grid status|Yes|Polling|
+|Binary sensor|Microgrid OK|Yes|Local|
+|Binary sensor|PW3CAN firmware updating|Yes|Local|
+|Binary sensor|Site manager running|Yes|Local|
+|Binary sensor|Site running|Yes|Local|
 |Binary sensor|Storm watch active|Yes|Polling|
 |Calendar|Buy tariff|Yes|Polling|
 |Calendar|Sell tariff|Yes|Polling|
@@ -408,6 +417,7 @@ Teslemetry delivers data by streaming or polling, depending on the product. The 
 - **Streaming**: the value arrives over the live stream in real time.
 - **Polling**: the value comes from Teslemetry's cached vehicle data.
 - **Both**: the value can arrive by streaming or polling, depending on the vehicle and its configuration.
+- **Local**: the value is polled directly from your Powerwall over your local network. These entities only exist for energy sites paired for [local Powerwall control](#local-powerwall-control).
 - **—** (em dash): the entity does not report data. Buttons send commands, so they have no data source.
 
 ### Vehicle data
@@ -421,6 +431,8 @@ The integration does not wake a sleeping vehicle to fetch data. Updates pause un
 ### Energy site data
 
 Energy site live status, site information, tariffs, and energy history arrive through the Teslemetry data stream. If you've paired a Powerwall for [local control](#local-powerwall-control), Home Assistant also reads its live values directly over your local network every 5 seconds, and its backup reserve and operation mode every 30 seconds. Whenever your Powerwall can't be reached, Home Assistant uses the cloud values instead. Entity availability still follows the Teslemetry data stream.
+
+For an energy site paired for [local Powerwall control](#local-powerwall-control), entities marked **Local** are polled from your Powerwall's status every 10 seconds.
 
 ## Known limitations
 
