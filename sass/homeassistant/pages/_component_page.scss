@@ -715,6 +715,7 @@ a.option-card:hover {
 
   // The filters: a label above a bordered box, like the category menu.
   .filter-title {
+    display: block;
     position: static;
     margin: 0 0 4px;
     padding: 0;
