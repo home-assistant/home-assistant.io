@@ -5,6 +5,9 @@ ha_category:
   - Binary sensor
   - DIY
   - Switch
+ha_categories:
+  - diy_makers.boards_hardware
+  - plugs_switches
 ha_release: 0.115
 ha_iot_class: Local Polling
 ha_domain: progettihwsw

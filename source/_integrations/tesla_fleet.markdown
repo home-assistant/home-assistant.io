@@ -15,6 +15,9 @@ ha_category:
   - Sensor
   - Switch
   - Update
+ha_categories:
+  - vehicles_transport.cars_evs
+  - energy.solar_batteries
 ha_release: 2024.8
 ha_iot_class: Cloud Polling
 ha_config_flow: true

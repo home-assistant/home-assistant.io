@@ -3,6 +3,9 @@ title: Home Assistant iOS
 description: Instructions on how to use the iOS companion app with Home Assistant.
 ha_category:
   - Hub
+ha_categories:
+  - presence_location.phones_companion_apps
+  - messaging_notifications.push_notifications
 ha_release: 0.31
 ha_iot_class: Cloud Push
 ha_config_flow: true

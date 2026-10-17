@@ -3,6 +3,8 @@ title: 17TRACK
 description: Instructions on how to use 17track.net data within Home Assistant
 ha_category:
   - Postal Service
+ha_categories:
+  - productivity_information
 ha_release: 0.83
 ha_config_flow: true
 ha_iot_class: Cloud Polling

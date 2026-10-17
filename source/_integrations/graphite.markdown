@@ -3,6 +3,8 @@ title: Graphite
 description: Instructions on how to record Home Assistant history in Graphite.
 ha_category:
   - History
+ha_categories:
+  - diy_makers.web_data_connectors
 ha_release: 0.13
 ha_domain: graphite
 ha_iot_class: Local Push

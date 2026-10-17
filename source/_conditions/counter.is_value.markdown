@@ -95,8 +95,6 @@ This passes when `counter.daily_check_ins` is between `2` and `4`.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: |
@@ -151,7 +149,8 @@ for:
 
 If you use a counter helper to track short exercise breaks, this condition can stop the count after the daily goal has been reached.
 
-- **Trigger**: Input button pressed
+- **Trigger**: State changed
+  - **Entity**: Exercise break done button helper
 - **Condition**: Counter value
   - **Target**: Exercise break counter
   - **Threshold type**: Below 5
@@ -186,7 +185,8 @@ automation: |
 
 If you have created a script and a counter helper for evening tasks, you can run the script only while the counter stays within a range you choose.
 
-- **Trigger**: At 21:00
+- **Trigger**: Time
+  - **At time**: `21:00`
 - **Condition**: Counter value
   - **Target**: Evening reminder counter
   - **Threshold type**: In range 1 to 3

@@ -4,6 +4,8 @@ description: Instructions on how to integrate compensation sensors into Home Ass
 ha_category:
   - Sensor
   - Utility
+ha_categories:
+  - helpers.calculate_value
 ha_iot_class: Calculated
 ha_release: '2021.5'
 ha_codeowners:
@@ -85,7 +87,7 @@ source:
   required: true
   type: string
 state_class:
-  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  description: The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor.
   required: false
   type: string
 unique_id:

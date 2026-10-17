@@ -3,6 +3,9 @@ title: Ruuvi BLE
 description: Instructions on how to integrate Ruuvi BLE devices into Home Assistant.
 ha_category:
   - Sensor
+ha_categories:
+  - sensors.temperature_humidity
+  - sensors.air_quality
 ha_bluetooth: true
 ha_release: '2022.12'
 ha_iot_class: Local Push

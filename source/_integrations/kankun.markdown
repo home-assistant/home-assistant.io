@@ -3,6 +3,8 @@ title: Kankun
 description: Instructions for the Kankun SP3 Wifi switch
 ha_category:
   - Switch
+ha_categories:
+  - plugs_switches
 ha_release: 0.36
 ha_iot_class: Local Polling
 ha_domain: kankun

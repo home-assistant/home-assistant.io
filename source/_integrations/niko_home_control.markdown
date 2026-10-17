@@ -9,6 +9,8 @@ ha_category:
   - Cover
   - Light
   - Scene
+ha_categories:
+  - hubs_protocols.building_automation
 ha_iot_class: Local Push
 ha_release: 0.82
 ha_domain: niko_home_control

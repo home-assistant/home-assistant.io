@@ -6,6 +6,8 @@ ha_category:
   - Light
   - Media player
   - Remote
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_iot_class: Local Polling
 ha_release: 0.34
 ha_codeowners:

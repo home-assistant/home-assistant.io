@@ -4,6 +4,8 @@ description: Instructions on how to set up OneDrive to be used with backups.
 ha_release: 2025.2
 ha_category:
   - Backup
+ha_categories:
+  - productivity_information.documents_photos
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: onedrive
@@ -79,7 +81,7 @@ The integration will request the following permissions on your OneDrive for the 
 
 The integration provides the following sensors, which are updated every 5 minutes:
 
-- **Total available storage**: The total size of your drive (disabled by default)
+- **Total available storage**: The total size of your drive ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
 - **Used storage**: The amount of storage you have used up
 - **Remaining storage**: The amount of storage that is left in your drive
 - **Drive state**: Calculated state of your drive, based on the storage left. Possible values: `Normal`, `Nearing limit`, `Critical`, `Exceeded`

@@ -10,6 +10,8 @@ ha_category:
   - Sensor
   - Switch
   - Time
+ha_categories:
+  - water.pools_spas
 ha_release: 2026.6
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -171,7 +173,7 @@ The integration provides the following sensors:
 - **UV**: UV module reading (if UV module installed)
 - **Electrolysis / Hydrolysis**: current production level in gr/h
 - **Filtration intel time**: daily runtime in Intel mode
-- **Wi-Fi signal strength**: controller RSSI (diagnostic, disabled by default)
+- **Wi-Fi signal strength**: controller RSSI (diagnostic, [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
 
 ### Binary sensors
 

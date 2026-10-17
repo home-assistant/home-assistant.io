@@ -4,6 +4,8 @@ description: Instructions on how to configure Hayward OmniLogic integration.
 ha_category:
   - Sensor
   - Switch
+ha_categories:
+  - water.pools_spas
 ha_release: 0.116
 ha_iot_class: Cloud Polling
 ha_config_flow: true

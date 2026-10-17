@@ -5,6 +5,8 @@ ha_category:
   - Light
   - Scene
   - Switch
+ha_categories:
+  - lighting.lighting_systems
 ha_iot_class: Local Push
 ha_release: 0.32
 ha_domain: litejet

@@ -4,6 +4,8 @@ description: Instructions on how to set up TCP within Home Assistant.
 ha_category:
   - Binary sensor
   - Sensor
+ha_categories:
+  - diy_makers.web_data_connectors
 ha_release: 0.14
 ha_iot_class: Local Polling
 ha_domain: tcp

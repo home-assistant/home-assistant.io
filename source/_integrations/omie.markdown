@@ -4,6 +4,8 @@ description: Monitor OMIE day-ahead electricity market prices for Spain and Port
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.energy_prices
 ha_release: 2026.5
 ha_iot_class: Cloud Polling
 ha_quality_scale: silver

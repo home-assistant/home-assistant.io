@@ -4,6 +4,8 @@ description: Instructions on how to connect your Envertech EVT800 device to Home
 ha_iot_class: Local Polling
 ha_category:
   - Energy
+ha_categories:
+  - energy.solar_batteries
 ha_config_flow: true
 ha_release: 2026.7
 ha_codeowners:

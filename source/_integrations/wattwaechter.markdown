@@ -5,6 +5,8 @@ ha_category:
   - Energy
   - Sensor
   - Update
+ha_categories:
+  - energy.meters_monitoring
 ha_release: 2026.7
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -82,7 +84,7 @@ Smart meters can report values beyond the well-known ones listed above. The inte
 
 ### Diagnostic sensors
 
-The following sensors are created with the diagnostic entity category and are disabled by default:
+The following sensors are created with the diagnostic entity category and are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity):
 
 - **Wi-Fi signal (dBm)**: The wireless signal strength of the device.
 - **Wi-Fi SSID**: The wireless network name the device is connected to.

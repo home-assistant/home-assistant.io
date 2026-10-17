@@ -8,6 +8,10 @@ ha_category:
   - Light
   - Number
   - Select
+ha_categories:
+  - appliances_cleaning.laundry
+  - appliances_cleaning.cooking
+  - climate.heat_pumps_air_conditioning
 ha_release: '2022.10'
 ha_iot_class: Cloud Push
 ha_config_flow: true

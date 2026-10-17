@@ -14,7 +14,7 @@ ha_quality_scale: internal
 
 A wake-word-detection {% term entity %} allows other {% term integrations %} or applications to detect wake words in streaming audio.
 
-The wake-word-detection entities cannot be implemented manually, but can be provided by integrations such as [Wyoming](/integrations/wyoming). The API in [Assist Pipelines](https://developers.home-assistant.io/docs/voice/pipelines/) enables wake-word-detection as part of [Assist](/voice_control/).
+The wake-word-detection entities cannot be implemented manually, but can be provided by integrations such as [Wyoming](/integrations/wyoming). The API in [Assist Pipelines](https://contributors.home-assistant.io/core/internals/assist-pipelines/) enables wake-word-detection as part of [Assist](/voice_control/).
 
 {% include integrations/building_block_integration.md %}
 

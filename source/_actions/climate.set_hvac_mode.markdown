@@ -70,7 +70,9 @@ hvac_mode:
 
 Set a climate device to cool when the indoor temperature rises above a threshold.
 
-- **Trigger**: Indoor temperature rises above 26 °C
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Living room temperature
+  - **Above**: `26`
 - **Action**: Set thermostat HVAC mode
   - **Target**: Living room thermostat
   - **HVAC mode**: cool

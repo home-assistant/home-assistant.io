@@ -4,6 +4,9 @@ description: How to use the mold growth indication integration in Home Assistant
 ha_category:
   - Environment
   - Helper
+ha_categories:
+  - helpers.calculate_value
+  - sensors.temperature_humidity
 ha_release: '0.20'
 ha_iot_class: Calculated
 ha_quality_scale: internal

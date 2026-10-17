@@ -6,6 +6,8 @@ ha_category:
   - Binary sensor
   - Lock
   - Sensor
+ha_categories:
+  - security_safety.locks_access
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: tedee
@@ -62,7 +64,7 @@ This integration supports
 - **Charging**: indicates whether the battery is currently charging.
 - **Pullspring enabled**: indicates whether the pull spring setting is enabled.
 - **Semi locked**: indicates whether the lock is in a "semi-locked" position. "Semi-locked" means the lock has been turned manually and is between its normal end positions. The lock itself will be unavailable in this position.
-- **Lock uncalibrated** (disabled by default): Shows when the lock is in an "uncalibrated state".
+- **Lock uncalibrated** ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)): Shows when the lock is in an "uncalibrated state".
 - **Connectivity**: indicates whether the lock is currently connected to the bridge.
 
 {% note %}

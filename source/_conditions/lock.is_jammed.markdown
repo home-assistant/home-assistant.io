@@ -48,8 +48,6 @@ This passes when `lock.front_door` is currently jammed.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -128,8 +126,9 @@ Extra light can make it easier to see why a lock is stuck. This automation runs 
 - **Target**: Outside door locks (by label)
 - **Condition passes if**: Any
 - **For at least**: 00:00:15
-- **Condition**: Sun is below the horizon
-- **Action**: Turn on
+- **Condition**: Sun is set
+- **Action**: Turn on light
+  - **Target**: Porch light
 
 {% details "YAML example for lighting an area while a lock is jammed" %}
 
@@ -146,8 +145,7 @@ automation: |
       options:
         behavior: any
         for: "00:00:15"
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

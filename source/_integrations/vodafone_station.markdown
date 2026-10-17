@@ -7,6 +7,8 @@ ha_category:
   - Presence detection
   - Sensor
   - Switch
+ha_categories:
+  - computers_network.routers_network
 ha_release: 2023.9
 ha_domain: vodafone_station
 ha_config_flow: true

@@ -3,6 +3,8 @@ title: laundrify
 description: Instructions on how to integrate laundrify within Home Assistant.
 ha_category:
   - Binary sensor
+ha_categories:
+  - appliances_cleaning.laundry
 ha_release: 2022.6
 ha_iot_class: Cloud Polling
 ha_domain: laundrify

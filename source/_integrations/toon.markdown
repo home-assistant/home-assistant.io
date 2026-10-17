@@ -7,6 +7,9 @@ ha_category:
   - Energy
   - Sensor
   - Switch
+ha_categories:
+  - climate.thermostats_heating
+  - energy.meters_monitoring
 ha_release: 0.56
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -97,7 +100,7 @@ The Toon integration provides the following binary sensors:
 - OpenTherm Connection* (only with OpenTherm)
 - Thermostat Program Override*
 
-Binary sensors marked with `*` are disabled by default, but can be enabled
+Binary sensors marked with `*` are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity), but can be enabled
 from the UI, by clicking on the device and enabling the specific entity.
 
 ## Climate

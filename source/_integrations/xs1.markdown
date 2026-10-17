@@ -6,6 +6,8 @@ ha_category:
   - Hub
   - Sensor
   - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: 0.88
 ha_iot_class: Local Polling
 ha_domain: xs1

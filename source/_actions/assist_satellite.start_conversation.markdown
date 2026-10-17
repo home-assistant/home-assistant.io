@@ -108,7 +108,9 @@ preannounce_media_id:
 At bedtime, if the living room lights are still on, start a conversation asking whether to turn them off.
 
 - **Trigger**: Time: 23:00
-- **Condition**: Living room lights are on
+- **Condition**: State
+  - **Entity**: Living room light
+  - **State**: On
 - **Action**: Start conversation on satellite
   - **Target**: Living room satellite
   - **Message**: You left the lights on in the living room. Turn them off?

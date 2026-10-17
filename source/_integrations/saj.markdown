@@ -3,6 +3,8 @@ title: SAJ Solar Inverter
 description: Instructions on how to connect your SAJ Solar Inverter to Home Assistant.
 ha_category:
   - Energy
+ha_categories:
+  - energy.solar_batteries
 ha_iot_class: Local Polling
 ha_release: '0.100'
 ha_config_flow: true
@@ -37,8 +39,6 @@ The following connection modules are known to work with this integration when th
 The following connection modules are not supported by this integration:
 
 - **AIO3**. This module does not expose the local web interface required by this integration.
-
-## Configuration
 
 {% include integrations/config_flow.md %}
 

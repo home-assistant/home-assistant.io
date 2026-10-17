@@ -8,6 +8,8 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_categories:
+  - security_safety.doorbells_intercoms
 ha_release: 0.56
 ha_config_flow: true
 ha_iot_class: Cloud Polling

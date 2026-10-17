@@ -6,6 +6,8 @@ ha_category:
   - Button
   - Hub
   - Light
+ha_categories:
+  - lighting.lighting_systems
 ha_release: 0.85
 ha_iot_class: Local Push
 ha_domain: homeworks

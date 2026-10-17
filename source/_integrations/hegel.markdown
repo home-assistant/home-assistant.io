@@ -3,6 +3,8 @@ title: Hegel Amplifier
 description: Instructions on integrating Hegel amplifiers into Home Assistant.
 ha_category:
   - Media player
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_release: 2026.3
 ha_iot_class: Local Push
 ha_config_flow: true

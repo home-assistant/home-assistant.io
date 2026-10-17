@@ -5,6 +5,8 @@ ha_category:
   - Binary sensor
   - DIY
   - Switch
+ha_categories:
+  - diy_makers.boards_hardware
 ha_release: 0.94
 ha_iot_class: Local Push
 ha_domain: remote_rpi_gpio

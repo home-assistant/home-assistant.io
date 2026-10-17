@@ -5,6 +5,8 @@ ha_category:
   - Climate
   - Energy
   - Environment
+ha_categories:
+  - energy
 ha_release: 0.87
 ha_iot_class: Cloud Polling
 ha_domain: co2signal

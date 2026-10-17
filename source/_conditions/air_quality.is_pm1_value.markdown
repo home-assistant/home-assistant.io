@@ -51,8 +51,6 @@ This passes when the bedroom PM1 sensor reads at or above 25 µg/m³.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >
@@ -67,7 +65,7 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md domain="sensor" %}
 
 {% include conditions/behavior.md %}
 
@@ -88,7 +86,7 @@ behavior:
 Ultra-fine particles from cooking, candles, or the heating system linger in a closed bedroom. This automation triggers at bedtime and checks the current PM1 reading. If the level is at or above 25 μg/m3, the air purifier turns on so you breathe clean air while you sleep. On evenings when the air is already fresh, the purifier stays off and the bedroom stays quiet.
 
 - **Trigger**: Time: 22:00
-- **Condition**: Air Quality: PM1 value
+- **Condition**: PM1 value
   - **Target**: Bedroom PM1 sensor
   - **Threshold type**: 25
 - **Action**: Turn on fan

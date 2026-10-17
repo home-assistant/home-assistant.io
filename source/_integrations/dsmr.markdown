@@ -3,6 +3,9 @@ title: DSMR Smart Meter
 description: Instructions on how to integrate DSMR smart meter within Home Assistant.
 ha_category:
   - Energy
+ha_categories:
+  - energy.meters_monitoring
+  - water.meters_leak_detection
 ha_release: 0.34
 ha_iot_class: Local Push
 ha_config_flow: true

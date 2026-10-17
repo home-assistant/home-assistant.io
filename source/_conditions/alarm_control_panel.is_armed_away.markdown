@@ -47,8 +47,6 @@ This passes when the hallway alarm panel is currently armed in away mode.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -122,8 +120,11 @@ automation: |
 Your thermostat normally follows a comfort schedule throughout the day. When the alarm is armed away, there is no reason to heat or cool an empty house. This automation checks the away state before applying the scheduled temperature, saving energy until someone comes home.
 
 - **Trigger**: Time: 07:00 (morning schedule)
-- **Condition**: Alarm is _not_ armed away
-- **Action**: Set the thermostat to 21 degrees
+- **Condition**: Not
+  - **Condition**: Alarm is armed away
+    - **Target**: Home alarm
+- **Action**: Set thermostat target temperature
+  - **Target temperature**: `21`°C
 
 {% details "YAML example for skipping the thermostat schedule when away" %}
 

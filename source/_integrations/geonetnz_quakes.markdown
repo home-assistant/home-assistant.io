@@ -3,6 +3,8 @@ title: GeoNet NZ Quakes
 description: Instructions on how to integrate the GeoNet New Zealand Quakes feed into Home Assistant.
 ha_category:
   - Geolocation
+ha_categories:
+  - weather_alerts.public_warnings
 ha_iot_class: Cloud Polling
 ha_release: 0.98
 ha_config_flow: true

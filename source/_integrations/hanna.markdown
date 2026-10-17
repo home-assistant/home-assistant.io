@@ -4,6 +4,8 @@ description: Instructions on how to integrate HannaCloud within Home Assistant.
 ha_release: 2025.12
 ha_category:
   - Sensor
+ha_categories:
+  - water.pools_spas
 ha_codeowners:
   - '@bestycame'
 ha_quality_scale: bronze

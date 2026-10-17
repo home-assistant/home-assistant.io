@@ -10,6 +10,8 @@ ha_category:
   - Select
   - Sensor
   - Switch
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_codeowners:
   - '@glenndehaan'
 ha_domain: hdfury

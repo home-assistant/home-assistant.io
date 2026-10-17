@@ -10,6 +10,9 @@ ha_category:
   - Sensor
   - Switch
   - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
+  - plugs_switches
 ha_release: 2024.3
 ha_codeowners:
   - '@microBeesTech'

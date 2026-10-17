@@ -12,6 +12,8 @@ related:
   - url: https://community.home-assistant.io/t/660421
     title: Community forum thread
 ha_category: []
+ha_categories:
+  - weather_alerts.forecasts
 ha_quality_scale: bronze
 ha_platforms:
   - weather

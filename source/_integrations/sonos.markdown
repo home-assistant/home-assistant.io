@@ -4,6 +4,8 @@ description: Instructions on how to integrate Sonos devices into Home Assistant.
 ha_category:
   - Media player
   - Sensor
+ha_categories:
+  - media_entertainment.speakers_audio
 featured: true
 ha_release: 0.7.3
 ha_iot_class: Local Push
@@ -156,7 +158,7 @@ Example templates:
 ```
 
 {% tip %}
-The Sonos favorites sensor (`sensor.sonos_favorites`) is disabled by default. It can be found and enabled from the entities associated with the Sonos integration on your {% my integrations %} page.
+The Sonos favorites sensor (`sensor.sonos_favorites`) is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). It can be found and enabled from the entities associated with the Sonos integration on your {% my integrations %} page.
 {% endtip %}
 
 ## Playing media

@@ -4,6 +4,9 @@ description: Instructions on how to integrate Powerfox Cloud within Home Assista
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.meters_monitoring
+  - water.meters_leak_detection
 ha_release: 2025.1
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -138,7 +141,7 @@ FLOW data is exposed via the Powerfox report endpoint and provides daily/hourly 
 - **Average consumption energy today (kWh)**: Average hourly energy consumption observed so far today.
 - **Maximum gas cost today (€)**: Highest hourly gas cost observed so far today.
 
-The energy-based variants are disabled by default in the entity registry. Enable them if you have a gas-to-kWh conversion configured in Powerfox.
+The energy-based variants are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) in the entity registry. Enable them if you have a gas-to-kWh conversion configured in Powerfox.
 
 ## Troubleshooting
 

@@ -3,6 +3,8 @@ title: Awair
 description: Instructions on how to set up Awair devices in Home Assistant.
 ha_category:
   - Health
+ha_categories:
+  - sensors.air_quality
 ha_config_flow: true
 ha_release: 0.84
 ha_iot_class: Local Polling

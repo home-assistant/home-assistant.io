@@ -4,6 +4,9 @@ description: Instructions on how to integrate Squeezebox players and a Lyrion Mu
 ha_category:
   - Media player
   - Update
+ha_categories:
+  - media_entertainment.speakers_audio
+  - media_entertainment.music_radio_services
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: squeezebox

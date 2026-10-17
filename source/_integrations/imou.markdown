@@ -10,6 +10,8 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+ha_categories:
+  - security_safety.cameras
 ha_iot_class: Cloud Polling
 ha_release: 2026.7
 ha_config_flow: true
@@ -49,8 +51,6 @@ Before using the Imou integration, create an Imou Open Platform application:
 2. Register or log in to your Imou account, then open the **Control board**.
 3. Go to **App Information** to obtain an **App ID** and **App secret**.
 4. Add your Imou devices in the Imou Open Platform or Imou mobile app so they appear on your account.
-
-## Configuration
 
 {% include integrations/config_flow.md %}
 

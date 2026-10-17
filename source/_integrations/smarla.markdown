@@ -7,6 +7,8 @@ ha_category:
   - Sensor
   - Switch
   - Update
+ha_categories:
+  - health_wellbeing
 ha_iot_class: Cloud Push
 ha_release: 2025.6
 ha_codeowners:

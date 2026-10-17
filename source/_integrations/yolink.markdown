@@ -11,6 +11,8 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: 2022.6
 ha_iot_class: Cloud Push
 ha_config_flow: true

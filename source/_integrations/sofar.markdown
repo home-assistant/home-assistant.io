@@ -4,6 +4,8 @@ description: Instructions on how to integrate a Sofar solar inverter with Home A
 ha_category:
   - Energy
   - Modbus-controlled
+ha_categories:
+  - energy.solar_batteries
 ha_release: 2026.9
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -116,7 +118,7 @@ The inverter's power limits and its passive-mode setpoints each span several reg
 ### Binary sensors
 
 - **Active power limit enabled**: Whether the inverter is currently applying the active power limit, rather than generating unrestricted. Set by the [Set active power limit](/actions/sofar.set_active_power_limit/) action, which still writes the limit while this is off, but the inverter ignores it until it's enabled again. Disabled by default.
-- **Faults**: One diagnostic binary sensor per fault category, such as grid, battery, thermal, or communication. Each one turns on if any underlying fault bits in that category are currently active. Faults are grouped by category rather than by vendor register, since a single register can hold faults from more than one category at once. Combiner box, string fuse, input fuse, and AFCI (Arc-Fault Circuit Interrupter) faults are disabled by default, since PV and hybrid inverters don't have that hardware. The integration's diagnostics download includes the complete, decoded list of every currently active fault.
+- **Faults**: One diagnostic binary sensor per fault category, such as grid, battery, thermal, or communication. Each one turns on if any underlying fault bits in that category are currently active. Faults are grouped by category rather than by vendor register, since a single register can hold faults from more than one category at once. Combiner box, string fuse, input fuse, and AFCI (Arc-Fault Circuit Interrupter) faults are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity), since PV and hybrid inverters don't have that hardware. The integration's diagnostics download includes the complete, decoded list of every currently active fault.
 
 ### Buttons
 

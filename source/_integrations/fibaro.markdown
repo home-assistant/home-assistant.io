@@ -12,6 +12,8 @@ ha_category:
   - Scene
   - Sensor
   - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: 0.83
 ha_iot_class: Local Push
 ha_domain: fibaro

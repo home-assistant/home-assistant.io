@@ -12,6 +12,9 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_categories:
+  - plugs_switches
+  - hubs_protocols.smart_home_hubs
 ha_domain: zimi
 ha_platforms:
   - cover

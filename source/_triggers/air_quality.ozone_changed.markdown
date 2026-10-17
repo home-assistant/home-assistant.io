@@ -47,8 +47,6 @@ This fires whenever the backyard ozone sensor reading changes by at least 10 ppb
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >
@@ -76,7 +74,7 @@ On a scorching summer afternoon, ground-level ozone peaks just when you want fre
 - **Trigger**: Ozone level changed
 - **Target**: Outdoor ozone sensor
 - **Threshold type**: 10
-- **Action**: Select HVAC preset
+- **Action**: Set thermostat preset mode
 
 {% details "YAML example for ozone-driven HVAC recirculation" %}
 

@@ -22,6 +22,8 @@ ha_quality_scale: platinum
 ha_category:
   - Hub
   - Modbus-controlled
+ha_categories:
+  - water.pools_spas
 ---
 
 The **NeoPool** {% term integration %} integrates pool controllers built around the **NeoPool control system** (originally developed by **Sugar Valley**, acquired by **Hayward** in 2016) with Home Assistant. It communicates entirely locally over Modbus TCP, providing real-time monitoring of water chemistry, filtration, and hydrolysis without any cloud dependency.
@@ -116,7 +118,7 @@ Only entities backed by a detected hardware module or an enabled controller opti
 ### Binary sensors
 
 - **Relay states**: the on/off state of each controller relay, including the filtration pump, pH acid pump, pool light, and auxiliary relays 1 to 4. The pool light and auxiliary relay states are added when the matching integration option is enabled.
-- **Module status**: whether the pH, Redox, chlorine, and conductivity modules are actively measuring or regulating, and whether their dosing pumps are running. Added when the corresponding module is present. Most of these are diagnostic and disabled by default.
+- **Module status**: whether the pH, Redox, chlorine, and conductivity modules are actively measuring or regulating, and whether their dosing pumps are running. Added when the corresponding module is present. Most of these are diagnostic and [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 - **Hydrolysis status**: whether the hydrolysis module is enabled, regulating, in chlorine shock (boost) mode, or activated by the Redox or chlorine module. Added when the hydrolysis module is present.
 - **Problem indicators**: hydrolysis and ionization production problems, a chlorine flow sensor problem, and an ionization program time exceeded state. Added when the corresponding module is present.
 - **Pool cover**: whether the pool cover is open. Reads `unknown` unless filtration is running, since the controller only reports a valid cover state then. Added when the cover sensor is enabled in the integration options.

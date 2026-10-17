@@ -4,6 +4,8 @@ description: Instructions on how to integrate OVHcloud AI Endpoints as a convers
 ha_category:
   - AI
   - Voice
+ha_categories:
+  - ai_voice.ai_models
 ha_release: 2026.6
 ha_iot_class: Cloud Polling
 ha_config_flow: true

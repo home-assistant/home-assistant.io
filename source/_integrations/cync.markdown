@@ -5,6 +5,8 @@ ha_release: '2025.10'
 ha_iot_class: Cloud Push
 ha_category:
   - light
+ha_categories:
+  - lighting.bulbs_lamps
 ha_codeowners:
   - '@Kinachi249'
 ha_domain: cync

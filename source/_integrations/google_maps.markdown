@@ -4,6 +4,8 @@ description: Instructions how to use Google Maps Location Sharing to track devic
 ha_release: 0.67
 ha_category:
   - Presence detection
+ha_categories:
+  - presence_location
 ha_iot_class: Cloud Polling
 ha_domain: google_maps
 ha_platforms:

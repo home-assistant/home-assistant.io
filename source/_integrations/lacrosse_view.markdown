@@ -4,6 +4,8 @@ description: Get data for LaCrosse View-connected sensors
 ha_release: '2022.9'
 ha_category:
   - Sensor
+ha_categories:
+  - sensors.temperature_humidity
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:

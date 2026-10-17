@@ -5,6 +5,8 @@ ha_category:
   - Binary sensor
   - Energy
   - Sensor
+ha_categories:
+  - energy
 ha_release: '2026.10'
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -124,6 +126,164 @@ automation: |
       data:
         message: "Your Axle event has reached its scheduled end."
 {% endexample %}
+
+{% enddetails %}
+
+### Automation: Notify one hour before an export event
+
+This example creates a persistent notification one hour before a scheduled Axle export event starts.
+
+- **Trigger**: Time, using the Axle Energy **Event start** sensor
+- **Condition**: State, with the Axle Energy **Event type** sensor set to `export`
+- **Action**: Create notification
+  - **Message**: Your Axle export event starts in one hour.
+
+To set the reminder in the UI, select **Value of a date/time helper or timestamp-class sensor** in the **Time** trigger, choose your **Event start** sensor, and enter `-01:00:00` in **Offset**. To send the reminder two hours before the event, change the offset to `-02:00:00` and update the automation alias and notification message to say two hours.
+
+{% details "YAML example for an export event reminder" %}
+
+Replace the entity IDs if you have renamed your Axle sensors.
+
+{% example %}
+automation: |
+  alias: "Notify one hour before an Axle export event"
+  triggers:
+    - trigger: time
+      at:
+        entity_id: sensor.axle_energy_event_start
+        offset: "-01:00:00"
+  conditions:
+    - condition: state
+      entity_id: sensor.axle_energy_event_type
+      state: "export"
+  actions:
+    - action: persistent_notification.create
+      data:
+        message: "Your Axle export event starts in one hour."
+{% endexample %}
+
+{% enddetails %}
+
+## Template helper examples
+
+You can create optional Template helpers from the Axle Energy timestamp sensors. These helpers are separate from the entities created by the integration.
+
+### Event later today
+
+Create an optional, user-created [Template helper](/integrations/template/#creating-a-template-helper-from-the-user-interface) to show whether the next Axle Energy event starts later today. The helper is separate from the Axle Energy entities. It shows **Off** when there is no event, the timestamp is invalid, the event is not today, or its start time has passed. It shows **Unavailable** when the source sensor is unavailable.
+
+{% details "Create an event later today helper" %}
+
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} and select **Create helper**.
+2. Select **Template**, then **Binary sensor**.
+3. Enter `Axle Energy event later today` as the **Name**.
+4. Paste this into **State**. Replace the entity ID if you renamed your Axle sensor.
+
+{% example %}
+template: |
+  {% set raw = states('sensor.axle_energy_event_start') %}
+  {% set start = as_timestamp(raw, none) %}
+  {% set current = as_timestamp(now()) %}
+  {% set local_now = as_local(as_datetime(current)) %}
+  {% if raw == 'unknown' %}
+    {{ false }}
+  {% elif start is not none %}
+    {% set event_date = as_local(as_datetime(start)).date() %}
+    {{ event_date == local_now.date()
+       and start > current }}
+  {% else %}
+    {{ false }}
+  {% endif %}
+{% endexample %}
+
+5. Expand **Additional options** and paste this into **Availability**, using the same entity ID.
+
+{% example %}
+template: |
+  {{ not is_state('sensor.axle_energy_event_start', 'unavailable') }}
+{% endexample %}
+
+6. Select **Submit**. You can then add the helper to your dashboard.
+
+{% enddetails %}
+
+The helper updates when its source sensor changes and at the start of each minute. It uses the event timestamp to check whether the start time is still in the future and the local calendar date to determine whether the event is today. An invalid timestamp is handled as **Off** instead of causing a template error.
+
+### Minutes until an event starts
+
+For a numeric countdown, you can create an optional [Template helper](/integrations/template/#creating-a-template-helper-from-the-user-interface) from the existing **Event start** and **Event end** sensors. This helper is separate from the entities created by the Axle Energy integration.
+
+It shows the minutes until the event starts, rounded up to the next whole minute. It shows `0` while the event is in progress, **Unknown** when there is no event or the event has ended, and **Unavailable** when either source sensor is unavailable. The helper updates when either source changes and at the start of each minute, without requesting data from Axle. For an automation at an exact event time, use the timestamp sensors with a [time trigger](/docs/automation/trigger/#time-trigger).
+
+{% details "Create a minutes until event start helper" %}
+
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} and select **Create helper**.
+2. Select **Template**, then **Sensor**.
+3. Enter `Axle Energy minutes until event start` as the **Name** and `min` as the **Unit of measurement**. Leave **Device class** and **State class** empty.
+4. Paste the following into **State**. Replace the entity IDs if you have renamed your Axle sensors.
+
+{% example %}
+template: |
+  {% set start = as_timestamp(states('sensor.axle_energy_event_start'), none) %}
+  {% set end = as_timestamp(states('sensor.axle_energy_event_end'), none) %}
+  {% set current = as_timestamp(now()) %}
+  {% if start is not none and end is not none and end > current %}
+    {{ [0, ((start - current) / 60) | round(0, 'ceil') | int] | max }}
+  {% else %}
+    {{ none }}
+  {% endif %}
+{% endexample %}
+
+5. Expand **Additional options** and paste the following into **Availability**, using the same entity IDs.
+
+{% example %}
+template: |
+  {{ not is_state('sensor.axle_energy_event_start', 'unavailable')
+     and not is_state('sensor.axle_energy_event_end', 'unavailable') }}
+{% endexample %}
+
+6. Select **Submit**. You can then add the helper to your dashboard.
+
+{% enddetails %}
+
+### Minutes remaining in an event
+
+To see how much time is left in an active event, create an optional [Template helper](/integrations/template/#creating-a-template-helper-from-the-user-interface) from the existing **Event start** and **Event end** sensors. This helper is separate from the entities created by the Axle Energy integration.
+
+It shows the minutes remaining, rounded up to the next whole minute, while the event is in progress. It shows `0` before the event starts or after it ends, **Unknown** when either timestamp is missing or invalid, and **Unavailable** when either source sensor is unavailable. The helper updates when either source changes and at the start of each minute, without requesting data from Axle. For an automation at an exact event time, use the timestamp sensors with a [time trigger](/docs/automation/trigger/#time-trigger).
+
+{% details "Create a minutes remaining helper" %}
+
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %} and select **Create helper**.
+2. Select **Template**, then **Sensor**.
+3. Enter `Axle Energy minutes remaining` as the **Name** and `min` as the **Unit of measurement**. Leave **Device class** and **State class** empty.
+4. Paste the following into **State**. Replace the entity IDs if you have renamed your Axle sensors.
+
+{% example %}
+template: |
+  {% set start = as_timestamp(states('sensor.axle_energy_event_start'), none) %}
+  {% set end = as_timestamp(states('sensor.axle_energy_event_end'), none) %}
+  {% set current = as_timestamp(now()) %}
+  {% if start is not none and end is not none and end > start %}
+    {% if start <= current < end %}
+      {{ ((end - current) / 60) | round(0, 'ceil') | int }}
+    {% else %}
+      {{ 0 }}
+    {% endif %}
+  {% else %}
+    {{ none }}
+  {% endif %}
+{% endexample %}
+
+5. Expand **Additional options** and paste the following into **Availability**, using the same entity IDs.
+
+{% example %}
+template: |
+  {{ not is_state('sensor.axle_energy_event_start', 'unavailable')
+     and not is_state('sensor.axle_energy_event_end', 'unavailable') }}
+{% endexample %}
+
+6. Select **Submit**. You can then add the helper to your dashboard.
 
 {% enddetails %}
 

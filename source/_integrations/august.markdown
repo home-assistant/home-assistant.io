@@ -9,6 +9,9 @@ ha_category:
   - Event
   - Lock
   - Sensor
+ha_categories:
+  - security_safety.locks_access
+  - security_safety.doorbells_intercoms
 ha_release: 0.64
 ha_iot_class: Cloud Push
 ha_config_flow: true

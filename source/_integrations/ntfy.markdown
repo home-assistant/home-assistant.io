@@ -5,6 +5,8 @@ ha_category:
   - Event
   - Notifications
   - Update
+ha_categories:
+  - messaging_notifications.push_notifications
 ha_iot_class: Cloud Push
 ha_release: 2025.5
 ha_config_flow: true
@@ -157,7 +159,7 @@ The **ntfy** integration adds a device representing the service, along with vari
   - **Description**: The total number of messages sent today.
 - **Messages remaining**
   - **Description**: The number of messages that can still be sent before the daily limit is reached.
-  - **Remarks**: Disabled by default
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
 - **Messages usage limit**
   - **Description**: The maximum number of messages allowed per day on the account.
   - **Category**: Diagnostic

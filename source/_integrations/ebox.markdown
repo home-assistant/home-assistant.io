@@ -3,6 +3,8 @@ title: EBox
 description: Instructions on how to integrate EBox data usage within Home Assistant.
 ha_category:
   - Network
+ha_categories:
+  - computers_network.routers_network
 ha_release: 0.39
 ha_iot_class: Cloud Polling
 ha_domain: ebox

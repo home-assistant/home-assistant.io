@@ -3,6 +3,8 @@ title: Geofency
 description: Instructions for how to use Geofency to track devices in Home Assistant.
 ha_category:
   - Presence detection
+ha_categories:
+  - presence_location.phones_companion_apps
 ha_release: 0.53
 ha_iot_class: Cloud Push
 ha_config_flow: true

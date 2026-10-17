@@ -4,6 +4,8 @@ description: Instructions on how to integrate FYTA sensors within Home Assistant
 ha_category:
   - Binary sensor
   - Sensor
+ha_categories:
+  - garden_plants
 ha_release: 2024.4
 ha_iot_class: Cloud Polling
 ha_config_flow: true

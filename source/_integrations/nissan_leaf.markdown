@@ -3,6 +3,8 @@ title: Nissan Leaf
 description: Instructions for how to integrate Nissan Leaf(s) into Home Assistant.
 ha_category:
   - Car
+ha_categories:
+  - vehicles_transport.cars_evs
 ha_release: 0.89
 ha_iot_class: Cloud Polling
 ha_codeowners:

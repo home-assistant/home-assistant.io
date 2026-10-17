@@ -5,6 +5,9 @@ ha_category:
   - Hub
   - Presence detection
   - Sensor
+ha_categories:
+  - computers_network.routers_network
+  - presence_location.network_presence
 ha_release: 0.83
 ha_config_flow: true
 ha_iot_class: Local Polling

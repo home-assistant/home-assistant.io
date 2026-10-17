@@ -4,6 +4,8 @@ description: Instructions on how to integrate a Panasonic Viera TV with Home Ass
 ha_category:
   - Media player
   - Remote
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: 0.17
 ha_iot_class: Local Polling
 ha_domain: panasonic_viera

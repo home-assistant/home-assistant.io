@@ -6,6 +6,8 @@ ha_category:
   - Energy
   - Modbus-controlled
   - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_codeowners:
   - '@iskramis'
 ha_config_flow: true

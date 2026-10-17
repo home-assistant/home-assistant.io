@@ -1,5 +1,5 @@
 ---
-title: "Finish a timer"
+title: "Finish timer"
 action: timer.finish
 domain: timer
 description: "Finishes a running or paused timer earlier than scheduled."
@@ -21,7 +21,7 @@ To finish a timer from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the timer you want to finish.
-6. From the actions shown for that target, select **Timer: Finish timer**.
+6. From the actions shown for that target, under **Timer**, select **Finish timer**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -43,7 +43,7 @@ action: |
 
 ## Good to know
 
-- Finishing fires the `timer.finished` event. To stop a timer without firing that event, use the [Cancel a timer](/actions/timer.cancel/) action instead.
+- Finishing fires the `timer.finished` event. To stop a timer without firing that event, use the [Cancel timer](/actions/timer.cancel/) action instead.
 
 {% include actions/stuck.md %}
 

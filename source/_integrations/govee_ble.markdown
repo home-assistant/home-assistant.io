@@ -5,6 +5,10 @@ ha_category:
   - Binary Sensor
   - Event
   - Sensor
+ha_categories:
+  - sensors
+  - appliances_cleaning.cooking
+  - buttons_remotes
 ha_bluetooth: true
 ha_release: 2022.8
 ha_iot_class: Local Push

@@ -20,6 +20,8 @@ ha_category:
   - Text
   - Time
   - Weather
+ha_categories:
+  - hubs_protocols.building_automation
 ha_release: 0.24
 ha_iot_class: Local Push
 ha_codeowners:
@@ -687,7 +689,7 @@ unique_id:
   required: false
   type: string
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://contributors.home-assistant.io/core/entities/entity-class/#generic-properties) of the entity.
   required: false
   type: string
   default: None
@@ -2061,7 +2063,7 @@ always_callback:
   type: boolean
   default: false
 state_class:
-  description: Overrides the DPT's default [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes).
+  description: Overrides the DPT's default [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes).
   required: false
   type: string
 device_class:

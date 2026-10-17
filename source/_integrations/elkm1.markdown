@@ -13,6 +13,9 @@ ha_category:
   - Sensor
   - Switch
   - Time
+ha_categories:
+  - security_safety.alarm_systems
+  - hubs_protocols.smart_home_hubs
 ha_iot_class: Local Push
 ha_domain: elkm1
 ha_dhcp: true

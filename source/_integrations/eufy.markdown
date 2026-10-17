@@ -5,6 +5,9 @@ ha_category:
   - Hub
   - Light
   - Switch
+ha_categories:
+  - lighting.bulbs_lamps
+  - plugs_switches
 ha_release: 0.68
 ha_iot_class: Local Polling
 ha_domain: eufy

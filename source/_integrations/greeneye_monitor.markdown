@@ -5,6 +5,8 @@ ha_category:
   - Energy
   - Hub
   - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_release: 0.82
 ha_iot_class: Local Push
 ha_codeowners:

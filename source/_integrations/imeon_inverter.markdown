@@ -5,6 +5,8 @@ ha_release: 2025.5
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.solar_batteries
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:

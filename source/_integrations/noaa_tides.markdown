@@ -3,6 +3,8 @@ title: NOAA Tides
 description: Instructions to add NOAA Tide information to Home Assistant.
 ha_category:
   - Environment
+ha_categories:
+  - weather_alerts.forecasts
 ha_release: 0.75
 ha_iot_class: Cloud Polling
 ha_domain: noaa_tides

@@ -7,6 +7,8 @@ ha_category:
   - Sensor
   - Switch
   - Update
+ha_categories:
+  - computers_network.nas_servers
 ha_iot_class: Local Polling
 ha_release: 0.42
 ha_domain: hassio
@@ -73,7 +75,7 @@ For Home Assistant Host, the following sensors are available:
 
 For each installed app Supervisor provides following binary sensors:
 
-(These entities are disabled by default and must be re-enabled to appear)
+(These entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) and must be re-enabled to appear)
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |

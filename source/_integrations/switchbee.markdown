@@ -7,6 +7,9 @@ ha_category:
   - Cover
   - Light
   - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
+  - plugs_switches
 ha_release: '2022.10'
 ha_iot_class: Local Push
 ha_config_flow: true

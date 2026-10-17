@@ -48,8 +48,6 @@ This passes when `cover.driveway_gate` is currently open.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -119,7 +117,9 @@ automation: |
 
 When you leave home, this automation checks whether any targeted gate is still open. If one is, you get a warning before you get too far away to do anything about it.
 
-- **Trigger**: Person leaves home zone
+- **Trigger**: Zone left
+  - **Target**: Frenck
+  - **Zone**: Home
 - **Condition**: Gate is open
   - **Target**: Driveway gate and courtyard gate
   - **Condition passes if**: Any
@@ -132,10 +132,11 @@ When you leave home, this automation checks whether any targeted gate is still o
 automation: |
   alias: "Warn me if a gate is open when I leave home"
   triggers:
-    - trigger: zone
-      entity_id: person.frenck
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.frenck
+      options:
+        zone: zone.home
   conditions:
     - condition: gate.is_open
       target:

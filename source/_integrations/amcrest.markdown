@@ -6,6 +6,9 @@ ha_category:
   - Camera
   - Hub
   - Sensor
+ha_categories:
+  - security_safety.cameras
+  - security_safety.doorbells_intercoms
 ha_iot_class: Local Polling
 ha_release: 0.49
 ha_domain: amcrest

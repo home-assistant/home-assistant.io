@@ -8,6 +8,10 @@ ha_category:
   - Hub
   - Light
   - Switch
+ha_categories:
+  - climate.fans_ventilation
+  - buttons_remotes
+  - blinds_curtains
 ha_iot_class: Local Push
 ha_release: 0.113
 ha_domain: bond

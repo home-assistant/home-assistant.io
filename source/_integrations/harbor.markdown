@@ -5,6 +5,9 @@ ha_category:
   - Select
   - Sensor
   - Switch
+ha_categories:
+  - health_wellbeing
+  - security_safety.cameras
 ha_config_flow: true
 ha_release: 2026.8
 ha_iot_class: Local Push

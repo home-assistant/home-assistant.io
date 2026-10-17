@@ -6,6 +6,9 @@ ha_category:
   - DIY
   - Sensor
   - Switch
+ha_categories:
+  - hubs_protocols.wireless_protocols
+  - diy_makers.boards_hardware
 ha_release: 0.26
 ha_iot_class: Local Push
 ha_domain: pilight

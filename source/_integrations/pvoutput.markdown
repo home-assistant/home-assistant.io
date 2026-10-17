@@ -3,6 +3,8 @@ title: PVOutput
 description: Instructions on how to use PVOutput within Home Assistant.
 ha_category:
   - Energy
+ha_categories:
+  - energy.solar_batteries
 ha_release: 0.33
 ha_iot_class: Cloud Polling
 ha_codeowners:

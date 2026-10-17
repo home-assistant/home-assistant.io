@@ -4,6 +4,8 @@ description: Instructions on how to set up ReCollect Waste sensor within Home As
 ha_category:
   - Calendar
   - Sensor
+ha_categories:
+  - local_services
 ha_release: 0.87
 ha_iot_class: Cloud Polling
 ha_domain: recollect_waste

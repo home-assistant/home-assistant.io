@@ -3,6 +3,8 @@ title: Sesame Smart Lock
 description: Instructions on how to integrate Sesame by CANDY HOUSE into Home Assistant.
 ha_category:
   - Lock
+ha_categories:
+  - security_safety.locks_access
 ha_iot_class: Cloud Polling
 ha_release: 0.47
 ha_domain: sesame

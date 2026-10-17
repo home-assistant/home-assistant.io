@@ -4,6 +4,8 @@ description: Documentation about Steamist steam showers.
 ha_category:
   - Sensor
   - Switch
+ha_categories:
+  - water.pools_spas
 ha_iot_class: Local Polling
 ha_release: 2022.2
 ha_config_flow: true

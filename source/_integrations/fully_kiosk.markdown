@@ -7,6 +7,8 @@ ha_category:
   - Notifications
   - Sensor
   - Switch
+ha_categories:
+  - computers_network
 ha_release: 2022.9
 ha_iot_class: Local Polling
 ha_config_flow: true

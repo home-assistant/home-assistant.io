@@ -10,6 +10,8 @@ ha_category:
   - Switch
   - Time
   - Update
+ha_categories:
+  - messaging_notifications.push_notifications
 ha_iot_class: Local Polling
 ha_release: 0.49
 ha_codeowners:

@@ -8,6 +8,8 @@ ha_category:
   - Remote
   - Select
   - Sensor
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_iot_class: Local Polling
 ha_release: 0.86
 ha_domain: roku

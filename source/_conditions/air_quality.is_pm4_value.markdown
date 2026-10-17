@@ -51,8 +51,6 @@ This passes when the living room PM4 sensor reads at or above 50 µg/m³.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >
@@ -67,7 +65,7 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md domain="sensor" %}
 
 {% include conditions/behavior.md %}
 
@@ -88,7 +86,7 @@ behavior:
 If your indoor PM4 readings are consistently high, the air filters are likely overdue for a swap. This automation runs every Sunday morning and checks the living room PM4 reading. If the level is at or above 50 μg/m3, you get a reminder to check the filters. On weeks when the air is clean, no notification is sent.
 
 - **Trigger**: Time: Every Sunday at 09:00
-- **Condition**: Air Quality: PM4 value
+- **Condition**: PM4 value
   - **Target**: Living room PM4 sensor
   - **Threshold type**: 50
   - **Condition passes if**: Any

@@ -48,8 +48,6 @@ This passes when `binary_sensor.front_door` is currently closed.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -121,7 +119,8 @@ At bedtime, this automation arms the house only if the front door, back door, an
 - **Condition**: Door is closed
 - **Target**: Front door, back door, and garage door
 - **Condition passes if**: All
-- **Action**: Alarm control panel: Arm away
+- **Action**: Arm alarm away
+  - **Target**: Home alarm
 
 {% details "YAML example for arming only after all doors are closed" %}
 

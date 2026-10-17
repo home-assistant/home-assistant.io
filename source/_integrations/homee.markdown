@@ -16,6 +16,8 @@ ha_category:
   - Sensor
   - Switch
   - Valve
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_config_flow: true
 ha_zeroconf: true
 ha_release: 2025.2

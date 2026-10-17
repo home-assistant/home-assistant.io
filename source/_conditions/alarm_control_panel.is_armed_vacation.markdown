@@ -47,8 +47,6 @@ This passes when the hallway alarm panel is currently armed in vacation mode.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -115,7 +113,9 @@ automation: |
 Your morning routine turns on the lights, starts the coffee maker, and bumps the heating. None of that makes sense in an empty house. Add a "not armed vacation" check so the routine only runs when you are actually home.
 
 - **Trigger**: Time: 06:30 on weekdays
-- **Condition**: Alarm is _not_ armed vacation
+- **Condition**: Not
+  - **Condition**: Alarm is armed vacation
+    - **Target**: Home alarm
 - **Action**: Run the morning routine script
 
 {% details "YAML example for skipping the morning routine on vacation" %}

@@ -3,6 +3,9 @@ title: Fresh-r
 description: Instructions on how to integrate Fresh-r ventilation solutions within Home Assistant.
 ha_category:
   - Sensor
+ha_categories:
+  - climate.fans_ventilation
+  - sensors.air_quality
 ha_release: 2026.4
 ha_iot_class: Cloud Polling
 ha_domain: freshr
@@ -69,7 +72,7 @@ The integration provides the following sensors:
 - **Dew point**
   - **Description**: Dew point temperature of the indoor air, in °C.
   - **Available for**: All devices
-  - **Remarks**: Disabled by default.
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 - **Temperature**
   - **Description**: Indoor temperature, in °C.

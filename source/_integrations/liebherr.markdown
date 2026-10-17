@@ -24,6 +24,8 @@ ha_category:
   - Select
   - Sensor
   - Switch
+ha_categories:
+  - appliances_cleaning.cooking
 ha_platforms:
   - cover
   - diagnostics

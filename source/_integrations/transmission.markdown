@@ -5,6 +5,8 @@ ha_category:
   - Downloading
   - Sensor
   - Switch
+ha_categories:
+  - computers_network.nas_servers
 ha_release: 0.87
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -45,8 +47,8 @@ Username:
   description: "Your Transmission username, if set."
 Password:
   description: "Your Transmission password, if set."
-Verify SSL certificate:
-  description: "Enable SSL certificate verification when connecting via HTTPS."
+Uses an SSL certificate:
+  description: "Connect to the Transmission RPC interface using HTTPS."
 {% endconfiguration_basic %}
 
 ## Supported functionality

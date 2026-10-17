@@ -4,6 +4,8 @@ description: Instructions on how to integrate Roth Touchline SL within Home Assi
 ha_category:
   - Climate
   - Sensor
+ha_categories:
+  - climate.thermostats_heating
 ha_release: 2024.9
 ha_iot_class: Cloud Polling
 ha_domain: touchline_sl

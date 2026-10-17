@@ -5,6 +5,8 @@ ha_category:
   - Climate
   - Sensor
   - Switch
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_release: 2025.11
 ha_iot_class: Cloud Push
 ha_config_flow: true

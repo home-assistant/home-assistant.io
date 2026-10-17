@@ -4,6 +4,8 @@ description: Instructions on how to use public transit data from Nextbus in Home
 ha_category:
   - Sensor
   - Transport
+ha_categories:
+  - vehicles_transport.public_transport
 ha_iot_class: Cloud Polling
 ha_release: 0.93
 ha_config_flow: true

@@ -80,6 +80,8 @@ You create helpers in {% my helpers title="**Settings** > **Devices & services**
 
 Some helpers calculate their value with a [template](/docs/templating/), a small piece of code that, for example, combines the values of several sensors.
 
+For details, refer to [Helpers](/docs/configuration/helpers/).
+
 ## Combining the tools
 
 Most of the time, you combine the tools. These combinations come up often:
@@ -91,7 +93,7 @@ Most of the time, you combine the tools. These combinations come up often:
 - A toggle helper to pause an automation
   - Create a [**Toggle**](/integrations/input_boolean/) helper, for example, "Motion lights active", and add a condition to the automation that checks it. To pause the automation, turn off the toggle. Anyone who can use the dashboard can do that, without editing the automation.
 - A timer helper instead of a long delay
-  - A [delay](/docs/scripts/#wait-for-time-to-pass-delay) in an automation stops when Home Assistant restarts. A [**Timer**](/integrations/timer/) helper with **Restore state and time when Home Assistant starts** turned on continues after a restart. Start the timer in one automation, and react to it in another one with the [**Timer finished**](/triggers/timer.finished/) trigger.
+  - A [delay](/building-blocks/delay/) in an automation stops when Home Assistant restarts. A [**Timer**](/integrations/timer/) helper with **Restore state and time when Home Assistant starts** turned on continues after a restart. Start the timer in one automation, and react to it in another one with the [**Timer finished**](/triggers/timer.finished/) trigger.
   - If the timer ran out while Home Assistant was off, the **Timer finished** trigger doesn't run when Home Assistant starts again. For details, refer to the [**Timer finished**](/triggers/timer.finished/) trigger.
 - A schedule helper instead of several time triggers
   - A [**Schedule**](/integrations/schedule/) helper holds time blocks for each day of the week, for example, the hours when the heating should be on. An automation reacts with the [**Schedule block started**](/triggers/schedule.block_started/) trigger, or checks the [**Schedule is on**](/conditions/schedule.is_on/) condition. To change the times, you edit the schedule, not the automation.

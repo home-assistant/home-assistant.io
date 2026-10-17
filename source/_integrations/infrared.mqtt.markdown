@@ -79,7 +79,7 @@ default_entity_id:
   required: false
   type: string
 device:
-  description: "Device information for this infrared entity. Used to link the entity to a device in the [device registry](https://developers.home-assistant.io/docs/device_registry_index). Only works when [`unique_id`](#unique_id) is set. At least one of `identifiers` or `connections` is required to identify the device."
+  description: "Device information for this infrared entity. Used to link the entity to a device in the [device registry](https://contributors.home-assistant.io/core/integrations/device-registry/). Only works when [`unique_id`](#unique_id) is set. At least one of `identifiers` or `connections` is required to identify the device."
   required: false
   type: map
   keys:
@@ -132,7 +132,7 @@ device:
       required: false
       type: string
 enabled_by_default:
-  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. When set to `false`, Home Assistant adds the entity as disabled. A disabled entity has no state, and you can't use it in automations or dashboards until you [enable it](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
   required: false
   type: boolean
   default: true
@@ -142,7 +142,7 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://contributors.home-assistant.io/core/entities/entity-class/#generic-properties) of the entity.
   required: false
   type: string
 entity_picture:
@@ -261,7 +261,7 @@ default_entity_id:
   required: false
   type: string
 device:
-  description: "Device information for this infrared entity. Used to link the entity to a device in the [device registry](https://developers.home-assistant.io/docs/device_registry_index). Only works when [`unique_id`](#unique_id) is set. At least one of `identifiers` or `connections` is required to identify the device."
+  description: "Device information for this infrared entity. Used to link the entity to a device in the [device registry](https://contributors.home-assistant.io/core/integrations/device-registry/). Only works when [`unique_id`](#unique_id) is set. At least one of `identifiers` or `connections` is required to identify the device."
   required: false
   type: map
   keys:
@@ -314,7 +314,7 @@ device:
       required: false
       type: string
 enabled_by_default:
-  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. When set to `false`, Home Assistant adds the entity as disabled. A disabled entity has no state, and you can't use it in automations or dashboards until you [enable it](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
   required: false
   type: boolean
   default: true
@@ -324,7 +324,7 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://contributors.home-assistant.io/core/entities/entity-class/#generic-properties) of the entity.
   required: false
   type: string
 entity_picture:

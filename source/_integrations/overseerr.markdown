@@ -5,6 +5,8 @@ ha_category:
   - Event
   - Multimedia
   - Sensor
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: 2025.2
 ha_iot_class: Local Push
 ha_config_flow: true

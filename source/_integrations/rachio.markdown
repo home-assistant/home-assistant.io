@@ -6,6 +6,8 @@ ha_category:
   - Calendar
   - Irrigation
   - Switch
+ha_categories:
+  - garden_plants
 ha_iot_class: Cloud Push
 ha_release: 0.73
 ha_domain: rachio

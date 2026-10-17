@@ -4,6 +4,8 @@ description: Instructions on how to set up AWS S3 bucket to be used as a backup 
 ha_release: 2025.5
 ha_category:
   - Backup
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: aws_s3

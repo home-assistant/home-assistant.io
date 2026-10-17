@@ -9,6 +9,10 @@ ha_category:
   - Hub
   - Media source
   - Sensor
+ha_categories:
+  - climate.thermostats_heating
+  - security_safety.cameras
+  - security_safety.doorbells_intercoms
 ha_iot_class: Cloud Push
 ha_release: 0.7
 ha_config_flow: true
@@ -157,7 +161,7 @@ The steps below use *Web Application Auth* with *My Home Assistant* to handle Go
 
     ![Screenshot of OAuth Client ID and Client Secret](/images/integrations/nest/oauth_created.png)
 
-8. You now have the *OAuth Client ID* and *OAuth Client Secret* needed by Home Assistant. Follow the [instructions for Application Credentials](/integrations/application_credentials) to add the *OAuth Client ID* and *OAuth Client Secret* in Home Assistant.
+8. Copy the *OAuth Client ID* and *OAuth Client Secret* and store them securely before closing this window. Google only displays the full client secret when it is created, so you cannot retrieve it later. If you lose the secret, you will need to generate a new one. Follow the [instructions for Application Credentials](/integrations/application_credentials) to add the credentials in Home Assistant.
 
 {% enddetails %}
 

@@ -19,7 +19,7 @@ To play media from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Music Assistant media player you want to play media on.
-6. From the actions shown for that target, select **Play media**.
+6. From the actions shown for that target, under **Music Assistant**, select **Play media**.
 7. Fill in the options you want to use.
 8. Select **Save**.
 

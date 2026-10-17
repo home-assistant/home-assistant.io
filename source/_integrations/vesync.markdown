@@ -7,6 +7,10 @@ ha_category:
   - Number
   - Switch
   - Update
+ha_categories:
+  - climate.air_purifiers_humidifiers
+  - plugs_switches
+  - appliances_cleaning.cooking
 ha_release: 0.66
 ha_iot_class: Cloud Polling
 ha_config_flow: true

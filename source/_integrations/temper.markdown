@@ -3,6 +3,8 @@ title: TEMPer
 description: Instructions on how to integrate TEMPer sensors into Home Assistant.
 ha_category:
   - DIY
+ha_categories:
+  - sensors.temperature_humidity
 ha_iot_class: Local Polling
 ha_release: pre 0.7
 ha_domain: temper

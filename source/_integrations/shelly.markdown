@@ -18,6 +18,10 @@ ha_category:
   - Text
   - Update
   - Valve
+ha_categories:
+  - plugs_switches
+  - lighting.bulbs_lamps
+  - energy.meters_monitoring
 ha_release: 0.115
 ha_codeowners:
   - '@bieniu'
@@ -279,7 +283,7 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `Momentar
 
 If the **Input Mode** of the switch connected to the device is set to `Button`, the integration creates an event entity for this switch. You can use this entity in your automations.
 
-Each script which generates events using [Shelly.emitEvent()](https://shelly-api-docs.shelly.cloud/gen2/Scripts/ShellyScriptLanguageFeatures#shellyemitevent) also gets an corresponding event entity. This entity is disabled by default. After changing a script, it's required to manually reload the device before new event types show up.
+Each script which generates events using [Shelly.emitEvent()](https://shelly-api-docs.shelly.cloud/gen2/Scripts/ShellyScriptLanguageFeatures#shellyemitevent) also gets an corresponding event entity. This entity is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). After changing a script, it's required to manually reload the device before new event types show up.
 
 {% note %}
 To avoid increased startup time, only the first 5 KB of the script is downloaded and analyzed. If your script exceeds 5 KB, place the event emitting function at the beginning to ensure it is processed.

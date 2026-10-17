@@ -6,6 +6,9 @@ ha_category:
   - Fan
   - Select
   - Water heater
+ha_categories:
+  - climate.thermostats_heating
+  - climate.heat_pumps_air_conditioning
 ha_release: 0.99
 ha_iot_class: Cloud Polling
 ha_config_flow: true

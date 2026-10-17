@@ -5,6 +5,8 @@ ha_category:
   - Hub
   - Remote
   - Sensor
+ha_categories:
+  - buttons_remotes
 ha_release: 0.45
 ha_iot_class: Local Push
 ha_domain: kira

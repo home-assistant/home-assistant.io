@@ -4,6 +4,8 @@ description: Instructions on how to use the input button helper with Home Assist
 ha_category:
   - Automation
   - Helper
+ha_categories:
+  - helpers
 ha_release: 2022.2
 ha_quality_scale: internal
 ha_codeowners:

@@ -8,6 +8,8 @@ ha_category:
   - Select
   - Sensor
   - Switch
+ha_categories:
+  - energy.ev_charging
 ha_release: 0.38
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -76,7 +78,7 @@ If the credentials on the charger change later, Home Assistant prompts you to re
 
 ## Supported functionality
 
-The integration adds a single device per charger to Home Assistant and exposes the following entities. Some entities are disabled by default to keep the device page tidy. You can enable them from the device page if you need them.
+The integration adds a single device per charger to Home Assistant and exposes the following entities. Some entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) to keep the device page tidy. You can enable them from the device page if you need them.
 
 ### Sensors
 

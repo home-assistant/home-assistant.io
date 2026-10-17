@@ -16,6 +16,9 @@ ha_category:
   - Switch
   - Text
   - Update
+ha_categories:
+  - vehicles_transport.cars_evs
+  - energy.solar_batteries
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
 ha_config_flow: true

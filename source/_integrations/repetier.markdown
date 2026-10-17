@@ -4,6 +4,8 @@ description: Instructions how to add Repetier-Server sensors to Home Assistant.
 ha_category:
   - Hub
   - Sensor
+ha_categories:
+  - computers_network.printers
 ha_release: 0.94
 ha_iot_class: Local Polling
 ha_codeowners:

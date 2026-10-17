@@ -7,7 +7,7 @@ related_actions:
   - elkm1.sensor_counter_refresh
 ---
 
-The **Sensor counter set** action sets an Elk-M1 counter to a specific value.
+The **Elk-M1 Control: Sensor counter set** action sets an Elk-M1 counter to a specific value.
 
 This is useful when you want an automation to reset or preset a counter, for example to start a count from a known value.
 

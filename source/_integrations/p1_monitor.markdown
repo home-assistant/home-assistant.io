@@ -3,6 +3,9 @@ title: P1 Monitor
 description: Instructions on how to integrate P1 Monitor within Home Assistant.
 ha_category:
   - Energy
+ha_categories:
+  - energy.meters_monitoring
+  - water.meters_leak_detection
 ha_release: 2021.9
 ha_iot_class: Local Polling
 ha_config_flow: true

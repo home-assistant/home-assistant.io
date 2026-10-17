@@ -9,6 +9,8 @@ ha_category:
   - Sensor
   - Switch
   - Update
+ha_categories:
+  - computers_network.routers_network
 ha_release: '2021.12'
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -47,7 +49,7 @@ Currently, the following entities within Home Assistant are supported.
 
 - Device attached to the router
   - Updates every 5 minutes
-  - Is disabled by default because it typically rarely changes
+  - Is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) because it typically rarely changes
 
 ### Buttons
 

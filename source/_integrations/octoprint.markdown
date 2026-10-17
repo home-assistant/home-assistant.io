@@ -7,6 +7,8 @@ ha_category:
   - Button
   - Number
   - Sensor
+ha_categories:
+  - computers_network.printers
 ha_config_flow: true
 ha_release: 0.19
 ha_codeowners:

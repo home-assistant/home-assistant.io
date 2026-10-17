@@ -3,6 +3,8 @@ title: Namecheap DynamicDNS
 description: Keep your namecheap dynamic DNS up to date
 ha_category:
   - Network
+ha_categories:
+  - computers_network.routers_network
 ha_iot_class: Cloud Push
 ha_release: 0.56
 ha_domain: namecheapdns

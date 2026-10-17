@@ -4,6 +4,8 @@ description: Instructions on how to set up MQTT within Home Assistant.
 ha_category:
   - Hub
   - Update
+ha_categories:
+  - diy_makers
 featured: true
 ha_release: pre 0.7
 ha_iot_class: Local Push
@@ -325,12 +327,12 @@ For every configured MQTT entity Home Assistant automatically assigns a unique `
 If the `default_entity_id` option is set, then this will be used to generate the `entity_id`.
 If, for example, we have configured a `sensor`, and we have set `default_entity_id` to `sensor.test`, then Home Assistant will try to assign `sensor.test` as `entity_id`. If `sensor.test` already exists, Home Assistant will append a suffix to make it unique, for example, `sensor.test_2`.
 
-This means any MQTT entity which is part of a device will [automatically have its `friendly_name` attribute prefixed with the device name](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations)
+This means any MQTT entity which is part of a device will [automatically have its `friendly_name` attribute prefixed with the device name](https://contributors.home-assistant.io/core/entities/naming/#use-has_entity_name)
 
 Unnamed `binary_sensor`, `button`, `number`, and `sensor` entities will now be named by their device class instead of being named "MQTT binary sensor" and similar.
 It's allowed to set an MQTT entity's name to `None` (use `null` in YAML) to mark it as the main feature of a device.
 
-Note that on each MQTT entity, the `has_entity_name` attribute will be set to `True`. More details [can be found here](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations).
+Note that on each MQTT entity, the `has_entity_name` attribute will be set to `True`. More details [can be found here](https://contributors.home-assistant.io/core/entities/naming/#use-has_entity_name).
 
 ## Grouping entities
 
@@ -1491,7 +1493,7 @@ The MQTT integration supports templating. Read more [about using templates with 
 
 #### REST API
 
-Using the [REST API](https://developers.home-assistant.io/docs/api/rest/) to send a message to a given topic.
+Using the [REST API](https://contributors.home-assistant.io/core/internals/rest-api/) to send a message to a given topic.
 
 ```bash
 $ curl -X POST \

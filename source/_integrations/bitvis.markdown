@@ -5,6 +5,8 @@ ha_release: '2026.10'
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_platforms:
   - sensor
 ha_iot_class: Local Push

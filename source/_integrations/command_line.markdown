@@ -7,6 +7,8 @@ ha_category:
   - Notifications
   - Sensor
   - Utility
+ha_categories:
+  - diy_makers
 ha_release: 0.12
 ha_iot_class: Local Polling
 ha_domain: command_line
@@ -226,7 +228,7 @@ command_line:
           type: device_class
           default: None
         state_class:
-          description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor."
+          description: "The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor."
           required: false
           type: string
           default: None
@@ -240,7 +242,7 @@ command_line:
           required: false
           type: device_class
         state_class:
-          description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will display the value based on the **Number Format** defined in the user profile."
+          description: "The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor. This will display the value based on the **Number Format** defined in the user profile."
           required: false
           type: string
     switch:

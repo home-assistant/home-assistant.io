@@ -17,6 +17,9 @@ related:
 ha_category:
   - Climate
   - Modbus-controlled
+ha_categories:
+  - water.pools_spas
+  - climate.thermostats_heating
 ha_platforms:
   - binary_sensor
   - climate
@@ -183,7 +186,7 @@ The **Saunum** integration provides the following entities.
 - **On time**
   - **Description**: Total accumulated operating time of the Leil touch screen control panel since last restart.
   - **Unit**: Seconds
-  - **Remarks**: This sensor is disabled by default. Enable it in the entity settings if you want to track usage statistics.
+  - **Remarks**: This sensor is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). Enable it in the entity settings if you want to track usage statistics.
 
 ### Binary sensors
 

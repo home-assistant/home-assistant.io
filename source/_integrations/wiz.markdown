@@ -8,6 +8,9 @@ ha_category:
   - Number
   - Sensor
   - Switch
+ha_categories:
+  - lighting.bulbs_lamps
+  - plugs_switches
 ha_iot_class: Local Push
 ha_release: '2022.3'
 ha_dhcp: true

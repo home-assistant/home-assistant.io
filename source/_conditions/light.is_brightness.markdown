@@ -53,8 +53,6 @@ This passes when the living room light's brightness is at or above 50%.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: >
@@ -90,7 +88,8 @@ When the movie-night button is pressed, only start the movie scene if the living
 - **Target**: Living room light
 - **Threshold type**: 40
 - **Condition passes if**: Any
-- **Action**: Scene: Movie night
+- **Action**: Activate scene
+  - **Target**: Movie night
 
 {% details "YAML example for a dim-gated movie scene" %}
 

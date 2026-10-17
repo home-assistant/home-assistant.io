@@ -4,6 +4,8 @@ description: Matrix chatbot support
 ha_category:
   - Hub
   - Notifications
+ha_categories:
+  - messaging_notifications.chat_apps
 ha_iot_class: Cloud Push
 ha_release: 0.69
 ha_domain: matrix

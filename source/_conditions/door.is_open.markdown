@@ -48,8 +48,6 @@ This passes when `binary_sensor.patio_door` is currently open.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -84,7 +82,9 @@ for:
 
 If you have created a {% term helper %} to mark bedtime, this automation can use it to check whether any exterior door is still open. If one is, Home Assistant sends a notification instead of letting you discover it later.
 
-- **Trigger**: Bedtime helper turns on
+- **Trigger**: State changed
+  - **Entity**: Bedtime mode helper
+  - **To**: On
 - **Condition**: Door is open
   - **Target**: Front door, patio door, and garage door
   - **Condition passes if**: Any
@@ -122,9 +122,11 @@ automation: |
 
 ### Automation: alert you if the garage door is still open when you leave home
 
-When the last person leaves home, this automation checks whether the garage door is still open. If it is, Home Assistant sends an alert so you can close it before getting too far away.
+When Frenck leaves home, this automation checks whether the garage door is still open. If it is, Home Assistant sends an alert so Frenck can close it before getting too far away.
 
-- **Trigger**: Person leaves home zone
+- **Trigger**: Zone left
+  - **Target**: Frenck
+  - **Zone**: Home
 - **Condition**: Door is open
   - **Target**: Garage door
   - **Condition passes if**: Any
@@ -137,10 +139,11 @@ When the last person leaves home, this automation checks whether the garage door
 automation: |
   alias: "Warn if garage door is open when leaving home"
   triggers:
-    - trigger: zone
-      entity_id: person.frenck
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.frenck
+      options:
+        zone: zone.home
   conditions:
     - condition: door.is_open
       target:

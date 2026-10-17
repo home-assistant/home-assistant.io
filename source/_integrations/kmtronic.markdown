@@ -3,6 +3,8 @@ title: KMtronic
 description: Integrate KMTronic devices
 ha_category:
   - Switch
+ha_categories:
+  - plugs_switches
 ha_release: 2021.3
 ha_codeowners:
   - '@dgomes'

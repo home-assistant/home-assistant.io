@@ -5,6 +5,9 @@ ha_release: 2026.6
 ha_category:
   - Sensor
   - Transport
+ha_categories:
+  - vehicles_transport.public_transport
+  - local_services
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@Crocmagnon'
@@ -146,7 +149,7 @@ For each Vélo'v station you add, the following sensor entities are created:
   - **Description**: The number of free docking stands available at the station.
 
 - **Capacity**
-  - **Description**: The total number of docking stands at the station. Disabled by default.
+  - **Description**: The total number of docking stands at the station. [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 - **Electrical internal battery bikes**
   - **Description**: The number of electrical bikes with an internal battery available at the station. Disabled by default.

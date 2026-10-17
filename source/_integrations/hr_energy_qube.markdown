@@ -9,6 +9,8 @@ ha_category:
   - Sensor
   - Switch
   - Water heater
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -132,7 +134,7 @@ Home Assistant checks that the new address belongs to a Qube heat pump and, when
 - **Compressor alarm**
   - **Description**: Indicates a compressor-related alarm condition.
 - **Room sensor enabled**
-  - **Description**: Indicates whether the room temperature sensor is enabled. Disabled by default.
+  - **Description**: Indicates whether the room temperature sensor is enabled. [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 - **Plant sensor enabled**
   - **Description**: Indicates whether the plant temperature sensor is enabled. Disabled by default.
 - **Buffer sensor enabled**

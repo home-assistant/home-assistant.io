@@ -6,6 +6,8 @@ ha_category:
   - Multimedia
   - Sensor
   - Update
+ha_categories:
+  - productivity_information.documents_photos
 ha_release: 2025.6
 ha_config_flow: true
 ha_iot_class: Local Polling

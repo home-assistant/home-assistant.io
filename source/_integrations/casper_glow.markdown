@@ -7,6 +7,9 @@ ha_category:
   - Light
   - Select
   - Sensor
+ha_categories:
+  - lighting.bulbs_lamps
+  - health_wellbeing
 ha_bluetooth: true
 ha_release: 2026.4
 ha_iot_class: Local Polling
@@ -78,7 +81,7 @@ The **Casper Glow** {% term integration %} provides the following entities.
 - **Battery**
   - **Description**: Reports the current battery level of the Glow as a percentage.
 
-- **Dimming end time** (disabled by default)
+- **Dimming end time** ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
   - **Description**: Shows the projected time when the current dimming sequence will end. This value is a timestamp that updates only when there is a significant change during a poll interval. Such as pausing or resuming dimming, or manually adjusting the physical light.
 
 #### Selects

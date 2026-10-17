@@ -4,6 +4,8 @@ description: Instructions on how to integrate LD2410 BLE devices into Home Assis
 ha_category:
   - Presence detection
   - Sensor
+ha_categories:
+  - sensors.motion_presence
 ha_bluetooth: true
 ha_release: 2023.2
 ha_iot_class: Local Push

@@ -3,6 +3,8 @@ title: Google Wifi
 description: Instructions on how to integrate Google Wifi/OnHub routers into Home Assistant.
 ha_category:
   - System monitor
+ha_categories:
+  - computers_network.routers_network
 ha_iot_class: Local Polling
 ha_release: '0.50'
 ha_domain: google_wifi

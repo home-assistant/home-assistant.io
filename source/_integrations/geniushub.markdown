@@ -7,6 +7,8 @@ ha_category:
   - Sensor
   - Switch
   - Water heater
+ha_categories:
+  - climate.thermostats_heating
 ha_release: 0.92
 ha_iot_class: Local Polling
 ha_codeowners:

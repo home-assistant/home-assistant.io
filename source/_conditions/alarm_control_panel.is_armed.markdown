@@ -47,8 +47,6 @@ This passes when the hallway alarm panel is currently armed in any mode.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -86,7 +84,8 @@ At midnight, power off standby appliances like the TV and coffee maker, but only
 - **Condition**: Alarm is armed
 - **Target**: Hallway alarm panel
 - **Condition passes if**: Any
-- **Action**: Switch: Turn off (TV, coffee maker)
+- **Action**: Turn off switch
+  - **Target**: TV plug, Coffee maker
 
 {% details "YAML example for turning off appliances when armed at midnight" %}
 

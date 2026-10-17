@@ -4,6 +4,8 @@ description: Instructions on how to integrate IAMMETER sensor within Home Assist
 ha_category:
   - Energy
   - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_release: 0.107
 ha_iot_class: Local Polling
 ha_domain: iammeter

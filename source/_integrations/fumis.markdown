@@ -4,6 +4,8 @@ description: Instructions on how to integrate your Fumis-based pellet stove with
 ha_release: 2026.5
 ha_category:
   - Climate
+ha_categories:
+  - climate.thermostats_heating
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: fumis
@@ -111,7 +113,7 @@ The integration provides sensors that give you insight into your stove's operati
 - **Misfires**: Number of failed ignition attempts.
 - **Time to service**: Hours remaining until the next scheduled maintenance.
 
-Some additional sensors are available but disabled by default because they are primarily useful for troubleshooting: fan speeds, Wi-Fi RSSI, and combustion chamber pressure. You can enable them from the entity settings if needed.
+Some additional sensors are available but [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) because they are primarily useful for troubleshooting: fan speeds, Wi-Fi RSSI, and combustion chamber pressure. You can enable them from the entity settings if needed.
 
 #### Binary sensors
 
