@@ -31,7 +31,7 @@ output: "2024-03-15T14:50:00+01:00"
 
 ```signature
 value | timestamp_local(
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> str | Any
 ```
 

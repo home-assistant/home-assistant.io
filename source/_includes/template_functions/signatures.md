@@ -2,9 +2,11 @@
 
 The signature is a technical summary of this template function. It shows the name of the function, the values (called parameters) it accepts, and what type of data each parameter expects (for example, a piece of text or a number).
 
-Function parameters that have a `=` with a value after them are optional. If you leave them out, the default value shown is used automatically. Function parameters without a default are required.
+Function parameters that have a `=` with a value after them are optional. If you leave them out, the default value shown is used automatically.
 
-If a parameter shows `_SENTINEL`, it has no default value. If you leave it out and the function can't produce a result, the template raises an error. `_SENTINEL` is only a placeholder in the signature: don't type it in your template. To get this behavior, leave the parameter out.
+Function parameters without a `=` are usually required. A few optional parameters have no default value, so the signature shows them without a `=` as well. To check whether a parameter is required, look at the parameter list below the signature. Each parameter is marked as **Required** or **Optional**.
+
+The most common optional parameter without a default value is `default`. The `default` parameter sets the value a function returns when the function can't produce a result, for example, when `float` gets text that isn't a number. If you leave out `default`, there is no fallback value, so the function raises an error and the template fails. If you set `default`, the function returns your value instead of raising an error.
 
 {% details "How to read a signature" %}
 
@@ -15,13 +17,14 @@ round(
     value: Any,
     precision: int = 0,
     method: str = "common",
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> float | int | Any
 ```
 
 - `round` is the name of the function.
 - Between the parentheses are the parameters. Each one has a name, followed by a colon and the type of value it expects.
-- `= 0` and `= "common"` are default values. You can leave these parameters out.
+- `= 0` and `= "common"` are default values. You can leave out `precision` and `method`, and `round` uses these default values.
+- `default` has no `=`, but the parameter list marks `default` as optional. If you leave out `default` and `round` gets a value that isn't a number, `round` raises an error.
 - `->` shows the type of value the function returns.
 - Inside a signature, `|` means "or". This function returns a decimal number, a whole number, or the value you passed as `default`.
 

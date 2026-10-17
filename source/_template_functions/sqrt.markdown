@@ -37,7 +37,7 @@ output: "4.0"
 ```signature
 sqrt(
     value: Any,
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> float
 ```
 

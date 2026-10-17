@@ -40,7 +40,7 @@ output: "1.0"
 ```signature
 cos(
     value: Any,
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> float
 ```
 

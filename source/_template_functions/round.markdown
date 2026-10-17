@@ -34,7 +34,7 @@ round(
     value: Any,
     precision: int = 0,
     method: str = "common",
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> float | int | Any
 ```
 

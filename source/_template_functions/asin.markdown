@@ -38,7 +38,7 @@ output: "1.5707963267948966"
 ```signature
 asin(
     value: Any,
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> float
 ```
 

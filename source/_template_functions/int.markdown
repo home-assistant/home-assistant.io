@@ -38,7 +38,7 @@ output: "87"
 ```signature
 int(
     value: Any,
-    default: Any = _SENTINEL,
+    default: Any,
     base: int = 10,
 ) -> int | Any
 ```

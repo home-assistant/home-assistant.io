@@ -38,7 +38,7 @@ output: "21.5"
 ```signature
 float(
     value: Any,
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> float | Any
 ```
 

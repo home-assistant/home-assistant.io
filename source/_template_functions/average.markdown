@@ -39,7 +39,7 @@ output: "21.1"
 ```signature
 average(
     *args: list | float,
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> float
 ```
 

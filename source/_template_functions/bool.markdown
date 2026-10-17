@@ -38,7 +38,7 @@ output: "false"
 ```signature
 bool(
     value: Any,
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> bool | Any
 ```
 

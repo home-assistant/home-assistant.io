@@ -33,7 +33,7 @@ output: "1.5"
 multiply(
     value: Any,
     amount: float,
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> float | Any
 ```
 

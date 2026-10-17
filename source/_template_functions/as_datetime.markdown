@@ -39,7 +39,7 @@ output: "2024-03-15 14:30:00+01:00"
 ```signature
 as_datetime(
     value: str | int | float,
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> datetime | Any
 ```
 

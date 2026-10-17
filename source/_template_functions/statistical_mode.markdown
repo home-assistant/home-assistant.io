@@ -39,7 +39,7 @@ output: "21"
 ```signature
 statistical_mode(
     *args: list | float,
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> float
 ```
 

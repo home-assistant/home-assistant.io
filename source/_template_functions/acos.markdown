@@ -38,7 +38,7 @@ output: "1.0471975511965979"
 ```signature
 acos(
     value: Any,
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> float
 ```
 

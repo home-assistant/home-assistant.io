@@ -33,7 +33,7 @@ output: "24.0"
 add(
     value: Any,
     amount: float,
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> float | Any
 ```
 
