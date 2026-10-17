@@ -645,3 +645,91 @@ a.option-card:hover {
     }
   }
 }
+
+// The filters look like the category menu: a label with a bordered box. On
+// phones they collapse into one Filters menu, like the categories.
+#components-page {
+  .filters-nav {
+    > summary {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding: 10px 14px;
+      border: 2px solid $blueDark;
+      border-radius: 8px;
+      cursor: pointer;
+      list-style: none;
+      font-size: 16px;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &::after {
+        content: "";
+        margin-left: auto;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid currentColor;
+      }
+
+      iconify-icon {
+        font-size: 20px;
+      }
+
+      @media only screen and (min-width: $desk-start) {
+        display: none;
+      }
+    }
+
+    &[open] > summary::after {
+      transform: rotate(180deg);
+    }
+  }
+
+  .filters-nav-label {
+    font-weight: 500;
+  }
+
+  .filters-nav-count {
+    color: $gray;
+  }
+
+  .integration-filter-radio {
+    margin-bottom: 16px;
+  }
+
+  .filter-title {
+    position: static;
+    margin: 0 0 4px;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    color: $gray;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: left;
+    text-transform: none;
+  }
+
+  .integration-filter.integration-filter-select {
+    &::after {
+      top: auto;
+      bottom: 34px;
+      right: 14px;
+      margin-top: 0;
+      border-top-color: currentColor;
+    }
+
+    .ha_category {
+      top: 0;
+      margin-bottom: 16px;
+      padding: 8px 36px 8px 14px;
+      border: 2px solid $blueDark;
+      border-radius: 8px;
+      background-color: transparent;
+      text-align-last: left;
+    }
+  }
+}

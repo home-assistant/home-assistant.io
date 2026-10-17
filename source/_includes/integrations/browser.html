@@ -81,6 +81,18 @@ join: ',' | split: ',' -%}
 
 <div class="grid">
 
+<details class="filters-nav" open>
+  <summary>
+    <iconify-icon icon="mdi:filter-variant"></iconify-icon>
+    <span class="filters-nav-label">Filters</span>
+    <span class="filters-nav-count"></span>
+  </summary>
+  <script>
+    if (window.matchMedia('(max-width: 1139px)').matches) {
+      document.currentScript.parentElement.open = false;
+    }
+  </script>
+
   <div class="grid__item six-sixths lap-one-whole palm-one-whole">
     <fieldset class="integration-filter integration-filter-radio">
       <div class="filter-button">
@@ -106,42 +118,6 @@ join: ',' | split: ',' -%}
           <option value="#">All</option>
           <option value="local">Local</option>
           <option value="cloud">Cloud</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="grid__item one-quarter lap-one-whole palm-one-whole category_select">
-      <div class="integration-filter integration-filter-select">
-        <h3 class="filter-title">Category</h3>
-        <select class="ha_category" name="category" data-id="cat">
-          <option value="#">All</option>
-          {%- for category in categories -%}
-            {%- assign category_name = "" -%}
-            {%- assign components_count = 0 -%}
-            {%- for comp in components -%}
-              {%- assign comp_categories = comp.ha_category | join: ',' | downcase -%}
-              {%- if comp_categories contains category -%}
-                {%- if category_name == "" -%}
-                  {%- for cat in comp.ha_category -%}
-                    {%- assign lower_cat = cat | downcase -%}
-                    {%- if lower_cat == category -%}
-                      {%- assign category_name = cat -%}
-                    {%- endif -%}
-                  {%- endfor -%}
-                {%- endif -%}
-                {%- assign components_count = components_count | plus: 1 -%}
-              {%- endif -%}
-            {%- endfor -%}
-            {%- if category != 'other' and components_count != 0 -%}
-              {%- if category_name == "" -%}
-                {%- assign category_name = category | capitalize -%}
-              {%- endif -%}
-              <option value='{{ category | slugify }}'>{{ category_name }}</option>
-            {%- endif -%}
-          {%- endfor -%}
-
-          <option value='other'>Other</option>
-
         </select>
       </div>
     </div>
@@ -195,6 +171,7 @@ join: ',' | split: ',' -%}
       </div>
     </div>
   </div>
+</details>
 
   <div class="grid__item six-sixths lap-one-whole palm-one-whole">
     <div class="component-search">
@@ -435,6 +412,7 @@ join: ',' | split: ',' -%}
       updateFilterButtons(query);
       updateFilterElements(query);
       updateSubcategoryLinks(query);
+      updateFiltersCount(query);
 
       data.components = integrations.filter(integration => {
         if (pageCategory && !inCategory(integration, pageCategory)) {
@@ -613,6 +591,9 @@ join: ',' | split: ',' -%}
     function matchFilterElementToQuery(id, query) {
       //dynamically grab select variables
       let $filterElement = window[`$${id}Filter`];
+      if (!$filterElement) {
+        return;
+      }
       if (id === 'search') {
         if ($filterElement.value !== query) {
           // set value of search input
@@ -720,6 +701,9 @@ join: ',' | split: ',' -%}
 
       if (id !== 'search' && id !== 'brands') {
         let $filterElement = window[`$${id}Filter`];
+        if (!$filterElement) {
+          return `${category}: ${key}`;
+        }
         let options = [...$filterElement.querySelectorAll('option')]
         let filteredOption = options.filter(option => option.value === key)[0];
 
@@ -823,6 +807,14 @@ join: ',' | split: ',' -%}
         const subcategory = `${pageCategory}.${el.dataset.subcategoryCount}`;
         el.textContent = integrations.filter(i => i.categories.includes(subcategory)).length;
       });
+    }
+
+    function updateFiltersCount(query) {
+      const count = query ? Object.keys(query).filter(key => key !== 'search' && key !== 'subcategory').length : 0;
+      const badge = document.querySelector('.filters-nav-count');
+      if (badge) {
+        badge.textContent = count ? `· ${count}` : '';
+      }
     }
 
     function updateSubcategoryLinks(query) {
