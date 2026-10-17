@@ -18,6 +18,14 @@ The **Waze Travel Time** {% term integration %} provides travel time from the [W
 
 {% include integrations/config_flow.md %}
 
+{% note %}
+Waze appears to limit routing requests to 100 per public IP over two hours. The integration automatically adjusts the polling interval based on the number of active routes in your Home Assistant instance, leaving 10% of the request limit available for other requests. Only routes with automatic polling enabled and an enabled sensor are included.
+
+The polling interval starts at five minutes for up to three routes and increases as you add more routes.
+
+Requests from setup, manual updates, the `waze_travel_time.get_travel_times` action, or other applications sharing your public IP are not included in this calculation and can still cause the request limit to be exceeded.
+{% endnote %}
+
 Notes:
 
 - If a unit system is not specified, the {% term integration %} will use the unit system configured on your Home Assistant instance.
@@ -25,7 +33,7 @@ Notes:
 - The `incl_filter`/`excl_filter` allow you to force the {% term integration %} to use a particular route or avoid a particular route in its travel time calculation. These inputs must be an exact match to the street name including casing, spaces, and special characters. Use the [`waze_travel_time.get_travel_times`](/actions/waze_travel_time.get_travel_times/) action to get the exact street names for each route.
 - When using the `Avoid Toll Roads?`, `Avoid Subscription Roads?` and `Avoid Ferries?` options, be aware that Waze will sometimes still route you over toll roads or ferries if a valid vignette/subscription is assumed. Default behavior is that Waze will route you over roads having subscription options. It is therefor best is to set both `Avoid Toll Roads?` and `Avoid Subscription Roads?` or `Avoid Ferries?` if needed and experiment to ensure the desired outcome.
 - When **Origin** or **Destination** is an address, Waze resolves it to coordinates. If the address matches multiple locations, Waze selects the result closest to the `base_coordinates`. By default, this is your home location.
-- By default, Waze is polled every five minutes for the travel time. See below for how to poll using custom intervals.
+- The polling interval is adjusted automatically based on the number of active routes. See below for how to poll using custom intervals.
 
 {% include integrations/actions.md %}
 
