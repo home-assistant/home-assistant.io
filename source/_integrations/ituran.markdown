@@ -5,6 +5,9 @@ ha_category:
   - Car
   - Device Tracker
   - Presence detection
+ha_categories:
+  - vehicles_transport.cars_evs
+  - presence_location.trackers
 ha_release: '2025.1'
 ha_iot_class: Cloud Polling
 ha_config_flow: true

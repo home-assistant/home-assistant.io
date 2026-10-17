@@ -5,6 +5,9 @@ ha_category:
   - Binary sensor
   - Device tracker
   - Sensor
+ha_categories:
+  - vehicles_transport.cars_evs
+  - presence_location.trackers
 ha_release: 2026.8
 ha_iot_class: Cloud Polling
 ha_domain: scorpiontrack

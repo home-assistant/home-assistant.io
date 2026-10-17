@@ -4,6 +4,8 @@ description: Instructions on how to integrate Trafikverket Train within Home Ass
 ha_category:
   - Sensor
   - Transport
+ha_categories:
+  - vehicles_transport.public_transport
 ha_release: 0.96
 ha_iot_class: Cloud Polling
 ha_config_flow: true

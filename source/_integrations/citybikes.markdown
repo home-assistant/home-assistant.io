@@ -3,6 +3,9 @@ title: CityBikes
 description: Instructions on how to integrate data from the CityBikes API into Home Assistant.
 ha_category:
   - Transport
+ha_categories:
+  - vehicles_transport.public_transport
+  - vehicles_transport.bikes_scooters
 ha_release: 0.49
 ha_iot_class: Cloud Polling
 ha_domain: citybikes

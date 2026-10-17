@@ -5,6 +5,8 @@ ha_category:
   - Binary sensor
   - Camera
   - Sensor
+ha_categories:
+  - vehicles_transport
 ha_release: 2023.9
 ha_iot_class: Cloud Polling
 ha_config_flow: true
