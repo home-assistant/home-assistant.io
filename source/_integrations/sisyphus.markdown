@@ -5,6 +5,9 @@ ha_category:
   - Hub
   - Light
   - Media player
+ha_categories:
+  - media_entertainment
+  - lighting
 ha_release: 0.75
 ha_iot_class: Local Push
 ha_codeowners:

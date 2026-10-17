@@ -5,6 +5,8 @@ ha_category:
   - Gaming
   - Image
   - Social
+ha_categories:
+  - media_entertainment.gaming
 ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_release: 0.14

@@ -6,6 +6,8 @@ ha_category:
   - Binary sensor
   - Button
   - Sensor
+ha_categories:
+  - media_entertainment.gaming
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:

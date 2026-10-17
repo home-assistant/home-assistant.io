@@ -4,6 +4,8 @@ description: Instructions on how to integrate Lichess with Home Assistant.
 ha_category:
   - Gaming
   - Sensor
+ha_categories:
+  - media_entertainment.gaming
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_release: 2026.4
