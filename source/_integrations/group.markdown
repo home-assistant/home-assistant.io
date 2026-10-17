@@ -4,6 +4,7 @@ description: Instructions on how to set up groups within Home Assistant.
 ha_category:
   - Binary sensor
   - Button
+  - Calendar
   - Cover
   - Event
   - Fan
@@ -28,6 +29,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - button
+  - calendar
   - cover
   - event
   - fan
@@ -49,6 +51,7 @@ The following entities can be grouped:
 
 - [binary sensor (binary sensors)](/integrations/binary_sensor/)
 - [button (buttons)](/integrations/button/)
+- [calendar (calendars)](/integrations/calendar/)
 - [cover (covers)](/integrations/cover/)
 - [event (events)](/integrations/event/)
 - [fan (fans)](/integrations/fan/)
@@ -97,6 +100,16 @@ The group state is the last time the grouped button was pressed.
 
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is the last time the grouped button was pressed.
+
+### Calendar groups
+
+A calendar group shows the events of all its member calendars together.
+
+- The group state is `unavailable` if all group members are `unavailable`.
+- Otherwise, the group state is `on` if at least one group member has an event in progress.
+- Otherwise, the group state is `off`.
+- The group attributes show the current event, or the next upcoming event, across all group members.
+- Events can't be created, edited, or deleted through a calendar group. Make these changes in the member calendars.
 
 ### Cover and valve groups
 In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover and valve groups behave:
@@ -214,6 +227,18 @@ button:
     entities:
       - button.device_1_restart
       - button.device_2_restart
+```
+
+Example YAML configuration of a calendar group:
+
+```yaml
+# Example configuration.yaml entry
+calendar:
+  - platform: group
+    name: "Family"
+    entities:
+      - calendar.work
+      - calendar.school
 ```
 
 Example YAML configuration of a cover group:
