@@ -237,6 +237,17 @@ join: ',' | split: ',' -%}
 <script type="text/javascript">
   (function () {
     const pageCategory = "{{ current_category.slug }}";
+    // Letters that are not a letter with an accent, so removing the accents
+    // does not turn them into a plain letter.
+    const SPECIAL_LETTERS = { ß: 'ss', ø: 'o', æ: 'ae', œ: 'oe', ł: 'l', đ: 'd', þ: 'th', ı: 'i' };
+    const CATEGORY_NAMES = {
+      {%- for category in site.data.integration_categories %}
+      "{{ category.slug }}": {{ category.name | jsonify }},
+      {%- for subcategory in category.subcategories %}
+      "{{ category.slug }}.{{ subcategory.slug }}": {{ subcategory.name | jsonify }},
+      {%- endfor %}
+      {%- endfor %}
+    };
     const subcategoryLinks = [...document.querySelectorAll('.subcategory-link')];
     const panels = [...document.querySelectorAll('.browse-panel')];
     const desktop = window.matchMedia('(min-width: 1140px)');
@@ -266,6 +277,7 @@ join: ',' | split: ',' -%}
 
         integrations[i].titleLC = title;
         integrations[i].search = `${title} ${title_normalized} ${title_dedashed} ${title_normalized_dedashed} ${domain} ${iot_class} ${quality_scale}`;
+        prepareSearch(integrations[i]);
       }
 
       // sort the components alphabetically
@@ -437,6 +449,7 @@ join: ',' | split: ',' -%}
         button.setAttribute('aria-pressed', Boolean(query && query[button.dataset.quickFilter]));
       });
 
+      const scores = query && query.search ? searchScores(query.search) : null;
       data.components = integrations.filter(integration => {
         if (pageCategory && !inCategory(integration, pageCategory)) {
           return false;
@@ -447,14 +460,10 @@ join: ',' | split: ',' -%}
             if (!integration.categories.includes(`${pageCategory}.${query[key]}`)) return false;
             continue;
           }
-          // compare against search string and categories in integration
+          // only integrations that match the search, see searchScores()
           if (key === 'search') {
-            if (
-              integration[key].indexOf(query[key]) === -1
-              && integration.cat.find((c) => c === query[key]) == undefined
-            ) {
-              return false;
-            }
+            if (!scores.has(integration)) return false;
+            continue;
           }
 
           // check for matching categories in integration's category array
@@ -488,7 +497,20 @@ join: ',' | split: ',' -%}
 
       // The cards are built once; a filter only shows and hides them, so the
       // list updates at once and loaded logos stay loaded.
+      // While searching, the best matches come first. Otherwise the list is
+      // alphabetical, the order the cards were built in.
+      if (scores) {
+        data.components.sort((a, b) => scores.get(b) - scores.get(a));
+      }
       renderCards();
+      integrations.forEach(integration => {
+        integration.card.style.order = '';
+      });
+      if (scores) {
+        data.components.forEach((integration, index) => {
+          integration.card.style.order = index;
+        });
+      }
       const shownCards = new Set(data.components);
       integrations.forEach(integration => {
         integration.card.style.display = shownCards.has(integration) ? '' : 'none';
@@ -875,6 +897,124 @@ join: ',' | split: ',' -%}
     // A panel that is open when the window gets wide would stay a modal.
     desktop.addEventListener('change', closePanels);
 
+    // Lowercase, without accents, and words separated by single spaces.
+    // "Möhlenhoff" becomes "mohlenhoff", and "Nobø" becomes "nobo".
+    function normalizeText(text) {
+      return text
+        .toLowerCase()
+        .replace(/[ßøæœłđþı]/g, letter => SPECIAL_LETTERS[letter])
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]+/g, ' ')
+        .trim();
+    }
+
+    // German also writes ä, ö, and ü as ae, oe, and ue, so "moehlenhoff"
+    // finds Möhlenhoff as well.
+    function germanSpelling(text) {
+      return normalizeText(text.toLowerCase().replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue'));
+    }
+
+    function prepareSearch(integration) {
+      const title = normalizeText(integration.title);
+      const german = germanSpelling(integration.title);
+      integration.searchTitle = german === title ? title : `${title} ${german}`;
+      integration.searchTitleGerman = german;
+      integration.searchTitleWords = [...new Set(integration.searchTitle.split(' '))];
+      integration.searchDomain = normalizeText(integration.domain);
+      integration.searchCategoryWords = normalizeText(
+        integration.categories
+          .flatMap(category => [CATEGORY_NAMES[category.split('.')[0]], CATEGORY_NAMES[category]])
+          .filter(Boolean)
+          .join(' ')
+      ).split(' ').filter(Boolean);
+      integration.searchExtra = normalizeText(`${integration.iot_class} ${integration.quality_scale}`);
+    }
+
+    // The number of edits (a letter added, removed, changed, or two letters
+    // swapped) between two words, or max + 1 when it is more than max.
+    function editDistance(a, b, max) {
+      if (Math.abs(a.length - b.length) > max) return max + 1;
+      let previous = [];
+      let current = Array.from({ length: b.length + 1 }, (_, j) => j);
+      let beforePrevious = [];
+      for (let i = 1; i <= a.length; i++) {
+        beforePrevious = previous;
+        previous = current;
+        current = [i];
+        let rowMin = i;
+        for (let j = 1; j <= b.length; j++) {
+          const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+          let value = Math.min(previous[j] + 1, current[j - 1] + 1, previous[j - 1] + cost);
+          if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) {
+            value = Math.min(value, beforePrevious[j - 2] + 1);
+          }
+          current[j] = value;
+          rowMin = Math.min(rowMin, value);
+        }
+        if (rowMin > max) return max + 1;
+      }
+      return current[b.length];
+    }
+
+    // How well a word with a typo matches: a whole word beats the start of a
+    // longer word, and fewer edits beat more. The start of a word only counts
+    // when the first letter is right, so "philp" finds Philips, but "sonso"
+    // does not find every sensor. Returns 0 when nothing is close enough.
+    function fuzzyScore(term, words, wholeWord, startOfWord) {
+      if (term.length < 4) return 0;
+      const max = term.length >= 7 ? 2 : 1;
+      let best = 0;
+      for (const word of words) {
+        const distance = editDistance(term, word, max);
+        if (distance <= max) {
+          best = Math.max(best, wholeWord - 5 * distance);
+        } else if (word.length > term.length && word[0] === term[0]) {
+          const prefixDistance = editDistance(term, word.slice(0, term.length), max);
+          if (prefixDistance <= max) {
+            best = Math.max(best, startOfWord - 5 * prefixDistance);
+          }
+        }
+      }
+      return best;
+    }
+
+    // How well an integration matches each word of the search: its name counts
+    // most, then its domain, then its categories. Every word has to match.
+    function scoreTerm(integration, term) {
+      if (integration.searchTitleWords.includes(term)) return 120;
+      if (integration.searchTitleWords.some(word => word.startsWith(term))) return 100;
+      if (integration.searchTitle.includes(term)) return 70;
+      if (integration.searchDomain.includes(term)) return 60;
+      const titleTypo = fuzzyScore(term, integration.searchTitleWords, 55, 40);
+      if (titleTypo) return titleTypo;
+      if (integration.searchCategoryWords.some(word => word.startsWith(term))) return 40;
+      const categoryTypo = fuzzyScore(term, integration.searchCategoryWords, 25, 15);
+      if (categoryTypo) return categoryTypo;
+      if (integration.searchExtra.includes(term)) return 10;
+      return 0;
+    }
+
+    function searchScores(search) {
+      const phrase = normalizeText(search);
+      const terms = phrase.split(' ').filter(Boolean);
+      const scores = new Map();
+      if (!terms.length) return scores;
+      integrations.forEach(integration => {
+        let score = 0;
+        for (const term of terms) {
+          const termScore = scoreTerm(integration, term);
+          if (!termScore) return;
+          score += termScore;
+        }
+        if (integration.searchTitle.startsWith(phrase) || integration.searchTitleGerman.startsWith(phrase)) score += 200;
+        // A small nudge for featured integrations, to break ties.
+        if (integration.featured) score += 3;
+        scores.set(integration, score);
+      });
+      return scores;
+    }
+
     function renderCards() {
       if (noResultsEl) {
         return;
@@ -966,7 +1106,7 @@ join: ',' | split: ',' -%}
         removeQueryFromURL('search');
         applyFilter();
       }
-    }, 500));
+    }, 150));
   })();
 </script>
 
