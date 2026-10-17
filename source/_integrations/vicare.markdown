@@ -93,6 +93,8 @@ Represents the domestic hot water controls of your device.
 It is not possible to turn on/off water heating via the water heater {% term integration %} since this would conflict with the operation modes of the heating integration. Therefore, the operation mode of that integration is just available as an attribute and cannot be modified.
 {% endnote %}
 
+If your device has a domestic hot water circulation pump, you can read its weekly schedule with the [Get circulation schedule](/actions/vicare.get_circulation_schedule/) action and change it with the [Set circulation schedule](/actions/vicare.set_circulation_schedule/) action.
+
 ### Sensor
 
 Additional data for a device is available as separate sensors. The sensors are automatically discovered based on the available API data points.
