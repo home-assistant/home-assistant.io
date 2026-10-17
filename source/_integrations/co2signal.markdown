@@ -18,7 +18,7 @@ ha_codeowners:
   - '@VIKTORVAV99'
 ---
 
-The **Electricity Maps** {% term integration %} (formerly known as CO2Signal) queries the [Electricity Maps](https://app.electricitymaps.com/home-assistant?utm_source=home-assistant&utm_campaign=docs) API for the CO2 intensity of a specific region. 
+The **Electricity Maps** {% term integration %} (formerly known as CO2Signal) queries the [Electricity Maps](https://app.electricitymaps.com/home-assistant) API for the CO2 intensity of a specific region. 
 Data can be collected for your home by using the home location, latitude/longitude, or a zone key.
 
 This API uses the same data as shown on the [Electricity Maps app](https://app.electricitymaps.com/map/). 
@@ -36,7 +36,7 @@ The Electricity Maps integration helps you understand the carbon intensity of yo
 
 ## Prerequisites
 
-To configure and use this integration, you need to obtain a free API key from Electricity Maps by activating Home Assistant access on the [Electricity Maps Home Assistant page](https://app.electricitymaps.com/home-assistant?utm_source=home-assistant&utm_campaign=docs).
+To configure and use this integration, you need to obtain a free API key from Electricity Maps by activating Home Assistant access on the [Electricity Maps Home Assistant page](https://app.electricitymaps.com/home-assistant).
 
 Please be aware that the API key is limited to one location, called a zone. A zone represents a specific electricity grid region. These zones don't match your utility provider. You need to select and specify the zone for your home location when activating access. For example, the United States has multiple zones like `US-CENT-SWPP` (Southwest Power Pool), `US-CAR-DUK` (Duke Energy Carolinas), or `US-CAR-CPLE` (Duke Energy Progress East).
 
