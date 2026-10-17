@@ -3,6 +3,8 @@ title: GIOŚ
 description: Instructions on how to integrate GIOŚ (Polish Chief Inspectorate Of Environmental Protection) air quality service into Home Assistant.
 ha_category:
   - Health
+ha_categories:
+  - weather_alerts.air_quality_pollen
 ha_release: 0.104
 ha_iot_class: Cloud Polling
 ha_config_flow: true

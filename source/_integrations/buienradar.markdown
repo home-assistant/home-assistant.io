@@ -4,6 +4,8 @@ description: Instructions on how to integrate buienradar.nl weather within Home 
 ha_category:
   - Camera
   - Weather
+ha_categories:
+  - weather_alerts.forecasts
 ha_release: 0.47
 ha_iot_class: Cloud Polling
 ha_config_flow: true

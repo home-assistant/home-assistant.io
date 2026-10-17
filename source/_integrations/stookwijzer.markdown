@@ -4,6 +4,8 @@ description: Instructions on how to use Stookwijzer data within Home Assistant
 ha_category:
   - Environment
   - Sensor
+ha_categories:
+  - weather_alerts.air_quality_pollen
 ha_release: 2023.2
 ha_iot_class: Cloud Polling
 ha_codeowners:

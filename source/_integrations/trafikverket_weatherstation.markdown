@@ -3,6 +3,8 @@ title: Trafikverket Weather Station
 description: Instructions how to integrate Trafikverket WeatherStation within Home Assistant.
 ha_category:
   - Weather
+ha_categories:
+  - weather_alerts.forecasts
 ha_release: 0.66
 ha_iot_class: Cloud Polling
 ha_config_flow: true

@@ -4,6 +4,8 @@ description: Instructions on how to integrate GeoSphere Austria (formerly known 
 ha_category:
   - Sensor
   - Weather
+ha_categories:
+  - weather_alerts.forecasts
 ha_release: 0.35
 ha_iot_class: Cloud Polling
 ha_domain: zamg

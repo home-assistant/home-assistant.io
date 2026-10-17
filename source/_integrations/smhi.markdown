@@ -5,6 +5,8 @@ ha_category:
   - Hub
   - Sensor
   - Weather
+ha_categories:
+  - weather_alerts.forecasts
 ha_release: 0.81
 ha_iot_class: Cloud Polling
 ha_config_flow: true

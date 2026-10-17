@@ -5,6 +5,8 @@ ha_release: '2023.10'
 ha_category:
   - Environment
   - Sensor
+ha_categories:
+  - weather_alerts.forecasts
 ha_platforms:
   - event
   - sensor
