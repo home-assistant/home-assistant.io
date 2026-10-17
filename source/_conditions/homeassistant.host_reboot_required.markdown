@@ -9,7 +9,7 @@ related_conditions:
 
 The **Host reboot required** condition passes while the system Home Assistant runs on needs a reboot, for example after an update of Home Assistant OS. This is only available on Home Assistant OS.
 
-Use it to hold off a routine while a reboot is pending, or to be reminded about it at a moment that suits you.
+Use it to run a routine only while a reboot is pending, like a reminder at a moment that suits you. To hold off a routine while a reboot is pending instead, wrap this condition in a **Not** condition.
 
 {% include conditions/ui_header.md %}
 

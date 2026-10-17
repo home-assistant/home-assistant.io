@@ -306,9 +306,7 @@ homeassistant:
       credential: "abc123"
 ```
 
-{% include integrations/triggers.md %}
-
-{% include integrations/actions.md %}
+{% include integrations/triggers_conditions_actions.md %}
 
 ## Restart and reboot required
 
@@ -317,8 +315,8 @@ Some changes only take effect after Home Assistant restarts, like an update of a
 When that is the case, administrators see a bar at the top of the screen, saying Home Assistant needs to be restarted, or the system needs to be rebooted. A reboot restarts Home Assistant as well, so when both are pending, the bar only shows the reboot.
 
 - Select **Restart** or **Reboot** to open the restart dialog, where you confirm the restart or reboot.
-- Select **Later** to hide the bar for now. This hides it for every administrator, on every device. It comes back once another integration asks for a restart, or once a new reboot is needed.
-- Under {% my config title="**Settings**" %}, the bar always shows, and lists the integrations that requested the restart. The **Settings** item in the sidebar also counts it.
+- Select **Later** to hide the bar for now. This hides it for every administrator, on every device. A hidden restart bar comes back once another integration asks for a restart. A hidden reboot bar only comes back once a new reboot is needed.
+- Under {% my config title="**Settings**" %}, the bar always shows. When it shows a restart, it also lists the integrations that requested it. The **Settings** item in the sidebar also counts it.
 
 The restart or reboot stays pending until it is done, also when you select **Later**. To act on it in your automations, use the [Restart required](/triggers/homeassistant.restart_required/) and [Host reboot required](/triggers/homeassistant.host_reboot_required/) triggers, and the [Restart required](/conditions/homeassistant.restart_required/) and [Host reboot required](/conditions/homeassistant.host_reboot_required/) conditions.
 

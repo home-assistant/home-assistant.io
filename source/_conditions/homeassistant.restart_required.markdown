@@ -9,7 +9,7 @@ related_conditions:
 
 The **Restart required** condition passes while Home Assistant needs a restart, for example after you installed an update of a custom integration, or changed a setting that only applies after a restart.
 
-Use it to hold off a routine while a restart is pending, or the opposite: to restart at night, but only when a restart is actually needed.
+Use it to run a routine only while a restart is pending, like a nightly restart that only happens when one is needed. To hold off a routine while a restart is pending instead, wrap this condition in a **Not** condition.
 
 {% include conditions/ui_header.md %}
 
