@@ -8,6 +8,8 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: 0.68
 ha_iot_class: Local Polling
 ha_domain: fritzbox

@@ -9,6 +9,8 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: '0.110'
 ha_iot_class: Local Push
 ha_config_flow: true

@@ -10,6 +10,8 @@ ha_category:
   - Lock
   - Sensor
   - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: 2021.7
 ha_iot_class: Cloud Polling
 ha_config_flow: true

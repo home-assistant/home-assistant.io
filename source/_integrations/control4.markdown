@@ -7,6 +7,8 @@ ha_category:
   - Cover
   - Light
   - Media Player
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
