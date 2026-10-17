@@ -16,7 +16,9 @@ A limited template is a template that can only use part of what templates normal
 
 ## When to use limited templates
 
-You don't choose to write a limited template. You write a limited template when you put a template in a field that sets up an automation, such as the MQTT topic an automation listens to, the time an automation triggers at, or whether a trigger is turned on. For all fields that only accept limited templates, refer to [Fields that use limited templates](#fields-that-use-limited-templates).
+You don't choose to write a limited template. You write a limited template when you put a template in a field that sets up an automation, such as the MQTT topic an automation listens to, the time an automation triggers at, or whether a trigger is turned on.
+
+The automation editor doesn't mark which fields only accept limited templates. The documentation of each trigger says which options are limited, and [Fields that use limited templates](#fields-that-use-limited-templates) lists all of them. If a limited template uses a function that isn't available, Home Assistant logs an error when it sets up the automation, and the affected trigger doesn't react. The automation still shows as turned on. To find the error, go to {% my logs title="**Settings** > **System** > **Logs**" %}.
 
 Most limited templates are in blueprints. A blueprint can use a limited template to build a setup value from your inputs, such as an MQTT topic that contains a device name you picked.
 
