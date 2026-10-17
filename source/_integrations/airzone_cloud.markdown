@@ -9,6 +9,8 @@ ha_category:
   - Sensor
   - Switch
   - Water heater
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: airzone_cloud

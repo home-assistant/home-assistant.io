@@ -5,6 +5,8 @@ ha_category:
   - Climate
   - Energy
   - Sensor
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_iot_class: Cloud Polling
 ha_release: '2024.10'
 ha_config_flow: true

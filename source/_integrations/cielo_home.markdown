@@ -4,6 +4,9 @@ description: Instructions on how to integrate Cielo smart thermostats in Home As
 ha_category:
   - Climate
   - Sensor
+ha_categories:
+  - climate.heat_pumps_air_conditioning
+  - climate.thermostats_heating
 ha_iot_class: Cloud Polling
 ha_release: 2026.6
 ha_config_flow: true
