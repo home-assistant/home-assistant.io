@@ -2,10 +2,7 @@
 {%- assign components_by_version = site.integrations | group_components_by_release -%}
 {%- assign iot_classes = "Local Push,Local Polling,Cloud Push,Cloud Polling,Assumed State,Calculated,Configurable" |
 join: ',' | split: ',' -%}
-{% assign quality_scales =
-"icon:🏆,name:platinum|icon:🥇,name:gold|icon:🥈,name:silver|icon:🥉,name:bronze|icon:🏠,name:internal|icon:💾,name:legacy"
-| split: "|"
-%}
+{%- assign quality_scales = "platinum,gold,silver,bronze,internal,legacy" | split: "," -%}
 
 {%- unless include.category %}
 <script>
@@ -199,60 +196,73 @@ join: ',' | split: ',' -%}
     <div class="grid__item one-quarter lap-one-whole palm-one-whole">
       <div class="integration-filter integration-filter-select">
         <label class="filter-title" for="filter-connection">Connection</label>
-        <select class="ha_category" name="connection" data-id="connection" id="filter-connection">
-          <option value="#">All</option>
-          <option value="local">Local</option>
-          <option value="cloud">Cloud</option>
-        </select>
+        <div class="filter-field">
+          <iconify-icon class="filter-icon" icon="mdi:lan-connect"></iconify-icon>
+          <select class="ha_category" name="connection" data-id="connection" id="filter-connection">
+            <option value="#">All connections</option>
+            <option value="local">Local</option>
+            <option value="cloud">Cloud</option>
+          </select>
+          <iconify-icon class="filter-chevron" icon="mdi:chevron-down"></iconify-icon>
+        </div>
       </div>
     </div>
 
     <div class="grid__item one-quarter lap-one-whole palm-one-whole">
       <div class="integration-filter integration-filter-select">
         <label class="filter-title" for="filter-version">Version</label>
-        <select class="ha_category" name="versions" data-id="version" id="filter-version">
-          <option value="#">All</option>
-          {%- for group in components_by_version -%}
-          <optgroup label="{{ group.label }} ({{group.new_components_count}})">
-            {%- for version in group.versions -%}
-            <option value="{{ version.label }}">{{ version.label }}</option>
+        <div class="filter-field">
+          <iconify-icon class="filter-icon" icon="mdi:tag-outline"></iconify-icon>
+          <select class="ha_category" name="versions" data-id="version" id="filter-version">
+            <option value="#">All versions</option>
+            {%- for group in components_by_version -%}
+            <optgroup label="{{ group.label }} ({{group.new_components_count}})">
+              {%- for version in group.versions -%}
+              <option value="{{ version.label }}">{{ version.label }}</option>
+              {%- endfor -%}
+            </optgroup>
             {%- endfor -%}
-          </optgroup>
-          {%- endfor -%}
-        </select>
+          </select>
+          <iconify-icon class="filter-chevron" icon="mdi:chevron-down"></iconify-icon>
+        </div>
       </div>
     </div>
 
     <div class="grid__item one-quarter lap-one-whole palm-one-whole">
       <div class="integration-filter integration-filter-select">
         <label class="filter-title" for="filter-iot_class">IoT Class</label>
-        <select class="ha_category" name="iot_classes" data-id="iot_class" id="filter-iot_class">
-          <option value="#">All</option>
-          {%- for iot_class in iot_classes -%}
-            {%- assign iot_class_count = components | where: 'ha_iot_class', iot_class | size -%}
-            {%- if iot_class_count != 0 -%}
-              <option value="{{ iot_class | slugify }}">{{ iot_class }}</option>
-            {%- endif -%}
-          {%- endfor -%}
-        </select>
+        <div class="filter-field">
+          <iconify-icon class="filter-icon" icon="mdi:access-point"></iconify-icon>
+          <select class="ha_category" name="iot_classes" data-id="iot_class" id="filter-iot_class">
+            <option value="#">All IoT classes</option>
+            {%- for iot_class in iot_classes -%}
+              {%- assign iot_class_count = components | where: 'ha_iot_class', iot_class | size -%}
+              {%- if iot_class_count != 0 -%}
+                <option value="{{ iot_class | slugify }}">{{ iot_class }}</option>
+              {%- endif -%}
+            {%- endfor -%}
+          </select>
+          <iconify-icon class="filter-chevron" icon="mdi:chevron-down"></iconify-icon>
+        </div>
       </div>
     </div>
 
     <div class="grid__item one-quarter lap-one-whole palm-one-whole">
       <div class="integration-filter integration-filter-select">
         <label class="filter-title" for="filter-quality_scale">Quality Scale</label>
-        <select class="ha_category" name="quality_scales" data-id="quality_scale" id="filter-quality_scale">
-          <option value="#">All</option>
-          {%- for quality_scale in quality_scales -%}
-            {% assign quality_scale_data = quality_scale | split: "," %}
-            {% assign quality_icon = quality_scale_data[0] | split: ":" | last %}
-            {% assign quality_name = quality_scale_data[1] | split: ":" | last %}
-            {%- assign quality_scale_count = components | where: 'ha_quality_scale', quality_name | size -%}
-            {%- if quality_scale_count != 0 -%}
-              <option value="{{ quality_name | slugify }}">{{quality_icon}} {{ quality_name | capitalize }}</option>
-            {%- endif -%}
-          {%- endfor -%}
-        </select>
+        <div class="filter-field">
+          <iconify-icon class="filter-icon" icon="mdi:medal-outline"></iconify-icon>
+          <select class="ha_category" name="quality_scales" data-id="quality_scale" id="filter-quality_scale">
+            <option value="#">All quality scales</option>
+            {%- for quality_scale in quality_scales -%}
+              {%- assign quality_scale_count = components | where: 'ha_quality_scale', quality_scale | size -%}
+              {%- if quality_scale_count != 0 -%}
+                <option value="{{ quality_scale }}">{{ quality_scale | capitalize }}</option>
+              {%- endif -%}
+            {%- endfor -%}
+          </select>
+          <iconify-icon class="filter-chevron" icon="mdi:chevron-down"></iconify-icon>
+        </div>
       </div>
     </div>
   </div>
@@ -458,6 +468,7 @@ join: ',' | split: ',' -%}
       // Controls
       filterSelects.forEach(select => {
         select.value = state[select.dataset.id] || '#';
+        select.parentElement.classList.toggle('active', Boolean(state[select.dataset.id]));
       });
       quickFilterButtons.forEach(button => {
         button.setAttribute('aria-pressed', Boolean(state[button.dataset.quickFilter]));

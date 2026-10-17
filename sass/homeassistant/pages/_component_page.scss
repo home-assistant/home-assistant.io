@@ -730,23 +730,95 @@ a.option-card:hover {
     text-transform: none;
   }
 
+  // A filter looks like the search field, with an icon for what it filters.
+  // Once set, it turns blue like a chip that is on.
   .integration-filter.integration-filter-select {
+    margin-bottom: 16px;
+
     &::after {
-      top: auto;
-      bottom: 34px;
-      right: 14px;
-      margin-top: 0;
-      border-top-color: currentColor;
+      content: none;
+    }
+  }
+
+  .integration-filter-select .filter-field {
+    position: relative;
+    color: $gray;
+
+    .filter-icon,
+    .filter-chevron {
+      position: absolute;
+      top: 50%;
+      font-size: 20px;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .filter-icon {
+      left: 12px;
+    }
+
+    .filter-chevron {
+      right: 10px;
     }
 
     .ha_category {
-      top: 0;
-      margin-bottom: 16px;
-      padding: 8px 36px 8px 14px;
-      border: 2px solid $blueDark;
+      position: static;
+      margin: 0;
+      padding: 9px 36px 9px 42px;
+      border: 1px solid #c3cbd5;
       border-radius: 8px;
-      background-color: transparent;
+      background-color: white;
+      color: #222;
+      font-size: 15px;
       text-align-last: left;
+      cursor: pointer;
+
+      &:hover {
+        border-color: $blueDark;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $blueDark;
+        outline-offset: 1px;
+      }
+    }
+
+    &.active {
+      color: $blueDark;
+
+      .ha_category {
+        border-color: $blueDark;
+        background-color: rgba(3, 169, 244, 0.12);
+        color: $blueDark;
+        font-weight: 600;
+      }
+    }
+  }
+
+  // On wide screens the filters sit in one row, so the icon and the first
+  // option say enough. The label stays for screen readers.
+  @media only screen and (min-width: $desk-start) {
+    .filters-panel .browse-panel-content {
+      margin-left: 0;
+    }
+
+    .grid-filters {
+      gap: 12px;
+
+      .grid__item {
+        flex: 1;
+        width: auto;
+        padding-left: 0;
+      }
+    }
+
+    .filter-title {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
     }
   }
 }
