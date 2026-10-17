@@ -4,6 +4,9 @@ description: Virtual hygrostat device
 ha_category:
   - Helper
   - Humidifier
+ha_categories:
+  - helpers
+  - climate.air_purifiers_humidifiers
 ha_release: 2021.8
 ha_domain: generic_hygrostat
 ha_quality_scale: internal

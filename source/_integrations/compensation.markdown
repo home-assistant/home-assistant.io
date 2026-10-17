@@ -4,6 +4,8 @@ description: Instructions on how to integrate compensation sensors into Home Ass
 ha_category:
   - Sensor
   - Utility
+ha_categories:
+  - helpers.calculate_value
 ha_iot_class: Calculated
 ha_release: '2021.5'
 ha_codeowners:

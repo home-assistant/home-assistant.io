@@ -21,6 +21,8 @@ ha_category:
   - Update
   - Vacuum
   - Weather
+ha_categories:
+  - helpers.calculate_value
 ha_release: 0.12
 ha_iot_class: Local Push
 ha_quality_scale: internal

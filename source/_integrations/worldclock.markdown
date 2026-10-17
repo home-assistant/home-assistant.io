@@ -3,6 +3,8 @@ title: Worldclock
 description: Instructions on how to integrate a Worldclock within Home Assistant.
 ha_category:
   - Calendar
+ha_categories:
+  - helpers.calculate_value
 ha_iot_class: Local Push
 ha_release: pre 0.7
 ha_quality_scale: internal
