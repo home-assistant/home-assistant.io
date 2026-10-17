@@ -4,6 +4,8 @@ description: Instructions on how to integrate Melissa Climate into Home Assistan
 ha_category:
   - Climate
   - Hub
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_release: 0.63
 ha_iot_class: Cloud Polling
 ha_codeowners:
