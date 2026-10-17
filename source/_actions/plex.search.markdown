@@ -210,7 +210,10 @@ The action returns a list named `results`. Each result includes the following fi
 - `view_count`, `is_watched`, `view_offset`, and `progress_percent`: How much has been watched. `view_offset` is in milliseconds.
 - `library_id` and `library_name`: The library the item is in.
 - `episode_count`, `watched_episode_count`, and `season_count`: Only for TV shows.
+- `show_title`, `show_rating_key`, `show_guid`, and `season_number`: Only for seasons.
 - `show_title`, `show_rating_key`, `show_guid`, `season_title`, `season_rating_key`, `season_guid`, `season_number`, and `episode_number`: Only for episodes.
+- `artist_name`: Only for albums and tracks.
+- `album_title` and `track_number`: Only for tracks.
 - `thumb_url`: A link to the poster. The link is signed and stops working after one hour.
 - `on_deck`: Only for TV shows when **Include on deck** is on. The next episode that is on deck, with the same fields.
 
