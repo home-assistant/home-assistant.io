@@ -3,6 +3,8 @@ title: Azure Service Bus
 description: Setup for Azure Service Bus integration
 ha_category:
   - Notifications
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_iot_class: Cloud Push
 ha_release: 0.102
 ha_codeowners:

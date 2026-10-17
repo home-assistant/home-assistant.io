@@ -5,6 +5,8 @@ ha_category:
   - Downloading
   - Sensor
   - Switch
+ha_categories:
+  - computers_network.nas_servers
 ha_release: 0.87
 ha_iot_class: Local Polling
 ha_config_flow: true

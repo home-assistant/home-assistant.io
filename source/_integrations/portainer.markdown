@@ -8,6 +8,8 @@ ha_category:
   - Sensor
   - Switch
   - Update
+ha_categories:
+  - computers_network.nas_servers
 ha_release: '2025.10'
 ha_iot_class: Local Polling
 ha_codeowners:

@@ -4,6 +4,8 @@ description: Instructions on how to set up OneDrive for Business to be used with
 ha_release: 2026.3
 ha_category:
   - Backup
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: onedrive_for_business

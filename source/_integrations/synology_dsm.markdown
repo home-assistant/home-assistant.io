@@ -7,6 +7,9 @@ ha_category:
   - Media source
   - System monitor
   - Update
+ha_categories:
+  - computers_network.nas_servers
+  - security_safety.cameras
 ha_release: 0.32
 ha_iot_class: Local Polling
 ha_domain: synology_dsm
