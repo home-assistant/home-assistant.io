@@ -5,6 +5,8 @@ ha_category:
   - Media player
   - Multimedia
   - Remote
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_iot_class: Local Push
 ha_release: 0.49
 ha_domain: apple_tv

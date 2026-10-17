@@ -5,6 +5,8 @@ ha_category:
   - Media player
   - Remote
   - Sensor
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: '2022.4'
 ha_iot_class: Local Push
 ha_config_flow: true

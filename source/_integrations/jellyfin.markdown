@@ -6,6 +6,8 @@ ha_category:
   - Media source
   - Remote
   - Sensor
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: '2021.12'
 ha_iot_class: Local Polling
 ha_codeowners:

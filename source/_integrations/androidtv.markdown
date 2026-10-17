@@ -4,6 +4,8 @@ description: Instructions on how to integrate Android and Fire TV devices into H
 ha_category:
   - Media player
   - Remote
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: 0.7.6
 ha_config_flow: true
 ha_iot_class: Local Polling

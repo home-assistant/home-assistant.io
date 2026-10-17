@@ -3,6 +3,8 @@ title: Radarr
 description: Instructions on how to integrate Radarr sensors with Home Assistant
 ha_category:
   - Downloading
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: 0.47
 ha_config_flow: true
 ha_iot_class: Local Polling
