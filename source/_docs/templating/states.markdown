@@ -132,7 +132,7 @@ template: |
 output: "It is 22.5 °C outside."
 {% endexample %}
 
-If the entity doesn't exist, the state object is `none`, and its properties are empty. To read only the state or an attribute, `states()` and `state_attr()` are safer. For all details, refer to [State object](/docs/configuration/state_object/#state-object).
+If the entity doesn't exist, the state object is `none`. Reading one of its properties gives an empty result, but reading further, such as `.attributes.unit_of_measurement`, causes an error. Check for `none` first, for example, {% jinja %}{% if states.sensor.outdoor_temperature is not none %}{% endjinja %}. To read only the state or an attribute, `states()` and `state_attr()` are safer. For all details, refer to [State object](/docs/configuration/state_object/#state-object).
 
 ## Checking a state
 
@@ -197,7 +197,7 @@ output: |
 
 Templates that update automatically, such as in a [template entity](/integrations/template/) or a Markdown card, render again when an entity they use changes. To keep this light, Home Assistant limits how often templates that use many entities render again:
 
-- A template that goes through all states, such as `states | count`, renders again at most once per minute.
+- A template that goes through all states, such as `states | selectattr('state', 'eq', 'unavailable') | list | count`, renders again at most once per minute. A template that only counts all entities, such as `states | count`, isn't limited. It renders again only when an entity is added or removed.
 - A template that goes through all entities of a domain, such as `states.light`, renders again at most once per second.
 - A change to an entity that the template names directly, such as in `states('sensor.outdoor_temperature')`, always makes the template render again right away.
 
@@ -245,10 +245,12 @@ automation: |
             {% if has_value('sensor.outdoor_temperature') %}
               {{ states('sensor.outdoor_temperature') }}
             {% else %}
-              {{ this.state }}
+              {{ this.state | float(none) }}
             {% endif %}
 output: "22.5 (the last value, while the outdoor sensor is unavailable)"
 {% endexample %}
+
+The sensor has a unit, so its state must be a number. Before it has had a value, `this.state` is `unknown`, so [`float(none)`](/template-functions/float/) turns it into `none` instead.
 
 A template that reads its own entity renders again when that entity changes. If the template changes the value every time, such as a counter that adds one to its own state, it keeps updating itself. Home Assistant detects this loop, stops it, and logs a "Template loop detected" warning. To count something, use a [counter](/integrations/counter/) helper instead.
 
