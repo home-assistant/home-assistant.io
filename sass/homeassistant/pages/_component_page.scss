@@ -485,35 +485,94 @@ a.option-card:hover {
 }
 
 // Browsing by category: a sidebar with the categories next to the
-// integrations, and a header with subcategory chips on a category page.
+// integrations, the active one with its subcategories. On phones the sidebar
+// is a collapsed menu.
 #components-page {
   .integrations-browser {
     @media only screen and (min-width: $desk-start) {
       display: grid;
-      grid-template-columns: 240px minmax(0, 1fr);
+      grid-template-columns: 260px minmax(0, 1fr);
       gap: 32px;
       align-items: start;
     }
   }
 
-  .category-sidebar {
-    display: flex;
-    gap: 4px;
+  .category-nav {
     margin-bottom: 24px;
-    overflow-x: auto;
 
     @media only screen and (min-width: $desk-start) {
       position: sticky;
       top: 80px;
-      flex-direction: column;
       max-height: calc(100vh - 100px);
       overflow-y: auto;
     }
+
+    > summary {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 2px solid $blueDark;
+      border-radius: 8px;
+      cursor: pointer;
+      list-style: none;
+      font-size: 16px;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid currentColor;
+      }
+
+      iconify-icon {
+        flex: none;
+        font-size: 20px;
+      }
+
+      @media only screen and (min-width: $desk-start) {
+        display: none;
+      }
+    }
+
+    &[open] > summary {
+      margin-bottom: 8px;
+
+      &::after {
+        transform: rotate(180deg);
+      }
+    }
   }
 
-  .category-link {
+  .category-nav-current {
+    font-weight: 500;
+  }
+
+  .category-nav-subcategory {
+    flex: 1;
+    color: $gray;
+  }
+
+  .category-nav-label {
+    color: $gray;
+    font-size: 14px;
+  }
+
+  .category-sidebar {
     display: flex;
-    flex: none;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .category-link,
+  .subcategory-link {
+    display: flex;
     align-items: center;
     gap: 10px;
     padding: 6px 10px;
@@ -546,54 +605,43 @@ a.option-card:hover {
     }
   }
 
+  .subcategory-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 2px 0 6px 20px;
+    padding-left: 8px;
+    border-left: 2px solid $grayLighter;
+    list-style: none;
+
+    li {
+      margin: 0;
+    }
+  }
+
+  .subcategory-link {
+    font-size: 14px;
+
+    iconify-icon {
+      font-size: 18px;
+    }
+  }
+
   .category-count {
     color: $gray;
     font-size: 13px;
-  }
-
-  .category-header {
-    margin-bottom: 24px;
   }
 
   .category-description {
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 
     iconify-icon {
       flex: none;
       font-size: 32px;
       color: $blueDark;
-    }
-  }
-
-  .subcategory-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .subcategory-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 4px 14px;
-    border: 2px solid $blueDark;
-    border-radius: 24px;
-    background: none;
-    color: inherit;
-    font: inherit;
-    font-size: 15px;
-    cursor: pointer;
-
-    &.active {
-      background-color: $blueDark;
-      color: white;
-
-      .category-count {
-        color: inherit;
-      }
     }
   }
 }

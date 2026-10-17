@@ -24,19 +24,49 @@ join: ',' | split: ',' -%}
 
 <div class="integrations-browser">
 
-<nav class="category-sidebar" aria-label="Integration categories">
-  <a href="/integrations/" class="category-link{% unless current_category %} active{% endunless %}">
-    <iconify-icon icon="mdi:view-grid-outline"></iconify-icon>
-    <span class="category-name">All integrations</span>
-  </a>
-  {%- for category in site.data.integration_categories %}
-  <a href="/integrations/category/{{ category.slug }}/" class="category-link{% if current_category.slug == category.slug %} active{% endif %}">
-    <iconify-icon icon="{{ category.icon }}"></iconify-icon>
-    <span class="category-name">{{ category.name }}</span>
-    <span class="category-count" data-category-count="{{ category.slug }}"></span>
-  </a>
-  {%- endfor %}
-</nav>
+{%- comment -%}
+  A list on wide screens, a collapsed menu on phones. The active category
+  shows its subcategories underneath.
+{%- endcomment -%}
+<details class="category-nav" open>
+  <summary>
+    <iconify-icon icon="{% if current_category %}{{ current_category.icon }}{% else %}mdi:view-grid-outline{% endif %}"></iconify-icon>
+    <span class="category-nav-current">{% if current_category %}{{ current_category.name }}{% else %}All integrations{% endif %}</span>
+    <span class="category-nav-subcategory"></span>
+    <span class="category-nav-label">Categories</span>
+  </summary>
+  <script>
+    if (window.matchMedia('(max-width: 1139px)').matches) {
+      document.currentScript.parentElement.open = false;
+    }
+  </script>
+  <nav class="category-sidebar" aria-label="Integration categories">
+    <a href="/integrations/" class="category-link{% unless current_category %} active{% endunless %}">
+      <iconify-icon icon="mdi:view-grid-outline"></iconify-icon>
+      <span class="category-name">All integrations</span>
+    </a>
+    {%- for category in site.data.integration_categories %}
+    <a href="/integrations/category/{{ category.slug }}/" class="category-link{% if current_category.slug == category.slug %} active{% endif %}"{% if current_category.slug == category.slug %} aria-current="page"{% endif %}>
+      <iconify-icon icon="{{ category.icon }}"></iconify-icon>
+      <span class="category-name">{{ category.name }}</span>
+      <span class="category-count" data-category-count="{{ category.slug }}"></span>
+    </a>
+    {%- if current_category.slug == category.slug and category.subcategories.size > 0 %}
+    <ul class="subcategory-nav" aria-label="Subcategories of {{ category.name }}">
+      {%- for subcategory in category.subcategories %}
+      <li>
+        <a href="?subcategory={{ subcategory.slug }}" class="subcategory-link" data-subcategory="{{ subcategory.slug }}">
+          <iconify-icon icon="{{ subcategory.icon }}"></iconify-icon>
+          <span class="category-name">{{ subcategory.name }}</span>
+          <span class="category-count" data-subcategory-count="{{ subcategory.slug }}"></span>
+        </a>
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+    {%- endfor %}
+  </nav>
+</details>
 
 <div class="integrations-main">
 
@@ -46,18 +76,6 @@ join: ',' | split: ',' -%}
     <iconify-icon icon="{{ current_category.icon }}"></iconify-icon>
     {{ current_category.description }}
   </p>
-  {%- if current_category.subcategories.size > 0 %}
-  <div class="subcategory-chips" role="group" aria-label="Subcategories">
-    <button type="button" class="subcategory-chip active" data-subcategory="">All</button>
-    {%- for subcategory in current_category.subcategories %}
-    <button type="button" class="subcategory-chip" data-subcategory="{{ subcategory.slug }}">
-      <iconify-icon icon="{{ subcategory.icon }}"></iconify-icon>
-      {{ subcategory.name }}
-      <span class="category-count" data-subcategory-count="{{ subcategory.slug }}"></span>
-    </button>
-    {%- endfor %}
-  </div>
-  {%- endif %}
 </header>
 {%- endif %}
 
@@ -92,7 +110,7 @@ join: ',' | split: ',' -%}
       </div>
     </div>
 
-    <div class="grid__item one-quarter lap-one-whole palm-one-whole" hidden>
+    <div class="grid__item one-quarter lap-one-whole palm-one-whole category_select">
       <div class="integration-filter integration-filter-select">
         <h3 class="filter-title">Category</h3>
         <select class="ha_category" name="category" data-id="cat">
@@ -231,7 +249,8 @@ join: ',' | split: ',' -%}
 <script type="text/javascript">
   (function () {
     const pageCategory = "{{ current_category.slug }}";
-    const subcategoryChips = [...document.querySelectorAll('.subcategory-chip')];
+    const subcategoryLinks = [...document.querySelectorAll('.subcategory-link')];
+    const categoryNav = document.querySelector('.category-nav');
     let filteredComponents = {};
     const baseHashRegex = /(^.*)(?=\?)/;
     const integrationSelectFilterElements = [...document.querySelectorAll('.integration-filter select')];
@@ -415,7 +434,7 @@ join: ',' | split: ',' -%}
       // update dom elements to match new filters
       updateFilterButtons(query);
       updateFilterElements(query);
-      updateSubcategoryChips(query);
+      updateSubcategoryLinks(query);
 
       data.components = integrations.filter(integration => {
         if (pageCategory && !inCategory(integration, pageCategory)) {
@@ -600,7 +619,7 @@ join: ',' | split: ',' -%}
           $filterElement.value = query;
         }
       } else if (id === 'subcategory') {
-        // the chips follow the filter in updateSubcategoryChips()
+        // the sidebar follows the filter in updateSubcategoryLinks()
         return;
       } else if (id === 'brands') {
         $filterElement.forEach(option => {
@@ -692,8 +711,8 @@ join: ',' | split: ',' -%}
           category = 'Connection';
           break;
         case 'subcategory': {
-          const chip = subcategoryChips.find(chip => chip.dataset.subcategory === key);
-          return `Subcategory: ${chip ? chip.textContent.replace(/\d+\s*$/, '').trim() : key}`;
+          const link = subcategoryLinks.find(link => link.dataset.subcategory === key);
+          return `Subcategory: ${link ? link.querySelector('.category-name').textContent : key}`;
         }
         default:
           category = id;
@@ -806,22 +825,37 @@ join: ',' | split: ',' -%}
       });
     }
 
-    function updateSubcategoryChips(query) {
+    function updateSubcategoryLinks(query) {
       const active = (query && query.subcategory) || '';
-      subcategoryChips.forEach(chip => {
-        const isActive = chip.dataset.subcategory === active;
-        chip.classList.toggle('active', isActive);
-        chip.setAttribute('aria-pressed', isActive);
+      let activeName = '';
+      subcategoryLinks.forEach(link => {
+        const isActive = link.dataset.subcategory === active;
+        link.classList.toggle('active', isActive);
+        if (isActive) {
+          link.setAttribute('aria-current', 'true');
+          activeName = link.querySelector('.category-name').textContent;
+        } else {
+          link.removeAttribute('aria-current');
+        }
       });
+      const current = document.querySelector('.category-nav-subcategory');
+      if (current) {
+        current.textContent = activeName ? `› ${activeName}` : '';
+      }
     }
 
-    subcategoryChips.forEach(chip => chip.addEventListener('click', () => {
-      if (chip.dataset.subcategory) {
-        setQueryURL('subcategory', chip.dataset.subcategory);
-      } else {
+    // Selecting the active subcategory again shows the whole category.
+    subcategoryLinks.forEach(link => link.addEventListener('click', event => {
+      event.preventDefault();
+      if (link.classList.contains('active')) {
         removeQueryFromURL('subcategory');
+      } else {
+        setQueryURL('subcategory', link.dataset.subcategory);
       }
       applyFilter();
+      if (window.matchMedia('(max-width: 1139px)').matches) {
+        categoryNav.open = false;
+      }
     }));
 
     function buildImageEl(component) {
