@@ -70,10 +70,9 @@ trigger: |
 output: "True (fires when the washing machine power drops between 0 and 5 W)"
 {% endexample %}
 
-{% note %}
-<a id="limited-templates"></a>
-**Limited templates.** Some trigger types, and the `trigger_variables` section of an automation, only support a reduced set of template features. This is called a "limited template". Most of Home Assistant's state-reading functions (like `states()`, `state_attr()`, and the area/device/label helpers) are not available there. If a template works in the editor but fails in a trigger configuration, the limited-template scope is a likely cause. Check the specific trigger's documentation for the details.
-{% endnote %}
+## Limited templates
+
+A few fields only accept limited templates, such as `trigger_variables` and the `enabled` option of triggers, conditions, and other steps. A limited template can't read the state of your home or the current time. For what limited templates can use, and which fields use limited templates, refer to [Limited templates](/docs/templating/limited-templates/).
 
 ## Template entities
 
