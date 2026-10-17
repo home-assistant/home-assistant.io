@@ -6,6 +6,8 @@ ha_category:
   - Energy
   - Sensor
   - Switch
+ha_categories:
+  - energy.solar_batteries
 ha_release: 0.108
 ha_iot_class: Local Polling
 ha_config_flow: true

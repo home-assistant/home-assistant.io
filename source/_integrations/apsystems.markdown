@@ -6,6 +6,8 @@ ha_config_flow: true
 ha_release: 2024.6
 ha_category:
   - Energy
+ha_categories:
+  - energy.solar_batteries
 ha_domain: apsystems
 ha_platforms:
   - binary_sensor

@@ -7,6 +7,9 @@ ha_category:
   - Energy
   - Modbus-controlled
   - Sensor
+ha_categories:
+  - energy.solar_batteries
+  - energy.meters_monitoring
 ha_codeowners:
   - '@farmio'
 ha_config_flow: true

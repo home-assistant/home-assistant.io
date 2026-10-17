@@ -5,6 +5,9 @@ ha_category:
   - Number
   - Switch
   - Water heater
+ha_categories:
+  - energy.solar_batteries
+  - climate.water_heaters
 ha_release: '2026.10'
 ha_iot_class: Local Polling
 ha_codeowners:

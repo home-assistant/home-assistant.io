@@ -3,6 +3,8 @@ title: Kostal Plenticore Solar Inverter
 description: Instructions on how to integrate Kostal Plenticore solar inverter within Home Assistant.
 ha_category:
   - Energy
+ha_categories:
+  - energy.solar_batteries
 ha_release: 2021.5
 ha_iot_class: Local Polling
 ha_config_flow: true

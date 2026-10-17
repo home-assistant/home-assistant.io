@@ -5,6 +5,8 @@ ha_category:
   - Energy
   - Modbus-controlled
   - Sensor
+ha_categories:
+  - energy.solar_batteries
 ha_release: "2026.10"
 ha_iot_class: Local Polling
 ha_config_flow: true
