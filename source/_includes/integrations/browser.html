@@ -310,18 +310,17 @@ join: ',' | split: ',' -%}
         {%- assign minor_version = sliced_version[1] | plus: 0 -%}
         {%- assign major_version = sliced_version[0] | plus: 0 -%}
         {
-          url: "{{ component.url }}",
-          title: "{{component.title}}",
+          url: {{ component.url | jsonify }},
+          title: {{ component.title | jsonify }},
           categories: {% if component.ha_categories %}{{ component.ha_categories | jsonify }}{% else %}[]{% endif %},
           connection: "{% if component.ha_iot_class contains 'Local' %}local{% elsif component.ha_iot_class contains 'Cloud' %}cloud{% endif %}",
           featured: {{ component.featured }},
           version: "{{major_version}}.{{minor_version}}",
-          logo: "{{component.logo}}",
-          domain: "{{component.ha_domain}}",
-          ha_brand: "{{component.ha_brand}}",
+          domain: {{ component.ha_domain | default: '' | jsonify }},
+          ha_brand: {{ component.ha_brand | default: false | jsonify }},
           wwha: {% if component.works_with %} true{% else %} false{% endif %},
           iot_class: "{{component.ha_iot_class | slugify }}",
-          quality_scale: "{{component.ha_quality_scale}}"
+          quality_scale: {{ component.ha_quality_scale | default: '' | jsonify }}
         },
       {% endif -%}
     {%- endfor -%}
@@ -658,7 +657,7 @@ join: ',' | split: ',' -%}
         .replace(/[ßøæœłđþı]/g, letter => SPECIAL_LETTERS[letter])
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
-        .replace(/[^a-z0-9]+/g, ' ')
+        .replace(/[^\p{L}\p{N}]+/gu, ' ')
         .trim();
     }
 
@@ -820,6 +819,7 @@ join: ',' | split: ',' -%}
       noResultsEl.querySelector('[data-empty-action="filters"]').addEventListener('click', () => {
         const state = readState();
         go(state.search ? { search: state.search } : {});
+        searchInputEl.focus();
       });
     }
 
@@ -841,11 +841,34 @@ join: ',' | split: ',' -%}
 </div>
 </div>
 
+{%- comment -%}
+  Without JavaScript, the category panel can't open on phones, so the
+  categories are listed here too. A category page only lists its own
+  integrations.
+{%- endcomment -%}
 <noscript>
+  <nav class="noscript-categories" aria-label="Integration categories">
+    <ul>
+      <li><a href="/integrations/">All integrations</a></li>
+      {%- for category in site.data.integration_categories %}
+      <li><a href="/integrations/category/{{ category.slug }}/">{{ category.name }}</a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
   <ul>
     {%- for component in components -%}
     {%- if component.ha_category or component.ha_categories -%}
+    {%- assign listed = true -%}
+    {%- if current_category -%}
+      {%- assign listed = false -%}
+      {%- for category in component.ha_categories -%}
+        {%- assign parent = category | split: '.' | first -%}
+        {%- if parent == current_category.slug -%}{%- assign listed = true -%}{%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+    {%- if listed %}
     <li><a href='{{ component.url }}'>{{ component.title }}</a></li>
+    {%- endif -%}
     {%- endif -%}
     {%- endfor -%}
   </ul>

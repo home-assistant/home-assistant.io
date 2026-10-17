@@ -624,11 +624,13 @@ a.option-card:hover {
       padding: 0;
     }
 
-    .category-panel {
-      position: sticky;
-      top: 80px;
-      max-height: calc(100vh - 100px);
-      overflow-y: auto;
+    // The category sidebar scrolls along with the page on purpose. Sticky, it
+    // needs a scrollbar of its own, and the end of that sits off screen,
+    // because the sidebar starts below the title.
+
+    // The sidebar shows here without JavaScript too.
+    .noscript-categories {
+      display: none;
     }
   }
 
