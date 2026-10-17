@@ -8,6 +8,8 @@ ha_category:
   - Hub
   - Select
   - Sensor
+ha_categories:
+  - climate.thermostats_heating
 ha_release: 0.81
 ha_iot_class: Local Push
 ha_config_flow: true

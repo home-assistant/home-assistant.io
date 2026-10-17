@@ -6,6 +6,8 @@ ha_category:
   - Climate
   - Number
   - Sensor
+ha_categories:
+  - climate.thermostats_heating
 ha_iot_class: Local Polling
 ha_release: 2026.5
 ha_config_flow: true

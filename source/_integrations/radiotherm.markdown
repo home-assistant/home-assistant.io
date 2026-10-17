@@ -4,6 +4,8 @@ description: Instructions on how to integrate Radio Thermostat (3M Filtrete) the
 ha_category:
   - Climate
   - Switch
+ha_categories:
+  - climate.thermostats_heating
 ha_iot_class: Local Polling
 ha_release: 0.7.6
 ha_domain: radiotherm

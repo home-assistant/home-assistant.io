@@ -7,6 +7,9 @@ ha_category:
   - Energy
   - Sensor
   - Switch
+ha_categories:
+  - climate.thermostats_heating
+  - energy.meters_monitoring
 ha_release: 0.56
 ha_iot_class: Cloud Push
 ha_config_flow: true

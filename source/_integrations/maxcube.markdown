@@ -4,6 +4,8 @@ description: Instructions on how to integrate eQ-3 MAX! components with Home Ass
 ha_category:
   - Binary sensor
   - Climate
+ha_categories:
+  - climate.thermostats_heating
 ha_release: '0.40'
 ha_iot_class: Local Polling
 ha_domain: maxcube

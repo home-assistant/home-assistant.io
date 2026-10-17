@@ -7,6 +7,8 @@ ha_category:
   - Select
   - Sensor
   - Valve
+ha_categories:
+  - climate.thermostats_heating
 ha_release: 2026.6
 ha_iot_class: Local Polling
 ha_config_flow: true
