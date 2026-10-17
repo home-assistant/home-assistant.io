@@ -254,7 +254,7 @@ Options:
 
 By default, the Bot is added as a switch entity. A Bot in press mode (momentary switch mode) has no on/off state, so the switch only shows the last command that was sent. For such a Bot, you can use a button entity that presses the Bot instead of the switch entity.
 
-1. To use a button instead of a switch, go to {% my integration domain="switchbot" title="**Settings** > **Devices & services** > **SwitchBot Bluetooth**" %}.
+1. To use a button instead of a switch, go to {% my integrations title="**Settings** > **Devices & services**" %} and select **SwitchBot Bluetooth**.
 2. Under **Integration entries**, find the Bot and select **Configure**.
 3. In the **Options** dialog, enable **Use a button instead of a switch**. This option is disabled by default.
 
