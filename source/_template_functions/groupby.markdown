@@ -101,7 +101,7 @@ template: |
 type: string
 output: |
   humidity: sensor.bathroom_humidity
-  none: sensor.uptime
+  none: sensor.last_notification
   temperature: sensor.kitchen_temperature, sensor.living_room_temperature
 {% endexample %}
 
