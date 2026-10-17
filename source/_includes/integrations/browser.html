@@ -356,6 +356,8 @@ join: ',' | split: ',' -%}
     let noResultsEl;
     let orderedBy = null;
     let shownPlace = null;
+    // Typed in the search field, but not in the URL yet.
+    let searchPending = false;
 
     function findCategory(slug) {
       return CATEGORIES.find(category => category.slug === slug);
@@ -444,11 +446,6 @@ join: ',' | split: ',' -%}
       const hash = decodeURIComponent(location.hash.slice(1));
       const state = readState();
 
-      const category = findCategory(state.category);
-      const subcategory = params.get('subcategory');
-      if (category && category.subcategories.some(item => item.slug === subcategory)) {
-        state.subcategory = subcategory;
-      }
       const brand = params.get('brands');
       if (brand === 'featured' || brand === 'partners') state[brand] = 'true';
       if (hash === 'featured') state.featured = 'true';
@@ -462,23 +459,16 @@ join: ',' | split: ',' -%}
       history.replaceState(null, '', urlFor(state));
     }
 
+    // Once the integrations are in, the list can show.
     function init() {
       integrations.forEach(prepareSearch);
       integrations.sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()));
       renderCards();
       showCategoryCounts();
-      upgradeOldURL();
       render();
-
-      window.addEventListener('popstate', render);
-
-      setTimeout(() => searchInputEl.focus(), 1);
     }
 
     function render() {
-      // Still loading the integrations; init() renders once they are in.
-      if (!noResultsEl) return;
-
       const state = readState();
       const place = `${state.category || ''}/${state.subcategory || ''}`;
       if (place !== shownPlace) {
@@ -497,7 +487,7 @@ join: ',' | split: ',' -%}
       });
       // Only overwrite the search field when it says something else, so typing
       // is never interrupted.
-      if (searchInputEl.value.trim() !== (state.search || '')) {
+      if (!searchPending && searchInputEl.value.trim() !== (state.search || '')) {
         searchInputEl.value = state.search || '';
       }
       updateSearchClear();
@@ -505,7 +495,8 @@ join: ',' | split: ',' -%}
       const filterCount = FILTERS.filter(key => state[key]).length;
       document.querySelector('.filters-count').textContent = filterCount ? `(${filterCount})` : '';
 
-      // The list
+      // The list, once the integrations are in.
+      if (!noResultsEl) return;
       const scores = state.search ? searchScores(state.search) : null;
       const shown = integrations.filter(integration => {
         if (!inPlace(integration, state)) return false;
@@ -515,16 +506,20 @@ join: ',' | split: ',' -%}
         if (scores && !scores.has(integration)) return false;
         return true;
       });
-      if (scores) {
-        shown.sort((a, b) => scores.get(b) - scores.get(a));
-      }
 
       // While searching, the best matches come first. The cards move in the
       // page itself, so the keyboard and screen readers follow the same order.
+      // Every match is sorted, also the ones a filter hides right now, so the
+      // order holds when that filter goes.
       const order = scores ? state.search : '';
       if (order !== orderedBy) {
-        (scores ? [...shown, ...integrations.filter(i => !scores.has(i))] : integrations)
-          .forEach(integration => componentContainerEl.appendChild(integration.card));
+        const ranked = scores
+          ? [
+              ...integrations.filter(i => scores.has(i)).sort((a, b) => scores.get(b) - scores.get(a)),
+              ...integrations.filter(i => !scores.has(i)),
+            ]
+          : integrations;
+        ranked.forEach(integration => componentContainerEl.appendChild(integration.card));
         componentContainerEl.appendChild(noResultsEl);
         orderedBy = order;
       }
@@ -603,13 +598,18 @@ join: ',' | split: ',' -%}
       }
 
       const crumbs = [['/', 'Home']];
-      if (category) crumbs.push(['/integrations/', 'Integrations']);
-      if (subcategory) crumbs.push([`/integrations/category/${category.slug}/`, category.name]);
+      if (category) crumbs.push(['/integrations/', 'Integrations', '']);
+      if (subcategory) crumbs.push([`/integrations/category/${category.slug}/`, category.name, category.slug]);
       breadcrumbsEl.hidden = crumbs.length === 1;
-      breadcrumbsEl.replaceChildren(...crumbs.flatMap(([href, name], index) => {
+      breadcrumbsEl.replaceChildren(...crumbs.flatMap(([href, name, browseCategory], index) => {
         const link = document.createElement('a');
         link.href = href;
         link.textContent = name;
+        // Integrations and a category work like the links in the sidebar.
+        if (browseCategory !== undefined) {
+          link.dataset.category = browseCategory;
+          followInPage(link);
+        }
         return index ? [' ▸ ', link] : [link];
       }));
     }
@@ -637,8 +637,8 @@ join: ',' | split: ',' -%}
       });
     }
 
-    // The links in the sidebar are real links, so they also work in a new
-    // tab. The filters you picked go along.
+    // The links in the sidebar and the breadcrumbs are real links, so they
+    // also work in a new tab. The filters you picked go along.
     function updateBrowseLinks(state) {
       const carried = {};
       QUERY_KEYS.forEach(key => {
@@ -646,7 +646,7 @@ join: ',' | split: ',' -%}
       });
       if (carried.featured === 'false') delete carried.featured;
 
-      categoryLinks.forEach(link => {
+      [...categoryLinks, ...document.querySelectorAll('article.page .breadcrumbs a[data-category]')].forEach(link => {
         link.href = urlFor({ ...carried, category: link.dataset.category });
       });
       subcategoryLinks.forEach(link => {
@@ -709,6 +709,7 @@ join: ',' | split: ',' -%}
     // Starting a search adds a history entry; refining it replaces that entry,
     // so Back does not walk through every word you typed.
     function search() {
+      searchPending = false;
       const value = searchInputEl.value.trim();
       const current = readState();
       if (value === (current.search || '')) return;
@@ -724,6 +725,7 @@ join: ',' | split: ',' -%}
     let searchTimeout;
     searchInputEl.addEventListener('input', () => {
       updateSearchClear();
+      searchPending = true;
       clearTimeout(searchTimeout);
       searchTimeout = setTimeout(search, 150);
     });
@@ -919,6 +921,15 @@ join: ',' | split: ',' -%}
       ].join('/');
 
       return `<img src="${urlBase}.png" srcset="${urlBase}@2x.png 2x" loading="lazy">`;
+    }
+
+    // The URL, the headings, the sidebar, and Back and Forward work right
+    // away. The list follows once the integrations are in.
+    upgradeOldURL();
+    window.addEventListener('popstate', render);
+    render();
+    if (document.activeElement === document.body) {
+      searchInputEl.focus({ preventScroll: true });
     }
 
     fetch('/integrations/data.json')

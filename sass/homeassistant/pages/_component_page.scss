@@ -656,9 +656,12 @@ a.option-card:hover {
       background-color: $grayLighter;
     }
 
+    // Bold too, so the selection still shows when colors are forced, like
+    // with high contrast on Windows.
     &.active {
       background-color: $blueDark;
       color: white;
+      font-weight: 600;
 
       .category-count {
         color: inherit;
