@@ -10,6 +10,8 @@ ha_category:
   - Select
   - Sensor
   - Switch
+ha_categories:
+  - appliances_cleaning
 ha_codeowners:
   - '@milanmeu'
   - '@frenck'

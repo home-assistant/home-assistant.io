@@ -12,6 +12,9 @@ ha_category:
   - Select
   - Sensor
   - Switch
+ha_categories:
+  - appliances_cleaning
+  - climate.heat_pumps_air_conditioning
 ha_iot_class: Cloud Push
 ha_release: '0.110'
 ha_domain: home_connect

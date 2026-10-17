@@ -5,6 +5,9 @@ ha_category:
   - Hub
   - Lawn mower
   - Vacuum
+ha_categories:
+  - appliances_cleaning.cleaning
+  - garden_plants
 ha_iot_class: Cloud Push
 ha_release: 0.77
 ha_codeowners:
