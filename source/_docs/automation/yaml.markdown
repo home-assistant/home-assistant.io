@@ -70,7 +70,7 @@ trigger_variables:
   type: map
   keys:
     PARAMETER_NAME:
-      description: "The value of the variable. Any YAML is valid. Only [limited templates](/docs/templating/where-to-use/#limited-templates) can be used."
+      description: "The value of the variable. Any YAML is valid. Only [limited templates](/docs/templating/limited-templates/) can be used."
       type: any
 mode:
   description: "Controls what happens when the automation is invoked while it is still running from one or more previous invocations. See [Automation modes](/docs/automation/modes/)."
@@ -101,7 +101,7 @@ triggers:
       type: string
       required: false
     enabled:
-      description: "Set to `false` to disable the trigger. You can also use a [limited template](/docs/templating/where-to-use/#limited-templates). For details, refer to [Disabling a trigger](/docs/automation/trigger/#disabling-a-trigger)."
+      description: "Set to `false` to disable the trigger. You can also use a [limited template](/docs/templating/limited-templates/). For details, refer to [Disabling a trigger](/docs/automation/trigger/#disabling-a-trigger)."
       type: [boolean, template]
       required: false
       default: true

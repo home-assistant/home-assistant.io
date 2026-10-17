@@ -120,7 +120,7 @@ There are two different types of variables available for triggers. Both work lik
 
 The first variant allows you to define variables that are set when the trigger reacts. The variables will be able to use templates and have access to [the `trigger` variable](/docs/automation/templating#available-trigger-data).
 
-The second variant is setting variables that are available when attaching a trigger when the trigger can contain templated values. These are defined using the `trigger_variables` key at an automation level. These variables can only contain [limited templates](/docs/templating/where-to-use/#limited-templates). The triggers will not re-apply if the value of the template changes. Trigger variables are a feature meant to support using blueprint inputs in triggers.
+The second variant is setting variables that are available when attaching a trigger when the trigger can contain templated values. These are defined using the `trigger_variables` key at an automation level. These variables can only contain [limited templates](/docs/templating/limited-templates/). The triggers will not re-apply if the value of the template changes. Trigger variables are a feature meant to support using blueprint inputs in triggers.
 
 ```yaml
 automation:
@@ -344,7 +344,7 @@ For setup steps, YAML options, and examples for the time trigger, see [Time trig
 
 ### Webhook trigger
 
-Webhook trigger reacts when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. The `webhook_id` can either be a static value or computed using [limited templates](/docs/templating/where-to-use/#limited-templates).
+Webhook trigger reacts when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. The `webhook_id` can either be a static value or computed using [limited templates](/docs/templating/limited-templates/).
 
 {% note %}
 The `webhook_id` template is only evaluated when setting up the trigger, they will not be re-evaluated for incoming webhook triggers.
@@ -436,7 +436,7 @@ automation:
       at: "15:32:00"
 ```
 
-Triggers can also be disabled based on [limited templates](/docs/templating/where-to-use/#limited-templates) or blueprint inputs. These are only evaluated once when the automation is loaded.
+Triggers can also be disabled based on [limited templates](/docs/templating/limited-templates/) or blueprint inputs. These are only evaluated once when the automation is loaded.
 
 ```yaml
 blueprint:

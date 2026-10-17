@@ -64,7 +64,7 @@ trigger: |
   value_template: "{{ value_json.state }}"
 {% endexample %}
 
-You can use templates in `topic` and `payload`, for example with [trigger variables](/docs/automation/trigger/#trigger-variables). `topic` only supports [limited templates](/docs/templating/where-to-use/#limited-templates).
+You can use templates in `topic` and `payload`, for example with [trigger variables](/docs/automation/trigger/#trigger-variables). `topic` only supports [limited templates](/docs/templating/limited-templates/).
 
 {% example %}
 automation: |
@@ -112,7 +112,8 @@ qos:
 ## Good to know
 
 - If you do not set **Payload** (`payload`), the trigger fires for any message on the configured topic.
-- The `topic` option supports [limited templates](/docs/templating/where-to-use/#limited-templates), and the `payload` option supports templates. Both are evaluated when the trigger is set up. They are not re-evaluated for each incoming MQTT message.
+- The `topic` option supports [limited templates](/docs/templating/limited-templates/), and the `payload` option supports templates. Both are evaluated when the trigger is set up. They are not re-evaluated for each incoming MQTT message.
+- Because Home Assistant evaluates `payload` only once, when the trigger is set up, a `payload` template that reads a state, such as `states('input_text.expected_payload')`, uses the state from that moment. If the state changes later, the trigger keeps waiting for the old payload until you reload the automation.
 - By default, MQTT payloads are decoded as `utf-8`. If the payload is binary data, such as an image or another byte payload, set `encoding` to an empty string in YAML.
 - If the incoming payload contains valid JSON, the trigger data includes `trigger.payload_json`.
 

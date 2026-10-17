@@ -346,7 +346,7 @@ The log shows the error `TemplateError: Use of 'states' is not supported in limi
 
 #### Description
 
-The template runs in a place that only supports [limited templates](/docs/templating/where-to-use/#limited-templates), such as `trigger_variables`, some trigger options, or the `enabled` option of a trigger, condition, or action. For the functions that aren't available there, refer to [What limited templates can't use](/docs/templating/where-to-use/#what-limited-templates-cant-use).
+The template runs in a place that only supports [limited templates](/docs/templating/limited-templates/), such as `trigger_variables`, some trigger options, or the `enabled` option of a trigger, condition, or action. For the functions that aren't available there, refer to [What limited templates can't use](/docs/templating/limited-templates/#what-limited-templates-cant-use).
 
 People most often run into this with `now()` in `trigger_variables`.
 
