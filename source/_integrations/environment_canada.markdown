@@ -5,6 +5,9 @@ ha_category:
   - Camera
   - Sensor
   - Weather
+ha_categories:
+  - weather_alerts.forecasts
+  - weather_alerts.public_warnings
 ha_platforms:
   - camera
   - diagnostics

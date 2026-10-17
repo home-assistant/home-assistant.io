@@ -5,6 +5,9 @@ ha_release: 0.32
 ha_category:
   - Sensor
   - Weather
+ha_categories:
+  - weather_alerts.forecasts
+  - weather_alerts.air_quality_pollen
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:

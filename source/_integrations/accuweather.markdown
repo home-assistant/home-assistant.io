@@ -3,6 +3,9 @@ title: AccuWeather
 description: Instructions on how to integrate AccuWeather within Home Assistant.
 ha_category:
   - Weather
+ha_categories:
+  - weather_alerts.forecasts
+  - weather_alerts.air_quality_pollen
 ha_release: 0.114
 ha_iot_class: Cloud Polling
 ha_config_flow: true

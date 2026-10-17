@@ -6,6 +6,9 @@ ha_category:
   - Health
   - Sensor
   - Weather
+ha_categories:
+  - weather_alerts.forecasts
+  - weather_alerts.air_quality_pollen
 ha_release: 2022.4
 ha_iot_class: Cloud Polling
 ha_config_flow: true

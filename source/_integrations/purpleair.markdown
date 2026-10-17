@@ -3,6 +3,9 @@ title: PurpleAir
 description: Instructions on how to integrate PurpleAir sensors with Home Assistant.
 ha_category:
   - Sensor
+ha_categories:
+  - weather_alerts.air_quality_pollen
+  - sensors.air_quality
 ha_iot_class: Cloud Polling
 ha_release: 2023.1
 ha_codeowners:
