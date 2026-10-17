@@ -375,7 +375,8 @@ layout: null
 /getting-started/automation-examples /docs/automation/examples
 /getting-started/automation-troubleshooting /docs/automation/troubleshooting
 /getting-started/automation-trigger /docs/automation/trigger
-/getting-started/automation-templating /docs/automation/templating
+/getting-started/automation-templating /docs/automation/trigger-data/
+/docs/automation/templating /docs/automation/trigger-data/
 /getting-started/basic /docs/configuration/basic
 /getting-started/customizing-devices /docs/configuration/customizing-devices
 /getting-started/installation /docs/installation

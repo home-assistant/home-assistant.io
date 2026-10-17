@@ -625,7 +625,7 @@
     A template is an automation definition that can include variables for the
     action or data from the trigger values. This allows automations to generate
     dynamic actions.
-  link: /docs/automation/templating/
+  link: /docs/automation/trigger-data/
   aliases:
     - templates
 

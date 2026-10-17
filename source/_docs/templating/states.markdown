@@ -258,7 +258,7 @@ A template that reads its own entity renders again when that entity changes. If 
 
 ## The `trigger` variable (in automations)
 
-When an automation runs, it receives a `trigger` variable with details about what caused it. The fields depend on the {% term trigger %} type; the [Automation trigger variables](/docs/automation/templating/) page lists them all.
+When an automation runs, it receives a `trigger` variable with details about what caused it. The fields depend on the {% term trigger %} type; the [Automation trigger variables](/docs/automation/trigger-data/) page lists them all.
 
 {% example %}
 automation: |
