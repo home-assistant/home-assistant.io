@@ -10,6 +10,8 @@ ha_category:
   - Scene
   - Sensor
   - Switch
+ha_categories:
+  - hubs_protocols.building_automation
 ha_release: 0.85
 ha_iot_class: Local Polling
 ha_codeowners:

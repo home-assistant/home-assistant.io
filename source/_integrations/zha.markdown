@@ -21,6 +21,8 @@ ha_category:
   - Switch
   - Update
   - Valve
+ha_categories:
+  - hubs_protocols.wireless_protocols
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true

@@ -9,6 +9,8 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_categories:
+  - hubs_protocols.building_automation
 ha_iot_class: Local Push
 ha_release: '0.50'
 ha_config_flow: true

@@ -15,6 +15,8 @@ ha_category:
   - Number
   - Sensor
   - Switch
+ha_categories:
+  - hubs_protocols
 ha_release: 0.68
 ha_iot_class: Local Push
 ha_bluetooth: true

@@ -8,6 +8,9 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_categories:
+  - hubs_protocols.wireless_protocols
+  - diy_makers.boards_hardware
 ha_iot_class: Assumed State
 ha_release: 0.38
 ha_domain: rflink

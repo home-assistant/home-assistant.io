@@ -5,6 +5,8 @@ ha_release: 2022.9
 ha_category:
   - Other
   - Update
+ha_categories:
+  - hubs_protocols.wireless_protocols
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: homeassistant_sky_connect

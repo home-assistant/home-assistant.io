@@ -7,6 +7,8 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_categories:
+  - hubs_protocols.building_automation
 ha_release: 0.62
 ha_iot_class: Local Push
 ha_domain: ihc

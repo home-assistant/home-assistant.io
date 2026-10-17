@@ -20,6 +20,8 @@ ha_category:
   - Vacuum
   - Valve
   - Water heater
+ha_categories:
+  - hubs_protocols.wireless_protocols
 featured: true
 ha_release: '2022.12'
 ha_iot_class: Local Push

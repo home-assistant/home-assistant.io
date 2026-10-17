@@ -13,6 +13,8 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+ha_categories:
+  - hubs_protocols.wireless_protocols
 ha_release: 0.61
 ha_iot_class: Local Push
 ha_config_flow: true

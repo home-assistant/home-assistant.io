@@ -9,6 +9,8 @@ ha_category:
   - Sensor
   - Switch
   - Update
+ha_categories:
+  - hubs_protocols.wireless_protocols
 ha_release: 2024.9
 ha_iot_class: Local Push
 ha_config_flow: true

@@ -11,6 +11,8 @@ ha_category:
   - Select
   - Sensor
   - Switch
+ha_categories:
+  - hubs_protocols.building_automation
 ha_platforms:
   - binary_sensor
   - climate
