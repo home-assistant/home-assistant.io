@@ -87,8 +87,8 @@ The entities you see depend on your model. The battery and charging entities app
 ### Sensors
 
 - **Battery**: The remaining battery charge, as a percentage. Available on the battery-powered model only.
-- **Fill**: How full the current fragrance cartridge is.
-- **Perfume**: The name of the fragrance cartridge currently in the diffuser.
+- **Fill**: An estimate of how full the current fragrance cartridge is, as a percentage. Unknown when there is no measurement.
+- **Perfume**: The name of the fragrance cartridge currently in the diffuser. Unknown when no cartridge is inserted.
 - **Wi-Fi signal**: The strength of the diffuser's Wi-Fi connection, as a percentage. This sensor is disabled by default. You can turn it on from the entity's settings if you want to use it.
 
 ### Update
