@@ -3,6 +3,8 @@ title: GeoNet NZ Volcano
 description: Instructions on how to integrate the GeoNet New Zealand Volcanic Alert Level feed into Home Assistant.
 ha_category:
   - Sensor
+ha_categories:
+  - weather_alerts.public_warnings
 ha_iot_class: Cloud Polling
 ha_release: 0.103
 ha_config_flow: true
