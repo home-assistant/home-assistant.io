@@ -9,6 +9,7 @@ ha_category:
   - Switch
 ha_categories:
   - security_safety.cameras
+  - security_safety.doorbells_intercoms
 ha_config_flow: true
 ha_release: 0.45
 ha_iot_class: Local Push
