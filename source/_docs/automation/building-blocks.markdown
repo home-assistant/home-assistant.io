@@ -98,7 +98,7 @@ automation: |
         entity_id: light.ceiling
 {% endexample %}
 
-`enabled` can also be a [limited template](/docs/templating/limited-templates/). The limited template can't use variables, such as `trigger`, `this`, or values from the `variables` section. It also can't use the state of entities or the current time. If the limited template refers to a variable, Home Assistant skips the step or stops the run with an error.
+`enabled` can also be a [template](/docs/templating/). Home Assistant renders the template each time the step is about to run. The template can use the state of entities, the current time, and variables, such as `trigger`, `this`, and values from the `variables` section. If the result is false, Home Assistant skips the step. If the template can't be rendered, the run stops with an error. This also applies to a condition that is a step of its own. For conditions in **And if** or inside another step, such as **If-then**, refer to [Disabling a condition](/docs/automation/condition/#disabling-a-condition).
 
 In a {% term blueprint %}, set `enabled` directly to a blueprint input with `!input`, not through a template. Use a [boolean selector](/docs/blueprint/selectors/#boolean-selector) for the input, so its value is `true` or `false`. With another selector, such as an entity selector, the value is an entity ID, which counts as `true`, so the step always runs.
 
