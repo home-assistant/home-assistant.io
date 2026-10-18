@@ -1,8 +1,6 @@
 ---
 title: FGLair
 description: Control your Fujitsu heat pump or air conditioner that uses the FGLair app
-ha_category:
-  - Climate
 ha_categories:
   - climate.heat_pumps_air_conditioning
 ha_release: 2024.9

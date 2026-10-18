@@ -1,16 +1,6 @@
 ---
 title: Midea
 description: Instructions on how to integrate devices with Midea protocol into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Fan
-  - Humidifier
-  - Light
-  - Number
-  - Select
-  - Switch
 ha_categories:
   - climate.heat_pumps_air_conditioning
   - appliances_cleaning

@@ -206,7 +206,7 @@ join: ',' | split: ',' -%}
         <label class="filter-title" for="filter-connection">Connection</label>
         <div class="filter-field">
           <iconify-icon class="filter-icon" icon="mdi:lan-connect"></iconify-icon>
-          <select class="ha_category" name="connection" data-id="connection" id="filter-connection">
+          <select class="filter-select" name="connection" data-id="connection" id="filter-connection">
             <option value="#">All connections</option>
             <option value="local">Local</option>
             <option value="cloud">Cloud</option>
@@ -221,7 +221,7 @@ join: ',' | split: ',' -%}
         <label class="filter-title" for="filter-version">Version</label>
         <div class="filter-field">
           <iconify-icon class="filter-icon" icon="mdi:tag-outline"></iconify-icon>
-          <select class="ha_category" name="versions" data-id="version" id="filter-version">
+          <select class="filter-select" name="versions" data-id="version" id="filter-version">
             <option value="#">All versions</option>
             {%- for group in components_by_version -%}
             <optgroup label="{{ group.label }} ({{group.new_components_count}})">
@@ -241,7 +241,7 @@ join: ',' | split: ',' -%}
         <label class="filter-title" for="filter-iot_class">IoT Class</label>
         <div class="filter-field">
           <iconify-icon class="filter-icon" icon="mdi:access-point"></iconify-icon>
-          <select class="ha_category" name="iot_classes" data-id="iot_class" id="filter-iot_class">
+          <select class="filter-select" name="iot_classes" data-id="iot_class" id="filter-iot_class">
             <option value="#">All IoT classes</option>
             {%- for iot_class in iot_classes -%}
               {%- assign iot_class_count = components | where: 'ha_iot_class', iot_class | size -%}
@@ -260,7 +260,7 @@ join: ',' | split: ',' -%}
         <label class="filter-title" for="filter-quality_scale">Quality Scale</label>
         <div class="filter-field">
           <iconify-icon class="filter-icon" icon="mdi:medal-outline"></iconify-icon>
-          <select class="ha_category" name="quality_scales" data-id="quality_scale" id="filter-quality_scale">
+          <select class="filter-select" name="quality_scales" data-id="quality_scale" id="filter-quality_scale">
             <option value="#">All quality scales</option>
             {%- for quality_scale in quality_scales -%}
               {%- assign quality_scale_count = components | where: 'ha_quality_scale', quality_scale | size -%}
@@ -1023,7 +1023,7 @@ join: ',' | split: ',' -%}
   </nav>
   <ul>
     {%- for component in components -%}
-    {%- if component.ha_category or component.ha_categories -%}
+    {%- if component.ha_categories -%}
     {%- assign listed = true -%}
     {%- if current_subcategory -%}
       {%- assign wanted = current_category.slug | append: '.' | append: current_subcategory.slug -%}

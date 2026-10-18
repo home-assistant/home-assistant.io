@@ -1,12 +1,6 @@
 ---
 title: Balboa Spa Client
 description: Instructions on how to integrate Balboa Spa WiFi within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Fan
-  - Light
-  - Select
 ha_categories:
   - water.pools_spas
 ha_release: 2021.12

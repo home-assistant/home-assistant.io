@@ -1,11 +1,6 @@
 ---
 title: Lupus Electronics LUPUSEC
 description: Instructions on integrating Lupusec home security with Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Hub
-  - Switch
 ha_categories:
   - security_safety.alarm_systems
 ha_release: 0.83

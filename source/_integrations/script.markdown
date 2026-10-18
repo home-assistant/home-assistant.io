@@ -1,8 +1,6 @@
 ---
 title: Scripts
 description: Create scripts in Home Assistant, ask for input with fields, choose a mode, and start scripts from dashboards, Assist, and automations.
-ha_category:
-  - Automation
 ha_release: 0.7
 ha_quality_scale: internal
 ha_codeowners:

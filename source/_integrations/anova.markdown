@@ -1,8 +1,6 @@
 ---
 title: Anova
 description: Instructions on how to integrate Anova Wi-Fi Sous Vide into home assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - appliances_cleaning.cooking
 ha_iot_class: Cloud Push

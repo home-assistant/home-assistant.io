@@ -1,9 +1,6 @@
 ---
 title: CentriConnect/MyPropane
 description: Instructions on how to integrate CentriConnect/MyPropane monitors into Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_categories:
   - energy
 ha_release: 2026.6

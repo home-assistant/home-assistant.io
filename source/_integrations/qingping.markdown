@@ -1,9 +1,6 @@
 ---
 title: Qingping
 description: Instructions on how to integrate Qingping devices into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
 ha_categories:
   - sensors.temperature_humidity
   - sensors.air_quality

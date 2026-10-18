@@ -1,8 +1,6 @@
 ---
 title: Bluetooth LE Tracker
 description: Instructions for integrating bluetooth low-energy tracking within Home Assistant.
-ha_category:
-  - Presence detection
 ha_categories:
   - presence_location
 ha_iot_class: Local Push

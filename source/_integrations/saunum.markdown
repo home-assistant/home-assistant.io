@@ -14,9 +14,6 @@ related:
     title: Saunum
   - url: https://saunum.com/en/product/control-devices/
     title: Saunum Leil product page
-ha_category:
-  - Climate
-  - Modbus-controlled
 ha_categories:
   - water.pools_spas
   - climate.thermostats_heating

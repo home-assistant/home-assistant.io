@@ -1,16 +1,6 @@
 ---
 title: Qbus
 description: Instructions on how to integrate your Qbus installation with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Cover
-  - Hub
-  - Light
-  - Scene
-  - Select
-  - Sensor
-  - Switch
 ha_categories:
   - hubs_protocols.building_automation
 ha_platforms:

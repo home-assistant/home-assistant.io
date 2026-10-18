@@ -1,10 +1,6 @@
 ---
 title: Ping (ICMP)
 description: Instructions on how to use ICMP ping checks in Home Assistant.
-ha_category:
-  - Binary sensor
-  - Network
-  - Presence detection
 ha_categories:
   - presence_location.network_presence
   - computers_network.monitoring

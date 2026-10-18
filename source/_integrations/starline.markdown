@@ -1,14 +1,6 @@
 ---
 title: StarLine
 description: Instructions on how to set up your StarLine account with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Car
-  - Lock
-  - Presence detection
-  - Sensor
-  - Switch
 ha_categories:
   - vehicles_transport.cars_evs
 ha_release: 0.103

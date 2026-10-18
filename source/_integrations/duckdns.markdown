@@ -1,8 +1,6 @@
 ---
 title: Duck DNS
 description: Keep your public IP address in sync with your Duck DNS subdomain.
-ha_category:
-  - Network
 ha_categories:
   - computers_network.routers_network
 ha_iot_class: Cloud Polling

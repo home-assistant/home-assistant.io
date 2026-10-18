@@ -1,8 +1,6 @@
 ---
 title: Ukraine Alarm
 description: Instructions on how to integrate Ukraine Alarm within Home Assistant.
-ha_category:
-  - Other
 ha_categories:
   - weather_alerts.public_warnings
 ha_release: 2022.6

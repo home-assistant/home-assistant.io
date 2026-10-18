@@ -1,8 +1,6 @@
 ---
 title: 1-Wire
 description: Instructions on how to integrate 1-Wire sensors and switches into Home Assistant using owserver.
-ha_category:
-  - DIY
 ha_categories:
   - diy_makers.boards_hardware
   - sensors.temperature_humidity

@@ -4,8 +4,6 @@ description: Instructions on how to set up and use vacuums in Home Assistant.
 ha_release: 0.51
 ha_domain: vacuum
 ha_quality_scale: internal
-ha_category:
-  - Vacuum
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity

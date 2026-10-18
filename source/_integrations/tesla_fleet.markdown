@@ -1,20 +1,6 @@
 ---
 title: Tesla Fleet
 description: Instructions on how to integrate the Tesla Fleet API within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Car
-  - Climate
-  - Cover
-  - Device tracker
-  - Lock
-  - Media player
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
 ha_categories:
   - vehicles_transport.cars_evs
   - energy.solar_batteries

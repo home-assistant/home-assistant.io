@@ -1,8 +1,6 @@
 ---
 title: SFTP Storage
 description: Allows storing backups created with Backup system onto remote SFTP host.
-ha_category:
-  - Backup
 ha_categories:
   - computers_network.nas_servers
 ha_release: '2025.10'

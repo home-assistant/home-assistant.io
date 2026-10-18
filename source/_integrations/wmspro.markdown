@@ -1,14 +1,6 @@
 ---
 title: WMS WebControl pro
 description: Instructions on how to integrate WAREMA devices via WMS WebControl pro within Home Assistant.
-ha_category:
-  - Button
-  - Cover
-  - Hub
-  - Light
-  - Number
-  - Scene
-  - Switch
 ha_categories:
   - blinds_curtains
 ha_release: '2024.10'

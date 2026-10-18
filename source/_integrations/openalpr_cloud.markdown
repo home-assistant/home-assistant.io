@@ -1,8 +1,6 @@
 ---
 title: OpenALPR Cloud
 description: Instructions on how to integrate licences plates with OpenALPR cloud into Home Assistant.
-ha_category:
-  - Image processing
 ha_categories:
   - ai_voice.image_recognition
 ha_iot_class: Cloud Push

@@ -1,8 +1,6 @@
 ---
 title: Mobile App
 description: The Mobile App integration provides a generic platform for integrating mobile apps with Home Assistant.
-ha_category:
-  - Other
 ha_categories:
   - presence_location.phones_companion_apps
 ha_release: 0.89

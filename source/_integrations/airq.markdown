@@ -1,10 +1,6 @@
 ---
 title: air-Q
 description: Instructions on how to integrate air-Q into Home Assistant
-ha_category:
-  - Environment
-  - Health
-  - Sensor
 ha_categories:
   - sensors.air_quality
 ha_release: '2022.12'

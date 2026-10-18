@@ -1,8 +1,6 @@
 ---
 title: ZhongHong
 description: Instructions on how to integrate the air conditioners behind a ZhongHong HVAC gateway into Home Assistant.
-ha_category:
-  - Climate
 ha_categories:
   - climate.heat_pumps_air_conditioning
 ha_release: 0.72

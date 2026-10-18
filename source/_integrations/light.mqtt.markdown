@@ -1,8 +1,6 @@
 ---
 title: "MQTT Light"
 description: "Instructions on how to set up MQTT lights using default schema within Home Assistant."
-ha_category:
-  - Light
 ha_iot_class: Configurable
 ha_release: 0.8
 ha_domain: mqtt

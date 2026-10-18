@@ -1,19 +1,6 @@
 ---
 title: SwitchBot Bluetooth
 description: Instructions on how to set up SwitchBot Devices.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Fan
-  - Humidifier
-  - Light
-  - Lock
-  - Select
-  - Sensor
-  - Switch
-  - Vacuum
 ha_categories:
   - sensors
   - blinds_curtains

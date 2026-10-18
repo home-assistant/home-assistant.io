@@ -1,10 +1,6 @@
 ---
 title: Global Caché GC-100
 description: Instructions on how to integrate gc100 with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Hub
-  - Switch
 ha_categories:
   - diy_makers.boards_hardware
 ha_release: 0.57

@@ -1,8 +1,6 @@
 ---
 title: Elgato Avea
 description: Instructions on how to integrate Elgato Avea with Home Assistant.
-ha_category:
-  - Light
 ha_categories:
   - lighting.bulbs_lamps
 ha_bluetooth: true

@@ -1,8 +1,6 @@
 ---
 title: Bring!
 description: Instructions on how to integrate the Bring! todo list with Home Assistant.
-ha_category:
-  - To-do list
 ha_categories:
   - productivity_information.shopping_groceries
 ha_iot_class: Cloud Polling

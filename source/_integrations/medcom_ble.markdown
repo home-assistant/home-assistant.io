@@ -1,9 +1,6 @@
 ---
 title: Medcom Bluetooth
 description: Integrate International Medcom radiation monitors
-ha_category:
-  - Environment
-  - Sensor
 ha_categories:
   - sensors
 ha_release: '2023.10'

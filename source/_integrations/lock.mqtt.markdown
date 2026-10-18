@@ -1,8 +1,6 @@
 ---
 title: "MQTT Lock"
 description: "Instructions on how to integrate MQTT locks into Home Assistant."
-ha_category:
-  - Lock
 ha_release: 0.15
 ha_iot_class: Configurable
 ha_domain: mqtt

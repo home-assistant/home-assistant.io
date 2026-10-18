@@ -1,9 +1,6 @@
 ---
 title: GeoSphere Austria Warnings
 description: Instructions on how to integrate official GeoSphere Austria weather warnings within Home Assistant.
-ha_category:
-  - Sensor
-  - Weather
 ha_categories:
   - weather_alerts.public_warnings
 ha_release: 2026.8

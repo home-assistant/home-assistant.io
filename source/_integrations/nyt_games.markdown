@@ -1,9 +1,6 @@
 ---
 title: NYT Games
 description: Instructions on how to set up NYT Games in Home Assistant.
-ha_category:
-  - Gaming
-  - Sensor
 ha_categories:
   - media_entertainment.gaming
 ha_config_flow: true

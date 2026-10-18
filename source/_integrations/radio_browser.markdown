@@ -1,9 +1,6 @@
 ---
 title: Radio Browser
 description: Instructions on how to integrate Radio Browser into Home Assistant.
-ha_category:
-  - Media source
-  - Multimedia
 ha_categories:
   - media_entertainment.music_radio_services
 ha_release: 2022.3

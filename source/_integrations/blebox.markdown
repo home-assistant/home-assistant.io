@@ -1,15 +1,6 @@
 ---
 title: BleBox devices
 description: Instructions on how to integrate BleBox devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Light
-  - Sensor
-  - Switch
-  - Update
 ha_categories:
   - plugs_switches
   - blinds_curtains

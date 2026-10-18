@@ -4,7 +4,6 @@ description: Monitor air pollutants and receive alerts from gas, smoke, and carb
 ha_release: 0.85
 ha_domain: air_quality
 ha_quality_scale: internal
-ha_category: []
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity

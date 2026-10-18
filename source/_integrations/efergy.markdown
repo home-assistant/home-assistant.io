@@ -1,8 +1,6 @@
 ---
 title: Efergy
 description: Instructions on how to integrate Efergy devices within Home Assistant.
-ha_category:
-  - Energy
 ha_categories:
   - energy.meters_monitoring
 ha_release: pre 0.7

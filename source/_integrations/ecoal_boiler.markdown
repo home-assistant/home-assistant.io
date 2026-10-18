@@ -1,8 +1,6 @@
 ---
 title: eSterownik eCoal.pl Boiler
 description: Instructions on how to integrate eSterownik.pl eCoal.pl controller into Home Assistant.
-ha_category:
-  - Water heater
 ha_categories:
   - climate.thermostats_heating
 ha_release: 0.87

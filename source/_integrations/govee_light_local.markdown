@@ -1,8 +1,6 @@
 ---
 title: Govee lights local
 description: Instructions on how to integrate Govee lights with Govee local API
-ha_category:
-  - light
 ha_categories:
   - lighting
 ha_release: 2024.2

@@ -1,8 +1,6 @@
 ---
 title: MQTT Eventstream
 description: Instructions on how to set up MQTT eventstream within Home Assistant.
-ha_category:
-  - Other
 ha_categories:
   - diy_makers
 ha_release: 0.11

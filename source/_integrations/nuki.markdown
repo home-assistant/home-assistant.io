@@ -1,8 +1,6 @@
 ---
 title: Nuki Bridge
 description: Instructions on how to integrate a Nuki Bridge to control their Smart Lock devices.
-ha_category:
-  - Lock
 ha_categories:
   - security_safety.locks_access
 ha_release: 0.38

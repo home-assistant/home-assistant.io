@@ -1,16 +1,6 @@
 ---
 title: Ring
 description: Instructions on integrating Ring.com devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Doorbell
-  - Event
-  - Light
-  - Number
-  - Sensor
-  - Switch
 ha_categories:
   - security_safety.doorbells_intercoms
   - security_safety.cameras

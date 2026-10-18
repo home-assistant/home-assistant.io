@@ -1,8 +1,6 @@
 ---
 title: Prometheus
 description: Record events in Prometheus.
-ha_category:
-  - History
 ha_categories:
   - computers_network.monitoring
 ha_release: 0.49

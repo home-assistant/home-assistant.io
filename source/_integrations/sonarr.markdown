@@ -1,8 +1,6 @@
 ---
 title: Sonarr
 description: Instructions on how to integrate Sonarr with Home Assistant.
-ha_category:
-  - Downloading
 ha_categories:
   - media_entertainment.tv_streaming
 ha_release: 0.34

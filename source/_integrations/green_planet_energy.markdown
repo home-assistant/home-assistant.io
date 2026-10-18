@@ -1,9 +1,6 @@
 ---
 title: Green Planet Energy
 description: Instructions on how to integrate Green Planet Energy dynamic electricity pricing into Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_categories:
   - energy.energy_prices
 ha_release: 2026.2

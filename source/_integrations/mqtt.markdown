@@ -1,9 +1,6 @@
 ---
 title: MQTT
 description: Instructions on how to set up MQTT within Home Assistant.
-ha_category:
-  - Hub
-  - Update
 ha_categories:
   - diy_makers
 featured: true

@@ -2,8 +2,6 @@
 title: OneDrive for Business
 description: Instructions on how to set up OneDrive for Business to be used with backups.
 ha_release: 2026.3
-ha_category:
-  - Backup
 ha_categories:
   - computers_network.cloud_developer_tools
 ha_iot_class: Cloud Polling

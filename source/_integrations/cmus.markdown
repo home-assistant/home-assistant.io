@@ -1,8 +1,6 @@
 ---
 title: cmus
 description: Instructions on how to integrate cmus Music Player into Home Assistant.
-ha_category:
-  - Media player
 ha_categories:
   - media_entertainment.music_radio_services
 ha_iot_class: Local Polling

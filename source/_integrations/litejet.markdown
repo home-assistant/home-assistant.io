@@ -1,10 +1,6 @@
 ---
 title: LiteJet
 description: Instructions on how to set up the LiteJet hub, Centralite Elegance or Centralite Jetstream within Home Assistant.
-ha_category:
-  - Light
-  - Scene
-  - Switch
 ha_categories:
   - lighting.lighting_systems
 ha_iot_class: Local Push

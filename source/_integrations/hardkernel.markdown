@@ -2,8 +2,6 @@
 title: Hardkernel
 description: Shows information about your Hardkernel ODROID board in Home Assistant.
 ha_release: 2022.6
-ha_category:
-  - Other
 ha_categories:
   - diy_makers.boards_hardware
 ha_codeowners:

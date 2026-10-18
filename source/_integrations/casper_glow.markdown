@@ -1,12 +1,6 @@
 ---
 title: Casper Glow
 description: Instructions on how to integrate Casper Glow lights into Home Assistant.
-ha_category:
-  - Binary Sensor
-  - Button
-  - Light
-  - Select
-  - Sensor
 ha_categories:
   - lighting.bulbs_lamps
   - health_wellbeing

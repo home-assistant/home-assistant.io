@@ -1,8 +1,6 @@
 ---
 title: Electra Smart
 description: Instructions for how to integrate Electra Air Conditioners within Home Assistant.
-ha_category:
-  - Climate
 ha_categories:
   - climate.heat_pumps_air_conditioning
 ha_release: 2023.6

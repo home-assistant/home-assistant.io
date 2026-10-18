@@ -1,12 +1,6 @@
 ---
 title: Belkin WeMo
 description: Instructions on how to integrate Belkin WeMo devices into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Fan
-  - Hub
-  - Light
-  - Switch
 ha_categories:
   - plugs_switches
   - lighting.bulbs_lamps

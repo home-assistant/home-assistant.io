@@ -2,9 +2,6 @@
 title: Traccar Client
 description: Instructions how to use Traccar GPS tracker to track devices in Home Assistant.
 ha_release: 0.83
-ha_category:
-  - Car
-  - Presence detection
 ha_categories:
   - presence_location.phones_companion_apps
 ha_iot_class: Cloud Push

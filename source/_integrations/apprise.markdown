@@ -1,8 +1,6 @@
 ---
 title: Apprise
 description: Instructions on how to use Apprise to send notifications from Home Assistant to more than 140 notification services.
-ha_category:
-  - Notifications
 ha_categories:
   - messaging_notifications
 ha_iot_class: Cloud Push

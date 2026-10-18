@@ -1,8 +1,6 @@
 ---
 title: Fressnapf Tracker
 description: Instructions on how to integrate Fressnapf GPS Trackers into Home Assistant.
-ha_category:
-  - Presence detection
 ha_categories:
   - pets
 ha_iot_class: Cloud Polling

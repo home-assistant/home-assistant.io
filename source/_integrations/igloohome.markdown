@@ -1,8 +1,6 @@
 ---
 title: igloohome
 description: Integrates igloohome smart access devices.
-ha_category:
-  - Sensor
 ha_categories:
   - security_safety.locks_access
 ha_release: 2025.2

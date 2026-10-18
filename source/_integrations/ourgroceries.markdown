@@ -1,8 +1,6 @@
 ---
 title: OurGroceries
 description: Instructions on how to integrate OurGroceries shopping lists into Home Assistant.
-ha_category:
-  - To-do List
 ha_categories:
   - productivity_information.shopping_groceries
 ha_release: '2023.12'

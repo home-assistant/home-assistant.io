@@ -1,8 +1,6 @@
 ---
 title: Volumio
 description: How to set up the Volumio media player integration
-ha_category:
-  - Media player
 ha_categories:
   - media_entertainment.speakers_audio
 ha_release: 0.41

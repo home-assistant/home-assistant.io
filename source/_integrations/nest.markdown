@@ -1,14 +1,6 @@
 ---
 title: Google Nest
 description: Instructions on how to integrate Nest into Home Assistant.
-ha_category:
-  - Camera
-  - Climate
-  - Doorbell
-  - Event
-  - Hub
-  - Media source
-  - Sensor
 ha_categories:
   - climate.thermostats_heating
   - security_safety.cameras

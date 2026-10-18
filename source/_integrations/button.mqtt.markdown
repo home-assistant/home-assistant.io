@@ -1,8 +1,6 @@
 ---
 title: "MQTT button"
 description: "Instructions on how to integrate MQTT buttons into Home Assistant."
-ha_category:
-  - Button
 ha_release: 2021.12
 ha_iot_class: Configurable
 ha_domain: mqtt

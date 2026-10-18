@@ -2,13 +2,6 @@
 title: Apollo Automation
 description: Connect and control your Apollo Automation devices using the ESPHome integration
 ha_release: 0.85
-ha_category:
-  - Alarm
-  - DIY
-  - Infrared
-  - Radio frequency
-  - Serial
-  - Update
 ha_domain: apollo_automation
 ha_integration_type: virtual
 ha_supporting_domain: esphome

@@ -1,8 +1,6 @@
 ---
 title: Sanix
 description: Instructions on how to integrate Sanix devices within Home Assistant.
-ha_category:
-  - Switch
 ha_categories:
   - water
 ha_release: 2024.5

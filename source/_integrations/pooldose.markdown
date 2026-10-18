@@ -1,13 +1,6 @@
 ---
 title: SEKO PoolDose
 description: Connect your SEKO PoolDose water treatment system to Home Assistant.
-ha_category:
-  - Binary sensor
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Water Management
 ha_categories:
   - water.pools_spas
 ha_iot_class: Local Polling

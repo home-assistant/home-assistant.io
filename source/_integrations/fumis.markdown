@@ -2,8 +2,6 @@
 title: Fumis
 description: Instructions on how to integrate your Fumis-based pellet stove with Home Assistant.
 ha_release: 2026.5
-ha_category:
-  - Climate
 ha_categories:
   - climate.thermostats_heating
 ha_iot_class: Cloud Polling

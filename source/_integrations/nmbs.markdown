@@ -1,8 +1,6 @@
 ---
 title: NMBS
 description: Instructions on how to integrate timetable data for traveling on the NMBS/SNCB Belgian Railway within Home Assistant.
-ha_category:
-  - Transport
 ha_categories:
   - vehicles_transport.public_transport
 ha_config_flow: true

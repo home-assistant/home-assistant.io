@@ -1,9 +1,6 @@
 ---
 title: Trafikverket Ferry
 description: Instructions how to integrate Trafikverket Ferry within Home Assistant.
-ha_category:
-  - Sensor
-  - Transport
 ha_categories:
   - vehicles_transport.public_transport
 ha_release: 2022.5

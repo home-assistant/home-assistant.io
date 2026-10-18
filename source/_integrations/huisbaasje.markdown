@@ -1,9 +1,6 @@
 ---
 title: EnergyFlip
 description: Instructions on how to integrate EnergyFlip with Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_categories:
   - energy.meters_monitoring
 ha_release: 2021.2

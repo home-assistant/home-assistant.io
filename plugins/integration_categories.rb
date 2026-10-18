@@ -1,6 +1,7 @@
 # Validate the `ha_categories` front matter of integration pages against
 # the integration categories in source/_data/integration_categories.json,
 # with the same rules hassfest applies to the `categories` manifest key.
+# The old `ha_category` is not allowed anymore.
 # All problems are collected first, so one build shows every one of them.
 module Jekyll
   class IntegrationCategoriesValidator < Generator
@@ -15,6 +16,10 @@ module Jekyll
 
       errors = []
       site.collections['integrations']&.docs&.each do |doc|
+        if doc.data.key?('ha_category')
+          errors << "#{doc.relative_path}: `ha_category` is replaced by `ha_categories`, see #{CATEGORIES_FILE}"
+        end
+
         categories = doc.data['ha_categories']
         next if categories.nil?
 

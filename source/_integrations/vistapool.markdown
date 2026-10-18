@@ -1,15 +1,6 @@
 ---
 title: Vistapool
 description: Monitor and control Vistapool-compatible pool controllers via the Vistapool cloud API.
-ha_category:
-  - Binary sensor
-  - Button
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Time
 ha_categories:
   - water.pools_spas
 ha_release: 2026.6

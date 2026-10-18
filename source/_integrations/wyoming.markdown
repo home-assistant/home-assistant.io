@@ -1,8 +1,6 @@
 ---
 title: Wyoming Protocol
 description: Connect remote voice services to Home Assistant.
-ha_category:
-  - Voice
 ha_categories:
   - ai_voice.speech
   - ai_voice.voice_assistants

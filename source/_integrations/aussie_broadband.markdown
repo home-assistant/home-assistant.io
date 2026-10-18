@@ -1,9 +1,6 @@
 ---
 title: Aussie Broadband
 description: Instructions on how to integrate Aussie Broadband within Home Assistant.
-ha_category:
-  - Network
-  - Sensor
 ha_categories:
   - computers_network
 ha_release: 2022.2

@@ -1,8 +1,6 @@
 ---
 title: Heyu X10
 description: Instructions on how to set up X10 devices within Home Assistant.
-ha_category:
-  - Light
 ha_categories:
   - hubs_protocols
   - lighting

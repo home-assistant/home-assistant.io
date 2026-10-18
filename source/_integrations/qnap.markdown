@@ -1,8 +1,6 @@
 ---
 title: QNAP
 description: Instructions on how to integrate the QNAP sensor within Home Assistant.
-ha_category:
-  - System monitor
 ha_categories:
   - computers_network.nas_servers
 ha_release: 0.38

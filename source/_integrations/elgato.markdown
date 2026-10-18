@@ -1,9 +1,6 @@
 ---
 title: Elgato Light
 description: Instructions on how to integrate an Elgato Light with Home Assistant.
-ha_category:
-  - Light
-  - Update
 ha_categories:
   - lighting.bulbs_lamps
 ha_release: 0.104

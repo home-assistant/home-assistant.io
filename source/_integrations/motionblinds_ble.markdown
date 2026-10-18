@@ -1,8 +1,6 @@
 ---
 title: Motionblinds Bluetooth
 description: Instructions on how to integrate Motionblinds Bluetooth motors into Home Assistant.
-ha_category:
-  - Cover
 ha_categories:
   - blinds_curtains
 ha_iot_class: Assumed State

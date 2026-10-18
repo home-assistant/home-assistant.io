@@ -1,11 +1,6 @@
 ---
 title: Philips TV
 description: Instructions on how to add Philips TVs to Home Assistant.
-ha_category:
-  - Binary sensor
-  - Light
-  - Media player
-  - Remote
 ha_categories:
   - media_entertainment.tv_streaming
 ha_iot_class: Local Polling

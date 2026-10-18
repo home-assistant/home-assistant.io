@@ -1,8 +1,6 @@
 ---
 title: Model Context Protocol Server
 description: Instructions on how to add a Model Context Protocol Server to Home Assistant.
-ha_category:
-  - Voice
 ha_categories:
   - ai_voice.ai_models
   - other_ecosystems

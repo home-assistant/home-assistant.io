@@ -1,8 +1,6 @@
 ---
 title: Intent Script
 description: Instructions on how to set up scripts to run on intents.
-ha_category:
-  - Intent
 ha_categories:
   - ai_voice.voice_assistants
 ha_release: '0.50'

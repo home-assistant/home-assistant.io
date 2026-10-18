@@ -1,9 +1,6 @@
 ---
 title: Utility Meter
 description: Instructions on how to integrate the Utility Meter into Home Assistant.
-ha_category:
-  - Helper
-  - Sensor
 ha_categories:
   - helpers.calculate_value
   - energy.meters_monitoring

@@ -2,8 +2,6 @@
 title: Ultraloq
 description: Connect and control your Ultraloq Z-Wave series devices using the Z-Wave integration
 ha_release: '2022.11'
-ha_category:
-  - Lock
 ha_categories:
   - security_safety.locks_access
 ha_domain: ultraloq

@@ -1,9 +1,6 @@
 ---
 title: Solarman
 description: Instructions on how to integrate your Solarman device with Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_categories:
   - energy.meters_monitoring
   - plugs_switches

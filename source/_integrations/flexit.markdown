@@ -1,11 +1,6 @@
 ---
 title: Flexit
 description: Instructions on how to integrate a Flexit air handling unit into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Modbus-controlled
-  - Sensor
 ha_categories:
   - climate.fans_ventilation
 ha_release: 0.47

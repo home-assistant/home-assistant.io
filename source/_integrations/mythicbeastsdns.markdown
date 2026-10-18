@@ -1,8 +1,6 @@
 ---
 title: Mythic Beasts DNS
 description: Keep your mythic beasts DNS updated
-ha_category:
-  - Network
 ha_categories:
   - computers_network.routers_network
 ha_release: 0.85

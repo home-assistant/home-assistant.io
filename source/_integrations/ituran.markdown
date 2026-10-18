@@ -1,10 +1,6 @@
 ---
 title: Ituran
 description: Instructions on how to add Ituran to Home Assistant.
-ha_category:
-  - Car
-  - Device Tracker
-  - Presence detection
 ha_categories:
   - vehicles_transport.cars_evs
   - presence_location.trackers

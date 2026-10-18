@@ -1,9 +1,6 @@
 ---
 title: Generic Thermostat
 description: Turn Home Assistant into a thermostat
-ha_category:
-  - Climate
-  - Helper
 ha_categories:
   - helpers
   - climate.thermostats_heating

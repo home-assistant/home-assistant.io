@@ -1,11 +1,6 @@
 ---
 title: Tesla Powerwall
 description: Instructions on how to integrate Tesla Power Walls into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Energy
-  - Sensor
-  - Switch
 ha_categories:
   - energy.solar_batteries
 ha_release: 0.108

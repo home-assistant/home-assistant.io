@@ -1,9 +1,6 @@
 ---
 title: Universal Powerline Bus (UPB)
 description: Instructions on how to set up Universal Powerline Bus integration.
-ha_category:
-  - Light
-  - Scene
 ha_categories:
   - lighting.lighting_systems
   - plugs_switches
