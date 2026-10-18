@@ -55,7 +55,7 @@ You set whether a user is an administrator with the **Administrator** toggle whe
 
 Usernames are lowercase and don't contain spaces. When someone signs in, Home Assistant ignores uppercase and lowercase letters, and spaces before or after the username.
 
-Some older usernames still contain uppercase letters or spaces. Those keep working unless two usernames differ just in uppercase and lowercase letters, or in spaces before or after them. In that case, only one of these users can sign in. For example, `Bob` and `bob` match the same login. To fix this, change one of the two usernames. For the steps, refer to [Changing a username](#changing-a-username).
+Some older usernames still contain uppercase letters or spaces. Those keep working unless two usernames differ just in uppercase and lowercase letters, or in spaces before or after them. In that case, only one of these users can sign in. For example, `Bob` and `bob` match the same login.
 
 ## About your account profile
 
