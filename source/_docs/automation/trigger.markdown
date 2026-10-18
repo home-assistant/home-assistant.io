@@ -497,7 +497,7 @@ Instead of creating many automations for different groups of related triggers an
 2. In the lower right corner, select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
 4. Search for the trigger using the search box, for example, and then select it.
-5. In the **Then do** section, select **Add action** and then select the **Choose** block.
+5. In the **Then do** section, select **Add action**, and then select **Blocks** > **Choose**.
 6. Expand the option section, select **Add condition** and, from the **By type** list, select **Triggered by**.
 7. In the condition window on the right, select the trigger that you added in step 4, and then select **Save**. Home Assistant creates an ID for the trigger if needed.
 8. In the same option, select **Add action**, and choose the action that runs when the related trigger starts the automation.
