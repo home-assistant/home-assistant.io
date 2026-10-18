@@ -24,12 +24,10 @@ The real power of this integration is combining triggers and conditions into aut
 
 ### Automation: ventilate a stuffy bedroom overnight
 
-CO2 builds up in a closed bedroom as you sleep. By the time you notice the air feels stale, the level is already well above 1,000 ppm. This automation turns on the bedroom ventilation fan when CO2 rises above that level and turns it off again once the air is fresh.
+CO2 builds up in a closed bedroom as you sleep. By the time you notice the air feels stale, the level is already well above 1,000 ppm. This automation turns on the bedroom ventilation fan when CO2 rises above that level.
 
 - **Trigger**: Carbon dioxide level crossed threshold (above 1,000 ppm)
 - **Action**: Turn on the bedroom ventilation fan
-- **Second trigger**: Carbon dioxide level crossed threshold (below 800 ppm)
-- **Second action**: Turn off the fan
 
 {% details "YAML example for overnight bedroom ventilation" %}
 
@@ -86,7 +84,7 @@ automation: |
 
 ### Automation: run the air purifier during wildfire season
 
-When wildfire smoke raises outdoor PM2.5 above a safe level, the last thing you want is to open the windows. This automation starts the air purifier when PM2.5 rises above 25 μg/m³ and stops it when the air clears.
+When wildfire smoke raises outdoor PM2.5 above a safe level, the last thing you want is to open the windows. This automation starts the air purifier when PM2.5 rises above 25 μg/m³.
 
 - **Trigger**: PM2.5 level crossed threshold (above 25 μg/m³)
 - **Action**: Turn on the air purifier
