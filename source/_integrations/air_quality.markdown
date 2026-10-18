@@ -24,7 +24,7 @@ The real power of this integration is combining triggers and conditions into aut
 
 ### Automation: ventilate a stuffy bedroom overnight
 
-CO2 builds up in a closed bedroom as you sleep. By the time you notice the air feels stale, the level is already well above 1,000 ppm. This automation turns on the bedroom ventilation fan when CO2 crosses that threshold and turns it off again once the air is fresh.
+CO2 builds up in a closed bedroom as you sleep. By the time you notice the air feels stale, the level is already well above 1,000 ppm. This automation turns on the bedroom ventilation fan when CO2 rises above that level and turns it off again once the air is fresh.
 
 - **Trigger**: Carbon dioxide level crossed threshold (above 1,000 ppm)
 - **Action**: Turn on the bedroom ventilation fan
@@ -41,8 +41,10 @@ automation: |
       target:
         entity_id: sensor.bedroom_co2
       options:
-        threshold: 1000
-        behavior: each
+        threshold:
+          type: above
+          value:
+            number: 1000
   actions:
     - action: fan.turn_on
       target:
@@ -84,9 +86,9 @@ automation: |
 
 ### Automation: run the air purifier during wildfire season
 
-When wildfire smoke raises outdoor PM2.5 above a safe level, the last thing you want is to open the windows. This automation starts the air purifier when PM2.5 crosses 25 µg/m³ and stops it when the air clears.
+When wildfire smoke raises outdoor PM2.5 above a safe level, the last thing you want is to open the windows. This automation starts the air purifier when PM2.5 rises above 25 μg/m³ and stops it when the air clears.
 
-- **Trigger**: PM2.5 level crossed threshold (above 25 µg/m³)
+- **Trigger**: PM2.5 level crossed threshold (above 25 μg/m³)
 - **Action**: Turn on the air purifier
 
 {% details "YAML example for a wildfire-triggered air purifier" %}
@@ -99,8 +101,10 @@ automation: |
       target:
         entity_id: sensor.outdoor_pm25
       options:
-        threshold: 25
-        behavior: each
+        threshold:
+          type: above
+          value:
+            number: 25
   actions:
     - action: fan.turn_on
       target:
@@ -114,7 +118,7 @@ automation: |
 Before letting fresh air in, check that outdoor pollution is actually low. This automation runs when you press a dashboard button to open the living room covers, but only if PM2.5 is below a safe limit.
 
 - **Trigger**: Dashboard button pressed
-- **Condition**: PM2.5 value is below 15 µg/m³
+- **Condition**: PM2.5 value is below 15 μg/m³
 - **Action**: Open the living room window covers
 
 {% details "YAML example for pollution-gated window covers" %}
@@ -130,7 +134,10 @@ automation: |
       target:
         entity_id: sensor.outdoor_pm25
       options:
-        threshold: 15
+        threshold:
+          type: below
+          value:
+            number: 15
         behavior: any
   actions:
     - action: cover.open_cover
