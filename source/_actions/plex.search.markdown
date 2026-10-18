@@ -5,7 +5,6 @@ domain: plex
 description: "Looks up media on a Plex server and returns information about the matches."
 related_actions:
   - plex.on_deck
-  - media_player.search_media
   - media_player.play_media
 ---
 
