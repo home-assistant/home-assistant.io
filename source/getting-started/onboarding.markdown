@@ -49,7 +49,7 @@ After Home Assistant has been [installed](/installation/) on your device, there 
     - To confirm, select **Next**.
    ![Share anonymized data](/images/getting-started/onboarding_share_anonymized_info.png)
 
-5. Review the final setup screen.
+5. {% icon "mdi:party-popper" %} Review the final setup screen.
    - If Home Assistant has found compatible devices, you see **We found compatible devices!** and a list of the discovered integrations. Some are already added, while others may need additional configuration.
    - If no compatible devices are found, you see **All set!** instead.
    - Select **Finish** to complete onboarding and open the default [dashboard](/dashboards/).
