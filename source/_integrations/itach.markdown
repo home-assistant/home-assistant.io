@@ -26,7 +26,8 @@ To use your iTach remote in your installation, you will need to know the IR comm
 # Example configuration.yaml entry
 remote:
   - platform: itach
-    host: itach023fdc
+    host: "192.168.1.70"
+    mac: "000C1E023FDC"
     devices:
       - name: TV
         connaddr: 2
@@ -40,8 +41,12 @@ remote:
 
 {% configuration %}
 host:
-  description: The iTach's IP address.
+  description: The iTach's IP address. Hostnames are not resolved, so this must be a literal IP address.
   required: true
+  type: string
+mac:
+  description: "The iTach's MAC address, as 12 upper-case hexadecimal digits with no separators, for example `000C1E023FDC`. When set, the integration uses the iTach's discovery beacon to check the connection, reconnect after it drops, and reconnect to the iTach's new address if its IP has changed. Without it, a dropped connection is only re-established after a command fails, so the first command sent after the iTach reboots or the network drops is lost. A MAC address written with colons or in lower case never matches the beacon, which has the same effect as leaving it out."
+  required: false
   type: string
 port:
   description: The iTach's port.
