@@ -66,8 +66,8 @@ for:
 
 ## Good to know
 
-- Timers in the `paused`, `idle`, `unavailable`, or `unknown` state do not count as active.
-- Timers that are `unavailable` or `unknown` are skipped for **Any** and cause **All** to fail.
+- Timers in the `paused` or `idle` state do not count as active.
+{% include conditions/unavailable_targets.md entities="timers" %}
 - The **For at least** option here checks whether the timer has stayed active for extra time. If you want an action when a countdown ends, use [Timer finished](/triggers/timer.finished/) instead.
 
 {% include conditions/try_it.md %}

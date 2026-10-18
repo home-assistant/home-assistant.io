@@ -58,7 +58,7 @@ This passes when the living room light's brightness is above 50%.
 
 - A light that is off has no brightness value, so it never passes this condition, not even with **Below**. To check whether a light is off, use [Light is off](/conditions/light.is_off/) instead.
 - If you use an entity as the threshold, it must report its value in percent (`%`). An entity with a different unit, or no unit, is ignored and the condition does not pass.
-- Lights that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="lights" %}
 - Pair with [Light brightness crossed threshold](/triggers/light.brightness_crossed_threshold/) as a matching trigger when you need the automation to run the moment the brightness crosses that line.
 
 {% include conditions/try_it.md %}

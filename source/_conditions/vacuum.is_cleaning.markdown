@@ -71,10 +71,7 @@ for:
 
 ## Good to know
 
-- Entities with state `unavailable` or `unknown` are ignored when Home Assistant evaluates the condition.
-- With **Any** (default), the condition passes if at least one targeted vacuum is cleaning.
-- With **All**, the condition passes only if every targeted vacuum that Home Assistant can evaluate is cleaning.
-- If every targeted vacuum is `unavailable` or `unknown`, **Any** fails and **All** passes.
+{% include conditions/unavailable_targets.md entities="vacuums" %}
 
 {% include conditions/try_it.md %}
 

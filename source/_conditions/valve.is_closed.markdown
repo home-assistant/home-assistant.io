@@ -75,7 +75,7 @@ for:
 
 - Valves in the transitional **Closing** state do not satisfy this condition. The condition only passes once the valve is fully **Closed**. You can check the available states in [Valve states](/integrations/valve/#valve-states).
 - Valves reporting position (0 to 100%) are considered closed only when their position is exactly 0. A valve at position 1% is considered open.
-- Valves that have an **Unavailable** or **Unknown** state do not count as closed. Home Assistant skips them and evaluates the condition using the remaining targeted valves.
+{% include conditions/unavailable_targets.md entities="valves" %}
 - This condition works with any valve entity in Home Assistant, including water, gas, and air valves from integrations such as MQTT, Z-Wave, Zigbee, and ESPHome.
 - Use the **For at least** option when you need confidence that a valve is stably closed. For example, set up an automation that waits 10 seconds before sending an "all clear" notification, to avoid false positives from a brief closure during valve movement.
 

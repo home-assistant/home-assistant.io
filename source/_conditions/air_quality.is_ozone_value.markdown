@@ -64,7 +64,7 @@ This passes when the outdoor ozone sensor reads above 100 μg/m³.
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - Ozone levels tend to peak on hot, sunny afternoons. Pair this condition with time-based triggers to limit outdoor ventilation during those hours.
 
 {% include conditions/try_it.md %}

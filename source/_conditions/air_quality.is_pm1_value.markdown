@@ -56,7 +56,7 @@ This passes when the bedroom PM1 sensor reads above 25 μg/m³.
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - For coarser particulate readings, see
   - [PM2.5 value](/conditions/air_quality.is_pm25_value/)
   - [PM4 value](/conditions/air_quality.is_pm4_value/)

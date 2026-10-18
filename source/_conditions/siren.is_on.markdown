@@ -69,7 +69,7 @@ for:
 
 ## Good to know
 
-- Sirens in the `unavailable` or `unknown` state do not count as being on.
+{% include conditions/unavailable_targets.md entities="sirens" %}
 - With **All** behavior, the condition passes only if every targeted siren is on for the selected time.
 - To check whether a siren is not sounding, use [Siren is off](/conditions/siren.is_off/).
 

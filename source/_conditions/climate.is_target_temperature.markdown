@@ -158,7 +158,7 @@ for:
 - The target thermostat must expose a target temperature attribute to Home Assistant.
 - In **Heat/Cool** mode with dual setpoints, the target thermostat must expose a single target temperature attribute.
 - This condition checks the thermostat's _target temperature_ setpoint, not the actual measured temperature in the room. To react to the measured temperature, use the [Temperature value](/conditions/temperature.is_value/) condition instead.
-- Thermostats in the **Unavailable** or **Unknown** state are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="thermostats" %}
 - For thermostats in heat-cool mode that support dual setpoints, this condition checks the single target temperature attribute.
 
 {% include conditions/try_it.md %}

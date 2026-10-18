@@ -54,7 +54,7 @@ This passes when the office CO2 sensor reads above 1000 ppm.
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - Outdoor CO2 levels are typically around 420 ppm. Indoor levels above 1000 ppm often suggest the room needs better ventilation.
 - The threshold is in ppm. A sensor that reports CO2 in another unit never matches. If you use an entity as the threshold, it must also report ppm.
 

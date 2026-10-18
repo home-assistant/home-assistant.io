@@ -64,7 +64,7 @@ This passes when the outdoor SO2 sensor reads above 40 μg/m³.
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - For related pollutant conditions, see [Nitrogen dioxide value](/conditions/air_quality.is_no2_value/) and [Ozone value](/conditions/air_quality.is_ozone_value/).
 
 {% include conditions/try_it.md %}

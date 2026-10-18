@@ -70,7 +70,7 @@ for:
 ## Good to know
 
 - A to-do list is considered complete when its state is `0`, which means there are no incomplete items left.
-- To-do lists in the `unavailable` or `unknown` state are skipped when Home Assistant evaluates this condition.
+{% include conditions/unavailable_targets.md entities="to-do lists" %}
 - If you want to check whether a list still has a certain number of open items, use [Incomplete to-do items](/conditions/todo.incomplete/) instead.
 
 {% include conditions/try_it.md %}

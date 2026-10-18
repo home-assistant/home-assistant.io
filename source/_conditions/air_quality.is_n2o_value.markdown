@@ -55,7 +55,7 @@ This passes when the greenhouse N2O sensor reads above 900 μg/m³.
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - For related nitrogen-based pollutants, see [Nitrogen monoxide value](/conditions/air_quality.is_no_value/) and [Nitrogen dioxide value](/conditions/air_quality.is_no2_value/).
 - The threshold is in μg/m³. A sensor that reports N2O in another unit never matches. If you use an entity as the threshold, it must also report μg/m³.
 

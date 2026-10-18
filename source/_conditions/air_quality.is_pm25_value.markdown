@@ -56,7 +56,7 @@ This passes when the living room PM2.5 sensor reads above 35 μg/m³.
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - The World Health Organization recommends keeping 24-hour average PM2.5 exposure below 15 μg/m³.
 - For other particle sizes, see
   - [PM1 value](/conditions/air_quality.is_pm1_value/)

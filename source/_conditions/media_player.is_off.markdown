@@ -89,7 +89,7 @@ for:
 ## Good to know
 
 - This condition checks whether the device is powered off. If the device is still on but playback has ended, use [Media player is not playing](/conditions/media_player.is_not_playing/) instead.
-- Media players that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="media players" %}
 - If you want the opposite test, use [Media player is on](/conditions/media_player.is_on/).
 
 {% include conditions/try_it.md %}

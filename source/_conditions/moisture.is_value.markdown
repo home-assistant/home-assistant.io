@@ -136,7 +136,7 @@ for:
 ## Good to know
 
 - This condition works with sensors that have the **moisture** device class, such as soil moisture probes. For wet/dry leak sensors, use [Moisture is detected](/conditions/moisture.is_detected/) or [Moisture is not detected](/conditions/moisture.is_not_detected/) instead.
-- Entities that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md %}
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation runs.
 
 {% include conditions/try_it.md %}

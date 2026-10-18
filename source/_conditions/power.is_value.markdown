@@ -147,7 +147,7 @@ for:
 - Use **Power value** to check the current load at the moment the condition runs. If you want to react when a reading changes or crosses a threshold, use [Power changed](/triggers/power.changed/) or [Power crossed threshold](/triggers/power.crossed_threshold/).
 - Supported thresholds can use fixed values, a sensor with the power device class, a number entity with the power device class, or a user-created {% term helper %} from the [Input number integration](/integrations/input_number/).
 - Supported power units are `mW`, `W`, `kW`, `MW`, `GW`, `TW`, and `BTU/h`.
-- Entities that are `unavailable` or `unknown` are skipped when the condition is evaluated. With **Any**, at least one remaining valid entity must match. With **All**, every remaining valid entity must match.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - When you use a sensor or helper as a dynamic threshold, its current value is read when the condition runs.
 - This condition works with sensors that have the power device class.
 
