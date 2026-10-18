@@ -17,8 +17,8 @@ Threshold type:
 
     - **Above** (exclusive): fires when the reading crosses to strictly above the threshold. A reading equal to the threshold does not trigger a crossing.
     - **Below** (exclusive): fires when the reading crosses to strictly below the threshold. A reading equal to the threshold does not trigger a crossing.
-    - **In range** (exclusive): fires when the reading crosses into the range. A reading equal to either bound is not considered inside the range.
-    - **Outside range** (inclusive): fires when the reading crosses out of the range. A reading equal to either bound is considered outside the range.
+    - **In range** (inclusive): fires when the reading crosses into the range. A reading equal to either bound is considered inside the range.
+    - **Outside range** (exclusive): fires when the reading crosses out of the range. A reading equal to either bound is still considered inside the range.
 
     For each mode you can enter {{ include.unit_phrase_ui }} or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
 {% if include.has_unit %}
