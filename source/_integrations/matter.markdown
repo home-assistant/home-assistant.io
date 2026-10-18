@@ -10,6 +10,7 @@ ha_category:
   - Fan
   - Light
   - Lock
+  - Media player
   - Number
   - Pump
   - Select
@@ -39,6 +40,7 @@ ha_platforms:
   - fan
   - light
   - lock
+  - media_player
   - number
   - select
   - sensor
@@ -424,6 +426,20 @@ Home Assistant Matter updates currently don't work for Thread devices on a Threa
 ## Automate on a button press
 
 You have a device that takes button presses as inputs (such as a Tuo Smart Button, VTM31SN dimmer by Inovelli, or the Matter Pushbutton Module by Innovation Matters) and now want to trigger an automation based on that button press. To learn how to create an automation triggered by a button press, refer to this [tutorial](/integrations/event/#automating-on-a-button-press).
+
+## TVs and video players
+
+Matter TVs, projectors, and other video players of the Basic Video Player device type appear in Home Assistant as a [media player](/integrations/media_player/). From the media player, you can:
+
+- Turn the video player on and off
+- Play, pause, and stop what is playing
+- Skip to the previous or next item, and seek to a position in it
+- See how far along the current item is and how long it lasts
+- Switch between inputs, such as **HDMI 1** or **Live TV**
+
+Matter video players don't all offer the same controls. Home Assistant only shows the controls your video player supports.
+
+Video players of the Casting Video Player device type don't get a media player yet. They keep a **Power** switch to turn them on and off.
 
 ## Experiment with Matter using a ESP32 dev board
 
