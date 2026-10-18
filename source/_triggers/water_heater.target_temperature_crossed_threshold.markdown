@@ -37,8 +37,8 @@ Threshold type:
 
     - **Above** (exclusive): Fires when the setpoint crosses to strictly above the threshold. A setpoint equal to the threshold does not trigger a crossing.
     - **Below** (exclusive): Fires when the setpoint crosses to strictly below the threshold. A setpoint equal to the threshold does not trigger a crossing.
-    - **In range** (exclusive): Fires when the setpoint crosses into the range. A setpoint equal to either bound is not considered inside the range.
-    - **Outside range** (inclusive): Fires when the setpoint crosses out of the range. A setpoint equal to either bound is considered outside the range.
+    - **In range** (inclusive): Fires when the setpoint crosses into the range. A setpoint equal to either bound is considered inside the range.
+    - **Outside range** (exclusive): Fires when the setpoint crosses out of the range. A setpoint equal to either bound is still considered inside the range.
 
     You can use a fixed number or select a temperature sensor, a temperature number entity, or a [number helper](/integrations/input_number/) as the threshold.
 Unit:

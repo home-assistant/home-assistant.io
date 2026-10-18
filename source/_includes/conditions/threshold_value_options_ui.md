@@ -13,7 +13,7 @@ Parameters:
 {% options_ui %}
 Threshold type:
   description: |
-    The threshold the entity's reading is compared against. **Above** and **Below** are exclusive: a reading equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a reading equal to either bound passes. Choose **Number** to enter {{ include.value_short }}, or **Entity** to use a sensor or number helper as a dynamic threshold.
+    The threshold the entity's reading is compared against. **Above** and **Below** are exclusive: a reading equal to the threshold does not pass. **In range** includes both bounds: a reading equal to either bound passes. **Outside range** excludes both bounds: a reading equal to either bound does not pass. Choose **Number** to enter {{ include.value_short }}, or **Entity** to use a sensor or number helper as a dynamic threshold.
 {% if include.has_unit %}
 Unit:
   description: The {{ include.unit_label }} to use for threshold comparison. Accepts {{ include.unit_options_code }}. Required when using numerical thresholds (not required when using entity references).
