@@ -270,7 +270,6 @@ source/_integrations/fjaraskupan.markdown @elupus
 source/_integrations/flexit_bacnet.markdown @lellky @piotrbulinski
 source/_integrations/flexom.markdown @imicknl @vlebourl @tetienne @nyroDev @tronix117 @alexfp14
 source/_integrations/flick_electric.markdown @ZephireNZ
-source/_integrations/flipr.markdown @cnico
 source/_integrations/flo.markdown @dmulcahey
 source/_integrations/flume.markdown @ChrisMandich @bdraco @jeeftor
 source/_integrations/flux_led.markdown @icemanch
