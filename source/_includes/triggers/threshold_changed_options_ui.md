@@ -8,7 +8,7 @@ Parameters:
                      unit_options_code, and unit_default.
   unit_label         Unit label. For example: "temperature unit", "energy unit".
   unit_options_code  Inline code list of allowed units. For example: "`°C` or `°F`".
-  unit_default       Default unit. For example: "°C".
+  unit_default       Optional. Default unit shown in the UI. For example: "°C".
 {% endcomment %}
 {% options_ui %}
 Threshold type:
@@ -23,6 +23,6 @@ Threshold type:
     For each mode you can enter {{ include.unit_phrase_ui }} or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
 {% if include.has_unit %}
 Unit:
-  description: The {{ include.unit_label }} to use for threshold comparison. Accepts {{ include.unit_options_code }}. Required when using numerical thresholds (not required when using entity references). Default is `{{ include.unit_default }}`.
+  description: The {{ include.unit_label }} to use for threshold comparison. Accepts {{ include.unit_options_code }}. Required when using numerical thresholds (not required when using entity references).{% if include.unit_default %} Default is `{{ include.unit_default }}`.{% endif %}
 {% endif %}
 {% endoptions_ui %}
