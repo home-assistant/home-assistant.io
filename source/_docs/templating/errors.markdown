@@ -386,6 +386,8 @@ template: |
 output: "['kitchen', 'hall']"
 {% endexample %}
 
+For other ways to build a new list, such as sorting or removing items, refer to [Methods that change a list](/docs/templating/python-methods/#methods-that-change-a-list).
+
 {% enddetails %}
 
 <a id="templateerror-template-output-exceeded-maximum-size-of-262144-characters"></a>

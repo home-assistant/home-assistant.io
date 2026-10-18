@@ -201,7 +201,7 @@ Templates use [Jinja2](https://jinja.palletsprojects.com/), a templating engine 
 - **Tests are lowercase.** In Python, you write `is None`. In templates, `is` runs a test, and test names are lowercase, so write `is none`. `is None` gives the error `No test named 'None'`. As values, `None`, `True`, and `False` work in either case, such as `none` or `None`.
 - **No f-strings.** Python's `f"hello {name}"` is not template syntax. Use `"hello " ~ name` (the `~` joins text) or `{{ name }}` directly.
 - **No `while` loops.** Templates only support `for` loops.
-- **List and dict methods are limited.** Read-only methods like `.items()`, `.values()`, `.keys()`, `.get()`, `.split()`, `.lower()`, and `.upper()` work fine. Methods that mutate a value in place, like `.append()`, `.pop()`, or `.update()`, are blocked as unsafe. To build up a list across loop iterations, use a [`namespace`](/template-functions/namespace/) instead.
+- **List and dict methods are limited.** Read-only methods like `.items()`, `.values()`, `.keys()`, `.get()`, `.split()`, `.lower()`, and `.upper()` work fine. Methods that mutate a value in place, like `.append()`, `.pop()`, or `.update()`, are blocked as unsafe. To build up a list across loop iterations, use a [`namespace`](/template-functions/namespace/) instead. For the blocked methods and their alternatives, refer to [Methods that change a list](/docs/templating/python-methods/#methods-that-change-a-list).
 
 ## Next steps
 
