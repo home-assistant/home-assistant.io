@@ -268,7 +268,7 @@ The USL GlassBreak detects motion as well as glass break acoustically, but only 
   - **Alarm Sound** - An alarm sensor will be available if the mount type is not set to "Leak" and the alarm sound sensor is enabled. The Alarm Sound sensor can have the values "none", "smoke" and "co". More values may be added over time automatically as UniFi Protect adds support for detecting more alarms.
   - **Leak** - A moisture sensor will be available if the mount type is set to "Leak", or if the sensor supports water leak detection and leak detection is enabled.
   - **Tamper** - A binary sensor to detect tampering.
-- **Events** - Sensors with the `smoke` feature flag, such as the USL Smoke, get an **Alarm** and a **Maintenance** event {% term entity %}. See [Smoke Detector Alarm Event](#smoke-detector-alarm-event) and [Smoke Detector Maintenance Event](#smoke-detector-maintenance-event).
+- **Events** - Smoke detectors, such as the USL Smoke, get an **Alarm** and a **Maintenance** event {% term entity %}. See [Smoke Detector Alarm Event](#smoke-detector-alarm-event) and [Smoke Detector Maintenance Event](#smoke-detector-maintenance-event).
 - **Device Configuration** - Smart sensors will get configuration controls for the Status Light, enabling/disabling all of the main sensors, selecting the Paired Camera, and changing the Mount Type of the sensor.
 - **Button** - A button to clear the tampered state as well as a disabled by default button to restart the device.
 
@@ -801,9 +801,9 @@ The `not_from` option keeps the automation from running during startup or power-
 - **Event Attributes**:
   - **event_type**: `smoke` or `co` (carbon monoxide).
   - **event_id**: A unique ID that identifies the alarm.
-- **Description**: This event is triggered when a UniFi Protect smoke detector reports a smoke or carbon monoxide alarm. It fires once per alarm.
+- **Description**: This event is triggered when a UniFi Protect smoke detector reports a smoke or carbon monoxide alarm. It fires once for each alarm event UniFi Protect reports.
 
-Sensors with the `smoke` feature flag list both `smoke` and `co`. Other sensors with this flag, such as the UP Sense with its alarm sound detection, get these entities as well.
+The UP Sense reports the same alarm support for its alarm sound detection, so it gets these entities as well.
 
 {% important %}
 The detector sounds its own alarm, whether or not Home Assistant is running. Use this event for additional actions, such as turning on lights or sending notifications. Home Assistant only receives alarms while it is connected to UniFi Protect; an alarm during an outage is not reported afterwards.
@@ -813,7 +813,7 @@ The detector sounds its own alarm, whether or not Home Assistant is running. Use
 
 ```yaml
 alias: Smoke Alarm Lights
-description: Turn on all lights when a smoke detector reports smoke
+description: Turn on all lights when a smoke detector reports smoke or carbon monoxide
 triggers:
   - trigger: state
     entity_id:
@@ -824,7 +824,9 @@ conditions:
   - condition: state
     entity_id: event.kitchen_smoke_detector_alarm # Replace with your smoke detector entity
     attribute: event_type
-    state: "smoke"
+    state:
+      - "smoke"
+      - "co"
 actions:
   - action: light.turn_on
     target:
@@ -842,7 +844,7 @@ mode: single
   - **event_id**: A unique ID that identifies the event.
 - **Description**: This event is triggered when a UniFi Protect smoke detector reports a self-test, a low battery, that it needs cleaning, a sensor fault, or that it has reached the end of its service life.
 
-Each of these is reported once, when it occurs. Check the UniFi Protect app for the current state of a detector.
+Each is a one-time notification, not a state. Check the UniFi Protect app for the current state of a detector.
 
 ## Troubleshooting
 
