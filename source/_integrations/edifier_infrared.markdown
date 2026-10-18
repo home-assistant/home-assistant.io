@@ -45,12 +45,14 @@ The integration supports the following Edifier speaker models and remote profile
 
 - R1280DB
 - R1280T
+- R1380DB
 - R1700BT
 - R1700BTs
 - R1855DB
 - R2000DB
 - R2730DB
 - RC10D1
+- RC13D
 - RC17A
 - RC20G
 - RC31A
