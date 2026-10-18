@@ -12,6 +12,7 @@ ha_categories:
 ha_iot_class: Cloud Polling
 ha_release: 2025.1
 ha_config_flow: true
+ha_ssdp: true
 ha_codeowners:
   - '@miaucl'
 ha_domain: cookidoo
@@ -50,6 +51,12 @@ Localization:
 {% endconfiguration_basic %}
 
 {% include integrations/config_flow.md %}
+
+## Discovery
+
+If you own a Thermomix TM7, Home Assistant automatically discovers it on your network through <abbr title="Simple Service Discovery Protocol">SSDP</abbr> and <abbr title="Universal Plug and Play">UPnP</abbr> and offers to set up the Cookidoo integration.
+
+Because Cookidoo is a cloud account service, discovery cannot complete setup on its own. To finish setup, sign in with the email address and password for the Cookidoo account associated with your Thermomix.
 
 ## To-do lists
 
