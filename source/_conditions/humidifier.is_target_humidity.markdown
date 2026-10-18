@@ -51,7 +51,9 @@ condition: |
     entity_id: humidifier.bedroom
   options:
     threshold:
-      above: 50
+      type: above
+      value:
+        number: 50
 {% endexample %}
 
 This passes when the bedroom humidifier's target humidity is set above 50%.
@@ -61,15 +63,15 @@ This passes when the bedroom humidifier's target humidity is set above 50%.
 {% options_yaml %}
 threshold:
   description: |
-    The threshold to check the target humidity against. Accepts a mapping with `above`, `below`, or both as keys:
+    The threshold to check the target humidity against:
 
-    - `above` (exclusive): Sets a minimum. The target humidity must be strictly above this value to pass.
-    - `below` (exclusive): Sets a maximum. The target humidity must be strictly below this value to pass.
+    - `type: above` (exclusive): Sets a minimum. The target humidity must be strictly above `value` to pass.
+    - `type: below` (exclusive): Sets a maximum. The target humidity must be strictly below `value` to pass.
+    - `type: between` (inclusive): Defines a range. The target humidity must be between `value_min` and `value_max`, or equal to one of them, to pass.
+    - `type: outside` (exclusive): Defines an outside-range. The target humidity must be below `value_min` or above `value_max` to pass.
 
-    If you provide both `above` and `below`, the target humidity must be between those two values to pass. This matches the UI option **In range**.
-
-    Use a percentage value (0–100) or an `input_number`, `number`, or `sensor` entity as the value for each key.
-  required: false
+    For each value, use a `number` key with a percentage from 0 to 100, or an `entity` key with an `input_number`, `number`, or `sensor` entity that reports its value in `%`.
+  required: true
   type: map
 behavior:
   description: >
@@ -125,7 +127,9 @@ automation: |
         entity_id: humidifier.bedroom
       options:
         threshold:
-          above: 70
+          type: above
+          value:
+            number: 70
         behavior: any
   actions:
     - action: switch.turn_on
