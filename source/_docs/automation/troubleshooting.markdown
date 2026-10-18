@@ -1018,7 +1018,7 @@ The automation only runs when all its conditions are met.
 To run the automation when at least one condition is met, put the conditions in an **Or** building block:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
-2. Under **And if**, select **Add building block**, and then select **Or**.
+2. Under **And if**, select **Add condition**, and then select **Blocks** > **Or**.
 3. Drag the conditions into the **Or** building block by their handle {% icon "mdi:drag-horizontal-variant" %}.
 4. Select **Save**.
 
@@ -1102,7 +1102,7 @@ The automation has a **Time** condition with **Days of the week**, and a time ra
 To cover exactly one night, for example, from Friday 22:00 to Saturday 06:00, split the range into two **Time** conditions in an **Or** building block:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
-2. Under **And if**, select **Add building block**, and then select **Or**.
+2. Under **And if**, select **Add condition**, and then select **Blocks** > **Or**.
 3. In the **Or** building block, add two **Time** conditions:
    - One with **After** set to 22:00, and **Days of the week** set to Friday.
    - One with **Before** set to 06:00, and **Days of the week** set to Saturday.
