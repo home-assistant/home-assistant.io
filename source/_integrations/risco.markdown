@@ -1,10 +1,6 @@
 ---
 title: Risco
 description: Instructions on how to integrate Risco alarms into Home Assistant using Risco Cloud.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Switch
 ha_categories:
   - security_safety.alarm_systems
 ha_release: '0.115'

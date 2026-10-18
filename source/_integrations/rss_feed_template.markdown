@@ -1,8 +1,6 @@
 ---
 title: RSS feed template
 description: Use this integration to generate RSS feeds showing your latest data.
-ha_category:
-  - Front end
 ha_categories:
   - diy_makers.web_data_connectors
 ha_iot_class: Local Push

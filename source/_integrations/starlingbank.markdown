@@ -1,8 +1,6 @@
 ---
 title: Starling Bank
 description: How to integrate your Starling Bank account within Home Assistant.
-ha_category:
-  - Finance
 ha_categories:
   - finance
 ha_release: 0.79

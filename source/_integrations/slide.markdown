@@ -1,9 +1,6 @@
 ---
 title: Slide
 description: Instructions on how to integrate the Innovation in Motion Slide covers with Home Assistant.
-ha_category:
-  - Cover
-  - Hub
 ha_categories:
   - blinds_curtains
 ha_iot_class: Cloud Polling

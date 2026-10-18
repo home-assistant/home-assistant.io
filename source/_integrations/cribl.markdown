@@ -1,8 +1,6 @@
 ---
 title: Cribl
 description: Connect and control your Cribl devices using the Splunk integration
-ha_category:
-  - History
 ha_release: 0.13
 ha_domain: cribl
 ha_supporting_domain: splunk

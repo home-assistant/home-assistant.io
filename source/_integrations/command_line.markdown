@@ -1,12 +1,6 @@
 ---
 title: Command line
 description: Instructions on how to integrate the command line utility within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Cover
-  - Notifications
-  - Sensor
-  - Utility
 ha_categories:
   - diy_makers
 ha_release: 0.12

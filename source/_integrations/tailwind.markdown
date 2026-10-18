@@ -1,8 +1,6 @@
 ---
 title: Tailwind
 description: Instructions on how to integrate a Tailwind garage door controller with Home Assistant.
-ha_category:
-  - Cover
 ha_categories:
   - blinds_curtains
 ha_release: 2024.1

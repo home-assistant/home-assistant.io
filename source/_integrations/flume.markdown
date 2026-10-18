@@ -1,9 +1,6 @@
 ---
 title: Flume
 description: Documentation about the flume sensor.
-ha_category:
-  - Binary sensor
-  - Sensor
 ha_categories:
   - water.meters_leak_detection
 ha_iot_class: Cloud Polling

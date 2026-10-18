@@ -1,12 +1,6 @@
 ---
 title: SwitchBee
 description: Instructions for how to integrate SwitchBee accessories within Home Assistant.
-ha_category:
-  - Button
-  - Climate
-  - Cover
-  - Light
-  - Switch
 ha_categories:
   - hubs_protocols.smart_home_hubs
   - plugs_switches

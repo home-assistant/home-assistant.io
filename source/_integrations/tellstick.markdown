@@ -2,12 +2,6 @@
 title: TellStick
 description: Instructions on how to integrate your TellStick into Home Assistant.
 ha_release: pre 0.7
-ha_category:
-  - Cover
-  - Hub
-  - Light
-  - Sensor
-  - Switch
 ha_categories:
   - hubs_protocols.wireless_protocols
 ha_iot_class: Assumed State

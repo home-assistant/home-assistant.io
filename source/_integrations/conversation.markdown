@@ -1,8 +1,6 @@
 ---
 title: Conversation
 description: Instructions on how to have conversations with your Home Assistant.
-ha_category:
-  - Voice
 ha_release: 0.7
 ha_quality_scale: internal
 ha_codeowners:

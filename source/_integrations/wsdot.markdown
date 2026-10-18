@@ -1,8 +1,6 @@
 ---
 title: Washington State Department of Transportation (WSDOT)
 description: Instructions on how to integrate WSDOT data into your home.
-ha_category:
-  - Transport
 ha_categories:
   - vehicles_transport
   - local_services

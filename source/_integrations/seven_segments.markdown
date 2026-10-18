@@ -1,8 +1,6 @@
 ---
 title: Seven Segments OCR
 description: Instructions on how to use OCR for seven segments displays into Home Assistant.
-ha_category:
-  - Image processing
 ha_categories:
   - ai_voice.image_recognition
 ha_release: 0.45

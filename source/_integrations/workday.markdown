@@ -1,10 +1,6 @@
 ---
 title: Workday
 description: Steps to configure the binary workday sensor.
-ha_category:
-  - Binary sensor
-  - Calendar
-  - Utility
 ha_categories:
   - productivity_information.calendars_todos
   - helpers.calculate_value

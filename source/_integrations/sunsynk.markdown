@@ -1,9 +1,6 @@
 ---
 title: Sunsynk
 description: Instructions on how to integrate Sunsynk inverters within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_categories:
   - energy.solar_batteries
 ha_release: '2026.10'

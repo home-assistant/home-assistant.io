@@ -2,13 +2,6 @@
 title: Qube heat pump
 description: Instructions on how to integrate your Qube heat pump with Home Assistant.
 ha_release: 2026.4
-ha_category:
-  - Binary sensor
-  - Modbus-controlled
-  - Select
-  - Sensor
-  - Switch
-  - Water heater
 ha_categories:
   - climate.heat_pumps_air_conditioning
 ha_iot_class: Local Polling

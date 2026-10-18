@@ -1,10 +1,6 @@
 ---
 title: SolarEdge Modbus
 description: Instructions on how to integrate a SolarEdge solar inverter with Home Assistant over Modbus TCP.
-ha_category:
-  - Energy
-  - Modbus-controlled
-  - Sensor
 ha_categories:
   - energy.solar_batteries
 ha_release: "2026.10"

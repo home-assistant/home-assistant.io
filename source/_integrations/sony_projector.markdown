@@ -1,8 +1,6 @@
 ---
 title: Sony Projector
 description: Instructions on how to integrate Sony Projector switches into Home Assistant.
-ha_category:
-  - Multimedia
 ha_categories:
   - media_entertainment.tv_streaming
 ha_iot_class: Local Polling

@@ -1,8 +1,6 @@
 ---
 title: Antifurto365 iAlarm
 description: Instructions on how to integrate iAlarms alarms into Home Assistant.
-ha_category:
-  - Alarm
 ha_categories:
   - security_safety.alarm_systems
 ha_iot_class: Local Polling

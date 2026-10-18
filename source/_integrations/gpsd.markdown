@@ -1,8 +1,6 @@
 ---
 title: GPSD
 description: Instructions on how to integrate GPSD into Home Assistant.
-ha_category:
-  - Utility
 ha_categories:
   - presence_location.trackers
   - diy_makers.boards_hardware

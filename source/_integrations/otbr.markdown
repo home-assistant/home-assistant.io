@@ -1,7 +1,5 @@
 ---
 title: OpenThread Border Router
-ha_category:
-  - Other
 ha_categories:
   - hubs_protocols.wireless_protocols
 ha_release: 2023.2

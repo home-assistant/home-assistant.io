@@ -1,8 +1,6 @@
 ---
 title: "MQTT Humidifier"
 description: "Instructions on how to integrate MQTT humidifiers into Home Assistant."
-ha_category:
-  - Humidifier
 ha_release: 2021.8
 ha_iot_class: Configurable
 ha_domain: mqtt

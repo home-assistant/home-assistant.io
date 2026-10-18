@@ -1,8 +1,6 @@
 ---
 title: Victron Remote Monitoring
 description: Instructions for implementation of Victron Remote Monitoring platform into Home Assistant.
-ha_category:
-  - Energy
 ha_categories:
   - energy.solar_batteries
 ha_release: '2025.10'

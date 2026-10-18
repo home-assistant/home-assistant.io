@@ -2,8 +2,6 @@
 title: Ankuoo REC Switch
 description: Instructions on how to integrate Ankuoo REC Switch into Home Assistant.
 ha_release: 0.81
-ha_category:
-  - Switch
 ha_categories:
   - plugs_switches
 ha_iot_class: Local Polling

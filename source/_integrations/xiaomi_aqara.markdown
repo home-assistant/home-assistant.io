@@ -1,8 +1,6 @@
 ---
 title: Xiaomi Gateway (Aqara)
 description: Instructions for how to integrate the Xiaomi Gateway (Aqara) within Home Assistant.
-ha_category:
-  - Hub
 ha_categories:
   - hubs_protocols.smart_home_hubs
 ha_release: 0.57

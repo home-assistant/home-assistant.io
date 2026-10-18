@@ -1,14 +1,6 @@
 ---
 title: Renault
 description: Instructions on how to integrate your Renault, Dacia, or Alpine vehicle into Home Assistant using the My Renault service.
-ha_category:
-  - Binary sensor
-  - Button
-  - Car
-  - Number
-  - Presence detection
-  - Select
-  - Sensor
 ha_categories:
   - vehicles_transport.cars_evs
 ha_release: 2021.8

@@ -1,21 +1,6 @@
 ---
 title: Group
 description: Instructions on how to set up groups within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Cover
-  - Event
-  - Fan
-  - Helper
-  - Light
-  - Lock
-  - Media player
-  - Notifications
-  - Organization
-  - Sensor
-  - Switch
-  - Valve
 ha_categories:
   - helpers.calculate_value
 ha_release: pre 0.7

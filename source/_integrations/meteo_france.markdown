@@ -3,9 +3,6 @@ title: Météo-France
 description: Instructions on how to integrate Météo-France within Home Assistant.
 ha_release: 0.89
 ha_iot_class: Cloud Polling
-ha_category:
-  - Sensor
-  - Weather
 ha_categories:
   - weather_alerts.forecasts
   - weather_alerts.public_warnings

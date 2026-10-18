@@ -1,9 +1,6 @@
 ---
 title: Trafikverket Train
 description: Instructions on how to integrate Trafikverket Train within Home Assistant.
-ha_category:
-  - Sensor
-  - Transport
 ha_categories:
   - vehicles_transport.public_transport
 ha_release: 0.96

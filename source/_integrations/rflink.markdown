@@ -1,13 +1,6 @@
 ---
 title: RFLink
 description: Instructions on how to integrate RFLink gateway into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Cover
-  - Hub
-  - Light
-  - Sensor
-  - Switch
 ha_categories:
   - hubs_protocols.wireless_protocols
   - diy_makers.boards_hardware

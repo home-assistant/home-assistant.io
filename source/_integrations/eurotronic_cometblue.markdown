@@ -1,11 +1,6 @@
 ---
 title: Eurotronic Comet Blue
 description: Instructions on how to integrate Eurotronic Comet Blue Thermostats into Home Assistant.
-ha_category:
-  - Button
-  - Climate
-  - Number
-  - Sensor
 ha_categories:
   - climate.thermostats_heating
 ha_iot_class: Local Polling

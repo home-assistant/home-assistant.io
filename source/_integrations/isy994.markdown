@@ -1,20 +1,6 @@
 ---
 title: Universal Devices ISY/IoX
 description: Instructions on how to set up an ISY controller within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Fan
-  - Hub
-  - Light
-  - Lock
-  - Number
-  - Select
-  - Sensor
-  - Switch
 ha_categories:
   - hubs_protocols.smart_home_hubs
 ha_release: 0.28

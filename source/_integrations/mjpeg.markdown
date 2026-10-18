@@ -1,8 +1,6 @@
 ---
 title: MJPEG IP Camera
 description: Instructions on how to integrate IP cameras within Home Assistant.
-ha_category:
-  - Camera
 ha_categories:
   - security_safety.cameras
 ha_release: pre 0.7

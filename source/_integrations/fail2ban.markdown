@@ -1,8 +1,6 @@
 ---
 title: Fail2Ban
 description: Instructions on how to integrate a fail2ban sensor into Home Assistant.
-ha_category:
-  - Network
 ha_categories:
   - computers_network.monitoring
 ha_iot_class: Local Polling

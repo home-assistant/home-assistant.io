@@ -1,8 +1,6 @@
 ---
 title: LG ThinQ
 description: Setup for LG ThinQ Integration.
-ha_category:
-  - Hub
 ha_categories:
   - appliances_cleaning
   - climate

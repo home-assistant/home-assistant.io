@@ -1,8 +1,6 @@
 ---
 title: NSW Fuel Station Price
 description: Instructions on how to integrate NSW fuel station prices into Home Assistant.
-ha_category:
-  - Car
 ha_categories:
   - local_services
 ha_release: 0.72

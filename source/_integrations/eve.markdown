@@ -3,8 +3,6 @@ title: Eve
 description: Connect and control your Eve Matter devices using the Matter integration
 ha_release: '2025.4'
 ha_iot_class: Local Push
-ha_category:
-  - Energy
 ha_categories:
   - sensors
   - plugs_switches

@@ -1,9 +1,6 @@
 ---
 title: Chess.com
 description: Instructions on how to integrate Chess.com with Home Assistant.
-ha_category:
-  - Gaming
-  - Sensor
 ha_categories:
   - media_entertainment.gaming
 ha_release: 2026.4

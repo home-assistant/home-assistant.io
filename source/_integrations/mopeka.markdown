@@ -1,8 +1,6 @@
 ---
 title: Mopeka
 description: Instructions on how to integrate Mopeka devices into Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - energy
 ha_bluetooth: true

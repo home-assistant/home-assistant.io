@@ -1,8 +1,6 @@
 ---
 title: Crownstone
 description: Instructions on how to set up the Crownstone integration within Home Assistant.
-ha_category:
-  - Light
 ha_categories:
   - plugs_switches
 ha_iot_class: Cloud Push

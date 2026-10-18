@@ -1,8 +1,6 @@
 ---
 title: Rhasspy
 description: Instructions on setting up Rhasspy within Home Assistant.
-ha_category:
-  - Voice
 ha_categories:
   - ai_voice.voice_assistants
 ha_iot_class: Local Push

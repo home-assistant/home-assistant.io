@@ -1,16 +1,6 @@
 ---
 title: Roborock
 description: Instructions on how to integrate Roborock vacuums into Home Assistant
-ha_category:
-  - Binary sensor
-  - Button
-  - Image
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Time
-  - Vacuum
 ha_categories:
   - appliances_cleaning.cleaning
   - appliances_cleaning.laundry

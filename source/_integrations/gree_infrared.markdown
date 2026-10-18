@@ -1,9 +1,6 @@
 ---
 title: Gree Infrared
 description: Integration to control Gree air conditioners using an infrared emitter and to receive commands from a Gree remote using an infrared receiver.
-ha_category:
-  - Climate
-  - Infrared-controlled
 ha_categories:
   - climate.heat_pumps_air_conditioning
 ha_release: '2026.10'

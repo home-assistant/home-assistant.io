@@ -1,10 +1,6 @@
 ---
 title: Deluge
 description: Instructions on how to integrate Deluge within Home Assistant.
-ha_category:
-  - Downloading
-  - Sensor
-  - Switch
 ha_categories:
   - computers_network.nas_servers
 ha_release: 0.57

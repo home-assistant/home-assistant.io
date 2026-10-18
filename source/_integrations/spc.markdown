@@ -1,10 +1,6 @@
 ---
 title: Vanderbilt SPC
 description: Instructions on how to set up Vanderbilt SPC devices within Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Hub
 ha_categories:
   - security_safety.alarm_systems
 ha_release: 0.47

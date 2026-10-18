@@ -1,8 +1,6 @@
 ---
 title: Flipr
 description: Instructions on how to integrate your Flipr device within Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - water.pools_spas
 ha_release: 2021.8

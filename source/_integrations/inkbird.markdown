@@ -1,8 +1,6 @@
 ---
 title: INKBIRD
 description: Instructions on how to integrate INKBIRD devices into Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - sensors.temperature_humidity
   - appliances_cleaning.cooking

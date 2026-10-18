@@ -1,12 +1,6 @@
 ---
 title: Habitica
 description: Instructions on enabling Habitica support for your Home Assistant
-ha_category:
-  - Calendar
-  - Gaming
-  - Image
-  - Sensor
-  - To-do list
 ha_categories:
   - productivity_information.calendars_todos
 ha_release: 0.78

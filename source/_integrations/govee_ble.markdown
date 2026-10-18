@@ -1,10 +1,6 @@
 ---
 title: Govee Bluetooth
 description: Instructions on how to integrate Govee BLE devices into Home Assistant.
-ha_category:
-  - Binary Sensor
-  - Event
-  - Sensor
 ha_categories:
   - sensors
   - appliances_cleaning.cooking

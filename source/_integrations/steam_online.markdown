@@ -1,10 +1,6 @@
 ---
 title: Steam
 description: Instructions on how to set up Steam in Home Assistant.
-ha_category:
-  - Gaming
-  - Image
-  - Social
 ha_categories:
   - media_entertainment.gaming
 ha_config_flow: true

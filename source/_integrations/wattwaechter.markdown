@@ -1,10 +1,6 @@
 ---
 title: WattWächter Plus
 description: Instructions on how to integrate WattWächter Plus into Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
-  - Update
 ha_categories:
   - energy.meters_monitoring
 ha_release: 2026.7

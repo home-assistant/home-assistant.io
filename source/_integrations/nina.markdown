@@ -1,9 +1,6 @@
 ---
 title: NINA
 description: Instructions on how to set up NINA warnings in Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
 ha_categories:
   - weather_alerts.public_warnings
 ha_release: 2022.2

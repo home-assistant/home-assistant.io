@@ -1,8 +1,6 @@
 ---
 title: AfterShip
 description: Instructions on how to set up AfterShip sensors within Home Assistant.
-ha_category:
-  - Postal service
 ha_categories:
   - productivity_information
 ha_release: 0.85

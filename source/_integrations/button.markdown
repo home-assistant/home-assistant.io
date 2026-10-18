@@ -1,8 +1,6 @@
 ---
 title: Button
 description: Instructions on how to set up your button with Home Assistant.
-ha_category:
-  - Button
 ha_release: 2021.12
 ha_quality_scale: internal
 ha_domain: button

@@ -1,9 +1,6 @@
 ---
 title: Version
 description: Instructions on how to integrate the Version integration into Home Assistant.
-ha_category:
-  - Sensor
-  - Utility
 ha_categories:
   - computers_network.monitoring
 ha_iot_class: Local Push

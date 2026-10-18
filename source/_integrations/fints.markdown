@@ -1,8 +1,6 @@
 ---
 title: FinTS
 description: Instructions on how to use the FinTS sensor.
-ha_category:
-  - Finance
 ha_categories:
   - finance
 ha_release: '0.70'

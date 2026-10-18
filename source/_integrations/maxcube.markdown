@@ -1,9 +1,6 @@
 ---
 title: eQ-3 MAX!
 description: Instructions on how to integrate eQ-3 MAX! components with Home Assistant via eQ-3 MAX! Cube.
-ha_category:
-  - Binary sensor
-  - Climate
 ha_categories:
   - climate.thermostats_heating
 ha_release: '0.40'

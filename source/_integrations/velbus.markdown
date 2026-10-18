@@ -1,14 +1,6 @@
 ---
 title: Velbus
 description: Access and control your Velbus devices.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Hub
-  - Light
-  - Sensor
-  - Switch
 ha_categories:
   - hubs_protocols.building_automation
 ha_iot_class: Local Push

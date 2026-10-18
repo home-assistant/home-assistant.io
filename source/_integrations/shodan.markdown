@@ -1,8 +1,6 @@
 ---
 title: Shodan
 description: Instructions on how to integrate Shodan sensors into Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - computers_network.monitoring
 ha_iot_class: Cloud Polling

@@ -1,8 +1,6 @@
 ---
 title: Azure Event Hub
 description: Setup for Azure Event Hub integration
-ha_category:
-  - History
 ha_categories:
   - computers_network.cloud_developer_tools
 ha_release: 0.94

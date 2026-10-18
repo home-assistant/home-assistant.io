@@ -1,14 +1,6 @@
 ---
 title: IntelliFire
 description: Instructions on the IntelliFire Fireplace integration for Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Fan
-  - Light
-  - Number
-  - Sensor
-  - Switch
 ha_categories:
   - climate.thermostats_heating
 ha_iot_class: Local Polling

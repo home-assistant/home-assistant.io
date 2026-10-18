@@ -1,9 +1,6 @@
 ---
 title: Compit
 description: Instructions on how to integrate Compit devices within Home Assistant.
-ha_category:
-  - Climate
-  - Water Heater
 ha_categories:
   - climate.thermostats_heating
   - climate.heat_pumps_air_conditioning

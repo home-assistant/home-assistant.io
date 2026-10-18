@@ -2,9 +2,6 @@
 title: SUPLA
 description: Instructions for integration with SUPLA-CLOUD's Web API
 ha_release: 0.92
-ha_category:
-  - Cover
-  - Hub
 ha_categories:
   - hubs_protocols.smart_home_hubs
   - diy_makers

@@ -1,10 +1,6 @@
 ---
 title: Kodi
 description: Instructions on how to integrate Kodi into Home Assistant.
-ha_category:
-  - Media player
-  - Media source
-  - Notifications
 ha_categories:
   - media_entertainment.tv_streaming
 ha_release: pre 0.7

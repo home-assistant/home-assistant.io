@@ -1,11 +1,6 @@
 ---
 title: Duotecno
 description: Access and control your Duotecno nodes.
-ha_category:
-  - Climate
-  - Cover
-  - Light
-  - Switch
 ha_categories:
   - hubs_protocols.building_automation
 ha_iot_class: Local Push

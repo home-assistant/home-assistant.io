@@ -1,8 +1,6 @@
 ---
 title: Midea ccm15 AC Controller
 description: Instructions on how to integrate a Midea CCM15 module into Home Assistant.
-ha_category:
-  - Climate
 ha_categories:
   - climate.heat_pumps_air_conditioning
 ha_iot_class: Local Polling

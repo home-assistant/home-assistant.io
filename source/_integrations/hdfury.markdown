@@ -4,12 +4,6 @@ description: Instructions on how to integrate HDFury devices within Home Assista
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: 2026.2
-ha_category:
-  - Button
-  - Number
-  - Select
-  - Sensor
-  - Switch
 ha_categories:
   - media_entertainment.tv_streaming
 ha_codeowners:

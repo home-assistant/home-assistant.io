@@ -1,23 +1,6 @@
 ---
 title: Tuya
 description: Instructions on how to set up the Tuya hub within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Camera
-  - Climate
-  - Cover
-  - Doorbell
-  - Event
-  - Fan
-  - Humidifier
-  - Light
-  - Number
-  - Scene
-  - Select
-  - Siren
-  - Switch
-  - Vacuum
-  - Valve
 ha_categories:
   - hubs_protocols.smart_home_hubs
 ha_iot_class: Cloud Push

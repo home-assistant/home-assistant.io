@@ -18,9 +18,6 @@ ha_platforms:
   - time
 ha_integration_type: hub
 ha_quality_scale: platinum
-ha_category:
-  - Hub
-  - Modbus-controlled
 ha_categories:
   - water.pools_spas
 ---

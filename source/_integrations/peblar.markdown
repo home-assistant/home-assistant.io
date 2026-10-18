@@ -1,10 +1,6 @@
 ---
 title: Peblar
 description: Instructions on how to integrate Peblar Rocksolid EV Charger with Home Assistant.
-ha_category:
-  - Car
-  - Energy
-  - Update
 ha_categories:
   - energy.ev_charging
 ha_release: 2025.1

@@ -1,9 +1,6 @@
 ---
 title: Compensation
 description: Instructions on how to integrate compensation sensors into Home Assistant.
-ha_category:
-  - Sensor
-  - Utility
 ha_categories:
   - helpers.calculate_value
 ha_iot_class: Calculated

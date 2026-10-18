@@ -1,15 +1,6 @@
 ---
 title: Victron GX
 description: Instructions for connecting Victron Energy GX devices to Home Assistant using MQTT
-ha_category:
-  - Binary sensor
-  - Button
-  - Number
-  - Presence detection
-  - Select
-  - Sensor
-  - Switch
-  - Time
 ha_categories:
   - energy.solar_batteries
 ha_release: '2026.5'

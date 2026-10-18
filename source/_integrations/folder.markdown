@@ -1,9 +1,6 @@
 ---
 title: Folder
 description: Sensor for monitoring the contents of a folder.
-ha_category:
-  - Sensor
-  - Utility
 ha_categories:
   - computers_network.monitoring
 ha_iot_class: Local Polling

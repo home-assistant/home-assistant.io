@@ -1,8 +1,6 @@
 ---
 title: Google Maps Travel Time
 description: Instructions on how to add Google Maps travel time to Home Assistant.
-ha_category:
-  - Transport
 ha_categories:
   - vehicles_transport
 ha_iot_class: Cloud Polling

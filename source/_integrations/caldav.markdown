@@ -1,9 +1,6 @@
 ---
 title: CalDAV
 description: Instructions on how to integrate a WebDav calendar into Home Assistant.
-ha_category:
-  - Calendar
-  - To-do List
 ha_categories:
   - productivity_information.calendars_todos
 ha_iot_class: Cloud Polling

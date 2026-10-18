@@ -1,8 +1,6 @@
 ---
 title: AirVisual Pro
 description: Instructions on how to use AirVisual Pro devices within Home Assistant
-ha_category:
-  - Health
 ha_categories:
   - sensors.air_quality
 ha_release: 2023.1

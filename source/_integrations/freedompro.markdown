@@ -1,15 +1,6 @@
 ---
 title: Freedompro
 description: Instructions for how to integrate Freedompro accessories within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Cover
-  - Fan
-  - Light
-  - Lock
-  - Sensor
-  - Switch
 ha_categories:
   - hubs_protocols.smart_home_hubs
 ha_release: 2021.7

@@ -2,8 +2,6 @@
 title: ENVERTECH EVT800
 description: Instructions on how to connect your Envertech EVT800 device to Home Assistant.
 ha_iot_class: Local Polling
-ha_category:
-  - Energy
 ha_categories:
   - energy.solar_batteries
 ha_config_flow: true

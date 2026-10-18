@@ -1,11 +1,6 @@
 ---
 title: Watergate
 description: Instructions on how to integrate Watergate with Home Assistant.
-ha_category:
-  - Sensor
-  - Switch
-  - Valve
-  - Water management
 ha_categories:
   - water.meters_leak_detection
 ha_release: '2025.1'

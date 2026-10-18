@@ -1,8 +1,6 @@
 ---
 title: Plant Monitor
 description: Instructions on how to set up plant monitoring with Home Assistant.
-ha_category:
-  - Environment
 ha_categories:
   - garden_plants
   - helpers.calculate_value

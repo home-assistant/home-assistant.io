@@ -4,12 +4,6 @@ description: Instructions on how to integrate Rituals Perfume Genie diffusers wi
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_release: 2021.3
-ha_category:
-  - Binary sensor
-  - Number
-  - Select
-  - Sensor
-  - Switch
 ha_categories:
   - appliances_cleaning
 ha_codeowners:

@@ -1,8 +1,6 @@
 ---
 title: Evil Genius Labs
 description: Instructions on setting up Evil Genius Labs products within Home Assistant.
-ha_category:
-  - Light
 ha_categories:
   - lighting.led_strips_controllers
 ha_iot_class: Local Polling

@@ -1,8 +1,6 @@
 ---
 title: Logitech Harmony Hub
 description: Instructions on how to integrate Harmony Hub remotes into Home Assistant.
-ha_category:
-  - Remote
 ha_categories:
   - buttons_remotes
 ha_iot_class: Local Push

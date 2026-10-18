@@ -1,10 +1,6 @@
 ---
 title: Blue Current
 description: Instructions on how to integrate Blue Current charge points within Home Assistant.
-ha_category:
-  - Car
-  - Sensor
-  - Switch
 ha_categories:
   - energy.ev_charging
 ha_release: 2024.1

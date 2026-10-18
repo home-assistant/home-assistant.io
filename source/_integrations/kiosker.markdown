@@ -1,11 +1,6 @@
 ---
 title: Kiosker
 description: Instructions on how to integrate Kiosker with Home Assistant
-ha_category:
-  - Binary sensor
-  - Button
-  - Sensor
-  - Switch
 ha_categories:
   - presence_location.phones_companion_apps
 ha_release: 2026.5

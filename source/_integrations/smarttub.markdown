@@ -1,12 +1,6 @@
 ---
 title: SmartTub
 description: Instructions on how to integrate SmartTub into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Light
-  - Sensor
-  - Switch
 ha_categories:
   - water.pools_spas
 ha_release: 2021.3

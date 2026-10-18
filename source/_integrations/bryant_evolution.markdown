@@ -1,9 +1,6 @@
 ---
 title: Bryant Evolution
 description: Instructions for how to integrate a Bryant Evolution HVAC system using a System Access Module.
-ha_category:
-  - Climate
-  - Serial-controlled
 ha_categories:
   - climate
 featured: false

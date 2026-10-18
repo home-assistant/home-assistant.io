@@ -1,8 +1,6 @@
 ---
 title: Osramlightify
 description: Instructions on how to integrate Osram Lightify into Home Assistant.
-ha_category:
-  - Light
 ha_categories:
   - lighting.lighting_systems
 ha_release: 0.21

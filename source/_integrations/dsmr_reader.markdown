@@ -1,9 +1,6 @@
 ---
 title: DSMR Reader
 description: Instructions on how to integrate DSMR Reader.
-ha_category:
-  - Energy
-  - Sensor
 ha_categories:
   - energy.meters_monitoring
 ha_iot_class: Local Push

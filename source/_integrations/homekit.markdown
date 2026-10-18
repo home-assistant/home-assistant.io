@@ -2,8 +2,6 @@
 title: HomeKit Bridge
 description: Instructions on how to set up the HomeKit Bridge integration in Home Assistant.
 featured: true
-ha_category:
-  - Voice
 ha_categories:
   - other_ecosystems
 ha_release: 0.64

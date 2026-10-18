@@ -2,14 +2,6 @@
 title: La Marzocco
 description: Instructions on how to integrate your La Marzocco coffee machine with Home Assistant.
 ha_release: 2024.2
-ha_category:
-  - Binary sensor
-  - Calendar
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
 ha_categories:
   - appliances_cleaning.cooking
 ha_iot_class: Cloud Push

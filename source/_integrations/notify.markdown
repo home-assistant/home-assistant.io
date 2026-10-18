@@ -1,8 +1,6 @@
 ---
 title: Notifications
 description: Instructions on how to add user notifications to Home Assistant.
-ha_category:
-  - Notifications
 ha_release: 0.7
 ha_quality_scale: internal
 ha_codeowners:

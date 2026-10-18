@@ -1,10 +1,6 @@
 ---
 title: Vallox
 description: Instructions on how to integrate Vallox ventilation units into Home Assistant.
-ha_category:
-  - Fan
-  - Sensor
-  - Switch
 ha_categories:
   - climate.fans_ventilation
 ha_config_flow: true

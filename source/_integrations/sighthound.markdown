@@ -1,8 +1,6 @@
 ---
 title: Sighthound
 description: Detect people with Sighthound Cloud.
-ha_category:
-  - Image processing
 ha_categories:
   - ai_voice.image_recognition
 ha_release: 0.105

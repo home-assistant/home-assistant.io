@@ -1,9 +1,6 @@
 ---
 title: Powerfox Cloud
 description: Instructions on how to integrate Powerfox Cloud within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_categories:
   - energy.meters_monitoring
   - water.meters_leak_detection

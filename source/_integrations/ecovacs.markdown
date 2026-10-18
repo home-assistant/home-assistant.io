@@ -1,10 +1,6 @@
 ---
 title: Ecovacs
 description: Instructions on how to integrate Ecovacs vacuums and mowers within Home Assistant.
-ha_category:
-  - Hub
-  - Lawn mower
-  - Vacuum
 ha_categories:
   - appliances_cleaning.cleaning
   - garden_plants

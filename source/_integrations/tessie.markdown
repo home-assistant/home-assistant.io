@@ -1,21 +1,6 @@
 ---
 title: Tessie
 description: Instructions on how to integrate Tessie within Home Assistant.
-ha_category:
-  - Binary Sensor
-  - Button
-  - Car
-  - Climate
-  - Cover
-  - Device Tracker
-  - Lock
-  - Media Player
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Text
-  - Update
 ha_categories:
   - vehicles_transport.cars_evs
   - energy.solar_batteries

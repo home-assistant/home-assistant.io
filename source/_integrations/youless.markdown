@@ -1,9 +1,6 @@
 ---
 title: YouLess
 description: Instructions on how to integrate your YouLess device into Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_categories:
   - energy.meters_monitoring
   - water.meters_leak_detection

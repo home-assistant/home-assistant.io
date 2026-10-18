@@ -1,9 +1,6 @@
 ---
 title: KlikAanKlikUit
 description: Instructions on how to integrate KlikAanKlikUit and compatible devices into Home Assistant.
-ha_category:
-  - Radio frequency-controlled
-  - Switch
 ha_categories:
   - plugs_switches
 ha_release: 2026.7

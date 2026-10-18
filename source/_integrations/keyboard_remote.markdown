@@ -1,8 +1,6 @@
 ---
 title: Keyboard Remote
 description: Instructions on how to use a keyboard to remote control Home Assistant.
-ha_category:
-  - Other
 ha_categories:
   - buttons_remotes
 ha_release: 0.29

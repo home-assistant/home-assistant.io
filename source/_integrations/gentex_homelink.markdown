@@ -1,8 +1,6 @@
 ---
 title: HomeLink
 description: Instructions on how to set up your HomeLink devices with Home Assistant.
-ha_category:
-  - Binary sensor
 ha_categories:
   - buttons_remotes
   - vehicles_transport.cars_evs

@@ -1,8 +1,6 @@
 ---
 title: AprilAire
 description: Instructions on how to integrate AprilAire devices into Home Assistant.
-ha_category:
-  - Climate
 ha_categories:
   - climate.thermostats_heating
   - climate.air_purifiers_humidifiers

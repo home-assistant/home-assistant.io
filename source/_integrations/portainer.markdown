@@ -1,13 +1,6 @@
 ---
 title: Portainer
 description: Instructions on how to integrate Portainer with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Event
-  - Sensor
-  - Switch
-  - Update
 ha_categories:
   - computers_network.nas_servers
 ha_release: '2025.10'

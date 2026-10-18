@@ -1,8 +1,6 @@
 ---
 title: Gogogate2 and ismartgate
 description: Instructions on how to integrate Gogogate2 and iSmartGate enabled garage door covers into Home Assistant.
-ha_category:
-  - Cover
 ha_categories:
   - blinds_curtains
 ha_release: 0.67

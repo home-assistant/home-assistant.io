@@ -1,12 +1,6 @@
 ---
 title: LIFX
 description: Instructions on how to integrate LIFX into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Light
-  - Select
-  - Sensor
 ha_categories:
   - lighting.bulbs_lamps
 ha_iot_class: Local Polling

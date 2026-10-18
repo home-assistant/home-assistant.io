@@ -2,12 +2,6 @@
 title: Hot Spring
 description: Instructions on how to integrate Hot Spring spas into Home Assistant.
 ha_release: 2026.9
-ha_category:
-  - Binary sensor
-  - Light
-  - Number
-  - Select
-  - Sensor
 ha_categories:
   - water.pools_spas
 ha_iot_class: Local Polling

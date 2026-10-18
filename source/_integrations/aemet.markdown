@@ -2,9 +2,6 @@
 title: AEMET OpenData
 description: Instructions on how to integrate AEMET OpenData within Home Assistant.
 ha_release: 2021.3
-ha_category:
-  - Sensor
-  - Weather
 ha_categories:
   - weather_alerts.forecasts
 ha_iot_class: Cloud Polling

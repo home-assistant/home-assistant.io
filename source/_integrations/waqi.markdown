@@ -1,8 +1,6 @@
 ---
 title: World Air Quality Index (WAQI)
 description: Instructions on how to set up World Air Quality Index sensor in Home Assistant.
-ha_category:
-  - Health
 ha_categories:
   - weather_alerts.air_quality_pollen
 ha_release: 0.34

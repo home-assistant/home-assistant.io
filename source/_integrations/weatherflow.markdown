@@ -2,9 +2,6 @@
 title: WeatherFlow
 description: Instructions on how to integrate your WeatherFlow Tempest into Home Assistant over your local network.
 ha_release: '2023.10'
-ha_category:
-  - Environment
-  - Sensor
 ha_categories:
   - weather_alerts
 ha_platforms:

@@ -1,12 +1,6 @@
 ---
 title: WiLight
 description: Instructions on how to integrate WiLight devices into Home Assistant.
-ha_category:
-  - Cover
-  - Fan
-  - Irrigation
-  - Light
-  - Switch
 ha_categories:
   - plugs_switches
   - lighting

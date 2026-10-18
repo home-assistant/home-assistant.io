@@ -1,8 +1,6 @@
 ---
 title: "MQTT Camera"
 description: "Instructions on how to use an MQTT image message as a Camera within Home Assistant."
-ha_category:
-  - Camera
 ha_release: 0.43
 ha_iot_class: Configurable
 ha_domain: mqtt
