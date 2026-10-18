@@ -138,6 +138,9 @@ If you do not want to do this, keep **Live view** unchecked when adding the devi
 
 Depending on the supported features of the camera, you can control various settings such as privacy mode, pan/tilt, and motion detection alerts.
 
+If the camera supports pan/tilt and has <abbr title="pan, tilt, and zoom">PTZ</abbr> presets saved in the Tapo app, a **Go to preset** button is added for each preset, for example **Go to preset Door**. Pressing the button moves the camera to that preset.
+The buttons follow changes made in the Tapo app. A new preset gets its button automatically, renaming a preset also renames its button, and the button of a removed preset becomes unavailable.
+
 ### Lights
 
 Light entities are added for bulbs, light strips, and dimmer switches. 
