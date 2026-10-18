@@ -206,7 +206,7 @@ The table below shows, per device type, which connection mode is required. See [
 | Floodlight   |     ✅      |       ✅ (light, switches, numbers, selects, sensors, binary sensors)       |
 | Smart sensor |     ✅      |               ✅ (switches, numbers, sensors, binary sensors)               |
 | Viewer       |     ✅      |                                      —                                      |
-| Smart chime  |     ✅      |                                      —                                      |
+| Smart chime  |     ✅      |                         ✅ (ring volume per camera)                         |
 | Relay        |     ✅      |                                     ✅                                      |
 | Siren        |     ✅      |                                     ✅                                      |
 | NVR          |     ✅      |                           ✅ (Alarm Manager only)                           |
@@ -288,6 +288,7 @@ Each UniFi Protect smart chime will get a device in Home Assistant with the foll
 
 - **Button** - A button to trigger the chime manually for each smart chime device. Also, a disabled by default button is added to let you reboot your smart chime device.
 - **Device Configuration** - Smart chimes will get a volume slider to adjust the chime's loudness and a sensor for the last time the chime rang.
+- **Ring volume** - A ring volume slider for each doorbell paired with the chime. It also works in the **API key only** connection mode. The volume slider and the buttons require **full access**.
 
 ### UniFi Protect relays
 
