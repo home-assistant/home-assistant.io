@@ -502,7 +502,9 @@ join: ',' | split: ',' -%}
       const shown = integrations.filter(
         integration => inPlace(integration, state) && passesFilters(integration, state, scores, featured)
       );
-      const counts = countPerCategory(state, scores);
+      // Featured is a shortcut, not a way to browse: the sidebar keeps
+      // counting every integration, also while Featured is on.
+      const counts = countPerCategory(state, scores, false);
       showCategoryCounts(state, counts);
 
       // While searching, the best matches come first. The cards move in the
@@ -527,7 +529,9 @@ join: ',' | split: ',' -%}
       });
 
       noResultsEl.style.display = shown.length ? 'none' : '';
-      if (!shown.length) updateEmptyState(state, counts);
+      if (!shown.length) {
+        updateEmptyState(state, state.featured === 'true' ? countPerCategory(state, scores, true) : counts);
+      }
 
       const total = integrations.filter(integration => inPlace(integration, state)).length;
       resultsCountEl.textContent =
@@ -634,14 +638,14 @@ join: ',' | split: ',' -%}
       return true;
     }
 
-    // How many integrations each category shows with the search and filters
+    // How many integrations each category has with the search and filters
     // that go along when you switch: the numbers in the sidebar, and where
     // the empty state points to. The key '' is all integrations.
-    function countPerCategory(state, scores) {
+    function countPerCategory(state, scores, featured) {
       const counts = new Map();
       const add = key => counts.set(key, (counts.get(key) || 0) + 1);
       integrations.forEach(integration => {
-        if (!passesFilters(integration, state, scores, state.featured === 'true')) return;
+        if (!passesFilters(integration, state, scores, featured)) return;
         add('');
         new Set(integration.categories.map(category => category.split('.')[0])).forEach(add);
         integration.categories.filter(category => category.includes('.')).forEach(add);
@@ -651,7 +655,7 @@ join: ',' | split: ',' -%}
 
     // While you search or filter, a category without matches fades.
     function showCategoryCounts(state, counts) {
-      const filtering = QUERY_KEYS.some(key => state[key] && state[key] !== 'false');
+      const filtering = QUERY_KEYS.some(key => key !== 'featured' && state[key]);
       document.querySelectorAll('[data-category-count], [data-subcategory-count]').forEach(el => {
         const count = counts.get(el.dataset.categoryCount ?? el.dataset.subcategoryCount) || 0;
         el.textContent = count.toLocaleString('en-US');
