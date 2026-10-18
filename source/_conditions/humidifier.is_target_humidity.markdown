@@ -92,7 +92,7 @@ for:
 ## Good to know
 
 - This condition checks the humidifier's _target humidity_ setpoint, not the actual measured humidity in the room. To react to the measured humidity, use a sensor-based numeric condition instead.
-- Humidifiers that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="humidifiers" %}
 - Target humidity is expressed as a percentage. The valid range depends on the device, but is typically between 20% and 90%.
 
 {% include conditions/try_it.md %}

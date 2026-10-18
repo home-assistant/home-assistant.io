@@ -72,7 +72,7 @@ behavior:
 ## Good to know
 
 - A light that is off has brightness zero, so it never meets a positive threshold. Combine with [Light is on](/conditions/light.is_on/) if you want to check both.
-- Lights that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="lights" %}
 - Pair with [Light brightness crossed threshold](/triggers/light.brightness_crossed_threshold/) as a matching trigger when you need the automation to run the moment the brightness crosses that line.
 
 {% include conditions/try_it.md %}

@@ -99,7 +99,7 @@ When you target more than one person or device tracker, the **Check when** optio
 ## Good to know
 
 - This condition uses the `in_zones` attribute reported by person and device tracker entities.
-- If a selected person or device tracker is `unknown` or `unavailable`, Home Assistant does not treat that target as being in the zone.
+{% include conditions/unavailable_targets.md entities="people and device trackers" %}
 - To check the opposite state, use [Is not in zone](/conditions/zone.not_in_zone/).
 
 {% include conditions/try_it.md %}

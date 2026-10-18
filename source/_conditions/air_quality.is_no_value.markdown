@@ -70,7 +70,7 @@ behavior:
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - Nitrogen monoxide is closely related to nitrogen dioxide (NO2). For NO2 readings, see [Nitrogen dioxide value](/conditions/air_quality.is_no2_value/). For nitrous oxide, see [Nitrous oxide value](/conditions/air_quality.is_n2o_value/).
 
 {% include conditions/try_it.md %}

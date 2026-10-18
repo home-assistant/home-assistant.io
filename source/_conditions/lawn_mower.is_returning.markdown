@@ -68,7 +68,7 @@ for:
 
 ## Good to know
 
-- Mowers in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
+{% include conditions/unavailable_targets.md entities="lawn mowers" %}
 - Use **For at least** if you want the condition to pass only after the mower has been returning for a short time.
 
 {% include conditions/try_it.md %}

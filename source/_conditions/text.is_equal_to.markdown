@@ -76,7 +76,7 @@ for:
 ## Good to know
 
 - The comparison is exact and case-sensitive: `Away` and `away` are not equal.
-- A text entity in the `unknown` or `unavailable` state never matches a value.
+{% include conditions/unavailable_targets.md entities="text entities" %}
 - To react when a text value changes instead of testing the current value, use the [Text changed](/triggers/text.changed/) trigger.
 
 {% include conditions/try_it.md %}

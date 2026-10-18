@@ -71,7 +71,7 @@ for:
 
 ## Good to know
 
-- Locks in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
+{% include conditions/unavailable_targets.md entities="locks" %}
 - Use **For at least** if you want to wait for a lasting problem instead of a brief status report.
 - To check for the normal secure state instead, use [Lock is locked](/conditions/lock.is_locked/).
 

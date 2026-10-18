@@ -71,7 +71,7 @@ behavior:
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - PM10 includes larger particles like dust and pollen. For finer readings, see:
   - [PM1 value](/conditions/air_quality.is_pm1_value/)
   - [PM2.5 value](/conditions/air_quality.is_pm25_value/)

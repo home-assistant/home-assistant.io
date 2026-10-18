@@ -70,7 +70,7 @@ behavior:
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - For simple binary detection without a specific threshold, use [Carbon monoxide detected](/conditions/air_quality.is_co_detected/) or [Carbon monoxide cleared](/conditions/air_quality.is_co_cleared/).
 
 {% include conditions/try_it.md %}

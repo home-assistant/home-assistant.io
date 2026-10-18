@@ -59,7 +59,7 @@ behavior:
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as cleared. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted sensor is unavailable.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - To check whether carbon monoxide is currently detected, use [Carbon monoxide detected](/conditions/air_quality.is_co_detected/).
 - To check the actual CO concentration, use [Carbon monoxide value](/conditions/air_quality.is_co_value/).
 

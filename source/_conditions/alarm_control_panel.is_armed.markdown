@@ -69,7 +69,7 @@ for:
 ## Good to know
 
 - This condition matches any arming mode, including away, home, night, vacation, and custom bypass. If you need to check a specific mode, use the dedicated condition for that mode, such as [Alarm is armed away](/conditions/alarm_control_panel.is_armed_away/) or [Alarm is armed home](/conditions/alarm_control_panel.is_armed_home/).
-- Alarm panels that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as armed. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted alarm is unavailable.
+{% include conditions/unavailable_targets.md entities="alarm panels" %}
 - To check the opposite state, use [Alarm is disarmed](/conditions/alarm_control_panel.is_disarmed/).
 
 {% include conditions/try_it.md %}
