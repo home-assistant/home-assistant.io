@@ -26,13 +26,17 @@ To use this trigger in an automation:
     - To watch every light on a floor, select a floor.
     - To watch lights sharing a tag, select a label.
 6. Under **Trigger when**, pick **Each**, **First**, or **All**.
-7. Select **Save**.
+7. Under **For at least**, set how long the light must stay off before the trigger fires. Leave it at zero to fire right away.
+8. Select **Save**.
 
 ### Options in the UI
 
 {% options_ui %}
 Trigger when:
   description: When multiple lights are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted light turns off, **First** to fire only when the first of a group of on lights turns off, or **All** to fire only after every targeted light is off.
+  required: false
+For at least:
+  description: How long the light must stay off before the trigger fires. The default is zero, which fires right away.
   required: false
 {% endoptions_ui %}
 
@@ -58,6 +62,13 @@ behavior:
   required: false
   type: string
   default: each
+for:
+  description: >
+    How long the light must stay off before the trigger fires.
+    Accepts a duration like `00:00:10` for 10 seconds.
+  required: false
+  type: string
+  default: "00:00:00"
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}
