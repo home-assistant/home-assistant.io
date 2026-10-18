@@ -8,6 +8,9 @@ ha_category:
   - Climate
   - Switch
   - Update
+ha_categories:
+  - climate.thermostats_heating
+  - plugs_switches
 ha_domain: heltun
 ha_integration_type: brand
 ha_platforms:

@@ -5,6 +5,10 @@ ha_release: '2025.10'
 ha_iot_class: Local Push
 ha_category:
   - Switch
+ha_categories:
+  - plugs_switches
+  - lighting
+  - blinds_curtains
 ha_domain: eltako
 ha_integration_type: brand
 works_with:

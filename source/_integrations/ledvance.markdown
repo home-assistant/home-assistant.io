@@ -6,6 +6,8 @@ ha_iot_class: Local Push
 ha_category:
   - Light
   - Switch
+ha_categories:
+  - lighting
 ha_domain: ledvance
 ha_integration_type: brand
 works_with:

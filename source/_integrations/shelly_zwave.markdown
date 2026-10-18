@@ -7,6 +7,10 @@ ha_category:
   - Sensor
   - Switch
   - Plug
+ha_categories:
+  - plugs_switches
+  - energy.meters_monitoring
+  - blinds_curtains
 ha_domain: shelly
 ha_integration_type: brand
 ha_platforms:

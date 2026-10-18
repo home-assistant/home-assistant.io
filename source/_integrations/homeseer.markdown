@@ -8,6 +8,9 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_categories:
+  - plugs_switches
+  - lighting
 ha_domain: homeseer
 ha_integration_type: brand
 works_with:

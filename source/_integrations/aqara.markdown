@@ -8,6 +8,10 @@ ha_category:
   - Sensor
   - Binary sensor
   - Light
+ha_categories:
+  - sensors
+  - security_safety.locks_access
+  - lighting
 ha_domain: aqara
 ha_integration_type: brand
 works_with:
