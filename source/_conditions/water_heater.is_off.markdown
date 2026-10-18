@@ -82,8 +82,7 @@ for:
 
 ## Good to know
 
-- `unavailable` and `unknown` do not count as off for this condition.
-- With **Any**, unavailable and unknown water heaters are skipped. With **All**, they make the condition fail.
+{% include conditions/unavailable_targets.md entities="water heaters" %}
 - To check for a transition to off instead of the current state, use [Water heater turned off](/triggers/water_heater.turned_off/).
 - To require a water heater to be on instead, use [Water heater is on](/conditions/water_heater.is_on/).
 

@@ -89,7 +89,7 @@ for:
 ## Good to know
 
 - This condition checks for paused playback specifically. If the device has stopped or is idle, use [Media player is not playing](/conditions/media_player.is_not_playing/) instead.
-- Media players that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="media players" %}
 - If you want the opposite test, use [Media player is playing](/conditions/media_player.is_playing/).
 
 {% include conditions/try_it.md %}

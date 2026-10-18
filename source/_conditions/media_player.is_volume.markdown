@@ -83,8 +83,8 @@ threshold:
 
     - `type: above` (exclusive): passes when the volume is strictly above `value`.
     - `type: below` (exclusive): passes when the volume is strictly below `value`.
-    - `type: between` (exclusive): passes when the volume is strictly between `value_min` and `value_max`.
-    - `type: outside` (inclusive): passes when the volume is at or beyond `value_min` or `value_max`.
+    - `type: between` (inclusive): passes when the volume is between `value_min` and `value_max`, or equal to one of them.
+    - `type: outside` (exclusive): passes when the volume is below `value_min` or above `value_max`.
 
     For a fixed threshold, use `number` with a percentage from 0 to 100. For a dynamic threshold, use `entity` with an `input_number`, `number`, or `sensor` entity that uses `%` as the unit.
   required: true
@@ -112,7 +112,7 @@ for:
 ## Good to know
 
 - Threshold helper entities must use `%` as the unit. If you want to adjust the limit from the UI, create a {% term helper %} separately first.
-- Media players that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="media players" %}
 - If you want to react to the moment volume crosses a limit, use [Media player volume crossed threshold](/triggers/media_player.volume_crossed_threshold/).
 
 {% include conditions/try_it.md %}

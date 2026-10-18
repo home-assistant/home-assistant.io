@@ -118,7 +118,7 @@ automation:
 
 There are two different types of variables available for triggers. Both work like [script level variables](/integrations/script/#variables).
 
-The first variant allows you to define variables that are set when the trigger reacts. The variables will be able to use templates and have access to [the `trigger` variable](/docs/automation/templating#available-trigger-data).
+The first variant allows you to define variables that are set when the trigger reacts. The variables will be able to use templates and have access to [the `trigger` variable](/docs/automation/trigger-data/#trigger-properties).
 
 The second variant is setting variables that are available when attaching a trigger when the trigger can contain templated values. These are defined using the `trigger_variables` key at an automation level. These variables can only contain [limited templates](/docs/templating/limited-templates/). The triggers will not re-apply if the value of the template changes. Trigger variables are a feature meant to support using blueprint inputs in triggers.
 
@@ -497,7 +497,7 @@ Instead of creating many automations for different groups of related triggers an
 2. In the lower right corner, select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
 4. Search for the trigger using the search box, for example, and then select it.
-5. In the **Then do** section, select **Add action** and then select the **Choose** block.
+5. In the **Then do** section, select **Add action**, and then select **Blocks** > **Choose**.
 6. Expand the option section, select **Add condition** and, from the **By type** list, select **Triggered by**.
 7. In the condition window on the right, select the trigger that you added in step 4, and then select **Save**. Home Assistant creates an ID for the trigger if needed.
 8. In the same option, select **Add action**, and choose the action that runs when the related trigger starts the automation.

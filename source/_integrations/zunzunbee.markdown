@@ -5,6 +5,8 @@ ha_release: 2026.5
 ha_iot_class: Local Push
 ha_category:
   - Switch
+ha_categories:
+  - buttons_remotes
 ha_domain: zunzunbee
 ha_integration_type: brand
 works_with:

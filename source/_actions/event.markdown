@@ -87,7 +87,7 @@ automation: |
 
 ### Automation: React to the custom event
 
-This automation reacts to `event_light_state_changed` with a [**Manual event received** trigger](/triggers/event/), and uses the `state` from the event data in a notification. For the data you can use, refer to [available trigger data](/docs/automation/templating/#available-trigger-data).
+This automation reacts to `event_light_state_changed` with a [**Manual event received** trigger](/triggers/event/), and uses the `state` from the event data in a notification. For the data you can use, refer to [available trigger data](/docs/automation/trigger-data/#trigger-properties).
 
 {% details "YAML example" %}
 

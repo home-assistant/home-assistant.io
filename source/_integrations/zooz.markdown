@@ -9,6 +9,10 @@ ha_category:
   - Sensor
   - Switch
   - Water management
+ha_categories:
+  - plugs_switches
+  - lighting
+  - sensors
 ha_domain: zooz
 ha_integration_type: brand
 ha_platforms:

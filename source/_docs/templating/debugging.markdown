@@ -36,7 +36,9 @@ For everything the editor shows, refer to [Template editor tab](/docs/tools/dev-
 
 ## Finding the problem in a template
 
-When a template misbehaves in an automation, a script, or a template entity, fix it in the editor first.
+If a template in an automation or script misbehaves, start with the trace of the run. It shows which step went wrong and the error message. For the steps to open a trace, refer to [Viewing the traces of an automation](/docs/automation/testing/#viewing-the-traces-of-an-automation).
+
+To fix a template in an automation, a script, or a template entity, use the template editor:
 
 1. Copy the template from your automation, script, or template entity.
 2. Go to {% my tools_template title="**Settings** > **Tools** > **Template**" %} and paste the template into the **Template editor**.
@@ -131,11 +133,11 @@ A common source of confusion is "why isn't my template updating?", or the opposi
 
 **Entity states.** When your template reads a state, like `states('sensor.temperature')`, Home Assistant watches that entity. The template runs again every time the entity's state changes.
 
-**`now()` and `utcnow()`.** Templates that use `now()` or `utcnow()` re-run once per minute.
+**Time functions.** Templates that use `now()`, `utcnow()`, `today_at`, `relative_time`, `time_since`, or `time_until` re-run at the start of every minute. For details, refer to [Getting the current time](/docs/templating/dates-and-times/#getting-the-current-time).
 
 **Other variables.** Templates that depend on `this`, `trigger`, or other context variables only re-run when the context changes (a new trigger fires, the entity updates).
 
-If you write a template that does not read any state or use `now()`, it runs _once_ at startup and never again. That is fine for constant values, but it's a common trap when you want a template to react to something.
+If you write a template that does not read any state or use one of these time functions, it runs _once_ at startup and never again. That is fine for constant values, but it's a common trap when you want a template to react to something.
 
 <a id="why-does-it-work-in-tools-but-not-in-my-automation"></a>
 
@@ -196,10 +198,10 @@ Templates use [Jinja2](https://jinja.palletsprojects.com/), a templating engine 
 - **No `print()`.** Write `{{ expression }}` to show a value. There is no print statement.
 - **No `import`.** You cannot import modules. The functions available to you are the ones in the [template functions reference](/template-functions/) plus the standard Jinja filters.
 - **No `=` inside `{{ }}` for assignment.** Use `{% set name = value %}` to create a variable. Inside `{{ }}`, `=` does not exist.
-- **`None` must be capitalized.** Python writes `None`, `True`, `False` with a capital first letter. Template tests and literals use lowercase `none`, `true`, `false`. Both work in most places, but be consistent.
+- **Tests are lowercase.** In Python, you write `is None`. In templates, `is` runs a test, and test names are lowercase, so write `is none`. `is None` gives the error `No test named 'None'`. As values, `None`, `True`, and `False` work in either case, such as `none` or `None`.
 - **No f-strings.** Python's `f"hello {name}"` is not template syntax. Use `"hello " ~ name` (the `~` joins text) or `{{ name }}` directly.
 - **No `while` loops.** Templates only support `for` loops.
-- **List and dict methods are limited.** Read-only methods like `.items()`, `.values()`, `.keys()`, `.get()`, `.split()`, `.lower()`, and `.upper()` work fine. Methods that mutate a value in place, like `.append()`, `.pop()`, or `.update()`, are blocked as unsafe. To build up a list across loop iterations, use a [`namespace`](/template-functions/namespace/) instead.
+- **List and dict methods are limited.** Read-only methods like `.items()`, `.values()`, `.keys()`, `.get()`, `.split()`, `.lower()`, and `.upper()` work fine. Methods that mutate a value in place, like `.append()`, `.pop()`, or `.update()`, are blocked as unsafe. To build up a list across loop iterations, use a [`namespace`](/template-functions/namespace/) instead. For the blocked methods and their alternatives, refer to [Methods that change a list](/docs/templating/python-methods/#methods-that-change-a-list).
 
 ## Next steps
 

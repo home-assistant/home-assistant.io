@@ -100,7 +100,7 @@ After the wait ends, because a trigger reacted or because the timeout ended, the
 
 - `wait.completed`: `true` if a trigger reacted, `false` if the timeout ended first.
 - `wait.remaining`: The time left of the timeout, in seconds, or `none` if no timeout is set.
-- `wait.trigger`: Information about the trigger that reacted, in the same format as the [trigger data](/docs/automation/templating/#available-trigger-data) of an automation. `none` if the timeout ended first.
+- `wait.trigger`: Information about the trigger that reacted, in the same format as the [trigger data](/docs/automation/trigger-data/#trigger-properties) of an automation. `none` if the timeout ended first.
 
 ## Good to know
 

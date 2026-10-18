@@ -21,6 +21,9 @@ ha_category:
   - Siren
   - Switch
   - Update
+ha_categories:
+  - plugs_switches
+  - lighting
 ha_domain: leviton_z_wave
 ha_integration_type: integration
 works_with:

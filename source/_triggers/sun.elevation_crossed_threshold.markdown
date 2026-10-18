@@ -38,8 +38,8 @@ Threshold type:
 
     - **Above** (exclusive): fires when the elevation crosses to strictly above the angle.
     - **Below** (exclusive): fires when the elevation crosses to strictly below the angle.
-    - **In range** (exclusive): fires when the elevation crosses into the range.
-    - **Outside range** (inclusive): fires when the elevation crosses out of the range.
+    - **In range** (inclusive): fires when the elevation crosses into the range.
+    - **Outside range** (exclusive): fires when the elevation crosses out of the range.
 
     For each mode you can enter a fixed angle in degrees, or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
 For at least:
@@ -71,8 +71,8 @@ threshold:
 
     - `type: above` (exclusive): Fires when the elevation crosses to strictly above `value`. Provide `value` with a `number` key (a fixed angle in degrees) or an `entity` key (an `input_number`, `number`, or `sensor` entity).
     - `type: below` (exclusive): Fires when the elevation crosses to strictly below `value`. Provide `value` with a `number` key (a fixed angle in degrees) or an `entity` key (an `input_number`, `number`, or `sensor` entity).
-    - `type: between` (exclusive): Fires when the elevation crosses into the range. Provide `value_min` and `value_max`, each with a `number` key (a fixed angle in degrees) or an `entity` key.
-    - `type: outside` (inclusive): Fires when the elevation crosses out of the range. Provide `value_min` and `value_max`, each with a `number` key (a fixed angle in degrees) or an `entity` key.
+    - `type: between` (inclusive): Fires when the elevation crosses into the range. Provide `value_min` and `value_max`, each with a `number` key (a fixed angle in degrees) or an `entity` key.
+    - `type: outside` (exclusive): Fires when the elevation crosses out of the range. Provide `value_min` and `value_max`, each with a `number` key (a fixed angle in degrees) or an `entity` key.
   required: true
   type: map
 for:

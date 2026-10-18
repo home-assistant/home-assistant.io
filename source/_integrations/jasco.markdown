@@ -6,6 +6,9 @@ ha_iot_class: Local Push
 ha_category:
   - Switch
   - Plug
+ha_categories:
+  - plugs_switches
+  - lighting
 ha_domain: jasco
 ha_integration_type: brand
 works_with:

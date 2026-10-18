@@ -8,6 +8,8 @@ ha_category:
   - Light
   - Sensor
   - Switch
+ha_categories:
+  - security_safety
 ha_domain: fireavert
 ha_integration_type: brand
 ha_platforms:

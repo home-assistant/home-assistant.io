@@ -4,6 +4,8 @@ description: Instructions on how to use the Platform demos with Home Assistant.
 ha_category:
   - Other
   - Update
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_release: 0.7
 ha_quality_scale: internal
 ha_codeowners:
