@@ -104,6 +104,7 @@ trigger: |
     threshold:
       type: below
       value:
+        active_choice: number
         number: -4
 {% endexample %}
 
