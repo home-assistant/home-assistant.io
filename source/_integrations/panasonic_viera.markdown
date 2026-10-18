@@ -13,6 +13,7 @@ ha_config_flow: true
 ha_platforms:
   - media_player
   - remote
+  - select
 ha_integration_type: device
 related:
   - docs: /docs/configuration/
@@ -31,6 +32,35 @@ There is currently support for the following device types within Home Assistant:
 If your TV needs to be paired, you will be prompted to type the PIN code that will be displayed on it.
 
 To allow your TV to be turned on or controlled while off, enable `Powered On By Apps` in your settings (if available): **Network > TV Remote App Settings**
+
+## Input sources and picture modes
+
+Some Panasonic Viera TVs expose their inputs and picture modes through the Panasonic Application Control (PAC) interface. When the TV supports it, the integration adds:
+
+- **Source selection** on the media player entity. The `source_list` attribute lists the inputs reported by the TV, and the `media_player.select_source` action switches to one of them. Selecting a source that the TV did not report raises an error and does not affect the availability of the TV.
+- A **Picture mode** select entity, which lists the picture modes reported by the TV and lets you change the active one.
+
+TVs without PAC support do not get these controls and are otherwise unaffected.
+
+The list of inputs and picture modes is read from the TV while it is turned on. If the TV is turned off when Home Assistant starts, the Picture mode entity is added automatically the first time the TV answers; you do not need to reload the integration. These entities are updated at the same interval as the media player.
+
+### Example
+
+```yaml
+action: media_player.select_source
+target:
+  entity_id: media_player.living_room_tv
+data:
+  source: HDMI1
+```
+
+```yaml
+action: select.select_option
+target:
+  entity_id: select.living_room_tv_picture_mode
+data:
+  option: Cinema
+```
 
 ## Manual configuration
 
