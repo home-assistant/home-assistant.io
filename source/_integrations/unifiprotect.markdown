@@ -813,20 +813,13 @@ The detector sounds its own alarm, whether or not Home Assistant is running. Use
 
 ```yaml
 alias: Smoke Alarm Lights
-description: Turn on all lights when a smoke detector reports smoke or carbon monoxide
+description: Turn on all lights when a smoke detector reports an alarm
 triggers:
   - trigger: state
     entity_id:
       - event.kitchen_smoke_detector_alarm # Replace with your smoke detector entity
     not_from:
       - unavailable
-conditions:
-  - condition: state
-    entity_id: event.kitchen_smoke_detector_alarm # Replace with your smoke detector entity
-    attribute: event_type
-    state:
-      - "smoke"
-      - "co"
 actions:
   - action: light.turn_on
     target:
@@ -842,7 +835,7 @@ mode: single
 - **Event Attributes**:
   - **event_type**: One of `test` (a self-test was started), `battery_low`, `needs_cleaning`, `smoke_fault`, `co_fault`, or `end_of_life`.
   - **event_id**: A unique ID that identifies the event.
-- **Description**: This event is triggered when a UniFi Protect smoke detector reports a self-test, a low battery, that it needs cleaning, a sensor fault, or that it has reached the end of its service life.
+- **Description**: This event is triggered when a UniFi Protect smoke detector reports a self-test, a low battery, that it needs cleaning, a smoke or carbon monoxide sensor fault, or that it has reached the end of its service life.
 
 Each is a one-time notification, not a state. Check the UniFi Protect app for the current state of a detector.
 
