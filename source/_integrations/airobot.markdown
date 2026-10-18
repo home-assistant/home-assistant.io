@@ -226,7 +226,7 @@ The integration provides the following sensor entities for a ventilation unit.
 
 #### Air quality
 
-- **CO2 level**
+- **Carbon dioxide**
   - **Description**: The carbon dioxide concentration measured by the unit.
   - **Unit**: ppm
 
@@ -255,11 +255,6 @@ The integration provides the following sensor entities for a ventilation unit.
 - **Heat recovery efficiency**
   - **Description**: How much of the extracted air's heat is recovered into the supply air.
   - **Unit**: %
-
-- **Working time**
-  - **Description**: The unit's operating time since its last reset.
-  - **Unit**: hours
-  - **Remarks**: Diagnostic sensor, disabled by default.
 
 ## Examples
 
@@ -329,7 +324,7 @@ Ventilation units are also polled every 30 seconds, over Modbus TCP. The connect
 
 - **Modbus TCP only**: Ventilation units are supported over Modbus TCP. Modbus RTU (serial) and the Airobot cloud service are not supported.
 - **One Modbus client**: The unit handles one active Modbus TCP connection at a time. While Home Assistant is connected, other Modbus clients, such as a building management system, a diagnostic tool, or a Modbus hub configured in YAML, may get no response.
-- **Identification**: The integration identifies a ventilation unit by its MAC address, which it reads from registers that Airobot's Modbus specification does not document. If your unit's firmware does not provide them, a manually added unit is tracked by its IP address until DHCP discovery supplies the MAC address. Until then, reconfiguration cannot check that the unit at the new address is the same unit.
+- **Identification**: The integration identifies a ventilation unit by its MAC address, which it reads from registers that Airobot's Modbus specification does not document. If your unit's firmware does not provide them, a manually added unit is tracked by its IP address, and reconfiguration cannot check that the unit at the new address is the same unit. A unit added through DHCP discovery uses the MAC address from discovery instead.
 
 ## Troubleshooting
 
