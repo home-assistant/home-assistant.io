@@ -112,7 +112,7 @@ for:
 ## Good to know
 
 - Threshold helper entities must use `%` as the unit. If you want to adjust the limit from the UI, create a {% term helper %} separately first.
-- Media players that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="media players" %}
 - If you want to react to the moment volume crosses a limit, use [Media player volume crossed threshold](/triggers/media_player.volume_crossed_threshold/).
 
 {% include conditions/try_it.md %}

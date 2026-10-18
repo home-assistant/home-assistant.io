@@ -71,7 +71,7 @@ for:
 
 ## Good to know
 
-- Locks in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
+{% include conditions/unavailable_targets.md entities="locks" %}
 - Only locks that support the [Open lock](/actions/lock.open/) action can reach the open state. On other locks, this condition never passes.
 - To check for the secured state instead, use [Lock is locked](/conditions/lock.is_locked/).
 

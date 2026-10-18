@@ -137,7 +137,7 @@ for:
 
 ## Good to know
 
-- Counters in the `unavailable` or `unknown` state are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="counters" %}
 - If the counter leaves the selected threshold before the **For at least** time finishes, the timer resets.
 - When you use an entity as the threshold, Home Assistant reads that entity's current value each time the condition is checked.
 

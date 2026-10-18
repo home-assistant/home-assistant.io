@@ -70,7 +70,7 @@ behavior:
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - Some sensors report VOCs as a ratio instead of an absolute concentration. For those sensors, use [Volatile organic compounds ratio value](/conditions/air_quality.is_voc_ratio_value/).
 
 {% include conditions/try_it.md %}

@@ -89,7 +89,7 @@ for:
 ## Good to know
 
 - This condition checks whether the device is on, even if nothing is playing yet.
-- Media players that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="media players" %}
 - If you need to make sure playback has actually started, use [Media player is playing](/conditions/media_player.is_playing/) instead.
 
 {% include conditions/try_it.md %}

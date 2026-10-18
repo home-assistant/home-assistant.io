@@ -70,7 +70,7 @@ behavior:
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - For related nitrogen-based pollutants, see [Nitrogen monoxide value](/conditions/air_quality.is_no_value/) and [Nitrogen dioxide value](/conditions/air_quality.is_no2_value/).
 
 {% include conditions/try_it.md %}

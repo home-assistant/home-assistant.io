@@ -71,7 +71,7 @@ for:
 ## Good to know
 
 - This condition works with binary sensors that have the **moisture** device class, such as water leak sensors.
-- Sensors that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - To check for the opposite state, use [Moisture is detected](/conditions/moisture.is_detected/).
 - For percentage-based moisture readings (such as soil moisture probes), use [Moisture level](/conditions/moisture.is_value/) instead.
 

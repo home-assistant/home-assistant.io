@@ -89,7 +89,7 @@ for:
 ## Good to know
 
 - This condition depends on the media player reporting its mute state.
-- Media players that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="media players" %}
 - If you want the opposite test, use [Media player is not muted](/conditions/media_player.is_unmuted/).
 
 {% include conditions/try_it.md %}

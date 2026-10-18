@@ -139,7 +139,7 @@ for:
 - Illuminance is measured in lux (lx). For reference: a brightly lit office is around 500 lx, indirect daylight is several thousand lx, and direct sunlight can exceed 100,000 lx.
 - Number entity support applies to threshold values, not to the target being checked. The number entity must use the illuminance device class.
 - For binary light/dark sensors, use [Light level is detected](/conditions/illuminance.is_detected/) or [Light level is not detected](/conditions/illuminance.is_not_detected/) instead.
-- Entities that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md %}
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation runs.
 
 {% include conditions/try_it.md %}

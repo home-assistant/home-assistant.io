@@ -153,7 +153,7 @@ behavior:
 ## Good to know
 
 - The target sensor must have the battery device class.
-- Entities that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md %}
 - Battery level is expressed as a percentage from 0 to 100.
 - This condition checks the entity's current battery reading. To react to changes in the reading, use the [Battery level changed](/triggers/battery.level_changed/) or [Battery level crossed threshold](/triggers/battery.level_crossed_threshold/) trigger instead.
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation fires.
