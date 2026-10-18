@@ -36,7 +36,7 @@ threshold:
         entity: {{ include.unit_example_entity }}
       value_max:
         number: {{ include.unit_example_value }}
-        unit_of_measurement: {{ include.unit_default }}
+        unit_of_measurement: "{{ include.unit_default }}"
     ```
 
     When using an `entity`, its current reading is used as the threshold at the moment the condition is evaluated, which lets you compare two readings dynamically.

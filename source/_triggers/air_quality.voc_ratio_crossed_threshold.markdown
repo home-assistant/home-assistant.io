@@ -7,7 +7,7 @@ related_triggers:
   - air_quality.voc_ratio_changed
 ---
 
-The **Volatile organic compounds ratio crossed threshold** trigger fires when the <abbr title="volatile organic compounds">VOC</abbr> ratio reading on one or more air quality sensors crosses a specific level. While the VOC level measures an absolute concentration, the VOC ratio expresses the reading as a proportion of a reference baseline, making it easier to spot relative changes. Some sensors report this as a percentage or index value.
+The **Volatile organic compounds ratio crossed threshold** trigger fires when the <abbr title="volatile organic compounds">VOC</abbr> ratio reading on one or more air quality sensors crosses a specific level. While the VOC level measures the mass of VOCs in the air, in μg/m³, the VOC ratio measures their share of the air, in parts per billion (ppb) or parts per million (ppm).
 
 Picture your kitchen extractor fan turning on the instant cooking fumes push the VOC ratio past its normal baseline, clearing the air before odors spread through the house. Or getting an alert on your phone when cleaning products cause a spike so you know to open a window. This trigger reacts to relative shifts in air quality, which is ideal for catching sudden changes even when absolute readings vary from sensor to sensor.
 
@@ -20,7 +20,7 @@ Picture your kitchen extractor fan turning on the instant cooking fumes push the
    unit_phrase_ui="a fixed level"
    has_unit="true"
    unit_label="ratio unit"
-   unit_options="ppb, ppm, or %" %}
+   unit_options="ppb or ppm" %}
 
 ### Options in the UI
 
@@ -28,7 +28,7 @@ Picture your kitchen extractor fan turning on the instant cooking fumes push the
    unit_phrase_ui="a fixed level"
    has_unit="true"
    unit_label="ratio unit"
-   unit_options_code="`ppb`, `ppm`, or `%`" %}
+   unit_options_code="`ppb` or `ppm`" %}
 
 {% include triggers/yaml_header.md %}
 
@@ -43,11 +43,11 @@ trigger: |
     threshold:
       type: above
       value:
-        number: 50
-        unit_of_measurement: "%"
+        number: 150
+        unit_of_measurement: "ppb"
 {% endexample %}
 
-This fires when the kitchen VOC ratio sensor reading rises above 50%.
+This fires when the kitchen VOC ratio sensor reading rises above 150 ppb.
 
 ### Options in YAML
 
@@ -55,8 +55,8 @@ This fires when the kitchen VOC ratio sensor reading rises above 50%.
    unit_phrase_yaml="literal number"
    has_unit="true"
    unit_label="ratio unit"
-   unit_options_code="`ppb`, `ppm`, or `%`"
-   unit_default="%"
+   unit_options_code="`ppb` or `ppm`"
+   unit_default="ppb"
    unit_example_entity="input_number.voc_ratio_alert_level"
    unit_example_value="60" %}
 
@@ -76,11 +76,11 @@ This fires when the kitchen VOC ratio sensor reading rises above 50%.
 
 ### Automation: clear cooking fumes before they spread
 
-Frying and searing create a burst of fumes that quickly fills the kitchen. This automation turns on the extractor fan the moment the VOC ratio rises above 50%, pulling cooking odors out before they drift into the rest of the house.
+Frying and searing create a burst of fumes that quickly fills the kitchen. This automation turns on the extractor fan the moment the VOC ratio rises above 150 ppb, pulling cooking odors out before they drift into the rest of the house.
 
 - **Trigger**: Volatile organic compounds ratio crossed threshold
   - **Target**: Kitchen VOC ratio sensor
-  - **Threshold type**: Above 50%
+  - **Threshold type**: Above 150 ppb
   - **Trigger when**: Each
 - **Action**: Turn on fan (kitchen extractor)
 
@@ -97,8 +97,8 @@ automation: |
         threshold:
           type: above
           value:
-            number: 50
-            unit_of_measurement: "%"
+            number: 150
+            unit_of_measurement: "ppb"
   actions:
     - action: fan.turn_on
       target:

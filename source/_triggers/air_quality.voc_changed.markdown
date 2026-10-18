@@ -20,7 +20,7 @@ Imagine the exhaust fan in your freshly painted room switching on automatically 
    unit_phrase_ui="a fixed level"
    has_unit="true"
    unit_label="concentration unit"
-   unit_options="μg/m³, mg/m³, or g/m³" %}
+   unit_options="μg/m³ or mg/m³" %}
 
 ### Options in the UI
 
@@ -28,7 +28,7 @@ Imagine the exhaust fan in your freshly painted room switching on automatically 
    unit_phrase_ui="a fixed level"
    has_unit="true"
    unit_label="concentration unit"
-   unit_options_code="`μg/m³`, `mg/m³`, or `g/m³`" %}
+   unit_options_code="`μg/m³` or `mg/m³`" %}
 
 {% include triggers/yaml_header.md %}
 
@@ -55,7 +55,7 @@ This fires whenever the kitchen VOC sensor reading changes to a value above 50 �
    unit_phrase_yaml="literal number"
    has_unit="true"
    unit_label="concentration unit"
-   unit_options_code="`μg/m³`, `mg/m³`, or `g/m³`"
+   unit_options_code="`μg/m³` or `mg/m³`"
    unit_default="μg/m³"
    unit_example_entity="input_number.voc_alert_level"
    unit_example_value="500" %}

@@ -8,7 +8,7 @@ related_conditions:
   - air_quality.is_co2_value
 ---
 
-The **Volatile organic compounds ratio value** condition passes when a <abbr title="volatile organic compounds">VOC</abbr> ratio sensor's reading meets a specific level. Some sensors express VOC levels as a ratio or index rather than an absolute concentration, which makes it easier to compare readings across different environments. This condition lets your automation act on that relative reading, for example sending a reminder to open a window in the bedroom when the VOC ratio climbs after a room has been closed up all day.
+The **Volatile organic compounds ratio value** condition passes when a <abbr title="volatile organic compounds">VOC</abbr> ratio sensor's reading meets a specific level. Some sensors report VOCs as a ratio: their share of the air, in parts per billion (ppb) or parts per million (ppm), instead of their mass in μg/m³. This condition lets your automation act on that reading, for example sending a reminder to open a window in the bedroom when the VOC ratio climbs after a room has been closed up all day.
 
 {% include conditions/ui_header.md %}
 
@@ -19,7 +19,7 @@ The **Volatile organic compounds ratio value** condition passes when a <abbr tit
    value_long="a fixed level directly, for example `150`"
    has_unit="true"
    unit_label="ratio unit"
-   unit_options="ppb, ppm, or %" %}
+   unit_options="ppb or ppm" %}
 
 ### Options in the UI
 
@@ -27,7 +27,7 @@ The **Volatile organic compounds ratio value** condition passes when a <abbr tit
    value_short="a fixed level"
    has_unit="true"
    unit_label="ratio unit"
-   unit_options_code="`ppb`, `ppm`, or `%`" %}
+   unit_options_code="`ppb` or `ppm`" %}
 
 {% include conditions/yaml_header.md %}
 

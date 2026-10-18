@@ -39,7 +39,7 @@ threshold:
       type: between
       value_min:
         number: {{ include.unit_example_value }}
-        unit_of_measurement: {{ include.unit_default }}
+        unit_of_measurement: "{{ include.unit_default }}"
       value_max:
         entity: {{ include.unit_example_entity }}
     ```

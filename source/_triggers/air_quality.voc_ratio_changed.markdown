@@ -7,7 +7,7 @@ related_triggers:
   - air_quality.voc_ratio_crossed_threshold
 ---
 
-The **Volatile organic compounds ratio changed** trigger fires after the <abbr title="volatile organic compounds">VOC</abbr> ratio reading on one or more air quality sensors changes. Some sensors express VOC concentration as a ratio (typically a percentage) rather than an absolute concentration. This ratio indicates how the current VOC level compares to a baseline, giving you a quick sense of whether air quality is improving or getting worse. It is particularly handy for tracking off-gassing from new furniture, fresh paint, or cleaning products over time.
+The **Volatile organic compounds ratio changed** trigger fires after the <abbr title="volatile organic compounds">VOC</abbr> ratio reading on one or more air quality sensors changes. Some sensors report VOCs as a ratio: their share of the air, in parts per billion (ppb) or parts per million (ppm), instead of their mass in μg/m³. A rising ratio means the air quality is getting worse. It is particularly handy for tracking off-gassing from new furniture, fresh paint, or cleaning products over time.
 
 Imagine getting a notification the moment your living room air quality starts dipping after you've finished cleaning, so you know to crack a window. Use this trigger to automate ventilation, send alerts, or log trends. Use the threshold type to filter which changes matter to your automation.
 
@@ -20,7 +20,7 @@ Imagine getting a notification the moment your living room air quality starts di
    unit_phrase_ui="a fixed level"
    has_unit="true"
    unit_label="ratio unit"
-   unit_options="ppb, ppm, or %" %}
+   unit_options="ppb or ppm" %}
 
 ### Options in the UI
 
@@ -28,7 +28,7 @@ Imagine getting a notification the moment your living room air quality starts di
    unit_phrase_ui="a fixed level"
    has_unit="true"
    unit_label="ratio unit"
-   unit_options_code="`ppb`, `ppm`, or `%`" %}
+   unit_options_code="`ppb` or `ppm`" %}
 
 {% include triggers/yaml_header.md %}
 
@@ -55,7 +55,7 @@ This fires whenever the living room VOC ratio changes to a value above 150 ppb. 
    unit_phrase_yaml="literal number"
    has_unit="true"
    unit_label="ratio unit"
-   unit_options_code="`ppb`, `ppm`, or `%`"
+   unit_options_code="`ppb` or `ppm`"
    unit_default="ppb"
    unit_example_entity="input_number.voc_ratio_alert_level"
    unit_example_value="60" %}

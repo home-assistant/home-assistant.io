@@ -19,7 +19,7 @@ The **Volatile organic compounds value** condition passes when a <abbr title="vo
    value_long="a fixed level directly, for example `300`"
    has_unit="true"
    unit_label="concentration unit"
-   unit_options="μg/m³, mg/m³, or g/m³" %}
+   unit_options="μg/m³ or mg/m³" %}
 
 ### Options in the UI
 
@@ -27,7 +27,7 @@ The **Volatile organic compounds value** condition passes when a <abbr title="vo
    value_short="a fixed level"
    has_unit="true"
    unit_label="concentration unit"
-   unit_options_code="`μg/m³`, `mg/m³`, or `g/m³`" %}
+   unit_options_code="`μg/m³` or `mg/m³`" %}
 
 {% include conditions/yaml_header.md %}
 

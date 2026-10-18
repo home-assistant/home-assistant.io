@@ -37,7 +37,7 @@ threshold:
         entity: {{ include.unit_example_entity }}
       value_max:
         number: {{ include.unit_example_value }}
-        unit_of_measurement: {{ include.unit_default }}
+        unit_of_measurement: "{{ include.unit_default }}"
     ```
 
     A `sensor` or `number` entity's current value is used as the threshold, which lets you compare two readings dynamically.

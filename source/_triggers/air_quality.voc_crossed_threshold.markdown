@@ -20,7 +20,7 @@ With this trigger, your ventilation starts automatically the moment VOC readings
    unit_phrase_ui="a fixed level"
    has_unit="true"
    unit_label="concentration unit"
-   unit_options="μg/m³, mg/m³, or g/m³" %}
+   unit_options="μg/m³ or mg/m³" %}
 
 ### Options in the UI
 
@@ -28,7 +28,7 @@ With this trigger, your ventilation starts automatically the moment VOC readings
    unit_phrase_ui="a fixed level"
    has_unit="true"
    unit_label="concentration unit"
-   unit_options_code="`μg/m³`, `mg/m³`, or `g/m³`" %}
+   unit_options_code="`μg/m³` or `mg/m³`" %}
 
 {% include triggers/yaml_header.md %}
 
@@ -55,7 +55,7 @@ This fires when the office VOC sensor reading rises above 300 μg/m³.
    unit_phrase_yaml="literal number"
    has_unit="true"
    unit_label="concentration unit"
-   unit_options_code="`μg/m³`, `mg/m³`, or `g/m³`"
+   unit_options_code="`μg/m³` or `mg/m³`"
    unit_default="μg/m³"
    unit_example_entity="input_number.voc_alert_level"
    unit_example_value="500" %}
