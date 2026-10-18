@@ -17,6 +17,8 @@ Parameters:
   unit_example_entity Entity reference used in the example. For example:
                       "input_number.max_comfort_temperature".
   unit_example_value  Literal number used in the example. For example: "18".
+  entity_unit_note    Optional. Replaces the sentence about the unit of a threshold entity,
+                      for domains with different unit rules.
 {% endcomment %}
 {% options_yaml %}
 threshold:
@@ -30,7 +32,7 @@ threshold:
 
 {% if include.has_unit %}
 
-    When using the `number` key, you must also include `unit_of_measurement` to specify the {{ include.unit_label }} ({{ include.unit_options_code }}). When using the `entity` key, the unit is taken from the entity itself, or assumed to be the system {{ include.unit_label }} if the entity has no unit.
+    When using the `number` key, you must also include `unit_of_measurement` to specify the {{ include.unit_label }} ({{ include.unit_options_code }}). {% if include.entity_unit_note %}{{ include.entity_unit_note }}{% else %}When using the `entity` key, Home Assistant converts the value from the entity's unit. If the entity has no unit, or a unit that Home Assistant can't convert, the threshold doesn't work.{% endif %}
 
     For example:
 
@@ -39,7 +41,7 @@ threshold:
       type: between
       value_min:
         number: {{ include.unit_example_value }}
-        unit_of_measurement: {{ include.unit_default }}
+        unit_of_measurement: "{{ include.unit_default }}"
       value_max:
         entity: {{ include.unit_example_entity }}
     ```
