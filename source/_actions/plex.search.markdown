@@ -23,7 +23,8 @@ To search Plex from an automation or a script:
 5. From the search box, search for and select **Plex Media Server: Search**.
 6. Enter the text to look for in **Query**.
 7. _Optional_: Select a **Media type** to only get movies, TV shows, or another type of media.
-8. Select **Save**.
+8. _Optional_: Turn on **Fuzzy** to find titles even when the search text is misspelled or misheard.
+9. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
 
@@ -34,6 +35,9 @@ You need to provide at least one of **Query**, **Plex key**, **Playlist name**, 
 {% options_ui %}
 Query:
   description: The text to search for. Without a library, the whole Plex server is searched.
+  required: false
+Fuzzy:
+  description: Find titles even when the search text is misspelled or misheard. When you leave this out, the **Fuzzy search** option of the integration decides.
   required: false
 Media type:
   description: Only return one type of media. Choose from movie, show, season, episode, artist, album, track, or playlist.
@@ -101,10 +105,11 @@ action: |
   data:
     query: The Matrix
     media_type: movie
+    fuzzy: true
   response_variable: matches
 {% endexample %}
 
-This looks for movies that match `The Matrix`.
+This looks for movies that match `The Matrix`, even if the name is slightly misspelled.
 
 ### Options in YAML
 
@@ -113,6 +118,11 @@ query:
   description: The text to search for. Without a library, the whole Plex server is searched.
   required: false
   type: string
+fuzzy:
+  description: Find titles even when the search text is misspelled or misheard. When you leave this out, the **Fuzzy search** option of the integration decides.
+  required: false
+  default: The integration option
+  type: boolean
 media_type:
   description: Only return one type of media, one of `movie`, `show`, `season`, `episode`, `artist`, `album`, `track`, or `playlist`.
   required: false
@@ -223,7 +233,8 @@ results:
 
 ## Good to know
 
-- The search uses the search of the Plex server itself, which can also return items that only loosely match, such as movies with a matching actor.
+- Without **Fuzzy**, the search uses the search of the Plex server itself, which can also return items that only loosely match, such as movies with a matching actor.
+- With **Fuzzy**, results are ordered by how well the title matches your search text.
 - When you search in a library, the search text is matched against titles in that library only.
 - If nothing matches, the action returns an empty `results` list instead of an error.
 
