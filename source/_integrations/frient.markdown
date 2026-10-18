@@ -12,6 +12,10 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+ha_categories:
+  - sensors
+  - security_safety
+  - energy.meters_monitoring
 ha_domain: frient
 ha_integration_type: brand
 works_with:

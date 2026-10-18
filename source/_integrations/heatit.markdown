@@ -8,6 +8,10 @@ ha_category:
   - Sensor
   - Binary sensor
   - Switch
+ha_categories:
+  - climate.thermostats_heating
+  - energy.meters_monitoring
+  - buttons_remotes
 ha_domain: heatit
 ha_integration_type: brand
 works_with:

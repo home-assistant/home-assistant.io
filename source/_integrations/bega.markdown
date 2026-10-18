@@ -5,6 +5,8 @@ ha_release: '2026.4'
 ha_iot_class: Local Push
 ha_category:
   - Switch
+ha_categories:
+  - lighting
 ha_domain: bega
 ha_integration_type: brand
 works_with:

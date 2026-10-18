@@ -10,6 +10,10 @@ ha_category:
   - Light
   - Sensor
   - Button
+ha_categories:
+  - sensors
+  - plugs_switches
+  - lighting
 ha_domain: third_reality
 ha_integration_type: integration
 works_with:

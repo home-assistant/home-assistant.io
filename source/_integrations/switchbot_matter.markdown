@@ -8,6 +8,10 @@ ha_category:
   - Lock
   - Sensor
   - Switch
+ha_categories:
+  - blinds_curtains
+  - sensors
+  - security_safety.locks_access
 ha_domain: switchbot
 ha_integration_type: brand
 works_with:

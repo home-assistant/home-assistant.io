@@ -5,6 +5,9 @@ ha_release: '2026.3'
 ha_iot_class: Local Push
 ha_category:
   - Switch
+ha_categories:
+  - plugs_switches
+  - climate.thermostats_heating
 ha_domain: ubisys
 ha_integration_type: brand
 works_with:

@@ -5,6 +5,10 @@ ha_release: '2025.4'
 ha_iot_class: Local Push
 ha_category:
   - Energy
+ha_categories:
+  - sensors
+  - plugs_switches
+  - climate.thermostats_heating
 ha_domain: eve
 ha_integration_type: brand
 ha_platforms:
