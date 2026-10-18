@@ -99,7 +99,7 @@ The one-time password expires shortly after Electra sends it, and the phone numb
 #### Resolution
 
 1. Make sure the phone number matches the number registered in the **Electra Smart** app.
-2. Remove the integration entry and add the integration again, so that Electra sends a new one-time password, and enter the code as soon as it arrives.
+2. Cancel the current setup and start adding the integration again to request a new one-time password. Enter the new code as soon as it arrives.
 
 {% enddetails %}
 
