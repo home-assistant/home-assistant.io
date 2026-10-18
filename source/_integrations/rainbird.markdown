@@ -105,6 +105,13 @@ The Rain Bird integration provides the following entities.
   - **Available for devices**: All. The number of buttons depends on how many programs your
     controller model supports.
 
+- **Sync time**
+  - **Description**: Sets the controller's date and time to the current time in your Home Assistant
+    time zone. Use it to correct a controller clock that has drifted, for example after a power
+    outage or a daylight saving time change. The button is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). To use it, enable it
+    from the controller's device page.
+  - **Available for devices**: All
+
 #### Calendar
 
 - **Controller irrigation schedule**
