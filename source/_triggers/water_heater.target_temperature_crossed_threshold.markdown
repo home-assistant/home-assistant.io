@@ -100,8 +100,8 @@ threshold:
 
     - `type: above`: Fires when the setpoint crosses to strictly above `value`.
     - `type: below`: Fires when the setpoint crosses to strictly below `value`.
-    - `type: between`: Fires when the setpoint crosses into the range between `value_min` and `value_max`.
-    - `type: outside`: Fires when the setpoint crosses out of the range and reaches `value_min` or below, or `value_max` or above.
+    - `type: between` (inclusive): Fires when the setpoint crosses into the range between `value_min` and `value_max`. A setpoint equal to either bound is inside the range.
+    - `type: outside` (exclusive): Fires when the setpoint crosses out of the range, to below `value_min` or above `value_max`. A setpoint equal to either bound is still inside the range.
 
     For `type: above` and `type: below`, use `value` with either `number` and `unit_of_measurement`, or `entity`. For `type: between` and `type: outside`, use `value_min` and `value_max`, each with either `number` and `unit_of_measurement`, or `entity`.
   required: true
