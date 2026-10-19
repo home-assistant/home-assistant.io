@@ -406,6 +406,8 @@ Not all functionality of the Peblar charger is available through this integratio
   - The **List autocharge vehicles**, **Add autocharge vehicle** and **Delete autocharge vehicle** actions do not work, because this firmware does not provide the autocharge vehicle list.
   - The **Custom solar** smart charging mode is not offered, as it needs firmware 1.10 or later.
 
+  On firmware 1.9.2+1+COOLBLUE-1, the **Socket lock** binary sensor does show whether the cable is locked, and the **Unlock socket** button releases the cable. The **List autocharge vehicles** action works there, but **Add autocharge vehicle** and **Delete autocharge vehicle** fail with the charger error "This endpoint is not available when PLC hardware is not present or enabled". The other exceptions above still apply.
+
 ## Troubleshooting
 
 If you're experiencing issues with your Peblar charger integration, try these general troubleshooting steps:
