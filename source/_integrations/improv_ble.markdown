@@ -52,3 +52,11 @@ Password:
 If the device asks for authorization, press the authorization button on the device. For details, refer to the manual of the device.
 
 After the device has joined your Wi-Fi network, add it to Home Assistant with the integration for that device. For example, for a device that runs ESPHome, **Discovered ESPHome device** opens right away. To add the device, select **Submit**. Other devices show up under **Discovered** with their own integration, or show a link to their setup instructions.
+
+## Known limitations
+
+- Improv via BLE only sends your Wi-Fi details to the Wi-Fi device.
+  - It doesn't add the Wi-Fi device to Home Assistant, and it doesn't show up in your list of integrations.
+  - You add the Wi-Fi device itself with its own integration, for example, [ESPHome](/integrations/esphome/).
+- It only works for Wi-Fi devices that aren't connected to a Wi-Fi network yet.
+- It can't use Bluetooth proxies that don't support active connections, such as Shelly or SMLIGHT proxies.
