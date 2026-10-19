@@ -31,7 +31,7 @@ During setup, you are asked for the email address linked to your Zonneplan accou
 
 ## Data updates
 
-The Zonneplan integration retrieves data from the Zonneplan cloud API on a regular interval: prices and usage every 15 minutes, the status of each home battery every 5 minutes, and its control mode every minute.
+The Zonneplan integration retrieves data from the Zonneplan cloud API on a regular interval: prices and usage every 15 minutes, the status and control mode of each home battery every 5 minutes.
 
 ## Supported functionality
 
