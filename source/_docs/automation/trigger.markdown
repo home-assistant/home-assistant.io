@@ -35,13 +35,13 @@ After you select **Add trigger** in the automation editor, Home Assistant shows 
 
 These specific triggers handle Home Assistant details for you. Measurement triggers, such as temperature and power triggers, compare compatible units automatically. For example, a temperature sensor can report in Fahrenheit while the trigger threshold is set in Celsius.
 
-General triggers, such as **State changed** and **Numeric state crossed threshold**, are still available. Use them when you need to monitor an exact state, use an attribute, work with a trigger that does not have a more specific option, or edit existing YAML.
+General triggers, such as **State changed** and **Numeric state crossed threshold**, are still available. Use them when you need to watch an exact state, use an attribute, work with a trigger that does not have a more specific option, or edit existing YAML.
 
 ## Using several triggers
 
 An automation can have more than one trigger. Any of them can start the automation. If the automation is still running when a trigger reacts, its [mode](/docs/automation/modes/) decides what happens. To do different things depending on which trigger reacted, add a **Triggered by** condition and select the trigger. For the steps, refer to [Creating an automation with actions that depend on different triggers](#creating-an-automation-with-actions-that-depend-on-different-triggers).
 
-One trigger can also monitor several targets, for example, all lights in a room. Its **Trigger when** option decides whether it reacts each time one of the targets changes, only for the first one, or once all targets have made the change. For details, refer to [Automation targets](/docs/automation/targets/#triggers-each-first-and-all).
+One trigger can also watch several targets, for example, all lights in a room. Its **Trigger when** option decides whether it reacts each time one of the targets changes, only for the first one, or once all targets have made the change. For details, refer to [Automation targets](/docs/automation/targets/#triggers-each-first-and-all).
 
 To start an automation only when two things are both true, add a trigger for each change, and a condition for each of the two things. For an example, refer to [when two things must both be true](/docs/automation/how-automations-react-to-changes/#when-two-things-must-both-be-true).
 
@@ -59,7 +59,7 @@ automation:
       event: sunset
 ```
 
-To monitor several entities with one trigger, list them under `entity_id`. The trigger reacts when any of the entities changes:
+To watch several entities with one trigger, list them under `entity_id`. The trigger reacts when any of the entities changes:
 
 ```yaml
 automation:
