@@ -137,7 +137,7 @@ On sunny days, there is often more solar power than you need. By raising the tar
   - **Target**: your my-PV water heater
   - **Temperature**: 65
 
-The temperature is in the unit your Home Assistant uses. This example assumes Celsius. If your Home Assistant uses Fahrenheit, use 149 instead. Make sure the value is within the temperature range of your device.
+The temperature is in the unit your Home Assistant uses. This example assumes Celsius. If your Home Assistant uses Fahrenheit, use 149 instead. Make sure the value is within your device's temperature range.
 
 The target temperature stays at the new value until you change it. To go back to your usual temperature, create a second automation that sets it back, for example at 18:00.
 
@@ -171,6 +171,8 @@ When you go on holiday, there is no need to keep your hot water tank warm. This 
 - **Action**: Water heater: Turn off
   - **Target**: your my-PV water heater
 
+To turn heating back on when you return, create a second automation that triggers when `Vacation mode` changes to `Off` and uses the **Water heater: Turn on** action on your my-PV water heater.
+
 {% details "YAML example for turning off hot water heating while you are away" %}
 
 {% example %}
@@ -187,8 +189,6 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
-
-To turn hot water heating back on when you return, create a second automation that is triggered when `Vacation mode` changes to `Off`, and use the **Water heater: Turn on** action on your my-PV water heater.
 
 ## Data updates
 
