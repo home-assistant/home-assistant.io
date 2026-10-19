@@ -1,8 +1,8 @@
 ---
 title: Quantum Gateway
 description: Instructions on how to integrate Quantum Gateways into Home Assistant.
-ha_category:
-  - Presence detection
+ha_categories:
+  - presence_location.network_presence
 ha_iot_class: Local Polling
 ha_release: 0.81
 ha_codeowners:

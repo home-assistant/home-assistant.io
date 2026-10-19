@@ -1,8 +1,9 @@
 ---
 title: P5 FutureNow
 description: Instructions on how to set up P5 FutureNow relay/dimmer units as lights within Home Assistant.
-ha_category:
-  - Light
+ha_categories:
+  - plugs_switches
+  - lighting.lighting_systems
 ha_iot_class: Local Polling
 ha_release: 0.75
 ha_domain: futurenow

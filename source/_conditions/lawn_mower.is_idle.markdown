@@ -45,8 +45,6 @@ This passes when `lawn_mower.backyard` is currently idle.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -70,7 +68,7 @@ for:
 
 ## Good to know
 
-- Mowers in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
+{% include conditions/unavailable_targets.md entities="lawn mowers" %}
 - A paused mower does not pass this condition: it still has a task to resume. Use [Lawn mower is paused](/conditions/lawn_mower.is_paused/) for that case.
 - Not every mower reports an idle state. Check the states your integration supports.
 

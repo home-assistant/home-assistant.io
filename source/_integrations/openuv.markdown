@@ -1,10 +1,8 @@
 ---
 title: OpenUV
 description: Instructions on how to integrate OpenUV within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Health
-  - Sensor
+ha_categories:
+  - weather_alerts
 ha_release: 0.76
 ha_iot_class: Cloud Polling
 ha_config_flow: true

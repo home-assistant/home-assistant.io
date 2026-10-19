@@ -1,16 +1,6 @@
 ---
 title: Carrier
 description: Connect and control your Carrier devices using the Midea integration
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Fan
-  - Humidifier
-  - Light
-  - Number
-  - Select
-  - Switch
 ha_release: 2026.8
 ha_domain: carrier
 ha_integration_type: virtual

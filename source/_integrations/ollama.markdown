@@ -1,9 +1,8 @@
 ---
 title: Ollama
 description: Instructions on how to integrate Ollama
-ha_category:
-  - AI
-  - Voice
+ha_categories:
+  - ai_voice.ai_models
 ha_release: 2024.4
 ha_iot_class: Local Polling
 ha_config_flow: true

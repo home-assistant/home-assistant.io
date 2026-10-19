@@ -1,12 +1,8 @@
 ---
 title: NexBlue
 description: Instructions for integrating NexBlue EV chargers with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Car
-  - Energy
-  - Sensor
-  - Switch
+ha_categories:
+  - energy.ev_charging
 ha_release: 2026.9
 ha_iot_class: Cloud Polling
 ha_config_flow: true

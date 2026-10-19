@@ -73,8 +73,8 @@ If the room gets warmer as the day goes on, you can raise the fan speed a little
 
 - **Trigger**: Time: 12:00
 - **Action**: Increase fan speed
-- **Target**: Office fan
-- **Increment**: 10
+  - **Target**: Office fan
+  - **Increment**: `10`%
 
 {% details "YAML example for a midday speed boost" %}
 
@@ -100,8 +100,8 @@ When cooking begins, you may want to push the fan up more quickly.
 
 - **Trigger**: State changed: Stove hood light changes to on
 - **Action**: Increase fan speed
-- **Target**: Kitchen fan
-- **Increment**: 20
+  - **Target**: Kitchen fan
+  - **Increment**: `20`%
 
 {% details "YAML example for a kitchen airflow boost" %}
 

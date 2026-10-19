@@ -1,8 +1,6 @@
 ---
 title: Analytics
 description: Share system analytics and diagnostics
-ha_category:
-  - Other
 ha_release: 2021.4
 ha_iot_class: Cloud Push
 ha_quality_scale: internal
