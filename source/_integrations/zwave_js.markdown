@@ -166,9 +166,12 @@ Two integrations work together to find the adapter:
 ### Prerequisites
 
 - {% term "Home Assistant Operating System" %}. The Z-Wave integration can only set up the adapter if it can manage the Z-Wave JS app.
-  - On other installation types, connect your own [Z-Wave JS server](#setting-up-a-z-wave-server-without-using-the-z-wave-js-app) to `esphome://` followed by the IP address of the ESPHome device.
+  - On other installation types, connect your own [Z-Wave JS server](#setting-up-a-z-wave-server-without-using-the-z-wave-js-app) to `esphome://` followed by the IP address of the ESPHome device. For example: `esphome://192.168.1.50`.
+    - If the ESPHome device uses API encryption, add `?key=` followed by its URL-encoded encryption key. For example: `esphome://192.168.1.50?key=YOUR_ENCRYPTION_KEY`. For details, refer to the [Z-Wave JS documentation](https://zwave-js.github.io/zwave-js/#/usage/esphome-connection).
 - An ESP32-based device running ESPHome with the [Z-Wave proxy](https://esphome.io/components/zwave_proxy/) component. A Z-Wave adapter must be connected to it.
   - For example, a Home Assistant Connect ZWA-2 running Portable Z-Wave, or plugged into an ESP32 board running it.
+- If you already use Z-Wave, your Z-Wave network must run on the Z-Wave JS app.
+  - If you use Z-Wave JS UI, first [migrate to the Z-Wave JS app](#migrating-from-z-wave-js-ui-to-the-z-wave-js-app).
 - If the adapter already holds a Z-Wave network, [back up your Z-Wave network](#backing-up-your-z-wave-network) before you change the adapter's connection.
 
 ### To set up a Z-Wave adapter connected to an ESPHome device
