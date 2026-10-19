@@ -28,7 +28,7 @@ Follow these recommendations in your Home Assistant setup:
 - Name each item for what it is, rather than where it is or what it belongs to. For example, name an area `Living room` instead of `Ground floor living room`, and a device `Multi sensor` instead of `Office multi sensor`.
 - Use the device name to identify the physical device and the entity name to identify what the device reports or controls. For example, a device named `Thermostat` can have an entity named `Temperature`.
 - Give otherwise identical devices a distinguishing name that is meaningful to you. For example, use `Left window sensor` and `Right window sensor` if their position is how you tell them apart.
-- [Assign an area to each device](/docs/organizing/areas/#assigning-an-area-to-a-device-from-the-devices-dashboard) and [assign a floor to each area](/docs/organizing/areas/#assigning-areas-to-floors-and-adding-labels). Home Assistant uses this information in pickers, dialogs, and tables, so you do not need to add location information to areas, devices, and entities.
+- [Assign an area to each device](/docs/organizing/areas/#assigning-an-area-to-a-device-from-the-devices-dashboard) and [assign a floor to each area](/docs/organizing/areas/#assigning-areas-to-floors-and-adding-labels). Home Assistant uses this information in pickers, dialogs, and tables, so you do not need to include the location in the names of areas, devices, and entities.
 - Change the displayed name on a dashboard card when you only want a different label in that dashboard. You do not need to change the entity name.
 
 If you already use a naming strategy that works for you, you do not need to rename existing items.
