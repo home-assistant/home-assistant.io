@@ -78,7 +78,7 @@ The **Bitcoin** integration provides the following entities. All of them are cre
 - **Timestamp**
   - **Description**: When blockchain.com produced these numbers.
 
-Two names are used twice. **Trade volume** and **Miners revenue** each exist once in BTC and once in USD, so one of each pair gets a `_2` suffix in its entity ID: `sensor.trade_volume` is the BTC one and `sensor.trade_volume_2` the USD one, while `sensor.miners_revenue` is the USD one and `sensor.miners_revenue_2` the BTC one.
+Two names are used twice. **Trade volume** and **Miners revenue** each exist once in BTC and once in USD, so one of each pair gets a `_2` suffix in its entity ID. When you set Bitcoin up from the UI, `sensor.trade_volume` is the BTC one and `sensor.trade_volume_2` the USD one, while `sensor.miners_revenue` is the USD one and `sensor.miners_revenue_2` the BTC one. If your setup was imported from YAML, the sensors you already had keep their entity IDs, so a pair can be the other way round.
 
 ## Data updates
 
@@ -134,8 +134,6 @@ To resolve this issue, try the following steps:
    - You had the `bitcoin` sensor platform listed more than once with different currencies. Bitcoin can only be set up once, so only the first currency was imported. Remove the YAML, then remove the integration and add it again with the currency you want.
 
 Your existing sensors keep the entity IDs they already had, so dashboards and automations that use them keep working. You do get extra sensors: the YAML `display_options` setting is gone, because a config flow should not ask you to pick entities, so all 21 sensors are now created.
-
-Two of those sensors need a closer look. **Trade volume** and **Miners revenue** each exist once in BTC and once in USD, and the one created first gets the plain entity ID. If your YAML listed `trade_volume_usd` without `trade_volume_btc`, or `miners_revenue_btc` without `miners_revenue_usd`, that plain entity ID used to be yours and now belongs to the other currency. A repair issue tells you which entity ID this happened to and where your sensor moved, so you can point your dashboards and automations at the right one.
 
 ## Removing the integration
 
