@@ -79,17 +79,28 @@ The Xiaomi Home {% term integration %} allows you to control the gateway and its
 
 ### Supported Xiaomi gateway models
 
-| Gateway | Model | Zigbee ID | Home Assistant support |
-| --- | --- | --- | --- |
-| Chinese version | `DGNWG02LM` | `lumi.gateway.v3` | Supported |
-| European version | `ZHWG11LM-763`, `DGNWQ05LM` | `lumi.gateway.mieu01` | Supported with Xiaomi Home credentials |
-| Aqara hub | `ZHWG11LM` | `lumi.gateway.aqhm01` | Supported |
-| Mijia Zigbee 3.0 | `ZNDMWG03LM` | `lumi.gateway.mgl03` | Supported |
-| Aqara AC Companion | `KTBL01LM` | `lumi.acpartner.v1` | Not tested |
-| Mi AC Companion | `KTBL02LM` | `lumi.acpartner.v2` | Not tested |
-| Aqara AC Companion | `KTBL11LM` | `lumi.acpartner.v3` | Supported |
+| Gateway            | Model                       | Zigbee ID             | Home Assistant support |
+| ------------------ | --------------------------- | --------------------- | ---------------------- |
+| European version   | `ZHWG11LM-763`, `DGNWQ05LM` | `lumi.gateway.mieu01` | Supported with Xiaomi Home credentials |
+| Aqara AC Companion | `KTBL11LM`                  | `lumi.acpartner.v3`   | Supported              |
+| Aqara hub          | `ZHWG11LM`                  | `lumi.gateway.aqhm01` | Supported              |
+| Chinese version    | `DGNWG02LM`                 | `lumi.gateway.v3`     | Supported              |
+| Mijia Zigbee 3.0   | `ZNDMWG03LM`                | `lumi.gateway.mgl03`  | Supported              |
+| Aqara AC Companion | `KTBL01LM`                  | `lumi.acpartner.v1`   | Not tested             |
+| Mi AC Companion    | `KTBL02LM`                  | `lumi.acpartner.v2`   | Not tested             |
 
-Some gateways, such as `lumi.gateway.mieu01`, do not support retrieving connected subdevices locally. For those gateways, Xiaomi Home credentials can be specified during the config flow and the "Use Xiaomi Home service to get connected subdevices" can be enabled in the options flow (after setting up the {% term integration %}, click Configuration in the sidebar, then click Integrations and then click Options on the already set up Xiaomi Home {% term integration %}). The connected subdevices will then be retrieved from Xiaomi Home (internet), control and status updates of those subdevices will then further take place over local network connection. A re-authentication flow may be triggered when no account credentials are provided yet and are needed for that particular gateway model.
+### Retrieving connected subdevices through Xiaomi Home
+
+Some gateways, such as `lumi.gateway.mieu01`, cannot retrieve connected subdevices locally.
+To add their subdevices, use the Xiaomi Home service.
+
+1. During setup, provide your Xiaomi Home account credentials.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+3. On the Xiaomi Home integration card, select **Configure**.
+4. Turn on **Use Xiaomi Home service to get connected subdevices**, then select **Submit**.
+
+Home Assistant retrieves the subdevices from Xiaomi Home, then controls them and receives their status updates over your local network.
+If credentials are required but have not been provided, Home Assistant starts a reauthentication flow.
 
 ### Gateway features
 
