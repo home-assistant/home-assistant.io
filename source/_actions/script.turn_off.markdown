@@ -21,7 +21,7 @@ To stop a script from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the script you want to stop.
-6. From the actions shown for that target, select **Turn off script**.
+6. From the actions shown for that target, under **Script**, select **Turn off script**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -63,7 +63,7 @@ Cancel a gradual wake-up light script as soon as motion is detected in the bedro
 
 - **Trigger**: Motion detected
   - **Target**: Bedroom motion
-- **Action**: Turn off script
+- **Action**: Script: Turn off script
   - **Target**: Wake up lights
 
 {% details "Show example YAML" %}

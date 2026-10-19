@@ -53,8 +53,6 @@ trigger: |
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -88,9 +86,10 @@ for:
 If your vacuum docks in a darker part of the house, you can turn on a nearby light when it starts heading back so it can finish its route with a clear path.
 
 - **Trigger**: Vacuum cleaner started returning to dock
-- **Target**: Downstairs vacuum
+  - **Target**: Downstairs vacuum
 - **Condition**: Sun is below horizon
-- **Action**: Turn on hallway light
+- **Action**: Turn on light
+  - **Target**: Hallway light
 
 {% details "YAML example for lighting the path back to the dock" %}
 

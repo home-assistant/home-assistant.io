@@ -3,8 +3,6 @@ title: Remote
 description: Instructions on how to set up your remotes with Home Assistant.
 ha_release: 0.34
 ha_domain: remote
-ha_category:
-  - Remote
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'

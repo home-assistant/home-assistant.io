@@ -19,7 +19,7 @@ To increment an input number from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the input number you want to increment.
-6. From the actions shown for that target, select **Increment input number**.
+6. From the actions shown for that target, under **Input number**, select **Increment input number**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -48,6 +48,7 @@ This action has no additional YAML options beyond the target.
 ## Good to know
 
 - The value increases by the `step` you configured for the input number and never goes above the configured `max`.
+- If the input number has a device class and its state is shown in another unit, the value changes by `step` in the helper's own unit. For more information, see [Unit conversion](/integrations/input_number/#unit-conversion).
 
 {% include actions/try_it.md %}
 

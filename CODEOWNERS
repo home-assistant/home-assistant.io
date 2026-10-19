@@ -1429,6 +1429,7 @@ source/_actions/cover.stop_cover.markdown @home-assistant/core
 source/_actions/cover.stop_cover_tilt.markdown @home-assistant/core
 source/_actions/cover.toggle.markdown @home-assistant/core
 source/_actions/cover.toggle_cover_tilt.markdown @home-assistant/core
+source/_actions/daikin.set_demand_control.markdown @fredrike
 source/_actions/date.set_value.markdown @home-assistant/core
 source/_actions/datetime.set_value.markdown @home-assistant/core
 source/_actions/debugpy.start.markdown @frenck
@@ -1703,7 +1704,7 @@ source/_actions/kef.set_treble_db.markdown @basnijholt
 source/_actions/kef.set_wall_db.markdown @basnijholt
 source/_actions/kef.update_dsp.markdown @basnijholt
 source/_actions/keymitt_ble.calibrate.markdown @spycle
-source/_actions/kiosker.blackout_set.markdown @Claeysson
+source/_actions/kiosker.set_blackout.markdown @Claeysson
 source/_actions/kiosker.navigate_url.markdown @Claeysson
 source/_actions/knx.event_register.markdown @Julius2342 @farmio @marvin-w
 source/_actions/knx.exposure_register.markdown @Julius2342 @farmio @marvin-w

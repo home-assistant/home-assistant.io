@@ -1,9 +1,8 @@
 ---
 title: Gree Infrared
 description: Integration to control Gree air conditioners using an infrared emitter and to receive commands from a Gree remote using an infrared receiver.
-ha_category:
-  - Climate
-  - Infrared-controlled
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_release: '2026.10'
 ha_iot_class: Assumed State
 ha_codeowners:
@@ -47,11 +46,11 @@ A climate entity is created for each Gree air conditioner device you set up.
 
 - **Gree AC**
   - **Description**: Represents the Gree air conditioner and allows you to control it using infrared commands.
-  - **Supported features**: Set HVAC mode, set target temperature, and set fan mode.
+  - **Supported features**: Turn on, turn off, set HVAC mode, set target temperature, and set fan mode.
 
 ### Supported modes
 
-The climate entity offers the modes you selected during setup, in addition to **Off**.
+The climate entity offers the modes you selected during setup, in addition to **Off**. Turning the air conditioner on resumes the mode it was last in.
 
 - **Cool**: Cools to a set temperature.
 - **Heat**: Heats to a set temperature. Not all Gree air conditioner models have it.
