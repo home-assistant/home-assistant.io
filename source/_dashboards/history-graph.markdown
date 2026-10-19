@@ -55,6 +55,11 @@ show_names:
   description: If false, no entity names are shown in the card.
   type: boolean
   default: true
+name_position:
+  required: false
+  description: "Position of the entity names in timeline graphs. Can be `side` or `below`. With `side`, names are shown in a column next to the timeline. With `below`, each name is shown under its bar, like in the **History** panel, and each row takes more space. If you [resized the card](/dashboards/cards/#resizing-a-card), you might need to give it more rows. Has no effect when `show_names` is `false`."
+  type: string
+  default: side
 logarithmic_scale:
   required: false
   description: If true, numerical values on the Y-axis will be displayed with a logarithmic scale.
