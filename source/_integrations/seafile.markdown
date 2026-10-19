@@ -84,13 +84,31 @@ The integration has been tested with Seafile 13 and 14 (Community Edition).
 
 ## Troubleshooting
 
-### The sensors of a library are unavailable
+### Symptom: The sensors of a library are unavailable
 
-The library was deleted on the Seafile server, or your account lost access to it. Delete the library entry from the **Seafile** integration page.
+The sensors of one or more libraries show as unavailable.
 
-### The integration fails to load with an authentication error
+#### Description
 
-The access token was revoked or is no longer valid. Remove the integration and add it again with your current password.
+Home Assistant can't reach the Seafile server, or the library is no longer available to your account: it was deleted on the server, or your account lost access to it. When the server can't be reached, the sensors of the account are unavailable as well.
+
+#### Resolution
+
+1. Check that Home Assistant can reach the Seafile server, and look for connection errors in {% my logs title="**Settings** > **System** > **Logs**" %}.
+2. Sign in to the Seafile web interface with the same account and check that the library is still listed.
+3. Only if the library is gone from your account, delete its library entry from the **Seafile** integration page.
+
+### Symptom: The integration fails to load with an authentication error
+
+The integration shows an authentication error and its entities are unavailable.
+
+#### Description
+
+The access token of the integration was revoked or is no longer valid.
+
+#### Resolution
+
+Remove the integration and add it again with your current password.
 
 ## Removing the integration
 
