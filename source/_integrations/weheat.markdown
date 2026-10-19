@@ -1,10 +1,6 @@
 ---
 title: Weheat
 description: Instructions on setting up Weheat within Home Assistant.
-ha_category:
-  - Climate
-  - Energy
-  - Sensor
 ha_categories:
   - climate.heat_pumps_air_conditioning
 ha_iot_class: Cloud Polling

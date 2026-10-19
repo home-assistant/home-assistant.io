@@ -1,10 +1,6 @@
 ---
 title: Environment Canada
 description: Weather data from Environment Canada.
-ha_category:
-  - Camera
-  - Sensor
-  - Weather
 ha_categories:
   - weather_alerts.forecasts
   - weather_alerts.public_warnings

@@ -1,12 +1,6 @@
 ---
 title: Home Assistant Supervisor
 description: Control Supervisor Apps and OS from Home Assistant
-ha_category:
-  - Backup
-  - Binary sensor
-  - Sensor
-  - Switch
-  - Update
 ha_categories:
   - computers_network.nas_servers
 ha_iot_class: Local Polling

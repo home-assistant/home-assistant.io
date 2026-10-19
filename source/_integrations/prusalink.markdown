@@ -1,8 +1,6 @@
 ---
 title: PrusaLink
 description: Instructions on monitoring Prusa 3D printers using PrusaLink.
-ha_category:
-  - 3D printing
 ha_categories:
   - computers_network.printers
 ha_iot_class: Local Polling

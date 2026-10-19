@@ -1,8 +1,6 @@
 ---
 title: Motionblinds
 description: Instructions on how to integrate Motionblinds from Coulisse B.V. into Home Assistant.
-ha_category:
-  - Cover
 ha_categories:
   - blinds_curtains
 ha_iot_class: Local Push

@@ -1,9 +1,6 @@
 ---
 title: Agent DVR
 description: Access and control Agent DVR from Home Assistant.
-ha_category:
-  - Alarm
-  - Camera
 ha_categories:
   - security_safety.cameras
 ha_config_flow: true

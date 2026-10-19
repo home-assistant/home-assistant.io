@@ -1,8 +1,6 @@
 ---
 title: Forecast.Solar
 description: Instructions on how to integrate Forecast.Solar within Home Assistant.
-ha_category:
-  - Energy
 ha_categories:
   - energy.solar_batteries
 ha_release: 2021.7

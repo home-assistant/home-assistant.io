@@ -1,9 +1,6 @@
 ---
 title: Rabbit Air
 description: Instructions on how to integrate Rabbit Air air purifier within Home Assistant.
-ha_category:
-  - Fan
-  - Sensor
 ha_categories:
   - climate.air_purifiers_humidifiers
 ha_iot_class: Local Polling

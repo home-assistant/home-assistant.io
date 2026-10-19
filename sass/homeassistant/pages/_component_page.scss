@@ -93,7 +93,7 @@
       border-top: 5px solid black;
     }
 
-    .ha_category {
+    .filter-select {
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
@@ -774,7 +774,7 @@ a.option-card:hover {
       right: 10px;
     }
 
-    .ha_category {
+    .filter-select {
       position: static;
       margin: 0;
       padding: 9px 36px 9px 42px;
@@ -799,7 +799,7 @@ a.option-card:hover {
     &.active {
       color: $blueDark;
 
-      .ha_category {
+      .filter-select {
         border-color: $blueDark;
         background-color: rgba(3, 169, 244, 0.12);
         color: $blueDark;

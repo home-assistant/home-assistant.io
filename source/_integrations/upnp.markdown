@@ -1,10 +1,6 @@
 ---
 title: UPnP/IGD
 description: Internet Gateway Device (IGD) Protocol for Home Assistant.
-ha_category:
-  - Binary sensor
-  - Network
-  - Sensor
 ha_categories:
   - computers_network.routers_network
 ha_release: 0.18

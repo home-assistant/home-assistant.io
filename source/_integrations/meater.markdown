@@ -1,8 +1,6 @@
 ---
 title: Meater
 description: Instructions on how to integrate the Meater Temperature Probe within Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - appliances_cleaning.cooking
 ha_release: 2022.5

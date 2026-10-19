@@ -1,8 +1,6 @@
 ---
 title: Azure DevOps
 description: Instructions on how to integrate Azure DevOps with Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - computers_network.cloud_developer_tools
 ha_release: 0.114

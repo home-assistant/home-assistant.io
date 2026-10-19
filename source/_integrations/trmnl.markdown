@@ -1,10 +1,6 @@
 ---
 title: TRMNL
 description: Instructions on how to integrate TRMNL with Home Assistant.
-ha_category:
-  - Sensor
-  - Switch
-  - Time
 ha_categories:
   - productivity_information
 ha_release: 2026.4

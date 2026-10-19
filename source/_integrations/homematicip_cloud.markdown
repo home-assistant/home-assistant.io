@@ -1,20 +1,6 @@
 ---
 title: HomematicIP Cloud
 description: Instructions for integrating HomematicIP into Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Fan
-  - Hub
-  - Light
-  - Lock
-  - Sensor
-  - Switch
-  - Valve
 ha_categories:
   - hubs_protocols.smart_home_hubs
 ha_iot_class: Cloud Push

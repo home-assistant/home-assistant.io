@@ -1,21 +1,6 @@
 ---
 title: Homee
 description: Instructions on how to set up homee devices in Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Fan
-  - Light
-  - Lock
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Valve
 ha_categories:
   - hubs_protocols.smart_home_hubs
 ha_config_flow: true

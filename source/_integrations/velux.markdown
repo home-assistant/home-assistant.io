@@ -1,9 +1,6 @@
 ---
 title: Velux
 description: Instructions on how to integrate the Velux KLF 200 with Home Assistant.
-ha_category:
-  - Cover
-  - Scene
 ha_categories:
   - blinds_curtains
 ha_release: 0.49

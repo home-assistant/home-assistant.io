@@ -1,8 +1,6 @@
 ---
 title: Victron BLE
 description: Instructions on how to integrate Victron BLE devices into Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - energy.solar_batteries
 ha_bluetooth: true

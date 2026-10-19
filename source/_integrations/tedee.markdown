@@ -2,10 +2,6 @@
 title: Tedee
 description: Instructions on how to integrate your Tedee lock with Home Assistant.
 ha_release: 2024.2
-ha_category:
-  - Binary sensor
-  - Lock
-  - Sensor
 ha_categories:
   - security_safety.locks_access
 ha_iot_class: Local Push

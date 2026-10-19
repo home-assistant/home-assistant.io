@@ -1,10 +1,6 @@
 ---
 title: Network UPS Tools (NUT)
 description: Instructions on how to set up NUT sensors within Home Assistant.
-ha_category:
-  - Button
-  - Switch
-  - System monitor
 ha_categories:
   - energy.backup_power
 ha_iot_class: Local Polling

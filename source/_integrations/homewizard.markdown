@@ -2,8 +2,6 @@
 title: HomeWizard
 description: Instructions on how to integrate HomeWizard into Home Assistant.
 ha_release: 2022.2
-ha_category:
-  - Energy
 ha_categories:
   - energy.meters_monitoring
   - water.meters_leak_detection

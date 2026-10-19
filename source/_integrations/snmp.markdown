@@ -1,11 +1,6 @@
 ---
 title: SNMP
 description: Instructions on how to integrate SNMP into Home Assistant.
-ha_category:
-  - Network
-  - Presence detection
-  - Sensor
-  - Switch
 ha_categories:
   - computers_network.monitoring
   - presence_location.network_presence

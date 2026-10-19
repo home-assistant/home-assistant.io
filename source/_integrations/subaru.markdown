@@ -1,12 +1,6 @@
 ---
 title: Subaru
 description: Instructions on how to set up your Subaru account with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Car
-  - Lock
-  - Presence detection
-  - Sensor
 ha_categories:
   - vehicles_transport.cars_evs
 ha_release: 2021.3

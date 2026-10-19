@@ -1,15 +1,6 @@
 ---
 title: Plugwise
 description: Plugwise Gateway platform integration.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Water heater
 ha_categories:
   - climate.thermostats_heating
   - energy.meters_monitoring

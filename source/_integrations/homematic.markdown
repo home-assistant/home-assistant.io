@@ -1,16 +1,6 @@
 ---
 title: Homematic
 description: Instructions for integrating Homematic into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Cover
-  - Hub
-  - Light
-  - Lock
-  - Notifications
-  - Sensor
-  - Switch
 ha_categories:
   - hubs_protocols.smart_home_hubs
 ha_iot_class: Local Push

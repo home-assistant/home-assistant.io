@@ -2,10 +2,6 @@
 title: Vilfo Router
 description: Instructions on how to integrate a Vilfo Router into Home Assistant.
 ha_release: '0.106'
-ha_category:
-  - Network
-  - Sensor
-  - System monitor
 ha_categories:
   - computers_network.routers_network
 ha_iot_class: Local Polling

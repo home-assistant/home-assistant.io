@@ -1,8 +1,6 @@
 ---
 title: Ridwell
 description: Instructions on how to set up the Ridwell
-ha_category:
-  - Sensor
 ha_categories:
   - local_services
 ha_release: 2021.12

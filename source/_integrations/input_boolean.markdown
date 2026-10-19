@@ -1,9 +1,6 @@
 ---
 title: Input boolean
 description: Instructions on how to use the input boolean helper with Home Assistant.
-ha_category:
-  - Automation
-  - Helper
 ha_categories:
   - helpers.store_value
 ha_release: 0.11

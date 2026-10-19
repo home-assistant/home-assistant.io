@@ -1,9 +1,6 @@
 ---
 title: Sofar
 description: Instructions on how to integrate a Sofar solar inverter with Home Assistant over Modbus TCP or a serial RS485 connection.
-ha_category:
-  - Energy
-  - Modbus-controlled
 ha_categories:
   - energy.solar_batteries
 ha_release: 2026.9

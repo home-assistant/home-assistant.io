@@ -3,11 +3,6 @@ title: FireAvert
 description: Connect and control your FireAvert Z-Wave series devices using the Z-Wave integration
 ha_release: '2026.8'
 ha_iot_class: Local Push
-ha_category:
-  - Plug
-  - Light
-  - Sensor
-  - Switch
 ha_categories:
   - security_safety
 ha_domain: fireavert

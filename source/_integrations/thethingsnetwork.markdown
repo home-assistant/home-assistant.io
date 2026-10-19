@@ -1,9 +1,6 @@
 ---
 title: The Things Network
 description: Instructions for how to integrate The Things Network within Home Assistant.
-ha_category:
-  - Hub
-  - Sensor
 ha_categories:
   - hubs_protocols.wireless_protocols
   - diy_makers.web_data_connectors

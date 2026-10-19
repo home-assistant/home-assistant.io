@@ -1,10 +1,6 @@
 ---
 title: OpenDisplay
 description: Instructions on how to integrate OpenDisplay e-paper displays into Home Assistant.
-ha_category:
-  - Binary sensor
-  - DIY
-  - Event
 ha_categories:
   - diy_makers.boards_hardware
 ha_bluetooth: true

@@ -1,9 +1,6 @@
 ---
 title: Sonos
 description: Instructions on how to integrate Sonos devices into Home Assistant.
-ha_category:
-  - Media player
-  - Sensor
 ha_categories:
   - media_entertainment.speakers_audio
 featured: true

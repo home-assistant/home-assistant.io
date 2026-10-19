@@ -1,8 +1,6 @@
 ---
 title: "MQTT Fan"
 description: "Instructions on how to integrate MQTT fans into Home Assistant."
-ha_category:
-  - Fan
 ha_release: 0.27
 ha_iot_class: Configurable
 ha_domain: mqtt

@@ -1,9 +1,6 @@
 ---
 title: Input number
 description: Instructions on how to integrate the input number integration into Home Assistant.
-ha_category:
-  - Automation
-  - Helper
 ha_categories:
   - helpers.store_value
 ha_release: 0.55

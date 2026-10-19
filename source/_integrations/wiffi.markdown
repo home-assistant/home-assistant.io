@@ -1,8 +1,6 @@
 ---
 title: Wiffi
 description: Support for WIFFI devices from stall.biz, e.g., Weatherman, Rainyman, ...
-ha_category:
-  - DIY
 ha_categories:
   - sensors
 ha_release: '0.110'

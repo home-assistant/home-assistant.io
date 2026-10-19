@@ -1,8 +1,6 @@
 ---
 title: Foobot
 description: Instructions on how to set up Foobot Air Quality sensor in Home Assistant.
-ha_category:
-  - Health
 ha_categories:
   - sensors.air_quality
 ha_release: 0.66

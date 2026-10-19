@@ -1,14 +1,6 @@
 ---
 title: Whisker
 description: Instructions on how to integrate Whisker's lineup of Wi-Fi-enabled, automatic, self-cleaning litter boxes and pet feeders to Home Assistant.
-ha_category:
-  - Button
-  - Light
-  - Select
-  - Sensor
-  - Switch
-  - Update
-  - Vacuum
 ha_categories:
   - pets
 ha_iot_class: Cloud Push

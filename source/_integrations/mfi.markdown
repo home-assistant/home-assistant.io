@@ -1,10 +1,6 @@
 ---
 title: Ubiquiti mFi mPort
 description: Instructions on how to integrate mFi within Home Assistant.
-ha_category:
-  - Network
-  - Sensor
-  - Switch
 ha_categories:
   - plugs_switches
   - sensors

@@ -3,13 +3,6 @@ title: Third Reality
 description: Connect and control your Third Reality Zigbee devices using the Zigbee integration
 ha_release: '2022.10'
 ha_iot_class: Local Push
-ha_category:
-  - Cover
-  - Switch
-  - Binary sensor
-  - Light
-  - Sensor
-  - Button
 ha_categories:
   - sensors
   - plugs_switches

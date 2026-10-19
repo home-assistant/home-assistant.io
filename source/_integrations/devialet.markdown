@@ -1,8 +1,6 @@
 ---
 title: Devialet
 description: Instructions on how to integrate Devialet devices into Home Assistant.
-ha_category:
-  - Media Player
 ha_categories:
   - media_entertainment.speakers_audio
 ha_release: 2023.11

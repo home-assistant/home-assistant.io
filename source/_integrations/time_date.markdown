@@ -1,8 +1,6 @@
 ---
 title: Time & Date
 description: Instructions on how to create time and the date sensors within Home Assistant.
-ha_category:
-  - Calendar
 ha_categories:
   - helpers.calculate_value
 ha_iot_class: Local Push

@@ -1,8 +1,6 @@
 ---
 title: "MQTT binary sensor"
 description: "Instructions on how to integrate MQTT binary sensors within Home Assistant."
-ha_category:
-  - Binary sensor
 ha_release: 0.9
 ha_iot_class: Configurable
 ha_domain: mqtt

@@ -1,8 +1,6 @@
 ---
 title: Telnet
 description: Instructions on how to integrate telnet switches into Home Assistant.
-ha_category:
-  - Switch
 ha_categories:
   - diy_makers.web_data_connectors
 ha_release: 0.54

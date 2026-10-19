@@ -1,10 +1,6 @@
 ---
 title: AquaLogic
 description: Instructions on how to integrate an AquaLogic controller within Home Assistant.
-ha_category:
-  - Hub
-  - Sensor
-  - Switch
 ha_categories:
   - water.pools_spas
 ha_release: '0.80'

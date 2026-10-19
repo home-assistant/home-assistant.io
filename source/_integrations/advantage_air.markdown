@@ -1,15 +1,6 @@
 ---
 title: Advantage Air
 description: Instructions on how to integrate Advantage Air A/C controller into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Cover
-  - Light
-  - Select
-  - Sensor
-  - Switch
-  - Update
 ha_categories:
   - climate.heat_pumps_air_conditioning
 ha_release: 0.117

@@ -1,12 +1,6 @@
 ---
 title: FRITZ!Box Tools
 description: Instructions on how to integrate FRITZ!Box routers into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Image
-  - Presence detection
-  - Sensor
-  - Update
 ha_categories:
   - computers_network.routers_network
   - presence_location.network_presence

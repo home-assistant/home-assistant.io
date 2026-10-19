@@ -1,10 +1,6 @@
 ---
 title: Mochad
 description: Instructions on how to integrate Mochad into Home Assistant.
-ha_category:
-  - Hub
-  - Light
-  - Switch
 ha_categories:
   - hubs_protocols.wireless_protocols
 ha_iot_class: Local Polling

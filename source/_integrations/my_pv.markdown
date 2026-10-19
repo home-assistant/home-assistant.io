@@ -1,11 +1,6 @@
 ---
 title: my-PV
 description: Instructions on how to integrate my-PV devices into Home Assistant.
-ha_category:
-  - Number
-  - Select
-  - Switct
-  - Water heater
 ha_categories:
   - energy.solar_batteries
   - climate.water_heaters

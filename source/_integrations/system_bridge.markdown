@@ -1,10 +1,6 @@
 ---
 title: System Bridge
 description: How to integrate the System Bridge integration into Home Assistant.
-ha_category:
-  - Sensor
-  - System monitor
-  - Update
 ha_categories:
   - computers_network.monitoring
 ha_release: 2021.6

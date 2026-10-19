@@ -1,10 +1,6 @@
 ---
 title: Nord Pool
 description: Instructions on how to integrate with the Nord Pool Energy market prices.
-ha_category:
-  - Energy
-  - Finance
-  - Sensor
 ha_categories:
   - energy.energy_prices
 ha_release: 2024.12

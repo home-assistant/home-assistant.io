@@ -3,11 +3,6 @@ title: SwitchBot Matter
 description: Connect and control your SwitchBot Matter devices using the Matter integration
 ha_release: '2025.6'
 ha_iot_class: Local Push
-ha_category:
-  - Cover
-  - Lock
-  - Sensor
-  - Switch
 ha_categories:
   - blinds_curtains
   - sensors

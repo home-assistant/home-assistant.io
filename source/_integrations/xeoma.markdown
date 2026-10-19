@@ -1,8 +1,6 @@
 ---
 title: Xeoma
 description: Instructions on how to integrate camera video feeds from a Xeoma server in Home Assistant
-ha_category:
-  - Camera
 ha_categories:
   - security_safety.cameras
 ha_iot_class: Local Polling

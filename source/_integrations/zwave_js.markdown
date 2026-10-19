@@ -2,23 +2,6 @@
 title: Z-Wave
 description: Instructions on how to integrate Z-Wave with Home Assistant via Z-Wave JS.
 featured: true
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Fan
-  - Hub
-  - Humidifier
-  - Light
-  - Lock
-  - Number
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Update
 ha_categories:
   - hubs_protocols.wireless_protocols
 ha_release: '2021.2'

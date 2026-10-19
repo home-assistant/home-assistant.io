@@ -1,9 +1,6 @@
 ---
 title: Season
 description: Instructions on how to add season sensors into Home Assistant.
-ha_category:
-  - Sensor
-  - Utility
 ha_categories:
   - helpers.calculate_value
 ha_iot_class: Local Polling

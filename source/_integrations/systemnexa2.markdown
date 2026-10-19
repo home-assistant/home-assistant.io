@@ -1,10 +1,6 @@
 ---
 title: System Nexa 2
 description: How to integrate System Nexa 2 devices within Home Assistant.
-ha_category:
-  - Light
-  - Sensor
-  - Switch
 ha_categories:
   - plugs_switches
 ha_config_flow: true

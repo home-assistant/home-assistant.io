@@ -1,8 +1,6 @@
 ---
 title: Everything but the Kitchen Sink
 description: Instructions on how to set up the Everything but the Kitchen Sink integration
-ha_category:
-  - Other
 ha_categories:
   - computers_network.cloud_developer_tools
 ha_release: 2023.2

@@ -1,8 +1,6 @@
 ---
 title: Knocki
 description: Instructions on how to set up Knocki devices in Home Assistant.
-ha_category:
-  - Event
 ha_categories:
   - buttons_remotes
 ha_config_flow: true

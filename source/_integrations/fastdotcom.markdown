@@ -1,9 +1,6 @@
 ---
 title: Fast.com
 description: How to integrate Fast.com within Home Assistant.
-ha_category:
-  - Sensor
-  - System monitor
 ha_categories:
   - computers_network.monitoring
 ha_release: 0.88

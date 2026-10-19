@@ -1,8 +1,6 @@
 ---
 title: Azure Data Explorer
 description: Setup for Azure Data Explorer integration
-ha_category:
-  - History
 ha_categories:
   - computers_network.cloud_developer_tools
 ha_release: 2024.6

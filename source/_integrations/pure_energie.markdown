@@ -1,8 +1,6 @@
 ---
 title: Pure Energie
 description: Instructions on how to integrate Pure Energie within Home Assistant.
-ha_category:
-  - Energy
 ha_categories:
   - energy.meters_monitoring
 ha_release: 2022.3

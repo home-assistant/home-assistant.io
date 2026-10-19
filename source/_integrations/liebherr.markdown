@@ -17,13 +17,6 @@ related:
     title: Liebherr SmartDevice appliances
   - url: https://developer.liebherr.com/apis/smartdevice-homeapi/
     title: Liebherr SmartDevice HomeAPI
-ha_category:
-  - Cover
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
 ha_categories:
   - appliances_cleaning.cooking
 ha_platforms:

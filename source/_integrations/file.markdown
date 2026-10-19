@@ -1,10 +1,6 @@
 ---
 title: File
 description: Instructions on how to integrate sensors which read from files into Home Assistant.
-ha_category:
-  - Notifications
-  - Sensor
-  - Utility
 ha_categories:
   - diy_makers.web_data_connectors
 ha_release: pre 0.7

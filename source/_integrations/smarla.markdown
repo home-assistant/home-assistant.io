@@ -1,12 +1,6 @@
 ---
 title: Swing2Sleep Smarla
 description: Instructions on connecting Swing2Sleep Smarla to Home Assistant.
-ha_category:
-  - Button
-  - Number
-  - Sensor
-  - Switch
-  - Update
 ha_categories:
   - health_wellbeing
 ha_iot_class: Cloud Push

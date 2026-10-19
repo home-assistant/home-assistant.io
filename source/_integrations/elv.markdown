@@ -1,8 +1,6 @@
 ---
 title: ELV PCA
 description: Instructions on how to integrate ELV PCA 301 switches into Home Assistant.
-ha_category:
-  - Switch
 ha_categories:
   - plugs_switches
 ha_iot_class: Local Polling

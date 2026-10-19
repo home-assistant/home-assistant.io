@@ -3,9 +3,6 @@ title: LEDVANCE
 description: Connect and control your LEDVANCE Matter devices using the Matter integration.
 ha_release: '2026.11'
 ha_iot_class: Local Push
-ha_category:
-  - Light
-  - Switch
 ha_categories:
   - lighting
 ha_domain: ledvance

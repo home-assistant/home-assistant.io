@@ -3,11 +3,6 @@ title: SimpliSafe
 description: Instructions on how to integrate SimpliSafe into Home Assistant.
 ha_release: 0.81
 ha_iot_class: Cloud Polling
-ha_category:
-  - Alarm
-  - Button
-  - Event
-  - Lock
 ha_categories:
   - security_safety.alarm_systems
 ha_config_flow: true

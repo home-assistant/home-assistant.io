@@ -1,13 +1,6 @@
 ---
 title: Bond
 description: Instructions on setting up Bond Bridge within Home Assistant.
-ha_category:
-  - Button
-  - Cover
-  - Fan
-  - Hub
-  - Light
-  - Switch
 ha_categories:
   - climate.fans_ventilation
   - buttons_remotes

@@ -1,8 +1,6 @@
 ---
 title: Private BLE Device
 description: Instructions on how to integrate private BLE devices into Home Assistant.
-ha_category:
-  - Device tracker
 ha_categories:
   - presence_location.trackers
 ha_release: '2023.10'

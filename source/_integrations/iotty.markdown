@@ -2,9 +2,6 @@
 title: iotty
 description: Instructions on how to connect iotty Smart Devices to Home Assistant.
 ha_release: '2024.8'
-ha_category:
-  - Cover
-  - Switch
 ha_categories:
   - plugs_switches
   - blinds_curtains

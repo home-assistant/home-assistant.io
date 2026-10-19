@@ -1,11 +1,6 @@
 ---
 title: Immich
 description: Instructions on how to integrate an Immich user account into Home Assistant.
-ha_category:
-  - Media source
-  - Multimedia
-  - Sensor
-  - Update
 ha_categories:
   - productivity_information.documents_photos
 ha_release: 2025.6

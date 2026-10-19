@@ -2,8 +2,6 @@
 title: SiteSage Emonitor
 description: Instructions on how to integrate a SiteSage Emonitor within Home Assistant.
 ha_release: '2021.5'
-ha_category:
-  - Sensor
 ha_categories:
   - energy.meters_monitoring
 ha_iot_class: Local Polling

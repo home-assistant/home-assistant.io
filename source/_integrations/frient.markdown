@@ -3,15 +3,6 @@ title: Frient
 description: Control your Frient Zigbee devices using the Zigbee integration.
 ha_release: '2025.8'
 ha_iot_class: Local Push
-ha_category:
-  - Alarm
-  - Button
-  - DIY
-  - Energy
-  - Plug
-  - Sensor
-  - Siren
-  - Switch
 ha_categories:
   - sensors
   - security_safety

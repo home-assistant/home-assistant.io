@@ -1,9 +1,6 @@
 ---
 title: OVO Energy
 description: Instructions on how to integrate OVO Energy with Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_categories:
   - energy.meters_monitoring
 ha_release: 0.114

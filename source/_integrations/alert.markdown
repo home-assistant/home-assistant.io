@@ -1,8 +1,6 @@
 ---
 title: Alert
 description: Instructions on how to set up automatic alerts within Home Assistant.
-ha_category:
-  - Automation
 ha_categories:
   - helpers
   - messaging_notifications

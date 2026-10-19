@@ -1,8 +1,6 @@
 ---
 title: "MQTT Select"
 description: "Instructions on how to interact with a device exposing a Select through MQTT from within Home Assistant."
-ha_category:
-  - Select
 ha_release: 2021.7
 ha_iot_class: Configurable
 ha_domain: mqtt

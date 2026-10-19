@@ -1,8 +1,6 @@
 ---
 title: Persistent Notification
 description: Instructions on how to integrate persistent notifications into Home Assistant.
-ha_category:
-  - Other
 ha_iot_class: Local Push
 ha_release: 0.23
 ha_quality_scale: internal

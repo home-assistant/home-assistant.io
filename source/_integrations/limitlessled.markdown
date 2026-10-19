@@ -1,8 +1,6 @@
 ---
 title: LimitlessLED
 description: Instructions on how to set up LimitlessLED within Home Assistant.
-ha_category:
-  - Light
 ha_categories:
   - lighting.bulbs_lamps
 ha_iot_class: Assumed State

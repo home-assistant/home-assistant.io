@@ -2,13 +2,6 @@
 title: IoTorero
 description: Connect and control your IoTorero devices using the ESPHome integration
 ha_release: 0.85
-ha_category:
-  - Alarm
-  - DIY
-  - Infrared
-  - Radio frequency
-  - Serial
-  - Update
 ha_domain: iotorero
 ha_integration_type: virtual
 ha_supporting_domain: esphome

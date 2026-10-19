@@ -1,8 +1,6 @@
 ---
 title: Nobø Ecohub
 description: Instructions on how to integrate Nobø Ecohub into Home Assistant.
-ha_category:
-  - Climate
 ha_categories:
   - climate.thermostats_heating
 ha_release: '2022.10'

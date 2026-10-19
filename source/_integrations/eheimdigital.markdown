@@ -1,15 +1,6 @@
 ---
 title: EHEIM Digital
 description: Instructions on how to set up EHEIM Digital with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Time
 ha_categories:
   - pets
 ha_release: 2025.1

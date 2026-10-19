@@ -1,9 +1,6 @@
 ---
 title: Mold Indicator
 description: How to use the mold growth indication integration in Home Assistant
-ha_category:
-  - Environment
-  - Helper
 ha_categories:
   - helpers.calculate_value
   - sensors.temperature_humidity

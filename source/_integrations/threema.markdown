@@ -1,8 +1,6 @@
 ---
 title: Threema
 description: Instructions on how to send Threema messages from Home Assistant.
-ha_category:
-  - Notifications
 ha_categories:
   - messaging_notifications.chat_apps
 ha_release: '2026.10'

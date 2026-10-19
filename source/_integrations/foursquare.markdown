@@ -1,8 +1,6 @@
 ---
 title: Foursquare
 description: Instructions on how to the Foursquare API into Home Assistant.
-ha_category:
-  - Social
 ha_categories:
   - news_social_media
   - presence_location

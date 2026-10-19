@@ -1,10 +1,6 @@
 ---
 title: Backup
 description: Create and restore backups of your Home Assistant installation.
-ha_category:
-  - Event
-  - Other
-  - Sensor
 ha_categories:
   - computers_network
 ha_release: 2022.4
@@ -102,3 +98,7 @@ The timestamp of the last attempted automatic backup.
 ### Last successful automatic backup
 
 The timestamp of the last successful automatic backup.
+
+### Last successful automatic backup size
+
+The size of the last successful automatic backup, as it was created. You can use it to follow how the size of your backups changes over time, for example after changing what is included in them.

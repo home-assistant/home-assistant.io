@@ -1,8 +1,6 @@
 ---
 title: Open-Meteo
 description: Instructions on how to integrate Open-Meteo within Home Assistant.
-ha_category:
-  - Weather
 ha_categories:
   - weather_alerts.forecasts
 ha_release: 2022.2

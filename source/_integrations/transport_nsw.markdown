@@ -1,8 +1,6 @@
 ---
 title: Transport NSW
 description: Instructions on how to integrate timetable data for Transport NSW (Australia) within Home Assistant.
-ha_category:
-  - Transport
 ha_categories:
   - vehicles_transport.public_transport
 ha_iot_class: Cloud Polling

@@ -1,14 +1,6 @@
 ---
 title: devolo Home Control
 description: Instructions on how to integrate devolo Home Control with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Cover
-  - Light
-  - Sensor
-  - Siren
-  - Switch
 ha_categories:
   - hubs_protocols.smart_home_hubs
 ha_release: '0.110'

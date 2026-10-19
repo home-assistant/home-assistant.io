@@ -1,8 +1,6 @@
 ---
 title: Nightscout
 description: Instructions on how to integrate your Nightscout CGM data into Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - health_wellbeing
 ha_release: 0.115

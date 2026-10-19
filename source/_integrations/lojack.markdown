@@ -1,9 +1,6 @@
 ---
 title: LoJack
 description: Instructions on how to integrate your LoJack by Spireon vehicle tracking account with Home Assistant.
-ha_category:
-  - Car
-  - Presence detection
 ha_categories:
   - vehicles_transport.cars_evs
   - presence_location.trackers

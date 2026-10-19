@@ -1,8 +1,6 @@
 ---
 title: Sun
 description: Instructions on how to track the sun within Home Assistant.
-ha_category:
-  - Environment
 ha_categories:
   - weather_alerts.forecasts
 ha_release: pre 0.7

@@ -1,8 +1,6 @@
 ---
 title: Model Context Protocol Client
 description: Instructions on how to use the Model Context Protocol with Home Assistant.
-ha_category:
-  - Voice
 ha_categories:
   - ai_voice.ai_models
 ha_release: 2025.2

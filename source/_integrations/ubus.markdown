@@ -1,8 +1,6 @@
 ---
 title: OpenWrt (ubus)
 description: Instructions on how to integrate OpenWrt devices into Home Assistant.
-ha_category:
-  - Presence detection
 ha_categories:
   - presence_location.network_presence
   - computers_network.routers_network

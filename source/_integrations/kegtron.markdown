@@ -1,8 +1,6 @@
 ---
 title: Kegtron
 description: Instructions on how to integrate Kegtron Smart Keg Monitor (Gen 1) into Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - appliances_cleaning.cooking
 ha_bluetooth: true

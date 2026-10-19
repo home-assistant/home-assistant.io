@@ -1,10 +1,6 @@
 ---
 title: Raspberry Pi Remote GPIO
 description: Instructions on how to integrate the GPIO capability of a remote Raspberry Pi into Home Assistant.
-ha_category:
-  - Binary sensor
-  - DIY
-  - Switch
 ha_categories:
   - diy_makers.boards_hardware
 ha_release: 0.94

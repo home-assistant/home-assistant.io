@@ -1,9 +1,6 @@
 ---
 title: Input button
 description: Instructions on how to use the input button helper with Home Assistant.
-ha_category:
-  - Automation
-  - Helper
 ha_categories:
   - helpers
 ha_release: 2022.2

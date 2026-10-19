@@ -1,9 +1,6 @@
 ---
 title: Homevolt
 description: Connect Homevolt batteries locally to expose sensors and controls in Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_categories:
   - energy.solar_batteries
 ha_iot_class: Local Polling

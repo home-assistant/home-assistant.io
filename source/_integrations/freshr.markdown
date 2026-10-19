@@ -1,8 +1,6 @@
 ---
 title: Fresh-r
 description: Instructions on how to integrate Fresh-r ventilation solutions within Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - climate.fans_ventilation
   - sensors.air_quality

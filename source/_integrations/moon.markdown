@@ -1,8 +1,6 @@
 ---
 title: Moon
 description: Instructions on how to integrate the moon sensor into Home Assistant.
-ha_category:
-  - Environment
 ha_categories:
   - weather_alerts
 ha_iot_class: Calculated

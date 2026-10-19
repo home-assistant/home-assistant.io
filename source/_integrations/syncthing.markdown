@@ -1,9 +1,6 @@
 ---
 title: Syncthing
 description: Instructions on how to integrate Syncthing within Home Assistant.
-ha_category:
-  - Downloading
-  - Sensor
 ha_categories:
   - computers_network.nas_servers
 ha_release: 2021.6

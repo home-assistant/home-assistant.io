@@ -1,8 +1,6 @@
 ---
 title: FAA Delays
 description: Instructions on how to use FAA Delays data within Home Assistant
-ha_category:
-  - Transport
 ha_categories:
   - vehicles_transport.flights
 ha_release: 2021.3

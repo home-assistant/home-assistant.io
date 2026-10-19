@@ -1,9 +1,6 @@
 ---
 title: LiteLLM
 description: Instructions on how to integrate a LiteLLM proxy as a conversation agent and speech-to-text service in Home Assistant
-ha_category:
-  - AI
-  - Speech-to-text
 ha_categories:
   - ai_voice.ai_models
 ha_release: 2026.8

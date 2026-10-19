@@ -1,8 +1,6 @@
 ---
 title: pyLoad
 description: Instructions on how to integrate pyLoad download manager with Home Assistant.
-ha_category:
-  - Downloading
 ha_categories:
   - computers_network.nas_servers
 ha_release: 0.58

@@ -1,9 +1,6 @@
 ---
 title: Cambridge Audio
 description: Instructions on how to integrate Cambridge Audio Receivers into Home Assistant.
-ha_category:
-  - Media player
-  - Select
 ha_categories:
   - media_entertainment.speakers_audio
 ha_release: '2024.10'

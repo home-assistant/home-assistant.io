@@ -1,8 +1,6 @@
 ---
 title: IFTTT
 description: Instructions on how to set up IFTTT within Home Assistant.
-ha_category:
-  - Automation
 ha_categories:
   - diy_makers.web_data_connectors
   - other_ecosystems

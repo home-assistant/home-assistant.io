@@ -1,8 +1,6 @@
 ---
 title: Aladdin Connect
 description: Instructions on how to integrate Genie Aladdin Connect garage door openers with Home Assistant for monitoring and control.
-ha_category:
-  - Cover
 ha_categories:
   - blinds_curtains
 ha_release: 0.75

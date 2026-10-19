@@ -1,8 +1,6 @@
 ---
 title: Guntamatic
 description: Guntamatic wood/pellet heater integration.
-ha_category:
-  - Sensor
 ha_categories:
   - climate.thermostats_heating
 ha_iot_class: Local Polling

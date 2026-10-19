@@ -1,11 +1,6 @@
 ---
 title: Integral
 description: Instructions on how to integrate Integration Sensor into Home Assistant.
-ha_category:
-  - Energy
-  - Helper
-  - Sensor
-  - Utility
 ha_categories:
   - helpers.calculate_value
   - energy.meters_monitoring

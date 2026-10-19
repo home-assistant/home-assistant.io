@@ -1,15 +1,6 @@
 ---
 title: Imou
 description: Integrate Imou smart devices into Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Camera
-  - Select
-  - Sensor
-  - Siren
-  - Switch
 ha_categories:
   - security_safety.cameras
 ha_iot_class: Cloud Polling

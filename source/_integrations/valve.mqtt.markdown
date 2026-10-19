@@ -1,8 +1,6 @@
 ---
 title: "MQTT Valve"
 description: "Instructions on how to integrate MQTT valves into Home Assistant."
-ha_category:
-  - Valve
 ha_iot_class: Configurable
 ha_release: 2024.1
 ha_domain: mqtt

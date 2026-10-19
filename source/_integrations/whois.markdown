@@ -1,8 +1,6 @@
 ---
 title: Whois
 description: Instructions on how to integrate WHOIS lookup sensor within Home Assistant.
-ha_category:
-  - Network
 ha_categories:
   - computers_network.monitoring
 ha_release: 0.57

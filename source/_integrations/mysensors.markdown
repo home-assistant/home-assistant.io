@@ -1,8 +1,6 @@
 ---
 title: MySensors
 description: Instructions on how to integrate MySensors into Home Assistant.
-ha_category:
-  - DIY
 ha_categories:
   - diy_makers.boards_hardware
 ha_iot_class: Local Push

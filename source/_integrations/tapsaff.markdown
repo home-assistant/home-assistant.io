@@ -1,8 +1,6 @@
 ---
 title: Taps Aff
 description: Instructions on how to use the Taps Aff binary sensor in Home Assistant.
-ha_category:
-  - Weather
 ha_categories:
   - weather_alerts.forecasts
 ha_release: 0.47

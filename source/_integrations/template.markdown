@@ -1,26 +1,6 @@
 ---
 title: Template
 description: Instructions on how to create template entities in Home Assistant.
-ha_category:
-  - Alarm Control Panel
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Device Tracker
-  - Event
-  - Fan
-  - Helper
-  - Image
-  - Light
-  - Lock
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
-  - Vacuum
-  - Weather
 ha_categories:
   - helpers.calculate_value
 ha_release: 0.12

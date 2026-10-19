@@ -1,16 +1,6 @@
 ---
 title: Insteon
 description: Instructions on how to set up an Insteon Modem (PLM or Hub) locally within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Cover
-  - Fan
-  - Hub
-  - Light
-  - Lock
-  - Sensor
-  - Switch
 ha_categories:
   - hubs_protocols.wireless_protocols
 ha_iot_class: Local Push

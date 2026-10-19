@@ -2,11 +2,6 @@
 title: Nice G.O.
 description: Control Nice G.O. garage doors
 ha_release: '2024.9'
-ha_category:
-  - Cover
-  - Event
-  - Light
-  - Switch
 ha_categories:
   - blinds_curtains
 ha_iot_class: Cloud Push

@@ -1,9 +1,6 @@
 ---
 title: Bizkaibus
 description: Instructions on how to integrate timetable data for traveling on Bizkaibus within Home Assistant.
-ha_category:
-  - Sensor
-  - Transport
 ha_categories:
   - vehicles_transport.public_transport
 ha_iot_class: Cloud Polling

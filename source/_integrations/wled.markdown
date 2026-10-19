@@ -1,11 +1,6 @@
 ---
 title: WLED
 description: Instructions on how to integrate WLED with Home Assistant.
-ha_category:
-  - Light
-  - Sensor
-  - Switch
-  - Update
 ha_categories:
   - lighting.led_strips_controllers
   - diy_makers.boards_hardware

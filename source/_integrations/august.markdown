@@ -1,14 +1,6 @@
 ---
 title: August
 description: Instructions on how to integrate your August devices into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Doorbell
-  - Event
-  - Lock
-  - Sensor
 ha_categories:
   - security_safety.locks_access
   - security_safety.doorbells_intercoms

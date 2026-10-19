@@ -1,8 +1,6 @@
 ---
 title: DNS IP
 description: Instructions on how to integrate a DNS IP sensor into Home Assistant.
-ha_category:
-  - Network
 ha_categories:
   - computers_network.routers_network
 ha_iot_class: Cloud Polling

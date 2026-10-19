@@ -2,9 +2,6 @@
 title: OpenWeatherMap
 description: Instructions on how to integrate OpenWeatherMap within Home Assistant.
 ha_release: 0.32
-ha_category:
-  - Sensor
-  - Weather
 ha_categories:
   - weather_alerts.forecasts
   - weather_alerts.air_quality_pollen

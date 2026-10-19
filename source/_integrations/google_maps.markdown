@@ -2,8 +2,6 @@
 title: Google Maps
 description: Instructions how to use Google Maps Location Sharing to track devices in Home Assistant.
 ha_release: 0.67
-ha_category:
-  - Presence detection
 ha_categories:
   - presence_location
 ha_iot_class: Cloud Polling

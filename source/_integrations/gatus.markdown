@@ -1,9 +1,6 @@
 ---
 title: Gatus
 description: Instructions on how to integrate Gatus with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
 ha_categories:
   - computers_network.monitoring
 ha_release: 2026.8

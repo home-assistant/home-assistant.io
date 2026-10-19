@@ -1,13 +1,6 @@
 ---
 title: WiZ
 description: Instructions on setting up WiZ within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Fan
-  - Light
-  - Number
-  - Sensor
-  - Switch
 ha_categories:
   - lighting.bulbs_lamps
   - plugs_switches

@@ -23,9 +23,9 @@ To use this trigger in an automation:
 5. In **Entity**, select the entity whose numeric value Home Assistant should watch.
 6. Optional: Select **Add entity** to select additional entities whose numeric value Home Assistant should watch.
 7. Optional: In **Attribute**, select an attribute instead of the main state.
-8. Optional: In **Above**, enter a number to fire the trigger only if the value of the numeric state or attribute is above that number. Instead of a **Fixed number**, you can select **Value of an entity** and then select an entity from the list. This fires the trigger if the value of the numeric state or attribute is above the value of the selected entity.
-9. Optional: In **Below**, enter a number to fire the trigger only if the value of the numeric state or attribute is below that number. Instead of a **Fixed number**, you can select **Value of an entity** and then select an entity from the list. This fires the trigger if the value of the numeric state or attribute is below the value of the selected entity.
-10. Optional: Enter a number in both **Above** and **Below** to fire the trigger if the value of the numeric state or attribute is inside the range. If you don't set **Above** and **Below**, the trigger fires on every change of the numeric state or attribute value.
+8. In **Above**, enter a number to fire the trigger only if the value of the numeric state or attribute is above that number. Instead of a **Fixed number**, you can select **Value of an entity** and then select an entity from the list. This fires the trigger if the value of the numeric state or attribute is above the value of the selected entity.
+9. In **Below**, enter a number to fire the trigger only if the value of the numeric state or attribute is below that number. Instead of a **Fixed number**, you can select **Value of an entity** and then select an entity from the list. This fires the trigger if the value of the numeric state or attribute is below the value of the selected entity.
+10. Set **Above**, **Below**, or both. If you set both, the trigger reacts when the value of the numeric state or attribute enters the range between them.
 11. Optional: In **Value template**, enter a template that will be used to calculate the numeric value.
 12. Optional: In **For at least**, enter how long the numeric state or attribute value must remain unchanged or stay within the configured threshold before the trigger fires. You can enter a template by selecting **Template** instead of **Duration**.
 13. Select **Save**.
@@ -40,10 +40,10 @@ Attribute:
   description: The entity attribute to evaluate instead of the main state.
   required: false
 Above:
-  description: The lower threshold value for the numeric state or attribute value. Use a **Fixed number** or a **Value of an entity**.
+  description: The lower threshold value for the numeric state or attribute value. Use a **Fixed number** or a **Value of an entity**. You must set **Above**, **Below**, or both.
   required: false
 Below:
-  description: The upper threshold value for the numeric state or attribute value. Use a **Fixed number** or a **Value of an entity**.
+  description: The upper threshold value for the numeric state or attribute value. Use a **Fixed number** or a **Value of an entity**. You must set **Above**, **Below**, or both.
   required: false
 Value template:
   description: The template to use for calculating the numeric value.
@@ -78,11 +78,11 @@ entity_id:
   required: true
   type: [string, list]
 above:
-  description: The lower threshold. You can use a number or an entity ID.
+  description: The lower threshold. You can use a number or an entity ID. You must set `above`, `below`, or both.
   required: false
   type: string
 below:
-  description: The upper threshold. You can use a number or an entity ID.
+  description: The upper threshold. You can use a number or an entity ID. You must set `above`, `below`, or both.
   required: false
   type: string
 attribute:
