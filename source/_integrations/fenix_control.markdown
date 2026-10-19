@@ -66,7 +66,7 @@ When the thermostat is in a preset, the HVAC mode shows **Auto**.
 
 #### Target temperature
 
-You can set the target temperature between 5 °C and 35 °C in steps of 0.5 °C. The target temperature can only be changed in the **Heat** HVAC mode.
+You can set the target temperature between 5 °C and 35 °C in steps of 0.5 °C. The target temperature can only be changed in the **Heat** HVAC mode. To set a temperature from an automation while the thermostat is in **Auto** or **Off**, first set the HVAC mode to **Heat**.
 
 ### Holidays
 
