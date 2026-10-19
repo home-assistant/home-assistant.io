@@ -5,7 +5,7 @@ If you work directly in YAML, or you want to know exactly what Home Assistant do
 {%- if page.trigger contains "." -%}
 {%- unless top_level_triggers contains page.trigger %}
 
-In YAML, use `target` to choose what the trigger monitors. Put all other settings of the trigger under `options`, not at the top level next to `trigger` and `target`.
+In YAML, put the settings that are specific to this trigger under `options`. Keep `target`, if the trigger uses one, and general settings such as `id`, `alias`, `enabled`, and `variables` at the top level, next to `trigger`.
 {%- endunless -%}
 {%- endif %}
 

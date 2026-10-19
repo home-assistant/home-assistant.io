@@ -1,13 +1,7 @@
 ## Using this condition in YAML
 
 If you work directly in YAML, or you want to know exactly what Home Assistant does under the hood, this section has the technical reference. It lists the field names you use in YAML, their types, and which ones are required.
-{%- if page.condition contains "." -%}
-{%- assign condition_domain = page.condition | split: "." | first -%}
-{%- if condition_domain == "zwave_js" %}
+{%- if page.condition contains "." %}
 
-In YAML, put all settings of the condition under `options`, not at the top level next to `condition`.
-{%- else %}
-
-In YAML, use `target` to choose what the condition checks. Put all other settings of the condition under `options`, not at the top level next to `condition` and `target`.
-{%- endif -%}
+In YAML, put the settings that are specific to this condition under `options`. Keep `target`, if the condition uses one, and general settings such as `alias` and `enabled` at the top level, next to `condition`.
 {%- endif %}
