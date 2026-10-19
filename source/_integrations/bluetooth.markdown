@@ -345,7 +345,6 @@ The following remote adapters are supported:
   - Bluetooth advertisement bundling: ESPHome ESP32 device with firmware 2023.6.0 or later
   - Single active connection: ESPHome ESP32 device with firmware 2022.9.3 or later
   - Multiple active connections: ESPHome ESP32 device with firmware 2022.11.0 or later
-  - Active connections are turned on by default on ESP32 devices. They can be turned off with the `active` option of the [Bluetooth proxy component](https://esphome.io/components/bluetooth_proxy/#configuration).
 - [Shelly](/integrations/shelly/)
   - Bluetooth advertisement listening: Shelly Gen2+ device
   - Bluetooth advertisement bundling: Shelly Gen2+ device
@@ -358,6 +357,8 @@ The following remote adapters are supported:
   - Multiple active connections: not supported
 
 Bluetooth advertisement bundling reduces traffic between Home Assistant and the proxy, significantly improving performance and reducing the time that Bluetooth and WiFi compete for air time for devices that share a radio.
+
+On ESPHome ESP32 devices, active connections are turned on by default. To turn them off, use the `active` option of the [Bluetooth proxy component](https://esphome.io/components/bluetooth_proxy/#configuration).
 
 ## Troubleshooting
 
