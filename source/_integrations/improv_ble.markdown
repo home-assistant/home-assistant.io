@@ -95,6 +95,24 @@ The Wi-Fi device no longer accepts Wi-Fi details over Bluetooth. Usually, this i
 
 {% enddetails %}
 
+{% details "The setup stops with the message Failed to connect" %}
+
+### Symptom: "Failed to connect"
+
+During the setup, it stops with the message "Failed to connect".
+
+#### Description
+
+Home Assistant couldn't make a Bluetooth connection to the Wi-Fi device. To send your Wi-Fi details, Home Assistant needs a connection to the device.
+
+#### Resolution
+
+- Move the Wi-Fi device closer to your Home Assistant server, or to an ESPHome Bluetooth proxy.
+- If the only Bluetooth proxy within range is a Shelly or SMLIGHT proxy, use another way to send the Wi-Fi details. These proxies can't make connections. For the options, refer to [Prerequisites](#prerequisites).
+- Then, start the setup again.
+
+{% enddetails %}
+
 {% details "A Wi-Fi device keeps showing up under Discovered" %}
 
 ### Symptom: The same Improv via BLE device keeps showing up under **Discovered**
