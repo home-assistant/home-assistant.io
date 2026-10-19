@@ -53,7 +53,19 @@ remaining:
   type: string
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md custom_trigger_variables="true" %}
+
+### Trigger variables
+
+When the trigger reacts, the `trigger` variable contains the following data:
+
+- `trigger.entity_id`: Entity ID of the timer.
+- `trigger.to_state`: State object of the timer from when it last became active, for example, when it started or resumed. It is not the state at the moment the trigger reacts.
+- `trigger.remaining`: Timedelta object of the remaining time that you set in the trigger.
+
+This trigger doesn't include `trigger.from_state` or `trigger.for`.
+
+For the data that all triggers include, refer to [Trigger data in templates](/docs/automation/trigger-data/#properties-of-all-triggers).
 
 ## Good to know
 
