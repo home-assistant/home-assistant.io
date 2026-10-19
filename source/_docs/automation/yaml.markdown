@@ -145,7 +145,7 @@ automation my_lights:
       - trigger: state
         entity_id:
           - person.paulus
-          - person.nina
+          - person.anne_therese
         to: "home"
     conditions:
       # Prefix the first line of each condition configuration
@@ -153,7 +153,7 @@ automation my_lights:
       - condition: state
         entity_id:
           - person.paulus
-          - person.nina
+          - person.anne_therese
         match: any
         state: "home"
       - condition: time
