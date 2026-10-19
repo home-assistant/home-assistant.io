@@ -104,7 +104,7 @@ All EPEX prices are in EUR/kWh, shown with four decimals. They are the raw whole
 
 Tomorrow's prices are published in the early afternoon, Brussels time. Until they are in, the next price sensors have no value whenever the next hour or quarter hour falls on the unpublished day.
 
-To follow the cost of your consumption, go to {% my energy title="**Settings** > **Dashboards** > **Energy**" %} and select the current price sensor with the **Use an entity with current price** option when you set up grid consumption.
+To follow the cost of your consumption, go to {% my config_energy title="**Settings** > **Dashboards** > **Energy**" %} and set up grid consumption with the **Use an entity with current price** option. Select **EPEX current hour price** when your contract bills you per hour, or **EPEX current quarter-hourly price** when it bills you per quarter hour. The Energy dashboard then shows a wholesale-only estimate, which is lower than your actual ENGIE bill.
 
 ### Binary sensors
 
