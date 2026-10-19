@@ -58,7 +58,7 @@ The climate entity shows the room temperature measured by the thermostat, the ta
 
 - **Home**: The thermostat follows its weekly program, like the **Auto** HVAC mode.
 - **Away**: The thermostat's anti-freeze mode. The thermostat only heats to keep the room above its anti-freeze temperature, which is set on the thermostat itself (2–15 °C, 7 °C by default).
-- **Boost**: The thermostat's boost mode.
+- **Boost**: The thermostat's boost mode, the same as Boost in the FENIX Control app.
 
 When the thermostat is in a preset, the HVAC mode shows **Auto**.
 
