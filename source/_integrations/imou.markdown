@@ -332,7 +332,7 @@ The alarm control panel is unavailable when the device is offline or no longer o
 - Status such as online, battery, and power can be up to 2 minutes old.
 - An entity is created only when the cloud API reports that the device supports it.
 - **Live view HD** is disabled by default.
-- The cloud API doesn't report whether the siren is sounding. Until you turn it on or off, the state is **Unknown**. After that, the state shows the last command you sent, which might not match the device if the siren stops by itself. See [Siren](#siren).
+- The cloud API doesn't report whether the siren is sounding. Until you turn it on or off, the state is **Unknown**. If the device supports both commands, the state then shows the last command you sent, which might not match the device if the siren stops by itself. See [Siren](#siren).
 
 ## Removing the integration
 
