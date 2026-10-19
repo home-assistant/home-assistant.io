@@ -55,3 +55,60 @@ Password:
 If the device asks for authorization, press the authorization button on the device. For details, refer to the manual of the device.
 
 After the device has joined your Wi-Fi network, add it to Home Assistant with the integration for that device. For example, for a device that runs ESPHome, **Discovered ESPHome device** opens right away. To add the device, select **Submit**. Other devices show up under **Discovered** with their own integration, or show a link to their setup instructions.
+
+## Troubleshooting
+
+{% details "The Wi-Fi device can't join your Wi-Fi network" %}
+
+### Symptom: "The device could not connect to the Wi-Fi network"
+
+After you enter your Wi-Fi details, the form shows the message "The device could not connect to the Wi-Fi network. Check that the SSID and password are correct and try again."
+
+#### Description
+
+The Wi-Fi device received your Wi-Fi details, but it couldn't join your Wi-Fi network with them.
+
+#### Resolution
+
+1. Check that the **SSID** matches the name of your Wi-Fi network exactly, including uppercase and lowercase letters.
+2. Check the **Password**.
+3. Make sure your router provides a 2.4 GHz Wi-Fi network. Most devices with an ESP32 chip only connect to 2.4 GHz Wi-Fi networks.
+4. Make sure the Wi-Fi device is within range of your Wi-Fi network.
+5. Enter your Wi-Fi details again, and select **Submit**.
+
+{% enddetails %}
+
+{% details "The setup stops with a message that the Wi-Fi device is already connected" %}
+
+### Symptom: "The device is either already connected to Wi-Fi, or no longer able to connect to Wi-Fi"
+
+During the setup, it stops with the message "The device is either already connected to Wi-Fi, or no longer able to connect to Wi-Fi. If you want to connect it to another network, try factory resetting it first."
+
+#### Description
+
+The Wi-Fi device no longer accepts Wi-Fi details over Bluetooth. Usually, this is because it's already connected to a Wi-Fi network.
+
+#### Resolution
+
+- If the Wi-Fi device is already on your Wi-Fi network, you don't need Improv via BLE. Add the device with its own integration, for example, [ESPHome](/integrations/esphome/).
+- To connect the Wi-Fi device to a different Wi-Fi network, reset it to its factory settings first. For the steps, refer to the manual of the device. Then, set it up again.
+
+{% enddetails %}
+
+{% details "A Wi-Fi device keeps showing up under Discovered" %}
+
+### Symptom: The same Improv via BLE device keeps showing up under **Discovered**
+
+A Wi-Fi device keeps showing up under **Discovered** as **Improv via BLE**, also after a restart of Home Assistant. You don't want to set it up, or it's already connected.
+
+#### Description
+
+The Wi-Fi device still announces over Bluetooth that it supports Improv via BLE. This can happen, for example, with a device that you removed from Home Assistant.
+
+#### Resolution
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Discovered**, on the card of the Wi-Fi device, select **Ignore**.
+   - Result: Home Assistant no longer shows the device under **Discovered**.
+
+{% enddetails %}
