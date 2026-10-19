@@ -1,9 +1,9 @@
 ---
 title: FENIX Control
 description: Instructions on how to integrate FENIX TFT Wi-Fi thermostats with Home Assistant.
-ha_category:
-  - Climate
-ha_release: 2026.11
+ha_categories:
+  - climate.thermostats_heating
+ha_release: 2026.12
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
