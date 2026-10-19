@@ -1,8 +1,9 @@
 ---
 title: AnyList
 description: Instructions on how to integrate AnyList shopping lists with Home Assistant.
-ha_category:
-  - To-do list
+ha_categories:
+  - productivity_information.shopping_groceries
+  - productivity_information.calendars_todos
 ha_iot_class: Cloud Push
 ha_release: 2026.11
 ha_config_flow: true
