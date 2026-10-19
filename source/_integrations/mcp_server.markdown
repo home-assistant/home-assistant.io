@@ -21,7 +21,7 @@ ha_quality_scale: silver
 
 The **Model Context Protocol Server** (<abbr title="Model Context Protocol">MCP</abbr>) integration lets you connect an AI agent, such as ChatGPT or Claude, to Home Assistant. The AI agent can then control your devices and see the current state of your home.
 
-With this integration, Home Assistant is the MCP *server*. The AI agent uses the same tools as your Home Assistant voice assistant ([Assist](/voice_control/)), so it can only control or see the entities that you have exposed on the {% my voice_assistants title="exposed entities page" %}.
+With this integration, Home Assistant is the MCP *server*. The AI agent gets its tools from the LLM APIs in Home Assistant that you allow it to use, which by default is all of them. One of these is the Assist API, which gives the AI agent the same tools as your voice assistant ([Assist](/voice_control/)). Through the Assist API, it can only control or see the entities that you have exposed on the {% my voice_assistants title="exposed entities page" %}. To choose which LLM APIs the AI agent can use, refer to [Configuration options](#configuration-options).
 
 {% tip %}
 Home Assistant has two MCP integrations, and they work in opposite directions:
