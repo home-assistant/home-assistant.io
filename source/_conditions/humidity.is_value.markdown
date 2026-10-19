@@ -127,7 +127,7 @@ This passes when the bedroom humidity sensor reads above the number helper´s va
 ## Good to know
 
 - The target must be a humidity sensor, or a climate, humidifier, or weather entity that provides a current humidity reading.
-- Entities that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md %}
 - Humidity is expressed as a percentage. Indoor comfort is generally between 40% and 60%. Below 30% often feels dry and can irritate airways. Above 65% can encourage mold and dust mites.
 - This condition checks the entity's _current_ humidity reading, not its target setpoint. To check a humidifier's target setpoint instead, use the [Humidifier target humidity](/conditions/humidifier.is_target_humidity/) condition.
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation fires.

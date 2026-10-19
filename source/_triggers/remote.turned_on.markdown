@@ -32,6 +32,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted remote turns on.
     - **First**: fires only when the first of a group turns on.
     - **All**: fires only after every targeted remote is on.
+  required: false
 For at least:
   description: How long the remote must stay on before the trigger fires. Default is zero (fires immediately).
 {% endoptions_ui %}
@@ -50,8 +51,6 @@ trigger: |
 This fires every time `remote.living_room` transitions from off to on.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 behavior:

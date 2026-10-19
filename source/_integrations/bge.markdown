@@ -1,9 +1,6 @@
 ---
 title: Baltimore Gas and Electric (BGE)
 description: Get energy usage from Baltimore Gas and Electric (BGE) using the Opower integration
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 2023.8
 ha_domain: bge
 ha_integration_type: virtual

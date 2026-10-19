@@ -16,5 +16,5 @@ Learn more:
 
 - [Onboarding Home Assistant](/getting-started/onboarding/)
 - [Adding integrations](/getting-started/integration/)
-- [Automating Home Assistant](/getting-started/automation/)
+- [Tutorial: Create your first automation](/getting-started/automation/)
 - [Do I need to learn YAML to use Home Assistant?](#do-i-need-to-learn-yaml-to-use-home-assistant)

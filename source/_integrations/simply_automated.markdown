@@ -1,9 +1,6 @@
 ---
 title: Simply Automated
 description: Connect and control your Simply Automated devices using the Universal Powerline Bus (UPB) integration
-ha_category:
-  - Light
-  - Scene
 ha_domain: simply_automated
 ha_integration_type: virtual
 ha_supporting_domain: upb

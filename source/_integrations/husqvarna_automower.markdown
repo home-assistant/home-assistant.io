@@ -1,17 +1,8 @@
 ---
 title: Husqvarna Automower
 description: Instructions on how to integrate Husqvarna Automower lawn mowers into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Calendar
-  - Device tracker
-  - Event
-  - Lawn Mower
-  - Number
-  - Select
-  - Sensor
-  - Switch
+ha_categories:
+  - garden_plants
 ha_release: 2024.3
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -157,7 +148,7 @@ The integration will create a lawn mower entity to control the mower. This entit
 
 #### Cutting height
 
-The integration will create a number entity for changing the cutting height of the mower. This entity is disabled by default. You have to enable it manually. It can't be detected with the API if the mower has the capability to change the cutting height remotely. Before enabling this function, refer to the mower documentation. Depending on the mower, it is possible that you can use this entity only passively as a sensor and not actively to change the cutting height.
+The integration will create a number entity for changing the cutting height of the mower. This entity is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). You have to enable it manually. It can't be detected with the API if the mower has the capability to change the cutting height remotely. Before enabling this function, refer to the mower documentation. Depending on the mower, it is possible that you can use this entity only passively as a sensor and not actively to change the cutting height.
 Possible values are 1 (grass stays short) to 9 (grass stays high).
 
 #### Cutting height for work areas

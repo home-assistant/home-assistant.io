@@ -2,8 +2,8 @@
 title: HomeKit Bridge
 description: Instructions on how to set up the HomeKit Bridge integration in Home Assistant.
 featured: true
-ha_category:
-  - Voice
+ha_categories:
+  - other_ecosystems
 ha_release: 0.64
 ha_iot_class: Local Push
 ha_domain: homekit
@@ -406,7 +406,7 @@ To add a single entity in accessory mode:
 
 ## Configure Filter
 
-By default, all entities except hidden entities and categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
+By default, all entities except [hidden entities](/docs/configuration/customizing-devices/#hidden-entities) and categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities

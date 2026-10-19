@@ -1,11 +1,8 @@
 ---
 title: Lutron Homeworks
 description: How to use Lutron Homeworks Series 4 & 8 with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Hub
-  - Light
+ha_categories:
+  - lighting.lighting_systems
 ha_release: 0.85
 ha_iot_class: Local Push
 ha_domain: homeworks

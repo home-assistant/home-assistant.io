@@ -87,7 +87,7 @@ Reuse an existing evening routine automation when someone presses a button.
 - **Trigger**: Event received
   - **Target**: Hallway button
   - **Event type**: Single press
-- **Action**: Trigger automation
+- **Action**: Automation: Trigger automation
   - **Target**: Evening routine
 
 {% details "Show example YAML" %}

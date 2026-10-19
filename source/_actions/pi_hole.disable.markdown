@@ -1,5 +1,5 @@
 ---
-title: "Disable Pi-hole"
+title: "Disable"
 action: pi_hole.disable
 domain: pi_hole
 description: "Temporarily disables ad-blocking on your Pi-hole for a set amount of time."
@@ -16,7 +16,7 @@ To disable a Pi-hole from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Pi-hole switch entity you want to disable.
-6. From the actions shown for that target, select **Disable**.
+6. From the actions shown for that target, under **Pi-hole**, select **Disable**.
 7. Set the **Duration** for which the Pi-hole should stay disabled.
 8. Select **Save**.
 
@@ -68,10 +68,11 @@ duration:
 
 Disable every Pi-hole for five minutes when you press an input button, for example to quickly troubleshoot a blocked site.
 
-- **Trigger**: Input button: pressed
-- **Action**: Disable Pi-hole
+- **Trigger**: State changed
+  - **Entity**: Pause pi hole helper
+- **Action**: Pi-hole: Disable
   - **Target**: All Pi-hole switches
-  - **Duration**: 5 minutes
+  - **Duration**: `00:05:00`
 
 {% details "Show example YAML" %}
 

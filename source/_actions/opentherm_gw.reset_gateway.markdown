@@ -5,7 +5,7 @@ domain: opentherm_gw
 description: "Resets the OpenTherm Gateway."
 ---
 
-The **Reset gateway** action resets your OpenTherm Gateway. This restarts the gateway and clears any active overrides.
+The **OpenTherm Gateway: Reset gateway** action resets your OpenTherm Gateway. This restarts the gateway and clears any active overrides.
 
 {% include actions/ui_header.md %}
 

@@ -30,6 +30,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple counters are targeted, controls whether the trigger fires for **Each** counter, only the **First** counter, or after **All** targeted counters reach their minimum value. Default is **Each**.
+  required: false
 For at least:
   description: How long the counter must stay at its minimum before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}
@@ -48,8 +49,6 @@ trigger: |
 This fires when `counter.items_left` reaches its minimum.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 behavior:

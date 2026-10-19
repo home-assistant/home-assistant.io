@@ -1,9 +1,8 @@
 ---
 title: nVent RAYCHEM SENZ
 description: Instructions how to integrate SENZ thermostats into Home Assistant.
-ha_category:
-  - Climate
-  - Sensor
+ha_categories:
+  - climate.thermostats_heating
 ha_iot_class: Cloud Polling
 ha_release: 2022.5
 ha_config_flow: true

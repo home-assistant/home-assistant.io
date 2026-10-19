@@ -33,6 +33,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple lights are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted light turns on, **First** to fire only when the first of a group of off lights turns on, or **All** to fire only after every targeted light is on.
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -49,8 +50,6 @@ trigger: |
 This fires every time `light.kitchen` transitions from off to on.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 behavior:

@@ -30,6 +30,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple counters are targeted, controls whether the trigger fires for **Each** counter, only the **First** counter, or after **All** targeted counters reach their maximum value. Default is **Each**.
+  required: false
 For at least:
   description: How long the counter must stay at its maximum before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}
@@ -48,8 +49,6 @@ trigger: |
 This fires when `counter.chore_reminders` reaches its maximum.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 behavior:

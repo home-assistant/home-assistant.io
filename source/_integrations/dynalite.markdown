@@ -1,11 +1,9 @@
 ---
 title: Philips Dynalite
 description: Instructions on setting up Philips Dynalite within Home Assistant.
-ha_category:
-  - Cover
-  - Hub
-  - Light
-  - Switch
+ha_categories:
+  - lighting.lighting_systems
+  - hubs_protocols.building_automation
 ha_iot_class: Local Push
 ha_release: 0.106
 ha_codeowners:

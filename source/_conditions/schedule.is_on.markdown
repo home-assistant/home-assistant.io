@@ -71,7 +71,7 @@ for:
 
 ## Good to know
 
-- A schedule in the `unknown` or `unavailable` state does not match this condition.
+{% include conditions/unavailable_targets.md entities="schedules" %}
 - If you use **For at least**, the schedule must stay active for the entire time.
 - To check for the opposite state, use [Schedule is off](/conditions/schedule.is_off/).
 
@@ -83,7 +83,7 @@ for:
 
 If you only want a motion-based automation at certain times, you can use a schedule to decide when it is allowed to run.
 
-- **Trigger**: State: Motion detected
+- **Trigger**: State changed: Motion detected
 - **Condition**: Schedule is on
   - **Target**: Night hallway schedule
 - **Action**: Turn on light

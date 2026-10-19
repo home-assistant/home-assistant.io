@@ -2,23 +2,8 @@
 title: Z-Wave
 description: Instructions on how to integrate Z-Wave with Home Assistant via Z-Wave JS.
 featured: true
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Fan
-  - Hub
-  - Humidifier
-  - Light
-  - Lock
-  - Number
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Update
+ha_categories:
+  - hubs_protocols.wireless_protocols
 ha_release: '2021.2'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -422,7 +407,7 @@ The Z-Wave integration provides several special entities, some of which are avai
 
 ### Entities available for every Z-Wave device
 
-1. **Node status** sensor: This sensor shows the node status for a given Z-Wave device. The sensor is disabled by default. The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status). They can be used in state change automations. For example to ping a device when it is dead, or refresh values when it wakes up.
+1. **Node status** sensor: This sensor shows the node status for a given Z-Wave device. The sensor is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status). They can be used in state change automations. For example to ping a device when it is dead, or refresh values when it wakes up.
 2. **Ping** button: This button can be pressed to ping a device. It is an alternative to the `zwave_js.ping` action.
 3. **Adapter/node statistics** sensors: Z-Wave JS collects statistics about communications between [nodes](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot) and the [adapter](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot). The statistics can be used to troubleshoot RF issues in your environment. These statistics are available in the network configuration and device info panels. But they are also available as sensors which are disabled by default.
 
@@ -492,13 +477,13 @@ The following features can be accessed from the device panel of any Z-Wave devic
 
 ## Events
 
-There are two types of events that are fired, notification events and value notification events. You can test what events come in using the event {% my developer_events title="tools in Home Assistant" %} and subscribing to the `zwave_js_notification` or `zwave_js_value_notification` events respectively. Once you know what the event data looks like, you can use this to create automations.
+There are two types of events that are fired, notification events and value notification events. You can test what events come in using the event {% my tools_events title="tools in Home Assistant" %} and subscribing to the `zwave_js_notification` or `zwave_js_value_notification` events respectively. Once you know what the event data looks like, you can use this to create automations.
 
 ### Node events (Notification)
 
 Check the [Z-Wave JS notification event documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotnotificationquot) for an explanation of the notification event data. These events fire with the `zwave_js_notification` event type.
 
-Notification event data can be used to trigger automations, both in the automation UI and in YAML, using the event platform. Check the details of an event by subscribing to the zwave_js_notification event in [Tools](/docs/tools/dev-tools/#subscribe-to-an-event).
+Notification event data can be used to trigger automations, both in the automation UI and in YAML, using the event platform. Check the details of an event by subscribing to the zwave_js_notification event in [Tools](/docs/tools/dev-tools/#listening-to-events).
 
 ```yaml
 # Fires whenever the lock is unlocked by the keypad.
@@ -617,7 +602,7 @@ Value Notification example:
 
 ### Value updated events
 
-Due to some devices not following the Z-Wave Specification, there are scenarios where a device will send a value update but a state change won't be detected in Home Assistant. To address the gap, the `zwave_js_value_updated` event can be listened to to capture any value updates that are received by an affected entity. This event is **enabled on a per device and per entity domain basis**, and the entities will have `assumed_state` set to `true`. This change will affect how the UI for these entities look; if you'd like the UI to match other entities of the same type where `assumed_state` is not set to `true`, you can override the setting via [entity customization](/docs/configuration/customizing-devices/#assumed_state).
+Due to some devices not following the Z-Wave Specification, there are scenarios where a device will send a value update but a state change won't be detected in Home Assistant. To address the gap, the `zwave_js_value_updated` event can be listened to in order to capture any value updates that are received by an affected entity. This event is **enabled on a per device and per entity domain basis**, and the entities will have `assumed_state` set to `true`. This change will affect how the UI for these entities look; if you'd like the UI to match other entities of the same type where `assumed_state` is not set to `true`, you can override the setting via [entity customization](/docs/configuration/customizing-devices/#assumed_state).
 
 The following devices currently support this event:
 

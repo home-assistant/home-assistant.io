@@ -1,8 +1,8 @@
 ---
 title: Nettigo Air Monitor
 description: Instructions on how to integrate Nettigo Air Monitor within Home Assistant.
-ha_category:
-  - DIY
+ha_categories:
+  - sensors.air_quality
 ha_release: 2021.6
 ha_iot_class: Local Polling
 ha_config_flow: true
