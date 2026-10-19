@@ -17,8 +17,8 @@ To use this trigger in an automation:
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
 4. Select the **By type** tab. Under **Generic**, select **Device**.
-5. Under **Device**, select your Samsung TV.
-6. Under **Trigger**, select **Device is requested to turn on**.
+5. In the **Device** dropdown list, select your Samsung TV.
+6. In the **Trigger** dropdown list, select **Device is requested to turn on**.
 7. Select **Save**.
 
 ### Options in the UI
