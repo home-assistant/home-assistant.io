@@ -1,9 +1,8 @@
 ---
 title: HAVEN IAQ
 description: Instructions on how to set up HAVEN IAQ devices in Home Assistant.
-ha_category:
-  - Health
-  - Sensor
+ha_categories:
+  - sensors.air_quality
 ha_config_flow: true
 ha_release: 2026.11
 ha_iot_class: Local Polling
