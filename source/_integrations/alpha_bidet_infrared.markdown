@@ -1,10 +1,8 @@
 ---
 title: Alpha Bidet Infrared
 description: Integration to control Alpha Bidet bidet seats using an infrared transmitter.
-ha_category:
-  - Button
-  - Infrared-controlled
-  - Select
+ha_categories:
+  - health_wellbeing
 ha_release: '2026.11'
 ha_iot_class: Assumed State
 ha_codeowners:
@@ -26,6 +24,15 @@ Because the integration communicates over infrared, it operates in a one-way, fi
 
 After setup, you can start and stop a wash, run the dryer, adjust the water pressure, dryer temperature, and nozzle position, and set the water and seat temperature from Home Assistant. For example, you can use an automation to start a pre-wash when the bathroom door closes, turn the seat heating off overnight, or add the wash buttons to a dashboard.
 
+## Supported devices
+
+The integration supports the following Alpha Bidet models:
+
+- JX2
+
+The JX2's seat shape and color variants (the EW, EB, RW, and RB suffixes) use the same remote and work with the JX2 option. The IR commands were captured from the JX2's own remote, so other Alpha Bidet models are not listed until their codes have been verified. If you want another model supported, please [open an issue on the infrared-protocols repository](https://github.com/home-assistant-libs/infrared-protocols/issues) with captured IR signals from your remote.
+
+
 ## Prerequisites
 
 {% include integrations/infrared_controlled.md %}
@@ -41,14 +48,6 @@ Bidet model:
   description: The Alpha Bidet model to control, which determines the IR command set the integration uses.
 {% endconfiguration_basic %}
 
-## Supported devices
-
-The integration supports the following Alpha Bidet models:
-
-- JX2
-
-The JX2's seat shape and color variants (the EW, EB, RW, and RB suffixes) use the same remote and work with the JX2 option. The IR commands were captured from the JX2's own remote, so other Alpha Bidet models are not listed until their codes have been verified. If you want another model supported, please [open an issue on the infrared-protocols repository](https://github.com/home-assistant-libs/infrared-protocols/issues) with captured IR signals from your remote.
-
 ## Supported functionality
 
 The **Alpha Bidet Infrared** integration creates one device per bidet, with the following entities.
@@ -63,7 +62,7 @@ Each button sends the code for one key on the remote:
 - **Wash and dry**: Same as the **WASH+DRY** key.
 - **Easy wash**: Same as the **EASY WASH** key.
 - **Stop**: Same as the **STOP** key.
-- **Stop (hold)**: Same as holding the **STOP** key for about 5 seconds. The remote sends a separate code for this, so it is its own button.
+- **Stop (hold)**: Same as holding the **STOP** key for about 3 seconds. The remote sends a separate code for this, so it is its own button.
 - **Water/dry up** and **Water/dry down**: Same as the **HI** and **LO** keys. During a wash they raise or lower the water pressure, and during a dry cycle they raise or lower the dryer temperature.
 - **Nozzle up** and **Nozzle down**: Move the nozzle one position in either direction.
 
@@ -144,11 +143,23 @@ automation: |
 
 ## Known limitations
 
-- The integration uses assumed state, meaning Home Assistant cannot read the actual state of the bidet. The water and seat temperature selects show the last level Home Assistant sent.
-- Changes made with the physical remote or the bidet's control panel are not tracked, so the selects can drift from the bidet's real settings. Choosing an option again brings them back in sync.
-- Water pressure, dryer temperature, and nozzle position can only be stepped up or down, because the remote sends those keys as relative steps. Home Assistant cannot set them to a specific level or tell which level is active.
-- Functions that are only on the bidet's control panel, such as power, the nightlight, power saving, quiet mode, and nozzle cleaning, have no infrared code and cannot be controlled.
-- The infrared transmitter needs a clear line of sight to the bidet's receiver. A blocked or missed command is not reported.
+### Assumed state
+
+The integration uses assumed state, meaning Home Assistant cannot read the actual state of the bidet. The water and seat temperature selects show the last level Home Assistant sent.
+
+Changes made with the physical remote or the bidet's control panel are not tracked, so the selects can drift from the bidet's real settings. Choosing an option again brings them back in sync.
+
+### Relative adjustments
+
+Water pressure, dryer temperature, and nozzle position can only be stepped up or down, because the remote sends those keys as relative steps. Home Assistant cannot set them to a specific level or tell which level is active.
+
+### Unsupported controls
+
+Functions that are only on the bidet's control panel, such as power, the nightlight, power saving, quiet mode, and nozzle cleaning, have no infrared code and cannot be controlled.
+
+### Infrared transmission
+
+The infrared transmitter needs a clear line of sight to the bidet's receiver. A blocked or missed command is not reported.
 
 ## Removing the integration
 
