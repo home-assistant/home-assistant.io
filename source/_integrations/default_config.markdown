@@ -1,8 +1,6 @@
 ---
 title: Default Config
 description: The default configuration integration sets up a default set of integrations for Home Assistant.
-ha_category:
-  - Other
 ha_release: 0.88
 ha_domain: default_config
 ha_quality_scale: internal

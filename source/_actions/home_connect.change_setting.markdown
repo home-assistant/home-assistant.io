@@ -20,7 +20,7 @@ To change a setting from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the list of actions, search for and select **Change setting**.
+5. From the list of actions, search for and select **Home Connect: Change setting**.
 6. Select the appliance you want to change.
 7. Enter the key of the setting and the value to set.
 8. Select **Save**.
@@ -79,10 +79,13 @@ value:
 
 Turn on the child lock on your oven when everyone leaves, so the controls can't be changed while you're away.
 
-- **Trigger**: Everyone leaves home
-- **Action**: Change setting
+- **Trigger**: State changed
+  - **Entity**: Home zone
+  - **To**: 0
+- **Action**: Home Connect: Change setting
   - **Key**: `BSH.Common.Setting.ChildLock`
-  - **Value**: `true`
+  - **Value**: `True`
+  - **Device ID**: `a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6`
 
 {% details "Show example YAML" %}
 

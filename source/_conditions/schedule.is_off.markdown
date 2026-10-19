@@ -71,7 +71,7 @@ for:
 
 ## Good to know
 
-- A schedule in the `unknown` or `unavailable` state does not match this condition.
+{% include conditions/unavailable_targets.md entities="schedules" %}
 - If you use **For at least**, the schedule must stay inactive for the entire time.
 - To check for the opposite state, use [Schedule is on](/conditions/schedule.is_on/).
 

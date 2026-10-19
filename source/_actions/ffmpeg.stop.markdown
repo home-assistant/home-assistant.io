@@ -1,5 +1,5 @@
 ---
-title: "Stop FFmpeg sensor"
+title: "Stop"
 action: ffmpeg.stop
 domain: ffmpeg
 description: "Stops analyzing the stream of an FFmpeg-based sensor."
@@ -20,7 +20,7 @@ To stop an FFmpeg sensor from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Stop**.
+5. From the search box, search for and select **FFmpeg: Stop**.
 6. Optional: In **Entity**, select the FFmpeg sensor. Leave it empty to stop all FFmpeg sensors.
 7. Select **Save**.
 
@@ -69,11 +69,10 @@ entity_id:
 
 When you're home, you don't need motion alerts from the driveway camera. Stopping the sensor also saves the processing power FFmpeg uses.
 
-- **Trigger**: Zone
-  - **Entity with location**: You (`person.you`)
+- **Trigger**: Zone entered
+  - **Target**: You
   - **Zone**: Home
-  - **Event**: Enter
-- **Action**: Stop
+- **Action**: FFmpeg: Stop
   - **Entity**: Driveway motion (`binary_sensor.driveway_motion`)
 
 {% details "YAML example for stopping motion analysis when you get home" %}
@@ -82,10 +81,11 @@ When you're home, you don't need motion alerts from the driveway camera. Stoppin
 automation: |
   alias: "Stop driveway motion analysis when I get home"
   triggers:
-    - trigger: zone
-      entity_id: person.you
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.you
+      options:
+        zone: zone.home
   actions:
     - action: ffmpeg.stop
       data:
@@ -100,7 +100,7 @@ Stop the FFmpeg noise sensor of the nursery camera at 07:00, when everyone is up
 
 - **Trigger**: Time
   - **At time**: 07:00
-- **Action**: Stop
+- **Action**: FFmpeg: Stop
   - **Entity**: Nursery noise (`binary_sensor.nursery_noise`)
 
 {% details "YAML example for stopping a noise sensor in the morning" %}

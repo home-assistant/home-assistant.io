@@ -2,8 +2,8 @@
 title: OneDrive for Business
 description: Instructions on how to set up OneDrive for Business to be used with backups.
 ha_release: 2026.3
-ha_category:
-  - Backup
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: onedrive_for_business
@@ -63,7 +63,7 @@ Make sure to configure the following settings on the app registration:
 
 The integration provides the following sensors, which are updated every 5 minutes:
 
-- **Total available storage**: The total size of your drive (disabled by default).
+- **Total available storage**: The total size of your drive ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)).
 - **Used storage**: The amount of storage you have used up.
 - **Remaining storage**: The amount of storage that is left in your drive.
 - **Drive state**: Calculated state of your drive, based on the storage left. Possible values: `Normal`, `Nearing limit`, `Critical`, `Exceeded`.

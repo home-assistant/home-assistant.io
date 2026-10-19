@@ -1,5 +1,5 @@
 ---
-title: Set color mode
+title: "Set color"
 action: amcrest.set_color_bw
 domain: amcrest
 description: "Sets the color mode of an Amcrest or Dahua camera."
@@ -19,7 +19,7 @@ To use this action in an automation or script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the camera you want to control. You can also select an area, a device, or a label.
-6. From the actions shown for that target, select **Amcrest: Set color mode**.
+6. From the actions shown for that target, select **Set color**.
 7. In the **Color mode** field, select the mode you want.
 8. Select **Save**.
 

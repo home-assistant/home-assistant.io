@@ -1,9 +1,8 @@
 ---
 title: Elgato Light
 description: Instructions on how to integrate an Elgato Light with Home Assistant.
-ha_category:
-  - Light
-  - Update
+ha_categories:
+  - lighting.bulbs_lamps
 ha_release: 0.104
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -104,7 +103,7 @@ The integration creates a light entity for each Elgato Light device. You can con
   - **Entity category**: Diagnostic
 
 - **Wi-Fi RSSI**
-  - **Description**: The same signal in dBm, the unit the device itself reports. Disabled by default.
+  - **Description**: The same signal in dBm, the unit the device itself reports. [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
   - **Entity category**: Diagnostic
 
 ### Switches

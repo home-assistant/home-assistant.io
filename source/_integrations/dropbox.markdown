@@ -1,8 +1,8 @@
 ---
 title: Dropbox
 description: Instructions on how to set up backup to a Dropbox account within Home Assistant.
-ha_category:
-  - Backup
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_release: 2026.4
 ha_iot_class: Cloud Polling
 ha_config_flow: true

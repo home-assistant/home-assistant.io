@@ -1,12 +1,9 @@
 ---
 title: Synology DSM
 description: Instructions on how to integrate the Synology DSM sensor within Home Assistant.
-ha_category:
-  - Backup
-  - Camera
-  - Media source
-  - System monitor
-  - Update
+ha_categories:
+  - computers_network.nas_servers
+  - security_safety.cameras
 ha_release: 0.32
 ha_iot_class: Local Polling
 ha_domain: synology_dsm
@@ -118,7 +115,7 @@ Entities reporting the current network transfer rates of the NAS. Both upload an
 
 ### General sensors
 
-Entities reporting the internal temperature and the uptime of the NAS. The uptime sensor is disabled by default.
+Entities reporting the internal temperature and the uptime of the NAS. The uptime sensor is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 ### Disk sensors
 

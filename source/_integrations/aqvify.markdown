@@ -1,8 +1,8 @@
 ---
 title: Aqvify
 description: Instructions on how to set up Aqvify devices within Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - water
 ha_release: 2026.7
 ha_iot_class: Cloud Polling
 ha_domain: aqvify
@@ -40,7 +40,7 @@ There is currently support for sensors measuring the well water level from diffe
 - **Meter value**: This metric typically represents the distance from the ground surface to the water surface in a well.
 - **Water level**: This metric typically represents the distance from the bottom of a well or tank to the water surface.
 - **Stored volume**: The available water volume in the well or tank.
-- **Temperature**: Some sensor probes contain a temperature sensor in addition to the pressure sensor. This entity is disabled by default in the UI.
+- **Temperature**: Some sensor probes contain a temperature sensor in addition to the pressure sensor. This entity is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) in the UI.
 
 ## Automation example
 

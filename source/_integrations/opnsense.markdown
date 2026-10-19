@@ -1,9 +1,9 @@
 ---
 title: OPNsense
 description: Instructions on how to configure OPNsense integration
-ha_category:
-  - Hub
-  - Presence detection
+ha_categories:
+  - presence_location.network_presence
+  - computers_network.routers_network
 ha_release: 0.105
 ha_codeowners:
   - '@HarlemSquirrel'

@@ -1,8 +1,6 @@
 ---
 title: Mijndomein Energie
 description: Connect and control your Mijndomein Energie devices using the EnergyZero integration
-ha_category:
-  - Energy
 ha_domain: mijndomein_energie
 ha_release: 2023.2
 ha_integration_type: virtual

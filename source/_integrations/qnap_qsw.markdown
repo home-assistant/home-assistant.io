@@ -2,11 +2,8 @@
 title: QNAP QSW
 description: Instructions on how to integrate QNAP QSW within Home Assistant.
 ha_release: 2022.5
-ha_category:
-  - Binary sensor
-  - Button
-  - Sensor
-  - Update
+ha_categories:
+  - computers_network.routers_network
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: qnap_qsw

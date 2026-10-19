@@ -1,5 +1,5 @@
 ---
-title: "Calibrate a utility meter"
+title: "Calibrate"
 action: utility_meter.calibrate
 domain: utility_meter
 description: "Sets a utility meter sensor to a specific value."
@@ -18,7 +18,7 @@ To calibrate a utility meter from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the utility meter sensor you want to calibrate.
-6. From the actions shown for that target, select **Calibrate**.
+6. From the actions shown for that target, under **Utility Meter**, select **Calibrate**.
 7. Set the **Value** to calibrate the sensor with.
 8. Select **Save**.
 

@@ -1,8 +1,8 @@
 ---
 title: Hyperion
 description: Instructions on how to integrate Hyperion into Home Assistant.
-ha_category:
-  - Light
+ha_categories:
+  - lighting.led_strips_controllers
 ha_release: 0.7.6
 ha_iot_class: Local Push
 ha_domain: hyperion

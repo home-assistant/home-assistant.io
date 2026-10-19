@@ -2,9 +2,8 @@
 title: Raspberry Pi
 description: Shows information about your Raspberry Pi in Home Assistant and keeps its firmware up to date.
 ha_release: 2022.6
-ha_category:
-  - Other
-  - Update
+ha_categories:
+  - diy_makers.boards_hardware
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: raspberry_pi

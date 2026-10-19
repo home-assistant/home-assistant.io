@@ -1,8 +1,8 @@
 ---
 title: ROVA
 description: Instructions on how to integrate ROVA sensor within Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - local_services
 ha_release: 0.87
 ha_iot_class: Cloud Polling
 ha_config_flow: true

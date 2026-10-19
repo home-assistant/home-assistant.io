@@ -1,5 +1,5 @@
 ---
-title: "Turn on alert"
+title: "Turn on"
 action: alert.turn_on
 domain: alert
 description: "Removes the acknowledgement of an alert, so it sends notifications again."
@@ -20,7 +20,7 @@ To turn an alert back on from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Turn on**.
+5. From the search box, search for and select **Alert: Turn on**.
 6. Select what you want to control. Under **By target** (see [Targets](#targets)), select the alert. You can also select an area, a device, or a label.
 7. Select **Save**.
 
@@ -51,7 +51,7 @@ This action has no additional options in YAML.
 
 - The notifications resume at the next scheduled reminder, not right away.
 - If the alert isn't active, this action has no effect.
-- To silence an alert, use [Acknowledge alert](/actions/alert.turn_off/).
+- To silence an alert, use [Turn off](/actions/alert.turn_off/).
 
 {% include actions/try_it.md %}
 
@@ -61,11 +61,10 @@ This action has no additional options in YAML.
 
 You acknowledged the garage door alert while you were home. When you leave, you want reminders again if the door is still open.
 
-- **Trigger**: Zone
-  - **Entity with location**: You (`person.you`)
+- **Trigger**: Zone left
+  - **Target**: You
   - **Zone**: Home
-  - **Event**: Leave
-- **Action**: Turn on
+- **Action**: Alert: Turn on
   - **Target**: Garage door alert
 
 {% details "YAML example for turning an alert back on when you leave" %}
@@ -74,10 +73,11 @@ You acknowledged the garage door alert while you were home. When you leave, you 
 automation: |
   alias: "Turn the garage door alert back on when I leave"
   triggers:
-    - trigger: zone
-      entity_id: person.you
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.you
+      options:
+        zone: zone.home
   actions:
     - action: alert.turn_on
       target:
@@ -95,7 +95,7 @@ If you acknowledged the garage door alert during the day and the door is still o
 - **Condition**: State
   - **Entity**: Garage door alert
   - **State**: Off
-- **Action**: Turn on
+- **Action**: Alert: Turn on
   - **Target**: Garage door alert
 
 {% details "YAML example for turning an alert back on at bedtime" %}

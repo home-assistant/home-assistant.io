@@ -71,7 +71,7 @@ for:
 
 ## Good to know
 
-- Humidifiers that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as off. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted humidifier is unavailable.
+{% include conditions/unavailable_targets.md entities="humidifiers" %}
 - To gate an automation on the humidifier being on instead, use [Humidifier is on](/conditions/humidifier.is_on/).
 
 {% include conditions/try_it.md %}
@@ -83,7 +83,8 @@ for:
 At 22:30 on weeknights, check whether the bedroom humidifier has been left off. If so, send a reminder so you can switch it on before you sleep.
 
 - **Trigger**: Time: 22:30
-- **Condition**: Day of the week is Monday to Friday
+- **Condition**: Time
+  - **Days of the week**: Monday, Tuesday, Wednesday, Thursday, Friday
 - **Condition**: Humidifier is off
   - **Target**: Bedroom humidifier
   - **Condition passes if**: Any

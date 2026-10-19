@@ -1,22 +1,9 @@
 ---
 title: UniFi Protect
 description: Instructions on how to configure the Ubiquiti UniFi Protect integration.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Camera
-  - Doorbell
-  - Event
-  - Hub
-  - Light
-  - Media player
-  - Media source
-  - Number
-  - Select
-  - Sensor
-  - Siren
-  - Switch
+ha_categories:
+  - security_safety.cameras
+  - security_safety.doorbells_intercoms
 ha_release: 2022.2
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -192,6 +179,7 @@ each of the different {% term entity %} platforms.
 **Permissions**: The below sections on the features available to your Home Assistant instance assume you have full
 write access to each device. If the user you are using has limited access to some devices, you will get fewer entities
 and in many cases, get a read-only sensor instead of an editable switch/select/number {% term entity %}.
+Floodlights are the exception: the light, status light, motion sensitivity, auto-shutoff duration, and light mode controls use the API key, so they are available regardless of the local user's permissions.
 {% endnote %}
 
 The table below shows, per device type, which connection mode is required. See [Connection modes](#connection-modes) for what each mode provides.
@@ -227,7 +215,7 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
   - configuration switches Overlay Information, Smart Detections types, Status Light, High FPS mode, System Sounds
   - configuration select for HDR mode (Auto, Always on, Always off)
   - configuration text and select for LCD Screen for doorbells to either set custom messages or use predefined messages
-- **Button** - A disabled by default button is added for each camera device. The button will let you reboot your camera device.
+- **Button** - A [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) button is added for each camera device. The button will let you reboot your camera device.
 
 #### PTZ cameras
 

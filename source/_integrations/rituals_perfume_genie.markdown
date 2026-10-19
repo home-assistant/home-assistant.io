@@ -4,12 +4,8 @@ description: Instructions on how to integrate Rituals Perfume Genie diffusers wi
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_release: 2021.3
-ha_category:
-  - Binary sensor
-  - Number
-  - Select
-  - Sensor
-  - Switch
+ha_categories:
+  - appliances_cleaning
 ha_codeowners:
   - '@milanmeu'
   - '@frenck'
@@ -22,6 +18,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - update
 ha_integration_type: hub
 ---
 
@@ -61,12 +58,13 @@ Password:
 Each diffuser on your Rituals account is added to Home Assistant as a device, with the entities described below.
 
 {% note %}
-The entities you see depend on your model. The battery and charging entities appear on the battery-powered model only. On mains-powered models, the **Room size** control is disabled by default. You can turn it on from the entity's settings if you want to use it.
+The entities you see depend on your model. The battery and charging entities appear on the battery-powered model only. On mains-powered models, the **Room size** control is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). You can turn it on from the entity's settings if you want to use it.
 {% endnote %}
 
 ### Switch
 
 - **Diffuser**: The main switch for the diffuser. Turn it on to start diffusing fragrance, and off to stop. This switch carries the name of your diffuser.
+- **Standby LED**: Turns on or off the light that shows while the diffuser is on standby, for example to keep it from lighting up a bedroom at night. Available on diffusers that support it.
 
 ### Number
 
@@ -78,14 +76,21 @@ The entities you see depend on your model. The battery and charging entities app
 
 ### Binary sensor
 
+- **Cartridge**: Shows whether a fragrance cartridge is inserted in the diffuser.
 - **Charging**: Shows whether the diffuser's battery is charging. Available on the battery-powered model only.
 
 ### Sensors
 
 - **Battery**: The remaining battery charge, as a percentage. Available on the battery-powered model only.
-- **Fill**: How full the current fragrance cartridge is.
-- **Perfume**: The name of the fragrance cartridge currently in the diffuser.
-- **Wi-Fi signal**: The strength of the diffuser's Wi-Fi connection, as a percentage.
+- **Fill**: An estimate of how full the current fragrance cartridge is, as a percentage. Unknown when there is no measurement.
+- **Perfume**: The name of the fragrance cartridge currently in the diffuser. Unknown when no cartridge is inserted.
+- **Wi-Fi signal**: The strength of the diffuser's Wi-Fi connection, as a percentage. This sensor is disabled by default. You can turn it on from the entity's settings if you want to use it.
+
+### Update
+
+- **Firmware**: Shows the firmware the diffuser runs and the newest firmware Rituals has for it, and lets you install that update. When Rituals numbers its firmware builds, the version includes that number, like `5.4 (127)`.
+
+Rituals doesn't report how far along a firmware update is. Home Assistant shows the update as in progress until the diffuser reports the new firmware, for up to 30 minutes.
 
 ## Examples
 
@@ -109,7 +114,11 @@ automation:
 
 ## Data updates
 
-Home Assistant {% term polling polls %} your Rituals account for updates every few minutes. With a single diffuser, it polls every 3 minutes. Each additional diffuser on your account lengthens that interval, which keeps Home Assistant within the limits of the Rituals service.
+Home Assistant {% term polling polls %} your Rituals account for updates. Rituals limits how often its service can be used, so not everything is updated equally often:
+
+- The state of your diffusers, such as whether they are on, the perfume amount, and the room size, is updated every 5 minutes. All diffusers on your account are updated at once.
+- The battery, charging, perfume, and Wi-Fi signal sensors are updated every hour. Only the sensors that are enabled are updated, so disabling a sensor you don't use saves a request.
+- The fill level is updated once a day, and also when the hourly update finds a different cartridge.
 
 ## Known limitations
 

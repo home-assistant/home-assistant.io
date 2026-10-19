@@ -1,9 +1,8 @@
 ---
 title: Tonewinner
 description: Instructions on how to integrate Tonewinner processors and receivers into Home Assistant.
-ha_category:
-  - Media player
-  - Serial-controlled
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_codeowners:
   - '@emma-sg'
 ha_config_flow: true
@@ -59,7 +58,7 @@ You can use Home Assistant to:
 ## Known limitations
 
 - At least for the AT-500, there is a period of a few seconds during startup when the device may not accept commands, and may report incorrect information. Status should be correct once the boot sequence completes.
-- The device should be powered on and connected to the serial port before setting up the integration in Home Assistant.
+- The device needs to be connected to the serial port before setting up the integration, but it can be on or in standby. During setup, the device will be turned on to read its model name, and then returned to standby if it was previously in standby.
 
 ## Removing the integration
 
