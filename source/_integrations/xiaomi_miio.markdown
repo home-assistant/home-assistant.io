@@ -79,44 +79,28 @@ The Xiaomi Home {% term integration %} allows you to control the gateway and its
 
 ### Supported Xiaomi gateway models
 
-The following list shows the Gateway name, the model number, the Zigbee ID, and whether the model is supported or not in Home Assistant.
+| Gateway            | Model                       | Zigbee ID             | Home Assistant support |
+| ------------------ | --------------------------- | --------------------- | ---------------------- |
+| European version   | `ZHWG11LM-763`, `DGNWQ05LM` | `lumi.gateway.mieu01` | Supported with Xiaomi Home credentials |
+| Aqara AC Companion | `KTBL11LM`                  | `lumi.acpartner.v3`   | Supported              |
+| Aqara hub          | `ZHWG11LM`                  | `lumi.gateway.aqhm01` | Supported              |
+| Chinese version    | `DGNWG02LM`                 | `lumi.gateway.v3`     | Supported              |
+| Mijia Zigbee 3.0   | `ZNDMWG03LM`                | `lumi.gateway.mgl03`  | Supported              |
+| Aqara AC Companion | `KTBL01LM`                  | `lumi.acpartner.v1`   | Not tested             |
+| Mi AC Companion    | `KTBL02LM`                  | `lumi.acpartner.v2`   | Not tested             |
 
-- **Chinese version**
-  - Model: DGNWG02LM
-  - Zigbee ID: lumi.gateway.v3
-  - Supported: Yes
+### Retrieving connected subdevices through Xiaomi Home
 
-- **European version**
-  - Model: ZHWG11LM-763 / DGNWQ05LM
-  - Zigbee ID: lumi.gateway.mieu01
-  - Supported: Yes (Xiaomi Home credentials needed)
+Some gateways, such as `lumi.gateway.mieu01`, cannot retrieve connected subdevices locally.
+To add their subdevices, use the Xiaomi Home service.
 
-- **Aqara hub**
-  - Model: ZHWG11LM
-  - Zigbee ID: lumi.gateway.aqhm01
-  - Supported: Yes
+1. During setup, provide your Xiaomi Home account credentials.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+3. On the Xiaomi Home integration card, select **Configure**.
+4. Turn on **Use Xiaomi Home service to get connected subdevices**, then select **Submit**.
 
-- **Mijia Zigbee 3.0**
-  - Model: ZNDMWG03LM
-  - Zigbee ID: lumi.gateway.mgl03
-  - Supported: Yes
-
-- **Aqara AC Companion**
-  - Model: KTBL01LM
-  - Zigbee ID: lumi.acpartner.v1
-  - Supported: Untested
-
-- **Mi AC Companion**
-  - Model: KTBL02LM
-  - Zigbee ID: lumi.acpartner.v2
-  - Supported: Untested
-
-- **Aqara AC Companion**
-  - Model: KTBL11LM
-  - Zigbee ID: lumi.acpartner.v3
-  - Supported: Yes
-
-Some gateways (lumi.gateway.mieu01) do not support getting the connected subdevices locally. For those gateways, Xiaomi Home credentials can be specified during the config flow and the "Use Xiaomi Home service to get connected subdevices" can be enabled in the options flow (after setting up the {% term integration %}, click Configuration in the sidebar, then click Integrations and then click Options on the already set up Xiaomi Home {% term integration %}). The connected subdevices will then be retrieved from Xiaomi Home (internet), control and status updates of those subdevices will then further take place over local network connection. A re-authentication flow may be triggered when no account credentials are provided yet and are needed for that particular gateway model.
+Home Assistant retrieves the subdevices from Xiaomi Home, then controls them and receives their status updates over your local network.
+If credentials are required but have not been provided, Home Assistant starts a reauthentication flow.
 
 ### Gateway features
 
@@ -200,11 +184,11 @@ These subdevices are fully implemented in Home Assistant:
   - Zigbee ID: `ikea.light.led1649c5`
   - Features: on/off, brightness, color temperature
 
-### Recognized subdevices (not yet implemented)
+### Recognized but unsupported subdevices
 
-These subdevices are recognized by the python-miio code but are still being worked on (not yet implemented).
+Home Assistant recognizes these subdevices but does not create entities for them.
 
-The list shows the device name, the model number, and the Zigbee ID.
+Each item lists the device name, model number, and Zigbee ID.
 
 - **Button** (WXKG01LM): `lumi.sensor_switch`
 - **Button** (WXKG11LM 2015): `lumi.sensor_switch.aq2`
@@ -265,9 +249,9 @@ token:
 
 The Air Purifiers, Air Humidifiers and Standing Fans use multiple platforms to allow you to set the control modes and settings of the device.
 
-Supported devices:
+### Supported device models
 
-The list includes device name, model number (if available), and model.
+The following list shows each device name and model ID.
 
 - **Air Purifier**: `zhimi.airpurifier.v1`
 - **Air Purifier 2** (FJY4006CN): `zhimi.airpurifier.v2`
@@ -332,9 +316,7 @@ The list includes device name, model number (if available), and model.
 
 ### Number entities
 
-| Number         | Description            |
-| -------------- | ---------------------- |
-| Favorite Level | Set the favorite level |
+- **Favorite Level**: Set the favorite level.
 
 ### Sensor entities
 
@@ -349,16 +331,14 @@ The list includes device name, model number (if available), and model.
 
 ### Switch entities
 
-| Switch     | Description                |
-| ---------- | -------------------------- |
-| Buzzer     | Turn on/off the buzzer     |
-| Child Lock | Turn on/off the child lock |
-| Learn Mode | Turn on/off the learn mode |
-| LED        | Turn on/off the LED        |
+- **Buzzer**: Turn on/off the buzzer.
+- **Child Lock**: Turn on/off the child lock.
+- **Learn Mode**: Turn on/off the learn mode.
+- **LED**: Turn on/off the LED.
 
 ### Air Purifier Pro
 
-Supported model: `zhimi.airpurifier.v6`.
+Supported model ID: `zhimi.airpurifier.v6`.
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
@@ -373,10 +353,8 @@ Supported model: `zhimi.airpurifier.v6`.
 
 #### Number entities
 
-| Number         | Description            |
-| -------------- | ---------------------- |
-| Favorite Level | Set the favorite level |
-| Volume         | Set the volume         |
+- **Favorite Level**: Set the favorite level.
+- **Volume**: Set the volume.
 
 #### Sensor entities
 
@@ -393,15 +371,13 @@ Supported model: `zhimi.airpurifier.v6`.
 
 #### Switch entities
 
-| Switch     | Description                |
-| ---------- | -------------------------- |
-| Child Lock | Turn on/off the child lock |
-| Learn Mode | Turn on/off the learn mode |
-| LED        | Turn on/off the LED        |
+- **Child Lock**: Turn on/off the child lock.
+- **Learn Mode**: Turn on/off the learn mode.
+- **LED**: Turn on/off the LED.
 
 ### Air Purifier Pro V7
 
-Supported model: `zhimi.airpurifier.v7`.
+Supported model ID: `zhimi.airpurifier.v7`.
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
@@ -412,10 +388,8 @@ Supported model: `zhimi.airpurifier.v7`.
 
 #### Number entities
 
-| Number         | Description            |
-| -------------- | ---------------------- |
-| Favorite Level | Set the favorite level |
-| Volume         | Set the volume         |
+- **Favorite Level**: Set the favorite level.
+- **Volume**: Set the volume.
 
 #### Sensor entities
 
@@ -431,15 +405,13 @@ Supported model: `zhimi.airpurifier.v7`.
 
 #### Switch entities
 
-| Switch     | Description                |
-| ---------- | -------------------------- |
-| Child Lock | Turn on/off the child lock |
-| Learn Mode | Turn on/off the learn mode |
-| LED        | Turn on/off the LED        |
+- **Child Lock**: Turn on/off the child lock.
+- **Learn Mode**: Turn on/off the learn mode.
+- **LED**: Turn on/off the LED.
 
 ### Air Purifier MA2
 
-Supported model: `zhimi.airpurifier.ma2`.
+Supported model ID: `zhimi.airpurifier.ma2`.
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
@@ -458,9 +430,7 @@ Supported model: `zhimi.airpurifier.ma2`.
 
 #### Number entities
 
-| Number         | Description            |
-| -------------- | ---------------------- |
-| Favorite Level | Set the favorite level |
+- **Favorite Level**: Set the favorite level.
 
 #### Sensor entities
 
@@ -475,16 +445,14 @@ Supported model: `zhimi.airpurifier.ma2`.
 
 #### Switch entities
 
-| Switch     | Description                |
-| ---------- | -------------------------- |
-| Buzzer     | Turn on/off the buzzer     |
-| Child Lock | Turn on/off the child lock |
-| Learn Mode | Turn on/off the learn mode |
-| LED        | Turn on/off the LED        |
+- **Buzzer**: Turn on/off the buzzer.
+- **Child Lock**: Turn on/off the child lock.
+- **Learn Mode**: Turn on/off the learn mode.
+- **LED**: Turn on/off the LED.
 
 ### Air Purifier 2S
 
-Supported model: `zhimi.airpurifier.mc1`.
+Supported model ID: `zhimi.airpurifier.mc1`.
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
@@ -495,9 +463,7 @@ Supported model: `zhimi.airpurifier.mc1`.
 
 #### Number entities
 
-| Number         | Description            |
-| -------------- | ---------------------- |
-| Favorite Level | Set the favorite level |
+- **Favorite Level**: Set the favorite level.
 
 #### Sensor entities
 
@@ -511,16 +477,14 @@ Supported model: `zhimi.airpurifier.mc1`.
 
 #### Switch entities
 
-| Switch     | Description                |
-| ---------- | -------------------------- |
-| Buzzer     | Turn on/off the buzzer     |
-| Child Lock | Turn on/off the child lock |
-| Learn Mode | Turn on/off the learn mode |
-| LED        | Turn on/off the LED        |
+- **Buzzer**: Turn on/off the buzzer.
+- **Child Lock**: Turn on/off the child lock.
+- **Learn Mode**: Turn on/off the learn mode.
+- **LED**: Turn on/off the LED.
 
 ### Air Purifier 3 and 3H (2019)
 
-Supported models:
+Supported model IDs:
 
 - `zhimi.airpurifier.ma4`
 - `zhimi.airpurifier.mb3`
@@ -534,16 +498,12 @@ This model uses newer MiOT communication protocol.
 
 #### Number entities
 
-| Number         | Description            |
-| -------------- | ---------------------- |
-| Fan Level      | Set the fan level      |
-| Favorite Level | Set the favorite level |
+- **Fan Level**: Set the fan level.
+- **Favorite Level**: Set the favorite level.
 
 #### Select entities
 
-| Select         | Description                                            |
-| -------------- | ------------------------------------------------------ |
-| LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
+- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
 
 #### Sensor entities
 
@@ -558,14 +518,12 @@ This model uses newer MiOT communication protocol.
 
 #### Switch entities
 
-| Switch     | Description                |
-| ---------- | -------------------------- |
-| Buzzer     | Turn on/off the buzzer     |
-| Child Lock | Turn on/off the child lock |
+- **Buzzer**: Turn on/off the buzzer.
+- **Child Lock**: Turn on/off the child lock.
 
 ### Air Purifier Pro H and Pro H EU
 
-Supported models:
+Supported model IDs:
 
 - `zhimi.airpurifier.va1`
 - `zhimi.airpurifier.vb2`
@@ -579,16 +537,12 @@ Supported features:
 
 #### Number entities
 
-| Number         | Description            |
-| -------------- | ---------------------- |
-| Fan Level      | Set the fan level      |
-| Favorite Level | Set the favorite level |
+- **Fan Level**: Set the fan level.
+- **Favorite Level**: Set the favorite level.
 
 #### Select entities
 
-| Select         | Description                                            |
-| -------------- | ------------------------------------------------------ |
-| LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
+- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
 
 #### Sensor entities
 
@@ -603,14 +557,12 @@ Supported features:
 
 #### Switch entities
 
-| Switch     | Description                |
-| ---------- | -------------------------- |
-| Buzzer     | Turn on/off the buzzer     |
-| Child Lock | Turn on/off the child lock |
+- **Buzzer**: Turn on/off the buzzer.
+- **Child Lock**: Turn on/off the child lock.
 
 ### Air Purifier 3C
 
-Supported models:
+Supported model IDs:
 
 - `zhimi.airpurifier.mb4`
 - `zhimi.airp.mb4a`
@@ -622,10 +574,8 @@ Supported features:
 
 #### Number entities
 
-| Number               | Description                  |
-| -------------------- | ---------------------------- |
-| Favorite Motor Speed | Set the favorite motor speed |
-| LED Brightness       | Set the LED brightness       |
+- **Favorite Motor Speed**: Set the favorite motor speed.
+- **LED Brightness**: Set the LED brightness.
 
 #### Sensor entities
 
@@ -636,23 +586,19 @@ Supported features:
 
 #### Switch entities
 
-| Switch     | Description                |
-| ---------- | -------------------------- |
-| Buzzer     | Turn on/off the buzzer     |
-| Child Lock | Turn on/off the child lock |
+- **Buzzer**: Turn on/off the buzzer.
+- **Child Lock**: Turn on/off the child lock.
 
 ### Air Purifier ZA1
 
-Supported model: `zhimi.airpurifier.za1`.
+Supported model ID: `zhimi.airpurifier.za1`.
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
 
 #### Number entities
 
-| Number         | Description            |
-| -------------- | ---------------------- |
-| Favorite Level | Set the favorite level |
+- **Favorite Level**: Set the favorite level.
 
 #### Sensor entities
 
@@ -666,20 +612,16 @@ Supported model: `zhimi.airpurifier.za1`.
 
 #### Switch entities
 
-| Switch     | Description                |
-| ---------- | -------------------------- |
-| Buzzer     | Turn on/off the buzzer     |
-| Child Lock | Turn on/off the child lock |
+- **Buzzer**: Turn on/off the buzzer.
+- **Child Lock**: Turn on/off the child lock.
 
 #### Select entities
 
-| Select         | Description                                               |
-| -------------- | --------------------------------------------------------- |
-| LED Brightness | Controls the brightness of the Display (bright, dim, off) |
+- **LED Brightness**: Controls the brightness of the Display (bright, dim, off).
 
 ### Air Purifier V3
 
-Supported model: `zhimi.airpurifier.v3`.
+Supported model ID: `zhimi.airpurifier.v3`.
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Idle, Medium, High, Strong)
@@ -703,15 +645,13 @@ Supported model: `zhimi.airpurifier.v3`.
 
 #### Switch entities
 
-| Switch     | Description                |
-| ---------- | -------------------------- |
-| Buzzer     | Turn on/off the buzzer     |
-| Child Lock | Turn on/off the child lock |
-| LED        | Turn on/off the LED        |
+- **Buzzer**: Turn on/off the buzzer.
+- **Child Lock**: Turn on/off the child lock.
+- **LED**: Turn on/off the LED.
 
 ### Air Purifier 4 and 4 Pro
 
-Supported models:
+Supported model IDs:
 
 - `zhimi.airp.mb5`
 - `zhimi.airp.vb4`
@@ -724,16 +664,12 @@ These models use newer MiOT communication protocol.
 
 #### Number entities
 
-| Number         | Description            |
-| -------------- | ---------------------- |
-| Fan Level      | Set the fan level      |
-| Favorite Level | Set the favorite level |
+- **Fan Level**: Set the fan level.
+- **Favorite Level**: Set the favorite level.
 
 #### Select entities
 
-| Select         | Description                                               |
-| -------------- | --------------------------------------------------------- |
-| LED Brightness | Controls the brightness of the Display (bright, dim, off) |
+- **LED Brightness**: Controls the brightness of the Display (bright, dim, off).
 
 #### Sensor entities
 
@@ -749,53 +685,45 @@ These models use newer MiOT communication protocol.
 
 #### Switch entities
 
-| Switch     | Description                            |
-| ---------- | -------------------------------------- |
-| Buzzer     | Turn on/off the buzzer                 |
-| Child Lock | Turn on/off the child lock             |
-| Ionizer    | Turn on/off the negative ion generator |
+- **Buzzer**: Turn on/off the buzzer.
+- **Child Lock**: Turn on/off the child lock.
+- **Ionizer**: Turn on/off the negative ion generator.
 
 ### Air Fresh A1
 
-Supported model: `dmaker.airfresh.a1`.
+Supported model ID: `dmaker.airfresh.a1`.
 
 - Power (on, off)
 - Operation modes (Auto, Sleep, Favorite)
 
 #### Binary sensor entities
 
-| Binary sensor         | Description                            |
-| --------------------- | -------------------------------------- |
-| Auxiliary Heat Status | Indicates if the heater is actually on |
+- **Auxiliary Heat Status**: Indicates if the heater is actually on.
 
 #### Button entities
 
-| Button            | Description                                             |
-| ----------------- | ------------------------------------------------------- |
-| Reset Dust Filter | Resets filter lifetimetime and usage of the dust filter |
+- **Reset Dust Filter**: Resets filter lifetimetime and usage of the dust filter.
 
 #### Sensor entities
 
-| Sensor                              | Description                                 |
-| ----------------------------------- | ------------------------------------------- |
-| Carbon Dioxide                      | The current carbon dioxide in ppm           |
-| Dust filter lifetime remaining      | The remaining lifetime of the filter        |
-| Dust filter lifetime remaining days | The remaining lifetime of the filter in day |
-| PM2.5                               | The current particulate matter 2.5          |
-| Temperature                         | The current outside temperature             |
-| Control Speed                       | The current motor speed in rpm              |
-| Favorite Speed                      | The favorite motor speed in rpm             |
+- **Carbon Dioxide**: The current carbon dioxide in ppm.
+- **Dust filter lifetime remaining**: The remaining lifetime of the filter.
+- **Dust filter lifetime remaining days**: The remaining lifetime of the filter in day.
+- **PM2.5**: The current particulate matter 2.5.
+- **Temperature**: The current outside temperature.
+- **Control Speed**: The current motor speed in rpm.
+- **Favorite Speed**: The favorite motor speed in rpm.
 
 #### Switch entities
 
-| Switch         | Description              |
-| -------------- | ------------------------ |
-| Buzzer         | Turn on/off `buzzer`     |
-| Child Lock     | Turn on/off `child lock` |
-| Display        | Turn on/off `display`    |
-| Auxiliary Heat | Turn on/off `heater`     |
+- **Buzzer**: Turn on/off `buzzer`.
+- **Child Lock**: Turn on/off `child lock`.
+- **Display**: Turn on/off `display`.
+- **Auxiliary Heat**: Turn on/off `heater`.
 
 ### Air Fresh VA2
+
+Supported model ID: `zhimi.airfresh.va2`.
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Interval, Low, Middle, Strong)
@@ -815,19 +743,17 @@ Supported model: `dmaker.airfresh.a1`.
 
 #### Select entities
 
-| Select         | Description                                            |
-| -------------- | ------------------------------------------------------ |
-| LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
+- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
 
 #### Switch entities
 
-| Switch     | Description              |
-| ---------- | ------------------------ |
-| Buzzer     | Turn on/off `buzzer`     |
-| Child Lock | Turn on/off `child lock` |
-| LED        | Turn on/off `led`        |
+- **Buzzer**: Turn on/off `buzzer`.
+- **Child Lock**: Turn on/off `child lock`.
+- **LED**: Turn on/off `led`.
 
 ### Air Fresh VA4
+
+Supported model ID: `zhimi.airfresh.va4`.
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Interval, Low, Middle, Strong)
@@ -837,34 +763,28 @@ Supported model: `dmaker.airfresh.a1`.
 
 #### Sensor entities
 
-| Sensor                    | Description                                                   | Enabled by default |
-| ------------------------- | ------------------------------------------------------------- | ------------------ |
-| Carbon Dioxide            | The current carbon dioxide measured in ppm                    | True               |
-| Filter Lifetime Remaining | The remaining lifetime of the filter                          | True               |
-| Filter Use                | Filter usage time in hours                                    | True               |
-| Humidity                  | The current humidity measured                                 | True               |
-| PM2.5                     | The current particulate matter 2.5 measured                   | True               |
-| Temperature               | The current temperature measured                              | True               |
-| Use Time                  | The accumulative number of seconds the device has been in use | False              |
+- **Carbon Dioxide**: The current carbon dioxide measured in ppm. Enabled by default.
+- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Use**: Filter usage time in hours. Enabled by default.
+- **Humidity**: The current humidity measured. Enabled by default.
+- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+- **Temperature**: The current temperature measured. Enabled by default.
+- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 #### Select entities
 
-| Select         | Description                                            |
-| -------------- | ------------------------------------------------------ |
-| LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
+- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
 
 #### Switch entities
 
-| Switch         | Description              |
-| -------------- | ------------------------ |
-| Buzzer         | Turn on/off `buzzer`     |
-| Child Lock     | Turn on/off `child lock` |
-| LED            | Turn on/off `led`        |
-| Auxiliary Heat | Turn on/off `heater`     |
+- **Buzzer**: Turn on/off `buzzer`.
+- **Child Lock**: Turn on/off `child lock`.
+- **LED**: Turn on/off `led`.
+- **Auxiliary Heat**: Turn on/off `heater`.
 
 ### Air Fresh T2017
 
-Supported model: `dmaker.airfresh.t2017`.
+Supported model ID: `dmaker.airfresh.t2017`.
 
 - Power (on, off)
 - Operation modes (Auto, Sleep, Favorite)
@@ -897,41 +817,33 @@ Supported model: `dmaker.airfresh.t2017`.
 
 #### Switch entities
 
-| Switch         | Description              |
-| -------------- | ------------------------ |
-| Buzzer         | Turn on/off `buzzer`     |
-| Child Lock     | Turn on/off `child lock` |
-| Display        | Turn on/off `display`    |
-| Auxiliary Heat | Turn on/off `heater`     |
+- **Buzzer**: Turn on/off `buzzer`.
+- **Child Lock**: Turn on/off `child lock`.
+- **Display**: Turn on/off `display`.
+- **Auxiliary Heat**: Turn on/off `heater`.
 
 ### Air Humidifier
 
-Supported model: `zhimi.humidifier.v1`.
+Supported model ID: `zhimi.humidifier.v1`.
 
 - On, Off
 - Operation modes (Silent, Medium, High, Strong)
 - Target humidity (30, 40, 50, 60, 70, 80)
 - Attributes (humidifier platform)
 
-| Attribute         | Description                               |
-| ----------------- | ----------------------------------------- |
-| `available_modes` | A list with the operation modes available |
-| `humidity`        | The current target humidity               |
-| `max_humidity`    | The maximum settable target humidity      |
-| `min_humidity`    | The minimum settable target humidity      |
-| `mode`            | The current operation mode selected       |
+- **`available_modes`**: A list with the operation modes available.
+- **`humidity`**: The current target humidity.
+- **`max_humidity`**: The maximum settable target humidity.
+- **`min_humidity`**: The minimum settable target humidity.
+- **`mode`**: The current operation mode selected.
 
 #### Binary sensor entities
 
-| Binary sensor | Description                                          |
-| ------------- | ---------------------------------------------------- |
-| Water Tank    | Indicates whether the water tank is connected or not |
+- **Water Tank**: Indicates whether the water tank is connected or not.
 
 #### Select entities
 
-| Select         | Description                                            |
-| -------------- | ------------------------------------------------------ |
-| LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
+- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
 
 #### Sensor entities
 
@@ -942,39 +854,31 @@ Supported model: `zhimi.humidifier.v1`.
 
 #### Switch entities
 
-| Switch     | Description                |
-| ---------- | -------------------------- |
-| Buzzer     | Turn on/off the buzzer     |
-| Child Lock | Turn on/off the child lock |
+- **Buzzer**: Turn on/off the buzzer.
+- **Child Lock**: Turn on/off the child lock.
 
 ### Air Humidifier CA
 
-Supported model: `zhimi.humidifier.ca1`.
+Supported model ID: `zhimi.humidifier.ca1`.
 
 - On, Off
 - Operation modes (Silent, Medium, High, Auto)
 - Target humidity (30, 40, 50, 60, 70, 80)
 - Attributes (humidifier platform)
 
-| Attribute         | Description                               |
-| ----------------- | ----------------------------------------- |
-| `available_modes` | A list with the operation modes available |
-| `humidity`        | The current target humidity               |
-| `max_humidity`    | The maximum settable target humidity      |
-| `min_humidity`    | The minimum settable target humidity      |
-| `mode`            | The current operation mode selected       |
+- **`available_modes`**: A list with the operation modes available.
+- **`humidity`**: The current target humidity.
+- **`max_humidity`**: The maximum settable target humidity.
+- **`min_humidity`**: The minimum settable target humidity.
+- **`mode`**: The current operation mode selected.
 
 #### Binary sensor entities
 
-| Binary sensor | Description                                          |
-| ------------- | ---------------------------------------------------- |
-| Water Tank    | Indicates whether the water tank is connected or not |
+- **Water Tank**: Indicates whether the water tank is connected or not.
 
 #### Select entities
 
-| Select         | Description                                            |
-| -------------- | ------------------------------------------------------ |
-| LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
+- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
 
 #### Sensor entities
 
@@ -985,46 +889,36 @@ Supported model: `zhimi.humidifier.ca1`.
 
 #### Switch entities
 
-| Switch     | Description                |
-| ---------- | -------------------------- |
-| Buzzer     | Turn on/off the buzzer     |
-| Child Lock | Turn on/off the child lock |
-| Dry Mode   | Turn on/off the dry mode   |
+- **Buzzer**: Turn on/off the buzzer.
+- **Child Lock**: Turn on/off the child lock.
+- **Dry Mode**: Turn on/off the dry mode.
 
 ### Air Humidifier CA
 
-Supported model: `zhimi.humidifier.ca4`.
+Supported model ID: `zhimi.humidifier.ca4`.
 
 - On, Off
 - Operation modes (Auto, Low, Medium, High)
 - Target humidity (30 - 80)
 - Attributes (humidifier platform)
 
-| Attribute         | Description                               |
-| ----------------- | ----------------------------------------- |
-| `available_modes` | A list with the operation modes available |
-| `humidity`        | The current target humidity               |
-| `max_humidity`    | The maximum settable target humidity      |
-| `min_humidity`    | The minimum settable target humidity      |
-| `mode`            | The current operation mode selected       |
+- **`available_modes`**: A list with the operation modes available.
+- **`humidity`**: The current target humidity.
+- **`max_humidity`**: The maximum settable target humidity.
+- **`min_humidity`**: The minimum settable target humidity.
+- **`mode`**: The current operation mode selected.
 
 #### Binary sensor entities
 
-| Binary sensor | Description                                          |
-| ------------- | ---------------------------------------------------- |
-| Water Tank    | Indicates whether the water tank is connected or not |
+- **Water Tank**: Indicates whether the water tank is connected or not.
 
 #### Number entities
 
-| Number      | Description         |
-| ----------- | ------------------- |
-| Motor Speed | Set the motor speed |
+- **Motor Speed**: Set the motor speed.
 
 #### Select entities
 
-| Select         | Description                                            |
-| -------------- | ------------------------------------------------------ |
-| LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
+- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
 
 #### Sensor entities
 
@@ -1036,12 +930,10 @@ Supported model: `zhimi.humidifier.ca4`.
 
 #### Switch entities
 
-| Switch     | Description                |
-| ---------- | -------------------------- |
-| Buzzer     | Turn on/off the buzzer     |
-| Child Lock | Turn on/off the child lock |
-| Clean Mode | Turn on/off the clean mode |
-| Dry Mode   | Turn on/off the dry mode   |
+- **Buzzer**: Turn on/off the buzzer.
+- **Child Lock**: Turn on/off the child lock.
+- **Clean Mode**: Turn on/off the clean mode.
+- **Dry Mode**: Turn on/off the dry mode.
 
 {% note %}
 Clean mode and Motor speed can only be set when the device is turned on.
@@ -1049,32 +941,26 @@ Clean mode and Motor speed can only be set when the device is turned on.
 
 ### Air Humidifier CB
 
-Supported model: `zhimi.humidifier.cb1`.
+Supported model ID: `zhimi.humidifier.cb1`.
 
 - On, Off
 - Operation modes (Silent, Medium, High, Auto)
 - Target humidity (30, 40, 50, 60, 70, 80)
 - Attributes (humidifier platform)
 
-| Attribute         | Description                               |
-| ----------------- | ----------------------------------------- |
-| `available_modes` | A list with the operation modes available |
-| `humidity`        | The current target humidity               |
-| `max_humidity`    | The maximum settable target humidity      |
-| `min_humidity`    | The minimum settable target humidity      |
-| `mode`            | The current operation mode selected       |
+- **`available_modes`**: A list with the operation modes available.
+- **`humidity`**: The current target humidity.
+- **`max_humidity`**: The maximum settable target humidity.
+- **`min_humidity`**: The minimum settable target humidity.
+- **`mode`**: The current operation mode selected.
 
 #### Binary sensor entities
 
-| Binary sensor | Description                                          |
-| ------------- | ---------------------------------------------------- |
-| Water Tank    | Indicates whether the water tank is connected or not |
+- **Water Tank**: Indicates whether the water tank is connected or not.
 
 #### Select entities
 
-| Select         | Description                                            |
-| -------------- | ------------------------------------------------------ |
-| LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
+- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
 
 #### Sensor entities
 
@@ -1085,15 +971,13 @@ Supported model: `zhimi.humidifier.cb1`.
 
 #### Switch entities
 
-| Switch     | Description                |
-| ---------- | -------------------------- |
-| Buzzer     | Turn on/off the buzzer     |
-| Child Lock | Turn on/off the child lock |
-| Dry Mode   | Turn on/off the dry mode   |
+- **Buzzer**: Turn on/off the buzzer.
+- **Child Lock**: Turn on/off the child lock.
+- **Dry Mode**: Turn on/off the dry mode.
 
 ### Air Humidifier JSQ, JSQ1, and MJJSQ
 
-Supported models:
+Supported model IDs:
 
 - `deerma.humidifier.jsq`
 - `deerma.humidifier.jsq1`
@@ -1106,20 +990,16 @@ Supported features:
 - Target humidity (30, 40, 50, 60, 70, 80)
 - Attributes (humidifier platform)
 
-| Attribute         | Description                               |
-| ----------------- | ----------------------------------------- |
-| `available_modes` | A list with the operation modes available |
-| `humidity`        | The current target humidity               |
-| `max_humidity`    | The maximum settable target humidity      |
-| `min_humidity`    | The minimum settable target humidity      |
-| `mode`            | The current operation mode selected       |
+- **`available_modes`**: A list with the operation modes available.
+- **`humidity`**: The current target humidity.
+- **`max_humidity`**: The maximum settable target humidity.
+- **`min_humidity`**: The minimum settable target humidity.
+- **`mode`**: The current operation mode selected.
 
 #### Binary sensor entities
 
-| Binary sensor    | Description                                          |
-| ---------------- | ---------------------------------------------------- |
-| Water Tank       | Indicates whether the water tank is connected or not |
-| Water Tank Empty | Indicates whether the water tank is empty or not     |
+- **Water Tank**: Indicates whether the water tank is connected or not.
+- **Water Tank Empty**: Indicates whether the water tank is empty or not.
 
 #### Sensor entities
 
@@ -1129,14 +1009,12 @@ Supported features:
 
 #### Switch entities
 
-| Switch | Description            |
-| ------ | ---------------------- |
-| Buzzer | Turn on/off the buzzer |
-| LED    | Turn on/off the LED    |
+- **Buzzer**: Turn on/off the buzzer.
+- **LED**: Turn on/off the LED.
 
 ### Standing Fan 1X
 
-Supported model: `dmaker.fan.p5`.
+Supported model ID: `dmaker.fan.p5`.
 
 - Power (on, off)
 - Operation modes (Normal, Nature)
@@ -1144,22 +1022,18 @@ Supported model: `dmaker.fan.p5`.
 
 #### Number entities
 
-| Number              | Description                            |
-| ------------------- | -------------------------------------- |
-| Delay Off Countdown | Set the delay off countdown in minutes |
-| Oscillation Angle   | Set the oscillation angle in degrees   |
+- **Delay Off Countdown**: Set the delay off countdown in minutes.
+- **Oscillation Angle**: Set the oscillation angle in degrees.
 
 #### Switch entities
 
-| Switch     | Description              |
-| ---------- | ------------------------ |
-| Buzzer     | Turn on/off `buzzer`     |
-| Child Lock | Turn on/off `child lock` |
-| LED        | Turn on/off `led`        |
+- **Buzzer**: Turn on/off `buzzer`.
+- **Child Lock**: Turn on/off `child lock`.
+- **LED**: Turn on/off `led`.
 
 ### Standing Fan
 
-Supported models:
+Supported model IDs:
 
 - `zhimi.fan.za1`
 - `zhimi.fan.za3`
@@ -1174,27 +1048,21 @@ Supported features:
 
 #### Number entities
 
-| Number              | Description                            |
-| ------------------- | -------------------------------------- |
-| Delay Off Countdown | Set the delay off countdown in minutes |
-| Oscillation Angle   | Set the oscillation angle in degrees   |
+- **Delay Off Countdown**: Set the delay off countdown in minutes.
+- **Oscillation Angle**: Set the oscillation angle in degrees.
 
 #### Select entities
 
-| Select         | Description                                            |
-| -------------- | ------------------------------------------------------ |
-| LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
+- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
 
 #### Switch entities
 
-| Switch     | Description              |
-| ---------- | ------------------------ |
-| Buzzer     | Turn on/off `buzzer`     |
-| Child Lock | Turn on/off `child lock` |
+- **Buzzer**: Turn on/off `buzzer`.
+- **Child Lock**: Turn on/off `child lock`.
 
 ### DC Pedestal Fan
 
-Supported models:
+Supported model IDs:
 
 - `zhimi.fan.v2`
 - `zhimi.fan.v3`
@@ -1207,35 +1075,27 @@ Supported features:
 
 #### Number entities
 
-| Number              | Description                            |
-| ------------------- | -------------------------------------- |
-| Delay Off Countdown | Set the delay off countdown in minutes |
-| Oscillation Angle   | Set the oscillation angle in degrees   |
+- **Delay Off Countdown**: Set the delay off countdown in minutes.
+- **Oscillation Angle**: Set the oscillation angle in degrees.
 
 #### Select entities
 
-| Select         | Description                                            |
-| -------------- | ------------------------------------------------------ |
-| LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
+- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
 
 #### Sensor entities
 
-| Sensor      | Description                             |
-| ----------- | --------------------------------------- |
-| Battery     | The current battery level in percentage |
-| Humidity    | The current humidity measured           |
-| Temperature | The current temperature measured        |
+- **Battery**: The current battery level in percentage.
+- **Humidity**: The current humidity measured.
+- **Temperature**: The current temperature measured.
 
 #### Switch entities
 
-| Switch     | Description              |
-| ---------- | ------------------------ |
-| Buzzer     | Turn on/off `buzzer`     |
-| Child Lock | Turn on/off `child lock` |
+- **Buzzer**: Turn on/off `buzzer`.
+- **Child Lock**: Turn on/off `child lock`.
 
 ### Standing Fan 1C
 
-Supported model: `dmaker.fan.1c`.
+Supported model ID: `dmaker.fan.1c`.
 
 - Power (on, off)
 - Operation modes (Normal, Nature)
@@ -1243,21 +1103,17 @@ Supported model: `dmaker.fan.1c`.
 
 #### Number entities
 
-| Number              | Description                            |
-| ------------------- | -------------------------------------- |
-| Delay Off Countdown | Set the delay off countdown in minutes |
+- **Delay Off Countdown**: Set the delay off countdown in minutes.
 
 #### Switch entities
 
-| Switch     | Description                |
-| ---------- | -------------------------- |
-| Buzzer     | Turn on/off the Buzzer     |
-| Child Lock | Turn on/off the Child Lock |
-| LED        | Turn on/off the LED        |
+- **Buzzer**: Turn on/off the Buzzer.
+- **Child Lock**: Turn on/off the Child Lock.
+- **LED**: Turn on/off the LED.
 
 ### Tower Fan/Standing Fan 2/Standing Fan 2 Pro/Standing Fan Pro
 
-Supported models:
+Supported model IDs:
 
 - `dmaker.fan.p9`
 - `dmaker.fan.p10`
@@ -1273,22 +1129,18 @@ Supported features:
 
 #### Number entities
 
-| Number              | Description                            |
-| ------------------- | -------------------------------------- |
-| Delay Off Countdown | Set the delay off countdown in minutes |
-| Oscillation Angle   | Set the oscillation angle in degrees   |
+- **Delay Off Countdown**: Set the delay off countdown in minutes.
+- **Oscillation Angle**: Set the oscillation angle in degrees.
 
 #### Switch entities
 
-| Switch     | Description                |
-| ---------- | -------------------------- |
-| Buzzer     | Turn on/off the Buzzer     |
-| Child Lock | Turn on/off the Child Lock |
-| LED        | Turn on/off the LED        |
+- **Buzzer**: Turn on/off the Buzzer.
+- **Child Lock**: Turn on/off the Child Lock.
+- **LED**: Turn on/off the LED.
 
 ### Standing Fan 3
 
-Supported model: `zhimi.fan.za5`.
+Supported model ID: `zhimi.fan.za5`.
 
 - Power (on, off)
 - Operation modes (Normal, Nature)
@@ -1296,32 +1148,24 @@ Supported model: `zhimi.fan.za5`.
 
 #### Binary sensor entities
 
-| Binary sensor | Description                                            |
-| ------------- | ------------------------------------------------------ |
-| Power Supply  | Indicates whether the power supply is connected or not |
+- **Power Supply**: Indicates whether the power supply is connected or not.
 
 #### Number entities
 
-| Number              | Description                            |
-| ------------------- | -------------------------------------- |
-| Delay Off Countdown | Set the delay off countdown in minutes |
-| LED Brightness      | Set the LED brightness                 |
-| Oscillation Angle   | Set the oscillation angle in degrees   |
+- **Delay Off Countdown**: Set the delay off countdown in minutes.
+- **LED Brightness**: Set the LED brightness.
+- **Oscillation Angle**: Set the oscillation angle in degrees.
 
 #### Sensor entities
 
-| Sensor      | Description                      |
-| ----------- | -------------------------------- |
-| Humidity    | The current humidity measured    |
-| Temperature | The current temperature measured |
+- **Humidity**: The current humidity measured.
+- **Temperature**: The current temperature measured.
 
 #### Switch entities
 
-| Switch     | Description                |
-| ---------- | -------------------------- |
-| Buzzer     | Turn on/off the Buzzer     |
-| Child Lock | Turn on/off the Child Lock |
-| Ionizer    | Turn on/off the Ionizer    |
+- **Buzzer**: Turn on/off the Buzzer.
+- **Child Lock**: Turn on/off the Child Lock.
+- **Ionizer**: Turn on/off the Ionizer.
 
 ### Actions
 
@@ -1543,12 +1387,10 @@ In addition to all of the actions provided by the [vacuum](/integrations/vacuum/
 
 ### Buttons
 
-| Button             | Description                                                         |
-| ------------------ | ------------------------------------------------------------------- |
-| Reset Main Brush   | Resets main brush remaining lifespan                                |
-| Reset Side Brush   | Resets side brush remaining lifespan                                |
-| Reset Filter       | Resets filter remaining lifespan                                    |
-| Reset Sensor Dirty | Resets sensor dirtiness (remaining time before needs to be cleaned) |
+- **Reset Main Brush**: Resets main brush remaining lifespan.
+- **Reset Side Brush**: Resets side brush remaining lifespan.
+- **Reset Filter**: Resets filter remaining lifespan.
+- **Reset Sensor Dirty**: Resets sensor dirtiness (remaining time before needs to be cleaned).
 
 ### Sensors
 
@@ -1698,7 +1540,7 @@ The Xiaomi Home light platform allows you to control the state of your Xiaomi Ph
 
 #### Philips LED Ball Lamp, Philips Zhirui LED Candle Lamp and Philips Zhirui Downlight
 
-Supported models:
+Supported model IDs:
 
 - `philips.light.bulb`
 - `philips.light.candle`
@@ -1719,7 +1561,7 @@ Supported features:
 
 #### Philips LED Ceiling Lamp
 
-Supported models:
+Supported model IDs:
 
 - `philips.light.ceiling`
 - `philips.light.zyceiling`
@@ -1741,7 +1583,7 @@ Supported features:
 
 #### Philips Eyecare Smart Lamp 2
 
-Supported models: `philips.light.sread1`
+Supported model ID: `philips.light.sread1`
 
 - Eyecare light (on, off)
 - Ambient light (on, off)
@@ -1761,7 +1603,7 @@ Supported models: `philips.light.sread1`
 
 #### Philips Zhirui Desk Lamp
 
-Supported models: `philips.light.mono1`
+Supported model ID: `philips.light.mono1`
 
 - Power (on, off)
 - Brightness
@@ -1774,7 +1616,7 @@ Supported models: `philips.light.mono1`
 
 #### Philips Moonlight Bedside Lamp
 
-Supported models: `philips.light.moonlight`
+Supported model ID: `philips.light.moonlight`
 
 - Power (on, off)
 - Brightness
@@ -1802,7 +1644,7 @@ The Xiaomi Home switch platform allows you to control the state of your Xiaomi S
 
 #### Xiaomi Smart WiFi Socket
 
-Supported models:
+Supported model IDs:
 
 - `chuangmi.plug.m1`
 - `chuangmi.plug.m3`
@@ -1818,7 +1660,7 @@ Supported features:
 
 #### Xiaomi Chuangmi Plug V1
 
-Supported models:
+Supported model IDs:
 
 - `chuangmi.plug.v1`
 - `chuangmi.plug.v3`
@@ -1833,7 +1675,7 @@ Supported features:
 
 #### Xiaomi Smart Power Strip
 
-Supported models:
+Supported model IDs:
 
 - `qmi.powerstrip.v1`
 - `zimi.powerstrip.v2`
@@ -1853,7 +1695,7 @@ Supported features:
 
 #### Xiaomi Air Conditioning Companion V3
 
-Supported models: `lumi.acpartner.v3` (the socket of the `acpartner.v1` and `v2` isn't switchable!)
+Supported model ID: `lumi.acpartner.v3` (the socket of the `acpartner.v1` and `v2` isn't switchable!)
 
 - Power (on, off)
 - Attributes
