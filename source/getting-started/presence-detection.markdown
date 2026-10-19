@@ -38,14 +38,17 @@ There are different ways of setting up zone presence detection. One way is to ru
 
 1. Open the Home Assistant Companion app on your phone and log in to your Home Assistant instance.
 2. When the app asks for location permission, select **Share my location**.
-   - Then, in the location prompt of your phone, allow location access all the time. On Android, select **Allow all the time**. On iPhone, select **Allow While Using the App** first, and then **Allow always** when your phone asks again.
+   - Then, allow location access all the time, so that Home Assistant also gets your location when the app isn't open:
+     - On iPhone, select **Allow While Using the App** first, and then **Allow always** when your phone asks again.
+     - On Android 10 and earlier, select **Allow all the time**.
+     - On Android 11 and later, the first prompt doesn't offer **Allow all the time**. Allow access while using the app. Then, in the app's location permission in your phone's settings, select **Allow all the time**.
 3. Go to {% my integrations title="**Settings** > **Devices & services**" %} and look for the new integration that was added: **Mobile App**.
    - Select the **Mobile App** integration, and then select your phone.
    - Result: The device page opens. You see your phone name and its entities.
 4. To view the location of your phone on the map, open the **Map** dashboard.
    - You now see a marker on that map with your picture or your initials.
    - It floats above the current location of your phone. Under **People**, you are listed as **Me**.
-   - To view the details, select that marker.
+   - To view the details, select that marker, then select **More info**.
      - Open the **Attributes** list to see the phone's **Latitude**, **Longitude**, and the **Source** of information.
      - The source is the `device_tracker` entity for that device, for example `device_tracker.pixel_7_pro`.
 5. To view the entity details and the history, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and in the search field, enter `devi` and select your `device_tracker` entity from the list.
