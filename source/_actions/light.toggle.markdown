@@ -57,7 +57,7 @@ RGBWW-color:
   description: Under **Additional options**. The color in RGBWW format, with red, green, blue, cold white, and warm white values from 0 to 255.
   required: false
 Color name:
-  description: Under **Additional options**. A color by name, for example `red` or `turquoise`.
+  description: Under **Additional options**. A color by name, for example **Red** or **Turquoise**.
   required: false
 Hue/Sat color:
   description: Under **Additional options**. The color as hue (0 to 360) and saturation (0 to 100).
