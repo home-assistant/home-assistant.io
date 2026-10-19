@@ -29,7 +29,7 @@ If your device supports Improv via BLE, Home Assistant shows it under **Discover
 - The [Bluetooth](/integrations/bluetooth) integration must be set up and working.
 - The Wi-Fi device supports Improv via BLE and isn't connected to a Wi-Fi network yet.
 - The Wi-Fi device is within Bluetooth range of Home Assistant, or of a [Bluetooth proxy](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) that supports active connections.
-  - Home Assistant needs a [connection](/integrations/bluetooth/#connection) to the Wi-Fi device to send it your Wi-Fi details. An ESPHome Bluetooth proxy supports this, if active connections are turned on in its configuration. Shelly and SMLIGHT proxies only listen to Bluetooth devices, so they can't be used.
+  - Home Assistant needs a [connection](/integrations/bluetooth/#connection) to the Wi-Fi device to send it your Wi-Fi details. An ESPHome Bluetooth proxy supports this. On ESP32 devices, active connections are turned on by default. Shelly and SMLIGHT proxies only listen to Bluetooth devices, so they can't be used.
 - Have the name (SSID) and password of your Wi-Fi network ready.
   - Most devices with an ESP32 chip only connect to 2.4 GHz Wi-Fi networks. Most routers provide a 2.4 GHz network by default. Often, it has the same name as the 5 GHz network. Usually, you don't need to change anything.
 
