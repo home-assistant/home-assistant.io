@@ -143,40 +143,40 @@ Home Assistant supports these subdevices:
   - Features: Temperature, humidity, and pressure sensors
 - **Wall switch single (QBKG11LM)**
   - Zigbee ID: `lumi.ctrl_ln1`
-  - Features: On/off control and load power sensor
+  - Features: On/off and toggle control, and a load power sensor
 - **Wall switch single (QBKG11LM)**
   - Zigbee ID: `lumi.ctrl_ln1.aq1`
-  - Features: On/off control and load power sensor
+  - Features: On/off and toggle control, and a load power sensor
 - **Wall switch no neutral (QBKG04LM)**
   - Zigbee ID: `lumi.ctrl_neutral1.v1`
-  - Features: On/off control
+  - Features: On/off and toggle control
 - **Wall switch double (QBKG12LM)**
   - Zigbee ID: `lumi.ctrl_ln2`
-  - Features: On/off control and load power sensor
+  - Features: On/off and toggle control, and a load power sensor
 - **Wall switch double (QBKG12LM)**
   - Zigbee ID: `lumi.ctrl_ln2.aq1`
-  - Features: On/off control and load power sensor
+  - Features: On/off and toggle control, and a load power sensor
 - **Wall switch double no neutral (QBKG03LM)**
   - Zigbee ID: `lumi.ctrl_neutral2`
-  - Features: On/off control
+  - Features: On/off and toggle control
 - **D1 wall switch triple (QBKG26LM)**
   - Zigbee ID: `lumi.switch.n3acn3`
-  - Features: On/off control and load power sensor
+  - Features: On/off and toggle control, and a load power sensor
 - **D1 wall switch triple no neutral (QBKG25LM)**
   - Zigbee ID: `lumi.switch.l3acn3`
-  - Features: On/off control and load power sensor
+  - Features: On/off and toggle control, and a load power sensor
 - **Wall outlet (QBCZ11LM)**
   - Zigbee ID: `lumi.ctrl_86plug.v1`
-  - Features: On/off control
+  - Features: On/off and toggle control
 - **Wall outlet (QBCZ11LM)**
   - Zigbee ID: `lumi.ctrl_86plug.aq1`
-  - Features: On/off control and load power sensor
+  - Features: On/off and toggle control, and a load power sensor
 - **Plug (ZNCZ02LM)**
   - Zigbee ID: `lumi.plug`
-  - Features: On/off control and load power sensor
+  - Features: On/off and toggle control, and a load power sensor
 - **Relay (LLKZMK11LM)**
   - Zigbee ID: `lumi.relay.c2acn01`
-  - Features: On/off control and load power sensor
+  - Features: On/off and toggle control, and a load power sensor
 - **Smart bulb E27 (ZNLDP12LM)**
   - Zigbee ID: `lumi.light.aqcn02`
   - Features: On/off, brightness, and color temperature control
