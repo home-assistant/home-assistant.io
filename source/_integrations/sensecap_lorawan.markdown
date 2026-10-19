@@ -1,9 +1,8 @@
 ---
 title: SenseCAP
 description: Monitor SenseCAP sensors over LoRaWAN.
-ha_category:
-  - Environment
-  - Sensor
+ha_categories:
+  - sensors
 ha_release: 2026.11
 ha_iot_class: Local Push
 ha_quality_scale: bronze
