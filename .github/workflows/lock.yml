@@ -6,13 +6,13 @@ on:
 
 jobs:
   lock:
+    if: ${{ github.repository_owner == 'home-assistant' }}
     permissions:
       issues: write
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: dessant/lock-threads@v5.0.1
-        if: ${{ github.repository_owner == 'home-assistant' }}
+      - uses: dessant/lock-threads@89ae32b08ed1a541efecbab17912962a5e38981c # v6.0.2
         with:
           github-token: ${{ github.token }}
           issue-inactive-days: "30"

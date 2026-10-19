@@ -1,17 +1,11 @@
 ---
 title: Telldus Live
 description: Instructions on how to integrate Telldus Live into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Cover
-  - Hub
-  - Light
-  - Sensor
-  - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: 0.11
 ha_config_flow: true
 ha_iot_class: Cloud Polling
-ha_quality_scale: silver
 ha_codeowners:
   - '@fredrike'
 ha_domain: tellduslive
@@ -21,13 +15,13 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file
 ---
 
-The `tellduslive` {% term integration %} let you connect to the [Telldus Live](https://live.telldus.com) API. It's cloud platform that connects to your Tellstick Net or Tellstick ZNet connected gear at home.
+The **Telldus Live** {% term integration %} let you connect to the [Telldus Live](https://live.telldus.com) API. It's cloud platform that connects to your Tellstick Net or Tellstick ZNet connected gear at home.
 
 {% important %}
 You need a [Telldus Premium](https://telldus.com/en/telldus-premium/) subscription to access the Cloud API (https://telldus.com/en/important-announcement-english/).
@@ -58,3 +52,9 @@ scan_interval:
 {% endconfiguration %}
 
 The integration will offer configuration through the Home Assistant user interface where it will let you associate it with your Telldus Live account.
+
+{% note %}
+
+If you are receiving the error message: "The path '/tellduslive/authorize' was not found", you have to switch to a web browser that allows HTTP connections. Firefox is known to work fine. Chrome is known to cause issues.
+
+{% endnote %}

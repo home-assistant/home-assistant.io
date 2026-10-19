@@ -1,8 +1,6 @@
 ---
 title: Time
 description: Instructions on how to set up time entities within Home Assistant.
-ha_category:
-  - Time
 ha_release: '2022.12'
 ha_domain: time
 ha_quality_scale: internal
@@ -11,23 +9,19 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The Time integration is built for the controlling and monitoring of times on devices.
+The **Time** {% term integration %} is built for controlling and monitoring times on devices.
 
 {% include integrations/building_block_integration.md %}
 
 If you are looking for a way to create a similar entity, please take a look at the [Date/Time helper](/integrations/input_datetime).
 
-## Actions
+## Time states
 
-### Time actions
+The {% term state %} of a time {% term entity %} is a time, stored in the format HH:MM:SS, for example, `07:30:00`. If the time includes fractions of a second, they follow the seconds, for example, `07:30:00.500000`. The Home Assistant interface shows the time in your local time format.
 
-Available actions: `time.set_value`
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
-### Action `time.set_value`
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
-Set a new value for the time entity.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`'s of times to control.
-| `time` | no | New time value to set.
+{% include integrations/actions.md %}

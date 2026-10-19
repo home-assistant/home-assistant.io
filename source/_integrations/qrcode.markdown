@@ -1,8 +1,8 @@
 ---
 title: QR Code
 description: Instructions on how to integrate QR Code Recognition into Home Assistant.
-ha_category:
-  - Image processing
+ha_categories:
+  - ai_voice.image_recognition
 ha_iot_class: Calculated
 ha_release: 0.87
 ha_domain: qrcode
@@ -10,9 +10,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `qrcode` image processing {% term integration %} enables QR code recognition from cameras.
+The **QR Code** {% term integration %} enables QR code recognition from cameras.
 
 To get this running, please install `zbar-tools` (Ubuntu 18.04)
 
@@ -52,11 +53,11 @@ An automation using this integration could look like this:
 ```yaml
 automation:
   - alias: "Catch QR code and arm the alarm system"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: image_processing.qr_front_door
         to: ARM_QR_CODE_VALUE
-    action:
+    actions:
       - action: alarm_control_panel.alarm_arm_away
         target:
           entity_id: alarm_control_panel.home_alarm

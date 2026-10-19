@@ -9,53 +9,57 @@
 # - aliases: A list of aliases for the term (optional)
 #
 - term: Action
-  definition: |-
-    Actions are used in several places in Home Assistant. As part of a script or
-    automation, actions define what is going to happen once a trigger is
-    activated. In scripts, an action is called *sequence*. An action is a **software
-    function that interacts with targets to make something happen**. Actions can use other actions
-    and/or scenes to interact with entities and cause these entities to do
-    something. Actions can also include conditions and a delay. An action can
-    perform multiple actions at the same time. For example, if your presence is
-    detected in a room, an action may perform one action to turn on a light and
-    perform another action to start playing music after a delay. Actions are also
-    used on the dashboard, for example as tap or hold action on a UI element.
-    When triggered, the action performs another action. Home Assistant provides a series of predefined actions,
-    such as `homeassistant.turn_on`, `homeassistant.toggle`, or
-    `homeassistant.reload`.
+  definition: >-
+    An action makes Home Assistant do something, for example, turn on a light,
+    send a notification, or activate a scene. Automations and scripts run a
+    list of actions. A dashboard card can also perform an action when you tap
+    it. This is one of several [dashboard actions](/dashboards/actions/), next
+    to others like opening another dashboard. Events are different: an event
+    tells you that something happened.
+    For more information, refer to [events and
+    actions](/docs/configuration/events/#events-and-actions).
   aliases:
     - actions
   link: /docs/automation/action/
-  excerpt: >
-    Actions are used in several places in Home Assistant. As part of a script or
-    automation, actions define what is going to happen once a trigger is
-    activated. In scripts, an action is called *sequence*.
-- term: Add-on
+  excerpt: >-
+    An action makes Home Assistant do something, for example, turn on a light,
+    send a notification, or activate a scene. Automations and scripts run a
+    list of actions.
+
+- term: Actor
+  definition: |-
+    An entity that receives a control signal and performs an action in a system.
+  aliases:
+    - actors
+- term: App
   definition: >-
-    Add-ons are additional standalone third-party software packages that can be
-    installed on Home Assistant OS. Most of these, add-on provided, applications
+    Apps, formerly known as add-ons, are additional standalone third-party software packages that can be
+    installed on Home Assistant OS. Most of these applications
     can be integrated into Home Assistant using integrations. Examples of
-    add-ons are: an MQTT broker, database service or a file server.
+    apps are: an MQTT broker, database service, or a file server.
   excerpt: >
-    Add-ons are additional standalone third-party software packages that can be
+    Apps are additional standalone third-party software packages that can be
     installed on Home Assistant OS.
+  aliases:
+    - apps
+  link: /getting-started/concepts-terminology/#apps
 - term: Area
   definition: >-
-    An area in Home Assistant is a logical grouping of devices and entities that
-    are meant to match areas (or rooms) in the physical world: your home. For
-    example, the `living room` area groups devices and entities in your living
-    room. Areas allow you to target actions at an entire group of devices.
-    For example, turning off all the lights in the living room. Locations within
-    your home such as living room, dance floor, etc. Areas can be assigned to
-    floors. Areas can also be used for automatically generated cards, such as
-    the [Area card](/dashboards/area/).
+    An area in Home Assistant is a [logical grouping](/docs/organizing/) of
+    devices and entities that represents a room or space in your home, such as
+    the living room, kitchen, or garage. Areas let you target a whole group of devices at
+    once, for example, turning off all the lights in the living room. They also
+    give voice assistants the context to understand commands
+    like "turn on the kitchen lights". Areas can be assigned to floors and used
+    in automations, scripts, and dashboard cards like the
+    [Area card](/dashboards/area/).
   excerpt: >-
-    An area in Home Assistant is a logical grouping of devices and entities that
-    are meant to match areas (or rooms) in the physical world: your home. For
-    example, the `living room` area groups devices and entities in your living
-    room.
+    An area in Home Assistant is a [logical grouping](/docs/organizing/) of
+    devices and entities that represents a room or space in your home, such as
+    the living room, kitchen, or garage.
   aliases:
     - areas
+  link: /docs/organizing/areas/
 - term: Automation
   definition: >-
     Automations connect one or more triggers to one or more actions in a 'when
@@ -74,39 +78,47 @@
   definition: >-
     Home Assistant has built-in functionality to create files containing a copy
     of your configuration. This can be used to restore your Home Assistant as
-    well as migrate to a new system. The backup feature is available on some
-    installation types.
-  link: /integrations/backup/
-  excerpt: >-
-    Home Assistant has built-in functionality to create files containing a copy
-    of your configurations. This is available on certain installation types.
+    well as migrate to a new system. The backup feature is available for all
+    [installation types](/installation/#about-installation-types).
+  link: /common-tasks/general/#backups
   aliases:
     - backups
 - term: Binary sensor
   definition: >-
-    A binary sensor returns information about things that only have two states -
-    such as on or off.
+    A binary sensor is an entity that reports one of two mutually exclusive states, on or off. The device class determines how those states are labeled in the UI. For example, open/closed for a door or detected/clear for motion.
   link: /integrations/binary_sensor
+  aliases:
+    - binary_sensor
+    - binary_sensors
 - term: Blueprint
   definition: >-
-    A blueprint is a script or automation configuration with certain parts
-    marked as configurable. This allows users to create multiple scripts or
-    automations based on the same blueprint, with each having its own
+    A blueprint is a [script](/getting-started/concepts-terminology/#scripts), [automation](/getting-started/concepts-terminology/#automation), or [template](/integrations/template/) entity configuration with certain parts
+    marked as configurable. This allows you to create multiple scripts,
+    automations, or template entities based on the same blueprint, with each having its own
     configuration-specific settings. Blueprints are shared by the community on
     the [blueprints
-    exchange](https://community.home-assistant.io/c/blueprints-exchange/53) in
+    exchange](https://community.home-assistant.io/c/53) in
     the forum.
   link: /docs/blueprint/
-  excerpt: >-
-    A blueprint is a script or automation configuration with certain parts
-    marked as configurable. This allows users to create multiple scripts or
-    automations based on the same blueprint, with each having its own
-    configuration-specific settings.
   aliases:
     - blueprints
+- term: Button
+  definition: >-
+    A button entity works like a physical push button: you press it to make something happen, such as restarting a device or triggering an automation. A button has no `on` or `off` state, but it remembers when it was last pressed. This lets you see when it was last used and set time-based conditions, such as only running an automation if the button wasn't pressed in the last minute.
+  link: /integrations/button
+  aliases:
+    - buttons
+- term: Calendar entity
+  definition: >-
+    A calendar entity represents a schedule of events coming from a local or external calendar source.
+    It can be used to trigger automations based on the start or end of an event, react to offsets (like 15 minutes before), or retrieve event details through services.
+  link: /integrations/calendar
+  aliases:
+    - calendar
+    - calendars
 - term: Category
   definition: >-
-    A category is an organization tool that allows grouping items in a table.
+    A category is an organization tool that allows [grouping](/docs/organizing/) items in a table.
     Like labels, categories allow grouping irrespective of the items' physical
     location. For example, on the automations page, you can create the
     categories “Notifications” or “NFC tags” to view your automations grouped or
@@ -114,6 +126,28 @@
     have different categories than the scene, scripts, or helpers settings page.
   aliases:
     - categories
+  link: /docs/organizing/categories/
+- term: Climate
+  definition: >-
+    The Climate entity allows you to control and monitor HVAC (heating,
+    ventilating, and air conditioning) devices and thermostats.
+  link: /integrations/climate
+  aliases:
+    - climates
+- term: Cloud-independent
+  definition: >-
+    Home Assistant is cloud-independent, meaning it does not need an internet
+    connection or a vendor cloud account to keep your smart home running.
+    Devices that talk over local protocols such as Zigbee, Z-Wave, Matter,
+    Thread, and ESPHome continue to work even when the internet is down or a
+    manufacturer shuts down its cloud service. Optional cloud features, such as
+    [Home Assistant Cloud](https://www.nabucasa.com), can be added on top, but
+    the core of your smart home stays on your own hardware.
+  excerpt: >-
+    Cloud-independent means Home Assistant does not need an internet
+    connection or a vendor cloud account to keep your smart home running.
+  aliases:
+    - cloud independent
 - term: Commissioning
   definition: >-
     In the context of Matter devices, *commissioning* is the process of adding a
@@ -138,9 +172,12 @@
     Better known as: Integrations. Integrations used to be known as components.
 - term: Condition
   definition: >-
-    Conditions are an optional part of an automation that will prevent an action
-    from firing if they are not met.
-  link: /docs/scripts/conditions/
+    Conditions check whether something is true at that moment, for example,
+    whether a door is closed. You can use them in automations and scripts. If a
+    condition is not met, the actions that come after it in the same sequence do
+    not run. At the top level of an automation or script, this stops the
+    automation or script.
+  link: /docs/automation/condition/
   aliases:
     - conditions
 - term: Configuration file
@@ -155,6 +192,13 @@
     Covers are devices such as blinds, garage doors, etc that can be opened and
     closed and optionally set to a specific position.
   link: /integrations/cover
+  aliases:
+    - covers
+- term: Custom integration
+  definition: >-
+    A custom integration is an integration that has been created by someone from the Home Assistant community and has been published for others to use at their own risk. Custom integrations are not supported by the Home Assistant project. They are not reviewed or tested by the Home Assistant development team and thus may negatively impact the stability of your Home Assistant instance. An example of a custom integration is the [Spook](https://spook.boo/) integration.
+  aliases:
+    - custom integrations
 - term: Customize
   definition: >-
     Customization allows you to overwrite the default parameters of your devices
@@ -181,6 +225,11 @@
   definition: >-
     Device trackers are used to track the presence, or location, of a device.
   link: /integrations/device_tracker
+- term: Diagnostics
+  definition: >-
+    The diagnostics integration provides a way to download diagnostic data from a device or integration for sharing in issue reports. Sharing diagnostics data when reporting an issue allows developers to diagnose and
+    fix your reported problem quicker.
+  link: /integrations/diagnostics
 - term: Discovery
   definition: >
     Discovery is the automatic setup of zeroconf/mDNS and uPnP devices after
@@ -207,19 +256,19 @@
     entities. An entity is usually part of a device or a service. Entities have
     states. **Example for entities as part of a device** A combined temperature
     and humidity sensor device provides two sensor entities. One for temperature
-    (e.g. `sensor.temperature` with state `21.0` and unit `°C`) and one for
-    humidity (e.g. `sensor.humidity` with state `65.4` and unit `%`). **Example
+    (such as `sensor.temperature` with state `21.0` and unit `°C`) and one for
+    humidity (such as `sensor.humidity` with state `65.4` and unit `%`). **Example
     for entities as part of a service** A weather service that provides 3
     entities: wind speed, air pressure, and ozon level. **Example of an entity
     used for control** A fan that is turned on when the temperature exceeds
     30&nbsp;°C. There are standardized types of entities for common integrations
     such as light, switch, camera, sensor, fan, or vacuum. Some entities are not
     part of a device or service. Examples of standalone entities are automation,
-    script, scene entities, and helper entities (e.g. input helpers). Most
+    script, scene entities, and helper entities (such as input helpers). Most
     properties of entities are related to the state. Entities have optional
     attributes such as friendly name, unit of measurement, and an icon or
     picture that can be displayed in the frontend.
-  link: /docs/configuration/state_object/
+  link: /docs/configuration/entities_domains/
   excerpt: >
     An entity represents a sensor, actor, or function in Home Assistant.
     Entities are used to monitor physical properties or to control other
@@ -228,13 +277,21 @@
     - entities
 - term: Event
   definition: >-
-    An event is when something happens.
+    Every time something happens in Home Assistant, an event is fired. Different types of events are fired when, for example, an entity's state changes, an action such as `light.turn_on` is performed, or Home Assistant starts. All entities produce state change events. Every time the state or the attributes of an entity change, a state change event is produced. Events can be used to trigger automations. For example, you can trigger an automation to turn on a speaker in a room when a light in that room turns on.
   link: /docs/configuration/events/
   aliases:
     - events
+- term: Event entity
+  definition: >-
+    An event entity represents a momentary occurrence without a lasting state,
+    for example, when you press a doorbell or a button on a remote control.
+    Instead of a state such as on or off, the event entity keeps track of when
+    the last event was detected and its event type, such as a single press or a
+    long press.
+  link: /integrations/event/
 - term: Floor
   definition: >-
-    A floor in Home Assistant is a logical grouping of areas that are meant to
+    A floor in Home Assistant is a [logical grouping](/docs/organizing/) of areas that are meant to
     match the physical floors in your home. Devices & entities are not assigned
     to floors but to areas. A floor has properties such as: Floor ID, name,
     aliases (for use in assistants), an icon, and a floor level. Some of these
@@ -243,13 +300,14 @@
     target for actions. For example, to turn off all the lights on the
     downstairs floor when you go to bed.
   excerpt: >-
-    A floor in Home Assistant is a logical grouping of areas that are meant to
+    A floor in Home Assistant is a [logical grouping](/docs/organizing/) of areas that are meant to
     match the physical floors in your home. Devices & entities are not assigned
     to floors but to areas. Floors can be used in automations and scripts as a
     target for actions. For example, to turn off all the lights on the
     downstairs floor when you go to bed.
   aliases:
     - floors
+  link: /docs/organizing/floors/
 - term: Frontend
   definition: >-
     The frontend is a necessary component for the UI, it is also where you can
@@ -261,10 +319,19 @@
   link: /integrations/group/
   aliases:
     - groups
+- term: Helper
+  definition: >-
+    A helper is a virtual entity you create inside Home Assistant. It is not backed by a physical device. Helpers store values, track state, or do calculations that your automations and dashboards need. Some helpers include toggles, number sliders, dropdown lists, text fields, date/time pickers, counters, timers, and schedules. Other helpers derive their value from other entities. For example, computing a minimum or maximum, tracking a trend, measuring utility consumption, or applying a filter. Depending on the type, you can create a helper in **Settings** > **Devices & services** > **Helpers** or with a YAML configuration. Helpers appear as regular entities and can be used in automations, conditions, dashboards, and templates.
+  excerpt: >-
+    A helper is a virtual entity you create inside Home Assistant. It is not backed by a physical device. Helpers store values, track state, or do calculations that your automations and dashboards need.
+  aliases:
+    - helpers
+  link: /docs/configuration/helpers/
 - term: HASS
   definition: >-
-    HASS or [hass](/docs/tools/hass/) is often used as an abbreviation for Home
-    Assistant. It is also the command-line tool.
+    HASS is an abbreviation for Home Assistant that was commonly used in the past.
+    This abbreviation is no longer actively used. It is recommended to use the full
+    name "Home Assistant" instead of abbreviations.
 - term: HassOS
   definition: >-
     Another name for Home Assistant Operating System
@@ -274,51 +341,50 @@
     Home Assistant Container is a standalone container-based installation of
     Home Assistant Core. Any [OCI](https://opencontainers.org/) compatible
     runtime can be used, but the documentation focus is on Docker.
-  link: /installation/#advanced-installation-methods
+  link: /installation/#about-installation-types
 - term: Home Assistant Core
   definition: >-
     Home Assistant Core is the Python program at the heart of Home Assistant. It
-    is part of all of the four installation types and can be run on various
-    operating systems. It can be installed standalone (without Home Assistant
-    Supervisor), using a Virtual Environment (typically referred to as Home
-    Assistant Core installation method) or as a container using Docker
-    (typically referred to as Home Assistant Container installation method).
-  link: /installation/#advanced-installation-methods
-  excerpt: >
-    Home Assistant Core is the heart of Home Assistant itself. It is a Python
-    program that powers every installation type, but can be installed
-    standalone.
+    is part of all installation types. It can be installed standalone (without Home Assistant
+    Supervisor) as a container using Docker (this is typically referred to as the Home Assistant
+    Container installation type). For development, Core can also be run using a Virtual
+    Environment (previously referred as the Home Assistant Core installation type.
+    For production setup, the [Home Assistant Core installation type is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).
+  excerpt: >-
+    Home Assistant Core is the Python program at the heart of Home Assistant. It
+    is part of all installation types. It can be installed standalone (without Home Assistant
+    Supervisor) as a container using Docker (this is typically referred to as the Home Assistant
+    Container installation type). For development, Core can also be run using a Virtual
+    Environment (previously referred as the Home Assistant Core installation type).
+    For production setup, the Home Assistant Core installation type is deprecated.
 - term: Home Assistant Supervised
   definition: >-
-    Home Assistant Supervised is a full UI managed home automation ecosystem
+    The Home Assistant Supervised installation type is a full UI managed home automation ecosystem
     that runs the Home Assistant Core program, the Home Assistant Supervisor and
-    add-ons. It comes pre-installed on Home Assistant OS, but can be installed
+    apps. It comes pre-installed on Home Assistant OS, but can be installed
     standalone on Debian Linux systems. It leverages Docker, which is managed by
-    the Home Assistant Supervisor.
-  excerpt: >
-    Home Assistant Supervised is the full Home Assistant ecosystem, without the
-    Home Assistant Operating System.
-  link: /installation/#advanced-installation-methods
+    the Home Assistant Supervisor. The
+    [Home Assistant Supervised installation type is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).
+  excerpt: >-
+    The Home Assistant Supervised installation type is a full UI managed home automation ecosystem
+    that runs the Home Assistant Core program, the Home Assistant Supervisor and
+    apps. It comes pre-installed on Home Assistant OS, but can be installed
+    standalone on Debian Linux systems. It leverages Docker, which is managed by
+    the Home Assistant Supervisor. The Home Assistant Supervised installation type is deprecated.
 - term: Home Assistant Supervisor
   definition: >-
     The Home Assistant Supervisor is a program that manages a Home Assistant
     installation, taking care of installing and updating Home Assistant,
-    add-ons, itself, and, if used, updating the Home Assistant Operating System.
-  link: /installation/#advanced-installation-methods
+    apps, itself, and, if used, updating the Home Assistant Operating System.
 - term: Home Assistant Operating System
   definition: >-
     Home Assistant OS, the Home Assistant Operating System, is an embedded,
     minimalistic, operating system designed to run the Home Assistant ecosystem
     on single board computers (like the Raspberry Pi) or Virtual Machines. It
     includes Home Assistant Core, the Home Assistant Supervisor, and supports
-    add-ons. Home Assistant Supervisor keeps it up to date, removing the need
+    apps. Home Assistant Supervisor keeps it up to date, removing the need
     for you to manage an operating system. Home Assistant Operating System is
-    the recommended installation method for most users.
-  excerpt: >
-    Home Assistant OS, the Home Assistant Operating System, is an embedded,
-    minimalistic, operating system designed to run the Home Assistant ecosystem.
-    It is the recommended installation method for most users.
-  link: /installation/#advanced-installation-methods
+    the recommended installation type for most users.
 - term: Host
   definition: >-
     A device that can communicate with other devices on a network. During setup
@@ -337,6 +403,12 @@
   link: https://en.wikipedia.org/wiki/Host_(network)
   aliases:
     - hosts
+- term: Image
+  definition: >-
+    The Image integration allows other integrations to display a static image.
+  link: /integrations/image
+  aliases:
+    - images
 - term: Integration
   definition: >-
     Integrations connect and integrate Home Assistant with devices, services,
@@ -350,7 +422,7 @@
   excerpt: >
     Integrations connect and integrate Home Assistant with your devices,
     services, and more.
-  link: /integrations/
+  link: /getting-started/concepts-terminology/#integrations
   aliases:
     - integrations
 - term: Intent
@@ -365,12 +437,12 @@
     Intent is a term used with voice assistants. The intent is what Home
     Assistant thinks you want it to do when it extracts a command from your
     voice or text utterance.
-  link: https://developers.home-assistant.io/docs/intent_builtin
+  link: https://contributors.home-assistant.io/core/internals/built-in-intents/
   aliases:
     - Intents
 - term: Label
   definition: >-
-    Labels in Home Assistant allow grouping elements irrespective of their
+    Labels in Home Assistant allow [grouping](/docs/organizing/) elements irrespective of their
     physical location or type. Labels can be assigned to areas, devices,
     entities, automations, scenes, scripts, and helpers. Labels can be used in
     automations and scripts as a target for actions. Labels can
@@ -378,13 +450,14 @@
     to show only devices with the label `heavy energy usage` or turn these
     devices off when there is not a lot of solar energy available.
   excerpt: >-
-    Labels in Home Assistant allow grouping elements irrespective of their
+    Labels in Home Assistant allow [grouping](/docs/organizing/) elements irrespective of their
     physical location or type. Labels can be assigned to areas, devices,
     entities, automations, scenes, scripts, and helpers. Labels can be used in
     automations and scripts as a target for actions. Labels can
     also be used to filter data.
   aliases:
     - labels
+  link: /docs/organizing/labels/
 - term: Lovelace
   definition: >-
     Lovelace is the original code name of the UI that is now known as [Home
@@ -394,6 +467,21 @@
     A light has a brightness you can control, and optionally color temperature
     or RGB color control.
   link: /integrations/light
+  aliases:
+    - lights
+- term: Local control
+  definition: >-
+    Local control means Home Assistant talks to your devices directly over your
+    own network, without sending the commands through a vendor cloud first.
+    Local control makes your smart home faster, keeps your data on your own
+    hardware, and keeps things working when the internet is down. Many
+    integrations in Home Assistant use local control out of the box,
+    including those for Zigbee, Z-Wave, Matter, Thread, and ESPHome devices.
+  excerpt: >-
+    Local control means Home Assistant talks to your devices directly over your
+    own network, without going through a vendor cloud.
+  aliases:
+    - locally controlled
 - term: Matter
   definition: >-
     Matter is an open-source standard that defines how to control smart home
@@ -425,7 +513,7 @@
     Platforms are building blocks provided by some integrations to be used by
     other integrations. For example, the [Light](/integrations/light)
     integration provides the `light platform` that is utilized by all
-    integrations providing `light` entities such as e.g.
+    integrations providing `light` entities, such as
     [Hue](/integrations/hue).
   excerpt: >
     Platforms are building blocks provided by some integrations to be used by
@@ -433,16 +521,21 @@
   link: /docs/configuration/platform_options/
   aliases:
     - platforms
+- term: Polling
+  definition: >-
+    Data polling is the process of querying a device or service at regular intervals to check for updates or retrieve data. By defining a custom polling interval, you can control how frequently your system checks for new data, which can help optimize performance and reduce unnecessary network traffic.
+  link: /common-tasks/general/#defining-a-custom-polling-interval
+  aliases:
+    - data polling
 - term: Reload
   definition: >-
     Applies the changes made to the Home Assistant configuration files. Changes
     are normally automatically updated. However, changes made outside of the
     front end will not be reflected in Home Assistant and require a reload. To
     perform a manual reload, go to **Settings** > **System** > **Restart Home
-    Assistant** (top right) > **Quick reload**. If you do not see the **Quick
-    reload** option in the menu, you need to enable **Advanced mode** in your
-    user settings. More granular reload options are available in *YAML
-    configuration reloading* section in **Developer tools** > **YAML**.
+    Assistant** (top right) > **Quick reload**. More granular reload options
+    are available in *YAML configuration reloading* section in **Settings** >
+    **Tools** > **YAML**.
   excerpt: >
     Applies the changes made to Home Assistant configuration files. Changes are
     normally automatically updated. However, changes made outside of the front
@@ -457,10 +550,11 @@
     - scenes
 
 - term: Script
-  definition: >
-    Scripts are components that allow users to specify a sequence of actions to
-    be executed by Home Assistant when turned on.
-  link: /docs/scripts/
+  definition: >-
+    A script is a saved list of steps that runs when you start it, for
+    example, from a dashboard, with Assist, or from an automation. Unlike an
+    automation, a script has no triggers, so it doesn't start by itself.
+  link: /docs/script/
   aliases:
     - scripts
 - term: Sensor
@@ -489,21 +583,18 @@
     entities for organic, paper, and packaging waste. In terms of functionality,
     the information service is like a device. It is called *service* to avoid
     confusion, as it does not come with a piece of hardware.
-  link: /docs/scripts/service-calls/
   aliases:
     - services
 - term: State
   definition: |-
     The state holds the information of interest of an entity. For example, if a
-    light is on or off, the current temperature, or the amount of energy used.
-    The data type of state is `string` (a textual value). Entities store 2
-    timestamps related to the state: `last_updated` and `last_changed`. Each
-    entity has exactly one state and the state only holds one value at a time.
-    However, entities can store attributes related to that state. For example,
+    light is on or off, the current temperature, or the amount of energy used. The state
+    object stores 3 timestamps related to the state: `last_updated`, `last_changed`, and
+    `last_reported`. Each entity has exactly one state and the state only holds one value
+    at a time. However, entities can store attributes related to that state. For example,
     the state of a light is _on_, and the related state attributes could be its
-    current brightness and color values. State changes can be used as the source
-    of triggers. The current state can be used in conditions.
-
+    current brightness and color values. To start an automation when a state changes, use
+    the [**State changed** trigger](/triggers/state/). The current state can be used in conditions.
   link: /docs/configuration/state_object/
   aliases:
     - states
@@ -512,17 +603,29 @@
     light is on or off. Each entity has exactly one state and the state only
     holds one value at a time. However, entities can store attributes related to
     that state such as brightness, color, or a unit of measurement.
+- term: State object
+  definition: >-
+    The state object is a record of the state and other data of an entity at a specific
+    moment. It holds the state, the attributes, the entity ID, three timestamps,
+    and the context. Other information about the entity, such as its device and
+    area, is not part of it. Templates, automations, and the frontend can access
+    the state object.
+  link: /docs/configuration/state_object/
+  aliases:
+    - state objects
 - term: Switch
   definition: >-
     Switches are things that have two states you can select between, such as
     turning on or off a socket.
   link: /integrations/switch/
+  aliases:
+    - switches
 - term: Template
   definition: >-
     A template is an automation definition that can include variables for the
     action or data from the trigger values. This allows automations to generate
     dynamic actions.
-  link: /docs/automation/templating/
+  link: /docs/automation/trigger-data/
   aliases:
     - templates
 
@@ -550,15 +653,16 @@
     uses its radio frequency (RF) radio to communicate with the Thread mesh
     network. In case of Matter, the data that is forwarded is encrypted.
     Examples of Thread border routers are the Nest Hub (2nd gen), the HomePod
-    mini, and the Home Assistant Connect&nbsp;ZBT-1 together with the OpenThread Border
-    Router add-on.
+    mini, and the Home Assistant Connect&nbsp;ZBT-2 together with the OpenThread Border
+    Router app.
   link: /integrations/thread/#about-thread-border-routers
   aliases:
     - Thread border routers
 - term: Trigger
   definition: >-
-    A trigger is a set of values or conditions of a platform that are defined to
-    cause an automation to run.
+    A trigger is the part of an automation that makes the automation start when
+    something specific happens, for example, when the sun sets, a door opens,
+    or a button is pressed.
   link: /docs/automation/trigger/
   aliases:
     - triggers
@@ -567,6 +671,18 @@
   definition: >-
     TTS (text-to-speech) allows Home Assistant to talk to you.
   link: /integrations/tts/
+
+- term: Update
+  definition: >-
+    An update entity is an entity that indicates if an update is available for a
+    device or service. This can be any update, be it a firmware update
+    for a device like a light bulb or router, or a software update for an app or a container.
+  excerpt: >
+    An update entity is an entity that indicates if an update is available for a
+    device or service.
+  link: /integrations/update
+  aliases:
+    - updates
 
 - term: Valve
   definition: >-
@@ -579,10 +695,68 @@
   definition: >-
     Variables are used to store values in memory that can be processed for
     example, in a script.
-  link: /docs/scripts/#variables
+  link: /building-blocks/variables/
+- term: YAML
+  definition: >-
+    YAML is a human-readable data serialization language. It is used to store and transmit data in a structured format. In Home Assistant, YAML is used for configuration, for example in the `configuration.yaml` or `automations.yaml` files.
+  link: /docs/configuration/yaml/
 - term: Zone
   definition: >-
-    Zones are areas that can be used for presence detection.
+    Zones allow you to specify certain regions on a map. They enable zone presence-detection and can be used in automations. For example, to start the vacuum after you left home or start the heating at home when you leave the office.
   link: /integrations/zone/
   aliases:
     - zones
+- term: Long-term statistics
+  definition: >-
+    Home Assistant keeps statistics for sensors that have a state class, such
+    as measurement, total, or total increasing. Every 5 minutes, it saves
+    short-term statistics, which are deleted after 10 days by default. Every
+    hour, it saves long-term statistics, which are never deleted
+    automatically. The Energy dashboard and statistics cards use them.
+  link: /docs/configuration/long-term-statistics/
+- term: boolean
+  definition: >-
+    A value that is either true or false. Used for on/off states, yes/no conditions, and similar binary choices.
+  aliases:
+    - bool
+- term: float
+  definition: >-
+    A number that can have decimal places, like 21.5 or 3.14. Used for temperatures, percentages, and other measurements that need precision.
+- term: integer
+  definition: >-
+    A whole number without decimal places, like 1, 42, or -5. Used for counts, indices, and whole values.
+  aliases:
+    - int
+- term: string
+  definition: >-
+    A piece of text, like a name, message, or entity ID. In templates, wrap strings in quotes, like "living_room" or "lights are on".
+- term: list
+  definition: >-
+    An ordered collection of values, like a list of entity IDs or a list of numbers. Written with square brackets in templates, for example [1, 2, 3].
+- term: iterable
+  definition: >-
+    A sequence of values produced by filters like map, select, or selectattr. You can loop through it once. To reuse it or work with it as a list, apply `| list` at the end of the chain.
+- term: datetime
+  definition: >-
+    A value representing a specific moment in time, including the date, time, and time zone. For example, 2026-04-05 14:30:00+00:00. Used for timestamps, scheduling, and time-based calculations.
+- term: any
+  definition: >-
+    A flexible type that can be a string, number, list, or any other type. Used when a function or filter works with multiple types, and the actual result depends on what you pass in.
+- term: "template function"
+  definition: >-
+    A template function is called by name with parentheses, like states("sensor.temperature") or now(). It takes input values as arguments and returns a result.
+  link: /template-functions/
+  aliases:
+    - function
+- term: "template filter"
+  definition: >-
+    A template filter transforms a value using the pipe (|) operator. It takes the value on the left and returns a modified result. For example, states("sensor.temperature") | float converts the state to a number.
+  link: /template-functions/
+  aliases:
+    - filter
+- term: "template test"
+  definition: >-
+    A template test checks a condition using the "is" keyword and returns true or false. For example, value is number checks if a value is a number.
+  link: /template-functions/
+  aliases:
+    - test

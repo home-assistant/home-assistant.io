@@ -1,8 +1,8 @@
 ---
 title: GitHub
 description: Instructions on how to integrate the GitHub integration into Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_config_flow: true
 ha_release: 0.88
 ha_iot_class: Cloud Polling
@@ -13,10 +13,10 @@ ha_platforms:
 ha_codeowners:
   - '@timmo001'
   - '@ludeeus'
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The GitHub integration allows you to monitor your favorite [GitHub](https://github.com/) repositories.
+The **GitHub** {% term integration %} allows you to monitor your favorite [GitHub](https://github.com/) public repositories.
 
 {% include integrations/config_flow.md %}
 
@@ -28,7 +28,7 @@ The integration works by subscribing to events on the repository to provide a pu
 
 ## Remove authorization
 
-After you have removed the integration from {% my integrations title="Settings -> Devices & services" %}, you need to manually revoke OAuth app authorization.
+After you have removed the integration from {% my integrations title="**Settings** > **Devices & services**" %}, you need to manually revoke OAuth app authorization.
 
 1. Go to your [Authorized OAuth Apps](https://github.com/settings/applications)
 2. Find the "Home Assistant GitHub Integration" application
@@ -108,9 +108,22 @@ These entities are simpler diagnostic entities without any additional attributes
 - **Discussions**: Shows the number of discussions
 - **Forks**: Shows the number of forks
 - **Issues**: Shows the number of open issues
+- **Latest release downloads**: Shows the total number of downloads of the files attached to the latest release (unavailable when the release has no attached files)
+- **Merged pull requests**: Shows the number of merged pull requests
 - **Pull requests**: Shows the number of open pull requests
 - **Stars**: Shows the number of stars
 - **Watchers**: Shows the number of watchers
+
+### User entities
+
+In addition to the entities for each tracked repository, the integration provides a device that represents your authenticated GitHub user account. The device is named after your GitHub account. This device has the following sensors, which are disabled by default:
+
+- **Followers**: Shows the number of people following your account
+- **Following**: Shows the number of accounts you follow
+- **Public gists**: Shows the number of public gists on your account
+- **Public repositories**: Shows the number of public repositories on your account
+
+To use one of these sensors, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity. Select the cogwheel {% icon "mdi:cog-outline" %} and [enable it](https://www.home-assistant.io/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 ## Automation
 
@@ -125,13 +138,11 @@ you need to replace it with actions and entities that you have in your installat
 
 This example uses the [Latest release](#latest-release) entity provided by this integration, and a [notify](/integrations/notify) action,
 
-{% raw %}
-
 ```yaml
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: sensor.awesome_repository_latest_release
-action:
+actions:
   - action: notify.notify
     data:
       title: "New github/repository release"
@@ -141,19 +152,15 @@ action:
 
 ```
 
-{% endraw %}
-
 ### Notify new stars
 
 This example uses the [Stars](#diagnostic-entities) diagnostic entity provided by this integration, and a [notify](/integrations/notify) action,
 
-{% raw %}
-
 ```yaml
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: sensor.awesome_repository_stars
-action:
+actions:
   - action: notify.notify
     data:
       title: "New github/repository new star"
@@ -161,5 +168,3 @@ action:
         github/repository was starred again!
         Total stars are now: {{ trigger.to_state.state }}
 ```
-
-{% endraw %}

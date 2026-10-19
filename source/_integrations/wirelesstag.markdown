@@ -1,11 +1,8 @@
 ---
 title: Wireless Sensor Tags
 description: Instructions on how to integrate your Wireless Tags sensors within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Hub
-  - Sensor
-  - Switch
+ha_categories:
+  - sensors
 ha_iot_class: Cloud Push
 ha_release: 0.68
 ha_domain: wirelesstag
@@ -19,6 +16,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The **Wireless Sensor Tags** {% term integration %} allows you to integrate your [wirelesstag.net](https://wirelesstag.net/) sensors tags in Home Assistant.

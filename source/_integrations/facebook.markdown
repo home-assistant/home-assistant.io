@@ -1,8 +1,8 @@
 ---
 title: Facebook Messenger
 description: Instructions on how to add Facebook user notifications to Home Assistant.
-ha_category:
-  - Notifications
+ha_categories:
+  - messaging_notifications.chat_apps
 ha_release: 0.36
 ha_domain: facebook
 ha_iot_class: Cloud Push
@@ -12,9 +12,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `facebook` notification {% term integration %} enables sending notifications via Facebook Messenger, powered by [Facebook](https://facebook.com).
+The **Facebook Messenger** {% term integration %} enables sending notifications via Facebook Messenger, powered by [Facebook](https://facebook.com).
 
 To use this notification {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -48,16 +49,16 @@ The phone number used in **target** should be registered with Facebook messenger
 # Example automation notification entry
 automation:
   - alias: "Evening Greeting"
-    trigger:
-      platform: sun
-      event: sunset
-    action:
-      action: notify.facebook
-      data:
-        message: "Good Evening"
-        target:
-          - '+919413017584'
-          - '+919784516314'
+    triggers:
+      - trigger: sun
+        event: sunset
+    actions:
+      - action: notify.facebook
+        data:
+          message: "Good Evening"
+          target:
+            - '+919413017584'
+            - '+919784516314'
 ```
 
 You can also send messages to users that do not have stored their phone number on Facebook, but this requires a bit more work. The Messenger platform uses page-specific user IDs instead of a global user ID. You will need to enable a webhook for the "messages" event in Facebook's developer console. Once a user writes a message to a page, that webhook will then receive the user's page specific ID as part of the webhook's payload. Below is a simple PHP script that reacts to the message "get my id" and sends a reply containing the user's ID: 

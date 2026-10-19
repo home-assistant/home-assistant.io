@@ -1,4 +1,5 @@
-@charset "UTF-8";
+@use '../defaults' as *;
+@use "sass:math";
 /*------------------------------------*\
     $TABLES
 \*------------------------------------*/
@@ -61,7 +62,7 @@ table{
 }
 th,
 td{
-    padding:$base-spacing-unit / 4;
+    padding: math.div($base-spacing-unit, 4);
     @media screen and (min-width:480px){
         padding:$half-spacing-unit;
     }

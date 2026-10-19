@@ -1,14 +1,9 @@
 ---
-title: Yale
+title: Yale Home
 description: Instructions on how to integrate your Yale devices into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Doorbell
-  - Event
-  - Lock
-  - Sensor
+ha_categories:
+  - security_safety.locks_access
+  - security_safety.doorbells_intercoms
 ha_release: 2024.9
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -24,10 +19,10 @@ ha_platforms:
   - event
   - lock
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The **Yale** integration allows you to integrate your [Yale](https://www.assaabloy.com/vn/en/solutions/products/yale) devices in Home Assistant.
+The **Yale** {% term integration %} allows you to integrate your [Yale](https://www.assaabloy.com/vn/en/solutions/products/yale) devices in Home Assistant.
 
 The login credentials used to authenticate the integration are the same as the ones used in the Yale Home app.
 
@@ -42,6 +37,7 @@ The login credentials used to authenticate the integration are the same as the o
 | Yale Conexis L2 | yes |
 | Yale Doorman L3 | yes |
 | Yale Linus | yes |
+| Yale Linus L2 | no |
 | Yale Smart Safe | yes |
 
 Other devices not listed above have not been tested and may not function as expected.
@@ -94,7 +90,7 @@ Not all models include motion sensors and support for locks with built-in doorbe
 
 ## Camera
 
-The `yale` camera platform allows you to view the latest camera image (triggered by motion) by your [Yale](https://yale.com/) device in Home Assistant.
+The `yale` camera platform allows you to view the latest camera image (triggered by motion) by your [Yale](https://yalehome.com/) device in Home Assistant.
 
 ## Sensor
 
@@ -134,23 +130,16 @@ For locks that support the Yale Access system, the Yale integration can keep you
 
 Using the lock operation sensors, you can detect when a user operates a lock and is physically present (not remote). The below automation example (added to `automations.yaml`) will trigger when the user named “John Doe” in Yale locks or unlocks the door either from the keypad (if present), via Bluetooth from their phone, or by auto-unlock. The state of the sensor will be the name of the party operating the lock as returned by Yale.
 
-{% raw %}
-
 ```yaml
-- id: "1583706446906"
-  alias: "joe_doe_front_door_operate"
-  description: John Doe locks or unlocks the Front Door
-  trigger:
-  - entity_id: sensor.front_door_operator
-    platform: state
-    to: John Doe
-  condition:
-  - condition: template
-    value_template: "{{ not state_attr('sensor.front_door_operator', 'remote') }}"
-  action:
-  - data: {}
-    entity_id: camera.inside
-    service: camera.turn_off
+- alias: "John Doe locks or unlocks the Front Door"
+  triggers:
+    - trigger: state
+      entity_id: sensor.front_door_operator
+      to: "John Doe"
+  conditions:
+    - condition: template
+      value_template: "{{ not state_attr('sensor.front_door_operator', 'remote') }}"
+  actions:
+    - action: camera.turn_off
+      entity_id: camera.inside
 ```
-
-{% endraw %}

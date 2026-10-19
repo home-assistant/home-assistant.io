@@ -1,8 +1,6 @@
 ---
 title: Siren
 description: Instructions on how to set up siren devices within Home Assistant.
-ha_category:
-  - Siren
 ha_release: '2021.8'
 ha_domain: siren
 ha_quality_scale: internal
@@ -12,44 +10,92 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The Siren integration is built for the controlling and monitoring of siren/chime devices.
+The **Siren** {% term integration %} lets you control siren and chime devices and build automations around when they turn on or off.
 
 {% include integrations/building_block_integration.md %}
 
-## Actions
+## Siren states
 
-### Siren actions
+A siren entity can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
 
-Available actions: `siren.turn_on`, `siren.turn_off`, `siren.toggle`
+- **On** (`on`): The siren is turned on.
+- **Off** (`off`): The siren is turned off.
 
-### Action `siren.turn_on`
+In addition, the entity can have the following states:
 
-Turn the siren on.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of sirens to control.
+{% include integrations/triggers.md %}
 
-There are three optional input parameters that can be passed into the action depending on whether or not your device supports them. Check the device's integration documentation for more details.
+{% include integrations/conditions.md %}
 
-| Parameter Name  | Input Type              | Notes                                                                               |
-|---------------- |-------------------------|-------------------------------------------------------------------------------------|
-| `tone`          | `string` or `integer`   | When the `available_tones` property is a map, either the key or value can be used.  |
-| `duration`      | `integer`               |                                                                                     |
-| `volume_level`  | `float` between 0 and 1 |                                                                                     |
+{% include integrations/actions.md %}
 
-### Action `siren.turn_off`
+## Siren automation examples
 
-Turn the siren off.
+You can use siren triggers and conditions in automations to stay informed, light a path, or silence a siren at the right time.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of sirens to control.
+{% include docs/paste_yaml_tip.md %}
 
-### Action `siren.toggle`
+### Automation: get a phone alert when the siren starts
 
-Toggle the siren on/off.
+If a siren turns on while you are in another part of the building, you may want a notification right away. This automation sends a message to your phone as soon as the entry siren starts.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of sirens to control.
+- **Trigger**: Siren turned on
+  - **Target**: Entry siren
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for a siren start notification" %}
+
+{% example %}
+automation: |
+  alias: "Notify when the siren turns on"
+  triggers:
+    - trigger: siren.turned_on
+      target:
+        entity_id: siren.entry
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        title: "Siren started"
+        message: >
+          The entry siren just turned on.
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: turn off a siren after it has been on for 5 minutes
+
+If you want a siren to stop after a set time, you can check whether it is still on before turning it off. This automation checks every minute and turns off the patio siren after it has stayed on for 5 minutes.
+
+- **Trigger**: Time pattern: Every minute
+- **Condition**: Siren is on
+  - **Target**: Patio siren
+  - **For at least**: 00:05:00
+- **Action**: Turn off siren
+
+{% details "YAML example for turning off a siren after 5 minutes" %}
+
+{% example %}
+automation: |
+  alias: "Turn off the patio siren after 5 minutes"
+  triggers:
+    - trigger: time_pattern
+      minutes: "/1"
+  conditions:
+    - condition: siren.is_on
+      target:
+        entity_id: siren.patio
+      options:
+        for: "00:05:00"
+  actions:
+    - action: siren.turn_off
+      target:
+        entity_id: siren.patio
+{% endexample %}
+
+{% enddetails %}

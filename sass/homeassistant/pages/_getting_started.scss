@@ -1,6 +1,11 @@
+@use '../variables' as *;
 #getting_started {
 
   .installations {
+    &.second {
+      margin-top: 50px;
+    }
+
     .label {
       background: #e8e6f0;
       border-radius: 4px;
@@ -10,26 +15,7 @@
       font-size: 16px;
       font-weight: 500;
       width: fit-content;
-
-      &.easiest {
-        color: #04b154;
-      }
-
-      &.easy {
-        color: #02b0ff;
-      }
-
-      &.intermediate {
-        color: #eb873f;
-      }
-
-      &.hard {
-        color: #ff5454;
-      }
-
-      &.expert {
-        color: #ff02b8;
-      }
+      color: #6b5ca5;
     }
 
     h2 {
@@ -143,7 +129,7 @@
                 }
 
                 iconify-icon.external-link {
-                  padding-top: 4px;
+                  display: none;
                 }
 
                 svg {

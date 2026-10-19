@@ -1,12 +1,9 @@
 ---
 title: QwikSwitch QSUSB
 description: Instructions on how to integrate the QwikSwitch QSUSB Hub into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Hub
-  - Light
-  - Sensor
-  - Switch
+ha_categories:
+  - plugs_switches
+  - lighting.led_strips_controllers
 ha_iot_class: Local Push
 ha_release: '0.20'
 ha_codeowners:
@@ -21,9 +18,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `qwikswitch` integration is the main integration to integrate various [QwikSwitch](https://www.qwikswitch.co.za/) devices with Home Assistant. The integration requires the QSUSB Modem device and connects to the QS Mobile application.
+The **QwikSwitch QSUSB** {% term integration %} is the main integration to integrate various [QwikSwitch](https://www.qwikswitch.co.za/) devices with Home Assistant. The integration requires the QSUSB Modem device and connects to the QS Mobile application.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -61,7 +59,7 @@ button_events:
   default: TOGGLE,SCENE EXE,LEVEL
   type: string
 switches:
-  description: A list of device QS_id's that should be switches, and not lights (i.e., `['@0dev01', '@0dev02']`)
+  description: A list of device QS_id's that should be switches, and not lights (for example, `['@0dev01', '@0dev02']`)
   required: false
   type: list
 sensors:
@@ -103,14 +101,14 @@ sensors:
 
 ### QwikSwitch Events
 
-QwikSwitch devices (i.e., transmitter buttons) will fire events on the Home Assistant bus. These events can then be used as triggers for any `automation` action, as follows:
+QwikSwitch devices (that is, transmitter buttons) will fire events on the Home Assistant bus. These events can then be used as triggers for any `automation` action, as follows:
 
 ```yaml
 automation:
   - alias: "Action - Respond to A button press"
-    trigger:
-      platform: event
-      event_type: qwikswitch.button.@12df34
+    triggers:
+      - trigger: event
+        event_type: qwikswitch.button.@12df34
 ```
 
 `event_type` names should be in the format **qwikswitch.button.@_QS_id_**. where **@_QS_id_** will be captured in the Home Assistant log when pressing the button. Alternatively, you can also get the device ID from the QS Mobile application or by using the listen API call by browsing to `http://127.0.0.1:2020/&listen` and then pressing the button.

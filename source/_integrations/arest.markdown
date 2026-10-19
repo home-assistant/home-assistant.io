@@ -1,11 +1,8 @@
 ---
 title: aREST
 description: Instructions on how to integrate aREST within Home Assistant.
-ha_category:
-  - Binary sensor
-  - DIY
-  - Sensor
-  - Switch
+ha_categories:
+  - diy_makers.boards_hardware
 ha_iot_class: Local Polling
 ha_release: 0.9
 ha_domain: arest
@@ -17,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -125,7 +123,7 @@ pins:
           required: false
           type: string
         value_template:
-          description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+          description: Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract a value from the payload.
           required: false
           type: template
 monitored_variables:
@@ -147,7 +145,7 @@ monitored_variables:
           required: false
           type: string
         value_template:
-          description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
+          description: Defines a [template](/docs/templating/where-to-use/#processing-incoming-data) to extract a value from the payload.
           required: false
           type: template
 {% endconfiguration %}

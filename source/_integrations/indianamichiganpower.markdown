@@ -1,9 +1,6 @@
 ---
 title: Indiana Michigan Power
 description: Get energy usage from Indiana Michigan Power using the Opower integration
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 2023.8
 ha_domain: indianamichiganpower
 ha_integration_type: virtual
@@ -13,6 +10,7 @@ ha_codeowners:
   - '@tronikos'
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
 ha_iot_class: Cloud Polling
 ---

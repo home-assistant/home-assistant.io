@@ -1,8 +1,6 @@
 ---
 title: Event
 description: Instructions on how to use event entities in Home Assistant.
-ha_category:
-  - Event
 ha_release: 2023.8
 ha_quality_scale: internal
 ha_domain: event
@@ -10,6 +8,8 @@ ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
 related:
+  - docs: /triggers/event.received/
+    title: Event received trigger
   - docs: /docs/configuration/customizing-devices/
     title: Customizing devices
   - docs: /dashboards/
@@ -18,88 +18,116 @@ related:
 
 Events are signals that are emitted when something happens, for example, when a user presses a physical button like a doorbell or when a button on a remote control is pressed.
 
-These events do not capture a state in the traditional sense. For example, a doorbell does not have a state such as "on" or "off" but instead is momentarily pressed. Some events can have variations in the type of event that is emitted. For example, maybe your remote control is capable of emitting a single press, a double press, or a long press.
+The **Event** {% term integration %} provides {% term entities %} that represent these momentary signals from physical devices.
 
-The event entity can capture these events in the physical world and makes them available in Home Assistant as an entity.
+These events do not capture a state in the traditional sense. For example, a doorbell does not have a state such as "on" or "off" but instead is momentarily pressed. Some events can have variations in the type of event that is emitted. For example, a remote control might emit a single press, a double press, or a long press.
+
+The event entity captures these events from the physical world and makes them available in Home Assistant as an entity.
 
 {% include integrations/building_block_integration.md %}
 
-## The state of an event entity
+## Event states
 
-The event entity does not capture a state such as `on` or `off`. Instead, an event entity keeps track of the timestamp when the emitted event has last been detected.
+The {% term state %} of an event entity is a timestamp showing the date and time when the last event was detected. Home Assistant stores the timestamp in UTC, for example, `2026-01-01T12:00:00.123+00:00`. The Home Assistant interface shows it in your local date and time format.
 
-<p class='img'>
-  <img src='/images/integrations/event/event_timestamp.png' alt='Event entity with timestamp value in state and event type "pressed"'>
-  Event entity with a timestamp value in state and event type "pressed".
-</p>
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
-Because the state of an event entity in Home Assistant is a timestamp, it means we can use it in our automations. For example:
-
-```yaml
-trigger:
-  - platform: state
-    entity_id: event.doorbell
-action:
-  - action: notify.frenck
-    data:
-      message: "Ding Dong! Someone is at the door!"
-```
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 ## Event types
 
-Besides the timestamp of the last event, the event entity also keeps track of the event type that has last been emitted. This can be used in automations to trigger different actions based on the type of event.
+Besides the timestamp of the last event, the event entity also keeps track of the event type that was last emitted. This lets you trigger different automation actions based on the type of event.
 
-This allows you, for example, to trigger a different action when the button on a remote control is pressed once or twice, if your remote control is capable of emitting these different types of events.
+For example, you can trigger a different action when a remote control button is pressed once versus twice, if your remote control can emit those different event types.
 
-When combining that with the [choose action](/docs/scripts/#choose-a-group-of-actions) script, you can assign multiple different actions to a single event entity. In the following example, short- or long-pressing the button on the remote will trigger a different scene:
+When creating automations in the UI, the event types are available as a dropdown list, depending on the event entity you are using. This means you don't have to remember or look up the different event types.
 
-```yaml
-trigger:
-  - platform: state
-    entity_id: event.hue_remote_control
-action:
-  - alias: "Choose an action based on the type of event"
-    choose:
-      - conditions:
-        - alias: "Normal evening scene if the button was pressed"
-          condition: state
-          entity_id: event.hue_remote_control_on_button
-          attribute: "event_type"
-          state: "short_release"
-        sequence:
-          - scene: scene.living_room_evening
-      - conditions:
-        - alias: "Scene for watching a movie if the button was long-pressed"
-          condition: state
-          entity_id: event.hue_remote_control_on_button
-          attribute: "event_type"
-          state: "long_release"
-        sequence:
-          - scene: scene.living_room_movie
-```
-
-When creating automations in the automation editor in the UI, the event types are available as a dropdown list, depending on the event entity you are using. This means you don't have to remember the different event types and can easily select them.
+For buttons and doorbells, Home Assistant has standard event types. If the integration uses the standard event types and sets the matching device class, the interface shows them with readable names, such as **Long press start** for a button or **Ring** for a doorbell.
 
 ## Device class
 
-{% include integrations/device_class_intro.md %}
+The device class tells Home Assistant what kind of signal an event entity reports, such as a doorbell press. Home Assistant uses the device class to choose the icon, the default name, and readable names for the [event types](#event-types), such as **Ring**. Google Assistant, Alexa, and Apple Home use the device class to recognize doorbells.
 
-The screenshot shows different icons representing device classes of the event entity:
+The integration that provides the event entity sets the device class. When you create an event entity yourself with a [template helper](/integrations/template/), you choose the device class.
 
-<p class='img'>
-<img src='/images/integrations/event/device_class_event_icons.png' alt='Screenshot showing different icons representing device classes of the event entity' />
-Example of different icons representing device classes of the event entity.
-</p>
+### Device classes in automations and templates
 
-The following device classes are supported by event entities:
+- Automations: The doorbell device class has its own trigger, [Doorbell rang](/triggers/doorbell.rang/). The trigger only reacts to event entities with that device class. The other device classes don't change how an event entity works in automations.
+- Templates: The device class is the `device_class` attribute of the entity. Use the stored value, such as `doorbell`. For example, you can [find entities by device class](/docs/templating/patterns/#finding-entities-by-device-class).
 
-- **None**: Generic event. This is the default and doesn't need to be set.
-- **button**: For remote control buttons.
-- **doorbell**: Specifically for buttons that are used as a doorbell.
-- **motion**: For motion events detected by a motion sensor.
+### List of available device classes
 
-### Video tutorial
+An event entity without a device class is a generic event and shows {% icon "mdi:eye-check" %}.
 
-This comprehensive video tutorial explains how events work in Home Assistant and how you can set up Emulated Roku to control a media player using a physical remote control.
+Each item shows the name you see in the Home Assistant interface, followed by the device class as Home Assistant stores it. If the device class has its own trigger, the trigger is listed below the item.
 
-<lite-youtube videoid="nDHh1OjyuMA" videotitle="Event Triggers Unveiled: Control the Home Assistant Media Player with Your Remote Control!" posterquality="maxresdefault"></lite-youtube>
+- {% icon "mdi:gesture-tap-button" %} **Button** (`button`): For buttons, such as the buttons of a remote control.
+- {% icon "mdi:doorbell" %} **Doorbell** (`doorbell`): For buttons that are used as a doorbell.
+  - Trigger: [Doorbell rang](/triggers/doorbell.rang/)
+- {% icon "mdi:motion-sensor" %} **Motion** (`motion`): For motion detected by a motion sensor.
+
+{% include integrations/triggers.md %}
+
+## Event automation examples
+
+### Automation: send a notification when the doorbell rings
+
+Use this automation to get a message on your phone whenever someone presses the doorbell.
+
+- **Trigger**: Event received
+  - **Target**: Front door doorbell (`event.front_door_doorbell`)
+  - **Event type**: Ring
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for a doorbell ring notification" %}
+
+{% example %}
+automation: |
+  - alias: "Notify me when the doorbell rings"
+    triggers:
+      - trigger: event.received
+        target:
+          entity_id: event.front_door_doorbell
+        options:
+          event_type:
+            - ring
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
+        data:
+          message: "Someone is at the front door."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: turn on a scene when the remote is double-pressed
+
+Use this automation to activate a scene when a remote control button is pressed twice.
+
+- **Trigger**: Event received
+  - **Target**: Living room remote (`event.living_room_remote_on_button`)
+  - **Event type**: Double press
+- **Action**: Activate scene
+
+{% details "YAML example for activating a scene on a remote double press" %}
+
+{% example %}
+automation: |
+  - alias: "Activate movie scene on remote double press"
+    triggers:
+      - trigger: event.received
+        target:
+          entity_id: event.living_room_remote_on_button
+        options:
+          event_type:
+            - double_short_release
+    actions:
+      - action: scene.turn_on
+        target:
+          entity_id: scene.living_room_movie
+{% endexample %}
+
+{% enddetails %}

@@ -1,10 +1,8 @@
 ---
 title: LiteJet
-description: Instructions on how to setup the LiteJet hub, Centralite Elegance or Centralite Jetstream within Home Assistant.
-ha_category:
-  - Light
-  - Scene
-  - Switch
+description: Instructions on how to set up the LiteJet hub, Centralite Elegance or Centralite Jetstream within Home Assistant.
+ha_categories:
+  - lighting.lighting_systems
 ha_iot_class: Local Push
 ha_release: 0.32
 ha_domain: litejet
@@ -17,7 +15,6 @@ ha_platforms:
 ha_codeowners:
   - '@joncar'
 ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 LiteJet is a centralized lighting system that predates most home automation technology. All lights and wall switches are wired to a central panel. This central panel has a serial port interface that allows a computer to control the system via LiteJet's third party protocol. Home Assistant integrates the LiteJet 3rd party protocol and allows you to get the status and control the connected lights. This integration also supports the Centralite Elegance and Centralite Jetstream.
@@ -43,7 +40,7 @@ The trigger will activate at the earliest moment both `held_more_than` and `held
 
 ```yaml
 automation:
-- trigger:
+- triggers:
     platform: litejet
     number: 55
     held_more_than:

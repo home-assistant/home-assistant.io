@@ -1,8 +1,9 @@
 ---
 title: Alert
-description: Instructions on how to setup automatic alerts within Home Assistant.
-ha_category:
-  - Automation
+description: Instructions on how to set up automatic alerts within Home Assistant.
+ha_categories:
+  - helpers
+  - messaging_notifications
 ha_release: 0.38
 ha_iot_class: Local Push
 ha_quality_scale: internal
@@ -16,7 +17,7 @@ related:
     title: Configuration file
 ---
 
-The `alert` integration is designed to notify you when problematic issues arise.
+The **Alert** {% term integration %} is designed to notify you when problematic issues arise.
 For example, if the garage door is left open, the `alert` integration can be used
 to remind you of this by sending you repeating notifications at customizable
 intervals. This is also used for low battery sensors,
@@ -34,8 +35,8 @@ possible states:
 
 ### Basic example
 
-The `alert` integration makes use of any of the `notification` integrations. To
-setup the `alert` integration, first, you must set up a [notification integration](/integrations/notify).
+The `alert` integration uses any of the `notification` integrations. To
+set up the `alert` integration, first, you must set up a [notification integration](/integrations/notify).
 Then, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
@@ -67,7 +68,7 @@ entity_id:
 title:
   description: >
     A title to be used for the notification if the notifier supports it
-    with [template](/docs/configuration/templating/) support.
+    with [template](/docs/templating/) support.
   required: false
   type: template
 state:
@@ -96,13 +97,13 @@ skip_first:
 message:
   description: >
     A message to be sent after an alert transitions from `idle` to `on`
-    with [template](/docs/configuration/templating/) support.
+    with [template](/docs/templating/) support.
   required: false
   type: template
 done_message:
   description: >
     A message sent after an alert transitions from `on` or `off` to `idle` with
-    [template](/docs/configuration/templating/) support. Is only sent if an alert notification
+    [template](/docs/templating/) support. Is only sent if an alert notification
     was sent for transitioning from `idle` to `on`.
   required: false
   type: template
@@ -163,7 +164,6 @@ disable the alert on certain days. Maybe the alert firing should depend on more
 than one input. For all of these situations, it is best to use the alert in
 conjunction with a `Template Binary Sensor`. The following example does that.
 
-{% raw %}
 
 ```yaml
 template:
@@ -182,7 +182,6 @@ alert:
       - kristens_phone
 ```
 
-{% endraw %}
 
 This example will begin firing as soon as the entity `sensor.motion`'s `battery`
 attribute falls below 15. It will continue to fire until the battery attribute
@@ -217,7 +216,7 @@ Now the first message will be sent after a 15 minute delay, the second will be
 sent 30 minutes after that, and a 60 minute delay will fall between every
 following notification.
 For example, if the garage door opens at 2:00, a notification will be
-sent at 2:15, 2:45, 3:45, 4:45, etc., continuing every 60 minutes.
+sent at 2:15, 2:45, 3:45, 4:45, and so on, continuing every 60 minutes.
 
 ### Message templates
 
@@ -227,7 +226,6 @@ can be used in the message or name of the alert to make it more relevant.
 The following will show for a plant how to include the problem `attribute`
 of the entity.
 
-{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -246,7 +244,6 @@ alert:
       - kristens_phone
 ```
 
-{% endraw %}
 
 The resulting message could be `Plant Officeplant needs help (moisture low)`.
 
@@ -285,12 +282,12 @@ but you will still receive the done message.
 
 ```yaml
 - alias: "Telegram callback to stop alerts for garage door"
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: telegram_callback
       event_data:
         data: "/garage_acknowledge"
-  action:
+  actions:
     - action: alert.turn_off
       target:
         entity_id: alert.garage_door
@@ -315,4 +312,69 @@ alert:
       tag: garage-door
 ```
 
-[template]: /docs/configuration/templating/
+[template]: /docs/templating/
+
+{% include integrations/actions.md %}
+
+## Alert automation examples
+
+Alerts keep reminding you until a problem is solved. With the alert actions, you decide when those reminders stop and start again.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: acknowledge an alert from a phone notification
+
+Your alert sends a notification with an **Acknowledge** button to your phone. When you select the button, this automation acknowledges the alert, so you don't get more reminders.
+
+- **Trigger**: Manual event received
+  - **Event type**: `mobile_app_notification_action`
+  - **Event data**: `action: ACKNOWLEDGE_GARAGE`
+- **Action**: Turn off
+  - **Target**: Garage door alert
+
+{% details "YAML example for acknowledging an alert from a phone notification" %}
+
+{% example %}
+automation: |
+  alias: "Acknowledge the garage door alert from my phone"
+  triggers:
+    - trigger: event
+      event_type: mobile_app_notification_action
+      event_data:
+        action: ACKNOWLEDGE_GARAGE
+  actions:
+    - action: alert.turn_off
+      target:
+        entity_id: alert.garage_door
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: turn the alert back on when you leave
+
+You acknowledged the garage door alert while you were home. When you leave, you want reminders again if the door is still open.
+
+- **Trigger**: Zone
+  - **Entity with location**: You (`person.you`)
+  - **Zone**: Home
+  - **Event**: Leave
+- **Action**: Turn on
+  - **Target**: Garage door alert
+
+{% details "YAML example for turning an alert back on when you leave" %}
+
+{% example %}
+automation: |
+  alias: "Turn the garage door alert back on when I leave"
+  triggers:
+    - trigger: zone
+      entity_id: person.you
+      zone: zone.home
+      event: leave
+  actions:
+    - action: alert.turn_on
+      target:
+        entity_id: alert.garage_door
+{% endexample %}
+
+{% enddetails %}

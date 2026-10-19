@@ -10,6 +10,16 @@ div.details-block {
     border: 1px solid rgba(0, 0, 0, .12);
     border-radius: 16px;
 
+    &[open] .details-block-title {
+      .up {
+        display: block;
+      }
+
+      .down {
+        display: none;
+      }
+    }
+
     .details-block-title {
       font-weight: bold;
       font-size: 18px;
@@ -23,6 +33,14 @@ div.details-block {
       border: 0px;
       width: 100%;
       padding: 0;
+
+      .up {
+        display: none;
+      }
+
+      .down {
+        display: block;
+      }
     }
     .details-block-content {
       margin: 4px 0 12px 0;

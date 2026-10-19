@@ -1,9 +1,8 @@
 ---
 title: DSMR Reader
 description: Instructions on how to integrate DSMR Reader.
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_mqtt: true
@@ -16,10 +15,10 @@ ha_domain: dsmr_reader
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The `dsmr_reader` sensor integration allows you to easily add all sensors that [DSMR Reader](https://dsmr-reader.readthedocs.io/en/latest/) (Dutch Smart Meter Requirements Reader) exposes to MQTT. It adds a separate sensor for every field in the MQTT topics which is named `sensor_dsmr_<mqtt_topic>`.
+The **DSMR Reader** {% term integration %} allows you to easily add all sensors that [DSMR Reader](https://dsmr-reader.readthedocs.io/en/latest/) (Dutch Smart Meter Requirements Reader) exposes to MQTT. It adds a separate sensor for every field in the MQTT topics which is named `sensor_dsmr_<mqtt_topic>`.
 
 ## Prerequisites
 

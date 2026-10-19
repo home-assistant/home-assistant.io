@@ -1,9 +1,8 @@
 ---
 title: Buienradar
 description: Instructions on how to integrate buienradar.nl weather within Home Assistant.
-ha_category:
-  - Camera
-  - Weather
+ha_categories:
+  - weather_alerts.forecasts
 ha_release: 0.47
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -16,7 +15,7 @@ ha_platforms:
   - camera
   - sensor
   - weather
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Buienradar** {% term integration %} uses [buienradar.nl](https://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands.
@@ -37,7 +36,7 @@ The `buienradar` camera platform uses [buienradar.nl](https://buienradar.nl/) as
 Internally, this integration uses the radar map image as [documented](https://www.buienradar.nl/overbuienradar/gratis-weerdata) on buienradar.nl.
 The downloaded image is cached to prevent Home Assistant from making a new request to buienradar.nl multiple times a minute when Home Assistant checks for new stills from the camera.
 
-The camera {% term entity %} is disabled by default and should be [enabled](/common-tasks/general/#enabling-entities) before it reads the camera images.
+The camera {% term entity %} is disabled by default and should be [enabled](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) before it reads the camera images.
 
 ## Sensor
 
@@ -47,7 +46,7 @@ The following {% term entities %} will be created:
 
 - **Station name**: The name of the selected meteo-station
 - **Barometer forecast**: A numeric barometric forecast (1 to 7)
-- **Barometer forecast name**: A textual representation of the barometer forecast (eg: Thunderstorms, Stable, etc.)
+- **Barometer forecast name**: A textual representation of the barometer forecast, such as Thunderstorms or Stable
 - **Condition code**: A symbol and a unique code identifying the current weather condition 
   - `a`: sunny/clear
   - `b`: Mix of clear and medium or low clouds
@@ -77,7 +76,7 @@ The following {% term entities %} will be created:
 - **Ground temperature**: The current ground temperature (in [°C](https://en.wikipedia.org/wiki/Celsius))
 - **Wind speed**: The wind speed (in [km/h](https://en.wikipedia.org/wiki/Kilometres_per_hour))
 - **Wind force**: The wind speed/force (in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale))
-- **Wind direction**: Where the wind is coming from: N (North), Z (south), NO (North-East), etc.
+- **Wind direction**: Where the wind is coming from, such as N (North), Z (South), or NO (North-East)
 - **Wind azimuth**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise
 - **Pressure**: The sea-level air pressure (in [hPa](https://en.wikipedia.org/wiki/Hectopascal))
 - **Visibility**: Visibility (in [m](https://en.wikipedia.org/wiki/Metre))
@@ -96,7 +95,7 @@ The following {% term entities %} will be created:
 - **Minimum rain n days ahead**: The minimum forecasted amount of rain (in [mm](https://en.wikipedia.org/wiki/Millimeter)) n days ahead
 - **Maximum rain n days ahead**: The maximum forecasted amount of rain (in [mm](https://en.wikipedia.org/wiki/Millimeter)) n days ahead
 - **Wind azimuth n days ahead**: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise for n days ahead (derived from `Wind direction n days ahead`)
-- **Wind direction n days ahead**: Where the wind will be coming from n days ahead: N (North), Z (south), NO (North-East), etc.
+- **Wind direction n days ahead**: Where the wind will be coming from n days ahead. For example, N (North), Z (South), or NO (North-East).
 - **Wind force n days ahead**: The expected wind force (in [Bft](https://en.wikipedia.org/wiki/Beaufort_scale)) n days ahead
 - **Wind speed n days ahead**: The expected wind speed (in [m/s](https://en.wikipedia.org/wiki/M/s)) n days ahead (derived from `Wind force n days ahead`)
 - **Condition code n days ahead**: Symbol and condition code of the expected condition n days ahead

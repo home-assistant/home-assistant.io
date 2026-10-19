@@ -1,8 +1,8 @@
 ---
 title: Flux
 description: Instructions on how to automate the color temperature of your lights based on the time of day with Home Assistant
-ha_category:
-  - Automation
+ha_categories:
+  - lighting
 ha_release: 0.21
 ha_quality_scale: internal
 ha_domain: flux
@@ -15,7 +15,7 @@ related:
     title: Configuration file
 ---
 
-The `flux` switch {% term integration %} will change the temperature of your lights similar to the way flux works on your computer, using circadian rhythm. They will be bright during the day, and gradually fade to a red/orange at night. The `flux` switch restores its last state after startup.
+The **Flux** {% term integration %} will change the temperature of your lights similar to the way flux works on your computer, using circadian rhythm. They will be bright during the day, and gradually fade to a red/orange at night. The `flux` switch restores its last state after startup.
 
 The {% term integration %} will update your lights based on the time of day. It will only affect lights that are turned on and listed in the flux configuration.
 
@@ -52,10 +52,12 @@ name:
 start_time:
   description: The start time.
   required: false
+  default: sunrise
   type: time
 stop_time:
   description: The stop time.
   required: false
+  default: dusk
   type: time
 start_colortemp:
   description: The color temperature at the start.
@@ -82,7 +84,7 @@ disable_brightness_adjust:
   type: boolean
   default: false
 mode:
-  description: Select how color temperature is passed to lights. Valid values are `xy`, `mired` and `rgb`.
+  description: Select how color temperature is passed to lights. Valid values are `xy`, `mired` (alias to kelvin) and `rgb`.
   required: false
   default: xy
   type: string
@@ -102,7 +104,7 @@ unique_id:
   type: string
 {% endconfiguration %}
 
-Full example:
+Full example of an entry in the {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

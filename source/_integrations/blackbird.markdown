@@ -1,8 +1,8 @@
 ---
 title: Monoprice Blackbird Matrix Switch
 description: Instructions on how to integrate Monoprice Blackbird 4k 8x8 HDBaseT Matrix Switch into Home Assistant.
-ha_category:
-  - Media player
+ha_categories:
+  - media_entertainment
 ha_release: 0.68
 ha_iot_class: Local Polling
 ha_domain: blackbird
@@ -12,9 +12,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `blackbird` platform allows you to control [Monoprice Blackbird Matrix Switch](https://www.monoprice.com/product?p_id=21819) (8x8) using a serial or IP connection, this integration does not support the 4x4 matrix switch.
+The **Monoprice Blackbird Matrix Switch** {% term integration %} allows you to control [Monoprice Blackbird Matrix Switch](https://www.monoprice.com/product?p_id=21819) (8x8) using a serial or IP connection, this integration does not support the 4x4 matrix switch.
 
 To add a Blackbird 8x8 device to your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -59,11 +60,4 @@ sources:
       type: string
 {% endconfiguration %}
 
-### Action `blackbird.set_all_zones`
-
-Set all zones to the same input source. This action allows you to immediately synchronize all the TVs in your home. Regardless of `entity_id` provided, all zones will be updated.
-
-| Data attribute | Optional | Description                                     |
-| ---------------------- | -------- | ----------------------------------------------- |
-| `entity_id`            | yes      | String that points at an `entity_id` of a zone. |
-| `source`               | no       | String of source name to activate.              |
+{% include integrations/actions.md %}

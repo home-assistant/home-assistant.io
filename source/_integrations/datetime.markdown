@@ -1,8 +1,6 @@
 ---
 title: Date/Time
 description: Instructions on how to set up date/time entities within Home Assistant.
-ha_category:
-  - Date/Time
 ha_release: '2023.6'
 ha_domain: datetime
 ha_quality_scale: internal
@@ -17,17 +15,13 @@ The **Date/Time** {% term integration %} is built for the controlling and monito
 
 If you are looking for a way to create a Date/Time entity, please take a look at the [Date/Time helper](/integrations/input_datetime).
 
-## Actions
+## Date/time states
 
-### datetime actions
+The state of a date/time entity is the actual date and time value. The state value is in UTC, in the format YYYY-MM-DDTHH:MM:SS+00:00. For example, `2020-01-01T12:00:00+00:00`. The Home Assistant interface shows the date and time in your local date and time format.
 
-Available {% term actions %}: `datetime.set_value`
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
-### Action `datetime.set_value`
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
-Set a new value for the datetime {% term entity %}.
-
-| Data attribute | Optional | Description                                                                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | no       | String or list of strings that point at `entity_id`'s of datetimes to control.                               |
-| `datetime`             | no       | New datetime value to set. If timezone is not included, the Home Assistant instance's timezone will be used. |
+{% include integrations/actions.md %}

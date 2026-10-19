@@ -1,10 +1,8 @@
 ---
 title: Kaleidescape
 description: Instructions on how to integrate Kaleidescape into Home Assistant.
-ha_category:
-  - Media player
-  - Remote
-  - Sensor
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: '2022.4'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -16,10 +14,10 @@ ha_platforms:
   - media_player
   - remote
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The Kaleidescape integration allows for the automation of [Kaleidescape](https://www.kaleidescape.com/) movie players.
+The **Kaleidescape** {% term integration %} allows for the automation of [Kaleidescape](https://www.kaleidescape.com/) movie players.
 
 Ideas for automation include:
 
@@ -228,12 +226,12 @@ Additional details about the values provided by the sensors can be found in Kale
 A typical automation might look like the example below, which turns up the lights when the _media_location_ sensor leaves the _content_ state.
 
 ```yaml
-- alias: kaleidescape_theater_lights_up
-  trigger:
-    - platform: state
+- alias: "Kaleidescape theater lights up"
+  triggers:
+    - trigger: state
       entity_id: sensor.kaleidescape_theater_media_location
       from: content
-  action:
+  actions:
     - action: scene.turn_on
       target:
         entity_id: scene.theater_lights

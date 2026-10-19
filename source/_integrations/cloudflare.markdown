@@ -1,8 +1,8 @@
 ---
 title: Cloudflare
 description: Automatically update your Cloudflare DNS records.
-ha_category:
-  - Network
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_release: 0.74
 ha_iot_class: Cloud Push
 ha_codeowners:
@@ -10,12 +10,12 @@ ha_codeowners:
   - '@ctalkington'
 ha_domain: cloudflare
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 With the **Cloudflare** {% term integration %}, you can keep your Cloudflare DNS records up to date.
 
-The integration runs every hour, but can also be triggered by running the {% my developer_services title="`cloudflare.update_records` action" service="cloudflare.update_records" %}.
+The integration runs every hour, but can also be triggered by running the {% my tools_actions title="`cloudflare.update_records` action" service="cloudflare.update_records" %}.
 
 ## Requirements
 
@@ -37,7 +37,7 @@ This integration uses the whoami service from [home-assistant/services.home-assi
 
 #### Unusable TLDs
 
-Due to a limitation in the Cloudflare API, you can not use this integration with any of the following TLD's:
+Due to a limitation in the Cloudflare API, you cannot use this integration with any of the following TLD's:
 
 - `.cf`
 - `.ga`

@@ -1,9 +1,8 @@
 ---
 title: Version
 description: Instructions on how to integrate the Version integration into Home Assistant.
-ha_category:
-  - Sensor
-  - Utility
+ha_categories:
+  - computers_network.monitoring
 ha_iot_class: Local Push
 ha_release: 0.52
 ha_quality_scale: internal
@@ -27,21 +26,16 @@ The **Version** {% term integration %} can display the current Home Assistant Co
 With this {% term integration %} you can select various sources to get a version from.
 
 {% configuration_basic %}
-  "Local installation":
-    description: This will get the version you are currently running.
-
-  "Home Assistant Versions":
-    description: This will use the same source that are used by the Supervisor to check for updates based on the channel and image you choose.
-
-  "Home Assistant Website":
-    description: This will check the website you are reading this on to find the latest version.
-
-  "Docker Hub":
-    description: This will check the latest tag published to Docker Hub based on the channel and image you choose.
-
-  "Python Package Index (PyPI)":
-    description: This will check PyPI for the latest published package.
-
+Local installation:
+  description: This will get the version you are currently running.
+Home Assistant Versions:
+  description: This will use the same source that are used by the Supervisor to check for updates based on the channel and image you choose.
+Home Assistant Website:
+  description: This will check the website you are reading this on to find the latest version.
+Docker Hub:
+  description: This will check the latest tag published to Docker Hub based on the channel and image you choose.
+Python Package Index (PyPI):
+  description: This will check PyPI for the latest published package.
 {% endconfiguration_basic %}
 
 ## Entities

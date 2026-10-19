@@ -1,10 +1,8 @@
 ---
 title: Mochad
 description: Instructions on how to integrate Mochad into Home Assistant.
-ha_category:
-  - Hub
-  - Light
-  - Switch
+ha_categories:
+  - hubs_protocols.wireless_protocols
 ha_iot_class: Local Polling
 ha_release: 0.32
 ha_domain: mochad
@@ -15,9 +13,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `mochad` {% term integration %} is the main integration to integrate all X10 platforms being controlled by [mochad](https://sourceforge.net/projects/mochad/). Besides this integration you will have to setup your X10 devices separately.
+The **Mochad** {% term integration %} is the main integration to integrate all X10 platforms being controlled by [mochad](https://sourceforge.net/projects/mochad/). Besides this integration you will have to set up your X10 devices separately.
 
 There is currently support for the following device types within Home Assistant:
 

@@ -1,13 +1,8 @@
 ---
 title: Hunter Douglas PowerView
-description: Instructions on how to setup Hunter Douglas PowerView scenes within Home Assistant.
-ha_category:
-  - Button
-  - Cover
-  - Number
-  - Scene
-  - Select
-  - Sensor
+description: Instructions on how to set up Hunter Douglas PowerView scenes within Home Assistant.
+ha_categories:
+  - blinds_curtains
 ha_release: 0.15
 ha_domain: hunterdouglas_powerview
 ha_iot_class: Local Polling
@@ -27,10 +22,10 @@ ha_platforms:
   - sensor
 ha_zeroconf: true
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `hunterdouglas_powerview` integration allows you to integrate your [Hunter Douglas PowerView](https://help.hunterdouglas.com/s/?tabset-9157f=849ff) devices in Home Assistant. The product is also known by the brand name Luxaflex Powerview in Europe and Australia [as explained on their website](https://www.hunterdouglasgroup.com/company/brands-in-action/), however this integration should work for both brands.
+The **Hunter Douglas PowerView** {% term integration %} allows you to integrate your [Hunter Douglas PowerView](https://www.hunterdouglas.com/smart-automation) devices in Home Assistant. The product is also known by the brand name Luxaflex Powerview in Europe and Australia [as explained on their website](https://www.hunterdouglasgroup.com/worldwide-offices/), however this integration should work for both brands.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -224,10 +219,10 @@ Velocity controls the speed of the shade. The default speed from Hunter Douglas 
 
 ``` yaml
 alias: "Blinds closed at night"
-trigger:
-  platform: time
-  at: "18:00:00"
-action:
+triggers:
+  - trigger: time
+    at: "18:00:00"
+actions:
   - action: scene.turn_on
     target:
       entity_id: scene.10877
@@ -238,13 +233,12 @@ action:
 This automation is not recommended for battery-powered shades.
 
 ``` yaml
-alias: Force Update
-description: 'Update the position of defined shades'
-mode: single
-trigger:
-  - platform: time_pattern
-    hours: '1'
-action:
+alias: "Force Update"
+description: "Update the position of defined shades"
+triggers:
+  - trigger: time_pattern
+    hours: 1
+actions:
   - action: homeassistant.update_entity
     target:
       entity_id:

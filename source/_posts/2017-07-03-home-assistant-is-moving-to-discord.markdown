@@ -81,7 +81,7 @@ Sincerely,
 **Dale Higgs**<br>
 Community Leader, Home Assistant
 
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant
 [discord-devs]: https://discord.gg/8X8DTH4
 [discord-general]: https://discord.gg/pywKZRT
 [FAQ]: /faq/

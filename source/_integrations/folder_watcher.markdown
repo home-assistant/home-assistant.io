@@ -1,8 +1,8 @@
 ---
 title: Folder watcher
 description: Integration for monitoring changes within the filesystem.
-ha_category:
-  - System monitor
+ha_categories:
+  - computers_network.monitoring
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: 0.67
@@ -47,22 +47,18 @@ When the `event_type` is `moved`, the file details are for the source file and d
 
 Automations can be triggered on file system events data using a template. The following automation will send a notification with the name and folder of new files added to that folder:
 
-{% raw %}
-
 ```yaml
 #Send notification for new image (including the image itself)
 automation:
   alias: "New file alert"
-  trigger:
-    platform: state
-    entity_id: event.created
-  action:
-    action: notify.notify
-    data:
-      title: New image captured!
-      message: "Created {{ trigger.to_state.attributes.file }} in {{ trigger.to_state.attributes.folder }}"
-      data:
-        file: "{{ trigger.to_state.attributes.file }}"
+  triggers:
+    - trigger: state
+      entity_id: event.created
+  actions:
+    - action: notify.notify
+      data:
+        title: New image captured!
+        message: "Created {{ trigger.to_state.attributes.file }} in {{ trigger.to_state.attributes.folder }}"
+        data:
+          file: "{{ trigger.to_state.attributes.file }}"
 ```
-
-{% endraw %}

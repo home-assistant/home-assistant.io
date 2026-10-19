@@ -1,9 +1,8 @@
 ---
 title: Kraken
 description: Instructions on how to integrate Kraken.com sensors into Home Assistant.
-ha_category:
-  - Finance
-  - Sensor
+ha_categories:
+  - finance
 ha_iot_class: Cloud Polling
 ha_release: 2021.6
 ha_config_flow: true
@@ -12,11 +11,11 @@ ha_codeowners:
 ha_domain: kraken
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The Kraken integration allows you to monitor exchange rates on [kraken.com](https://www.kraken.com/).
-For a list of tradable asset pairs check [this kraken support article](https://support.kraken.com/hc/articles/201893658-Currency-pairs-available-for-trading-on-Kraken).
+The **Kraken** {% term integration %} allows you to monitor exchange rates on [kraken.com](https://www.kraken.com/).
+For a list of tradable asset pairs check [this kraken support article](https://support.kraken.com/articles/kraken-markets).
 
 {% include integrations/config_flow.md %}
 

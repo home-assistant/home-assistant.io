@@ -3,7 +3,9 @@ title: "0.38: Alert, AppleTV, MQTT discovery, and Yeelight"
 description: "Faster and more configurable frontend, configuration check, and complete move to async for core"
 date: 2017-02-11 08:04:05 +0000
 date_formatted: "February 11, 2017"
-author: Robbie Trencheny, Fabian Affolter
+author:
+  - Robbie Trencheny
+  - Fabian Affolter
 author_twitter: robbie
 categories:
 - Release-Notes
@@ -224,4 +226,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
 [websocket-api]: /developers/websocket_api/
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant

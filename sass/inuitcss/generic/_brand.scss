@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@use '../defaults' as *;
 /*------------------------------------*\
     $BRAND
 \*------------------------------------*/
@@ -7,13 +7,13 @@
  * any element using a handy helper class.
  */
 .brand{
-    font-family:$brand-face +!important;
-    color:$brand-color +!important;
+    font-family:$brand-face !important;
+    color:$brand-color !important;
 }
 .brand-face{
-    font-family:$brand-face +!important;
+    font-family:$brand-face !important;
 }
 .brand-color,
 .brand-colour{
-    color:$brand-color +!important;
+    color:$brand-color !important;
 }

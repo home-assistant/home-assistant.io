@@ -1,8 +1,6 @@
 ---
 title: Search
 description: Internal search module for Home Assistant.
-ha_category:
-  - Other
 ha_release: 0.105
 ha_codeowners:
   - '@home-assistant/core'
@@ -11,7 +9,7 @@ ha_quality_scale: internal
 ha_integration_type: system
 ---
 
-The `search` integration is an internally used integration by the
+The **Search** {% term integration %} is an internally used integration by the
 Home Assistant Core.
 
 All data stored in Home Assistant is interconnected, making it a graph.

@@ -1,13 +1,8 @@
 ---
 title: LaMetric
-description: Instructions on how to integrate LaMetric TIME with Home Assistant.
-ha_category:
-  - Button
-  - Notifications
-  - Number
-  - Select
-  - Sensor
-  - Switch
+description: Instructions on how to integrate LaMetric TIME and SKY with Home Assistant.
+ha_categories:
+  - messaging_notifications.push_notifications
 ha_iot_class: Local Polling
 ha_release: 0.49
 ha_codeowners:
@@ -23,121 +18,164 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - time
+  - update
 ha_integration_type: device
 ha_config_flow: true
 ha_ssdp: true
 ha_dhcp: true
-ha_quality_scale: platinum
+related:
+  - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
+    title: Debug logs and diagnostics
 ---
 
-[LaMetric TIME](https://lametric.com/) is a smart clock that can be used to access applications, listen to web radio and display notifications.
+The **LaMetric** {% term integration %} lets you integrate your [LaMetric TIME](https://lametric.com/) smart clock or LaMetric SKY smart light with Home Assistant, so you can display notifications, charts, and other visual updates on the device.
+
+Use cases for this integration include:
+
+- Sending notifications to the clock when events happen in your home, such as a doorbell ring, a delivery arrival, or a washing machine finishing.
+- Displaying a chart of recent energy usage, temperature, or any other numeric value from your home.
+- Controlling the device's brightness, volume, and Bluetooth state from automations.
+- Cycling through the clock's apps or dismissing notifications without touching the device.
+
+## Supported devices
+
+The following LaMetric devices are known to be supported:
+
+- [LaMetric TIME](https://lametric.com/)
+- [LaMetric SKY](https://lametric.com/)
+
+The screensaver time entities are not available on the LaMetric SKY. The volume and Bluetooth entities are only added when the device reports audio and Bluetooth support, which a LaMetric SKY on recent firmware does not.
+
+## Prerequisites
+
+Your LaMetric device must be powered on and connected to the same local network as Home Assistant. In most cases, the device is discovered automatically.
 
 {% include integrations/config_flow.md %}
 
-## Actions
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your LaMetric device. Only required when adding the device manually, or with a press on its button."
+API key:
+  description: "The device API key, which you can find in the LaMetric developer portal. Only required when adding the device manually."
+{% endconfiguration_basic %}
 
-The LaMetric integration provides actions to interact with your LaMetric
-device(s). Those action can be used in, for example, automations.
+During setup, you can choose between three methods:
 
-### Action `lametric.chart`
+- **Press the button**: Enter the device's hostname or IP address, then press the button on top of the device within a minute when it asks for it. The device hands out its API key itself. This method does not require a LaMetric account, and works on devices from 2022 onward.
+- **Automatic**: Sign in with your LaMetric account to let Home Assistant fetch your devices and their credentials for you.
+- **Manual**: Enter the device's hostname or IP address and API key. This method does not require a LaMetric account.
 
-The {% my developer_call_service service="lametric.chart" title="`lametric.chart`" %}
-action allows you to display a little chart to your LaMetric.
+When Home Assistant discovers your device, or asks you to re-authenticate it, it first checks whether the device supports the button press. If it does, setup goes straight to pressing the button. If it does not, like an older LaMetric TIME, only the other two methods are offered.
 
-{% my developer_call_service badge service="lametric.chart" %}
+## Supported functionality
 
-{% configuration "lametric.chart" %}
-device_id:
-  description: The ID of the device to send the message to.
-  required: true
-  type: string
-data:
-  description: The data points in the chart, as a list of numbers. For example `[1, 2, 3, 2, 1]`.
-  required: true
-  type: list
-cycles:
-  description: "Defines how long the notification will be displayed. Set to `0` to require manual dismissal."
-  required: false
-  type: integer
-  default: 1
-priority:
-  description: "Defines the priority of the notification. Allowed values are `info`, `warning`, and `critical`."
-  required: false
-  type: string
-  default: info
-icon_type:
-  description: "Defines the nature of notification. Allowed values are `none`, `info`, and `alert`."
-  required: false
-  type: string
-  default: none
-sound:
-  description: "Defines the sound of the notification. Allowed are listed [below](#list-of-notification-sounds)."
-  required: false
-  type: string
-{% endconfiguration %}
+### Buttons
 
-### Action `lametric.message`
+- **Next app**
+  - **Description**: Switch to the next app displayed on the LaMetric device.
+  - **Entity category**: Configuration
+- **Previous app**
+  - **Description**: Switch to the previous app displayed on the LaMetric device.
+  - **Entity category**: Configuration
+- **Dismiss current notification**
+  - **Description**: Dismiss the currently shown notification.
+  - **Entity category**: Configuration
+- **Dismiss all notifications**
+  - **Description**: Dismiss all queued notifications.
+  - **Entity category**: Configuration
 
-The {% my developer_call_service service="lametric.message" title="`lametric.message`" %}
-action allows you to send a message to your LaMetric. These
-messages can be enrichted with icons and sounds.
+### Numbers
 
-{% my developer_call_service badge service="lametric.message" %}
+- **Brightness**
+  - **Description**: Control the brightness of the display in percent.
+  - **Entity category**: Configuration
+- **Volume**
+  - **Description**: Control the volume of the device in percent.
+  - **Entity category**: Configuration
 
-{% configuration "lametric.message" %}
-device_id:
-  description: The ID of the device to send the message to.
-  required: true
-  type: string
-message:
-  description: The message to send to the LaMetric device.
-  required: true
-  type: string
-icon:
-  description: "An icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
-  required: false
-  type: string
-cycles:
-  description: "Defines how long the notification will be displayed. Set to `0` to require manual dismissal."
-  required: false
-  type: integer
-  default: 1
-priority:
-  description: "Defines the priority of the notification. Allowed values are `info`, `warning`, and `critical`."
-  required: false
-  type: string
-  default: info
-icon_type:
-  description: "Defines the nature of notification. Allowed values are `none`, `info`, and `alert`."
-  required: false
-  type: string
-  default: none
-sound:
-  description: "Defines the sound of the notification. Allowed are listed [below](#list-of-notification-sounds)."
-  required: false
-  type: string
-{% endconfiguration %}
+### Selects
+
+- **Brightness mode**
+  - **Description**: Choose whether the brightness is set manually or automatically based on ambient light.
+  - **Entity category**: Configuration
+- **Screensaver mode**
+  - **Description**: Choose when the screensaver turns on: when it gets dark, or on a schedule set with the screensaver time entities. Only the modes the device supports are offered. To switch to the schedule, set its start and end time first. Not available on the LaMetric SKY.
+  - **Entity category**: Configuration
+
+### Sensors
+
+- **Wi-Fi signal**
+  - **Description**: The current Wi-Fi signal strength in percent.
+  - **Entity category**: Diagnostic
+
+### Switches
+
+- **Bluetooth**
+  - **Description**: Toggle the device's Bluetooth radio on or off.
+  - **Entity category**: Configuration
+- **Screensaver**
+  - **Description**: Turn the screensaver on or off. This leaves the screensaver mode and schedule as they are. Not available on the LaMetric SKY.
+  - **Entity category**: Configuration
+
+### Times
+
+- **Screensaver start time**
+  - **Description**: The time the time-based screensaver starts, in your Home Assistant time zone.
+  - **Entity category**: Configuration
+- **Screensaver end time**
+  - **Description**: The time the time-based screensaver ends, in your Home Assistant time zone.
+  - **Entity category**: Configuration
+
+Changing a time only changes the schedule. If the screensaver is set to turn on when it gets dark, it stays that way.
+
+The device accepts both times only when set together. If you never set a screensaver time on the device, setting one time sets both to that time until you set the other.
+
+The device stores these times in UTC. After a daylight saving time change, the times shift by one hour, so set them again if needed.
+
+These entities are not available on the LaMetric SKY.
+
+### Update
+
+The integration provides an update entity that shows whether a firmware update is available for your LaMetric device.
+
+{% include integrations/actions.md %}
 
 ## Notifications
 
-You can send notifications to your LaMetric device using
-the [Notifications](/integrations/notify) integration.
+You can send notifications to your LaMetric device in two ways: using the notify entity (recommended) or the legacy notify action.
 
-Each LaMetric device added to your Home Assistant will have its own
-`notify.` actions. The action name matches the name of your device
-as shown in your LaMetric account. For example, if you have a device
-called "My LaMetric", the action would become `notify.my_lametric`.
+### Notify entity
 
-The notification performed action against an LaMetric device can take the
-following, additional, optional parameters:
+Each LaMetric device provides a notify entity that you can use with the [`notify.send_message`](/actions/notify.send_message/) action. This is the recommended way to send notifications.
+
+The entity is named after your device. For example, a device called "My LaMetric" provides the entity `notify.my_lametric`.
+
+To send a message, target the entity and provide the message text:
+
+```yaml
+action: notify.send_message
+target:
+  entity_id: notify.my_lametric
+data:
+  message: "Hello from Home Assistant!"
+```
+
+The notify entity supports only the message text. To use the additional options described below, use the legacy notify action.
+
+### Legacy notify action
+
+Each LaMetric device added to Home Assistant also has its own `notify.` action. The action name matches the name of your device as shown in your LaMetric account. For example, if you have a device called "My LaMetric", the action becomes `notify.my_lametric`.
+
+The notification action against a LaMetric device accepts the following additional optional parameters:
 
 {% configuration "notification" %}
 icon:
-  description: "An icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
+  description: "The ID of an icon or animation. The full list of icons and their IDs is in the [LaMetric icon gallery](https://developer.lametric.com/icons)."
   required: false
   type: string
 cycles:
-  description: "Defines how long the notification will be displayed. Set to `0` to require manual dismissal."
+  description: "How many times the notification is displayed. Set to `0` to keep it on screen until it is dismissed."
   required: false
   type: integer
   default: 1
@@ -145,32 +183,42 @@ priority:
   description: "Defines the priority of the notification. Allowed values are `info`, `warning`, and `critical`."
   required: false
   type: string
-  default: warning
+  default: info
 icon_type:
-  description: "Defines the nature of notification. Allowed values are `none`, `info`, and `alert`."
+  description: "Defines the nature of the notification. Allowed values are `none`, `info`, and `alert`."
   required: false
   type: string
   default: none
 sound:
-  description: "Defines the sound of the notification. Allowed are listed [below](#list-of-notification-sounds)."
+  description: "The sound to play with the notification. For the list of supported sounds, see [Notification sounds](#notification-sounds)."
   required: false
   type: string
   default: none
+sound_url:
+  description: "An MP3 file to play with the notification, instead of a built-in sound: a media source ID of a file in Home Assistant, or the URL of the file. When `sound` is given as well, that sound plays when the file cannot be fetched."
+  required: false
+  type: string
 {% endconfiguration %}
 
-## Example
+## Data updates
 
-To add a notification sound, icon, cycles, or priority override,
+The integration polls the LaMetric device every 30 seconds over the local network for the latest state.
+
+## Examples
+
+### Notify on arrival
+
+Send a notification to the LaMetric device when someone arrives at school, with a custom sound, icon, and priority:
 
 ```yaml
-- alias: "Send notification on arrival at school"
-  trigger:
-    platform: state
+alias: "Send notification on arrival at school"
+triggers:
+  - trigger: state
     entity_id: device_tracker.tom_mobile
     from: "not_home"
     to: "school"
-  action:
-    action: notify.my_lametric
+actions:
+  - action: notify.my_lametric
     data:
       message: "Tom has arrived at school!"
       data:
@@ -181,16 +229,32 @@ To add a notification sound, icon, cycles, or priority override,
         icon_type: "info"
 ```
 
-## List of notification sounds
+### Doorbell notification with sound
 
-The following notification sounds can be used with the `sound` parameter on
-notify action:
+Play a sound and show a message on the LaMetric device when the doorbell is pressed:
+
+```yaml
+alias: "Doorbell notification"
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.doorbell
+    to: "on"
+actions:
+  - action: notify.my_lametric
+    data:
+      message: "Ding dong!"
+      data:
+        sound: "knock-knock"
+        icon: "a13710"
+        priority: critical
+        icon_type: alert
+```
+
+## Notification sounds
+
+The following notification sounds can be used with the `sound` parameter on the notify and action calls. To play your own sound instead, use the `sound_url` parameter: pick an MP3 file from your media in Home Assistant, or enter the URL of one. The device fetches and plays it, so it must be able to reach Home Assistant, or the URL, on the network.
 
 - `alarm1`
-- `alarm10`
-- `alarm11`
-- `alarm12`
-- `alarm13`
 - `alarm2`
 - `alarm3`
 - `alarm4`
@@ -199,6 +263,10 @@ notify action:
 - `alarm7`
 - `alarm8`
 - `alarm9`
+- `alarm10`
+- `alarm11`
+- `alarm12`
+- `alarm13`
 - `bicycle`
 - `car`
 - `cash`
@@ -232,44 +300,68 @@ notify action:
 - `water2`
 - `win`
 - `win2`
-- `wind_short`
 - `wind`
+- `wind_short`
 
-## Manual automatic import configuration
+## Known limitations
 
-If you prefer not to use the Home Assistant account linking service, you
-can set up the LaMetric application manually.
+- The integration communicates with the LaMetric device over the local network. If the device is not reachable, its entities become unavailable.
+- When the LaMetric device is powered through a USB port on a computer, the display brightness is limited. For full brightness, use a proper USB charger.
+- The list of built-in sounds is fixed by the device firmware. To play another sound, use `sound_url` with an MP3 file.
 
-However, please note! At this point, it is easier to choose the "Enter manually"
-option during the integration setup; this also avoids the use of the account
-linking service and doesn't need all the steps below either.
+## Troubleshooting
 
-If you still want to set up your own LaMetric application for importing
-your LaMetric devices, use the following steps:
+### The brightness does not go to 100%
 
-1. Log in with your LaMetric device account to [developer.lametric.com](https://developer.lametric.com).
-2. Click the Create button and choose [Notification](https://developer.lametric.com/applications/createsource) app.
+When the LaMetric is powered through a USB port on a computer, the brightness is limited. To get the full brightness, use a proper USB charger.
+
+### Cannot connect during manual setup
+
+If you see a "Cannot connect" error when adding the device manually, verify that:
+
+1. The device is powered on and connected to your network.
+2. The hostname or IP address you entered is correct.
+3. The API key matches the one shown in the LaMetric developer portal.
+
+### Notifications do not show in kiosk mode
+
+When the LaMetric device is in kiosk mode, it only accepts notifications with the `critical` priority, and refuses all others with the message "Only notifications with priority 'critical' are allowed in current mode".
+
+The notify entity always sends notifications with the `info` priority. To send a notification to a device in kiosk mode, use the `lametric.message` action or the [legacy notify action](#legacy-notify-action) with the priority set to `critical`.
+
+## Use your own LaMetric application credentials
+
+If you prefer not to use the Home Assistant account linking service, you can set up the LaMetric application manually.
+
+However, at this point, it is easier to choose the **Enter manually** option during the integration setup. This avoids the use of the account linking service and does not require any of the steps below.
+
+If you still want to set up your own LaMetric application for importing your LaMetric devices, use the following steps:
+
+1. Sign in with your LaMetric account at [developer.lametric.com](https://developer.lametric.com).
+2. Select **Create** and choose [Notification](https://developer.lametric.com/applications/createsource) app.
 3. Fill in the form. You can put almost anything in the fields, they just need to be populated:
-  - App Name: Home Assistant 
-  - Description: Home Assistant
-  - Redirect URI: `https://my.home-assistant.io/redirect/oauth`
-  - Privacy Policy: `http://localhost/`
-  - Check the "basic" and "read_devices" permission boxes
-  - Click Save
-4. You should be directed to your [Notification Apps list](https://developer.lametric.com/applications/sources),
-   click on "Home Assistant", copy your client ID and Client Secret.
+    - **App Name**: Home Assistant
+    - **Description**: Home Assistant
+    - **Redirect URI**: `https://my.home-assistant.io/redirect/oauth`
+    - **Privacy Policy**: `http://localhost/`
+    - Check the **basic** and **read_devices** permission boxes.
+    - Select **Save**.
+4. You will be directed to your [Notification Apps list](https://developer.lametric.com/applications/sources). Select **Home Assistant** and copy your Client ID and Client Secret.
 
-You may then add the credentials to [Application Credentials](/integrations/application_credentials/) and then setup the integration.
+You can then add the credentials to [Application Credentials](/integrations/application_credentials/) and set up the integration.
 
 {% details "I have manually disabled My Home Assistant" %}
 
-If you don't have [My Home Assistant](/integrations/my) on your installation,
-you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
-instead.
+If you don't have [My Home Assistant](/integrations/my) on your installation, you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI instead.
 
-The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
-authentication process.
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration and authentication process.
 
-Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`.
 
 {% enddetails %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

@@ -1,29 +1,33 @@
 ---
-title: "This entity does not have a unique ID?"
-description: "This entity does not have a unique ID?"
+title: "Why does this entity not have a unique ID?"
+description: "A unique ID is a permanent identifier (such as a serial number) that some entities don't have. Without one, you can't rename the entity from the UI."
 ha_category: Configuration
 ---
 
-If you try to access the configuration dialog for an entity in your Home Assistant, you might end up seeing this message:
+When you open the settings of an {% term entity %}, you may see this message: **This entity ('climate.bath') does not have a unique ID, therefore its settings cannot be managed from the UI.**
 
-![Screenshot of popup for no unique ID](/images/faq/faq_no_unique_id.jpg)
+You may also see a similar message in these places:
 
-This means that this entity does not have a unique identification, e.g., a serial number or another identifier that is guaranteed to be static and never changes. As a result, the normal editing process that allows you to change various settings through the user interface (such as the entity ID, icon, friendly name, etc.) is not possible here.
+- When you add aliases for Assist: **Aliases are not supported for entities without a unique ID.**
+- When you assign a category to an automation, script, scene, or helper, for example: **To assign a category to an automation it needs to have a unique ID.**
+- In the list of automations, for an automation without a unique ID: **Only automations that have a unique ID assigned are debuggable.**
 
-Typically, you'll see this when you create entities manually using YAML, but it can also appear if the integration that provides this entity, cannot determine a unique ID. This however is not an error, but just a limitation of the integration you use. A few selected integrations (such as [`template`](/integrations/template/) and [`mqtt`](/integrations/mqtt/)) allow the user to define a unique ID.
+A unique ID is a permanent identifier (for example, a serial number) that is guaranteed never to change. Without one, Home Assistant cannot safely let you rename the entity or change its settings from the user interface, because there would be no reliable way to track which entity you meant.
 
-### Used where?
+You will typically see this on entities you created manually in YAML, or on entities from an {% term integration %} that has no way to determine a unique ID for the underlying device. This is not an error, but a limitation of the integration. To find out whether you can add one yourself, refer to [Can I add a unique ID myself?](#can-i-add-a-unique-id-myself).
+
+### Where each ID is used
 
 **Unique ID:**
 
-- Only internally in Home Assistant.
+- Used only internally in Home Assistant.
 
 **Entity ID:**
 
-- Entity with a unique ID: Entity ID only used as a reference, e.g., in automations or dashboards.
-- Entity without a unique ID: Entity ID acts as the replacement for the non-existing unique ID plus as a reference, e.g., in automations or dashboards.
+- Entity with a unique ID: the entity ID is only used as a reference, for example in automations or dashboards.
+- Entity without a unique ID: the entity ID acts as the replacement for the missing unique ID, _and_ as the reference in automations or dashboards.
 
-### Can be changed?
+### Can the IDs be changed?
 
 **Unique ID:**
 
@@ -31,9 +35,23 @@ Typically, you'll see this when you create entities manually using YAML, but it 
 
 **Entity ID:**
 
-- Entity with a unique ID: Entity ID can be adjusted freely (as long as it follows the format `<domain>.<id>` and does not result in duplicates in your Home Assistant). Keep in mind that if you change the entity ID, you also need to update the references, e.g., in automations and dashboards.<br>
-- Entity without a unique ID: Entity ID is considered a fixed, static identifier and cannot be changed.
+- Entity with a unique ID: the entity ID can be changed freely, as long as it follows the format `<domain>.<id>` and does not collide with another entity. If you change the entity ID, remember to update the references in automations and dashboards.
+- Entity without a unique ID: the entity ID is treated as a fixed identifier and cannot be changed.
 
-In case your entity has no unique ID and therefore cannot be changed through the UI, there are some [manual customization options](/docs/configuration/customizing-devices) directly through YAML files.
+If your entity has no unique ID, you can still adjust some properties through the [manual customization options](/docs/configuration/customizing-devices) in YAML.
 
-In case you want to read more about unique IDs, head over to this [developer documentation page](https://developers.home-assistant.io/docs/entity_registry_index/).
+### How do I remove an entity without a unique ID?
+
+Entities without a unique ID are not stored in the entity registry, so you cannot delete them from the user interface. To remove one, remove or change the configuration that creates the entity.
+
+- If you created the entity manually in YAML, remove its configuration. Then go to {% my tools_yaml title="**Settings** > **Tools** > **YAML**" %} and reload the affected configuration if it is listed. Otherwise, restart Home Assistant.
+- If an integration creates the entity, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the integration, and reconfigure or remove the source that provides it. The available options depend on the integration, so check its documentation for details.
+
+### Can I add a unique ID myself?
+
+It depends on the integration.
+
+- If you created the entity in YAML, check the documentation of its integration for a `unique_id` option. Some integrations, such as [Template](/integrations/template/) and [MQTT](/integrations/mqtt/), let you set one yourself. Once the entity has a unique ID, you can rename it and change its settings from the UI.
+- If the integration doesn't offer that option, you can't add a unique ID yourself. It has to come from the integration, because it needs to identify the same device or service every time Home Assistant starts.
+
+If an integration does not provide unique IDs, it could potentially be improved to do so. Contributions are welcome. See the [developer documentation](https://contributors.home-assistant.io/core/) to get started, and the [entity registry documentation](https://contributors.home-assistant.io/core/entities/registry/) for more on unique IDs.

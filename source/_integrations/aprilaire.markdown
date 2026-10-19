@@ -1,8 +1,9 @@
 ---
 title: AprilAire
 description: Instructions on how to integrate AprilAire devices into Home Assistant.
-ha_category:
-  - Climate
+ha_categories:
+  - climate.thermostats_heating
+  - climate.air_purifiers_humidifiers
 ha_iot_class: Local Push
 ha_release: 2024.3
 ha_domain: aprilaire
@@ -17,7 +18,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The AprilAire integration allows you to control an AprilAire thermostat.
+The **AprilAire** {% term integration %} allows you to control an AprilAire thermostat.
 
 ## Supported Models
 
@@ -25,7 +26,7 @@ This integration supports AprilAire [8800-series Home Automation Wi-Fi Thermosta
 
 ## Prerequisites
 
-In order to connect to the thermostat, you will need to enable automation mode. This involves going into the Contractor Menu on your thermostat and changing the Connection Type to Automation. As the specific instructions can vary per model, consult the manual for your specific model.
+To connect to the thermostat, you will need to enable automation mode. This involves going into the Contractor Menu on your thermostat and changing the Connection Type to Automation. As the specific instructions can vary per model, consult the manual for your specific model.
 
 {% include integrations/config_flow.md %}
 

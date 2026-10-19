@@ -1,9 +1,8 @@
 ---
 title: Yandex Transport
 description: Instructions on how to set up Yandex transport with Home Assistant.
-ha_category:
-  - Sensor
-  - Transport
+ha_categories:
+  - vehicles_transport.public_transport
 ha_iot_class: Cloud Polling
 ha_release: '0.100'
 ha_codeowners:
@@ -16,9 +15,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `yandex_tranport` {% term integration %} uses [Yandex Maps](https://maps.yandex.ru/) it will give you the time until the next departure time from a bus/tramway/etc stop.
+The **Yandex Transport** {% term integration %} uses [Yandex Maps](https://maps.yandex.ru/) it will give you the time until the next departure time from a bus/tramway/etc stop.
 
 The [Yandex Maps](https://maps.yandex.ru/) website can help to determine the id of your bus stop. You can select a bus stop by clicking on the map, and look to the URL:
 

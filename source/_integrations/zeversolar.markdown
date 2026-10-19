@@ -1,8 +1,8 @@
 ---
 title: Zeversolar
 description: Instructions on how to configure the Zeversolar integration within Home Assistant
-ha_category:
-  - Environment
+ha_categories:
+  - energy.solar_batteries
 ha_release: 2023.2
 ha_iot_class: Local Polling
 ha_domain: zeversolar
@@ -13,6 +13,8 @@ ha_config_flow: true
 ha_integration_type: device
 ha_codeowners:
   - '@kvanzuijlen'
+  - '@mhuiskes'
+ha_quality_scale: bronze
 ---
 
 The **Zeversolar** {% term integration %} uses the local device IP to get information like the current power and

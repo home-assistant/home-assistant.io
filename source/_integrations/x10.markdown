@@ -1,8 +1,9 @@
 ---
 title: Heyu X10
-description: Instructions on how to setup X10 devices within Home Assistant.
-ha_category:
-  - Light
+description: Instructions on how to set up X10 devices within Home Assistant.
+ha_categories:
+  - hubs_protocols
+  - lighting
 ha_iot_class: Local Polling
 ha_release: 0.25
 ha_domain: x10
@@ -12,9 +13,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `x10` light {% term integration %} allows you to control your X10 based lights with Home Assistant.
+The **Heyu X10** {% term integration %} allows you to control your X10 based lights with Home Assistant.
 
 Requires [Heyu x10](https://www.heyu.org/) and a CM11A or a CM17A "FireCracker" interface.
 

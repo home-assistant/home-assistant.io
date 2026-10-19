@@ -108,7 +108,7 @@ Not only did we gain a lot of test coverage, we also attracted a lot of new deve
 [Snapcast]: /integrations/snapcast
 [mqtt-publish]: /integrations/mqtt/#publish-service
 [REST]: /integrations/notify.rest/
-[template]: /integrations/switch.template/
+[template]: /integrations/template/#switch
 [Honeywell]: /integrations/honeywell/
 [zwave-polling]: /integrations/zwave/#configuration
 [zwave-scene]: /integrations/zwave/#events

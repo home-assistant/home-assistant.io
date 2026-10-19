@@ -2,8 +2,8 @@
 title: PECO Outage Counter
 description: Get how many outages are in your county
 ha_release: 2022.4
-ha_category:
-  - Sensor
+ha_categories:
+  - local_services
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -12,7 +12,7 @@ ha_domain: peco
 ha_platforms:
   - binary_sensor
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 PECO is a public utility company that provides electricity to the Philadelphia metro.
@@ -33,7 +33,7 @@ PECO Is a registered trademark of Exelon Business Services Co., LLC
 The PECO Outage Counter integration allows you to get the current count of power outages for any county, and the total for the operating region too.
 
 - **Outage Count**: This will return the current number of outages of a county or the entire operating region.
-- **Smart Meter**: This can utilize the smart meter functionality of select meters to verify that power is being delivered to your home.
+- **Smart Meter**: This can use the smart meter functionality of select meters to verify that power is being delivered to your home.
 
 This integration will create the following 6 entities:
 

@@ -1,16 +1,15 @@
 ---
 title: CalDAV
 description: Instructions on how to integrate a WebDav calendar into Home Assistant.
-ha_category:
-  - Calendar
-  - To-do List
+ha_categories:
+  - productivity_information.calendars_todos
 ha_iot_class: Cloud Polling
 ha_release: '0.60'
 ha_domain: caldav
 ha_platforms:
   - calendar
   - todo
-ha_integration_type: integration
+ha_integration_type: service
 ha_config_flow: true
 related:
   - docs: /integrations/todo
@@ -25,7 +24,7 @@ related:
     title: Configuration file
 ---
 
-The **CalDAV** integration allows you to connect your WebDAV calendar to Home Assistant
+The **CalDAV** {% term integration %} allows you to connect your WebDAV calendar to Home Assistant
 as one of these entity types:
 
 - A [calendar](/integrations/calendar) entity which can be used to trigger automations based on the start or end of an event using criteria such as the event name or description.
@@ -112,7 +111,7 @@ calendar:
 
 This will create two entities for the calendar name Agenda: "HomeOffice" and "WarmupFlat" with events matching the regular expression specified in `search`. In custom calendars, events that last a whole day are taken into account.
 
-Please note that if you use the `custom_calendars` option, only those calendars will be loaded. You cannot use `calendars` and `custom_calendars` in the same configuration.
+If you use the `custom_calendars` option, only those calendars will be loaded. You cannot use `calendars` and `custom_calendars` in the same configuration.
 
 {% configuration %}
 url:
@@ -129,7 +128,7 @@ password:
   type: string
 calendars:
   required: false
-  description: List of the calendars to filter. Empty or absent means no filtering, i.e., all calendars will be added. It cannot be used if `custom_calender` option is used.
+  description: List of the calendars to filter. Empty or absent means no filtering; that is, all calendars will be added. It cannot be used if the `custom_calendars` option is used.
   type: list
 custom_calendars:
   required: false
@@ -162,6 +161,10 @@ verify_ssl:
 
 {% enddetails %}
 
+## Canceled events
+
+A CalDAV server keeps a canceled event in the calendar instead of deleting it. Home Assistant leaves it out: it doesn't appear in the calendar, doesn't change the state of the calendar entity, and doesn't trigger [calendar automations](/integrations/calendar/#automation).
+
 ## Calendar Event Automations
 
 Individual Calendar *Events* can power automations such as:
@@ -170,7 +173,7 @@ Individual Calendar *Events* can power automations such as:
 - Send a notification *5 minutes before the start of any event*
 - Stop the media player *30 minutes after* the *end* of the event named *Exercise*.
 
-See [Calendar Automations](/integrations/calendar#automation) for an overview, and read more about [Calendar Trigger Variables](/docs/automation/templating/#calendar) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
+See [Calendar Automations](/integrations/calendar#automation) for an overview, and read more about [Calendar Trigger Variables](/docs/automation/trigger-data/#calendar-triggers) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
 
 ## Calendar Entity Attributes
 
@@ -195,16 +198,6 @@ The todo entity is the number of incomplete items on the to-do list. See the
 actions that can be used in automations.
 
 ## Troubleshooting
-
-{% details "Home Assistant Core Installations" %}
-
-You might need some additional system packages to compile the Python CalDAV library. On a Debian based system, install them by:
-
-```bash
-sudo apt-get install libxml2-dev libxslt1-dev zlib1g-dev
-```
-
-{% enddetails %}
 
 {% details "iCloud" %}
 

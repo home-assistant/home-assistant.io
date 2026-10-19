@@ -1,14 +1,9 @@
 ---
 title: August
 description: Instructions on how to integrate your August devices into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Doorbell
-  - Event
-  - Lock
-  - Sensor
+ha_categories:
+  - security_safety.locks_access
+  - security_safety.doorbells_intercoms
 ha_release: 0.64
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -24,10 +19,10 @@ ha_platforms:
   - event
   - lock
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `august` integration allows you to integrate your [August](https://august.com/) and some Yale Access devices in Home Assistant.
+The **August** {% term integration %} allows you to integrate your [August](https://august.com/) and some Yale Access devices in Home Assistant.
 
 For devices that use the [Yale Home](https://yalehome.com/global) app, the [Yale](/integrations/yale) integration should be used instead.
 
@@ -141,23 +136,20 @@ For locks that support the Yale Access system, the August integration can keep y
 
 Using the lock operation sensors, you can detect when a user operates a lock and is physically present (not remote). The below automation example (added to `automations.yaml`) will trigger when the user named “John Doe” in August locks or unlocks the door from the keypad (if present), via Bluetooth from their phone, or by auto-unlock. The state of the sensor will be the name of the party operating the lock as returned by August.
 
-{% raw %}
 
 ```yaml
 - id: "1583706446906"
   alias: "joe_doe_front_door_operate"
   description: John Doe locks or unlocks the Front Door
-  trigger:
-  - entity_id: sensor.front_door_operator
-    platform: state
-    to: John Doe
-  condition:
+  triggers:
+  - trigger: state
+    entity_id: sensor.front_door_operator
+    to: "John Doe"
+  conditions:
   - condition: template
     value_template: "{{ not state_attr('sensor.front_door_operator', 'remote') }}"
-  action:
-  - data: {}
+  actions:
+  - action: camera.turn_off
     entity_id: camera.inside
-    action: camera.turn_off
+    
 ```
-
-{% endraw %}

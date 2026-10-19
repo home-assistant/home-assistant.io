@@ -1,3 +1,5 @@
+@use '../generic/mixins' as *;
+@use '../defaults' as *;
 @if $use-grids == true{
 
 /*------------------------------------*\

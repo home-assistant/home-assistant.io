@@ -1,0 +1,27 @@
+---
+title: Heatit
+description: Connect and control your Heatit Z-Wave devices using the Z-Wave integration
+ha_release: 2026.2
+ha_iot_class: Local Push
+ha_categories:
+  - climate.thermostats_heating
+  - energy.meters_monitoring
+  - buttons_remotes
+ha_domain: heatit
+ha_integration_type: brand
+works_with:
+  - zwave
+ha_platforms:
+  - climate
+  - sensor
+  - binary_sensor
+  - switch
+ha_iot_standard: zwave
+ha_brand: true
+---
+
+{% include integrations/wwha.md url="https://heatit.com/" %}
+
+## Works with Home Assistant certified devices
+
+{% include integrations/device_list.html brand="heatit" %}

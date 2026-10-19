@@ -1,3 +1,6 @@
+@use '../variables' as *;
+@use '../../inuitcss/defaults' as *;
+@use '../../inuitcss/generic/mixins' as *;
 $landingpage__deep_color: #161d61;
 $landingpage__light_color: #18abfd;
 $ha__primary_color: #03a9f4;
@@ -186,6 +189,11 @@ $ha__primary_color: #03a9f4;
 
         div {
           width: 330px;
+        }
+
+        .button{
+          display: inline-block;
+          padding: 8px 24px;
         }
 
         .title {
@@ -844,6 +852,7 @@ $ha__primary_color: #03a9f4;
           margin: auto;
 
           summary.region {
+            cursor: pointer;
             display: list-item;
           }
         }

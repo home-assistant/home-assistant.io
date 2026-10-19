@@ -1,8 +1,8 @@
 ---
 title: Pocket Casts
 description: Instructions on how to set up Pocket Casts sensors within Home Assistant.
-ha_category:
-  - Multimedia
+ha_categories:
+  - media_entertainment.music_radio_services
 ha_release: 0.39
 ha_iot_class: Cloud Polling
 ha_domain: pocketcasts
@@ -12,9 +12,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `pocketcasts` sensor {% term integration %} lets you monitor how many unplayed episodes you have of your favorite podcasts at [Pocket Casts](https://play.pocketcasts.com/). This integration requires a [Pocket Casts + Plus](https://www.pocketcasts.com/plus/) subscription to work!
+The **Pocket Casts** {% term integration %} lets you monitor how many unplayed episodes you have of your favorite podcasts at [Pocket Casts](https://play.pocketcasts.com/). This integration requires a [Pocket Casts + Plus](https://www.pocketcasts.com/plus/) subscription to work!
 
 ## Configuration
 

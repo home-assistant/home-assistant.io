@@ -8,6 +8,10 @@ related:
     title: Masonry view
   - docs: /dashboards/panel/
     title: Panel view
+  - docs: /dashboards/sections/
+    title: Sections view (default)
+  - docs: /dashboards/views/
+    title: About views
 ---
 
 The sidebar view has 2 columns, a wide one and a smaller one on the right.
@@ -17,18 +21,24 @@ The sidebar view has 2 columns, a wide one and a smaller one on the right.
 Screenshot of the sidebar view used for the energy dashboard.
 </p>
 
-This view doesn't have support for badges.
-
-You can set if a card should be placed in the main (left) column of the sidebar column (right), by selecting the arrow right or left arrow in the bar underneath the card.
+To move the card from the main column into the sidebar (right) (and vice versa), select the arrow {% icon "mdi:arrow-left-bold" %} {% icon "mdi:arrow-right-bold" %} button on the card.
 
 <p class='img'>
-<img src='/images/dashboards/sidebar_view_move_card.png' alt='Screenshot showing how to move a card between sidebar and main view'>
-Screenshot showing how to move a card between sidebar and main view.
+<img src='/images/dashboards/sidebar_view_move_card.png' alt='Screenshot showing how to move a card'>
+Screenshot showing the arrow buttons to move a card.
 </p>
 
-On mobile, all cards are rendered in 1 column and kept in the order of the cards in the config.
+On mobile, all cards are rendered in 1 column and kept in the order indicated in the YAML configuration.
 
-## View config:
+1. To view the YAML configuration, on the view tab, select the {% icon "mdi:pencil" %} icon to open the edit view.
+2. In the configuration dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, and **Edit in YAML**.
+
+<p class='img'>
+<img src='/images/dashboards/view_edit_config.png' alt='Screenshot showing where to edit the view configuration'>
+Screenshot showing where to edit the view configuration.
+</p>
+
+## View configuration
 
 {% configuration %}
 type:
@@ -37,7 +47,7 @@ type:
   type: string
 {% endconfiguration %}
 
-## Cards config:
+## Cards configuration
 
 {% configuration %}
 view_layout.position:

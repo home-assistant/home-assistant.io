@@ -7,12 +7,11 @@ date_formatted: "October 13, 2022"
 author: Paulus Schoutsen
 author_twitter: balloob
 comments: true
-categories:
-- Announcements
+categories: Works-with-Home-Assistant
 og_image: /images/blog/2022-10-13-third-reality-partner/social.png
 ---
 
-<img src='/images/works_with/works-with-zigbee.png' width="256" align="right" alt="Works via Zigbee with Home Assistant" class='no-shadow'>
+<img src='/images/works_with/works-with.png' width="256" align="right" alt="Works with Home Assistant badge" class='no-shadow'>
 
 Today we are excited to announce our next Works with Home Assistant partner: Third Reality!
 

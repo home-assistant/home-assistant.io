@@ -1,15 +1,15 @@
 ---
 title: Mailgun
 description: Instructions on how to add Mailgun mail notifications to Home Assistant.
-ha_category:
-  - Notifications
+ha_categories:
+  - messaging_notifications.email_sms_calls
 ha_iot_class: Cloud Push
 ha_release: 0.38
 ha_config_flow: true
 ha_domain: mailgun
 ha_platforms:
   - notify
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 To be able to receive webhooks from Mailgun, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/integrations/homeassistant/#allowlist_external_urls).
@@ -53,15 +53,15 @@ You can then consume that information with the following automation:
 
 ```yaml
 automation:
-  trigger:
-    platform: event
-    event_type: mailgun_message_received
-    event_data:
-      action: call_service
-  action:
-    action: light.turn_on
-    target:
-      entity_id: light.office
+  triggers:
+    - trigger: event
+      event_type: mailgun_message_received
+      event_data:
+        action: call_service
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.office
 ```
 
 ## Notifications
@@ -102,16 +102,16 @@ The following automation reacts to an event by sending out an email with two att
 ```yaml
 # Example automation using Mailgun notifications
 automation:
-  trigger:
-    platform: event
-    event_type: SPECIAL_EVENT
-  action:
-    action: notify.mailgun
-    data:
-      title: "Something special has happened"
-      message: "This a test message from Home Assistant"
+  triggers:
+    - trigger: event
+      event_type: SPECIAL_EVENT
+  actions:
+    - action: notify.mailgun
       data:
-        images:
-          - /home/pi/pic_test1.png
-          - /home/pi/pic_test2.png
+        title: "Something special has happened"
+        message: "This a test message from Home Assistant"
+        data:
+          images:
+            - /home/pi/pic_test1.png
+            - /home/pi/pic_test2.png
 ```

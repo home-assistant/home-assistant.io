@@ -61,7 +61,7 @@ Most first generation IoT devices are only exposing information that is needed f
 
 To increase adoption we will need people to trust their smart home system. It will be very tough to convince people to upgrade all their devices and upload all interactions with each of them to the cloud. This data could reveal their whole life including all bad habits. That's why such a system should be simple and open-source so people can validate that their data generated at home stays home.
 
-Anoter important booster for adoption is that the software should be easy to set up and use by the average user. A lot of people are not burning their hands yet on Home Automation because they are scared of configurating it.
+Another important booster for adoption is that the software should be easy to set up and use by the average user. A lot of people are not burning their hands yet on Home Automation because they are scared of configuring it.
 
 Home Assistant is trying to be this software. It is not there yet but trying hard. Device discovery and a user interface for configuring home automation are problems we hope to tackle in 2015 while not sacrificing any modularity or usability.
 

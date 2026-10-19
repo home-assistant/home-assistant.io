@@ -1,10 +1,9 @@
 ---
 title: FireServiceRota
 description: Instructions on how to configure the FireServiceRota integration for Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
-  - Switch
+ha_categories:
+  - messaging_notifications.push_notifications
+  - productivity_information.calendars_todos
 ha_iot_class: Cloud Polling
 ha_release: 2020.12
 ha_codeowners:
@@ -15,7 +14,7 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 FireServiceRota is a powerful and flexible availability, scheduling and dispatching system for firefighters.
@@ -112,57 +111,55 @@ These are documented below.
 
 ### Example automation
 
-{% raw %}
-
 ```yaml
 automation:
   - alias: "Switch on a light when incident is received"
-    trigger:
-      platform: state
-      entity_id: sensor.incidents
-    action:
-      action: light.turn_on
-      target:
-        entity_id: light.bedroom
+    triggers:
+      - trigger: state
+        entity_id: sensor.incidents
+    actions:
+      - action: light.turn_on
+        target:
+          entity_id: light.bedroom
 
   - alias: "Play TTS incident details when incident is received"
-    trigger:
-      platform: state
-      entity_id: sensor.incidents
-      attribute: message_to_speech_url
-    condition:
+    triggers:
+      - trigger: state
+        entity_id: sensor.incidents
+        attribute: message_to_speech_url
+    conditions:
       - condition: not
         conditions:
           - condition: state
             entity_id: sensor.incidents
             attribute: message_to_speech_url
             state: None
-    action:
+    actions:
       - action: media_player.play_media
-        data_template:
+        data:
           entity_id: media_player.nest_hub_bedroom
           media_content_id: >
               {{ state_attr('sensor.incidents','message_to_speech_url') }}
           media_content_type: "audio/mp4"
 
   - alias: "Send response acknowledgement when a button is pressed"
-    trigger:
-      platform: state
-      entity_id: switch.response_button
-    action:
-      action: homeassistant.turn_on
-      target:
-        entity_id: switch.incident_response
+    triggers:
+      - trigger: state
+        entity_id: switch.response_button
+    actions:
+      - action: homeassistant.turn_on
+        target:
+          entity_id: switch.incident_response
 
   - alias: "Cast FireServiceRota dashboard to Nest Hub"
-    trigger: 
-      platform: homeassistant
-      event: start
-    action:
-      action: cast.show_lovelace_view
-      data: 
-        entity_id: media_player.nest_hub_bedroom
-        view_path: fsr
+    triggers: 
+      - trigger: homeassistant
+        event: start
+    actions:
+      - action: cast.show_lovelace_view
+        data: 
+          entity_id: media_player.nest_hub_bedroom
+          view_path: fsr
 ```
 
 
@@ -203,8 +200,6 @@ views:
     title: FireServiceRota
     type: horizontal-stack
 ```
-
-{% endraw %}
 
 ### Screenshot
 

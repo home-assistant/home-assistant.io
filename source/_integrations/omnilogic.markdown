@@ -1,9 +1,8 @@
 ---
 title: Hayward Omnilogic
 description: Instructions on how to configure Hayward OmniLogic integration.
-ha_category:
-  - Sensor
-  - Switch
+ha_categories:
+  - water.pools_spas
 ha_release: 0.116
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -11,7 +10,7 @@ ha_domain: omnilogic
 ha_platforms:
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 [Hayward OmniLogic](https://www.hayward-pool.com/shop/en/pools/omnilogic-i-auomni--1) smart pool and spa technology control.

@@ -1,22 +1,22 @@
 ---
 title: GeoNet NZ Quakes
 description: Instructions on how to integrate the GeoNet New Zealand Quakes feed into Home Assistant.
-ha_category:
-  - Geolocation
+ha_categories:
+  - weather_alerts.public_warnings
 ha_iot_class: Cloud Polling
 ha_release: 0.98
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_codeowners:
   - '@exxamalte'
 ha_domain: geonetnz_quakes
 ha_platforms:
+  - diagnostics
   - geo_location
   - sensor
 ha_integration_type: service
 ---
 
-The `geonetnz_quakes` integration lets you use a GeoJSON feed provided by 
+The **GeoNet NZ Quakes** {% term integration %} lets you use a GeoJSON feed provided by 
 New Zealand's [GeoNet](https://www.geonet.org.nz/) with information 
 about quakes in the New Zealand region that happened within the last 7 days. 
 It retrieves incidents from a feed and 
@@ -66,7 +66,7 @@ the standard ones:
 | locality    | Distance and direction to the nearest locality. |
 | quality     | The quality of this information: best, good, caution, deleted. |
 
-Please note that the reported MMI may be lower than the minimum requested MMI. 
+The reported MMI may be lower than the minimum requested MMI. 
 This integration is passing the requested MMI value to the feed source and 
 displays all entries retrieved without further filtering by MMI.
 

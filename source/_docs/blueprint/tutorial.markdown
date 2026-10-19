@@ -7,7 +7,7 @@ related:
   - docs: /docs/configuration/yaml/
   - docs: /docs/automation/yaml/
     title: "YAML used in automations"
-  - docs: /docs/scripts/
+  - docs: /docs/script/
     title: Scripts
   - docs: /docs/blueprint/selectors/
     title: Blueprint selectors
@@ -32,7 +32,7 @@ In this tutorial, we're going to create an automation blueprint that controls a 
 - This tutorial assumes knowledge in the following topics:
   - [Editing the configuration file](/docs/configuration/)
   - [YAML](/docs/configuration/yaml/), and specifically, [YAML used in automations](/docs/automation/yaml/)
-  - [Scripts](/docs/scripts/)
+  - [Scripts](/docs/script/)
 
 ### Creating an automation
 
@@ -41,29 +41,27 @@ For this tutorial, we use a simple automation. The process for converting a comp
 
 The automation we're going to use in this tutorial controls a light based on a motion sensor:
 
-{% raw %}
 
 ```yaml
-trigger:
-  platform: state
-  entity_id: binary_sensor.motion_kitchen
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.motion_kitchen
 
-action:
-  action: >
-    {% if trigger.to_state.state == "on" %}
-      light.turn_on
-    {% else %}
-      light.turn_off
-    {% endif %}
-  target:
-    entity_id: light.kitchen
+actions:
+  - action: >
+      {% if trigger.to_state.state == "on" %}
+        light.turn_on
+      {% else %}
+        light.turn_off
+      {% endif %}
+    target:
+      entity_id: light.kitchen
 ```
 
-{% endraw %}
 
-The options that can be used with the `trigger` object are listed under [automation trigger variables](/docs/automation/templating/#available-trigger-data).
-In this example, a [state trigger](/docs/automation/templating/#state) is used.
-`turn_on` and `turn_off` are [`homeassistant` actions](/docs/scripts/service-calls/#homeassistant-actions). They are not tied to a specific domain. You can use them on lights, switches, and other domains.
+The options that can be used with the `trigger` object are listed under [automation trigger variables](/docs/automation/trigger-data/#trigger-properties).
+In this example, a [State changed trigger](/docs/automation/trigger-data/#state-triggers) is used.
+`turn_on` and `turn_off` are [`homeassistant` actions](/integrations/homeassistant/#list-of-actions). They are not tied to a specific domain. You can use them on lights, switches, and other domains.
 
 ### Creating the blueprint file
 
@@ -91,29 +89,27 @@ Now we have to decide what steps we want to make configurable. We want to make i
 Configurable parts in blueprints are called [inputs](/docs/blueprint/schema/#blueprint-inputs). To make the motion sensor entity configurable, we're replacing the entity ID with a custom YAML tag `!input`. This YAML tag has to be combined with the name of the input:
 
 ```yaml
-trigger:
-  platform: state
-  entity_id: !input motion_sensor
+triggers:
+  - trigger: state
+    entity_id: !input motion_sensor
 ```
 
 For the light, we can offer some more flexibility. We want to allow the user to be able to define any device or area as the target. The `target` property in the action can contain references to areas, devices, and/or entities, so that's what we will use.
 
 Inputs are not limited to strings. They can contain complex objects too. So in this case, we're going to mark the whole `target` as input:
 
-{% raw %}
 
 ```yaml
-action:
-  action: >
-    {% if trigger.to_state.state == "on" %}
-      light.turn_on
-    {% else %}
-      light.turn_off
-    {% endif %}
-  target: !input target_light
+actions:
+  - action: >
+      {% if trigger.to_state.state == "on" %}
+        light.turn_on
+      {% else %}
+        light.turn_off
+      {% endif %}
+    target: !input target_light
 ```
 
-{% endraw %}
 
 #### Add the inputs to the metadata
 
@@ -151,7 +147,7 @@ Reload automations and your new automation should pop up. Because we configured 
 
 ## Improving the inputs
 
-Blueprints are easier to use if it's easy to see what each field is used for. 
+Blueprints are easier to use if it's easy to see what each field is used for.
 
 ### Add a user friendly names to the inputs
 
@@ -193,7 +189,7 @@ blueprint:
         entity:
           filter:
             - domain: binary_sensor
-            - device_class: motion
+              device_class: motion
     target_light:
       name: Lights
       description: The lights to keep in sync.
@@ -209,7 +205,6 @@ By limiting our blueprint to working with lights and motion sensors, we unlock a
 
 After we have added all the steps, our blueprint will look like this:
 
-{% raw %}
 
 ```yaml
 blueprint:
@@ -224,7 +219,7 @@ blueprint:
         entity:
           filter:
             - domain: binary_sensor
-            - device_class: motion
+              device_class: motion
     target_light:
       name: Lights
       description: The lights to keep in sync.
@@ -233,11 +228,11 @@ blueprint:
           entity:
             - domain: light
 
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: !input motion_sensor
 
-action:
+actions:
   - action: >
       {% if trigger.to_state.state == "on" %}
         light.turn_on
@@ -247,11 +242,10 @@ action:
     target: !input target_light
 ```
 
-{% endraw %}
 
 ## Using the blueprint via the UI
 
-1. To configure your blueprint via the UI, go to {% my blueprints title="**Settings** > **Automations & Scenes** > **Blueprints**" %}.
+1. To configure your blueprint via the UI, go to {% my blueprints title="**Settings** > **Automations & scenes** > **Blueprints**" %}.
 2. Find the **Motion Light Tutorial** blueprint and select **Create Automation**.
 
 {% important %}
@@ -279,7 +273,7 @@ For this tutorial, we're going to share it on GitHub Gists. This is a good optio
    - **Filename including extension**: `motion_light_tutorial.yaml`
    - **Content** is the content of the blueprint file.
 2. Select **Create Gist**.
-3. To share your blueprint with other people, copy the URL of your new Gist. They can import it by going to {% my blueprint_import title="**Settings** > **Automations & Scenes** > **Blueprints**" %} and select **Import blueprint**.
+3. To share your blueprint with other people, copy the URL of your new Gist. They can import it by going to {% my blueprint_import title="**Settings** > **Automations & scenes** > **Blueprints**" %} and select **Import blueprint**.
 4. Celebrate! Cheers to you. You created your first blueprint and helped someone in the community.
 
 ### Share on the Blueprint Exchange

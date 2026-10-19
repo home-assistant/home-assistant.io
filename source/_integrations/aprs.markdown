@@ -2,8 +2,8 @@
 title: APRS
 description: Instructions on how to use APRS to track devices in Home Assistant.
 ha_release: 0.95
-ha_category:
-  - Presence detection
+ha_categories:
+  - presence_location.trackers
 ha_iot_class: Cloud Push
 ha_codeowners:
   - '@PhilRW'
@@ -14,9 +14,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `aprs` [(Automatic Packet Reporting System)](https://en.wikipedia.org/wiki/Automatic_Packet_Reporting_System) device tracker integration connects to the [APRS-IS](http://aprs-is.net/) network for tracking amateur radio devices.
+The **APRS** [(Automatic Packet Reporting System)](https://en.wikipedia.org/wiki/Automatic_Packet_Reporting_System) {% term integration %} connects to the [APRS-IS](http://aprs-is.net/) network for tracking amateur radio devices.
 
 ## Configuration
 

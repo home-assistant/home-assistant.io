@@ -1,8 +1,9 @@
 ---
 title: Apple iTunes
 description: Instructions on how to integrate iTunes into Home Assistant.
-ha_category:
-  - Media player
+ha_categories:
+  - media_entertainment.music_radio_services
+  - media_entertainment.speakers_audio
 ha_release: 0.7.3
 ha_iot_class: Local Polling
 ha_domain: itunes
@@ -12,9 +13,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `itunes` media player {% term integration %} allows you to control [iTunes](https://apple.com/itunes/) from Home Assistant. It uses a 3rd party server that you run on your Mac called [itunes-api](https://github.com/maddox/itunes-api). Play, pause or skip songs remotely on iTunes running on your Mac.
+The **Apple iTunes** {% term integration %} allows you to control [iTunes](https://apple.com/itunes/) from Home Assistant. It uses a 3rd party server that you run on your Mac called [itunes-api](https://github.com/maddox/itunes-api). Play, pause or skip songs remotely on iTunes running on your Mac.
 
 In addition to controlling iTunes, your available AirPlay endpoints will be added as media players as well. You can then individually address them and turn them on, turn them off or adjust their volume.
 

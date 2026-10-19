@@ -95,7 +95,7 @@ state_filter:
 
 ## Conditions options
 
-You can specify multiple `conditions`, in which case the entity will be displayed if it matches any condition.
+You can specify multiple `conditions`, in which case the entity will be displayed if it matches every condition.
 
 ### State
 
@@ -145,6 +145,10 @@ state_not:
   required: false
   description: Entity state or ID to not be equal to this value. Can contain an array of states.*
   type: [list, string]
+entity:
+  required: false
+  description: An optional entity ID to be used for testing the state condition. If not provided, the state of the entity being displayed is tested.
+  type: string
 {% endconfiguration %}
 
 *one is required (`state` or `state_not`)
@@ -177,6 +181,10 @@ above:
 below:
   required: false
   description: Entity state or ID to be below this value.*
+  type: string
+entity:
+  required: false
+  description: An optional entity ID to be used for testing the numeric state condition. If not provided, the numeric state of the entity being displayed is tested.
   type: string
 {% endconfiguration %}
 

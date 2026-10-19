@@ -4,7 +4,6 @@ description: Allows users to link accounts with integrations that support OAuth2
 ha_release: 2022.6
 ha_domain: application_credentials
 ha_quality_scale: internal
-ha_category: []
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: system
@@ -49,6 +48,6 @@ To delete an application credential, for example because you created a new one, 
     ![Devices and services overflow menu](/images/integrations/application_credentials/devices-and-services-menu.png)
 
 2. In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Application credentials**.
-3. Select the credential from the list, select the three-dots menu and select **Delete**.
+3. Select the credential from the list, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
 
     ![Application credential list](/images/integrations/application_credentials/application-credential_delete.png)

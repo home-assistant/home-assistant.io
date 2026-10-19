@@ -1,10 +1,8 @@
 ---
 title: Raspberry Pi Remote GPIO
 description: Instructions on how to integrate the GPIO capability of a remote Raspberry Pi into Home Assistant.
-ha_category:
-  - Binary sensor
-  - DIY
-  - Switch
+ha_categories:
+  - diy_makers.boards_hardware
 ha_release: 0.94
 ha_iot_class: Local Push
 ha_domain: remote_rpi_gpio
@@ -15,11 +13,12 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `remote_rpi_gpio` {% term integration %} is the base for all related GPIO platforms in Home Assistant. For the platform configurations, please check their corresponding sections.
+The **Raspberry Pi Remote GPIO** {% term integration %} is the base for all related GPIO platforms in Home Assistant. For the platform configurations, please check their corresponding sections.
 
-The remote Raspberry Pi, and the control computer where Home Assistant is running must be configured to be able to run `remote_rpi_gpio`, see [Configuring Remote GPIO](https://gpiozero.readthedocs.io/en/stable/remote_gpio.html) for more details.
+The remote Raspberry Pi, and the control computer where Home Assistant is running must be configured to be able to run `remote_rpi_gpio`, see [Configuring Remote GPIO](https://gpiozero.readthedocs.io/en/stable/remote_gpio.html) for more details. Unfortunately, this setup is not currently possible with remote, Raspberry Pi 5 hosts, [due to a lack of support in pigiod](https://github.com/joan2937/pigpio/issues/586).
 
 Note that for virtual environments, you may need to set an environment variable when starting the environment to set the pin factory, for example:
 

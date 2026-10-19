@@ -1,21 +1,22 @@
 ---
 title: Frontier Silicon
 description: Instructions on how to integrate Frontier Silicon Internet Radios into Home Assistant.
-ha_category:
-  - Media player
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_iot_class: Local Polling
 ha_release: '0.40'
 ha_domain: frontier_silicon
 ha_platforms:
   - media_player
-ha_integration_type: integration
+  - switch
+ha_integration_type: device
 ha_codeowners:
   - '@wlcrs'
 ha_ssdp: true
 ha_config_flow: true
 ---
 
-This {% term integration %} provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will be usually controlled by the OKTIV or UNDOK apps.
+This {% term integration %} provides support for Internet Radios based on the [Frontier Silicon chipset]. Some manufacturers that offer products based on these chips include Hama, Medion, Silvercrest, Auna, TechniSat, Revo, and Pinell. These devices are usually controlled with the OKTIV or UNDOK apps.
 
 ## Supported models
 
@@ -49,15 +50,15 @@ In case your device (friendly name) is called *badezimmer*, an example automatio
 ```yaml
 # Example configuration.yaml automation
 alias: "Bathroom Motion Detected"
-trigger:
-  platform: state
-  entity_id: binary_sensor.motion_sensor_166d0001171111
-  from: "off"
-  to: "on"
-action:
-  action: media_player.turn_on
-  target:
-    entity_id: "media_player.badezimmer"
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.motion_sensor_166d0001171111
+    from: "off"
+    to: "on"
+actions:
+  - action: media_player.turn_on
+    target:
+      entity_id: "media_player.badezimmer"
 ```
 
 ## Screenshots:
@@ -71,6 +72,12 @@ Overview of the info dialog:
 <p class='img'>
 <img src='/images/screenshots/frontier_silicon_info_dialog.png' />
 </p>
+
+## Removing the integration
+
+To remove this integration, follow the standard integration removal steps. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
 
 ## Notes and Limitations
 

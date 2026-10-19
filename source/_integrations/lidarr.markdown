@@ -1,8 +1,8 @@
 ---
 title: Lidarr
 description: Instructions on how to integrate Lidarr with Home Assistant
-ha_category:
-  - Downloading
+ha_categories:
+  - media_entertainment.music_radio_services
 ha_release: '2022.10'
 ha_iot_class: Local Polling
 ha_domain: lidarr
@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The Lidarr integration pulls data from a specified [Lidarr](https://lidarr.audio/) instance.
+The **Lidarr** {% term integration %} pulls data from a specified [Lidarr](https://lidarr.audio/) instance.
 
 {% include integrations/config_flow.md %}
 

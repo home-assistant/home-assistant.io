@@ -1,8 +1,9 @@
 ---
 title: Foursquare
 description: Instructions on how to the Foursquare API into Home Assistant.
-ha_category:
-  - Social
+ha_categories:
+  - news_social_media
+  - presence_location
 ha_release: 0.26
 ha_iot_class: Cloud Push
 ha_domain: foursquare
@@ -10,9 +11,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `foursquare` {% term integration %} accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and an action to check users in on Swarm.
+The **Foursquare** {% term integration %} accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and an action to check users in on Swarm.
 
 To enable Foursquare, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -58,13 +60,13 @@ Foursquare check-in events can be used out of the box to trigger automation acti
 ```yaml
 automation:
   - alias: "Trigger action when you check into a venue."
-    trigger:
-      platform: event
-      event_type: foursquare.push
-    action:
-      action: script.turn_on
-      target:
-        entity_id: script.my_action
+    triggers:
+      - trigger: event
+        event_type: foursquare.push
+    actions:
+      - action: script.turn_on
+        target:
+          entity_id: script.my_action
 ```
 
 ### Check ins

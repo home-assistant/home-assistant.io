@@ -1,8 +1,6 @@
 ---
 title: iSmartWindow
 description: Connect and control your iSmartWindow devices using the Motionblinds integration
-ha_category:
-  - Cover
 ha_domain: ismartwindow
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds
@@ -12,6 +10,7 @@ ha_codeowners:
   - '@starkillerOG'
 ha_config_flow: true
 ha_platforms:
+  - button
   - cover
   - sensor
 ha_iot_class: Local Push

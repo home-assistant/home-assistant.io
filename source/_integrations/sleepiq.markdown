@@ -1,15 +1,8 @@
 ---
 title: SleepIQ
 description: Instructions for how to integrate SleepIQ beds within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Health
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
+ha_categories:
+  - health_wellbeing
 ha_release: 0.29
 ha_iot_class: Cloud Polling
 ha_domain: sleepiq
@@ -26,10 +19,18 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The SleepIQ integration lets you integrate your SleepNumber Bed via [SleepIQ by SleepNumber](https://www.sleepnumber.com/pages/sleepiq-sleep-tracker).
+The **SleepIQ** {% term integration %} lets you integrate your SleepNumber Bed via [SleepIQ by SleepNumber](https://www.sleepnumber.com/pages/sleepiq-sleep-tracker).
+
+## Prerequisites
+
+You will need an account on [SleepIQ](https://sleepiq.sleepnumber.com/) to use this integration.
+
+{% include integrations/config_flow.md %}
+
+## Supported device types
 
 There is currently support available for the following platforms within Home Assistant, depending on the bed's capabilities:
 
@@ -41,9 +42,11 @@ There is currently support available for the following platforms within Home Ass
 - Number - View/Set firmness for each side
 - Select - Choose a foundation preset position
 - Select/Number - Set a foot warmer mode and timeout
+- Select/Number - Set core climate heat/cool modes and timeout
 - Sensor - View pressure of each side
 - Switch - Toggle Privacy mode
 
-You will need an account on [SleepIQ](https://sleepiq.sleepnumber.com/) to use this integration.
+## Notes
 
-{% include integrations/config_flow.md %}
+- If you are using a DNS-based ad-blocker such as Pi-hole, you may need to disable it temporarily while configuring this item in Home Assistant.
+- The Sleep Number bed communicates with endpoints on **sleepnumber.com** as well as the AWS Firehose data collection service at **firehose.us-east-1.amazonaws.com**.

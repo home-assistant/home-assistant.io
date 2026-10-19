@@ -1,8 +1,9 @@
 ---
 title: FFmpeg Noise
 description: Instructions on how to integrate an FFmpeg-based noise binary sensor
-ha_category:
-  - Image processing
+ha_categories:
+  - security_safety.cameras
+  - sensors
 ha_iot_class: Calculated
 ha_release: 0.27
 ha_domain: ffmpeg_noise
@@ -12,9 +13,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `ffmpeg` {% term integration %} allows you to use any video or audio feed with [FFmpeg](https://www.ffmpeg.org/) for various sensors in Home Assistant.
+The **FFmpeg Noise** {% term integration %} allows you to use any video or audio feed with [FFmpeg](https://www.ffmpeg.org/) for various sensors in Home Assistant.
 
 {% note %}
 

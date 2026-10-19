@@ -1,8 +1,8 @@
 ---
 title: Trafikverket Weather Station
 description: Instructions how to integrate Trafikverket WeatherStation within Home Assistant.
-ha_category:
-  - Weather
+ha_categories:
+  - weather_alerts
 ha_release: 0.66
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -10,8 +10,9 @@ ha_domain: trafikverket_weatherstation
 ha_codeowners:
   - '@gjohansson-ST'
 ha_platforms:
+  - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 Showing weather information provided by [Trafikverket](https://www.trafikverket.se/) weather stations in Sweden.

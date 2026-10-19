@@ -402,7 +402,7 @@ conversation:
 [xiaomi docs]: /integrations/xiaomi_aqara
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant
 [#8682]: https://github.com/home-assistant/home-assistant/pull/8682
 [#8699]: https://github.com/home-assistant/home-assistant/pull/8699
 [#8704]: https://github.com/home-assistant/home-assistant/pull/8704

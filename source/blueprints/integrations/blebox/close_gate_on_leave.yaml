@@ -1,0 +1,31 @@
+blueprint:
+  name: Close gate when leaving home
+  description: >
+    Automatically close a BleBox gateBox or rollerGate cover when the last
+    person leaves home.
+  domain: automation
+  author: bkobus-bbx
+
+  input:
+    cover_entity:
+      name: Gate
+      description: >
+        Select the gateBox or rollerGate cover entity to close when everyone
+        leaves home.
+      selector:
+        entity:
+          filter:
+            - integration: blebox
+              domain: cover
+
+mode: single
+
+trigger:
+  - trigger: state
+    entity_id: zone.home
+    to: "0"
+
+action:
+  - action: cover.close_cover
+    target:
+      entity_id: !input cover_entity

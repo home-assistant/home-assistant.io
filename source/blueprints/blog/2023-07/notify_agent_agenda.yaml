@@ -120,8 +120,8 @@ action:
           {%- for event in agenda.events %}
           - Summary: {{ event.summary }}
             Start-End: {% if event.start is defined %}{{ event.start }} to {{ event.end }}{% else %}All Day{% endif %}
-            {%- if event.descripton is defined %}
-            Descripton: {{ event.descripton }}
+            {%- if event.description is defined %}
+            Description: {{ event.description }}
             {% endif -%}
             {%- if event.location is defined %}
               Location: {{ event.location }}

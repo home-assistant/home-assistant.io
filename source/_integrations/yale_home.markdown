@@ -1,15 +1,7 @@
 ---
 title: Yale Home
 description: Connect and control your Yale Home devices using the Yale integration
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Doorbell
-  - Event
-  - Lock
-  - Sensor
-ha_release: 0.64
+ha_release: 2024.9
 ha_domain: yale_home
 ha_integration_type: virtual
 ha_supporting_domain: yale

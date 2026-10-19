@@ -1,8 +1,6 @@
 ---
 title: Image processing
-description: Instructions on how to setup image processing with Home Assistant.
-ha_category:
-  - Image processing
+description: Instructions on how to set up image processing with Home Assistant.
 ha_release: 0.36
 ha_domain: image_processing
 ha_quality_scale: internal
@@ -15,6 +13,15 @@ Image processing enables Home Assistant to process images from [cameras](/integr
 
 {% include integrations/building_block_integration.md %}
 
+## Image processing states
+
+The state of an image processing entity depends on the integration that provides it. For face recognition, the state is the name of the person detected with the highest confidence, or the motion that was detected. If the integration does not report a confidence level, the state is the number of detected faces.
+
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
+
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
+
 ## ALPR
 
 ALPR entities have a vehicle counter attribute `vehicles` and all found plates are stored in the `plates` attribute.
@@ -25,12 +32,12 @@ The `found_plate` event is triggered after OpenALPR has found a new license plat
 # Example configuration.yaml automation entry
 automation:
 - alias: "Open garage door"
-  trigger:
-    platform: event
-    event_type: image_processing.found_plate
-    event_data:
-      entity_id: openalpr.camera_garage_1
-      plate: BE2183423
+  triggers:
+    - trigger: event
+      event_type: image_processing.found_plate
+      event_data:
+        entity_id: openalpr.camera_garage_1
+        plate: BE2183423
 ...
 ```
 
@@ -46,12 +53,12 @@ The `detect_face` event is triggered after a Face entity has found a face.
 # Example configuration.yaml automation entry
 automation:
 - alias: "Known person in front of my door"
-  trigger:
-    platform: event
-    event_type: image_processing.detect_face
-    event_data:
-      entity_id: image_processing.door
-      name: "Hans Maier"
+  triggers:
+    - trigger: event
+      event_type: image_processing.detect_face
+      event_data:
+        entity_id: image_processing.door
+        name: "Hans Maier"
 ...
 ```
 
@@ -68,14 +75,16 @@ sensor:
   scan_interval: 10000
 ...
 automation:
-- alias: "Scan for faces when motion detected"
-  trigger:
-    - platform: state
-      entity_id: sensor.door_motion_sensor
-      to: "on"
-  action:
+- alias: "Scan for faces when motion is detected"
+  triggers:
+    - trigger: motion.detected
+      target:
+        entity_id: binary_sensor.door_motion_sensor
+  actions:
     - action: image_processing.scan
       target:
         entity_id: image_processing.door
 ...
 ```
+
+{% include integrations/actions.md %}

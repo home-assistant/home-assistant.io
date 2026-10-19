@@ -1,0 +1,31 @@
+.icon{
+    aspect-ratio: 1/1;
+    background-color: #ffffff;
+    border-radius: 50%;
+    color: #002332;
+    height: 100%;
+    padding: 6px;
+    display: grid;
+    place-items: center;
+    height: 27px;
+    width: 27px;
+
+    @media (min-width: 1024px) {
+        height: 33px;
+        padding: 8px;
+        width: 33px;
+    }
+
+    &:has(use[href="#facebook"]){
+        padding: 0;
+        svg{
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    svg{
+        width: 100%;
+        height: 100%;
+    }
+}

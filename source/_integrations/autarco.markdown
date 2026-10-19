@@ -1,9 +1,8 @@
 ---
 title: Autarco
 description: Instructions on how to integrate Autarco solar system within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.solar_batteries
 ha_release: 2024.8
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -13,7 +12,8 @@ ha_domain: autarco
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 The **Autarco** {% term integration %} allows you to gather data from the cloud API of [Autarco](https://www.autarco.com) and use it in Home Assistant.
@@ -22,7 +22,25 @@ Autarco is a Dutch company that provides solar panels, inverters and batteries. 
 
 {% include integrations/config_flow.md %}
 
-## Sensors
+### Configuration parameters
+
+{% configuration_basic %}
+Email:
+  description: The email address of your Autarco account.
+Password:
+  description: The password of your Autarco account.
+{% endconfiguration_basic %}
+
+## Data updates
+
+The integration will update its information by polling Autarco every
+5 minutes. This ensures the data in Home Assistant is up to date.
+
+## Actions
+
+This integration does not provide additional actions.
+
+## Supported functionality
 
 The Autarco platform mainly provides sensors that you can use in your [energy dashboard](/energy).
 
@@ -41,3 +59,70 @@ Gain insight into how much energy an inverter produces. The integration will cre
 
 - AC output power (W)
 - AC output energy total (kWh)
+
+### Battery
+
+If you have a battery connected to your system, you can monitor the battery status and see how much energy it charges or discharges.
+
+- Power flow (W) - Positive values indicate charging, negative values indicate discharging
+- State of charge (%)
+- Discharged energy today (kWh)
+- Discharged energy this month (kWh)
+- Discharged energy total (kWh)
+- Charged energy today (kWh)
+- Charged energy this month (kWh)
+- Charged energy total (kWh)
+
+## Examples
+
+### Automation: Act when solar production is high
+
+This example sends a notification when solar power production remains above 2 kW for two minutes.
+
+```yaml
+alias: "Autarco high solar production"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.autarco_power_production
+    above: 2000
+    for:
+      minutes: 2
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "Autarco solar production has remained above 2 kW for two minutes."
+```
+
+### Automation: Act when battery charge is low
+
+This example sends a notification when the battery state of charge drops below 20%.
+
+```yaml
+alias: "Autarco low battery charge"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.autarco_battery_state_of_charge
+    below: 20
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "The Autarco battery state of charge is below 20%."
+```
+
+## Known limitations
+
+The integration does not show data about your self-sufficiency or CO2 savings.
+
+## Troubleshooting
+
+There are no commonly known issues with this integration.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

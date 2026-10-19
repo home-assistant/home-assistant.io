@@ -1,8 +1,8 @@
 ---
 title: Tilt Hydrometer BLE
 description: Instructions on how to integrate Tilt Hydrometer BLE devices into Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - appliances_cleaning.cooking
 ha_bluetooth: true
 ha_release: '2022.10'
 ha_iot_class: Local Push
@@ -12,7 +12,7 @@ ha_domain: tilt_ble
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [Tilt Hydrometer](https://tilthydrometer.com/) BLE devices into Home Assistant.

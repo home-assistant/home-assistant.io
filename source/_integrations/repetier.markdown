@@ -1,9 +1,8 @@
 ---
 title: Repetier-Server
 description: Instructions how to add Repetier-Server sensors to Home Assistant.
-ha_category:
-  - Hub
-  - Sensor
+ha_categories:
+  - computers_network.printers
 ha_release: 0.94
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -12,6 +11,7 @@ ha_domain: repetier
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 [Repetier-Server](https://www.repetier-server.com/) is a 3D printer/CNC server, able to control multiple devices on the same server.

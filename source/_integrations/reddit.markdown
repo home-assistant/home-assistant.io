@@ -1,8 +1,8 @@
 ---
 title: Reddit
 description: How to integrate the Reddit sensor into Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - news_social_media
 ha_release: 0.89
 ha_iot_class: Cloud Polling
 ha_domain: reddit
@@ -12,9 +12,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The Reddit sensor integrates data from [Reddit](https://reddit.com/) to monitor your favorite subreddits.
+The **Reddit** {% term integration %} integrates data from [Reddit](https://reddit.com/) to monitor your favorite subreddits.
 
 ## Setup
 

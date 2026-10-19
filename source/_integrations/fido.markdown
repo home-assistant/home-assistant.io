@@ -1,8 +1,8 @@
 ---
 title: Fido
 description: Instructions on how to integrate Fido data usage within Home Assistant.
-ha_category:
-  - Network
+ha_categories:
+  - computers_network.routers_network
 ha_release: 0.39
 ha_iot_class: Cloud Polling
 ha_domain: fido
@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 Integrate your [Fido](https://www.fido.ca/) account information into Home Assistant.

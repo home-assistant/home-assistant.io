@@ -1,19 +1,6 @@
 ---
 title: Legrand Home+ Control
 description: Connect and control your Legrand Home+ Control devices using the Netatmo integration
-ha_category:
-  - Binary sensor
-  - Camera
-  - Climate
-  - Cover
-  - Environment
-  - Fan
-  - Hub
-  - Light
-  - Media source
-  - Sensor
-  - Switch
-  - Weather
 ha_release: '0.20'
 ha_domain: home_plus_control
 ha_integration_type: virtual
@@ -24,6 +11,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - button
   - camera
   - climate
   - cover

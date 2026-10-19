@@ -1,11 +1,9 @@
 ---
 title: Vacuum
-description: Instructions on how to setup and use vacuums in Home Assistant.
+description: Instructions on how to set up and use vacuums in Home Assistant.
 ha_release: 0.51
 ha_domain: vacuum
 ha_quality_scale: internal
-ha_category:
-  - Vacuum
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
@@ -15,75 +13,97 @@ The **Vacuum** {% term integration %} enables the ability to control home cleani
 
 {% include integrations/building_block_integration.md %}
 
-## Actions
+## Vacuum states
 
-Available actions: `start`, `pause`, `stop`, `return_to_base`, `locate`, `clean_spot`, `set_fan_speed` and `send_command`.
+A vacuum {% term entity %} can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
 
-Before calling one of these actions, make sure your vacuum platform supports it.
+- **Cleaning** (`cleaning`): The vacuum is currently cleaning.
+- **Docked** (`docked`): The vacuum is currently docked. It is assumed that docked can also mean charging.
+- **Error** (`error`): The vacuum is in an error state.
+- **Idle** (`idle`): The vacuum is not paused, not docked, and does not have any errors.
+- **Paused** (`paused`): The vacuum was cleaning but was paused without returning to the dock.
+- **Returning to dock** (`returning`): The vacuum is returning to the dock, but is not docked yet.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
-### Action `vacuum.start`
+## Creating an automation to send the vacuum to clean specific areas
 
-Start or resume a cleaning task.
+When your vacuum supports area cleaning, you can create an automation in Home Assistant to send your vacuum to clean specific areas. For example, you can set up an automation to have the vacuum clean the living room every day at 2 PM.
 
-| Data attribute | Optional | Description                                                      |
-| ---------------------- | -------- | ---------------------------------------------------------------- |
-| `entity_id`            | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
+Creating such an automation involves two steps:
 
-### Action `vacuum.pause`
+1. [Mapping your vacuum areas to Home Assistant areas](#mapping-your-vacuum-areas-to-home-assistant-areas). This is a one-time setup step to link the areas defined in your vacuum's app to the areas defined in Home Assistant.
+2. [Sending your vacuum to clean specific areas](#sending-your-vacuum-to-clean-specific-areas). This is where you create the automation that tells your vacuum to clean specific areas based on certain triggers.
 
-Pause a cleaning task.
+### Mapping your vacuum areas to Home Assistant areas
 
-| Data attribute | Optional | Description                                                      |
-| ---------------------- | -------- | ---------------------------------------------------------------- |
-| `entity_id`            | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
+Before you can send your vacuum to clean specific areas, you need to map the areas of your vacuum to the areas in Home Assistant.
 
-### Action `vacuum.stop`
+1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
+2. Select your vacuum entity.
+3. In the entity settings, select the cogwheel {% icon "mdi:cog-outline" %}.
+4. Select **Map vacuum segments to areas**.
+   - Result: In the dialog, you should see the vacuum areas listed on the left and the Home Assistant areas on the right.
+   - If you do not see the **Map vacuum segments to areas** option, your vacuum does not support area cleaning. You cannot use the `vacuum.clean_area` action with this vacuum.
+   - Troubleshooting: If there are no areas listed on the left, make sure the areas are properly set up in the vacuum's app. You might need to save or confirm them again in the app.
+5. In the **Map vacuum segments to areas** dialog, for each area reported by your vacuum, select the corresponding Home Assistant area.
+6. Select **Save**.
 
-Stop the current activity of the vacuum.
+### Sending your vacuum to clean specific areas
 
-| Data attribute | Optional | Description                                                      |
-| ---------------------- | -------- | ---------------------------------------------------------------- |
-| `entity_id`            | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
+Once you have the areas mapped, you can send your vacuum to clean specific areas using the `vacuum.clean_area` action.
 
-### Action `vacuum.return_to_base`
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Select **Create automation**.
+3. Set up your trigger. For example, you can use a time trigger to have the vacuum clean every day at 2 PM.
+4. In the **Then do** section, select **Add action**, and from the list, select the **Clean area with vacuum cleaner** action.
+5. Under **Targets**, select your vacuum entity.
+6. Under **Areas**, select the area to clean. You can select multiple areas.
+7. Give your automation a name and select **Save**.
+8. Test your automation by selecting **Run actions**. Your vacuum should start cleaning the specified areas.
 
-Tell the vacuum to return home.
+{% include integrations/triggers_conditions_actions.md %}
 
-| Data attribute | Optional | Description                                                      |
-| ---------------------- | -------- | ---------------------------------------------------------------- |
-| `entity_id`            | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
+## Vacuum example automations
 
-### Action `vacuum.locate`
+Use the vacuum triggers, conditions, and actions together to turn automation ideas into reliable routines that fit your household.
+Start from one small pain point, then decide which vacuum signal kicks things off, which condition keeps it safe, and which action finishes the job.
 
-Locate the vacuum cleaner robot.
+{% include docs/paste_yaml_tip.md %}
 
-| Data attribute | Optional | Description                                                      |
-| ---------------------- | -------- | ---------------------------------------------------------------- |
-| `entity_id`            | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
+### Automation: Pause cleaning during meetings
 
-### Action `vacuum.clean_spot`
+When the vacuum starts a run during a scheduled meeting, pause it automatically so the call stays quiet, then send yourself a reminder to resume the job later.
 
-Tell the vacuum cleaner to do a spot clean-up.
+- **Trigger**: `vacuum.started_cleaning` for the office vacuum.
+- **Conditions**: A calendar or busy [sensor](/integrations/binary_sensor/) reports that a meeting is in progress, and `vacuum.is_cleaning` confirms the robot is still running.
+- **Actions**: `vacuum.pause` to stop the run, followed by a mobile notification that explains why the vacuum paused.
 
-| Data attribute | Optional | Description                                                      |
-| ---------------------- | -------- | ---------------------------------------------------------------- |
-| `entity_id`            | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
+{% details "YAML example for pausing during meetings" %}
 
-### Action `vacuum.set_fan_speed`
+```yaml
+automation:
+  alias: "Mute vacuum during meetings"
+  triggers:
+    - trigger: vacuum.started_cleaning
+      target:
+        entity_id: vacuum.office
+  conditions:
+    - condition: state
+      entity_id: binary_sensor.meeting_in_progress
+      state: "on"
+    - condition: vacuum.is_cleaning
+      target:
+        entity_id: vacuum.office
+  actions:
+    - action: vacuum.pause
+      target:
+        entity_id: vacuum.office
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The office vacuum paused because a meeting started. Resume it when the call ends."
+```
 
-Set the fan speed of the vacuum. The `fanspeed` can be a label, as `balanced` or `turbo`, or be a number; it depends on the `vacuum` platform.
-
-| Data attribute | Optional | Description                                                                                                        |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | yes      | Only act on specific vacuum. Use `entity_id: all` to target all.                                                   |
-| `fan_speed`            | no       | Platform dependent vacuum cleaner fan speed, with speed steps, like 'medium', or by percentage, between 0 and 100. |
-
-### Action `vacuum.send_command`
-
-Send a platform-specific command to the vacuum cleaner.
-
-| Data attribute | Optional | Description                                                      |
-| ---------------------- | -------- | ---------------------------------------------------------------- |
-| `entity_id`            | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
-| `command`              | no       | Command to execute.                                              |
-| `params`               | yes      | Parameters for the command.                                      |
+{% enddetails %}

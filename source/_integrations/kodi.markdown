@@ -1,10 +1,8 @@
 ---
 title: Kodi
 description: Instructions on how to integrate Kodi into Home Assistant.
-ha_category:
-  - Media player
-  - Media source
-  - Notifications
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_codeowners:
@@ -15,10 +13,10 @@ ha_zeroconf: true
 ha_platforms:
   - media_player
   - notify
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The `kodi` platform allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
+The **Kodi** {% term integration %} allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
 
 The preferred way to set up the Kodi platform is through discovery, which requires an enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
 
@@ -35,77 +33,44 @@ If you do not remove it, your configuration will be imported with the following 
 - You may have duplicate entities.
 - Kodi must be on when Home Assistant is loading for the first time for the configuration to be imported.
 
-### Turning On/Off
+{% include integrations/actions.md %}
+## Automation examples
 
-You can customize your turn on and off actions through automations. Simply use the relevant Kodi device triggers and your automation will be called to perform the `turn_on` or `turn_off` sequence; see the [Kodi turn on/off samples](#kodi-turn-onoff-samples) section for scripts that can be used.
+### Turning Kodi on/off (media player action)
 
-These automations can be configured through the UI (see [device triggers](/docs/automation/trigger/#device-triggers) for automations).  If you prefer YAML, you'll need to get the device ID from the UI automation editor.  Automations would be of the form:
+You can customize your turn on and off actions through automations. Simply use the relevant Kodi device triggers and your automation will be called to perform the `turn_on` or `turn_off` sequence; see the [Kodi turn on/off samples](#turning-kodi-onoff-examples) section for scripts that can be used.
+
+These automations can be configured through the UI (see [device triggers](/docs/automation/trigger/#device-triggers) for automations).  If you prefer YAML, you'll need to get the device ID from the UI automation editor. Automations would be of the form:
 
 ```yaml
 automation:
-  - id: kodi_turn_on
-    alias: "Kodi: turn on"
-    trigger:
-      - platform: device
+  - alias: "Kodi: turn on"
+    triggers:
+      - trigger: device
         device_id: !secret kodi_device_id
         domain: kodi
         entity_id: media_player.kodi
         type: turn_on
-    action:
+    actions:
       - action: script.kodi_turn_on
 
-  - id: kodi_turn_off
-    alias: "Kodi: turn off"
-    trigger:
-      - platform: device
+  - alias: "Kodi: turn off"
+    triggers:
+      - trigger: device
         device_id: !secret kodi_device_id
         domain: kodi
         entity_id: media_player.kodi
         type: turn_off
-    action:
+    actions:
       - action: script.kodi_turn_off
 ```
 
-### Actions
 
-#### Action `kodi.add_to_playlist`
-
-Add music to the default playlist (i.e., playlistid=0).
-
-| Data attribute | Optional | Description                                                                                                                                              |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Name(s) of the Kodi entities where to add the media.                                                                                                     |
-| `media_type`           | yes      | Media type identifier. It must be one of SONG or ALBUM.                                                                                                  |
-| `media_id`             | no       | Unique Id of the media entry to add (`songid` or `albumid`). If not defined, `media_name` and `artist_name` are needed to search the Kodi music library. |
-| `media_name`           | no       | Optional media name for filtering media. Can be 'ALL' when `media_type` is 'ALBUM' and `artist_name` is specified, to add all songs from one artist.     |
-| `artist_name`          | no       | Optional artist name for filtering media.                                                                                                                |
-
-#### Action `kodi.call_method`
-
-Call a [Kodi JSON-RPC API](https://kodi.wiki/?title=JSON-RPC_API) method with optional parameters. Results of the Kodi API call will be redirected in a Home Assistant event: `kodi_call_method_result`.
-
-| Data attribute | Optional | Description                                               |
-| ---------------------- | -------- | --------------------------------------------------------- |
-| `entity_id`            | no       | Name(s) of the Kodi entities where to run the API method. |
-| `method`               | yes      | Name of the Kodi JSON-RPC API method to be called.        |
-| any other parameter    | no       | Optional parameters for the Kodi API call.                |
-
-### Event triggering
-
-When calling the `kodi.call_method` action, if the Kodi JSON-RPC API returns data, when received by Home Assistant it will fire a `kodi_call_method_result` event on the event bus with the following `event_data`:
-
-```yaml
-entity_id: "<Kodi media_player entity_id>"
-result_ok: <boolean>
-input: <input parameters of the action>
-result: <data received from the Kodi API>
-```
-
-### Kodi turn on/off samples
+### Turning Kodi on/off examples
 
 The following scripts can be used in automations for turning on/off your Kodi instance; see [Turning on/off](#turning-onoff).  You could also simply use these sequences directly in the automations without creating scripts.
 
-#### Turn on Kodi with Wake on LAN
+#### Turning on Kodi with Wake on LAN
 
 With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this action, first you need to configure the [`wake_on_lan`](/integrations/wake_on_lan) integration in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your {% term "`configuration.yaml`" %}.
 
@@ -188,7 +153,7 @@ script:
           method: System.Shutdown
 ```
 
-#### Turn on and off the TV with the Kodi JSON-CEC Add-on
+#### Turn on and off the TV with the Kodi JSON-CEC app
 
 For Kodi devices running 24/7 attached to a CEC capable TV (OSMC / OpenElec and systems alike running in Rasperry Pi's, for example), this configuration enables the optimal way to turn on/off the attached TV from Home Assistant while Kodi is always active and ready:
 
@@ -224,11 +189,9 @@ script:
 This example and the following requires to have the [script.json-cec](https://github.com/joshjowen/script.json-cec) plugin installed on your Kodi player. It'll also expose the endpoints standby, toggle and activate without authentication on your Kodi player. Use this with caution.
 {% endimportant %}
 
-### Kodi action samples
+### Kodi action samples (media player actions)
 
 #### Simple script to turn on the PVR in some channel as a time function
-
-{% raw %}
 
 ```yaml
 script:
@@ -261,11 +224,7 @@ script:
             {% endif %}
 ```
 
-{% endraw %}
-
 #### Simple script to play a smart playlist
-
-{% raw %}
 
 ```yaml
 script:
@@ -284,9 +243,7 @@ script:
           media_content_id: special://profile/playlists/video/feuerwehrmann_sam.xsp
 ```
 
-{% endraw %}
-
-#### Trigger a Kodi video library update
+### Triggering a Kodi video library update (Kodi action)
 
 ```yaml
 script:
@@ -394,7 +351,7 @@ key presses of keyboards/remotes can be overwritten in Kodi and configured to se
 
 A keypress can be overwritten in Kodi by using the [Kodi keymap XML](https://kodi.wiki/view/Keymap) or from within the Kodi GUI using the [Keymap Editor add-on](https://kodi.wiki/view/Add-on:Keymap_Editor).
 
-An example of the Kodi keymap configuration using XML, which will overwrite the volume_up/volume_down buttons and instead send an event to HomeAssistant:
+An example of the Kodi keymap configuration using XML, which will overwrite the volume_up/volume_down buttons and instead send an event to Home Assistant:
 
 ```xml
 <keymap>
@@ -428,18 +385,16 @@ data:
 
 A example of a automation to turn up/down the volume of a receiver using the event:
 
-{% raw %}
-
 ```yaml
 alias: Kodi keypress
 mode: parallel
 max: 10
-trigger:
-  - platform: event
+triggers:
+  - trigger: event
     event_type: kodi_keypress
     event_data:
       entity_id: media_player.kodi_livingroom
-action:
+actions:
   - choose:
       - conditions:
           - condition: template
@@ -456,5 +411,3 @@ action:
             target:
               entity_id: media_player.receiver
 ```
-
-{% endraw %}

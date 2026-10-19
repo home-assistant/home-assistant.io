@@ -1,13 +1,11 @@
 ---
 title: "RESTful Notifications"
 description: "Instructions on how to add RESTful notifications to Home Assistant."
-ha_category:
-  - Notifications
 ha_release: 0.13
 ha_domain: rest
 ---
 
-The `rest` notification platform allows you to deliver [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) notifications from Home Assistant to another party.
+The **RESTful Notifications** {% term integration %} allows you to deliver [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) notifications from Home Assistant to another party.
 
 To enable the REST notification in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
@@ -38,7 +36,7 @@ verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
   type: boolean
-  default: True
+  default: true
 authentication:
   description:  Type of the HTTP authentication. `basic` or `digest`.
   required: false
@@ -80,3 +78,5 @@ data:
 {% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+
+{% include integrations/using_templates.md %}

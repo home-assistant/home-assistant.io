@@ -1,15 +1,11 @@
 ---
 title: Pilight
-description: Instructions on how to setup Pilight within Home Assistant.
-ha_category:
-  - Binary sensor
-  - DIY
-  - Sensor
-  - Switch
+description: Instructions on how to set up Pilight within Home Assistant.
+ha_categories:
+  - hubs_protocols.wireless_protocols
+  - diy_makers.boards_hardware
 ha_release: 0.26
 ha_iot_class: Local Push
-ha_codeowners:
-  - '@trekky12'
 ha_domain: pilight
 ha_platforms:
   - binary_sensor
@@ -20,6 +16,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 [Pilight](https://www.pilight.org/) is a modular and open source solution to communicate with 433 MHz devices and runs on various small form factor computers. A lot of common [protocols](https://manual.pilight.org/protocols/) are already available.
@@ -62,7 +59,7 @@ send_delay:
   default: 0.0
   type: float
 whitelist:
-  description: You can define a whitelist to prevent that too many unwanted RF codes (e.g., the neighbors weather station) are put on your HA event bus. All defined subsections have to be matched. A subsection is matched if one of the items are true.
+  description: You can define a whitelist to prevent that too many unwanted RF codes (e.g., the neighbors weather station) are put on your Home Assistant event bus. All defined subsections have to be matched. A subsection is matched if one of the items are true.
   required: false
   type: string
 {% endconfiguration %}
@@ -319,7 +316,7 @@ switch:
 
 ## Light
 
-Pilight dimmer devices, which can have different brightness values, can be used as a light. 
+Pilight dimmer devices, which can have different brightness values, can be used as a light.
 The configuration parameters are the same for dimmers and switches, but dimmers support a minimum and maximum dimming level.
 
 The `dimlevel_min` and `dimlevel_max` settings are to be set in the range of `0` to `15`, as used by pilight. Any dimming performed by Home Assistant (most likely in a `0` to `100` range) will be converted as a percentage of the available configured range in Pilight.

@@ -83,7 +83,7 @@ repository, and [we are looking for contributions](https://github.com/home-assis
 So, feel free to jump in and help out!
 
 An overview of the current status of all intents and languages can be found on
-[this page](https://home-assistant.github.io/intents/). The page gives insight
+[this page](https://ohf-voice.github.io/intents/). The page gives insight
 into the parts we need help with.
 
 Lastly, we are also looking for language leaders! Each language is maintained

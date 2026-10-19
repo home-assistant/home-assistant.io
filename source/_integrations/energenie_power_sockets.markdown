@@ -1,8 +1,8 @@
 ---
 title: Energenie Power Sockets
 description: Instructions on how to integrate Energenie Power-Strip switches into Home Assistant.
-ha_category:
-  - Switch
+ha_categories:
+  - plugs_switches
 ha_iot_class: Local Polling
 ha_release: '2024.5'
 ha_codeowners:
@@ -20,7 +20,7 @@ The **Energenie Power-Sockets** {% term integration %} allows you to include [En
 
 ## Troubleshooting
 
-If you are running a {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %} installation: Depending on your system configuration, it may be necessary to grant explicit user access rights to the USB device by creating an udev rule.
+If you are running a {% term "Home Assistant Container" %} installation: Depending on your system configuration, it may be necessary to grant explicit user access rights to the USB device by creating an udev rule.
 
 {% details "Creating an udev rule" %}
 

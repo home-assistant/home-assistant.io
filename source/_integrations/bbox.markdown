@@ -1,10 +1,9 @@
 ---
 title: Bbox
 description: Instructions on how to integrate Bouygues Bbox routers into Home Assistant.
-ha_category:
-  - Network
-  - Presence detection
-  - Sensor
+ha_categories:
+  - computers_network.routers_network
+  - presence_location.network_presence
 ha_release: 0.31
 ha_iot_class: Local Polling
 ha_domain: bbox
@@ -15,9 +14,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `bbox` {% term integration %} uses the [Bbox Modem Router](https://www.bouyguestelecom.fr/offres-internet/bbox-fit) from the French Internet provider Bouygues Telecom. Sensors are mainly bandwidth measures.
+The **Bbox** {% term integration %} uses the [Bbox Modem Router](https://www.bouyguestelecom.fr/offres-internet/bbox-fit) from the French Internet provider Bouygues Telecom. Sensors are mainly bandwidth measures.
 
 There is currently support for the following device types within Home Assistant:
 

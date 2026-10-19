@@ -1,9 +1,8 @@
 ---
 title: Joaoapps Join
 description: Instructions for how to integrate the Join by Joaoapps service within Home Assistant.
-ha_category:
-  - Hub
-  - Notifications
+ha_categories:
+  - messaging_notifications.push_notifications
 ha_iot_class: Cloud Push
 ha_release: 0.24
 ha_domain: joaoapps_join
@@ -13,9 +12,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `joaoapps_join` {% term integration %} exposes actions from
+The **Joaoapps Join** {% term integration %} exposes actions from
 [Join](https://joaoapps.com/join). In Home Assistant, the Joaoapps Join features are
 divided up in two locations, the Join integration, and the Joaoapps Join notify platform.
 The notify platform allows us to send messages to Joaoapps Join devices, the integration

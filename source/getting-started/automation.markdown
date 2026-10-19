@@ -1,11 +1,11 @@
 ---
-title: "Automating Home Assistant"
-description: "A quick intro on getting your first automation going."
+title: "Tutorial: Create your first automation"
+description: "Build your first Home Assistant automations using the visual editor, no code required."
 ---
 
-Once your {% term devices %} are set up, it's time to put the cherry on the pie: {% term automation %}.
+Now that your devices are connected, you can put them to work. {% term Automations %} let your home react to things on its own: turn the lights on when the sun goes down, lower the heat when everyone leaves, or remind you to close the garage door at bedtime. You build them with the visual automation editor, so you can follow this tutorial without writing a single line of code.
 
-We're going to create two automations: One, to turn on the lights when the sun sets. And a second one to dim the light at a certain time in the evening before a workday.
+We are going to create two automations together: one that turns the lights on as the sun sets, and a second that dims them later in the evening on workdays.
 
 ## Turning on the lights before sunset
 
@@ -50,7 +50,7 @@ This tutorial assumes the following:
 6. To save the automation, select **Save**. Give the automation a name, add a **Description**, and **Save** again.
    - When choosing a name, be specific, so that you can find it even when you have many automations. For example, `Turn on living room table light at sunset`.
    - Now wait until it's 30 minutes before sunset and see your automation magic!
-   - Or follow these steps to [test your automation](/docs/automation/troubleshooting/#testing-your-automation) right away.
+   - Or follow these steps to [test your automation](/docs/automation/testing/#testing-your-automation) right away.
 
 ## Dimming the lights the night before a workday
 
@@ -86,7 +86,7 @@ This tutorial assumes the following:
    - Under **Entity**, enter `workd` and select your workday sensor.
    - Under **State**, select **On**.
 4. Next, we want to make sure the light is only dimmed when it is actually on. No reason to do this if the light is not on.
-   - To achieve this, we use an **If-then** action. Select **Add action** > **Building blocks** > **If-then**.
+   - To achieve this, we use an **If-then** action. Select **Add action** > **Blocks** > **If-then**.
    - You now get a block called **Conditionally execute an action**. From the **Entity** list, select your light.
    - Under **If**, select **Add condition** > **Entity** > **State**.
    - Under **State**, select **On**.
@@ -101,7 +101,7 @@ This tutorial assumes the following:
     ![Screenshot showing the then section of an if-then action](/images/getting-started/automation_if-then-action_then.png)
 
 6. To save the automation, select **Save**. Give the automation a name (for example, `dim living room table light night before workday`), add a **Description**, and **Save** again.
-7. [Test your automation](/docs/automation/troubleshooting/#testing-your-automation).
+7. [Test your automation](/docs/automation/testing/#testing-your-automation).
 
 {% include getting-started/next_step.html step="Presence detection" link="/getting-started/presence-detection/" %}
 

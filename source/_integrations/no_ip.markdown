@@ -1,8 +1,8 @@
 ---
 title: No-IP.com
 description: Keep your computer registered with the NO-IP.com dynamic DNS.
-ha_category:
-  - Network
+ha_categories:
+  - computers_network.routers_network
 ha_iot_class: Cloud Polling
 ha_release: 0.57
 ha_domain: no_ip
@@ -10,9 +10,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-With the `no_ip` {% term integration %} you can keep your current IP address in sync with your [NO-IP.com](https://www.noip.com)  hostname or domain.  
+With the **No-IP.com** {% term integration %} you can keep your current IP address in sync with your [NO-IP.com](https://www.noip.com)  hostname or domain.  
 
 Note that it does not confirm your hostname (as is required periodically for free domain names); you will still need to do that manually.
 

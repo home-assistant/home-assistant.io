@@ -348,7 +348,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant
 
 [@bdurrer]: https://github.com/bdurrer
 [interview]: /blog/2017/03/23/opensourcecraft-interview-with-founder-paulus-schoutsen/

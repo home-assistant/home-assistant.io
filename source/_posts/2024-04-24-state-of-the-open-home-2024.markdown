@@ -6,7 +6,9 @@ date: 2024-04-24 00:00:01
 date_formatted: "April 24, 2024"
 author: Gordon Cameron
 comments: true
-categories: Announcements
+categories:
+  - Announcements
+  - State-of-the-Open-Home
 og_image: /images/blog/2024-04-24-state-of-the-open-home-2024/banner.jpg
 ---
 

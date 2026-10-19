@@ -1,9 +1,8 @@
 ---
 title: Withings
 description: Instructions on how to integrate Withings health products within Home Assistant.
-ha_category:
-  - Health
-  - Sensor
+ha_categories:
+  - health_wellbeing
 ha_release: 0.99
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -15,29 +14,43 @@ ha_platforms:
   - calendar
   - diagnostics
   - sensor
-ha_integration_type: integration
-ha_quality_scale: platinum
+ha_integration_type: hub
+ha_dhcp: true
 ---
 
 The **Withings** {% term integration %} consumes data from various health products produced by [Withings](https://www.withings.com).
 
-## Create a Withings developer account
+## Prerequisites
 
-You must have a developer account to distribute the data. [Create a free developer account](https://account.withings.com/partner/add_oauth2).
+- Withings account
+  - A [Withings+](https://www.withings.com/en-us/pages/withings-plus) subscription is required for accounts created after October 11, 2026.
+- Withings app installed
+- Withings device setup in the app
+- [Withings developer account](#creating-a-withings-developer-account) to get a *ClientID* and *Secret* to connect to be able to get the data from the Withings cloud API
 
-Create an application:
-1. Ensure you have selected *Withings public cloud* (instead of Withings US medical cloud)
-2. Create an application
-3. Application creation: Public API integration
-  - Read and accept the terms if you're happy by pressing **Next**
-4. Information:
-  - Target environment: *Development*
-  - Application name: [any name]
-  - Application description: [any description]
-  - Registered URLs: `https://my.home-assistant.io/redirect/oauth`
-  - Change logo: Optional.
+### Creating a Withings developer account
 
-Once saved, the *ClientID* and *Secret* fields will be populated. You will need these in the next step.
+You must have a developer account to distribute the data.
+
+{% note %}
+  You only need one developer account. The same account and credentials are used for each Withings configuration.
+{% endnote %}
+
+1. [Create a free developer account](https://account.withings.com/partner/add_oauth2).
+2. Make sure to select **Withings public cloud** (and not Withings US medical cloud or similar).
+3. Select **Create an application**.
+4. Under **Application creation**, select **Public API integration**.
+   - Read and accept the terms and select **Next**.
+5. Under **Information**:
+   - **Target environment**: *Development*
+   - **Application name**: [any name]
+   - **Application description**: [any description]
+   - **Registered URLs**: `https://my.home-assistant.io/redirect/oauth`
+     - Do not test this URL. It won't work at this stage. It will be set up once you install the integration in Home Assistant.
+   - **Change logo**: Optional
+6. **Save** your changes.
+   - Once saved, the *ClientID* and *Secret* fields will be populated.
+   - Copy and store them in a save place. You will need these in the next step.
 
 {% details "I have manually disabled My Home Assistant" %}
 
@@ -51,13 +64,11 @@ authentication process.
 Withings will validate (with HTTP HEAD) these requirements each time you save your Withings developer account. When these checks fail, the Withings UI is not always clear about why.
 
 - Home Assistant (For create/update of Withings developer account):
-    - Publicly accessible.
-    - Running on a fully qualified domain name.
-    - Running over HTTPS signed by a globally recognized Certificate Authority. Let's Encrypt will work.
+  - Publicly accessible.
+  - Running on a fully qualified domain name.
+  - Running over HTTPS signed by a globally recognized Certificate Authority. Let's Encrypt will work.
 
 {% enddetails %}
-
-Note: You will only need one developer account; the same account and credentials are used for each Withings configuration.
 
 {% include integrations/config_flow.md %}
 
@@ -65,6 +76,38 @@ Note: You will only need one developer account; the same account and credentials
 
 The {% term integration %} automatically detects if you can use webhooks. This enables the {% term integration %} only to update when there is new data.
 The binary sensor for sleep will only work if the {% term integration %} can establish webhooks with Withings.
+
+### Webhook requirements
+
+For webhooks to work, your Home Assistant instance must be reachable by the Withings cloud service. The following requirements must be met:
+
+- **Publicly accessible**: Your Home Assistant instance must be reachable from the internet.
+- **HTTPS on port 443**: Withings requires HTTPS specifically on port 443. Using HTTPS on a non-standard port (such as 8443) will not work.
+- **Valid SSL certificate**: The certificate must be signed by a globally recognized Certificate Authority, for example, Let's Encrypt. Self-signed certificates will not work.
+
+{% important %}
+If webhooks cannot be established, some sensors will not be available. In particular, the sleep binary sensor has no polling fallback and requires working webhooks to function.
+{% endimportant %}
+
+#### How the webhook URL is determined
+
+You do not enter the webhook URL anywhere in the integration. Home Assistant builds it automatically from the URLs configured under {% my network title="**Settings** > **System** > **Network**" %}, followed by an internal webhook path.
+
+Home Assistant prefers the **Internet** URL and falls back to the **Local Network** URL. For Withings webhooks to register successfully, the URL that Home Assistant selects must be a public HTTPS URL on port 443 with a valid certificate.
+
+If you use Home Assistant Cloud from [Nabu Casa](https://www.nabucasa.com/), a cloudhook is registered instead. Cloudhooks meet all requirements above automatically and do not need any network configuration.
+
+#### Changing the webhook URL
+
+If you see a warning like `Webhook not registered - HTTPS is required` or `Webhook not registered - port 443 is required` in your logs, the URL that Home Assistant selected is not a valid public HTTPS URL. This often happens when the **Internet** URL is empty and the **Local Network** URL points to a local HTTP address.
+
+To resolve this:
+
+1. Go to {% my network title="**Settings** > **System** > **Network**" %}.
+2. Under **Internet**, enter the public HTTPS URL that Withings should use to reach your instance, for example, `https://home.example.com`.
+3. Select **Save**.
+
+You can keep the **Local Network** URL set to your internal HTTP address. Home Assistant uses the **Internet** URL for webhooks, while integrations that prefer local communication continue to use the **Local Network** URL.
 
 ## Available data
 
@@ -74,4 +117,10 @@ For example, measurement sensors like weight only work when data has been regist
 
 Sleep sensors are only created if the {% term integration %} can find sleep data for you within the last day.
 
-Workout calendar and the workout and activity sensors show if the latest available data point is no older than 14 days.
+Workout {% term calendar %} and the workout and activity sensors show if the latest available data point is no older than 14 days.
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

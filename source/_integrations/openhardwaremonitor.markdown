@@ -1,8 +1,8 @@
 ---
 title: Open Hardware Monitor
 description: Instructions on how to integrate Open Hardware Monitor within Home Assistant.
-ha_category:
-  - System monitor
+ha_categories:
+  - computers_network.monitoring
 ha_release: 0.48
 ha_iot_class: Local Polling
 ha_domain: openhardwaremonitor
@@ -12,9 +12,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `openhardwaremonitor` {% term integration %} uses your [Open Hardware Monitor](https://openhardwaremonitor.org/) installation as a source for sensors that will display system information.
+The **Open Hardware Monitor** {% term integration %} uses your [Open Hardware Monitor](https://openhardwaremonitor.org/) installation as a source for sensors that will display system information.
 
 ## Setup
 

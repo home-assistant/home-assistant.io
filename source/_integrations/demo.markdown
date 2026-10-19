@@ -1,9 +1,8 @@
 ---
 title: Demo
 description: Instructions on how to use the Platform demos with Home Assistant.
-ha_category:
-  - Other
-  - Update
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_release: 0.7
 ha_quality_scale: internal
 ha_codeowners:
@@ -26,6 +25,7 @@ ha_platforms:
   - fan
   - geo_location
   - humidifier
+  - lawn_mower
   - light
   - lock
   - media_player
@@ -42,6 +42,7 @@ ha_platforms:
   - tts
   - update
   - vacuum
+  - valve
   - water_heater
   - weather
 ha_integration_type: integration
@@ -50,7 +51,7 @@ related:
     title: Configuration file
 ---
 
-The `demo` {% term integration %} allows you to use integrations which are providing a demo of their implementation. The demo entities are dummies but show you how the actual platform looks like. This way you can run own demonstration instance like the online [Home Assistant demo](/demo/) but combined with your own real/functional platforms.
+The **Demo** {% term integration %} allows you to use integrations which are providing a demo of their implementation. The demo entities are dummies but show you how the actual platform looks like. This way you can run own demonstration instance like the online [Home Assistant demo](/demo/) but combined with your own real/functional platforms.
 
 Available demo platforms:
 
@@ -67,6 +68,7 @@ Available demo platforms:
 - [Geolocation](/integrations/geo_location/) (`geo_location`)
 - [Humidifier](/integrations/humidifier/) (`humidifier`)
 - [Image processing](/integrations/image_processing/) (`image_processing`)
+- [Lawn mower](/integrations/lawn_mower/) (`lawn_mower`)
 - [Light](/integrations/light/) (`light`)
 - [Lock](/integrations/lock/) (`lock`)
 - [Media player](/integrations/media_player/) (`media_player`)
@@ -81,6 +83,7 @@ Available demo platforms:
 - [Text-to-speech](/integrations/tts/) (`tts`)
 - [Update](/integrations/update/) (`update`)
 - [Vacuum](/integrations/vacuum/) (`vacuum`)
+- [Valve](/integrations/valve/) (`valve`)
 - [Water heater](/integrations/water_heater/) (`water_heater`)
 - [Weather](/integrations/weather/) (`weather`)
 

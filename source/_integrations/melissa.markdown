@@ -1,9 +1,8 @@
 ---
 title: Melissa
 description: Instructions on how to integrate Melissa Climate into Home Assistant.
-ha_category:
-  - Climate
-  - Hub
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_release: 0.63
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -15,9 +14,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `melissa` {% term integration %} is the main integration to connect to a [Melissa Climate](https://seemelissa.com/) A/C control.
+The **Melissa** {% term integration %} is the main integration to connect to a [Melissa Climate](https://seemelissa.com/) A/C control.
 
 There is currently support for the following device types within Home Assistant:
 

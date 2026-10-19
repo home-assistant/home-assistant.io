@@ -1,8 +1,6 @@
 ---
 title: Date
 description: Instructions on how to set up date entities within Home Assistant.
-ha_category:
-  - Date
 ha_release: '2023.6'
 ha_domain: date
 ha_quality_scale: internal
@@ -17,17 +15,13 @@ The **Date** {% term integration %} is built for the controlling and monitoring 
 
 If you are looking for a way to create a similar entity, please take a look at the [Date/Time helper](/integrations/input_datetime).
 
-## Actions
+## Date states
 
-### Date actions
+The state of a date entity is the date, stored in the format YYYY-MM-DD, for example, `2020-01-01`. The Home Assistant interface shows the date in your local date format.
 
-Available {% term actions %}: `date.set_value`
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
-### Action`date.set_value`
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
-Set a new value for the date {% term entity %}.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of strings that point at `entity_id`'s of dates to control.
-| `date` | no | New date value to set.
+{% include integrations/actions.md %}

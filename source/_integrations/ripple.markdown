@@ -1,8 +1,8 @@
 ---
 title: Ripple
 description: Instructions on how to integrate ripple.com data within Home Assistant.
-ha_category:
-  - Finance
+ha_categories:
+  - finance
 ha_release: 0.47
 ha_iot_class: Cloud Polling
 ha_domain: ripple
@@ -12,9 +12,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `ripple` sensor {% term integration %} displays Ripple wallet balances from [Ripple.com](https://ripple.com).
+The **Ripple** {% term integration %} displays Ripple wallet balances from [Ripple.com](https://ripple.com).
 
 To add the Ripple {% term integration %} to your installation, specify a ripple address to watch in the {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

@@ -1,8 +1,9 @@
 ---
 title: NZBGet
 description: Instructions on how to integrate NZBGet within Home Assistant.
-ha_category:
-  - Downloading
+ha_categories:
+  - computers_network.nas_servers
+  - media_entertainment.tv_streaming
 ha_iot_class: Local Polling
 ha_release: 0.17
 ha_config_flow: true
@@ -12,10 +13,10 @@ ha_domain: nzbget
 ha_platforms:
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The NZBGet integration allows you to monitor and control your downloads with [NZBGet](https://nzbget.net/) from within Home Assistant. It also allows you to setup automation based on the information.
+The **NZBGet** {% term integration %} allows you to monitor and control your downloads with [NZBGet](https://nzbget.net/) from within Home Assistant. It also allows you to set up automation based on the information.
 
 {% include integrations/config_flow.md %}
 
@@ -47,34 +48,18 @@ The event includes the name, category, and status of the downloaded nzb.
 
 Example automation to send a Telegram message on a completed download:
 
-{% raw %}
-
 ```yaml
 - alias: "Completed Torrent"
-  trigger:
-    platform: event
-    event_type: nzbget_download_complete
-  - event_data:
-    category: tv
-  action:
-    action: notify.telegram_notifier
-    data:
-      title: "Download completed!"
-      message: "{{trigger.event.data.name}}"
+  triggers:
+    - trigger: event
+      event_type: nzbget_download_complete
+      event_data:
+        category: tv
+  actions:
+    - action: notify.telegram_notifier
+      data:
+        title: "Download completed!"
+        message: "{{trigger.event.data.name}}"
 ```
 
-{% endraw %}
-
-## Actions
-
-Available actions:
-
-- `pause`: Pause the download queue.
-- `resume`: Resume the download queue.
-- `set_speed`: Set the download queue speed limit.
-
-### Action `nzbget/set_speed`
-
-| Data attribute | Optional | Description                                                                                     |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
-| `speed`                | yes      | Sets the download speed limit, specified in Kb/s. 0 disables the speed limit. Defaults to 1000. |
+{% include integrations/actions.md %}

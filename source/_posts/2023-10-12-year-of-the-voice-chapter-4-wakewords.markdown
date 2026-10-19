@@ -16,7 +16,7 @@ This year is Home Assistant’s [Year of the Voice](https://www.home-assistant.i
 
 We’ve got great news: wake words are finally here! After 4 chapters, we now have the final building block for voice in Home Assistant.
 
-In [Chapter 1](https://www.home-assistant.io/blog/2023/01/26/year-of-the-voice-chapter-1/), we started with text commands such as “turn on the kitchen light” and “open garage door”. We now [support 56 languages](https://home-assistant.github.io/intents/) and have 188 contributors helping to translate common smart home commands for everyone.
+In [Chapter 1](https://www.home-assistant.io/blog/2023/01/26/year-of-the-voice-chapter-1/), we started with text commands such as “turn on the kitchen light” and “open garage door”. We now [support 56 languages](https://ohf-voice.github.io/intents/) and have 188 contributors helping to translate common smart home commands for everyone.
 
 [Chapter 2](https://www.home-assistant.io/blog/2023/04/27/year-of-the-voice-chapter-2/) introduced audio for voice commands: both speech-to-text and text-to-speech. This included local options for maximum privacy as well as support for Home Assistant Cloud for incredible speed and language coverage. Lastly in [Chapter 3](https://www.home-assistant.io/blog/2023/07/20/year-of-the-voice-chapter-3/), we added the ability to set Home Assistant as your default assistant on Android phones and watches.
 
@@ -152,8 +152,8 @@ Voice assistant on a breadboard.
 
 Recommended parts:
 
-- Microphone: [M5Stack PDM MEMS Microphone Unit (SPM1423)](https://shop.m5stack.com/products/pdm-microphone-unit-spm1423?ref=NabuCasa) or [INMP441 Omnidirectional i2s microphone](https://www.amazon.com/DAOKI-Omnidirectional-Microphone-Interface-Precision/dp/B0821521CV?crid=15LDQX6CCO0TU&keywords=dollatek+INMP441+i2s+microphone&qid=1697133224&sprefix=dollatek+inmp441+i2s+microphone%2Caps%2C53&sr=8-3&linkCode=li2&tag=homeassista0e-20&linkId=387c46c81aea5223b6a2dc46fe30071c&language=en_US&ref_=as_li_ss_il)
-- DAC/Amp: [MAX98357 I2S 3W Class D Amp DAC](https://www.aliexpress.us/item/3256804094226058.html?algo_pvid=abd6f27c-cf43-4bb7-aad5-59db93afeef2&algo_exp_id=abd6f27c-cf43-4bb7-aad5-59db93afeef2-2&pdp_npi=4@dis!USD!0.75!0.75!!!0.75!!@2101c6e316970730845818417e16ee!12000028612275493!sea!US!171596461!&curPageLogUid=KcAyDJivsXHt)
+- Microphone: [M5Stack PDM MEMS Microphone Unit (SPM1423)](https://shop.m5stack.com/products/pdm-microphone-unit-spm1423) or [INMP441 Omnidirectional i2s microphone](https://www.amazon.com/dp/B0821521CV)
+- DAC/Amp: [MAX98357 I2S 3W Class D Amp DAC](https://www.aliexpress.us/item/3256804094226058.html)
 
 [Example configuration](https://github.com/esphome/firmware/blob/main/voice-assistant/m5stack-atom-echo.yaml)
 
@@ -213,6 +213,6 @@ Thanks to our language leaders for extending the sentence support to all the var
 [Piper]: https://github.com/rhasspy/piper/
 [own-wake-word]: /voice_control/create_wake_word/
 [my-wake-word-addon]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_openwakeword
-[Anker PowerConf S330]: https://amzn.to/3tzXUhD
+[Anker PowerConf S330]: https://www.amazon.com/dp/B09FJ7LWX4
 [ESPHome]: https://esphome.io
 [nabucasa]: https://www.nabucasa.com

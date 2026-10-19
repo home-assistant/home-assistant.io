@@ -1,14 +1,8 @@
 ---
 title: Verisure
-description: Instructions on how to setup Verisure devices within Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Camera
-  - Hub
-  - Lock
-  - Sensor
-  - Switch
+description: Instructions on how to set up Verisure devices within Home Assistant.
+ha_categories:
+  - security_safety.alarm_systems
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
 ha_domain: verisure
@@ -44,19 +38,17 @@ There is currently support for the following device types within Home Assistant:
 
 The Verisure alarm control panel platform allows you to control your [Verisure](https://www.verisure.com/) Alarms.
 
-The requirement is that you have setup your Verisure hub first, with the instruction above.
+The requirement is that you have set up your Verisure hub first, with the instruction above.
 
 The `changed_by` attribute enables one to be able to take different actions depending on who armed/disarmed the alarm in [automation](/getting-started/automation/).
-
-{% raw %}
 
 ```yaml
 automation:
   - alias: "Alarm status changed"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: alarm_control_panel.alarm_1
-    action:
+    actions:
       - action: notify.notify
         data:
           message: >
@@ -65,15 +57,7 @@ automation:
             by {{ trigger.to_state.attributes.changed_by }}
 ```
 
-{% endraw %}
-
-## Actions
-
-| Service | Description |
-| ------- | ----------- |
-| disable_autolock | Disables autolock function for a specific lock. |
-| enable_autolock | Enables autolock function for a specific lock. |
-| smartcam_capture | Capture a new image from a specific smartcam. |
+{% include integrations/actions.md %}
 
 ## Binary sensor
 
@@ -96,7 +80,7 @@ Some users have reported that this integration currently doesn't work in the fol
 - France
 - Ireland
 - Italy
-- Sweden
+- Spain
 
 ## Troubleshooting
 

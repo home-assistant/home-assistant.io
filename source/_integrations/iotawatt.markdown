@@ -2,17 +2,18 @@
 title: IoTaWatt
 description: Instructions on how to integrate IoTaWatt into Home Assistant.
 ha_release: 2021.9
-ha_category:
-  - Energy
+ha_categories:
+  - energy.meters_monitoring
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: iotawatt
 ha_codeowners:
   - '@gtdiehl'
   - '@jyavenard'
+  - '@agners'
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integration for the [IoTaWatt](https://www.iotawatt.com/) Open WiFi Electricity Monitor. It
@@ -21,22 +22,31 @@ and create them as sensors in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
-## Energy management
+## Energy management and sensor availability
 
 You can use the energy sensors directly with the Home Assistant energy dashboard.
+
+IoTaWatt **Inputs** are available as sensors and are shown on the IoTaWatt device page in Home Assistant.
+
+Any **Outputs** you create within the IoTaWatt unit are also available as sensors for use in the energy dashboard and templates. However, they are not listed on the IoTaWatt device page because of the Home Assistant policy on unique naming. When you configure the energy dashboard or create a template or helper, start typing the name of a defined IoTaWatt output. Home Assistant suggests completing the sensor name.
+
+## Energy production systems
 
 If you have an energy production system such as solar panels, follow these instructions:
 
 ### Configure IoTaWatt
 
-You will need to configure two new IoTaWatt output sensors:
+You will need to configure IoTaWatt output sensors for consumption, export, and production.
 
-| Name | Unit | Formula
-| - | - | -
-| MainsConsumption|Watts|`(Main_In_Red + Main_In_White + Main_In_Blue) max 0`
-| MainsExport|Watts|`((Main_In_Red + Main_In_White + Main_In_Blue) min 0) abs`
+For example:
 
-Replace `(Main_In_Red + Main_In_White + Main_In_Blue)` with the correct formula for your main feed.
+| Name | Unit | Formula |
+| - | - | - |
+| MainsConsumption|Watts|`(Main_In_Red + Main_In_White + Main_In_Blue) max 0` |
+| MainsExport|Watts|`((Main_In_Red + Main_In_White + Main_In_Blue) min 0) abs` |
+| Solar|Watts|`((Solar_Red max 0) + (Solar_White max 0) + (Solar_Blue max 0))` |
+
+Replace `(Main_In_Red + Main_In_White + Main_In_Blue)` with the correct formula for your main feed.  
 
 #### Using a solar net system
 
@@ -48,6 +58,8 @@ If you have two solar sensors named `Solar1` and `Solar2` you would use:
 `(Main_In_Red + Main_In_White + Main_In_Blue - Solar1 - Solar2)`
 
 ### Configure Energy Management
+
+The IoTaWatt Outputs are available for use:
 
 In the Grid Consumption settings, select `MainsConsumption.wh`  
 In the Return to grid settings, select `MainsExport.wh`  

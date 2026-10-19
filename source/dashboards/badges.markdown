@@ -1,9 +1,20 @@
 ---
 title: "Badges"
-description: "Description of the various badges that are available."
+description: "Badges display entity states at the top of a dashboard view. Learn how to add, configure, and filter badges in Home Assistant."
+related:
+  - docs: /dashboards/
+    title: Introduction to dashboards
+  - docs: /dashboards/views/
+    title: Dashboard views
+  - docs: /dashboards/actions/
+    title: Badge actions
+  - docs: /dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally
+    title: Showing or hiding a badge conditionally
+  - docs: /dashboards/heading/#heading-badges
+    title: Heading card badges
 ---
 
-Badges are widgets that sit at the top of a panel, above all the cards.
+Badges are small widgets that sit at the top of a dashboard view, above all the cards. They give you an at-a-glance overview of entity states. This is perfect for things like temperatures, open windows, or who is home.
 
 <p class="img">
   <img src="/images/dashboards/badges.png" alt="Badges">
@@ -15,7 +26,7 @@ Badges are widgets that sit at the top of a panel, above all the cards.
 1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
 2. If you have multiple [views](/dashboards/views/), open the view to which you want to add a badge.
 3. In the top right of the screen, select the edit {% icon "mdi:edit" %} button.
-4. To add a badge, select the plus {% icon "mdi:plus" %}button.
+4. To add a badge, select the plus {% icon "mdi:plus" %} button.
 
    ![Screenshot showing how to add a badge](/images/dashboards/badge_add.png)
 
@@ -27,12 +38,27 @@ Badges are widgets that sit at the top of a panel, above all the cards.
 
    ![Screenshot showing how to configure a badge](/images/dashboards/badge_configure.png)
 7. Under **Interactions**, you can define the tap behavior.
-8. If you want this badge to be visible only to specific users or under a certain condition, open the **Visibility** tab to [define those conditions](/dashboards/cards/#showing-or-hiding-a-card-conditionally).
+8. If you want this badge to be visible only to specific users or under a certain condition, open the **Visibility** tab to [define those conditions](/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally).
+   - The [available conditions](/dashboards/conditional/#conditions-options) are the same as the ones for the conditional card.
 9. Select **Save**.
+
+<p class="img">
+  <img src="/images/dashboards/adding_a_badge_to_a_dashboard.webp" alt="screencast showing how to add a badge to a dashboard">
+  Adding a badge to a dashboard.
+</p>
+
+## Removing a badge
+
+1. Go to the dashboard and follow steps 1–3 in [adding a badge](#adding-a-badge-to-your-dashboard).
+2. Hover over the badge to reveal the three dots {% icon "mdi:dots-vertical" %} menu.
+    ![Screenshot showing edit buttons](/images/dashboards/edit_badge.png)
+3. Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
+
+    ![Screenshot showing the three dots menu](/images/dashboards/edit_badge_menu.png)
 
 ## Entity badge
 
-The Entity badge allows you to display the state of an entity on a badge. This badge supports [actions](/dashboards/actions/).
+The Entity badge allows you to display the state of an entity. This badge supports [actions](/dashboards/actions/).
 
 ```yaml
 type: entity
@@ -50,8 +76,8 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites the entity name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 icon:
   required: false
   description: Overwrites the entity icon.
@@ -68,24 +94,29 @@ show_entity_picture:
   default: false
 show_name:
   required: false
-  description: Show the name
+  description: Show the name.
   type: boolean
-  default: "true"
+  default: "false"
 show_icon:
   required: false
-  description: Show the icon
+  description: Show the icon.
   type: boolean
   default: "true"
 show_state:
   required: false
   description: Show the state.
   type: boolean
-  default: "false"
+  default: "true"
 state_content:
   required: false
   description: >
     Content to display for the state. Can be `state`, `last_changed`, `last_updated`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
   type: [string, list]
+time_format:
+  required: false
+  description: >
+    Controls how timestamps in `state_content` are formatted. Valid values are `relative`, `total`, `date`, `time`, and `datetime`. Can also be defined as a map with a `type` key and an optional `style` key (`long` or `short`).
+  type: [string, map]
 tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.
@@ -100,9 +131,129 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## Entity Filter Badge
+## Alert badge
 
-This badge allows you to define a list of entities that you want to track only when in a certain state. Very useful for showing lights that you forgot to turn off or show a list of people only when they're at home.
+The alert badge is the badge version of the [alert card](/dashboards/alert/). It highlights an entity that needs attention, showing its name and state over a colored background that can pulse to draw the eye. Select the badge to open the **More info** dialog.
+
+Like the card, it supports alarm control panel, binary sensor, cover, and lock entities, and only shows its color and pulse while the entity is in an [alert state](/dashboards/alert/). The rest of the time, it uses the clear color, if you set one. To hide the badge when nothing needs attention, add a [visibility condition](/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally) on the entity's state.
+
+<p class="img">
+  <img src="/images/dashboards/alert_badge.png" alt="Screenshot of alert badges">
+  Alert badges with red, orange, amber, and no color.
+</p>
+
+```yaml
+type: alert
+entity: binary_sensor.kitchen_leak
+clear_color: green
+```
+
+{% configuration alert %}
+type:
+  required: true
+  description: "`alert`"
+  type: string
+entity:
+  required: true
+  description: Entity ID of an alarm control panel, binary sensor, cover, or lock.
+  type: string
+alert_color:
+  required: false
+  description: The color of the icon and background while the entity is in an alert state. Accepts a [color token](/dashboards/tile/#available-colors) or hex color code. Set to `none` for no color.
+  type: string
+  default: red
+clear_color:
+  required: false
+  description: The color of the icon and background when the entity isn't in an alert state. Accepts the same values as `alert_color`.
+  type: string
+  default: none
+pulse:
+  required: false
+  description: Animates the colored background while the entity is in an alert state. When reduced motion is turned on in your system settings, the background stays tinted instead.
+  type: boolean
+  default: false
+{% endconfiguration %}
+
+## Shortcut badge
+
+The shortcut badge gives you a quick way to trigger an action from your dashboard. You can use it to navigate to another page, open a URL, launch the voice assistant, or perform an action.
+
+The label, icon, and color are automatically resolved from the action you configure. For example, if you navigate to a dashboard view, the shortcut picks up the view's title and icon. You can override any of these values if you want something different.
+
+```yaml
+type: shortcut
+tap_action:
+  action: navigate
+  navigation_path: "/lovelace/kitchen"
+```
+
+{% configuration shortcut %}
+type:
+  required: true
+  description: "`shortcut`"
+  type: string
+text:
+  required: false
+  description: The text displayed on the badge. If not set, the text is resolved automatically from the configured `tap_action`.
+  type: string
+icon:
+  required: false
+  description: The icon displayed on the badge. If not set, the icon is resolved automatically from the configured `tap_action`.
+  type: string
+color:
+  required: false
+  description: The color of the icon and background accent. Accepts a [color token](/dashboards/tile/#available-colors) or hex color code.
+  type: string
+  default: primary
+tap_action:
+  required: true
+  description: The action taken on badge tap. For more information, see the [action documentation](/dashboards/actions/#tap-action).
+  type: map
+hold_action:
+  required: false
+  description: The action taken on badge tap-and-hold. For more information, see the [action documentation](/dashboards/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: The action taken on badge double tap. For more information, see the [action documentation](/dashboards/actions/#double-tap-action).
+  type: map
+{% endconfiguration %}
+
+### Examples
+
+Open an external URL with a custom label and icon:
+
+```yaml
+type: shortcut
+text: "Home Assistant docs"
+icon: mdi:book-open-variant
+tap_action:
+  action: url
+  url_path: "https://www.home-assistant.io"
+```
+
+Launch the voice assistant:
+
+```yaml
+type: shortcut
+tap_action:
+  action: assist
+```
+
+Perform an action with a custom color:
+
+```yaml
+type: shortcut
+text: "Good night"
+color: indigo
+tap_action:
+  action: perform-action
+  perform_action: script.good_night
+```
+
+## Entity filter badge
+
+This badge allows you to define a list of entities that you want to track only when in a certain state. It's great for showing lights that you forgot to turn off, or for displaying a list of people only when they're at home.
 
 {% configuration filter_badge %}
 type:
@@ -140,15 +291,15 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 icon:
   required: false
-  description: Overwrites icon or entity picture. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`.
+  description: Overwrites icon or entity picture. You can use any icon from [Material Design Icons (MDI)](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, for example `mdi:home`.
   type: string
 image:
   required: false
-  description: The URL of an image.
+  description: URL of an image to display instead of the icon.
   type: string
 conditions:
   required: false
@@ -162,9 +313,11 @@ state_filter:
 
 *only one filter will be applied: `conditions` or `state_filter` if `conditions` is not present
 
+You may also add any additional configuration options to an entity which are supported by the chosen badge type (`Entity` badge type if no type is chosen).
+
 ## Conditions options
 
-You can specify multiple `conditions`, in which case the entity will be displayed if it matches any condition.
+You can specify multiple `conditions`, in which case the entity will be displayed if it matches all conditions.
 
 ### State
 
@@ -253,7 +406,7 @@ below:
 
 ### Screen
 
-Specify the visibility of the entity per screen size. Some screen size presets are available in the UI but you can use any CSS media query you want in YAML.
+Specify the visibility of the entity per screen size. Some screen size presets are available in the UI, but you can use any CSS media query you want in YAML.
 
 ```yaml
 type: entity-filter
@@ -389,7 +542,7 @@ If you define `state_filter` as objects instead of strings, you can add more cus
 
 ### Operator filter
 
-Tests if an entity state correspond to the applied `operator`.
+Tests if an entity state corresponds to the applied `operator`.
 
 {% configuration condition_operator %}
 value:
@@ -423,7 +576,7 @@ state_filter:
     value: work
 ```
 
-Specify filter for a single entity.
+You can also specify a filter for a single entity.
 
 ```yaml
 type: entity-filter
@@ -441,7 +594,7 @@ entities:
         attribute: humidity
 ```
 
-Use a regex filter against entity attributes. This regex filter below looks for expressions that are 1 digit in length and where the number is between 0-7 (so show holidays today or in the next 7 days) and displays those holidays as entities in the Entity Filter badge.
+You can also use a regex filter against entity attributes. The example below looks for expressions that are 1 digit in length and where the number is between 0–7. This shows holidays occurring today or within the next 7 days as entities in the Entity filter badge.
 
 ```yaml
 type: entity-filter
@@ -455,5 +608,4 @@ entities:
   - entity: sensor.upcoming_ical_holidays_2
   - entity: sensor.upcoming_ical_holidays_3
   - entity: sensor.upcoming_ical_holidays_4
-show_empty: false
 ```

@@ -1,8 +1,8 @@
 ---
 title: Netdata
 description: Instructions on how to integrate Netdata within Home Assistant.
-ha_category:
-  - System monitor
+ha_categories:
+  - computers_network.monitoring
 ha_release: 0.35
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -14,9 +14,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `netdata` sensor {% term integration %} allows you to display information collected by [Netdata](https://www.netdata.cloud/).
+The **Netdata** {% term integration %} allows you to display information collected by [Netdata](https://www.netdata.cloud/).
 
 ## Prerequisites
 

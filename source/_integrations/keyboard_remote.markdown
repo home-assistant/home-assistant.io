@@ -1,182 +1,247 @@
 ---
 title: Keyboard Remote
-description: Instructions on how to use a keyboard to remote control Home Assistant.
-ha_category:
-  - Other
+description: Instructions on how to use a keyboard or remote control as an input device for automations in Home Assistant.
+ha_categories:
+  - buttons_remotes
 ha_release: 0.29
 ha_iot_class: Local Push
+ha_config_flow: true
 ha_codeowners:
   - '@bendavid'
   - '@lanrat'
 ha_domain: keyboard_remote
 ha_integration_type: hub
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-Receive signals from a keyboard and use it as a remote control.
+The **Keyboard Remote** {% term integration %} lets you use a USB or Bluetooth keyboard, remote control, or any Linux `evdev`-compatible input device to trigger automations in Home Assistant. Instead of creating entities, the integration fires events whenever a key is pressed, released, or held down. You can listen for these events in your automations to control lights, media players, or anything else in your smart home.
 
-This {% term integration %} allows you to use one or more keyboards as remote controls. It will fire `keyboard_remote_command_received` events which can then be used in automation rules.
+Each input device is added as a separate integration entry, so you can connect multiple keyboards or remotes and configure them independently.
 
-The `evdev` package is used to interface with the keyboard and thus this is Linux only. It also means you can't use your normal keyboard for this because `evdev` will block it.
+Because the integration uses the Linux `evdev` interface, it works only on Linux-based Home Assistant installations. The integration captures the device exclusively. This means a keyboard you add here can no longer be used for regular typing.
 
-To enable the Keyboard Remote {% term integration %}, add it to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+## Prerequisites
+
+Before setting up the integration, make sure you meet the following requirements:
+
+- Your Home Assistant instance runs on a Linux-based system (Home Assistant OS, or Home Assistant Container on Linux).
+- The input device you want to use is connected to your system and recognized by Linux. For Bluetooth devices, pair them first using your operating system's Bluetooth settings.
+- The Home Assistant process has read and write access to the device files under `/dev/input/`. On [Home Assistant Operating System](#running-on-home-assistant-operating-system) this is handled for you. For [Home Assistant Container](#running-in-a-container) you have to pass the devices in yourself.
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Input device:
+  description: "The input device to use. The dropdown lists the connected devices that can send key events and are not set up yet. A device with a `/dev/input/by-id/` link is shown as `Device Name (link-name)` and is identified by that link. A device without one, such as a Bluetooth remote or a PS/2 keyboard, is shown as `Device Name (address)` and is identified by its address and name. If it reports no address, it is shown as `Device Name (eventN)` and is identified by name alone. If your device is not listed, see [Device not listed during setup](#device-not-listed-during-setup). Add a separate integration entry for each device you want to use."
+{% endconfiguration_basic %}
+
+## Configuration options
+
+After setup, you can adjust the following options for each device. To access them, go to {% my integrations title="**Settings** > **Devices & services**" %}, find your **Keyboard Remote** entry, and select **Configure**.
+
+{% configuration_basic %}
+Key event types:
+  description: "Which key events the integration listens for. You can select one or more of: `key_up` (key released), `key_down` (key pressed), and `key_hold` (key held down). By default, only `key_up` is enabled. Be aware that `key_hold` can generate a large number of events very quickly."
+Emulate key hold:
+  description: "When enabled, the integration emulates `key_hold` events in software for devices that do not send them natively. Disabled by default."
+Key hold delay:
+  description: "The number of seconds to wait before the first emulated key hold event is fired (0.01 to 5.0 seconds). Only applies when **Emulate key hold** is enabled. Default: 0.250 seconds."
+Key hold repeat interval:
+  description: "The number of seconds to wait between subsequent emulated key hold events (0.001 to 1.0 seconds). Only applies when **Emulate key hold** is enabled. Default: 0.033 seconds."
+{% endconfiguration_basic %}
+
+## Events
+
+The integration does not create any entities. Instead, it fires events on the Home Assistant event bus that you can use as triggers in your automations.
+
+{% tip %}
+To discover the key codes for your device, go to {% my developer_events title="**Settings** > **Tools** > **Events**" %}. In the **Listen to events** section, enter `keyboard_remote_command_received` and select **Start listening**. Then press a key on your device to see its key code and other event data.
+{% endtip %}
+
+### Keyboard remote command received
+
+The `keyboard_remote_command_received` event is fired whenever a key event occurs that matches your configured event types.
+
+- `key_code` — The numeric key code (evdev) for the key involved in the event
+- `type` — The event type: `key_up`, `key_down`, or `key_hold`
+- `device_descriptor` — The configured path of the device
+- `device_name` — The human-readable name of the device
+
+For a device set up through the UI with a `/dev/input/by-id/` link, `device_descriptor` is that link. For a device without one, it is the `/dev/input/event*` node the device is connected on, which can change when the device reconnects, so match on `device_name` instead. An entry imported from YAML reports the `device_descriptor` from your YAML configuration, or the node the device is connected on if it was configured by `device_name`. Copy the exact value from **Settings** > **Tools** > **Events** when matching on it in an automation.
+
+### Keyboard remote connected
+
+The `keyboard_remote_connected` event is fired when a configured device is detected or reconnected. This is useful for Bluetooth devices that turn off automatically to save battery.
+
+- `device_descriptor` — The configured path of the device
+- `device_name` — The human-readable name of the device
+
+### Keyboard remote disconnected
+
+The `keyboard_remote_disconnected` event is fired when a configured device is disconnected or removed.
+
+- `device_descriptor` — The configured path of the device
+- `device_name` — The human-readable name of the device
+
+## Automation examples
+
+### Automation: Turning on all lights with a key
+
+The following example turns on all lights when a specific key is released on a specific device:
 
 ```yaml
-# Example configuration.yaml entry
-keyboard_remote:
-  type: "key_up"
+automation:
+  - alias: "Keyboard all lights on"
+    triggers:
+      - trigger: event
+        event_type: keyboard_remote_command_received
+        event_data:
+          # Target a specific device by its path, as shown in the event data
+          device_descriptor: "/dev/input/by-id/usb-Example_Keyboard-event-kbd"
+          # Find your key code in Settings > Tools > Events
+          key_code: 107
+          # Only trigger on key released events
+          type: key_up
+    actions:
+      - action: light.turn_on
+        target:
+          entity_id: all
 ```
 
+You can include `device_descriptor` or `device_name` in the event data to target a specific keyboard. This is especially useful when you have multiple Bluetooth remotes controlling different devices. Omit both to trigger the automation for any connected keyboard.
+
+You can also include `type` to limit the trigger to a specific event type, such as `key_down`, `key_up`, or `key_hold`.
+
+### Automation: Responding to device connections and disconnections
+
+The integration automatically handles reconnections without requiring a restart. The following example plays a sound through a media player whenever a keyboard connects or disconnects, which is useful for Bluetooth devices that power off to save battery:
+
+```yaml
+automation:
+  - alias: "Keyboard connected"
+    triggers:
+      - trigger: event
+        event_type: keyboard_remote_connected
+    actions:
+      - action: media_player.play_media
+        target:
+          entity_id: media_player.speaker
+        data:
+          media_content_id: "keyboard_connected.wav"
+          media_content_type: music
+
+  - alias: "Bluetooth keyboard disconnected"
+    triggers:
+      - trigger: event
+        event_type: keyboard_remote_disconnected
+        event_data:
+          device_name: "00:58:56:4C:C0:91"
+    actions:
+      - action: media_player.play_media
+        target:
+          entity_id: media_player.speaker
+        data:
+          media_content_id: "keyboard_disconnected.wav"
+          media_content_type: music
+```
+
+## Migrating from YAML configuration
+
+{% important %}
+YAML configuration for the **Keyboard Remote** integration is deprecated and will be removed in Home Assistant 2027.4.0. When you upgrade, your existing YAML configuration is automatically imported as one integration entry per device. Please remove the `keyboard_remote` key from your {% term "`configuration.yaml`" %} after confirming the import was successful.
+{% endimportant %}
+
+To complete the migration:
+
+1. Restart Home Assistant to trigger the automatic import.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %} and confirm that your Keyboard Remote entries have been created.
+3. Open your {% term "`configuration.yaml`" %} file and remove the `keyboard_remote:` block.
+4. Restart Home Assistant again.
+
+Your automations do not need to change, because the events fired by the integration remain the same.
+
+If a hold timing in your YAML configuration is outside the range the options accept, it is adjusted to fit, and an empty `type` list uses `key_up`. Home Assistant logs a warning when it does either.
+
+The following reference shows the previous YAML configuration options:
+
 {% configuration %}
-type:
-  description: Possible values are `key_up`, `key_down`, and `key_hold`. Be careful, `key_hold` will fire a lot of events.  This can be a list of types.
-  required: true
+device_descriptor:
+  description: "Path to the local event input device file that corresponds to the keyboard. Mutually exclusive with `device_name`."
+  required: false
   type: string
+device_name:
+  description: "Name of the keyboard device. Mutually exclusive with `device_descriptor`."
+  required: false
+  type: string
+type:
+  description: "Key event types to listen for. Possible values are `key_up`, `key_down`, and `key_hold`. Can be a single value or a list."
+  required: false
+  type: [string, list]
+  default: key_up
 emulate_key_hold:
-  description: Emulate key hold events when key is held down.  (Some input devices do not send these otherwise.)
+  description: "Emulate key hold events when a key is held down. Some input devices do not send these natively."
   required: false
   type: boolean
   default: false
 emulate_key_hold_delay:
-  description:  Number of seconds to wait before sending first emulated key hold event
+  description: "Number of seconds to wait before firing the first emulated key hold event."
   required: false
   type: float
   default: 0.250
 emulate_key_hold_repeat:
-  description:  Number of seconds to wait before sending subsequent emulated key hold event
+  description: "Number of seconds to wait between subsequent emulated key hold events."
   required: false
   type: float
   default: 0.033
-device_descriptor:
-  description: Path to the local event input device file that corresponds to the keyboard.
-  required: false
-  type: string
-device_name:
-  description: Name of the keyboard device.
-  required: false
-  type: string
 {% endconfiguration %}
 
-Either `device_name` or `device_descriptor` must be present in the configuration entry. Indicating a device name is useful in case of repeating disconnections and re-connections of the device (for example, a Bluetooth keyboard): the local input device file might change, thus breaking the configuration, while the name remains the same.
-In case of presence of multiple devices of the same model, `device_descriptor` must be used.
+## Troubleshooting
 
-A list of possible device descriptors and names is reported in the debug log at startup when the device indicated in the configuration entry could not be found.
+### Device not listed during setup
 
-A full configuration for two Keyboard Remotes could look like the one below:
+If the device dropdown during setup is empty or does not include your device, try the following:
 
-```yaml
-keyboard_remote:
-- device_descriptor: '/dev/input/by-id/bluetooth-keyboard'
-  type: "key_down"
-  emulate_key_hold: true
-  emulate_key_hold_delay: 0.25
-  emulate_key_hold_repeat: 0.033
-- device_descriptor: '/dev/input/event0'
-  type:
-    - 'key_up'
-    - 'key_down'
-```
+1. Make sure the device is physically connected to your system. For Bluetooth devices, make sure they are paired and active.
+2. Make sure the device can send key events. Devices that only report movement or switches, such as a mouse or a lid switch, are not listed.
+3. Restart the setup flow after connecting the device.
 
-Or like the following for one keyboard:
+Devices on the system's own bus, such as the power button, the lid switch, or GPIO buttons and IR receivers, are not listed either, because taking them over would stop them from working for the system. A YAML configuration for such a device is still imported.
 
-```yaml
-keyboard_remote:
-  device_name: "Bluetooth Keyboard"
-  type: "key_down"
-```
+### Identical USB devices
 
-And an automation rule to breathe life into it:
+USB devices without a serial number, such as two keyboards of the same model, share a single `/dev/input/by-id/` link, which points at the one connected last. The other one is listed by its name instead. You can set up both, but which physical device each entry uses can swap when they reconnect. Bluetooth devices are told apart by their address, so this does not affect them.
 
-```yaml
-automation:
-  alias: "Keyboard all lights on"
-  trigger:
-    platform: event
-    event_type: keyboard_remote_command_received
-    event_data:
-      device_descriptor: "/dev/input/event0"
-      key_code: 107 # inspect log to obtain desired keycode
-      type: key_down # only trigger on key_down events (optional)
+### Permission denied errors
 
-  action:
-    action: light.turn_on
-    target:
-      entity_id: light.all
-```
-
-`device_descriptor` or `device_name` may be specified in the trigger so the automation will be fired only for that keyboard. This is especially useful if you wish to use several Bluetooth remotes to control different devices. Omit them to ensure the same key triggers the automation for all keyboards/remotes.
-
-`key_code` should be set to the code generated by the key press, otherwise the trigger will fire on every key press.
-`type` can optionally be set to one of `key_down`, `key_up`, or `key_hold` to limit the trigger to that specific event type.
-
-## Disconnections
-
-This integration manages disconnections and re-connections of the keyboard, for example in the case of a Bluetooth device that turns off automatically to preserve battery.
-
-If the keyboard disconnects, the integration will fire an event `keyboard_remote_disconnected`.
-When the keyboard reconnects, an event `keyboard_remote_connected` will be fired.
-
-Here's an automation example that plays a sound through a media player whenever the keyboard connects/disconnects:
-
-```yaml
-automation:
-  - alias: "Keyboard Connected"
-    trigger:
-      platform: event
-      event_type: keyboard_remote_connected
-    action:
-      - action: media_player.play_media
-        target:
-          entity_id: media_player.speaker
-        data:
-          media_content_id: keyboard_connected.wav
-          media_content_type: music
-
-  - alias: "Bluetooth Keyboard Disconnected"
-    trigger:
-      platform: event
-      event_type: keyboard_remote_disconnected
-      event_data:
-        device_name: "00:58:56:4C:C0:91"
-    action:
-      - action: media_player.play_media
-        target:
-          entity_id: media_player.speaker
-        data:
-          media_content_id: keyboard_disconnected.wav
-          media_content_type: music
-```
-
-## Permissions
-
-There might be permissions problems with the event input device file. If this is the case, the user that Home Assistant runs as must be allowed read and write permissions with:
+If the integration fails to access the device, the Home Assistant process may not have read and write permissions on the input device file. You can grant permissions with:
 
 ```bash
 sudo setfacl -m u:HASS_USER:rw /dev/input/event*
 ```
 
-Where `HASS_USER` is the user who runs Home Assistant.
+Replace `HASS_USER` with the user that runs Home Assistant.
 
-If you want to make this permanent, you can use a udev rule that sets it for all event input devices. Add a file `/etc/udev/rules.d/99-userdev-input.rules` containing:
+To make this permanent, create a udev rule that applies permissions for all event input devices. Add a file `/etc/udev/rules.d/99-userdev-input.rules` with the following content:
 
 ```bash
 KERNEL=="event*", SUBSYSTEM=="input", RUN+="/usr/bin/setfacl -m u:HASS_USER:rw $env{DEVNAME}"
 ```
 
-You can check ACLs permissions with:
+You can verify the current permissions with:
 
 ```bash
 getfacl /dev/input/event*
 ```
 
-## Containers
+### Running on Home Assistant Operating System
 
-If you are running Home Assistant Container, you need to pass the input device through to the container. You can pass the input device you want to use directly into the container with the `--devices` flag. However, restarting the container or unplugging and replugging your keyboard will break this integration. This is because only the instance of the keyboard that existed when the container first started will be available inside the container.
+Home Assistant Operating System needs no additional configuration. The host `/dev` is already available to Home Assistant, including the `/dev/input/by-id/` symlinks this integration uses, and devices that are connected or disconnected while Home Assistant is running are picked up without a restart.
 
-Here is an incomplete example `docker-compose.yml` that allows Home Assistant persistent access to input devices in a container:
+### Running in a container
+
+If you are running Home Assistant Container, you need to pass input devices to the container. You can pass a specific device using the `--device` flag (you can repeat this flag to pass multiple devices). However, restarting the container or unplugging the keyboard will break the connection, as only the device instance that existed when the container started is available inside it.
+
+The following incomplete `docker-compose.yml` example shows how to give Home Assistant persistent access to input devices in a container:
 
 ```yaml
 version: '3.7'
@@ -186,14 +251,20 @@ services:
     image: ghcr.io/homeassistant/home-assistant:stable
     volumes:
       - config:/config/
-      - /dev/input:/dev/input/ # this is needed to read input events.
+      - /dev/input:/dev/input/ # This is needed to read input events.
     restart: unless-stopped
     device_cgroup_rules:
-      # allow creation of /dev/input/* with mknod, this is not enough on its own and needs mknod to be called in the container
-      - 'c 13:* rmw' 
+      # Allow creation of /dev/input/* with mknod
+      - 'c 13:* rmw'
     devices:
-      # since input id may change, pass them all in
+      # Since input IDs may change, pass them all in
       - "/dev/input/"
     ...
 
 ```
+
+## Removing the integration
+
+This integration follows standard integration removal. Each device you configured appears as a separate integration entry, so remove each one individually if you want to stop using all keyboard remotes.
+
+{% include integrations/remove_device_service.md %}

@@ -1,14 +1,13 @@
 ---
 title: Goal Zero Yeti
 description: Instructions on how to integrate Goal Zero Yeti with Home Assistant
-ha_category:
-  - Energy
+ha_categories:
+  - energy.backup_power
 ha_iot_class: Local Polling
 ha_release: 0.116
 ha_config_flow: true
 ha_dhcp: true
 ha_domain: goalzero
-ha_quality_scale: silver
 ha_platforms:
   - binary_sensor
   - sensor
@@ -18,7 +17,7 @@ ha_codeowners:
 ha_integration_type: device
 ---
 
-This Goal Zero Yeti integration pulls data from a Wifi-enabled [Goal Zero Yeti](https://www.goalzero.com).
+This **Goal Zero Yeti** {% term integration %} pulls data from a Wifi-enabled [Goal Zero Yeti](https://www.goalzero.com).
 
 {% include integrations/config_flow.md %}
 
@@ -40,7 +39,7 @@ The following switches will also be created:
 The following sensors will also be created:
 
 - **Watts In**: Shows the watt input.
-- **Amps In**: Shows the ampere input. (disabled by default)
+- **Amps In**: Shows the ampere input. ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
 - **Watts Out**: Shows the watt output.
 - **Amps Out**: Shows the ampere output. (disabled by default)
 - **WH Out**: Shows the watt-hour output. (disabled by default)

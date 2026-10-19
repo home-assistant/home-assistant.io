@@ -1,19 +1,15 @@
 ---
 title: Insteon
 description: Instructions on how to set up an Insteon Modem (PLM or Hub) locally within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Cover
-  - Fan
-  - Hub
-  - Light
-  - Sensor
-  - Switch
+ha_categories:
+  - hubs_protocols.wireless_protocols
 ha_iot_class: Local Push
 ha_release: 0.39
 ha_domain: insteon
 ha_codeowners:
   - '@teharris1'
+  - '@ssyrell'
+  - '@connorgallopo'
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
@@ -23,17 +19,24 @@ ha_platforms:
   - light
   - lock
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_dhcp: true
 ---
 
 {% important %}
-The Insteon apps (Director or Insteon for Hub) are a paid service utilizing the Insteon cloud to control an Insteon Hub. Home Assistant does not require the use of the Insteon app but can operate in conjunction with the app if desired.
+The Insteon apps (Director or Insteon for Hub) are a paid service using the Insteon cloud to control an Insteon Hub. Home Assistant does not require the use of the Insteon app but can operate in conjunction with the app if desired.
 {% endimportant %}
 
-This integration adds support for integrating your Insteon network with Home Assistant. It has been tested with all USB and serial PowerLinc Modems (PLM) including [2413U], [2448A7], [2413S] and [2412S] models. It has also been tested to work with the [2242] and [2245] Hubs.
+This {% term integration %} adds support for integrating your Insteon network with Home Assistant. It has been tested with all USB and serial PowerLinc Modems (PLM) including [2413U], [2448A7], [2413S] and [2412S] models. It has also been tested to work with the [2242] and [2245] Hubs.
 
 _If you have factory reset your device, please see the instructions [Recovering After Factory Resetting The Hub](#recovering-after-factory-resetting-the-hub) for how to proceed._
+
+## Prerequisites
+
+- **PLM (2413U, 2412U, or serial 2413S/2412S)**: the modem must be plugged into the Home Assistant host. Note the serial port path (for example `/dev/ttyUSB0` on Linux; check {% my hardware title="Settings > System > Hardware" %} > **System hardware**).
+- **Hub version 1 (2242, pre-2014) or Hub version 2 (2245)**: the Hub must be reachable on your network. Reserve a fixed IP address for it on your router. Hub version 1 uses port 9761; Hub version 2 uses port 25105.
+- **Hub version 2 credentials**: the username and password are printed on the label on the bottom of the Hub.
+- Insteon devices must be linked to the modem before they show up in Home Assistant, either from a previous controller setup or by linking them after setup with the **Add device** function in the Insteon panel.
 
 {% include integrations/config_flow.md %}
 
@@ -80,11 +83,24 @@ In order for any two Insteon devices to talk with one another, they must be link
 
 ### Managing Insteon scenes
 
-Insteon scenes can be created, changed or deleted using the **Scenes** tab of the [Insteon configuration panel](#insteon-configuration-panel). To trigger an Insteon scene see [Triggering Insteon Scenes](#triggering-insteon-scenes) below.
+Insteon scenes can be created, changed, or deleted using the **Scenes** tab of the [Insteon configuration panel](#insteon-configuration-panel). To control an Insteon scene, see [Controlling Insteon scenes](#controlling-insteon-scenes) below.
+
+### Device overview
+
+Selecting a device from the list of devices in the [Insteon configuration panel](#insteon-configuration-panel) opens the **Overview** tab for that device.
+
+The tab shows the device's buttons arranged as they are on the device itself. Select a button to see the links stored on the device for that button, listed under **Controls** and **Controlled by**. Records that are not tied to a button are grouped under **Other links**. The **All-Link Database** tab lists every record.
+
+Two warnings can appear for the selected button. Each offers an **Add default links** action, which writes the missing links to the device and to the modem:
+
+- **Home Assistant has no control link to this device**: the device does not store a responder record pointing at the modem, so Home Assistant cannot control it.
+- **Home Assistant is not notified when this button is used**: the device does not store a controller record for this button pointing at the modem, so the modem is not told when the button is used.
+
+For the modem itself, the tab lists the Insteon scenes it holds and the number of devices Home Assistant can control.
 
 ### Device properties
 
-Insteon device properties, such as the LED brightness, can be managed using the Insteon configuration panel. To see the available properties of a device, select the device from the list of devices in the Insteon configuration panel. This will display the list of available properties for the specific device on the **Properties** tab. Each device type will have a different set of properties and not all devices have properties.
+Insteon device properties, such as the LED brightness, can be managed using the Insteon configuration panel. To see the available properties of a device, select the device from the list of devices in the Insteon configuration panel, then select the **Properties** tab. Each device type will have a different set of properties and not all devices have properties.
 
 - **Read device properties**:  Reads the properties from the device.
 - **Change device properties**: Allows you to select a specific property from a list of properties and edit the property values. This does not write the change to the device.
@@ -119,25 +135,11 @@ Editing a device's All-Link Database can cause the device to become unresponsive
 - **Change the modem connection**: Reconfigure the modem connection information such as USB port or Hub IP address.
 - **Configure device overrides**: Add or remove device overrides. See [Device overrides](#device-overrides) below.
 - **Delete device**: Delete an Insteon device from the network using the device's Insteon address.
+- **Missing modem links**: Read every device's link database and list the devices Home Assistant cannot control, and the buttons whose use is not reported to Home Assistant.
 
-## Triggering Insteon scenes
+## Controlling Insteon scenes
 
-Triggering an Insteon scene on or off is done via automations. Two actions are provided to support this feature:
-
-- **insteon.scene_on**
-  - **group**: (required) The Insteon scene number to trigger.
-- **insteon.scene_off**
-  - **group**: (required) The Insteon scene to turn off
-
-```yaml
-automation:
-  # Trigger an Insteon scene 25
-  - id: trigger_scene_25_on
-    alias: "Turn on scene 25"
-    action:
-      - action: insteon.scene_on
-        group: 25
-```
+Insteon scenes are controlled through automations and scripts. Use the [Scene on](/actions/insteon.scene_on/) action to turn a scene on and the [Scene off](/actions/insteon.scene_off/) action to turn it off. Both take the Insteon group or scene number.
 
 ## Events and Mini-Remotes
 
@@ -155,51 +157,40 @@ This allows the mini-remotes to be configured as triggers for automations. Here 
 ```yaml
 automation:
   # 4 or 8 button remote with button c pressed
-  - id: light_on
-    alias: "Turn a light on"
-    trigger:
-      - platform: event
+  - alias: "Turn a light on"
+    triggers:
+      - trigger: event
         event_type: insteon.button_on
-    event_data:
-      address: 1a2b3c
-      button: c
-    condition:
+        event_data:
+          address: 1a2b3c
+          button: c
+    conditions:
       - condition: state
         entity_id: light.some_light
         state: "off"
-    action:
+    actions:
       - action: light.turn_on
         target:
           entity_id: light.some_light
 
   # single button remote
-  - id: light_off
-    alias: "Turn a light off"
-    trigger:
-      - platform: event
-        event_type: insteon.button_on
-    event_data:
-      address: 1a2b3c
-    condition:
+  - alias: "Turn a light off"
+    triggers:
+      - trigger: event
+        event_type: insteon.button_off
+        event_data:
+          address: 1a2b3c
+    conditions:
       - condition: state
         entity_id: light.some_light
-        state: "off"
-    action:
-      - action: light.turn_on
+        state: "on"
+    actions:
+      - action: light.turn_off
         target:
           entity_id: light.some_light
 ```
 
-## Actions
-
-The following actions are available:
-
-- **insteon.add_all_link**: Puts the Insteon Modem (IM) into All-Linking mode. The IM can be set as a controller or a responder. If the IM is a controller, put the IM into linking mode then press the SET button on the device. If the IM is a responder, press the SET button on the device then put the IM into linking mode.
-- **insteon.delete_all_link**: Tells the Insteon Modem (IM) to remove an All-Link record from the All-Link Database of the IM and a device. Once the IM is set to delete the link, press the SET button on the corresponding device to complete the process.
-- **insteon.load_all_link_database**: Load the All-Link Database for a device. WARNING - Loading a device All-Link database may take a LONG time and may need to be repeated to obtain all records.
-- **insteon.print_all_link_database**: Print the All-Link Database for a device. Requires that the All-Link Database is loaded first.
-- **insteon.print_im_all_link_database**: Print the All-Link Database for the Insteon Modem (IM).
-- **insteon.add_default_links**: Add a set of default links between the modem and the device to facilitate proper communication between them.
+{% include integrations/actions.md %}
 
 ## Device overrides
 
@@ -229,3 +220,11 @@ Many users tried to factory reset their Insteon Hub when the Insteon app stopped
 3. Add devices to the Hub using the instructions for adding devices to the Insteon integration using the [Insteon configuration panel](#insteon-configuration-panel)
 
 Once your devices are linked to the Hub again they will appear in Home Assistant automatically.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
+
+Removing the integration does not change the Insteon network itself. Devices stay linked to the modem and keep working with their existing links. If you are retiring the modem, use the **Delete device** function in the Insteon panel for each device first. This removes the links to the modem stored in each device and needs the modem still connected. Factory resetting the modem is not enough: it only clears the modem's own link database, and the records stored in your devices keep pointing at it.

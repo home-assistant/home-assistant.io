@@ -1,8 +1,8 @@
 ---
 title: Start.ca
 description: Instructions on how to integrate Start.ca data usage within Home Assistant.
-ha_category:
-  - Network
+ha_categories:
+  - computers_network.monitoring
 ha_release: 0.64
 ha_iot_class: Cloud Polling
 ha_domain: startca
@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 Integrate your [Start.ca](https://www.start.ca/) account information into Home Assistant.

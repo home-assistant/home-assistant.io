@@ -1,9 +1,15 @@
 ---
 title: "Problems with dependencies"
-description: "Problems with dependencies"
+description: "Almost all problems with dependencies in Home Assistant come from custom integrations installed from outside the official store, such as through HACS."
 ha_category: Usage
 ---
 
-Almost all integrations have external dependencies to communicate with your devices and services. Sometimes Home Assistant is unable to install the necessary dependencies. If this is the case, it should show up in `home-assistant.log`.
+Almost all problems with dependencies in Home Assistant come from custom {% term integrations %} that you installed from outside the official integration store, such as through HACS.
 
-The first step is trying to restart Home Assistant and see if the problem persists. If it does, look at the log to see what the error is. If you can't figure it out, please [report it](https://github.com/home-assistant/home-assistant/issues) so we can investigate what is going on.
+Home Assistant tests and ships its own set of dependencies for every official integration, and updates them together. You should not see dependency errors from official integrations in normal use. If you do, please [report it](https://github.com/home-assistant/core/issues) so we can investigate.
+
+For custom integrations, dependency issues can happen when the custom integration has not yet been updated for a new Home Assistant release, or when it conflicts with another custom integration. The first step is to restart Home Assistant and check [the logs](/integrations/logger/#viewing-logs) for the exact error. From there:
+
+- Check whether the custom integration has a newer version available, and update it.
+- Check the custom integration's issue tracker to see if others are seeing the same problem.
+- If the issue started right after a Home Assistant update, you can restore an [automatic backup](/common-tasks/general/#backups) from before the update, if one is available, while you wait for the custom integration to be fixed.
