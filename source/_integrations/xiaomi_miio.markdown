@@ -322,8 +322,6 @@ The following list shows each device name and model ID.
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Idle)
 - Attributes (fan platform)
-  - `model`
-  - `mode`
   - `sleep_time`
   - `sleep_mode_learn_count`
   - `extra_features`
@@ -338,7 +336,7 @@ The following list shows each device name and model ID.
 
 ### Sensor entities
 
-- **Filter Lifetime Remaining**: The remaining life of the filter. Enabled by default.
+- **Filter Life Remaining**: The remaining life of the filter. Enabled by default.
 - **Filter Use**: Filter usage time in hours. Enabled by default.
 - **Humidity**: The current humidity measured. Enabled by default.
 - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
@@ -365,7 +363,6 @@ Supported model ID: `zhimi.airpurifier.v6`.
   - `sleep_mode_learn_count`
   - `extra_features`
   - `turbo_mode_supported`
-  - `auto_detect`
   - `use_time`
   - `button_pressed`
 
@@ -411,7 +408,7 @@ Supported model ID: `zhimi.airpurifier.v7`.
 
 #### Sensor entities
 
-- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
 - **Filter Use**: Filter usage time in hours. Enabled by default.
 - **Humidity**: The current humidity measured. Enabled by default.
 - **Illuminance**: The current illuminance measured. Enabled by default.
@@ -432,7 +429,7 @@ Supported model ID: `zhimi.airpurifier.v7`.
 Supported model ID: `zhimi.airpurifier.ma2`.
 
 - Power (on, off)
-- Operation modes (Auto, Silent, Favorite)
+- Operation modes (Auto, Silent, Favorite, Idle)
 - Attributes (fan platform)
   - `extra_features`
   - `turbo_mode_supported`
@@ -452,7 +449,7 @@ Supported model ID: `zhimi.airpurifier.ma2`.
 
 #### Sensor entities
 
-- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
 - **Filter Use**: Filter usage time in hours. Enabled by default.
 - **Humidity**: The current humidity measured. Enabled by default.
 - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
@@ -485,7 +482,7 @@ Supported model ID: `zhimi.airpurifier.mc1`.
 
 #### Sensor entities
 
-- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
 - **Filter Use**: Filter usage time in hours. Enabled by default.
 - **Humidity**: The current humidity measured. Enabled by default.
 - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
@@ -525,7 +522,7 @@ This model uses newer MiOT communication protocol.
 
 #### Sensor entities
 
-- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
 - **Filter Use**: Filter usage time in hours. Enabled by default.
 - **Humidity**: The current humidity measured. Enabled by default.
 - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
@@ -564,7 +561,7 @@ Supported features:
 
 #### Sensor entities
 
-- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
 - **Filter Use**: Filter usage time in hours. Enabled by default.
 - **Humidity**: The current humidity measured. Enabled by default.
 - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
@@ -597,7 +594,7 @@ Supported features:
 
 #### Sensor entities
 
-- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
 - **Filter Use**: Filter usage time in hours. Enabled by default.
 - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
 - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
@@ -620,7 +617,7 @@ Supported model ID: `zhimi.airpurifier.za1`.
 
 #### Sensor entities
 
-- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
 - **Filter Use**: Filter usage time in hours. Enabled by default.
 - **Humidity**: The current humidity measured. Enabled by default.
 - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
@@ -652,7 +649,7 @@ Supported model ID: `zhimi.airpurifier.v3`.
 
 #### Sensor entities
 
-- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
 - **Filter Use**: Filter usage time in hours. Enabled by default.
 - **Illuminance**: The current illuminance measured. Enabled by default.
 - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
@@ -691,8 +688,8 @@ These models use newer MiOT communication protocol.
 
 #### Sensor entities
 
-- **Filter Lifetime Remaining**: The remaining lifetime of the filter in %. Enabled by default.
-- **Filter Time Left**: The remaining lifetime of the filter in days. Enabled by default.
+- **Filter Life Remaining**: The remaining lifetime of the filter in %. Enabled by default.
+- **Filter Lifetime Remaining**: The remaining lifetime of the filter in days. Enabled by default.
 - **Filter Use**: Filter usage time in hours. Enabled by default.
 - **Humidity**: The current humidity measured. Enabled by default.
 - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
@@ -720,12 +717,12 @@ Supported model ID: `dmaker.airfresh.a1`.
 
 #### Button entities
 
-- **Reset Dust Filter**: Resets filter lifetimetime and usage of the dust filter.
+- **Reset Dust Filter**: Resets filter life and usage of the dust filter.
 
 #### Sensor entities
 
 - **Carbon Dioxide**: The current carbon dioxide in ppm.
-- **Dust filter lifetime remaining**: The remaining lifetime of the filter.
+- **Dust filter life remaining**: The remaining lifetime of the filter.
 - **Dust filter lifetime remaining days**: The remaining lifetime of the filter in day.
 - **PM2.5**: The current particulate matter 2.5.
 - **Temperature**: The current outside temperature.
@@ -744,7 +741,7 @@ Supported model ID: `dmaker.airfresh.a1`.
 Supported model ID: `zhimi.airfresh.va2`.
 
 - Power (on, off)
-- Operation modes (Auto, Silent, Interval, Low, Middle, Strong)
+- Operation modes (Auto, Interval)
 - Attributes (fan platform)
   - `use_time`
   - `extra_features`
@@ -752,7 +749,7 @@ Supported model ID: `zhimi.airfresh.va2`.
 #### Sensor entities
 
 - **Carbon Dioxide**: The current carbon dioxide measured in ppm. Enabled by default.
-- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
 - **Filter Use**: Filter usage time in hours. Enabled by default.
 - **Humidity**: The current humidity measured. Enabled by default.
 - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
@@ -774,7 +771,7 @@ Supported model ID: `zhimi.airfresh.va2`.
 Supported model ID: `zhimi.airfresh.va4`.
 
 - Power (on, off)
-- Operation modes (Auto, Silent, Interval, Low, Middle, Strong)
+- Operation modes (Auto, Interval)
 - Attributes (fan platform)
   - `use_time`
   - `extra_features`
@@ -782,7 +779,7 @@ Supported model ID: `zhimi.airfresh.va4`.
 #### Sensor entities
 
 - **Carbon Dioxide**: The current carbon dioxide measured in ppm. Enabled by default.
-- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
 - **Filter Use**: Filter usage time in hours. Enabled by default.
 - **Humidity**: The current humidity measured. Enabled by default.
 - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
@@ -824,9 +821,9 @@ Supported model ID: `dmaker.airfresh.t2017`.
 #### Sensor entities
 
 - **Carbon Dioxide**: The current carbon dioxide in ppm
-- **Dust filter lifetime remaining**: The remaining lifetime of the dust filter
+- **Dust filter life remaining**: The remaining lifetime of the dust filter
 - **Dust filter lifetime remaining days**: The remaining lifetime of the dust filter in days
-- **Upper filter lifetime remaining**: The remaining lifetime of the upper filter
+- **Upper filter life remaining**: The remaining lifetime of the upper filter
 - **Upper filter lifetime remaining days**: The remaining lifetime of the upper filter in days
 - **PM2.5**: The current particulate matter 2.5
 - **Temperature**: The current outside temperature
@@ -1005,7 +1002,7 @@ Supported features:
 
 - On, Off
 - Operation modes (low, medium, high, humidity)
-- Target humidity (30, 40, 50, 60, 70, 80)
+- Target humidity (30 - 80)
 - Attributes (humidifier platform)
 
 - **`available_modes`**: A list with the operation modes available.
@@ -1202,8 +1199,8 @@ Currently, the supported features are:
 - Attributes
   - power
   - charging
-  - battery
-  - time_stat
+  - battery_level
+  - display_clock
   - carbon_dioxide_equivalent
   - total_volatile_organic_compounds
   - temperature
@@ -1411,54 +1408,47 @@ In addition to all of the actions provided by the [vacuum](/integrations/vacuum/
 {% configuration_basic %}
 Battery:
   description: The current battery charge in percent.
-DnD Start*:
-  description: The timestamp when the next DnD (Do not disturb) period will start
-DnD End*:
-  description: The timestamp when the current or next DnD (Do not disturb) period will end
-Total duration*:
-  description: The total cleaning duration in seconds
-Total Clean Area*:
-  description: The total cleaning area in square meters
-Total Clean Count*:
-  description: The total amount of times a clean cycle has been ran
-Total Dust Collection Count*:
-  description: The total amount of dust that has been collected
-Filter Left*:
+DnD Start:
+  description: The timestamp when the next DnD (Do not disturb) period will start. Needs to be manually enabled once the integration has been added.
+DnD End:
+  description: The timestamp when the current or next DnD (Do not disturb) period will end. Needs to be manually enabled once the integration has been added.
+Total duration:
+  description: The total cleaning duration in seconds. Needs to be manually enabled once the integration has been added.
+Total Clean Area:
+  description: The total cleaning area in square meters. Needs to be manually enabled once the integration has been added.
+Total Clean Count:
+  description: The total amount of times a clean cycle has been ran. Needs to be manually enabled once the integration has been added.
+Total Dust Collection Count:
+  description: The total number of dust collections. Needs to be manually enabled once the integration has been added.
+Filter Remaining:
   description: How long the filter can be used in seconds
-Main Brush Left*:
+Main Brush Remaining:
   description: How long the main brush can be used in seconds
-Sensor Dirty Left*:
+Sensor Dirty Remaining:
   description: How long the sensor can be used in seconds
-Current Clean Time:
+Current Clean Duration:
   description: The current cleaning time of the vacuum. If the vacuum is not cleaning, this sensor will have the same value as the "Last Clean Duration" sensor.
 Current Clean Area:
   description: The current area that has been cleaned. If the vacuum is not cleaning, this sensor will have the same value as the "Last Clean Area" sensor.
-Last Clean Area*:
+Last Clean Area:
   description: The last cleaned area in square meters
-Last Clean Duration\*:
+Last Clean Duration:
   description: The last clean duration in seconds
 Last Clean End:
   description: The last clean end time as a timestamp
 Last Clean Start:
   description: The last clean start time as a timestamp
-Mop Attached**:
-  description: If the mop is attached
-Water Box Attached**:
-  description: If the watter box is attached
-Water Shortage\*\*:
-  description: If the water box is low on water
+Mop Attached:
+  description: If the mop is attached. Only enabled if the vacuum has a mop.
+Water Box Attached:
+  description: If the water box is attached. Only enabled if the vacuum has a mop.
+Water Shortage:
+  description: If the water box is low on water. Only enabled if the vacuum has a mop.
 {% endconfiguration_basic %}
-
-{% note %}
-
-\* Needs to be manually enabled once the {% term integration %} has been added.
-
-\*\* Only enabled if the vacuum has a mop.
-{% endnote %}
 
 ### Attributes
 
-The vacuums from the `xiaomi` platform does not expose additional attributes other the ones provided by [the `vacuum` integration](/integrations/vacuum/#attributes),
+In addition to the attributes provided by [the `vacuum` integration](/integrations/vacuum/#attributes), the vacuum entity shows the `status`, `error`, and `timers` attributes.
 
 ### Example on how to clean a specific room
 
@@ -1569,7 +1559,6 @@ Supported features:
 - Scene (1, 2, 3, 4)
 - Delayed turn off (Resolution in seconds)
 - Attributes
-  - model
   - scene
   - delayed_turn_off
 
@@ -1589,7 +1578,6 @@ Supported features:
 - Night light mode (on, off)
 - Delayed turn off (Resolution in seconds)
 - Attributes
-  - model
   - scene
   - delayed_turn_off
   - night_light_mode
@@ -1608,7 +1596,6 @@ Supported model ID: `philips.light.sread1`
 - Eye fatigue reminder / notification (on, off)
 - Eyecare mode (on, off)
 - Attributes
-  - model
   - scene
   - delayed_turn_off
   - night_light_mode
@@ -1624,7 +1611,6 @@ Supported model ID: `philips.light.mono1`
 - Scene (1, 2, 3, 4)
 - Delayed turn off (Resolution in seconds)
 - Attributes
-  - model
   - scene
   - delayed_turn_off
 
@@ -1638,13 +1624,12 @@ Supported model ID: `philips.light.moonlight`
 - Color temperature (153...588 mireds)
 - Scene (1, 2, 3, 4, 5, 6)
 - Attributes
-  - model
   - scene
   - sleep_assistant
   - sleep_off_time
   - total_assistant_sleep_time
-  - brand_sleep
-  - brand
+  - band_sleep
+  - band
 
 ### Actions
 
@@ -1702,7 +1687,6 @@ Supported features:
 - Power Mode (green, normal) (Power Strip V1 only)
 - Attributes
   - Temperature
-  - Current
   - Load power
   - Wifi LED
   - Mode (Power Strip V1 only)
