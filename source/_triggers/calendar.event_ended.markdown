@@ -58,10 +58,9 @@ This fires 30 minutes after the end of an event in `calendar.personal`.
 {% options_yaml %}
 offset:
   description: >
-    The length of time from the end of the event. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format, for example `00:15:00` for 15 minutes.
-  required: false
+    The length of time from the end of the event. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format, for example.
+  required: true
   type: time
-  default: "00:00:00"
 offset_type:
   description: >
     Whether to trigger before or after the end of the event, if an offset is defined.
