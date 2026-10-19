@@ -36,7 +36,7 @@ ha_integration_type: hub
 The **Xiaomi Home** {% term integration %} supports the following devices:
 
 - [Xiaomi Gateway](#xiaomi-gateway)
-- [Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
+- [Xiaomi device tracker](#xiaomi-device-tracker)
 - [Xiaomi Air Purifier, Air Humidifier and Standing Fan](#xiaomi-air-purifier-air-humidifier-and-standing-fan)
 - [Xiaomi Air Quality Monitor](#xiaomi-air-quality-monitor)
 - [Xiaomi IR Remote](#xiaomi-ir-remote)
@@ -47,7 +47,7 @@ The **Xiaomi Home** {% term integration %} supports the following devices:
 ## Prerequisites
 
 Most Xiaomi Home devices are configured using the Home Assistant UI.
-The [Xiaomi device tracker](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2) and [Xiaomi IR Remote](#xiaomi-ir-remote) use YAML configuration.
+The [Xiaomi device tracker](#xiaomi-device-tracker) and [Xiaomi IR Remote](#xiaomi-ir-remote) require manual YAML configuration.
 
 Before you add a device to Home Assistant:
 
@@ -237,13 +237,15 @@ Each item lists the device name, model number, and Zigbee ID.
 - **Vima cylinder lock** (A6121): `lumi.lock.v1`
 - **Thermostat S2** (KTWKQ03ES): `lumi.airrtc.tcpecn02`
 
-## Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)
+## Xiaomi device tracker
 
-The device tracker platform observes your Xiaomi Mi WiFi Repeater 2 and reports associated Wi-Fi clients.
-It is configured in {% term "`configuration.yaml`" %} and requires the device's IP address and API token.
-For instructions on finding the API token, refer to [Retrieving the access token](#retrieving-the-access-token).
+The Xiaomi Mi WiFi Repeater 2 device tracker requires manual YAML configuration.
+It reports the Wi-Fi clients associated with the repeater.
 
-To add a Xiaomi Mi WiFi Repeater device tracker, add the following to your {% term "`configuration.yaml`" %} file:
+### Configure the device tracker
+
+To configure the device tracker, add its IP address and access token to your {% term "`configuration.yaml`" %} file.
+For instructions on finding the access token, refer to [Retrieving the access token](#retrieving-the-access-token).
 
 ```yaml
 device_tracker:
@@ -258,7 +260,7 @@ host:
   required: true
   type: string
 token:
-  description: The API token of your Xiaomi device.
+  description: The access token of your Xiaomi Mi WiFi Repeater 2.
   required: true
   type: string
 {% endconfiguration %}
@@ -1208,11 +1210,13 @@ Currently, the supported features are:
 
 ## Xiaomi IR Remote
 
-The remote platform lets you send infrared commands from your Xiaomi IR Remote (`ChuangmiIr`).
-It is configured in {% term "`configuration.yaml`" %} and requires the remote's IP address and API token.
-For instructions on finding the API token, refer to [Retrieving the access token](#retrieving-the-access-token).
+The Xiaomi IR Remote (`ChuangmiIr`) requires manual YAML configuration.
+It lets you send infrared commands to other devices.
 
-To add a Xiaomi IR Remote, add the following to your {% term "`configuration.yaml`" %} file:
+### Configure the remote
+
+To configure the remote, add its IP address and access token to your {% term "`configuration.yaml`" %} file.
+For instructions on finding the access token, refer to [Retrieving the access token](#retrieving-the-access-token).
 
 ```yaml
 remote:
@@ -1223,11 +1227,11 @@ remote:
 
 {% configuration %}
 host:
-  description: The IP of your remote.
+  description: The IP address of your remote.
   required: true
   type: string
 token:
-  description: The API token of your remote.
+  description: The access token of your remote.
   required: true
   type: string
 name:
@@ -1235,27 +1239,29 @@ name:
   required: false
   type: string
 slot:
-  description: The slot used to save learned command.
+  description: The slot used to store learned commands.
   required: false
   type: integer
   default: 1
 timeout:
-  description: Timeout for learning a new command.
+  description: The time in seconds to wait while learning a command.
   required: false
   type: integer
-  default: 30
+  default: 10
 commands:
   description: A list of commands
   required: false
   type: map
   keys:
     command:
-      description: A list of commands as [raw (learned command)](/integrations/xiaomi_miio/#raw) or [pronto hex code](/integrations/xiaomi_miio/#pronto-hex-code).
+      description: A list of commands in the [raw](#raw-commands) or [Pronto hex](#pronto-hex-codes) format.
       required: true
       type: list
 {% endconfiguration %}
 
-### Full configuration
+### Create reusable commands
+
+Define named commands when you want to reuse them in scripts or dashboard controls.
 
 ```yaml
 remote:
@@ -1275,7 +1281,9 @@ remote:
           - pronto:pronto_hex:[optional_repeat]
 ```
 
-### Add command as entity button to a dashboard
+### Send commands from a dashboard
+
+You can add a named command to a dashboard as an entity button.
 
 ```yaml
 type: entity-button
@@ -1294,7 +1302,7 @@ icon: "mdi:radiator"
 name: Activate Towel Heater
 ```
 
-### Use named commands to create UI buttons
+You can also use named commands in a script.
 
 ```yaml
 script:
@@ -1316,60 +1324,60 @@ script:
             - "read_bad_poem"
 ```
 
-### Command types
+### Command formats
 
-The Xiaomi IR Remote Platform currently supports two different formats for IR codes.
+The Xiaomi IR Remote supports raw and Pronto hex command formats.
 
-#### Raw
+#### Raw commands
 
-A raw command is a command learned from the [Remote learn command](/actions/xiaomi_miio.remote_learn_command/) action.
+A raw command is learned with the [Remote learn command](/actions/xiaomi_miio.remote_learn_command/) action.
 
-A raw command is defined as in the following example:
+The following is an example raw command:
 
 ```bash
 raw:Z6UFANEAAAAjAQAAAwkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQIAE=
 ```
 
-with an optional last parameter of frequency:
+You can add the frequency as the last parameter:
 
 ```bash
 raw:Z6UFANEAAAAjAQAAAwkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQIAE=:38400
 ```
 
-#### Pronto hex code
+#### Pronto hex codes
 
-A pronto hex code is a hex code often supplied by the device manufacturer.
+A Pronto hex code is often supplied by the device manufacturer.
 
-A pronto hex code is defined as in the following example:
+The following is an example Pronto hex command:
 
 ```bash
 pronto:0000 006C 0022 0002 015B 00AD 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0041 0016 0041 0016 0041 0016 0041 0016 0041 0016 0041 0016 0041 0016 0016 0016 0016 0016 0041 0016 0016 0016 0041 0016 0016 0016 0016 0016 0016 0016 0016 0016 0041 0016 0016 0016 0041 0016 0016 0016 0041 0016 0041 0016 0041 0016 0041 0016 0623 015B 0057 0016 0E6E
 ```
 
-with an optional last parameter of repeats (required by some devices):
+You can add the number of repeats as the last parameter when required by the device:
 
 ```bash
 pronto:0000 006C 0022 0002 015B 00AD 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0016 0041 0016 0041 0016 0041 0016 0041 0016 0041 0016 0041 0016 0041 0016 0016 0016 0016 0016 0041 0016 0016 0016 0041 0016 0016 0016 0016 0016 0016 0016 0016 0016 0041 0016 0016 0016 0041 0016 0016 0016 0041 0016 0041 0016 0041 0016 0041 0016 0623 015B 0057 0016 0E6E:2
 ```
 
-Note there are at least 4 versions of the Xiaomi IR Remote (ChuangmiIr) which can be recognized by their default hostname:
+The following Xiaomi IR Remote models are identified by their model IDs:
 
 - `chuangmi.ir.v2`
 - `chuangmi.remote.h102a03`
 - `chuangmi.remote.v2`
 - `chuangmi.remote.h102c01`
 
-For now, pronto hex codes only work on the first version (`chuangmi.ir.v2`).
+Pronto hex codes work only with `chuangmi.ir.v2`.
 
-### Actions
+### Available actions
 
 The Xiaomi IR Remote registers a generic `remote.send_command` action, along with Xiaomi-specific actions for learning commands and controlling the remote's LED.
 
 #### `remote.send_command`
 
-Allows sending either named commands using an identifier or sending commands as one of the two types defined in [Command Types](/integrations/xiaomi_miio/#command-types).
+Use this action to send a named command or a command in one of the [supported formats](#command-formats).
 
-To learn a new command, use the **Remote learn command** action. After learning, the base64 string is shown as a notification in Overview, where you can copy it. Commands learned to the same slot can still be sent using [`remote.send_command`](/integrations/xiaomi_miio/#remotesend_command) even if they are overwritten.
+To learn a new command, use the **Remote learn command** action. After learning, the base64 string is shown as a notification in Overview, where you can copy it. Commands learned to the same slot can still be sent using [`remote.send_command`](/actions/remote.send_command/) even if they are overwritten.
 
 For the full list of actions this integration adds, see [Actions](#list-of-actions).
 
