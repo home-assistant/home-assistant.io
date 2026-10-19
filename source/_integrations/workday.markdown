@@ -61,7 +61,7 @@ The **Holidays** keyword represents the list of holidays imported from the holid
 
 {% include integrations/option_flow.md %}
 
-The options are the same as the ones you set during setup. After you change them, the integration reloads.
+The options are the same as the ones you set during setup, except **Country**, which you can't change. To use a different country, add another Workday entry. After you change the options, the integration reloads.
 
 ## Entities
 
