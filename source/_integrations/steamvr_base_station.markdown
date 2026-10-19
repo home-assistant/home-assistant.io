@@ -4,7 +4,7 @@ description: Instructions on how to control Valve Index base stations with Home 
 ha_category:
   - Switch
 ha_bluetooth: true
-ha_release: '2026.10'
+ha_release: '2026.11'
 ha_iot_class: Local Push
 ha_codeowners:
   - '@g4bri3lDev'
