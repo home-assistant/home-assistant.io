@@ -2,8 +2,8 @@
 title: Helty Flow Cloud
 description: Instructions on how to integrate cloud-connected Helty Flow ventilation units with Home Assistant.
 ha_category:
-  - Fan
-ha_release: '2026.11'
+  - climate.fans_ventilation
+ha_release: 2026.11
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -66,7 +66,7 @@ The integration creates one device per ventilation unit on the account, each exp
 ### Fans
 
 - **Ventilation**
-  - **Description**: Turns the ventilation on and off, sets one of four speeds, and selects a preset mode (**Boost**, **Night**, or **Free cooling**).
+  - **Description**: Turns the ventilation on and off, sets one of four speeds, and selects a preset mode (**Boost**, **Night**, or **Free cooling**). The fan entity has the same name as its device, so it appears under your unit's name. The four speeds correspond to 25%, 50%, 75%, and 100%. If you turn the fan on without choosing a speed or preset, it always starts at speed 1, not at the last speed you used.
 
 ## Data updates
 
@@ -92,9 +92,13 @@ The integration signs in with the same credentials as the Helty Home app. Check 
 
 ### The entities are unavailable
 
-The entities become unavailable when the panel has not reported to the cloud for 2 hours. Because the cloud answers with the last report it received, whether or not the panel is still there, this is how a panel that has gone offline is told apart from one that is simply quiet.
+The entities become unavailable when Home Assistant cannot get a recent report for the unit from the Helty cloud. This happens when your internet connection or the Helty cloud is down, or when the panel has not reported to the cloud for 2 hours.
 
-Check that the unit is powered on and that its panel is connected to your Wi-Fi network, and that the Helty Home app shows current values for it. A panel that has lost its Wi-Fi connection keeps ventilating, and gives no sign of the problem on the unit itself.
+1. Check that your Home Assistant instance has a working internet connection.
+2. Check that the unit is powered on and that its panel is connected to your Wi-Fi network.
+3. Open the Helty Home app and check that it shows current values for the unit.
+
+A panel that has lost its Wi-Fi connection keeps ventilating, but the unit itself gives no sign of the problem.
 
 ## Removing the integration
 
