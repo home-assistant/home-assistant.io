@@ -1,6 +1,6 @@
 ---
 title: Improv via BLE
-description: The Improv via BLE integration allows connecting devices implementing Improv via BLE to Wi-Fi.
+description: Send your Wi-Fi details over Bluetooth to Wi-Fi devices that support Improv, such as ESP32 devices running ESPHome, so they can join your Wi-Fi network.
 ha_release: 2023.11
 ha_bluetooth: true
 ha_categories:
