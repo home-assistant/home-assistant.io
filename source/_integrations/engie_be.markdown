@@ -93,12 +93,12 @@ The integration always creates both the hourly and the quarter-hourly sensors, r
 
 - **EPEX current hour price**: price of the hour you are in
 - **EPEX next hour price**: price of the next hour
-- **EPEX lowest hour price today**: today's cheapest hour, its start and end are in the attributes
-- **EPEX highest hour price today**: today's most expensive hour, its start and end are in the attributes
+- **EPEX lowest hour price today**: today's cheapest hour
+- **EPEX highest hour price today**: today's most expensive hour
 - **EPEX current quarter-hourly price**: price of the quarter hour you are in
 - **EPEX next quarter-hourly price**: price of the next quarter hour
-- **EPEX lowest quarter-hourly price today**: today's cheapest quarter hour, its start and end are in the attributes
-- **EPEX highest quarter-hourly price today**: today's most expensive quarter hour, its start and end are in the attributes
+- **EPEX lowest quarter-hourly price today**: today's cheapest quarter hour
+- **EPEX highest quarter-hourly price today**: today's most expensive quarter hour
 
 All EPEX prices are in EUR/kWh, shown with four decimals. They are the raw wholesale market prices, without VAT, taxes and levies, or network costs, so the price you pay per kWh is higher. Wholesale prices can be negative: when supply exceeds demand, the raw price drops below zero.
 
