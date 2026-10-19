@@ -64,16 +64,18 @@ The integration also provides a separate button entity for each of the physical 
 
 - **Brightness up**
 - **Brightness down**
-- **Mode**
 
 The remaining buttons are disabled by default. You can [enable each entity individually](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity):
 
 - **On** and **Off**
 - **White**
+- **Mode**
 - **Flash**, **Strobe**, and **Smooth**
 - The 15 color buttons: **Red**, **Red orange**, **Orange**, **Amber**, **Yellow**, **Green**, **Emerald**, **Spring green**, **Turquoise**, **Cyan**, **Blue**, **Indigo**, **Violet**, **Purple**, and **Magenta**
 
 Pressing a button sends the corresponding remote command, even when the light entity is off or disabled. Button presses do not directly update the light entity's assumed state. If you configured a receiver, it can update the light entity when it captures the transmitted command.
+
+**Mode** changes the light to a random color. Home Assistant cannot determine the resulting color from this command, even with an infrared receiver. If you enable and press **Mode**, the light entity's reported color can become out of sync with the light's actual color.
 
 The buttons are added to existing configurations automatically when the integration loads. You do not need to set up the integration again.
 
