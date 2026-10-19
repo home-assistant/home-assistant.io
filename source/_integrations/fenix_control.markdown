@@ -57,8 +57,8 @@ The climate entity shows the room temperature measured by the thermostat, the ta
 #### Presets
 
 - **Home**: The thermostat follows its weekly program, like the **Auto** HVAC mode.
-- **Eco**: The thermostat's anti-freeze mode. The thermostat only heats to keep the room above its anti-freeze temperature, which is set on the thermostat itself (2–15 °C, 7 °C by default).
-- **Comfort**: The thermostat's boost mode.
+- **Away**: The thermostat's anti-freeze mode. The thermostat only heats to keep the room above its anti-freeze temperature, which is set on the thermostat itself (2–15 °C, 7 °C by default).
+- **Boost**: The thermostat's boost mode.
 
 When the thermostat is in a preset, the HVAC mode shows **Auto**.
 
