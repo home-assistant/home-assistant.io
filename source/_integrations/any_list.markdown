@@ -4,7 +4,7 @@ description: Instructions on how to integrate AnyList shopping lists with Home A
 ha_category:
   - To-do list
 ha_iot_class: Cloud Push
-ha_release: 2026.10
+ha_release: 2026.11
 ha_config_flow: true
 ha_codeowners:
   - '@BookCatKid'
