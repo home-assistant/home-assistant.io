@@ -95,11 +95,10 @@
     align-items: center;
     gap: 8px;
     padding: 3px 0;
-    color: inherit;
+    color: $link-color;
     text-decoration: none;
 
     &:hover span {
-      color: $blueDark;
       text-decoration: underline;
     }
   }
