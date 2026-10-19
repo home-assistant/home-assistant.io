@@ -139,7 +139,7 @@ This integration provides the following number entities.
 
 Two more number entities configure the **Custom solar** charging mode. Both are a power on your grid connection in watts (W), where a negative value means power going out to the grid:
 
-- **Custom solar start threshold**: The net power at which charging starts. The charger's default is -1300 W, so charging begins once your house exports 1300 W, and stops again once it exports less than that. A value closer to zero starts earlier and takes some power from the grid; a positive value lets charging start while your house still draws from the grid, as long as that draw stays below the value you set.
+- **Custom solar start threshold**: The net power at which charging starts. The charger's default is -1300 W, so charging begins once your house exports 1300 W, and stops again once it exports less than that. A value closer to zero starts earlier and takes some power from the grid. A positive value lets charging start while your house still draws from the grid, as long as that draw stays below the value you set.
 - **Custom solar grid target**: What the charger aims for on your connection once it is charging. A target of 0 W comes down to charging on your surplus and little else, a negative value keeps some power going out to the grid, and a positive value draws extra from it to charge faster. It is a target rather than a guarantee: the charger never delivers less than 6 A while charging, so with little or no surplus it draws from the grid whatever you set here.
 
 ### Selects
