@@ -14,7 +14,7 @@ ha_platforms:
   - todo
 ha_quality_scale: bronze
 related:
-  - docs: /integrations/todo
+  - docs: /integrations/todo/
     title: To-do list integration documentation
   - docs: /dashboards/todo-list/
     title: To-do list card
@@ -55,9 +55,17 @@ Changes made in Home Assistant are sent to AnyList immediately. Changes made in 
 
 ## Known limitations
 
-- The first version of the integration exposes AnyList shopping lists only. Recipes and meal planning are not included.
-- AnyList does not provide a public API. Changes to the AnyList service may temporarily affect the integration until it is updated.
-- An internet connection is required because all data is synchronized through AnyList's cloud service.
+### Supported features
+
+The integration exposes AnyList shopping lists only. Recipes and meal planning are not included.
+
+### Unofficial API
+
+AnyList does not provide a public API. Changes to the AnyList service may temporarily affect the integration until it is updated.
+
+### Internet connection
+
+An internet connection is required because all data is synchronized through AnyList's cloud service.
 
 ## Removing the integration
 
