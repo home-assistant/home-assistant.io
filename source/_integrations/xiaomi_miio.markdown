@@ -317,10 +317,6 @@ The list includes device name, model number (if available), and model.
 - **Standing Fan 2 Pro**: `dmaker.fan.p33`
 - **Standing Fan 3**: `zhimi.fan.za5`
 
-### Air Purifier
-
-Supported model: `zhimi.airpurifier.v1`.
-
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Idle)
 - Attributes (fan platform)
@@ -334,13 +330,13 @@ Supported model: `zhimi.airpurifier.v1`.
   - `button_pressed`
   - `sleep_mode`
 
-#### Number entities
+### Number entities
 
 | Number         | Description            |
 | -------------- | ---------------------- |
 | Favorite Level | Set the favorite level |
 
-#### Sensor entities
+### Sensor entities
 
 - **Filter Lifetime Remaining**: The remaining life of the filter. Enabled by default.
 - **Filter Use**: Filter usage time in hours. Enabled by default.
@@ -351,7 +347,7 @@ Supported model: `zhimi.airpurifier.v1`.
 - **Temperature**: The current temperature measured. Enabled by default.
 - **Use Time**: The accumulative number of seconds the device has been in use. [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
-#### Switch entities
+### Switch entities
 
 | Switch     | Description                |
 | ---------- | -------------------------- |
