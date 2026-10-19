@@ -90,13 +90,13 @@ If the cloud can't be reached, the thermostats show as unavailable until the nex
 
 #### Description
 
-Home Assistant asks you to sign in to FENIX Control again, and the thermostats are unavailable. This happens when the FENIX Control cloud no longer accepts the saved password, for example, after you changed it in the app.
+Home Assistant asks you to sign in to FENIX Control again, and the thermostats are unavailable. This happens when the FENIX Control cloud no longer accepts the saved credentials, for example, after you changed your password or email address in the app.
 
 #### Resolution
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **FENIX Control**.
 2. Under **Needs attention**, select **Reconfigure** next to your account.
-3. Enter your current FENIX Control password.
+3. Enter the email address and password of your FENIX Control account. The email address is already filled in; change it if you changed it in the app.
 
 ### The thermostats are unavailable
 
