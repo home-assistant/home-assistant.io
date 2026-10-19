@@ -1,9 +1,8 @@
 ---
 title: Sleep as Android
 description: Instructions on how to integrate Sleep as Android with Home Assistant.
-ha_category:
-  - Event
-  - Sensor
+ha_categories:
+  - health_wellbeing
 ha_iot_class: Local Push
 ha_release: 2025.9
 ha_config_flow: true

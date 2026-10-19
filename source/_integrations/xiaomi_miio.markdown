@@ -1,15 +1,10 @@
 ---
 title: Xiaomi Home
 description: Instructions on how to integrate Xiaomi devices using the Xiaomi Home integration within Home Assistant.
-ha_category:
-  - Alarm
-  - Fan
-  - Health
-  - Hub
-  - Light
-  - Presence detection
-  - Remote
-  - Vacuum
+ha_categories:
+  - hubs_protocols.smart_home_hubs
+  - climate.air_purifiers_humidifiers
+  - appliances_cleaning.cleaning
 ha_iot_class: Local Polling
 ha_release: 0.51
 ha_codeowners:
@@ -349,7 +344,7 @@ The list includes device name, model number (if available), and model.
 - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
 - **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
 - **Temperature**: The current temperature measured. Enabled by default.
-- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+- **Use Time**: The accumulative number of seconds the device has been in use. [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 - Switch entities
 

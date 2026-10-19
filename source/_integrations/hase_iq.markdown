@@ -1,8 +1,8 @@
 ---
 title: Hase iQ
 description: Instructions on how to read the state of a Hase iQ wood stove in Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - climate.thermostats_heating
 ha_iot_class: Local Polling
 ha_release: 2026.11
 ha_codeowners:

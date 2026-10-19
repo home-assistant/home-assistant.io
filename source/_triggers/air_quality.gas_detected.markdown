@@ -48,8 +48,6 @@ This fires every time `binary_sensor.kitchen_gas` transitions to the detected st
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -121,7 +119,7 @@ When a gas leak happens while everyone is asleep or nobody is home, you want the
 - **Target**: All gas sensors (by label)
 - **Trigger when**: Each
 - **For at least**: 00:00:30
-- **Action**: Valve: Close
+- **Action**: Close valve
 
 {% details "YAML example for automatic gas shutoff" %}
 

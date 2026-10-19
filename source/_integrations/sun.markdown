@@ -1,8 +1,8 @@
 ---
 title: Sun
 description: Instructions on how to track the sun within Home Assistant.
-ha_category:
-  - Environment
+ha_categories:
+  - weather_alerts.forecasts
 ha_release: pre 0.7
 ha_quality_scale: internal
 ha_codeowners:
@@ -29,7 +29,7 @@ automations as
 [a condition with an optional offset to test if the sun has already set or risen][sun_condition].
 
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
-[sun_condition]: /docs/scripts/conditions/#sun-condition
+[sun_condition]: /conditions/sun/
 
 ## Configured by default
 

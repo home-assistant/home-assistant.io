@@ -1,20 +1,9 @@
 ---
 title: Tesla Fleet
 description: Instructions on how to integrate the Tesla Fleet API within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Car
-  - Climate
-  - Cover
-  - Device tracker
-  - Lock
-  - Media player
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
+ha_categories:
+  - vehicles_transport.cars_evs
+  - energy.solar_batteries
 ha_release: 2024.8
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -309,6 +298,8 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 ## Tesla Fleet automation examples
 
 You can use the navigation actions to get your car ready for the trip before you get in.
+
+For a trip with intermediate stops, use [Navigate to waypoints](/actions/tesla_fleet.navigate_to_waypoints/) and supply Google Place IDs in travel order, with the final destination last.
 
 {% include docs/paste_yaml_tip.md %}
 

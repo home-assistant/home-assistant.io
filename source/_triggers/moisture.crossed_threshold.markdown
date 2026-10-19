@@ -41,8 +41,8 @@ Threshold type:
 
     - **Above** (exclusive): fires when the reading crosses to strictly above the threshold. A reading equal to the threshold does not trigger a crossing.
     - **Below** (exclusive): fires when the reading crosses to strictly below the threshold. A reading equal to the threshold does not trigger a crossing.
-    - **In range** (exclusive): fires when the reading crosses into the range. A reading equal to either bound is not considered inside the range.
-    - **Outside range** (inclusive): fires when the reading crosses out of the range. A reading equal to either bound is considered outside the range.
+    - **In range** (inclusive): fires when the reading crosses into the range. A reading equal to either bound is considered inside the range.
+    - **Outside range** (exclusive): fires when the reading crosses out of the range. A reading equal to either bound is still considered inside the range.
 
     For each mode you can enter a fixed percentage (0–100%) or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
 Trigger when:
@@ -122,8 +122,8 @@ threshold:
 
     - `type: above` (exclusive): Sets a minimum. Fires when the reading crosses to strictly above `value`. A reading equal to `value` does not trigger a crossing. Provide `value` with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
     - `type: below` (exclusive): Sets a maximum. Fires when the reading crosses to strictly below `value`. A reading equal to `value` does not trigger a crossing. Provide `value` with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: between` (exclusive): Defines a range. Fires when the reading crosses into the range. A reading equal to either bound is not inside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: outside` (inclusive): Defines an outside-range. Fires when the reading crosses out of the range. A reading equal to either bound is outside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: between` (inclusive): Defines a range. Fires when the reading crosses into the range. A reading equal to either bound is inside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: outside` (exclusive): Defines an outside-range. Fires when the reading crosses out of the range. A reading equal to either bound is still inside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
   required: true
   type: map
 behavior:

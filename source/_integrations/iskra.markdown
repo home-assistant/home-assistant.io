@@ -2,10 +2,8 @@
 title: iskra
 description: Instructions on how to connect your Iskra energy meters to Home Assistant.
 ha_release: '2024.10'
-ha_category:
-  - Energy
-  - Modbus-controlled
-  - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_codeowners:
   - '@iskramis'
 ha_config_flow: true

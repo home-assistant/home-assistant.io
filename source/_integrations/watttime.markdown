@@ -1,10 +1,8 @@
 ---
 title: WattTime
 description: Instructions on how to set up the WattTime integration within Home Assistant.
-ha_category:
-  - Energy
-  - Environment
-  - Sensor
+ha_categories:
+  - energy
 ha_release: '2021.10'
 ha_iot_class: Cloud Polling
 ha_domain: watttime

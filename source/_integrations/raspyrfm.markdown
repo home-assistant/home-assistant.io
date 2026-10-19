@@ -1,8 +1,8 @@
 ---
 title: RaspyRFM
 description: Instructions on how to integrate RaspyRFM switches into Home Assistant.
-ha_category:
-  - Switch
+ha_categories:
+  - plugs_switches
 ha_release: 0.85
 ha_iot_class: Assumed State
 ha_domain: raspyrfm

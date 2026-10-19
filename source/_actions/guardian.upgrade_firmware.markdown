@@ -8,7 +8,7 @@ related_actions:
   - guardian.unpair_sensor
 ---
 
-The **Upgrade firmware** action upgrades the firmware on a Guardian valve controller.
+The **Elexa Guardian: Upgrade firmware** action upgrades the firmware on a Guardian valve controller.
 
 By default, the valve controller upgrades to the latest firmware published by Guardian. If you need to install a specific firmware image, you can point the action at a custom URL, port, and filename.
 
@@ -20,7 +20,7 @@ To upgrade the firmware from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Guardian: Upgrade firmware**.
+5. From the search box, search for and select **Elexa Guardian: Upgrade firmware**.
 6. Select the **Valve controller** to upgrade. Optionally, enter a custom **URL**, **Port**, and **Filename**.
 7. Select **Save**.
 This action does not support targets. In the UI, you are not prompted to choose an area, entity, or label. You select the valve controller through the **Valve controller** option instead.

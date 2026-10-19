@@ -22,7 +22,7 @@ To start the Flame effect from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Flame effect**.
+5. From the search box, search for and select **LIFX: Flame effect**.
 6. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the area your LIFX lights are in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
 7. Set **Speed** to control how quickly the flames move. Lower values make a livelier flame, higher values a slower one.
 8. Select **Save**.
@@ -77,7 +77,7 @@ power_on:
 - The Flame effect uses its own built-in colors, so it has no theme or palette option. If you want to choose the colors yourself, use [Morph effect](/actions/lifx.effect_morph/) instead.
 - **Power on** is on by default, so a light that is off is turned on before the effect starts.
 - To stop the animation, use [Stop effect](/actions/lifx.effect_stop/).
-- You can also start this effect with default options by calling [Turn on a light](/actions/light.turn_on/) with the effect set to `effect_flame`.
+- You can also start this effect with default options by calling [Turn on light](/actions/light.turn_on/) with the effect set to `effect_flame`.
 
 {% include actions/try_it.md %}
 
@@ -88,15 +88,15 @@ power_on:
 Start a gentle flame on the mantel candle every evening as the sun goes down.
 
 - **Trigger**: Sunset
-- **Action**: Flame effect
+- **Action**: LIFX: Flame effect
   - **Target**: Mantel candle (`light.mantel_candle`)
+  - **Speed**: `6` seconds
 
 {% example %}
 automation: |
   alias: "Light the mantel candle at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: lifx.effect_flame
       target:
@@ -109,11 +109,13 @@ automation: |
 
 When the front door opens after sunset, run a lively flame on the entryway tiles for one minute, then stop it.
 
-- **Trigger**: Front door opens
-- **Condition**: The sun is below the horizon
-- **Action**: Flame effect
+- **Trigger**: State changed
+  - **Entity**: Front door sensor
+  - **To**: Open
+- **Condition**: Sun is set
+- **Action**: LIFX: Flame effect
   - **Target**: Entryway tiles (`light.entryway_tiles`)
-- **Action**: Stop effect
+- **Action**: LIFX: Stop effect
   - **Target**: Entryway tiles (`light.entryway_tiles`)
 
 {% example %}
@@ -124,8 +126,7 @@ automation: |
       entity_id: binary_sensor.front_door
       to: "on"
   conditions:
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: lifx.effect_flame
       target:

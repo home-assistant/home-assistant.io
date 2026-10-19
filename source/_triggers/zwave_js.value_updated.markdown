@@ -1,5 +1,5 @@
 ---
-title: "Z-Wave value updated"
+title: "Z-Wave JS value updated"
 trigger: zwave_js.value_updated
 domain: zwave_js
 description: "Triggers when a Z-Wave value updates, including values that are not exposed as Home Assistant entities."
@@ -8,7 +8,7 @@ related_triggers:
   - state
 ---
 
-The **Z-Wave value updated** trigger fires when a Z-Wave value changes on a node. Use it to react to value changes that Home Assistant does not expose as a regular entity state, or to watch a specific Command Class value directly.
+The **Z-Wave JS value updated** trigger fires when a Z-Wave value changes on a node. Use it to react to value changes that Home Assistant does not expose as a regular entity state, or to watch a specific Command Class value directly.
 
 This trigger is useful when:
 
@@ -117,7 +117,7 @@ to:
 
 ### Available trigger data
 
-In addition to the [standard automation trigger data](/docs/automation/templating/#all), this trigger exposes the following template variables:
+In addition to the [standard automation trigger data](/docs/automation/trigger-data/#properties-of-all-triggers), this trigger exposes the following template variables:
 
 - `trigger.device_id`: Device ID for the device in the device registry.
 - `trigger.node_id`: Z-Wave node ID.
@@ -139,11 +139,11 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 
 Some devices report value updates without a corresponding state change. This automation refreshes related switches when the in-wall dual relay switch reports a `currentValue` update.
 
-- **Trigger**: Z-Wave value updated
+- **Trigger**: Z-Wave JS value updated
   - **Entity**: `switch.in_wall_dual_relay_switch`
   - **Command Class**: `37` (Switch Binary)
   - **Property**: `currentValue`
-- **Action**: Z-Wave refresh value
+- **Action**: Refresh values
   - **Targets**: the related switches
 
 {% details "YAML example for refreshing related switches" %}
@@ -170,14 +170,14 @@ automation: |
 
 This automation fires whenever the `latchStatus` value of one of the listed locks changes from `closed` or `jammed` to `opened`.
 
-- **Trigger**: Z-Wave value updated
+- **Trigger**: Z-Wave JS value updated
   - **Device**: Garage Door Lock
   - **Entities**: `lock.front_lock`, `lock.back_door`
   - **Command Class**: `98` (Door Lock)
   - **Property**: `latchStatus`
   - **From**: `closed`, `jammed`
   - **To**: `opened`
-- **Action**: Send a notification
+- **Action**: Send a notification message
 
 {% details "YAML example for reacting to a latch opening" %}
 

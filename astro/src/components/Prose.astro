@@ -1,0 +1,105 @@
+---
+// Article for rendered Markdown: the page title, then the content in
+// the slot (paragraphs, headings, lists and links), with a lead
+// paragraph when the content opens with one.
+//
+// A content component: it keeps the structure of the Jekyll page
+// layout's article (`source/_layouts/page.html`:
+// `article.page > header > h1.title`, content after the header), so
+// rendered pages can be compared with Jekyll's output. Styling copies
+// the structure and cleans the surface, as agreed: the `article.page`
+// rules spread over `sass/homeassistant/_overrides.scss` and the
+// inuitcss base become theme tokens, with one body size at every width
+// instead of the 0.95 scale-down on phones, and one heading line
+// height. The `indent` class on the title is dropped: nothing styles
+// it.
+//
+// Section links rely on the `id` Astro gives every heading, which
+// matches Jekyll's slug for ordinary headings (`#1-your-account`).
+// Jekyll's empty `title-link` anchors, invisible jump targets added by
+// plugins/output_modder.rb, are not reproduced.
+const { title } = Astro.props;
+---
+
+<article class="page">
+  {
+    title && (
+      <header>
+        <h1 class="title">{title}</h1>
+      </header>
+    )
+  }
+  <slot />
+</article>
+
+<style lang="scss">
+  @use "../styles/breakpoints";
+
+  /* Rendered Markdown is not part of this template, so the element
+     rules below reach it with :global, inside the article only. */
+
+  .page {
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-prose);
+    line-height: 1.6;
+  }
+
+  .title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-title);
+    font-weight: 800;
+    letter-spacing: -0.005em;
+    line-height: 1.2;
+    margin: 0 0 var(--space-xlarge);
+  }
+
+  /* The paragraph right after the title is the page's lead. */
+  header + :global(p) {
+    font-size: var(--font-size-xlarge);
+
+    @media only screen and (min-width: breakpoints.$lap) {
+      font-size: var(--font-size-xxlarge);
+    }
+  }
+
+  .page :global(:is(h2, h3, h4, h5, h6)) {
+    font-family: var(--font-heading);
+    line-height: 1.25;
+    margin: var(--space-xxlarge) 0 var(--space-xlarge);
+  }
+
+  .page :global(h2) {
+    font-size: var(--font-size-heading);
+    font-weight: 650;
+  }
+
+  .page :global(:is(h3, h4, h5, h6)) {
+    font-size: var(--font-size-xlarge);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .page :global(p) {
+    margin: 0 0 var(--space-xlarge);
+  }
+
+  .page :global(:is(ul, ol)) {
+    margin: 0 0 var(--space-xlarge);
+    padding-left: var(--space-xlarge);
+  }
+
+  .page :global(li + li) {
+    margin-top: var(--space-small);
+  }
+
+  .page :global(a) {
+    color: var(--color-link);
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-highlight-shade);
+    }
+  }
+</style>

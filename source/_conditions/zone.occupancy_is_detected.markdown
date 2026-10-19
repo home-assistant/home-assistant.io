@@ -48,8 +48,6 @@ This passes when `zone.home` is occupied.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 zone:
   description: The zone to monitor.
@@ -81,7 +79,7 @@ When the front door contact sensor turns on after sunset, this automation turns 
   - **To**: On
 - **Condition**: Zone occupancy is detected
   - **Zone**: Home (`zone.home`)
-- **Condition**: Sun is below horizon
+- **Condition**: Sun is set
 - **Action**: Turn on light
   - **Target**: Entry light (`light.entry`)
 
@@ -98,8 +96,7 @@ automation: |
     - condition: zone.occupancy_is_detected
       options:
         zone: zone.home
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:
@@ -112,7 +109,8 @@ automation: |
 
 At 18:00, this automation sends a notification if the office zone is occupied.
 
-- **Trigger**: Time is 18:00
+- **Trigger**: Time
+  - **At time**: `18:00`
 - **Condition**: Zone occupancy is detected
   - **Zone**: Office (`zone.office`)
 - **Action**: Send a notification message
