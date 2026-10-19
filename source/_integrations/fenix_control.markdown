@@ -54,6 +54,8 @@ The climate entity shows the room temperature measured by the thermostat, the ta
 - **Auto**: The thermostat follows its weekly program.
 - **Heat**: The thermostat keeps the target temperature you set (manual mode).
 
+Turning the thermostat on switches it back to the last HVAC mode it had since Home Assistant started, or to **Auto** if it has been off since then.
+
 #### Presets
 
 - **Home**: The thermostat follows its weekly program, like the **Auto** HVAC mode.
