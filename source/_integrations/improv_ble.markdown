@@ -13,13 +13,13 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ---
 
-The **Improv via BLE** {% term integration %} sends your Wi-Fi network name and password to a Wi-Fi device over Bluetooth, so the device can join your Wi-Fi network. It works with Wi-Fi devices that support the open [Improv via BLE](https://www.improv-wifi.com/ble/) standard, such as many devices with an ESP32 chip that run [ESPHome](/integrations/esphome/). After the device is on your Wi-Fi network, it talks to Home Assistant over Wi-Fi.
+The **Improv via BLE** {% term integration %} sends your Wi-Fi network name and password to a Wi-Fi device over Bluetooth, so the device can join your Wi-Fi network. It works with Wi-Fi devices that support the open [Improv via BLE](https://www.improv-wifi.com/ble/) standard, such as many devices with an ESP32 chip that run [ESPHome](/integrations/esphome/). After the device is on your Wi-Fi network, it communicates with Home Assistant over Wi-Fi.
 
 ## Difference between Improv via BLE devices and other Bluetooth devices
 
 Improv via BLE devices and other Bluetooth devices both use Bluetooth, but in a different way:
 
-- Improv via BLE devices are Wi-Fi devices. They use Bluetooth only once, to receive your Wi-Fi network name and password. After that, they talk to Home Assistant over Wi-Fi, and you add them with their own integration, such as [ESPHome](/integrations/esphome/).
+- Improv via BLE devices are Wi-Fi devices. They use Bluetooth only once, to receive your Wi-Fi network name and password. After that, they communicate with Home Assistant over Wi-Fi, and you add them with their own integration, such as [ESPHome](/integrations/esphome/).
 - Other Bluetooth devices, such as BLE thermometers or plant sensors, send their data over Bluetooth all the time. They don't join your Wi-Fi network and don't use Improv via BLE. You add them with their own integration, such as [Xiaomi BLE](/integrations/xiaomi_ble/).
 
 If your device supports Improv via BLE, Home Assistant shows it under **Discovered** as **Improv via BLE** while it isn't connected to a Wi-Fi network yet.
@@ -40,9 +40,12 @@ If your device supports Improv via BLE, Home Assistant shows it under **Discover
 
 {% include integrations/config_flow.md discovery=true %}
 
+If the device can identify itself, a menu opens first:
+
+- To check which device you are setting up, select **Identify device**. The device blinks or beeps. Select **Submit** to return to the menu.
+- To continue, select **Connect device to a Wi-Fi network**.
+
 {% configuration_basic %}
-Identify device:
-  description: Only shown if the device supports it. The device identifies itself, for example, by blinking or beeping, so you know which device you are setting up.
 SSID:
   description: The name of the Wi-Fi network the device should join.
 Password:
