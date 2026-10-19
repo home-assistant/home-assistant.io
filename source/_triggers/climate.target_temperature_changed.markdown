@@ -134,12 +134,11 @@ threshold:
 
 ### Automation: log aggressive temperature setpoint changes on multiple thermostats
 
-Track when the first thermostat in the living room area sets an unusually high or low target temperature, which might indicate a comfort issue or a configuration error. Firing on the first change prevents multiple log entries.
+Track when a thermostat in the living room area sets an unusually high or low target temperature, which might indicate a comfort issue or a configuration error.
 
 - **Trigger**: Thermostat target temperature changed
   - **Target**: Living room area
   - **Threshold type**: Outside range (18-24°C)
-  - **Trigger when**: First
 - **Action**: Log activity
 
 {% details "YAML example for logging aggressive setpoint changes" %}
@@ -160,7 +159,6 @@ automation: |
           value_max:
             number: 24
             unit_of_measurement: "°C"
-        behavior: first
   actions:
     - action: logbook.log
       data:
