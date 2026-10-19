@@ -4,7 +4,7 @@ description: Instructions to configure the OKOK Scale integration into Home Assi
 ha_category:
   - Health
   - Sensor
-ha_release: 2026.8
+ha_release: 2026.11
 ha_iot_class: Local Push
 ha_codeowners:
   - '@rrooggiieerr'
