@@ -131,7 +131,7 @@ threshold:
         unit_of_measurement: °C
     ```
 
-    When using an `entity`, its current reading is used as the threshold at the moment the condition is evaluated.
+    When using an `entity`, its current reading is used as the threshold at the moment the condition is evaluated. Home Assistant converts the value from the entity's unit. If the entity has no unit, or a unit that Home Assistant can't convert, the condition doesn't pass.
   required: true
   type: map
 behavior:

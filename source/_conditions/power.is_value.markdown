@@ -120,6 +120,8 @@ threshold:
     When you use a literal number, add `unit_of_measurement` with one of the supported power units.
 
     Supported units are `mW`, `W`, `kW`, `MW`, `GW`, `TW`, and `BTU/h`.
+
+    When using the `entity` key, Home Assistant converts the value from the entity's unit. If the entity has no unit, or a unit that Home Assistant can't convert, the condition doesn't pass.
   required: true
   type: map
 behavior:
