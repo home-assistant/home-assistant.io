@@ -1211,7 +1211,7 @@ Currently, the supported features are:
 
 ## Xiaomi IR Remote
 
-The remote platform lets you send infrared commands from your Xiaomi IR Remote (ChuangmiIr).
+The remote platform lets you send infrared commands from your Xiaomi IR Remote (`ChuangmiIr`).
 It is configured in {% term "`configuration.yaml`" %} and requires the remote's IP address and API token.
 For instructions on finding the API token, refer to [Retrieving the access token](#retrieving-the-access-token).
 
