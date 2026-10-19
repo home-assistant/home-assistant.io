@@ -321,7 +321,7 @@ The following list shows each device name and model ID.
 - **Standing Fan 2 Pro**: `dmaker.fan.p33`
 - **Standing Fan 3**: `zhimi.fan.za5`
 
-Air purifier models that don't have their own section on this page provide the following controls and entities.
+Depending on the model, air purifiers that don't have their own section on this page can provide the following controls and entities.
 
 ### Controls
 
@@ -916,6 +916,7 @@ Supported model ID: `zhimi.humidifier.ca1`.
 #### Sensor entities
 
 - **Humidity**: Shows the measured humidity. Enabled by default.
+- **Motor speed**: Shows the current motor speed, in rpm. Enabled by default.
 - **Temperature**: Shows the measured temperature. Enabled by default.
 - **Use time**: Shows the total device usage time. Disabled by default.
 - **Water level**: Shows the water level in the tank, as a percentage. Enabled by default.
@@ -933,7 +934,7 @@ Supported model ID: `zhimi.humidifier.ca4`.
 #### Controls
 
 - Turn the humidifier on or off.
-- Select a mode: Auto, Low, Medium, or High.
+- Select a mode: Auto, Low, Mid, or High.
 - Set the target humidity from 30% to 80%.
 
 #### Binary sensor entities
@@ -988,6 +989,7 @@ Supported model ID: `zhimi.humidifier.cb1`.
 #### Sensor entities
 
 - **Humidity**: Shows the measured humidity. Enabled by default.
+- **Motor speed**: Shows the current motor speed, in rpm. Enabled by default.
 - **Temperature**: Shows the measured temperature. Enabled by default.
 - **Use time**: Shows the total device usage time. Disabled by default.
 - **Water level**: Shows the water level in the tank, as a percentage. Enabled by default.
@@ -1021,7 +1023,6 @@ Supported model IDs:
 
 - **Humidity**: Shows the measured humidity. Enabled by default.
 - **Temperature**: Shows the measured temperature. Enabled by default.
-- **Use time**: Shows the total device usage time. Disabled by default.
 
 #### Switch entities
 
@@ -1199,10 +1200,8 @@ The integration also adds Xiaomi-specific actions for air purifiers, such as **F
 
 Home Assistant shows the air quality measured by your Xiaomi Mi Air Quality Monitor (PM2.5).
 
-- **Air quality**: A sensor entity that shows the air quality index (AQI).
+- **Air quality**: Shows the air quality index (AQI).
   Its attributes show the power state, charging state, battery level, display clock, night mode and its schedule, and sensor state.
-- **Air quality entity**: Shows the PM2.5 concentration.
-  Depending on the model, its attributes also show the carbon dioxide equivalent, total volatile organic compounds, temperature, and humidity.
 
 ## Xiaomi IR Remote
 
@@ -1420,6 +1419,7 @@ In addition to all of the actions provided by the [vacuum](/integrations/vacuum/
 - **Last clean end**: Shows when the last cleaning run ended. Enabled by default.
 - **Last clean start**: Shows when the last cleaning run started. Enabled by default.
 - **Main brush remaining**: Shows the remaining main brush life. Enabled by default.
+- **Side brush remaining**: Shows the remaining side brush life. Enabled by default.
 - **Sensor dirty remaining**: Shows the remaining time until the sensors need cleaning. Enabled by default.
 - **Total clean area**: Shows the total area cleaned, in square meters. Disabled by default.
 - **Total clean count**: Shows the total number of cleaning runs. Disabled by default.
@@ -1430,8 +1430,8 @@ In addition to all of the actions provided by the [vacuum](/integrations/vacuum/
 
 Binary sensor entities are only available for vacuums with a mop.
 
-- **Mop attached**: Shows whether the water box is attached. Enabled by default.
-  On models with a separate mop, a second **Mop attached** entity shows whether the mop is attached.
+- **Water box attached**: Shows whether the water box is attached. Enabled by default.
+  On models with a separate mop, an additional **Mop attached** entity shows whether the mop is attached.
 - **Water shortage**: Shows whether the water box is low on water. Enabled by default.
 
 ### Attributes
@@ -1597,7 +1597,10 @@ In addition to the standard light attributes, the eyecare light entity shows the
 
 #### Philips Zhirui Desk Lamp
 
-Supported model ID: `philips.light.mono1`.
+Supported model IDs:
+
+- `philips.light.mono1`
+- `philips.light.hbulb`
 
 ##### Controls
 
@@ -1701,7 +1704,7 @@ The socket of the `lumi.acpartner.v1` and `lumi.acpartner.v2` can't be switched.
 
 ##### Attributes
 
-In addition to the standard switch attributes, the switch entity shows these attributes: `model`, `temperature`, and `load_power`.
+In addition to the standard switch attributes, the switch entity shows these attributes: `model` and `load_power`.
 
 ### Actions
 
