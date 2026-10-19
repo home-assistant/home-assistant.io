@@ -9,6 +9,7 @@ ha_codeowners:
   - '@g4bri3lDev'
 ha_domain: kaco_rs485
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_config_flow: true
 ha_integration_type: hub
@@ -63,7 +64,30 @@ Each inverter on the bus becomes its own device, named for the model it reports 
 - **Total yield**: The inverter's lifetime energy counter, in kilowatt-hours.
 - **Status**: What the inverter is currently doing, such as MPP tracking, waiting, or one of its fault conditions.
 
+### Binary sensors
+
+- **Fault**: On while the inverter reports one of its fault conditions, such as a grid failure or an overtemperature shutdown. Normal operating states like waiting or night shutdown leave it off.
+
 ## Examples
+
+### Get notified when an inverter trips
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Notify when a KACO inverter trips"
+    triggers:
+      - trigger: state
+        entity_id: binary_sensor.kaco_powador_6400xi_1_fault
+        to: "on"
+    actions:
+      - action: notify.notify
+        data:
+          message: "{{ trigger.to_state.name }}: {{ state_translated('sensor.kaco_powador_6400xi_1_status') }}"
+```
+
+{% endraw %}
 
 ### Add production to the Energy dashboard
 
