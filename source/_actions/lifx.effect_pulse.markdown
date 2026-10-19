@@ -9,7 +9,7 @@ related_actions:
   - lifx.set_state
 ---
 
-The **Pulse effect** action runs a flash effect on LIFX lights by changing to a color and back. It's a good way to get someone's attention, for example to flash the hallway light when the doorbell rings or when a door is left open.
+The **LIFX: Pulse effect** action runs a flash effect on LIFX lights by changing to a color and back. It's a good way to get someone's attention, for example to flash the hallway light when the doorbell rings or when a door is left open.
 
 This is a software effect, which means Home Assistant drives each color change over your network. It works on every LIFX light, including white-only models. When the effect finishes, each light returns to the color and power state it had before the effect started.
 
@@ -21,7 +21,7 @@ To run the pulse effect from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Pulse effect**.
+5. From the search box, search for and select **LIFX: Pulse effect**.
 6. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the area your LIFX lights are in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
 7. Select **Mode** to choose how the color changes, then pick the flash color with either **Color name** or **RGB color**.
 8. _Optional_: set **Cycles** to flash more than once, and **Period** to make each flash faster or slower.
@@ -155,9 +155,15 @@ power_on:
 
 When the front door opens, flash the hallway light blue twice so you notice it from another room.
 
-- **Trigger**: Front door opened (`binary_sensor.front_door`)
-- **Action**: Pulse effect
+- **Trigger**: State changed
+  - **Entity**: Front door sensor
+  - **From**: Closed
+  - **To**: Open
+- **Action**: LIFX: Pulse effect
   - **Target**: Hallway light (`light.hallway`)
+  - **Color name**: `blue`
+  - **Mode**: Breathe
+  - **Cycles**: `2`
 
 {% example %}
 automation: |
@@ -181,9 +187,16 @@ automation: |
 
 When the washing machine power drops below 5 W, flash the office light green and send a notification to your phone.
 
-- **Trigger**: Washing machine power below 5 W (`sensor.washing_machine_power`)
-- **Action**: Pulse effect
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Washing machine power
+  - **Below**: `5`
+  - **For at least**: `00:02:00`
+- **Action**: LIFX: Pulse effect
   - **Target**: Office light (`light.office`)
+  - **Color name**: `green`
+  - **Mode**: Breathe
+  - **Cycles**: `5`
+  - **Period**: `2` seconds
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

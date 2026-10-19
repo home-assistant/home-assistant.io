@@ -48,8 +48,6 @@ This passes when `cover.garage_door` is currently closed.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -72,9 +70,7 @@ for:
 ## Good to know
 
 - The target must be a garage door contact sensor with the garage door device class or a garage door cover with the garage device class.
-- Entities in the **Unavailable** or **Unknown** state are ignored when Home Assistant evaluates the condition.
-- With **Any**, the condition passes if at least one available targeted garage door is closed.
-- With **All**, the condition passes only if every available targeted garage door is closed. If every targeted garage door is **Unavailable** or **Unknown**, **All** passes and **Any** fails.
+{% include conditions/unavailable_targets.md entities="garage doors" %}
 
 {% include conditions/try_it.md %}
 
@@ -84,7 +80,9 @@ for:
 
 If you have created a bedtime {% term helper %} separately, this automation waits for that helper to turn on, then checks that the garage door has stayed closed for 10 minutes before it arms the alarm.
 
-- **Trigger**: User-created bedtime helper turns on
+- **Trigger**: State changed
+  - **Entity**: Bedtime mode helper
+  - **To**: On
 - **Condition**: Garage door is closed
   - **Target**: Garage door
   - **For at least**: 00:10:00

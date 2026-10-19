@@ -67,8 +67,7 @@ for:
 
 ## Good to know
 
-- A switch in the `unknown` or `unavailable` state does not count as on.
-- With **All**, every targeted switch must match. With **Any**, one matching switch is enough.
+{% include conditions/unavailable_targets.md entities="switches" %}
 - To check for the opposite state, use [Switch is off](/conditions/switch.is_off/).
 
 {% include conditions/try_it.md %}
@@ -79,7 +78,7 @@ for:
 
 When you leave home, this automation checks whether the iron's power plug is still on and sends a notification so you can switch it off remotely.
 
-- **Trigger**: State: Person leaves home
+- **Trigger**: State changed: Person leaves home
 - **Condition**: Switch is on
   - **Target**: Iron power plug
 - **Action**: Send a notification message

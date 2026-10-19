@@ -1,8 +1,6 @@
 ---
 title: Marketplace
 description: Find and install community-created integrations, dashboard cards, themes, and templates.
-ha_category:
-  - Other
 ha_release: 2026.11
 ha_iot_class: Cloud Polling
 ha_quality_scale: internal

@@ -2,8 +2,8 @@
 title: IntelliClima
 description: Integration for Fantini Cosmi IntelliClima Ecocomfort 2.0 VMC devices.
 ha_release: 2026.3
-ha_category:
-  - Fan
+ha_categories:
+  - climate.fans_ventilation
 ha_iot_class: Cloud Polling
 ha_quality_scale: bronze
 ha_config_flow: true

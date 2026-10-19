@@ -48,8 +48,6 @@ This passes when the sensor `binary_sensor.occupancy_office` has been continuous
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -87,7 +85,7 @@ When the playroom has been empty for 10 minutes, this automation pauses the play
 - **Condition**: Occupancy is not detected
   - **Target**: Playroom occupancy sensor
   - **For at least**: 00:10:00
-- **Action**: Media player pause
+- **Action**: Pause media
   - **Target**: Playroom speaker
 
 {% details "YAML example for pausing the playroom speaker when empty" %}

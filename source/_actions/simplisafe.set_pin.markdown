@@ -8,7 +8,7 @@ related_actions:
   - simplisafe.set_system_properties
 ---
 
-The **Set PIN** action adds a new PIN to your SimpliSafe system or updates an existing one. You give the PIN a label so it is easy to recognize in the SimpliSafe app, along with the PIN value people will use to arm and disarm the system.
+The **SimpliSafe: Set PIN** action adds a new PIN to your SimpliSafe system or updates an existing one. You give the PIN a label so it is easy to recognize in the SimpliSafe app, along with the PIN value people will use to arm and disarm the system.
 
 This is handy for granting temporary access automatically, for example creating a guest PIN when a booking starts and removing it again when the stay ends.
 

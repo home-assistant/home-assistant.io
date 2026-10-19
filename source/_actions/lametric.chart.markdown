@@ -7,7 +7,7 @@ related_actions:
   - lametric.message
 ---
 
-The **Display a chart** action plots a list of numbers as a small chart on your LaMetric device. It is handy for showing trends at a glance, such as recent energy usage, temperature, or any other numeric value from your home.
+The **LaMetric: Display a chart** action plots a list of numbers as a small chart on your LaMetric device. It is handy for showing trends at a glance, such as recent energy usage, temperature, or any other numeric value from your home.
 
 {% include actions/ui_header.md %}
 

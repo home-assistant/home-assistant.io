@@ -1,8 +1,6 @@
 ---
 title: Brel Home
 description: Connect and control your Brel Home devices using the Motionblinds integration
-ha_category:
-  - Cover
 ha_domain: brel_home
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds

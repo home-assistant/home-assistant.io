@@ -1,8 +1,6 @@
 ---
 title: System Health
 description: System Health integration will report system info and allow you to run system diagnostics.
-ha_category:
-  - Other
 ha_release: 0.87
 ha_quality_scale: internal
 ha_domain: system_health
