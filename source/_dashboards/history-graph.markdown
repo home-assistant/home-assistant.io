@@ -24,7 +24,7 @@ Screenshot of the history graph card, when the sensor has no `unit_of_measuremen
 Screenshot of the history graph card, when the sensor has a `unit_of_measurement` defined.
 </p>
 
-Only the y-axis and logarithmic scale settings can be configured via the user interface. To configure the other options for this card, you need to edit the YAML configuration.
+You can configure all options for this card in the card editor. To choose where entity names appear, turn on **Show entity names**. Then, under **Label position**, select **Beside the graph** or **Below each bar**. **Label position** appears only when at least one entity is shown as bars.
 
 {% include dashboard/edit_dashboard.md %}
 
