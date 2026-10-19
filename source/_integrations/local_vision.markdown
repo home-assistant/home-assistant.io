@@ -100,6 +100,7 @@ Get a notification when the garage door has been open for 30 minutes.
   - **For at least**: 00:30:00
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
+  - **Message**: The garage door has been open for 30 minutes.
 
 {% details "YAML example for the garage door notification" %}
 
@@ -176,11 +177,15 @@ Check that the camera shows a picture. The sensor recovers on its own when the c
 
 #### Description
 
-The taught frames don't cover how the region looks right now, for example at night or in different light. A frame that shows nothing, such as a dark night without night vision, is also unknown.
+There are two causes:
+
+- The taught frames don't cover how the region looks right now, for example at night or in different light.
+- The frame shows no detail in the region, for example on a dark night without night vision. Such a frame can't be taught.
 
 #### Resolution
 
-Open the options and teach the current frame with the state it shows.
+- If the region is visible, open the options and teach the current frame with the state it shows.
+- If the region is dark, turn on the camera's night vision or a light that covers the region, then teach a frame. Without visible detail, the sensor stays unknown.
 
 ## Removing the integration
 
