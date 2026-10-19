@@ -187,7 +187,7 @@ An event entity is created for each keypad button and Pico remote button in the 
 The event types depend on the device:
 
 - **Pico remotes**: `press_start` when the button is pressed down and `press_end` when it is released.
-- **Keypads** (Palladiom, SeeTouch, Sunnata, and others): `press_end` when the button is pressed. Keypads do not reliably report when a button is released, so there is no separate `press_start` event.
+- **Keypads** (Palladiom, SeeTouch, Sunnata, and others): `press_start` when the button is pressed. Keypads do not reliably report when a button is released, so there is no `press_end` event.
 
 Multi-tap and long-press actions are not available as event types. Use the device triggers described in the next section for those.
 
