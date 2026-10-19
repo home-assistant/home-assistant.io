@@ -5,7 +5,7 @@ domain: duckdns
 description: "Sets the TXT record of your Duck DNS subdomain."
 ---
 
-The **Set TXT** action sets the TXT record of your Duck DNS subdomain.
+The **Duck DNS: Set TXT** action sets the TXT record of your Duck DNS subdomain.
 
 This is mostly useful for automating an <abbr title="Automatic Certificate Management Environment">ACME</abbr> DNS-01 challenge, where a certificate authority asks you to publish a specific value in your domain's TXT record to prove that you control the domain.
 
@@ -27,8 +27,8 @@ To set the TXT record from an automation or a script:
 
 {% options_ui %}
 Integration ID:
-  description: The Duck DNS integration to update. Leaving this empty is deprecated and will not be an option in a future release.
-  required: false
+  description: The Duck DNS integration to update.
+  required: true
 TXT:
   description: The value for the TXT record. Leave empty to clear the TXT record.
   required: false
@@ -53,8 +53,8 @@ This sets the TXT record of your Duck DNS subdomain to the given value.
 {% options_yaml %}
 config_entry_id:
   description: >
-    The ID of the Duck DNS integration to update. Leaving this empty is deprecated and will not be an option in a future release.
-  required: false
+    The ID of the Duck DNS integration to update.
+  required: true
   type: string
 txt:
   description: >

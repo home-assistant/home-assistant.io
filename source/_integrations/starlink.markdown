@@ -1,14 +1,8 @@
 ---
 title: Starlink
 description: Instructions on how to integrate Starlink into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Device tracker
-  - Network
-  - Sensor
-  - Switch
-  - Time
+ha_categories:
+  - computers_network.routers_network
 ha_release: 2023.2
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -69,6 +63,7 @@ The **Starlink** {% term integration %} allows you to integrate your [Starlink](
 
 - Stowed - Controls whether Dishy is stowed
 - Sleep schedule - Controls whether Starlink will enter a power-saving sleep mode at a predefined schedule
+- Use Starlink positioning exclusively - Controls whether Dishy determines its position using Starlink satellites only, without GPS. This matches the **Use Starlink positioning exclusively** setting in the Starlink app and can help in areas where GPS is jammed or spoofed. Dishy turns this setting off when it restarts. To keep it on, create an automation that turns the switch back on when the **Last restart** sensor changes.
 
 ### Device trackers
 

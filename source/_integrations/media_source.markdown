@@ -1,8 +1,6 @@
 ---
 title: Media source
 description: Instructions on how to access your media with Home Assistant.
-ha_category:
-  - Media source
 ha_release: 0.115
 ha_domain: media_source
 ha_codeowners:

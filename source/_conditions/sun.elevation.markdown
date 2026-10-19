@@ -20,7 +20,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Sun: Sun elevation**.
+4. From the search box, search for and select **Sun elevation**.
 5. Under **Threshold type**, choose how the elevation is compared:
    - Select **Above** or **Below** and enter an angle in degrees.
    - Select **In range** and enter a lower and upper angle.
@@ -37,8 +37,8 @@ Threshold type:
 
     - **Above** (exclusive): passes when the elevation is strictly above the angle.
     - **Below** (exclusive): passes when the elevation is strictly below the angle.
-    - **In range** (exclusive): passes when the elevation is strictly between the two angles.
-    - **Outside range** (inclusive): passes when the elevation is at or beyond either angle.
+    - **In range** (inclusive): passes when the elevation is between the two angles, or equal to one of them.
+    - **Outside range** (exclusive): passes when the elevation is beyond either angle.
 
     For each mode you can enter a fixed angle in degrees, or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
 {% endoptions_ui %}
@@ -68,8 +68,8 @@ threshold:
 
     - `type: above` (exclusive): Passes when the elevation is strictly above `value`. Provide `value` with a `number` key (a fixed angle in degrees) or an `entity` key (an `input_number`, `number`, or `sensor` entity).
     - `type: below` (exclusive): Passes when the elevation is strictly below `value`. Provide `value` with a `number` key (a fixed angle in degrees) or an `entity` key (an `input_number`, `number`, or `sensor` entity).
-    - `type: between` (exclusive): Passes when the elevation is strictly between `value_min` and `value_max`. Provide both, each with a `number` key (a fixed angle in degrees) or an `entity` key.
-    - `type: outside` (inclusive): Passes when the elevation is at or beyond `value_min` or `value_max`. Provide both, each with a `number` key (a fixed angle in degrees) or an `entity` key.
+    - `type: between` (inclusive): Passes when the elevation is between `value_min` and `value_max`, or equal to one of them. Provide both, each with a `number` key (a fixed angle in degrees) or an `entity` key.
+    - `type: outside` (exclusive): Passes when the elevation is below `value_min` or above `value_max`. Provide both, each with a `number` key (a fixed angle in degrees) or an `entity` key.
   required: true
   type: map
 {% endoptions_yaml %}
@@ -89,8 +89,10 @@ threshold:
 
 When the patio is occupied, close the west-facing blinds, but only while the sun sits low in the sky (below 15° of elevation), where it causes the most glare.
 
-- **Trigger**: Patio occupancy detected
-- **Condition**: Sun: Sun elevation (below 15°)
+- **Trigger**: State changed
+  - **Entity**: Patio occupancy sensor
+  - **To**: Detected
+- **Condition**: Sun elevation (below 15°)
 - **Action**: Close cover
   - **Target**: West-facing blinds
 

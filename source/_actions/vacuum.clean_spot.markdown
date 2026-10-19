@@ -1,5 +1,5 @@
 ---
-title: Clean spot
+title: "Clean spot with vacuum cleaner"
 action: vacuum.clean_spot
 domain: vacuum
 description: "Performs a spot cleaning at the vacuum's location."
@@ -15,7 +15,7 @@ To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
-3. Add an action and search for **Vacuum: Clean spot with vacuum cleaner**.
+3. Add an action and search for **Clean spot with vacuum cleaner**.
 4. Select the target vacuum, area, or group.
 5. Select **Save**.
 
@@ -33,8 +33,6 @@ This starts a spot clean at `vacuum.office`'s current location.
 Omitting `entity_id` targets all supported vacuums.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 target:
@@ -57,9 +55,10 @@ target:
 
 If you notice a small mess, you can trigger a dedicated spot clean without starting a full-house run. This example starts a spot clean when a helper button is pressed.
 
-- **Trigger**: Helper button pressed
-- **Action**: Clean spot
-- **Target**: Office vacuum
+- **Trigger**: State changed
+  - **Entity**: Quick spot clean helper
+- **Action**: Clean spot with vacuum cleaner
+  - **Target**: Office vacuum
 
 {% details "YAML example for starting a quick spot clean" %}
 

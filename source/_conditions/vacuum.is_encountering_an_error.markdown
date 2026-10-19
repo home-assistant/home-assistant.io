@@ -1,5 +1,5 @@
 ---
-title: Vacuum is encountering an error
+title: Vacuum cleaner is encountering an error
 condition: vacuum.is_encountering_an_error
 domain: vacuum
 description: "Passes when the vacuum cleaner is in an error state."
@@ -16,7 +16,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Vacuum: Vacuum cleaner is encountering an error**.
+4. From the search box, search for and select **Vacuum cleaner is encountering an error**.
 5. Under **Targets**, select the vacuum entity, an area, a floor, or a label.
 6. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 7. Under **For at least**, enter how long the vacuum must remain in the error state before the condition passes.
@@ -50,8 +50,6 @@ This passes when `vacuum.upstairs` is reporting an error.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -73,10 +71,7 @@ for:
 
 ## Good to know
 
-- Entities with state `unavailable` or `unknown` are ignored when Home Assistant evaluates the condition.
-- With **Any** (default), the condition passes if at least one targeted vacuum is in an error state.
-- With **All**, the condition passes only if every targeted vacuum that Home Assistant can evaluate is in an error state.
-- If every targeted vacuum is `unavailable` or `unknown`, **Any** fails and **All** passes.
+{% include conditions/unavailable_targets.md entities="vacuums" %}
 
 {% include conditions/try_it.md %}
 
@@ -87,7 +82,7 @@ for:
 This automation checks every evening whether the upstairs vacuum is still in an error state. If it is, Home Assistant sends a reminder so the problem does not go unnoticed until the next cleaning run.
 
 - **Trigger**: Time: 18:00
-- **Condition**: Vacuum is encountering an error
+- **Condition**: Vacuum cleaner is encountering an error
   - **Target**: Upstairs vacuum
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)

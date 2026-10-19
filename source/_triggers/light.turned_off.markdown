@@ -19,7 +19,7 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Light: Light turned off**.
+4. From the search box, search for and select **Light turned off**.
 5. Under **Targets**, choose what to watch:
     - To watch a specific light, select the entity.
     - To watch every light in a room, select an area.
@@ -33,6 +33,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple lights are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted light turns off, **First** to fire only when the first of a group of on lights turns off, or **All** to fire only after every targeted light is off.
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -49,8 +50,6 @@ trigger: |
 This fires every time `light.kitchen` transitions from on to off.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 behavior:
@@ -81,7 +80,7 @@ When the last light in the house turns off late at night, arm the alarm automati
 - **Target**: All lights (by label)
 - **Trigger when**: All
 - **Condition**: Time is after 22:30
-- **Action**: Alarm control panel: Arm away
+- **Action**: Arm alarm away
 
 {% details "YAML example for an arm-on-last-light automation" %}
 
@@ -112,7 +111,8 @@ When every light in the living room is off, stop whatever is playing on the livi
 - **Trigger**: Light turned off
 - **Target**: Living room area
 - **Trigger when**: All
-- **Action**: Media player: Turn off
+- **Action**: Turn off media player
+  - **Target**: Living room speaker
 
 {% details "YAML example for auto-pausing media when the room goes dark" %}
 

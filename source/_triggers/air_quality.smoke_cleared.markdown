@@ -27,6 +27,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor clears, **First** to fire only when the first sensor in a group clears, or **All** to fire only after every targeted sensor has cleared.
+  required: false
+  default: Each
 For at least:
   description: How long the sensor must stay in the cleared state before the trigger fires. Set to zero to fire immediately.
 {% endoptions_ui %}
@@ -46,13 +48,11 @@ This fires every time `binary_sensor.living_room_smoke` transitions to the clear
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
     When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:
@@ -85,7 +85,7 @@ After a smoke event, your front door was unlocked to help everyone evacuate safe
   - **Target**: All smoke sensors (by label)
   - **Trigger when**: All
   - **For at least**: 00:15:00
-- **Action**: Lock: Lock
+- **Action**: Lock lock
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

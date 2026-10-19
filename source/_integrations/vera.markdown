@@ -1,16 +1,8 @@
 ---
 title: Vera
 description: Instructions on how to set up Vera Z-Wave hubs and configure devices within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Cover
-  - Hub
-  - Light
-  - Lock
-  - Scene
-  - Sensor
-  - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -65,11 +57,11 @@ Once the Vera {% term integration %} is configured, you can set additional optio
 - Vera switch device - By default your switches will be added to Home Assistant as switches, however, if some of them are light switches, you can tell Home Assistant this by providing a list of light ids.
 - Vera device ids to exclude - Vera imports detailed Z-Wave devices into Home Assistant. This can include system devices and other devices that you don't use; you can tell Home Assistant not to load these devices by providing a list of device ids.
 
-You can find the Vera device id either via the advanced properties of the device in the Vera UI or by checking the `Vera Device Id` attribute on each device imported into Home Assistant (under the developer tools).
+You can find the Vera device id either via the advanced properties of the device in the Vera UI or by checking the `Vera Device Id` attribute on each device imported into Home Assistant (in **Settings** > **Tools**).
 
 ### Using Z-Wave devices in automation
 
-If you want to use a Z-Wave device from the Vera controller in Home Assistant automation, you'll need the {% term entity %} id. In the Home Assistant UI you'll find all entities listed under {% my developer_states title="**Settings** > **Developer tools** > **States**" %}. Look for entities that contain 'Vera Device Id' in their attributes, and you'll find the {% term entity %} id on the left.
+If you want to use a Z-Wave device from the Vera controller in Home Assistant automation, you'll need the {% term entity %} id. In the Home Assistant UI you'll find all entities listed under {% my tools_states title="**Settings** > **Tools** > **States**" %}. Look for entities that contain 'Vera Device Id' in their attributes, and you'll find the {% term entity %} id on the left.
 
 ### Sensor
 

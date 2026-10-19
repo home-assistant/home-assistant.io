@@ -27,7 +27,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple windows are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted window closes, **First** to fire only when the first targeted window closes, or **All** to fire only after every targeted window is closed.
-  required: true
+  required: false
 For at least:
   description: How long the window must stay closed before the trigger fires. Set to zero to fire immediately.
   required: true
@@ -48,13 +48,11 @@ This fires when `binary_sensor.bedroom_window` closes.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
     When multiple windows are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:
@@ -71,8 +69,8 @@ for:
 
 ## Good to know
 
+- Use a binary sensor or cover that uses the window device class.
 - The trigger only fires when a window transitions from a known, valid state. If a window comes back from being unavailable (`unavailable`) or having an unknown state (`unknown`), the trigger does not fire for that recovery.
-- This trigger works with binary sensors and covers that use the `window` device class.
 - To react when a window opens instead, use [Window opened](/triggers/window.opened/).
 
 {% include triggers/try_it.md %}
@@ -87,7 +85,9 @@ After you air out a room, it can help to wait until the window is fully closed b
 - **Target**: Bedroom window sensor
 - **Trigger when**: Each
 - **For at least**: 00:02:00
-- **Action**: Climate: Set HVAC mode to heat
+- **Action**: Set thermostat HVAC mode
+  - **Target**: Bedroom thermostat
+  - **HVAC mode**: Heat
 
 {% details "YAML example for restoring heating after a window closes" %}
 
@@ -119,7 +119,7 @@ When everyone finishes airing out the house, you can wait until every ground flo
 - **Target**: Ground-floor windows label
 - **Trigger when**: All
 - **For at least**: 00:01:00
-- **Action**: Lock: Lock
+- **Action**: Lock lock
 
 {% details "YAML example for locking a door after all windows close" %}
 

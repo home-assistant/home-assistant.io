@@ -26,6 +26,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple lawn mowers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted mower docks, **First** to fire only when the first targeted mower docks, or **All** to fire only after every targeted mower has docked.
+  required: false
 For at least:
   description: How long the mower must stay docked before the trigger fires. Leave it at zero to fire immediately.
 {% endoptions_ui %}
@@ -44,8 +45,6 @@ trigger: |
 This fires when `lawn_mower.backyard` reaches the dock.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 behavior:

@@ -27,6 +27,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor detects gas, **First** to fire only when the first sensor in a group detects gas, or **All** to fire only after every targeted sensor detects gas.
+  required: false
+  default: Each
 For at least:
   description: How long the sensor must stay in the detected state before the trigger fires. Set to zero to fire immediately.
 {% endoptions_ui %}
@@ -46,13 +48,11 @@ This fires every time `binary_sensor.kitchen_gas` transitions to the detected st
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
     When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:
@@ -119,7 +119,7 @@ When a gas leak happens while everyone is asleep or nobody is home, you want the
 - **Target**: All gas sensors (by label)
 - **Trigger when**: Each
 - **For at least**: 00:00:30
-- **Action**: Valve: Close
+- **Action**: Close valve
 
 {% details "YAML example for automatic gas shutoff" %}
 

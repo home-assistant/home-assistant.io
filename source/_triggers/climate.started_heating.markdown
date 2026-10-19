@@ -36,6 +36,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted thermostat starts heating.
     - **First**: fires only when the first of a group starts heating.
     - **All**: fires only after every targeted thermostat is heating.
+  required: false
 For at least:
   description: How long the thermostat must stay in the heating state before the trigger fires. Default is zero (fires immediately).
 {% endoptions_ui %}
@@ -54,8 +55,6 @@ trigger: |
 This fires every time `climate.living_room` begins actively heating.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 behavior:

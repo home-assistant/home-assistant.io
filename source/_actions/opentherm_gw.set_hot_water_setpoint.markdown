@@ -7,7 +7,7 @@ related_actions:
   - opentherm_gw.set_hot_water_ovrd
 ---
 
-The **Set hot water setpoint** action sets the domestic hot water setpoint on your OpenTherm Gateway. Not all boilers support this feature.
+The **OpenTherm Gateway: Set hot water setpoint** action sets the domestic hot water setpoint on your OpenTherm Gateway. Not all boilers support this feature.
 
 {% include actions/ui_header.md %}
 
@@ -67,8 +67,6 @@ temperature:
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 

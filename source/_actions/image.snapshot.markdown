@@ -16,7 +16,7 @@ To take an image snapshot from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the image entity you want to capture.
-6. From the actions shown for that target, select **Image: Take image snapshot**.
+6. From the actions shown for that target, select **Take image snapshot**.
 7. Set the **Filename** where the snapshot is saved.
 8. Select **Save**.
 
@@ -56,17 +56,20 @@ filename:
 
 ## Good to know
 
-- This action only works with image entities.
-- The path in `filename` must be inside a directory that Home Assistant is allowed to write to. By default, the `www` folder in your configuration directory and each configured [media directory](/integrations/homeassistant/#media_dirs) are allowed, so a path like `/config/www/snapshot.jpg` or `/media/snapshot.jpg` works without extra setup. To save somewhere else, such as `/tmp`, add that directory to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs) in the [`homeassistant:`](/integrations/homeassistant/) section of your {% term "`configuration.yaml`" %} file.
+- The target must be an image entity.
+- The path in **Filename** must be inside a directory that Home Assistant is allowed to write to.
+- By default, the `www` folder in your configuration directory and each configured [media directory](/integrations/homeassistant/#media_dirs) are allowed, so a path like `/config/www/snapshot.jpg` or `/media/snapshot.jpg` works without extra setup. To save somewhere else, such as `/tmp`, add that directory to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs) in the [`homeassistant:`](/integrations/homeassistant/) section of your {% term "`configuration.yaml`" %} file.
 
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
 
 ### Automation: save an image snapshot with a timestamped filename
+
 Save a snapshot whenever the image changes and keep the date and time in the filename, so each capture is stored as a separate file.
 
-- **Trigger**: The image entity changes
+- **Trigger**: State changed
+  - **Entity**: Front door
 - **Action**: Take image snapshot
   - **Target**: Front door image
   - **Filename**: a path that includes the current date and time

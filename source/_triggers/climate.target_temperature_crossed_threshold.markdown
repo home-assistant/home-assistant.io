@@ -42,8 +42,8 @@ Threshold type:
 
     - **Above** (exclusive): fires when the setpoint crosses to strictly above the threshold. A setpoint equal to the threshold does not trigger a crossing.
     - **Below** (exclusive): fires when the setpoint crosses to strictly below the threshold. A setpoint equal to the threshold does not trigger a crossing.
-    - **In range** (exclusive): fires when the setpoint crosses into the range. A setpoint equal to either bound is not considered inside the range.
-    - **Outside range** (inclusive): fires when the setpoint crosses out of the range. A setpoint equal to either bound is considered outside the range.
+    - **In range** (inclusive): fires when the setpoint crosses into the range. A setpoint equal to either bound is considered inside the range.
+    - **Outside range** (exclusive): fires when the setpoint crosses out of the range. A setpoint equal to either bound is still considered inside the range.
 
     For each mode you can enter a fixed temperature or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
 Unit:
@@ -55,6 +55,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted thermostat crosses the threshold.
     - **First**: fires only on the first threshold crossing.
     - **All**: fires only after every targeted thermostat crosses the threshold.
+  required: false
 For at least:
   description: How long the thermostat setpoint must stay beyond the threshold before the trigger fires. Useful to avoid false triggers from brief adjustments. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -98,8 +99,6 @@ trigger: |
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: |
@@ -107,8 +106,8 @@ threshold:
 
     - `type: above` (exclusive): Sets a minimum. Fires when the setpoint crosses to strictly above `value`. A setpoint equal to `value` does not trigger a crossing. Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
     - `type: below` (exclusive): Sets a maximum. Fires when the setpoint crosses to strictly below `value`. A setpoint equal to `value` does not trigger a crossing. Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: between` (exclusive): Defines a range. Fires when the setpoint crosses into the range. A setpoint equal to either bound is not inside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: outside` (inclusive): Defines an outside-range. Fires when the setpoint crosses out of the range. A setpoint equal to either bound is outside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: between` (inclusive): Defines a range. Fires when the setpoint crosses into the range. A setpoint equal to either bound is inside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: outside` (exclusive): Defines an outside-range. Fires when the setpoint crosses out of the range. A setpoint equal to either bound is still inside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
 
     When using the `number` key, you must also include `unit_of_measurement` to specify the temperature unit (`°C` or `°F`). When using the `entity` key, the unit is taken from the entity itself, or assumed to be the system temperature unit if the entity has no unit.
 
@@ -151,11 +150,11 @@ for:
 
 ## Good to know
 
+- Use a climate entity that exposes a target temperature attribute.
 - This trigger monitors the target temperature setpoint (what you want the thermostat to maintain), not the current room temperature (the actual measured temperature). To react to changes in measured room temperature, use [Temperature crossed threshold](/triggers/temperature.crossed_threshold/) instead.
 - The threshold type controls the direction of the crossing. **Above** and **Below** fire when crossing in one direction through a single value, while **In range** and **Outside range** fire when crossing the boundary of a range.
 - The trigger fires only at the moment of crossing, not while the setpoint stays beyond the threshold.
 - To react to any change that lands at a particular value, use [Thermostat target temperature changed](/triggers/climate.target_temperature_changed/) instead.
-- The trigger works with [climate](/integrations/climate/) entities that expose a target temperature attribute.
 - All temperature values are automatically converted to the unit you specify.
 
 {% include triggers/try_it.md %}

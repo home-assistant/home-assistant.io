@@ -7,7 +7,7 @@ related_actions:
   - rainmachine.push_flow_meter_data
 ---
 
-The **Push weather data** action sends weather measurements from Home Assistant to a RainMachine controller. RainMachine uses this data to decide how much to water, so feeding it accurate local weather can improve its watering decisions.
+The **RainMachine: Push weather data** action sends weather measurements from Home Assistant to a RainMachine controller. RainMachine uses this data to decide how much to water, so feeding it accurate local weather can improve its watering decisions.
 
 This is useful when you have a personal weather station in Home Assistant and want RainMachine to use its readings instead of, or in addition to, online forecasts.
 
@@ -176,8 +176,6 @@ dewpoint:
 - For the weather condition code (WNUM) options, see the [RainMachine weather data reference](https://github.com/sprinkler/rainmachine-developer-resources/blob/d47e1ad59dee59e34094ad41636ae289275eb973/sdk-parsers/RMDataFramework/rmWeatherData.py#L13).
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 

@@ -6,7 +6,10 @@ toc: false
 
 After Home Assistant has been [installed](/installation/) on your device, there are 5 steps to complete setting up Home Assistant. The entire onboarding takes only a few minutes and is done in your browser, so no command-line or coding is required.
 
-1. Enter the following URL into the browser's address bar: [http://homeassistant.local:8123/](http://homeassistant.local:8123/).
+1. Open the address shown in your installation guide in your browser.
+   - For Home Assistant Operating System, this is usually [http://homeassistant.local/](http://homeassistant.local/).
+      - If Home Assistant does not open at that address, try [http://homeassistant.local:8123/](http://homeassistant.local:8123/).
+   - For Home Assistant Container: usually `http://<host>:8123`, where `<host>` is the host name or IP address of the computer running Home Assistant Container.
    - Result: You now see the **Preparing Home Assistant** page. Depending on your hardware and internet connection, preparation may take a while.
      - Home Assistant downloads the latest version of Home Assistant (about 700&nbsp;MB).
    - If you ran into issues with this step, refer to the [installation troubleshooting](/installation/troubleshooting/).
@@ -46,7 +49,9 @@ After Home Assistant has been [installed](/installation/) on your device, there 
     - To confirm, select **Next**.
    ![Share anonymized data](/images/getting-started/onboarding_share_anonymized_info.png)
 
-5. {% icon "mdi:party-popper" %} You’ve now got Home Assistant up and running.
-   - Press **Finish** and you now see the default [dashboard](/dashboards/).
+5. {% icon "mdi:party-popper" %} Review the final setup screen.
+   - If Home Assistant has found compatible devices, you see **We found compatible devices!** and a list of the discovered integrations. Some are already added, while others may need additional configuration.
+   - If no compatible devices are found, you see **All set!** instead.
+   - Select **Finish** to complete onboarding and open the default [dashboard](/dashboards/).
 
 {% include getting-started/next_step.html step="Concepts & Terminology" link="/getting-started/concepts-terminology/" %}

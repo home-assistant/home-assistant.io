@@ -150,6 +150,3 @@ ha core options --duplicate-log-file=false
 ha core rebuild
 ha core restart
 ```
-
-<!-- Enabling i2c-->
-{% include common-tasks/enable_i2c.md %}

@@ -50,8 +50,6 @@ This passes when `cover.office_blind` is currently closed.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -75,10 +73,8 @@ for:
 
 ## Good to know
 
-- This condition works only with `cover` entities that use the `blind` device class.
-- Entities in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
-- With **Any**, the condition passes if at least one available targeted blind is closed.
-- With **All**, the condition passes only if every available targeted blind is closed. If every targeted blind is `unavailable` or `unknown`, **All** passes and **Any** fails.
+- The target must be a cover entity with the blind device class.
+{% include conditions/unavailable_targets.md entities="blinds" %}
 
 {% include conditions/try_it.md %}
 
@@ -88,7 +84,7 @@ for:
 
 At sunrise, this automation checks whether the blind is still closed. If it is, Home Assistant opens it to let in daylight.
 
-- **Trigger**: Sun: Sunrise
+- **Trigger**: Sunrise
 - **Condition**: Blind is closed
   - **Target**: Office blind
 - **Action**: Open cover
@@ -99,8 +95,7 @@ At sunrise, this automation checks whether the blind is still closed. If it is, 
 automation: |
   alias: "Open the blind at sunrise"
   triggers:
-    - trigger: sun
-      event: sunrise
+    - trigger: sun.sunrise
   conditions:
     - condition: cover.blind_is_closed
       target:
@@ -117,7 +112,9 @@ automation: |
 
 If the blind is still closed when motion is detected, this automation turns on a nearby light so the area is easier to see.
 
-- **Trigger**: Motion detected
+- **Trigger**: State changed
+  - **Entity**: Hallway motion sensor
+  - **To**: Detected
 - **Condition**: Blind is closed
   - **Target**: Office blind
 - **Action**: Turn on light

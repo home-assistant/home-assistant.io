@@ -1,11 +1,8 @@
 ---
 title: Kiosker
 description: Instructions on how to integrate Kiosker with Home Assistant
-ha_category:
-  - Binary sensor
-  - Button
-  - Sensor
-  - Switch
+ha_categories:
+  - presence_location.phones_companion_apps
 ha_release: 2026.5
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -19,7 +16,7 @@ ha_platforms:
   - switch
 ha_integration_type: device
 ha_zeroconf: true
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 [Kiosker](https://kiosker.io) is a powerful yet easy-to-use web kiosk for iPad and iPhone. This integration gives you control over your Kiosker app via the Kiosker API.
@@ -69,7 +66,7 @@ The **Kiosker** integration provides the following entities.
   - Shows when motion was last detected. This is available if a screensaver with motion detection is scheduled or if the camera sensor is enabled.
 - **Ambient light**
   - Shows the current ambient light level. This is available if a screensaver with motion detection is scheduled or if the camera sensor is enabled.
-- **Blackout text** (disabled by default)
+- **Blackout text** ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
   - Shows the text currently displayed on the blackout screen. Defaults to unknown if no visible blackout.
 - **Blackout icon** (disabled by default)
   - Shows the SF Symbol icon name currently displayed on the blackout screen. Defaults to unknown if no visible blackout.
@@ -175,6 +172,10 @@ This means that Home Assistant can't connect to the Kiosker App.
 5. If you have enabled IP-filtering, make sure that your host IP is in the whitelist.
 6. If you have enabled TLS, make sure that you have installed a valid certificate in the Kiosker App, typically a self-signed certificate.
 7. If you have enabled `Verify certificate`, make sure that the certificate is valid and that the root certificate is marked as trusted on the host.
+
+### Home Assistant asks you to reauthenticate
+
+If the API token in the Kiosker App is regenerated or changed, Home Assistant detects the failed authentication and starts a reauthentication flow. Select **Reconfigure** on the integration's notification and enter the new token. The integration reconnects without losing your existing entities or automations.
 
 ## Removing the integration
 

@@ -48,8 +48,6 @@ This passes when `binary_sensor.bedroom_window` is currently closed.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -71,8 +69,8 @@ for:
 
 ## Good to know
 
-- Windows that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as closed. Home Assistant skips them and evaluates the condition using the remaining targeted windows.
-- This condition works with binary sensors and covers that use the `window` device class.
+- The target must be a binary sensor or cover with the window device class.
+{% include conditions/unavailable_targets.md entities="windows" %}
 - To check the opposite state, use [Window is open](/conditions/window.is_open/).
 
 {% include conditions/try_it.md %}
@@ -87,7 +85,8 @@ Before locking up for the night, you can check that every downstairs window is a
 - **Condition**: Window is closed
 - **Target**: Downstairs windows label
 - **Condition passes if**: All
-- **Action**: Lock: Lock
+- **Action**: Lock lock
+  - **Target**: Front door lock
 
 {% details "YAML example for locking up after all windows are closed" %}
 
@@ -116,12 +115,13 @@ automation: |
 
 If you use a motorized bedroom window to cool the room naturally, you might only want to turn the bedroom air conditioner back on after the window has been closed for a while.
 
-- **Trigger**: Time pattern: Every 15 minutes
+- **Trigger**: Time pattern
+  - **Minutes**: `/15`
 - **Condition**: Window is closed
-- **Target**: Bedroom roof window cover
-- **Condition passes if**: Any
-- **For at least**: 00:15:00
-- **Action**: Climate: Turn on the bedroom air conditioner
+  - **Target**: Bedroom roof window cover
+  - **For at least**: 00:15:00
+- **Action**: Turn on thermostat
+  - **Target**: Bedroom air conditioner
 
 {% details "YAML example for restarting the bedroom air conditioner after the window stays closed" %}
 
@@ -136,7 +136,6 @@ automation: |
       target:
         entity_id: cover.bedroom_roof_window
       options:
-        behavior: any
         for: "00:15:00"
   actions:
     - action: climate.turn_on

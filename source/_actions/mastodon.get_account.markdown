@@ -10,7 +10,7 @@ related_actions:
   - mastodon.update_profile
 ---
 
-The **Get account** action looks up a Mastodon account and returns its details, such as the display name, follower count, and number of posts.
+The **Mastodon: Get account** action looks up a Mastodon account and returns its details, such as the display name, follower count, and number of posts.
 
 This is handy when you want to react to changes on an account you follow, for example showing a follower count on your dashboard or triggering an automation when an account publishes a new post. It only returns accounts that are federated with your instance.
 
@@ -54,7 +54,7 @@ action: |
   response_variable: account_details
 {% endexample %}
 
-To find the `config_entry_id`, go to **Developer tools** > **Actions**, select this action, choose your Mastodon instance, and switch to YAML mode.
+To find the `config_entry_id`, go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}, select this action, choose your Mastodon instance, and switch to YAML mode.
 
 ### Options in YAML
 

@@ -2,27 +2,8 @@
 title: SmartThings
 description: Instructions on setting up SmartThings within Home Assistant.
 featured: true
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Fan
-  - Hub
-  - Light
-  - Lock
-  - Media player
-  - Number
-  - Scene
-  - Select
-  - Sensor
-  - Switch
-  - Time
-  - Update
-  - Vacuum
-  - Valve
-  - Water heater
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: 0.87
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -56,6 +37,14 @@ ha_quality_scale: bronze
 ---
 
 [SmartThings](https://www.samsung.com/smartthings/) is a home automation platform for connecting with Samsung or third-party devices.
+
+{% warning %}
+**Upcoming breaking API change (October 2026).**
+
+Samsung has announced that free access to the SmartThings API will be phased out starting in **October 2026**. After this date, the SmartThings API access will require a paid Personal Plan subscription ($4.99/month).
+
+If you use this integration, you will need to either subscribe to Samsung's Personal Plan or migrate your devices (like local Zigbee/Z-Wave devices) before October 2026 to avoid a service disruption. For full details, see the [SmartThings community announcement](https://community.smartthings.com/t/a-new-enhanced-smartthings-api-experience/309947).
+{% endwarning %}
 
 ## Prerequisites
 
@@ -306,8 +295,10 @@ The SmartThings Sensor platform lets you view devices that have sensor-related c
 | [`robotCleanerMovement`](https://developer.smartthings.com/docs/devices/capabilities/proposed#robotCleanerMovement)                                           | Movement                                                                 |
 | [`robotCleanerTurboMode`](https://developer.smartthings.com/docs/devices/capabilities/proposed#robotCleanerTurboMode)                                         | Turbo mode                                                               |
 | `samsungce.cooktopHeatingPower`                                                                                                                               | Manual level<br/>Heating mode                                            |
+| `samsungce.dryerOperatingState`                                                                                                                               | Progress                                                                 |
 | `samsungce.ehsDiverterValve`                                                                                                                                  | Diverter valve position                                                  |
 | `samsungce.hoodFilter`                                                                                                                                        | Hood filter usage                                                        |
+| `samsungce.washerOperatingState`                                                                                                                              | Progress                                                                 |
 | `samsungce.waterConsumptionReport`                                                                                                                            | Water consumption                                                        |
 | [`signalStrength`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#signalStrength)                                         | Link quality<br/>Signal strength                                         |
 | [`smokeDetector`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#smokeDetector)                                           | Smoke detector                                                           |

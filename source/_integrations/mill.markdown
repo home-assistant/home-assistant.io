@@ -1,8 +1,8 @@
 ---
 title: Mill
 description: Instructions on how to integrate Mill heater into Home Assistant.
-ha_category:
-  - Climate
+ha_categories:
+  - climate.thermostats_heating
 ha_release: 0.81
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -25,15 +25,4 @@ Local access requires Generation 3 heaters (Sold from Autumn 2021).
 A number entity can configure the maximum power of the heaters.
 
 
-## Actions
-
-### Action: Set room temperature
-
-The `mill.set_room_temperature` action sets the temperature for the room connected to heater in the Mill app.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `room_name` | no | String with room name.
-| `away_temp` | yes | Integer with temperature
-| `comfort_temp` | yes | Integer with temperature
-| `sleep_temp` | yes | Integer with temperature
+{% include integrations/actions.md %}

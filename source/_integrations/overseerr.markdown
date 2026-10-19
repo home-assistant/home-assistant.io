@@ -1,16 +1,15 @@
 ---
 title: Seerr
 description: Instructions on how to set up Seerr with Home Assistant.
-ha_category:
-  - Event
-  - Multimedia
-  - Sensor
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: 2025.2
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@joostlek'
   - '@AmGarera'
+  - '@felixschndr'
 ha_domain: overseerr
 ha_integration_type: service
 ha_platforms:

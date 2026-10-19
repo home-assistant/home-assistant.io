@@ -1,5 +1,5 @@
 ---
-title: Turn off vacuum
+title: "Turn off vacuum cleaner"
 action: vacuum.turn_off
 domain: vacuum
 description: "Turns off a vacuum cleaner."
@@ -15,7 +15,7 @@ To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
-3. Add an action and search for **Vacuum: Turn off vacuum cleaner**.
+3. Add an action and search for **Turn off vacuum cleaner**.
 4. Choose the vacuum, area, or device to turn off.
 5. Select **Save**.
 
@@ -33,8 +33,6 @@ This turns off `vacuum.downstairs`.
 The `entity_id` target is optional. If omitted, all targeted supported vacuums turn off.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 target:
@@ -57,9 +55,9 @@ target:
 
 If your vacuum supports a separate power state, this automation turns it off after it has finished cleaning and returned to the dock.
 
-- **Trigger**: Vacuum returned to dock
-- **Action**: Turn off vacuum
-- **Target**: Downstairs vacuum
+- **Trigger**: Vacuum cleaner returned to dock
+- **Action**: Turn off vacuum cleaner
+  - **Target**: Downstairs vacuum
 
 {% details "YAML example for turning off a vacuum after docking" %}
 

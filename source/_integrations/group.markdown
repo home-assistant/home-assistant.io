@@ -1,21 +1,8 @@
 ---
 title: Group
 description: Instructions on how to set up groups within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Cover
-  - Event
-  - Fan
-  - Helper
-  - Light
-  - Lock
-  - Media player
-  - Notifications
-  - Organization
-  - Sensor
-  - Switch
-  - Valve
+ha_categories:
+  - helpers.calculate_value
 ha_release: pre 0.7
 ha_iot_class: Calculated
 ha_quality_scale: internal
@@ -173,6 +160,8 @@ To edit a group, **{% my helpers title="**Settings** > **Devices & services** > 
 To add or remove entities from an existing group, click on `Group options`, all the existing entities are listed in the `members` section where you add and remove entities.
 
 ![Group members](/images/integrations/group/Group_members.png)
+
+To hide the members of the group, so that only the group shows, turn on **Hide members**. Home Assistant hides the member entities when you save, and shows them again when you turn the option off. For what hiding does, refer to [Hidden entities](/docs/configuration/customizing-devices/#hidden-entities).
 
 ### Group attributes
 
@@ -359,16 +348,16 @@ device_class:
   type: string
   required: false
 state_class:
-  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](https://developers.home-assistant.io/docs/core/entity/sensor/#available-state-classes).
+  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](https://contributors.home-assistant.io/core/entities/sensor/#state-classes).
   type: string
   required: false
 {% endconfiguration %}
 
-## Notify groups
+## Notify action groups
 
-This group is a special case of groups currently only available via YAML configuration.
+Notify action groups are used to combine multiple notification actions into a single one. This allows you to send a notification to multiple devices by performing a single action.
 
-Notify groups are used to combine multiple notification actions into a single action. This allows you to send notification to multiple devices by performing a single action.
+Groups of notify actions are not to be confused with [groups of notify entities](/integrations/group/#notify-entity-groups). Notify entity groups can be created through the UI using a **Notify group** {% term helper %}, while notify action groups are currently only available through YAML configuration.
 
 ```yaml
 # Example configuration.yaml entry

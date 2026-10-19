@@ -20,7 +20,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Sun: It is evening twilight**.
+4. From the search box, search for and select **It is evening twilight**.
 5. Under **Twilight type**, select **Any**, **Civil**, **Nautical**, or **Astronomical**.
 6. Select **Save**.
 
@@ -81,9 +81,12 @@ type:
 
 When the living room is occupied during civil evening twilight, switch the lights to a warm evening scene.
 
-- **Trigger**: Living room occupancy detected
+- **Trigger**: State changed
+  - **Entity**: Living room occupancy sensor
+  - **To**: Detected
 - **Condition**: It is evening twilight (Civil)
-- **Action**: Activate the evening lighting scene
+- **Action**: Activate scene
+  - **Target**: Living room evening scene
 
 {% details "YAML example for evening lighting at dusk" %}
 

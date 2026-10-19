@@ -5,7 +5,7 @@ domain: overseerr
 description: "Retrieves a list of media requests from Seerr."
 ---
 
-The **Get requests** action retrieves a list of media requests from Seerr. You can filter the results by status and by the user who made the request, and choose the order in which they are returned.
+The **Seerr: Get requests** action retrieves a list of media requests from Seerr. You can filter the results by status and by the user who made the request, and choose the order in which they are returned.
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example to notify yourself about pending requests.
 
@@ -20,7 +20,7 @@ To get media requests from an automation or a script:
 5. From the search box, search for and select **Seerr: Get requests**.
 6. Select the **Seerr instance** and, if needed, set the **Request status**, **Sort order**, and **Requested by** filters.
 7. In the **Response variable** field, enter a name to store the data in, such as `requests`.
-8. Select **Save**.```
+8. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
 

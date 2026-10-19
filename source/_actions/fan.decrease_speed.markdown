@@ -73,8 +73,8 @@ Reduce the airflow a little once the evening has settled down.
 
 - **Trigger**: Time: 23:00
 - **Action**: Decrease fan speed
-- **Target**: Bedroom fan
-- **Decrement**: 10
+  - **Target**: Bedroom fan
+  - **Decrement**: `10`%
 
 {% details "YAML example for a quieter bedtime fan" %}
 
@@ -98,10 +98,12 @@ automation: |
 
 Once the day cools down, you may only need a softer airflow.
 
-- **Trigger**: Sun: Below horizon
+- **Trigger**: State changed
+  - **Entity**: Sun
+  - **To**: Below horizon
 - **Action**: Decrease fan speed
-- **Target**: Living room fan
-- **Decrement**: 20
+  - **Target**: Living room fan
+  - **Decrement**: `20`%
 
 {% details "YAML example for a sunset fan slowdown" %}
 
@@ -109,8 +111,9 @@ Once the day cools down, you may only need a softer airflow.
 automation: |
   alias: "Decrease living room fan after sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: state
+      entity_id: sun.sun
+      to: below_horizon
   actions:
     - action: fan.decrease_speed
       target:

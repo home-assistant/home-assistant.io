@@ -8,7 +8,7 @@ related_actions:
   - rainmachine.start_program
 ---
 
-The **Start zone** action starts a single RainMachine zone for a set number of seconds. Each zone is represented by a switch entity, and this action turns that zone on for the run time you choose.
+The **RainMachine: Start zone** action starts a single RainMachine zone for a set number of seconds. Each zone is represented by a switch entity, and this action turns that zone on for the run time you choose.
 
 {% include actions/ui_header.md %}
 
@@ -58,8 +58,6 @@ zone_run_time:
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 

@@ -1,9 +1,9 @@
 ---
 title: Compit
 description: Instructions on how to integrate Compit devices within Home Assistant.
-ha_category:
-  - Climate
-  - Water Heater
+ha_categories:
+  - climate.thermostats_heating
+  - climate.heat_pumps_air_conditioning
 ha_release: '2025.10'
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -377,7 +377,7 @@ The available sensors depend on your specific Compit device configuration. Not a
 
 - **Airing**
   - **Description**: Indicates whether a window is open for airing.
-  - **Available for devices**: Nano Color 2 (Room thermostat)
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
 
 - **Battery charging**
   - **Description**: Indicates whether the battery is currently charging.
@@ -395,6 +395,10 @@ The available sensors depend on your specific Compit device configuration. Not a
   - **Description**: Indicates whether the dust level has exceeded the threshold.
   - **Available for devices**: SPM - Nano Color 2 (Air quality sensor connected to Nano Color 2)
 
+- **Ground Heat Exchanger attached**
+  - **Description**: Indicates whether a ground heat exchanger is connected.
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
+
 - **Has battery**
   - **Description**: Indicates whether the device has a battery installed.
   - **Available for devices**: AF-1 (Anti-freeze system)
@@ -403,6 +407,10 @@ The available sensors depend on your specific Compit device configuration. Not a
   - **Description**: Indicates whether the device is connected to external power.
   - **Available for devices**: AF-1 (Anti-freeze system)
 
+- **Mixer pump**
+  - **Description**: Indicates whether the mixer pump is currently running.
+  - **Available for devices**: R810 (Heating circuit controller)
+
 - **Pump status**
   - **Description**: Indicates whether the pump is currently running.
   - **Available for devices**: AF-1 (Anti-freeze system)
@@ -410,6 +418,10 @@ The available sensors depend on your specific Compit device configuration. Not a
 - **Temperature alert**
   - **Description**: Indicates whether the temperature has exceeded the threshold.
   - **Available for devices**: SPM - Nano Color 2 (Air quality sensor connected to Nano Color 2)
+
+- **Ventilation filter dirty**
+  - **Description**: Indicates whether the ventilation filter is dirty and needs to be cleaned or replaced. When it does, the sensor shows **Problem**. Otherwise, it shows **OK**. The controller reports a dirty filter when the filter cleaning period set on the thermostat has elapsed. With AERO 3 and AERO 5 modules, it reports when the pressure switch reports a dirty filter.
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
 
 Binary sensors provide status information about your Compit devices.
 

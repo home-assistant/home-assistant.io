@@ -1,8 +1,8 @@
 ---
 title: Logitech Harmony Hub
 description: Instructions on how to integrate Harmony Hub remotes into Home Assistant.
-ha_category:
-  - Remote
+ha_categories:
+  - buttons_remotes
 ha_iot_class: Local Push
 ha_release: 0.34
 ha_config_flow: true
@@ -153,32 +153,7 @@ data:
   delay_secs: 0.6
 ```
 
-### Action: Change channel
-
-The `harmony.change_channel` action sends the change channel command to the Harmony Hub.
-
-| Data attribute | Optional | Description                 |
-| ---------------------- | -------- | --------------------------- |
-| `entity_id`            | no       | Entity ID to target.        |
-| `channel`              | no       | Channel number to change to |
-
-A typical action for changing the channel would be::
-
-```yaml
-action: harmony.change_channel
-target:
-  entity_id: remote.tv_room
-data:
-  channel: 200
-```
-
-### Action: Sync
-
-The `harmony.sync` action forces synchronization between the Harmony device and the Harmony cloud.
-
-| Data attribute | Optional | Description          |
-| ---------------------- | -------- | -------------------- |
-| `entity_id`            | no       | Entity ID to target. |
+{% include integrations/actions.md %}
 
 ### Examples
 

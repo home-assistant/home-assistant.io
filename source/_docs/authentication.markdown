@@ -27,21 +27,23 @@ For information about user accounts, such as adding people, managing users, and 
 
 Your password is the key to your home, so choose a strong, unique one. This matters even more once you access Home Assistant from outside your local network, where others could try to sign in, too. For extra protection, you can also turn on [multi-factor authentication](/docs/authentication/multi-factor-auth/).
 
-You can manage how you sign in from your own account profile. To open it, go to {% my profile title="**User profile**" %} and open the **Security** tab. You can also open it by selecting your name at the very bottom of the sidebar. These settings only affect your own account.
+You can manage how you sign in from your own account profile.
 
-On the **Security** tab, you can:
+To open it, go to {% my profile_security title="**User profile** > **Security**" %}. These settings only affect your own account.
+
+On the **Security** page, you can:
 
 - [Change your password](#changing-your-account-password).
 - Turn [multi-factor authentication](/docs/authentication/multi-factor-auth/) on or off for an extra level of security.
 - Manage your **Refresh tokens**. A refresh token is created each time you sign in from a device. Delete one to force that device to sign out.
-  - Unused refresh tokens are automatically removed. A refresh token is considered unused if it has not been used to sign in within 90 days. If you need a permanent token, we recommend using a [long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) instead.
-- Create [long-lived access tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) so scripts and apps can securely interact with Home Assistant.
+  - Unused refresh tokens are automatically removed. A refresh token is considered unused if it has not been used to sign in within 90 days. If you need a permanent token, we recommend using a [long-lived access token](https://contributors.home-assistant.io/core/internals/auth-api/#long-lived-access-tokens) instead.
+- Create [long-lived access tokens](https://contributors.home-assistant.io/core/internals/auth-api/#long-lived-access-tokens) so scripts and apps can securely interact with Home Assistant.
 
 ## Changing your account password
 
 To change the password of your own account:
 
-1. Go to {% my profile title="**User profile**" %} and open the **Security** tab.
+1. Go to {% my profile_security title="**User profile** > **Security**" %}.
 2. In the **Change password** card, enter your **Current password**.
 3. Enter your **New password**, then enter it again under **Confirm new password**.
 4. Select **Submit**.

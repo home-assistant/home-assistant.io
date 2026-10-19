@@ -35,6 +35,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted thermostat turns on.
     - **First**: fires only when the first of a group turns on.
     - **All**: fires only after every targeted thermostat is on.
+  required: false
 For at least:
   description: How long the thermostat must stay on before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -53,8 +54,6 @@ trigger: |
 This fires every time `climate.living_room` transitions from off to any active mode.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 behavior:

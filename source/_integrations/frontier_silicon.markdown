@@ -1,13 +1,14 @@
 ---
 title: Frontier Silicon
 description: Instructions on how to integrate Frontier Silicon Internet Radios into Home Assistant.
-ha_category:
-  - Media player
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_iot_class: Local Polling
 ha_release: '0.40'
 ha_domain: frontier_silicon
 ha_platforms:
   - media_player
+  - switch
 ha_integration_type: device
 ha_codeowners:
   - '@wlcrs'

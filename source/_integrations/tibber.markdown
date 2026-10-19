@@ -1,11 +1,9 @@
 ---
 title: Tibber
 description: Instructions on how to integrate Tibber within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Energy
-  - Notifications
-  - Sensor
+ha_categories:
+  - energy.energy_prices
+  - energy.meters_monitoring
 ha_release: 0.8
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -123,47 +121,9 @@ The Tibber integration provides binary sensors.
 
 ## Actions
 
-The hourly prices are exposed using [actions](/docs/scripts/perform-actions/). The actions populate [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with price data.
+The energy prices are exposed using an action that returns [response data](/docs/automation/action/#action-response-data) with the price data.
 
-### Action: Get prices
-
-The `tibber.get_prices` action fetches hourly energy prices.
-
-| Data attribute | Optional | Description                                           | Example             |
-| -------------- | -------- | ----------------------------------------------------- | ------------------- |
-| `start`        | yes      | Start time to get prices. Defaults to today 00:00:00  | 2024-01-01 00:00:00 |
-| `end`          | yes      | End time to get prices. Defaults to tomorrow 00:00:00 | 2024-01-01 00:00:00 |
-
-#### Response data
-
-The response data is a dictionary with the energy prices for each Home. `start_time` is returned in local time from the API.
-
-```json
-{
-  "prices": {
-    "Nickname_Home":[
-      {
-        "start_time": "2023-12-09 03:00:00+02:00",
-        "price": 0.46914,
-      },
-      {
-        "start_time": "2023-12-09 04:00:00+02:00",
-        "price": 0.46914,
-      }
-    ],
-    "Nickname_Home_2":[
-      {
-        "start_time": "2023-12-09 03:00:00+02:00",
-        "price": 0.46914,
-      },
-      {
-        "start_time": "2023-12-09 04:00:00+02:00",
-        "price": 0.46914,
-      }
-    ]
-  }
-}
-```
+{% include integrations/actions.md %}
 
 ## Examples
 

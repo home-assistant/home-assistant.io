@@ -1,9 +1,8 @@
 ---
 title: Panasonic Viera
 description: Instructions on how to integrate a Panasonic Viera TV with Home Assistant.
-ha_category:
-  - Media player
-  - Remote
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: 0.17
 ha_iot_class: Local Polling
 ha_domain: panasonic_viera
@@ -140,6 +139,7 @@ The list with all known valid keys can be found [here](https://github.com/floria
 - TX-40DX600
 - TX-40DX700B
 - TX-42AS650
+- TX-48JZ980E
 - TX-49DX650B
 - TX-49FXW654
 - TX-50DX700B
@@ -163,7 +163,7 @@ The list with all known valid keys can be found [here](https://github.com/floria
 - TX-L42ET50
 - TX-L42EW6 (can't power on)
 - TX-L47ET60E (can't power on)
-- TX LF37E30 (can't power on)
+- TX-LF37E30 (can't power on)
 - TX-P42STW50
 - TX-P42VT30E
 - TX-P50GT30Y

@@ -3,12 +3,8 @@ title: Elexa Guardian
 description: Instructions on how to integrate Guardian into Home Assistant.
 ha_iot_class: Local Polling
 ha_release: '0.111'
-ha_category:
-  - Binary sensor
-  - Button
-  - Sensor
-  - Switch
-  - Valve
+ha_categories:
+  - water.meters_leak_detection
 ha_config_flow: true
 ha_codeowners:
   - '@bachya'
@@ -38,35 +34,9 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-## Actions
+{% include integrations/actions.md %}
 
-### Action: Pair sensor
-
-The `guardian.pair_sensor` action adds a new paired sensor to the valve controller.
-
-| Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `uid`                    | yes      | The unique device ID on the bottom of the sensor.|
-
-### Action: Unpair sensor
-
-The `guardian.unpair_sensor` action removes a paired sensor from the valve controller.
-
-| Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `uid`                    | yes      | The unique device ID on the bottom of the sensor.|
-
-### Action: Upgrade firmware
-
-The `guardian.upgrade_firmware` action upgrades the device firmware.
-
-| Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `url`                    | yes      | The URL of the server hosting the firmware file. |
-| `port`                   | yes      | The port on which the firmware file is served.   |
-| `filename`               | yes      | The firmware filename.                           |
-
-{% note %} 
+{% note %}
 Not all actions are available on all Guardian valve controller firmwares.
 Please ensure you upgrade your valve controller to the latest firmware before opening
 bugs related to non-working actions.

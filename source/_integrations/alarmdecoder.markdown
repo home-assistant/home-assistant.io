@@ -1,10 +1,8 @@
 ---
 title: AlarmDecoder
 description: Instructions on how to integrate a DSC/Honeywell alarm panel with Home Assistant using an AlarmDecoder device.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Sensor
+ha_categories:
+  - security_safety.alarm_systems
 ha_release: 0.43
 ha_iot_class: Local Push
 ha_domain: alarmdecoder
@@ -53,7 +51,7 @@ There are currently 3 arming settings for AlarmDecoder (shown below).
 
 ### Zones
 
-Zones can be added, edited, and removed through the option forms.
+To add, edit, or remove a zone, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **AlarmDecoder**, select **Options**, then select **Zones**.
 
 Each {% term zone %} that's added to AlarmDecoder will have its own [binary sensor](/integrations/binary_sensor/) created.
 

@@ -1,8 +1,8 @@
 ---
 title: Splunk
 description: Record events in Splunk.
-ha_category:
-  - History
+ha_categories:
+  - diy_makers.web_data_connectors
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_release: 0.13
@@ -13,7 +13,7 @@ ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_platforms:
   - diagnostics
 ---

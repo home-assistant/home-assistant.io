@@ -1,10 +1,10 @@
 ---
 title: IntesisHome
 description: Instructions how to integrate IntesisHome AC devices with Home Assistant
-ha_category:
-  - Climate
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_release: 0.104
-ha_iot_class: Cloud Push
+ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@jnimmo'
 ha_domain: intesishome

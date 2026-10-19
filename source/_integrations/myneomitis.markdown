@@ -1,14 +1,13 @@
 ---
 title: MyNeomitis
 description: Connect the MyNeomitis devices (radiators, towel rails, relays, underfloor heating) to Home Assistant using the cloud API.
-ha_category:
-  - Climate
-  - Select
+ha_categories:
+  - climate.thermostats_heating
 ha_release: 2026.3
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
-  - '@l-pr'
+  - '@Epyes'
 ha_domain: myneomitis
 ha_platforms:
   - climate

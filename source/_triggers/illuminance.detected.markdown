@@ -60,8 +60,6 @@ This fires 5 minutes after the closet light sensor starts detecting light.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -87,7 +85,8 @@ for:
 
 ## Good to know
 
-- This trigger works with binary sensors that have the **light** device class. The sensor's threshold for what counts as "light detected" is set on the device itself.
+- Use a binary sensor with the light device class.
+- The sensor's threshold for what counts as "light detected" is set on the device itself.
 - For numeric illuminance readings (in lux), use [Illuminance changed](/triggers/illuminance.changed/) or [Illuminance crossed threshold](/triggers/illuminance.crossed_threshold/) instead.
 - Combine **For at least** with a small duration to avoid false triggers from brief light flickers, such as headlights passing a window.
 

@@ -1,10 +1,8 @@
 ---
 title: Kira
 description: Instructions on how to integrate Keene Electronics IR over IP modules (Kira) into Home Assistant.
-ha_category:
-  - Hub
-  - Remote
-  - Sensor
+ha_categories:
+  - buttons_remotes
 ha_release: 0.45
 ha_iot_class: Local Push
 ha_domain: kira
@@ -94,7 +92,7 @@ If no sensors or remotes are specified, a sensor with default values will be add
 
 ### Entities
 
-Restart Home Assistant and you should now have an entity called `kira_remote` (or whatever you called it). To check, go to **Settings** > **Developer tools** > **States** and start to type “kira” within the entity list.
+Restart Home Assistant and you should now have an entity called `kira_remote` (or whatever you called it). To check, go to {% my tools_states title="**Settings** > **Tools** > **States**" %} and start to type “kira” within the entity list.
 
 <p class='img'>
   <img src='/images/integrations/kira/kira_states.png' />
@@ -199,7 +197,7 @@ If the Kira module is to used in conjunction with another module be for IR over 
 
 Note that once you changed the COMPUTER IP you will longer be able to use the Kira utiltiy on your PC to capture IR codes.
 
-Next within Home Assistant go to Developer tools -> States and scroll down the list until you see `sensor.kira_(whatever you called it)`. Aim your remote at the Kira device and press the buttons you stored the code for. If all is well you should see the state change to match the name you gave to the code.
+Next within Home Assistant go to {% my tools_states title="**Settings** > **Tools** > **States**" %} and scroll down the list until you see `sensor.kira_(whatever you called it)`. Aim your remote at the Kira device and press the buttons you stored the code for. If all is well you should see the state change to match the name you gave to the code.
 
 <p class='img'>
   <img src='/images/integrations/kira/kira_sensor_states.png' />

@@ -1,5 +1,5 @@
 ---
-title: Set fan speed
+title: "Set vacuum cleaner fan speed"
 action: vacuum.set_fan_speed
 domain: vacuum
 description: "Sets the fan/power level for cleaning."
@@ -15,7 +15,7 @@ To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
-3. Add an action and search for **Vacuum: Set vacuum cleaner fan speed**.
+3. Add an action and search for **Set vacuum cleaner fan speed**.
 4. Choose the target vacuum, then select or enter the desired fan speed/power.
 5. Save the automation.
 
@@ -34,8 +34,6 @@ This sets `vacuum.cleaner` to `turbo`.
 The `fan_speed` value (label or number) is platform-dependent. Allowed values are typically found in your vacuum's manual or entity attributes.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 target:
@@ -64,8 +62,8 @@ Before the weekday cleaning run starts, this automation sets the vacuum to a str
 
 - **Trigger**: Time: 09:00
 - **Action**: Set fan speed
-- **Target**: Main vacuum
-- **Fan speed**: turbo
+  - **Target**: Main vacuum
+  - **Fan speed**: turbo
 
 {% details "YAML example for increasing vacuum suction before cleaning" %}
 

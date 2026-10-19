@@ -8,7 +8,7 @@ related_conditions:
   - illuminance.is_not_detected
 ---
 
-The **Illuminance** condition passes when a light level reading meets a threshold you define. You can check that the illuminance is above, below, within, or outside a specific range. It works with sensors that have the **illuminance** device class. Use it to only dim a lamp when the room is already bright, only close the blinds when the patio is in direct sun, or only run an evening routine once a room has actually gotten dark.
+The **Illuminance** condition passes when a light level reading meets a threshold you define. You can check that the illuminance is above, below, within, or outside a specific range. The target being checked must be a sensor with the illuminance device class. You can use a number entity with the illuminance device class as the threshold value. Use it to only dim a lamp when the room is already bright, only close the blinds when the patio is in direct sun, or only run an evening routine once a room has actually gotten dark.
 
 {% include conditions/ui_header.md %}
 
@@ -23,7 +23,7 @@ To use **Illuminance** in an automation:
    1. Pick whether the reading must be **Above**, **Below**, **In range**, or **Outside range** of the threshold.
    2. Select **Number** or **Entity**:
       - **Number**: Enter a fixed value in lux, for example `500` for an office level. For **In range** or **Outside range**, enter both a lower and upper bound.
-      - **Entity**: Use a sensor entity or a [number helper](/integrations/input_number/) entity as the threshold.
+      - **Entity**: Use a sensor entity, number entity, or [number helper](/integrations/input_number/) entity as the threshold.
         - If you don't have a number helper, you can create one by selecting **Create a new number helper**.
 7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 8. Under **For at least**, set how long the reading must meet the threshold before the condition passes.
@@ -34,7 +34,7 @@ To use **Illuminance** in an automation:
 {% options_ui %}
 Threshold type:
   description: |
-    The light level the entity has to meet for the condition to pass. **Above** and **Below** are exclusive: a reading equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a reading equal to either bound passes. Choose **Number** to enter a fixed value in lux, or **Entity** to use a sensor or number helper as a dynamic threshold.
+    The light level the entity has to meet for the condition to pass. **Above** and **Below** are exclusive: a reading equal to the threshold does not pass. **In range** includes both bounds: a reading equal to either bound passes. **Outside range** excludes both bounds: a reading equal to either bound does not pass. Choose **Number** to enter a fixed value in lux, or **Entity** to use a sensor, number entity, or number helper as a dynamic threshold.
 Condition passes if:
   description: |
     When multiple entities are targeted, controls how results combine:
@@ -107,8 +107,8 @@ threshold:
 
     - `type: above` (exclusive): Sets a minimum. The reading must be strictly above the threshold to pass. Provide `value` with a `number` key (lux value) or an `entity` key.
     - `type: below` (exclusive): Sets a maximum. The reading must be strictly below the threshold to pass. Provide `value` with a `number` key (lux value) or an `entity` key.
-    - `type: between` (exclusive): Defines a range. The reading must be strictly between both bounds to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
-    - `type: outside` (inclusive): Defines an outside-range. The reading must be at or beyond either bound to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
+    - `type: between` (inclusive): Defines a range. The reading must be between the two bounds, or equal to one of them, to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
+    - `type: outside` (exclusive): Defines an outside-range. The reading must be beyond either bound to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
 
     For the `number` key, use a value in lux. For the `entity` key, use an `input_number`, `number`, or `sensor` entity.
   required: true
@@ -135,9 +135,11 @@ for:
 
 ## Good to know
 
+- The target must be a sensor with the illuminance device class.
 - Illuminance is measured in lux (lx). For reference: a brightly lit office is around 500 lx, indirect daylight is several thousand lx, and direct sunlight can exceed 100,000 lx.
-- This condition works with sensors that have the **illuminance** device class. For binary light/dark sensors, use [Light level is detected](/conditions/illuminance.is_detected/) or [Light level is not detected](/conditions/illuminance.is_not_detected/) instead.
-- Entities that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+- Number entity support applies to threshold values, not to the target being checked. The number entity must use the illuminance device class.
+- For binary light/dark sensors, use [Light level is detected](/conditions/illuminance.is_detected/) or [Light level is not detected](/conditions/illuminance.is_not_detected/) instead.
+{% include conditions/unavailable_targets.md %}
 - When you use a sensor as a dynamic threshold, its value is read at the moment the condition runs. The threshold is not continuously tracked; it is re-evaluated each time the automation runs.
 
 {% include conditions/try_it.md %}

@@ -11,7 +11,7 @@ related_actions:
   - hdmi_cec.volume
 ---
 
-The **Standby** action puts every device on the HDMI-CEC bus that supports it into standby. It sends a single command that your TV, AV receiver, and other connected devices act on together.
+The **HDMI-CEC: Standby** action puts every device on the HDMI-CEC bus that supports it into standby. It sends a single command that your TV, AV receiver, and other connected devices act on together.
 
 This is the natural counterpart to [Power on](/actions/hdmi_cec.power_on/). Use it to switch off your screen and sound system in one step when you leave the room or head to bed.
 
@@ -59,7 +59,8 @@ This action has no additional options in YAML.
 
 When the last person leaves home, put all connected CEC devices into standby.
 
-- **Trigger**: A presence helper switches to away
+- **Trigger**: Zone occupancy cleared
+  - **Zone**: Home (`zone.home`)
 - **Action**: HDMI-CEC: Standby
 
 {% details "YAML example for standby when leaving home" %}
@@ -68,9 +69,9 @@ When the last person leaves home, put all connected CEC devices into standby.
 automation: |
   alias: "Standby when away"
   triggers:
-    - trigger: state
-      entity_id: group.family
-      to: "not_home"
+    - trigger: zone.occupancy_cleared
+      options:
+        zone: zone.home
   actions:
     - action: hdmi_cec.standby
 {% endexample %}

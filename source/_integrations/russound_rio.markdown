@@ -1,8 +1,8 @@
 ---
 title: Russound RIO
 description: Instructions on how to integrate Russound RIO devices into Home Assistant.
-ha_category:
-  - Media player
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_release: 0.49
 ha_iot_class: Local Push
 ha_domain: russound_rio
@@ -54,6 +54,13 @@ Path:
     description: The path of your device if connected by a USB-to-serial adapter. The available devices will be automatically found by Home Assistant and listed for selection.
 Baud Rate:
     description: The speed of the serial bus. The default for Russound RIO is `19200`. The available speeds are `19200`, `38400`, `57600`, `115200` and depends on your controller's configuration.
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Zone source exclusion:
+  description: When enabled, Home Assistant hides sources that are disabled for a zone from the source list for that zone.
 {% endconfiguration_basic %}
 
 ## Data updates
@@ -125,3 +132,7 @@ The Russound RIO integration allows you to browse saved presets from your dashbo
 
 Some older Russound devices have a slight delay before posting a new status to Home Assistant.
 This can be resolved by updating the unit to the latest firmware.
+
+### Some sources are missing from a zone
+
+Russound devices support zone source exclusion, which removes disabled sources from the source list for a specific zone. On some Russound devices, this information is not reported correctly, which can result in sources missing in Home Assistant. To show all sources, turn off **Zone source exclusion** in the integration options.

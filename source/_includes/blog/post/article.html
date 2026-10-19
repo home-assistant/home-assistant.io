@@ -33,7 +33,7 @@
 
   {% if index %}
   <h1>
-    <a href="{{ post.external_url | default: post.url }}"{% if post.external_url %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ post.title }}</a>
+    <a href="{{ post.url }}">{{ post.title }}</a>
   </h1>
   {% else %}
   <h1>{{ page.title }}</h1>
@@ -53,7 +53,7 @@
   {% endunless %}
 
   {% if index and post.external_url %}
-  <a class="crosspost-badge" href="{{ post.external_url }}" target="_blank" rel="noopener">
+  <a class="crosspost-badge" href="{{ post.url }}">
     {% icon "mdi:open-in-new" %} This article is shared from the {{ post.external_source | default: "original site" }}
   </a>
   {% endif %}
@@ -62,14 +62,14 @@
 {% if index %}
   <div class="entry-content clearfix">
     {% if post.external_url and post.og_image %}
-    <a class="crosspost-image" href="{{ post.external_url }}" target="_blank" rel="noopener noreferrer">
+    <a class="crosspost-image" href="{{ post.url }}">
       <img src="{{ post.og_image }}" alt="{{ post.title | escape }}">
     </a>
     {% endif %}
     {% assign blog_post_link = 'href="' | append: post.url | append:"#" %}
     {{ post.excerpt | replace: 'href="#', blog_post_link }}
     {% if post.external_url %}
-      <a class="btn pull-right" href="{{ post.external_url }}" target="_blank" rel="noopener noreferrer">Read on {{ post.external_source | default: "the original site" }} &rarr;</a>
+      <a class="btn pull-right" href="{{ post.url }}">Read on {{ post.external_source | default: "the original site" }} &rarr;</a>
     {% elsif post.content contains site.excerpt_separator %}
       <a class="btn pull-right" href="{{ post.url }}#read-more">{{ site.excerpt_link }}</a>
     {% endif %}

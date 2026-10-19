@@ -2,9 +2,8 @@
 title: Traccar Server
 description: Documentation for the Traccar Server integration.
 ha_release: 2024.2
-ha_category:
-  - Car
-  - Presence detection
+ha_categories:
+  - presence_location.trackers
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: traccar_server
@@ -70,7 +69,7 @@ Attributes:
 
 The Traccar Server integration will create devices for each device registered in the Traccar Server with at least one position update.
 
-These device representations in Home Assistant will have [entities](#entities) associated with them, which you can use in [automations](/docs/automation), [scripts](/docs/scripts), and display on your [dashboard](/dashboards).
+These device representations in Home Assistant will have [entities](#entities) associated with them, which you can use in [automations](/docs/automation), [scripts](/docs/script/), and display on your [dashboard](/dashboards).
 
 ## Entities
 
@@ -86,7 +85,7 @@ For more details about each of these, see the sections below.
 
 The Traccar Server integration will create a [binary_sensor](/integrations/binary_sensor) entity for each device registered in Traccar Server to show the motion reported by the Traccar Server.
 
-This entity is disabled by default.
+This entity is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 {% configuration_basic %}
 Name:
@@ -255,51 +254,12 @@ In this section you will find some example automations that you can use to get s
 
 #### Do something when a device enters a geofence
 
-The allows you to do something when the device "Millennium Falcon" enters the defined geofence.
+This automation allows you to do something when the device "Millennium Falcon" enters the defined geofence.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/traccar_server_device_enter_geofence.yaml" %}
-
-{% details "Show me the YAML!" %}
-
-```yaml
-triggers:
-  - trigger: state
-    entity_id: sensor.millennium_falcon_geofence
-    to: 'Tatooine'
-actions:
-  ...
-```
-
-{% enddetails %}
+{% blueprint_example blueprint="traccar_server/device_enter_geofence.yaml" %}
 
 #### Do something when a device is speeding
 
 The allows you to do something when the device "Millennium Falcon" exceeds a defined speed.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/traccar_server_device_speed_limit.yaml" %}
-
-{% details "Show me the YAML!" %}
-
-```yaml
-triggers:
-  - trigger: numeric_state
-    entity_id: sensor.millennium_falcon_speed
-    above: 1337
-actions:
-  ...
-```
-
-If you want to include the speed in a notification, you can use the `{{ trigger.to_state.state }}` template.
-
-Partial example:
-
-```yaml
-triggers:
-  ...
-actions:
-  - action: notify.notify
-    data:
-      message: "The current speed of the Millennium falcon is {{ trigger.to_state.state }}!"
-```
-
-{% enddetails %}
+{% blueprint_example blueprint="traccar_server/device_speed_limit.yaml" %}

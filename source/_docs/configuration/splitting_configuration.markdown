@@ -14,15 +14,11 @@ If you configure Home Assistant using YAML, your {% term "`configuration.yaml`" 
 Most Home Assistant features are configured through the UI and don't require editing the `configuration.yaml` at all. This page is for you if you use YAML-based configuration and want to keep your files organized.
 {% endnote %}
 
-## Example configuration files for inspiration
-
-First off, several community members have sanitized (read: without API keys/passwords) versions of their configurations available for viewing. You can see a [list of example configuration on GitHub](https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories).
-
-As commenting code doesn't always happen, please read on to learn in detail how configuration files can be structured.
+Read on to learn how configuration files can be structured.
 
 ## How splitting works
 
-The `configuration.yaml` file stays in place when you split it. You move parts of its content into separate files and reference them with `!include`.
+The `configuration.yaml` file stays in place when you split it. You move parts of its content into separate files and reference them with the YAML tag `!include`. Use this tag where YAML expects a value, like the value of a key. The most common use for `!include` is as the value for a top-level key such as `script` or `sensor`.
 
 A fresh `configuration.yaml` includes several entries that should not be removed:
 
@@ -38,7 +34,7 @@ scene: !include scenes.yaml
 
 If you have added customizations or packages, there may also be a `homeassistant:` key. Any `!include` statements under it, such as for `customize:` or `packages:`, should stay nested inside it.
 
-The included file must contain valid YAML for the location where it is included. You do not repeat the parent key inside the included file.
+The included file must contain valid YAML for the location where it is included. Do not repeat the parent key inside the included file, and do not indent the entire included file to match the indentation level in `configuration.yaml`.
 
 For example, if `configuration.yaml` contains:
 
@@ -474,8 +470,6 @@ automation manual: !include_dir_merge_list automations/
 automation ui: !include automations.yaml
 ```
 
-## Example configuration files for inspiration
+## Configuration file examples for inspiration
 
-Several community members have shared versions of their configurations without sensitive information, like API keys and passwords. You can see a [list of example configurations on GitHub](https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories).
-
-[discord]: https://discord.gg/home-assistant
+Several community members have shared versions of their configurations without sensitive information, like API keys and passwords. You can see a [list of example configurations on GitHub](https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories) or look for other examples on the [Home Assistant Discord](https://discord.gg/home-assistant).

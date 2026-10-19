@@ -20,19 +20,63 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Sun: Solar midnight**.
-5. Select **Save**.
+4. From the search box, search for and select **Solar midnight**.
+5. Optionally, set an offset to fire before or after solar midnight:
+   - Under **Offset**, enter how far from solar midnight to fire, such as 30 minutes.
+   - Under **Offset type**, select **Before** or **After**.
+6. Select **Save**.
+
+### Options in the UI
+
+{% options_ui %}
+Offset:
+  description: The length of time from solar midnight when the trigger fires, in days, hours, minutes, and seconds. By default there is no offset, so the trigger fires exactly at solar midnight.
+Offset type:
+  description: |
+    Whether the offset applies before or after solar midnight:
+
+    - **Before**: fires the offset amount before solar midnight. This is the default.
+    - **After**: fires the offset amount after solar midnight.
+{% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
 
-In YAML, refer to this trigger as `sun.solar_midnight`. It has no options:
+In YAML, refer to this trigger as `sun.solar_midnight`. A basic example looks like this:
 
 {% example %}
 trigger: |
   trigger: sun.solar_midnight
 {% endexample %}
 
-This fires every day, the moment the sun reaches its lowest point.
+This fires every day, the moment the sun reaches its lowest point. To fire a fixed amount of time before or after solar midnight, add the `offset` and `offset_type` options:
+
+{% example %}
+trigger: |
+  trigger: sun.solar_midnight
+  options:
+    offset:
+      minutes: 30
+    offset_type: after
+{% endexample %}
+
+This fires 30 minutes after solar midnight every day.
+
+### Options in YAML
+
+{% options_yaml %}
+offset:
+  description: >
+    The length of time from solar midnight when the trigger fires. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format. Combine it with `offset_type` to fire before or after solar midnight.
+  required: false
+  type: time
+  default: "00:00:00"
+offset_type:
+  description: >
+    Whether the offset applies before or after solar midnight. Accepts `before` or `after`.
+  required: false
+  type: string
+  default: before
+{% endoptions_yaml %}
 
 ## Good to know
 

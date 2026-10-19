@@ -9,7 +9,7 @@ related_actions:
 
 Use this action to change the same value on several Z-Wave devices at once using multicast, so all targeted devices receive the message simultaneously. This is handy for keeping a group of devices in sync, for example setting the same level on multiple dimmers at the exact same moment.
 
-Correctly using this action requires advanced knowledge of Z-Wave. It performs minimal validation and passes your input straight to the Z-Wave JS API. For a single device, use the [Set a value](/actions/zwave_js.set_value/) action instead.
+Correctly using this action requires specific knowledge of Z-Wave, such as the value addressing model of a Z-Wave device and the Z-Wave multicast mechanism. The action performs minimal validation and passes your input straight to the Z-Wave JS API. For a single device, use the [Set a value](/actions/zwave_js.set_value/) action instead.
 
 {% include actions/ui_header.md %}
 
@@ -19,7 +19,7 @@ To set a value via multicast from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the list of actions, search for and select **Set a value on multiple devices via multicast**.
+5. From the list of actions, search for and select **Z-Wave: Set a value on multiple devices via multicast**.
 6. Select the Z-Wave entities, devices, or areas to target, then set the **Command class**, **Property**, and **Value**.
 7. Select **Save**.
 

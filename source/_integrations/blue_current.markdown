@@ -1,10 +1,8 @@
 ---
 title: Blue Current
 description: Instructions on how to integrate Blue Current charge points within Home Assistant.
-ha_category:
-  - Car
-  - Sensor
-  - Switch
+ha_categories:
+  - energy.ev_charging
 ha_release: 2024.1
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -52,7 +50,7 @@ The Blue Current integration provides the following sensors:
 - Total power (estimate)
 - Vehicle status
 
-The following sensors are created as well, but disabled by default:
+The following sensors are created as well, but [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity):
 
 - Current phase 1-3
 - offline max usage
@@ -79,18 +77,6 @@ The Blue Current integration provides the following buttons:
 - Reboot
 - Stop charge session
 
-## Actions
-The following actions are provided by the Blue Current integration:
-
-### Action: Start charge session
-
-The `blue_current.start_charge_session` action allows you to start a new charge session. When no charging card ID is provided, no charging card will be used.
-
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `device_id` | no | Charge point device ID |
-| `charging_card_id` | yes | Charging card ID that will be used to start a charge session. |
-
 ## Switch
 
 The Blue Current integration provides the following switches:
@@ -101,3 +87,5 @@ The Blue Current integration provides the following switches:
   - When enabled, visitors can't use the charge point. Only linked charging cards are allowed.
 - Toggle charge point block
   - Enables or disables a charge point.
+ 
+{% include integrations/actions.md %}

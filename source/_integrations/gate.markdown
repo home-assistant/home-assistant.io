@@ -1,8 +1,6 @@
 ---
 title: Gate
 description: Use gate triggers and conditions in Home Assistant automations.
-ha_category:
-  - Automation
 ha_release: 2026.4
 ha_quality_scale: internal
 ha_codeowners:
@@ -39,7 +37,7 @@ If you come home after sunset, this automation turns on the driveway lights as s
 
 - **Trigger**: Gate opened
    - **Target**: Driveway gate
-- **Action**: Light: Turn on light
+- **Action**: Turn on light
 
 {% details "YAML example for driveway lights when the gate opens" %}
 

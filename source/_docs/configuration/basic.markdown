@@ -30,7 +30,7 @@ To change the home information (formerly called general settings) that were defi
      - **Country**
      - **Language**
    - To apply your changes, select **Save**.
-4. To change network-related configuration, such as the network name, go to {% my network title="**Settings** > **System** > **Network**" %}.
+4. To change network-related configuration, such as the network name, Home Assistant URL, or HTTP server settings, go to {% my network title="**Settings** > **System** > **Network**" %}.
 5. Troubleshooting: If any of the settings are grayed out and can't be edited, this is because they are defined in the {% term "`configuration.yaml`" %} file.
    - If you prefer editing the settings in the UI, you have to delete these entries from the {% term "`configuration.yaml`" %} file.
    - For more information about the general settings in YAML, refer to the [Home Assistant Core integration documentation](/integrations/homeassistant/).

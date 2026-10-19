@@ -1,9 +1,8 @@
 ---
 title: Watts Vision +
 description: Instructions on how to set up Watts Vision + smart heating system in Home Assistant.
-ha_category:
-  - Climate
-  - Switch
+ha_categories:
+  - climate.thermostats_heating
 ha_release: '2026.1'
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -132,12 +131,10 @@ This integration enables you to:
 alias: "Eco mode when away"
 description: "Set all thermostats to eco mode when house is empty"
 triggers:
-  - platform: state
-    entity_id: group.family
-    from: "home"
-    to: "not_home"
-    for:
-      minutes: 10
+  - trigger: zone.occupancy_cleared
+    options:
+      zone: zone.home
+      for: "00:10:00"
 actions:
   - action: climate.set_hvac_mode
     target:

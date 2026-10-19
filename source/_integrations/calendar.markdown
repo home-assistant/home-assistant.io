@@ -4,8 +4,6 @@ description: Instructions on how to integrate calendars within Home Assistant.
 ha_release: 0.33
 ha_domain: calendar
 ha_quality_scale: internal
-ha_category:
-  - Calendar
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
@@ -50,24 +48,22 @@ Also see [Actions](#actions) below.
 To display calendar events directly on your dashboards, Home Assistant includes the [calendar card](/dashboards/calendar/).
 The card shows upcoming events from one or more calendar entities and provides a quick, glanceable view of your schedule.
 
-## The state of a calendar entity
+## Calendar states
 
-The state shows whether there is an active event:
+The state shows whether there is an active event. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
 
-- **On**: The calendar has an active event.
-- **Off**: The calendar does not have an active event.
+- **On** (`on`): The calendar has an active event.
+- **Off** (`off`): The calendar does not have an active event.
 
-In addition, the entity can have the following states:
+In addition, the entity can have the following state:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
 
 ## Automation
 
 Calendar [Triggers](/docs/automation/trigger) enable {% term automation %} based on an
-event's start or end. Review the [Automating Home Assistant](/getting-started/automation/)
-getting started guide on automations or the [Automation](/docs/automation/)
-documentation for full details.
+event's start or end. Review the [Tutorial: Create your first automation](/getting-started/automation/)
+or the [Automation](/docs/automation/) documentation for full details.
 
 Calendar {% term triggers %} are the best way to automate based on calendar events.
 A calendar {% term entity %} can also be used to automate based on its state, but these are limited and attributes only represent the next event.
@@ -92,7 +88,7 @@ automation:
 
 Calendar triggers should not generally use automation mode `single` to ensure the trigger can fire when multiple events start at the same time. For example, use `queued` or `parallel` instead. Note that calendars are read once every 15 minutes. When testing, make sure you do not plan events less than 15 minutes away from the current time, or your {% term trigger %} might not fire.
 
-See [Automation Trigger Variables: Calendar](/docs/automation/templating/#calendar) for additional trigger data available for conditions or actions.
+See [Automation Trigger Variables: Calendar](/docs/automation/trigger-data/#calendar-triggers) for additional trigger data available for conditions or actions.
 
 ### Automation recipes
 
@@ -160,8 +156,4 @@ automation:
 
 {% enddetails %}
 
-{% include integrations/actions.md %}
-
-{% include integrations/triggers.md %}
-
-{% include integrations/conditions.md %}
+{% include integrations/triggers_conditions_actions.md %}

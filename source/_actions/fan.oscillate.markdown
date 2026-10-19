@@ -73,8 +73,8 @@ If several people are in the dining room, wider airflow can make the room feel m
 
 - **Trigger**: Time: 18:30
 - **Action**: Oscillate fan
-- **Target**: Dining room fan
-- **Oscillating**: On
+  - **Target**: Dining room fan
+  - **Oscillating**: On
 
 {% details "YAML example for wider airflow at dinner time" %}
 
@@ -100,8 +100,8 @@ If the fan points papers around your desk, you can stop oscillation before a sch
 
 - **Trigger**: Time: 09:00
 - **Action**: Oscillate fan
-- **Target**: Office fan
-- **Oscillating**: Off
+  - **Target**: Office fan
+  - **Oscillating**: Off
 
 {% details "YAML example for steady airflow during a call" %}
 

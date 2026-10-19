@@ -1,10 +1,8 @@
 ---
 title: Transmission
 description: Instructions on how to integrate Transmission within Home Assistant.
-ha_category:
-  - Downloading
-  - Sensor
-  - Switch
+ha_categories:
+  - computers_network.nas_servers
 ha_release: 0.87
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -45,8 +43,8 @@ Username:
   description: "Your Transmission username, if set."
 Password:
   description: "Your Transmission password, if set."
-Verify SSL certificate:
-  description: "Enable SSL certificate verification when connecting via HTTPS."
+Uses an SSL certificate:
+  description: "Connect to the Transmission RPC interface using HTTPS."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -69,6 +67,7 @@ The **Transmission** integration provides the following sensors and switches.
 - The total uploaded data [GB].
 - The current session upload/download ratio.
 - The total upload/download ratio.
+- The available disk space of the download directory [GB].
 
 ### Switches
 
@@ -165,7 +164,7 @@ actions:
 
 ### Attribute `torrent_info`
 
-All `*_torrents` sensors, such as `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents`, have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in {% my developer_states title="**Settings** > **Developer tools** > **States**" %} > `sensor.transmission_total_torrents` > **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
+All `*_torrents` sensors, such as `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents`, have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in {% my tools_states title="**Settings** > **Tools** > **States**" %} > `sensor.transmission_total_torrents` > **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
 
 ```yaml
 content: >
