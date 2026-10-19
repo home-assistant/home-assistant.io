@@ -33,6 +33,7 @@ The integration communicates directly with the device over your local network. N
 - Monitor tank temperatures, heating power, and PV power on your dashboard or in the energy-related cards.
 - Change the hot water target temperature from Home Assistant, for example to store more heat on sunny days.
 - Turn hot water heating on or off, or enable or disable boost mode, from an {% term automation %}, for example when you go on holiday.
+
 ## Supported devices
 
 The following devices are supported by this integration:
@@ -78,7 +79,7 @@ Which entities are created depends on your device model, its firmware, and how i
 
 ### Water heater
 
-When the device is configured for hot water heating and has a temperature sensor connected, a {% term "water heater" %} entity is created. It provides:
+When the device is configured for hot water heating and has a temperature sensor connected, a [water heater](/integrations/water_heater/) entity is created. It provides:
 
 - **Current temperature**: The temperature measured by the first temperature sensor.
 - **Target temperature**: The hot water target temperature. The minimum, maximum, and step size are taken from the device's own configuration.
@@ -122,42 +123,68 @@ The following diagnostic sensors are disabled by default:
 
 ## Examples
 
-### Raise the hot water temperature on sunny afternoons
+Here are a few ideas to get you started. Replace the entity IDs with those of your own devices.
 
-```yaml
-automation:
-  - alias: "Raise hot water temperature on sunny afternoons"
-    triggers:
-      - trigger: time
-        at: "12:00:00"
-    conditions:
-      - condition: state
-        entity_id: weather.home
-        state: "sunny"
-    actions:
-      - action: water_heater.set_temperature
-        target:
-          entity_id: water_heater.my_pv_ac_thor_9s
-        data:
-          temperature: 65
-```
+{% include docs/paste_yaml_tip.md %}
 
-### Turn hot water heating off while you are away
+### Automation: Raise the hot water temperature on sunny afternoons
 
-```yaml
-automation:
-  - alias: "Turn off hot water heating when away"
-    triggers:
-      - trigger: state
-        entity_id: input_boolean.vacation_mode
-        to: "on"
-    actions:
-      - action: water_heater.turn_off
-        target:
-          entity_id: water_heater.my_pv_ac_thor_9s
-```
+On sunny days, there is often more solar power than you need. By raising the target temperature around noon, your hot water tank stores more of that energy as heat. This example uses a weather entity, so you need a weather integration set up in Home Assistant.
 
-Replace the entity IDs with those of your own devices.
+- **Trigger**: Time: at 12:00
+- **Condition**: Entity state: your weather entity is `Sunny`
+- **Action**: Water heater: Set target temperature
+  - **Target**: your my-PV water heater
+  - **Temperature**: 65
+
+The temperature is in the unit your Home Assistant uses. This example assumes Celsius. If your Home Assistant uses Fahrenheit, use 149 instead. Make sure the value is within the temperature range of your device.
+
+{% details "YAML example for raising the hot water temperature on sunny afternoons" %}
+
+{% example %}
+automation: |
+  alias: "Raise hot water temperature on sunny afternoons"
+  triggers:
+    - trigger: time
+      at: "12:00:00"
+  conditions:
+    - condition: state
+      entity_id: weather.home
+      state: "sunny"
+  actions:
+    - action: water_heater.set_temperature
+      target:
+        entity_id: water_heater.my_pv_ac_thor_9s
+      data:
+        temperature: 65
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Turn hot water heating off while you are away
+
+When you go on holiday, there is no need to keep your hot water tank warm. This example uses a toggle {% term helper %} to tell Home Assistant you are away. To create one, go to **Settings** > **Devices & services** > **Helpers**, select **Create helper** > **Toggle**, and name it, for example, `Vacation mode`. Turn the toggle on when you leave.
+
+- **Trigger**: Entity state: `Vacation mode` changes to `On`
+- **Action**: Water heater: Turn off
+  - **Target**: your my-PV water heater
+
+{% details "YAML example for turning off hot water heating while you are away" %}
+
+{% example %}
+automation: |
+  alias: "Turn off hot water heating when away"
+  triggers:
+    - trigger: state
+      entity_id: input_boolean.vacation_mode
+      to: "on"
+  actions:
+    - action: water_heater.turn_off
+      target:
+        entity_id: water_heater.my_pv_ac_thor_9s
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 
