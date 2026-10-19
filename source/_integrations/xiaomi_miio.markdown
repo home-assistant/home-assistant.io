@@ -330,7 +330,15 @@ Depending on the model, air purifiers that don't have their own section on this 
 
 ### Attributes
 
-In addition to the standard fan attributes, the fan entity shows these attributes: `extra_features`, `turbo_mode_supported`, `button_pressed`, `sleep_time`, `sleep_mode_learn_count`, `use_time`, and `sleep_mode`.
+In addition to the standard fan attributes, the fan entity shows these attributes.
+
+- `extra_features`
+- `turbo_mode_supported`
+- `button_pressed`
+- `sleep_time`
+- `sleep_mode_learn_count`
+- `use_time`
+- `sleep_mode`
 
 ### Number entities
 
@@ -365,7 +373,14 @@ Supported model ID: `zhimi.airpurifier.v6`.
 
 #### Attributes
 
-In addition to the standard fan attributes, the fan entity shows these attributes: `extra_features`, `turbo_mode_supported`, `button_pressed`, `use_time`, `sleep_time`, and `sleep_mode_learn_count`.
+In addition to the standard fan attributes, the fan entity shows these attributes.
+
+- `extra_features`
+- `turbo_mode_supported`
+- `button_pressed`
+- `use_time`
+- `sleep_time`
+- `sleep_mode_learn_count`
 
 #### Number entities
 
@@ -402,7 +417,11 @@ Supported model ID: `zhimi.airpurifier.v7`.
 
 #### Attributes
 
-In addition to the standard fan attributes, the fan entity shows these attributes: `extra_features`, `turbo_mode_supported`, and `button_pressed`.
+In addition to the standard fan attributes, the fan entity shows these attributes.
+
+- `extra_features`
+- `turbo_mode_supported`
+- `button_pressed`
 
 #### Number entities
 
@@ -438,7 +457,15 @@ Supported model ID: `zhimi.airpurifier.ma2`.
 
 #### Attributes
 
-In addition to the standard fan attributes, the fan entity shows these attributes: `extra_features`, `turbo_mode_supported`, `button_pressed`, `sleep_time`, `sleep_mode_learn_count`, `use_time`, and `sleep_mode`.
+In addition to the standard fan attributes, the fan entity shows these attributes.
+
+- `extra_features`
+- `turbo_mode_supported`
+- `button_pressed`
+- `sleep_time`
+- `sleep_mode_learn_count`
+- `use_time`
+- `sleep_mode`
 
 #### Number entities
 
@@ -473,7 +500,11 @@ Supported model ID: `zhimi.airpurifier.mc1`.
 
 #### Attributes
 
-In addition to the standard fan attributes, the fan entity shows these attributes: `extra_features`, `turbo_mode_supported`, and `button_pressed`.
+In addition to the standard fan attributes, the fan entity shows these attributes.
+
+- `extra_features`
+- `turbo_mode_supported`
+- `button_pressed`
 
 #### Number entities
 
@@ -656,7 +687,13 @@ Supported model ID: `zhimi.airpurifier.v3`.
 
 #### Attributes
 
-In addition to the standard fan attributes, the fan entity shows these attributes: `sleep_time`, `sleep_mode_learn_count`, `extra_features`, `use_time`, and `button_pressed`.
+In addition to the standard fan attributes, the fan entity shows these attributes.
+
+- `sleep_time`
+- `sleep_mode_learn_count`
+- `extra_features`
+- `use_time`
+- `button_pressed`
 
 #### Sensor entities
 
@@ -766,7 +803,10 @@ Supported model ID: `zhimi.airfresh.va2`.
 
 #### Attributes
 
-In addition to the standard fan attributes, the fan entity shows these attributes: `use_time` and `extra_features`.
+In addition to the standard fan attributes, the fan entity shows these attributes.
+
+- `use_time`
+- `extra_features`
 
 #### Sensor entities
 
@@ -800,7 +840,10 @@ Supported model ID: `zhimi.airfresh.va4`.
 
 #### Attributes
 
-In addition to the standard fan attributes, the fan entity shows these attributes: `use_time` and `extra_features`.
+In addition to the standard fan attributes, the fan entity shows these attributes.
+
+- `use_time`
+- `extra_features`
 
 #### Sensor entities
 
@@ -1553,7 +1596,10 @@ Supported model IDs:
 
 ##### Attributes
 
-In addition to the standard light attributes, the light entity shows these attributes: `scene` and `delayed_turn_off`.
+In addition to the standard light attributes, the light entity shows these attributes.
+
+- `scene`
+- `delayed_turn_off`
 
 #### Philips LED Ceiling Lamp
 
@@ -1572,7 +1618,12 @@ Supported model IDs:
 
 ##### Attributes
 
-In addition to the standard light attributes, the light entity shows these attributes: `scene`, `delayed_turn_off`, `night_light_mode`, and `automatic_color_temperature`.
+In addition to the standard light attributes, the light entity shows these attributes.
+
+- `scene`
+- `delayed_turn_off`
+- `night_light_mode`
+- `automatic_color_temperature`
 
 #### Philips Eyecare Smart Lamp 2
 
@@ -1593,7 +1644,13 @@ This lamp has two light entities: the eyecare light and the ambient light.
 
 ##### Attributes
 
-In addition to the standard light attributes, the eyecare light entity shows these attributes: `scene`, `delayed_turn_off`, `night_light_mode`, `reminder`, and `eyecare_mode`.
+In addition to the standard light attributes, the eyecare light entity shows these attributes.
+
+- `scene`
+- `delayed_turn_off`
+- `night_light_mode`
+- `reminder`
+- `eyecare_mode`
 
 #### Philips Zhirui Desk Lamp
 
@@ -1611,7 +1668,10 @@ Supported model IDs:
 
 ##### Attributes
 
-In addition to the standard light attributes, the light entity shows these attributes: `scene` and `delayed_turn_off`.
+In addition to the standard light attributes, the light entity shows these attributes.
+
+- `scene`
+- `delayed_turn_off`
 
 #### Philips Moonlight Bedside Lamp
 
@@ -1627,7 +1687,14 @@ Supported model ID: `philips.light.moonlight`.
 
 ##### Attributes
 
-In addition to the standard light attributes, the light entity shows these attributes: `scene`, `sleep_assistant`, `sleep_off_time`, `total_assistant_sleep_time`, `band_sleep`, and `band`.
+In addition to the standard light attributes, the light entity shows these attributes.
+
+- `scene`
+- `sleep_assistant`
+- `sleep_off_time`
+- `total_assistant_sleep_time`
+- `band_sleep`
+- `band`
 
 ### Actions
 
@@ -1655,7 +1722,10 @@ Supported model IDs:
 
 ##### Attributes
 
-In addition to the standard switch attributes, the switch entity shows these attributes: `model` and `temperature`.
+In addition to the standard switch attributes, the switch entity shows these attributes.
+
+- `model`
+- `temperature`
 
 #### Xiaomi Chuangmi Plug V1
 
@@ -1672,7 +1742,10 @@ Supported model IDs:
 
 ##### Attributes
 
-In addition to the standard switch attributes, the switch entities show these attributes: `model` and `temperature`.
+In addition to the standard switch attributes, the switch entities show these attributes.
+
+- `model`
+- `temperature`
 
 #### Xiaomi Smart Power Strip
 
@@ -1690,7 +1763,12 @@ Supported model IDs:
 
 ##### Attributes
 
-In addition to the standard switch attributes, the switch entity shows these attributes: `model`, `temperature`, and `load_power`.
+In addition to the standard switch attributes, the switch entity shows these attributes.
+
+- `model`
+- `temperature`
+- `load_power`
+
 On the `qmi.powerstrip.v1`, it also shows the `power_mode` attribute.
 
 #### Xiaomi Air Conditioning Companion V3
@@ -1704,7 +1782,10 @@ The socket of the `lumi.acpartner.v1` and `lumi.acpartner.v2` can't be switched.
 
 ##### Attributes
 
-In addition to the standard switch attributes, the switch entity shows these attributes: `model` and `load_power`.
+In addition to the standard switch attributes, the switch entity shows these attributes.
+
+- `model`
+- `load_power`
 
 ### Actions
 
