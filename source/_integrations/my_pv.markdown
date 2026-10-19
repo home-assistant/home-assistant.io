@@ -56,7 +56,7 @@ If you try to add an unsupported device, setup stops with the message that the d
 ## Prerequisites
 
 - The my-PV device must be connected to the same network as Home Assistant, and you need to know its IP address or hostname if it is not discovered automatically.
-- Depending on the firmware version, your device may require a password. If you have not set a custom password, use the **device key** instead. You can find the device key in the ⓘ info menu of your my-PV device. For the HEA•THOR IoT, the device key is printed on the device label.
+- Depending on the firmware version, your device may require a password. If you have not set a custom password, use the **device key** instead. You can find the device key in the {% icon "mdi:information-outline" %} **Info** menu of your my-PV device. For the HEA•THOR IoT, the device key is printed on the device label.
 
 You can change the password through the web interface of your my-PV device.
 
@@ -97,8 +97,8 @@ When the device is configured for hot water heating and has a temperature sensor
 ### Numbers
 
 - **Boost target temperature**: The temperature the hot water is heated to during boost.
-- **Minimum hysteresis**: The temperature drop at which heating starts again. Disabled by default.
-- **Maximum hysteresis**: The temperature drop at which heating starts again. Disabled by default.
+- **Minimum hysteresis**: How far the temperature has to drop below the target temperature before heating starts again. Disabled by default.
+- **Maximum hysteresis**: How far the temperature has to rise above the target temperature before heating stops. Disabled by default.
 
 ### Buttons
 
@@ -138,6 +138,8 @@ On sunny days, there is often more solar power than you need. By raising the tar
   - **Temperature**: 65
 
 The temperature is in the unit your Home Assistant uses. This example assumes Celsius. If your Home Assistant uses Fahrenheit, use 149 instead. Make sure the value is within the temperature range of your device.
+
+The target temperature stays at the new value until you change it. To go back to your usual temperature, create a second automation that sets it back, for example at 18:00.
 
 {% details "YAML example for raising the hot water temperature on sunny afternoons" %}
 
@@ -186,6 +188,8 @@ automation: |
 
 {% enddetails %}
 
+To turn hot water heating back on when you return, create a second automation that is triggered when `Vacation mode` changes to `Off`, and use the **Water heater: Turn on** action on your my-PV water heater.
+
 ## Data updates
 
 The **my-PV** integration {% term polling polls %} the device every 5 seconds. If the device reports that it is receiving too many requests, the integration keeps the last known values and slows down polling to every 10 seconds.
@@ -206,7 +210,7 @@ The **my-PV** integration {% term polling polls %} the device every 5 seconds. I
 
 ### Authentication fails
 
-- Check that you entered the custom password you set on the device. If no custom password is set, use the device key from the ⓘ info menu or, for the HEA•THOR IoT, from the device label.
+- Check that you entered the custom password you set on the device. If no custom password is set, use the device key from the {% icon "mdi:information-outline" %} **Info** menu or, for the HEA•THOR IoT, from the device label.
 - If you change the password on the device after setup, Home Assistant notifies you that reauthentication is required. Follow the notification under **Settings** > **Devices & services** and enter the new password. All entities and settings are kept.
 
 ### "Too many requests" when changing a setting
