@@ -57,8 +57,8 @@ The climate entity shows the room temperature measured by the thermostat, the ta
 #### Presets
 
 - **Home**: The thermostat follows its weekly program, like the **Auto** HVAC mode.
-- **Away**: The thermostat's anti-freeze mode. The thermostat only heats to keep the room above its anti-freeze temperature, which is set on the thermostat itself (2–15 °C, 7 °C by default).
-- **Boost**: The thermostat's boost mode, the same as Boost in the FENIX Control app.
+- **Away**: The thermostat's Defrost (anti-freeze) mode. The thermostat heats to its Defrost temperature, which can only be set on the thermostat.
+- **Boost**: The thermostat's Boost mode. The thermostat heats to its Boost temperature for a limited time. The Boost temperature can only be set on the thermostat; the duration can be changed in the FENIX Control app.
 
 When the thermostat is in a preset, the HVAC mode shows **Auto**.
 
@@ -80,7 +80,8 @@ If the cloud can't be reached, the thermostats show as unavailable until the nex
 
 - The integration needs the FENIX Control cloud. The thermostats have no local API.
 - Holidays can't be set or canceled from Home Assistant. Use the FENIX Control app.
-- The weekly program and the anti-freeze temperature can't be changed from Home Assistant.
+- The weekly program can't be changed from Home Assistant.
+- Home Assistant can't change the Defrost or Boost temperature or the Boost duration. The target temperature can be set in Heat (manual) mode only.
 - The integration doesn't provide sensor entities.
 
 ## Troubleshooting
