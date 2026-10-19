@@ -122,9 +122,9 @@ If credentials are required but have not been provided, Home Assistant starts a 
 
 ### Gateway features
 
-- Gateway alarm control (Turn on/off; see status `armed_away`, `disarmed`, `arming`)
-- Gateway light control (Turn on/off; change brightness; change color; see status)
-- Gateway illuminance sensor readout (illuminance value in lux)
+- **Alarm**: Arms or disarms the gateway alarm, and shows whether it is armed away, disarmed, or arming.
+- **Light**: Turns the gateway light on or off, and sets its brightness and color.
+- **Illuminance**: Shows the illuminance measured by the gateway, in lux.
 
 Not yet implemented features (but possible):
 
@@ -133,74 +133,74 @@ Not yet implemented features (but possible):
 
 ### Supported subdevices
 
-These subdevices are fully implemented in Home Assistant:
+Home Assistant supports these subdevices:
 
 - **Weather sensor (WSDCGQ01LM)**
   - Zigbee ID: `lumi.sensor_ht`
-  - Features: readout `temperature` and `humidity`
+  - Features: Temperature and humidity sensors
 - **Weather sensor (WSDCGQ11LM)**
   - Zigbee ID: `lumi.weather.v1`
-  - Features: readout `temperature`, `humidity` and `pressure`
+  - Features: Temperature, humidity, and pressure sensors
 - **Wall switch single (QBKG11LM)**
   - Zigbee ID: `lumi.ctrl_ln1`
-  - Features: load_power, status, turn_on, turn_off, toggle
+  - Features: On/off control and load power sensor
 - **Wall switch single (QBKG11LM)**
   - Zigbee ID: `lumi.ctrl_ln1.aq1`
-  - Features: load_power, status, turn_on, turn_off, toggle
+  - Features: On/off control and load power sensor
 - **Wall switch no neutral (QBKG04LM)**
   - Zigbee ID: `lumi.ctrl_neutral1.v1`
-  - Features: status, turn_on, turn_off, toggle
+  - Features: On/off control
 - **Wall switch double (QBKG12LM)**
   - Zigbee ID: `lumi.ctrl_ln2`
-  - Features: load_power, status, turn_on, turn_off, toggle
+  - Features: On/off control and load power sensor
 - **Wall switch double (QBKG12LM)**
   - Zigbee ID: `lumi.ctrl_ln2.aq1`
-  - Features: load_power, status, turn_on, turn_off, toggle
+  - Features: On/off control and load power sensor
 - **Wall switch double no neutral (QBKG03LM)**
   - Zigbee ID: `lumi.ctrl_neutral2`
-  - Features: status, turn_on, turn_off, toggle
+  - Features: On/off control
 - **D1 wall switch triple (QBKG26LM)**
   - Zigbee ID: `lumi.switch.n3acn3`
-  - Features: load_power, status, turn_on, turn_off, toggle
+  - Features: On/off control and load power sensor
 - **D1 wall switch triple no neutral (QBKG25LM)**
   - Zigbee ID: `lumi.switch.l3acn3`
-  - Features: load_power, status, turn_on, turn_off, toggle
+  - Features: On/off control and load power sensor
 - **Wall outlet (QBCZ11LM)**
   - Zigbee ID: `lumi.ctrl_86plug.v1`
-  - Features: status, turn_on, turn_off, toggle
+  - Features: On/off control
 - **Wall outlet (QBCZ11LM)**
   - Zigbee ID: `lumi.ctrl_86plug.aq1`
-  - Features: load_power, status, turn_on, turn_off, toggle
+  - Features: On/off control and load power sensor
 - **Plug (ZNCZ02LM)**
   - Zigbee ID: `lumi.plug`
-  - Features: load_power, status, turn_on, turn_off, toggle
+  - Features: On/off control and load power sensor
 - **Relay (LLKZMK11LM)**
   - Zigbee ID: `lumi.relay.c2acn01`
-  - Features: load_power, status, turn_on, turn_off, toggle
+  - Features: On/off control and load power sensor
 - **Smart bulb E27 (ZNLDP12LM)**
   - Zigbee ID: `lumi.light.aqcn02`
-  - Features: on/off, brightness, color temperature
+  - Features: On/off, brightness, and color temperature control
 - **IKEA smart bulb E27 white (LED1545G12)**
   - Zigbee ID: `ikea.light.led1545g12`
-  - Features: on/off, brightness, color temperature
+  - Features: On/off, brightness, and color temperature control
 - **IKEA smart bulb E27 white (LED1546G12)**
   - Zigbee ID: `ikea.light.led1546g12`
-  - Features: on/off, brightness, color temperature
+  - Features: On/off, brightness, and color temperature control
 - **IKEA smart bulb E12 white (LED1536G5)**
   - Zigbee ID: `ikea.light.led1536g5`
-  - Features: on/off, brightness, color temperature
+  - Features: On/off, brightness, and color temperature control
 - **IKEA smart bulb GU10 white (LED1537R6)**
   - Zigbee ID: `ikea.light.led1537r6`
-  - Features: on/off, brightness, color temperature
+  - Features: On/off, brightness, and color temperature control
 - **IKEA smart bulb E27 white (LED1623G12)**
   - Zigbee ID: `ikea.light.led1623g12`
-  - Features: on/off, brightness, color temperature
+  - Features: On/off, brightness, and color temperature control
 - **IKEA smart bulb GU10 white (LED1650R5)**
   - Zigbee ID: `ikea.light.led1650r5`
-  - Features: on/off, brightness, color temperature
+  - Features: On/off, brightness, and color temperature control
 - **IKEA smart bulb E12 white (LED1649C5)**
   - Zigbee ID: `ikea.light.led1649c5`
-  - Features: on/off, brightness, color temperature
+  - Features: On/off, brightness, and color temperature control
 
 ### Recognized but unsupported subdevices
 
@@ -321,183 +321,180 @@ The following list shows each device name and model ID.
 - **Standing Fan 2 Pro**: `dmaker.fan.p33`
 - **Standing Fan 3**: `zhimi.fan.za5`
 
-- Power (on, off)
-- Operation modes (Auto, Silent, Favorite, Idle)
-- Attributes (fan platform)
-  - `sleep_time`
-  - `sleep_mode_learn_count`
-  - `extra_features`
-  - `turbo_mode_supported`
-  - `use_time`
-  - `button_pressed`
-  - `sleep_mode`
+Air purifier models that don't have their own section on this page provide the following controls and entities.
+
+### Controls
+
+- Turn the air purifier on or off.
+- Select a preset mode: Auto, Silent, Favorite, or Idle.
+
+### Attributes
+
+In addition to the standard fan attributes, the fan entity shows these attributes: `extra_features`, `turbo_mode_supported`, `button_pressed`, `sleep_time`, `sleep_mode_learn_count`, `use_time`, and `sleep_mode`.
 
 ### Number entities
 
-- **Favorite Level**: Set the favorite level.
+- **Favorite level**: Sets the fan level used in Favorite mode.
 
 ### Sensor entities
 
-- **Filter Life Remaining**: The remaining life of the filter. Enabled by default.
-- **Filter Use**: Filter usage time in hours. Enabled by default.
-- **Humidity**: The current humidity measured. Enabled by default.
-- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-- **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
-- **Temperature**: The current temperature measured. Enabled by default.
-- **Use Time**: The accumulative number of seconds the device has been in use. [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+- **Filter life remaining**: Shows the remaining filter life, as a percentage. Enabled by default.
+- **Filter use**: Shows how long the filter has been in use, in hours. Enabled by default.
+- **Humidity**: Shows the measured humidity. Enabled by default.
+- **Motor speed**: Shows the current motor speed, in rpm. Enabled by default.
+- **PM2.5**: Shows the measured PM2.5 concentration. Enabled by default.
+- **Purify volume**: Shows the total volume of purified air, in cubic meters. Disabled by default.
+- **Temperature**: Shows the measured temperature. Enabled by default.
+- **Use time**: Shows the total device usage time. [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 ### Switch entities
 
-- **Buzzer**: Turn on/off the buzzer.
-- **Child Lock**: Turn on/off the child lock.
-- **Learn Mode**: Turn on/off the learn mode.
-- **LED**: Turn on/off the LED.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
+- **Learn mode**: Turns learn mode on or off.
+- **LED**: Turns the LED on or off.
 
 ### Air Purifier Pro
 
 Supported model ID: `zhimi.airpurifier.v6`.
 
-- Power (on, off)
-- Operation modes (Auto, Silent, Favorite)
-- Attributes (fan platform)
-  - `sleep_time`
-  - `sleep_mode_learn_count`
-  - `extra_features`
-  - `turbo_mode_supported`
-  - `use_time`
-  - `button_pressed`
+#### Controls
+
+- Turn the air purifier on or off.
+- Select a preset mode: Auto, Silent, or Favorite.
+
+#### Attributes
+
+In addition to the standard fan attributes, the fan entity shows these attributes: `extra_features`, `turbo_mode_supported`, `button_pressed`, `use_time`, `sleep_time`, and `sleep_mode_learn_count`.
 
 #### Number entities
 
-- **Favorite Level**: Set the favorite level.
-- **Volume**: Set the volume.
+- **Favorite level**: Sets the fan level used in Favorite mode.
+- **Volume**: Sets the device volume.
 
 #### Sensor entities
 
-- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
-- **Filter Use**: Filter usage time in hours. Enabled by default.
-- **Humidity**: The current humidity measured. Enabled by default.
-- **Illuminance**: The current illuminance measured. Enabled by default.
-- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-- **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
-- **Second Motor Speed**: The current second motor speed measured in rpm. Enabled by default.
-- **Temperature**: The current temperature measured. Enabled by default.
-- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+- **Filter life remaining**: Shows the remaining filter life, as a percentage. Enabled by default.
+- **Filter use**: Shows how long the filter has been in use, in hours. Enabled by default.
+- **Humidity**: Shows the measured humidity. Enabled by default.
+- **Illuminance**: Shows the measured light level. Enabled by default.
+- **Motor speed**: Shows the current motor speed, in rpm. Enabled by default.
+- **PM2.5**: Shows the measured PM2.5 concentration. Enabled by default.
+- **Purify volume**: Shows the total volume of purified air, in cubic meters. Disabled by default.
+- **Second motor speed**: Shows the current speed of the second motor, in rpm. Enabled by default.
+- **Temperature**: Shows the measured temperature. Enabled by default.
+- **Use time**: Shows the total device usage time. Disabled by default.
 
 #### Switch entities
 
-- **Child Lock**: Turn on/off the child lock.
-- **Learn Mode**: Turn on/off the learn mode.
-- **LED**: Turn on/off the LED.
+- **Child lock**: Turns the child lock on or off.
+- **Learn mode**: Turns learn mode on or off.
+- **LED**: Turns the LED on or off.
 
 ### Air Purifier Pro V7
 
 Supported model ID: `zhimi.airpurifier.v7`.
 
-- Power (on, off)
-- Operation modes (Auto, Silent, Favorite)
-- Attributes (fan platform)
-  - `extra_features`
-  - `turbo_mode_supported`
-  - `button_pressed`
+#### Controls
+
+- Turn the air purifier on or off.
+- Select a preset mode: Auto, Silent, or Favorite.
+
+#### Attributes
+
+In addition to the standard fan attributes, the fan entity shows these attributes: `extra_features`, `turbo_mode_supported`, and `button_pressed`.
 
 #### Number entities
 
-- **Favorite Level**: Set the favorite level.
-- **Volume**: Set the volume.
+- **Favorite level**: Sets the fan level used in Favorite mode.
+- **Volume**: Sets the device volume.
 
 #### Sensor entities
 
-- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
-- **Filter Use**: Filter usage time in hours. Enabled by default.
-- **Humidity**: The current humidity measured. Enabled by default.
-- **Illuminance**: The current illuminance measured. Enabled by default.
-- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-- **Second Motor Speed**: The current second motor speed measured in rpm. Enabled by default.
-- **Temperature**: The current temperature measured. Enabled by default.
-- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+- **Filter life remaining**: Shows the remaining filter life, as a percentage. Enabled by default.
+- **Filter use**: Shows how long the filter has been in use, in hours. Enabled by default.
+- **Humidity**: Shows the measured humidity. Enabled by default.
+- **Illuminance**: Shows the measured light level. Enabled by default.
+- **Motor speed**: Shows the current motor speed, in rpm. Enabled by default.
+- **PM2.5**: Shows the measured PM2.5 concentration. Enabled by default.
+- **Second motor speed**: Shows the current speed of the second motor, in rpm. Enabled by default.
+- **Temperature**: Shows the measured temperature. Enabled by default.
+- **Use time**: Shows the total device usage time. Disabled by default.
 
 #### Switch entities
 
-- **Child Lock**: Turn on/off the child lock.
-- **Learn Mode**: Turn on/off the learn mode.
-- **LED**: Turn on/off the LED.
+- **Child lock**: Turns the child lock on or off.
+- **Learn mode**: Turns learn mode on or off.
+- **LED**: Turns the LED on or off.
 
 ### Air Purifier MA2
 
 Supported model ID: `zhimi.airpurifier.ma2`.
 
-- Power (on, off)
-- Operation modes (Auto, Silent, Favorite, Idle)
-- Attributes (fan platform)
-  - `extra_features`
-  - `turbo_mode_supported`
-  - `button_pressed`
-  - `preset_modes`
-  - `preset_mode`
-  - `sleep_time`
-  - `sleep_mode_learn_count`
-  - `use_time`
-  - `sleep_mode`
-  - `friendly_name`
-  - `supported_features`
+#### Controls
+
+- Turn the air purifier on or off.
+- Select a preset mode: Auto, Silent, Favorite, or Idle.
+
+#### Attributes
+
+In addition to the standard fan attributes, the fan entity shows these attributes: `extra_features`, `turbo_mode_supported`, `button_pressed`, `sleep_time`, `sleep_mode_learn_count`, `use_time`, and `sleep_mode`.
 
 #### Number entities
 
-- **Favorite Level**: Set the favorite level.
+- **Favorite level**: Sets the fan level used in Favorite mode.
 
 #### Sensor entities
 
-- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
-- **Filter Use**: Filter usage time in hours. Enabled by default.
-- **Humidity**: The current humidity measured. Enabled by default.
-- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-- **Temperature**: The current temperature measured. Enabled by default.
-- **Illuminance**: The current illuminance measured on top of the device (0-200 lux). Enabled by default.
-- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+- **Filter life remaining**: Shows the remaining filter life, as a percentage. Enabled by default.
+- **Filter use**: Shows how long the filter has been in use, in hours. Enabled by default.
+- **Humidity**: Shows the measured humidity. Enabled by default.
+- **Motor speed**: Shows the current motor speed, in rpm. Enabled by default.
+- **PM2.5**: Shows the measured PM2.5 concentration. Enabled by default.
+- **Temperature**: Shows the measured temperature. Enabled by default.
+- **Illuminance**: Shows the light level measured on top of the device. Enabled by default.
+- **Use time**: Shows the total device usage time. Disabled by default.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off the buzzer.
-- **Child Lock**: Turn on/off the child lock.
-- **Learn Mode**: Turn on/off the learn mode.
-- **LED**: Turn on/off the LED.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
+- **Learn mode**: Turns learn mode on or off.
+- **LED**: Turns the LED on or off.
 
 ### Air Purifier 2S
 
 Supported model ID: `zhimi.airpurifier.mc1`.
 
-- Power (on, off)
-- Operation modes (Auto, Silent, Favorite)
-- Attributes (fan platform)
-  - `extra_features`
-  - `turbo_mode_supported`
-  - `button_pressed`
+#### Controls
+
+- Turn the air purifier on or off.
+- Select a preset mode: Auto, Silent, or Favorite.
+
+#### Attributes
+
+In addition to the standard fan attributes, the fan entity shows these attributes: `extra_features`, `turbo_mode_supported`, and `button_pressed`.
 
 #### Number entities
 
-- **Favorite Level**: Set the favorite level.
+- **Favorite level**: Sets the fan level used in Favorite mode.
 
 #### Sensor entities
 
-- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
-- **Filter Use**: Filter usage time in hours. Enabled by default.
-- **Humidity**: The current humidity measured. Enabled by default.
-- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-- **Temperature**: The current temperature measured. Enabled by default.
-- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+- **Filter life remaining**: Shows the remaining filter life, as a percentage. Enabled by default.
+- **Filter use**: Shows how long the filter has been in use, in hours. Enabled by default.
+- **Humidity**: Shows the measured humidity. Enabled by default.
+- **Motor speed**: Shows the current motor speed, in rpm. Enabled by default.
+- **PM2.5**: Shows the measured PM2.5 concentration. Enabled by default.
+- **Temperature**: Shows the measured temperature. Enabled by default.
+- **Use time**: Shows the total device usage time. Disabled by default.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off the buzzer.
-- **Child Lock**: Turn on/off the child lock.
-- **Learn Mode**: Turn on/off the learn mode.
-- **LED**: Turn on/off the LED.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
+- **Learn mode**: Turns learn mode on or off.
+- **LED**: Turns the LED on or off.
 
 ### Air Purifier 3 and 3H (2019)
 
@@ -506,37 +503,41 @@ Supported model IDs:
 - `zhimi.airpurifier.ma4`
 - `zhimi.airpurifier.mb3`
 
-This model uses newer MiOT communication protocol.
+These models use the newer MiOT communication protocol.
 
-- Power (on, off)
-- Operation modes (Auto, Silent, Favorite, Fan)
-- Attributes (fan platform)
-  - `use_time`
+#### Controls
+
+- Turn the air purifier on or off.
+- Select a preset mode: Auto, Silent, Favorite, or Fan.
+
+#### Attributes
+
+In addition to the standard fan attributes, the fan entity shows the `use_time` attribute.
 
 #### Number entities
 
-- **Fan Level**: Set the fan level.
-- **Favorite Level**: Set the favorite level.
+- **Fan level**: Sets the fan level used in Fan mode, from 1 to 3.
+- **Favorite level**: Sets the fan level used in Favorite mode.
 
 #### Select entities
 
-- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
+- **LED brightness**: Sets the brightness of the LEDs: Bright, Dim, or Off.
 
 #### Sensor entities
 
-- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
-- **Filter Use**: Filter usage time in hours. Enabled by default.
-- **Humidity**: The current humidity measured. Enabled by default.
-- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-- **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
-- **Temperature**: The current temperature measured. Enabled by default.
-- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+- **Filter life remaining**: Shows the remaining filter life, as a percentage. Enabled by default.
+- **Filter use**: Shows how long the filter has been in use, in hours. Enabled by default.
+- **Humidity**: Shows the measured humidity. Enabled by default.
+- **Motor speed**: Shows the current motor speed, in rpm. Enabled by default.
+- **PM2.5**: Shows the measured PM2.5 concentration. Enabled by default.
+- **Purify volume**: Shows the total volume of purified air, in cubic meters. Disabled by default.
+- **Temperature**: Shows the measured temperature. Enabled by default.
+- **Use time**: Shows the total device usage time. Disabled by default.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off the buzzer.
-- **Child Lock**: Turn on/off the child lock.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
 
 ### Air Purifier Pro H and Pro H EU
 
@@ -545,37 +546,39 @@ Supported model IDs:
 - `zhimi.airpurifier.va1`
 - `zhimi.airpurifier.vb2`
 
-Supported features:
+#### Controls
 
-- Power (on, off)
-- Operation modes (Auto, Silent, Favorite, Fan)
-- Attributes (fan platform)
-  - `use_time`
+- Turn the air purifier on or off.
+- Select a preset mode: Auto, Silent, Favorite, or Fan.
+
+#### Attributes
+
+In addition to the standard fan attributes, the fan entity shows the `use_time` attribute.
 
 #### Number entities
 
-- **Fan Level**: Set the fan level.
-- **Favorite Level**: Set the favorite level.
+- **Fan level**: Sets the fan level used in Fan mode, from 1 to 3.
+- **Favorite level**: Sets the fan level used in Favorite mode.
 
 #### Select entities
 
-- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
+- **LED brightness**: Sets the brightness of the LEDs: Bright, Dim, or Off.
 
 #### Sensor entities
 
-- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
-- **Filter Use**: Filter usage time in hours. Enabled by default.
-- **Humidity**: The current humidity measured. Enabled by default.
-- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-- **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
-- **Temperature**: The current temperature measured. Enabled by default.
-- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+- **Filter life remaining**: Shows the remaining filter life, as a percentage. Enabled by default.
+- **Filter use**: Shows how long the filter has been in use, in hours. Enabled by default.
+- **Humidity**: Shows the measured humidity. Enabled by default.
+- **Motor speed**: Shows the current motor speed, in rpm. Enabled by default.
+- **PM2.5**: Shows the measured PM2.5 concentration. Enabled by default.
+- **Purify volume**: Shows the total volume of purified air, in cubic meters. Disabled by default.
+- **Temperature**: Shows the measured temperature. Enabled by default.
+- **Use time**: Shows the total device usage time. Disabled by default.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off the buzzer.
-- **Child Lock**: Turn on/off the child lock.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
 
 ### Air Purifier 3C
 
@@ -584,87 +587,93 @@ Supported model IDs:
 - `zhimi.airpurifier.mb4`
 - `zhimi.airp.mb4a`
 
-Supported features:
+#### Controls
 
-- Power (on, off)
-- Operation modes (Auto, Silent, Favorite)
+- Turn the air purifier on or off.
+- Select a preset mode: Auto, Silent, or Favorite.
 
 #### Number entities
 
-- **Favorite Motor Speed**: Set the favorite motor speed.
-- **LED Brightness**: Set the LED brightness.
+- **Favorite motor speed**: Sets the motor speed used in Favorite mode, in rpm.
+- **LED brightness**: Sets the brightness of the display.
 
 #### Sensor entities
 
-- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
-- **Filter Use**: Filter usage time in hours. Enabled by default.
-- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+- **Filter life remaining**: Shows the remaining filter life, as a percentage. Enabled by default.
+- **Filter use**: Shows how long the filter has been in use, in hours. Enabled by default.
+- **Motor speed**: Shows the current motor speed, in rpm. Enabled by default.
+- **PM2.5**: Shows the measured PM2.5 concentration. Enabled by default.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off the buzzer.
-- **Child Lock**: Turn on/off the child lock.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
 
 ### Air Purifier ZA1
 
 Supported model ID: `zhimi.airpurifier.za1`.
 
-- Power (on, off)
-- Operation modes (Auto, Silent, Favorite)
+#### Controls
+
+- Turn the air purifier on or off.
+- Select a preset mode: Auto, Silent, or Favorite.
+
+#### Attributes
+
+In addition to the standard fan attributes, the fan entity shows the `use_time` attribute.
 
 #### Number entities
 
-- **Favorite Level**: Set the favorite level.
+- **Favorite level**: Sets the fan level used in Favorite mode.
 
 #### Sensor entities
 
-- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
-- **Filter Use**: Filter usage time in hours. Enabled by default.
-- **Humidity**: The current humidity measured. Enabled by default.
-- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-- **Temperature**: The current temperature measured. Enabled by default.
-- **TVOC**: The current concentration of Total Organic Volatile Components. Enabled by default.
+- **Filter life remaining**: Shows the remaining filter life, as a percentage. Enabled by default.
+- **Filter use**: Shows how long the filter has been in use, in hours. Enabled by default.
+- **Humidity**: Shows the measured humidity. Enabled by default.
+- **Motor speed**: Shows the current motor speed, in rpm. Enabled by default.
+- **PM2.5**: Shows the measured PM2.5 concentration. Enabled by default.
+- **Temperature**: Shows the measured temperature. Enabled by default.
+- **TVOC**: Shows the measured concentration of total volatile organic compounds (TVOC). Enabled by default.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off the buzzer.
-- **Child Lock**: Turn on/off the child lock.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
 
 #### Select entities
 
-- **LED Brightness**: Controls the brightness of the Display (bright, dim, off).
+- **LED brightness**: Sets the brightness of the display: Bright, Dim, or Off.
 
 ### Air Purifier V3
 
 Supported model ID: `zhimi.airpurifier.v3`.
 
-- Power (on, off)
-- Operation modes (Auto, Silent, Favorite, Idle, Medium, High, Strong)
-- Attributes (fan platform)
-  - `sleep_time`
-  - `sleep_mode_learn_count`
-  - `extra_features`
-  - `use_time`
-  - `button_pressed`
+#### Controls
+
+- Turn the air purifier on or off.
+- Select a preset mode: Auto, Silent, Favorite, Idle, Medium, High, or Strong.
+
+#### Attributes
+
+In addition to the standard fan attributes, the fan entity shows these attributes: `sleep_time`, `sleep_mode_learn_count`, `extra_features`, `use_time`, and `button_pressed`.
 
 #### Sensor entities
 
-- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
-- **Filter Use**: Filter usage time in hours. Enabled by default.
-- **Illuminance**: The current illuminance measured. Enabled by default.
-- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-- **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
-- **Second Motor Speed**: The current second motor speed measured in rpm. Enabled by default.
-- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+- **Filter life remaining**: Shows the remaining filter life, as a percentage. Enabled by default.
+- **Filter use**: Shows how long the filter has been in use, in hours. Enabled by default.
+- **Illuminance**: Shows the measured light level. Enabled by default.
+- **Motor speed**: Shows the current motor speed, in rpm. Enabled by default.
+- **PM2.5**: Shows the measured PM2.5 concentration. Enabled by default.
+- **Purify volume**: Shows the total volume of purified air, in cubic meters. Disabled by default.
+- **Second motor speed**: Shows the current speed of the second motor, in rpm. Enabled by default.
+- **Use time**: Shows the total device usage time. Disabled by default.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off the buzzer.
-- **Child Lock**: Turn on/off the child lock.
-- **LED**: Turn on/off the LED.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
+- **LED**: Turns the LED on or off.
 
 ### Air Purifier 4 and 4 Pro
 
@@ -673,324 +682,321 @@ Supported model IDs:
 - `zhimi.airp.mb5`
 - `zhimi.airp.vb4`
 
-These models use newer MiOT communication protocol.
+These models use the newer MiOT communication protocol.
 
-- Power (on, off)
-- Operation modes (Auto, Silent, Favorite, Fan)
-- Attributes (fan platform)
+#### Controls
+
+- Turn the air purifier on or off.
+- Select a preset mode: Auto, Silent, Favorite, or Fan.
+
+#### Attributes
+
+In addition to the standard fan attributes, the fan entity shows the `use_time` attribute.
 
 #### Number entities
 
-- **Fan Level**: Set the fan level.
-- **Favorite Level**: Set the favorite level.
+- **Fan level**: Sets the fan level used in Fan mode, from 1 to 3.
+- **Favorite level**: Sets the fan level used in Favorite mode.
 
 #### Select entities
 
-- **LED Brightness**: Controls the brightness of the Display (bright, dim, off).
+- **LED brightness**: Sets the brightness of the display: Bright, Dim, or Off.
 
 #### Sensor entities
 
-- **Filter Life Remaining**: The remaining lifetime of the filter in %. Enabled by default.
-- **Filter Lifetime Remaining**: The remaining lifetime of the filter in days. Enabled by default.
-- **Filter Use**: Filter usage time in hours. Enabled by default.
-- **Humidity**: The current humidity measured. Enabled by default.
-- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-- **PM10**: The current particulate matter 10 measured (4 PRO only). Enabled by default.
-- **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
-- **Temperature**: The current temperature measured. Enabled by default.
+- **Filter life remaining**: Shows the remaining filter life, as a percentage. Enabled by default.
+- **Filter lifetime remaining**: Shows the remaining filter life, in days. Enabled by default.
+- **Filter use**: Shows how long the filter has been in use, in hours. Enabled by default.
+- **Humidity**: Shows the measured humidity. Enabled by default.
+- **Motor speed**: Shows the current motor speed, in rpm. Enabled by default.
+- **PM2.5**: Shows the measured PM2.5 concentration. Enabled by default.
+- **PM10**: Shows the measured PM10 concentration. Available on the Air Purifier 4 Pro only. Enabled by default.
+- **Purify volume**: Shows the total volume of purified air, in cubic meters. Disabled by default.
+- **Temperature**: Shows the measured temperature. Enabled by default.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off the buzzer.
-- **Child Lock**: Turn on/off the child lock.
-- **Ionizer**: Turn on/off the negative ion generator.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
+- **Ionizer**: Turns the negative ion generator on or off.
 
 ### Air Fresh A1
 
 Supported model ID: `dmaker.airfresh.a1`.
 
-- Power (on, off)
-- Operation modes (Auto, Sleep, Favorite)
+#### Controls
+
+- Turn the device on or off.
+- Select a preset mode: Auto, Sleep, or Favorite.
 
 #### Binary sensor entities
 
-- **Auxiliary Heat Status**: Indicates if the heater is actually on.
+- **Auxiliary heat status**: Shows whether the heater is currently on.
 
 #### Button entities
 
-- **Reset Dust Filter**: Resets filter life and usage of the dust filter.
+- **Reset dust filter**: Resets the remaining life and usage of the dust filter.
 
 #### Sensor entities
 
-- **Carbon Dioxide**: The current carbon dioxide in ppm.
-- **Dust filter life remaining**: The remaining lifetime of the filter.
-- **Dust filter lifetime remaining days**: The remaining lifetime of the filter in day.
-- **PM2.5**: The current particulate matter 2.5.
-- **Temperature**: The current outside temperature.
-- **Control Speed**: The current motor speed in rpm.
-- **Favorite Speed**: The favorite motor speed in rpm.
+- **Carbon dioxide**: Shows the measured carbon dioxide concentration, in ppm. Enabled by default.
+- **Dust filter life remaining**: Shows the remaining dust filter life, as a percentage. Enabled by default.
+- **Dust filter lifetime remaining days**: Shows the remaining dust filter life, in days. Enabled by default.
+- **PM2.5**: Shows the measured PM2.5 concentration. Enabled by default.
+- **Temperature**: Shows the measured outdoor temperature. Enabled by default.
+- **Control speed**: Shows the current motor speed, in rpm. Enabled by default.
+- **Favorite speed**: Shows the motor speed used in Favorite mode, in rpm. Enabled by default.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off `buzzer`.
-- **Child Lock**: Turn on/off `child lock`.
-- **Display**: Turn on/off `display`.
-- **Auxiliary Heat**: Turn on/off `heater`.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
+- **Display**: Turns the display on or off.
+- **Auxiliary heat**: Turns the heater on or off.
 
 ### Air Fresh VA2
 
 Supported model ID: `zhimi.airfresh.va2`.
 
-- Power (on, off)
-- Operation modes (Auto, Interval)
-- Attributes (fan platform)
-  - `use_time`
-  - `extra_features`
+#### Controls
+
+- Turn the device on or off.
+- Select a preset mode: Auto or Interval.
+- Set the fan speed.
+
+#### Attributes
+
+In addition to the standard fan attributes, the fan entity shows these attributes: `use_time` and `extra_features`.
 
 #### Sensor entities
 
-- **Carbon Dioxide**: The current carbon dioxide measured in ppm. Enabled by default.
-- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
-- **Filter Use**: Filter usage time in hours. Enabled by default.
-- **Humidity**: The current humidity measured. Enabled by default.
-- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-- **Temperature**: The current temperature measured. Enabled by default.
-- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+- **Carbon dioxide**: Shows the measured carbon dioxide concentration, in ppm. Enabled by default.
+- **Filter life remaining**: Shows the remaining filter life, as a percentage. Enabled by default.
+- **Filter use**: Shows how long the filter has been in use, in hours. Enabled by default.
+- **Humidity**: Shows the measured humidity. Enabled by default.
+- **PM2.5**: Shows the measured PM2.5 concentration. Enabled by default.
+- **Temperature**: Shows the measured temperature. Enabled by default.
+- **Use time**: Shows the total device usage time. Disabled by default.
 
 #### Select entities
 
-- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
+- **LED brightness**: Sets the brightness of the LEDs: Bright, Dim, or Off.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off `buzzer`.
-- **Child Lock**: Turn on/off `child lock`.
-- **LED**: Turn on/off `led`.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
+- **LED**: Turns the LED on or off.
 
 ### Air Fresh VA4
 
 Supported model ID: `zhimi.airfresh.va4`.
 
-- Power (on, off)
-- Operation modes (Auto, Interval)
-- Attributes (fan platform)
-  - `use_time`
-  - `extra_features`
+#### Controls
+
+- Turn the device on or off.
+- Select a preset mode: Auto or Interval.
+- Set the fan speed.
+
+#### Attributes
+
+In addition to the standard fan attributes, the fan entity shows these attributes: `use_time` and `extra_features`.
 
 #### Sensor entities
 
-- **Carbon Dioxide**: The current carbon dioxide measured in ppm. Enabled by default.
-- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
-- **Filter Use**: Filter usage time in hours. Enabled by default.
-- **Humidity**: The current humidity measured. Enabled by default.
-- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-- **Temperature**: The current temperature measured. Enabled by default.
-- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+- **Carbon dioxide**: Shows the measured carbon dioxide concentration, in ppm. Enabled by default.
+- **Filter life remaining**: Shows the remaining filter life, as a percentage. Enabled by default.
+- **Filter use**: Shows how long the filter has been in use, in hours. Enabled by default.
+- **Humidity**: Shows the measured humidity. Enabled by default.
+- **PM2.5**: Shows the measured PM2.5 concentration. Enabled by default.
+- **Temperature**: Shows the measured temperature. Enabled by default.
+- **Use time**: Shows the total device usage time. Disabled by default.
 
 #### Select entities
 
-- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
+- **LED brightness**: Sets the brightness of the LEDs: Bright, Dim, or Off.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off `buzzer`.
-- **Child Lock**: Turn on/off `child lock`.
-- **LED**: Turn on/off `led`.
-- **Auxiliary Heat**: Turn on/off `heater`.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
+- **LED**: Turns the LED on or off.
+- **Auxiliary heat**: Turns the heater on or off.
 
 ### Air Fresh T2017
 
 Supported model ID: `dmaker.airfresh.t2017`.
 
-- Power (on, off)
-- Operation modes (Auto, Sleep, Favorite)
+#### Controls
+
+- Turn the device on or off.
+- Select a preset mode: Auto, Sleep, or Favorite.
 
 #### Binary sensor entities
 
-- **Auxiliary Heat Status**: Indicates if the heater is actually on
+- **Auxiliary heat status**: Shows whether the heater is currently on.
 
 #### Button entities
 
-- **Reset Dust Filter**: Resets filter lifetime and usage of the dust filter
-- **Reset Upper Filter**: Resets filter lifetime and usage of the upper filter
+- **Reset dust filter**: Resets the remaining life and usage of the dust filter.
+- **Reset upper filter**: Resets the remaining life and usage of the upper filter.
 
 #### Select entities
 
-- **Auxiliary Heat Level**: Controls the level of the heater (Low, Medium, High)
-- **Display Orientation**: Controls the orientation of the display (Forward, Left, Right)
+- **Auxiliary heat level**: Sets the heater level: Low, Medium, or High.
+- **Display orientation**: Sets the orientation of the display: Forward, Left, or Right.
 
 #### Sensor entities
 
-- **Carbon Dioxide**: The current carbon dioxide in ppm
-- **Dust filter life remaining**: The remaining lifetime of the dust filter
-- **Dust filter lifetime remaining days**: The remaining lifetime of the dust filter in days
-- **Upper filter life remaining**: The remaining lifetime of the upper filter
-- **Upper filter lifetime remaining days**: The remaining lifetime of the upper filter in days
-- **PM2.5**: The current particulate matter 2.5
-- **Temperature**: The current outside temperature
-- **Control Speed**: The current motor speed in rpm
-- **Favorite Speed**: The favorite motor speed in rpm
+- **Carbon dioxide**: Shows the measured carbon dioxide concentration, in ppm. Enabled by default.
+- **Dust filter life remaining**: Shows the remaining dust filter life, as a percentage. Enabled by default.
+- **Dust filter lifetime remaining days**: Shows the remaining dust filter life, in days. Enabled by default.
+- **Upper filter life remaining**: Shows the remaining upper filter life, as a percentage. Enabled by default.
+- **Upper filter lifetime remaining days**: Shows the remaining upper filter life, in days. Enabled by default.
+- **PM2.5**: Shows the measured PM2.5 concentration. Enabled by default.
+- **Temperature**: Shows the measured outdoor temperature. Enabled by default.
+- **Control speed**: Shows the current motor speed, in rpm. Enabled by default.
+- **Favorite speed**: Shows the motor speed used in Favorite mode, in rpm. Enabled by default.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off `buzzer`.
-- **Child Lock**: Turn on/off `child lock`.
-- **Display**: Turn on/off `display`.
-- **Auxiliary Heat**: Turn on/off `heater`.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
+- **Display**: Turns the display on or off.
+- **Auxiliary heat**: Turns the heater on or off.
 
 ### Air Humidifier
 
 Supported model ID: `zhimi.humidifier.v1`.
 
-- On, Off
-- Operation modes (Silent, Medium, High, Strong)
-- Target humidity (30, 40, 50, 60, 70, 80)
-- Attributes (humidifier platform)
+#### Controls
 
-- **`available_modes`**: A list with the operation modes available.
-- **`humidity`**: The current target humidity.
-- **`max_humidity`**: The maximum settable target humidity.
-- **`min_humidity`**: The minimum settable target humidity.
-- **`mode`**: The current operation mode selected.
+- Turn the humidifier on or off.
+- Select a mode: Silent, Medium, High, or Strong.
+- Set the target humidity from 30% to 80%, in steps of 10%.
 
 #### Binary sensor entities
 
-- **Water Tank**: Indicates whether the water tank is connected or not.
+- **Water tank**: Shows whether the water tank is attached.
 
 #### Select entities
 
-- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
+- **LED brightness**: Sets the brightness of the LEDs: Bright, Dim, or Off.
 
 #### Sensor entities
 
-- **Humidity**: The current humidity measured. Enabled by default.
-- **Temperature**: The current temperature measured. Enabled by default.
-- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
-- **Water Level**: The current water level percentage measured. Enabled by default.
+- **Humidity**: Shows the measured humidity. Enabled by default.
+- **Temperature**: Shows the measured temperature. Enabled by default.
+- **Use time**: Shows the total device usage time. Disabled by default.
+- **Water level**: Shows the water level in the tank, as a percentage. Enabled by default.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off the buzzer.
-- **Child Lock**: Turn on/off the child lock.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
 
-### Air Humidifier CA
+### Air Humidifier CA1
 
 Supported model ID: `zhimi.humidifier.ca1`.
 
-- On, Off
-- Operation modes (Silent, Medium, High, Auto)
-- Target humidity (30, 40, 50, 60, 70, 80)
-- Attributes (humidifier platform)
+#### Controls
 
-- **`available_modes`**: A list with the operation modes available.
-- **`humidity`**: The current target humidity.
-- **`max_humidity`**: The maximum settable target humidity.
-- **`min_humidity`**: The minimum settable target humidity.
-- **`mode`**: The current operation mode selected.
+- Turn the humidifier on or off.
+- Select a mode: Silent, Medium, High, or Auto.
+- Set the target humidity from 30% to 80%, in steps of 10%.
 
 #### Binary sensor entities
 
-- **Water Tank**: Indicates whether the water tank is connected or not.
+- **Water tank**: Shows whether the water tank is attached.
 
 #### Select entities
 
-- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
+- **LED brightness**: Sets the brightness of the LEDs: Bright, Dim, or Off.
 
 #### Sensor entities
 
-- **Humidity**: The current humidity measured. Enabled by default.
-- **Temperature**: The current temperature measured. Enabled by default.
-- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
-- **Water Level**: The current water level percentage measured. Enabled by default.
+- **Humidity**: Shows the measured humidity. Enabled by default.
+- **Temperature**: Shows the measured temperature. Enabled by default.
+- **Use time**: Shows the total device usage time. Disabled by default.
+- **Water level**: Shows the water level in the tank, as a percentage. Enabled by default.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off the buzzer.
-- **Child Lock**: Turn on/off the child lock.
-- **Dry Mode**: Turn on/off the dry mode.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
+- **Dry mode**: Turns dry mode on or off.
 
-### Air Humidifier CA
+### Air Humidifier CA4
 
 Supported model ID: `zhimi.humidifier.ca4`.
 
-- On, Off
-- Operation modes (Auto, Low, Medium, High)
-- Target humidity (30 - 80)
-- Attributes (humidifier platform)
+#### Controls
 
-- **`available_modes`**: A list with the operation modes available.
-- **`humidity`**: The current target humidity.
-- **`max_humidity`**: The maximum settable target humidity.
-- **`min_humidity`**: The minimum settable target humidity.
-- **`mode`**: The current operation mode selected.
+- Turn the humidifier on or off.
+- Select a mode: Auto, Low, Medium, or High.
+- Set the target humidity from 30% to 80%.
 
 #### Binary sensor entities
 
-- **Water Tank**: Indicates whether the water tank is connected or not.
+- **Water tank**: Shows whether the water tank is attached.
 
 #### Number entities
 
-- **Motor Speed**: Set the motor speed.
+- **Motor speed**: Sets the motor speed, in rpm.
 
 #### Select entities
 
-- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
+- **LED brightness**: Sets the brightness of the LEDs: Bright, Dim, or Off.
 
 #### Sensor entities
 
-- **Actual Speed**: The current motor speed measured in rpm. Enabled by default.
-- **Humidity**: The current humidity measured. Enabled by default.
-- **Temperature**: The current temperature measured. Enabled by default.
-- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
-- **Water Level**: The current water level percentage measured. Enabled by default.
+- **Actual speed**: Shows the current motor speed, in rpm. Enabled by default.
+- **Humidity**: Shows the measured humidity. Enabled by default.
+- **Temperature**: Shows the measured temperature. Enabled by default.
+- **Use time**: Shows the total device usage time. Disabled by default.
+- **Water level**: Shows the water level in the tank, as a percentage. Enabled by default.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off the buzzer.
-- **Child Lock**: Turn on/off the child lock.
-- **Clean Mode**: Turn on/off the clean mode.
-- **Dry Mode**: Turn on/off the dry mode.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
+- **Clean mode**: Turns clean mode on or off.
+- **Dry mode**: Turns dry mode on or off.
 
 {% note %}
-Clean mode and Motor speed can only be set when the device is turned on.
+You can only change **Clean mode** and **Motor speed** while the humidifier is on.
 {% endnote %}
 
-### Air Humidifier CB
+### Air Humidifier CB1
 
 Supported model ID: `zhimi.humidifier.cb1`.
 
-- On, Off
-- Operation modes (Silent, Medium, High, Auto)
-- Target humidity (30, 40, 50, 60, 70, 80)
-- Attributes (humidifier platform)
+#### Controls
 
-- **`available_modes`**: A list with the operation modes available.
-- **`humidity`**: The current target humidity.
-- **`max_humidity`**: The maximum settable target humidity.
-- **`min_humidity`**: The minimum settable target humidity.
-- **`mode`**: The current operation mode selected.
+- Turn the humidifier on or off.
+- Select a mode: Silent, Medium, High, or Auto.
+- Set the target humidity from 30% to 80%, in steps of 10%.
 
 #### Binary sensor entities
 
-- **Water Tank**: Indicates whether the water tank is connected or not.
+- **Water tank**: Shows whether the water tank is attached.
 
 #### Select entities
 
-- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
+- **LED brightness**: Sets the brightness of the LEDs: Bright, Dim, or Off.
 
 #### Sensor entities
 
-- **Humidity**: The current humidity measured. Enabled by default.
-- **Temperature**: The current temperature measured. Enabled by default.
-- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
-- **Water Level**: The current water level percentage measured. Enabled by default.
+- **Humidity**: Shows the measured humidity. Enabled by default.
+- **Temperature**: Shows the measured temperature. Enabled by default.
+- **Use time**: Shows the total device usage time. Disabled by default.
+- **Water level**: Shows the water level in the tank, as a percentage. Enabled by default.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off the buzzer.
-- **Child Lock**: Turn on/off the child lock.
-- **Dry Mode**: Turn on/off the dry mode.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
+- **Dry mode**: Turns dry mode on or off.
 
 ### Air Humidifier JSQ, JSQ1, and MJJSQ
 
@@ -1000,53 +1006,48 @@ Supported model IDs:
 - `deerma.humidifier.jsq1`
 - `deerma.humidifier.mjjsq`
 
-Supported features:
+#### Controls
 
-- On, Off
-- Operation modes (low, medium, high, humidity)
-- Target humidity (30 - 80)
-- Attributes (humidifier platform)
-
-- **`available_modes`**: A list with the operation modes available.
-- **`humidity`**: The current target humidity.
-- **`max_humidity`**: The maximum settable target humidity.
-- **`min_humidity`**: The minimum settable target humidity.
-- **`mode`**: The current operation mode selected.
+- Turn the humidifier on or off.
+- Select a mode: Low, Medium, High, or Humidity.
+- Set the target humidity from 30% to 80%.
 
 #### Binary sensor entities
 
-- **Water Tank**: Indicates whether the water tank is connected or not.
-- **Water Tank Empty**: Indicates whether the water tank is empty or not.
+- **Water tank**: Shows whether the water tank is attached.
+- **Water tank empty**: Shows whether the water tank is empty.
 
 #### Sensor entities
 
-- **Humidity**: The current humidity measured. Enabled by default.
-- **Temperature**: The current temperature measured. Enabled by default.
-- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+- **Humidity**: Shows the measured humidity. Enabled by default.
+- **Temperature**: Shows the measured temperature. Enabled by default.
+- **Use time**: Shows the total device usage time. Disabled by default.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off the buzzer.
-- **LED**: Turn on/off the LED.
+- **Buzzer**: Turns the buzzer on or off.
+- **LED**: Turns the LED on or off.
 
 ### Standing Fan 1X
 
 Supported model ID: `dmaker.fan.p5`.
 
-- Power (on, off)
-- Operation modes (Normal, Nature)
-- Oscillation (on, off)
+#### Controls
+
+- Turn the fan on or off.
+- Select a preset mode: Normal or Nature.
+- Turn oscillation on or off.
 
 #### Number entities
 
-- **Delay Off Countdown**: Set the delay off countdown in minutes.
-- **Oscillation Angle**: Set the oscillation angle in degrees.
+- **Delay off countdown**: Sets a timer, in minutes, after which the fan turns off.
+- **Oscillation angle**: Sets the oscillation angle, in degrees.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off `buzzer`.
-- **Child Lock**: Turn on/off `child lock`.
-- **LED**: Turn on/off `led`.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
+- **LED**: Turns the LED on or off.
 
 ### Standing Fan
 
@@ -1057,25 +1058,25 @@ Supported model IDs:
 - `zhimi.fan.za4`
 - `zhimi.fan.sa1`
 
-Supported features:
+#### Controls
 
-- Power (on, off)
-- Operation modes (Normal, Nature)
-- Oscillation (on, off)
+- Turn the fan on or off.
+- Select a preset mode: Normal or Nature.
+- Turn oscillation on or off.
 
 #### Number entities
 
-- **Delay Off Countdown**: Set the delay off countdown in minutes.
-- **Oscillation Angle**: Set the oscillation angle in degrees.
+- **Delay off countdown**: Sets a timer, in minutes, after which the fan turns off.
+- **Oscillation angle**: Sets the oscillation angle, in degrees.
 
 #### Select entities
 
-- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
+- **LED brightness**: Sets the brightness of the LEDs: Bright, Dim, or Off.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off `buzzer`.
-- **Child Lock**: Turn on/off `child lock`.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
 
 ### DC Pedestal Fan
 
@@ -1084,49 +1085,51 @@ Supported model IDs:
 - `zhimi.fan.v2`
 - `zhimi.fan.v3`
 
-Supported features:
+#### Controls
 
-- Power (on, off)
-- Operation modes (Normal, Nature)
-- Oscillation (on, off)
+- Turn the fan on or off.
+- Select a preset mode: Normal or Nature.
+- Turn oscillation on or off.
 
 #### Number entities
 
-- **Delay Off Countdown**: Set the delay off countdown in minutes.
-- **Oscillation Angle**: Set the oscillation angle in degrees.
+- **Delay off countdown**: Sets a timer, in minutes, after which the fan turns off.
+- **Oscillation angle**: Sets the oscillation angle, in degrees.
 
 #### Select entities
 
-- **LED Brightness**: Controls the brightness of the LEDs (bright, dim, off).
+- **LED brightness**: Sets the brightness of the LEDs: Bright, Dim, or Off.
 
 #### Sensor entities
 
-- **Battery**: The current battery level in percentage.
-- **Humidity**: The current humidity measured.
-- **Temperature**: The current temperature measured.
+- **Battery**: Shows the battery level, as a percentage. Enabled by default.
+- **Humidity**: Shows the measured humidity. Enabled by default.
+- **Temperature**: Shows the measured temperature. Enabled by default.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off `buzzer`.
-- **Child Lock**: Turn on/off `child lock`.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
 
 ### Standing Fan 1C
 
 Supported model ID: `dmaker.fan.1c`.
 
-- Power (on, off)
-- Operation modes (Normal, Nature)
-- Oscillation (on, off)
+#### Controls
+
+- Turn the fan on or off.
+- Select a preset mode: Normal or Nature.
+- Turn oscillation on or off.
 
 #### Number entities
 
-- **Delay Off Countdown**: Set the delay off countdown in minutes.
+- **Delay off countdown**: Sets a timer, in minutes, after which the fan turns off.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off the Buzzer.
-- **Child Lock**: Turn on/off the Child Lock.
-- **LED**: Turn on/off the LED.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
+- **LED**: Turns the LED on or off.
 
 ### Tower Fan/Standing Fan 2/Standing Fan 2 Pro/Standing Fan Pro
 
@@ -1138,51 +1141,53 @@ Supported model IDs:
 - `dmaker.fan.p18`
 - `dmaker.fan.p33`
 
-Supported features:
+#### Controls
 
-- Power (on, off)
-- Operation modes (Normal, Nature)
-- Oscillation (on, off)
+- Turn the fan on or off.
+- Select a preset mode: Normal or Nature.
+- Turn oscillation on or off.
 
 #### Number entities
 
-- **Delay Off Countdown**: Set the delay off countdown in minutes.
-- **Oscillation Angle**: Set the oscillation angle in degrees.
+- **Delay off countdown**: Sets a timer, in minutes, after which the fan turns off.
+- **Oscillation angle**: Sets the oscillation angle, in degrees.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off the Buzzer.
-- **Child Lock**: Turn on/off the Child Lock.
-- **LED**: Turn on/off the LED.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
+- **LED**: Turns the LED on or off.
 
 ### Standing Fan 3
 
 Supported model ID: `zhimi.fan.za5`.
 
-- Power (on, off)
-- Operation modes (Normal, Nature)
-- Oscillation (on, off)
+#### Controls
+
+- Turn the fan on or off.
+- Select a preset mode: Normal or Nature.
+- Turn oscillation on or off.
 
 #### Binary sensor entities
 
-- **Power Supply**: Indicates whether the power supply is connected or not.
+- **Power supply**: Shows whether the power supply is connected.
 
 #### Number entities
 
-- **Delay Off Countdown**: Set the delay off countdown in minutes.
-- **LED Brightness**: Set the LED brightness.
-- **Oscillation Angle**: Set the oscillation angle in degrees.
+- **Delay off countdown**: Sets a timer, in minutes, after which the fan turns off.
+- **LED brightness**: Sets the brightness of the LEDs.
+- **Oscillation angle**: Sets the oscillation angle, in degrees.
 
 #### Sensor entities
 
-- **Humidity**: The current humidity measured.
-- **Temperature**: The current temperature measured.
+- **Humidity**: Shows the measured humidity. Enabled by default.
+- **Temperature**: Shows the measured temperature. Enabled by default.
 
 #### Switch entities
 
-- **Buzzer**: Turn on/off the Buzzer.
-- **Child Lock**: Turn on/off the Child Lock.
-- **Ionizer**: Turn on/off the Ionizer.
+- **Buzzer**: Turns the buzzer on or off.
+- **Child lock**: Turns the child lock on or off.
+- **Ionizer**: Turns the ionizer on or off.
 
 ### Actions
 
@@ -1192,21 +1197,12 @@ The integration also adds Xiaomi-specific actions for air purifiers, such as **F
 
 ## Xiaomi Air Quality Monitor
 
-The `xiaomi_miio` Air Quality Monitor is observing your Xiaomi Mi Air Quality Monitor (PM2.5) and reporting the air quality index and other values.
+Home Assistant shows the air quality measured by your Xiaomi Mi Air Quality Monitor (PM2.5).
 
-Currently, the supported features are:
-
-- Air Quality Index (AQI)
-- Particulate matter 2.5
-- Attributes
-  - power
-  - charging
-  - battery_level
-  - display_clock
-  - carbon_dioxide_equivalent
-  - total_volatile_organic_compounds
-  - temperature
-  - humidity
+- **Air quality**: A sensor entity that shows the air quality index (AQI).
+  Its attributes show the power state, charging state, battery level, display clock, night mode and its schedule, and sensor state.
+- **Air quality entity**: Shows the PM2.5 concentration.
+  Depending on the model, its attributes also show the carbon dioxide equivalent, total volatile organic compounds, temperature, and humidity.
 
 ## Xiaomi IR Remote
 
@@ -1404,59 +1400,47 @@ Currently supported actions are:
 
 In addition to all of the actions provided by the [vacuum](/integrations/vacuum/) integration (`start`, `pause`, `stop`, `return_to_base`, `locate`, `set_fan_speed`, and `send_command`), this integration adds Xiaomi-specific actions to clean zones and segments, send the robot to a coordinate, and remote control the robot. For the full list, see [Actions](#list-of-actions).
 
-### Buttons
+### Button entities
 
-- **Reset Main Brush**: Resets main brush remaining lifespan.
-- **Reset Side Brush**: Resets side brush remaining lifespan.
-- **Reset Filter**: Resets filter remaining lifespan.
-- **Reset Sensor Dirty**: Resets sensor dirtiness (remaining time before needs to be cleaned).
+- **Reset main brush**: Resets the remaining life of the main brush.
+- **Reset side brush**: Resets the remaining life of the side brush.
+- **Reset filter**: Resets the remaining life of the filter.
+- **Reset sensor dirty**: Resets the remaining time until the sensors need cleaning.
 
-### Sensors
+### Sensor entities
 
-{% configuration_basic %}
-Battery:
-  description: The current battery charge in percent.
-DnD Start:
-  description: The timestamp when the next DnD (Do not disturb) period will start. Needs to be manually enabled once the integration has been added.
-DnD End:
-  description: The timestamp when the current or next DnD (Do not disturb) period will end. Needs to be manually enabled once the integration has been added.
-Total duration:
-  description: The total cleaning duration in seconds. Needs to be manually enabled once the integration has been added.
-Total Clean Area:
-  description: The total cleaning area in square meters. Needs to be manually enabled once the integration has been added.
-Total Clean Count:
-  description: The total amount of times a clean cycle has been ran. Needs to be manually enabled once the integration has been added.
-Total Dust Collection Count:
-  description: The total number of dust collections. Needs to be manually enabled once the integration has been added.
-Filter Remaining:
-  description: How long the filter can be used in seconds
-Main Brush Remaining:
-  description: How long the main brush can be used in seconds
-Sensor Dirty Remaining:
-  description: How long the sensor can be used in seconds
-Current Clean Duration:
-  description: The current cleaning time of the vacuum. If the vacuum is not cleaning, this sensor will have the same value as the "Last Clean Duration" sensor.
-Current Clean Area:
-  description: The current area that has been cleaned. If the vacuum is not cleaning, this sensor will have the same value as the "Last Clean Area" sensor.
-Last Clean Area:
-  description: The last cleaned area in square meters
-Last Clean Duration:
-  description: The last clean duration in seconds
-Last Clean End:
-  description: The last clean end time as a timestamp
-Last Clean Start:
-  description: The last clean start time as a timestamp
-Mop Attached:
-  description: If the mop is attached. Only enabled if the vacuum has a mop.
-Water Box Attached:
-  description: If the water box is attached. Only enabled if the vacuum has a mop.
-Water Shortage:
-  description: If the water box is low on water. Only enabled if the vacuum has a mop.
-{% endconfiguration_basic %}
+- **Battery**: Shows the battery level, in percent. Enabled by default.
+- **Current clean area**: Shows the area cleaned during the current cleaning run, in square meters. When the vacuum is not cleaning, shows the same value as **Last clean area**. Enabled by default.
+- **Current clean duration**: Shows the duration of the current cleaning run. When the vacuum is not cleaning, shows the same value as **Last clean duration**. Enabled by default.
+- **DnD start**: Shows when the next Do Not Disturb period starts. Disabled by default.
+- **DnD end**: Shows when the current or next Do Not Disturb period ends. Disabled by default.
+- **Filter remaining**: Shows the remaining filter life. Enabled by default.
+- **Last clean area**: Shows the area cleaned during the last cleaning run, in square meters. Enabled by default.
+- **Last clean duration**: Shows the duration of the last cleaning run. Enabled by default.
+- **Last clean end**: Shows when the last cleaning run ended. Enabled by default.
+- **Last clean start**: Shows when the last cleaning run started. Enabled by default.
+- **Main brush remaining**: Shows the remaining main brush life. Enabled by default.
+- **Sensor dirty remaining**: Shows the remaining time until the sensors need cleaning. Enabled by default.
+- **Total clean area**: Shows the total area cleaned, in square meters. Disabled by default.
+- **Total clean count**: Shows the total number of cleaning runs. Disabled by default.
+- **Total duration**: Shows the total cleaning time. Disabled by default.
+- **Total dust collection count**: Shows the total number of dust collections. Disabled by default.
+
+### Binary sensor entities
+
+Binary sensor entities are only available for vacuums with a mop.
+
+- **Mop attached**: Shows whether the water box is attached. Enabled by default.
+  On models with a separate mop, a second **Mop attached** entity shows whether the mop is attached.
+- **Water shortage**: Shows whether the water box is low on water. Enabled by default.
 
 ### Attributes
 
-In addition to the attributes provided by [the `vacuum` integration](/integrations/vacuum/#attributes), the vacuum entity shows the `status`, `error`, and `timers` attributes.
+In addition to the standard [vacuum](/integrations/vacuum/) attributes, the vacuum entity shows these attributes:
+
+- `status`: The current status reported by the vacuum.
+- `error`: The current error, if the vacuum reports one.
+- `timers`: The cleaning timers set on the vacuum, if any.
 
 ### Example on how to clean a specific room
 
@@ -1559,16 +1543,17 @@ Supported model IDs:
 - `philips.light.candle2`
 - `philips.light.downlight`
 
-Supported features:
+##### Controls
 
-- Power (on, off)
-- Brightness
-- Color temperature (175...333 mireds)
-- Scene (1, 2, 3, 4)
-- Delayed turn off (Resolution in seconds)
-- Attributes
-  - scene
-  - delayed_turn_off
+- Turn the light on or off.
+- Set the brightness.
+- Set the color temperature from about 3000 K to 5700 K.
+- Select a fixed scene: 1, 2, 3, or 4.
+- Turn the light off after a delay, in seconds.
+
+##### Attributes
+
+In addition to the standard light attributes, the light entity shows these attributes: `scene` and `delayed_turn_off`.
 
 #### Philips LED Ceiling Lamp
 
@@ -1577,67 +1562,69 @@ Supported model IDs:
 - `philips.light.ceiling`
 - `philips.light.zyceiling`
 
-Supported features:
+##### Controls
 
-- Power (on, off)
-- Brightness
-- Color temperature (175...370 mireds)
-- Scene (1, 2, 3, 4)
-- Night light mode (on, off)
-- Delayed turn off (Resolution in seconds)
-- Attributes
-  - scene
-  - delayed_turn_off
-  - night_light_mode
-  - automatic_color_temperature
+- Turn the light on or off.
+- Set the brightness.
+- Set the color temperature from about 2700 K to 5700 K.
+- Select a fixed scene: 1, 2, 3, or 4.
+- Turn the light off after a delay, in seconds.
+
+##### Attributes
+
+In addition to the standard light attributes, the light entity shows these attributes: `scene`, `delayed_turn_off`, `night_light_mode`, and `automatic_color_temperature`.
 
 #### Philips Eyecare Smart Lamp 2
 
-Supported model ID: `philips.light.sread1`
+Supported model ID: `philips.light.sread1`.
 
-- Eyecare light (on, off)
-- Ambient light (on, off)
-- Brightness (of each light)
-- Scene (1, 2, 3, 4)
-- Night light mode (on, off)
-- Delayed turn off (Resolution in seconds)
-- Eye fatigue reminder / notification (on, off)
-- Eyecare mode (on, off)
-- Attributes
-  - scene
-  - delayed_turn_off
-  - night_light_mode
-  - reminder
-  - eyecare_mode
+This lamp has two light entities: the eyecare light and the ambient light.
+
+##### Controls
+
+- Turn the eyecare light on or off.
+- Turn the ambient light on or off.
+- Set the brightness of each light.
+- Select a fixed scene: 1, 2, 3, or 4.
+- Turn night light mode on or off.
+- Turn the eyecare light off after a delay, in seconds.
+- Turn the eye fatigue reminder on or off.
+- Turn eyecare mode on or off.
+
+##### Attributes
+
+In addition to the standard light attributes, the eyecare light entity shows these attributes: `scene`, `delayed_turn_off`, `night_light_mode`, `reminder`, and `eyecare_mode`.
 
 #### Philips Zhirui Desk Lamp
 
-Supported model ID: `philips.light.mono1`
+Supported model ID: `philips.light.mono1`.
 
-- Power (on, off)
-- Brightness
-- Scene (1, 2, 3, 4)
-- Delayed turn off (Resolution in seconds)
-- Attributes
-  - scene
-  - delayed_turn_off
+##### Controls
+
+- Turn the light on or off.
+- Set the brightness.
+- Select a fixed scene: 1, 2, 3, or 4.
+- Turn the light off after a delay, in seconds.
+
+##### Attributes
+
+In addition to the standard light attributes, the light entity shows these attributes: `scene` and `delayed_turn_off`.
 
 #### Philips Moonlight Bedside Lamp
 
-Supported model ID: `philips.light.moonlight`
+Supported model ID: `philips.light.moonlight`.
 
-- Power (on, off)
-- Brightness
-- Color
-- Color temperature (153...588 mireds)
-- Scene (1, 2, 3, 4, 5, 6)
-- Attributes
-  - scene
-  - sleep_assistant
-  - sleep_off_time
-  - total_assistant_sleep_time
-  - band_sleep
-  - band
+##### Controls
+
+- Turn the light on or off.
+- Set the brightness.
+- Set the color.
+- Set the color temperature from about 1700 K to 6500 K.
+- Select a fixed scene: 1, 2, 3, 4, 5, or 6.
+
+##### Attributes
+
+In addition to the standard light attributes, the light entity shows these attributes: `scene`, `sleep_assistant`, `sleep_off_time`, `total_assistant_sleep_time`, `band_sleep`, and `band`.
 
 ### Actions
 
@@ -1659,11 +1646,13 @@ Supported model IDs:
 - `chuangmi.plug.hmi205`
 - `chuangmi.plug.hmi206`
 
-Supported features:
+##### Controls
 
-- Power (on, off)
-- Attributes
-  - Temperature
+- Turn the socket on or off.
+
+##### Attributes
+
+In addition to the standard switch attributes, the switch entity shows these attributes: `model` and `temperature`.
 
 #### Xiaomi Chuangmi Plug V1
 
@@ -1673,12 +1662,14 @@ Supported model IDs:
 - `chuangmi.plug.v3`
 - `chuangmi.plug.hmi208`
 
-Supported features:
+##### Controls
 
-- Power (on, off)
-- USB (on, off)
-- Attributes
-  - Temperature
+- Turn the plug on or off.
+- Turn the USB port on or off.
+
+##### Attributes
+
+In addition to the standard switch attributes, the switch entities show these attributes: `model` and `temperature`.
 
 #### Xiaomi Smart Power Strip
 
@@ -1687,25 +1678,30 @@ Supported model IDs:
 - `qmi.powerstrip.v1`
 - `zimi.powerstrip.v2`
 
-Supported features:
+##### Controls
 
-- Power (on, off)
-- Wifi LED (on, off)
-- Power Price (0...999)
-- Power Mode (green, normal) (Power Strip V1 only)
-- Attributes
-  - Temperature
-  - Load power
-  - Wifi LED
-  - Mode (Power Strip V1 only)
+- Turn the power strip on or off.
+- Turn the Wi-Fi LED on or off.
+- Set the power price, from 0 to 999.
+- Set the power mode to Green or Normal. Only available on the `qmi.powerstrip.v1`.
+
+##### Attributes
+
+In addition to the standard switch attributes, the switch entity shows these attributes: `model`, `temperature`, and `load_power`.
+On the `qmi.powerstrip.v1`, it also shows the `power_mode` attribute.
 
 #### Xiaomi Air Conditioning Companion V3
 
-Supported model ID: `lumi.acpartner.v3` (the socket of the `acpartner.v1` and `v2` isn't switchable!)
+Supported model ID: `lumi.acpartner.v3`.
+The socket of the `lumi.acpartner.v1` and `lumi.acpartner.v2` can't be switched.
 
-- Power (on, off)
-- Attributes
-  - Load power
+##### Controls
+
+- Turn the socket on or off.
+
+##### Attributes
+
+In addition to the standard switch attributes, the switch entity shows these attributes: `model`, `temperature`, and `load_power`.
 
 ### Actions
 
