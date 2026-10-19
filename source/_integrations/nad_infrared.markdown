@@ -12,7 +12,7 @@ ha_config_flow: true
 ha_platforms:
   - media_player
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **NAD Infrared** {% term integration %} lets you control NAD audio equipment using any infrared transmitter previously configured in Home Assistant. It supports NAD receivers, amplifiers, CD players and cassette decks.
