@@ -2,7 +2,7 @@
 title: Parse ingredient
 action: mealie.parse_ingredient
 domain: mealie
-description: "Parse an ingredient from Mealie attempting to match food items, quantity, and units."
+description: "Parses an ingredient from Mealie attempting to match food items, quantity, and units."
 related_actions:
   - mealie.get_recipe
   - mealie.get_shopping_list_items
