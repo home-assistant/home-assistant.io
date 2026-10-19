@@ -46,11 +46,14 @@ The **Xiaomi Home** {% term integration %} supports the following devices:
 
 ## Prerequisites
 
-Most Xiaomi Home devices support configuration using the Home Assistant UI,
-except for the [Xiaomi device tracker](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
-and [Xiaomi IR Remote](#xiaomi-ir-remote). Please read the linked sections for those devices for more information.
+Most Xiaomi Home devices are configured using the Home Assistant UI.
+The [Xiaomi device tracker](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2) and [Xiaomi IR Remote](#xiaomi-ir-remote) use YAML configuration.
 
-Devices need to be set up using the Mi Home app and not vendor-specific apps (for example, Roborock).
+Before you add a device to Home Assistant:
+
+1. Install the Xiaomi Home app and sign in to your account.
+2. Add the device to the Xiaomi Home app.
+3. Use the Xiaomi Home app instead of a vendor-specific app, such as the Roborock app.
 
 {% note %}
 For more complex network setups (for example, VLANs), reference the [following documentation](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#discover-devices-across-subnets) for additional information.
@@ -58,12 +61,27 @@ For more complex network setups (for example, VLANs), reference the [following d
 
 {% include integrations/config_flow.md %}
 
-It is recommended to supply your Xiaomi Home credentials during configuration
-to automatically connect to your devices. You need to specify the server region
-you used in the Xiaomi Home App (where you initially set up the device). There are
-6 servers: `cn`, `de`, `i2`, `ru`, `sg` and `us`; please see
-[this page](https://www.openhab.org/addons/bindings/miio/#country-servers) for
-the server to use for each country.
+During setup, enter your Xiaomi Home account credentials and select the server region you use in the Xiaomi Home app.
+Home Assistant retrieves your device's connection information and API token, then connects to the device over your local network.
+
+If you cannot use your Xiaomi Home account, select **Configure manually (not recommended)**.
+You need the device's IP address and 32-character API token.
+For instructions on finding the API token, refer to [Retrieving the access token](#retrieving-the-access-token).
+
+{% configuration_basic %}
+Username:
+  description: The email address or username for your Xiaomi Home account.
+Password:
+  description: The password for your Xiaomi Home account.
+Server region:
+  description: The server region you use in the Xiaomi Home app. For a list of regions, refer to the [country server list](https://www.openhab.org/addons/bindings/miio/#country-servers).
+Configure manually (not recommended):
+  description: Turn this on to set up a device using its IP address and API token instead of your Xiaomi Home account.
+IP address:
+  description: The IP address of the device. You only need it when you set up a device manually and Home Assistant has not discovered it.
+API token:
+  description: The 32-character API token for the device.
+{% endconfiguration_basic %}
 
 ## Troubleshooting
 
@@ -96,7 +114,7 @@ To add their subdevices, use the Xiaomi Home service.
 
 1. During setup, provide your Xiaomi Home account credentials.
 2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-3. On the Xiaomi Home integration card, select **Configure**.
+3. Select **Xiaomi Home**, then select the cogwheel {% icon "mdi:cog-outline" %} (**Configure**) next to your gateway.
 4. Turn on **Use Xiaomi Home service to get connected subdevices**, then select **Submit**.
 
 Home Assistant retrieves the subdevices from Xiaomi Home, then controls them and receives their status updates over your local network.
@@ -221,11 +239,11 @@ Each item lists the device name, model number, and Zigbee ID.
 
 ## Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)
 
-The device tracker platform is observing your Xiaomi Mi WiFi Repeater 2 and reporting all associated WiFi clients.
+The device tracker platform observes your Xiaomi Mi WiFi Repeater 2 and reports associated Wi-Fi clients.
+It is configured in {% term "`configuration.yaml`" %} and requires the device's IP address and API token.
+For instructions on finding the API token, refer to [Retrieving the access token](#retrieving-the-access-token).
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token.
-
-To add a Xiaomi Mi WiFi Repeater device tracker to your installation, add the following to your {% term "`configuration.yaml`" %} file:
+To add a Xiaomi Mi WiFi Repeater device tracker, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 device_tracker:
@@ -1193,15 +1211,11 @@ Currently, the supported features are:
 
 ## Xiaomi IR Remote
 
-The remote platform allows you to send IR commands from your Xiaomi IR Remote (ChuangmiIr).
+The remote platform lets you send infrared commands from your Xiaomi IR Remote (ChuangmiIr).
+It is configured in {% term "`configuration.yaml`" %} and requires the remote's IP address and API token.
+For instructions on finding the API token, refer to [Retrieving the access token](#retrieving-the-access-token).
 
-### Setup
-
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the {% term "`configuration.yaml`" %} file.
-
-### Configuring the platform
-
-To add a Xiaomi IR Remote to your installation, add the following to your {% term "`configuration.yaml`" %} file:
+To add a Xiaomi IR Remote, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 remote:
@@ -1709,8 +1723,8 @@ This integration adds actions to toggle the Wi-Fi LED and, on supported power st
 
 ## Retrieving the access token
 
-Not recommended, please specify the Xiaomi account credentials during the config flow for easier setup.
-However when setting up a device manually the token can be retrieved in one of the following ways.
+Only retrieve an API token if you are setting up a device manually or configuring a Xiaomi Mi WiFi Repeater 2 or Xiaomi IR Remote in {% term "`configuration.yaml`" %}.
+For other devices, sign in to your Xiaomi Home account during setup so Home Assistant can retrieve the token automatically.
 
 ### Xiaomi Cloud Tokens Extractor
 
