@@ -1,8 +1,6 @@
 ---
 title: "MQTT water heater"
 description: "Instructions on how to integrate MQTT water heater into Home Assistant."
-ha_category:
-  - Water heater
 ha_release: 2023.7
 ha_iot_class: Local Polling
 ha_domain: mqtt

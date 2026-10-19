@@ -1,8 +1,6 @@
 ---
 title: Start.ca
 description: Instructions on how to integrate Start.ca data usage within Home Assistant.
-ha_category:
-  - Network
 ha_categories:
   - computers_network.monitoring
 ha_release: 0.64

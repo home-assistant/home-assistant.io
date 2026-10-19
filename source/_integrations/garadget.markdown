@@ -1,8 +1,6 @@
 ---
 title: Garadget
 description: Instructions on how to integrate Garadget covers within Home Assistant.
-ha_category:
-  - Cover
 ha_categories:
   - blinds_curtains
 ha_release: 0.32

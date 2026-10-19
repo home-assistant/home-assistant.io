@@ -1,11 +1,6 @@
 ---
 title: Switcher
 description: Integrate Switcher devices.
-ha_category:
-  - Climate
-  - Cover
-  - Sensor
-  - Switch
 ha_categories:
   - plugs_switches
   - climate.water_heaters

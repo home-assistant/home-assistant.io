@@ -1,8 +1,6 @@
 ---
 title: Swiss Hydrological Data
 description: Instructions on how to integrate hydrological data of Swiss waters within Home Assistant.
-ha_category:
-  - Environment
 ha_categories:
   - weather_alerts
 ha_iot_class: Cloud Polling

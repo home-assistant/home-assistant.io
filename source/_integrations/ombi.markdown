@@ -1,8 +1,6 @@
 ---
 title: Ombi
 description: Instructions on how to set up the Ombi integration in Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - media_entertainment.tv_streaming
 ha_release: '0.100'

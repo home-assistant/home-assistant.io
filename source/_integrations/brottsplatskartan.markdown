@@ -1,9 +1,6 @@
 ---
 title: Brottsplatskartan
 description: Instructions on how to integrate brottsplatskartan.se into Home Assistant.
-ha_category:
-  - Sensor
-  - Social
 ha_categories:
   - local_services
   - news_social_media

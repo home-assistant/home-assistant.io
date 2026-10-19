@@ -1,13 +1,6 @@
 ---
 title: Tasmota
 description: Instructions on how to integrate Tasmota with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Cover
-  - Fan
-  - Light
-  - Sensor
-  - Switch
 ha_categories:
   - diy_makers
   - plugs_switches

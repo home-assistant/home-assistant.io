@@ -1,8 +1,6 @@
 ---
 title: IMGW-PIB
 description: Instructions on how to integrate IMGW-PIB (Polish Institute of Meteorology and Water Management - National Research Institute) hydrological service within Home Assistant.
-ha_category:
-  - Environment
 ha_categories:
   - weather_alerts.public_warnings
 ha_release: 2024.6

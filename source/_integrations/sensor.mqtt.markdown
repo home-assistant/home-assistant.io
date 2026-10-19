@@ -1,8 +1,6 @@
 ---
 title: "MQTT Sensor"
 description: "Instructions on how to integrate MQTT sensors within Home Assistant."
-ha_category:
-  - Sensor
 ha_release: 0.7
 ha_iot_class: Configurable
 ha_domain: mqtt

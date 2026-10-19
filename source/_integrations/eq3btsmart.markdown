@@ -1,8 +1,6 @@
 ---
 title: eQ-3 Bluetooth Smart Thermostats
 description: Instructions on how to integrate eQ-3 Bluetooth Smart Thermostats into Home Assistant.
-ha_category:
-  - Climate
 ha_categories:
   - climate.thermostats_heating
 ha_iot_class: Local Polling

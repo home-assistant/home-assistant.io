@@ -1,8 +1,6 @@
 ---
 title: IMAP
 description: Instructions on how to integrate IMAP unread email into Home Assistant.
-ha_category:
-  - Mailbox
 ha_categories:
   - messaging_notifications.email_sms_calls
 ha_release: 0.25

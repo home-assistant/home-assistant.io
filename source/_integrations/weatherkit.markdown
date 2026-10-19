@@ -1,8 +1,6 @@
 ---
 title: Apple WeatherKit
 description: Instructions on how to set up Apple WeatherKit with Home Assistant.
-ha_category:
-  - Weather
 ha_categories:
   - weather_alerts.forecasts
 ha_release: '2023.10'

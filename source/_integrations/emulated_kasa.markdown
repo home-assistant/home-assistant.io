@@ -1,8 +1,6 @@
 ---
 title: Emulated Kasa
 description: Instructions on how to integrate Emulated Kasa within Home Assistant.
-ha_category:
-  - Energy
 ha_categories:
   - other_ecosystems
   - energy.meters_monitoring

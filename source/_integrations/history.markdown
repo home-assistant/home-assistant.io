@@ -1,8 +1,6 @@
 ---
 title: History
 description: Instructions on how to enable history support for Home Assistant.
-ha_category:
-  - History
 ha_release: pre 0.7
 ha_quality_scale: internal
 ha_codeowners:

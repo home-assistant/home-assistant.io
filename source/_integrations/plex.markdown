@@ -1,11 +1,6 @@
 ---
 title: Plex Media Server
 description: Instructions on how to integrate Plex into Home Assistant.
-ha_category:
-  - Button
-  - Media player
-  - Sensor
-  - Update
 ha_categories:
   - media_entertainment.tv_streaming
 featured: true

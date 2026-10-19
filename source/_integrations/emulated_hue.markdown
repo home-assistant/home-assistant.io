@@ -1,8 +1,6 @@
 ---
 title: Emulated Hue
 description: Instructions on how to emulate a Hue Bridge within Home Assistant.
-ha_category:
-  - Hub
 ha_categories:
   - other_ecosystems
 ha_release: 0.27

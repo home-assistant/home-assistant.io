@@ -1,8 +1,6 @@
 ---
 title: JustNimbus
 description: Instructions on how to configure the JustNimbus integration within Home Assistant
-ha_category:
-  - Environment
 ha_categories:
   - water
 ha_release: 2022.9

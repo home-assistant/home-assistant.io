@@ -1,11 +1,6 @@
 ---
 title: Viessmann ViCare
 description: Instructions how to integrate Viessmann heating devices with Home Assistant
-ha_category:
-  - Climate
-  - Fan
-  - Select
-  - Water heater
 ha_categories:
   - climate.thermostats_heating
   - climate.heat_pumps_air_conditioning

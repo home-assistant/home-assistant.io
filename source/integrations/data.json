@@ -10,7 +10,7 @@ sitemap: false
 {%- assign first = true -%}
 [
 {%- for component in components -%}
-  {%- if component.ha_category or component.ha_categories -%}
+  {%- if component.ha_categories -%}
     {%- assign sliced_version = component.ha_release | split: '.' -%}
     {%- assign minor_version = sliced_version[1] | plus: 0 -%}
     {%- assign major_version = sliced_version[0] | plus: 0 -%}

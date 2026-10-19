@@ -1,9 +1,6 @@
 ---
 title: Roth Touchline SL
 description: Instructions on how to integrate Roth Touchline SL within Home Assistant.
-ha_category:
-  - Climate
-  - Sensor
 ha_categories:
   - climate.thermostats_heating
 ha_release: 2024.9

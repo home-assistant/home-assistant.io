@@ -2,13 +2,6 @@
 title: Duco
 description: Instructions on how to integrate Duco ventilation with Home Assistant.
 ha_release: 2026.5
-ha_category:
-  - Binary Sensor
-  - Fan
-  - Number
-  - Select
-  - Sensor
-  - Switch
 ha_categories:
   - climate.fans_ventilation
 ha_iot_class: Local Polling

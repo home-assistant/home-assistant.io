@@ -1,9 +1,6 @@
 ---
 title: Panasonic Viera
 description: Instructions on how to integrate a Panasonic Viera TV with Home Assistant.
-ha_category:
-  - Media player
-  - Remote
 ha_categories:
   - media_entertainment.tv_streaming
 ha_release: 0.17

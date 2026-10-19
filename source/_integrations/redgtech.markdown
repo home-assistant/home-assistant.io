@@ -1,8 +1,6 @@
 ---
 title: Redgtech
 description: Integrate your Redgtech smart switches with Home Assistant.
-ha_category:
-  - Switch
 ha_categories:
   - plugs_switches
 ha_release: 2026.3

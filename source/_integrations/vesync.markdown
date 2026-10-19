@@ -1,12 +1,6 @@
 ---
 title: VeSync
 description: Instructions on how to set up VeSync devices with Home Assistant.
-ha_category:
-  - Fan
-  - Light
-  - Number
-  - Switch
-  - Update
 ha_categories:
   - climate.air_purifiers_humidifiers
   - plugs_switches

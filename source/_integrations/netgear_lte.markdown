@@ -2,11 +2,6 @@
 title: NETGEAR LTE
 description: Instructions on how to integrate your NETGEAR LTE modem within Home Assistant.
 ha_release: 0.72
-ha_category:
-  - Binary sensor
-  - Network
-  - Notifications
-  - Sensor
 ha_categories:
   - computers_network.routers_network
   - messaging_notifications.email_sms_calls

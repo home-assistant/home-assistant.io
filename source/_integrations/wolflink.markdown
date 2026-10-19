@@ -1,8 +1,6 @@
 ---
 title: Wolf SmartSet Service
 description: Instructions on how to integrate Wolf Smart-Set cloud within Home Assistant.
-ha_category:
-  - Climate
 ha_categories:
   - climate.thermostats_heating
   - climate.heat_pumps_air_conditioning

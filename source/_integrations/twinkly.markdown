@@ -1,8 +1,6 @@
 ---
 title: Twinkly
 description: Instructions on how to integrate Twinkly LED string to Home Assistant.
-ha_category:
-  - Light
 ha_categories:
   - lighting.led_strips_controllers
 ha_release: 2020.12

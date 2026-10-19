@@ -1,8 +1,6 @@
 ---
 title: Home Assistant Analytics Insights
 description: Instructions on how to integrate Home Assistant Analytics Insights within Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - computers_network.cloud_developer_tools
 ha_release: '2024.2'

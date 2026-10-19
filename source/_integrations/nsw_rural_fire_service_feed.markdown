@@ -1,8 +1,6 @@
 ---
 title: NSW Rural Fire Service Incidents
 description: Instructions on how to integrate the NSW Rural Fire Service Incidents feed into Home Assistant.
-ha_category:
-  - Geolocation
 ha_categories:
   - weather_alerts.public_warnings
 ha_iot_class: Cloud Polling

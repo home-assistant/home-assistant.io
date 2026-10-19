@@ -1,10 +1,6 @@
 ---
 title: SMHI
 description: Instructions on how to integrate SMHI forecasts within Home Assistant.
-ha_category:
-  - Hub
-  - Sensor
-  - Weather
 ha_categories:
   - weather_alerts.forecasts
 ha_release: 0.81

@@ -1,17 +1,6 @@
 ---
 title: Miele
 description: Instructions on how to set up the Miele integration within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Fan
-  - Hub
-  - Light
-  - Select
-  - Sensor
-  - Switch
-  - Vacuum
 ha_categories:
   - appliances_cleaning
   - climate.fans_ventilation

@@ -1,15 +1,6 @@
 ---
 title: Xiaomi Home
 description: Instructions on how to integrate Xiaomi devices using the Xiaomi Home integration within Home Assistant.
-ha_category:
-  - Alarm
-  - Fan
-  - Health
-  - Hub
-  - Light
-  - Presence detection
-  - Remote
-  - Vacuum
 ha_categories:
   - hubs_protocols.smart_home_hubs
   - climate.air_purifiers_humidifiers

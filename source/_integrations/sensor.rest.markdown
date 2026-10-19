@@ -1,8 +1,6 @@
 ---
 title: "RESTful Sensor"
 description: Instructions on how to integrate REST sensors into Home Assistant.
-ha_category:
-  - Sensor
 ha_release: 0.7.4
 ha_iot_class: Local Polling
 ha_domain: rest

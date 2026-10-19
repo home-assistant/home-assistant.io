@@ -1,8 +1,6 @@
 ---
 title: Serial Particulate Matter
 description: Instructions on how to integrate particulate matter (dust) sensors with Home Assistant.
-ha_category:
-  - DIY
 ha_categories:
   - sensors.air_quality
   - diy_makers.boards_hardware

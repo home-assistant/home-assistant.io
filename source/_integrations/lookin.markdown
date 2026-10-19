@@ -1,11 +1,6 @@
 ---
 title: LOOKin
 description: Instructions on how to integrate LOOKin devices into Home Assistant.
-ha_category:
-  - Climate
-  - Light
-  - Media player
-  - Sensor
 ha_categories:
   - buttons_remotes
 ha_release: 2021.11

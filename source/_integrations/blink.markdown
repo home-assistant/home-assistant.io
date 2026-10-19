@@ -1,13 +1,6 @@
 ---
 title: Blink
 description: Instructions for how to integrate Blink camera/security system within Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Camera
-  - Hub
-  - Sensor
-  - Switch
 ha_categories:
   - security_safety.cameras
 ha_release: '0.40'

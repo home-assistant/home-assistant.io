@@ -1,9 +1,6 @@
 ---
 title: Mastodon
 description: Instructions on how to add Mastodon posts and account statistics to Home Assistant.
-ha_category:
-  - Notifications
-  - Sensor
 ha_categories:
   - news_social_media
 ha_release: 0.67

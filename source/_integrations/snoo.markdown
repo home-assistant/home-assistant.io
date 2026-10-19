@@ -1,12 +1,6 @@
 ---
 title: Happiest Baby Snoo
 description: Instructions on how to integrate Snoo into Home Assistant
-ha_category:
-  - Binary Sensor
-  - Event
-  - Select
-  - Sensor
-  - Switch
 ha_categories:
   - health_wellbeing
 ha_iot_class: Cloud Push

@@ -1,14 +1,6 @@
 ---
 title: Comelit SimpleHome
 description: Instructions on how to integrate Comelit SimpleHome home automation devices into Home Assistant.
-ha_category:
-  - Alarm
-  - Climate
-  - Cover
-  - Humidifier
-  - Light
-  - Sensor
-  - Switch
 ha_categories:
   - hubs_protocols.smart_home_hubs
   - security_safety.alarm_systems

@@ -1,9 +1,6 @@
 ---
 title: Dyson Infrared
 description: Integration to control Dyson Fan using an infrared transmitter.
-ha_category:
-  - Fan
-  - Infrared-controlled
 ha_categories:
   - climate.fans_ventilation
 ha_release: '2026.8'

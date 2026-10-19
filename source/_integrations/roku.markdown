@@ -1,13 +1,6 @@
 ---
 title: Roku
 description: Instructions how to integrate Roku devices into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Hub
-  - Media player
-  - Remote
-  - Select
-  - Sensor
 ha_categories:
   - media_entertainment.tv_streaming
 ha_iot_class: Local Polling

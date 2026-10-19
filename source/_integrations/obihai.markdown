@@ -2,8 +2,6 @@
 title: Obihai
 description: Instructions on how to integrate your Obihai device into Home Assistant.
 ha_iot_class: Local Polling
-ha_category:
-  - Sensor
 ha_categories:
   - messaging_notifications.email_sms_calls
 ha_config_flow: true

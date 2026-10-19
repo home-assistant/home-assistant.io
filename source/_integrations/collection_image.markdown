@@ -1,9 +1,6 @@
 ---
 title: Collection image
 description: Instructions on how to set up Collection image in Home Assistant.
-ha_category:
-  - Image
-  - Utility
 ha_categories:
   - helpers
   - productivity_information.documents_photos

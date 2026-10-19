@@ -1,9 +1,6 @@
 ---
 title: Hayward Omnilogic
 description: Instructions on how to configure Hayward OmniLogic integration.
-ha_category:
-  - Sensor
-  - Switch
 ha_categories:
   - water.pools_spas
 ha_release: 0.116

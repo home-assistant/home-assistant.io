@@ -1,20 +1,6 @@
 ---
 title: Bosch SHC
 description: Integrate Bosch SHC.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Hub
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Valve
 ha_categories:
   - hubs_protocols.smart_home_hubs
 ha_release: 2021.6

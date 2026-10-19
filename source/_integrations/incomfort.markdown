@@ -1,11 +1,6 @@
 ---
 title: Intergas gateway
 description: Instructions on how to integrate an Intergas gateway with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Sensor
-  - Water heater
 ha_categories:
   - climate.thermostats_heating
 ha_release: 0.93

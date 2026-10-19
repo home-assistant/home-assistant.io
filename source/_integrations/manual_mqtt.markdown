@@ -1,8 +1,6 @@
 ---
 title: Manual MQTT Alarm control panel
 description: Instructions on how to integrate manual alarms into Home Assistant with MQTT support.
-ha_category:
-  - Alarm
 ha_categories:
   - security_safety.alarm_systems
   - diy_makers

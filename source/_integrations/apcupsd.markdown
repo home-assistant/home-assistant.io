@@ -1,10 +1,6 @@
 ---
 title: APC UPS Daemon
 description: Instructions on how to integrate apcupsd status with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
-  - System monitor
 ha_categories:
   - energy.backup_power
 ha_release: 0.13

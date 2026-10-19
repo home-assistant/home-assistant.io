@@ -1,8 +1,6 @@
 ---
 title: GPSLogger
 description: Instructions on how to use GPSLogger to track devices in Home Assistant.
-ha_category:
-  - Presence detection
 ha_categories:
   - presence_location.phones_companion_apps
 ha_release: 0.34

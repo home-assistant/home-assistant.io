@@ -1,10 +1,6 @@
 ---
 title: Linode
 description: Instructions on how to set up Linode within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Switch
-  - System monitor
 ha_categories:
   - computers_network.cloud_developer_tools
 ha_release: 0.57

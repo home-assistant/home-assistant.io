@@ -123,14 +123,13 @@ threshold:
 
 {% include triggers/more_examples.md %}
 
-### Automation: adjust humidifiers when first thermostat humidity setpoint changes
+### Automation: adjust humidifiers when a thermostat humidity setpoint changes
 
-When the first thermostat in the bedroom area changes its target humidity to a value above 50%, turn on all standalone humidifiers to supplement the climate systems. Firing on the first change prevents multiple humidifier activations.
+When a thermostat in the bedroom area changes its target humidity to a value above 50%, turn on all standalone humidifiers to supplement the climate systems.
 
 - **Trigger**: Thermostat target humidity changed
   - **Target**: Bedroom area
   - **Threshold type**: Above (50%)
-  - **Trigger when**: First
 - **Action**: Turn on humidifier
 
 {% details "YAML example for supplemental humidifier control" %}
@@ -147,7 +146,6 @@ automation: |
           type: above
           value:
             number: 50
-        behavior: first
   actions:
     - action: humidifier.turn_on
       target:

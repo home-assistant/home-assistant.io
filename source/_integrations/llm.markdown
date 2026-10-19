@@ -1,8 +1,6 @@
 ---
 title: LLM
 description: Organizes the LLM APIs that large language models can use in Home Assistant.
-ha_category:
-  - Voice
 ha_release: 2026.7
 ha_iot_class: Calculated
 ha_quality_scale: internal

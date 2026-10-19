@@ -1,12 +1,6 @@
 ---
 title: DoorBird
 description: Instructions on how to integrate your DoorBird video doorbell with Home Assistant.
-ha_category:
-  - Button
-  - Camera
-  - Doorbell
-  - Event
-  - Image
 ha_categories:
   - security_safety.doorbells_intercoms
 ha_release: 0.54

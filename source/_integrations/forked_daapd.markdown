@@ -1,8 +1,6 @@
 ---
 title: OwnTone
 description: Instructions on how to integrate an OwnTone server into Home Assistant.
-ha_category:
-  - Media player
 ha_categories:
   - media_entertainment.speakers_audio
 ha_release: '0.110'

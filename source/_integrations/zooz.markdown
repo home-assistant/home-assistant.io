@@ -3,12 +3,6 @@ title: Zooz
 description: Connect and control your Zooz Z-Wave series devices using the Z-Wave integration
 ha_release: '2025.7'
 ha_iot_class: Local Push
-ha_category:
-  - Plug
-  - Light
-  - Sensor
-  - Switch
-  - Water management
 ha_categories:
   - plugs_switches
   - lighting

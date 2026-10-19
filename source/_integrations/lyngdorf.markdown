@@ -1,12 +1,6 @@
 ---
 title: Lyngdorf
 description: Instructions on how to integrate Lyngdorf audio processors into Home Assistant.
-ha_category:
-  - Media player
-  - Number
-  - Remote
-  - Select
-  - Sensor
 ha_categories:
   - media_entertainment.speakers_audio
 ha_release: 2026.8

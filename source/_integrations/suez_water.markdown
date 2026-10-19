@@ -2,8 +2,6 @@
 title: Suez Water
 description: Instructions on how to integrate Suez Water daily data within Home Assistant.
 ha_release: 0.97
-ha_category:
-  - Sensor
 ha_categories:
   - water.meters_leak_detection
 ha_iot_class: Cloud Polling

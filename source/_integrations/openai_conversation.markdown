@@ -1,9 +1,6 @@
 ---
 title: OpenAI
 description: Instructions on how to integrate OpenAI as a conversation agent
-ha_category:
-  - AI
-  - Voice
 ha_categories:
   - ai_voice.ai_models
   - ai_voice.speech

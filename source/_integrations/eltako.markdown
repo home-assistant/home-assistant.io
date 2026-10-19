@@ -3,8 +3,6 @@ title: Eltako
 description: Connect and control your Eltako Matter devices using the Matter integration
 ha_release: '2025.10'
 ha_iot_class: Local Push
-ha_category:
-  - Switch
 ha_categories:
   - plugs_switches
   - lighting

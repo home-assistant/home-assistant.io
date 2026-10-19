@@ -1,8 +1,6 @@
 ---
 title: FreeDNS
 description: Keep your DNS record up to date with FreeDNS.
-ha_category:
-  - Network
 ha_categories:
   - computers_network.routers_network
 ha_iot_class: Cloud Push

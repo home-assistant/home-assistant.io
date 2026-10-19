@@ -1,8 +1,6 @@
 ---
 title: Pushsafer
 description: Instructions on how to add Pushsafer notifications to Home Assistant.
-ha_category:
-  - Notifications
 ha_categories:
   - messaging_notifications.push_notifications
 ha_iot_class: Cloud Push

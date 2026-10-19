@@ -1,8 +1,6 @@
 ---
 title: NRGkick
 description: Integrate the NRGkick Gen2 mobile EV charger using the local REST JSON API.
-ha_category:
-  - Energy
 ha_categories:
   - energy.ev_charging
 ha_iot_class: Local Polling

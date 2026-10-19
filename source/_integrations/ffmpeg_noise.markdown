@@ -1,8 +1,6 @@
 ---
 title: FFmpeg Noise
 description: Instructions on how to integrate an FFmpeg-based noise binary sensor
-ha_category:
-  - Image processing
 ha_categories:
   - security_safety.cameras
   - sensors

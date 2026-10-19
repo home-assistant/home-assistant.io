@@ -1,9 +1,6 @@
 ---
 title: NETGEAR
 description: Instructions on how to integrate NETGEAR routers into Home Assistant.
-ha_category:
-  - Presence detection
-  - Update
 ha_categories:
   - computers_network.routers_network
   - presence_location.network_presence

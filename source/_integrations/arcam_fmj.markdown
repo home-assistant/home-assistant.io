@@ -1,8 +1,6 @@
 ---
 title: Arcam FMJ Receivers
 description: Instructions on how to integrate Arcam FMJ Receivers into Home Assistant.
-ha_category:
-  - Media player
 ha_categories:
   - media_entertainment.speakers_audio
 ha_release: 0.96

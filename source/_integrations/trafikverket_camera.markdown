@@ -1,10 +1,6 @@
 ---
 title: Trafikverket Camera
 description: Instructions on how to integrate Trafikverket Camera within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Camera
-  - Sensor
 ha_categories:
   - vehicles_transport
 ha_release: 2023.9

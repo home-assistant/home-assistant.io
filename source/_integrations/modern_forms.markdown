@@ -1,14 +1,6 @@
 ---
 title: Modern Forms
 description: Instructions on how to integrate a Modern Forms Smart Fan with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Fan
-  - Light
-  - Number
-  - Sensor
-  - Switch
 ha_categories:
   - climate.fans_ventilation
   - lighting.bulbs_lamps

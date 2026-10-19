@@ -1,15 +1,6 @@
 ---
 title: MikroTik
 description: Instructions on how to integrate MikroTik/RouterOS based devices into Home Assistant.
-ha_category:
-  - Binary Sensor
-  - Button
-  - Hub
-  - Presence detection
-  - Select
-  - Sensor
-  - Switch
-  - Update
 ha_categories:
   - computers_network.routers_network
   - presence_location.network_presence

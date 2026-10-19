@@ -2,8 +2,6 @@
 title: Cloudflare R2
 description: Instructions on how to set up Cloudflare R2 bucket to be used as a backup location.
 ha_release: 2026.2
-ha_category:
-  - Backup
 ha_categories:
   - computers_network.cloud_developer_tools
 ha_iot_class: Cloud Push

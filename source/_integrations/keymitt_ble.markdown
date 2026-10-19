@@ -1,8 +1,6 @@
 ---
 title: Keymitt MicroBot Push
 description: Instructions on how to set up the MicroBot Push.
-ha_category:
-  - Switch
 ha_categories:
   - buttons_remotes
 ha_release: '2022.10'

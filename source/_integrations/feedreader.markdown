@@ -1,9 +1,6 @@
 ---
 title: Feedreader
 description: Instructions on how to integrate RSS feeds into Home Assistant.
-ha_category:
-  - Event
-  - Other
 ha_categories:
   - news_social_media
 ha_release: 0.18

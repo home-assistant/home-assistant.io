@@ -1,9 +1,6 @@
 ---
 title: Smart Meter B Route
 description: Integrate your Smart Meter using B Route.
-ha_category:
-  - Energy
-  - Sensor
 ha_categories:
   - energy.meters_monitoring
 ha_release: '2025.10'

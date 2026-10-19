@@ -1,8 +1,6 @@
 ---
 title: mutesync
 description: Instructions on how to integrate the mütesync button with Home Assistant.
-ha_category:
-  - Presence detection
 ha_categories:
   - computers_network
 ha_release: 2021.5

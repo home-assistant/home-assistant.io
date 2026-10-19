@@ -1,8 +1,6 @@
 ---
 title: SMTP
 description: Instructions on how to add email notifications to Home Assistant.
-ha_category:
-  - Notifications
 ha_categories:
   - messaging_notifications.email_sms_calls
 ha_iot_class: Cloud Push

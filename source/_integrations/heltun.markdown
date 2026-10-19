@@ -3,11 +3,6 @@ title: HELTUN
 description: Connect and control your HELTUN Z-Wave devices using the Z-Wave integration
 ha_release: '2023.3'
 ha_iot_class: Local Push
-ha_category:
-  - Button
-  - Climate
-  - Switch
-  - Update
 ha_categories:
   - climate.thermostats_heating
   - plugs_switches

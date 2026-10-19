@@ -2,9 +2,6 @@
 title: energieleser
 description: Instructions on how to integrate energieleser devices in Home Assistant.
 ha_release: 2026.7
-ha_category:
-  - Energy
-  - Sensor
 ha_categories:
   - energy.meters_monitoring
   - water.meters_leak_detection

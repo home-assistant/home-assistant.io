@@ -1,10 +1,6 @@
 ---
 title: Airthings BLE
 description: Instructions on how to set up Airthings Devices over Bluetooth LE.
-ha_category:
-  - Environment
-  - Health
-  - Sensor
 ha_categories:
   - sensors.air_quality
 ha_release: '2022.11'

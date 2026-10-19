@@ -1,8 +1,6 @@
 ---
 title: Zero-configuration networking (zeroconf)
 description: Exposes Home Assistant using the Zeroconf protocol.
-ha_category:
-  - Network
 ha_release: 0.18
 ha_quality_scale: internal
 ha_codeowners:

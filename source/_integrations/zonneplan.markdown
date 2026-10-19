@@ -1,8 +1,6 @@
 ---
 title: Zonneplan
 description: Get electricity and gas prices from Zonneplan in Home Assistant.
-ha_category:
-  - Energy
 ha_categories:
   - energy.energy_prices
   - energy.solar_batteries

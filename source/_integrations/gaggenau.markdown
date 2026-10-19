@@ -1,17 +1,6 @@
 ---
 title: Gaggenau
 description: Connect and control your Gaggenau devices using the Home Connect integration
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Fan
-  - Hub
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
 ha_release: '0.110'
 ha_domain: gaggenau
 ha_integration_type: virtual

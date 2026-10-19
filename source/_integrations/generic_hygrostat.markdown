@@ -1,9 +1,6 @@
 ---
 title: Generic hygrostat
 description: Virtual hygrostat device
-ha_category:
-  - Helper
-  - Humidifier
 ha_categories:
   - helpers
   - climate.air_purifiers_humidifiers

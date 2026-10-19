@@ -1,10 +1,6 @@
 ---
 title: Yardian
 description: Instructions on how to integrate Yardian device within Home Assistant.
-ha_category:
-  - Irrigation
-  - Sensor
-  - Switch
 ha_categories:
   - garden_plants
 ha_config_flow: true

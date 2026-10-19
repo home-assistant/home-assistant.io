@@ -1,8 +1,6 @@
 ---
 title: Elvia
 description: Documentation for the Elvia integration.
-ha_category:
-  - Energy
 ha_categories:
   - energy.meters_monitoring
 ha_release: 2024.2

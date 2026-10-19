@@ -1,11 +1,6 @@
 ---
 title: Google Gemini
 description: Instructions on how to integrate Google Gemini as a conversation agent
-ha_category:
-  - AI
-  - Speech-to-text
-  - Text-to-speech
-  - Voice
 ha_categories:
   - ai_voice.ai_models
   - ai_voice.speech

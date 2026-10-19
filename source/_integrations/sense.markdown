@@ -1,10 +1,6 @@
 ---
 title: Sense
 description: Instructions on how to integrate Sense within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Energy
-  - Sensor
 ha_categories:
   - energy.meters_monitoring
 ha_iot_class: Cloud Polling

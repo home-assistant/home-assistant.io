@@ -3,12 +3,6 @@ title: Elexa Guardian
 description: Instructions on how to integrate Guardian into Home Assistant.
 ha_iot_class: Local Polling
 ha_release: '0.111'
-ha_category:
-  - Binary sensor
-  - Button
-  - Sensor
-  - Switch
-  - Valve
 ha_categories:
   - water.meters_leak_detection
 ha_config_flow: true

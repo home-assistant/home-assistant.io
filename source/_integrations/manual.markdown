@@ -1,9 +1,6 @@
 ---
 title: Manual Alarm control panel
 description: Instructions on how to integrate manual alarms into Home Assistant.
-ha_category:
-  - Alarm
-  - Helper
 ha_categories:
   - helpers
   - security_safety.alarm_systems

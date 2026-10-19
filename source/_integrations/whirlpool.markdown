@@ -1,13 +1,6 @@
 ---
 title: Whirlpool Appliances
 description: Instructions on how to integrate Whirlpool appliances with Home Assistant.
-ha_category:
-  - Button
-  - Climate
-  - Hub
-  - Light
-  - Number
-  - Select
 ha_categories:
   - appliances_cleaning.laundry
   - appliances_cleaning.cooking

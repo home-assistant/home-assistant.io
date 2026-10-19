@@ -1,8 +1,6 @@
 ---
 title: A. O. Smith
 description: Instructions on how to integrate your A. O. Smith water heater with Home Assistant.
-ha_category:
-  - Water heater
 ha_categories:
   - climate.water_heaters
 ha_release: 2024.1

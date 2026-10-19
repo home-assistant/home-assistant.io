@@ -1,10 +1,6 @@
 ---
 title: Electricity Maps
 description: Instructions on how to use the Electricity Maps (formerly known as CO2Signal) data within Home Assistant
-ha_category:
-  - Climate
-  - Energy
-  - Environment
 ha_categories:
   - energy
 ha_release: 0.87

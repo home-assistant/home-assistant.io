@@ -1,15 +1,6 @@
 ---
 title: LCN
 description: Instructions on how to integrate LCN components with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Cover
-  - Hub
-  - Light
-  - Scene
-  - Sensor
-  - Switch
 ha_categories:
   - hubs_protocols.building_automation
 ha_release: 0.85
