@@ -9,7 +9,7 @@ related:
   - docs: /docs/organizing/labels/
 ---
 
-After adding a new device, you might find its automatically assigned entity ID too technical or want to change its entity name.
+After adding a new device, you might find the automatically assigned ID of its entity or entities too technical, or might want to change the entity or entities name.
 You can personalize these elements or modify other attributes, such as the icon.
 
 ## Recommendations on entity naming and related elements
@@ -23,7 +23,7 @@ Home Assistant can combine it with device or area context in the _friendly name_
 An _entity ID_ identifies the entity in automations, scripts, and other configuration, such as `sensor.living_room_thermostat_temperature`.
 Changing an entity name does not change its entity ID.
 
-Use these recommendations when naming your Home Assistant setup:
+Follow these recommendations in your Home Assistant setup:
 
 - Name each item for what it is, rather than where it is or what it belongs to. For example, name an area `Living room` instead of `Ground floor living room`, and a device `Multi sensor` instead of `Office multi sensor`.
 - Use the device name to identify the physical device and the entity name to identify what the device reports or controls. For example, a device named `Thermostat` can have an entity named `Temperature`.
@@ -46,7 +46,7 @@ To change entity attributes, follow these steps:
      - The ID must not start or end with an underscore.
       - To undo the change and revert the ID to the default, select the {% icon "mdi:restore" %} icon.
       - To recreate all the entity IDs for a device, go to {% my devices title="**Settings** > **Devices & services** > **Devices**" %}, select the device and then select **Menu** {% icon "mdi:dots-vertical" %} > **Recreate entity IDs**.
-        Recreating entity IDs recreates the entity IDs using the current entity ID format.
+        Recreating entity IDs generates new entity IDs using the current entity ID format.
         It does not change entity names.
       - The terms used to generate the entity ID depend on a few factors. Prioritization is as follows:
         1. If you changed the name of the entity, the entity name will be used.
