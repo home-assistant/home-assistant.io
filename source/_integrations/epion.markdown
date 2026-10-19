@@ -1,9 +1,8 @@
 ---
 title: Epion
 description: Instructions on how to integrate Epion Air CO2 sensors with Home Assistant
-ha_category:
-  - Environment
-  - Sensor
+ha_categories:
+  - sensors.air_quality
 ha_release: '2024.2'
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -25,7 +24,7 @@ Requires a configured Epion Air device and an Epion account with access to this 
 
 Epion API token setup.
 
-1. Login to [Epion](https://www.epion.nl/).
+1. Log in to [Epion](https://www.epion.nl/).
 2. Select [Integrations](https://epion.nl/dashboard/integrations) in the left menu.
 3. To create a new token, if you don't see one already, select **Generate new Token**.
 4. Copy your generated token. The token is a set of alphanumeric characters separated by hyphens. It starts with "a/".

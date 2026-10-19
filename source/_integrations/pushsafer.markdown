@@ -1,8 +1,8 @@
 ---
 title: Pushsafer
 description: Instructions on how to add Pushsafer notifications to Home Assistant.
-ha_category:
-  - Notifications
+ha_categories:
+  - messaging_notifications.push_notifications
 ha_iot_class: Cloud Push
 ha_release: 0.39
 ha_domain: pushsafer
@@ -17,7 +17,7 @@ ha_quality_scale: legacy
 
 The [Pushsafer service](https://www.pushsafer.com/) is a platform for the notify integration. This allows you to send messages to the user using Pushsafer.
 
-In order to get a private or alias key you need to go to the [Pushsafer website](https://www.pushsafer.com) and register.
+To get a private or alias key you need to go to the [Pushsafer website](https://www.pushsafer.com) and register.
 
 To use Pushsafer notifications, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

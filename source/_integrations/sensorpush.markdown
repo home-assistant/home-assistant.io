@@ -1,8 +1,8 @@
 ---
 title: SensorPush
 description: Instructions on how to integrate SensorPush devices into Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - sensors.temperature_humidity
 ha_bluetooth: true
 ha_release: 2022.8
 ha_iot_class: Local Push
@@ -12,7 +12,7 @@ ha_domain: sensorpush
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [SensorPush](https://www.sensorpush.com/) devices into Home Assistant.

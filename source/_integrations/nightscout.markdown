@@ -1,8 +1,8 @@
 ---
 title: Nightscout
 description: Instructions on how to integrate your Nightscout CGM data into Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - health_wellbeing
 ha_release: 0.115
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -11,10 +11,10 @@ ha_codeowners:
 ha_domain: nightscout
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The Nightscout integration allows you to view your CGM data from [Nightscout](http://www.nightscout.info/) in Home Assistant.
+The **Nightscout** {% term integration %} allows you to view your CGM data from [Nightscout](http://www.nightscout.info/) in Home Assistant.
 
 {% include integrations/config_flow.md %}
 

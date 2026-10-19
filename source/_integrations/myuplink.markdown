@@ -1,13 +1,8 @@
 ---
 title: myUplink
 description: Instructions on how to set up the myUplink integration within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_iot_class: Cloud Polling
 ha_release: '2024.2'
 ha_domain: myuplink
@@ -91,7 +86,9 @@ automation:
           - sensor.your_pump_hot_water_charging_bt6
         below: 42
     actions:
-      - action: notify.mobile_app_your_device
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           message: "Hot water reserve is getting low."
           title: "Water heater"

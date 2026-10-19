@@ -1,8 +1,8 @@
 ---
 title: Trenitalia ViaggiaTreno
 description: Instructions on how to integrate Italian Railroads data (from ViaggiaTreno API) into Home Assistant.
-ha_category:
-  - Transport
+ha_categories:
+  - vehicles_transport.public_transport
 ha_iot_class: Cloud Polling
 ha_release: 0.58
 ha_domain: viaggiatreno

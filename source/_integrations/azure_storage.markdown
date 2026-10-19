@@ -1,9 +1,9 @@
 ---
 title: Azure Storage
-description: Instructions on how to setup Azure storage accounts to be used with backups.
+description: Instructions on how to set up Azure storage accounts to be used with backups.
 ha_release: 2025.3
-ha_category:
-  - Backup
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: azure_storage
@@ -13,7 +13,7 @@ ha_integration_type: service
 ha_quality_scale: platinum
 ---
 
-This integration allows you to use [Azure storage accounts](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview) for use with Home Assistant Backups.
+This {% term integration %} allows you to use [Azure storage accounts](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview) for use with Home Assistant Backups.
 
 {% include integrations/config_flow.md %}
 

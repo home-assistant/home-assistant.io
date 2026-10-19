@@ -1,0 +1,32 @@
+blueprint:
+  name: Run actions when a Huum sauna is ready
+  description: Run actions when a Huum sauna reaches its configured target temperature after heating starts.
+  domain: automation
+  input:
+    sauna:
+      name: Sauna climate entity
+      selector:
+        entity:
+          filter:
+            - integration: huum
+              domain: climate
+    actions:
+      name: Actions
+      description: Actions to run when the sauna reaches its target temperature.
+      selector:
+        action:
+variables:
+  sauna: !input sauna
+triggers:
+  - trigger: state
+    entity_id: !input sauna
+    from: "off"
+    to: "heat"
+actions:
+  - wait_template: >-
+      {% set current = state_attr(sauna, 'current_temperature') | float(none) %}
+      {% set target = state_attr(sauna, 'temperature') | float(none) %}
+      {{ current is not none and target is not none and current >= target }}
+    continue_on_timeout: false
+  - sequence: !input actions
+mode: restart

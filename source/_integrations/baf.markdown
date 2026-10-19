@@ -1,14 +1,8 @@
 ---
 title: Big Ass Fans
 description: Instructions on how to integrate BAF devices into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Fan
-  - Light
-  - Number
-  - Sensor
-  - Switch
+ha_categories:
+  - climate.fans_ventilation
 ha_zeroconf: true
 ha_release: 2022.6
 ha_iot_class: Local Push
@@ -25,7 +19,7 @@ ha_platforms:
   - number
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [Big Ass Fans](https://www.bigassfans.com/) devices into Home Assistant.

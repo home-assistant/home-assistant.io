@@ -1,8 +1,8 @@
 ---
 title: Webmin
 description: Instructions on how to set up Webmin with Home Assistant.
-ha_category:
-  - System monitor
+ha_categories:
+  - computers_network.nas_servers
 ha_release: 2024.3
 ha_iot_class: Local Polling
 ha_config_flow: true

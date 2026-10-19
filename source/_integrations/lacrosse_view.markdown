@@ -2,8 +2,8 @@
 title: LaCrosse View
 description: Get data for LaCrosse View-connected sensors
 ha_release: '2022.9'
-ha_category:
-  - Sensor
+ha_categories:
+  - sensors.temperature_humidity
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -12,7 +12,7 @@ ha_domain: lacrosse_view
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 [**LaCrosse View**](https://www.lacrossetechnology.com/pages/la-crosse-view) is the service provided by LaCrosse Technology that allows access to LaCrosse sensors.

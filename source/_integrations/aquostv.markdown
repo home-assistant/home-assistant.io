@@ -1,8 +1,8 @@
 ---
 title: Sharp Aquos TV
 description: Instructions on how to integrate a Sharp Aquos TV into Home Assistant.
-ha_category:
-  - Media player
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: 0.35
 ha_iot_class: Local Polling
 ha_domain: aquostv
@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `aquostv` platform allows you to control a [Sharp Aquos TV](https://global.sharp/aquos/index.html).
+The **Sharp Aquos TV** {% term integration %} allows you to control a [Sharp Aquos TV](https://global.sharp/aquos/index.html).
 
 When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
 

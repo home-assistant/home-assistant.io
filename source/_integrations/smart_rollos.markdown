@@ -1,8 +1,6 @@
 ---
 title: Smart Rollos
 description: Connect and control your Smart Rollos devices using the Motionblinds integration
-ha_category:
-  - Cover
 ha_domain: smart_rollos
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds

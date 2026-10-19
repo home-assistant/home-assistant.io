@@ -1,10 +1,8 @@
 ---
 title: OpenUV
 description: Instructions on how to integrate OpenUV within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Health
-  - Sensor
+ha_categories:
+  - weather_alerts
 ha_release: 0.76
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -18,7 +16,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The OpenUV integration displays UV and Ozone data from [openuv.io](https://www.openuv.io/).
+The **OpenUV** {% term integration %} displays UV and Ozone data from [openuv.io](https://www.openuv.io/).
 
 {% warning %}
 The guidelines within this documentation constitute estimates which are intended to help
@@ -97,7 +95,6 @@ configured via the config entry options within the UI. Two parameters are given:
 Update the UV index data every 20 minutes while the sun is at least 10 degrees above the
 horizon:
 
-{% raw %}
 ```yaml
 automation:
   - alias: "Update OpenUV"
@@ -114,7 +111,6 @@ automation:
         target:
           entity_id: sensor.LATITUDE_LONGITUDE_current_uv_index
 ```
-{% endraw %}
 
 Update the protection window once a day at 12:00pm:
 
@@ -130,49 +126,9 @@ automation:
           entity_id: binary_sensor.LATITUDE_LONGITUDE_protection_window
 ```
 
-To perform an optimal amount of API calls in locations where the amount of daylight
-varies, you need to know the total hours of daylight on the longest day of the year. If,
-for example, this is 17 hours, you can perform 2 calls around every 45 minutes without
-running into the 50 API call limit per day:
+For a reusable schedule that limits updates to daylight hours, use the following blueprint. It supports refresh intervals of 15, 30, 45, or 60 minutes and allows one final refresh shortly after sunset.
 
-{% raw %}
-```yaml
-automation:
-  - alias: "Update OpenUV"
-    triggers:
-      # Time pattern of /45 will not work as expected, as it will sometimes be true
-      # twice per hour (on the whole hour and on the whole hour + 45 minutes); use a
-      # more frequent time pattern and a condition to get the intended behavior:
-      - trigger: time_pattern
-        minutes: "/15"
-    conditions:
-      - condition: sun
-        after: sunrise
-        before: sunset
-        # The last call will most likely fall before the sunset, leaving the UV index at
-        # something other than 0 for the remainder of the night; to fix this, we allow
-        # one more action after the sun has set:
-        before_offset: "+00:45:00"
-      - condition: template
-        # We check if the last trigger has been 40 minutes or more ago so we don't run
-        # into timing issues; by checking for 40 minutes or greater, we ensure this is
-        # only true at the 45 minute mark:
-        value_template: >- 
-          {{
-            state_attr('automation.update_openuv', 'last_triggered') == None
-            or (
-              now() - state_attr('automation.update_openuv', 'last_triggered')
-            ) >= timedelta(hours = 0, minutes = 40)
-          }}
-    actions:
-      - action: homeassistant.update_entity
-        target:
-          entity_id:
-            # Update both UV and protection window data:
-            - binary_sensor.LATITUDE_LONGITUDE_protection_window
-            - sensor.LATITUDE_LONGITUDE_current_uv_index
-```
-{% endraw %}
+{% blueprint_example blueprint="openuv/daylight_refresh.yaml" %}
 
 ## Expired API Keys and Re-authentication
 
@@ -187,7 +143,7 @@ provided by OpenUV. So, this strategy is followed:
 1. Any `HTTP 403` response will create a persistent notification asking you to
    re-authenticate the OpenUV integration.
 2. In the case of an overrun API call limit, once the `homeassistant.update_entity`
-   service call is again successful, existing re-authentication notifications will
+   action is again successful, existing re-authentication notifications will
    automatically be removed.
 
 If you receive a re-authentication notification and are certain that your key has merely

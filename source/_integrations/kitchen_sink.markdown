@@ -1,8 +1,8 @@
 ---
 title: Everything but the Kitchen Sink
 description: Instructions on how to set up the Everything but the Kitchen Sink integration
-ha_category:
-  - Other
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_release: 2023.2
 ha_quality_scale: internal
 ha_codeowners:
@@ -11,6 +11,9 @@ ha_domain: kitchen_sink
 ha_iot_class: Calculated
 ha_platforms:
   - button
+  - device_tracker
+  - event
+  - fan
   - image
   - lawn_mower
   - lock
@@ -24,7 +27,7 @@ related:
     title: Configuration file
 ---
 
-The Kitchen Sink {% term integration %} contains demonstrations of various odds and ends.
+The **Kitchen Sink** {% term integration %} contains demonstrations of various odds and ends.
 
 This sets up a demo environment of features which are obscure or which represent incorrect behavior, and are thus not wanted in the `demo` integration.
 

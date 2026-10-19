@@ -1,9 +1,8 @@
 ---
 title: FYTA
 description: Instructions on how to integrate FYTA sensors within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
+ha_categories:
+  - garden_plants
 ha_release: 2024.4
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -24,15 +23,15 @@ The **FYTA** {% term integration %} uses the open API of [FYTA](https://www.fyta
 
 ## Supported devices
 
-The integration should work with any [FYTA Beam](https://fyta.de/collections/all/products/single-beam).
+The integration should work with any [FYTA Sensor](https://fyta.de/en/pages/fyta-system).
 
 ## Prerequisites
 
-For the integration to work you need a [FYTA Beam](https://fyta.de/collections/all/products/single-beam) and a FYTA account.
+For the integration to work, you need a [FYTA Sensor](https://fyta.de/en/pages/fyta-system) and a FYTA account.
 
 {% include integrations/config_flow.md %}
 
-To setup the integration you need the following information:
+To set up the integration you need the following information:
 
 {% configuration_basic %}
 Email:
@@ -78,6 +77,7 @@ The following sensors are currently available per plant:
 | nutrients_status      |        | FYTA-Status (cf. scale below)              |
 | salinity_status       |        | FYTA-Status (cf. scale below)              |
 | temperature           | °C     | Temperature measured by sensor             |
+| last_update           | date   | Date when the sensor last sent an update to the FYTA hub |
 | light                 | μmol/h | Light measured by sensor (hourly photosynthetically active radiation PAR)|
 | moisture              | %      | Moisture measured by sensor                |
 | salinity              | mS/cm  | Salinity measured by sensor (measured as conductivity)|
@@ -115,7 +115,7 @@ The integration provides no additional actions.
 
 The integration provides the data exposed by means of the plant API. The light measurement as current daily light integral (DLI) is not yet available (currently only the PAR value is provided).
 
-Please note that in order to be able to access your plant data over the API, you need a [FYTA hub](https://fyta.de/collections/all/products/single-hub) that uploads the data from the Beam sensor to the FYTA server. Alternatively, the mobile app can serve as a gateway to upload the data from the Beam to the server. No direct connection to the FYTA Beam is supported (as the Beam only provides raw data, that needs to be processed on the FYTA server).
+To be able to access your plant data over the API, you need a [FYTA hub](https://fyta.de/collections/all/products/single-hub) that uploads the data from the Beam sensor to the FYTA server. Alternatively, the mobile app can serve as a gateway to upload the data from the Beam to the server. No direct connection to the FYTA Beam is supported (as the Beam only provides raw data, that needs to be processed on the FYTA server).
 
 ## Removing the integration
 

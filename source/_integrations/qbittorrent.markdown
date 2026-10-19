@@ -1,8 +1,8 @@
 ---
 title: qBittorrent
 description: Instructions on how to integrate qBittorrent sensors within Home Assistant.
-ha_category:
-  - Downloading
+ha_categories:
+  - computers_network.nas_servers
 ha_release: 0.84
 ha_config_flow: true
 ha_iot_class: Local Polling
@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The `qbittorrent` platform allows you to monitor your downloads with [qBittorrent](https://www.qbittorrent.org/) from within Home Assistant and setup automations based on the information.
+The **qBittorrent** {% term integration %} allows you to monitor your downloads with [qBittorrent](https://www.qbittorrent.org/) from within Home Assistant and setup automations based on the information.
 You can control the alternative speed via the `Alternative speed` switch.
 
 ## Setup
@@ -33,7 +33,7 @@ The qBittorrent integration will add the following sensors:
 - `sensor.qbittorrent_connection_status`: The connection status of qBittorrent - `connected`, `firewalled`, or `disconnected`.
 - `sensor.qbittorrent_upload_speed`: The current total upload speed in kB/s.
 - `sensor.qbittorrent_download_speed`: The current total download speed in kB/s.
-- `sensor.qbittorrent_upload_speed_limit`: The active qBittorrent upload speed limit (disabled by default).
+- `sensor.qbittorrent_upload_speed_limit`: The active qBittorrent upload speed limit ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)).
 - `sensor.qbittorrent_download_speed_limit`: The active qBittorrent download speed limit (disabled by default).
 - `sensor.qbittorrent_alltime_upload`: The total amount of uploaded data.
 - `sensor.qbittorrent_alltime_download`: The total amount of downloaded data.
@@ -50,41 +50,4 @@ The qBittorrent integration adds the following switch:
 
 - `Alternative speed`: Allows you to enable or disable qBittorrent's alternative speed.
 
-## Actions
-
-### Action `qbittorrent.get_torrents`
-
-This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
-with a dictionary of torrents based on the provided filter.
-
-| Data attribute | Optional | Description                                    | Example                                             |
-| ---------------------- | -------- | ---------------------------------------------- | --------------------------------------------------- |
-| `device`               | no       | The device you'd like to check the torrents of | all, active, inactive, paused, downloading, seeding |
-| `torrent_filter`       | no       | The type of torrents you want in the response  | all, active, inactive, paused, errored, downloading, seeding |
-
-```yaml
-action: qbittorrent.get_torrents
-data:
-  filter: "all"
-response_variable: torrents
-```
-
-The response data contains the field `torrents` which contains a dictionary of torrents. The names of the torrents are the keys.
-
-### Action `qbittorrent.get_all_torrents`
-
-This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
-with a dictionary of torrents based on the provided filter.
-
-| Data attribute | Optional | Description                                   | Example                                             |
-| ---------------------- | -------- | --------------------------------------------- | --------------------------------------------------- |
-| `torrent_filter`       | no       | The type of torrents you want in the response | all, active, inactive, paused, errored, downloading, seeding |
-
-```yaml
-action: qbittorrent.get_all_torrents
-data:
-  filter: "all"
-response_variable: all_torrents
-```
-
-The response data contains the field `all_torrents`, which contains a dictionary of integrations, which each contains a dictionary of torrents. The names of the torrents are the keys.
+{% include integrations/actions.md %}

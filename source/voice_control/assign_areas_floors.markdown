@@ -1,5 +1,5 @@
 ---
-title: "Assigning devices to areas and areas to floors"
+title: "Assigning areas to floors and an area to a device"
 related:
   - docs: /docs/organizing/areas/
     title: Areas
@@ -31,10 +31,10 @@ Another best practice with Assist is to create an architecture of areas and floo
 3. Select **Edit floor**.
 4. Assign your areas to this floor.
 
-### To assign a device to an area
+### To assign an area to a device
 
 1. Go to {% my devices title="**Settings** > **Devices & services** > **Devices**" %}.
 2. Select the device.
 3. In the top bar of the device page, select the pencil {% icon "mdi:pencil" %} icon.
-4. Assign it to an area.
+4. Assign an area to the device.
 

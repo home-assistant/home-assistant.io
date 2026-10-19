@@ -1,8 +1,6 @@
 ---
 title: DHCP discovery
 description: Discover integrations on the network using DHCP protocol.
-ha_category:
-  - Network
 ha_iot_class: Local Push
 ha_release: 2021.2
 ha_domain: dhcp

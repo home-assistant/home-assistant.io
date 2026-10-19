@@ -3,8 +3,8 @@ title: Meteo.lt
 description: Instructions on how to integrate Lithuanian Hydrometeorological Service (Meteo.lt) within Home Assistant.
 ha_release: 2025.11
 ha_iot_class: Cloud Polling
-ha_category:
-  - Weather
+ha_categories:
+  - weather_alerts.forecasts
 ha_codeowners:
   - '@xE1H'
 ha_config_flow: true
@@ -49,7 +49,7 @@ The following current weather data is provided:
 - **Wind direction** (degrees): Wind direction in degrees
 - **Wind gust speed** (m/s): Maximum wind gust speed
 - **Cloud coverage** (%): Percentage of cloud cover
-- **Condition**: Weather condition (clear, cloudy, rainy, etc.)
+- **Condition**: Weather condition (such as clear, cloudy, or rainy)
 
 ### Forecasts
 

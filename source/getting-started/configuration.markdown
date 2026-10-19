@@ -1,6 +1,6 @@
 ---
 title: "Next steps"
-description: "Next steps in configuring your Home Assistant"
+description: "You have Home Assistant up and running. Here is what to look at next: adding the rest of your household, installing the mobile apps, setting up backups, and exploring voice control."
 related:
   - docs: configuration/basic/
     title: Changing basic settings
@@ -16,7 +16,7 @@ related:
     title: Home Assistant on Android and iOS
 ---
 
-The onboarding process takes you through the initial setup for Home Assistant, such as getting the system up and running, naming your home and selecting your location. This section points you to further documentation helping you with the next steps.
+Onboarding got you the basics: a working Home Assistant, your home's name and location, your first integrations. From here, your smart home is yours to shape. This page points you to a few of the next things most people do once they have Home Assistant running, so you can pick whichever one matters most to you and pace yourself.
 
 ## Adding other persons to Home Assistant
 
@@ -36,7 +36,7 @@ To change basic settings such as location, unit system, and language, refer to [
 
 ## Creating a backup
 
-You can back up your Home Assistant, add-on data, and configuration. Backups are used to restore the system (or parts of the system) if a rollback is needed. Backups are also used or to migrate your Home Assistant to new hardware. It is good practice to create a backup before updating.
+You can back up your Home Assistant configuration and Home Assistant app data. Backups are used to restore the system (or parts of the system) if a rollback is needed. Backups are also used to migrate your Home Assistant to new hardware. It is good practice to create a backup before updating.
 
 To learn how to create a backup of your Home Assistant installation, refer to the documentation on [creating a backup](/common-tasks/general/#backups).
 

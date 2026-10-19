@@ -3,10 +3,9 @@ title: VersaSense
 description: Integrate your VersaSense MicroPnP devices.
 date: 2019-11-19 14:00
 ha_release: 0.103
-ha_category:
-  - Hub
-  - Sensor
-  - Switch
+ha_categories:
+  - sensors
+  - hubs_protocols.wireless_protocols
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@imstevenxyz'
@@ -21,7 +20,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The **VersaSense** {% term integration %} supports the VersaSense Edge Gateway. The gateway is able to control hubs and their peripherals (sensors and actuators) in the mesh network.
+The **VersaSense** {% term integration %} supports the VersaSense Edge Gateway. The gateway can control hubs and their peripherals (sensors and actuators) in the mesh network.
 
 ## Configuration
 

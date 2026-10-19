@@ -3,7 +3,9 @@ title: "0.29: 🎈 Async, SleepIQ, OpenALPR, EmonCMS, stocks, and plants"
 description: "Move to asynchronous, Support for SleepIQ, OpenALPR, and EmonCMS, and other goodies."
 date: 2016-09-29 03:04:05 +0000
 date_formatted: "September 29, 2016"
-author: Paulus Schoutsen & Fabian Affolter
+author:
+  - Paulus Schoutsen
+  - Fabian Affolter
 author_twitter: balloob
 categories:
 - Release-Notes
@@ -110,7 +112,7 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
  - Nest sensor 'mode' has been renamed to 'operation_mode'
 
 ### If you need help...
-...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
+...don't hesitate to use our [Forum](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/home-assistant). The release notes have comments enabled but it's preferred if you the former communication channels. Thanks.
 
 [nest-issues]: https://github.com/home-assistant/home-assistant/issues/3574
 [@jabesq]: https://github.com/jabesq

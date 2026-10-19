@@ -1,0 +1,135 @@
+blueprint:
+  name: Keep a Monzo account at a target balance
+  description: >
+    Move money between a Monzo account and one of its pots to keep the account
+    at a chosen balance. The automation runs when the account balance changes
+    and every 15 minutes as a fallback.
+  domain: automation
+  author: Jake Martin
+  homeassistant:
+    min_version: 2026.9.0
+  input:
+    account:
+      name: Monzo account
+      description: The account to keep at the target balance.
+      selector:
+        device:
+          filter:
+            - integration: monzo
+              model: Account
+    pot:
+      name: Monzo pot
+      description: >
+        The pot to move money to and from. It must belong to the selected
+        account and Monzo connection.
+      selector:
+        device:
+          filter:
+            - integration: monzo
+              model: Pot
+    account_balance:
+      name: Account balance sensor
+      description: >
+        Select the sensor named Balance for the selected account, not Total
+        balance or Spent today.
+      selector:
+        entity:
+          filter:
+            - integration: monzo
+              domain: sensor
+              device_class: monetary
+              device:
+                integration: monzo
+                model: Account
+    pot_balance:
+      name: Pot balance sensor
+      description: Select the Balance sensor for the selected pot.
+      selector:
+        entity:
+          filter:
+            - integration: monzo
+              domain: sensor
+              device_class: monetary
+              device:
+                integration: monzo
+                model: Pot
+    target_balance:
+      name: Target balance
+      description: The balance to keep in the account, in its currency.
+      default: 1000
+      selector:
+        number:
+          min: 0
+          max: 1000000
+          step: 0.01
+          mode: box
+
+variables:
+  account_device_input: !input account
+  pot_device_input: !input pot
+  account_balance_entity: !input account_balance
+  pot_balance_entity: !input pot_balance
+  target_balance_input: !input target_balance
+
+triggers:
+  - trigger: state
+    entity_id: !input account_balance
+  - trigger: time_pattern
+    minutes: "/15"
+
+conditions:
+  - condition: template
+    value_template: >
+      {{
+        is_number(states(account_balance_entity))
+        and is_number(states(pot_balance_entity))
+        and device_id(account_balance_entity) == account_device_input
+        and device_id(pot_balance_entity) == pot_device_input
+      }}
+
+actions:
+  - variables:
+      account_balance_value: >
+        {{ states(account_balance_entity) | float }}
+      pot_balance_value: >
+        {{ states(pot_balance_entity) | float }}
+      target_balance_value: >
+        {{ target_balance_input | float }}
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ account_balance_value > target_balance_value }}
+        sequence:
+          - action: monzo.deposit_into_pot
+            data:
+              account: !input account
+              pot: !input pot
+              amount: >
+                {{
+                  (account_balance_value - target_balance_value) | round(2)
+                }}
+      - conditions:
+          - condition: template
+            value_template: >
+              {{
+                account_balance_value < target_balance_value
+                and pot_balance_value > 0
+              }}
+        sequence:
+          - action: monzo.withdraw_from_pot
+            data:
+              account: !input account
+              pot: !input pot
+              amount: >
+                {{
+                  [
+                    target_balance_value - account_balance_value,
+                    pot_balance_value,
+                  ]
+                  | min
+                  | round(2)
+                }}
+
+mode: single
+max_exceeded: silent

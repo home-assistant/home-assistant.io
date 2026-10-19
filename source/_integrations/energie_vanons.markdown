@@ -1,8 +1,6 @@
 ---
 title: Energie VanOns
 description: Connect and control your Energie VanOns devices using the EnergyZero integration
-ha_category:
-  - Energy
 ha_domain: energie_vanons
 ha_release: 2023.2
 ha_integration_type: virtual

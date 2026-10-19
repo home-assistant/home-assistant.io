@@ -1,16 +1,9 @@
 ---
 title: Ring
 description: Instructions on integrating Ring.com devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Doorbell
-  - Event
-  - Light
-  - Number
-  - Sensor
-  - Switch
+ha_categories:
+  - security_safety.doorbells_intercoms
+  - security_safety.cameras
 ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -27,13 +20,13 @@ ha_platforms:
   - sensor
   - siren
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@sdb9696'
 ha_quality_scale: bronze
 ---
 
-The Ring integration allows you to control your [Ring.com](https://ring.com/) doorbell, stick up cam, chime, and intercom devices in Home Assistant.
+The **Ring** {% term integration %} allows you to control your [Ring.com](https://ring.com/) doorbell, stick up cam, chime, and intercom devices in Home Assistant.
 
 ## How you can use this integration
 
@@ -90,7 +83,7 @@ Two camera entities are provided: `live_view` and `last_recording`.
 `last_recording` is disabled by default.
 
 {% important %}
-Please note that downloading and playing Ring video from the `last_recording` camera will require a Ring Protect plan.
+Downloading and playing Ring video from the `last_recording` camera will require a Ring Protect plan.
 {% endimportant %}
 
 ### Event
@@ -99,7 +92,9 @@ The event entity captures events like doorbell rings, motion alerts, and interco
 
 ### Sensor
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently, it supports battery level and Wi-Fi signal.
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently, it supports battery level, Wi-Fi signal, and the last recording timestamp for subscribed video devices.
+
+The `last_recording` timestamp sensor is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). When enabled, it shows when Ring created the latest ready recording. Its state is `unknown` until Home Assistant retrieves recording history.
 
 The volume sensors are being replaced with the number entity, which allows setting the volume. You should migrate any automations using the volume sensors to the number entity by release 2025.4.0.
 
@@ -233,8 +228,6 @@ downloader:
 
 Then you can use the following automation, with the entities from your system, which will save the video file under `<config>/downloads/<camera_name>/<camera_name>.mp4`:
 
-{% raw %}
-
 ```yaml
 automation:
   alias: "Save the video when the doorbell is pushed"
@@ -256,18 +249,14 @@ automation:
       filename: "{{state_attr('camera.front_door_last_recording', 'friendly_name')}}.mp4"
 ```
 
-{% endraw %}
-
 You may consider some modifications in the subdirectory and the filename to suit your needs. For example, you can add the date and the time and extension to the downloaded file:
 
-{% raw %}
 ```yaml
     data:
       url: "{{ state_attr('camera.front_door_last_recording', 'video_url') }}"
       subdir: "{{ state_attr('camera.front_door_last_recording', 'friendly_name') }}/{{ now().strftime('%Y.%m') }}"
       filename: "{{ now().strftime('%Y-%m-%d-at-%H-%M-%S') }}.mp4"
 ```
-{% endraw %}
 
 the above modification will save the video file under `<config>/downloads/<camera_name>/YYYY-MM/YYYY-MM-DD-at-HH-MM-SS.mp4`. You can change the date according to your localization format.
 

@@ -1,8 +1,8 @@
 ---
 title: LED BLE
 description: Instructions on how to integrate LED BLE devices into Home Assistant.
-ha_category:
-  - Light
+ha_categories:
+  - lighting.led_strips_controllers
 ha_bluetooth: true
 ha_release: 2022.9
 ha_iot_class: Local Polling
@@ -12,7 +12,7 @@ ha_domain: led_ble
 ha_config_flow: true
 ha_platforms:
   - light
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates multiple brands of Bluetooth Low Energy LED devices into Home Assistant.

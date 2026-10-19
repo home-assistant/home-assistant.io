@@ -1,8 +1,8 @@
 ---
 title: iNELS
 description: Instructions on how to integrate iNELS with Home Assistant.
-ha_category:
-  - Switch
+ha_categories:
+  - hubs_protocols.building_automation
 ha_release: 2025.11
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: inels
 ha_platforms:
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 

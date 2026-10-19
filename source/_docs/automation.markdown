@@ -1,16 +1,23 @@
 ---
 title: "Automating Home Assistant"
-description: "Steps to help you get automation setup in Home Assistant."
+description: "Make your home react on its own with automations. Create them in the automation editor, no coding required, and learn how they work, how to test them, and how to fix them."
 ---
 
-Home Assistant contains information about all your {% term devices %} and {% term services %}. This information is available for the user in the dashboard and it can be used to trigger {% term automations %}. And that's fun!
+An {% term automation %} makes your home react on its own when something happens, for example, turning on the lights at sunset or pausing the music when you receive a call. You create automations in the automation editor, by choosing from your {% term devices %} and {% term entities %}. No coding is required.
 
-Automations in Home Assistant allow you to automatically respond to things that happen. You can turn the lights on at sunset or pause the music when you receive a call.
+## Getting started
 
-If you are just starting out, we recommend that you start with blueprint automations. These are ready-made automations by the community that you only need to configure.
+- To create your first automation step by step, follow the tutorial [Create your first automation](/getting-started/automation/).
+- To learn what an automation is made of, refer to [Understanding automations](/docs/automation/basics/).
+- To use an automation that someone else has already made, refer to [Using automation blueprints](/docs/automation/using_blueprints/).
 
-### [Learn about automation blueprints &raquo;](/docs/automation/using_blueprints/)
+## Learning more
 
-If you have got the hang of blueprints and would like to explore more, it's time for the next step. But before you start creating automations, you will need to learn about the automation basics.
+- [How automations react to changes](/docs/automation/how-automations-react-to-changes/): why an automation starts when something happens, not while something is true.
+- [Which tool to use](/docs/automation/which-tool-to-use/): when to use an automation, a script, a scene, a blueprint, or a helper.
+- [Automation editors](/docs/automation/editor/): everything you can do in the editor.
 
-### [Learn about automation basics &raquo;](/docs/automation/basics/)
+## When something doesn't work
+
+- [Testing automations](/docs/automation/testing/): run an automation or a single step, and read its trace.
+- [Troubleshooting automations](/docs/automation/troubleshooting/): find the cause of common problems by symptom.

@@ -169,7 +169,11 @@ if (longRange) {
 
 maybeLoadAnimations();
 document.addEventListener('DOMContentLoaded', () => {
-    let simon = new Simon(document.querySelectorAll("section#long-range .devices .device:not(.device--sprinkler)"));
+    let simon = new Simon(document.querySelectorAll("section#long-range .devices .device:not(.device--sprinkler)"), {
+        onUnlock: () => {
+            if (typeof window.plausible === "function") window.plausible("Easter Egg");
+        }
+    });
     maybeLoadAnimations();
     featuresEntry.checkInViewOnLoad();
     console.log("Repeat after me. Let's see how *long* you can last. -Darren");

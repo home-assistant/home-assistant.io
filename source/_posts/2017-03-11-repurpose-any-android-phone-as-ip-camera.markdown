@@ -299,7 +299,7 @@ Hot fix release to fix dependency issues. More detailed information about the is
 [@vroomfonde1]: https://github.com/vroomfonde1
 [@craigjmidwinter]: https://github.com/craigjmidwinter
 [@zhelev]: https://github.com/zhelev
-[main chat channel]: https://discord.gg/c5DvZ4e
+[main chat channel]: https://discord.gg/home-assistant
 [@dale3h]: https://github.com/dale3h
 [@CCOSTAN]: https://github.com/CCOSTAN
 [@skalavala]: https://github.com/skalavala
@@ -326,4 +326,4 @@ Hot fix release to fix dependency issues. More detailed information about the is
 [@jnewland]: https://github.com/jnewland
 [#6702]: https://github.com/home-assistant/home-assistant/pull/6702
 [#6738]: https://github.com/home-assistant/home-assistant/pull/6738
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant

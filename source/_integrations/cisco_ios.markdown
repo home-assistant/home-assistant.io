@@ -1,8 +1,9 @@
 ---
 title: Cisco IOS
 description: Instructions on how to integrate Cisco IOS routers into Home Assistant.
-ha_category:
-  - Presence detection
+ha_categories:
+  - presence_location.network_presence
+  - computers_network.routers_network
 ha_release: 0.33
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -67,7 +68,7 @@ device_tracker:
 
 {% configuration %}
 host:
-  description: The IP address of your router, e.g., 192.168.1.1.
+  description: The IP address of your router, for example, `192.168.1.1`.
   required: true
   type: string
 username:

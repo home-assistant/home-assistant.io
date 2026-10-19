@@ -1,10 +1,8 @@
 ---
 title: madVR Envy
 description: Instructions on how to integrate a madVR Envy into Home Assistant.
-ha_category:
-  - Binary Sensor
-  - Remote
-  - Sensor
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: '2024.8'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -19,7 +17,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The madVR Envy allows for the automation and control of [madVR Envy devices](https://madvrenvy.com).
+The **madVR Envy** {% term integration %} allows for the automation and control of [madVR Envy devices](https://madvrenvy.com).
 
 ## Supported Devices
 
@@ -113,7 +111,7 @@ The following sensors are enabled by default:
 - `Outgoing frame rate`: The frame rate of the outgoing video signal.
 - `Outgoing resolution`: The resolution of the outgoing video signal.
 
-The following sensors are disabled by default:
+The following sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity):
 
 - `Aspect ratio integer`: The aspect ratio as an integer ratio.
 - `Aspect ratio name`: The name of the current aspect ratio.

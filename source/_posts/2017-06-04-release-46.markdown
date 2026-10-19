@@ -393,4 +393,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [cover.mqtt docs]: /integrations/cover.mqtt/
 [sensor.wunderground docs]: /integrations/wunderground
 [media_player.roku docs]: /integrations/roku#media-player
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant

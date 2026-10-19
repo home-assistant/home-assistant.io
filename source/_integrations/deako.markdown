@@ -1,8 +1,8 @@
 ---
 title: Deako
 description: Instructions on how to integrate Deako Smart Lighting into Home Assistant.
-ha_category:
-  - Switch
+ha_categories:
+  - plugs_switches
 ha_iot_class: Local Polling
 ha_release: '2024.10'
 ha_domain: deako
@@ -17,7 +17,7 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-The **Deako Smart Lighting** integration allows you to control your [Deako](https://deako.com) devices from Home Assistant.
+The **Deako Smart Lighting** {% term integration %} allows you to control your [Deako](https://deako.com) devices from Home Assistant.
 
 ## Prerequisites
 

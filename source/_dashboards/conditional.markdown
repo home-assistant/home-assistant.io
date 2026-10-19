@@ -14,12 +14,12 @@ The conditional card displays another card based on conditions.
 
 ![Screenshot of the conditional card](/images/dashboards/conditional_card.gif)
 
+Most options for this card can be configured via the user interface.
+
 {% include dashboard/edit_dashboard.md %}
 Note that while editing the dashboard, the card will always be shown, so be sure to exit editing mode to test the conditions.
 
 The conditional card can still be used. However, it is now possible to define a setting to show or hide a card conditionally directly on each card type, on its [Visibility](/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally) tab.
-
-Most options for this card can be configured via the user interface.
 
 ## YAML configuration
 
@@ -61,7 +61,7 @@ card:
   entities:
     - device_tracker.demo_paulus
     - cover.kitchen_window
-    - group.kitchen
+    - light.kitchen_lights
     - lock.kitchen_door
     - light.bed_light
 ```
@@ -87,6 +87,10 @@ card:
 ```
 
 ## Conditions options
+
+You can use conditions about the person viewing the dashboard and their device, such as **User**, **Screen**, **Location**, and **Time**. You can also use the same conditions as in automations, such as **Entity state**, **Entity numeric state**, **Template**, **Sun**, **Zone**, and **Device**.
+
+When you add or change an **Entity state** or **Entity numeric state** condition in the UI, it is saved in the same format as in automations, with `entity_id` instead of `entity`. The format described in this section keeps working.
 
 ### State
 
@@ -206,7 +210,7 @@ Specify the visibility of the card based on the current user's current location.
 condition: location
 locations:
   - home
-  - Home Neigborhood
+  - Home Neighborhood
 ```
 
 {% configuration %}
@@ -216,9 +220,62 @@ condition:
   type: string
 locations:
   required: true
-  description: A list of zones, which if any match the current state of the `person`, will cause this condition to be true. 
+  description: A list of zones, which if any match the current state of the `person`, will cause this condition to be true.
   type: list
 {% endconfiguration %}
+
+### Time
+
+Specify the visibility of the card based on the current time and day of the week.
+
+```yaml
+condition: time
+after: "08:00"
+before: "17:00"
+weekdays:
+  - mon
+  - tue
+  - wed
+  - thu
+  - fri
+```
+
+{% configuration %}
+condition:
+  required: true
+  description: "`time`"
+  type: string
+after:
+  required: false
+  description: Time in 24-hour format (HH:MM) after which the card should be visible.*
+  type: string
+before:
+  required: false
+  description: Time in 24-hour format (HH:MM) before which the card should be visible.*
+  type: string
+weekdays:
+  required: false
+  description: List of weekdays on which the card should be visible. Valid values are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
+  type: list
+{% endconfiguration %}
+
+At least one of `after` or `before` must be used for this condition to be valid. Both can be used together to define a time range as in the example above.
+
+### Template
+
+Tests if a template renders `true`. This condition works the same way as the [Template condition](/conditions/template/) in automations and uses the same options.
+
+### Sun
+
+Tests the position of the sun, for example, whether it is after sunset. This condition works the same way as the [Sun condition](/conditions/sun/) in automations and uses the same options.
+
+### Zone
+
+Tests if a person or device tracker is in a zone. This condition works the same way as the [Zone condition](/conditions/zone/) in automations and uses the same options.
+
+### Device
+
+Tests a condition that a device provides, for example, whether a light is on. This condition works the same way as the [Device condition](/conditions/device/) in automations. Set it up in the UI, because the options depend on the device.
 
 ### And
 

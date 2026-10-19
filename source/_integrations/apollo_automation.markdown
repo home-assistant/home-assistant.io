@@ -2,10 +2,6 @@
 title: Apollo Automation
 description: Connect and control your Apollo Automation devices using the ESPHome integration
 ha_release: 0.85
-ha_category:
-  - Alarm
-  - DIY
-  - Update
 ha_domain: apollo_automation
 ha_integration_type: virtual
 ha_supporting_domain: esphome
@@ -16,6 +12,7 @@ ha_codeowners:
   - '@jesserockz'
   - '@kbx81'
   - '@bdraco'
+  - '@arturpragacz'
 ha_config_flow: true
 ha_platforms:
   - alarm_control_panel
@@ -30,10 +27,12 @@ ha_platforms:
   - diagnostics
   - event
   - fan
+  - infrared
   - light
   - lock
   - media_player
   - number
+  - radio_frequency
   - select
   - sensor
   - switch
@@ -41,6 +40,7 @@ ha_platforms:
   - time
   - update
   - valve
+  - water_heater
 ha_iot_class: Local Push
 ha_dhcp: true
 ha_zeroconf: true
@@ -52,10 +52,6 @@ Apollo Automation devices work locally and integrate seamlessly with the [ESPHom
 
 {% include integrations/supported_brand.md %}
 
-## Supported devices
+## Works with Home Assistant certified devices
 
-The following devices are known to be supported by the integration. They are certified under the [Works with Home Assistant](https://partner.home-assistant.io/) program.
-
-- [MTR-1 Multi-Target Radar Multisensor For Home Assistant (LD2450)](https://apolloautomation.com/products/mtr-1) - A tiny, but powerful radar-based (mmWave) presence sensor that can pack in many other sensors.
-- [MSR-2 mmWave Multisensor For Home Assistant (LD2410B)](https://apolloautomation.com/products/msr-2) - An even smaller multisensor that is the successor of the initial community feedback-driven design.
-- [AIR-1 Air Quality Sensor For Home Assistant](https://apolloautomation.com/products/air-1) - A small air quality multisensor that can be extended to incorporate a huge variety of sensors.
+{% include integrations/device_list.html brand="apollo-automation" %}

@@ -1,14 +1,8 @@
 ---
 title: IronOS
 description: Instructions on how to integrate IronOS-based Pinecil V2 devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
+ha_categories:
+  - diy_makers.boards_hardware
 ha_iot_class: Local Polling
 ha_release: 2024.8
 ha_config_flow: true
@@ -59,7 +53,7 @@ Home Assistant will detect nearby IronOS devices. Discovered devices will show u
 
 ## Number controls
 
-- **Setpoint temperature:** Allows to set the desired target temperature for the soldering iron tip.
+- **Setpoint temperature:** Allows you to set the desired target temperature for the soldering iron tip.
 
 ## Binary sensors
 
@@ -157,8 +151,6 @@ Automatically activate the fume extractor when soldering begins and deactivate i
 
 {% details "Example YAML configuration" %}
 
-{% raw %}
-
 ```yaml
 triggers:
   - trigger: state
@@ -189,8 +181,6 @@ actions:
         target:
           entity_id: switch.fume_extractor
 ```
-
-{% endraw %}
 
 {% enddetails %}
 

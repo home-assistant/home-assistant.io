@@ -2,9 +2,8 @@
 title: Imeon Inverter
 description: Instructions on Imeon Inverter Integration for Imeon inverters with Home Assistant.
 ha_release: 2025.5
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.solar_batteries
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -21,7 +20,7 @@ ha_platforms:
 ha_ssdp: true
 ---
 
-The Imeon Energy Inverter {% term integrations %} will poll an [Imeon](https://imeon-energy.com/) solar inverter in Home Assistant.
+The **Imeon Inverter** {% term integration %} will poll an [Imeon](https://imeon-energy.com/) solar inverter in Home Assistant.
 
 ## Prerequisites
 

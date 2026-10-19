@@ -8,6 +8,8 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
 The thermostat card gives control of your [climate](/integrations/#climate) {% term entity %} or [water heater](/integrations/#water_heater) {% term entity %}, allowing you to change the temperature and mode of the {% term entity %}.
@@ -17,9 +19,9 @@ The thermostat card gives control of your [climate](/integrations/#climate) {% t
   Screenshot of the thermostat card.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 
@@ -36,8 +38,8 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
   default: Name of entity.
 theme:
   required: false

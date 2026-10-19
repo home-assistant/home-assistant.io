@@ -1,12 +1,8 @@
 ---
 title: Balboa Spa Client
 description: Instructions on how to integrate Balboa Spa WiFi within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Fan
-  - Light
-  - Select
+ha_categories:
+  - water.pools_spas
 ha_release: 2021.12
 ha_iot_class: Local Push
 ha_domain: balboa
@@ -23,7 +19,7 @@ ha_codeowners:
   - '@garbled1'
   - '@natekspencer'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ha_dhcp: true
 ---
 
@@ -50,7 +46,7 @@ Balboa Spa Client integration is not compatible with ControlMySpa™ cloud API u
 
 {% configuration_basic %}
 host:
-  description: "Hostname or IP address of your Balboa Spa Wifi Device, e.g., `192.168.1.58`."
+  description: "Hostname or IP address of your Balboa Spa Wifi Device, for example `192.168.1.58`."
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}

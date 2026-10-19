@@ -1,8 +1,9 @@
 ---
 title: Emulated Roku
 description: Instructions on how to set up Emulated Roku within Home Assistant.
-ha_category:
-  - Hub
+ha_categories:
+  - other_ecosystems
+  - buttons_remotes
 ha_release: 0.86
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -36,7 +37,7 @@ Using a proxy with whitelisted IP addresses is recommended. (set `advertise_ip` 
 
 ## Manual configuration
 
-If you wish to configure advanced options, you can add the following entry in your {% term "`configuration.yaml`" %} file.
+If you wish to configure additional options, you can add the following entry in your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml

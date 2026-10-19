@@ -1,8 +1,6 @@
 ---
 title: Bliss Automation
 description: Connect and control your Bliss Automation devices using the Motionblinds integration
-ha_category:
-  - Cover
 ha_domain: bliss_automation
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds

@@ -1,20 +1,10 @@
 ---
 title: Shelly
 description: Integrate Shelly devices
-ha_category:
-  - Binary sensor
-  - Climate
-  - Cover
-  - Energy
-  - Event
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Text
-  - Update
-  - Valve
+ha_categories:
+  - plugs_switches
+  - lighting.bulbs_lamps
+  - energy.meters_monitoring
 ha_release: 0.115
 ha_codeowners:
   - '@bieniu'
@@ -29,11 +19,13 @@ ha_zeroconf: true
 ha_platforms:
   - binary_sensor
   - button
+  - camera
   - climate
   - cover
   - diagnostics
   - event
   - light
+  - media_player
   - number
   - select
   - sensor
@@ -42,7 +34,7 @@ ha_platforms:
   - update
   - valve
 ha_integration_type: device
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 Integrate [Shelly devices](https://shelly.com) into Home Assistant.
@@ -54,13 +46,28 @@ Host:
     description: "The Hostname or IP address of your Shelly device. You can find it in your router."
 Port:
     description: "Custom TCP port of the device. Change this only if the device is connected via Shelly Range Extender."
+Verify SSL:
+    description: "Verify SSL/TLS certificate when connecting on HTTPS (port 443, Gen2+). Enable this only if the device uses a certificate signed by a certificate authority your Home Assistant instance trusts."
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Bluetooth scanner mode:
+  description: "Pick how the Shelly scans for Bluetooth devices. <br> **Auto** is recommended for most setups. The Shelly listens passively and only briefly switches to active scanning when needed, saving around 95% of the scan related battery drain on your Bluetooth devices while still discovering devices and updates quickly. <br> **Active** continuously asks devices for full information. Updates are the fastest, but it uses more battery on the devices around you. <br> **Passive** only listens; never asks devices for extra information. Uses the least battery on your devices, but some details may be missing because some integrations need active scanning to work. <br> **Disabled** turns the Shelly Bluetooth scanner off."
 {% endconfiguration_basic %}
 
 ## Shelly device generations
 
 There are four generations of devices and all generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
 
-Shelly BLU series devices (e.g. Shelly BLU H&T) are not supported; please use BTHome integration to configure such devices with Home Assistant. The exception to this is Shelly BLU TRV, which is supported by this integration via Shelly BLU Gateway Gen3.
+Shelly BLU series devices (for example, Shelly BLU H&T) are not supported; please use the BTHome integration to configure such devices with Home Assistant. The exception to this is Shelly BLU TRV, which is supported by this integration via Shelly BLU Gateway Gen3 or other Shelly devices with built-in BLU TRV support.
+
+## Shelly Enhanced Security
+
+Enhanced Security is a firmware 2.0.0 feature for Gen2+ devices that enables additional security measures required for compliance with the European Union's Radio Equipment Directive (RED). When enabled, the device uses HTTPS and enforces secure communication. Devices shipped from factory with firmware 2.0.0+ come with HTTPS already enabled using certificates issued by Shelly's internal PKI. Devices that were updated to firmware 2.0.0+ (but not originally shipped with it) do not have factory-provisioned certificates and serve only plain HTTP by default, so you must enable Enhanced Security manually and upload your own certificate to enable HTTPS. See [the official guide](https://shelly-api-docs.shelly.cloud/gen2/General/CustomHTTPSCertificates/) for instructions on creating and installing a certificate. Enhanced Security can also be enabled without uploading a HTTPS certificate, allowing you to preserve compatibility with 3rd-party HTTP-only integrations.
+
+The Shelly integration automatically detects whether HTTPS is configured on the device and always communicates with that device over HTTPS using port 443. If you uploaded a certificate signed by a certificate authority your Home Assistant instance trusts, enable **Verify SSL**; otherwise, leave it disabled.
 
 ## Data updates
 
@@ -85,7 +92,9 @@ The list below will help you diagnose and fix the problem:
 
 ### Shelly device configuration (generation 2+)
 
-Generation 2+ devices use the `RPC` protocol to communicate with the integration. **Battery-operated devices** (even if USB connected) may need manual outbound WebSocket configuration if Home Assistant cannot correctly determine your instance's internal URL or the outbound WebSocket was previously configured for a different Home Assistant instance. In this case, navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
+Generation 2+ devices use the `RPC` protocol to communicate with Home Assistant. By default, no additional configuration is required.
+
+**Only battery-operated devices** (even if connected via USB) may need manual outbound WebSocket configuration if Home Assistant cannot correctly determine your instance's internal URL, or if the outbound WebSocket was previously configured for a different Home Assistant instance. In this case, navigate to the local IP address of your Shelly device, **Settings** > **Connectivity** > **Outbound WebSocket**, and select **Enable Outbound WebSocket**. Under **Server**, enter the following address:
 
 `ws://` + `Home_Assistant_local_ip_address:Port` + `/api/shelly/ws` (for example: `ws://192.168.1.100:8123/api/shelly/ws`), click **Apply** to save the settings.
 In case your installation is set up to use SSL encryption (HTTP**S** with certificate), an additional `s` needs to be added to the WebSocket protocol, too, so that it reads `wss://` (for example: `wss://192.168.1.100:8123/api/shelly/ws`).
@@ -120,8 +129,6 @@ Shelly devices do **not** support proxying active (GATT) connections.
 {% endtip %}
 
 For more details, see [Remote Adapters](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) in the [Bluetooth integration](/integrations/bluetooth).
-
-{% include integrations/option_flow.md %}
 
 ## Range Extender Support
 
@@ -209,6 +216,43 @@ Depending on how a device's button type is configured, the integration will crea
 
 For generation 2+ hardware, it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the **Input Mode** is set to `Switch`. When the **Input Mode** is set to `Button` you need to use events for your automations.
 
+## Media player entities
+
+Wall Display devices with firmware 2.2 or newer can function as media players. The integration creates media player entities for them.
+
+The Wall Display media player can play the following audio formats:
+
+- Local audio files uploaded to the Wall Display media library
+- Internet radio stations added to your favorites
+
+These audio files and your favorite radio stations are visible in the Home Assistant media browser.
+
+### Play media using the `media_player.play_media` action
+
+This action will start playing your favorite radio station with ID `2`:
+
+```yaml
+action: media_player.play_media
+data:
+  media:
+    media_content_id: 2
+    media_content_type: radio
+target:
+  entity_id: media_player.shelly_wall_display
+```
+
+This action will start playing your audio file with ID `15`:
+
+```yaml
+action: media_player.play_media
+data:
+  media:
+    media_content_id: 15
+    media_content_type: audio
+target:
+  entity_id: media_player.shelly_wall_display
+```
+
 ## Event entities
 
 ### Event entities (generation 1)
@@ -219,7 +263,7 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `Momentar
 
 If the **Input Mode** of the switch connected to the device is set to `Button`, the integration creates an event entity for this switch. You can use this entity in your automations.
 
-Each script which generates events using [Shelly.emitEvent()](https://shelly-api-docs.shelly.cloud/gen2/Scripts/ShellyScriptLanguageFeatures#shellyemitevent) also gets an corresponding event entity. This entity is disabled by default. After changing a script, it's required to manually reload the device before new event types show up.
+Each script which generates events using [Shelly.emitEvent()](https://shelly-api-docs.shelly.cloud/gen2/Scripts/ShellyScriptLanguageFeatures#shellyemitevent) also gets an corresponding event entity. This entity is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). After changing a script, it's required to manually reload the device before new event types show up.
 
 {% note %}
 To avoid increased startup time, only the first 5 KB of the script is downloaded and analyzed. If your script exceeds 5 KB, place the event emitting function at the beginning to ensure it is processed.
@@ -253,7 +297,7 @@ Also, some devices do not add an entity for the button/switch. For example, the 
 
 ### Listening for events
 
-You can subscribe to the `shelly.click` event type in [Developer Tools/Events](/docs/tools/dev-tools/) in order to examine the event data JSON for the correct parameters to use in your automations. For example, `shelly.click` returns event data JSON similar to the following when you press the Shelly Button1.
+You can subscribe to the `shelly.click` event type in the **Events** tab of [Tools](/docs/tools/dev-tools/) to examine the event data JSON for the correct parameters to use in your automations. For example, `shelly.click` returns event data JSON similar to the following when you press the Shelly Button1.
 
 ```json
 Event 0 fired 9:53 AM:
@@ -381,6 +425,23 @@ Trigger reboot of device.
 - Reboot
   - triggers the reboot
 
+{% include integrations/actions.md %}
+
+## Shelly Camera
+
+The integration creates one camera entity for each available stream. Stream 1 is disabled by default.
+
+The integration uses <abbr title="real-time streaming protocol">RTSP</abbr> streams. To use them, enable **RTSP Streaming** in the in the device’s web panel under **Camera** > **Settings**.
+
+## Shelly Circuit Breaker
+
+The Shelly Circuit Breaker creates a `switch` entity that lets you control the breaker. This entity shows as `unavailable` when the device's safety switch is locked.
+
+The integration also creates two binary sensors:
+
+- Safety switch lock state. When locked, the device can't be controlled remotely.
+- Output state.
+
 ## Shelly Thermostatic Radiator Valve (TRV)
 
 Shelly TRV generates 2 entities that can be used to control the device behavior: `climate` and `number`.
@@ -398,7 +459,7 @@ If you have the Valve add-on connected to Shelly Gas, the integration will creat
 
 In some cases, it may be needed to customize the CoAP UDP port (default: `5683`) your Home Assistant instance is listening to.
 
-In order to change it, add the following key to your {% term "`configuration.yaml`" %}:
+To change it, add the following key to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -434,9 +495,9 @@ Please check from the device Web UI that the configured server is reachable.
 
 ## Troubleshooting
 
-1. [Enable debug logging](https://www.home-assistant.io/docs/configuration/troubleshooting/#enabling-debug-logging).
+1. [Enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging).
 2. Take necessary steps/actions to replicate the issue.
-3. [Disable debug logging and download logs](https://www.home-assistant.io/docs/configuration/troubleshooting/#disable-debug-logging-and-download-logs).
+3. [Disable debug logging and download logs](/docs/configuration/troubleshooting/#disable-debug-logging-and-download-logs).
 
 ## Known issues and limitations
 
@@ -449,7 +510,8 @@ Please check from the device Web UI that the configured server is reachable.
   - Shelly Dimmer 2
   - Shelly RGBW2
   - Shelly Vintage
-- Generation 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
+- Generation 1 Shelly 4Pro and Shelly Sense are not supported (devices based on old CoAP v1 protocol).
+- Shelly AZ H&T is not supported (the device does not support Outbound WebSocket, which is required for real-time communication with the integration).
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
 - For battery-powered devices, the `update` platform entities only inform about the availability of firmware updates but are not able to trigger the update process.
 - Using the `homeassistant.update_entity` action for an entity belonging to a battery-powered device is not possible because most of the time these devices are sleeping (are offline).

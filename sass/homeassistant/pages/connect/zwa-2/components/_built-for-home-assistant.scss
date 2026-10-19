@@ -1,3 +1,4 @@
+@use '../../mixins' as *;
 section#built-for-home-assistant {
     @include bp(desktop) {
         height: 100vh;
@@ -76,5 +77,8 @@ section#built-for-home-assistant {
             height: 64vh;
         }
 
+        .connect-badge{
+            margin: 0;
+        }
     }
 }

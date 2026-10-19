@@ -2,8 +2,8 @@
 title: Probe Plus
 description: Instructions on how to integrate Probe Plus food temperature probes into Home Assistant.
 ha_release: 2025.6
-ha_category:
-  - Sensor
+ha_categories:
+  - appliances_cleaning.cooking
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: probe_plus
@@ -60,7 +60,7 @@ This integration can be used to monitor food temperatures, you could combine thi
 
 {% details "Device not discovered or found" %}
 
-Make sure your probe is removed from the charging dock and the dock is within Bluetooth range to your Home Assistant instance. [ESPHome Bluetooth Proxies](https://esphome.io/components/bluetooth_proxy.html) are a great way to increase the range if your instance is too far away. Turn on debug settings in the Probe Plus integration and check your logs.
+Make sure your probe is removed from the charging dock and the dock is within Bluetooth range to your Home Assistant instance. [ESPHome Bluetooth Proxies](https://esphome.io/components/bluetooth_proxy/) are a great way to increase the range if your instance is too far away. Turn on debug settings in the Probe Plus integration and check your logs.
 {% enddetails %}
 
 ## Removing the integration

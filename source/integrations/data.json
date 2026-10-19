@@ -1,0 +1,34 @@
+---
+layout: null
+sitemap: false
+---
+{%- comment -%}
+  Every integration, for the integrations page and its category pages. One
+  file, so the browser downloads it once, and the site builds it once.
+{%- endcomment -%}
+{%- assign components = site.integrations | sort: 'title' -%}
+{%- assign first = true -%}
+[
+{%- for component in components -%}
+  {%- if component.ha_categories -%}
+    {%- assign sliced_version = component.ha_release | split: '.' -%}
+    {%- assign minor_version = sliced_version[1] | plus: 0 -%}
+    {%- assign major_version = sliced_version[0] | plus: 0 -%}
+    {%- unless first %},{% endunless -%}
+    {%- assign first = false %}
+  {
+    "url": {{ component.url | jsonify }},
+    "title": {{ component.title | jsonify }},
+    "categories": {% if component.ha_categories %}{{ component.ha_categories | jsonify }}{% else %}[]{% endif %},
+    "connection": "{% if component.ha_iot_class contains 'Local' %}local{% elsif component.ha_iot_class contains 'Cloud' %}cloud{% endif %}",
+    "featured": {{ component.featured | default: false | jsonify }},
+    "version": "{{ major_version }}.{{ minor_version }}",
+    "domain": {{ component.ha_domain | default: '' | jsonify }},
+    "ha_brand": {{ component.ha_brand | default: false | jsonify }},
+    "wwha": {% if component.works_with %}true{% else %}false{% endif %},
+    "iot_class": {{ component.ha_iot_class | slugify | default: '' | jsonify }},
+    "quality_scale": {{ component.ha_quality_scale | default: '' | jsonify }}
+  }
+  {%- endif -%}
+{%- endfor %}
+]

@@ -2,13 +2,8 @@
 title: Airzone
 description: Instructions on how to integrate Airzone within Home Assistant.
 ha_release: 2022.4
-ha_category:
-  - Binary sensor
-  - Climate
-  - Select
-  - Sensor
-  - Switch
-  - Water heater
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: airzone
@@ -22,11 +17,11 @@ ha_platforms:
   - water_heater
 ha_codeowners:
   - '@Noltari'
-ha_integration_type: integration
+ha_integration_type: hub
 ha_dhcp: true
 ---
 
-This integration interacts with the Local API of [Airzone HVAC zoning systems](https://www.airzone.es/en/).
+This {% term integration %} interacts with the Local API of [Airzone HVAC zoning systems](https://www.airzone.es/en/).
 
 A typical Airzone device has a *parent zone* (Master Thermostat) per HVAC system, which is the only zone where the HVAC mode can be changed. The rest are *child zones* which can only enable or disable the HVAC and adjust the desired temperature on that specific zone.
 

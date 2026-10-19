@@ -1,6 +1,6 @@
 ## Using external data disk
 
-{% term "Home Assistant Operating System" %} supports storing data on a secondary storage medium. For example, this can be a second internal SSD or HDD or a USB attached SSD or HDD. This data disk contains not only user data but also most of the Home Assistant software as well (Core, Supervisor, etc.). This means a fast data disk will make the system overall much faster.
+{% term "Home Assistant Operating System" %} supports storing data on a secondary storage medium. For example, this can be a second internal SSD or HDD, or a USB-attached SSD or HDD. This data disk contains not only user data but also most of the Home Assistant software, including {% term "Home Assistant Core" %} and Apps. This means a fast data disk will make the system much faster overall.
 
 ![Graphics showing the architecture of the data disk feature](/images/haos/usb-data-disk.png)
 
@@ -78,10 +78,10 @@ To migrate an external data disk from one system to another, follow these steps:
 
 1. [Create a backup](/common-tasks/general/#backups) of both systems and store these backups on another system (not strictly necessary, but recommended just in case, at least for the important data).
 2. Shut down system 1 and remove the data disk.
-3. Make sure system 2 has Home Assistant OS installed, and Home Assistant is up and running. Home Assistant is using the data disk (partition) on the boot drive (e.g. SD card) at this point.
+3. Make sure system 2 has Home Assistant OS installed, and Home Assistant is up and running. Home Assistant is using the data disk (partition) on the boot drive, such as the SD card, at this point.
 4. Make sure system 2 has completed the basic [onboarding](/getting-started/onboarding/) steps, including the last steps where devices are discovered automatically.
 5. Plug the external disk into system 2 and go to the **Settings** > **System**. Select the three dots {% icon "mdi:dots-vertical" %} menu, and **Restart Home Assistant** > **Reboot system**.
-   **Result**: A repair issue is displayed **Multiple data disks detected**.
+   Result: A repair issue is displayed **Multiple data disks detected**.
    - The repair issue comes up because system 2 now sees two file systems with an identical name. During a reboot, there is a name conflict with the existing data disk as it is undefined which file system should be used. This can lead to a random selection of the system you end up with. Hence you must make a decision.
 6. Open the repair issue and choose one of the options:
    - Select **Use the detected data disk instead of the current system**.

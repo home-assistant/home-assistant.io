@@ -1,8 +1,8 @@
 ---
 title: Flux
 description: Instructions on how to automate the color temperature of your lights based on the time of day with Home Assistant
-ha_category:
-  - Automation
+ha_categories:
+  - lighting
 ha_release: 0.21
 ha_quality_scale: internal
 ha_domain: flux
@@ -15,7 +15,7 @@ related:
     title: Configuration file
 ---
 
-The `flux` switch {% term integration %} will change the temperature of your lights similar to the way flux works on your computer, using circadian rhythm. They will be bright during the day, and gradually fade to a red/orange at night. The `flux` switch restores its last state after startup.
+The **Flux** {% term integration %} will change the temperature of your lights similar to the way flux works on your computer, using circadian rhythm. They will be bright during the day, and gradually fade to a red/orange at night. The `flux` switch restores its last state after startup.
 
 The {% term integration %} will update your lights based on the time of day. It will only affect lights that are turned on and listed in the flux configuration.
 

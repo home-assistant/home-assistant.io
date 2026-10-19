@@ -510,4 +510,4 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [notify.html5 docs]: /integrations/html5
 [notify.telegram docs]: /integrations/telegram
 [telegram_bot.polling docs]: /integrations/telegram_polling
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: https://discord.gg/home-assistant

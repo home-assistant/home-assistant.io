@@ -1,8 +1,8 @@
 ---
 title: Keyboard Remote
 description: Instructions on how to use a keyboard to remote control Home Assistant.
-ha_category:
-  - Other
+ha_categories:
+  - buttons_remotes
 ha_release: 0.29
 ha_iot_class: Local Push
 ha_codeowners:
@@ -33,7 +33,7 @@ keyboard_remote:
 
 {% configuration %}
 type:
-  description: Possible values are `key_up`, `key_down`, and `key_hold`. Be careful, `key_hold` will fire a lot of events.  This can be a list of types.
+  description: Possible values are `key_up`, `key_down`, and `key_hold`. Be careful, `key_hold` will fire a lot of events. This can be a list of types.
   required: true
   type: string
 emulate_key_hold:

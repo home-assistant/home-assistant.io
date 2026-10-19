@@ -1,8 +1,8 @@
 ---
 title: Remote Calendar
 description: Instructions on how to use remote calendars in Home Assistant.
-ha_category:
-  - Calendar
+ha_categories:
+  - productivity_information.calendars_todos
 ha_iot_class: Cloud Polling
 ha_release: 2025.4
 ha_config_flow: true
@@ -21,7 +21,7 @@ The **Remote calendar** {% term integration %} allows you to read a calendar in 
 
 ## Known limitations
 
-The integration does not provide the ability to connect to a resource that requires authentication or special headers.
+The integration supports HTTP Basic Authentication but does not provide the ability to connect to a resource that requires other special headers.
 
 ## Installation instructions
 
@@ -35,6 +35,17 @@ Calendar Name:
     Example: `Home Assistant Events`"
 Calendar URL:
     description: "The URL of the remote calendar. Example: `https://calendar.google.com/calendar/ical/p07n98go11onamd08d0kmq6jhs%40group.calendar.google.com/public/basic.ics`"
+Verify SSL certificate:
+  description: "Enable SSL certificate verification when connecting via HTTPS."
+{% endconfiguration_basic %}
+
+If the calendar URL requires authentication, you will be prompted for a username and password in an additional setup step.
+
+{% configuration_basic %}
+Username:
+    description: "The username for HTTP Basic Authentication."
+Password:
+    description: "The password for HTTP Basic Authentication."
 {% endconfiguration_basic %}
 
 ## Data updates
@@ -48,13 +59,17 @@ At the start of the integration, we fetch data from the remote. If the update fa
 
 The integration only supports reading a calendar. A calendar entity has a state and attributes that represent the next upcoming event (only). All the events of the calendar can be displayed in the Calendar dashboard.
 
+### Canceled events
+
+A calendar can keep a canceled event instead of deleting it. Home Assistant leaves it out: it doesn't appear in the calendar, doesn't change the state of the calendar entity, and doesn't trigger [calendar automations](/integrations/calendar/#automation).
+
 ## Calendar Event Automations
 
 Individual Calendar *Events* are what powers automations such as:
 
 - Notify me *12 hours before* the *start* of the event named *Garbage collection*.
 
-See [Calendar Automations](/integrations/calendar#automation) for an overview, and read more about [Calendar Trigger Variables](/docs/automation/templating/#calendar) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
+See [Calendar Automations](/integrations/calendar#automation) for an overview, and read more about [Calendar Trigger Variables](/docs/automation/trigger-data/#calendar-triggers) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
 
 ## Removing the integration
 

@@ -1,8 +1,8 @@
 ---
 title: ekey bionyx
 description: Instructions on how to integrate ekey bionyx devices into Home Assistant.
-ha_category:
-  - Event
+ha_categories:
+  - security_safety.locks_access
 ha_release: '2025.10'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -11,7 +11,7 @@ ha_codeowners:
   - '@richardpolzer'
 ha_platforms:
   - event
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 

@@ -1,66 +1,124 @@
 ---
 title: "Privacy Policy"
-description: "Your privacy is super important to us. We will never gather any information from you unless we truly need it."
+description: "Your privacy is critically important to us. We only ask for personal information where there is a clear purpose, and we minimize what we collect."
 sidebar: false
 ---
 
 Your privacy is critically important to us. At Home Assistant, we have a few fundamental principles:
 
-- We don’t ask you for personal information unless we truly need it. (We can’t stand services that ask you for things like your gender or income level for no apparent reason.)
-- We don’t share your personal information with anyone except to comply with the law, develop our products, or protect our rights.
+- We only ask for personal information where there is a clear purpose for doing so, and we aim to minimize the personal data we collect.
+- We only share personal information where necessary to provide and improve our services, comply with the law, or protect our rights and those of others.
 - We don’t store personal information on our servers unless required for the ongoing operation of one of our services.
 
-If you have questions about deleting or correcting your personal data please contact our support team.
+If you have questions about this privacy policy or about deleting, correcting, or otherwise exercising rights in relation to your personal data, please contact the support team of the Open Home Foundation at [hello@openhomefoundation.org](mailto:hello@openhomefoundation.org).
 
-## Website Visitors
+## Scope and responsibility
 
-Like most website operators, Home Assistant collects non-personally-identifying information of the sort that web browsers and servers typically make available, such as the browser type, language preference, referring site, and the date and time of each visitor request. Home Assistant uses the Google Analytics service for this. Home Assistant’s purpose in collecting non-personally identifying information is to better understand how Home Assistant’s visitors use its website. From time to time, Home Assistant may release non-personally-identifying information in the aggregate, e.g., by publishing a report on trends in the usage of its website.
+We, the Open Home Foundation, Grabenstrasse 25, 6340 Baar, Switzerland (“we”, “us”), operate the Home Assistant project and are responsible for the processing of personal data described in this privacy policy, unless stated otherwise.
 
-Home Assistant also collects potentially personally-identifying information like Internet Protocol (IP) addresses for logged in users and for users leaving comments on the blog or forums. Home Assistant only discloses logged in user and commenter IP addresses under the same circumstances that it uses and discloses personally-identifying information as described below.
+This privacy policy applies to the non-commercial Home Assistant websites and services operated by the Open Home Foundation, including “home-assistant.io”, the Home Assistant Community Forum, status pages, and the official Home Assistant Companion apps, unless and to the extent that a specific service is covered by a separate privacy notice. Until such a separate privacy notice applies, this policy governs the relevant processing.
 
-## Gathering of Personally-Identifying Information
+Commercial services associated with Home Assistant that are operated by separate legal entities, including Home Assistant Cloud operated by Nabu Casa, are governed by the respective provider’s privacy policy and are outside the scope of this policy.
 
-Certain visitors to Home Assistant’s websites choose to interact with Home Assistant in ways that require Home Assistant to gather personally-identifying information. The amount and type of information that Home Assistant gathers depends on the nature of the interaction. For example, we ask visitors who create a forum account to provide a username and an email address. Those who engage in transactions with Home Assistant are asked to provide additional information, including as necessary the personal and financial information required to process those transactions. In each case, Home Assistant collects such information only insofar as is necessary or appropriate to fulfill the purpose of the visitor’s interaction with Home Assistant. Home Assistant does not disclose personally-identifying information other than as described below. And visitors can always refuse to supply personally-identifying information, with the caveat that it may prevent them from engaging in certain website-related activities.
+## Visitor data and analytics
 
-## Aggregated Statistics
+When you visit Home Assistant websites, we process limited technical data for two main purposes: website stability and security, and usage analysis.
 
-Home Assistant may collect statistics about the behavior of visitors to its websites. For instance, Home Assistant may monitor the most popular integration documentation. Home Assistant may display this information publicly or provide it to others. However, Home Assistant does not disclose personally-identifying information other than as described below.
+### Website hosting and server logs
 
-## Information We Collect from Other Sources
+The main “home-assistant.io” website is hosted by Netlify (Netlify, Inc.). As part of providing the hosting service, Netlify necessarily processes server-side request logs, including IP addresses. These logs are retained on Netlify’s infrastructure for seven days. The Open Home Foundation uses limited information from these logs to maintain and improve a referrer allowlist designed to prevent sensitive referrer information from being recorded in Plausible. We do not use these logs for advertising or cross-site profiling.
 
-With your authorization, we may also obtain information about you from other sources. For example, if you create or log into your Home Assistant Community account through a social media service (like Facebook or Google) or if you connect your account to a social media service, we will receive information from that service (such as your username, basic profile information, and friends list) via the authorization procedures used by that service. The information we receive depends on which services you authorize and any options that are available.
+For website visitors from the European Economic Area (EEA), the legal basis for this processing is our legitimate interest within the meaning of Article 6(1)(f) General Data Protection Regulation (GDPR) in operating the website securely and maintaining privacy-preserving analytics.
 
-## Protection of Certain Personally-Identifying Information
+### Website stability and security
 
-Home Assistant discloses potentially personally-identifying and personally-identifying information only to those of its employees, contractors and affiliated organizations that (i) need to know that information in order to process it on Home Assistant’s behalf or to provide services available at Home Assistant’s websites, and (ii) that have agreed not to disclose it to others. Some of those employees, contractors and affiliated organizations may be located outside of your home country; by using Home Assistant’s websites, you consent to the transfer of such information to them. Home Assistant will not rent or sell potentially personally-identifying and personally-identifying information to anyone. Other than to its employees, contractors and affiliated organizations, as described above, Home Assistant discloses potentially personally-identifying and personally-identifying information only in response to a subpoena, court order or other governmental request, or when Home Assistant believes in good faith that disclosure is reasonably necessary to protect the property or rights of Home Assistant, third parties or the public at large. If you are a registered user of an Home Assistant website and have supplied your email address, Home Assistant may occasionally send you an email to tell you about new features, solicit your feedback, or just keep you up to date with what’s going on with Home Assistant and our products. We primarily use our various product blogs to communicate this type of information, so we expect to keep this type of email to a minimum. If you send us a request (for example via a support email or via one of our feedback mechanisms), we reserve the right to publish it in order to help us clarify or respond to your request or to help us support other users. Home Assistant takes all measures reasonably necessary to protect against the unauthorized access, use, alteration or destruction of potentially personally-identifying and personally-identifying information.
+Our websites are served via Cloudflare (Cloudflare, Inc.) as a Content Delivery Network (CDN) and security service. Cloudflare Analytics is disabled for Home Assistant, including its subdomains, and no Cloudflare analytics tracking script is injected. However, Cloudflare necessarily processes certain operational data, such as IP addresses and user-agent information, in order to establish connections and provide its CDN and security services. The Open Home Foundation does not use this data for advertising or cross-site profiling.
 
-## Cookies
+For website visitors from the EEA, the legal basis for this processing is our legitimate interest within the meaning of Article 6(1)(f) GDPR in providing a secure and stable website.
 
-A cookie is a string of information that a website stores on a visitor’s computer, and that the visitor’s browser provides to the website each time the visitor returns. Home Assistant uses cookies to help Home Assistant identify and track visitors, their usage of Home Assistant website, and their website access preferences. Home Assistant visitors who do not wish to have cookies placed on their computers should set their browsers to refuse cookies before using Home Assistant’s websites, with the drawback that certain features of Home Assistant’s websites may not function properly without the aid of cookies.
+### Website analytics (self-hosted Plausible)
 
-## Business Transfers
+For a more detailed understanding of site usage and activity, we use Plausible analytics. We self-host the Plausible analytics platform on our own infrastructure, which means we maintain full ownership and control, and all collected data stays on our own servers. No data is shared with Plausible Insights OÜ, the Plausible company, or any other third party.
 
-If Home Assistant, or substantially all of its assets, were acquired, or in the unlikely event that Home Assistant goes out of business or enters bankruptcy, user information would be one of the assets that is transferred or acquired by a third party. You acknowledge that such transfers may occur, and that any acquirer of Home Assistant may continue to use your personal information as set forth in this policy.
+Plausible collects data anonymously and in aggregate. It is designed to be privacy-first and does not use cookies, store IP addresses, or collect personal data, persistent identifiers, or cross-site tracking.
 
-## Ads
+The data we collect and process for analytics includes:
 
-Ads appearing on any of our websites may be delivered to users by advertising partners, who may set cookies. These cookies allow the ad server to recognize your computer each time they send you an online advertisement to compile information about you or others who use your computer. This information allows ad networks to, among other things, deliver targeted advertisements that they believe will be of most interest to you. This Privacy Policy covers the use of cookies by Home Assistant and does not cover the use of cookies by any advertisers.
+- Information about your browser, network, and device
+- Web pages you visited prior to coming to this website
+- Web pages you view while on this website
+- Approximate country/region (derived from your IP address, which is immediately discarded and never stored)
 
-## Companion Applications
+This information may also include aggregate details about your use of this website, for error and performance analysis and optimization:
 
-All information collected by the applications is sent directly to your hosted instance of Home Assistant. This includes, but is not limited to, sensor, health, and location data, which at times is sent while the application is in the background. At no point is this data logged or given to a 3rd party.
+- Clicks
+- Internal links
+- Scrolling/scroll depth
+- Searches
+- Timestamps/time on page
+- Referral sources
 
-## Privacy Policy Changes
+For website visitors from the EEA, the legal basis for this data processing is our legitimate interest within the meaning of Article 6(1)(f) of the GDPR in the purposes described above.
 
-Although most changes are likely to be minor, Home Assistant may change its Privacy Policy from time to time, and in Home Assistant’s sole discretion. Home Assistant encourages visitors to frequently check this page for any changes to its Privacy Policy. Your continued use of this site after any change in this Privacy Policy will constitute your acceptance of such change.
+We make the resulting aggregate website analytics available through a public dashboard so that our community can see the same high-level information we use to understand website usage.
+
+## Gathering of personal information
+
+Certain visitors choose to interact with Home Assistant services in ways that require us to process personal information. For example, users who create a Home Assistant Community Forum account provide a username and email address. Depending on the service, we may also process information you choose to provide, such as profile information, posts, support requests or feedback. We process this information only to the extent necessary to provide the relevant service, respond to your interaction, operate and protect the service, or comply with applicable legal obligations.
+
+For users in the EEA, the legal basis is Article 6(1)(b) GDPR where processing is necessary to provide a service requested by you and otherwise our legitimate interests under Article 6(1)(f) GDPR in operating and supporting Home Assistant services.
+
+## Aggregated statistics
+
+Home Assistant may create and publish aggregated or anonymized statistics about the use of its websites and services, including public analytics dashboards. We do not intentionally publish information that identifies individual users.
+
+Home Assistant also offers an optional Analytics integration through which users may voluntarily share usage information from their own Home Assistant installation with the Home Assistant project. Nothing is sent unless the user opts in, and the sharing settings can be changed or disabled at any time. Depending on the options selected, the information shared may include installation information, usage statistics, integration details, and diagnostics. Analytics data is received by the Home Assistant Analytics Receiver and is stored in Cloudflare’s Key-Value store for a maximum of 60 days since the last update. Only aggregated and anonymized totals are made publicly available. If diagnostics are enabled, crash reports may be uploaded to Sentry.
+
+For users in the EEA, the legal basis for this processing is consent under Article 6(1)(a) GDPR. Further details, including the data categories and retention periods, are provided in the Home Assistant Analytics documentation.
+
+## Information we collect from other sources
+
+Where a Home Assistant service allows you to sign in or connect through a third-party identity provider, we may receive the information that you authorize that provider to share with us. For example, the Home Assistant Community Forum supports sign-in using external identity providers, currently including GitHub and Home Assistant Cloud. Depending on the provider and permissions granted, we may receive information such as an account identifier, username, email address, or basic profile information.
+
+## How we share and protect personal data
+
+We share personal data only with employees, contractors, service providers, and affiliated organizations that need the information to operate or support the relevant Home Assistant services, and are subject to appropriate confidentiality and data protection obligations. We may also disclose personal data where required by law or where reasonably necessary to establish, exercise, or defend legal claims or to protect the rights, property, or safety of the Open Home Foundation, our users, or others. We do not sell or rent personal data. We take appropriate technical and organizational measures to protect personal data against unauthorized or unlawful access, use, alteration, disclosure, or destruction.
+
+## International data transfers
+
+The Open Home Foundation operates from Switzerland and uses service providers that may process personal data outside Switzerland and the EEA, including in the United States. Where required by applicable data protection law, we rely on recognized transfer mechanisms such as adequacy decisions, the Data Privacy Framework, or Standard Contractual Clauses, and implement additional safeguards where necessary.
+
+## Cookies and similar technologies
+
+The main “home-assistant.io” website does not use cookies for analytics, and Plausible does not use cookies. Some Home Assistant sub-sites and services, including the Community Forum, use cookies or similar technologies. The purposes and duration of those technologies depend on the relevant service and its technical configuration.
+
+## Third-party content and services
+
+Some Home Assistant pages include content or services provided by third parties, such as YouTube, Reddit, Spotify, Twitch, Luma, and Algolia DocSearch. Depending on the service and how it is implemented, the provider may receive technical information such as your IP address and browser or device information when the content is loaded or when you interact with it. YouTube embeds use YouTube’s privacy-enhanced mode (youtube-nocookie.com), so cookies or tracking are not activated until you interact with the player. Our site search uses Algolia DocSearch; when you use the search function, your search terms and related technical request information are sent to Algolia to return relevant results. Other embedded services may not offer an equivalent privacy-enhanced mode. Any independent processing by the relevant third-party provider is governed by that provider’s own privacy information.
+
+## Companion applications
+
+The official Home Assistant Companion apps are designed primarily to communicate directly with the Home Assistant instance configured by the user. Depending on the permissions and features enabled by the user, this may include sensor, health, and location data, including background updates. Such sensor, health, and location data is sent directly to the configured Home Assistant instance and is not logged by the Open Home Foundation or shared by the Open Home Foundation with third parties as part of that direct transmission.
+
+Certain separate app features may rely on third-party infrastructure, including services used for push notifications and crash or diagnostic reporting. The specific processing depends on the operating system, app version, permissions, and features enabled by the user. Further details are provided in the Companion app documentation and platform-specific privacy information. The Companion apps remain covered by this privacy policy until and to the extent that a separate Companion app privacy notice becomes applicable. Additional processing may depend on the operating system, app version, and features enabled. Where applicable, further details are provided in the Companion app documentation and platform-specific privacy information.
+
+## Retention periods
+
+We retain personal data only for as long as necessary for the purposes described in this privacy policy, or as required by applicable law. Retention periods vary by service and data category. Where a specific retention period is available and relevant, we state it in this privacy policy or in the relevant service documentation or privacy information; otherwise, we retain personal data only for as long as necessary for the relevant purpose, taking into account applicable legal requirements.
+
+## Your rights
+
+Depending on applicable law, you may have rights including access to your personal data, correction, deletion, restriction of processing, data portability, and objection to processing based on legitimate interests. Where processing is based on consent, you may withdraw that consent at any time without affecting the lawfulness of processing before withdrawal. You may also have the right to lodge a complaint with a competent data protection supervisory authority. To exercise your rights, please contact the Open Home Foundation at [hello@openhomefoundation.org](mailto:hello@openhomefoundation.org).
+
+## Privacy policy changes
+
+We may update this privacy policy from time to time to reflect changes in our services, technology, or legal requirements. The current version and its effective date will be published on this page. Where appropriate, we will provide additional notice of material changes.
 
 ### Change log
 
 - October 19, 2017: Initial version
-- October 19, 2020: Add information about Companion Applications
-- October 30, 2024: Add health data to Companion Applications
+- October 19, 2020: Add information about Companion applications
+- October 30, 2024: Add health data to Companion applications
+- August 27, 2026: Comprehensive update to reflect the current privacy setup for the Home Assistant websites and services covered by this policy, including the scope of this policy, controller information, website hosting and security, self-hosted Plausible analytics, cookies and third-party services, Home Assistant Analytics, Companion apps, international data transfers, retention periods, and data subject rights.
 
-_This privacy policy has been adapted from the [Automattic privacy policy][Home Assistant] and is licensed [Creative Commons ShareAlike][cc]._
-
-[Home Assistant]: https://automattic.com/privacy/
-[cc]: https://creativecommons.org/licenses/by-sa/4.0/
+_This privacy policy has been adapted from the [Automattic privacy policy](https://automattic.com/privacy/) and is licensed [Creative Commons ShareAlike](https://creativecommons.org/licenses/by-sa/4.0/)._

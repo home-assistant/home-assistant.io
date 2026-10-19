@@ -1,3 +1,10 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+@use '../../inuitcss/defaults' as *;
+@use '../../inuitcss/generic/mixins' as *;
+@use "sass:color";
+@use "sass:list";
+
 .social {
   ul {
     @media only screen and (min-width: $lap-start){
@@ -7,8 +14,8 @@
 
   a {
     @include box-sizing(border-box);
-    background-color: darken($site-background, 5%);
-    border: 1px solid darken($site-background, 10%);
+    background-color: color.adjust($site-background, $lightness: -5%);
+    border: 1px solid color.adjust($site-background, $lightness: -10%);
     border-radius: 4px;
     color: #222;
     display: inline-block;
@@ -63,11 +70,11 @@
     }
 
     @each $kvp in $sites {
-      &.#{nth($kvp, 1)} {
-        color: nth($kvp, 2);
+      &.#{list.nth($kvp, 1)} {
+        color: list.nth($kvp, 2);
         &::before {
-          background-color: nth($kvp, 2);
-          border-color: darken(nth($kvp, 2), 5%);
+          background-color: list.nth($kvp, 2);
+          border-color: color.adjust(list.nth($kvp, 2), $lightness: -5%);
         }
       }
     }

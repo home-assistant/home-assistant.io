@@ -1,9 +1,8 @@
 ---
 title: SABnzbd
 description: Instructions on how to integrate SABnzbd with Home Assistant.
-ha_category:
-  - Downloading
-  - Sensor
+ha_categories:
+  - computers_network.nas_servers
 ha_release: 0.7
 ha_config_flow: true
 ha_iot_class: Local Polling
@@ -16,7 +15,7 @@ ha_platforms:
   - button
   - number
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_quality_scale: bronze
 ---
 
@@ -37,7 +36,7 @@ Here are some practical ways you can use the SABnzbd integration:
 
 ## Prerequisites
 
-You need to grab your API key from your SABnzbd instance in order to configure this integration:
+You need to grab your API key from your SABnzbd instance to configure this integration:
 
 1. Navigate to your SABnzbd web interface.
 2. Select *Config** {% icon "mdi:settings" %}, then **General**.
@@ -47,7 +46,7 @@ You need to grab your API key from your SABnzbd instance in order to configure t
 
 {% configuration_basic %}
 URL:
-    description: "The full URL, including port, of your SABnzbd server. Example: `http://localhost:8080` or `http://a02368d7-sabnzbd:8080`, if you are using the add-on."
+    description: "The full URL, including port, of your SABnzbd server. Example: `http://localhost:8080` or `http://a02368d7-sabnzbd:8080`, if you are using the SABnzbd app for Home Assistant."
 API key:
     description: "The API key of your SABnzbd server. You can find this in the SABnzbd web interface under **Config** {% icon "mdi:settings" %} (top right) > **General** > **Security**."
 {% endconfiguration_basic %}
@@ -67,7 +66,7 @@ API key:
 
 This integration creates the following sensors to monitor your SABnzbd instance:
 
-- **Status**: The current status of SABnzbd (Idle, Downloading, Paused, etc.)
+- **Status**: The current status of SABnzbd (such as Idle, Downloading, or Paused)
 - **Speed**: The current download speed in MB/s
 - **Queue**: The total size of the download queue in GB
 - **Left**: The remaining size of the download queue in GB
@@ -86,7 +85,6 @@ This integration creates the following sensors to monitor your SABnzbd instance:
 
 This automation sends a notification when a download completes:
 
-{% raw %}
 ```yaml
 - alias: "SABnzbd download complete"
   triggers:
@@ -95,18 +93,18 @@ This automation sends a notification when a download completes:
       to: "Idle"
       from: "Downloading"
   actions:
-    - action: notify.mobile_app_your_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Download Complete"
         message: "SABnzbd has finished downloading and extracting files"
 ```
-{% endraw %}
 
 ### Disk space warning
 
 Get notified when your download drive is running low on space:
 
-{% raw %}
 ```yaml
 - alias: "SABnzbd low disk space warning"
   triggers:
@@ -114,20 +112,20 @@ Get notified when your download drive is running low on space:
       entity_id: sensor.sabnzbd_disk_free
       below: 10
   actions:
-    - action: notify.mobile_app_your_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         title: "Low Disk Space"
         message: "Download drive has less than {{ states('sensor.sabnzbd_disk_free') }} GB free"
         data:
           priority: high
 ```
-{% endraw %}
 
 ### Bandwidth management during streaming
 
 Automatically pause downloads when your media players are active:
 
-{% raw %}
 ```yaml
 - alias: "Pause downloads during movie time"
   triggers:
@@ -142,7 +140,9 @@ Automatically pause downloads when your media players are active:
     - action: button.press
       target:
         entity_id: button.sabnzbd_pause
-    - action: notify.mobile_app_your_phone
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
       data:
         message: "Downloads paused for movie time"
 
@@ -161,13 +161,11 @@ Automatically pause downloads when your media players are active:
       target:
         entity_id: button.sabnzbd_resume
 ```
-{% endraw %}
 
 ### Smart scheduling with speed limits
 
 Reduce download speed during peak hours and increase it during off-peak hours:
 
-{% raw %}
 ```yaml
 - alias: "SABnzbd peak hours speed limit"
   triggers:
@@ -191,13 +189,11 @@ Reduce download speed during peak hours and increase it during off-peak hours:
       data:
         value: 100
 ```
-{% endraw %}
 
 ### Dashboard card example
 
 Create a comprehensive SABnzbd monitoring card for your dashboard:
 
-{% raw %}
 ```yaml
 type: entities
 title: SABnzbd Downloads
@@ -221,7 +217,6 @@ entities:
   - entity: number.sabnzbd_speed_limit
     name: Speed limit
 ```
-{% endraw %}
 
 ## Data updates
 
@@ -238,13 +233,13 @@ The SABnzbd integration {% term polling polls %} data from your SABnzbd server e
 5. Firewall settings: Check that your firewall allows connections to SABnzbd's port.
 6. Enable debug logging: Temporarily enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) for the SABnzbd integration to get more detailed error messages.
 
-### SABnzbd add-on specific issues
+### SABnzbd app-specific issues
 
-If you're using the SABnzbd Home Assistant add-on:
+If you're using the SABnzbd app for Home Assistant (formerly known as add-on):
 
 1. Use internal URL: Use `http://a02368d7-sabnzbd:8080` instead of `localhost`.
-2. Check add-on logs: Review the SABnzbd add-on logs for any error messages.
-3. Add-on configuration: Ensure the add-on is properly configured and started.
+2. Check app logs: Review the SABnzbd app logs for any error messages.
+3. App configuration: Ensure the app is properly configured and started.
 
 ## Removing the integration
 

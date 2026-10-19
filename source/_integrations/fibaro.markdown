@@ -1,17 +1,8 @@
 ---
 title: Fibaro
-description: Instructions on how to setup Fibaro Home Center and Yubii Home within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Cover
-  - Event
-  - Hub
-  - Light
-  - Lock
-  - Scene
-  - Sensor
-  - Switch
+description: Instructions on how to set up Fibaro Home Center and Yubii Home within Home Assistant.
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: 0.83
 ha_iot_class: Local Push
 ha_domain: fibaro
@@ -32,7 +23,7 @@ ha_config_flow: true
 ha_integration_type: hub
 ---
 
-The Fibaro integration allows you to connect Home Assistant to Fibaro Home Center, Nice Yubii Home, or a Zooz Z-Box Hub, enabling control and monitoring of connected devices and scene execution. Home Assistant uses a local connection to the hub.
+The **Fibaro** {% term integration %} allows you to connect Home Assistant to Fibaro Home Center, Nice Yubii Home, or a Zooz Z-Box Hub, enabling control and monitoring of connected devices and scene execution. Home Assistant uses a local connection to the hub.
 
 ## Supported hub models
 

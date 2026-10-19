@@ -1,8 +1,6 @@
 ---
 title: Heiwa
 description: Connect and control your Heiwa devices using the Gree Climate integration
-ha_category:
-  - Climate
 ha_release: 0.117
 ha_domain: heiwa
 ha_integration_type: virtual

@@ -1,8 +1,8 @@
 ---
 title: Twilio Call
 description: Instructions on how to add Twilio Call notifications to Home Assistant.
-ha_category:
-  - Notifications
+ha_categories:
+  - messaging_notifications.email_sms_calls
 ha_release: 0.37
 ha_domain: twilio_call
 ha_iot_class: Cloud Push
@@ -12,10 +12,10 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The `twilio_call` notification platform enables sending notifications via Voice, powered by [Twilio](https://twilio.com).
+The **Twilio Call** {% term integration %} enables sending notifications via Voice, powered by [Twilio](https://twilio.com).
 Passed message will be read by Text-to-speech service.
 
-The requirement is that you have setup [Twilio](/integrations/twilio/).
+The requirement is that you have set up [Twilio](/integrations/twilio/).
 
 ## Configuration
 

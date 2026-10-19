@@ -1,11 +1,9 @@
 ---
 title: Minut Point
 description: Instructions on how to integrate Minut Point into Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Hub
-  - Sensor
+ha_categories:
+  - security_safety.alarm_systems
+  - sensors
 ha_release: 0.83
 ha_config_flow: true
 ha_iot_class: Cloud Polling
@@ -16,7 +14,7 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /integrations/application_credentials/
     title: Application credentials
@@ -109,8 +107,6 @@ automation:
 
 The events shown as [binary sensors](#binary-sensor) are sent to Home Assistant as webhooks with the `event_type` set to `point_webhook_received`. Below is an example of how to use such a webhook do note the `trigger.event.data.event.device_id` which translates to the id of the Point device that sent the event.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml Automation entry
 automation:
@@ -128,8 +124,6 @@ automation:
       title: Point button press (webhook)
       message: "Button press on Point {{ trigger.event.data.event.device_id }}"
 ```
-
-{% endraw %}
 
 ## Sensor
 

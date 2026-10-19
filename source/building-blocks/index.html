@@ -1,0 +1,109 @@
+---
+title: "List of building blocks"
+description: "Reference of the building blocks you can use in the actions of automations and scripts."
+feedback: false
+regenerate: false
+toc: true
+---
+
+{%- assign all_building_blocks = site.building_blocks | sort: 'title' -%}
+
+<p>
+  Building blocks control how the actions of an automation or a script run. For example, they wait, repeat steps, or choose between steps. In the editor, you find them under <strong>Blocks</strong> when you add an action.
+</p>
+<p>
+  Browse the list below, or use the search box to find a building block by name or description. For an introduction, refer to <a href="/docs/automation/building-blocks/">Building blocks in automations and scripts</a>.
+</p>
+
+<div class="grid">
+  <div class="grid__item six-sixths lap-one-whole palm-one-whole">
+    <div class="component-search">
+      <form onsubmit="event.preventDefault(); return false">
+        <input type="text" name="search" id="search" class="search text-input"
+          aria-label="Search building blocks" placeholder="Search building blocks..." autofocus />
+      </form>
+    </div>
+  </div>
+
+  <div class="grid__item six-sixths lap-one-whole palm-one-whole">
+    <div id="tf-container">
+      {%- for cat in site.data.building_block_categories -%}
+        {%- assign cat_blocks = all_building_blocks | where: 'category', cat.key -%}
+        {%- if cat_blocks.size > 0 -%}
+        <div class="tf-category" data-category="{{ cat.key }}">
+          <h3 id="{{ cat.key }}"><iconify-icon inline icon="{{ cat.icon }}"></iconify-icon> {{ cat.label }}</h3>
+          {%- if cat.description -%}<p>{{ cat.description }}</p>{%- endif -%}
+          <ul class="tf-list">
+            {%- for block in cat_blocks -%}
+            <li class="tf-item" data-title="{{ block.building_block | downcase }} {{ block.title | downcase }}" data-desc="{{ block.description | downcase }}">
+              <a href="{{ block.url }}">
+                <span class="tf-title">{{ block.title }}</span>
+                <code class="tf-fn">{{ block.building_block }}</code>
+              </a>
+              <span class="tf-desc">{{ block.description }}</span>
+            </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+        {%- endif -%}
+      {%- endfor -%}
+      <div class="tf-no-results" style="display:none">
+        <div class="alert alert-note"><p class="alert-content">No building blocks matching your search.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var searchEl = document.getElementById('search');
+  var categories = document.querySelectorAll('.tf-category');
+  var noResults = document.querySelector('.tf-no-results');
+
+  function applyFilter() {
+    var search = searchEl.value.toLowerCase().trim();
+    var visibleCount = 0;
+
+    categories.forEach(function (cat) {
+      var catVisible = false;
+
+      cat.querySelectorAll('.tf-item').forEach(function (row) {
+        var title = row.getAttribute('data-title');
+        var desc = row.getAttribute('data-desc');
+
+        if (!search || title.indexOf(search) !== -1 || desc.indexOf(search) !== -1) {
+          row.classList.remove('hidden');
+          catVisible = true;
+          visibleCount++;
+        } else {
+          row.classList.add('hidden');
+        }
+      });
+
+      if (catVisible) {
+        cat.classList.remove('hidden');
+      } else {
+        cat.classList.add('hidden');
+      }
+    });
+
+    noResults.style.display = visibleCount === 0 ? '' : 'none';
+  }
+
+  var debounceTimer;
+  searchEl.addEventListener('input', function () {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(applyFilter, 200);
+  });
+
+  setTimeout(function () { searchEl.focus(); }, 1);
+})();
+</script>
+
+<noscript>
+  <ul>
+    {%- for block in all_building_blocks -%}
+    <li><a href="{{ block.url }}"><code>{{ block.building_block }}</code></a> - {{ block.description }}</li>
+    {%- endfor -%}
+  </ul>
+</noscript>

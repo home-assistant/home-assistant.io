@@ -25,9 +25,9 @@ The to-do list card allows you to add, edit, check-off, and clear items from you
 Screenshot of the to-do list card.
 </p>
 
-## Adding a to-do list card
+## Adding the to-do list card to a dashboard
 
-1. [Add the card using the Add card button](/dashboards/cards/#adding-cards-to-your-dashboard).
+1. [Add the card using the **Add card** button](/dashboards/cards/#adding-cards-to-your-dashboard).
    - In the **By card** dialog, select the **To-do list** card.
 2. In the **Entity** dropdown menu, select your list type.
    - If it is your first time working with to-do lists, there is only **Shopping list** in the menu.
@@ -85,10 +85,64 @@ item_tap_action:
   required: false
   description: "Defines the behavior when an item's body is clicked. Options are: `edit` (opens the edit dialog), `toggle` (marks or unmarks the item as completed, hiding the edit dialog)."
   type: string
-  default: "edit"  
+  default: "edit"
+due_date_period:
+  required: false
+  description: Filters tasks based on their due date. [See below](#options-for-due-date-period).
+  type: map
 {% endconfiguration %}
 
-### Examples
+## Options for due date period
+
+Due date filtering can be configured with a calendar object:
+
+### Calendar
+
+Use a fixed period with an offset from the current period.
+
+{% configuration %}
+period:
+  required: true
+  description: The period to use. `day`, `week`, `month`, `year`
+  type: string
+offset:
+  required: false
+  description: The offset of the current period, so 0 means the current period, 1 is the next period.
+  type: integer
+{% endconfiguration %}
+
+Example, show all tasks due before the end of the current month:
+
+```yaml
+type: todo-list
+entity: todo.todo_list
+due_date_period:
+  calendar:
+    period: month
+```
+
+Example, show all tasks due before the end of next week:
+
+```yaml
+type: todo-list
+entity: todo.todo_list
+due_date_period:
+  calendar:
+    period: week
+    offset: 1
+```
+
+Example, show all tasks due in the next 7 days:
+
+```yaml
+type: todo-list
+entity: todo.todo_list
+due_date_period:
+  calendar:
+    period: day
+    offset: 6
+
+## Examples
 
 Title example:
 

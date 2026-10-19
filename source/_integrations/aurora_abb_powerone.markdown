@@ -1,9 +1,8 @@
 ---
 title: Aurora ABB PowerOne Solar PV
 description: Instructions on how to integrate an Aurora ABB PowerOne solar inverter within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.solar_batteries
 ha_release: 0.96
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -15,7 +14,7 @@ ha_config_flow: true
 ha_integration_type: device
 ---
 
-This implements a direct RS485 connection to a solar inverter in the
+This {% term integration %} implements a direct RS485 connection to a solar inverter in the
 PVI-3.0/3.6/4.2-TL-OUTD ABB series, and may work on others.
 The inverter was formerly made by PowerOne who got taken over by ABB.
 
@@ -31,4 +30,4 @@ The RS485 connection can be made using a low-cost USB-RS485 converter. It works 
 
 {% include integrations/config_flow.md %} 
 
-The inverter will need to be on (i.e. in daylight) and connected correctly in order to do the first-time setup. Normally it is sufficient to select the correct serial port and leave the default address `2`.
+The inverter will need to be on (that is, in daylight) and connected correctly to do the first-time setup. Normally it is sufficient to select the correct serial port and leave the default address `2`.

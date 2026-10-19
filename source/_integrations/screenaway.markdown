@@ -1,8 +1,6 @@
 ---
 title: ScreenAway
 description: Connect and control your ScreenAway devices using the Motionblinds integration
-ha_category:
-  - Cover
 ha_domain: screenaway
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds

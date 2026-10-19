@@ -1,8 +1,9 @@
 ---
 title: P1 Monitor
 description: Instructions on how to integrate P1 Monitor within Home Assistant.
-ha_category:
-  - Energy
+ha_categories:
+  - energy.meters_monitoring
+  - water.meters_leak_detection
 ha_release: 2021.9
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -12,7 +13,7 @@ ha_domain: p1_monitor
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **P1 Monitor** {% term integration %} allows you to gather data from your [P1 Monitor](https://www.ztatz.nl/p1-monitor/) device and use it in Home Assistant.
@@ -82,6 +83,28 @@ You can use the rates set in P1 Monitor for your calculations in Home Assistant.
 - Gas Consumption Price
 - Energy Consumption Price Low/High
 - Energy Production Price Low/High
+
+## Examples
+
+### Automation: Get alerted when power consumption is high
+
+This example sends a notification when P1 Monitor reports more than 4 kW of power consumption for two minutes.
+
+```yaml
+alias: "P1 Monitor high power consumption"
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.p1_monitor_power_consumption
+    above: 4000
+    for:
+      minutes: 2
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
+    data:
+      message: "P1 Monitor reports sustained power consumption above 4 kW."
+```
 
 ## Removing the integration
 

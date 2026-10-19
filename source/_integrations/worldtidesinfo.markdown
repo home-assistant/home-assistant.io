@@ -1,8 +1,8 @@
 ---
 title: World Tides
 description: Instructions on how to add Tides information to Home Assistant.
-ha_category:
-  - Environment
+ha_categories:
+  - weather_alerts.forecasts
 ha_release: 0.52
 ha_iot_class: Cloud Polling
 ha_domain: worldtidesinfo
@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `worldtidesinfo` {% term integration %} uses details from [World Tides](https://www.worldtides.info/) to provide information about the prediction for the tides for any location in the world.
+The **World Tides** {% term integration %} uses details from [World Tides](https://www.worldtides.info/) to provide information about the prediction for the tides for any location in the world.
 
 ## Setup
 

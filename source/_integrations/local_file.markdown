@@ -1,8 +1,9 @@
 ---
 title: Local file
 description: Instructions how to use local file as a camera within Home Assistant.
-ha_category:
-  - Camera
+ha_categories:
+  - diy_makers.web_data_connectors
+  - security_safety.cameras
 ha_iot_class: Local Polling
 ha_release: 0.22
 ha_domain: local_file
@@ -25,11 +26,4 @@ The file path must be added to [allowlist_external_dirs](/integrations/homeassis
 
 {% include integrations/config_flow.md %}
 
-### Action `local_file.update_file_path`
-
-Use this action to change the file displayed by the camera.
-
-| Data attribute | Description                                          |
-| ---------------------- | ---------------------------------------------------- |
-| `entity_id`            | String of the `entity_id` of the camera to update.   |
-| `file_path`            | The full path to the new image file to be displayed. |
+{% include integrations/actions.md %}

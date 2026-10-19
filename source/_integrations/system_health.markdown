@@ -1,17 +1,15 @@
 ---
 title: System Health
-description: System Health integration will report system info and allow to run system diagnostics.
-ha_category:
-  - Other
+description: System Health integration will report system info and allow you to run system diagnostics.
 ha_release: 0.87
 ha_quality_scale: internal
 ha_domain: system_health
 ha_integration_type: system
 ---
 
-The System Health integration provides an API to offer information on the system and its components. It also allows to run diagnostic tools to diagnose problems.
+The **System Health** {% term integration %} provides an API to offer information on the system and its components. It also allows you to run diagnostic tools to diagnose problems.
 
-System Health integration data can be viewed at **Settings** -> **System** -> **Repairs** -> **System Information** in the overflow menu (top right).
+This data can be viewed at {% my repairs title="**Settings** > **System** > **Repairs**" %}. From the three dots {% icon "mdi:dots-vertical" %} menu (top right), select **System information**.
 
 {% my system_health badge %}
 

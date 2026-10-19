@@ -1,8 +1,6 @@
 ---
 title: Google Assistant
 description: Setup for Google Assistant integration
-ha_category:
-  - Voice
 featured: true
 ha_release: 0.56
 ha_iot_class: Cloud Push
@@ -15,7 +13,7 @@ ha_platforms:
   - diagnostics
 ---
 
-The `google_assistant` integration allows you to control your Home Assistant devices via Google Assistant on your mobile, tablet, or Google Home device.
+The **Google Assistant** {% term integration %} allows you to control your Home Assistant devices via Google Assistant on your mobile, tablet, or Google Home device.
 
 If you want to send commands to Google Assistant to control devices supported by Google Assistant but not by Home Assistant, or broadcast messages to Google Assistant speakers and displays without interrupting music/video playback, take a look at the [Google Assistant SDK](/integrations/google_assistant_sdk) integration.
 
@@ -39,7 +37,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 
 ### Google Cloud Platform configuration
 
-1. Create a new project in the [Google Developer Console](https://console.home.google.com/projects).
+1. Create a new project in the [Google Home Developer Console](https://console.home.google.com/projects).
     1. Select **Create a Project**
     2. On the **Get started** page, select **Create project**.
        - Give your project a name and select **Create project**.
@@ -64,7 +62,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 
 2. In the left hand menu of your project, select the **Analytics** link.
    - Select the hamburger {% icon "mdi:hamburger-menu" %} menu on the top left and select **APIs and Services**.
-3. Enable device sync ([see below for more information](#enable-device-sync)).
+3. Enable device sync ([see below for more information](#utilize-device-sync)).
     1. In the left hand menu, select **Credentials**.
     2. In the **Credentials** view, select **Create credentials** and next **Service account**.
         1. **Service account name**: Give your account a self-selected name.
@@ -78,7 +76,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     7. This will start a download of a JSON file.
         1. Rename the file to `SERVICE_ACCOUNT.json`.
         2. In Home Assistant, add this file to your config-folder. This will be the same folder as your {% term "`configuration.yaml`" %}.
-    8. Go to the **Search (/) for resources, documentation, products, and more** at the top middle and search for **Homegraph API** and select it.
+    8. In the navigation bar in Google Cloud, select the **magnifier** icon, search for **Homegraph API**, and select it.
     9. Enable the HomeGraph API.
 
 4. Add the `google_assistant` integration configuration to your {% term "`configuration.yaml`" %} file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
@@ -95,7 +93,7 @@ If you've added Home Assistant to your phone's home screen, you have to first re
 
 If you want to allow other household users to control the devices:
 
-1. Open the project you created in the [Google Developer Console](https://console.home.google.com/projects).
+1. Open the project you created in the [Google Home Developer Console](https://console.home.google.com/projects).
 2. Select **Members** on the top of the page. This redirects you to the Google Cloud Platform IAM permissions page.
 3. Select **Grant access** at the middle of the page.
     1. Enter the email address of the user you want to add.
@@ -128,13 +126,13 @@ The [HTTP integration](/integrations/http) must **not** be configured to use an 
 
 This is because the Google Assistant device will connect directly to the IP of your Home Assistant instance and will fail if it encounters an invalid SSL certificate.
 
-For secure remote access, use a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} add-on instead of directing external traffic straight to Home Assistant.
+For secure remote access, use a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} app (formerly known as NGINX SSL add-on) instead of directing external traffic straight to Home Assistant.
 {% endimportant %}
 
-1. Open the project you created in the [Google Developer Console](https://console.home.google.com/projects).
+1. Open the project you created in the [Google Home Developer Console](https://console.home.google.com/projects).
 2. Expand the **Cloud-to-cloud** menu on the left and select **Develop**, then select **Edit** next to your integration.
-3. Scroll down and enable **Local fulfillment** 
-4. Upload Javascript files
+3. Scroll down and enable **Local fulfillment**
+4. Upload JavaScript files
    1. Download `app.js` from [here](https://github.com/NabuCasa/home-assistant-google-assistant-local-sdk/releases/latest)
    2. Select **Upload your JavaScript targeting Node** and upload the `app.js` from step 4.1.
    3. Select **Upload your JavaScript targeting Chrome (browser)** and upload the same `app.js` from step 4.1.
@@ -178,7 +176,7 @@ google_assistant:
 
 {% configuration %}
 project_id:
-  description: Project ID from the Actions on Google console (looks like `words-2ab12`)
+  description: "Project ID from the Google Home Developer Console (looks like `words-2ab12`)."
   required: true
   type: string
 secure_devices_pin:
@@ -200,7 +198,7 @@ service_account:
       required: true
       type: string
 report_state:
-  description: Actively report state changes on entities. This speeds up response time for actions affecting multiple entities since Google Assistant knows pre-hand what state they are. It is also required for some features on visual controls.
+  description: Actively report state changes on entities. This speeds up response time for actions affecting multiple entities since Google Assistant knows beforehand what state they are. It is also required for some features on visual controls.
   required: false
   default: false
   type: boolean
@@ -247,6 +245,7 @@ entity_config:
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
 
 - alarm_control_panel (arm/disarm)
+- binary_sensor (entities with device class: `carbon_monoxide`, `door`, `garage_door`, `lock`, `moisture`, `opening`, `smoke`, `window`)
 - button (scene)
 - camera (streaming, requires compatible camera)
 - climate (on/off, temperature setting, hvac_mode)
@@ -265,7 +264,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - scene
 - script (scene)
 - select
-- sensor (temperature setting for temperature sensors and humidity setting for humidity sensors)
+- sensor (entities with device class: `aqi`, `carbon_dioxide`, `carbon_monoxide`, `humidity`, `pm10`, `pm25`, `temperature`, `volatile_organic_compounds`)
 - switch (on/off)
 - vacuum (dock/start/stop/pause)
 - valve (open/close/set position/stop/start=toggle valve)
@@ -312,6 +311,12 @@ There is no TV channel object in Home Assistant. TV channel can only be changed 
 
 ### Troubleshooting
 
+{% note %}
+
+Some of the troubleshooting steps below reference the legacy [Actions on Google console](https://console.actions.google.com/). This console is separate from the [Google Home Developer Console](https://console.home.google.com/projects) used in the setup steps above. If you configured the integration following the current setup instructions, your project lives in the Google Home Developer Console and some of the legacy steps may not apply.
+
+{% endnote %}
+
 #### 404 errors on request sync
 
 Syncing from Google Assistant may fail after a period of time, likely around 30 days, due to the fact that your Actions on Google app is technically in testing mode and has never been published. Eventually, it seems that the test expires. Control of devices will continue to work but syncing may not. If you say "Ok Google, sync my devices" and get the response "Unable to sync Home Assistant" (or whatever you named your project), this can usually be resolved by going back to your test app in the [Actions on Google console](https://console.actions.google.com/) and clicking `Simulator` under `TEST`. Regenerate the draft version Test App and try asking Google to sync your devices again. If regenerating the draft does not work, go back to the `Action` section and just hit the `enter` key for the URL to recreate the Preview.
@@ -340,7 +345,7 @@ If you receive 404 errors linked to reporting state in your log, Home Assistant 
 
 #### Error during linking: "Could not update the setting. Please check your connection"
 
-Your fulfillment URL may be invalid or unreachable. Recheck the `Fulfillment URL` as specified in [Manual Setup](#manual-setup-if-you-dont-have-home-assistant-cloud) and verify that it's publicly reachable.
+Your **Cloud fulfillment URL** may be invalid or unreachable. Recheck the **Cloud fulfillment URL** as specified in [Manual setup](#manual-setup-if-you-dont-have-home-assistant-cloud) and verify that it's publicly reachable.
 
 #### 500 / 429 error on request sync
 
@@ -359,3 +364,64 @@ If you're having trouble with _Account linking failed_ after you unlinked your s
 ### Failed linking - Could not update the setting. Please check your connection
 
 If you're having trouble linking your account, with the error message `Could not update the setting. Please check your connection` after logging into your Home Assistant instance, try setting `expose_by_default: false` then exposing a single simple device (light or switch preferably). It is also worth checking if any home ad blocker is disabled if you are having issues.
+
+{% include integrations/actions.md %}
+
+## Google Assistant automation examples
+
+With the manual setup, Google doesn't always notice right away when your devices change. These examples keep the Google Home app up to date for you.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: sync with Google after Home Assistant starts
+
+When you add or remove devices in your YAML configuration, restart Home Assistant. This automation then asks Google to sync, so the Google Home app shows your devices right away.
+
+- **Trigger**: Home Assistant
+  - **Event**: Start
+- **Action**: Google Assistant: Request sync
+  - **Agent user ID**: Your Home Assistant user ID
+
+{% details "YAML example for syncing with Google after a restart" %}
+
+{% example %}
+automation: |
+  alias: "Sync devices with Google after a restart"
+  triggers:
+    - trigger: homeassistant
+      event: start
+  actions:
+    - action: google_assistant.request_sync
+      data:
+        agent_user_id: "YOUR_USER_ID"
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: sync with Google when you add a new entity
+
+When a new entity is added to Home Assistant, ask Google to sync, so a new device shows up in the Google Home app without saying "Hey Google, sync my devices".
+
+- **Trigger**: Manual event received
+  - **Event type**: `entity_registry_updated`
+  - **Event data**: `action: create`
+- **Action**: Google Assistant: Request sync
+  - **Agent user ID**: Your Home Assistant user ID
+
+{% details "YAML example for syncing with Google when an entity is added" %}
+
+{% example %}
+automation: |
+  alias: "Sync devices with Google when an entity is added"
+  triggers:
+    - trigger: event
+      event_type: entity_registry_updated
+      event_data:
+        action: create
+  actions:
+    - action: google_assistant.request_sync
+      data:
+        agent_user_id: "YOUR_USER_ID"
+{% endexample %}
+
+{% enddetails %}

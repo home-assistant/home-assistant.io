@@ -1,10 +1,10 @@
 ---
 title: Lightwave
 description: Instructions on how to integrate Lightwave devices with Home Assistant.
-ha_category:
-  - Hub
-  - Light
-  - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
+  - plugs_switches
+  - climate.thermostats_heating
 ha_release: 0.84
 ha_iot_class: Assumed State
 ha_domain: lightwave
@@ -20,7 +20,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `lightwave` {% term integration %} links Home Assistant with your Lightwave Connect Series WiFi link for controlling Lightwave lights, switches and TRVs.
+The **Lightwave** {% term integration %} links Home Assistant with your Lightwave Connect Series WiFi link for controlling Lightwave lights, switches and TRVs.
 
 This {% term integration %} is for Connect Series WiFi links and does not support Smart Series devices, for more information see [Smart and Connect Series](https://support.lightwaverf.com/knowledge/about-smart-and-connect-series).  
 
@@ -129,5 +129,5 @@ lightwave:
       trvs:
         R1Dh:                       # The ID of the TRV.
           name: Bedroom TRV
-          serial: E84902            # Serial number of the TRV - found in the Lightwave App, or web site
+          serial: E84902            # Serial number of the TRV - found in the Lightwave App, or website
 ```

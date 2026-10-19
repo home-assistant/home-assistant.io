@@ -1,13 +1,8 @@
 ---
 title: FRITZ!SmartHome
 description: Instructions on how to integrate FRITZ! Smart Home (former AVM FRITZ!DECT) components into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Light
-  - Sensor
-  - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: 0.68
 ha_iot_class: Local Polling
 ha_domain: fritzbox
@@ -28,7 +23,7 @@ ha_codeowners:
 ha_integration_type: hub
 ---
 
-The FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRITZ! Smart Home](https://fritz.com/en/collections/smart-home/) (_former AVM FRITZ!DECT_) devices like plugs, thermostats or shutter drivers as also trigger so called smart home templates (_contains settings for Smart Home devices of the same type_).
+The **FRITZ!SmartHome** {% term integration %} for Home Assistant allows you to integrate [FRITZ! Smart Home](https://fritz.com/en/collections/smart-home/) (_former AVM FRITZ!DECT_) devices like plugs, thermostats or shutter drivers as also trigger so called smart home templates (_contains settings for Smart Home devices of the same type_).
 
 #### Tested devices
 
@@ -36,6 +31,7 @@ The FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRIT
   - [FRITZ!Box 5590 Fiber][fritzbox_5590_fiber]
   - FRITZ!Box 6490 Cable
   - FRITZ!Box 6591 Cable
+  - [FRITZ!Box 6690 Cable][fritzbox_6690_cable]
   - FRITZ!Box 7590
   - FRITZ!Box 7490
   - FRITZ!Box 7430
@@ -56,25 +52,27 @@ The FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRIT
 
 ## Prerequisites
 
-Please note that in a [mesh](https://fritz.com/en/apps/knowledge-base/FRITZ-Box-7590/3329_Mesh-with-FRITZ/) setup, only the FRITZ!Box with the mesh master role should be added with the FRITZ!SmartHome integration.
+In a [mesh](https://fritz.com/en/apps/knowledge-base/FRITZ-Box-7590/3329_Mesh-with-FRITZ/) setup, only the FRITZ!Box with the mesh master role should be added with the FRITZ!SmartHome integration.
 
 ### Username
 
 It is recommended to create a separate user to connect Home Assistant to your FRITZ!Box. To create a user, in the FRITZ!Box go to **System** > **FRITZ!Box Users** > **Users** > **Add User**. Make sure the user has the **Smart Home** permission.
 
 {% note %}
-If you still want to use the predefined user, please note that as of FRITZ!OS 7.24, the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visit **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Prior to FRITZ!OS 7.24, the default username was `admin`.
+If you still want to use the predefined user, as of FRITZ!OS 7.24, the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visit **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Before FRITZ!OS 7.24, the default username was `admin`.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Host:
-  description: "The hostname or IP address of your FRITZ!Box router."
+URL:
+  description: "The URL of your FRITZ!Box. For example, `http://192.168.178.1`, or `http://fritz.box`, or `https://abcdef.myfritz.net:48317`."
 Username:
   description: "Name of the user to connect Home Assistant to your FRITZ!Box (_see [Username](#username)_)"
 Password:
   description: "Password for the user to connect Home Assistant to your FRITZ!Box (_see [Username](#username)_)"
+Verify SSL:
+  description: "Whether to verify the SSL certificate when SSL encryption is used to connect to your FRITZ!Box."
 {% endconfiguration_basic %}
 
 ## Data fetching and limitations
@@ -95,7 +93,7 @@ The FRITZ!DECT 500 light bulb supports only 36 colors. When a color is picked in
 
 Plugs like the [FRITZ!Smart Energy 200][fritzdect_200] or [FRITZ!Smart Energy 210][fritzdect_210] will be integrated as {% term switch %} entities.
 
-Further there are additional {% term sensor %} and {% term binary_sensor "binary sensor" %} entities created for each device, based on its capabilities:
+Further there are additional {% term sensor %} and {% term "binary sensor" %} entities created for each device, based on its capabilities:
 
 - Button lock via UI
 - Button lock on device
@@ -104,6 +102,10 @@ Further there are additional {% term sensor %} and {% term binary_sensor "binary
 - Temperature
 - Total Energy
 - Voltage
+
+### Routines
+
+Self-defined [routines](https://fritz.com/en/apps/knowledge-base/FRITZ-Box-7590/3707_Creating-a-routine-for-smart-home-devices) within the FRITZ!The box smart home configuration menu will be integrated as {% term switch %} entities. Those entities can be activated or deactivated from Home Assistant.
 
 ### Shutter drivers
 
@@ -117,7 +119,7 @@ Self defined [templates](https://fritz.com/en/apps/knowledge-base/FRITZ-Box-7590
 
 Thermostats like the FRITZ!Smart Thermo series or Eurotronic Comet DECT will be integrated as {% term climate %} entities.
 
-Further there are additional {% term sensor %} and {% term binary_sensor "binary sensor" %} entities created for each device which can be useful for {% term automations %} and {% term templates %}, based on its capabilities:
+Further there are additional {% term sensor %} and {% term "binary sensor" %} entities created for each device which can be useful for {% term automations %} and {% term templates %}, based on its capabilities:
 
 - Battery
 - Battery low
@@ -138,7 +140,7 @@ Further there are additional {% term sensor %} and {% term binary_sensor "binary
 
 Event based devices like motion detection sensors or window/door contacts or buttons (_for example, [FRITZ!Smart Control 350][fritzdect_350] or the [FRITZ!Smart Control 440][fritzdect_440]_) cannot be controlled or used via this integration, but their sensors can still be integrated.
 
-The availability of these {% term sensor %} and {% term binary_sensor "binary sensor" %} entities depends on the features and capabilities of the connected device and can be one or multiple of:
+The availability of these {% term sensor %} and {% term "binary sensor" %} entities depends on the features and capabilities of the connected device and can be one or multiple of:
 
 - Battery
 - Battery low
@@ -149,6 +151,7 @@ The availability of these {% term sensor %} and {% term binary_sensor "binary se
 - Temperature
 
 [fritzbox_5590_fiber]: https://fritz.com/en/products/fritz-box-5590-fiber-20002981
+[fritzbox_6690_cable]: https://fritz.com/en/products/fritz-box-6690-cable-20002965
 [fritzbox_7590_ax]: https://fritz.com/en/products/fritz-box-7590-ax-20002998
 [fritzbox_7530_ax]: https://fritz.com/en/products/fritz-box-7530-ax-20002930
 [fritzdect_200]: https://fritz.com/en/products/fritz-dect-200-20002572
@@ -159,11 +162,88 @@ The availability of these {% term sensor %} and {% term binary_sensor "binary se
 [fritz_smart_gateway]: https://fritz.com/en/products/fritz-smart-gateway-20003012
 [rademacher_rollotron_dect_1213]: https://www.rademacher.de/shop/rollladen-sonnenschutz/elektrischer-gurtwickler/rollotron-dect-1213
 
+## Automation examples
+
+### Control heating by presence
+
+This will apply the **comfort** preset to `climate.livingroom` when at
+least one person is in `zone.home`, and apply **eco** when nobody is in
+the zone.
+
+```yaml
+description: "Set comfort when at least one person is home, otherwise set eco."
+mode: single
+triggers:
+  - trigger: state
+    entity_id:
+      - zone.home
+conditions:
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: zone.home
+        state:
+          - unavailable
+          - unknown
+actions:
+  - if:
+      - condition: numeric_state
+        entity_id: zone.home
+        above: 0
+    then:
+      - action: climate.set_preset_mode
+        target:
+          entity_id: climate.livingroom
+        data:
+          preset_mode: comfort
+    else:
+      - action: climate.set_preset_mode
+        target:
+          entity_id: climate.livingroom
+        data:
+          preset_mode: eco
+```
+
+### Control lights based on sun state
+
+This will turn on the `light.outdoor` at sunset and turn it off at sunrise.
+
+```yaml
+description: "Turn on the outdoor lights when the sun goes down."
+mode: single
+triggers:
+  - trigger: state
+    entity_id:
+      - sun.sun
+conditions:
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: sun.sun
+        state:
+          - unavailable
+          - unknown
+actions:
+  - if:
+      - condition: state
+        entity_id: sun.sun
+        state:
+          - below_horizon
+    then:
+      - action: light.turn_on
+        target:
+          entity_id: light.outdoor
+    else:
+      - action: light.turn_off
+        target:
+          entity_id: light.outdoor
+```
+
 ## Troubleshooting
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue re-occurs stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}
 

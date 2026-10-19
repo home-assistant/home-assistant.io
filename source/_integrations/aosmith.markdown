@@ -1,8 +1,8 @@
 ---
 title: A. O. Smith
 description: Instructions on how to integrate your A. O. Smith water heater with Home Assistant.
-ha_category:
-  - Water heater
+ha_categories:
+  - climate.water_heaters
 ha_release: 2024.1
 ha_iot_class: Cloud Polling
 ha_domain: aosmith
@@ -14,12 +14,12 @@ ha_platforms:
   - select
   - sensor
   - water_heater
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The A. O. Smith integration allows you to control a compatible A. O. Smith iCOMM-enabled water heater from Home Assistant.
+The **A. O. Smith** {% term integration %} allows you to control a compatible A. O. Smith iCOMM-enabled water heater from Home Assistant.
 
-Before using this integration, your water heater must be connected to a Wi-Fi network and linked to your account using the A. O. Smith mobile app ([iOS](https://apps.apple.com/us/app/a-o-smith/id456489822)/[Android](https://play.google.com/store/apps/details?id=com.aosmith.warrantycheck)).
+Before using this integration, your water heater must be connected to a Wi-Fi network and linked to your account using the A. O. Smith mobile app ([iOS](https://apps.apple.com/app/id456489822)/[Android](https://play.google.com/store/apps/details?id=com.aosmith.warrantycheck)).
 
 ## Known compatible models
 

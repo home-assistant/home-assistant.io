@@ -1,0 +1,119 @@
+- key: area
+  label: Areas
+  icon: "mdi:map-marker-radius"
+  description: "These template functions let you work with the areas you've set up in Home Assistant. Look up which entities or devices belong to an area, get area names and IDs, and build automations that operate on entire rooms at once."
+  learn_more:
+    - title: Working with states
+      url: /docs/templating/states/
+- key: collection
+  label: Collections
+  icon: "mdi:format-list-group"
+  description: "These template functions help you work with collections of data: lists, sets, dictionaries, and JSON. Use them to combine, filter, sort, and reshape data from your entities, API responses, and incoming messages."
+  learn_more:
+    - title: Common template patterns
+      url: /docs/templating/patterns/
+    - title: Types and conversion
+      url: /docs/templating/types/
+    - title: Loops and conditions
+      url: /docs/templating/loops-and-conditions/
+- key: comparison
+  label: Comparison
+  icon: "mdi:compare-horizontal"
+  description: "These template tests let you compare values in your templates. Use them inside if conditions and filters to check equality, order, or membership."
+  learn_more:
+    - title: Loops and conditions
+      url: /docs/templating/loops-and-conditions/
+    - title: Types and conversion
+      url: /docs/templating/types/
+- key: datetime
+  label: Date & Time
+  icon: "mdi:clock-outline"
+  description: "These template functions help you work with dates, times, and durations. Use them to get the current time, format timestamps for display, calculate how long ago something happened, or convert between different time representations."
+  learn_more:
+    - title: Working with dates and times
+      url: /docs/templating/dates-and-times/
+- key: device
+  label: Devices
+  icon: "mdi:devices"
+  description: "These template functions let you work with devices in Home Assistant. Look up device names, IDs, attributes, and find which entities belong to a device."
+  learn_more:
+    - title: Working with states
+      url: /docs/templating/states/
+- key: encoding
+  label: Encoding
+  icon: "mdi:lock-outline"
+  description: "These template functions encode, decode, and hash data. Use them to turn bytes into readable text, generate checksums, or prepare data for APIs that expect a specific encoding."
+  learn_more:
+    - title: Common template patterns
+      url: /docs/templating/patterns/
+- key: entity
+  label: Entities
+  icon: "mdi:shape-outline"
+  description: "These template functions let you work with entities in Home Assistant. Get entity names, check visibility, and look up which integration or config entry an entity belongs to."
+  learn_more:
+    - title: Working with states
+      url: /docs/templating/states/
+- key: floor
+  label: Floors
+  icon: "mdi:layers-outline"
+  description: "These template functions let you work with floors in Home Assistant. Look up floor names and IDs, find which areas belong to a floor, and get all entities across an entire floor."
+  learn_more:
+    - title: Working with states
+      url: /docs/templating/states/
+- key: functional
+  label: Functional
+  icon: "mdi:cog-outline"
+  description: "These template functions help with control flow, conditional logic, and general utility operations. They let you make decisions, transform values, and work with data in flexible ways."
+  learn_more:
+    - title: Loops and conditions
+      url: /docs/templating/loops-and-conditions/
+- key: label
+  label: Labels
+  icon: "mdi:tag-outline"
+  description: "These template functions let you work with labels in Home Assistant. Labels are tags you can assign to entities, devices, and areas to organize them. Use these functions to look up labels, find items with specific labels, and build automations that act on labeled groups of items."
+  learn_more:
+    - title: Working with states
+      url: /docs/templating/states/
+- key: math
+  label: Math
+  icon: "mdi:calculator-variant-outline"
+  description: "These template functions provide mathematical operations for your templates. From basic arithmetic helpers to trigonometry, statistics, and value constraining, they let you perform calculations on sensor data, averages across rooms, and more."
+  learn_more:
+    - title: Common template patterns
+      url: /docs/templating/patterns/
+- key: regex
+  label: Regex
+  icon: "mdi:regex"
+  description: "These template functions let you search, match, and transform text with regular expressions. Use them when you need to extract specific parts of a string, validate formats, or replace patterns in sensor values."
+  learn_more:
+    - title: Python methods in templates
+      url: /docs/templating/python-methods/
+    - title: Common template patterns
+      url: /docs/templating/patterns/
+- key: repairs
+  label: Repairs
+  icon: "mdi:wrench-outline"
+  description: "These template functions let you read the repair issues Home Assistant has flagged. Use them to build dashboards or notifications that surface problems needing your attention."
+- key: state
+  label: States
+  icon: "mdi:toggle-switch-outline"
+  description: "These template functions let you access and check the states of your entities. They are the foundation of most template logic in Home Assistant, letting you read sensor values, check if devices are on or off, and react to changes in your smart home."
+  learn_more:
+    - title: Working with states
+      url: /docs/templating/states/
+- key: strings
+  label: Strings
+  icon: "mdi:format-text"
+  description: "These template functions help you format, transform, and shape text. Use them to build friendly messages, clean up sensor values, or prepare text for dashboards and notifications."
+  learn_more:
+    - title: Python methods in templates
+      url: /docs/templating/python-methods/
+- key: type
+  label: Type Conversion
+  icon: "mdi:swap-horizontal"
+  description: "These template functions convert values between text, numbers, and other types, and let you check what type a value currently is. Use them whenever you need to turn sensor states into numbers for math, or verify the shape of data before acting on it."
+  learn_more:
+    - title: Types and conversion
+      url: /docs/templating/types/
+    - title: Debugging templates
+      url: /docs/templating/debugging/

@@ -1,31 +1,29 @@
 ---
-title: "Getting started - Local"
+title: "Set up a fully local voice assistant"
+description: "Run Assist completely on your own hardware: do speech recognition, intent processing, and text-to-speech locally, with no cloud involved."
 related:
   - docs: /voice_control/best_practices/
     title: Best practices with Assist
   - docs: /voice_control/expanding_assist/
     title: Expanding Assist
-  - docs: /voice_control/voice_remote_local_assistant/
-    title: Creating a local assistant
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing devices to Assist
-  - url: https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition
+  - url: https://support.nabucasa.com/hc/categories/24451727188125
     title: Voice Preview Edition - Documentation
 ---
 
-The simplest and most effective way to use Assist is to leverage the voice providers (for speech-to-text and text-to-speech) included in [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) 
+Assist can run entirely on your own hardware. Your spoken commands never leave your home: a microphone hears you, a local speech-to-text engine turns your voice into text, Home Assistant figures out what you want, and a local text-to-speech engine speaks the answer back. This guide walks you through setting that up.
 
-If you are interested in setting up a fully local voice assistant, follow this setup:
-
+If you would rather not run all of that yourself, the simplest path is to use the speech-to-text and text-to-speech voices included with [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/). Both options work well, and you can switch between them later.
 
 ## Prerequisites
 
-For Assist to be able to talk to your Home Assistant setup your setup needs to be able to listen, understand and then talk back. 
+For Assist to be able to talk to your Home Assistant setup your setup needs to be able to listen, understand and then talk back.
 
 In Home Assistant, the Assist pipelines are made up of various components that together form a voice assistant. For each component, you can choose from different options.
 
 - For listening and talking back, it needs your phone with the Home Assistant app, or a voice activated device.
-- For understanding, it needs to have a speech-to-text and text-to-speech software integrated. 
+- For understanding, it needs to have a speech-to-text and text-to-speech software integrated.
 - For running all together, it needs to have the Home Assistant Operating System running.
 
 ## Some options for speech-to-text and text-to-speech
@@ -37,7 +35,8 @@ There are speech-to-text and text-to-speech options that run entirely local. No 
 There are currently two options to run speech-to-text locally: **Speech-to-Phrase** and **Whisper**.
 
 #### Speech-to-Phrase
-[Speech-to-Phrase](https://github.com/OHF-voice/speech-to-phrase) is a close-ended speech model. 
+
+[Speech-to-Phrase](https://github.com/OHF-voice/speech-to-phrase) is a close-ended speech model.
 
 - It transcribes what it knows.
 - Extremely fast transcription even on a Home Assistant Green or Raspberry Pi 4 (under one second).
@@ -51,11 +50,11 @@ There are currently two options to run speech-to-text locally: **Speech-to-Phras
 [Whisper](https://github.com/openai/whisper) is an open-ended speech model.
 
 - It will try to transcribe everything.
-- The cost is slower processing speed: 
-    - On a Raspberry Pi 4, it takes around 8 seconds to process incoming voice commands. 
+- The cost is slower processing speed:
+    - On a Raspberry Pi 4, it takes around 8 seconds to process incoming voice commands.
     - On an Intel NUC, it is done in under a second.
 - Supports [various languages](https://github.com/openai/whisper#available-models-and-languages).
-- Whisper is only a great option in the following case: 
+- Whisper is only a great option in the following case:
     1. You have powerful hardware at home.
     2. You plan to extend your voice set-up beyond simple home control. For example, by pairing your assistant with an LLM-based agent.
 
@@ -69,11 +68,11 @@ Please be sure to check how either option will work in your language, since qual
 
 For the quickest way to get your local Assist pipeline started, follow these steps:
 
-1. Install the add-ons to convert text into speech and vice versa.
-   - Install the speech-to-text add-on of your choice, either {% my supervisor_addon addon="core_speech-to-phrase" title="**Speech-to-Phrase**" %} or {% my supervisor_addon addon="core_whisper" title="**Whisper**" %}.
+1. Install the apps to convert text into speech and vice versa.
+   - Install the speech-to-text app of your choice, either {% my supervisor_addon addon="core_speech-to-phrase" title="**Speech-to-Phrase**" %} or {% my supervisor_addon addon="core_whisper" title="**Whisper**" %}.
    - Install {% my supervisor_addon addon="core_piper" title="**Piper**" %} for text-to-speech.
-   - Start the add-ons.
-   - Once the add-ons are started, head over to the integrations under {% my integrations title="**Settings** > **Devices & Services**" %}.
+   - Start the apps.
+   - Once the apps are started, head over to the integrations under {% my integrations title="**Settings** > **Devices & services**" %}.
      - You should now see both services being discovered by the [Wyoming integration](/integrations/wyoming/).
        ![Whisper and Piper integrations](/images/assist/piper-whisper-install-new-02.png)
    - For each integration, select **Add**.
@@ -84,7 +83,7 @@ For the quickest way to get your local Assist pipeline started, follow these ste
    - Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and select **Add assistant**.
      ![Enter a name for your voice assistant](/images/assist/piper-whisper-install-05.png)
 
-     - **Troubleshooting**: If you do not see any assistants here, you are not using the default configuration. In this case, you need to add the following to your {% term "configuration.yaml" %} file:
+     - Troubleshooting: If you do not see any assistants here, you are not using the default configuration. In this case, you need to add the following to your {% term "configuration.yaml" %} file:
 
        ```yaml
        # Example configuration.yaml entry
@@ -97,10 +96,17 @@ For the quickest way to get your local Assist pipeline started, follow these ste
    - Under **Speech-to-text**, select the speech-to-text engine you choose in the previous step (either **Whisper** or **Speech-to-Phrase**). Select the language.
    - Under **Text-to-speech**, select **Piper**. Select the language.
      - Depending on your language, you may be able to select different language variants.
+   - Optionally, under **Acts as user**, select the person this assistant speaks for. Refer to [letting an assistant act as a user](#letting-an-assistant-act-as-a-user).
 
 3. That's it. You ensured your voice commands can be processed locally on your device.
 4. If you haven't done so yet, [expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices).
-   - Otherwise you won't be able to control them by voice.
+   - Otherwise, you won't be able to control them by voice.
+
+## Letting an assistant act as a user
+
+A voice request has no user of its own. When you speak to a voice satellite, Home Assistant cannot tell whose request it is, so integrations that link a Home Assistant user to an external account cannot automatically pick the right account.
+
+Under **Acts as user**, select the person the assistant should speak for. The assistant will then act on behalf of that user, including using their linked accounts. For example, [Music Assistant](/integrations/music_assistant/) can play from that person's streaming account. The assistant can only do what that user is allowed to do in Home Assistant.
 
 ## Fine-tuning Whisper and Piper for your setup
 
@@ -109,7 +115,7 @@ View some of the options in the video below. Explained by Mike Hansen, creator o
 
 <lite-youtube videoid="Tk-pnm7FY7c" videoStartAt="1589" videotitle="Configure your local Assist pipeline for your setup"></lite-youtube>
 
-The options are also documented in the add-on itself. Go to the {% my supervisor_addon addon="core_whisper" title="**Whisper**" %} or the {% my supervisor_addon addon="core_piper" title="**Piper**" %} add-on and open the **Documentation** page.
+The options are also documented in the app itself. Go to the {% my supervisor_addon addon="core_whisper" title="**Whisper**" %} or the {% my supervisor_addon addon="core_piper" title="**Piper**" %} app and open the **Documentation** page.
 
 Also be sure to check the specific tutorial for [using Piper in Automations](/voice_control/using_tts_in_automation/)
 

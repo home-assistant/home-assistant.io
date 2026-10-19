@@ -1,22 +1,6 @@
 ---
 title: Rexel Energeasy Connect
 description: Connect and control your Rexel Energeasy Connect devices using the Overkiz integration
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Hub
-  - Light
-  - Lock
-  - Number
-  - Scene
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Water heater
 ha_domain: rexel
 ha_integration_type: virtual
 ha_supporting_domain: overkiz
@@ -32,6 +16,7 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - fan
   - light
   - lock
   - number

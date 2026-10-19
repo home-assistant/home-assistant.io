@@ -1,6 +1,14 @@
 {% unless page.feedback == false  or page.layout == "landingpage"  %}
 <div class="material-card text feedback">
   <h4>{% icon "mdi:feedback" %} <b> Help us improve our documentation</b><a href="#feedback_section" class="title-link" name="feedback_section"></a></h4>
+  <div class="page-rating">
+    <div class="page-rating-ask">
+      <span id="page-rating-question">Was this page helpful?</span>
+      <button type="button" class="page-rating-button" data-rating="helpful" aria-describedby="page-rating-question"><iconify-icon inline icon="mdi:thumb-up-outline"></iconify-icon> Yes</button>
+      <button type="button" class="page-rating-button" data-rating="not_helpful" aria-describedby="page-rating-question"><iconify-icon inline icon="mdi:thumb-down-outline"></iconify-icon> No</button>
+    </div>
+    <p class="page-rating-thanks" role="status"></p>
+  </div>
   Suggest an edit to this page, or provide/view feedback for this page.
   <div class="links">
     <ul aria-label="Page feedback options">
@@ -42,4 +50,58 @@
   </ul>
   </div>
 </div>
+<script type="text/javascript">
+(function () {
+  var rating = document.querySelector(".page-rating");
+  if (!rating) return;
+
+  var ask = rating.querySelector(".page-rating-ask");
+  var thanks = rating.querySelector(".page-rating-thanks");
+  var storageKey = "page-rating:" + window.location.pathname;
+  var messages = {
+    helpful: "Thanks for letting us know! 🫶",
+    not_helpful: "Thanks for letting us know. Tell us what's missing or wrong using Provide feedback below, so we can improve this page.",
+  };
+  var events = {
+    helpful: "Page helpful",
+    not_helpful: "Page not helpful",
+  };
+
+  function showThanks(value) {
+    ask.hidden = true;
+    thanks.textContent = messages[value];
+  }
+
+  // Remember the vote in this browser only, so one visitor can't vote twice.
+  var previous = null;
+  try {
+    previous = window.localStorage.getItem(storageKey);
+  } catch (e) {
+    // Storage can be blocked, for example in private browsing.
+  }
+
+  if (messages[previous]) {
+    showThanks(previous);
+    return;
+  }
+
+  ask.addEventListener("click", function (event) {
+    var button = event.target.closest(".page-rating-button");
+    if (!button) return;
+
+    var value = button.getAttribute("data-rating");
+    if (typeof window.plausible === "function") {
+      window.plausible(events[value]);
+    }
+
+    try {
+      window.localStorage.setItem(storageKey, value);
+    } catch (e) {
+      // Not being able to remember the vote is fine.
+    }
+
+    showThanks(value);
+  });
+})();
+</script>
 {% endunless %}

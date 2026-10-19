@@ -1,8 +1,8 @@
 ---
 title: AWS Route53
 description: Automatically update your AWS Route53 DNS records.
-ha_category:
-  - Network
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_iot_class: Cloud Push
 ha_release: 0.81
 ha_domain: route53
@@ -13,11 +13,11 @@ related:
 ha_quality_scale: legacy
 ---
 
-With the `route53` {% term integration %} can you keep your AWS Route53 DNS records up to date.
+With the **AWS Route53** {% term integration %} can you keep your AWS Route53 DNS records up to date.
 
 The integration will run every hour, but can also be started manually by using the `route53.update_records` action.
 
-Please note that this platform uses the API from [ipify.org](https://www.ipify.org/) to set the public IP address.
+This platform uses the API from [ipify.org](https://www.ipify.org/) to set the public IP address.
 
 ## Setup
 
@@ -109,8 +109,4 @@ ttl:
   default: 300
 {% endconfiguration %}
 
-## Actions
-
-### Action `route53.update_records`
-
-Use this action to manually trigger an update of the DNS records.
+{% include integrations/actions.md %}

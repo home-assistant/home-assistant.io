@@ -78,3 +78,64 @@ pre.highlight {
 .highlight .vg { color: #008080 } /* Name.Variable.Global */
 .highlight .vi { color: #008080 } /* Name.Variable.Instance */
 .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+
+/* Prism: Signature language tokens */
+.language-signature .token.parameter {
+  color: black;
+}
+.language-signature .token.builtin {
+  color: #c92c2c;
+}
+.language-signature .token.boolean {
+  color: #007fa8;
+}
+.language-signature .token.string {
+  color: #2f9c0a;
+}
+.language-signature .token.operator {
+  color: #a67f59;
+}
+
+/* Prism: Template/Jinja2 function highlighting */
+.language-jinja2 .token.function,
+.language-django .token.function,
+.language-template .token.function,
+.language-signature .token.function {
+  color: #6f42c1;
+  font-weight: 600;
+}
+
+/* Linked template functions in code blocks */
+.tf-linked {
+  cursor: pointer;
+  border-bottom: 1px dotted #6f42c1;
+}
+
+.tf-linked:hover {
+  background: rgba(111, 66, 193, 0.1);
+  border-radius: 2px;
+}
+
+/* Linked parameters: subtler style */
+.tf-param {
+  border-bottom-style: dashed;
+  border-bottom-color: #999;
+}
+
+.tf-param:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.tf-code-tooltip {
+  position: fixed;
+  z-index: 1000;
+  background: #333;
+  color: #fff;
+  font-size: 0.8em;
+  font-family: "Instrument Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 6px 10px;
+  border-radius: 6px;
+  max-width: 300px;
+  pointer-events: none;
+  line-height: 1.4;
+}

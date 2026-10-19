@@ -1,8 +1,8 @@
 ---
 title: LeaOne
 description: Instructions on how to integrate LeaOne devices into Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - health_wellbeing
 ha_release: 2024.2
 ha_iot_class: Local Push
 ha_codeowners:
@@ -11,7 +11,7 @@ ha_domain: leaone
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates LeaOne health devices into Home Assistant.

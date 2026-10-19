@@ -236,7 +236,7 @@ more stable and feature rich solution. Nevertheless, having bridge support is
 a huge milestone!
 
 Adding a Matter device is now also more logical. Just add a new device
-from the Devices & Services page, just like how you would add any other device
+from the Devices & services page, just like how you would add any other device
 or integration to Home Assistant. Oh! Let's not forget about [@ArturoGuerra],
 who added support for color lights to Matter! Thanks!
 

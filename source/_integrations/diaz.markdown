@@ -1,8 +1,6 @@
 ---
 title: Diaz
 description: Connect and control your Diaz devices using the Motionblinds integration
-ha_category:
-  - Cover
 ha_domain: diaz
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds

@@ -1,0 +1,46 @@
+blueprint:
+  name: "Casper Glow bedtime routine"
+  description: "Turns on the Casper Glow at a set time with a configured dimming duration for bedtime."
+  domain: automation
+  input:
+    bedtime:
+      name: Bedtime
+      selector:
+        time:
+    glow_device:
+      name: Casper Glow
+      selector:
+        device:
+          filter:
+            - integration: casper_glow
+    dimming_minutes:
+      name: Dimming duration
+      default: "30"
+      selector:
+        select:
+          options:
+            - "15"
+            - "30"
+            - "45"
+            - "60"
+            - "90"
+variables:
+  glow_device: !input glow_device
+triggers:
+  - trigger: time
+    at: !input bedtime
+actions:
+  - action: select.select_option
+    target:
+      entity_id: >
+        {{ device_entities(glow_device)
+           | select('match', 'select\\..*')
+           | first }}
+    data:
+      option: !input dimming_minutes
+  - action: light.turn_on
+    target:
+      entity_id: >
+        {{ device_entities(glow_device)
+           | select('match', 'light\\..*')
+           | first }}

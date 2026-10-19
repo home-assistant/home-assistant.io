@@ -1,8 +1,8 @@
 ---
 title: laundrify
 description: Instructions on how to integrate laundrify within Home Assistant.
-ha_category:
-  - Binary sensor
+ha_categories:
+  - appliances_cleaning.laundry
 ha_release: 2022.6
 ha_iot_class: Cloud Polling
 ha_domain: laundrify
@@ -12,7 +12,7 @@ ha_platforms:
 ha_codeowners:
   - '@xLarry'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 Monitor the status of your washing machine or dryer within Home Assistant using a [laundrify](https://laundrify.de/) WiFi power plug.
@@ -27,7 +27,7 @@ The following platforms/entities are currently supported by the integration:
 
 ## Generate an Auth Code
 
-*Please note that the laundrify App v1.12.0 is required to activate the Home Assistant integration.*
+*The laundrify App v1.12.0 is required to activate the Home Assistant integration.*
 
 The integration requires an Auth Code to complete the account linking. Open the laundrify App and tap on `Home Assistant -> Integration aktivieren` to generate your code.
 

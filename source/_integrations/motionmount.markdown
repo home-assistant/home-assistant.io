@@ -1,11 +1,8 @@
 ---
 title: Vogel's MotionMount
 description: Instructions on how to integrate Vogel's MotionMount into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Number
-  - Select
-  - Sensor
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: 2024.1
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -22,7 +19,7 @@ ha_quality_scale: bronze
 ha_integration_type: device
 ---
 
-The `motionmount` {% term integration %} allows you to control the position of your [TVM 7675 Pro](https://www.vogels.com/p/tvm-7675-pro-motorized-tv-wall-mount-black) SIGNATURE MotionMount from Vogel's.
+The **Vogel's MotionMount** {% term integration %} allows you to control the position of your [TVM 7675 Pro](https://www.vogels.com/p/tvm-7675-pro-motorized-tv-wall-mount-black) SIGNATURE MotionMount from Vogel's.
 
 This integration uses the Ethernet (IP) connection of your MotionMount. It's not possible to connect using the RS-232 connection.
 

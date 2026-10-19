@@ -1,8 +1,9 @@
 ---
 title: GPSD
 description: Instructions on how to integrate GPSD into Home Assistant.
-ha_category:
-  - Utility
+ha_categories:
+  - presence_location.trackers
+  - diy_makers.boards_hardware
 ha_release: 0.26
 ha_config_flow: true
 ha_iot_class: Local Polling
@@ -15,6 +16,6 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `gpsd` integration is using the GPS information collected by [gpsd](https://gpsd.gitlab.io/gpsd/index.html) and a GPS receiver.
+The **GPSD** {% term integration %} is using the GPS information collected by [gpsd](https://gpsd.gitlab.io/gpsd/index.html) and a GPS receiver.
 
 {% include integrations/config_flow.md %}

@@ -1,14 +1,8 @@
 ---
 title: devolo Home Network
 description: Instructions on how to integrate devolo Home Network devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Image
-  - Presence detection
-  - Sensor
-  - Switch
-  - Update
+ha_categories:
+  - computers_network.routers_network
 ha_release: '2021.12'
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -47,7 +41,7 @@ Currently, the following entities within Home Assistant are supported.
 
 - Device attached to the router
   - Updates every 5 minutes
-  - Is disabled by default because it typically rarely changes
+  - Is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) because it typically rarely changes
 
 ### Buttons
 
@@ -139,7 +133,6 @@ The devolo Gigabridge is the only device that comes with a default password. How
 
 PLC networks are sometimes flaky. To restore a network's state, it's sometimes a good idea to reboot the PLC device attached to the router if the number of PLC devices is lower than expected. If you apply this automation, keep in mind that devices might be expected on standby. In this example, the expected number of devices is 3.
 
-{% raw %}
 
 ```yaml
 alias: "PLC Feeder Restart"
@@ -159,13 +152,11 @@ actions:
       entity_id: button.devolo_001_restart_device  # Replace with your device's button
 ```
 
-{% endraw %}
 
 ### Notify on data rate drop
 
 Noise on the electric wire can significant disturb PLC data rates. A notification close to a drop can help identify the action that lead to the drop. The following example takes 25% as threshold.
 
-{% raw %}
 
 ```yaml
 alias: "PLC data rate"
@@ -181,7 +172,9 @@ conditions:
       # Checks if new value is less than 75% of previous value
       {{ (trigger.to_state.state|float / trigger.from_state.state|float) < 0.75 }}
 actions:
-  - action: notify.mobile_app_pixel_4a
+  - action: notify.send_message
+    target:
+      entity_id: notify.my_device
     data:
       message: >-
         PLC data rate of {{ trigger.to_state.name }} dropped to {{
@@ -190,13 +183,11 @@ actions:
       title: PLC data rate dropped
 ```
 
-{% endraw %}
 
 ### Enable guest wifi on time basis
 
 You might want to expose your guest wifi only during the day but turn it off at night.
 
-{% raw %}
 
 ```yaml
 alias: "Toggle guest Wi-Fi"
@@ -212,7 +203,6 @@ actions:
       entity_id: switch.devolo_001_enable_guest_wifi  # Replace with your device's switch
 ```
 
-{% endraw %}
 
 ## Removing the integration
 

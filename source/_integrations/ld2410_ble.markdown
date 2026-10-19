@@ -1,9 +1,8 @@
 ---
 title: LD2410 BLE
 description: Instructions on how to integrate LD2410 BLE devices into Home Assistant.
-ha_category:
-  - Presence detection
-  - Sensor
+ha_categories:
+  - sensors.motion_presence
 ha_bluetooth: true
 ha_release: 2023.2
 ha_iot_class: Local Push
@@ -21,7 +20,7 @@ Integrates LD2410 BLE sensors from [Hi-Link](http://www.hlktech.net/) into Home 
 
 {% include integrations/config_flow.md %}
 
-You can currently configure the settings for motion/static triggers by USB with either the [desktop software](https://drive.google.com/drive/folders/1p4dhbEJA3YubyIjIIC7wwVsSo8x29Fq-?usp=sharing) via Bluetooth. Download HLKRadarTool on [Google Play](https://play.google.com/store/apps/details?id=com.hlk.hlkradartool) or the [App Store](https://apps.apple.com/app/hlkradartool/id1638651152).
+You can currently configure the settings for motion/static triggers by USB with either the [desktop software](https://drive.google.com/drive/folders/1p4dhbEJA3YubyIjIIC7wwVsSo8x29Fq-?usp=sharing) via Bluetooth. Download HLKRadarTool on [Google Play](https://play.google.com/store/apps/details?id=com.hlk.hlkradartool) or the [App Store](https://apps.apple.com/app/id1638651152).
 
 (This integration may not work if you reconfigure the default password or the number of gates.)
 

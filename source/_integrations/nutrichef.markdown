@@ -1,8 +1,6 @@
 ---
 title: Nutrichef
 description: Connect and control your Nutrichef devices using the INKBIRD integration
-ha_category:
-  - Sensor
 ha_release: 2022.8
 ha_domain: nutrichef
 ha_integration_type: virtual

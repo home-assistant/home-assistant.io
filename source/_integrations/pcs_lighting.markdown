@@ -1,9 +1,6 @@
 ---
 title: PCS Lighting
 description: Connect and control your PCS Lighting devices using the Universal Powerline Bus (UPB) integration
-ha_category:
-  - Light
-  - Scene
 ha_domain: pcs_lighting
 ha_integration_type: virtual
 ha_supporting_domain: upb

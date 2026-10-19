@@ -1,0 +1,58 @@
+blueprint:
+  name: Clean area(s) when a Litter-Robot cycles
+  description: >
+    Trigger a vacuum to clean selected area(s) when a Litter-Robot from the
+    Whisker (Litter-Robot) integration begins a cleaning cycle.
+
+    Useful for automatically vacuuming around the litter box after it runs.
+  domain: automation
+  author: natekspencer
+  homeassistant:
+    min_version: 2026.3.0
+
+  input:
+    litter_robot_entity:
+      name: Litter-Robot
+      description: >
+        Select the Litter-Robot vacuum entity to monitor. The automation will
+        trigger when the device state changes to "cleaning".
+      selector:
+        entity:
+          filter:
+            - integration: litterrobot
+              domain: vacuum
+
+    vacuum_entity:
+      name: Vacuum cleaner
+      description: >
+        The robot vacuum that should clean the selected area(s). Only vacuums
+        that support the `vacuum.clean_area` service are shown.
+      selector:
+        entity:
+          filter:
+            - domain: vacuum
+              supported_features:
+                - vacuum.VacuumEntityFeature.CLEAN_AREA
+
+    clean_area:
+      name: Area(s) to clean
+      description: >
+        Select one or more Home Assistant areas for the vacuum to clean when
+        the Litter-Robot begins a cleaning cycle.
+      selector:
+        area:
+          multiple: true
+
+mode: single
+
+trigger:
+  - trigger: state
+    entity_id: !input litter_robot_entity
+    to: cleaning
+
+action:
+  - service: vacuum.clean_area
+    target:
+      entity_id: !input vacuum_entity
+    data:
+      cleaning_area_id: !input clean_area

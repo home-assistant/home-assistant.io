@@ -1,9 +1,8 @@
 ---
 title: OpenGarage
 description: Instructions on how to integrate OpenGarage.io covers within Home Assistant.
-ha_category:
-  - Cover
-  - DIY
+ha_categories:
+  - blinds_curtains
 ha_iot_class: Local Polling
 ha_release: 0.44
 ha_domain: opengarage
@@ -15,10 +14,10 @@ ha_platforms:
   - button
   - cover
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The OpenGarage integration lets you control the open-source [OpenGarage.io](https://opengarage.io/) device through Home Assistant.
+The **OpenGarage** {% term integration %} lets you control the open-source [OpenGarage.io](https://opengarage.io/) device through Home Assistant.
 
 
 {% include integrations/config_flow.md %}

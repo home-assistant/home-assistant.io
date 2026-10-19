@@ -19,8 +19,6 @@ The webpage card is used on the [Webpage dashboard](/dashboards/dashboards/#webp
   Windy weather radar as webpage.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
-
 All options for this card can be configured via the user interface.
 
 Note that not every webpage can be embedded due to security restrictions that some sites have in place. These restrictions are enforced by your browser and prevent embedding them into a Home Assistant dashboard.
@@ -28,6 +26,8 @@ Note that not every webpage can be embedded due to security restrictions that so
 {% important %}
 You can't embed sites using HTTP if you are using HTTPS for your Home Assistant.
 {% endimportant %}
+
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 
@@ -52,6 +52,11 @@ allow_open_top_navigation:
   description: 'Allow the user to open iframe content links by opening the default browser in the Home Assistant mobile app. It is false by default because it adds allow-top-navigation-by-user-activation on the iframe sandbox attribute which is less secure. So set it to true if you need it and are confident with the iframe content.'
   type: boolean
   default: false
+hide_background:
+  required: false
+  description: 'Hide the card background, making it transparent. This removes the background color, box-shadow, and border. Useful for pages which allow transparent backgrounds so the iframe can blend into the dashboard view.'
+  type: boolean
+  default: false
 title:
   required: false
   description: The card title.
@@ -63,7 +68,7 @@ allow:
   default: "fullscreen"
 disable_sandbox:
   required: false
-  description: Disables the [sandbox](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) attribute of the iframe, e.g. required for Chrome when viewing PDFs. This is less secure and should only be used if you trust the content of the iframe.
+  description: Disables the [sandbox](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) attribute of the iframe, for example when viewing PDFs in Chrome. This is less secure and should only be used if you trust the content of the iframe.
   type: boolean
   default: false
 {% endconfiguration %}

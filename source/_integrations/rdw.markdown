@@ -1,10 +1,8 @@
 ---
 title: RDW
 description: Instructions on how to integrate RDW vehicle information with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Car
-  - Sensor
+ha_categories:
+  - vehicles_transport.cars_evs
 ha_release: 2021.12
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -62,15 +60,16 @@ The **RDW** integration provides the following entities for your vehicle:
 This automation sends you an important notification when the RDW reports a safety recall for your vehicle:
 
 ```yaml
-# Automation to alert you about safety recalls for your vehicle
 automation:
   - alias: "Vehicle recall alert"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: binary_sensor.rdw_ab123c_pending_recall
         to: "on"
-    action:
-      - service: notify.mobile_app
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           title: "Vehicle recall alert"
           message: "Your vehicle has a pending safety recall. Please contact your dealer."

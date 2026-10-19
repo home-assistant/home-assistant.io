@@ -1,8 +1,8 @@
 ---
 title: Rocket.Chat
 description: Instructions on how to add Rocket.Chat notifications to Home Assistant.
-ha_category:
-  - Notifications
+ha_categories:
+  - messaging_notifications.chat_apps
 ha_iot_class: Cloud Push
 ha_release: 0.56
 ha_domain: rocketchat
@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `rocketchat` notify {% term integration %} allows you to send messages to your [Rocket.Chat](https://rocket.chat/) instance from Home Assistant.
+The **Rocket.Chat** {% term integration %} allows you to send messages to your [Rocket.Chat](https://rocket.chat/) instance from Home Assistant.
 
 ## Configuration
 

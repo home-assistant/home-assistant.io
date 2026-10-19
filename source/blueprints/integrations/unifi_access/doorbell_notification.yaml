@@ -1,0 +1,42 @@
+blueprint:
+  name: UniFi Access doorbell notification
+  description: >
+    Send a notification to your phone when someone rings
+    a UniFi Access doorbell.
+  domain: automation
+  author: RaHehl
+  homeassistant:
+    min_version: 2026.7.0
+
+  input:
+    doorbell_entity:
+      name: Doorbell
+      description: >
+        The UniFi Access doorbell event entity to monitor.
+      selector:
+        entity:
+          filter:
+            - integration: unifi_access
+              domain: event
+              device_class: doorbell
+
+    actions:
+      name: Actions
+      description: >
+        The actions to run when the doorbell rings (for
+        example, send a notification or turn on a light).
+      default: []
+      selector:
+        action:
+
+triggers:
+  - trigger: event.received
+    target:
+      entity_id: !input doorbell_entity
+    options:
+      event_type:
+        - ring
+
+actions: !input actions
+
+mode: single

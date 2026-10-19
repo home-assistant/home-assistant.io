@@ -1,9 +1,8 @@
 ---
 title: inexogy
 description: Instructions on how to integrate inexogy smart meters within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_release: '2023.7'
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -88,7 +87,6 @@ You can use the current power sensor (`sensor.electricity_example_street_11_tota
 
 Example: Send a notification when power consumption exceeds 3000&nbsp;W for 5 minutes.
 
-{% raw %}
 
 ```yaml
 automation:
@@ -99,17 +97,17 @@ automation:
         above: 3000
         for:
           minutes: 5
-    action:
-      - service: notify.mobile_app_your_device
+    actions:
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           message: "High power consumption detected: {{ states('sensor.electricity_example_street_11_total_power') }} W"
 ```
 
-{% endraw %}
 
 Example: Turn off high-power devices when photovoltaic production is insufficient (for bidirectional meters).
 
-{% raw %}
 
 ```yaml
 automation:
@@ -121,13 +119,12 @@ automation:
       - condition: numeric_state
         entity_id: sensor.electricity_example_street_11_total_power
         above: 0  # Positive value means grid consumption
-    action:
-      - service: switch.turn_off
+    actions:
+      - action: switch.turn_off
         target:
           entity_id: switch.high_power_device
 ```
 
-{% endraw %}
 
 ## Troubleshooting
 
@@ -144,7 +141,7 @@ If your sensors are not showing data or values are stale, check the following:
 ### Missing sensors
 
 - **Production sensors**: The electricity production sensor is only available for bidirectional meters. If you have such a meter but don't see it, check your data in the inexogy portal.
-- **Phase sensors**: Per-phase power and voltage sensors are disabled by default and not available for all meters. You can enable them on the integration page under "Entities".
+- **Phase sensors**: Per-phase power and voltage sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) and not available for all meters. You can enable them on the integration page under "Entities".
 
 ### Network issues
 

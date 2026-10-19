@@ -1,8 +1,8 @@
 ---
 title: Model Context Protocol
 description: Instructions on how to use the Model Context Protocol with Home Assistant.
-ha_category:
-  - Voice
+ha_categories:
+  - ai_voice.ai_models
 ha_release: 2025.2
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -82,7 +82,7 @@ are exposed.
 ### Authorization
 
 The Model Context Protocol supports OAuth, and allows you to give Home Assistant
-access to restricted MCP servers. You can enter the MCP Servers [Application Credentials](https://www.home-assistant.io/integrations/application_credentials/) when configuring
+access to restricted MCP servers. You can enter the MCP Servers [Application Credentials](/integrations/application_credentials/) when configuring
 the MCP integration.
 
 ## Known limitations

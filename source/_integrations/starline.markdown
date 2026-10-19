@@ -1,14 +1,8 @@
 ---
 title: StarLine
-description: Instructions on how to setup your StarLine account with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Car
-  - Lock
-  - Presence detection
-  - Sensor
-  - Switch
+description: Instructions on how to set up your StarLine account with Home Assistant.
+ha_categories:
+  - vehicles_transport.cars_evs
 ha_release: 0.103
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -22,10 +16,10 @@ ha_platforms:
   - lock
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `starline` integration lets you retrieve data of your [StarLine](https://www.alarmstarline.com/) security system from the [StarLine portal](https://my.starline.ru/). You will need a working StarLine account.
+The **StarLine** {% term integration %} lets you retrieve data of your [StarLine](https://www.alarmstarline.com/) security system from the [StarLine portal](https://my.starline.ru/). You will need a working StarLine account.
 
 This integration provides the following platforms:
 
@@ -50,29 +44,7 @@ It is not recommended to set an update interval of less than 90 seconds.
 
 {% include integrations/config_flow.md %}
 
-## Actions
-
-### Update the state
-
-The `starline.update_state` action fetches the last state of the device from the StarLine server.
-
-This action does not require any attributes.
-
-### Set scan interval
-
-The `starline.set_scan_interval` action sets update frequency for entities.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `scan_interval` | no | Update frequency in seconds.
-
-### Set scan OBD interval
-
-The `starline.set_scan_obd_interval` action sets update frequency for OBD information.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `scan_interval` | no | Update frequency in seconds.
+{% include integrations/actions.md %}
 
 ## Disclaimer
 

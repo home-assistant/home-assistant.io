@@ -1,0 +1,76 @@
+blueprint:
+  name: Boost Duco ventilation based on humidity
+  description: Boost a Duco fan when humidity is high and return it to automatic mode when humidity drops again.
+  domain: automation
+  input:
+    humidity_sensor:
+      name: Humidity sensor
+      selector:
+        entity:
+          filter:
+            - integration: duco
+              domain: sensor
+              device_class: humidity
+    fan:
+      name: Duco fan
+      selector:
+        entity:
+          filter:
+            - integration: duco
+              domain: fan
+    high_threshold:
+      name: High humidity threshold
+      default: 70
+      selector:
+        number:
+          min: 1
+          max: 100
+          step: 1
+          unit_of_measurement: "%"
+    low_threshold:
+      name: Low humidity threshold
+      default: 60
+      selector:
+        number:
+          min: 1
+          max: 100
+          step: 1
+          unit_of_measurement: "%"
+    boost_percentage:
+      name: Boost fan percentage
+      default: 66
+      selector:
+        number:
+          min: 1
+          max: 100
+          step: 1
+          unit_of_measurement: "%"
+triggers:
+  - trigger: numeric_state
+    entity_id: !input humidity_sensor
+    above: !input high_threshold
+    id: boost
+  - trigger: numeric_state
+    entity_id: !input humidity_sensor
+    below: !input low_threshold
+    id: auto
+actions:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: boost
+        sequence:
+          - action: fan.set_percentage
+            target:
+              entity_id: !input fan
+            data:
+              percentage: !input boost_percentage
+      - conditions:
+          - condition: trigger
+            id: auto
+        sequence:
+          - action: fan.set_percentage
+            target:
+              entity_id: !input fan
+            data:
+              percentage: 0

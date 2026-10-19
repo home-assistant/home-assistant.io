@@ -1,8 +1,9 @@
 ---
 title: Sky Hub
 description: Instructions on how to integrate Sky Hub routers into Home Assistant.
-ha_category:
-  - Presence detection
+ha_categories:
+  - presence_location.network_presence
+  - computers_network.routers_network
 ha_release: 0.37
 ha_domain: sky_hub
 ha_iot_class: Local Polling
@@ -15,7 +16,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `sky_hub` {% term integration %} offers presence detection by looking at connected devices to a [Sky Hub router](https://www.sky.com/shop/broadband-talk/sky-hub/) based router.
+The **Sky Hub** {% term integration %} offers presence detection by looking at connected devices to a [Sky Hub router](https://www.sky.com/shop/broadband-talk/sky-hub/) based router.
 
 To use your Sky Hub device in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

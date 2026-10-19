@@ -1,0 +1,125 @@
+---
+// Layout for content pages the website serves from Astro: the site
+// header, a reading column for the page, the feedback card and the
+// site footer.
+//
+// Ports `source/_layouts/default.html` with `page.html` for pages
+// without a sidebar or table of contents (the only kind served from
+// Astro so far). Two things move here from the page level on the live
+// site: keeping the header on top while the page scrolls (Jekyll makes
+// it `position: fixed` and pads the page; here it is sticky, so no
+// padding is needed) and starting DocSearch, which fills the header's
+// search box. Unlike the preview layout (Base.astro), pages are
+// indexable: they are published at their real URLs.
+import SiteHead from "../components/SiteHead.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import PageFeedback from "../components/PageFeedback.astro";
+import { release, setting } from "../lib/site.mjs";
+import "../styles/tokens.scss";
+
+// `source` is the page's file in the repository, for the feedback
+// card's edit link.
+const { title, description, source } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SiteHead title={title} description={description} />
+  </head>
+  <body>
+    <div class="masthead">
+      <SiteHeader
+        pathname={Astro.url.pathname}
+        version={release.version}
+        versionUrl={release.url}
+        releasedOn={release.releasedOn}
+      />
+    </div>
+
+    <main>
+      <div class="column">
+        <slot />
+        {source && <PageFeedback source={source} version={release.version} />}
+      </div>
+    </main>
+
+    <SiteFooter />
+
+    <script is:inline define:vars={{ apiKey: setting("algolia.api_key") }}>
+      // Deploy previews search the production index; keep result links
+      // on the preview being browsed.
+      function rewriteDocSearchPreviewUrl(url) {
+        if (!url || !location.hostname.endsWith("--home-assistant-docs.netlify.app")) {
+          return url;
+        }
+        try {
+          const result = new URL(url);
+          if (!["www.home-assistant.io", "home-assistant.io"].includes(result.hostname)) {
+            return url;
+          }
+          result.protocol = location.protocol;
+          result.host = location.host;
+          return result.toString();
+        } catch {
+          return url;
+        }
+      }
+      window.docSearchOptions = {
+        container: "#docsearch",
+        appId: "FBHBYS3J0U",
+        indexName: "home-assistant",
+        apiKey,
+        transformItems: (items) =>
+          items.map((item) => ({
+            ...item,
+            url: rewriteDocSearchPreviewUrl(item.url),
+            url_without_anchor: rewriteDocSearchPreviewUrl(item.url_without_anchor),
+          })),
+      };
+    </script>
+    <script
+      is:inline
+      src="https://cdn.jsdelivr.net/npm/@docsearch/js@3/dist/umd/index.min.js"
+      integrity="sha384-f/IEhh8fvOc2ALU79emLlUqAYXyqlA/zYhM+g5GlWMk15QBjTXy05TtmfT1TbtV6"
+      crossorigin="anonymous"
+      onload="docsearch(window.docSearchOptions)"></script>
+  </body>
+</html>
+
+<style is:global>
+  /* The document itself; everything inside is styled by components. */
+  html {
+    scroll-padding-top: calc(var(--header-height) + var(--space-large));
+  }
+
+  body {
+    background: var(--color-page);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    margin: 0;
+  }
+</style>
+
+<style lang="scss">
+  @use "../styles/layout";
+
+  .masthead {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  main {
+    @include layout.container;
+    padding-bottom: var(--space-xxlarge);
+    padding-top: var(--space-xlarge);
+  }
+
+  /* Running text keeps a readable line length, centered in the page. */
+  .column {
+    margin: 0 auto;
+    max-width: var(--layout-reading-width);
+  }
+</style>

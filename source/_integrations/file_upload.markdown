@@ -7,7 +7,6 @@ ha_domain: file_upload
 ha_integration_type: system
 ha_codeowners:
   - '@home-assistant/core'
-ha_category: []
 ---
 
 The **File upload** {% term integration %} allows various features in the frontend to upload files.

@@ -1,15 +1,6 @@
 ---
 title: Balay
 description: Connect and control your Balay devices using the Home Connect integration
-ha_category:
-  - Binary sensor
-  - Button
-  - Hub
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
 ha_release: '0.110'
 ha_domain: balay
 ha_integration_type: virtual
@@ -23,13 +14,14 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - button
+  - climate
   - diagnostics
+  - fan
   - light
   - number
   - select
   - sensor
   - switch
-  - time
 ha_iot_class: Cloud Push
 ha_dhcp: true
 ha_zeroconf: true

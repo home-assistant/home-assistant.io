@@ -1,8 +1,8 @@
 ---
 title: Push
 description: Instructions how to use Push Camera within Home Assistant.
-ha_category:
-  - Camera
+ha_categories:
+  - security_safety.cameras
 ha_iot_class: Local Push
 ha_release: 0.74
 ha_codeowners:
@@ -17,7 +17,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `push` camera {% term integration %} allows you to integrate images sent over HTTP POST to Home Assistant as a camera. External applications/daemons/scripts are therefore able to "stream" images through Home Assistant.
+The **Push** {% term integration %} allows you to integrate images sent over HTTP POST to Home Assistant as a camera. External applications/daemons/scripts are therefore able to "stream" images through Home Assistant.
 
 Optionally the Push Camera can **buffer** a given number of images, creating an animation of the detected motion after the event has been recorded.
 

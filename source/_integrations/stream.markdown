@@ -1,8 +1,6 @@
 ---
 title: Stream
 description: Instructions on how to integrate live streams within Home Assistant.
-ha_category:
-  - Other
 ha_release: '0.90'
 ha_iot_class: Local Push
 ha_quality_scale: internal
@@ -16,7 +14,7 @@ ha_platforms:
 ha_integration_type: system
 ---
 
-The stream integration provides a way to proxy live streams through Home Assistant. Most users should not need to configure anything or interface with the integration directly since it is an internal integration used by the [camera integration](/integrations/camera).
+The **Stream** {% term integration %} provides a way to proxy live streams through Home Assistant. Most users should not need to configure anything or interface with the integration directly since it is an internal integration used by the [camera integration](/integrations/camera).
 
 ## Configuration
 
@@ -29,7 +27,7 @@ Example configuration:
 stream:
 ```
 
-Some extra options can be configured.  If specified, these options will be used whenever the stream integration is loaded.
+Some extra options can be configured. If specified, these options will be used whenever the stream integration is loaded.
 
 {% configuration %}
 ll_hls:
@@ -53,7 +51,7 @@ part_duration:
 
 LL-HLS reduces the start time and delay for a stream, but it has strict timing and network requirements and opens additional browser connections. To avoid running into browser limits it is strongly recommended to use an HTTP/2 proxy (e.g., NGINX or haproxy) to take advantage of request pipelining. LL-HLS is enabled by default, but when not using HTTP/2, the Home Assistant frontend will revert back to regular HLS if too many streams are open.
 
-You can further adjust LL-HLS settings in {% term "`configuration.yaml`" %} as it may perform better or worse with different values depending on your network setup, cameras, or whether or not they are local or cloud.
+You can further adjust LL-HLS settings in {% term "`configuration.yaml`" %} as it may perform better or worse with different values depending on your network setup, cameras, or whether they are local or cloud.
 
 Example configuration:
 

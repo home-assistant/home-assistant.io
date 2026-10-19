@@ -1,8 +1,8 @@
 ---
 title: Local to-do
 description: Instructions on how to use local to-do lists in Home Assistant.
-ha_category:
-  - To-do list
+ha_categories:
+  - productivity_information.calendars_todos
 ha_iot_class: Local Polling
 ha_release: 2023.11
 ha_config_flow: true

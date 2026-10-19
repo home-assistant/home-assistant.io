@@ -155,7 +155,7 @@ Thanks all for sticking with me to the end. I'll be taking over a lot of Paulus'
 
 Also, thanks as always to our developer contributors, documentation contributors, but most of all our users! This would've just been a script that Paulus (@balloob) used to control his lights at home if we didn't have your enthusiasm.
 
-Feel free to let me know what you thought of this blog post and release on [Discord](https://discord.gg/c5DvZ4e) or my [Twitter](https://twitter.com/robbie), or even the [Home Assistant Twitter](https://twitter.com/home_assistant). Did I mention we have a brand new [Facebook page](https://www.facebook.com/homeassistantio) that you should absolutely Like? There's a convenient Facebook Like and Twitter follow button right on the sidebar.
+Feel free to let me know what you thought of this blog post and release on [Discord](https://discord.gg/home-assistant) or my [Twitter](https://twitter.com/robbie), or even the [Home Assistant Twitter](https://twitter.com/home_assistant). Did I mention we have a brand new [Facebook page](https://www.facebook.com/homeassistantio) that you should absolutely Like? There's a convenient Facebook Like and Twitter follow button right on the sidebar.
 
 I almost forgot about your 🎁 for reading all the way to here: a 🍪! Hope you enjoy it in good health 😄.
 

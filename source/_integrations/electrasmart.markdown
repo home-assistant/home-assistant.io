@@ -1,8 +1,8 @@
 ---
 title: Electra Smart
 description: Instructions for how to integrate Electra Air Conditioners within Home Assistant.
-ha_category:
-  - Climate
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_release: 2023.6
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: electrasmart
 ha_platforms:
   - climate
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 [Electra Air](https://www.electra-air.co.il), is a company which manufactures and sells Air Conditioners.

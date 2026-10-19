@@ -1,12 +1,8 @@
 ---
 title: Hunter Hydrawise
 description: Instructions on how to integrate your Hunter Hydrawise Wi-Fi irrigation control system within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Irrigation
-  - Sensor
-  - Switch
-  - Valve
+ha_categories:
+  - garden_plants
 ha_config_flow: true
 ha_release: 0.71
 ha_iot_class: Cloud Polling
@@ -20,10 +16,10 @@ ha_platforms:
   - sensor
   - switch
   - valve
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `hydrawise` integration allows you to integrate your [Hunter Hydrawise](https://hydrawise.com) Wi-Fi irrigation controller system in Home Assistant.
+The **Hunter Hydrawise** {% term integration %} allows you to integrate your [Hunter Hydrawise](https://hydrawise.com) Wi-Fi irrigation controller system in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -39,6 +35,15 @@ There is currently support for the following device types within Home Assistant:
 2. Then, use your online credentials to configure the integration.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Username:
+  description: "The email address you use to sign in to your Hydrawise account."
+Password:
+  description: "The password of your Hydrawise account."
+API key:
+  description: "The API key of your Hydrawise account. You can generate one in the **Account Details** section of the Hydrawise app."
+{% endconfiguration_basic %}
 
 ## Binary sensor
 
@@ -82,38 +87,16 @@ When `manual_watering` is `on` the zone will run for 15 minutes.
 Due to changes in the Hydrawise API the status of the Auto Watering switches has changed. Under normal conditions the Auto Watering switches correctly reflect the Smart Watering schedule on the Hydrawise mobile or web app. However, if a rain sensor is connected to the system and it is active (rain detected), or the zone is running the Auto Watering switch will turn off. After both of those conditions are removed the switch will again show the correct Auto Watering condition.
 {% endnote %}
 
-## Actions
-
-The Hydrawise integration makes various custom {% term actions %} available.
-
-### Action `hydrawise.start_watering`
-
-Starts a watering cycle in an irrigation zone.
-
-| Data attribute | Optional | Description                                                                                                                                                                                     |
-| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`    | no       | The irrigation zone in which to start watering.                                                                                                                                                 |
-| `duration`     | yes      | The length of time (in minutes) to run a watering cycle. If not specified (or zero), the default watering duration set in the Hydrawise mobile or web app for the irrigation zone will be used. |
-
-### Action `hydrawise.suspend`
-
-Suspends automatic watering in an irrigation zone until a specified date.
-
-| Data attribute | Optional | Description                                                                                |
-| -------------- | -------- | ------------------------------------------------------------------------------------------ |
-| `entity_id`    | no       | The irrigation zone in which to suspend watering.                                          |
-| `until`        | no       | The date & time when automatic watering should be resumed. For example, `2024-08-30 08:30` |
-
-### Action `hydrawise.resume`
-
-Resumes automatic watering in an irrigation zone.
-
-| Data attribute | Optional | Description                                      |
-| -------------- | -------- | ------------------------------------------------ |
-| `entity_id`    | no       | The irrigation zone in which to resume watering. |
+{% include integrations/actions.md %}
 
 ## Valve
 
 A valve is added for each zone allowing manual control of zone watering.
 
 When a zone's valve is opened through Home Assistant, it will have an automatic shutoff time set to the zone's default watering duration configured in the Hydrawise [mobile or web app](https://www.hydrawise.com).
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

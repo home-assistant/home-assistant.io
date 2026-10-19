@@ -1,12 +1,12 @@
 ---
 title: "Entities and domains"
-description: "Describes what entities and domains are in Home Assistant."
+description: "Entities are the building blocks of Home Assistant: each device, sensor, or service appears as one or more entities, grouped by domain such as light, switch, or sensor."
 related:
   - docs: /docs/configuration/state_object/
     title: State object, entity state and attributes
 ---
 
-Your devices are represented in Home Assistant as entities. Entities are the basic building blocks to hold data in Home Assistant. An entity represents a {% term sensor %}, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other entities. An entity is usually part of a {% term device %} or a {% term service %}. Entities have [states](/docs/configuration/state_object/) and [state attributes](/docs/configuration/state_object/#about-entity-state-attributes).
+Your devices are represented in Home Assistant as entities. Entities are the basic building blocks to hold data in Home Assistant. An entity represents a {% term sensor %}, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other entities. An entity is usually part of a {% term device %} or a {% term service %}. Entities have [states](/docs/configuration/state_object/) and [state attributes](/docs/configuration/state_object/#attributes).
 
 All your entities are listed in the entities table, under {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
 

@@ -1,8 +1,9 @@
 ---
 title: ThermoPro
 description: Instructions on how to integrate ThermoPro devices into Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - sensors.temperature_humidity
+  - appliances_cleaning.cooking
 ha_bluetooth: true
 ha_release: 2022.9
 ha_iot_class: Local Push
@@ -14,7 +15,7 @@ ha_config_flow: true
 ha_platforms:
   - button
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [ThermoPro](https://buythermopro.com/) devices into Home Assistant.
@@ -44,8 +45,6 @@ The device is capable of showing 12-hour notation (AM/PM) but setting this is cu
 
 For example, the following automation sets the datetime of the thermometer each day.
 
-{% raw %}
-
 ```yaml
 mode: single
 triggers:
@@ -58,5 +57,3 @@ actions:
       entity_id: button.tp_358_xxxx_your_device_set_date_time
     data: {}
 ```
-
-{% endraw %}

@@ -1,8 +1,9 @@
 ---
 title: Emulated Kasa
 description: Instructions on how to integrate Emulated Kasa within Home Assistant.
-ha_category:
-  - Energy
+ha_categories:
+  - other_ecosystems
+  - energy.meters_monitoring
 ha_iot_class: Local Push
 ha_release: 0.115
 ha_codeowners:
@@ -15,7 +16,7 @@ related:
     title: Configuration file
 ---
 
-The Emulated Kasa {% term integration %} emulates a TP-Link Kasa smart plug and announces the power usage of configured devices to any that might request it on the local network.
+The **Emulated Kasa** {% term integration %} emulates a TP-Link Kasa smart plug and announces the power usage of configured devices to any that might request it on the local network.
 
 For example, the [Sense Energy Monitor](/integrations/sense) can use this to identify power usage.
 
@@ -62,8 +63,6 @@ entities:
 
 A full configuration sample looks like the one below.
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry
 emulated_kasa:
@@ -91,5 +90,3 @@ emulated_kasa:
       name: UPS Power
       power: "{{ float(states('sensor.ups_kw')) * 1000 }}"
 ```
-
-{% endraw %}

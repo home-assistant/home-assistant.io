@@ -1,20 +1,12 @@
 ---
 title: Huawei LTE
 description: Instructions on how to integrate Huawei LTE router and modem devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Network
-  - Notifications
-  - Presence detection
-  - Select
-  - Sensor
-  - Switch
+ha_categories:
+  - computers_network.routers_network
 ha_release: 0.79
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@scop'
   - '@fphammerle'
 ha_domain: huawei_lte
 ha_ssdp: true
@@ -27,10 +19,10 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The Huawei LTE router and modem integration for Home Assistant allows you to observe and control [Huawei LTE devices](https://consumer.huawei.com/en/routers/).
+The **Huawei LTE** router and modem {% term integration %} for Home Assistant allows you to observe and control [Huawei LTE devices](https://consumer.huawei.com/en/routers/).
 
 There is currently support for the following platforms within Home Assistant:
 
@@ -69,7 +61,7 @@ enabled by default:
 - mobile connection binary sensor
 - device tracker entries
 
-The rest are added to the entity registry, but disabled by default.
+The rest are added to the entity registry, but [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 Support for different categories of information and thus available
 entities varies by device model and firmware version.
@@ -100,27 +92,7 @@ Unauthenticated mode:
   description: Whether to run in unauthenticated mode. See above for more information between authenticated and unauthenticated modes.
 {% endconfiguration_basic %}
 
-## Actions
-
-The following router action actions are available. When invoked by a user, administrator access is required.
-
-### Action `huawei_lte.suspend_integration`
-
-Suspend integration. Suspending logs the integration out from the router, and stops accessing it.
-Useful e.g.,  if accessing the router web interface from another source such as a web browser is temporarily required.
-Invoke the `huawei_lte.resume_integration` action to resume.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `url`                  | yes, if only one router configured | Router URL. |
-
-### Action `huawei_lte.resume_integration`
-
-Resume suspended integration.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `url`                  | yes, if only one router configured | Router URL. |
+{% include integrations/actions.md %}
 
 ## Tested devices
 

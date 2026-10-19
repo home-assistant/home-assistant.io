@@ -1,9 +1,9 @@
 ---
 title: NETGEAR
 description: Instructions on how to integrate NETGEAR routers into Home Assistant.
-ha_category:
-  - Presence detection
-  - Update
+ha_categories:
+  - computers_network.routers_network
+  - presence_location.network_presence
 ha_iot_class: Local Polling
 ha_release: pre 0.7
 ha_domain: netgear
@@ -15,14 +15,13 @@ ha_platforms:
   - update
 ha_config_flow: true
 ha_codeowners:
-  - '@hacf-fr'
   - '@Quentame'
   - '@starkillerOG'
 ha_ssdp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-This platform allows you to detect presence by looking at connected devices to a [NETGEAR](https://www.netgear.com/) device and control the NETGEAR device.
+This {% term integration %} allows you to detect presence by looking at connected devices to a [NETGEAR](https://www.netgear.com/) device and control the NETGEAR device.
 Both routers and access points can be used with this integration. Some access points will not be automatically discovered and need to be set up manually.
 Attached devices are only tracked on NETGEAR devices set to the router mode, otherwise, duplicate entities will occur from access points that also report the same devices.
 
@@ -43,7 +42,7 @@ Note that not all routers support all features, if a router does not support a f
 
 You might also see the following error in the log `404 service '...', method '...' not found`, to prevent these errors, keep the unsupported entities disabled.
 
-All possibly unsupported entities are disabled by default.
+All possibly unsupported entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 ### Reboot button
 
@@ -114,4 +113,4 @@ Displays the current link type: wired, 2.4GHz or 5GHz.
 
 ## Troubleshooting
 
-- If you get a "Connection or login error" when trying to setup the NETGEAR integration, please try using the IP address of the router (often "192.168.1.1") as host instead of the default "routerlogin.net".
+- If you get a "Connection or login error" when trying to set up the NETGEAR integration, please try using the IP address of the router (often "192.168.1.1") as host instead of the default "routerlogin.net".

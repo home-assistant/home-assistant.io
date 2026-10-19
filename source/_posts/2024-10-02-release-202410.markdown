@@ -243,7 +243,7 @@ We welcome the following new integrations in this release:
 [Lektrico Charging Station]: /integrations/lektrico
 [Lektrico EV charger]: https://lektri.co/
 [media source]: /integrations/media_source
-[Monarch Money personal finance service]: https://www.monarchmoney.com/
+[Monarch Money personal finance service]: https://monarch.com
 [Monarch Money]: /integrations/monarch_money
 [New York Times games]: https://www.nytimes.com/games
 [NYT Games]: /integrations/nyt_games

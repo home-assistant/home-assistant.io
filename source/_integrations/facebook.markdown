@@ -1,8 +1,8 @@
 ---
 title: Facebook Messenger
 description: Instructions on how to add Facebook user notifications to Home Assistant.
-ha_category:
-  - Notifications
+ha_categories:
+  - messaging_notifications.chat_apps
 ha_release: 0.36
 ha_domain: facebook
 ha_iot_class: Cloud Push
@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `facebook` notification {% term integration %} enables sending notifications via Facebook Messenger, powered by [Facebook](https://facebook.com).
+The **Facebook Messenger** {% term integration %} enables sending notifications via Facebook Messenger, powered by [Facebook](https://facebook.com).
 
 To use this notification {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

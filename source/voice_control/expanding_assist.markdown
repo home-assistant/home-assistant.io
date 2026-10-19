@@ -7,13 +7,13 @@ related:
     title: Custom sentences with Assist
   - url: https://www.nabucasa.com/config/
     title: Home Assistant Cloud
-  - url: https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition
+  - url: https://support.nabucasa.com/hc/categories/24451727188125
     title: Voice Preview Edition
 ---
 
-Once you have completed the steps in the [Best practices](/voice_control/best_practices/), you have your bases covered and are ready to use Assist. This section provides some ideas on how to expand your setup for more advanced use cases.
+Once you have completed the steps in the [Best practices](/voice_control/best_practices/), you have your bases covered and are ready to use Assist. This section provides some ideas on how to expand your setup for additional use cases.
 
-## Prerequisites 
+## Prerequisites
 
 Assist [up and running](/voice_control/) in any of the available devices and configured as per the [best practices](/voice_control/best_practices/).
 

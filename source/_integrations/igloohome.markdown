@@ -1,8 +1,8 @@
 ---
 title: igloohome
 description: Integrates igloohome smart access devices.
-ha_category:
-  - Sensor
+ha_categories:
+  - security_safety.locks_access
 ha_release: 2025.2
 ha_config_flow: true
 ha_iot_class: Cloud Polling
@@ -12,7 +12,7 @@ ha_domain: igloohome
 ha_platforms:
   - lock
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 

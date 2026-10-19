@@ -6,7 +6,6 @@ date: 2025-03-05 00:00:01
 date_formatted: "March 5, 2025"
 author: Marcel van der Veldt
 comments: true
-categories: Music-Assistant
 og_image: /images/blog/2025-03-music-assistant/art.jpg
 ---
 

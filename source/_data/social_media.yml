@@ -1,0 +1,35 @@
+- url: "https://youtube.com/@home_assistant"
+  title: "YouTube"
+  icon: "simple-icons:youtube"
+
+- url: "https://reddit.com/r/homeassistant"
+  title: "Reddit"
+  icon: "simple-icons:reddit"
+
+- url: "https://github.com/home-assistant"
+  title: "GitHub"
+  icon: "simple-icons:github"
+
+- url: "https://fosstodon.org/@homeassistant"
+  title: "Mastodon"
+  icon: "simple-icons:mastodon"
+
+- url: "https://bsky.app/profile/home-assistant.io"
+  title: "Bluesky"
+  icon: "simple-icons:bluesky"
+
+- url: "https://x.com/home_assistant"
+  title: "X (formerly Twitter)"
+  icon: "simple-icons:x"
+
+- url: "https://www.facebook.com/homeassistantio"
+  title: "Facebook"
+  icon: "simple-icons:facebook"
+
+- url: "https://www.instagram.com/homeassistant/"
+  title: "Instagram"
+  icon: "simple-icons:instagram"
+
+- url: "https://www.linkedin.com/company/home-assistant"
+  title: "LinkedIn"
+  icon: "simple-icons:linkedin"

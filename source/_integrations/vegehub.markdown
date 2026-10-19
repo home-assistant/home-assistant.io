@@ -1,19 +1,18 @@
 ---
 title: Vegetronix VegeHub
 description: Instructions on how to integrate a VegeHub device with Home Assistant.
-ha_category:
-  - Sensor
-  - Switch
+ha_categories:
+  - garden_plants
 ha_config_flow: true
 ha_release: 2025.7
 ha_iot_class: Local Push
 ha_codeowners:
-  - '@ghowevege'
+  - '@thulrus'
 ha_domain: vegehub
 ha_platforms:
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - url: https://vegetronix.com/Products/ha/VG-HUB-RELAY/
     title: VegeHub product page

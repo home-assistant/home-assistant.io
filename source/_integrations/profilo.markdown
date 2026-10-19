@@ -1,15 +1,6 @@
 ---
 title: Profilo
 description: Connect and control your Profilo devices using the Home Connect integration
-ha_category:
-  - Binary sensor
-  - Button
-  - Hub
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
 ha_release: '0.110'
 ha_domain: profilo
 ha_integration_type: virtual
@@ -23,7 +14,9 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - button
+  - climate
   - diagnostics
+  - fan
   - light
   - number
   - select
