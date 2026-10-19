@@ -40,7 +40,8 @@ There are different ways of setting up zone presence detection. One way is to ru
 2. When the app asks for location permission, select **Share my location**.
    - Then, allow location access all the time, so that Home Assistant also gets your location when the app isn't open:
      - On iPhone, select **Allow While Using the App** first, and then **Allow always** when your phone asks again.
-     - On Android 10 and earlier, select **Allow all the time**.
+     - On Android 6 to 9, select **Allow**. This also allows location access when the app isn't open.
+     - On Android 10, select **Allow all the time**.
      - On Android 11 and later, the first prompt doesn't offer **Allow all the time**. Allow access while using the app. Then, in the app's location permission in your phone's settings, select **Allow all the time**.
 3. Go to {% my integrations title="**Settings** > **Devices & services**" %} and look for the new integration that was added: **Mobile App**.
    - Select the **Mobile App** integration, and then select your phone.
