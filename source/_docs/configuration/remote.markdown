@@ -48,7 +48,7 @@ The default port depends on your installation:
 - Home Assistant OS installations set up before 2026.8 keep the port they already used, usually 8123.
 - Other installation types use port 8123.
 
-General instructions on how to set up port forwarding can be found by searching `<router model> port forwarding instructions`. You can use any free port on your router and forward that to the Home Assistant HTTP server port.
+You set up port forwarding in your router's settings, usually through its web interface or app. The steps are different for each router. To find them, check your router's manual, or search the web for your router model and "port forwarding". On the router, you can use any free port and forward it to the Home Assistant port.
 
 A problem with making a port accessible is that some Internet Service Providers only offer dynamic IPs. This can cause you to lose access to Home Assistant while away. You can solve this by using a free Dynamic DNS service like [DuckDNS](https://www.duckdns.org/).
 
