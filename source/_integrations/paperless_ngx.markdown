@@ -2,9 +2,8 @@
 title: Paperless-ngx
 description: Instructions on how to integrate Paperless-ngx into Home Assistant
 ha_release: 2025.6
-ha_category:
-  - Sensor
-  - Update
+ha_categories:
+  - productivity_information.documents_photos
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: paperless_ngx
@@ -89,6 +88,7 @@ This integration provides {% term sensors %} for the following information from 
 ## Example automations
 
 {% details "Send a push notification if a new document is available" %}
+
 ```yaml
 alias: New document push notification
 description: Sends a push notification if a new document is available

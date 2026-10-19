@@ -1,21 +1,9 @@
 ---
 title: Teslemetry
 description: Instructions on how to integrate Teslemetry within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Calendar
-  - Car
-  - Climate
-  - Cover
-  - Device tracker
-  - Lock
-  - Media player
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
+ha_categories:
+  - vehicles_transport.cars_evs
+  - energy.solar_batteries
 ha_release: 2024.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -59,6 +47,7 @@ By default, Teslemetry sends every vehicle command through the cloud. If Home As
 
 - A Bluetooth adapter available to Home Assistant, such as a built-in adapter or a [Bluetooth proxy](/integrations/bluetooth/#remote-adapters-bluetooth-proxies).
 - The vehicle must be within Bluetooth range of that adapter while you set up pairing.
+- The vehicle must support Tesla's vehicle command protocol. Vehicles that don't, such as certain pre-2021 Model S and Model X vehicles, are not listed when you add a local vehicle.
 
 ### Setting up Bluetooth control
 
@@ -68,11 +57,18 @@ Bluetooth control is opt-in and set up per vehicle. You add each vehicle you wan
 2. Select **Add local vehicle**.
 3. Choose the account vehicle you want to control over Bluetooth, then select **Submit**.
 4. Home Assistant looks for the vehicle over Bluetooth. Make sure the vehicle is within range and that fewer than three phone keys are nearby, then continue.
-5. When prompted, select **Submit**, then approve Home Assistant's virtual key by placing your key card against the center console card reader of the vehicle.
+5. If the vehicle doesn't have Home Assistant's Bluetooth key on its key list yet, Home Assistant asks you to add it. Select **Submit**, then tap your key card on the center console card reader within about 30 seconds. The vehicle's touchscreen shows a prompt while it waits for the card. If the card isn't tapped in time, select **Submit** again and tap it sooner.
 
-You only need to do this once per vehicle.
+You only need to do this once per vehicle. If Home Assistant's key is later removed from the vehicle's key list, the next time you add the vehicle, Home Assistant asks you to tap a key card again.
 
 When the vehicle is within Bluetooth range, its commands use the local connection first, with an automatic fallback to the cloud when needed. This can make commands like locking, unlocking, or flashing the lights feel noticeably faster. When the vehicle is away, its commands use the cloud, and it switches back to Bluetooth on its own when it returns.
+
+### Bluetooth connectivity sensors
+
+Each vehicle paired for Bluetooth control gets two diagnostic binary sensors. Vehicles without Bluetooth control don't have them.
+
+- **Bluetooth**: On when a Home Assistant Bluetooth adapter can currently see the vehicle, meaning the car is in range and reachable over Bluetooth. It does not mean Home Assistant is connected to the vehicle. It only listens for the vehicle's Bluetooth broadcasts, so it never connects to or wakes the car. When the vehicle leaves range, it can take up to about 195 seconds for its broadcasts to be considered stale, plus up to 300 seconds for Home Assistant's next check, before this sensor turns off.
+- **Bluetooth session**: On while Home Assistant has an open Bluetooth connection to the vehicle. A connection is only held while a command is being sent, so this sensor is off most of the time. It is disabled by default.
 
 ### Removing Bluetooth control
 
@@ -116,13 +112,14 @@ Removing the Teslemetry integration doesn't revoke the access key from your Powe
 
 These are the entities available in the Teslemetry integration. Not all entities are enabled by default, and not all values are always available.
 Entities in the device tracker platform specifically require the `Vehicle location` scope, and will appear unavailable otherwise. 
+The **Enable keep accessory power** and **Disable keep accessory power** buttons are only created for vehicles on firmware 2025.38 or newer.
 
 ### Vehicles
 
 The **Bluetooth** column marks entities whose commands can control the vehicle over Bluetooth when it's paired and within range of a Home Assistant Bluetooth adapter. See [Bluetooth vehicle control](#bluetooth-vehicle-control) for setup and requirements.
 
 {% note %}
-Only vehicle controls send commands over Bluetooth. Reading state, and the updated state that follows a command, always comes through Teslemetry's cloud connection or data stream, even for an entity marked **Yes**. When the vehicle is out of Bluetooth range, its commands use the cloud, and individual commands the local connection can't complete fall back to the cloud automatically. Energy site and Wall Connector entities are not controlled over vehicle Bluetooth.
+Only vehicle controls send commands over Bluetooth. While a paired vehicle that streams its data is within Bluetooth range, the states it broadcasts over Bluetooth also update the **Lock**, the four door binary sensors, the **Charge port door**, **Frunk**, and **Trunk** covers, the Cybertruck tonneau cover, and the **Shift state** sensor, alongside Teslemetry's data stream. Every other state, and all state for a vehicle that polls, comes through Teslemetry's cloud connection or data stream, even for an entity marked **Yes**. The exceptions are the [Bluetooth connectivity sensors](#bluetooth-connectivity-sensors), which come from Home Assistant's own Bluetooth adapters. When the vehicle is out of Bluetooth range, its commands use the cloud, and individual commands the local connection can't complete fall back to the cloud automatically. Energy site and Wall Connector entities are not controlled over vehicle Bluetooth.
 {% endnote %}
 
 |Domain|Name|Enabled|Data|Bluetooth|
@@ -131,6 +128,8 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 |Binary sensor|Automatic emergency braking off|No|Streaming|No|
 |Binary sensor|Battery heater|No|Both|No|
 |Binary sensor|Blind spot collision warning chime|No|Streaming|No|
+|Binary sensor|Bluetooth|Yes|Bluetooth|No|
+|Binary sensor|Bluetooth session|No|Bluetooth|No|
 |Binary sensor|BMS full charge|No|Streaming|No|
 |Binary sensor|Brake pedal|No|Streaming|No|
 |Binary sensor|Cabin overheat protection actively cooling|No|Polling|No|
@@ -187,6 +186,8 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 |Binary sensor|User present|Yes|Polling|No|
 |Binary sensor|Wi-Fi|Yes|Streaming|No|
 |Binary sensor|Wiper heat|No|Streaming|No|
+|Button|Disable keep accessory power|Yes|—|Yes|
+|Button|Enable keep accessory power|Yes|—|Yes|
 |Button|Flash lights|Yes|—|Yes|
 |Button|HomeLink|Yes|—|Yes|
 |Button|Honk horn|Yes|—|Yes|
@@ -341,7 +342,6 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 |Sensor|Consumer imported from generator|No|Polling|
 |Sensor|Consumer imported from grid|No|Polling|
 |Sensor|Consumer imported from solar|No|Polling|
-|Sensor|Energy left|Yes|Polling|
 |Sensor|Generator exported|Yes|Polling|
 |Sensor|Generator power|No|Polling|
 |Sensor|Grid exported|Yes|Polling|
@@ -360,7 +360,6 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 |Sensor|Solar exported|No|Polling|
 |Sensor|Solar generated|Yes|Polling|
 |Sensor|Solar power|Yes|Polling|
-|Sensor|Total pack energy|No|Polling|
 |Sensor|Version|Yes|Polling|
 |Sensor|VPP backup reserve|Yes|Polling|
 |Switch|Allow charging from grid|Yes|Polling|
@@ -410,7 +409,7 @@ The integration does not wake a sleeping vehicle to fetch data. Updates pause un
 
 ### Energy site data
 
-Energy sites are cloud-polled: live status and site information every 30 seconds, and energy history every 60 seconds.
+Energy site live status, site information, tariffs, and energy history arrive through the Teslemetry data stream. If you've paired a Powerwall for [local control](#local-powerwall-control), Home Assistant also reads its live values directly over your local network every 5 seconds, and its backup reserve and operation mode every 30 seconds. Whenever your Powerwall can't be reached, Home Assistant uses the cloud values instead. Entity availability still follows the Teslemetry data stream.
 
 ## Known limitations
 

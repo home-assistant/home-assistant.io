@@ -9,7 +9,7 @@ related_actions:
   - teslemetry.navigation_gps_request
 ---
 
-The **Set scheduled charging** action tells your Tesla vehicle to start charging at a specific time of day. This is the same scheduled charging feature you can set on the car's screen, controlled from Home Assistant.
+The **Teslemetry: Set scheduled charging** action tells your Tesla vehicle to start charging at a specific time of day. This is the same scheduled charging feature you can set on the car's screen, controlled from Home Assistant.
 
 Use it to line up charging with cheaper electricity rates, for example starting a charge in the middle of the night when off-peak pricing begins.
 

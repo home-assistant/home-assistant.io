@@ -8,7 +8,7 @@
 {% if has_related %}
 ## Related conditions
 
-These conditions work well alongside this one:
+Explore related conditions:
 
 {% for condition_name in page.related_conditions %}
   {% assign cnd = all_conditions | where: "condition", condition_name | first %}

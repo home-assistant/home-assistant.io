@@ -6,7 +6,7 @@ description: "The Button card allows you to add buttons to perform tasks."
 related:
   - docs: /dashboards/actions/
     title: Card actions
-  - docs: /docs/scripts/
+  - docs: /docs/script/
     title: Scripts
   - docs: /integrations/frontend/
     title: Themes
@@ -134,7 +134,7 @@ type: button
 entity: light.living_room
 ```
 
-Button card with a button name and a [script](/docs/scripts/) that runs when card is tapped:
+Button card with a button name and a [script](/docs/script/) that runs when card is tapped:
 
 <p class='img'>
 <img src='/images/dashboards/entity_button_complex_card.png' alt='Screenshot of the Button card with script action'>
@@ -159,7 +159,7 @@ Example of 4 buttons on a vertical stack card:
 Screenshot of a vertical stack card with 4 buttons and an entity selector.
 </p>
 
-The image shows a vertical stack card with 4 buttons arranged in a horizontal stack card and an entity selector. The buttons use the toggle action to run a script, for example, the Netflix script, which starts up the TV and opens Netflix. To learn how to create scripts, refer to [scripts](/docs/scripts/).
+The image shows a vertical stack card with 4 buttons arranged in a horizontal stack card and an entity selector. The buttons use the toggle action to run a script, for example, the Netflix script, which starts up the TV and opens Netflix. To learn how to create scripts, refer to [scripts](/docs/script/).
 
 ```yaml
 type: vertical-stack

@@ -57,8 +57,6 @@ This fires when `person.nina` leaves `zone.home`.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 zone:
   description: The zone to trigger on.

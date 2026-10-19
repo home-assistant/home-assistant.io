@@ -1,8 +1,6 @@
 ---
 title: Notifications
 description: Instructions on how to add user notifications to Home Assistant.
-ha_category:
-  - Notifications
 ha_release: 0.7
 ha_quality_scale: internal
 ha_codeowners:
@@ -17,20 +15,14 @@ If you want to send notifications to the Home Assistant web interface, you may u
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a notify entity
+## Notify entity states
 
-The state of a notify entity is the date and time when a message was last sent.
+The {% term state %} of a notify entity is a timestamp showing the date and time when a message was last sent. Home Assistant stores the timestamp in UTC, for example, `2026-01-01T12:00:00.123456+00:00`. The Home Assistant interface shows it in your local date and time format.
 
-<p class='img'>
-<img src='/images/integrations/notify/state_notify.png' alt='Screenshot showing the state of a notify entity in Settings > Tools > States' />
-<img src='/images/integrations/notify/state_notify.png' alt='Screenshot showing the state of a notify entity in the States tab of Tools.' />
-Screenshot showing the state of a notify entity in {% my developer_states title="Settings > Tools > States" %}
-</p>
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
-In addition, the entity can have the following states:
-
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 {% include integrations/actions.md %}
 
@@ -44,7 +36,7 @@ The notification actions serve different purposes:
 
 A common notification integration is via the Home Assistant Companion app for Android or iOS. If your phone is available as a notify entity, use the **Send a notification message** action and select that phone as the target. Some older setups may still provide a phone-specific action such as `notify.mobile_app_your_phone_name`. Refer to the [Companion app documentation](https://companion.home-assistant.io/docs/notifications/notifications-basic) for many customization options.
 
-With any of these integrations, the **Message** field in the automation editor is the main text that will be sent. Other fields are optional, and some integrations support additional **Data** or **Target** information to customize the action. For more details, refer to their integration documentation.
+With any of these integrations, the **Message** field in the visual automation editor is the main text that will be sent. Other fields are optional, and some integrations support additional **Data** or **Target** information to customize the action. For more details, refer to their integration documentation.
 
 Notifications can also be sent using [notify action groups](/integrations/group/#notify-action-groups). These allow you to send notifications to multiple devices with a single call, or to update which device is notified by only changing it in a single place.
 
@@ -58,10 +50,10 @@ Notifications are most useful when Home Assistant sends them at the right moment
 
 This automation sends a message to your phone when the garage door has been open for 10 minutes.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Garage door (`binary_sensor.garage_door`)
   - **To**: On
-  - **For**: 00:10:00
+  - **For at least**: 00:10:00
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
   - **Message**: The garage door has been open for 10 minutes.
@@ -91,7 +83,7 @@ automation: |
 
 This automation shows a notification in the Home Assistant interface when a leak sensor detects moisture.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Kitchen leak sensor (`binary_sensor.kitchen_leak`)
   - **To**: On
 - **Action**: Send a persistent notification
@@ -120,7 +112,7 @@ automation: |
 
 After you set up a [notifier](/integrations/#notifications), test its action in **Tools**.
 
-1. Go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
+1. Go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}.
 2. From the **Action** dropdown menu, choose the action you want to test, such as **Send a notification message** or **Send a persistent notification**.
 3. If you are testing `notify.send_message`, select one or more targets using **Entity**, **Device**, **Area**, **Floor**, or **Label**.
 4. In **Message**, enter the notification text.

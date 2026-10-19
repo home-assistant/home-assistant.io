@@ -5,7 +5,7 @@ domain: watts
 description: "Set a thermostat to timer mode with a target temperature and duration."
 ---
 
-The **Activate timer mode** action sets a Watts Vision + thermostat to **Timer** mode with a target temperature and duration. When the timer expires, the thermostat returns to its previous mode.
+The **Watts Vision +: Activate timer mode** action sets a Watts Vision + thermostat to **Timer** mode with a target temperature and duration. When the timer expires, the thermostat returns to its previous mode.
 
 Use it when you want a temporary temperature boost, for example, to warm up a bathroom before a shower.
 
@@ -48,8 +48,6 @@ action: |
 This sets the living room thermostat to 21.5°C for 90 minutes, then returns to its previous mode.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 temperature:

@@ -1,10 +1,8 @@
 ---
 title: Monzo
 description: Connect Monzo bank accounts to Home Assistant to monitor account and pot balances.
-ha_category:
-  - Event
-  - Finance
-  - Sensor
+ha_categories:
+  - finance
 ha_release: 2024.6
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -16,6 +14,7 @@ ha_platforms:
   - event
   - sensor
 ha_integration_type: service
+ha_quality_scale: platinum
 ---
 
 [Monzo](https://monzo.com/) is a digital bank. The **Monzo** {% term integration %} connects your Monzo accounts to Home Assistant. You can monitor account and pot balances, track how much you have spent today, react to new transactions, and move money between an account and its pots.
@@ -84,7 +83,7 @@ This blueprint keeps a selected account at a target balance. When the account ba
 
 For example, you can keep 1,000 in your account's currency in your current account and move the remainder to or from a savings pot.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/monzo_keep_account_at_target.yaml" %}
+{% blueprint_example blueprint="monzo/keep_account_at_target.yaml" %}
 
 ### Automation: reimburse purchases from a pot by merchant
 
@@ -92,7 +91,7 @@ This blueprint watches the selected account's **Transaction** event entity. When
 
 Before importing the blueprint, create an **Input text** {% term helper %} under {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}. Set its maximum length to 255 characters. The blueprint uses it to remember recent transaction IDs and guard against a repeated webhook moving money twice.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/monzo_reimburse_merchant_from_pot.yaml" %}
+{% blueprint_example blueprint="monzo/reimburse_merchant_from_pot.yaml" %}
 
 ## Data updates
 

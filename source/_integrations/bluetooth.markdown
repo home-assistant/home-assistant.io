@@ -1,14 +1,14 @@
 ---
 title: Bluetooth
 description: Discover, connect, and monitor bluetooth devices.
-ha_category:
-  - Utility
+ha_categories:
+  - hubs_protocols.wireless_protocols
 ha_iot_class: Local Push
 ha_release: 2022.8
 ha_domain: bluetooth
 ha_quality_scale: internal
 ha_codeowners:
-  - "@bdraco"
+  - '@bdraco'
 ha_integration_type: integration
 ha_config_flow: true
 ha_platforms:
@@ -22,7 +22,7 @@ related:
     title: Bluetooth proxy page
 ---
 
-The **Bluetooth** {% term integration %} will detect nearby Bluetooth devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.
+The **Bluetooth** {% term integration %} supports Bluetooth Low Energy devices. Bluetooth Classic devices are not supported. Compatible devices discovered nearby appear on {% my integrations title="**Settings** > **Devices & services**" %}.
 
 {% include integrations/config_flow.md %}
 
@@ -304,7 +304,7 @@ The following methods are known to work to add multiple adapters:
 - USB-Ethernet extenders
 - [USB/IP](https://usbip.sourceforge.net/)
 
-Integrations that have followed the [Best practices for library authors](https://developers.home-assistant.io/docs/bluetooth/?_highlight=Best+practices#best-practices-for-library-authors) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
+Integrations that have followed the [Best practices for library authors](https://contributors.home-assistant.io/core/integrations/bluetooth/#best-practices) will automatically connect via the adapter with the best signal and failover to an active adapter if one becomes unavailable.
 
 ## Scanning modes
 

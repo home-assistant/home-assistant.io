@@ -1,9 +1,6 @@
 ---
 title: Kentucky Power
 description: Get energy usage from Kentucky Power using the Opower integration
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 2023.8
 ha_domain: kentuckypower
 ha_integration_type: virtual

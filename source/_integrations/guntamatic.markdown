@@ -1,8 +1,8 @@
 ---
 title: Guntamatic
 description: Guntamatic wood/pellet heater integration.
-ha_category:
-  - Sensor
+ha_categories:
+  - climate.thermostats_heating
 ha_iot_class: Local Polling
 ha_release: 2026.6
 ha_codeowners:
@@ -20,7 +20,14 @@ The Guntamatic integration allows you to monitor your [Guntamatic](https://www.g
 
 ## Supported devices
 
-This integration has been tested with the Guntamatic BMK 20 kW running firmware 32a. It should work with other Guntamatic heaters that support the same web interface. (http://`<ip>`/daqdata.cgi)
+This integration has been tested with the Guntamatic BMK 20 kW running firmware 32a. Other Guntamatic heaters may work if they provide the same local web interface.
+
+To check whether your heater provides this interface:
+
+1. In a web browser, open `http://<ip>/daqdata.cgi`, and replace `<ip>` with the IP address of your heater.
+2. Confirm that the response contains the current values reported by the heater.
+
+The exact data points and their names can vary depending on the heater model and firmware version.
 
 ## Prerequisites
 
@@ -122,16 +129,21 @@ Each connected heating circuit device provides the following sensors:
 
 ### Additional sensors
 
-Additional sensors are disabled by default and can be enabled in the entity settings. These include buffer stage temperatures (top/bottom 0–2), auxiliary and extra domestic hot water pumps, extra domestic hot water temperatures, boiler shunt pump, suction fan, primary and secondary air, CO₂ content, interruptions, operating time (in hours) and service date (next service as an ISO date).
+Additional sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) and can be enabled in the entity settings. These include buffer stage temperatures (top/bottom 0–2), auxiliary and extra domestic hot water pumps, extra domestic hot water temperatures, boiler shunt pump, suction fan, primary and secondary air, CO₂ content, interruptions, operating time (in hours) and service date (next service as an ISO date).
 
 ## Examples
 
-The following blueprints help you get started with common automations for your heater:
+### Low buffer load notification
 
-- [Guntamatic low buffer load](https://github.com/home-assistant/home-assistant.io/blob/next/source/blueprints/integrations/guntamatic/low-buffer-load.yaml): get a notification when the buffer load drops below a chosen percentage, so you know it is time to refuel.
-- [Guntamatic maintenance reminder](https://github.com/home-assistant/home-assistant.io/blob/next/source/blueprints/integrations/guntamatic/maintenance-reminders.yaml): get a notification when the ash box needs emptying or the periodic service is due soon.
+Get a notification when the buffer load drops below a chosen percentage, so you know it is time to refuel.
 
-Import them from the blueprint folder and select your Guntamatic sensors when setting up the automation.
+{% blueprint_example blueprint="guntamatic/low-buffer-load.yaml" %}
+
+### Maintenance reminder
+
+Get a notification when the ash box needs emptying or the periodic service is due soon.
+
+{% blueprint_example blueprint="guntamatic/maintenance-reminders.yaml" %}
 
 ## Removing the integration
 

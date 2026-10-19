@@ -1,9 +1,8 @@
 ---
 title: PAJ GPS
 description: Instructions on how to integrate PAJ GPS devices into Home Assistant.
-ha_category:
-  - Device tracker
-  - Sensor
+ha_categories:
+  - presence_location.trackers
 ha_release: 2026.6
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -61,6 +60,8 @@ The PAJ GPS {% term integration %} will track the location of each device regist
   - **Description**: The current speed of the PAJ GPS device in km/h, as reported by the GPS module.
 - **Battery level**
   - **Description**: Remaining battery charge (0–100%) for PAJ GPS devices that have a built-in battery. Devices that are powered by the vehicle's electrical system, such as OBD, USB, or hardwired trackers, usually do not have this sensor.
+- **Voltage**
+  - **Description**: The voltage reported by the PAJ GPS device's voltage sensor, displayed in volts.
 
 ## Examples
 

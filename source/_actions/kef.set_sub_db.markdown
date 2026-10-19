@@ -1,5 +1,5 @@
 ---
-title: "Set the subwoofer dB of a KEF speaker"
+title: "Set subwoofer dB"
 action: kef.set_sub_db
 domain: kef
 description: "Sets the subwoofer gain slider of a KEF speaker, in decibels."
@@ -19,7 +19,7 @@ To set the subwoofer dB from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the KEF speaker.
-6. From the actions shown for that target, select **KEF: Set subwoofer dB**.
+6. From the actions shown for that target, under **KEF**, select **Set subwoofer dB**.
 7. Set the **dB value**.
 8. Select **Save**.
 
