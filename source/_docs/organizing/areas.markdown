@@ -95,7 +95,14 @@ Follow these steps to edit an area.
 
 1. Go to {% my areas title="**Settings** > **Areas, labels & zones**" %} and on the area card, select the edit {% icon "mdi:edit" %} button.
 2. In the dialog, adjust the area details you want to change:
-   - Edit the area **Name**, **Icon**, **Floor**, labels, picture, or **Aliases**, as described in [Creating an area](#creating-an-area).
+   - Edit the area **Name**.
+   - Under **Icon**, select an icon from the [Material Design Icons (MDI)](https://pictogrammers.com/library/mdi/).
+   - Under **Floor**, assign the area to a floor.
+     - If you have not created floors yet, you can [create a new floor](/docs/organizing/floors/#creating-a-floor).
+   - Under **Add labels**, add or remove {% term labels %}.
+   - Select **Add picture** to add an image representing that area.
+   - Under **Aliases**, add alternative names.
+     - Aliases are alternative names used in [voice assistants](/voice_control/aliases/) to refer to an area, entity, or floor.
    - Under **Related sensors**, select a **Temperature sensor** and a **Humidity sensor** that represent the area.
 
 ## Editing an area from the area dashboard
