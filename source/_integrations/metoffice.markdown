@@ -1,8 +1,8 @@
 ---
 title: Met Office
 description: Instructions on how to integrate Met Office weather conditions into Home Assistant.
-ha_category:
-  - Weather
+ha_categories:
+  - weather_alerts.forecasts
 ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -14,6 +14,7 @@ ha_platforms:
   - sensor
   - weather
 ha_integration_type: service
+ha_quality_scale: bronze
 ---
 
 The Met Office is the United Kingdom's national meteorological service.
@@ -84,7 +85,7 @@ The following current weather data is provided:
 - **UV index**
   - **Description**: UV index on standard international scale
   
-The following sensors are also provided however are disabled by default:
+The following sensors are also provided however are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity):
 
 - **Feels like temperature**
   - **Description**: Subjective temperature accounting for wind and humidity

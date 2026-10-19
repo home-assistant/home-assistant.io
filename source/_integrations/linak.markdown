@@ -1,8 +1,6 @@
 ---
 title: LINAK
 description: Connect and control your LINAK devices using the IKEA Idasen Desk integration
-ha_category:
-  - Cover
 ha_domain: linak
 ha_integration_type: virtual
 ha_supporting_domain: idasen_desk

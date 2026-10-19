@@ -1,9 +1,8 @@
 ---
 title: SimpleFin
 description: Instructions on the SimpleFIN Integration for personal finance.
-ha_category:
-  - Finance
-  - Sensor
+ha_categories:
+  - finance
 ha_iot_class: Cloud Polling
 ha_release: 2024.8
 ha_codeowners:

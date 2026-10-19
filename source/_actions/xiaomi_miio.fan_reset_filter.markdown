@@ -7,7 +7,7 @@ related_actions:
   - xiaomi_miio.fan_set_extra_features
 ---
 
-The **Fan reset filter** action resets the filter lifetime and usage counter of a Xiaomi air purifier. Use it after you replace the filter so the remaining filter life is reported correctly again.
+The **Xiaomi Home: Fan reset filter** action resets the filter lifetime and usage counter of a Xiaomi air purifier. Use it after you replace the filter so the remaining filter life is reported correctly again.
 
 {% include actions/ui_header.md %}
 

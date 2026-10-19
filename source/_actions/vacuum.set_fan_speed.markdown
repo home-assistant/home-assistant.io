@@ -1,5 +1,5 @@
 ---
-title: Set fan speed
+title: "Set vacuum cleaner fan speed"
 action: vacuum.set_fan_speed
 domain: vacuum
 description: "Sets the fan/power level for cleaning."
@@ -35,8 +35,6 @@ The `fan_speed` value (label or number) is platform-dependent. Allowed values ar
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 target:
   description: Vacuum entity to control.
@@ -64,8 +62,8 @@ Before the weekday cleaning run starts, this automation sets the vacuum to a str
 
 - **Trigger**: Time: 09:00
 - **Action**: Set fan speed
-- **Target**: Main vacuum
-- **Fan speed**: turbo
+  - **Target**: Main vacuum
+  - **Fan speed**: turbo
 
 {% details "YAML example for increasing vacuum suction before cleaning" %}
 

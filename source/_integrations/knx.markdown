@@ -2,24 +2,8 @@
 title: KNX
 description: Instructions on how to integrate KNX components with Home Assistant.
 featured: true
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Date
-  - Fan
-  - Hub
-  - Light
-  - Notifications
-  - Number
-  - Scene
-  - Select
-  - Sensor
-  - Switch
-  - Text
-  - Time
-  - Weather
+ha_categories:
+  - hubs_protocols.building_automation
 ha_release: 0.24
 ha_iot_class: Local Push
 ha_codeowners:
@@ -369,7 +353,7 @@ outgoing:
 
 #### Available trigger data
 
-In addition to the [standard automation trigger data](/docs/automation/templating/#all), the `knx.telegram` trigger platform has additional trigger data available for use.
+In addition to the [standard automation trigger data](/docs/automation/trigger-data/#properties-of-all-triggers), the `knx.telegram` trigger platform has additional trigger data available for use.
 
 - `trigger.destination` Destination group address
 - `trigger.destination_name` Destination group address name
@@ -487,7 +471,7 @@ Every telegram that matches an address pattern with its destination field will b
 
 ## KNX tools for AI conversation agents
 
-The KNX integration registers an <abbr title="Large Language Model">LLM</abbr> <abbr title="application programming interface">API</abbr> named **KNX**. It gives a conversation agent, and through the [Model Context Protocol Server](/integrations/mcp_server/) also an external <abbr title="Model Context Protocol">MCP</abbr> client, a set of tools to inspect your KNX installation and to interact with the bus.
+The KNX integration registers an <abbr title="Large Language Model">LLM</abbr> <abbr title="application programming interface">API</abbr> named **KNX**. It gives a conversation agent, and through the [Model Context Protocol](/integrations/mcp_server/) also an external <abbr title="Model Context Protocol">MCP</abbr> client, a set of tools to inspect your KNX installation and to interact with the bus.
 
 With these tools, an agent can answer questions such as "Which device sent the last telegram to 1/2/3?", "What is connected to line 1.1?", or "What is the current temperature on 4/0/1?". None of this requires a Home Assistant {% term entity %} for the group address in question.
 
@@ -505,7 +489,7 @@ The KNX API is not used by default. Select it on the {% term integration %} that
 2. Select the conversation agent integration, then select **Configure**.
 3. Add **KNX** to **Control Home Assistant**.
 
-To use the tools from an external MCP client instead, select **KNX** when you set up the [Model Context Protocol Server](/integrations/mcp_server/) integration, or point the client at `/api/mcp/knx`. Connecting to `/api/mcp/knx` requires an administrator token. The base `/api/mcp` endpoint serves the API you selected during setup and is also available to non-administrators.
+To use the tools from an external MCP client instead, select **KNX** when you set up the [Model Context Protocol](/integrations/mcp_server/) integration, or point the client at `/api/mcp/knx`. Connecting to `/api/mcp/knx` requires an administrator token. The base `/api/mcp` endpoint serves the API you selected during setup and is also available to non-administrators.
 
 ### Available tools
 
@@ -687,7 +671,7 @@ unique_id:
   required: false
   type: string
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://contributors.home-assistant.io/core/entities/entity-class/#generic-properties) of the entity.
   required: false
   type: string
   default: None
@@ -1883,6 +1867,8 @@ sync_state:
 
 The KNX scene platform allows you to activate KNX scenes and updates scene entities when the corresponding scene number is received on the KNX bus.
 
+To store the current state of the actuators in a KNX scene, use the [`knx.save_scene` action](/actions/knx.save_scene/).
+
 Scene entities can be created from the frontend in the KNX panel or via YAML.
 
 {% details "Configuration of KNX scene entities via YAML" %}
@@ -1900,7 +1886,7 @@ See also the [common entity configuration options](#common-entity-configuration-
 
 {% configuration %}
 address:
-  description: KNX group address for the scene. *DPT 17.001*
+  description: KNX group address for the scene. *DPT 17.001 or DPT 18.001*
   required: true
   type: [string, list]
 scene_number:
@@ -2059,7 +2045,7 @@ always_callback:
   type: boolean
   default: false
 state_class:
-  description: Overrides the DPT's default [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes).
+  description: Overrides the DPT's default [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes).
   required: false
   type: string
 device_class:
@@ -2555,7 +2541,7 @@ The following table lists the supported numeric Data Point Types (DPT). You can 
 
 - The [KNX tools for AI conversation agents](#knx-tools-for-ai-conversation-agents) return at most 1000 entries per call. An agent can page through the rest, but a question that would need the entire project or the full telegram history in a single answer may not be answered completely.
 
-- The KNX tools work on raw KNX data: group addresses, individual addresses, and <abbr title="data point types">DPTs</abbr>. They do not know about the Home Assistant {% term entities %} you created from those group addresses. To let an agent control those entities as well, keep the built-in Assist API selected alongside the KNX API.
+- The KNX tools work on raw KNX data: group addresses, individual addresses, and <abbr title="data point types">DPTs</abbr>. They do not know about the Home Assistant {% term entities %} you created from those group addresses. To let an agent control those entities as well, keep the built-in **Device control** API selected alongside the KNX API.
 
 - USB bus interfaces are not directly supported by the underlying [`xknx` library](https://github.com/XKNX/xknx). However, you could try to run a software KNX router such as `Calimero` or `knxd` alongside Home Assistant to serve as a USB to IP bridge. For best reliability, using a certified KNX IP interface or router is recommended.
 
@@ -2586,7 +2572,7 @@ logger:
 ```
 
 You can use the `logger.set_level` action to change the log level of a handler on a running instance.
-{% my developer_call_service badge service="logger.set_level" %}
+{% my tools_perform_action badge service="logger.set_level" %}
 
 ### Group address cannot be read
 

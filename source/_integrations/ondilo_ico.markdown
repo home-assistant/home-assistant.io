@@ -1,8 +1,8 @@
 ---
 title: Ondilo ICO
 description: Instructions on how to configure Ondilo ICO integration.
-ha_category:
-  - Sensor
+ha_categories:
+  - water.pools_spas
 ha_release: 2021.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true

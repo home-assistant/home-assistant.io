@@ -55,8 +55,6 @@ This fires every time `humidifier.bedroom` starts actively adding moisture to th
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |

@@ -1,9 +1,8 @@
 ---
 title: PEGELONLINE
 description: Instructions on how to integrate PEGELONLINE measurements into Home Assistant.
-ha_category:
-  - Environment
-  - Sensor
+ha_categories:
+  - weather_alerts
 ha_release: 2023.8
 ha_config_flow: true
 ha_iot_class: Cloud Polling

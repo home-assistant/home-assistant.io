@@ -48,8 +48,6 @@ This fires when `binary_sensor.bedroom_window` closes.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -121,7 +119,7 @@ When everyone finishes airing out the house, you can wait until every ground flo
 - **Target**: Ground-floor windows label
 - **Trigger when**: All
 - **For at least**: 00:01:00
-- **Action**: Lock: Lock
+- **Action**: Lock lock
 
 {% details "YAML example for locking a door after all windows close" %}
 

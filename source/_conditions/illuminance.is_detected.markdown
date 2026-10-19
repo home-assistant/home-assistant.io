@@ -72,7 +72,7 @@ for:
 
 - The target must be a binary sensor with the light device class.
 - The sensor's threshold for what counts as "light detected" is set on the device itself.
-- Sensors that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - For numeric illuminance readings (in lux), use [Illuminance](/conditions/illuminance.is_value/) instead.
 - To check the opposite state, use [Light level is not detected](/conditions/illuminance.is_not_detected/).
 

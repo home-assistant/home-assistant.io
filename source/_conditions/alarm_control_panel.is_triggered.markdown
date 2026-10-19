@@ -47,8 +47,6 @@ This passes when the hallway alarm panel is currently in a triggered state.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -70,7 +68,7 @@ for:
 
 ## Good to know
 
-- Alarm panels that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as triggered. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted alarm is unavailable.
+{% include conditions/unavailable_targets.md entities="alarm panels" %}
 - To check whether the alarm is armed, use [Alarm is armed](/conditions/alarm_control_panel.is_armed/).
 - To check the opposite state, use [Alarm is disarmed](/conditions/alarm_control_panel.is_disarmed/).
 
@@ -82,7 +80,7 @@ for:
 
 When a panic button is pressed, send an urgent push notification with the alarm status, but only if the alarm is genuinely triggered. This prevents false alerts from accidental button presses when the alarm is in a normal state.
 
-- **Trigger**: State: Panic button pressed
+- **Trigger**: State changed: Panic button pressed
 - **Condition**: Alarm is triggered
   - **Target**: Hallway alarm panel
   - **Condition passes if**: Any
