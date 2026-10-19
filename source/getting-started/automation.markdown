@@ -15,7 +15,7 @@ In this tutorial, you create two automations: one that turns the lights on befor
 - You have completed the [onboarding steps](/getting-started/onboarding/).
 - You have followed the steps on [adding an integration](/getting-started/integration/).
 - You have a light that is integrated into Home Assistant.
-  - If you don't have a light yet, and are unsure what to buy, try [Philips Hue](/integrations/hue/), [nanoleaf](/integrations/nanoleaf/), or products supporting [WLED](/integrations/wled/).
+  - If you don't have a light yet, and are unsure what to buy, try [Philips Hue](/integrations/hue/), [Nanoleaf](/integrations/nanoleaf/), or products supporting [WLED](/integrations/wled/).
 - Your lights are assigned to an {% term area %}, so you can turn on all lights in a room at once. To learn more, refer to [Areas](/docs/organizing/areas/).
 
 ### To automatically turn on the lights before sunset
