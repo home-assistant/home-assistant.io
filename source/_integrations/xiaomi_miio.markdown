@@ -1677,7 +1677,7 @@ vacuum_kitchen:
         params: [[23084, 26282, 27628, 29727, 1]]
 ```
 
-### Retrieve room numbers
+### Retrieving room numbers
 
 Valid room numbers can be retrieved using miio command-line tool:
 
