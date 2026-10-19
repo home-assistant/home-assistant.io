@@ -1326,11 +1326,12 @@ You can add a named command to a dashboard as an entity button.
 ```yaml
 type: entity-button
 tap_action:
-  action: call-service
-  action: remote.send_command
+  action: perform-action
+  perform_action: remote.send_command
+  target:
+    entity_id: remote.xiaomi_miio_ir
   data:
     command: activate_towel_heater
-    entity_id: remote.xiaomi_miio_ir
 hold_action:
   action: more-info
 show_icon: true
@@ -1498,10 +1499,13 @@ vacuum_kitchen:
         entity_id: vacuum.xiaomi_vacuum_cleaner
       data:
         command: app_segment_clean
-        params: [18]
+        params:
+          - 18
 ```
 
-Where params specify room numbers, for multiple rooms, params can be specified like `[17,18]`. Instructions on how to find the valid room numbers and determine what rooms they map to, read the section [Retrieving room numbers](#retrieving-room-numbers).
+The `params` value specifies a room number.
+To clean multiple rooms, provide a list of room numbers, such as 17 and 18.
+For instructions on finding valid room numbers and the rooms they map to, refer to [Retrieving room numbers](#retrieving-room-numbers).
 
 ### Example on how to reset maintenance hours (brushes, filter, sensors)
 
@@ -1515,20 +1519,21 @@ or replaced you can then reset those values on the vacuum. Here is an example sc
 reset_main_brush_left:
   alias: "Reset hours for main brush replacement"
   sequence:
-    - action: vacuum.send_Command
+    - action: vacuum.send_command
       target:
         entity_id: vacuum.xiaomi_vacuum_cleaner
       data:
         command: reset_consumable
-        params: ["main_brush_work_time"]
+        params:
+          - "main_brush_work_time"
 ```
 
 Allowed `params` for the `reset_consumable` command:
 
-- `['main_brush_work_time']`
-- `['side_brush_work_time']`
-- `['filter_work_time']`
-- `['sensor_dirty_time']`
+- `main_brush_work_time`
+- `side_brush_work_time`
+- `filter_work_time`
+- `sensor_dirty_time`
 
 ### Retrieve zone cleaning coordinates
 
@@ -1548,14 +1553,19 @@ Using the map editor you can acquire the coordinates required for zoned clean up
 
 ```yaml
 vacuum_kitchen:
-  alias: "vacuum kitchen"
+  alias: "Vacuum kitchen"
   sequence:
     - action: vacuum.send_command
       target:
         entity_id: "vacuum.xiaomi_vacuum_cleaner"
       data:
         command: app_zoned_clean
-        params: [[23084, 26282, 27628, 29727, 1]]
+        params:
+          - - 23084
+            - 26282
+            - 27628
+            - 29727
+            - 1
 ```
 
 ### Retrieving room numbers
