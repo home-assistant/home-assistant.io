@@ -14,8 +14,6 @@ ha_platforms:
   - sensor
 ha_integration_type: device
 ha_zeroconf: true
-works_with:
-  - local
 ha_quality_scale: silver
 ---
 
@@ -47,6 +45,8 @@ Host:
 {% endconfiguration_basic %}
 
 ## Supported functionality
+
+Particle count sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) for both models. You can enable them if you want particle count measurements.
 
 ### Room Air Monitor
 
