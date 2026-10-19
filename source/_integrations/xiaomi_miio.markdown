@@ -317,6 +317,10 @@ The list includes device name, model number (if available), and model.
 - **Standing Fan 2 Pro**: `dmaker.fan.p33`
 - **Standing Fan 3**: `zhimi.fan.za5`
 
+### Air Purifier
+
+Supported model: `zhimi.airpurifier.v1`.
+
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Idle)
 - Attributes (fan platform)
@@ -329,13 +333,14 @@ The list includes device name, model number (if available), and model.
   - `use_time`
   - `button_pressed`
   - `sleep_mode`
-- Number entities
+
+#### Number entities
 
 | Number         | Description            |
 | -------------- | ---------------------- |
 | Favorite Level | Set the favorite level |
 
-- Sensor entities
+#### Sensor entities
 
 - **Filter Lifetime Remaining**: The remaining life of the filter. Enabled by default.
 - **Filter Use**: Filter usage time in hours. Enabled by default.
@@ -346,7 +351,7 @@ The list includes device name, model number (if available), and model.
 - **Temperature**: The current temperature measured. Enabled by default.
 - **Use Time**: The accumulative number of seconds the device has been in use. [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description                |
 | ---------- | -------------------------- |
@@ -355,7 +360,9 @@ The list includes device name, model number (if available), and model.
 | Learn Mode | Turn on/off the learn mode |
 | LED        | Turn on/off the LED        |
 
-### Air Purifier Pro (zhimi.airpurifier.v6)
+### Air Purifier Pro
+
+Supported model: `zhimi.airpurifier.v6`.
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
@@ -367,14 +374,15 @@ The list includes device name, model number (if available), and model.
   - `auto_detect`
   - `use_time`
   - `button_pressed`
-- Number entities
+
+#### Number entities
 
 | Number         | Description            |
 | -------------- | ---------------------- |
 | Favorite Level | Set the favorite level |
 | Volume         | Set the volume         |
 
-- Sensor entities
+#### Sensor entities
   - **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
   - **Filter Use**: Filter usage time in hours. Enabled by default.
   - **Humidity**: The current humidity measured. Enabled by default.
@@ -386,7 +394,7 @@ The list includes device name, model number (if available), and model.
   - **Temperature**: The current temperature measured. Enabled by default.
   - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description                |
 | ---------- | -------------------------- |
@@ -394,7 +402,9 @@ The list includes device name, model number (if available), and model.
 | Learn Mode | Turn on/off the learn mode |
 | LED        | Turn on/off the LED        |
 
-### Air Purifier Pro V7 (zhimi.airpurifier.v7)
+### Air Purifier Pro V7
+
+Supported model: `zhimi.airpurifier.v7`.
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
@@ -402,14 +412,15 @@ The list includes device name, model number (if available), and model.
   - `extra_features`
   - `turbo_mode_supported`
   - `button_pressed`
-- Number entities
+
+#### Number entities
 
 | Number         | Description            |
 | -------------- | ---------------------- |
 | Favorite Level | Set the favorite level |
 | Volume         | Set the volume         |
 
-- Sensor entities
+#### Sensor entities
   - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
   - **Filter Use**: Filter usage time in hours. Enabled by default.
   - **Humidity**: The current humidity measured. Enabled by default.
@@ -420,7 +431,7 @@ The list includes device name, model number (if available), and model.
   - **Temperature**: The current temperature measured. Enabled by default.
   - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description                |
 | ---------- | -------------------------- |
@@ -428,7 +439,9 @@ The list includes device name, model number (if available), and model.
 | Learn Mode | Turn on/off the learn mode |
 | LED        | Turn on/off the LED        |
 
-### Air Purifier MA2 (zhimi.airpurifier.ma2)
+### Air Purifier MA2
+
+Supported model: `zhimi.airpurifier.ma2`.
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
@@ -445,11 +458,13 @@ The list includes device name, model number (if available), and model.
   - `friendly_name`
   - `supported_features`
 
+#### Number entities
+
 | Number         | Description            |
 | -------------- | ---------------------- |
 | Favorite Level | Set the favorite level |
 
-- Sensor entities
+#### Sensor entities
   - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
   - **Filter Use**: Filter usage time in hours. Enabled by default.
   - **Humidity**: The current humidity measured. Enabled by default.
@@ -459,7 +474,7 @@ The list includes device name, model number (if available), and model.
   - **Illuminance**: The current illuminance measured on top of the device (0-200 lux). Enabled by default.
   - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description                |
 | ---------- | -------------------------- |
@@ -468,7 +483,9 @@ The list includes device name, model number (if available), and model.
 | Learn Mode | Turn on/off the learn mode |
 | LED        | Turn on/off the LED        |
 
-### Air Purifier 2S (zhimi.airpurifier.mc1)
+### Air Purifier 2S
+
+Supported model: `zhimi.airpurifier.mc1`.
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
@@ -476,13 +493,14 @@ The list includes device name, model number (if available), and model.
   - `extra_features`
   - `turbo_mode_supported`
   - `button_pressed`
-- Number entities
+
+#### Number entities
 
 | Number         | Description            |
 | -------------- | ---------------------- |
 | Favorite Level | Set the favorite level |
 
-- Sensor entities
+#### Sensor entities
   - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
   - **Filter Use**: Filter usage time in hours. Enabled by default.
   - **Humidity**: The current humidity measured. Enabled by default.
@@ -491,7 +509,7 @@ The list includes device name, model number (if available), and model.
   - **Temperature**: The current temperature measured. Enabled by default.
   - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description                |
 | ---------- | -------------------------- |
@@ -500,7 +518,9 @@ The list includes device name, model number (if available), and model.
 | Learn Mode | Turn on/off the learn mode |
 | LED        | Turn on/off the LED        |
 
-### Air Purifier 3/3H (2019) (zhimi.airpurifier.ma4, zhimi.airpurifier.mb3)
+### Air Purifier 3 and 3H (2019)
+
+Supported models: `zhimi.airpurifier.ma4` and `zhimi.airpurifier.mb3`.
 
 This model uses newer MiOT communication protocol.
 
@@ -508,20 +528,21 @@ This model uses newer MiOT communication protocol.
 - Operation modes (Auto, Silent, Favorite, Fan)
 - Attributes (fan platform)
   - `use_time`
-- Number entities
+
+#### Number entities
 
 | Number         | Description            |
 | -------------- | ---------------------- |
 | Fan Level      | Set the fan level      |
 | Favorite Level | Set the favorite level |
 
-- Select entities
+#### Select entities
 
 | Select         | Description                                            |
 | -------------- | ------------------------------------------------------ |
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
-- Sensor entities
+#### Sensor entities
   - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
   - **Filter Use**: Filter usage time in hours. Enabled by default.
   - **Humidity**: The current humidity measured. Enabled by default.
@@ -531,33 +552,36 @@ This model uses newer MiOT communication protocol.
   - **Temperature**: The current temperature measured. Enabled by default.
   - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description                |
 | ---------- | -------------------------- |
 | Buzzer     | Turn on/off the buzzer     |
 | Child Lock | Turn on/off the child lock |
 
-### Air Purifier Pro H, Pro H EU (zhimi.airpurifier.va1, zhimi.airpurifier.vb2)
+### Air Purifier Pro H and Pro H EU
+
+Supported models: `zhimi.airpurifier.va1` and `zhimi.airpurifier.vb2`.
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Fan)
 - Attributes (fan platform)
   - `use_time`
-- Number entities
+
+#### Number entities
 
 | Number         | Description            |
 | -------------- | ---------------------- |
 | Fan Level      | Set the fan level      |
 | Favorite Level | Set the favorite level |
 
-- Select entities
+#### Select entities
 
 | Select         | Description                                            |
 | -------------- | ------------------------------------------------------ |
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
-- Sensor entities
+#### Sensor entities
   - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
   - **Filter Use**: Filter usage time in hours. Enabled by default.
   - **Humidity**: The current humidity measured. Enabled by default.
@@ -567,48 +591,54 @@ This model uses newer MiOT communication protocol.
   - **Temperature**: The current temperature measured. Enabled by default.
   - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description                |
 | ---------- | -------------------------- |
 | Buzzer     | Turn on/off the buzzer     |
 | Child Lock | Turn on/off the child lock |
 
-### Air Purifier 3C (zhimi.airpurifier.mb4, zhimi.airp.mb4a)
+### Air Purifier 3C
+
+Supported models: `zhimi.airpurifier.mb4` and `zhimi.airp.mb4a`.
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
-- Number entities
+
+#### Number entities
 
 | Number               | Description                  |
 | -------------------- | ---------------------------- |
 | Favorite Motor Speed | Set the favorite motor speed |
 | LED Brightness       | Set the LED brightness       |
 
-- Sensor entities
+#### Sensor entities
   - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
   - **Filter Use**: Filter usage time in hours. Enabled by default.
   - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
   - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description                |
 | ---------- | -------------------------- |
 | Buzzer     | Turn on/off the buzzer     |
 | Child Lock | Turn on/off the child lock |
 
-### Air Purifier ZA1 (zhimi.airpurifier.za1)
+### Air Purifier ZA1
+
+Supported model: `zhimi.airpurifier.za1`.
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
-- Number entities
+
+#### Number entities
 
 | Number         | Description            |
 | -------------- | ---------------------- |
 | Favorite Level | Set the favorite level |
 
-- Sensor entities
+#### Sensor entities
   - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
   - **Filter Use**: Filter usage time in hours. Enabled by default.
   - **Humidity**: The current humidity measured. Enabled by default.
@@ -617,20 +647,22 @@ This model uses newer MiOT communication protocol.
   - **Temperature**: The current temperature measured. Enabled by default.
   - **TVOC**: The current concentration of Total Organic Volatile Components. Enabled by default.
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description                |
 | ---------- | -------------------------- |
 | Buzzer     | Turn on/off the buzzer     |
 | Child Lock | Turn on/off the child lock |
 
-- Select entities
+#### Select entities
 
 | Select         | Description                                               |
 | -------------- | --------------------------------------------------------- |
 | LED Brightness | Controls the brightness of the Display (bright, dim, off) |
 
-### Air Purifier V3 (zhimi.airpurifier.v3)
+### Air Purifier V3
+
+Supported model: `zhimi.airpurifier.v3`.
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Idle, Medium, High, Strong)
@@ -641,7 +673,7 @@ This model uses newer MiOT communication protocol.
   - `use_time`
   - `button_pressed`
 
-- Sensor entities
+#### Sensor entities
   - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
   - **Filter Use**: Filter usage time in hours. Enabled by default.
   - **Illuminance**: The current illuminance measured. Enabled by default.
@@ -651,7 +683,7 @@ This model uses newer MiOT communication protocol.
   - **Second Motor Speed**: The current second motor speed measured in rpm. Enabled by default.
   - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description                |
 | ---------- | -------------------------- |
@@ -659,27 +691,30 @@ This model uses newer MiOT communication protocol.
 | Child Lock | Turn on/off the child lock |
 | LED        | Turn on/off the LED        |
 
-### Air Purifier 4/4 PRO (zhimi.airp.mb5, zhimi.airp.vb4)
+### Air Purifier 4 and 4 Pro
+
+Supported models: `zhimi.airp.mb5` and `zhimi.airp.vb4`.
 
 These models use newer MiOT communication protocol.
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Fan)
 - Attributes (fan platform)
-- Number entities
+
+#### Number entities
 
 | Number         | Description            |
 | -------------- | ---------------------- |
 | Fan Level      | Set the fan level      |
 | Favorite Level | Set the favorite level |
 
-- Select entities
+#### Select entities
 
 | Select         | Description                                               |
 | -------------- | --------------------------------------------------------- |
 | LED Brightness | Controls the brightness of the Display (bright, dim, off) |
 
-- Sensor entities
+#### Sensor entities
   - **Filter Lifetime Remaining**: The remaining lifetime of the filter in %. Enabled by default.
   - **Filter Time Left**: The remaining lifetime of the filter in days. Enabled by default.
   - **Filter Use**: Filter usage time in hours. Enabled by default.
@@ -690,7 +725,7 @@ These models use newer MiOT communication protocol.
   - **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
   - **Temperature**: The current temperature measured. Enabled by default.
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description                            |
 | ---------- | -------------------------------------- |
@@ -698,23 +733,26 @@ These models use newer MiOT communication protocol.
 | Child Lock | Turn on/off the child lock             |
 | Ionizer    | Turn on/off the negative ion generator |
 
-### Air Fresh A1 (dmaker.airfresh.a1)
+### Air Fresh A1
+
+Supported model: `dmaker.airfresh.a1`.
 
 - Power (on, off)
 - Operation modes (Auto, Sleep, Favorite)
-- Binary sensor entities
+
+#### Binary sensor entities
 
 | Binary sensor         | Description                            |
 | --------------------- | -------------------------------------- |
 | Auxiliary Heat Status | Indicates if the heater is actually on |
 
-- Button entities
+#### Button entities
 
 | Button            | Description                                             |
 | ----------------- | ------------------------------------------------------- |
 | Reset Dust Filter | Resets filter lifetimetime and usage of the dust filter |
 
-- Sensor entities
+#### Sensor entities
 
 | Sensor                              | Description                                 |
 | ----------------------------------- | ------------------------------------------- |
@@ -726,7 +764,7 @@ These models use newer MiOT communication protocol.
 | Control Speed                       | The current motor speed in rpm              |
 | Favorite Speed                      | The favorite motor speed in rpm             |
 
-- Switch entities
+#### Switch entities
 
 | Switch         | Description              |
 | -------------- | ------------------------ |
@@ -742,7 +780,8 @@ These models use newer MiOT communication protocol.
 - Attributes (fan platform)
   - `use_time`
   - `extra_features`
-- Sensor entities|
+
+#### Sensor entities
   - **Carbon Dioxide**: The current carbon dioxide measured in ppm. Enabled by default.
   - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
   - **Filter Use**: Filter usage time in hours. Enabled by default.
@@ -751,13 +790,13 @@ These models use newer MiOT communication protocol.
   - **Temperature**: The current temperature measured. Enabled by default.
   - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
-- Select entities
+#### Select entities
 
 | Select         | Description                                            |
 | -------------- | ------------------------------------------------------ |
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description              |
 | ---------- | ------------------------ |
@@ -772,7 +811,8 @@ These models use newer MiOT communication protocol.
 - Attributes (fan platform)
   - `use_time`
   - `extra_features`
-- Sensor entities
+
+#### Sensor entities
 
 | Sensor                    | Description                                                   | Enabled by default |
 | ------------------------- | ------------------------------------------------------------- | ------------------ |
@@ -784,13 +824,13 @@ These models use newer MiOT communication protocol.
 | Temperature               | The current temperature measured                              | True               |
 | Use Time                  | The accumulative number of seconds the device has been in use | False              |
 
-- Select entities
+#### Select entities
 
 | Select         | Description                                            |
 | -------------- | ------------------------------------------------------ |
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
-- Switch entities
+#### Switch entities
 
 | Switch         | Description              |
 | -------------- | ------------------------ |
@@ -799,22 +839,25 @@ These models use newer MiOT communication protocol.
 | LED            | Turn on/off `led`        |
 | Auxiliary Heat | Turn on/off `heater`     |
 
-### Air Fresh T2017 (dmaker.airfresh.t2017)
+### Air Fresh T2017
+
+Supported model: `dmaker.airfresh.t2017`.
 
 - Power (on, off)
 - Operation modes (Auto, Sleep, Favorite)
-- Binary sensor entities
+
+#### Binary sensor entities
   - **Auxiliary Heat Status**: Indicates if the heater is actually on
 
-- Button entities
+#### Button entities
   - **Reset Dust Filter**: Resets filter lifetime and usage of the dust filter
   - **Reset Upper Filter**: Resets filter lifetime and usage of the upper filter
 
-- Select entities
+#### Select entities
   - **Auxiliary Heat Level**: Controls the level of the heater (Low, Medium, High)
   - **Display Orientation**: Controls the orientation of the display (Forward, Left, Right)
 
-- Sensor entities
+#### Sensor entities
   - **Carbon Dioxide**: The current carbon dioxide in ppm
   - **Dust filter lifetime remaining**: The remaining lifetime of the dust filter
   - **Dust filter lifetime remaining days**: The remaining lifetime of the dust filter in days
@@ -825,7 +868,7 @@ These models use newer MiOT communication protocol.
   - **Control Speed**: The current motor speed in rpm
   - **Favorite Speed**: The favorite motor speed in rpm
 
-- Switch entities
+#### Switch entities
 
 | Switch         | Description              |
 | -------------- | ------------------------ |
@@ -834,7 +877,9 @@ These models use newer MiOT communication protocol.
 | Display        | Turn on/off `display`    |
 | Auxiliary Heat | Turn on/off `heater`     |
 
-### Air Humidifier (zhimi.humidifier.v1)
+### Air Humidifier
+
+Supported model: `zhimi.humidifier.v1`.
 
 - On, Off
 - Operation modes (Silent, Medium, High, Strong)
@@ -849,32 +894,34 @@ These models use newer MiOT communication protocol.
 | `min_humidity`    | The minimum settable target humidity      |
 | `mode`            | The current operation mode selected       |
 
-- Binary sensor entities
+#### Binary sensor entities
 
 | Binary sensor | Description                                          |
 | ------------- | ---------------------------------------------------- |
 | Water Tank    | Indicates whether the water tank is connected or not |
 
-- Select entities
+#### Select entities
 
 | Select         | Description                                            |
 | -------------- | ------------------------------------------------------ |
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
-- Sensor entities
+#### Sensor entities
   - **Humidity**: The current humidity measured. Enabled by default.
   - **Temperature**: The current temperature measured. Enabled by default.
   - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
   - **Water Level**: The current water level percentage measured. Enabled by default.
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description                |
 | ---------- | -------------------------- |
 | Buzzer     | Turn on/off the buzzer     |
 | Child Lock | Turn on/off the child lock |
 
-### Air Humidifier CA (zhimi.humidifier.ca1)
+### Air Humidifier CA
+
+Supported model: `zhimi.humidifier.ca1`.
 
 - On, Off
 - Operation modes (Silent, Medium, High, Auto)
@@ -889,25 +936,25 @@ These models use newer MiOT communication protocol.
 | `min_humidity`    | The minimum settable target humidity      |
 | `mode`            | The current operation mode selected       |
 
-- Binary sensor entities
+#### Binary sensor entities
 
 | Binary sensor | Description                                          |
 | ------------- | ---------------------------------------------------- |
 | Water Tank    | Indicates whether the water tank is connected or not |
 
-- Select entities
+#### Select entities
 
 | Select         | Description                                            |
 | -------------- | ------------------------------------------------------ |
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
-- Sensor entities
+#### Sensor entities
   - **Humidity**: The current humidity measured. Enabled by default.
   - **Temperature**: The current temperature measured. Enabled by default.
   - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
   - **Water Level**: The current water level percentage measured. Enabled by default.
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description                |
 | ---------- | -------------------------- |
@@ -915,7 +962,9 @@ These models use newer MiOT communication protocol.
 | Child Lock | Turn on/off the child lock |
 | Dry Mode   | Turn on/off the dry mode   |
 
-### Air Humidifier CA (zhimi.humidifier.ca4)
+### Air Humidifier CA
+
+Supported model: `zhimi.humidifier.ca4`.
 
 - On, Off
 - Operation modes (Auto, Low, Medium, High)
@@ -930,32 +979,32 @@ These models use newer MiOT communication protocol.
 | `min_humidity`    | The minimum settable target humidity      |
 | `mode`            | The current operation mode selected       |
 
-- Binary sensor entities
+#### Binary sensor entities
 
 | Binary sensor | Description                                          |
 | ------------- | ---------------------------------------------------- |
 | Water Tank    | Indicates whether the water tank is connected or not |
 
-- Number entities
+#### Number entities
 
 | Number      | Description         |
 | ----------- | ------------------- |
 | Motor Speed | Set the motor speed |
 
-- Select entities
+#### Select entities
 
 | Select         | Description                                            |
 | -------------- | ------------------------------------------------------ |
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
-- Sensor entities
+#### Sensor entities
   - **Actual Speed**: The current motor speed measured in rpm. Enabled by default.
   - **Humidity**: The current humidity measured. Enabled by default.
   - **Temperature**: The current temperature measured. Enabled by default.
   - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
   - **Water Level**: The current water level percentage measured. Enabled by default.
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description                |
 | ---------- | -------------------------- |
@@ -968,7 +1017,9 @@ These models use newer MiOT communication protocol.
 Clean mode and Motor speed can only be set when the device is turned on.
 {% endnote %}
 
-### Air Humidifier CB (zhimi.humidifier.cb1)
+### Air Humidifier CB
+
+Supported model: `zhimi.humidifier.cb1`.
 
 - On, Off
 - Operation modes (Silent, Medium, High, Auto)
@@ -983,25 +1034,25 @@ Clean mode and Motor speed can only be set when the device is turned on.
 | `min_humidity`    | The minimum settable target humidity      |
 | `mode`            | The current operation mode selected       |
 
-- Binary sensor entities
+#### Binary sensor entities
 
 | Binary sensor | Description                                          |
 | ------------- | ---------------------------------------------------- |
 | Water Tank    | Indicates whether the water tank is connected or not |
 
-- Select entities
+#### Select entities
 
 | Select         | Description                                            |
 | -------------- | ------------------------------------------------------ |
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
-- Sensor entities
+#### Sensor entities
   - **Humidity**: The current humidity measured. Enabled by default.
   - **Temperature**: The current temperature measured. Enabled by default.
   - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
   - **Water Level**: The current water level percentage measured. Enabled by default.
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description                |
 | ---------- | -------------------------- |
@@ -1009,7 +1060,9 @@ Clean mode and Motor speed can only be set when the device is turned on.
 | Child Lock | Turn on/off the child lock |
 | Dry Mode   | Turn on/off the dry mode   |
 
-### Air Humidifier JSQ/JSQ1/MJJSQ (deerma.humidifier.jsq, deerma.humidifier.jsq1, deerma.humidifier.mjjsq)
+### Air Humidifier JSQ, JSQ1, and MJJSQ
+
+Supported models: `deerma.humidifier.jsq`, `deerma.humidifier.jsq1`, and `deerma.humidifier.mjjsq`.
 
 - On, Off
 - Operation modes (low, medium, high, humidity)
@@ -1024,38 +1077,40 @@ Clean mode and Motor speed can only be set when the device is turned on.
 | `min_humidity`    | The minimum settable target humidity      |
 | `mode`            | The current operation mode selected       |
 
-- Binary sensor entities
+#### Binary sensor entities
 
 | Binary sensor    | Description                                          |
 | ---------------- | ---------------------------------------------------- |
 | Water Tank       | Indicates whether the water tank is connected or not |
 | Water Tank Empty | Indicates whether the water tank is empty or not     |
 
-- Sensor entities|
+#### Sensor entities
   - **Humidity**: The current humidity measured. Enabled by default.
   - **Temperature**: The current temperature measured. Enabled by default.
   - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
-- Switch entities
+#### Switch entities
 
 | Switch | Description            |
 | ------ | ---------------------- |
 | Buzzer | Turn on/off the buzzer |
 | LED    | Turn on/off the LED    |
 
-### Standing Fan 1X (dmaker.fan.p5)
+### Standing Fan 1X
+
+Supported model: `dmaker.fan.p5`.
 
 - Power (on, off)
 - Operation modes (Normal, Nature)
 - Oscillation (on, off)
-- Number entities
+#### Number entities
 
 | Number              | Description                            |
 | ------------------- | -------------------------------------- |
 | Delay Off Countdown | Set the delay off countdown in minutes |
 | Oscillation Angle   | Set the oscillation angle in degrees   |
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description              |
 | ---------- | ------------------------ |
@@ -1063,50 +1118,54 @@ Clean mode and Motor speed can only be set when the device is turned on.
 | Child Lock | Turn on/off `child lock` |
 | LED        | Turn on/off `led`        |
 
-### Standing Fan (zhimi.fan.za1, zhimi.fan.za3, zhimi.fan.za4, zhimi.fan.sa1)
+### Standing Fan
+
+Supported models: `zhimi.fan.za1`, `zhimi.fan.za3`, `zhimi.fan.za4`, and `zhimi.fan.sa1`.
 
 - Power (on, off)
 - Operation modes (Normal, Nature)
 - Oscillation (on, off)
-- Number entities
+#### Number entities
 
 | Number              | Description                            |
 | ------------------- | -------------------------------------- |
 | Delay Off Countdown | Set the delay off countdown in minutes |
 | Oscillation Angle   | Set the oscillation angle in degrees   |
 
-- Select entities
+#### Select entities
 
 | Select         | Description                                            |
 | -------------- | ------------------------------------------------------ |
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description              |
 | ---------- | ------------------------ |
 | Buzzer     | Turn on/off `buzzer`     |
 | Child Lock | Turn on/off `child lock` |
 
-### DC Pedestal Fan (zhimi.fan.v2, zhimi.fan.v3)
+### DC Pedestal Fan
+
+Supported models: `zhimi.fan.v2` and `zhimi.fan.v3`.
 
 - Power (on, off)
 - Operation modes (Normal, Nature)
 - Oscillation (on, off)
-- Number entities
+#### Number entities
 
 | Number              | Description                            |
 | ------------------- | -------------------------------------- |
 | Delay Off Countdown | Set the delay off countdown in minutes |
 | Oscillation Angle   | Set the oscillation angle in degrees   |
 
-- Select entities
+#### Select entities
 
 | Select         | Description                                            |
 | -------------- | ------------------------------------------------------ |
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
-- Sensor entities
+#### Sensor entities
 
 | Sensor      | Description                             |
 | ----------- | --------------------------------------- |
@@ -1114,25 +1173,27 @@ Clean mode and Motor speed can only be set when the device is turned on.
 | Humidity    | The current humidity measured           |
 | Temperature | The current temperature measured        |
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description              |
 | ---------- | ------------------------ |
 | Buzzer     | Turn on/off `buzzer`     |
 | Child Lock | Turn on/off `child lock` |
 
-### Standing Fan 1C (dmaker.fan.1c)
+### Standing Fan 1C
+
+Supported model: `dmaker.fan.1c`.
 
 - Power (on, off)
 - Operation modes (Normal, Nature)
 - Oscillation (on, off)
-- Number entities
+#### Number entities
 
 | Number              | Description                            |
 | ------------------- | -------------------------------------- |
 | Delay Off Countdown | Set the delay off countdown in minutes |
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description                |
 | ---------- | -------------------------- |
@@ -1153,14 +1214,14 @@ Supported models:
 - Power (on, off)
 - Operation modes (Normal, Nature)
 - Oscillation (on, off)
-- Number entities
+#### Number entities
 
 | Number              | Description                            |
 | ------------------- | -------------------------------------- |
 | Delay Off Countdown | Set the delay off countdown in minutes |
 | Oscillation Angle   | Set the oscillation angle in degrees   |
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description                |
 | ---------- | -------------------------- |
@@ -1168,18 +1229,20 @@ Supported models:
 | Child Lock | Turn on/off the Child Lock |
 | LED        | Turn on/off the LED        |
 
-### Standing Fan 3 (zhimi.fan.za5)
+### Standing Fan 3
+
+Supported model: `zhimi.fan.za5`.
 
 - Power (on, off)
 - Operation modes (Normal, Nature)
 - Oscillation (on, off)
-- Binary sensor entities
+#### Binary sensor entities
 
 | Binary sensor | Description                                            |
 | ------------- | ------------------------------------------------------ |
 | Power Supply  | Indicates whether the power supply is connected or not |
 
-- Number entities
+#### Number entities
 
 | Number              | Description                            |
 | ------------------- | -------------------------------------- |
@@ -1187,14 +1250,14 @@ Supported models:
 | LED Brightness      | Set the LED brightness                 |
 | Oscillation Angle   | Set the oscillation angle in degrees   |
 
-- Sensor entities
+#### Sensor entities
 
 | Sensor      | Description                      |
 | ----------- | -------------------------------- |
 | Humidity    | The current humidity measured    |
 | Temperature | The current temperature measured |
 
-- Switch entities
+#### Switch entities
 
 | Switch     | Description                |
 | ---------- | -------------------------- |
@@ -1234,7 +1297,7 @@ The remote platform allows you to send IR commands from your Xiaomi IR Remote (C
 
 Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the {% term "`configuration.yaml`" %} file.
 
-### Configuring the Platform
+### Configuring the platform
 
 To add a Xiaomi IR Remote to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
@@ -1279,7 +1342,7 @@ commands:
       type: list
 {% endconfiguration %}
 
-### Full Configuration
+### Full configuration
 
 ```yaml
 remote:
@@ -1340,11 +1403,11 @@ script:
             - "read_bad_poem"
 ```
 
-### Command Types
+### Command types
 
 The Xiaomi IR Remote Platform currently supports two different formats for IR codes.
 
-### Raw
+#### Raw
 
 A raw command is a command learned from the [Remote learn command](/actions/xiaomi_miio.remote_learn_command/) action.
 
@@ -1360,7 +1423,7 @@ with an optional last parameter of frequency:
 raw:Z6UFANEAAAAjAQAAAwkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQIAE=:38400
 ```
 
-### Pronto Hex Code
+#### Pronto hex code
 
 A pronto hex code is a hex code often supplied by the device manufacturer.
 
@@ -1389,7 +1452,7 @@ For now, pronto hex codes only work on the first version (`chuangmi.ir.v2`).
 
 The Xiaomi IR Remote registers a generic `remote.send_command` action, along with Xiaomi-specific actions for learning commands and controlling the remote's LED.
 
-### `remote.send_command`
+#### `remote.send_command`
 
 Allows sending either named commands using an identifier or sending commands as one of the two types defined in [Command Types](/integrations/xiaomi_miio/#command-types).
 
@@ -1473,7 +1536,9 @@ Water Shortage\*\*:
 {% endconfiguration_basic %}
 
 {% note %}
-\* Needs to be manually enabled once the {% term integration %} has been added. <br>
+
+\* Needs to be manually enabled once the {% term integration %} has been added.
+
 \*\* Only enabled if the vacuum has a mop.
 {% endnote %}
 
@@ -1526,9 +1591,9 @@ Allowed `params` for the `reset_consumable` command:
 - `['filter_work_time']`
 - `['sensor_dirty_time']`
 
-### Retrieving Zoned Cleaning Coordinates
+### Retrieve zone cleaning coordinates
 
-### Using FloleVac (Android)
+#### Using FloleVac (Android)
 
 1. Download [FloleVac](https://play.google.com/store/apps/details?id=de.flole.xiaomi)
 2. Log in with your Xiaomi credentials
@@ -1536,7 +1601,7 @@ Allowed `params` for the `reset_consumable` command:
 4. Select "Zone cleanup" and draw a box around the zone you'd like to clean
 5. Long press "Cleanup" and the zone coordinates will be copied to your clipboard
 
-### Using RoboRock Control Center (requires Valetudo firmware)
+#### Using RoboRock Control Center (requires Valetudo firmware)
 
 [RRCC](https://github.com/LazyT/rrcc) supports both rooted and non-rooted Vacuums and acts as a mostly fully featured replacement for Mi Home that works locally without the cloud. If you have installed the rooted firmware [Valetudo](https://github.com/Hypfer/Valetudo) you can SSH into your Vacuum and enable MQTT plus use map functions with no cloud requirement.
 
@@ -1554,7 +1619,7 @@ vacuum_kitchen:
         params: [[23084, 26282, 27628, 29727, 1]]
 ```
 
-### Retrieving Room numbers
+### Retrieve room numbers
 
 Valid room numbers can be retrieved using miio command-line tool:
 
@@ -1573,7 +1638,7 @@ The Xiaomi Home light platform allows you to control the state of your Xiaomi Ph
 
 ### Features
 
-### Philips LED Ball Lamp, Philips Zhirui LED Candle Lamp and Philips Zhirui Downlight
+#### Philips LED Ball Lamp, Philips Zhirui LED Candle Lamp and Philips Zhirui Downlight
 
 Supported models: `philips.light.bulb`, `philips.light.candle`, `philips.light.candle2`, `philips.light.downlight`
 
@@ -1587,7 +1652,7 @@ Supported models: `philips.light.bulb`, `philips.light.candle`, `philips.light.c
   - scene
   - delayed_turn_off
 
-### Philips LED Ceiling Lamp
+#### Philips LED Ceiling Lamp
 
 Supported models: `philips.light.ceiling`, `philips.light.zyceiling`
 
@@ -1604,7 +1669,7 @@ Supported models: `philips.light.ceiling`, `philips.light.zyceiling`
   - night_light_mode
   - automatic_color_temperature
 
-### Philips Eyecare Smart Lamp 2
+#### Philips Eyecare Smart Lamp 2
 
 Supported models: `philips.light.sread1`
 
@@ -1624,7 +1689,7 @@ Supported models: `philips.light.sread1`
   - reminder
   - eyecare_mode
 
-### Philips Zhirui Desk Lamp
+#### Philips Zhirui Desk Lamp
 
 Supported models: `philips.light.mono1`
 
@@ -1637,7 +1702,7 @@ Supported models: `philips.light.mono1`
   - scene
   - delayed_turn_off
 
-### Philips Moonlight Bedside Lamp
+#### Philips Moonlight Bedside Lamp
 
 Supported models: `philips.light.moonlight`
 
@@ -1665,7 +1730,7 @@ The Xiaomi Home switch platform allows you to control the state of your Xiaomi S
 
 ### Features
 
-### Xiaomi Smart WiFi Socket
+#### Xiaomi Smart WiFi Socket
 
 Supported models: `chuangmi.plug.m1`, `chuangmi.plug.m3`, `chuangmi.plug.v2`, `chuangmi.plug.hmi205`, `chuangmi.plug.hmi206`
 
@@ -1673,7 +1738,7 @@ Supported models: `chuangmi.plug.m1`, `chuangmi.plug.m3`, `chuangmi.plug.v2`, `c
 - Attributes
   - Temperature
 
-### Xiaomi Chuangmi Plug V1
+#### Xiaomi Chuangmi Plug V1
 
 Supported models: `chuangmi.plug.v1`, `chuangmi.plug.v3`, `chuangmi.plug.hmi208`
 
@@ -1682,7 +1747,7 @@ Supported models: `chuangmi.plug.v1`, `chuangmi.plug.v3`, `chuangmi.plug.hmi208`
 - Attributes
   - Temperature
 
-### Xiaomi Smart Power Strip
+#### Xiaomi Smart Power Strip
 
 Supported models: `qmi.powerstrip.v1`, `zimi.powerstrip.v2`
 
@@ -1697,7 +1762,7 @@ Supported models: `qmi.powerstrip.v1`, `zimi.powerstrip.v2`
   - Wifi LED
   - Mode (Power Strip V1 only)
 
-### Xiaomi Air Conditioning Companion V3
+#### Xiaomi Air Conditioning Companion V3
 
 Supported models: `lumi.acpartner.v3` (the socket of the `acpartner.v1` and `v2` isn't switchable!)
 
@@ -1711,7 +1776,7 @@ This integration adds actions to toggle the Wi-Fi LED and, on supported power st
 
 {% include integrations/actions.md %}
 
-## Retrieving the Access Token
+## Retrieving the access token
 
 Not recommended, please specify the Xiaomi account credentials during the config flow for easier setup.
 However when setting up a device manually the token can be retrieved in one of the following ways.
@@ -1751,7 +1816,7 @@ python3 token_extractor.py
 
 Note: If you have multiple devices needing a token, such as a Xiaomi Mi Robot Vacuum and a Xiaomi IR Remote, the above method may not work. The Xiaomi Home app will display a token, though it isn't the correct one. The alternative method using "Mi Home v5.4.49" will provide the correct token.
 
-### Using Get Mi Home Devices Token App
+### Using the Get Mi Home Devices Token app
 
 If you are on a Windows or macOS device, you can use the [Get MiHome devices token](https://github.com/Maxmudjon/Get_MiHome_devices_token/releases) App to retrieve the token. Click the link, download the file that corresponds to your OS, enter your login details and it will retrieve the access token.
 
@@ -1760,18 +1825,18 @@ If you are on a Windows or macOS device, you can use the [Get MiHome devices tok
 {% note %}
 
 If using an Android device to retrieve the Access Token only `v5.4.49` of Mi Home is confirmed working (December 2019). Use `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored. There will likely be several text files in this directory, search all of them for the word 'token' and you should find it there. Be advised that the latest version of Mi Home does not store the token in clear text.
-<br/> <br/>
+
 The iPhone app still stores the token in the SQLite db as of `v4.23.4` (Nov 17, 2019).
-<br/> <br/>
+
 After resetting the Wi-Fi settings of the Xiaomi robot vacuum, a new Access Token will be generated and therefore these instructions need to be followed again.
-<br/> <br/>
+
 These instructions are written for the Mi Home app - not for the new RoboRock app.
-<br/> <br/>
+
 This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Mi Robot 2 (Roborock) Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote.
 
 {% endnote %}
 
-### Android (not rooted)
+#### Android (not rooted)
 
 > If using an Android device to retrieve the Access Token only `v5.4.49` of Mi Home is confirmed working (December 2019).
 
@@ -1780,7 +1845,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 3. Using `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored.
 4. There will likely be several text files in this directory, search all of them for the word 'token' and you should find it there. Be advised that the latest version of Mi Home does not store the token in clear text.
 
-### Linux and Rooted Android
+#### Linux and rooted Android
 
 1. To begin, set up your Robovac with the latest version of Mi Home on your primary Android device as you normally would.
 2. Ensure successful operation using the latest Mi Home app and give the Vacuum a static IP in your router or however you do that on your LAN.
@@ -1791,7 +1856,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 7. Use adb shell to connect to your device and become root (if using Magisck root do `adb shell -> su -> whoami` to ensure root access.
 8. Then run grep -R '"token"' /data/data/com.xiaomi.smarthome and grab the token
 
-### iOS
+#### iOS
 
 1. Configure the robot with the Mi Home app. Make sure to select the correct region, as Xiaomi uses different product names for different geographical areas. Note that the new RoboRock app is currently not supported for this method.
 2. Using iTunes, create an unencrypted backup of your iPhone. Since macOS 10.15 there is no iTunes app. Use Finder instead - after connecting your iOS device you should see it in left menu of Finder window.
@@ -1825,7 +1890,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 
 14. Use the resulting 32-digit string as your token. (On your mac in front of the terminal session)
 
-### Bluestacks
+#### Bluestacks
 
 1. Configure the robot with the Mi-Home app. Make sure to select the correct region, as Xiaomi uses different product names for different geographical areas. Note that the new RoboRock app is currently not supported for this method.
 2. Install [BlueStacks](https://www.bluestacks.com).
@@ -1835,7 +1900,7 @@ This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuu
 6. Click on `Export to Windows` in the lower left corner and select any or all files to export to you local disk.
 7. Search for `"token":"<yourTokenHere>"`.
 
-### Miio command line tool
+#### Miio command line tool
 
 Use of Miio should be done before the Vacuum is connected to Xiaomi Home. If you already connected to the app you will need to delete it and then join the ad-hoc Wi-Fi network the Vacuum creates. If the vacuum is already paired it's likely this method will only return `???` as your token.
 
