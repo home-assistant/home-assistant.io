@@ -25,8 +25,11 @@ To use this condition in an automation:
 4. From the search box, search for and select **Update is not available**.
 5. Select what you want to check. Under **By target** (see [Targets](#targets)),
    select the update entities you want to check, or a label that you assigned
-   to them. If you select a device, area, or floor instead, its update entities
-   are usually not included.
+   to them.
+   If you select a device, area, or floor instead, update entities marked as
+   configuration or diagnostic entities are not included. This is common for
+   device firmware updates. For details, refer to
+   [Entities that are not part of a target](/docs/automation/targets/#entities-that-are-not-part-of-a-target).
 6. Under **Condition passes if** (see
    [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 7. Under **For at least**, enter how long the update must have stayed up to

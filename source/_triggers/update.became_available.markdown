@@ -23,8 +23,11 @@ To use this trigger in an automation:
 4. From the search box, search for and select **Update became available**.
 5. Select what you want to monitor. Under **By target** (see
    [Targets](#targets)), select the update entities you want to monitor, or a
-   label that you assigned to them. If you select a device, area, or floor
-   instead, its update entities are usually not included.
+   label that you assigned to them.
+   If you select a device, area, or floor instead, update entities marked as
+   configuration or diagnostic entities are not included. This is common for
+   device firmware updates. For details, refer to
+   [Entities that are not part of a target](/docs/automation/targets/#entities-that-are-not-part-of-a-target).
 6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)),
    pick **Each**, **First**, or **All**.
 7. Under **For at least**, enter how long the update must stay available before
