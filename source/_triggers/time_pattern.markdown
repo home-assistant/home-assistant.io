@@ -71,7 +71,6 @@ seconds:
 - Use `*` to match any value.
 - Use `/n` to match values divisible by `n`, like `/5` for every 5 minutes.
 - If you set `hours` without `minutes`, Home Assistant uses minute `0`. If you set `minutes` without `seconds`, Home Assistant uses second `0`.
-- Do not add leading zeroes to these values. For example, use `1`, not `01`.
 
 {% include triggers/try_it.md %}
 
