@@ -61,9 +61,10 @@ This fires 1 day, 1 hour, 15 minutes and 5 seconds before the start of an event 
 {% options_yaml %}
 offset:
   description: >
-    The length of time from the start of the event. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format, for example.
-  required: true
+    The length of time from the start of the event. Accepts a time period mapping in `hours`, `minutes`, `seconds`, and `days`. Also accepts a duration string in `HH:MM:SS` format, for example `00:15:00` for 15 minutes.
+  required: false
   type: time
+  default: "00:00:00"
 offset_type:
   description: >
     Whether to trigger before or after the start of the event, if an offset is defined.
