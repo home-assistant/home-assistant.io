@@ -1343,8 +1343,8 @@ name: Activate Towel Heater
 
 You can also use named commands in a script.
 
-```yaml
-script:
+{% example %}
+script: |
   towel_heater:
     sequence:
       - action: remote.send_command
@@ -1361,7 +1361,7 @@ script:
         data:
           command:
             - "read_bad_poem"
-```
+{% endexample %}
 
 ### Command formats
 
@@ -1490,18 +1490,19 @@ In addition to the standard [vacuum](/integrations/vacuum/) attributes, the vacu
 
 Example script using [`vacuum.send_command`](/integrations/vacuum/) to clean a specific room:
 
-```yaml
-vacuum_kitchen:
-  alias: "Clean the kitchen"
-  sequence:
-    - action: vacuum.send_command
-      target:
-        entity_id: vacuum.xiaomi_vacuum_cleaner
-      data:
-        command: app_segment_clean
-        params:
-          - 18
-```
+{% example %}
+script: |
+  vacuum_kitchen:
+    alias: "Clean the kitchen"
+    sequence:
+      - action: vacuum.send_command
+        target:
+          entity_id: vacuum.xiaomi_vacuum_cleaner
+        data:
+          command: app_segment_clean
+          params:
+            - 18
+{% endexample %}
 
 The `params` value specifies a room number.
 To clean multiple rooms, provide a list of room numbers, such as 17 and 18.
@@ -1515,18 +1516,19 @@ cleaned or replaced (`main_brush_left`, `side_brush_left`, `filter_left` and
 or replaced you can then reset those values on the vacuum. Here is an example script using
 [`vacuum.send_command`](/integrations/vacuum/) to reset the hours for the main brush:
 
-```yaml
-reset_main_brush_left:
-  alias: "Reset hours for main brush replacement"
-  sequence:
-    - action: vacuum.send_command
-      target:
-        entity_id: vacuum.xiaomi_vacuum_cleaner
-      data:
-        command: reset_consumable
-        params:
-          - "main_brush_work_time"
-```
+{% example %}
+script: |
+  reset_main_brush_left:
+    alias: "Reset hours for main brush replacement"
+    sequence:
+      - action: vacuum.send_command
+        target:
+          entity_id: vacuum.xiaomi_vacuum_cleaner
+        data:
+          command: reset_consumable
+          params:
+            - "main_brush_work_time"
+{% endexample %}
 
 Allowed `params` for the `reset_consumable` command:
 
@@ -1551,22 +1553,23 @@ Allowed `params` for the `reset_consumable` command:
 
 Using the map editor you can acquire the coordinates required for zoned clean up. Here is an example script for zoned clean up:
 
-```yaml
-vacuum_kitchen:
-  alias: "Vacuum kitchen"
-  sequence:
-    - action: vacuum.send_command
-      target:
-        entity_id: "vacuum.xiaomi_vacuum_cleaner"
-      data:
-        command: app_zoned_clean
-        params:
-          - - 23084
-            - 26282
-            - 27628
-            - 29727
-            - 1
-```
+{% example %}
+script: |
+  vacuum_kitchen:
+    alias: "Vacuum kitchen"
+    sequence:
+      - action: vacuum.send_command
+        target:
+          entity_id: "vacuum.xiaomi_vacuum_cleaner"
+        data:
+          command: app_zoned_clean
+          params:
+            - - 23084
+              - 26282
+              - 27628
+              - 29727
+              - 1
+{% endexample %}
 
 ### Retrieving room numbers
 
