@@ -24,8 +24,9 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. From the search box, search for and select **Update is not available**.
 5. Select what you want to check. Under **By target** (see [Targets](#targets)),
-   pick the device, area, floor, label, or specific update entity you want to
-   evaluate.
+   select the update entities you want to check, or a label that you assigned
+   to them. If you select a device, area, or floor instead, its update entities
+   are usually not included.
 6. Under **Condition passes if** (see
    [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 7. Under **For at least**, enter how long the update must have stayed up to
@@ -127,11 +128,12 @@ automation: |
 
 If you have created a script for a routine that should run only after updates
 are done, this automation can wait until every targeted update entity is back
-to up to date.
+to up to date. The **Upstairs updates** label is assigned to the update entities
+themselves.
 
 - **Trigger**: Time: 22:00
 - **Condition**: Update is not available
-  - **Target**: Upstairs update label
+  - **Target**: Upstairs updates label
   - **Condition passes if**: All
 - **Action**: Run script
 
