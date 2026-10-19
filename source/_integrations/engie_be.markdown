@@ -13,7 +13,7 @@ ha_platforms:
   - binary_sensor
   - sensor
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **ENGIE Belgium** {% term integration %} integrates the [ENGIE Belgium](https://www.engie.be) API with Home Assistant.
