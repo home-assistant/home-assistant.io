@@ -50,6 +50,6 @@ For each voice command, a folder is created with the wake word audio (`00_wake-*
 Home Assistant doesn't delete these recordings while recording is on. When you're done debugging, remove `debug_recording_dir` and restart Home Assistant. A repair in {% my repairs title="**Settings** > **System** > **Repairs**" %} then reminds you in these cases, and can delete the recordings for you:
 
 - Recording was turned off, or `debug_recording_dir` was changed, but recordings are still in the old directory. This only works for directories that were set after this repair was added.
-- Recording has been on for more than 7 days. This is checked at startup and once a day.
+- Recording is still on and the oldest recording is more than 7 days old. This is checked at startup and once a day.
 
 Only the files Assist wrote are deleted: the `00_wake-*.wav` and `01_stt-*.wav` files, and the folders that are empty afterwards. Other files in the directory are left alone.
