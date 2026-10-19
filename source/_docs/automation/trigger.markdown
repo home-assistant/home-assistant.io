@@ -367,10 +367,10 @@ automation:
         - POST
 ```
 
-You can run this automation by sending an HTTP POST request to `https://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an example form data payload:
+You can run this automation by sending an HTTP POST request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an example form data payload:
 
 ```shell
-curl -X POST -d 'key=value&key2=value2' https://your-home-assistant:8123/api/webhook/some_hook_id
+curl -X POST -d 'key=value&key2=value2' http://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
 Webhooks support HTTP POST, PUT, HEAD, and GET requests; POST requests are recommended. HTTP GET and HEAD requests are not enabled by default but can be enabled by adding them to the `allowed_methods` option. The request methods can also be configured in the UI by selecting **Webhook settings** {% icon "mdi:cog" %} next to the webhook ID.
@@ -388,7 +388,7 @@ Payloads may either be encoded as form data or JSON. Depending on that, its data
 Note that to use JSON encoded payloads, the `Content-Type` header must be set to `application/json`, for example:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{ "key": "value" }' https://your-home-assistant:8123/api/webhook/some_hook_id
+curl -X POST -H "Content-Type: application/json" -d '{ "key": "value" }' http://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
 #### Webhook security
