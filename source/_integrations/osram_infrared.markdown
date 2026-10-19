@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: osram_infrared
 ha_config_flow: true
 ha_platforms:
+  - button
   - light
 ha_integration_type: device
 ha_quality_scale: silver
@@ -57,16 +58,35 @@ The integration creates a light entity with the following functionality:
 - Select a color from the color wheel. The requested color is mapped to the closest supported preset of the physical remote.
 - Select the **Flash**, **Strobe**, or **Smooth** effect.
 
+### Buttons
+
+The integration also provides a separate button entity for each of the physical remote's 24 buttons. The following buttons are enabled by default:
+
+- **Brightness up**
+- **Brightness down**
+- **Mode**
+
+The remaining buttons are disabled by default. You can [enable each entity individually](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity):
+
+- **On** and **Off**
+- **White**
+- **Flash**, **Strobe**, and **Smooth**
+- The 15 color buttons: **Red**, **Red orange**, **Orange**, **Amber**, **Yellow**, **Green**, **Emerald**, **Spring green**, **Turquoise**, **Cyan**, **Blue**, **Indigo**, **Violet**, **Purple**, and **Magenta**
+
+Pressing a button sends the corresponding remote command, even when the light entity is off or disabled. Button presses do not directly update the light entity's assumed state. If you configured a receiver, it can update the light entity when it captures the transmitted command.
+
+The buttons are added to existing configurations automatically when the integration loads. You do not need to set up the integration again.
+
 ## Data updates
 
-The integration does not {% term polling poll %} the light. After sending a command, it updates the light entity to reflect the expected result.
+The integration does not {% term polling poll %} the light. After sending a command from the light entity, it updates that entity to reflect the expected result.
 
 If you configure an infrared receiver, the integration also updates the assumed state when the receiver captures a supported command from the physical remote. Signals that do not match the supported OSRAM infrared protocol are ignored.
 
 ## Known limitations
 
 - Infrared communication does not provide confirmation that the light received a transmitted command. The reported state can differ from the actual state if a signal is missed.
-- Brightness control is currently not supported.
+- Use **Brightness up** and **Brightness down** to adjust brightness with relative commands. The light entity does not provide a brightness slider or report the light's current brightness.
 - The color wheel maps colors to the discrete presets available on the physical remote. The selected color can therefore differ slightly from the requested color.
 - Commands sent with the physical remote update the Home Assistant state only when an infrared receiver is configured and successfully captures the signal.
 
