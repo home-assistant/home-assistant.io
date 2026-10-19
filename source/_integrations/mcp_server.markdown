@@ -16,21 +16,21 @@ related:
   - docs: /integrations/conversation/
     title: Conversation
   - docs: /integrations/mcp/
-    title: Model Context Protocol
+    title: Model Context Protocol Client
 ha_quality_scale: silver
 ---
 
 The **Model Context Protocol** (<abbr title="Model Context Protocol">MCP</abbr>) integration lets you connect an AI agent, such as ChatGPT or Claude, to Home Assistant. The AI agent can then control your devices and see the current state of your home.
 
-With this integration, Home Assistant is the MCP *server*. The AI agent gets its tools from the LLM APIs in Home Assistant that you allow it to use, which by default is all of them. One of these is the Assist API, which gives the AI agent the same tools as your voice assistant ([Assist](/voice_control/)). Through the Assist API, it can only control or see the entities that you have exposed on the {% my voice_assistants title="exposed entities page" %}. To choose which LLM APIs the AI agent can use, refer to [Configuration options](#configuration-options).
+With this integration, Home Assistant is the MCP *server*. The AI agent gets its tools from the LLM APIs in Home Assistant that you allow it to use, which by default is all of them. One of these is the **Device control** API, which gives the AI agent the same tools as your voice assistant ([Assist](/voice_control/)). Through the **Device control** API, it can only control or see the entities that you have exposed on the {% my voice_assistants title="exposed entities page" %}. To choose which LLM APIs the AI agent can use, refer to [Configuration options](#configuration-options).
 
 {% tip %}
 Home Assistant has two MCP integrations, and they work in opposite directions:
 
-- **Model Context Protocol Server** (this page): Another AI app, such as Claude or ChatGPT, controls Home Assistant.
-- [**Model Context Protocol**](/integrations/mcp/): Your Home Assistant conversation agent uses tools from another service.
+- **Model Context Protocol** (this page): Another AI app, such as Claude or ChatGPT, controls Home Assistant.
+- [**Model Context Protocol Client**](/integrations/mcp/): Your Home Assistant conversation agent uses tools from another service.
 
-If you want your Home Assistant conversation agent to use tools from another service, such as web search, you need the [Model Context Protocol](/integrations/mcp/) integration.
+If you want your Home Assistant conversation agent to use tools from another service, such as web search, you need the [Model Context Protocol Client](/integrations/mcp/) integration.
 {% endtip %}
 
 ## Prerequisites

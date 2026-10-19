@@ -14,21 +14,21 @@ related:
   - docs: /integrations/conversation/
     title: Conversation
   - docs: /integrations/mcp_server/
-    title: Model Context Protocol Server
+    title: Model Context Protocol
 ha_quality_scale: silver
 ---
 
-The **Model Context Protocol** {% term integration %} gives your AI [conversation agent](/integrations/conversation/) in Home Assistant extra tools from an MCP server of your choice. For example, you can connect the MCP server of a service you already use, such as a project tracker or a note-taking app, and then ask Assist about it. You can also add an MCP server that lets Assist remember things between conversations, or search the web in ways Home Assistant can't do on its own.
+The **Model Context Protocol Client** {% term integration %} gives your AI [conversation agent](/integrations/conversation/) in Home Assistant extra tools from an MCP server of your choice. For example, you can connect the MCP server of a service you already use, such as a project tracker or a note-taking app, and then ask Assist about it. You can also add an MCP server that lets Assist remember things between conversations, or search the web in ways Home Assistant can't do on its own.
 
 The [Model Context Protocol](https://modelcontextprotocol.io) (<abbr title="Model Context Protocol">MCP</abbr>) is an open standard that lets AI apps use tools and information from other services. With this integration, Home Assistant is the MCP *client*. It connects to an MCP server and passes that server's tools on to your conversation agent.
 
 {% tip %}
 Home Assistant has two MCP integrations, and they work in opposite directions:
 
-- **Model Context Protocol** (this page): Your Home Assistant conversation agent uses tools from another service.
-- [**Model Context Protocol Server**](/integrations/mcp_server/): Another AI app, such as Claude or ChatGPT, controls Home Assistant.
+- **Model Context Protocol Client** (this page): Your Home Assistant conversation agent uses tools from another service.
+- [**Model Context Protocol**](/integrations/mcp_server/): Another AI app, such as Claude or ChatGPT, controls Home Assistant.
 
-If you want to talk to Claude or ChatGPT and have it turn on your lights, you need the [Model Context Protocol Server](/integrations/mcp_server/) integration.
+If you want to talk to Claude or ChatGPT and have it turn on your lights, you need the [Model Context Protocol](/integrations/mcp_server/) integration.
 {% endtip %}
 
 ## Prerequisites
@@ -66,14 +66,14 @@ After you add the integration, your conversation agent doesn't use the new tools
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration of your conversation agent, for example **OpenAI**.
 2. Next to the conversation agent, select the cogwheel {% icon "mdi:cog-outline" %}.
-3. Under **Control Home Assistant**, select the MCP server. It is listed by its name. You can keep **Assist** selected as well, so the agent can still control your home.
+3. Under **Control Home Assistant**, select the MCP server. It is listed by its name. You can keep **Device control** selected as well, so the agent can still control your home.
 4. Select **Submit**.
 
 The next time you talk to this conversation agent, it can use the tools from the MCP server.
 
 ## How it works
 
-Home Assistant acts as a client to the MCP server you specify. It connects to the MCP server and asks for the list of tools it offers. These tools are then made available to Home Assistant conversation agents, in the same way as the tools of the Assist API. For more details on the protocol, refer to the [Model Context Protocol introduction](https://modelcontextprotocol.io/introduction#general-architecture).
+Home Assistant acts as a client to the MCP server you specify. It connects to the MCP server and asks for the list of tools it offers. These tools are then made available to Home Assistant conversation agents, in the same way as the tools of the **Device control** API. For more details on the protocol, refer to the [Model Context Protocol introduction](https://modelcontextprotocol.io/introduction#general-architecture).
 
 Home Assistant connects to MCP servers over the network. It first tries the [Streamable HTTP transport](https://modelcontextprotocol.io/docs/concepts/transports#streamable-http). If the MCP server doesn't support it, Home Assistant uses the [Server-Sent Events (SSE) transport](https://modelcontextprotocol.io/docs/concepts/transports#server-sent-events-sse) instead.
 
@@ -95,7 +95,7 @@ Home Assistant checks the MCP server for its list of available tools every 30 mi
 
 ## Known limitations
 
-The Home Assistant Model Context Protocol integration currently only supports a subset of MCP features:
+The Home Assistant Model Context Protocol Client integration currently only supports a subset of MCP features:
 
 - **Prompts**: Not supported
 - **Tools**: Supported
