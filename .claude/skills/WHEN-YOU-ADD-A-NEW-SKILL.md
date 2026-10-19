@@ -4,4 +4,4 @@ Link the new skill and explain it at <https://contributors.home-assistant.io/sta
 
 ## If you're an agent
 
-Highlight this as required next step for your operator.
+Highlight this as a required next step for your operator.
