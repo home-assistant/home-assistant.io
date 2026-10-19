@@ -1246,6 +1246,8 @@ Home Assistant shows the air quality measured by your Xiaomi Mi Air Quality Moni
 - **Air quality**: Shows the air quality index (AQI).
   Its attributes show the power state, charging state, battery level, display clock, night mode and its schedule, and sensor state.
 
+Depending on the model, a separate air quality entity also provides readings for PM2.5, PM10, carbon dioxide, carbon dioxide equivalent, total volatile organic compounds (TVOC), temperature, and humidity.
+
 ## Xiaomi IR Remote
 
 The Xiaomi IR Remote (`ChuangmiIr`) requires manual YAML configuration.
