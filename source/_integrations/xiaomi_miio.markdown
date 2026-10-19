@@ -379,16 +379,17 @@ Supported model: `zhimi.airpurifier.v6`.
 | Volume         | Set the volume         |
 
 #### Sensor entities
-  - **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
-  - **Filter Use**: Filter usage time in hours. Enabled by default.
-  - **Humidity**: The current humidity measured. Enabled by default.
-  - **Illuminance**: The current illuminance measured. Enabled by default.
-  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-  - **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
-  - **Second Motor Speed**: The current second motor speed measured in rpm. Enabled by default.
-  - **Temperature**: The current temperature measured. Enabled by default.
-  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+
+- **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Use**: Filter usage time in hours. Enabled by default.
+- **Humidity**: The current humidity measured. Enabled by default.
+- **Illuminance**: The current illuminance measured. Enabled by default.
+- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+- **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
+- **Second Motor Speed**: The current second motor speed measured in rpm. Enabled by default.
+- **Temperature**: The current temperature measured. Enabled by default.
+- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 #### Switch entities
 
@@ -417,15 +418,16 @@ Supported model: `zhimi.airpurifier.v7`.
 | Volume         | Set the volume         |
 
 #### Sensor entities
-  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
-  - **Filter Use**: Filter usage time in hours. Enabled by default.
-  - **Humidity**: The current humidity measured. Enabled by default.
-  - **Illuminance**: The current illuminance measured. Enabled by default.
-  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-  - **Second Motor Speed**: The current second motor speed measured in rpm. Enabled by default.
-  - **Temperature**: The current temperature measured. Enabled by default.
-  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+
+- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Use**: Filter usage time in hours. Enabled by default.
+- **Humidity**: The current humidity measured. Enabled by default.
+- **Illuminance**: The current illuminance measured. Enabled by default.
+- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+- **Second Motor Speed**: The current second motor speed measured in rpm. Enabled by default.
+- **Temperature**: The current temperature measured. Enabled by default.
+- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 #### Switch entities
 
@@ -461,14 +463,15 @@ Supported model: `zhimi.airpurifier.ma2`.
 | Favorite Level | Set the favorite level |
 
 #### Sensor entities
-  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
-  - **Filter Use**: Filter usage time in hours. Enabled by default.
-  - **Humidity**: The current humidity measured. Enabled by default.
-  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-  - **Temperature**: The current temperature measured. Enabled by default.
-  - **Illuminance**: The current illuminance measured on top of the device (0-200 lux). Enabled by default.
-  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+
+- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Use**: Filter usage time in hours. Enabled by default.
+- **Humidity**: The current humidity measured. Enabled by default.
+- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+- **Temperature**: The current temperature measured. Enabled by default.
+- **Illuminance**: The current illuminance measured on top of the device (0-200 lux). Enabled by default.
+- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 #### Switch entities
 
@@ -497,13 +500,14 @@ Supported model: `zhimi.airpurifier.mc1`.
 | Favorite Level | Set the favorite level |
 
 #### Sensor entities
-  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
-  - **Filter Use**: Filter usage time in hours. Enabled by default.
-  - **Humidity**: The current humidity measured. Enabled by default.
-  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-  - **Temperature**: The current temperature measured. Enabled by default.
-  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+
+- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Use**: Filter usage time in hours. Enabled by default.
+- **Humidity**: The current humidity measured. Enabled by default.
+- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+- **Temperature**: The current temperature measured. Enabled by default.
+- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 #### Switch entities
 
@@ -516,7 +520,10 @@ Supported model: `zhimi.airpurifier.mc1`.
 
 ### Air Purifier 3 and 3H (2019)
 
-Supported models: `zhimi.airpurifier.ma4` and `zhimi.airpurifier.mb3`.
+Supported models:
+
+- `zhimi.airpurifier.ma4`
+- `zhimi.airpurifier.mb3`
 
 This model uses newer MiOT communication protocol.
 
@@ -539,14 +546,15 @@ This model uses newer MiOT communication protocol.
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
 #### Sensor entities
-  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
-  - **Filter Use**: Filter usage time in hours. Enabled by default.
-  - **Humidity**: The current humidity measured. Enabled by default.
-  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-  - **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
-  - **Temperature**: The current temperature measured. Enabled by default.
-  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+
+- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Use**: Filter usage time in hours. Enabled by default.
+- **Humidity**: The current humidity measured. Enabled by default.
+- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+- **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
+- **Temperature**: The current temperature measured. Enabled by default.
+- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 #### Switch entities
 
@@ -557,7 +565,12 @@ This model uses newer MiOT communication protocol.
 
 ### Air Purifier Pro H and Pro H EU
 
-Supported models: `zhimi.airpurifier.va1` and `zhimi.airpurifier.vb2`.
+Supported models:
+
+- `zhimi.airpurifier.va1`
+- `zhimi.airpurifier.vb2`
+
+Supported features:
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Fan)
@@ -578,14 +591,15 @@ Supported models: `zhimi.airpurifier.va1` and `zhimi.airpurifier.vb2`.
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
 #### Sensor entities
-  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
-  - **Filter Use**: Filter usage time in hours. Enabled by default.
-  - **Humidity**: The current humidity measured. Enabled by default.
-  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-  - **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
-  - **Temperature**: The current temperature measured. Enabled by default.
-  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+
+- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Use**: Filter usage time in hours. Enabled by default.
+- **Humidity**: The current humidity measured. Enabled by default.
+- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+- **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
+- **Temperature**: The current temperature measured. Enabled by default.
+- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 #### Switch entities
 
@@ -596,7 +610,12 @@ Supported models: `zhimi.airpurifier.va1` and `zhimi.airpurifier.vb2`.
 
 ### Air Purifier 3C
 
-Supported models: `zhimi.airpurifier.mb4` and `zhimi.airp.mb4a`.
+Supported models:
+
+- `zhimi.airpurifier.mb4`
+- `zhimi.airp.mb4a`
+
+Supported features:
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
@@ -609,10 +628,11 @@ Supported models: `zhimi.airpurifier.mb4` and `zhimi.airp.mb4a`.
 | LED Brightness       | Set the LED brightness       |
 
 #### Sensor entities
-  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
-  - **Filter Use**: Filter usage time in hours. Enabled by default.
-  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+
+- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Use**: Filter usage time in hours. Enabled by default.
+- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
 
 #### Switch entities
 
@@ -635,13 +655,14 @@ Supported model: `zhimi.airpurifier.za1`.
 | Favorite Level | Set the favorite level |
 
 #### Sensor entities
-  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
-  - **Filter Use**: Filter usage time in hours. Enabled by default.
-  - **Humidity**: The current humidity measured. Enabled by default.
-  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-  - **Temperature**: The current temperature measured. Enabled by default.
-  - **TVOC**: The current concentration of Total Organic Volatile Components. Enabled by default.
+
+- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Use**: Filter usage time in hours. Enabled by default.
+- **Humidity**: The current humidity measured. Enabled by default.
+- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+- **Temperature**: The current temperature measured. Enabled by default.
+- **TVOC**: The current concentration of Total Organic Volatile Components. Enabled by default.
 
 #### Switch entities
 
@@ -670,14 +691,15 @@ Supported model: `zhimi.airpurifier.v3`.
   - `button_pressed`
 
 #### Sensor entities
-  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
-  - **Filter Use**: Filter usage time in hours. Enabled by default.
-  - **Illuminance**: The current illuminance measured. Enabled by default.
-  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-  - **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
-  - **Second Motor Speed**: The current second motor speed measured in rpm. Enabled by default.
-  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+
+- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Use**: Filter usage time in hours. Enabled by default.
+- **Illuminance**: The current illuminance measured. Enabled by default.
+- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+- **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
+- **Second Motor Speed**: The current second motor speed measured in rpm. Enabled by default.
+- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 #### Switch entities
 
@@ -689,7 +711,10 @@ Supported model: `zhimi.airpurifier.v3`.
 
 ### Air Purifier 4 and 4 Pro
 
-Supported models: `zhimi.airp.mb5` and `zhimi.airp.vb4`.
+Supported models:
+
+- `zhimi.airp.mb5`
+- `zhimi.airp.vb4`
 
 These models use newer MiOT communication protocol.
 
@@ -711,15 +736,16 @@ These models use newer MiOT communication protocol.
 | LED Brightness | Controls the brightness of the Display (bright, dim, off) |
 
 #### Sensor entities
-  - **Filter Lifetime Remaining**: The remaining lifetime of the filter in %. Enabled by default.
-  - **Filter Time Left**: The remaining lifetime of the filter in days. Enabled by default.
-  - **Filter Use**: Filter usage time in hours. Enabled by default.
-  - **Humidity**: The current humidity measured. Enabled by default.
-  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
-  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-  - **PM10**: The current particulate matter 10 measured (4 PRO only). Enabled by default.
-  - **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
-  - **Temperature**: The current temperature measured. Enabled by default.
+
+- **Filter Lifetime Remaining**: The remaining lifetime of the filter in %. Enabled by default.
+- **Filter Time Left**: The remaining lifetime of the filter in days. Enabled by default.
+- **Filter Use**: Filter usage time in hours. Enabled by default.
+- **Humidity**: The current humidity measured. Enabled by default.
+- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+- **PM10**: The current particulate matter 10 measured (4 PRO only). Enabled by default.
+- **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
+- **Temperature**: The current temperature measured. Enabled by default.
 
 #### Switch entities
 
@@ -778,13 +804,14 @@ Supported model: `dmaker.airfresh.a1`.
   - `extra_features`
 
 #### Sensor entities
-  - **Carbon Dioxide**: The current carbon dioxide measured in ppm. Enabled by default.
-  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
-  - **Filter Use**: Filter usage time in hours. Enabled by default.
-  - **Humidity**: The current humidity measured. Enabled by default.
-  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
-  - **Temperature**: The current temperature measured. Enabled by default.
-  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+
+- **Carbon Dioxide**: The current carbon dioxide measured in ppm. Enabled by default.
+- **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+- **Filter Use**: Filter usage time in hours. Enabled by default.
+- **Humidity**: The current humidity measured. Enabled by default.
+- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+- **Temperature**: The current temperature measured. Enabled by default.
+- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 #### Select entities
 
@@ -843,26 +870,30 @@ Supported model: `dmaker.airfresh.t2017`.
 - Operation modes (Auto, Sleep, Favorite)
 
 #### Binary sensor entities
-  - **Auxiliary Heat Status**: Indicates if the heater is actually on
+
+- **Auxiliary Heat Status**: Indicates if the heater is actually on
 
 #### Button entities
-  - **Reset Dust Filter**: Resets filter lifetime and usage of the dust filter
-  - **Reset Upper Filter**: Resets filter lifetime and usage of the upper filter
+
+- **Reset Dust Filter**: Resets filter lifetime and usage of the dust filter
+- **Reset Upper Filter**: Resets filter lifetime and usage of the upper filter
 
 #### Select entities
-  - **Auxiliary Heat Level**: Controls the level of the heater (Low, Medium, High)
-  - **Display Orientation**: Controls the orientation of the display (Forward, Left, Right)
+
+- **Auxiliary Heat Level**: Controls the level of the heater (Low, Medium, High)
+- **Display Orientation**: Controls the orientation of the display (Forward, Left, Right)
 
 #### Sensor entities
-  - **Carbon Dioxide**: The current carbon dioxide in ppm
-  - **Dust filter lifetime remaining**: The remaining lifetime of the dust filter
-  - **Dust filter lifetime remaining days**: The remaining lifetime of the dust filter in days
-  - **Upper filter lifetime remaining**: The remaining lifetime of the upper filter
-  - **Upper filter lifetime remaining days**: The remaining lifetime of the upper filter in days
-  - **PM2.5**: The current particulate matter 2.5
-  - **Temperature**: The current outside temperature
-  - **Control Speed**: The current motor speed in rpm
-  - **Favorite Speed**: The favorite motor speed in rpm
+
+- **Carbon Dioxide**: The current carbon dioxide in ppm
+- **Dust filter lifetime remaining**: The remaining lifetime of the dust filter
+- **Dust filter lifetime remaining days**: The remaining lifetime of the dust filter in days
+- **Upper filter lifetime remaining**: The remaining lifetime of the upper filter
+- **Upper filter lifetime remaining days**: The remaining lifetime of the upper filter in days
+- **PM2.5**: The current particulate matter 2.5
+- **Temperature**: The current outside temperature
+- **Control Speed**: The current motor speed in rpm
+- **Favorite Speed**: The favorite motor speed in rpm
 
 #### Switch entities
 
@@ -903,10 +934,11 @@ Supported model: `zhimi.humidifier.v1`.
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
 #### Sensor entities
-  - **Humidity**: The current humidity measured. Enabled by default.
-  - **Temperature**: The current temperature measured. Enabled by default.
-  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
-  - **Water Level**: The current water level percentage measured. Enabled by default.
+
+- **Humidity**: The current humidity measured. Enabled by default.
+- **Temperature**: The current temperature measured. Enabled by default.
+- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+- **Water Level**: The current water level percentage measured. Enabled by default.
 
 #### Switch entities
 
@@ -945,10 +977,11 @@ Supported model: `zhimi.humidifier.ca1`.
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
 #### Sensor entities
-  - **Humidity**: The current humidity measured. Enabled by default.
-  - **Temperature**: The current temperature measured. Enabled by default.
-  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
-  - **Water Level**: The current water level percentage measured. Enabled by default.
+
+- **Humidity**: The current humidity measured. Enabled by default.
+- **Temperature**: The current temperature measured. Enabled by default.
+- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+- **Water Level**: The current water level percentage measured. Enabled by default.
 
 #### Switch entities
 
@@ -994,11 +1027,12 @@ Supported model: `zhimi.humidifier.ca4`.
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
 #### Sensor entities
-  - **Actual Speed**: The current motor speed measured in rpm. Enabled by default.
-  - **Humidity**: The current humidity measured. Enabled by default.
-  - **Temperature**: The current temperature measured. Enabled by default.
-  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
-  - **Water Level**: The current water level percentage measured. Enabled by default.
+
+- **Actual Speed**: The current motor speed measured in rpm. Enabled by default.
+- **Humidity**: The current humidity measured. Enabled by default.
+- **Temperature**: The current temperature measured. Enabled by default.
+- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+- **Water Level**: The current water level percentage measured. Enabled by default.
 
 #### Switch entities
 
@@ -1043,10 +1077,11 @@ Supported model: `zhimi.humidifier.cb1`.
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
 #### Sensor entities
-  - **Humidity**: The current humidity measured. Enabled by default.
-  - **Temperature**: The current temperature measured. Enabled by default.
-  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
-  - **Water Level**: The current water level percentage measured. Enabled by default.
+
+- **Humidity**: The current humidity measured. Enabled by default.
+- **Temperature**: The current temperature measured. Enabled by default.
+- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+- **Water Level**: The current water level percentage measured. Enabled by default.
 
 #### Switch entities
 
@@ -1058,7 +1093,13 @@ Supported model: `zhimi.humidifier.cb1`.
 
 ### Air Humidifier JSQ, JSQ1, and MJJSQ
 
-Supported models: `deerma.humidifier.jsq`, `deerma.humidifier.jsq1`, and `deerma.humidifier.mjjsq`.
+Supported models:
+
+- `deerma.humidifier.jsq`
+- `deerma.humidifier.jsq1`
+- `deerma.humidifier.mjjsq`
+
+Supported features:
 
 - On, Off
 - Operation modes (low, medium, high, humidity)
@@ -1081,9 +1122,10 @@ Supported models: `deerma.humidifier.jsq`, `deerma.humidifier.jsq1`, and `deerma
 | Water Tank Empty | Indicates whether the water tank is empty or not     |
 
 #### Sensor entities
-  - **Humidity**: The current humidity measured. Enabled by default.
-  - **Temperature**: The current temperature measured. Enabled by default.
-  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+
+- **Humidity**: The current humidity measured. Enabled by default.
+- **Temperature**: The current temperature measured. Enabled by default.
+- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 #### Switch entities
 
@@ -1099,6 +1141,7 @@ Supported model: `dmaker.fan.p5`.
 - Power (on, off)
 - Operation modes (Normal, Nature)
 - Oscillation (on, off)
+
 #### Number entities
 
 | Number              | Description                            |
@@ -1116,11 +1159,19 @@ Supported model: `dmaker.fan.p5`.
 
 ### Standing Fan
 
-Supported models: `zhimi.fan.za1`, `zhimi.fan.za3`, `zhimi.fan.za4`, and `zhimi.fan.sa1`.
+Supported models:
+
+- `zhimi.fan.za1`
+- `zhimi.fan.za3`
+- `zhimi.fan.za4`
+- `zhimi.fan.sa1`
+
+Supported features:
 
 - Power (on, off)
 - Operation modes (Normal, Nature)
 - Oscillation (on, off)
+
 #### Number entities
 
 | Number              | Description                            |
@@ -1143,11 +1194,17 @@ Supported models: `zhimi.fan.za1`, `zhimi.fan.za3`, `zhimi.fan.za4`, and `zhimi.
 
 ### DC Pedestal Fan
 
-Supported models: `zhimi.fan.v2` and `zhimi.fan.v3`.
+Supported models:
+
+- `zhimi.fan.v2`
+- `zhimi.fan.v3`
+
+Supported features:
 
 - Power (on, off)
 - Operation modes (Normal, Nature)
 - Oscillation (on, off)
+
 #### Number entities
 
 | Number              | Description                            |
@@ -1183,6 +1240,7 @@ Supported model: `dmaker.fan.1c`.
 - Power (on, off)
 - Operation modes (Normal, Nature)
 - Oscillation (on, off)
+
 #### Number entities
 
 | Number              | Description                            |
@@ -1207,9 +1265,12 @@ Supported models:
 - `dmaker.fan.p18`
 - `dmaker.fan.p33`
 
+Supported features:
+
 - Power (on, off)
 - Operation modes (Normal, Nature)
 - Oscillation (on, off)
+
 #### Number entities
 
 | Number              | Description                            |
@@ -1232,6 +1293,7 @@ Supported model: `zhimi.fan.za5`.
 - Power (on, off)
 - Operation modes (Normal, Nature)
 - Oscillation (on, off)
+
 #### Binary sensor entities
 
 | Binary sensor | Description                                            |
@@ -1636,7 +1698,14 @@ The Xiaomi Home light platform allows you to control the state of your Xiaomi Ph
 
 #### Philips LED Ball Lamp, Philips Zhirui LED Candle Lamp and Philips Zhirui Downlight
 
-Supported models: `philips.light.bulb`, `philips.light.candle`, `philips.light.candle2`, `philips.light.downlight`
+Supported models:
+
+- `philips.light.bulb`
+- `philips.light.candle`
+- `philips.light.candle2`
+- `philips.light.downlight`
+
+Supported features:
 
 - Power (on, off)
 - Brightness
@@ -1650,7 +1719,12 @@ Supported models: `philips.light.bulb`, `philips.light.candle`, `philips.light.c
 
 #### Philips LED Ceiling Lamp
 
-Supported models: `philips.light.ceiling`, `philips.light.zyceiling`
+Supported models:
+
+- `philips.light.ceiling`
+- `philips.light.zyceiling`
+
+Supported features:
 
 - Power (on, off)
 - Brightness
@@ -1728,7 +1802,15 @@ The Xiaomi Home switch platform allows you to control the state of your Xiaomi S
 
 #### Xiaomi Smart WiFi Socket
 
-Supported models: `chuangmi.plug.m1`, `chuangmi.plug.m3`, `chuangmi.plug.v2`, `chuangmi.plug.hmi205`, `chuangmi.plug.hmi206`
+Supported models:
+
+- `chuangmi.plug.m1`
+- `chuangmi.plug.m3`
+- `chuangmi.plug.v2`
+- `chuangmi.plug.hmi205`
+- `chuangmi.plug.hmi206`
+
+Supported features:
 
 - Power (on, off)
 - Attributes
@@ -1736,7 +1818,13 @@ Supported models: `chuangmi.plug.m1`, `chuangmi.plug.m3`, `chuangmi.plug.v2`, `c
 
 #### Xiaomi Chuangmi Plug V1
 
-Supported models: `chuangmi.plug.v1`, `chuangmi.plug.v3`, `chuangmi.plug.hmi208`
+Supported models:
+
+- `chuangmi.plug.v1`
+- `chuangmi.plug.v3`
+- `chuangmi.plug.hmi208`
+
+Supported features:
 
 - Power (on, off)
 - USB (on, off)
@@ -1745,7 +1833,12 @@ Supported models: `chuangmi.plug.v1`, `chuangmi.plug.v3`, `chuangmi.plug.hmi208`
 
 #### Xiaomi Smart Power Strip
 
-Supported models: `qmi.powerstrip.v1`, `zimi.powerstrip.v2`
+Supported models:
+
+- `qmi.powerstrip.v1`
+- `zimi.powerstrip.v2`
+
+Supported features:
 
 - Power (on, off)
 - Wifi LED (on, off)
