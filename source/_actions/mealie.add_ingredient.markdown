@@ -64,13 +64,25 @@ This adds the food, note, unit, and quantity to the shopping list, if food ID or
 ### Options in YAML
 
 {% options_yaml %}
-config_entry_id:
-  description: The ID of the Mealie config entry to parse the ingredient from.
+target:
+  description: The ID of the Mealie shopping list to add the item to.
   required: true
   type: string
-ingredient:
-  description: The ingredient to find matches for in your food items and identify quantities and units.
-  required: true
+food_id:
+  description: The Mealie food ID to add. Required if no note is provided.
+  required: false
+  type: string
+unit_id:
+  description: The Mealie unit ID to use for the quantity.
+  required: false
+  type: string
+quantity:
+  description: The quantity of the ingredient. Defaults to 0 if omitted.
+  required: false
+  type: float
+note:
+  description: A note for the ingredient. Required if no food ID is provided.
+  required: false
   type: string
 {% endoptions_yaml %}
 
