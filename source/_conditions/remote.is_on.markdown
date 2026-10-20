@@ -57,9 +57,9 @@ behavior:
   default: any
 for:
   description: |
-    How long the remote must have been on for the condition to pass. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` requires the remote to have been on for at least five minutes.
+    How long the remote must have been on for the condition to pass. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` requires the remote to have been on for at least five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [integer, float, string, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

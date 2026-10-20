@@ -65,9 +65,9 @@ behavior:
 for:
   description: >
     Duration the satellite must have been idle before the condition passes.
-    Accepts a duration string like `00:00:05` for 5 seconds.
+    Accepts a duration string like `00:00:05` for 5 seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [integer, float, string, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

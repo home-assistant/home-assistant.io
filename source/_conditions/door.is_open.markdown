@@ -57,9 +57,9 @@ behavior:
   default: any
 for:
   description: >
-    How long the door must have stayed open before the condition passes.
+    How long the door must have stayed open before the condition passes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [integer, float, string, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

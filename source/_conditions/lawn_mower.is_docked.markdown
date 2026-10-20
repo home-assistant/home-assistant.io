@@ -56,9 +56,9 @@ behavior:
 for:
   description: >
     How long the mower must stay docked before the condition passes. Accepts a
-    duration like `00:10:00` for 10 minutes.
+    duration like `00:10:00` for 10 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [integer, float, string, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

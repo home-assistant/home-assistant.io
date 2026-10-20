@@ -70,9 +70,9 @@ behavior:
   default: any
 for:
   description: >
-    How long the water heater must stay on before the condition passes. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` waits 5 minutes.
+    How long the water heater must stay on before the condition passes. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` waits 5 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [integer, float, string, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

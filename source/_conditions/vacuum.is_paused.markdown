@@ -60,9 +60,9 @@ behavior:
 for:
   description: >
     The time the vacuum must stay paused before the condition passes.
-    Accepts a duration like `00:00:10` for 10 seconds.
+    Accepts a duration like `00:00:10` for 10 seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [integer, float, string, map]
 {% endoptions_yaml %}
 
 {% include conditions/targets.md %}

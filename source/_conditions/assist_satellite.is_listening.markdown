@@ -63,9 +63,9 @@ behavior:
 for:
   description: >
     Duration the satellite must have been in the listening state before the condition passes.
-    Accepts a duration string like `00:00:02` for 2 seconds. Use small values only, as listening windows are typically just a few seconds long.
+    Accepts a duration string like `00:00:02` for 2 seconds. Use small values only, as listening windows are typically just a few seconds long. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [integer, float, string, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

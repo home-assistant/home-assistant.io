@@ -54,9 +54,9 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the timer must remain active before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the timer must remain active before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [integer, float, string, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
