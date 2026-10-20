@@ -35,7 +35,7 @@ Newer KACO inverters, including the blueplanet, TL3, and NX3 families, speak a d
 - Every inverter needs its own address in the range 1 to 32. The address is set on the inverter itself, in its display menu under **Inverter address**.
   - On inverters offering both RS232 and RS485, the **Interface** menu entry must be set to RS485 first.
   - Don't confuse this with the **Sym-Bus** address, which is a separate setting in the same menu, also numbered 1 to 32, used for phase balancing between inverters. Setting that one has no effect here.
-- Nothing else may be polling the bus. RS485 allows a single controller, and a second one corrupts everyone's traffic. If a KACO data logger, such as a Powador-proLOG, is attached, disconnect it first.
+- Nothing else may be polling the bus. RS485 allows a single controller, and a second one corrupts everyone's traffic. If you attach a KACO data logger, such as a Powador-proLOG, disconnect the controller first.
 
 {% include integrations/config_flow.md %}
 
