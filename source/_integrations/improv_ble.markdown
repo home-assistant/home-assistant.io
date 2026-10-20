@@ -61,8 +61,8 @@ After the device has joined your Wi-Fi network, add it to Home Assistant with th
 - Improv via BLE only sends your Wi-Fi details to the Wi-Fi device.
   - It doesn't add the Wi-Fi device to Home Assistant, and it doesn't show up in your list of integrations.
   - You add the Wi-Fi device itself with its own integration, for example, [ESPHome](/integrations/esphome/).
-- It only works for Wi-Fi devices that aren't connected to a Wi-Fi network yet.
-- It can't use Bluetooth proxies that don't support active connections, such as Shelly or SMLIGHT proxies.
+- Improv via BLE only works for Wi-Fi devices that aren't connected to a Wi-Fi network yet.
+- If Improv via BLE uses a Bluetooth proxy, the proxy must support [active connections](/integrations/bluetooth/#connection), such as an ESPHome proxy. Shelly and SMLIGHT proxies can't make connections.
 
 ## Troubleshooting
 
