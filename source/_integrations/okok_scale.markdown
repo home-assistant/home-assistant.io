@@ -23,10 +23,9 @@ The **OKOK Scale** {% term integration %} allows you to connect your [OKOK·Inte
 ## Use cases
 
 - Track your weight over time with the history graph or a statistics graph on a dashboard, without depending on the OKOK cloud app.
-- Get a notification with your weight as soon as you step off the scale.
+- Get a notification with your weight after you step off the scale.
 - Calculate derived values, such as your body mass index (BMI), with a template sensor.
 - Trigger a morning routine, for example turning on the bathroom lights or starting the coffee machine, when you weigh yourself.
-- Get reminded to replace the batteries before the scale stops working.
 
 ## Supported devices
 
@@ -56,80 +55,89 @@ A scale exposes the following sensors:
 - **Signal strength**: the Bluetooth signal strength (diagnostic, [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)).
 
 {% important %}
-Updates of the battery sensor, and of the impedance sensor on most scales, require an active Bluetooth connection and relatively close proximity. If you use a <a href="/integrations/bluetooth/#remote-adapters-bluetooth-proxies/" target="_blank">Bluetooth proxy</a>, ensure it supports active connections.
+Updates of the battery sensor, and of the impedance sensor on scales that don't broadcast it, require an active Bluetooth connection and relatively close proximity. If you use a <a href="/integrations/bluetooth/#remote-adapters-bluetooth-proxies/" target="_blank">Bluetooth proxy</a>, ensure it supports active connections.
 {% endimportant %}
+
+## Examples
+
+The examples below use `sensor.okok_scale_2345_weight` as the weight sensor. Replace it with the entity ID of your own scale's weight sensor.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Send a notification with your weight
+
+This automation sends a notification to your phone when the scale reports a new weight. It waits until the weight has stayed the same for 10 seconds, so scales that report intermediate values while the reading settles only send one notification. Because the automation is triggered by a change of the sensor value, it does not send a notification if you weigh exactly the same as the previous measurement.
+
+To create this automation in the UI, go to {% my automations title="**Settings** > **Automations & scenes**" %}, select **Create automation**, and add:
+
+- **Trigger**: **Entity** > **State**, with the weight sensor as the entity, and **For** set to 10 seconds.
+- **Action**: **Notifications** > **Send a notification via mobile_app_your_phone**, with a message that contains the weight.
+
+{% details "YAML example for a weight notification" %}
+
+{% example %}
+automation: |
+  alias: "Notify weight measurement"
+  triggers:
+    - trigger: state
+      entity_id: sensor.okok_scale_2345_weight
+      not_from:
+        - unknown
+        - unavailable
+      not_to:
+        - unknown
+        - unavailable
+      for:
+        seconds: 10
+  actions:
+    - action: notify.mobile_app_your_phone
+      data:
+        title: "New measurement"
+        message: >
+          You weigh {{ trigger.to_state.state }}
+          {{ trigger.to_state.attributes.unit_of_measurement }}.
+{% endexample %}
+
+{% enddetails %}
+
+Replace `notify.mobile_app_your_phone` with the notification action of your own device.
+
+### Calculate your body mass index
+
+This template sensor calculates your body mass index (BMI) from the weight sensor. The example requires the unit of the weight sensor in Home Assistant to be kilograms. This can differ from the unit set on the scale, because you can change the unit of a weight sensor in Home Assistant. Replace `1.80` with your height in meters.
+
+To create this sensor in the UI, go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, select **Create helper** > **Template** > **Template a sensor**, and enter the template below as the **State template**.
+
+{% details "Template example for the body mass index" %}
+
+{% example %}
+template: |
+  {% set weight = states('sensor.okok_scale_2345_weight') | float(0) %}
+  {% set height = 1.80 %}
+  {{ (weight / (height ** 2)) | round(1) }}
+output: "23.1"
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 
-The scale broadcasts its measurements over Bluetooth while it is awake. The integration listens to these broadcasts ({% term "Local Push" %}) and only updates the sensors when the scale reports a final, stabilized measurement. Intermediate readings while the weight is still settling are ignored.
+The scale broadcasts its measurements over Bluetooth while it is awake. The integration listens to these broadcasts ({% term "Local Push" %}).
 
-- **Weight** is read from the broadcasts, so it is updated as soon as a measurement is finished.
-- **Impedance** is included in the broadcasts of some scales. Other scales only provide it over an active Bluetooth connection. When the integration detects that a scale supports impedance, it connects to the scale after each measurement to read it.
-- **Battery** is read over an active Bluetooth connection: the first time the scale is seen after Home Assistant starts, after each measurement on scales that support impedance, and otherwise at most once a day.
+- **Weight** is read from the broadcasts. How often the sensor updates during a measurement depends on the data format of your scale. Some scales mark a measurement as final once the weight has stabilized, and the integration only updates the sensor with that final value. Other scales don't mark measurements as final, so the sensor can update several times while the reading settles, ending with the final weight.
+- **Impedance** is included in the broadcasts of some scales. Other scales only provide it over an active Bluetooth connection. When the integration detects that a scale provides impedance over a connection, it connects to the scale after each measurement to read it.
+- **Battery** is read over an active Bluetooth connection: the first time the scale is seen after Home Assistant starts, after each measurement on scales that provide impedance over a connection, and otherwise at most once a day.
 
 Between measurements the scale goes to sleep and stops broadcasting. The sensors then keep their last value instead of becoming unavailable, and are marked as having an assumed state.
 
 ## Known limitations
 
-- The scale only broadcasts for a short time after a measurement. Values are only updated when you use the scale, so there is no live reading.
+- The scale only broadcasts for a short time while it is in use, so values are only updated when you use the scale. Depending on the data format of your scale, the weight sensor can show intermediate values while the reading settles.
 - Measurements are not linked to a person. If several people use the same scale, all measurements end up on the same weight sensor. You can use automations or template sensors to assign measurements to people, for example based on the weight range.
 - The integration provides the raw impedance only. Body composition values such as body fat percentage are not calculated, because they depend on personal data such as height, age, and sex.
-- Battery updates, and impedance updates on most scales, need a Bluetooth adapter or proxy in range that supports active connections. With a passive-only adapter, only the weight is updated.
+- Battery updates need a Bluetooth adapter or proxy in range that supports active connections. The same applies to impedance on scales that don't broadcast it. With a passive-only adapter, you only receive the weight, and the impedance on scales that broadcast it.
 - Some scales always report a battery level of 0%.
 - Scales that broadcast using data format 10 or 26 are not supported yet.
-
-## Examples
-
-### Send a notification with your weight
-
-This automation sends a notification to your phone after each finished measurement. Replace `sensor.okok_scale_2345_weight` with the entity ID of your scale's weight sensor, and `notify.mobile_app_your_phone` with your notification service.
-
-{% raw %}
-
-```yaml
-automation:
-  - alias: "Notify weight measurement"
-    triggers:
-      - trigger: state
-        entity_id: sensor.okok_scale_2345_weight
-        not_from:
-          - unknown
-          - unavailable
-        not_to:
-          - unknown
-          - unavailable
-    actions:
-      - action: notify.mobile_app_your_phone
-        data:
-          title: "New measurement"
-          message: >
-            You weigh {{ trigger.to_state.state }}
-            {{ trigger.to_state.attributes.unit_of_measurement }}.
-```
-
-{% endraw %}
-
-### Calculate your body mass index
-
-This template sensor calculates your body mass index (BMI) from the weight sensor. Replace `1.80` with your height in meters. This example assumes the scale is set to kilograms.
-
-{% raw %}
-
-```yaml
-template:
-  - sensor:
-      - name: "Body mass index"
-        unique_id: body_mass_index
-        state_class: measurement
-        state: >
-          {% set weight = states('sensor.okok_scale_2345_weight') | float(0) %}
-          {% set height = 1.80 %}
-          {{ (weight / (height ** 2)) | round(1) }}
-        availability: >
-          {{ has_value('sensor.okok_scale_2345_weight') }}
-```
-
-{% endraw %}
 
 ## Troubleshooting
 
@@ -141,11 +149,11 @@ template:
 
 ### The weight does not update
 
-The weight only updates after a finished measurement. Step on the scale and wait until the reading on the display is stable. If the sensor still doesn't update, move the scale closer to your Bluetooth adapter or proxy.
+The weight only updates while you use the scale. Step on the scale and wait until the reading on the display is stable. Depending on the data format of your scale, the sensor updates once with the final weight, or several times while the reading settles. If the sensor doesn't update at all, move the scale closer to your Bluetooth adapter or proxy.
 
 ### The battery or impedance does not update
 
-These values need an active Bluetooth connection to the scale.
+The battery level, and the impedance on scales that don't broadcast it, need an active Bluetooth connection to the scale.
 
 - Make sure a Bluetooth adapter or proxy that supports active connections is in range of the scale. If you see the error **No connectable Bluetooth adapter is in range** in the logs, none of your adapters can connect to the scale.
 - Make sure the OKOK·International app is not connected to the scale at the same time. Most scales only accept one connection at a time.
