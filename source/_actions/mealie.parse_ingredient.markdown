@@ -45,7 +45,7 @@ action: |
   action: mealie.parse_ingredient
   data:
     config_entry_id: YOUR_MEALIE_CONFIG_ENTRY_ID
-    ingredient: `1 kg bananas`
+    ingredient: "1 kg bananas"
   response_variable: ingredient
 {% endexample %}
 
@@ -66,11 +66,20 @@ ingredient:
 
 ## Response data
 
-The action returns structured data for the ingredient, confidence and original input.
+The action returns the parsed ingredient, how confident Mealie is about the match, and the text you sent. The most useful keys are:
+- `input`: The text you sent, such as `1 kg bananas`.
+- `ingredient.quantity`: The quantity, such as `1.0`.
+- `ingredient.unit.name`: The unit, such as `kg`.
+- `ingredient.food.name`: The matched food, such as `bananas`.
+- `ingredient.display`: The full ingredient as Mealie displays it.
+- `confidence.average`: How confident Mealie is about the match, from `0` to `1`.
+- `confidence.acceptable_confidence`: `true` if the confidence is high enough for Mealie to-do lists to add the item as a food instead of a note.
 
 ## Good to know
 
-- The confidence includes an `acceptable_confidence` boolean indicating if the ingredient confidence is high enough to be added as an ingredient with the add item action on a Mealie to-do list, rather than a note.
+- The action uses the **Recognition method** set in the Mealie integration options.
+- `acceptable_confidence` uses the same check as Mealie to-do lists. When **Recognize food in new items** is turned on, an item would be added as a food with a separate quantity and unit only if `acceptable_confidence` is `true`. Otherwise, it would be added as a note.
+- If Mealie can't parse the text at all, the action fails with the message "Mealie could not parse the ingredient."
 
 {% include actions/stuck.md %}
 
