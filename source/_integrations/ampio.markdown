@@ -4,7 +4,7 @@ description: Instructions on how to integrate Ampio Smart Home with Home Assista
 ha_category:
   - Hub
   - Sensor
-ha_release: 2026.9
+ha_release: 2026.11
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
@@ -61,15 +61,15 @@ If you add the integration again within 30 days, Home Assistant restores your en
 
 ### Sensors
 
-Each recognized sensor channel becomes a sensor entity with the matching device class, unit, and suggested precision. The measurement type comes from the channel's type and interpretation as the M-SERV reports them, so renaming a channel in Ampio Designer changes only the entity's name. The entity takes its name from the object's device. An object without a name gets a device named `Object <id>`, and its entity is named after the measurement.
+Each recognized sensor channel becomes a sensor entity with the matching device class, unit, and suggested precision. The measurement type comes from the channel's type and interpretation as the M-SERV reports them, so a rename in Ampio Designer keeps the measurement type. The new name shows on the object's device after a reload. The entity takes its name from the object's device. An object without a name gets a device named `Object <id>`, and its entity is named after the measurement.
 
-Only channels that are configured and visible in Ampio Designer are exposed. The M-SERV marks placeholder and duplicate channels as hidden, and the integration filters those out, so the entity list matches what the Ampio apps show.
+Only channels that are configured and visible in Ampio Designer are exposed. The M-SERV marks placeholder channels as hidden, and the integration filters those out, so the entity list matches what the Ampio apps show.
 
 ## Data updates
 
 The integration is push-based. The M-SERV publishes every object state change to its MQTT broker, and the integration turns each publish into a state update, so there is no polling and no refresh interval to configure.
 
-When the connection to the M-SERV drops, all entities become unavailable, and the integration reconnects automatically and restores them once the broker is reachable again. If the M-SERV rejects the stored credentials, the entry shows an authentication error.
+When the connection to the M-SERV drops, all entities become unavailable, and the integration reconnects automatically and restores them once the broker is reachable again. If the M-SERV rejects the stored credentials, the entry shows an authentication error. To enter new credentials, delete the integration and add it again.
 
 ## Known limitations
 
