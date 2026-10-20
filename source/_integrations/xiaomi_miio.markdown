@@ -86,21 +86,55 @@ API token:
 
 ## Troubleshooting
 
-### Devices on different subnets are not discovered
+{% details "Devices on different subnets are not discovered" %}
+
+### Symptom: The device is not discovered
+
+Your Xiaomi Home device is not discovered when it is on a different subnet or VLAN from Home Assistant.
+
+#### Description
 
 Xiaomi Home devices might not communicate across subnets or VLANs.
+
+#### Resolution
+
 For network requirements and possible solutions, see the [python-miio troubleshooting guide](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#discover-devices-across-subnets).
 
-### Roborock vacuum is not detected
+{% enddetails %}
 
-Connect your Roborock vacuum to the Xiaomi Home app, not the Roborock app.
+{% details "Roborock vacuum is not detected" %}
+
+### Symptom: The vacuum is not discovered
+
+Your Roborock vacuum is not discovered by the Xiaomi Home integration.
+
+#### Description
+
+The Xiaomi Home integration requires the vacuum to be connected to the Xiaomi Home app, not the Roborock app.
+
+#### Resolution
+
+Connect the vacuum to the Xiaomi Home app.
 For more information, see the [python-miio troubleshooting guide](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#roborock-vacuum-not-detected).
 
-### Connection is intermittent
+{% enddetails %}
 
-Do not block network access to the device.
+{% details "Connection is intermittent" %}
+
+### Symptom: The device is intermittently unavailable
+
+The device periodically stops responding in Home Assistant.
+
+#### Description
+
 Blocking network access can cause the device to stop responding until its internal watchdog restarts its software.
+
+#### Resolution
+
+Allow the device to access your network.
 For more information, see the [python-miio troubleshooting guide](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#intermittent-connection-issues-timeouts-xiaomi-vacuum).
+
+{% enddetails %}
 
 ## Xiaomi Gateway
 
