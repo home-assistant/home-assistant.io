@@ -52,11 +52,11 @@ A climate entity and three switch entities are created for each Gree air conditi
 - **Turbo**
   - **Description**: Enables or disables turbo mode, which runs the unit at maximum output.
 - **Panel light**
-  - **Description**: Turns the front panel light on or off.
+  - **Description**: Turns the front panel light on or off. Shown under **Configuration** on the device page.
 - **Xtra fan**
-  - **Description**: Enables or disables extra fan mode to help remove moisture from the coils. Gree remotes label this button **X-Fan** or **Blow**.
+  - **Description**: Enables or disables extra fan mode to help remove moisture from the coils. Gree remotes label this button **X-Fan** or **Blow**. Shown under **Configuration** on the device page.
 
-These three features are switches rather than buttons because the Gree remote sends the wanted state, not a toggle, so Home Assistant can track whether each one is on or off. They are named to match the [Gree](/integrations/gree/) integration, which controls the same features over Wi-Fi.
+The switches are named to match the [Gree](/integrations/gree/) integration, which controls the same features over Wi-Fi.
 
 ### Supported modes
 
