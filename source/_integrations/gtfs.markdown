@@ -48,8 +48,6 @@ Each route tracks departures from one stop to another. To add a route:
 
 The route is named after its stops, for example **First Street to Third Street**. To use a different name, rename its device.
 
-
-
 Each route creates a device with a departure sensor. The sensor's state is the time of the next departure, looking ahead to tomorrow once today's last departure has passed, and its attributes contain information about the trip, such as agency, origin and destination stop, stop times, and route.
 
 ## Data updates
