@@ -1529,7 +1529,7 @@ In addition to the standard [vacuum](/integrations/vacuum/) attributes, the vacu
 - `error`: The current error, if the vacuum reports one.
 - `timers`: The cleaning timers set on the vacuum, if any.
 
-### Clean a specific room
+### Cleaning a specific room
 
 Use [`vacuum.send_command`](/integrations/vacuum/) to clean a specific room:
 
@@ -1552,7 +1552,7 @@ The `params` value specifies a room number.
 To clean multiple rooms, provide a list of room numbers, such as 17 and 18.
 For instructions on finding valid room numbers and the rooms they map to, refer to [Retrieving room numbers](#retrieving-room-numbers).
 
-### Reset maintenance hours
+### Resetting maintenance hours
 
 The vacuum entity stores the remaining time before its brushes, filter, and sensors need maintenance in the `main_brush_left`, `side_brush_left`, `filter_left`, and `sensor_dirty_left` attributes.
 The values are measured in hours.
@@ -1880,7 +1880,7 @@ python3 token_extractor.py
 3. Enter the email address or username, password, and region for your Xiaomi account.
 4. The script lists the devices connected to the account with their IP addresses and access tokens.
 
-### Xiaomi Home app (Xiaomi Aqara Gateway)
+### Retrieving a gateway access token using Xiaomi Home
 
 1. Install the Xiaomi Home app and sign in to your account.
 2. Set the region to **Chinese mainland**.
@@ -1895,12 +1895,12 @@ If you need tokens for multiple devices, the Xiaomi Home app might show a token 
 Use the [Xiaomi Cloud Tokens Extractor](#xiaomi-cloud-tokens-extractor) instead.
 {% endnote %}
 
-### Using the Get Mi Home Devices Token app
+### Retrieving an access token with the Get Mi Home Devices Token app
 
 On Windows or macOS, you can use [Get MiHome devices token](https://github.com/Maxmudjon/Get_MiHome_devices_token/releases) to retrieve an access token.
 Download the file for your operating system, enter your sign-in details, and follow the app's instructions.
 
-### Alternative methods
+### Other ways to retrieve an access token
 
 {% note %}
 
