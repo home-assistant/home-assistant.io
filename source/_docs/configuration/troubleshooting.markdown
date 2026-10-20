@@ -123,7 +123,7 @@ Almost all integrations use extra software packages to communicate with your dev
 1. Make sure Home Assistant is connected to the internet.
 2. Restart Home Assistant, and check if the problem persists.
 3. If it does, check [the logs](/integrations/logger/#viewing-logs) for more details about the error.
-4. If you can't find the cause, [report it](https://github.com/home-assistant/core/issues) and include the error from the logs.
+4. If you can't find the cause, [report the issue](/help/reporting_issues/) and include the error from the logs.
 
 {% enddetails %}
 
@@ -142,7 +142,7 @@ This can have many causes, such as a problem with the device or service, the net
 1. Check [the logs](/integrations/logger/#viewing-logs) for errors related to the integration.
    - To get more details, [turn on debug logging](#enabling-debug-logging) for the integration.
 2. Check the troubleshooting section on the documentation page of the integration.
-3. If you can't find the cause, [report it](https://github.com/home-assistant/core/issues) and include the logs.
+3. If you can't find the cause, [report the issue](/help/reporting_issues/) and include the logs.
 
 {% enddetails %}
 
