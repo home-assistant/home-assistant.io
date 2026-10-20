@@ -109,7 +109,7 @@ Setting up the integration fails with an error message.
 
 The setup form shows one of these errors:
 
-- **Cannot connect**: Farmad could not be reached.
+- **Failed to connect**: Farmad could not be reached.
 - **Invalid authentication**: the email address or the password is wrong.
 - **Multi-factor authentication**: the account requires a one-time code.
 
