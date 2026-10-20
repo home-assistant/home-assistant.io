@@ -1,22 +1,117 @@
 ---
 title: Meraki
-description: Instructions on how to integrate Meraki-based presence detection into Home Assistant.
+description: Instructions on how to use Cisco Meraki networks for presence detection in Home Assistant.
 ha_categories:
   - presence_location.network_presence
   - computers_network.routers_network
 ha_iot_class: Cloud Polling
 ha_release: '0.60'
 ha_domain: meraki
+ha_codeowners:
+  - '@felixblang'
+ha_config_flow: true
 ha_platforms:
   - device_tracker
-ha_integration_type: integration
+ha_integration_type: hub
 related:
+  - url: https://dashboard.meraki.com/
+    title: Meraki Dashboard
   - docs: /docs/configuration/
     title: Configuration file
 ha_quality_scale: legacy
 ---
 
-Use your Meraki AP as device tracker. Note that Meraki will see all devices, not only connected to the network.
+The **Meraki** {% term integration %} connects Home Assistant to [Cisco Meraki](https://meraki.cisco.com/) networks through the [Meraki Dashboard API](https://developer.cisco.com/meraki/api-v1/). It tracks whether the clients of your networks, such as phones and laptops on Wi-Fi or computers on a Meraki switch, are connected, and which Bluetooth devices your access points hear.
+
+An older way of presence detection through the Meraki CMX location service is set up in YAML; see [Presence detection with the CMX location service](#presence-detection-with-the-cmx-location-service).
+
+## Use case
+
+- Know who is home: a phone that connects to your Wi-Fi marks its owner as home.
+- Notice when a wired device, such as a NAS, drops off the network.
+
+## Prerequisites
+
+The integration needs a Meraki Dashboard API key with access to your organization. In the Meraki Dashboard, enable API access for the organization and create an API key, as described in Meraki's [authorization guide](https://developer.cisco.com/meraki/api-v1/authorization/). A key of an administrator with read-only access is enough.
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+API key:
+  description: "Your Meraki Dashboard API key."
+Organization:
+  description: "The Meraki organization to add. This step is only shown when the API key has access to several organizations. To add more than one organization, add the integration again for each."
+{% endconfiguration_basic %}
+
+## Supported functionality
+
+### Device trackers
+
+- **Clients**: A tracker for each Wi-Fi or wired client seen in the organization's networks in the last hour. It is home while Meraki reports the client online, and shows the client's IP address, MAC address and hostname.
+- **Bluetooth devices**: A tracker for each Bluetooth device the access points hear, for networks with Bluetooth scanning enabled. It is home while an access point heard it in the last five minutes.
+
+Like other network-based trackers, new trackers are disabled until you enable them, unless another integration already knows the device by its MAC address. Client trackers are then added to that device.
+
+## Automation example
+
+### Turn off the lights when everyone has left
+
+{% details "Example YAML configuration" %}
+
+{% example %}
+automation: |
+  alias: "Turn off the lights when the phones leave"
+  triggers:
+    - trigger: state
+      entity_id:
+        - device_tracker.pixel_9
+        - device_tracker.iphone
+      to: not_home
+      for: "00:10:00"
+  conditions:
+    - condition: state
+      entity_id:
+        - device_tracker.pixel_9
+        - device_tracker.iphone
+      state: not_home
+  actions:
+    - action: light.turn_off
+      target:
+        area_id: living_room
+{% endexample %}
+
+{% enddetails %}
+
+## Data updates
+
+The integration polls the Meraki Dashboard API every minute: one request for the organization's networks, plus one for the clients of each network and one for the Bluetooth devices of each network with access points. With a few networks, this stays well within Meraki's rate limit of 10 requests per second per organization.
+
+## Known limitations
+
+- Each organization is added separately, with its own API key.
+- The Dashboard API does not provide a client's position, so unlike the CMX presence detection, the trackers don't show devices on the map. They only tell whether a device is home.
+- Phones and many other devices use Bluetooth addresses that change every few minutes. These cannot be followed and get no tracker.
+
+## Troubleshooting
+
+### The API key is not accepted
+
+- Make sure API access is enabled for the organization in the Meraki Dashboard.
+- Make sure the API key belongs to an administrator of the organization you want to add.
+
+### The integration asks to reauthenticate
+
+The API key was revoked or lost access to the organization. Create a new API key in the Meraki Dashboard and enter it when Home Assistant asks for it.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+The CMX presence detection described below is set up in YAML and is removed by removing its configuration from your {% term "`configuration.yaml`" %} file.
+
+## Presence detection with the CMX location service
+
+Use your Meraki AP as device tracker. Note that Meraki will see all devices, not only connected to the network. This requires Home Assistant to be reachable from the internet, as Meraki sends the data to it.
 
 ### Prerequisites
 
@@ -29,7 +124,7 @@ Use your Meraki AP as device tracker. Note that Meraki will see all devices, not
    3. Make sure the API Version is set to `2.0`.
    4. Hit **Save** in the bottom right of the page.
 
-## Configuration
+### Configuration
 
 After you configure access to the Meraki CMX API, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
