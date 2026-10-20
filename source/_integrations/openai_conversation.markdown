@@ -1,9 +1,9 @@
 ---
 title: OpenAI
 description: Instructions on how to integrate OpenAI as a conversation agent
-ha_category:
-  - AI
-  - Voice
+ha_categories:
+  - ai_voice.ai_models
+  - ai_voice.speech
 ha_release: 2023.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -29,7 +29,7 @@ ha_codeowners:
 
 The **OpenAI** {% term integration %} adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
 
-Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
+Controlling Home Assistant is done by providing the AI access to the **Device control** API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 

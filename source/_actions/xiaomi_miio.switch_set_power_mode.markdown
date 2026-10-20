@@ -7,7 +7,7 @@ related_actions:
   - xiaomi_miio.switch_set_power_price
 ---
 
-The **Switch set power mode** action sets the power mode of a Xiaomi power strip. This action only works with power strips that support a power mode.
+The **Xiaomi Home: Switch set power mode** action sets the power mode of a Xiaomi power strip. This action only works with power strips that support a power mode.
 
 {% include actions/ui_header.md %}
 

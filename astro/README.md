@@ -5,15 +5,15 @@ Home Assistant website. The website is being migrated from Jekyll to
 Astro incrementally: both stacks build the site during the migration,
 and pages move over section by section.
 
-**Every page on www.home-assistant.io is still produced by Jekyll.**
+**Most pages on www.home-assistant.io are still produced by Jekyll.**
 Both stacks build on every deploy (`rake generate` runs the Astro
-build after the Jekyll build) and in CI, but the Astro output appears
-only under the `/astro-preview/` path described below — no website
-route is served from it. A failed Astro build fails deploy previews
-and CI; on production deploys it only warns, so it cannot block
-publishing the Jekyll site. Serving logic (routing individual pages
-to their Astro version) lands in a later change and makes the build
-fatal everywhere.
+build after the Jekyll build) and in CI. The pages listed in
+`served-routes.json` are served from Astro (see "Serving a page from
+Astro" below); everything else Astro builds appears only under the
+`/astro-preview/` path described below. A failed Astro build fails
+deploy previews and CI; on production deploys it only warns, and the
+served routes keep Jekyll's version of their pages, so a broken Astro
+build can neither be merged nor block publishing the site.
 
 The Astro output is browsable on every deploy, production included,
 at `/astro-preview/` — for example,
@@ -44,6 +44,31 @@ header. Remove that file at cutover.
   files work unmodified.
 - Output mirrors Jekyll's URL scheme exactly (directory-style URLs
   with trailing slashes).
+
+## Serving a page from Astro
+
+A page is served from Astro by listing its route in
+`served-routes.json` (for example `"tos/"`). That does two things:
+
+- The `pages` collection (`src/content.config.mjs`) reads the route's
+  Markdown file in place (`source/tos/index.markdown`), and
+  `src/pages/[...page].astro` builds it at the same URL Jekyll uses,
+  with the `Page` layout: site header, the page in `Prose`, the
+  feedback card and the site footer.
+- After both builds, `rake generate` copies Astro's page over the one
+  Jekyll built at that route (`public/tos/index.html`). Nothing is
+  rewritten or redirected: Netlify serves the file it finds, so deploy
+  previews show the Astro page at its real URL exactly as production
+  will.
+
+Jekyll keeps building the page too, so the Jekyll dev server still
+has it and its Markdown stays shared. If the Astro build fails on a
+production deploy, the copy is skipped and Jekyll's version is
+published instead.
+
+Site settings the layout needs (title, release version, search key)
+come from the repository's `_config.yml`, read by `src/lib/site.mjs`,
+so both stacks always show the same values.
 
 ## Commands
 
@@ -107,12 +132,13 @@ registry to update. Each tile links to a full-screen stage
 (`/astro-preview/component-preview/<name>/` on the deployed site)
 where the variants render at true viewport width, which is how
 full-width components such as the header and footer are best
-reviewed. Mark such a fixture `wide: true` so its tile spans a whole
-row of the browser and the demo comes close to the width of the
-window, which its media queries are written for. Fixtures are pure
-data on purpose (no
-`.astro` imports): the optional `liquid` field holds the equivalent
-Jekyll source, so the same variants can drive the Jekyll/Astro
+reviewed. Every tile takes a full row of the browser, so a demo
+comes close to the width of the window its media queries are written
+for; mark a full-width component's fixture `wide: true` to render it
+edge to edge, without the demo padding. A variant meant for dark
+backgrounds can set `dark: true` to render on black. Fixtures are
+pure data on purpose (no `.astro` imports): the optional `liquid`
+field holds the equivalent Jekyll source, so the same variants can drive the Jekyll/Astro
 golden-output parity tests. The browser pages are a development aid
 and are excluded from the Jekyll/Astro route parity checks.
 

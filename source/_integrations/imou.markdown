@@ -1,14 +1,8 @@
 ---
 title: Imou
 description: Integrate Imou smart devices into Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Camera
-  - Select
-  - Sensor
-  - Switch
+ha_categories:
+  - security_safety.cameras
 ha_iot_class: Cloud Polling
 ha_release: 2026.7
 ha_config_flow: true
@@ -24,6 +18,7 @@ ha_platforms:
   - diagnostics
   - select
   - sensor
+  - siren
   - switch
 ha_integration_type: hub
 ha_quality_scale: silver
@@ -31,7 +26,7 @@ ha_quality_scale: silver
 
 The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically.
 
-Channel devices expose **Live view SD** and **Live view HD** camera entities. Depending on what the cloud API reports for each device, the integration also creates alarm control panel, button, switch, select, binary sensor, and sensor entities. See [Supported functionality](#supported-functionality) for the full list.
+Channel devices expose **Live view SD** and **Live view HD** camera entities. Depending on what the cloud API reports for each device, the integration also creates alarm control panel, button, switch, siren, select, binary sensor, and sensor entities. See [Supported functionality](#supported-functionality) for the full list.
 
 ## Supported devices
 
@@ -47,8 +42,6 @@ Before using the Imou integration, create an Imou Open Platform application:
 2. Register or log in to your Imou account, then open the **Control board**.
 3. Go to **App Information** to obtain an **App ID** and **App secret**.
 4. Add your Imou devices in the Imou Open Platform or Imou mobile app so they appear on your account.
-
-## Configuration
 
 {% include integrations/config_flow.md %}
 
@@ -98,10 +91,10 @@ Imou Open Platform API usage limits apply to your App ID:
 
 Each device channel with a camera feed exposes two camera entities:
 
-- **Live view SD**: Standard-definition cloud live stream.
-- **Live view HD**: High-definition cloud live stream.
+- **Live view SD**: Standard-definition cloud live stream (enabled by default).
+- **Live view HD**: High-definition cloud live stream (disabled by default; enable it in the entity settings if you need HD).
 
-Both are enabled by default. You can view a still image or start a live stream when the device is online.
+You can view a still image or start a live stream when the device is online.
 
 ### Buttons
 
@@ -136,6 +129,17 @@ Device settings (**Configuration** category):
 - **Prompt sound**: Toggle prompt sounds on supported models.
 - **Smart tracking**: Toggle smart tracking on supported cameras.
 - **Wide dynamic range**: Toggle wide dynamic range on supported cameras.
+
+### Siren
+
+On supported cameras and gateways, the integration exposes a **Siren** entity when the cloud API reports that the siren can be started or stopped.
+
+- **Turn on** sounds the siren.
+- **Turn off** stops the siren.
+
+The cloud API doesn't report whether the siren is sounding. The state is **Unknown** until you turn the siren on or off. If the device supports both commands, the state then shows the last command you sent. This might not match the device, for example, when the siren stops by itself. Because Home Assistant can't read the real state, the dashboard shows separate on and off buttons instead of a toggle.
+
+**Alarm-linked siren** is a separate switch. It only links the siren to alarm events.
 
 ### Alarm control panel
 
@@ -217,6 +221,10 @@ Binary sensors are unavailable when a device is offline or no longer on your acc
 Most sensors are unavailable when a device is offline or no longer on your account. Ensure the device has power and network connectivity and appears online in the Imou app.
 
 The **Status** sensor is an exception: it stays available when the device is offline and reports `offline` instead of becoming unavailable.
+
+### A siren is unavailable
+
+The siren is unavailable when the device is offline or no longer on your account. Ensure the device appears online in the Imou app.
 
 ### An alarm control panel is unavailable
 

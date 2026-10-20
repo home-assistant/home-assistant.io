@@ -1,16 +1,6 @@
 ---
 title: Little Swan
 description: Connect and control your Little Swan devices using the Midea integration
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Fan
-  - Humidifier
-  - Light
-  - Number
-  - Select
-  - Switch
 ha_release: 2026.8
 ha_domain: little_swan
 ha_integration_type: virtual

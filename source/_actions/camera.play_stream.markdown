@@ -82,7 +82,9 @@ format:
 
 Stream the front door camera to a TV when someone presses the doorbell.
 
-- **Trigger**: Doorbell is pressed
+- **Trigger**: State changed
+  - **Entity**: Doorbell sensor
+  - **To**: On
 - **Action**: Play camera stream
   - **Target**: Front door camera
   - **Media player**: Living room TV

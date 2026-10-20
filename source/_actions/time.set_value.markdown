@@ -1,5 +1,5 @@
 ---
-title: "Set time value"
+title: "Set time"
 action: time.set_value
 domain: time
 description: "Sets the value of a time entity."

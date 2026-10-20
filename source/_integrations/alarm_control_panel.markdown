@@ -1,8 +1,6 @@
 ---
 title: Alarm control panel
 description: Connect your home alarm system to Home Assistant for automated arming, disarming, and instant notifications when the alarm triggers.
-ha_category:
-  - Alarm
 ha_release: 0.7.3
 ha_quality_scale: internal
 ha_domain: alarm_control_panel

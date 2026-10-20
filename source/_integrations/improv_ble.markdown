@@ -3,8 +3,8 @@ title: Improv via BLE
 description: The Improv via BLE integration allows connecting devices implementing Improv via BLE to Wi-Fi.
 ha_release: 2023.11
 ha_bluetooth: true
-ha_category:
-  - Other
+ha_categories:
+  - diy_makers.boards_hardware
 ha_codeowners:
   - '@emontnemery'
 ha_domain: improv_ble

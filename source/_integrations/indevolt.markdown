@@ -2,9 +2,8 @@
 title: Indevolt
 description: Instructions on how to integrate your Indevolt device with Home Assistant.
 ha_release: 2026.3
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.solar_batteries
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@xirt'

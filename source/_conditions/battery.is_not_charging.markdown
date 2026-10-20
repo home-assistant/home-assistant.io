@@ -70,7 +70,7 @@ for:
 ## Good to know
 
 - The target must be a binary sensor with the battery charging device class.
-- Devices that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="devices" %}
 - A fully charged device with the charger still connected may report as not charging, because the charger has stopped drawing power. If you want to be sure the device is unplugged, combine this condition with [Battery level](/conditions/battery.is_level/).
 - To check the opposite state, use [Battery is charging](/conditions/battery.is_charging/).
 - For an overview of the status of your battery {% term entities %}, open the [**Maintenance** dashboard](/dashboards/dashboards/#dashboards-only-shown-in-the-dashboard-list-by-default). This dashboard allows you to quickly see which batteries need replacing.

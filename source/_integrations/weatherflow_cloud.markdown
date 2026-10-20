@@ -2,10 +2,8 @@
 title: WeatherflowCloud
 description: Instructions on how to integrate your WeatherFlow Tempest into Home Assistant through the WeatherFlow cloud.
 ha_release: 2024.3
-ha_category:
-  - Environment
-  - Sensor
-  - Weather
+ha_categories:
+  - weather_alerts.forecasts
 ha_platforms:
   - sensor
   - weather
