@@ -23,7 +23,7 @@ If you have incorrect entries in your configuration files you can use the config
 
 One of the most common problems with Home Assistant is an invalid {% term "`configuration.yaml`" %} or other configuration file. To find problems, check your configuration under {% my tools_yaml title="**Settings** > **Tools** > **YAML**" %} > **Check configuration**. You can also run the configuration check from the command line:
 
-- [Home Assistant Operating System](/common-tasks/os/#configuration-check)
+- [Home Assistant Operating System](/common-tasks/os/#running-a-configuration-check-from-the-cli)
 - [Home Assistant Container](/common-tasks/container/#configuration-check)
 
 {% details "Home Assistant reports an invalid configuration" %}
