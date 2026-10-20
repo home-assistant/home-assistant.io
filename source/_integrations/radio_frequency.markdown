@@ -24,7 +24,7 @@ The **Radio Frequency** {% term integration %} allows you to use Home Assistant 
 - An integration that provides radio frequency entities by integrating a radio frequency remote adapter (such as [ESPHome](/integrations/esphome/) or [Broadlink](/integrations/broadlink/))
 - Device-specific integrations (such as [Honeywell String Lights](/integrations/honeywell_string_lights/) or [Novy Cooker Hood](/integrations/novy_cooker_hood/))
 
-You can control radio frequency-controlled devices from Home Assistant without touching the handheld remote control. You can also send signals from the handheld remote control to Home Assistant. The chart illustrates how this is possible via the integrations.
+You can control radio frequency-controlled devices from Home Assistant without touching the handheld remote control. Home Assistant can also receive signals from a handheld RF remote. The chart illustrates how this is possible via the integrations.
 
 <p class='img'><img class='invertDark' src='/images/integrations/radio_frequency/radio-frequency-overview.png' alt="Diagram showing how the Radio Frequency integration connects device integrations to a radio frequency remote adapter through a remote adapter integration.">
 How the Radio Frequency integration connects device integrations to a radio frequency remote adapter through a remote adapter integration.
@@ -106,7 +106,9 @@ The component of your remote adapter that sends out RF signals. This is the same
 
 #### Radio frequency receiver
 
-The component of your remote adapter that catches RF signals sent by a device like a handheld remote. Home Assistant updates the entity's {% term state %} each time the receiver picks up a signal, and integrations for radio frequency-controlled devices can use those signals. In Home Assistant, each receiver appears as a radio frequency {% term entity %}.
+The component of your remote adapter that receives RF signals from a device like a handheld remote. Home Assistant updates the entity's {% term state %} each time the receiver picks up a signal, and integrations for radio frequency-controlled devices can use those signals. In Home Assistant, each receiver appears as a radio frequency {% term entity %}.
+
+The receiver entity's state shows only when it last received a signal. It doesn't show which signal it was, such as which remote button was pressed. To act on specific buttons, you need an integration that uses the receiver.
 
 ### Radio frequency-controlled device
 
@@ -130,7 +132,7 @@ In addition, the entity can have the following states. Each item shows the inter
 - **Unavailable** (`unavailable`): The entity is currently unavailable.
 - **Unknown** (`unknown`): The state is not yet known.
 
-Because the {% term state %} of a radio frequency entity is a timestamp, it changes every time the entity is used. This means you can use it to track when the transmitter last sent a command, or when the receiver last picked up a signal. The logbook can also show context about which {% term integration %} or {% term action %} triggered the transmission.
+Because the {% term state %} of a radio frequency entity is a timestamp, it changes every time the entity is used. This means you can use it to track when the transmitter last sent a command, or when the receiver last picked up a signal. For a transmitter, **Activity** can also show which {% term integration %} or {% term action %} triggered the transmission.
 
 ## Device class
 
