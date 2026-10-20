@@ -307,7 +307,7 @@ automation:
 
 The `for` template(s) will be evaluated when the `value_template` becomes 'true'.
 
-Templates that do not contain an entity will be rendered once per minute.
+A template that uses the current time, with `now()`, `utcnow()`, `today_at`, `relative_time`, `time_since`, or `time_until`, is rendered again at the start of every minute. For details, refer to [Getting the current time](/docs/templating/dates-and-times/#getting-the-current-time). A template without entities that doesn't use any of these is only rendered once, when Home Assistant sets up the trigger.
 
 {% important %}
 Use of the `for` option will not survive Home Assistant restart or the reload of automations. During restart or reload, automations that were awaiting `for` the trigger to pass, are reset.
@@ -440,7 +440,7 @@ automation:
       at: "15:32:00"
 ```
 
-Triggers can also be disabled based on [limited templates](/docs/templating/limited-templates/) or blueprint inputs. These are only evaluated once when the automation is loaded.
+Triggers can also be disabled based on [limited templates](/docs/templating/limited-templates/) or blueprint inputs. Home Assistant evaluates these when it sets up the triggers: when it loads the automation, when you reload automations, and when you turn the automation on. They don't update in between.
 
 ```yaml
 blueprint:
