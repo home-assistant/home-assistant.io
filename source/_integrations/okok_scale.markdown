@@ -55,22 +55,20 @@ A scale exposes the following sensors:
 - **Signal strength**: the Bluetooth signal strength (diagnostic, [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)).
 
 {% important %}
-Updates of the battery sensor, and of the impedance sensor on scales that don't broadcast it, require an active Bluetooth connection and relatively close proximity. If you use a <a href="/integrations/bluetooth/#remote-adapters-bluetooth-proxies/" target="_blank">Bluetooth proxy</a>, ensure it supports active connections.
+Updates of the battery sensor, and of the impedance sensor on scales that do not broadcast impedance, require an active Bluetooth connection and relatively close proximity. If you use a <a href="/integrations/bluetooth/#remote-adapters-bluetooth-proxies/" target="_blank">Bluetooth proxy</a>, ensure it supports active connections.
 {% endimportant %}
 
 ## Examples
-
-The examples below use `sensor.okok_scale_2345_weight` as the weight sensor. Replace it with the entity ID of your own scale's weight sensor.
 
 {% include docs/paste_yaml_tip.md %}
 
 ### Send a notification with your weight
 
-This automation sends a notification to your phone when the scale reports a new weight. It waits until the weight has stayed the same for 10 seconds, so scales that report intermediate values while the reading settles only send one notification. Because the automation is triggered by a change of the sensor value, it does not send a notification if you weigh exactly the same as the previous measurement.
+This automation sends a notification to your phone when the reported weight changes. It does not send a new notification if a measurement has the same value as the previous one. Replace `sensor.okok_scale_2345_weight` with the entity ID of your scale's weight sensor, and `notify.mobile_app_your_phone` with your notification action.
 
 To create this automation in the UI, go to {% my automations title="**Settings** > **Automations & scenes**" %}, select **Create automation**, and add:
 
-- **Trigger**: **Entity** > **State**, with the weight sensor as the entity, and **For** set to 10 seconds.
+- **Trigger**: **Entity** > **State**, with the weight sensor as the entity.
 - **Action**: **Notifications** > **Send a notification via mobile_app_your_phone**, with a message that contains the weight.
 
 {% details "YAML example for a weight notification" %}
@@ -87,8 +85,6 @@ automation: |
       not_to:
         - unknown
         - unavailable
-      for:
-        seconds: 10
   actions:
     - action: notify.mobile_app_your_phone
       data:
@@ -100,11 +96,9 @@ automation: |
 
 {% enddetails %}
 
-Replace `notify.mobile_app_your_phone` with the notification action of your own device.
-
 ### Calculate your body mass index
 
-This template sensor calculates your body mass index (BMI) from the weight sensor. The example requires the unit of the weight sensor in Home Assistant to be kilograms. This can differ from the unit set on the scale, because you can change the unit of a weight sensor in Home Assistant. Replace `1.80` with your height in meters.
+This template sensor calculates your body mass index (BMI) from the weight sensor. Replace `sensor.okok_scale_2345_weight` with the entity ID of your scale's weight sensor, and `1.80` with your height in meters. This example requires the weight sensor's unit in Home Assistant to be set to kilograms.
 
 To create this sensor in the UI, go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, select **Create helper** > **Template** > **Template a sensor**, and enter the template below as the **State template**.
 
@@ -132,40 +126,67 @@ Between measurements the scale goes to sleep and stops broadcasting. The sensors
 
 ## Known limitations
 
-- The scale only broadcasts for a short time while it is in use, so values are only updated when you use the scale. Depending on the data format of your scale, the weight sensor can show intermediate values while the reading settles.
-- Measurements are not linked to a person. If several people use the same scale, all measurements end up on the same weight sensor. You can use automations or template sensors to assign measurements to people, for example based on the weight range.
-- The integration provides the raw impedance only. Body composition values such as body fat percentage are not calculated, because they depend on personal data such as height, age, and sex.
-- Battery updates need a Bluetooth adapter or proxy in range that supports active connections. The same applies to impedance on scales that don't broadcast it. With a passive-only adapter, you only receive the weight, and the impedance on scales that broadcast it.
-- Some scales always report a battery level of 0%.
-- Scales that broadcast using data format 10 or 26 are not supported yet.
+### Measurement availability
+
+The scale only broadcasts for a short time while it is in use, so values are only updated when you use the scale. Depending on the data format of your scale, the weight sensor can show intermediate values while the reading settles.
+
+### Multiple users
+
+Measurements are not linked to a person. If several people use the same scale, all measurements end up on the same weight sensor. You can use automations or template sensors to assign measurements to people, for example based on the weight range.
+
+### Body composition
+
+The integration provides the raw impedance only. Body composition values such as body fat percentage are not calculated, because they depend on personal data such as height, age, and sex.
+
+### Bluetooth connections
+
+Battery updates, and impedance updates on scales that do not broadcast impedance, need a Bluetooth adapter or proxy in range that supports active connections. With a passive-only adapter, weight and any impedance included in broadcasts can still update.
+
+### Battery reporting
+
+Some scales always report a battery level of 0%.
+
+### Unsupported formats
+
+Scales that broadcast using data format 10 or 26 are not supported yet.
 
 ## Troubleshooting
 
-### The scale is not discovered
+{% details "The scale is not discovered" %}
 
 1. Make sure that the scale is awake and broadcasting by doing a measurement.
 2. Make sure your scale is in range of the Bluetooth adapter or proxy.
 3. Make sure the [Bluetooth](/integrations/bluetooth/) integration is set up and working.
 
-### The weight does not update
+{% enddetails %}
+
+{% details "The weight does not update" %}
 
 The weight only updates while you use the scale. Step on the scale and wait until the reading on the display is stable. Depending on the data format of your scale, the sensor updates once with the final weight, or several times while the reading settles. If the sensor doesn't update at all, move the scale closer to your Bluetooth adapter or proxy.
 
-### The battery or impedance does not update
+{% enddetails %}
 
-The battery level, and the impedance on scales that don't broadcast it, need an active Bluetooth connection to the scale.
+{% details "The battery or impedance does not update" %}
+
+The battery level, and the impedance on scales that do not broadcast impedance, need an active Bluetooth connection to the scale.
 
 - Make sure a Bluetooth adapter or proxy that supports active connections is in range of the scale. If you see the error **No connectable Bluetooth adapter is in range** in the logs, none of your adapters can connect to the scale.
 - Make sure the OKOK·International app is not connected to the scale at the same time. Most scales only accept one connection at a time.
 - For impedance, stand on the scale barefoot and wait until the measurement is finished.
 
-### Sensors show an assumed state
+{% enddetails %}
+
+{% details "Sensors show an assumed state" %}
 
 This is expected. The scale sleeps between measurements, so the sensors keep the value of the last measurement and are marked as assumed until the next measurement.
 
-### Reporting an issue
+{% enddetails %}
+
+{% details "Reporting an issue" %}
 
 If your scale is not supported or reports wrong values, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), do a measurement, and include the debug logs and the [diagnostics](/integrations/diagnostics/) of the integration in your issue. The diagnostics contain the last Bluetooth broadcast of the scale, which helps to add support for new data formats.
+
+{% enddetails %}
 
 ## Removing the integration
 
