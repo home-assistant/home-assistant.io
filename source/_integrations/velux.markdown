@@ -1,9 +1,8 @@
 ---
 title: Velux
 description: Instructions on how to integrate the Velux KLF 200 with Home Assistant.
-ha_category:
-  - Cover
-  - Scene
+ha_categories:
+  - blinds_curtains
 ha_release: 0.49
 ha_config_flow: true
 ha_iot_class: Local Polling
@@ -134,7 +133,7 @@ The integration provides the following number entities:
 - **Open position limitation**: The minimum opening position allowed for a cover device.
 - **Closed position limitation**: The maximum closing position allowed for a cover device.
 
-The open and close position limitation entities are configuration entities and disabled by default. Note that some cover devices may refuse setting an open or close limitation, resulting in an error when trying to do so.
+The open and close position limitation entities are configuration entities and [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). Note that some cover devices may refuse setting an open or close limitation, resulting in an error when trying to do so.
 
 ### Scene
 

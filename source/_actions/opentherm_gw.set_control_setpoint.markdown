@@ -8,7 +8,7 @@ related_actions:
   - opentherm_gw.set_max_modulation
 ---
 
-The **Set control setpoint** action sets the central heating control setpoint override on your OpenTherm Gateway. Normally, the thermostat calculates and controls the central heating setpoint on the boiler. Setting this to any value other than 0 enables the override and lets the OpenTherm Gateway control this setting. While the override is active, the gateway also requests your boiler to activate the central heating circuit. For your boiler's supported setpoint range, see the `slave_ch_max_setp` and `slave_ch_min_setp` sensors. Because of the potential consequences of leaving this setting enabled for a long time, the override is disabled when Home Assistant shuts down or restarts.
+The **OpenTherm Gateway: Set control setpoint** action sets the central heating control setpoint override on your OpenTherm Gateway. Normally, the thermostat calculates and controls the central heating setpoint on the boiler. Setting this to any value other than 0 enables the override and lets the OpenTherm Gateway control this setting. While the override is active, the gateway also requests your boiler to activate the central heating circuit. For your boiler's supported setpoint range, see the `slave_ch_max_setp` and `slave_ch_min_setp` sensors. Because of the potential consequences of leaving this setting enabled for a long time, the override is disabled when Home Assistant shuts down or restarts.
 
 You only need this if you are writing your own software thermostat.
 

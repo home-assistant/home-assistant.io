@@ -67,8 +67,7 @@ for:
 
 ## Good to know
 
-- A switch in the `unknown` or `unavailable` state does not count as on.
-- With **All**, every targeted switch must match. With **Any**, one matching switch is enough.
+{% include conditions/unavailable_targets.md entities="switches" %}
 - To check for the opposite state, use [Switch is off](/conditions/switch.is_off/).
 
 {% include conditions/try_it.md %}

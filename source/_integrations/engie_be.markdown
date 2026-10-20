@@ -1,9 +1,8 @@
 ---
 title: ENGIE Belgium
 description: Instructions on how to integrate ENGIE Belgium energy prices into Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.energy_prices
 ha_release: 2026.11
 ha_iot_class: Cloud Polling
 ha_config_flow: true

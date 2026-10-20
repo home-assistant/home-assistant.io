@@ -10,10 +10,12 @@ Document the `<domain>` integration in the current Home Assistant split-page doc
 Keep the main context small.
 Use sub-agents for discovery and review.
 Do not trust the epic, issue text, or existing docs unless Core confirms them.
-Treat `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/integration-docs-examples.md` as the canonical template for split pages.
-Treat `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/yaml-style-guide.md` as the YAML style source for all YAML examples.
+Treat `https://contributors.home-assistant.io/writing/reference/integration-page/index.md` as the canonical template for split pages.
+Treat `https://contributors.home-assistant.io/writing/reference/yaml/index.md` as the YAML style source for all YAML examples.
 Do not loosely imitate it.
 Follow its structure closely unless Core implementation makes a specific section inapplicable.
+Follow the dedicated integration page structure and templates before applying the [topic-based authoring guide](https://contributors.home-assistant.io/writing/guides/structure/).
+Apply topic-based authoring to the remaining content and to any choices the dedicated guidance does not define.
 
 ## Stage 1: inventory with a sub-agent
 
@@ -97,9 +99,9 @@ Rules for Stage 1:
 Launch a sub-agent to inspect:
 
 - `./source/_integrations/_integration_docs_template.markdown`
-- `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/integration-docs-examples.md`
-- `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/general-style-guide.md`
-- `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/yaml-style-guide.md`
+- `https://contributors.home-assistant.io/writing/reference/integration-page/index.md`
+- `https://contributors.home-assistant.io/writing/reference/style/index.md`
+- `https://contributors.home-assistant.io/writing/reference/yaml/index.md`
 - relevant include snippets under `./source/_includes`
 - 2-4 existing files across integrations, triggers, conditions, and actions
 

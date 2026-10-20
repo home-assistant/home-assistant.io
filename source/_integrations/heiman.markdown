@@ -3,9 +3,10 @@ title: Heiman
 description: Connect and control your Heiman Matter devices using the Matter integration
 ha_release: '2026.2'
 ha_iot_class: Local Push
-ha_category:
-  - Binary Sensor
-  - Sensor
+ha_categories:
+  - security_safety.smoke_co_alarms
+  - sensors
+  - water.meters_leak_detection
 ha_domain: heiman
 ha_integration_type: brand
 works_with:
@@ -19,6 +20,6 @@ ha_brand: true
 
 {% include integrations/wwha.md url="https://www.heimantech.com/" %}
 
-## Supported devices
+## Works with Home Assistant certified devices
 
 {% include integrations/device_list.html brand="heiman" %}

@@ -1,11 +1,9 @@
 ---
 title: Lunatone
 description: Instructions on how to integrate Lunatone REST API devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Hub
-  - Light
-  - Sensor
+ha_categories:
+  - lighting.lighting_systems
+  - hubs_protocols.building_automation
 ha_release: 2025.11
 ha_iot_class: Local Polling
 ha_codeowners:

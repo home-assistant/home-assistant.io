@@ -1,11 +1,8 @@
 ---
 title: Silla Prism
 description: Instructions on how to integrate your Silla Prism EV wallbox with Home Assistant.
-ha_category:
-  - Car
-  - Number
-  - Select
-  - Sensor
+ha_categories:
+  - energy.ev_charging
 ha_platforms:
   - number
   - select

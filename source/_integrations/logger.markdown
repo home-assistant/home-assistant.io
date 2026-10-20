@@ -1,8 +1,6 @@
 ---
 title: Logger
 description: Instructions on how to enable the logger integration for Home Assistant.
-ha_category:
-  - Utility
 ha_release: 0.8
 ha_quality_scale: internal
 ha_codeowners:

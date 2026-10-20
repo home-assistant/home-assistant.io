@@ -1,8 +1,6 @@
 ---
 title: Google Assistant
 description: Setup for Google Assistant integration
-ha_category:
-  - Voice
 featured: true
 ha_release: 0.56
 ha_iot_class: Cloud Push

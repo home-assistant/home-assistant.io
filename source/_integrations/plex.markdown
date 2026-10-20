@@ -1,11 +1,8 @@
 ---
 title: Plex Media Server
 description: Instructions on how to integrate Plex into Home Assistant.
-ha_category:
-  - Button
-  - Media player
-  - Sensor
-  - Update
+ha_categories:
+  - media_entertainment.tv_streaming
 featured: true
 ha_release: 0.7.4
 ha_iot_class: Local Push
@@ -120,7 +117,7 @@ automation: |
 {% enddetails %}
 
 {% important %}
-The library sensors are disabled by default, but can be enabled via the Plex integration page. After the sensors are enabled, you may need to add a new item to your library before the last added media attribute is populated.
+The library sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity), but can be enabled via the Plex integration page. After the sensors are enabled, you may need to add a new item to your library before the last added media attribute is populated.
 {% endimportant %}
 
 ## Button

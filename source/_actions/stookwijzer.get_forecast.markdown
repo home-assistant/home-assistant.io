@@ -5,7 +5,7 @@ domain: stookwijzer
 description: "Retrieves the advice forecast from Stookwijzer."
 ---
 
-The **Get forecast** action retrieves the Stookwijzer advice forecast and returns it as [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
+The **Stookwijzer: Get forecast** action retrieves the Stookwijzer advice forecast and returns it as [response data](/docs/automation/action/#action-response-data).
 
 This is useful when you want an automation or a template to read upcoming Stookwijzer advice, for example to decide whether to light a wood fire later in the day.
 

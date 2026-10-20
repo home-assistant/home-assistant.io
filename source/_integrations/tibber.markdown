@@ -1,11 +1,9 @@
 ---
 title: Tibber
 description: Instructions on how to integrate Tibber within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Energy
-  - Notifications
-  - Sensor
+ha_categories:
+  - energy.energy_prices
+  - energy.meters_monitoring
 ha_release: 0.8
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -123,7 +121,7 @@ The Tibber integration provides binary sensors.
 
 ## Actions
 
-The energy prices are exposed using an action that returns [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with the price data.
+The energy prices are exposed using an action that returns [response data](/docs/automation/action/#action-response-data) with the price data.
 
 {% include integrations/actions.md %}
 

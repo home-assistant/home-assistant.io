@@ -4,8 +4,6 @@ description: Instructions on how to set up and use lawn mowers in Home Assistant
 ha_release: 2023.9
 ha_domain: lawn_mower
 ha_quality_scale: internal
-ha_category:
-  - Lawn mower
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity

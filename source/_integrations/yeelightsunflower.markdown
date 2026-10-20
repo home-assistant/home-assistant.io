@@ -1,8 +1,8 @@
 ---
 title: Yeelight Sunflower
 description: Instructions on how to set up Yeelight Sunflower hub and bulbs within Home Assistant.
-ha_category:
-  - Light
+ha_categories:
+  - lighting.bulbs_lamps
 ha_release: 0.39
 ha_iot_class: Local Polling
 ha_codeowners:
