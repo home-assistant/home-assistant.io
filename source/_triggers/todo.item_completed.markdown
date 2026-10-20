@@ -42,13 +42,23 @@ This fires every time an item is marked complete in `todo.evening_checklist`.
 
 This trigger has no additional YAML options beyond the target.
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md custom_trigger_variables="true" %}
+
+### Trigger variables
+
+When the trigger reacts, the `trigger` variable contains the following data:
+
+- `trigger.entity_id`: Entity ID of the to-do list.
+- `trigger.item_ids`: List of the unique IDs (`uid`) of the to-do items that were completed.
+
+This trigger doesn't include the previous or new state of the to-do list. To get the details of the items, such as their summary, use the [Get to-do list items](/actions/todo.get_items/) action with **Status** set to **Completed**, and match the items by `uid`.
+
+For the data that all triggers include, refer to [Trigger data in templates](/docs/automation/trigger-data/#properties-of-all-triggers).
 
 ## Good to know
 
 - This trigger fires when an item changes into the completed state.
 - Changes to `unavailable` or `unknown` do not count as an item being completed.
-- Trigger data includes the to-do list `entity_id` and the affected `item_ids`.
 
 {% include triggers/try_it.md %}
 
