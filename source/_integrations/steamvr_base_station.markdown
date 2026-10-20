@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: steamvr_base_station
 ha_config_flow: true
 ha_platforms:
+  - button
   - sensor
   - switch
 ha_integration_type: device
@@ -41,6 +42,10 @@ Device:
 {% endconfiguration_basic %}
 
 ## Supported functionality
+
+### Button
+
+- **Identify**: Blinks the station's LED white, to tell stations apart.
 
 ### Sensors
 
@@ -83,7 +88,7 @@ automation: |
 
 ## Data updates
 
-The base stations broadcast their power state over Bluetooth, so Home Assistant updates the switch and sensors without {% term polling %}. Connections are opened briefly to read device information during setup and when the integration loads, and to send commands.
+The base stations broadcast their power state over Bluetooth, so Home Assistant updates the switch and sensors without {% term polling %}. Connections are opened briefly to read device information during setup and when the integration loads, and to send commands, such as power changes and identify.
 
 ## Troubleshooting
 
