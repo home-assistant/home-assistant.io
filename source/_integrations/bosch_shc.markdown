@@ -88,6 +88,8 @@ The climate platform lets you monitor and control each room's climate control. T
 
 Setting a target temperature while a room is off has no effect. Turn the room on first, or set the mode in the same action.
 
+A heating circuit also gets a climate entity named after the circuit. It shows the target temperature and whether the circuit is heating or idle, but no current temperature. **Auto** follows the schedule in the Bosch Smart Home app and **Heat** holds the manual target temperature. The target temperature range follows the limits set on the circuit.
+
 ### Covers
 
 The cover platform allows you to control shutters, awnings, and blinds.
