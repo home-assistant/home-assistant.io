@@ -10,6 +10,7 @@ ha_config_flow: true
 ha_platforms:
   - media_player
   - remote
+  - select
 ha_integration_type: device
 related:
   - docs: /docs/configuration/
@@ -28,6 +29,44 @@ There is currently support for the following device types within Home Assistant:
 If your TV needs to be paired, you will be prompted to type the PIN code that will be displayed on it.
 
 To allow your TV to be turned on or controlled while off, enable `Powered On By Apps` in your settings (if available): **Network > TV Remote App Settings**
+
+## Input sources and picture modes
+
+Some Panasonic Viera TVs expose their inputs and picture modes through the Panasonic Application Control (PAC) interface. On compatible TVs, the integration provides source selection on the media player entity and a **Picture mode** select entity.
+
+### Change the input source or picture mode
+
+1. Turn on your TV.
+2. Go to **Settings** > **Devices & services** and select the **Panasonic Viera** integration.
+3. Open your TV's device page.
+4. To change the input, open the media player entity and choose an input from the source selector.
+5. To change the picture mode, choose an option from the **Picture mode** control on the device page.
+
+The available inputs and picture modes depend on your TV. TVs without PAC support do not provide these controls. The **Picture mode** control is unavailable while the TV is off.
+
+The integration reads the available inputs and picture modes while the TV is on. If the TV is off when Home Assistant starts, the **Picture mode** entity is added automatically after the TV turns on and becomes reachable. You do not need to reload the integration. The integration polls the TV every 10 seconds, even if you disable the media player and remote entities.
+
+### Optional action examples
+
+You can also use these controls in automations or scripts. To try either example, go to **Developer tools** > **Actions**, switch to YAML mode, and paste one example at a time. These snippets are action calls, not entries for `configuration.yaml`.
+
+Replace `media_player.living_room_tv` and `select.living_room_tv_picture_mode` with your TV's entity IDs. Replace `HDMI1` with an input shown in the source selector and `Cinema` with an option shown in the **Picture mode** control. Input and picture-mode names must match the values reported by your TV.
+
+```yaml
+action: media_player.select_source
+target:
+  entity_id: media_player.living_room_tv
+data:
+  source: "HDMI1"
+```
+
+```yaml
+action: select.select_option
+target:
+  entity_id: select.living_room_tv_picture_mode
+data:
+  option: "Cinema"
+```
 
 ## Manual configuration
 
