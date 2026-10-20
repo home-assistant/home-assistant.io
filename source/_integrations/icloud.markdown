@@ -96,6 +96,7 @@ This means there is updated terms of service you must accept to continue.
 
 ##### Resolution
 
-Go to [icloud.com](https://www.icloud.com/) and login and accept the updated terms, then reinstall the integration.
+ 1. Go to [iCloud.com](https://www.icloud.com/), sign in, and accept the updated terms.
+ 2. Return to Home Assistant and retry setting up the iCloud integration.
 
 
