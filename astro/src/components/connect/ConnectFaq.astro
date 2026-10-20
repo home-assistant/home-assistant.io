@@ -1,0 +1,187 @@
+---
+// Frequently asked questions of a Connect product page: a heading and
+// an accordion of questions, on the site's light gray. Its id is
+// `faq`, the target of the product bar's FAQ link. The first question
+// is open, as in the Figma file.
+//
+// Built from "FAQ" in the Figma file "Connect AUX-2" (node 2002:36189).
+// It replaces the per-page `#faq` section of the Jekyll Connect pages
+// (`source/connect/*/components/_faq.html`), whose checkbox accordion
+// becomes native <details> elements. The toggles are the "+" points of
+// ConnectHotspots in the Figma file's FAQ colors: a blue dot with a
+// white plus, open a white dot with a minus in a white halo.
+//
+// Answers are HTML, as the Jekyll pages' FAQ data is.
+interface Item {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="connect-faq" id="faq">
+  <div class="inner">
+    <h2>Any questions?</h2>
+    {
+      items.map(({ question, answer }: Item, i: number) => (
+        <details open={i === 0}>
+          <summary>
+            {question}
+            <span class="toggle" aria-hidden="true" />
+          </summary>
+          <div class="answer" set:html={answer} />
+        </details>
+      ))
+    }
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../../styles/breakpoints";
+  @use "../../styles/layout";
+
+  .connect-faq {
+    background: var(--color-footer-surface);
+    color: var(--color-ink);
+    font-family: var(--font-heading);
+  }
+
+  .inner {
+    @include layout.container;
+    padding-block: var(--space-xxlarge);
+  }
+
+  h2 {
+    font-size: var(--font-size-title);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin: 0 0 var(--space-xlarge);
+    padding-block: var(--space-xlarge);
+  }
+
+  details {
+    border-bottom: 1px solid var(--color-ink-muted);
+    padding-block: var(--space-xlarge);
+  }
+
+  summary {
+    align-items: center;
+    color: var(--color-ink-muted);
+    cursor: pointer;
+    display: flex;
+    font-size: var(--font-size-large);
+    font-weight: 500;
+    gap: var(--space-xlarge);
+    justify-content: space-between;
+    line-height: 1.2;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    [open] > & {
+      color: var(--color-ink);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-ink);
+      outline-offset: var(--space-xsmall);
+    }
+  }
+
+  /* A blue dot with a white plus in a thin white ring; open, a white
+     dot with a navy minus in a wide white halo. */
+  .toggle {
+    background: #006895;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.25rem var(--color-surface);
+    flex: none;
+    height: 1.5rem;
+    margin-right: var(--space-medium);
+    position: relative;
+    transition:
+      background-color 0.25s ease-out,
+      box-shadow 0.25s ease-out;
+    width: 1.5rem;
+
+    &::before,
+    &::after {
+      background: var(--color-text-inverse);
+      content: "";
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition:
+        opacity 0.25s ease-out,
+        background-color 0.25s ease-out;
+    }
+
+    &::before {
+      height: 2px;
+      width: 0.5rem;
+    }
+
+    &::after {
+      height: 0.5rem;
+      width: 2px;
+    }
+
+    [open] & {
+      background: var(--color-surface);
+      box-shadow: 0 0 0 0.75rem rgb(255 255 255 / 70%);
+
+      &::before {
+        background: var(--color-ink);
+      }
+
+      &::after {
+        opacity: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      &,
+      &::before,
+      &::after {
+        transition: none;
+      }
+    }
+  }
+
+  .answer {
+    color: var(--color-ink-muted);
+    font-size: var(--font-size-medium);
+    line-height: 1.2;
+    padding-top: var(--space-small);
+
+    :global(p) {
+      margin: 0;
+    }
+
+    :global(a) {
+      color: inherit;
+    }
+  }
+
+  @media only screen and (min-width: breakpoints.$desk) {
+    .inner {
+      padding-block: var(--space-xxxlarge);
+    }
+
+    summary {
+      font-size: var(--font-size-xlarge);
+    }
+
+    .answer {
+      font-size: var(--font-size-large);
+    }
+  }
+</style>

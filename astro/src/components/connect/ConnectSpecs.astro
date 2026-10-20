@@ -1,0 +1,183 @@
+---
+// Specifications of a Connect product: groups of spec items beside an
+// exploded drawing of the product. Its id is `specs`, the target of the
+// product bar's Specs link.
+//
+// Built from "Specs and illustration" in the Figma file "Connect AUX-2"
+// (node 2002:31254). It replaces the per-page `#specs` section of the
+// Jekyll Connect pages (`source/connect/*/components/_specs.html`),
+// whose separate desktop and mobile markup becomes one responsive grid.
+//
+// Each group is a heading with items. An item has a heading and either
+// `value` lines or `details`, labelled values set in two columns (the
+// Audio, Serial, Connectivity and Software items); `wide` items take
+// the group's full width.
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Detail {
+  term: string;
+  value: string[];
+}
+
+interface Item {
+  label: string;
+  value?: string[];
+  details?: Detail[];
+  wide?: boolean;
+}
+
+interface Group {
+  title: string;
+  items: Item[];
+}
+
+interface Props {
+  groups: Group[];
+  image: ImageMetadata;
+  imageAlt: string;
+}
+
+const { groups, image, imageAlt } = Astro.props;
+---
+
+<section class="connect-specs" id="specs">
+  <div class="list">
+    <h2>Specifications</h2>
+    {
+      groups.map(({ title, items }: Group) => (
+        <div class="group">
+          <h3>{title}</h3>
+          <div class="items">
+            {items.map(({ label, value, details, wide }: Item) => (
+              <div class:list={["item", { wide: wide || details }]}>
+                <h4>{label}</h4>
+                {value && (
+                  <p>
+                    {value.map((line, i) => (
+                      <Fragment>
+                        {i > 0 && <br />}
+                        {line}
+                      </Fragment>
+                    ))}
+                  </p>
+                )}
+                {details && (
+                  <dl>
+                    {details.map(({ term, value }: Detail) => (
+                      <div>
+                        <dt>{term}</dt>
+                        {value.map((line) => (
+                          <dd>{line}</dd>
+                        ))}
+                      </div>
+                    ))}
+                  </dl>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <Image class="drawing" src={image} alt={imageAlt} widths={[image.width]} />
+</section>
+
+<style lang="scss">
+  @use "../../styles/breakpoints";
+  @use "../../styles/layout";
+
+  .connect-specs {
+    @include layout.container;
+    color: var(--color-text-inverse);
+    display: grid;
+    font-family: var(--font-heading);
+    gap: var(--space-xxlarge);
+    padding-block: var(--space-xxlarge);
+  }
+
+  h2,
+  h3,
+  h4,
+  p,
+  dl,
+  dd {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: var(--font-size-title);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    padding-block: var(--space-xlarge);
+  }
+
+  .group {
+    margin-top: var(--space-xlarge);
+  }
+
+  h3 {
+    font-size: var(--font-size-xlarge);
+    font-weight: 600;
+    line-height: 1.2;
+    padding-block: var(--space-small);
+  }
+
+  .items {
+    display: grid;
+    gap: var(--space-xlarge);
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  }
+
+  .wide {
+    grid-column: 1 / -1;
+  }
+
+  h4 {
+    font-size: var(--font-size-large);
+    font-weight: 600;
+    line-height: 1.5;
+    padding-block: var(--space-small);
+  }
+
+  p,
+  dl {
+    color: var(--color-text-inverse-muted);
+    font-size: var(--font-size-small);
+    line-height: 1.5;
+  }
+
+  dl {
+    display: grid;
+    gap: var(--space-medium) var(--space-xlarge);
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  }
+
+  dt {
+    color: var(--color-text-inverse);
+    font-weight: 600;
+  }
+
+  .drawing {
+    height: auto;
+    justify-self: center;
+    max-width: 100%;
+  }
+
+  /* The list beside the drawing, in Figma's 660 : 500 proportion; the
+     drawing stays in view while the list scrolls past. */
+  @media only screen and (min-width: breakpoints.$desk) {
+    .connect-specs {
+      align-items: start;
+      grid-template-columns: minmax(0, 660fr) minmax(0, 500fr);
+      padding-block: var(--space-xxxlarge);
+    }
+
+    .drawing {
+      position: sticky;
+      top: calc(var(--header-height) + var(--space-xxlarge));
+    }
+  }
+</style>

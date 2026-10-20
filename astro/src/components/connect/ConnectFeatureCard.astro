@@ -1,0 +1,176 @@
+---
+// A feature of a Connect product: an icon in a Connect-blue ring, a
+// title and a short description, on a dark card with a blue border.
+// The icon sits above the text on phones and beside it from the desk
+// width.
+//
+// Built from the "Card" frames in the Figma file "Connect AUX-2"
+// (desktop node 2234:16581, mobile node 2119:5260), not ported from
+// Jekyll.
+//
+// `light` is the white variant for cards on a photo (node 2586:1443):
+// navy text and a filled ring, so the white icon shows.
+//
+// `large` is the variant of "Incredible audio" (nodes 2022:8454 and
+// 2022:8461): a large blue line icon without a ring above a 28px title,
+// at every width. The `media` slot adds an illustration below the text.
+//
+// Deliberate differences from the Figma file:
+//   - The icons are still. In Figma they animate (the sound waves
+//     pulse, the dots travel along the lines); to be added with the
+//     rest of the page's motion.
+//   - Spacing snaps to the theme: 20px card padding on phones is 24px,
+//     the 6px gap on phones is 8px, and both sizes use the 16px radius
+//     (Figma: 12px on phones).
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  // A 14px white line icon (src/assets/connect/icons/), or for `large`
+  // cards a 53px wide blue one.
+  icon: ImageMetadata;
+  title: string;
+  light?: boolean;
+  large?: boolean;
+}
+
+const { icon, title, light = false, large = false } = Astro.props;
+const Ring = large ? Fragment : "span";
+---
+
+<article class:list={["connect-feature-card", { light, large }]}>
+  <Ring class={large ? undefined : "ring"}>
+    <img src={icon.src} width={icon.width} height={icon.height} alt="" />
+  </Ring>
+  <div class="text">
+    <h3>{title}</h3>
+    <p><slot /></p>
+  </div>
+  {Astro.slots.has("media") && <div class="media"><slot name="media" /></div>}
+</article>
+
+<style lang="scss">
+  @use "../../styles/breakpoints";
+
+  .connect-feature-card {
+    background: linear-gradient(rgb(0 19 38 / 80%) 17%, rgb(0 0 0 / 80%));
+    border: 1px solid var(--color-connect-line);
+    border-radius: var(--radius-medium);
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-heading);
+    gap: var(--space-small);
+    padding: var(--space-medium) var(--space-xlarge);
+  }
+
+  .ring {
+    align-items: center;
+    border: 1px solid var(--color-connect-line);
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: flex;
+    flex: none;
+    height: 2rem;
+    justify-content: center;
+    width: 2rem;
+  }
+
+  h3,
+  p {
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  h3 {
+    color: var(--color-text-inverse);
+    font-size: var(--font-size-large);
+    font-weight: 500;
+    padding-block: var(--space-small);
+  }
+
+  p {
+    color: var(--color-text-inverse-muted);
+    font-size: var(--font-size-small);
+    padding-block: var(--space-xsmall);
+  }
+
+  .light {
+    background: linear-gradient(rgb(255 255 255 / 80%) 22%, rgb(255 255 255 / 64%));
+    border-color: var(--color-text-inverse);
+
+    .ring {
+      background: var(--color-connect-line);
+    }
+
+    h3 {
+      color: var(--color-ink);
+    }
+
+    p {
+      color: var(--color-ink-muted);
+    }
+  }
+
+  .large {
+    gap: 0;
+
+    > img {
+      height: auto;
+      margin-bottom: var(--space-small);
+      width: 2.5rem;
+    }
+
+    h3 {
+      font-size: var(--font-size-xxlarge);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      padding-block: var(--space-medium);
+    }
+
+    p {
+      font-size: var(--font-size-medium);
+    }
+  }
+
+  .media {
+    margin-top: var(--space-xlarge);
+  }
+
+  @media only screen and (min-width: breakpoints.$desk) {
+    .connect-feature-card {
+      flex-direction: row;
+      gap: var(--space-medium);
+      padding: var(--space-xlarge) var(--space-xxlarge);
+    }
+
+    .large {
+      flex-direction: column;
+      gap: 0;
+
+      > img {
+        width: 3.3125rem;
+      }
+
+      h3 {
+        font-size: var(--font-size-heading);
+      }
+
+      p {
+        font-size: var(--font-size-large);
+      }
+    }
+
+    .ring {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+
+    h3 {
+      font-size: var(--font-size-xlarge);
+    }
+
+    p {
+      font-size: var(--font-size-large);
+    }
+  }
+</style>

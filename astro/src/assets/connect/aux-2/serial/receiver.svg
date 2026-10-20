@@ -1,0 +1,25 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="157.799" height="42.1064" viewBox="0 0 157.799 42.1064" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="receiver">
+<mask id="stroke0_0_476" maskUnits="userSpaceOnUse" x="2.98023e-08" y="0" width="158" height="43" fill="black">
+<rect fill="white" x="2.98023e-08" width="158" height="43"/>
+<path d="M154.799 1C155.903 1 156.799 1.89543 156.799 3V32.9365C156.799 34.0411 155.903 34.9365 154.799 34.9365H149.086V40.1064C149.086 40.6585 148.638 41.1064 148.086 41.1064H133.118C132.566 41.1064 132.118 40.6585 132.118 40.1064V34.9365H27.2236V40.1064C27.2234 40.6585 26.7758 41.1064 26.2236 41.1064H11.2549C10.7029 41.1062 10.2551 40.6584 10.2549 40.1064V34.9365H3C1.89545 34.9365 1.00003 34.0411 1 32.9365V3C1 1.89543 1.89543 1 3 1H154.799Z"/>
+</mask>
+<path id="Union" d="M154.799 1C155.903 1 156.799 1.89543 156.799 3V32.9365C156.799 34.0411 155.903 34.9365 154.799 34.9365H149.086V40.1064C149.086 40.6585 148.638 41.1064 148.086 41.1064H133.118C132.566 41.1064 132.118 40.6585 132.118 40.1064V34.9365H27.2236V40.1064C27.2234 40.6585 26.7758 41.1064 26.2236 41.1064H11.2549C10.7029 41.1062 10.2551 40.6584 10.2549 40.1064V34.9365H3C1.89545 34.9365 1.00003 34.0411 1 32.9365V3C1 1.89543 1.89543 1 3 1H154.799Z" stroke-width="2" stroke="white" mask="url(#stroke0_0_476)"/>
+<ellipse id="Ellipse 21" cx="27.2237" cy="17.9677" rx="6.17027" ry="6.17027" stroke="white" stroke-width="0.8"/>
+<ellipse id="Ellipse 26" cx="27.2234" cy="17.9681" rx="9.2554" ry="9.2554" stroke="white" stroke-width="0.4"/>
+<ellipse id="Ellipse 23" cx="45.7345" cy="17.9681" rx="1.54257" ry="1.54257" stroke="white" stroke-width="0.4"/>
+<ellipse id="Ellipse 24" cx="107.437" cy="17.9681" rx="1.54257" ry="1.54257" stroke="white" stroke-width="0.4"/>
+<ellipse id="Ellipse 25" cx="113.607" cy="17.9681" rx="1.54257" ry="1.54257" stroke="white" stroke-width="0.4"/>
+<ellipse id="Ellipse 22" cx="132.118" cy="17.9677" rx="6.17027" ry="6.17027" stroke="white" stroke-width="0.8"/>
+<ellipse id="Ellipse 27" cx="132.118" cy="17.9681" rx="9.2554" ry="9.2554" stroke="white" stroke-width="0.4"/>
+<rect id="Rectangle 159" x="1" y="1" width="155.799" height="33.9365" rx="2" stroke="white" stroke-width="0.4"/>
+<rect id="Rectangle 162" x="58.075" y="11.7975" width="41.6493" height="12.3405" stroke="white" stroke-width="0.8"/>
+<rect id="Rectangle 163" x="58.075" y="21.0531" width="10.798" height="3.08513" stroke="white" stroke-width="0.4"/>
+<rect id="Rectangle 167" x="59.6706" y="13.1385" width="38.4394" height="6.06938" stroke="white" stroke-width="0.4"/>
+<rect id="Rectangle 164" x="68.8729" y="21.0531" width="9.2554" height="3.08513" stroke="white" stroke-width="0.4"/>
+<rect id="Rectangle 165" x="78.1283" y="21.0531" width="10.798" height="3.08513" stroke="white" stroke-width="0.4"/>
+<rect id="Rectangle 166" x="88.9264" y="21.0531" width="10.798" height="3.08513" stroke="white" stroke-width="0.4"/>
+<path id="Rectangle 160" d="M27.2236 34.9366V40.1069C27.2236 40.6591 26.7759 41.1069 26.2236 41.1069H11.2553C10.7031 41.1069 10.2553 40.6591 10.2553 40.1069V34.9366H27.2236Z" stroke-width="0.4" stroke="white"/>
+<path id="Rectangle 161" d="M149.086 34.9366V40.1069C149.086 40.6591 148.639 41.1069 148.086 41.1069H133.118C132.566 41.1069 132.118 40.6591 132.118 40.1069V34.9366H149.086Z" stroke-width="0.4" stroke="white"/>
+</g>
+</svg>

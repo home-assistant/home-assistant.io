@@ -1,15 +1,17 @@
 // Put two screenshots side by side with captions, for the pull request.
 //
-//   node compare.mjs <out.png> <width> <jekyll.png> <astro.png>
+//   node compare.mjs <out.png> <width> <jekyll.png> <astro.png> [caption]
 //
 // `width` is the viewport width both screenshots were taken at; each
 // image is shown at that width so the pair reads at true scale.
+// `caption` labels the reference on the left when it is not the live
+// Jekyll site, such as "Figma" for a page built from a design.
 import { readFileSync } from "node:fs";
 import { chromium } from "./playwright.mjs";
 
-const [, , out, width, jekyll, astro] = process.argv;
+const [, , out, width, jekyll, astro, caption = "Jekyll (live)"] = process.argv;
 if (!out || !width || !jekyll || !astro) {
-  console.error("usage: compare.mjs <out.png> <width> <jekyll.png> <astro.png>");
+  console.error("usage: compare.mjs <out.png> <width> <jekyll.png> <astro.png> [caption]");
   process.exit(1);
 }
 
@@ -24,7 +26,7 @@ const panel = (caption, file) => `
 const html = `<!doctype html>
 <body style="margin:0;background:#666;color:#fff;font:600 14px system-ui">
   <div style="display:flex;gap:16px;padding:16px">
-    ${panel("Jekyll (live)", jekyll)}
+    ${panel(caption, jekyll)}
     ${panel("Astro", astro)}
   </div>
 </body>`;

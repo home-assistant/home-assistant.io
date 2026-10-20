@@ -27,6 +27,8 @@ export default defineConfig({
           "home-assistant/logo/screen/lockup/main/color/light/svg",
         "home-assistant-lockup-monochrome-dark.svg":
           "home-assistant/logo/screen/lockup/main/monochrome/dark/svg",
+        "open-home-foundation-lockup-monochrome-dark.svg":
+          "open-home-foundation/logo/screen/lockup/main/monochrome/dark/svg",
       },
     }),
   ],

@@ -1,0 +1,259 @@
+---
+// Product bar of a Connect product page: the product name, links to
+// the page's sections and a Buy button. Below the desk width the links
+// and the button fold into a menu behind a round button, the same
+// checkbox pattern as the site header's menu.
+//
+// Built from the "Nav Bar" in the Figma file "Connect AUX-2" (desktop
+// node 2310:3582, mobile node 2095:7326), not ported from Jekyll. It
+// replaces the `.connect-nav` bar of the Jekyll Connect pages
+// (`source/connect/*/components/_header.html`), whose link set it
+// takes over: the Figma file only has "Link" placeholders.
+//
+// It is drawn on the dark hero photo, so it is white on transparent.
+// Deliberate differences from the Figma file:
+//   - The product name is text, not the image logo of the Jekyll
+//     pages; Figma sets it as text as well.
+//   - The menu button is the size of the site header's (32px rather
+//     than Figma's 34px), with the same three bars. The open menu is
+//     not in the Figma file: it drops out of the bar as a black panel.
+//   - The bar is not sticky; the Jekyll pages pin theirs once the
+//     page scrolls past the hero. To be decided with the rest of the
+//     page's behavior.
+import Button from "../Button.astro";
+
+interface Link {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  // The product name after "Home Assistant", such as "Connect AUX-2".
+  product: string;
+  links: Link[];
+  buyHref: string;
+}
+
+const { product, links, buyHref } = Astro.props;
+const menuId = `connect-menu-${crypto.randomUUID().slice(0, 8)}`;
+---
+
+<nav class="connect-nav" aria-label="Product">
+  <p class="name">
+    <strong>Home Assistant</strong>{" "}<span>{product}</span>
+  </p>
+
+  <input
+    class="menu-state"
+    type="checkbox"
+    id={menuId}
+    aria-label="Product menu"
+  />
+  <label class="menu-button" for={menuId}>
+    <span class="bars" aria-hidden="true"></span>
+  </label>
+
+  <div class="menu">
+    <ul class="links">
+      {
+        links.map(({ label, href }: Link) => (
+          <li>
+            <a href={href}>{label}</a>
+          </li>
+        ))
+      }
+    </ul>
+    <Button href={buyHref} scheme="connect-line" onDark>Buy now</Button>
+  </div>
+</nav>
+
+<style lang="scss">
+  @use "../../styles/breakpoints";
+
+  .connect-nav {
+    align-items: center;
+    color: var(--color-text-inverse);
+    display: flex;
+    gap: var(--space-xlarge);
+    justify-content: space-between;
+    padding-block: var(--space-xlarge);
+    position: relative;
+  }
+
+  .name {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xxlarge);
+    line-height: 1.2;
+    margin: 0;
+
+    /* Two lines on phones, one from the desk width. */
+    strong,
+    span {
+      display: block;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    span {
+      font-weight: 300;
+    }
+  }
+
+  .menu-state {
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    width: 0;
+  }
+
+  .menu-button {
+    align-items: center;
+    background: var(--color-connect-line);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    flex: none;
+    height: 2rem;
+    justify-content: center;
+    user-select: none;
+    width: 2rem;
+
+    &:hover,
+    .menu-state:focus-visible + & {
+      background: var(--color-connect-line-shade);
+    }
+  }
+
+  /* Three bars: the span is the middle one, its pseudo-elements the
+     outer two. Opening the menu fades the middle bar and turns the
+     outer two into a cross. */
+  .bars {
+    --bar-gap: 0.3125rem;
+    --bar-weight: 0.125rem;
+
+    background: currentColor;
+    height: var(--bar-weight);
+    position: relative;
+    transition: background-color 0.2s;
+    width: 0.875rem;
+
+    &::before,
+    &::after {
+      background: currentColor;
+      content: "";
+      height: var(--bar-weight);
+      left: 0;
+      position: absolute;
+      transition: transform 0.2s;
+      width: 100%;
+    }
+
+    &::before {
+      transform: translateY(calc(var(--bar-gap) * -1));
+    }
+
+    &::after {
+      transform: translateY(var(--bar-gap));
+    }
+
+    .menu-state:checked + .menu-button & {
+      background-color: transparent;
+
+      &::before {
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      &,
+      &::before,
+      &::after {
+        transition: none;
+      }
+    }
+  }
+
+  /* Folded: a black panel below the bar, the full width of the bar. */
+  .menu {
+    align-items: flex-start;
+    background: #000;
+    border: 1px solid var(--color-surface-glass);
+    border-radius: var(--radius-small);
+    display: none;
+    flex-direction: column;
+    gap: var(--space-xlarge);
+    left: 0;
+    padding: var(--space-xlarge);
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 10;
+
+    .menu-state:checked ~ & {
+      display: flex;
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-large);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    a {
+      color: inherit;
+      font-family: var(--font-heading);
+      font-size: var(--font-size-medium);
+      font-weight: 500;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @media only screen and (min-width: breakpoints.$desk) {
+    .connect-nav {
+      padding-block: var(--space-xxlarge);
+    }
+
+    .name {
+      font-size: var(--font-size-heading);
+
+      strong,
+      span {
+        display: inline;
+      }
+    }
+
+    .menu-button {
+      display: none;
+    }
+
+    /* Unfolded: the links and the button in a row. */
+    .menu,
+    .menu-state:checked ~ .menu {
+      align-items: center;
+      background: none;
+      border: 0;
+      display: flex;
+      flex-direction: row;
+      padding: 0;
+      position: static;
+    }
+
+    .links {
+      flex-direction: row;
+      gap: var(--space-xlarge);
+    }
+  }
+</style>
