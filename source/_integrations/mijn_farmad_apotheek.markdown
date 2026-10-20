@@ -101,7 +101,7 @@ The integration fetches nothing on a schedule. Each action contacts Farmad when 
 
 {% details "The integration cannot be set up" %}
 
-### Symptom
+### Symptom: The setup form shows an error message
 
 Setting up the integration fails with an error message.
 
@@ -121,7 +121,7 @@ For a connection error, check that Home Assistant can reach the internet and try
 
 {% details "Actions fail because the pharmacy is not linked" %}
 
-### Symptom
+### Symptom: Your account has no access to the pharmacy
 
 The action fails with the message that your account has no access to the pharmacy.
 
@@ -138,7 +138,7 @@ The APB number in the **Pharmacy** field does not belong to a pharmacy linked to
 
 {% details "Ordering fails because the draft basket is not empty" %}
 
-### Symptom
+### Symptom: The order fails because the draft basket is not empty
 
 The order action fails with the message that the draft basket at the pharmacy still has products or a comment.
 
@@ -156,7 +156,7 @@ The app keeps one draft basket per pharmacy. The order action refuses to order i
 
 {% details "The order could not be confirmed" %}
 
-### Symptom
+### Symptom: The order could not be confirmed
 
 The order action fails with the message that the order could not be confirmed.
 
@@ -172,7 +172,7 @@ Check the order history in the Mijn Farmad Apotheek app before running the actio
 
 {% details "Actions fail because the session expired" %}
 
-### Symptom
+### Symptom: The Farmad session expired
 
 The actions fail with the message that the Farmad session expired, or the integration shows a setup error with the same message after a restart.
 
