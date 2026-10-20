@@ -79,7 +79,7 @@ To create this automation in the UI:
 3. Add a notification action, select your notification destination, and enter a message. See [notification actions](/integrations/notify/#actions) for the available options.
 4. Save the automation.
 
-If you manage automations in YAML, you can optionally add the following example to `configuration.yaml`. Replace both inverter entity IDs with your own and select your notification destination.
+If you manage automations in YAML, you can optionally add the following example to `configuration.yaml`. Replace both inverter entity IDs and `notify.my_device` with your own.
 
 {% raw %}
 
@@ -91,7 +91,9 @@ automation:
         entity_id: binary_sensor.kaco_powador_6400xi_1_fault
         to: "on"
     actions:
-      - action: notify.notify
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
         data:
           message: "{{ trigger.to_state.name }}: {{ state_translated('sensor.kaco_powador_6400xi_1_status') }}"
 ```
