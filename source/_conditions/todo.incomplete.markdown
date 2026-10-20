@@ -59,8 +59,6 @@ This passes when `todo.shopping_list` has more than 3 incomplete items.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: |
@@ -97,7 +95,7 @@ for:
 ## Good to know
 
 - The condition checks the current state of the to-do list entity, which is the number of incomplete items.
-- To-do lists in the `unavailable` or `unknown` state are skipped when Home Assistant evaluates this condition.
+{% include conditions/unavailable_targets.md entities="to-do lists" %}
 - If you only need to know whether a list is fully done, use [All to-do items completed](/conditions/todo.all_completed/) instead.
 
 {% include conditions/try_it.md %}

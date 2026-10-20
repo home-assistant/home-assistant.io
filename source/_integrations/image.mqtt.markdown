@@ -1,8 +1,6 @@
 ---
 title: "MQTT Image"
 description: "Instructions on how to use an MQTT image message as an Image within Home Assistant."
-ha_category:
-  - Image
 ha_release: 2023.7
 ha_iot_class: Configurable
 ha_domain: mqtt
@@ -75,7 +73,7 @@ default_entity_id:
   type: string
 {% include integrations/mqtt_device.md %}
 enabled_by_default:
-  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. When set to `false`, Home Assistant adds the entity as disabled. A disabled entity has no state, and you can't use it in automations or dashboards until you [enable it](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
   required: false
   type: boolean
   default: true
@@ -85,7 +83,7 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://contributors.home-assistant.io/core/entities/entity-class/#generic-properties) of the entity.
   required: false
   type: string
 entity_picture:
@@ -142,7 +140,7 @@ Add the configuration below to your {% term "`configuration.yaml`" %}.
 To test it publish an image URL to the topic from the console:
 
 ```shell
-mosquitto_pub -h <mqtt_broker> -t mynas/status/url -m "https://design.home-assistant.io/images/logo.png"
+mosquitto_pub -h <mqtt_broker> -t mynas/status/url -m "https://brands.home-assistant.io/_/homeassistant/logo.png"
 ```
 
 ```yaml

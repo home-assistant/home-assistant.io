@@ -9,7 +9,7 @@ related_actions:
   - knx.exposure_register
 ---
 
-The **Read from KNX bus** action sends a GroupValueRead request to one or more KNX group addresses. The response can be used in automations through the [KNX telegram](/integrations/knx/#telegram-trigger) trigger, and it is processed in KNX entities.
+The **KNX: Read from KNX bus** action sends a GroupValueRead request to one or more KNX group addresses. The response can be used in automations through the [KNX telegram](/integrations/knx/#telegram-trigger) trigger, and it is processed in KNX entities.
 
 This is useful when you want to actively ask a KNX device for its current value, for example to refresh a cover position after it has been moving for a while, instead of waiting for the device to report on its own.
 

@@ -1,10 +1,8 @@
 ---
 title: APC UPS Daemon
 description: Instructions on how to integrate apcupsd status with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
-  - System monitor
+ha_categories:
+  - energy.backup_power
 ha_release: 0.13
 ha_iot_class: Local Polling
 ha_domain: apcupsd
@@ -67,7 +65,7 @@ The APC UPS Daemon integration provides the following entities.
 
 {% note %}
 
-Some sensors are disabled by default, since they are primarily useful for diagnostics or troubleshooting. You can manually enable them in **{% my entities title="**Settings** > **Devices & services** > **Entities**" %}** > the sensor entity you want to enable > {% icon "mdi:cog" %} > **Enabled**.
+Some sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity), since they are primarily useful for diagnostics or troubleshooting. You can manually enable them in **{% my entities title="**Settings** > **Devices & services** > **Entities**" %}** > the sensor entity you want to enable > {% icon "mdi:cog" %} > **Enabled**.
 
 {% endnote %}
 

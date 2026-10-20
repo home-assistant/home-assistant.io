@@ -27,7 +27,7 @@ output: "True (when the sensor reports a value above 20)"
 
 Without the quotes, YAML tries to interpret `{{` as the start of a flow-style mapping and fails. The error message you get in that case can be confusing, so if something refuses to load, check your quotes first.
 
-There is no difference in behavior between single and double quotes as far as Home Assistant is concerned. Pick one style and stick with it.
+Single and double quotes work the same, except for the backslash (`\`). Inside double quotes, YAML reads a backslash as the start of an escape sequence, such as `\n` for a new line. A backslash that doesn't start a known escape sequence, such as `\d` in a regular expression, stops your configuration from loading. Inside single quotes, a backslash is a normal character. If your template contains a backslash, wrap it in single quotes and use double quotes inside the template, or use a [multi-line template](#multi-line-templates).
 
 ## Quotes inside the template
 
@@ -77,7 +77,7 @@ output: |
 
 ### The `>-` and `|-` variants
 
-A trailing `-` strips the final newline. You will see this used often for `value_template` where you do not want a trailing blank line.
+A trailing `-` strips the final newline from the YAML text. You will see this used often for `value_template`. For the result of a template, it makes no difference: Home Assistant removes whitespace at the start and the end of every result anyway.
 
 {% example %}
 automation: |

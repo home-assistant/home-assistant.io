@@ -70,8 +70,7 @@ for:
 
 ## Good to know
 
-- A fan in the `unknown` or `unavailable` state does not count as off.
-- With **All**, every targeted fan must match. With **Any**, one matching fan is enough.
+{% include conditions/unavailable_targets.md entities="fans" %}
 - To check for the opposite state, use [Fan is on](/conditions/fan.is_on/).
 
 {% include conditions/try_it.md %}

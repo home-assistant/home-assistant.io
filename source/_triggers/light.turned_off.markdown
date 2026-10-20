@@ -51,8 +51,6 @@ This fires every time `light.kitchen` transitions from on to off.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -82,7 +80,7 @@ When the last light in the house turns off late at night, arm the alarm automati
 - **Target**: All lights (by label)
 - **Trigger when**: All
 - **Condition**: Time is after 22:30
-- **Action**: Alarm control panel: Arm away
+- **Action**: Arm alarm away
 
 {% details "YAML example for an arm-on-last-light automation" %}
 

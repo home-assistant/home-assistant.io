@@ -2,9 +2,8 @@
 title: Theben Conexa Smart Meter Gateway
 description: Instructions on how to integrate a Conexa SMGW with Home Assistant.
 ha_release: '2026.10'
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_quality_scale: bronze

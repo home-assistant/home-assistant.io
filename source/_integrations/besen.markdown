@@ -1,9 +1,8 @@
 ---
 title: Besen
 description: Instructions on how to integrate Besen EV chargers over Bluetooth Low Energy with Home Assistant.
-ha_category:
-  - Car
-  - Energy
+ha_categories:
+  - energy.ev_charging
 ha_release: 2026.9
 ha_iot_class: Local Push
 ha_codeowners:
@@ -81,11 +80,15 @@ The following sensors are enabled by default:
 - **Charging status**: High-level charging state reported by the charger.
 - **Charging message**: Additional guidance reported for the current charging state.
 
+The **Charging status** sensor reports **Scheduled** (`scheduled`) while a scheduled start is pending. If your automations, scripts, or templates use `canceled` for this state, change it to `scheduled`.
+
 The following sensors are disabled by default:
 
 - **Session current limit**: Current limit recorded for the charging session in amperes (A). This usually matches the **Charging current** setting.
 - **Scheduled start**: Start time of a scheduled charging session. For a session that starts immediately, such as one started with the **Charge** switch, this is the time charging was requested.
 - **Charging time limit**: Time after which the charger ends the charging session in minutes (min). The value is unknown when no limit is set, which includes sessions started with the **Charge** switch.
+
+The **Scheduled start** and **Charging time limit** sensors report values only while a scheduled start is pending or a charging session is running. Otherwise, their state is unknown.
 
 To set a scheduled start or a charging time limit from Home Assistant, use the [**Start charging** action](/actions/besen.start_charging/). The sensors also report values set elsewhere, for example in the charger's mobile app.
 
@@ -99,7 +102,7 @@ The following diagnostic sensors are disabled by default:
 - **L1 voltage** and **L1 current**: Voltage and current reported for phase L1.
 - **L2 voltage**, **L2 current**, **L3 voltage**, and **L3 current**: Voltage and current reported for phases L2 and L3. These sensors are created only for three-phase chargers.
 
-To use an entity that is disabled by default, [enable the entity](/common-tasks/general/#enabling-or-disabling-entities) from the charger device page.
+To use an entity that is disabled by default, [enable the entity](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) from the charger device page.
 
 ## Actions
 

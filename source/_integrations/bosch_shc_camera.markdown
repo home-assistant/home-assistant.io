@@ -1,8 +1,8 @@
 ---
 title: Bosch Smart Home Camera
 description: Instructions on how to integrate Bosch Smart Home cameras into Home Assistant.
-ha_category:
-  - Camera
+ha_categories:
+  - security_safety.cameras
 ha_release: 2026.11
 ha_iot_class: Cloud Polling
 ha_config_flow: true

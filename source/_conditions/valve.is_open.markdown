@@ -50,8 +50,6 @@ This passes when `valve.garden_irrigation` is currently open.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -77,7 +75,7 @@ for:
 
 - Valves that are in the transitional **Opening** state do not satisfy this condition. The condition only passes once the valve is **Open**. You can check the available states in [Valve states](/integrations/valve/#valve-states).
 - Valves reporting position (0 to 100%) are considered open as soon as their position is above 0. If you need to check for a fully open valve, combine this condition with a numeric state condition on the `current_position` attribute.
-- Valves that have an **Unavailable** or **Unknown** state are skipped from the condition evaluation.
+{% include conditions/unavailable_targets.md entities="valves" %}
 - This condition works with any valve entity in Home Assistant, including water, gas, and air valves from integrations such as MQTT, Z-Wave, Zigbee, and ESPHome.
 - Use the **For at least** option to make your automation more robust against brief, incidental openings, such as a valve that flickered open during a restart.
 

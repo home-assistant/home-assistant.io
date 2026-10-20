@@ -9,7 +9,7 @@ related_actions:
   - homematicip_cloud.set_home_cooling_mode
 ---
 
-The **Set active climate profile** action switches the active climate profile of a Homematic IP climate entity. The index is 1-based and matches the order of the profiles shown in the Homematic IP app.
+The **HomematicIP Cloud: Set active climate profile** action switches the active climate profile of a Homematic IP climate entity. The index is 1-based and matches the order of the profiles shown in the Homematic IP app.
 
 {% include actions/ui_header.md %}
 

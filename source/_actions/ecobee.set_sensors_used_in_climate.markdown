@@ -8,7 +8,7 @@ related_actions:
   - ecobee.resume_program
 ---
 
-The **Set sensors used in climate** action sets which sensors participate in a climate program on an ecobee thermostat.
+The **ecobee: Set sensors used in climate** action sets which sensors participate in a climate program on an ecobee thermostat.
 
 This is handy when you want different rooms to influence the temperature depending on the program, for example using bedroom sensors for the Sleep program and living room sensors for the Home program.
 
@@ -21,7 +21,7 @@ To set the sensors used in a climate program from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the ecobee thermostat you want to change.
-6. From the actions shown for that target, select **ecobee: Set sensors used in climate**.
+6. From the actions shown for that target, under **ecobee**, select **Set sensors used in climate**.
 7. Select the **Sensors** to participate. Optionally, set the **Climate program**.
 8. Select **Save**.
 

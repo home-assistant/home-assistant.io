@@ -48,8 +48,6 @@ This fires every time `binary_sensor.living_room_smoke` transitions to the clear
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -87,7 +85,7 @@ After a smoke event, your front door was unlocked to help everyone evacuate safe
   - **Target**: All smoke sensors (by label)
   - **Trigger when**: All
   - **For at least**: 00:15:00
-- **Action**: Lock: Lock
+- **Action**: Lock lock
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

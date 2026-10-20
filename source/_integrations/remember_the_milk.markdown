@@ -1,9 +1,8 @@
 ---
 title: Remember The Milk
 description: Instructions on how to use Remember The Milk with Home Assistant.
-ha_category:
-  - Calendar
-  - To-do list
+ha_categories:
+  - productivity_information.calendars_todos
 ha_iot_class: Cloud Polling
 ha_release: 0.57
 ha_domain: remember_the_milk
