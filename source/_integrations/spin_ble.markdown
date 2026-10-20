@@ -4,12 +4,12 @@ description: Instructions on how to integrate Exicom Spin EV chargers over Bluet
 ha_category:
   - Car
   - Energy
-ha_release: 2026.10
+ha_release: "2026.11"
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@Dr-Blank'
-ha_domain: spinev
+ha_domain: spin_ble
 ha_bluetooth: true
 ha_platforms:
   - sensor
