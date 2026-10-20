@@ -62,11 +62,14 @@ The integration {% term polling polls %} the ecosmart API for each grid exit poi
 The market republishes the spot price roughly every five minutes, and the integration polls on the same cadence.
 
 ## Known limitations
+### Price availability
 
 The sensor does not guess. When it does not have a value it can stand behind, it reports `unavailable`, and your automations should handle that.
 
 - The spot price is unavailable when the most recent published price is stale, or carries no value. A price more than about fifteen minutes old must never be what tells a battery to charge.
 - The spot price is unavailable while the ecosmart API cannot be reached, and it recovers on the next successful poll.
+
+### API key replacement
 
 Re-authentication is not supported yet. If a newer key has replaced the one Home Assistant holds, remove the integration and add it again with the current key.
 
