@@ -80,10 +80,10 @@ Apply a custom rule that keeps a door unlocked for 30 minutes when an automation
 - **Trigger**: State changed
   - **Entity**: Delivery mode (`input_boolean.delivery_mode`)
   - **To**: On
-- **Action**: Set lock rule
-  - **Device**: Front door
+- **Action**: UniFi Access: Set lock rule
+  - **Door**: Front door
   - **Rule**: Custom
-  - **Interval**: 00:30:00
+  - **Interval**: `00:30:00`
 
 {% details "YAML example for a timed custom lock rule" %}
 

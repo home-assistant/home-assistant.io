@@ -1,5 +1,5 @@
 ---
-title: "Snooze reminder"
+title: "Snooze a reminder"
 action: smarttub.snooze_reminder
 domain: smarttub
 description: "Temporarily suppresses a maintenance reminder on a hot tub."
@@ -63,7 +63,9 @@ days:
 
 When you go on holiday, snooze the maintenance reminder so it does not keep notifying you while you are away.
 
-- **Trigger**: Holiday mode is turned on
+- **Trigger**: State changed
+  - **Entity**: Holiday mode helper
+  - **To**: On
 - **Action**: SmartTub: Snooze a reminder
 
 {% details "YAML example for snoozing a reminder during a holiday" %}

@@ -48,8 +48,6 @@ This fires every time `binary_sensor.hallway_co` transitions to the cleared stat
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -87,7 +85,7 @@ After a carbon monoxide alarm, a blaring siren and anxious waiting are the last 
   - **Target**: All CO sensors (by label)
   - **Trigger when**: All
   - **For at least**: 00:15:00
-- **Action**: Siren: Turn off
+- **Action**: Turn off siren
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

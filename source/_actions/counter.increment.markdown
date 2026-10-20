@@ -22,7 +22,7 @@ To increment a counter from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the counter you want to increase.
-6. From the actions shown for that target, select **Increment counter**.
+6. From the actions shown for that target, under **Counter**, select **Increment counter**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -61,8 +61,10 @@ This action has no additional YAML options beyond the target.
 
 Increase a counter each time a sensor reports an event, for example to count how many times the front door opens.
 
-- **Trigger**: Front door contact sensor opens
-- **Action**: Increment counter
+- **Trigger**: State changed
+  - **Entity**: Front door sensor
+  - **To**: Open
+- **Action**: Counter: Increment counter
   - **Target**: Front door openings
 
 {% details "Show example YAML" %}

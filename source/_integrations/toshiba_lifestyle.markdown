@@ -1,16 +1,6 @@
 ---
 title: Toshiba Lifestyle
 description: Connect and control your Toshiba Lifestyle devices using the Midea integration
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Fan
-  - Humidifier
-  - Light
-  - Number
-  - Select
-  - Switch
 ha_release: 2026.8
 ha_domain: toshiba_lifestyle
 ha_integration_type: virtual

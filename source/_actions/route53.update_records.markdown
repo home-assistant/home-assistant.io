@@ -5,7 +5,7 @@ domain: route53
 description: "Updates your AWS Route53 DNS records with your current public IP address."
 ---
 
-The **Update records** action immediately updates your AWS Route53 DNS records with your current public IP address. The integration already updates the records once an hour on its own, so use this action when you want to apply a change right away instead of waiting for the next scheduled run.
+The **AWS Route53: Update records** action immediately updates your AWS Route53 DNS records with your current public IP address. The integration already updates the records once an hour on its own, so use this action when you want to apply a change right away instead of waiting for the next scheduled run.
 
 {% include actions/ui_header.md %}
 
@@ -15,7 +15,7 @@ To use this action in an automation or script:
 2. Open an existing automation or script, or select **Create** to start a new one.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Update records**.
+5. From the search box, search for and select **AWS Route53: Update records**.
 6. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
@@ -52,8 +52,9 @@ This action has no additional options in YAML.
 
 If you track your public IP address with a sensor, you can update your Route53 records as soon as that address changes.
 
-- **Trigger**: Your public IP sensor changes
-- **Action**: Update records
+- **Trigger**: State changed
+  - **Entity**: Public ip sensor
+- **Action**: AWS Route53: Update records
 
 {% details "YAML example for updating records when your public IP changes" %}
 

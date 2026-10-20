@@ -54,8 +54,6 @@ This fires every time `valve.garden_irrigation` transitions to the **Closed** st
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -99,9 +97,9 @@ A water-awareness automation that calculates how long the irrigation valve was o
 - **Trigger**: Valve closed
   - **Target**: `valve.garden_irrigation`
 - **Action**: Define variables (configured in YAML editor only)
-- **Action**: Activity: log activity
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
+- **Action**: Log activity
 
 {% details "YAML example for logging total watering time and estimated water use" %}
 

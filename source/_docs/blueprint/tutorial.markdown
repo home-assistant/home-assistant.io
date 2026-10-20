@@ -7,7 +7,7 @@ related:
   - docs: /docs/configuration/yaml/
   - docs: /docs/automation/yaml/
     title: "YAML used in automations"
-  - docs: /docs/scripts/
+  - docs: /docs/script/
     title: Scripts
   - docs: /docs/blueprint/selectors/
     title: Blueprint selectors
@@ -32,7 +32,7 @@ In this tutorial, we're going to create an automation blueprint that controls a 
 - This tutorial assumes knowledge in the following topics:
   - [Editing the configuration file](/docs/configuration/)
   - [YAML](/docs/configuration/yaml/), and specifically, [YAML used in automations](/docs/automation/yaml/)
-  - [Scripts](/docs/scripts/)
+  - [Scripts](/docs/script/)
 
 ### Creating an automation
 
@@ -59,9 +59,9 @@ actions:
 ```
 
 
-The options that can be used with the `trigger` object are listed under [automation trigger variables](/docs/automation/templating/#available-trigger-data).
-In this example, a [State changed trigger](/docs/automation/templating/#state) is used.
-`turn_on` and `turn_off` are [`homeassistant` actions](/docs/scripts/perform-actions/#homeassistant-actions). They are not tied to a specific domain. You can use them on lights, switches, and other domains.
+The options that can be used with the `trigger` object are listed under [automation trigger variables](/docs/automation/trigger-data/#trigger-properties).
+In this example, a [State changed trigger](/docs/automation/trigger-data/#state-triggers) is used.
+`turn_on` and `turn_off` are [`homeassistant` actions](/integrations/homeassistant/#list-of-actions). They are not tied to a specific domain. You can use them on lights, switches, and other domains.
 
 ### Creating the blueprint file
 
