@@ -1883,7 +1883,7 @@ python3 token_extractor.py
 ### Xiaomi Home app (Xiaomi Aqara Gateway)
 
 1. Install the Xiaomi Home app and sign in to your account.
-2. Set the region to **Mainland China**.
+2. Set the region to **Chinese mainland**.
 3. Select your gateway, then select the three dots menu {% icon "mdi:dots-vertical" %}.
 4. Select **About**.
 5. Repeatedly select the version number at the bottom of the page to enable developer mode.
