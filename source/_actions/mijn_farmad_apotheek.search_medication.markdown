@@ -112,6 +112,7 @@ Each week, this automation looks up a product at your pharmacy and sends the pri
 - **Action**: Mijn Farmad Apotheek: Search medication
   - **Search term**: paracetamol 500 mg
   - **Pharmacy**: 343602
+  - **Response variable**: `search_result`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -157,6 +158,7 @@ Each day, this automation looks up a product at your pharmacy by its CNK code. W
 - **Action**: Mijn Farmad Apotheek: Search medication
   - **Search term**: 3093242
   - **Pharmacy**: 343602
+  - **Response variable**: `search_result`
 - **Action**: If-then
   - **If**: The product has more than zero items in stock
   - **Then**: Send a notification message
