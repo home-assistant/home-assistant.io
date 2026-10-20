@@ -45,7 +45,7 @@ Device:
 
 ### Button
 
-- **Identify**: Blinks the station's LED white, to tell stations apart.
+- **Identify**: Blinks the station's LED white for about 20 seconds, to tell stations apart.
 
 ### Sensors
 
