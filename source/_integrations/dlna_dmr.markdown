@@ -1,8 +1,8 @@
 ---
 title: DLNA Digital Media Renderer
 description: Instructions on how to integrate a DLNA DMR device into Home Assistant.
-ha_category:
-  - Media player
+ha_categories:
+  - media_entertainment
 ha_release: 0.76
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -38,7 +38,7 @@ Show incompatible media when browsing:
 
 ## Actions
 
-DLNA devices can support a range of features. Depending on the device itself, the following [media_player](/integrations/media_player/#actions) actions may be supported:
+DLNA devices can support a range of features. Depending on the device itself, the following [media player](/integrations/media_player/#actions) actions may be supported:
 
 - `media_player.volume_up`, `media_player.volume_down`, and `media_player.volume_set`
 - `media_player.volume_mute`
@@ -55,6 +55,8 @@ DLNA devices can support a range of features. Depending on the device itself, th
 ## Playing media
 
 Most DLNA DMR devices can play media from local HTTP servers. For best results, use HTTP instead of HTTPS, and refer to the server using an IP address instead of a hostname, for example, `http://192.168.1.1:8080/song.mp3`.
+
+To play media on a DLNA DMR device from an automation or a script, use the [**Play specified media**](/actions/media_player.play_media/) action and select the DLNA media player as the target.
 
 ### Media sources
 

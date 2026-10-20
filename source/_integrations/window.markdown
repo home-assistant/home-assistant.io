@@ -1,8 +1,6 @@
 ---
 title: Window
 description: Use window triggers and conditions in Home Assistant automations.
-ha_category:
-  - Automation
 ha_release: 2026.4
 ha_quality_scale: internal
 ha_codeowners:
@@ -63,8 +61,10 @@ automation: |
 If you open a bedroom window to air out the room, you can wait until it is closed again before turning the heating back on.
 
 - **Trigger**: Window closed
-- **Target**: Bedroom window sensor
-- **Action**: Climate: Set HVAC mode to heat
+  - **Target**: Bedroom window sensor
+- **Action**: Set thermostat HVAC mode
+  - **Target**: Bedroom thermostat
+  - **HVAC mode**: Heat
 
 {% details "YAML example for restoring heating after a window closes" %}
 

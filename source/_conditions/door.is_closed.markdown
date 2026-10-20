@@ -48,8 +48,6 @@ This passes when `binary_sensor.front_door` is currently closed.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -71,10 +69,8 @@ for:
 
 ## Good to know
 
-- This condition works with door contact sensors and door covers, like garage doors, as long as they use the `door` device class.
-- Entities in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
-- With **Any**, the condition passes if at least one available targeted door is closed.
-- With **All**, the condition passes only if every available targeted door is closed. If every targeted door is `unavailable` or `unknown`, **All** passes and **Any** fails.
+- The target must be a contact sensor or cover with the door device class.
+{% include conditions/unavailable_targets.md entities="doors" %}
 
 {% include conditions/try_it.md %}
 
@@ -86,9 +82,9 @@ If pets go in and out through the patio door, you may not want the robot vacuum 
 
 - **Trigger**: Time
 - **Condition**: Door is closed
-- **Target**: Patio door
-- **For at least**: 00:10:00
-- **Action**: Vacuum: Start
+  - **Target**: Patio door
+  - **For at least**: 00:10:00
+- **Action**: Start vacuum cleaner
 
 {% details "YAML example for delaying vacuum cleaning until the patio door is shut" %}
 
@@ -121,7 +117,8 @@ At bedtime, this automation arms the house only if the front door, back door, an
 - **Condition**: Door is closed
 - **Target**: Front door, back door, and garage door
 - **Condition passes if**: All
-- **Action**: Alarm control panel: Arm away
+- **Action**: Arm alarm away
+  - **Target**: Home alarm
 
 {% details "YAML example for arming only after all doors are closed" %}
 

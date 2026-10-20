@@ -45,8 +45,6 @@ This passes when `lawn_mower.backyard` is currently in the error state.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -70,7 +68,7 @@ for:
 
 ## Good to know
 
-- Mowers in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
+{% include conditions/unavailable_targets.md entities="lawn mowers" %}
 - Use **For at least** if you want to avoid acting on a short error that clears by itself.
 
 {% include conditions/try_it.md %}
@@ -122,7 +120,7 @@ If you are checking the mower after dark, this automation keeps the porch light 
 - **Condition**: Lawn mower is encountering an error
   - **Target**: Backyard mower
   - **For at least**: 00:00:30
-- **Condition**: Sun: after sunset
+- **Condition**: Sun is set
 - **Action**: Turn on light
 
 {% details "YAML example for keeping the porch light on" %}
@@ -139,8 +137,7 @@ automation: |
         entity_id: lawn_mower.backyard
       options:
         for: "00:00:30"
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

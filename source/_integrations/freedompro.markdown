@@ -1,15 +1,8 @@
 ---
 title: Freedompro
 description: Instructions for how to integrate Freedompro accessories within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Cover
-  - Fan
-  - Light
-  - Lock
-  - Sensor
-  - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: 2021.7
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -42,7 +35,7 @@ You will need to obtain an API key from Freedompro's app to use this integration
 2. Register and create your first home.
 3. Make sure you have at least one accessory paired with the Freedompro Cloud before starting integration.
 4. Switch to the **Profile** tab (bottom right corner).
-5. Scroll down to the **Developer tools** and tap **Api Key**.
+5. Scroll down to the **Tools** and tap **Api Key**.
 6. Generate an API key.
 
 {% include integrations/config_flow.md %}

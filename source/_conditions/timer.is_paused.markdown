@@ -47,8 +47,6 @@ This passes when `timer.movie_break` is paused.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: When multiple timers are targeted, controls how results combine. Accepts `all` or `any`.
@@ -69,7 +67,7 @@ for:
 ## Good to know
 
 - A paused timer keeps its remaining time until it is restarted or cancelled.
-- Timers that are `unavailable` or `unknown` are skipped for **Any** and cause **All** to fail.
+{% include conditions/unavailable_targets.md entities="timers" %}
 
 {% include conditions/try_it.md %}
 
@@ -112,7 +110,7 @@ automation: |
 
 If a study timer is paused, you can use that state to bring the lamp back on at a comfortable brightness.
 
-- **Trigger**: Sun: after sunset
+- **Trigger**: Sunset
 - **Condition**: Timer is paused
   - **Target**: Study timer
 - **Condition passes if**: Any
@@ -124,8 +122,7 @@ If a study timer is paused, you can use that state to bring the lamp back on at 
 automation: |
   alias: "Turn on the reading lamp only if the study timer is paused"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   conditions:
     - condition: timer.is_paused
       target:

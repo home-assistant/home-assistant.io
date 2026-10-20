@@ -1,9 +1,8 @@
 ---
 title: Ohme
 description: Instructions to configure the Ohme integration into Home Assistant.
-ha_category:
-  - Car
-  - Sensor
+ha_categories:
+  - energy.ev_charging
 ha_release: 2025.1
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -71,7 +70,7 @@ The Ohme integration provides the following entities.
 - **State of charge input**
   - **Description**: Used to set the current state of charge for non-API connected vehicles. This will only function when a vehicle is connected. For more information, refer to the related [Ohme documentation](https://ohme-ev.com/support/how-to-set-your-battery-level-when-you-plug-in).
   - **Available for devices**: all
-  - **Note**: This input is disabled by default.
+  - **Note**: This input is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 #### Selects
 
@@ -92,9 +91,6 @@ The Ohme integration provides the following entities.
   - **Available for devices**: all
 - **Current**
   - **Description**: Current draw from the charger in amperes.
-  - **Available for devices**: all
-- **Energy**
-  - **Description**: Energy consumption of the charger in kWh.
   - **Available for devices**: all
 - **Voltage**
   - **Description**: Voltage supplied to the charger. This is only available when a vehicle is connected.
@@ -143,25 +139,42 @@ If you have a home battery system:
 - Charge your EV when the battery is above certain capacity
 - Pause EV charging when the battery needs replenishing
 
+## Tracking energy consumption
+
+The Ohme API does not provide an energy reading. To track cumulative energy usage (kWh) and add your charger to the Energy dashboard, you can use the [Integral](/integrations/integration/) helper to derive it from the **Power** sensor.
+
+To set this up:
+
+1. Go to **Settings** > **Devices & Services** > **Helpers**.
+2. Select **+ Create Helper** and choose **Integration - Riemann sum integral sensor**.
+3. Configure the helper:
+   - **Name**: e.g. `Ohme Energy`
+   - **Input sensor**: your Ohme `Power` sensor, e.g. `sensor.ohme_home_pro_power`
+   - **Metric prefix**: `none` — the Power sensor already reports in kW, so no additional scaling is needed
+   - **Time unit**: `Hours` — combined with the kW input, this produces a result in kWh
+   - **Integration method**: `Left Riemann sum`
+4. Select **Submit**.
+
+This creates a new sensor, e.g. `sensor.ohme_energy`, reporting cumulative energy in kWh.
+
 ## Examples
 
-### Send a notification on status change
+### Automation: Notify when charger status changes
 
-To be notified when the status of the charger changes, for example when a vehicle is plugged in, you can use an automation.
+This example sends a notification when the charger leaves the `unplugged` state.
 
 ```yaml
-# Example automation
+alias: "Ohme charger status changed"
 triggers:
   - trigger: state
-    entity_id:
-      - sensor.ohme_home_pro_status
-    from: unplugged
+    entity_id: sensor.ohme_home_pro_status
+    from: "unplugged"
 actions:
   - action: notify.send_message
     target:
       entity_id: notify.my_device
     data:
-      message: "Vehicle plugged in"
+      message: "Vehicle plugged in."
 ```
 
 ## Troubleshooting
@@ -175,7 +188,7 @@ This integration fetches data every 30 seconds with the exception of device sett
 
 ## Known limitations
 
-The integration does not provide the ability to manage vehicles or routines, which can instead be managed on the manufacturer's app.
+The integration does not provide the ability to manage vehicles or routines, which can instead be managed on the manufacturer's app. It also does not provide an energy sensor directly - see [Tracking energy consumption](#tracking-energy-consumption) for a way to derive one using the Power sensor.
 
 ## Removing the integration
 

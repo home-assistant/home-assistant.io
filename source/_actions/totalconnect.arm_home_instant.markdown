@@ -18,7 +18,7 @@ To arm home instant from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the area, floor, device, label, or entity you want to control.
-6. From the actions shown for that target, select **Arm home instant**.
+6. From the actions shown for that target, under **Total Connect**, select **Arm home instant**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -57,8 +57,8 @@ This action has no additional YAML options beyond the target.
 
 Use this automation to arm the panel in home mode with no entry delay every evening at sunset.
 
-- **Trigger**: Sun: sunset
-- **Action**: Arm home instant
+- **Trigger**: Sunset
+- **Action**: Total Connect: Arm home instant
   - **Target**: Home alarm panel
 
 {% details "YAML example for arming home instant at sunset" %}
@@ -67,8 +67,7 @@ Use this automation to arm the panel in home mode with no entry delay every even
 automation: |
     alias: "Arm home instant at sunset"
     triggers:
-      - trigger: sun
-        event: sunset
+      - trigger: sun.sunset
     actions:
       - action: totalconnect.arm_home_instant
         target:

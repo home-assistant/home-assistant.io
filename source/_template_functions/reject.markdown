@@ -109,7 +109,7 @@ Remove values that are not valid numbers before performing calculations.
 {% example %}
 template: |
   {{
-    expand("group.temperature_sensors")
+    expand("sensor.temperature_sensors")
     | map(attribute="state")
     | reject("in", ["unavailable", "unknown"])
     | map("float")

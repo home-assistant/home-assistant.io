@@ -1,5 +1,5 @@
 ---
-title: "Turn off a light"
+title: "Turn off light"
 action: light.turn_off
 domain: light
 description: "Turn a light off. Optionally fade it out with a transition, or have it flash briefly before it goes dark."
@@ -20,7 +20,7 @@ To turn a light off from an automation or a script:
 2. Open an existing automation or script, or select **Create** to start a new one.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Light: Turn off light**.
+5. From the search box, search for and select **Turn off light**.
 6. Under **Targets**, choose what you want to turn off:
     - To turn off a specific light, select the entity.
     - To turn off every light in a room, select an area.
@@ -55,8 +55,6 @@ This turns off `light.kitchen`.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 transition:
   description: >
@@ -75,7 +73,7 @@ flash:
 - The **Turn off light** action works on any light {% term entity %}, such as bulbs, groups, fixtures, or strips.
 - If the light is already off, calling this action does nothing.
 - Not every light supports a transition or a flash. Home Assistant quietly skips options the device can't handle.
-- To reverse this action, use [Turn on a light](/actions/light.turn_on/). To flip a light between on and off with a single call, use [Toggle a light](/actions/light.toggle/).
+- To reverse this action, use [Turn on light](/actions/light.turn_on/). To flip a light between on and off with a single call, use [Toggle light](/actions/light.toggle/).
 
 {% include actions/try_it.md %}
 
@@ -85,9 +83,9 @@ flash:
 
 Fade the bedroom light out over five seconds, which is a much nicer way to end a movie than an instant off.
 
-- **Action**: Light: Turn off light
-- **Target**: Bedroom light
-- **Transition**: 5 seconds
+- **Action**: Turn off light
+  - **Target**: Bedroom light
+  - **Transition**: `5` seconds
 
 {% details "YAML example for a gentle fade-out" %}
 
@@ -106,8 +104,8 @@ action: |
 
 Target a floor instead of a specific entity and Home Assistant resolves it to every light on that floor.
 
-- **Action**: Light: Turn off light
-- **Target**: Ground floor
+- **Action**: Turn off light
+  - **Target**: Ground floor
 
 {% details "YAML example for turning off every light on a floor" %}
 
@@ -124,9 +122,9 @@ action: |
 
 Turn the porch light off automatically as the sun comes up. No more wasted electricity after you've already gone to bed or left for work.
 
-- **Trigger**: Sun: Above horizon
-- **Action**: Light: Turn off light
-- **Target**: Porch light
+- **Trigger**: Sunrise
+- **Action**: Turn off light
+  - **Target**: Porch light
 
 {% details "YAML example for a sunrise porch light off" %}
 
@@ -134,8 +132,7 @@ Turn the porch light off automatically as the sun comes up. No more wasted elect
 automation: |
   alias: "Porch light off at sunrise"
   triggers:
-    - trigger: sun
-      event: sunrise
+    - trigger: sun.sunrise
   actions:
     - action: light.turn_off
       target:
@@ -148,9 +145,10 @@ automation: |
 
 When the last person leaves home, turn off every light in the house. A simple way to save energy without having to think about it.
 
-- **Trigger**: Zone: Everyone leaves home
-- **Action**: Light: Turn off light
-- **Target**: All lights (by label)
+- **Trigger**: Zone occupancy cleared
+  - **Zone**: Home (`zone.home`)
+- **Action**: Turn off light
+  - **Target**: All lights (by label)
 
 {% details "YAML example for turning off all lights when nobody is home" %}
 
@@ -158,14 +156,9 @@ When the last person leaves home, turn off every light in the house. A simple wa
 automation: |
   alias: "Lights off when everyone leaves"
   triggers:
-    - trigger: zone
-      entity_id: person.paulus
-      zone: zone.home
-      event: leave
-  conditions:
-    - condition: state
-      entity_id: group.family
-      state: not_home
+    - trigger: zone.occupancy_cleared
+      options:
+        zone: zone.home
   actions:
     - action: light.turn_off
       target:
@@ -179,9 +172,9 @@ automation: |
 At 11 in the evening, fade every light in the living room out over ten seconds. A calmer way to end the day than flipping a switch.
 
 - **Trigger**: Time: 23:00
-- **Action**: Light: Turn off light
-- **Target**: Living room
-- **Transition**: 10 seconds
+- **Action**: Turn off light
+  - **Target**: Living room
+  - **Transition**: `10` seconds
 
 {% details "YAML example for a bedtime fade-out" %}
 

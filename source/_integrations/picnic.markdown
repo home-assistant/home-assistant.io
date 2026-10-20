@@ -1,8 +1,8 @@
 ---
 title: Picnic
 description: How to set up and use the Picnic integration in Home Assistant.
-ha_category:
-  - Other
+ha_categories:
+  - productivity_information.shopping_groceries
 ha_release: 2021.5
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -22,7 +22,7 @@ The **Picnic** {% term integration %} allows one to get information from [Picnic
 
 ## Sensors
 
-This integration provides the following sensors. Some sensors are disabled by default when adding the integration.
+This integration provides the following sensors. Some sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) when adding the integration.
 
 | Name                           | Description                                                                                                                                         |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -40,6 +40,7 @@ This integration provides the following sensors. Some sensors are disabled by de
 | Last order total price         | The total price of the last order. |
 | Next delivery ETA start        | Start of the ETA window of the next delivery, will get more precise if the driver is underway. |
 | Next delivery ETA end          | End of the ETA window of the next delivery. |
+| Estimated arrival of next delivery | Precise estimated arrival time of the next delivery, based on the live position of the delivery vehicle. Only available shortly before the delivery, `unknown` otherwise. |
 | Next delivery slot start       | Start of the next delivery's delivery slot. |
 | Next delivery slot end         | End of the next delivery's delivery slot. |
 

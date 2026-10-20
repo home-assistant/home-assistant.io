@@ -3,8 +3,6 @@ title: To-do list
 description: Instructions on how to use to-do lists within Home Assistant.
 ha_domain: todo
 ha_release: 2023.11
-ha_category:
-  - To-do list
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
@@ -30,20 +28,14 @@ Each to-do list is represented as its own entity in Home Assistant and can be
 viewed and managed on a to-do list dashboard. You can find the to-do list dashboard
 in the main sidebar of your Home Assistant instance.
 
-## The state of a to-do list entity
+## To-do list states
 
-The state of a to-do list entity is a number, which represents the number of
-incomplete items in the list.
+The {% term state %} of a to-do list entity is the number of incomplete items in the list, for example, `3`.
 
-<p class='img'>
-<img src='/images/integrations/todo/state_todo.png' alt='Screenshot showing the state of a to-do list entity in the developer tools' />
-Screenshot showing the state of a to-do list entity in the developer tools.
-</p>
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
 
-In addition, the entity can have the following states:
-
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 ## Blueprint to add an item to a dedicated list
 

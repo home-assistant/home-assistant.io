@@ -1,8 +1,8 @@
 ---
 title: TechnoVE
 description: Instructions on how to integrate TechnoVE smart EV charging stations with Home Assistant.
-ha_category:
-  - Car
+ha_categories:
+  - energy.ev_charging
 ha_release: 2024.2
 ha_iot_class: Local Polling
 ha_domain: technove
@@ -20,9 +20,10 @@ ha_integration_type: device
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics
+ha_quality_scale: platinum
 ---
 
-The **TechnoVE** {% term integration %} lets you monitor and control your [TechnoVE](https://www.technove.com/) smart EV charging station directly from Home Assistant using the station's local API. No cloud account or internet connection is required — everything communicates over your local network.
+The **TechnoVE** {% term integration %} lets you monitor and control your [TechnoVE](https://technove.ca/) smart EV charging station directly from Home Assistant using the station's local API. No cloud account or internet connection is required. Everything communicates over your local network.
 
 Use case: If you have a TechnoVE charging station at home, you can automate your EV charging based on electricity prices, solar panel production, or time of day. For example, you could automatically start charging at night when electricity rates are lower, or pause charging when your home's power consumption is too high.
 
@@ -125,6 +126,14 @@ The **TechnoVE** integration provides the following entities.
 
 The **TechnoVE** integration {% term polling polls %} data from the charging station every 5 seconds over the local network. This frequent polling interval ensures that status changes (such as plugging in or unplugging the vehicle) are reflected promptly in Home Assistant.
 
+## Examples
+
+### Notify when charging is completed
+
+Send a notification or execute custom actions when your electric vehicle finishes charging on your TechnoVE charging station:
+
+{% blueprint_example blueprint="technove/charging_completed_notification.yaml" %}
+
 ## Known limitations
 
 - The integration communicates with the station over the local network only. If the station is on a different network segment or VLAN than Home Assistant, you may need to configure routing between the networks.
@@ -148,7 +157,7 @@ If you see a "Failed to connect" error when trying to add the integration:
 
 If the station keeps going unavailable and coming back:
 
-1. Check the **Signal strength** sensor, if available. This entity may be disabled by default, so you might need to enable it first. If you don't see it, check your router, access point, or manufacturer tools to verify the station's Wi-Fi signal quality. A weak signal can cause intermittent connection issues.
+1. Check the **Signal strength** sensor, if available. This entity may be [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity), so you might need to enable it first. If you don't see it, check your router, access point, or manufacturer tools to verify the station's Wi-Fi signal quality. A weak signal can cause intermittent connection issues.
 2. Consider moving the station closer to your Wi-Fi access point or adding a Wi-Fi extender.
 3. Make sure your network is not blocking local traffic between Home Assistant and the station.
 

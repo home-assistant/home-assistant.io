@@ -1,10 +1,9 @@
 ---
 title: Ecovacs
 description: Instructions on how to integrate Ecovacs vacuums and mowers within Home Assistant.
-ha_category:
-  - Hub
-  - Lawn mower
-  - Vacuum
+ha_categories:
+  - appliances_cleaning.cleaning
+  - garden_plants
 ha_iot_class: Cloud Push
 ha_release: 0.77
 ha_codeowners:
@@ -55,7 +54,7 @@ Additionally, **depending on your model**, the integration provides the followin
 - **Binary sensor**:
   - `Mop attached`: On if the mop is attached. Note: If you do not see the state change to `Mop attached` in Home Assistant, you may need to wake up the robot to push the state change. Some models report an entity state change only if the overall status of the vacuum has changed. For example, if the overall state changes from `docked` to `cleaning`.
 - **Button**:
-  - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All disabled by default.
+  - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
   - `Relocate`: Button entity to trigger manual relocation.
   - `Station actions`: For each supported station action, a button entity will be created.
 - **Event**:
@@ -146,57 +145,12 @@ Alternatively, you can use the `ecovacs_error` event to watch for errors. This e
 
 Finally, if a vacuum becomes unavailable (usually due to being idle and off its charger long enough for it to completely power off,) the vacuum's `status` attribute will change to `offline` until it is turned back on.
 
-### Getting device and chargers coordinates
-
-The integration has a `raw_get_positions` action to retrieve device and chargers coordinates.
-
-Example:
-
-```yaml
-action: ecovacs.raw_get_positions
-target:
-  entity_id: vacuum.deebot_n8_plus
-```
-
-{% details "Action response example" %}
-The action returns a raw response with a list of coordinates available in `resp -> body -> data` like this:
-
-```yaml
-vacuum.deebot_n8_plus:
-  ret: ok
-  resp:
-    header:
-      pri: 1
-      tzm: 480
-      ts: "1717748487712"
-      ver: 0.0.1
-      fwVer: 1.2.0
-      hwVer: 0.1.1
-    body:
-      code: 0
-      msg: ok
-      data:
-        deebotPos:
-          x: 1
-          y: 5
-          a: 85
-          invalid: 0
-        chargePos:
-          - x: 5
-            y: 9
-            a: 85
-            t: 1
-            invalid: 0
-        mid: "200465850"
-  id: 5o81
-  payloadType: j
-```
-
-{% enddetails %}
+{% include integrations/actions.md %}
 
 ## Self-hosted configuration
 
 Depending on your setup of the self-hosted instance, you can connect to the server using the following settings:
+
 - `Username`: Enter the email address configured in your instance. If authentication is disabled, you can enter any valid email address.
 - `Password`: Enter the password configured in your instance. If authentication is disabled, you can enter any string (series of characters).
 - `REST URL`: http://`SELF_HOSTED_INSTANCE`:8007

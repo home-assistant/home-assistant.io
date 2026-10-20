@@ -7,7 +7,7 @@ related_actions:
   - opentherm_gw.set_gpio_mode
 ---
 
-The **Set LED mode** action changes the function of the LEDs on your OpenTherm Gateway. For a list of the available modes with an explanation, see [LED modes](/integrations/opentherm_gw/#led-modes).
+The **OpenTherm Gateway: Set LED mode** action changes the function of the LEDs on your OpenTherm Gateway. For a list of the available modes with an explanation, see [LED modes](/integrations/opentherm_gw/#led-modes).
 
 {% include actions/ui_header.md %}
 
@@ -75,8 +75,6 @@ mode:
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 

@@ -28,6 +28,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple alarm panels are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted panel arms night, **First** to fire only when the first panel in a group arms night, or **All** to fire only after every targeted panel is armed night.
+  required: false
+  default: Each
 For at least:
   description: How long the alarm must stay armed night before the trigger fires. Set to zero to fire immediately.
 {% endoptions_ui %}
@@ -46,8 +48,6 @@ trigger: |
 This fires every time `alarm_control_panel.home_alarm` transitions to the armed night state.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 behavior:
@@ -83,11 +83,13 @@ for:
 When you arm the alarm in night mode, the house prepares for sleep. Downstairs lights turn off, and the thermostat lowers to a comfortable sleeping temperature.
 
 - **Trigger**: Alarm armed night
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Turn off downstairs lights
-- **Action**: Lower the thermostat
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Turn off light
+  - **Target**: Downstairs lights
+- **Action**: Set thermostat target temperature
+  - **Target temperature**: `18`
 
 {% details "YAML example for a bedtime routine" %}
 
@@ -119,10 +121,12 @@ automation: |
 A dim hallway light makes midnight trips to the bathroom safer. When the alarm switches to night mode, a soft glow lights the way without disturbing anyone.
 
 - **Trigger**: Alarm armed night
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Turn on hallway light at 5%
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Turn on light
+  - **Target**: Hallway light
+  - **Brightness**: `5` %
 
 {% details "YAML example for a hallway night light" %}
 

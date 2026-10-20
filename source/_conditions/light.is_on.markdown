@@ -19,7 +19,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Light: Light is on**.
+4. From the search box, search for and select **Light is on**.
 5. Under **Targets**, select the light entity, an area, a floor, or a label.
 6. Under **Condition passes if**, pick **Any** or **All** to control how the check behaves when multiple lights are targeted.
 7. Select **Save**.
@@ -46,8 +46,6 @@ This passes when the living room light is currently on.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -61,9 +59,9 @@ behavior:
 
 ## Good to know
 
-- Lights that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as on. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted light is unavailable.
+{% include conditions/unavailable_targets.md entities="lights" %}
 - To gate an automation on a light being off instead, use [Light is off](/conditions/light.is_off/).
-- Pair with [Light is brightness](/conditions/light.is_brightness/) when you also want to check whether the light's brightness meets a threshold.
+- Pair with [Light brightness](/conditions/light.is_brightness/) when you also want to check whether the light's brightness meets a threshold.
 
 {% include conditions/try_it.md %}
 
@@ -73,11 +71,11 @@ behavior:
 
 When the doorbell rings, only announce it through the living room speaker if the living room light is already on. Keeps the house quiet when the room is empty.
 
-- **Trigger**: State: Doorbell button pressed
+- **Trigger**: State changed: Doorbell button pressed
 - **Condition**: Light is on
 - **Target**: Living room light
 - **Condition passes if**: Any
-- **Action**: Media player: Play media
+- **Action**: Play media
 
 {% details "YAML example for a doorbell announcement gated on lights" %}
 

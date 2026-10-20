@@ -5,7 +5,7 @@ domain: jewish_calendar
 description: "Returns the phrase for counting the Omer on a given date."
 ---
 
-The **Count the Omer** action returns the phrase for counting the Omer on a given date.
+The **Jewish Calendar: Count the Omer** action returns the phrase for counting the Omer on a given date.
 
 This is useful when you want an automation or script to announce or display the daily Omer count, for example as part of an evening routine during the Omer period.
 
@@ -36,7 +36,7 @@ Nusach:
   description: The nusach (tradition) to count the Omer in. One of Sfarad, Ashkenaz, Adot Mizrah, or Italian.
   required: true
 Language:
-  description: The language to count the Omer in. Defaults to Hebrew.
+  description: The language to count the Omer in. Supported languages are English, Hebrew, and French. Defaults to Hebrew.
   required: false
 {% endoptions_ui %}
 
@@ -80,7 +80,8 @@ nusach:
   default: sfarad
 language:
   description: >
-    The language to count the Omer in. Defaults to Hebrew.
+    The language to count the Omer in. Supported values are `en`, `he`,
+    and `fr`. Defaults to Hebrew.
   required: false
   type: string
   default: he

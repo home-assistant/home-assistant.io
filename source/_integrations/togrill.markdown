@@ -4,13 +4,12 @@ description: Control and monitor your ToGrill compatible BBQ thermometers.
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_release: '2025.9'
-ha_category:
-  - Event
-  - Number
-  - Sensor
+ha_categories:
+  - appliances_cleaning.cooking
 ha_domain: togrill
 ha_bluetooth: true
 ha_platforms:
+  - button
   - event
   - number
   - select
@@ -44,6 +43,7 @@ Many ToGrill compatible devices exist from many different vendors. Only a subset
 | Device                           | Model  |
 |----------------------------------|--------|
 | Rubicson - BBQ probe thermometer | Pro-05 |
+| MostEssential - BBQ thermometer  | AT-02  |
 
 ## Events
 
@@ -77,6 +77,7 @@ Many ToGrill compatible devices exist from many different vendors. Only a subset
 **Target temperature**: The target temperature of the given temperature probe. Set value to 0 to disable target alarm.
 **Minimum temperature**: The minimum temperature the grill probe is allowed to reach. Set value to 0 to disable target alarm.
 **Maximum temperature**: The maximum temperature the grill probe is allowed to reach. Set value to 0 to disable target alarm.
+**Timer**: A countdown timer, in minutes, for the given probe. The device sounds an alarm when it reaches zero. Set value to 0 to stop the timer.
 **Alarm interval**: The interval in minutes between successive alarms.
 
 {% tip %}
@@ -84,6 +85,10 @@ Many ToGrill compatible devices exist from many different vendors. Only a subset
 **Target temperature** and the **Minimum temperature** / **Maximum temperature** are exclusive, and will disable the other setting when set on same probe.
 
 {% endtip %}
+
+## Buttons
+
+**Silence alarm**: Acknowledges an active alarm, silencing the device's buzzer for both temperature and timer alarms. The alarm targets themselves are not changed.
 
 ## Removing the integration
 

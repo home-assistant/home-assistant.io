@@ -3,45 +3,95 @@ title: Remote
 description: Instructions on how to set up your remotes with Home Assistant.
 ha_release: 0.34
 ha_domain: remote
-ha_category:
-  - Remote
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
 ---
 
-The **Remote** {% term integration%} manages the state of the remote entities and allows you to control them.
+The **Remote** {% term integration %} manages remote entities and lets you control devices through them.
 
-- Maintains a state per remote and a combined state `all_remotes`.
-- Registers actions `remote.turn_on`, `remote.turn_off`, `remote.toggle`, and `remote.send_command` to control remotes.
+- Maintains a state for each of your remotes.
+- Provides actions to turn remotes on or off, toggle them, send commands, learn commands, and delete commands.
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a remote entity
+## Remote states
 
-The state of a remote entity can be either **On** or **Off**.
+A remote entity can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
+
+- **On** (`on`): The remote is turned on.
+- **Off** (`off`): The remote is turned off.
 
 In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
-{% include integrations/triggers.md %}
+{% include integrations/triggers_conditions_actions.md %}
 
-{% include integrations/conditions.md %}
+## Remote automation examples
 
-## Use the actions
+These examples show common ways to use remote actions in automations. The exact command names and devices depend on your remote integration.
 
-Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. From the **Actions** dropdown, choose `remote.turn_on`, `remote.turn_off`, or `remote.toggle`. Under target, select the target device. If you are in YAML mode, enter something like the sample below into the **Data** field. Once you are done, select **Perform action**.
+{% include docs/paste_yaml_tip.md %}
 
-```json
-{"entity_id":"remote.family_room"}
-```
+### Automation: send a play command after the TV turns on
 
-| Data attribute | Optional | Description                                     |
-| -------------- | -------- | ----------------------------------------------- |
-| `entity_id`    | yes      | Only act on a specific remote, else target all. |
+When the living room remote turns on, wait briefly and send a play command to the TV.
 
-See the platform documentation for each type of remote for more detailed examples.
+- **Trigger**: Remote turned on
+  - **Target**: Living room remote
+- **Action**: Send remote command
+  - **Target**: Living room remote
+  - **Device**: television
+  - **Command**: play
 
+{% details "YAML example for sending a play command" %}
+
+{% example %}
+automation: |
+  alias: "Send play when the TV remote turns on"
+  triggers:
+    - trigger: remote.turned_on
+      target:
+        entity_id: remote.living_room
+  actions:
+    - delay: "00:00:05"
+    - action: remote.send_command
+      target:
+        entity_id: remote.living_room
+      data:
+        device: television
+        command: play
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: start a saved activity at sunset
+
+At sunset, start a saved evening activity on a remote that supports activities.
+
+- **Trigger**: Sun
+  - **Event**: Sunset
+- **Action**: Turn on via remote
+  - **Target**: Living room remote
+  - **Activity**: Evening TV
+
+{% details "YAML example for starting an evening activity" %}
+
+{% example %}
+automation: |
+  alias: "Start evening TV activity at sunset"
+  triggers:
+    - trigger: sun
+      event: sunset
+  actions:
+    - action: remote.turn_on
+      target:
+        entity_id: remote.living_room
+      data:
+        activity: "Evening TV"
+{% endexample %}
+
+{% enddetails %}

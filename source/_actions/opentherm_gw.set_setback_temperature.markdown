@@ -8,7 +8,7 @@ related_actions:
   - opentherm_gw.set_outside_temperature
 ---
 
-The **Set setback temperature** action configures the setback temperature on your OpenTherm Gateway. This value is used with the GPIO `home` (5) and `away` (6) modes.
+The **OpenTherm Gateway: Set setback temperature** action configures the setback temperature on your OpenTherm Gateway. This value is used with the GPIO `home` (5) and `away` (6) modes.
 
 {% include actions/ui_header.md %}
 
@@ -65,8 +65,6 @@ temperature:
 {% endoptions_yaml %}
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 

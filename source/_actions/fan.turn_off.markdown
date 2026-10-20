@@ -61,7 +61,7 @@ If you use a fan overnight, this automation turns it off when the day starts.
 
 - **Trigger**: Time: 07:00
 - **Action**: Turn off fan
-- **Target**: Bedroom fan
+  - **Target**: Bedroom fan
 
 {% details "YAML example for a morning fan stop" %}
 
@@ -83,10 +83,10 @@ automation: |
 
 This avoids running the fan when no one is home.
 
-- **Trigger**: Zone: Person leaves home zone
-- **Condition**: Group family is away
+- **Trigger**: Zone occupancy cleared
+  - **Zone**: Home (`zone.home`)
 - **Action**: Turn off fan
-- **Target**: Living room fan
+  - **Target**: Living room fan
 
 {% details "YAML example for turning the fan off when the home is empty" %}
 
@@ -94,14 +94,9 @@ This avoids running the fan when no one is home.
 automation: |
   alias: "Turn off living room fan when home is empty"
   triggers:
-    - trigger: zone
-      entity_id: person.alex
-      zone: zone.home
-      event: leave
-  conditions:
-    - condition: state
-      entity_id: group.family
-      state: not_home
+    - trigger: zone.occupancy_cleared
+      options:
+        zone: zone.home
   actions:
     - action: fan.turn_off
       target:

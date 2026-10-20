@@ -1,8 +1,9 @@
 ---
 title: NZBGet
 description: Instructions on how to integrate NZBGet within Home Assistant.
-ha_category:
-  - Downloading
+ha_categories:
+  - computers_network.nas_servers
+  - media_entertainment.tv_streaming
 ha_iot_class: Local Polling
 ha_release: 0.17
 ha_config_flow: true
@@ -61,18 +62,4 @@ Example automation to send a Telegram message on a completed download:
         message: "{{trigger.event.data.name}}"
 ```
 
-## Actions
-
-Available actions:
-
-- `pause`: Pause the download queue.
-- `resume`: Resume the download queue.
-- `set_speed`: Set the download queue speed limit.
-
-### Action: Set speed
-
-The `nzbget.set_speed` action sets the download queue speed limit.
-
-| Data attribute | Optional | Description                                                                                     |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
-| `speed`                | yes      | Sets the download speed limit, specified in Kb/s. 0 disables the speed limit. Defaults to 1000. |
+{% include integrations/actions.md %}

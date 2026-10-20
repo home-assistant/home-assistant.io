@@ -1,9 +1,8 @@
 ---
 title: Input number
 description: Instructions on how to integrate the input number integration into Home Assistant.
-ha_category:
-  - Automation
-  - Helper
+ha_categories:
+  - helpers.store_value
 ha_release: 0.55
 ha_quality_scale: internal
 ha_codeowners:
@@ -12,12 +11,16 @@ ha_domain: input_number
 ha_integration_type: helper
 ---
 
-The **Input number** {% term integration %} allows you to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
+The **Input number** {% term integration %} lets you create a number {% term helper %}: an entity that stores a numeric value you can set yourself. Because the value is not tied to a physical device, you can use it as an adjustable setting for your automations, scripts, and dashboards. For example, you can create a number helper for a target temperature, a brightness level, or a delay in minutes, then read or change that value from anywhere in Home Assistant.
 
-The preferred way to configure an input number is via the user interface at **{% my helpers title="Settings > Devices & services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_number" title="Number" %}** option.
+On a dashboard, a number helper appears as a slider or a numeric input box, so you can adjust the value directly. Each time the value changes, Home Assistant records a new {% term state %}, which you can use as a trigger or a condition in your automations. Your automations and scripts can also change the value, which makes a number helper a convenient way to share a setting between the UI and your automations.
 
-To be able to add **Helpers** via the user interface you should have `default_config:` in your {% term "`configuration.yaml`" %}, it should already be there by default unless you removed it.
-If you removed `default_config:` from you configuration, you must add `input_number:` to your `configuration.yaml` first, then you can use the UI.
+## Creating a number helper
+
+1. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}, and select **Create helper**.
+2. Select **{% my config_flow_start domain="input_number" title="Number" %}**.
+
+## YAML configuration
 
 Input numbers can also be configured via {% term "`configuration.yaml`" %}:
 
@@ -72,8 +75,12 @@ input_number:
         required: false
         type: string
         default: slider
+      device_class:
+        description: The [type/class](/integrations/number/#device-class) of the number, used to pick the number's wording and icon in the frontend.
+        required: false
+        type: device_class
       unit_of_measurement:
-        description: Unit of measurement in which the value of the slider is expressed in.
+        description: Unit of measurement in which the value of the slider is expressed. When a `device_class` is set, the unit must be one of the units supported by that device class. Otherwise, a warning is logged, and starting with Home Assistant 2027.5 the configuration is invalid.
         required: false
         type: string
       icon:
@@ -83,6 +90,15 @@ input_number:
 {% endconfiguration %}
 
 {% include integrations/actions.md %}
+
+## Unit conversion
+
+When a `device_class` is set, Home Assistant can show the state in another unit, based on your unit system or the unit selected in the entity settings. The configured `unit_of_measurement` stays the helper's own unit:
+
+- `min`, `max`, `step`, and `initial` are always in the helper's own unit.
+- The `min` and `max` attributes are converted to the shown unit. The `step` attribute is not.
+- The `input_number.set_value` action takes the value in the shown unit.
+- The `input_number.increment` and `input_number.decrement` actions change the value by `step` in the helper's own unit.
 
 ## Restore state
 
@@ -239,3 +255,21 @@ automation:
         target:
           entity_id: switch.something
 ```
+
+## Troubleshooting
+
+### The Number helper option is missing from the user interface
+
+#### Symptom
+
+When you go to **{% my helpers title="Settings > Devices & services > Helpers" %}** to add a helper, the **Number** option is not listed.
+
+#### Description
+
+Number helpers are provided through [`default_config:`](/integrations/default_config/), which is part of your {% term "`configuration.yaml`" %} by default. If you removed `default_config:`, the option is no longer available.
+
+#### Resolution
+
+1. Add `input_number:` to your {% term "`configuration.yaml`" %}.
+2. Restart Home Assistant.
+3. After the restart, create your number helpers from the user interface.

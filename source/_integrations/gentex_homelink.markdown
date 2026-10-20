@@ -1,18 +1,19 @@
 ---
 title: HomeLink
 description: Instructions on how to set up your HomeLink devices with Home Assistant.
-ha_category:
-  - Binary sensor
+ha_categories:
+  - buttons_remotes
+  - vehicles_transport.cars_evs
 ha_release: 2026.1
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
-  - '@niaexa'
-  - '@ryanjones-gentex'
+  - '@Gentex-Corporation/Homelink'
+  - '@rjones-gentex'
 ha_domain: gentex_homelink
 ha_platforms:
   - event
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
@@ -24,14 +25,7 @@ HomeLink is only compatible with HomeLink devices accessible via the HomeLink Ap
 
 {% include integrations/config_flow.md %}
 
-## Configuration
-
-{% configuration_basic %}
-Email:
-    description: "The email for your HomeLink account."
-Password:
-    description: "The password for your HomeLink account."
-{% endconfiguration_basic %}
+During setup, you will be redirected to the HomeLink sign-in page to sign in. After you authorize Home Assistant, your HomeLink devices will be added automatically. You can use their buttons as device triggers in automations.
 
 ## Removing the integration
 

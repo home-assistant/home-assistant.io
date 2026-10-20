@@ -48,8 +48,6 @@ This fires when `lock.front_door` changes to the locked state.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -89,7 +87,7 @@ When you lock the front door after coming in, you may not need the bright entry 
 - **Target**: Front door lock
 - **Trigger when**: Each
 - **For at least**: 00:00:30
-- **Action**: Turn off
+- **Action**: Turn off light
 
 {% details "YAML example for turning off the entry light" %}
 

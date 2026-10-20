@@ -19,7 +19,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Light: Light is off**.
+4. From the search box, search for and select **Light is off**.
 5. Under **Targets**, select the light entity, an area, a floor, or a label.
 6. Under **Condition passes if**, pick **Any** or **All**.
 7. Select **Save**.
@@ -46,8 +46,6 @@ This passes when the bedroom light is currently off.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -61,7 +59,7 @@ behavior:
 
 ## Good to know
 
-- Lights that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as off. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted light is unavailable.
+{% include conditions/unavailable_targets.md entities="lights" %}
 - To gate an automation on a light being on instead, use [Light is on](/conditions/light.is_on/).
 - Pair with the [Light turned off](/triggers/light.turned_off/) trigger to react only when a transition to off happens.
 
@@ -74,7 +72,8 @@ behavior:
 At 07:00 on weekdays, start the morning wake-up routine, but only if the bedroom light is still off. Skip the routine on days you're already awake.
 
 - **Trigger**: Time: 07:00
-- **Condition**: Day of the week is Monday to Friday
+- **Condition**: Time
+  - **Days of the week**: Monday, Tuesday, Wednesday, Thursday, Friday
 - **Condition**: Light is off
 - **Target**: Bedroom light
 - **Condition passes if**: All

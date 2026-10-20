@@ -27,6 +27,8 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple sensors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted sensor detects carbon monoxide, **First** to fire only when the first sensor in a group detects carbon monoxide, or **All** to fire only after every targeted sensor detects carbon monoxide.
+  required: false
+  default: Each
 For at least:
   description: How long the sensor must stay in the detected state before the trigger fires. Set to zero to fire immediately.
 {% endoptions_ui %}
@@ -46,13 +48,11 @@ This fires every time `binary_sensor.hallway_co` transitions to the detected sta
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
     When multiple sensors are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:
@@ -83,9 +83,7 @@ Imagine everyone in your home is fast asleep and carbon monoxide starts building
 
 - **Trigger**: Carbon monoxide detected
   - **Target**: All CO sensors (by label)
-  - **Trigger when**: Each
-  - **For at least**: 00:00:00
-- **Action**: Siren: Turn on
+- **Action**: Turn on siren
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -98,9 +96,6 @@ automation: |
     - trigger: air_quality.co_detected
       target:
         label_id: co_sensors
-      options:
-        behavior: each
-        for: "00:00:00"
   actions:
     - action: siren.turn_on
       target:
@@ -120,10 +115,10 @@ automation: |
 A car left idling or a gas-powered tool running in the garage produces carbon monoxide that builds up fast in an enclosed space. This automation turns on the exhaust fan after a confirmed one-minute reading, helping clear the air before the situation becomes dangerous. You could also combine this with a notification so you know to check on what caused the buildup.
 
 - **Trigger**: Carbon monoxide detected
-- **Target**: Garage CO sensor
-- **Trigger when**: Each
-- **For at least**: 00:01:00
-- **Action**: Fan: Turn on
+  - **Target**: Garage CO sensor
+  - **For at least**: 00:01:00
+- **Action**: Turn on fan
+  - **Target**: Garage exhaust fan
 
 {% details "YAML example for ventilation on CO detection" %}
 
@@ -135,7 +130,6 @@ automation: |
       target:
         entity_id: binary_sensor.garage_co
       options:
-        behavior: each
         for: "00:01:00"
   actions:
     - action: fan.turn_on

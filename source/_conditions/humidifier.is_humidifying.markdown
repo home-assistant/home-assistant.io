@@ -72,7 +72,7 @@ for:
 ## Good to know
 
 - A humidifier can be on but not humidifying if it has already reached its target humidity and is idling. Use [Humidifier is on](/conditions/humidifier.is_on/) if you only care about whether the device is powered.
-- Humidifiers that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as actively humidifying. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted humidifier is unavailable.
+{% include conditions/unavailable_targets.md entities="humidifiers" %}
 - This condition only applies to devices in a humidification cycle. For dehumidifiers that are actively removing moisture, use [Humidifier is drying](/conditions/humidifier.is_drying/) instead.
 
 {% include conditions/try_it.md %}
@@ -83,11 +83,12 @@ for:
 
 When the bedroom humidifier is confirmed to be in an active humidification cycle, turn on the air purifier alongside it. This keeps both devices running together during active cycles without running the purifier while the humidifier idles.
 
-- **Trigger**: Time pattern: Every 5 minutes
+- **Trigger**: Time pattern
+  - **Minutes**: `/5`
 - **Condition**: Humidifier is humidifying
   - **Target**: Bedroom humidifier
-  - **Condition passes if**: Any
-- **Action**: Fan: Turn on
+- **Action**: Turn on fan
+  - **Target**: Bedroom purifier
 
 {% details "YAML example for running a purifier alongside the humidifier" %}
 
@@ -101,8 +102,6 @@ automation: |
     - condition: humidifier.is_humidifying
       target:
         entity_id: humidifier.bedroom
-      options:
-        behavior: any
   actions:
     - action: fan.turn_on
       target:

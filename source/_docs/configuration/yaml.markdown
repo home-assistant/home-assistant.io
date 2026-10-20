@@ -12,7 +12,7 @@ related:
     title: Troubleshooting the configuration files
   - docs: /docs/configuration/#validating-the-configuration
     title: Validating the configuration
-  - url: https://developers.home-assistant.io/docs/documenting/yaml-style-guide/
+  - url: https://contributors.home-assistant.io/writing/reference/yaml/
     title: YAML Style Guide for Home Assistant developers
 ---
 
@@ -20,7 +20,7 @@ Most things in Home Assistant can be set up directly from the user interface, an
 
 ## YAML style guide
 
-This page gives a high-level introduction to the YAML syntax used in Home Assistant. For a more detailed description and more examples, refer to the [YAML style guide for Home Assistant developers](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/).
+This page gives a high-level introduction to the YAML syntax used in Home Assistant. For a more detailed description and more examples, refer to the [YAML style guide for Home Assistant developers](https://contributors.home-assistant.io/writing/reference/yaml/).
 
 ## A first example
 
@@ -124,9 +124,9 @@ This means that you've mistakenly entered a tab character, instead of spaces.
 
 ### Upper and lower case
 
-Home Assistant is case-sensitive, a state of `'on'` is not the same as `'On'` or `'ON'`. Similarly an entity of `group.Doors` is not the same as `group.doors`.
+Home Assistant is case-sensitive. State values can use any case, so `'on'` is not the same as `'On'` or `'ON'`. Entity IDs, on the other hand, are always lowercase, so a reference like `binary_sensor.Front_Door` will not match the actual entity `binary_sensor.front_door`.
 
-If you're having trouble, check the case that Home Assistant is reporting in the dev-state menu, under *Developer tools*.
+If you're unsure what case a state uses, check how Home Assistant reports it in {% my tools_states title="**Settings** > **Tools** > **States**" %}.
 
 ### Booleans
 

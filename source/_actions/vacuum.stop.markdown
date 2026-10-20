@@ -1,5 +1,5 @@
 ---
-title: Stop vacuum
+title: "Stop vacuum cleaner"
 action: vacuum.stop
 domain: vacuum
 description: "Stops the current activity of a vacuum."
@@ -15,7 +15,7 @@ To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Create or edit an automation.
-3. Add an action and search for **Vacuum: Stop vacuum cleaner**.
+3. Add an action and search for **Stop vacuum cleaner**.
 4. Select the target vacuum, area, or group.
 5. Save your automation.
 
@@ -33,8 +33,6 @@ This stops `vacuum.upstairs`.
 `entity_id` is optional. Omitting it stops all connected vacuums.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 target:
@@ -57,9 +55,11 @@ target:
 
 If a leak sensor activates in the kitchen, this automation stops the vacuum immediately so it does not drive through water.
 
-- **Trigger**: Leak detected
-- **Action**: Stop vacuum
-- **Target**: Downstairs vacuum
+- **Trigger**: State changed
+  - **Entity**: Kitchen leak sensor
+  - **To**: Wet
+- **Action**: Stop vacuum cleaner
+  - **Target**: Downstairs vacuum
 
 {% details "YAML example for stopping a vacuum on leak detection" %}
 

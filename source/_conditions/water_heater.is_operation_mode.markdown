@@ -68,8 +68,6 @@ condition: |
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 operation_mode:
   description: >
@@ -98,7 +96,7 @@ for:
 
 - The available operation modes depend on the device. Home Assistant only shows modes that the targeted water heater supports.
 - `unavailable` and `unknown` are not offered as selectable modes.
-- With **Any**, unavailable and unknown water heaters are skipped. With **All**, they make the condition fail.
+{% include conditions/unavailable_targets.md entities="water heaters" %}
 - To react when the mode changes instead of checking the current mode, use [Water heater operation mode changed](/triggers/water_heater.operation_mode_changed/).
 
 {% include conditions/try_it.md %}
@@ -109,7 +107,7 @@ for:
 
 When the kitchen motion sensor detects activity, run the hot water recirculation pump only if the utility room water heater is already in **Performance** mode.
 
-- **Trigger**: State: Kitchen motion changes to on
+- **Trigger**: State changed: Kitchen motion changes to on
 - **Condition**: Water heater operation mode
   - **Target**: Utility room water heater
   - **Operation mode**: Performance

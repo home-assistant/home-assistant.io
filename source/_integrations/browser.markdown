@@ -1,8 +1,8 @@
 ---
 title: Browser
 description: Instructions on how to set up the browser integration with Home Assistant.
-ha_category:
-  - Utility
+ha_categories:
+  - computers_network
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_quality_scale: internal
@@ -13,7 +13,7 @@ related:
     title: Configuration file
 ---
 
-The **Browser** {% term integration %} provides a action to open URLs in the default browser on the host machine.
+The **Browser** {% term integration %} provides an action to open URLs in the default browser on the host machine.
 
 ## Configuration
 

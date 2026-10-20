@@ -5,7 +5,7 @@ domain: litterrobot
 description: "Sets the sleep mode and start time on a Litter-Robot."
 ---
 
-The **Set sleep mode** action turns sleep mode on or off for a Litter-Robot. When sleep mode is enabled, the Litter-Robot does not run an automatic clean cycle for 8 hours starting from the time you choose.
+The **Whisker: Set sleep mode** action turns sleep mode on or off for a Litter-Robot. When sleep mode is enabled, the Litter-Robot does not run an automatic clean cycle for 8 hours starting from the time you choose.
 
 This is handy for keeping the unit quiet overnight or while you are nearby, without changing settings in the Whisker app.
 
@@ -17,7 +17,7 @@ To set sleep mode from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Litter-Robot: Set sleep mode**.
+5. From the search box, search for and select **Whisker: Set sleep mode**.
 6. Under **Targets**, choose the Litter-Robot entities to control.
 7. Turn **Enabled** on or off, and optionally set a **Start time**.
 8. Select **Save**.
@@ -75,8 +75,6 @@ start_time:
 - Sleep mode scheduling through this action is currently limited to the Litter-Robot 3. To change the sleep schedule on a Litter-Robot 4, use the Whisker app.
 
 {% include actions/try_it.md %}
-
-{% include actions/more_examples.md %}
 
 {% include actions/stuck.md %}
 

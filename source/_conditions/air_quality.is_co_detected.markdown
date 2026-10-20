@@ -44,8 +44,6 @@ This passes when the hallway carbon monoxide sensor is currently detecting CO.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -55,13 +53,13 @@ behavior:
   default: any
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md domain="binary_sensor" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as detecting. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted sensor is unavailable.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - To check whether carbon monoxide is no longer detected, use [Carbon monoxide cleared](/conditions/air_quality.is_co_cleared/).
 - To check the actual CO concentration rather than just a binary detection, use [Carbon monoxide value](/conditions/air_quality.is_co_value/).
 
@@ -73,8 +71,10 @@ behavior:
 
 If carbon monoxide built up while the family was out, the first person home needs a warning before walking inside. This automation triggers when someone enters the home zone and checks whether the hallway CO sensor is still detecting carbon monoxide. If it is, an urgent notification tells them to stay outside and call emergency services.
 
-- **Trigger**: Zone: Person enters home zone
-- **Condition**: Air Quality: Carbon monoxide detected
+- **Trigger**: Zone entered
+  - **Target**: Frenck
+  - **Zone**: Home
+- **Condition**: Carbon monoxide detected
   - **Target**: Hallway CO sensor
   - **Condition passes if**: Any
 - **Action**: Send a notification message
@@ -86,10 +86,11 @@ If carbon monoxide built up while the family was out, the first person home need
 automation: |
   alias: "CO warning on arrival home"
   triggers:
-    - trigger: zone
-      entity_id: person.frenck
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.frenck
+      options:
+        zone: zone.home
   conditions:
     - condition: air_quality.is_co_detected
       target:

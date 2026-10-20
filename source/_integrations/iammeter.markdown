@@ -1,14 +1,15 @@
 ---
 title: IamMeter
 description: Instructions on how to integrate IAMMETER sensor within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_release: 0.107
 ha_iot_class: Local Polling
 ha_domain: iammeter
 ha_codeowners:
   - '@lewei50'
+  - '@IAMMETER'
+  - '@miwyf'
 ha_platforms:
   - sensor
 ha_integration_type: integration

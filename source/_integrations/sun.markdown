@@ -1,8 +1,8 @@
 ---
 title: Sun
 description: Instructions on how to track the sun within Home Assistant.
-ha_category:
-  - Environment
+ha_categories:
+  - weather_alerts.forecasts
 ha_release: pre 0.7
 ha_quality_scale: internal
 ha_codeowners:
@@ -29,7 +29,7 @@ automations as
 [a condition with an optional offset to test if the sun has already set or risen][sun_condition].
 
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
-[sun_condition]: /docs/scripts/conditions/#sun-condition
+[sun_condition]: /conditions/sun/
 
 ## Configured by default
 
@@ -60,9 +60,9 @@ sun:
 
 ## Automation trigger
 
-Home Assistant provides a set of dedicated sun triggers for sunrise, sunset, dawn, dusk, solar noon, solar midnight, and the sun's elevation. See the [list of triggers](#list-of-triggers) below for the full set.
+Home Assistant provides a set of dedicated sun triggers for sunrise, sunset, dawn, dusk, solar noon, solar midnight, golden hour, blue hour, midnight sun, polar night, and the sun's elevation. See the [list of triggers](#list-of-triggers) below for the full set.
 
-The classic `sun` trigger described here is still supported and is the one to use when you need a fixed time offset before or after sunrise or sunset.
+The classic `sun` trigger described here is still supported.
 
 The sun's event listener performs the action when the sun rises or sets, with an optional offset.
 
@@ -85,9 +85,25 @@ For example, if sunrise is at 06:00 and you set `offset: "-01:00:00"`, the autom
 
 {% tip %}
 
-Because the duration of twilight varies throughout the year, a fixed offset is not always the best way to trigger automations around dawn or dusk. For more precise dawn or dusk automations, use a [sun elevation trigger](/docs/automation/trigger/#sun-elevation-trigger) instead.
+Because the duration of twilight varies throughout the year, a fixed offset is not always the best way to trigger automations around dawn or dusk. For more precise dawn or dusk automations, use the [Sun elevation crossed threshold](/triggers/sun.elevation_crossed_threshold/) trigger instead.
 
 {% endtip %}
+
+### Sun elevation triggers
+
+The sun elevation is the angle between the sun and the horizon. To run an automation when the sun reaches a specific angle, use the [Sun elevation crossed threshold](/triggers/sun.elevation_crossed_threshold/) trigger. To react to every elevation update, use the [Sun elevation changed](/triggers/sun.elevation_changed/) trigger instead.
+
+This is useful for automations around dawn or dusk because the length of twilight changes during the year. A value between `0` degrees and `-6` degrees is often used for twilight. For example, `-4` degrees can be a practical point for turning on outdoor lights.
+
+{% example %}
+trigger: |
+  trigger: sun.elevation_crossed_threshold
+  options:
+    threshold:
+      type: below
+      value:
+        number: -4
+{% endexample %}
 
 ### Maintains entity `sun.sun`
 

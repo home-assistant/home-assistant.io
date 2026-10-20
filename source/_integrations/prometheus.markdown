@@ -1,8 +1,8 @@
 ---
 title: Prometheus
 description: Record events in Prometheus.
-ha_category:
-  - History
+ha_categories:
+  - computers_network.monitoring
 ha_release: 0.49
 ha_iot_class: Assumed State
 ha_domain: prometheus
@@ -167,7 +167,7 @@ You can then configure Prometheus to fetch metrics from Home Assistant by adding
       - targets: ['HOSTNAME:8123']
 ```
 
-Replace `your.longlived.token` with a Home Assistant [generated token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token).
+Replace `your.longlived.token` with a Home Assistant [generated token](https://contributors.home-assistant.io/core/internals/auth-api/#long-lived-access-tokens).
 
 The format to configure the bearer token has changed in Prometheus 2.26, so if you have a newer version, you can use this configuration sample:
 
@@ -216,3 +216,15 @@ This use of `unless` (which can be slow to compute) is no longer necessary, but 
 Metrics are exported only for the following domains:
 
 `alarm_control_panel`, `automation`, `binary_sensor`, `climate`, `cover`, `counter`, `device_tracker`, `fan`, `geo_location`, `humidifier`, `input_boolean`, `input_number`, `light`, `lock`, `number`, `person`, `sensor`, `switch`, `update`, `water_heater`
+
+## Info metrics
+
+The Prometheus exporter additionally exports several info metrics: `area_info`, `entity_info` and `floor_info` (prefixed by the namespace if configured) for each area, entity and floor configured in your system. You can do a join across metrics to then get the labels from these onto the individual sensors if you want to use a metric of that hierarchy in a query. For example, to show temperature sensors averaged per area you might do:
+
+```promql
+avg by (area) (
+  sensor_temperature_celsius
+    * on(entity) group_left(area)
+  entity_info
+)
+```

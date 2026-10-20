@@ -1,9 +1,8 @@
 ---
 title: openSenseMap
 description: Instructions on how to set up openSenseMap sensors in Home Assistant.
-ha_category:
-  - Health
-  - Sensor
+ha_categories:
+  - weather_alerts.air_quality_pollen
 ha_release: 0.85
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -12,7 +11,7 @@ ha_platforms:
   - air_quality
   - sensor
 ha_integration_type: service
-ha_quality_scale: legacy
+ha_quality_scale: bronze
 ha_codeowners:
   - '@AlCalzone'
 ---

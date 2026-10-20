@@ -1,13 +1,9 @@
 ---
 title: UniFi Network
 description: Instructions on how to configure UniFi Network integration with UniFi Network application by Ubiquiti.
-ha_category:
-  - Hub
-  - Image
-  - Presence detection
-  - Sensor
-  - Switch
-  - Update
+ha_categories:
+  - computers_network.routers_network
+  - presence_location.network_presence
 ha_release: 0.81
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -59,9 +55,16 @@ Using Early Access Release Candidate versions of UniFi Network or UniFi OS can b
 You need a local user created in your UniFi OS Console. Ubiquiti SSO cloud users will **not** work. Using an administrator or a user with full read/write access is recommended to get the most out of the integration, but it is not required. The entities that are created automatically adjust based on the permissions of the user you use.
 
 1. Sign in to your UniFi OS device.
-2. Go to **Admins & Users** from the left-hand side menu.
+2. Go to **People** from the left-hand side menu.
 3. Select **Create New**.
-4. Check **Admin**, then check **Restrict to local access only** and fill out the fields for your user. Select **Full Management** for **Network**. **OS Settings** are not used, so they can be set to **None**.
+4. Fill in the user details:
+    - Add **Name**.
+    - Check **Admin**.
+    - Set a username and password.
+    - Check **Restrict to local access only**.
+    - Uncheck **Use a pre-defined role**.
+    - Set the first privilege level (**Network**) to **Full Management**.
+    - Set the second privilege level (**OS Settings**) to **None**.
 5. In the bottom right, select **Create**.
 
 There is currently support for the following device types within Home Assistant:
@@ -115,6 +118,8 @@ Time in seconds from last seen until considered away:
   description: "Number of seconds since last seen before a client is considered away. Defaults to `300` seconds."
 Disable UniFi Network wired bug logic:
   description: "Disable the workaround for a UniFi Network bug that sometimes reports wired clients as wireless."
+Ignore Wi-Fi clients with private (randomized) MAC addresses:
+  description: "Skip Wi-Fi clients that connect with a locally administered MAC address (like private or randomized Wi-Fi addresses), so no entities are created for them. Wired clients are not affected, and clients you select under **Create entities from network clients** are still included. Disabled by default."
 Network access controlled clients:
   description: "Select clients whose network access you want to control via switches by adding their MAC addresses."
 Allow control of DPI restriction groups:
@@ -154,7 +159,7 @@ This platform allows you to detect presence by looking at devices connected to a
 
 If tracked devices continue to show "Home" when not connected/present and show connected in the UniFi Controller, disable 802.11r Fast Roaming. When enabled, various UniFi Controller versions have been observed to fail to declare clients disconnected.
 
-Presence detection is not compatible with Client MAC Address Randomization, enabled by default on most modern SmartPhones. This feature will need to be disabled within the client device settings, usually under the settings for the specific network.
+Presence detection is not compatible with Client MAC Address Randomization, enabled by default on most modern SmartPhones. This feature will need to be disabled within the client device settings, usually under the settings for the specific network. If you would rather not track these devices at all, turn on **Ignore Wi-Fi clients with private (randomized) MAC addresses** in the integration options. Home Assistant then skips these clients instead of creating device trackers that never come back.
 
 Presence detection depends on accurate time configuration between Home Assistant and the UniFi Network application.
 
@@ -194,6 +199,10 @@ Entities appear for each port Forwarding Rule. The switches can be identified fr
 
 Entities appear for each Traffic Rule. The switches can be identified from icon {% icon "mdi:security-network" %}.
 
+### Control Policy Engine rules
+
+Entities appear automatically for Policy Engine rules that block internet access. Turning a switch on enables the corresponding rule in the UniFi Network application. Turning it off disables the rule. Policy Engine configurations that only define routing or Quality of Service do not appear as switches.
+
 ### Control Policy-Based Routing Rules
 
 Entities appear for each Policy-Based Routing Rule. The switches can be identified from icon {% icon "mdi:routes" %}.
@@ -223,6 +232,15 @@ Get entities reporting uptime per network client or UniFi Network device.
 ### Power Outlet sensor
 
 Get entities reporting the power utilization for outlets that support metrics (such as the AC outlets on the USP-PDU-Pro).
+
+### UPS sensors
+
+Compatible UniFi UPS devices provide sensors for battery level, remaining battery runtime, output power, output current, output voltage, and output power factor.
+
+Home Assistant also provides an additional voltage sensor that depends on your UPS model:
+
+- **UniFi UPS 2U**: a bypass voltage sensor.
+- **UniFi UPS 2U Pro**: an input voltage sensor.
 
 ### Device temperature sensor
 

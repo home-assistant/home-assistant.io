@@ -1,8 +1,8 @@
 ---
 title: SRP Energy
 description: How to integrate SRP Energy within Home Assistant.
-ha_category:
-  - Energy
+ha_categories:
+  - energy.meters_monitoring
 ha_release: 2020.12
 ha_iot_class: Cloud Polling
 ha_domain: srp_energy
@@ -24,7 +24,7 @@ You need a username, password, and account ID which you can create at [SRP](http
 ## Energy
 
 Because utilities release usage/cost data with a delay, the integration inserts data into statistic objects.
-You can find the statistics in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and search for "srp".
+You can find the statistics in {% my tools_statistics title="**Settings** > **Tools** > **Statistics**"%} and search for "srp".
 
 {% note %}
 Because of this delay, you won't see data for today in the Energy dashboard, and yesterday's data may take a few hours to appear completely.
@@ -56,4 +56,4 @@ For electricity:
 {% include integrations/remove_device_service.md %}
 
 If you remove the integration, the statistics are not automatically deleted.
-You can find and delete the statistics in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and search for "srp".
+You can find and delete the statistics in {% my tools_statistics title="**Settings** > **Tools** > **Statistics**"%} and search for "srp".

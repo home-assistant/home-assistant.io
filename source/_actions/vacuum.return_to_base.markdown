@@ -1,5 +1,5 @@
 ---
-title: Return to base
+title: "Return vacuum cleaner to dock"
 action: vacuum.return_to_base
 domain: vacuum
 description: "Sends the vacuum to the charging dock."
@@ -15,7 +15,7 @@ To use this action from an automation or script:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open or create an automation.
-3. Add an action and search for **Vacuum: Return vacuum cleaner to dock**.
+3. Add an action and search for **Return vacuum cleaner to dock**.
 4. Select a vacuum, area, or group.
 5. Select **Save**.
 
@@ -33,8 +33,6 @@ This sends `vacuum.living_room` back to its dock.
 If you omit `entity_id`, the action will target all vacuums.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 target:
@@ -58,8 +56,8 @@ target:
 At the end of the evening, this automation sends the vacuum back to its dock so the floor is clear and the robot is charging overnight.
 
 - **Trigger**: Time: 22:30
-- **Action**: Return to base
-- **Target**: Downstairs vacuum
+- **Action**: Return vacuum cleaner to dock
+  - **Target**: Downstairs vacuum
 
 {% details "YAML example for sending a vacuum home at night" %}
 

@@ -20,7 +20,7 @@ To use this condition in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **And if** section, select **Add condition**.
-4. From the search box, search for and select **Sun: It is morning twilight**.
+4. From the search box, search for and select **It is morning twilight**.
 5. Under **Twilight type**, select **Any**, **Civil**, **Nautical**, or **Astronomical**.
 6. Select **Save**.
 
@@ -79,10 +79,12 @@ type:
 
 ### Automation: gentle wake-up light at civil dawn
 
-When your alarm helper is on, fade the bedroom light in during civil morning twilight so you wake with the brightening sky.
+When motion is detected in the bedroom, fade the bedroom light in during civil morning twilight so you wake with the brightening sky.
 
-- **Trigger**: Bedroom motion detected
-- **Condition**: Sun: It is morning twilight (Civil)
+- **Trigger**: State changed
+  - **Entity**: Bedroom motion sensor
+  - **To**: Detected
+- **Condition**: It is morning twilight (Civil)
 - **Action**: Turn on light (at low brightness)
   - **Target**: Bedroom light
 

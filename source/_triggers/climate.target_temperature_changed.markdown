@@ -40,8 +40,8 @@ Threshold type:
 
     - **Any change**: fires on any change, regardless of direction or new value.
     - **Above** or **Below** (exclusive): fires only when the new setpoint is strictly above or below the threshold. A setpoint equal to the threshold does not fire the trigger.
-    - **In range** (exclusive): fires only when the new setpoint is strictly between the two bounds. A setpoint equal to either bound does not fire the trigger.
-    - **Outside range** (inclusive): fires when the new setpoint is at or below the lower bound, or at or above the upper bound. A setpoint equal to either bound fires the trigger.
+    - **In range** (inclusive): fires when the new setpoint is between the two bounds. A setpoint equal to either bound fires the trigger.
+    - **Outside range** (exclusive): fires when the new setpoint is below the lower bound or above the upper bound. A setpoint equal to either bound does not fire the trigger.
 
     For each mode you can enter a fixed temperature or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
 Unit:
@@ -87,8 +87,6 @@ trigger: |
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: |
@@ -97,8 +95,8 @@ threshold:
     - `type: any`: Fires on any target temperature change (no additional keys needed).
     - `type: above` (exclusive): Sets a minimum. Fires when the setpoint is strictly above `value`. A setpoint equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
     - `type: below` (exclusive): Sets a maximum. Fires when the setpoint is strictly below `value`. A setpoint equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: between` (exclusive): Defines a range. Fires when the setpoint is strictly between `value_min` and `value_max`. Setpoints equal to either bound do not fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: outside` (inclusive): Defines an outside-range. Fires when the setpoint is at or below `value_min`, or at or above `value_max`. Setpoints equal to either bound fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: between` (inclusive): Defines a range. Fires when the setpoint is between `value_min` and `value_max`. Setpoints equal to either bound fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: outside` (exclusive): Defines an outside-range. Fires when the setpoint is below `value_min` or above `value_max`. Setpoints equal to either bound do not fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a literal number) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
 
     When using the `number` key, you must also include `unit_of_measurement` to specify the temperature unit (`°C` or `°F`). When using the `entity` key, the unit is taken from the entity itself, or assumed to be the system temperature unit if the entity has no unit.
 
@@ -123,11 +121,11 @@ threshold:
 
 ## Good to know
 
+- Use a climate entity that exposes a target temperature attribute.
 - This trigger monitors the target temperature setpoint (what you want the thermostat to maintain), not the current room temperature (the actual measured temperature). To react to changes in measured room temperature, use [Temperature changed](/triggers/temperature.changed/) instead.
 - The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when the target temperature first crosses a specific level, use [Thermostat target temperature crossed threshold](/triggers/climate.target_temperature_crossed_threshold/) instead.
-- The trigger works with [climate](/integrations/climate/) entities that expose a target temperature attribute.
 - All temperature values are automatically converted to the unit you specify. For example, if your thermostat reports in Fahrenheit but you configure the trigger in Celsius, the conversion happens automatically.
 
 {% include triggers/try_it.md %}
@@ -136,12 +134,11 @@ threshold:
 
 ### Automation: log aggressive temperature setpoint changes on multiple thermostats
 
-Track when the first thermostat in the living room area sets an unusually high or low target temperature, which might indicate a comfort issue or a configuration error. Firing on the first change prevents multiple log entries.
+Track when a thermostat in the living room area sets an unusually high or low target temperature, which might indicate a comfort issue or a configuration error.
 
 - **Trigger**: Thermostat target temperature changed
   - **Target**: Living room area
   - **Threshold type**: Outside range (18-24°C)
-  - **Trigger when**: First
 - **Action**: Log activity
 
 {% details "YAML example for logging aggressive setpoint changes" %}
@@ -162,7 +159,6 @@ automation: |
           value_max:
             number: 24
             unit_of_measurement: "°C"
-        behavior: first
   actions:
     - action: logbook.log
       data:

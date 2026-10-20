@@ -1,9 +1,8 @@
 ---
 title: OVHcloud AI Endpoints
 description: Instructions on how to integrate OVHcloud AI Endpoints as a conversation agent in Home Assistant.
-ha_category:
-  - AI
-  - Voice
+ha_categories:
+  - ai_voice.ai_models
 ha_release: 2026.6
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -13,7 +12,8 @@ ha_domain: ovhcloud_ai_endpoints
 ha_integration_type: service
 ha_platforms:
   - conversation
-ha_quality_scale: bronze
+  - diagnostics
+ha_quality_scale: silver
 related:
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
@@ -23,7 +23,7 @@ related:
 
 The **OVHcloud AI Endpoints** {% term integration %} adds a conversation agent powered by [OVHcloud AI Endpoints](https://endpoints.ai.cloud.ovh.net/) to Home Assistant. OVHcloud AI Endpoints is a serverless inference platform that gives you access to a curated catalog of open-weight large language models hosted in Europe.
 
-Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you with information about your devices and control them.
+Controlling Home Assistant is done by providing the AI access to the **Device control** API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you with information about your devices and control them.
 
 This integration is useful if you want to keep your conversation data within a European cloud provider, or if you want to use a specific open-weight model from the OVHcloud AI Endpoints catalog.
 

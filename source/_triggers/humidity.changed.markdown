@@ -114,8 +114,6 @@ This fires whenever any humidity sensor in the basement area changes to a value 
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% include triggers/threshold_changed_options_yaml.md
    unit_phrase_yaml="literal percentage 0–100" %}
 
@@ -123,11 +121,12 @@ YAML sometimes provides additional options for more complex use cases that are n
 
 ## Good to know
 
+- Use a climate entity, humidifier entity, weather entity, or sensor with the humidity device class.
+- Climate, humidifier, and weather entities must expose a current humidity attribute.
 - The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
 - Use **Any change** to fire on every change regardless of direction or where the new value lands.
 - To react only when humidity first crosses a specific level, use [Relative humidity crossed threshold](/triggers/humidity.crossed_threshold/) instead.
 - Pair this trigger with [Relative humidity](/conditions/humidity.is_value/) in follow-up conditions to verify the reading meets a threshold before continuing the automation.
-- The trigger works with climate entities, humidifier entities, weather entities, and sensors with the humidity device class.
 
 {% include triggers/try_it.md %}
 
@@ -174,7 +173,7 @@ Track how much the humidity in your greenhouse shifts throughout the day by send
 - **Trigger**: Relative humidity changed
   - **Target**: Greenhouse humidity sensor
   - **Threshold type**: Any change
-- **Action**: Send a notification
+- **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
 {% details "YAML example for greenhouse humidity logging" %}

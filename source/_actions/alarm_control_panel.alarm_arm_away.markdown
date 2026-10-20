@@ -84,9 +84,9 @@ code:
 
 Arm the home alarm in away mode using a PIN code. Useful as a quick action on a dashboard tile before you head out.
 
-- **Action**: Alarm control panel: Arm alarm away
-- **Target**: Home alarm
-- **Code**: 1234
+- **Action**: Arm alarm away
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for arming away with a code" %}
 
@@ -105,9 +105,11 @@ action: |
 
 When the last person walks out the door, arm the alarm in away mode. A simple way to make sure you never forget to set the alarm.
 
-- **Trigger**: Zone: Everyone leaves home
-- **Action**: Alarm control panel: Arm alarm away
-- **Target**: Home alarm
+- **Trigger**: Zone occupancy cleared
+  - **Zone**: Home (`zone.home`)
+- **Action**: Arm alarm away
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for arming when everyone leaves" %}
 
@@ -115,13 +117,9 @@ When the last person walks out the door, arm the alarm in away mode. A simple wa
 automation: |
   alias: "Arm alarm when everyone leaves"
   triggers:
-    - trigger: state
-      entity_id: person.paulus
-      to: not_home
-  conditions:
-    - condition: state
-      entity_id: group.family
-      state: not_home
+    - trigger: zone.occupancy_cleared
+      options:
+        zone: zone.home
   actions:
     - action: alarm_control_panel.alarm_arm_away
       target:
@@ -137,10 +135,13 @@ automation: |
 If you leave for work at the same time every day, arm the alarm automatically at 8:30 in the morning on weekdays.
 
 - **Trigger**: Time: 08:30
-- **Condition**: Day of the week is Monday to Friday
-- **Condition**: Nobody is home
-- **Action**: Alarm control panel: Arm alarm away
-- **Target**: Home alarm
+- **Condition**: Time
+  - **Days of the week**: Monday, Tuesday, Wednesday, Thursday, Friday
+- **Condition**: Zone occupancy is not detected
+  - **Zone**: Home
+- **Action**: Arm alarm away
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for a scheduled workday arm" %}
 
@@ -158,9 +159,9 @@ automation: |
         - wed
         - thu
         - fri
-    - condition: state
-      entity_id: group.family
-      state: not_home
+    - condition: zone.occupancy_is_not_detected
+      options:
+        zone: zone.home
   actions:
     - action: alarm_control_panel.alarm_arm_away
       target:

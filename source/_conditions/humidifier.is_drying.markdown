@@ -72,7 +72,7 @@ for:
 ## Good to know
 
 - A dehumidifier can be on but not drying if it has already reached its target humidity and is idling. Use [Humidifier is on](/conditions/humidifier.is_on/) if you only care about whether the device is powered.
-- Humidifiers that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as actively drying. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted device is unavailable.
+{% include conditions/unavailable_targets.md entities="humidifiers" %}
 - This condition applies to devices in a drying cycle. For humidifiers that are actively adding moisture, use [Humidifier is humidifying](/conditions/humidifier.is_humidifying/) instead.
 
 {% include conditions/try_it.md %}
@@ -87,7 +87,7 @@ When the basement dehumidifier is actively removing moisture, open the basement 
 - **Condition**: Humidifier is drying
   - **Target**: Basement dehumidifier
   - **Condition passes if**: Any
-- **Action**: Cover: Open cover
+- **Action**: Open cover
 
 {% details "YAML example for opening a vent while the dehumidifier is active" %}
 

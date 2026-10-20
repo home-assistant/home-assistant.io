@@ -1,9 +1,8 @@
 ---
 title: MQTT
 description: Instructions on how to set up MQTT within Home Assistant.
-ha_category:
-  - Hub
-  - Update
+ha_categories:
+  - diy_makers
 featured: true
 ha_release: pre 0.7
 ha_iot_class: Local Push
@@ -73,6 +72,7 @@ MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
 - [Image](/integrations/image.mqtt/)
+- [Infrared](/integrations/infrared.mqtt/)
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
@@ -109,6 +109,7 @@ MQTT devices and entities can be set up through [MQTT discovery](#mqtt-discovery
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
 - [Image](/integrations/image.mqtt/)
+- [Infrared](/integrations/infrared.mqtt/)
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
@@ -198,12 +199,12 @@ Add the MQTT integration, then provide your broker's hostname (or IP address) an
 MQTT subentries can also be reconfigured. Additional entities can be added, or an entity can be removed from the sub entry. Each MQTT subentry holds one MQTT device. The MQTT device must have at least one entity.
 
 {% important %}
-If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
+If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then check the collapse section `Other settings` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
 {% endimportant %}
 
-### Advanced broker configuration
+### Other broker configuration settings
 
-Advanced broker configuration options include setting a custom client ID, configuring a client certificate and key for authentication, and enabling TLS validation of the broker's certificate to ensure a secure connection. To access the advanced options, open the MQTT broker settings, select **Advanced options**, and select **Next**. Advanced broker options are shown by default when the default advanced broker settings are changed.
+Additional broker configuration options include setting a custom client ID, configuring a client certificate and key for authentication, and enabling TLS validation of the broker's certificate to ensure a secure connection. To access these settings, open the MQTT broker settings, and expand **Other settings**.
 
 #### Alternative client ID
 
@@ -323,12 +324,12 @@ For every configured MQTT entity Home Assistant automatically assigns a unique `
 If the `default_entity_id` option is set, then this will be used to generate the `entity_id`.
 If, for example, we have configured a `sensor`, and we have set `default_entity_id` to `sensor.test`, then Home Assistant will try to assign `sensor.test` as `entity_id`. If `sensor.test` already exists, Home Assistant will append a suffix to make it unique, for example, `sensor.test_2`.
 
-This means any MQTT entity which is part of a device will [automatically have its `friendly_name` attribute prefixed with the device name](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations)
+This means any MQTT entity which is part of a device will [automatically have its `friendly_name` attribute prefixed with the device name](https://contributors.home-assistant.io/core/entities/naming/#use-has_entity_name)
 
 Unnamed `binary_sensor`, `button`, `number`, and `sensor` entities will now be named by their device class instead of being named "MQTT binary sensor" and similar.
 It's allowed to set an MQTT entity's name to `None` (use `null` in YAML) to mark it as the main feature of a device.
 
-Note that on each MQTT entity, the `has_entity_name` attribute will be set to `True`. More details [can be found here](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations).
+Note that on each MQTT entity, the `has_entity_name` attribute will be set to `True`. More details [can be found here](https://contributors.home-assistant.io/core/entities/naming/#use-has_entity_name).
 
 ## Grouping entities
 
@@ -445,7 +446,7 @@ To see what each abbreviation stands for, refer to the [list of supported abbrev
 
 The components id's under the `components` (`cmps`) key, are used as part of the discovery identification. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
 
-To remove the components, publish an empty (retained) string payload to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
+To remove the components, publish an empty (retained) string payload to the discovery topic. This will remove all components of the device, including disabled entities, and clear the published discovery payload. It will also remove the device entry if there are no further references to it. Removing the device in Home Assistant also clears the published device discovery payload.
 
 An empty config can be published as an update to remove a single component from the device discovery. Note that adding the `platform` (`p`) option is still required.
 
@@ -516,6 +517,10 @@ After removing a component, you should send another update with the removed comp
 }
 ```
 
+To remove a single component that was discovered through device discovery, use its device discovery topic. An empty payload published to its old single component discovery topic, for example after a [migration to device discovery](#migration-from-single-component-to-device-discovery), does not remove it.
+
+When an entity that was discovered through device discovery is removed from Home Assistant, the device discovery payload is not cleared, as that would remove all components of the device. The entity will be added again when a device discovery payload is received that still contains the component. To prevent this, disable the entity instead, or remove the component from the device discovery payload as described above.
+
 <div class='note warning'>
 
 A component config part in a device discovery payload must have the `platform` (`p`) option set with the name of the `component` and also must have at least one component specific config option. Entity components must have set the `unique_id` option and have a `device` context.
@@ -532,7 +537,7 @@ To allow a smooth migration from single component discovery to device discovery:
 4. Ensure the `unique_id` matches and the `device` context has the correct identifiers.
 5. Send the following payload to all existing single component discovery topics: `{"migrate_discovery": true }`. This will unload the discovered item, but its settings will be retained.
 6. Switch the discovery topic to the device discovery topic and include all the component configurations.
-7. Clean up the single component discovery messages with an empty payload.
+7. Clean up the single component discovery messages with an empty payload. This clears the retained messages at the broker, but does not remove the migrated components.
 
 During the migration steps, INFO messages will be logged to inform you about the progress of the migration.
 
@@ -640,7 +645,7 @@ Check the logs to ensure the migration was successful.
 
 **Step 4: Clean up after successful migration:**
 
-After the logs show a successful migration, the single component discovery topics can be cleaned up safely by publishing an empty payload to them.
+After the logs show a successful migration, the single component discovery topics can be cleaned up safely by publishing an empty payload to them. This does not remove the migrated components.
 The logs should indicate if the discovery migration was successful.
 
 **Optional: Rolling back the migration:**
@@ -945,6 +950,8 @@ support_url:
     'stat_tpl':            'state_template',
     'stat_val_tpl':        'state_value_template',
     'step':                'step',
+    'stop_cmd_t':          'stop_command_topic',
+    'stop_cmd_tpl':        'stop_command_template',
     'stype':               'subtype',
     'sug_dsp_prc':         'suggested_display_precision',
     'sup_clrm':            'supported_color_modes',
@@ -1473,6 +1480,8 @@ Because MQTT state updates are often repeated frequently, even when no actual ch
 
 MQTT devices often continuously generate numerous state updates. MQTT does not update `last_reported` to avoid impacting system stability unless `force_update` is set. Alternatively, an MQTT sensor can be created to measure the last update.
 
+{% include integrations/triggers.md %}
+
 ## Using Templates
 
 The MQTT integration supports templating. Read more [about using templates with the MQTT integration](/docs/templating/where-to-use/#mqtt).
@@ -1481,7 +1490,7 @@ The MQTT integration supports templating. Read more [about using templates with 
 
 #### REST API
 
-Using the [REST API](https://developers.home-assistant.io/docs/api/rest/) to send a message to a given topic.
+Using the [REST API](https://contributors.home-assistant.io/core/internals/rest-api/) to send a message to a given topic.
 
 ```bash
 $ curl -X POST \
@@ -1518,96 +1527,7 @@ script:
           retain: true
 ```
 
-## Publish & Dump actions
-
-The MQTT integration will register the `mqtt.publish` action, which allows publishing messages to MQTT topics.
-
-### Action: Publish
-
-The `mqtt.publish` action publishes a message to an MQTT topic.
-
-| Data attribute | Optional | Description                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------ |
-| `topic`                | no       | Topic to publish payload to.                                 |
-| `payload`              | yes      | Payload to publish. Will publish an empty payload when `payload` is omitted.               |
-| `evaluate_payload`     | yes      | If a `bytes` literal in `payload` should be evaluated to publish raw data. (default: false)|
-| `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
-| `retain`               | yes      | If message should have the retain flag set. (default: false) |
-| `message_expiry_interval` | yes   | [Message Expiry Interval](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901048) in seconds for the published message. (default: not set) |
-
-{% note %}
-When `payload` is rendered from [template](/docs/templating/where-to-use/#mqtt) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
-{% endnote %}
-
-```yaml
-topic: homeassistant/light/1/command
-payload: "ON"
-```
-
-```yaml
-topic: homeassistant/light/1/state
-payload: "{{ states('device_tracker.paulus') }}"
-```
-
-```yaml
-topic: "homeassistant/light/{{ states('sensor.light_active') }}/state"
-payload: "{{ states('device_tracker.paulus') }}"
-```
-
-Be aware that `payload` must be a string.
-If you want to send JSON using the YAML editor then you need to format/escape
-it properly. Like:
-
-```yaml
-topic: homeassistant/light/1/state
-payload: "{\"Status\":\"off\", \"Data\":\"something\"}"
-```
-
-The example below shows how to publish a temperature sensor 'Bathroom Temperature'.
-The `device_class` is set, so it is not needed to set the "name" option. The entity
-will inherit the name from the `device_class` set and also support translations.
-If you set "name" in the payload the entity name will start with the device name.
-
-```yaml
-action: mqtt.publish
-data:
-  topic: homeassistant/sensor/Acurite-986-1R-51778/config
-  payload: >-
-    {"device_class": "temperature",
-    "unit_of_measurement": "\u00b0C",
-    "value_template": "{{ value | float }}",
-    "state_topic": "rtl_433/rtl433/devices/Acurite-986/1R/51778/temperature_C",
-    "unique_id": "Acurite-986-1R-51778-T",
-    "device": {
-    "identifiers": "Acurite-986-1R-51778",
-    "name": "Bathroom",
-    "model": "Acurite",
-    "model_id": "986",
-    "manufacturer": "rtl_433" }
-    }
-```
-
-Example of how to use `qos` and `retain`:
-
-```yaml
-topic: homeassistant/light/1/command
-payload: "ON"
-qos: 2
-retain: true
-```
-
-### Action: Dump
-
-The `mqtt.dump` action listens to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
-
-| Data attribute | Optional | Description                                                                 |
-| ---------------------- | -------- | --------------------------------------------------------------------------- |
-| `topic`                | no       | Topic to dump. Can contain a wildcard (`#` or `+`).                         |
-| `duration`             | yes      | Duration in seconds that we will listen for messages. Default is 5 seconds. |
-
-```yaml
-topic: zigbee2mqtt/#
-```
+{% include integrations/actions.md %}
 
 ## Logging
 

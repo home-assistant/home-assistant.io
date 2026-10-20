@@ -50,8 +50,6 @@ This passes when `cover.bedroom_shade` is currently open.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -75,10 +73,8 @@ for:
 
 ## Good to know
 
-- This condition works only with `cover` entities that use the `shade` device class.
-- Entities in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
-- With **Any**, the condition passes if at least one available targeted shade is open.
-- With **All**, the condition passes only if every available targeted shade is open. If every targeted shade is `unavailable` or `unknown`, **All** passes and **Any** fails.
+- The target must be a cover entity with the shade device class.
+{% include conditions/unavailable_targets.md entities="shades" %}
 
 {% include conditions/try_it.md %}
 
@@ -88,7 +84,7 @@ for:
 
 At sunset, this automation checks whether the shade is still open. If it is, Home Assistant closes it for the night.
 
-- **Trigger**: Sun: Sunset
+- **Trigger**: Sunset
 - **Condition**: Shade is open
   - **Target**: Bedroom shade
 - **Action**: Close cover
@@ -99,8 +95,7 @@ At sunset, this automation checks whether the shade is still open. If it is, Hom
 automation: |
   alias: "Close the shade at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   conditions:
     - condition: cover.shade_is_open
       target:
@@ -117,7 +112,9 @@ automation: |
 
 When you leave home, this automation checks whether the shade is still open. If it is, Home Assistant sends a reminder so you can close it.
 
-- **Trigger**: Person leaves home zone
+- **Trigger**: Zone left
+  - **Target**: Morgan
+  - **Zone**: Home
 - **Condition**: Shade is open
   - **Target**: Bedroom shade
 - **Action**: Send a notification message
@@ -129,10 +126,11 @@ When you leave home, this automation checks whether the shade is still open. If 
 automation: |
   alias: "Warn me if the shade is open when I leave home"
   triggers:
-    - trigger: zone
-      entity_id: person.morgan
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.morgan
+      options:
+        zone: zone.home
   conditions:
     - condition: cover.shade_is_open
       target:

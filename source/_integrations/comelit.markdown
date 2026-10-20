@@ -1,14 +1,9 @@
 ---
 title: Comelit SimpleHome
 description: Instructions on how to integrate Comelit SimpleHome home automation devices into Home Assistant.
-ha_category:
-  - Alarm
-  - Climate
-  - Cover
-  - Humidifier
-  - Light
-  - Sensor
-  - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
+  - security_safety.alarm_systems
 ha_release: '2023.9'
 ha_domain: comelit
 ha_config_flow: true
@@ -67,9 +62,9 @@ automation:
 - alias: "Arm alarm away"
   id: "arm_alarm_away"
   triggers:
-    - platform: state
-      entity_id: person.simone
-      to: "not_home"
+    - trigger: zone.occupancy_cleared
+      options:
+        zone: zone.home
   actions:
     - action: alarm_control_panel.alarm_arm_away
       target:
@@ -90,9 +85,9 @@ automation:
   condition:
     conditions:
       - alias: "condition alias (not home)"
-        condition: state
-        entity_id: group.person_family
-        state: "not_home"
+        condition: zone.occupancy_is_not_detected
+        options:
+          zone: zone.home
   actions:
     entity_id:
       - cover.group_home_covers

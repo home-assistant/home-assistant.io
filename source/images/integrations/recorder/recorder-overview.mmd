@@ -1,0 +1,9 @@
+flowchart LR
+    CHANGE["Something changes<br/>(light turns on,<br/>sensor updates,<br/>door opens)"]
+    REC["Recorder<br/>integration"]
+    DB[("Database")]
+    CONSUMERS["History, Activity,<br/>dashboard graphs,<br/>statistics"]
+
+    CHANGE -->|"State change<br/>or event"| REC
+    REC -->|"Writes"| DB
+    DB -->|"Read by"| CONSUMERS

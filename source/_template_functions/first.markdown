@@ -48,7 +48,7 @@ value:
 
 ## Good to know
 
-- Raises an error when the sequence is empty. Chain with [`| default(value)`](/template-functions/default/) if emptiness is possible.
+- If the sequence is empty, the result is undefined. It shows as empty, and the template editor shows a warning. If the template uses that result further, for example, in `(items | first).name`, you get an error. Chain with [`| default(value)`](/template-functions/default/) if emptiness is possible.
 - Works on any sequence, including strings (returns the first character) and generators.
 - When used after [`selectattr`](/template-functions/selectattr/) or [`select`](/template-functions/select/), add [`| list`](/template-functions/list/) first or the result will only consume part of the iterable.
 
@@ -63,7 +63,7 @@ Sort temperature sensors and pick the first (lowest) one.
 {% example %}
 template: |
   {{
-    expand("group.temperature_sensors")
+    expand("sensor.temperature_sensors")
     | sort(attribute="state")
     | map(attribute="entity_id")
     | first
@@ -79,7 +79,7 @@ Find the first light that is currently on.
 {% example %}
 template: |
   {{
-    expand("group.all_lights")
+    expand("light.home_lights")
     | selectattr("state", "eq", "on")
     | map(attribute="entity_id")
     | first

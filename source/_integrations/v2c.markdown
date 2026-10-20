@@ -1,8 +1,8 @@
 ---
 title: V2C
 description: Instructions on how to integrate V2C Trydan EVSE with Home Assistant.
-ha_category:
-  - Car
+ha_categories:
+  - energy.ev_charging
 ha_release: '2023.12'
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -14,6 +14,7 @@ ha_platforms:
   - diagnostics
   - light
   - number
+  - select
   - sensor
   - switch
 ha_integration_type: device
@@ -26,6 +27,7 @@ There is currently support for the following platforms within Home Assistant:
 - [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Number](#number)
+- [Select](#select)
 - [Light](#light)
 - [Switch](#switch)
 
@@ -60,7 +62,13 @@ The V2C integration currently exposes the following sensors:
 The V2C integration currently exposes the following number entity:
 
 - intensity: current used to charge your vehicle
+- voltage_installation: installation voltage
 
+## Select
+
+The V2C integration currently exposes the following select entity:
+
+- charge_mode: Sets the charger mode to either single-phase or three-phase.
 ## Light
 
 The V2C integration currently exposes the following lights:

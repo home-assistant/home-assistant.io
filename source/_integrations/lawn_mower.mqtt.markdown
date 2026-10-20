@@ -1,8 +1,6 @@
 ---
 title: "MQTT lawn mower"
 description: "Instructions on how to integrate MQTT lawn mowers into Home Assistant."
-ha_category:
-  - Lawn mower
 ha_release: 2023.9
 ha_iot_class: Configurable
 ha_domain: mqtt
@@ -19,7 +17,7 @@ To use an MQTT lawn mower in your installation, add the following to your {% ter
 # Example configuration.yaml entry
 mqtt:
   - lawn_mower:
-      command_topic: topic
+      start_mowing_command_topic: topic
       name: "Test Lawn Mower"
 ```
 
@@ -27,7 +25,7 @@ Alternatively, you can set it up via [MQTT discovery](/integrations/mqtt/#mqtt-d
 
 {% configuration %}
 activity_state_topic:
-  description: The MQTT topic subscribed to receive an update of the activity. Valid activities are `mowing`, `paused`, `docked`, and `error`. Use `value_template` to extract the activity state from a custom payload. When payload `none` is received, the activity state will be reset to `unknown`.  
+  description: The MQTT topic subscribed to receive an update of the activity. Valid activities are `mowing`, `paused`, `idle`, `docked`, `returning`, and `error`. Use `value_template` to extract the activity state from a custom payload. When the payload `none` is received, the activity state will be reset to `unknown`.
   required: false
   type: string
 activity_value_template:
@@ -75,7 +73,7 @@ default_entity_id:
   required: false
   type: string
 device:
-  description: "Information about the device this lawn mower is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when the [`unique_id`](#unique_id) is set. At least one of the identifiers or connections must be present to identify the device."
+  description: "Information about the device this lawn mower is a part of to tie it into the [device registry](https://contributors.home-assistant.io/core/integrations/device-registry/). Only works when the [`unique_id`](#unique_id) is set. At least one of the identifiers or connections must be present to identify the device."
   required: false
   type: map
   keys:
@@ -136,7 +134,7 @@ dock_command_topic:
   required: false
   type: string
 enabled_by_default:
-  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. When set to `false`, Home Assistant adds the entity as disabled. A disabled entity has no state, and you can't use it in automations or dashboards until you [enable it](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
   required: false
   type: boolean
   default: true
@@ -146,7 +144,7 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://contributors.home-assistant.io/core/entities/entity-class/#generic-properties) of the entity.
   required: false
   type: string
 entity_picture:
@@ -212,12 +210,20 @@ qos:
   required: false
   type: integer
   default: 0
-start_mowing_template:
+start_mowing_command_template:
   description: Defines a [template](/docs/templating/where-to-use/#mqtt) to generate the payload to send to `start_mowing_command_topic`. The `value` parameter in the template will be set to `start_mowing`.
   required: false
   type: template
 start_mowing_command_topic:
-  description: The MQTT topic that publishes commands when the `lawn_mower.start_mowing` action is performed. The value `start_mowing` is published when the action used. Use a `start_mowing_command_template` to publish a custom format.
+  description: The MQTT topic that publishes commands when the `lawn_mower.start_mowing` action is performed. The value `start_mowing` is published when the action is used. Use a `start_mowing_command_template` to publish a custom format.
+  required: false
+  type: string
+stop_command_template:
+  description: Defines a [template](/docs/templating/where-to-use/#mqtt) to generate the payload to send to `stop_command_topic`. The `value` parameter in the template will be set to `stop`.
+  required: false
+  type: template
+stop_command_topic:
+  description: The MQTT topic that publishes commands when the `lawn_mower.stop` action is performed. The value `stop` is published when the action is used. Use a `stop_command_template` to publish a custom format.
   required: false
   type: string
 retain:
@@ -257,4 +263,6 @@ mqtt:
       dock_command_template: '{"activity": "{{ value }}"}' 
       start_mowing_command_topic: "lawn_mower_plus/set"
       start_mowing_command_template: '{"activity": "{{ value }}"}' 
+      stop_command_topic: "lawn_mower_plus/set"
+      stop_command_template: '{"activity": "{{ value }}"}' 
 ```

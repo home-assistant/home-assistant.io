@@ -1,8 +1,6 @@
 ---
 title: UniFi Discovery
 description: Discover UniFi devices on the network using the UniFi Discovery protocol.
-ha_category:
-  - Network
 ha_iot_class: Local Polling
 ha_release: '2026.5'
 ha_domain: unifi_discovery

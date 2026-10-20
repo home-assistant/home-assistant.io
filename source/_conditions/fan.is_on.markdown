@@ -70,8 +70,7 @@ for:
 
 ## Good to know
 
-- A fan in the `unknown` or `unavailable` state does not count as on.
-- With **All**, every targeted fan must match. With **Any**, one matching fan is enough.
+{% include conditions/unavailable_targets.md entities="fans" %}
 - To check for the opposite state, use [Fan is off](/conditions/fan.is_off/).
 
 {% include conditions/try_it.md %}
@@ -82,7 +81,7 @@ for:
 
 If a window opens while the bedroom fan is running, you may want a reminder so you can decide whether to keep using the fan.
 
-- **Trigger**: State: Window changes to open
+- **Trigger**: State changed: Window changes to open
 - **Condition**: Fan is on
   - **Target**: Bedroom fan
   - **Condition passes if**: Any
@@ -120,7 +119,9 @@ automation: |
 
 If the office is already warm enough for the fan to be running, you can also lower the blinds when the sun gets strong.
 
-- **Trigger**: Sun: Above horizon
+- **Trigger**: State changed
+  - **Entity**: Sun
+  - **To**: Above horizon
 - **Condition**: Fan is on
 - **Target**: Office fan
 - **Condition passes if**: Any
@@ -133,8 +134,9 @@ If the office is already warm enough for the fan to be running, you can also low
 automation: |
   alias: "Lower office blinds when fan is already running"
   triggers:
-    - trigger: sun
-      event: sunrise
+    - trigger: state
+      entity_id: sun.sun
+      to: above_horizon
   conditions:
     - condition: fan.is_on
       target:

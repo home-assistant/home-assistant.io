@@ -9,7 +9,7 @@ related_actions:
 
 Use this action to call a Command Class API directly on a Z-Wave node. In most cases the [Set a value](/actions/zwave_js.set_value/) action does what you need, but some command classes have API methods that can't be reached that way.
 
-Correctly using this action requires advanced knowledge of Z-Wave. Refer to the [Z-Wave JS Command Class documentation](https://zwave-js.github.io/node-zwave-js/#/api/CCs/index) for the available APIs and their arguments.
+Correctly using this action requires specific knowledge of Z-Wave, such as the Z-Wave Command Class numbers and the Z-Wave JS CC API method names. Refer to the [Z-Wave JS Command Class documentation](https://zwave-js.github.io/node-zwave-js/#/api/CCs/index) for the available APIs and their arguments.
 
 You can target the action at one or more entities, devices, or areas. At least one of those must be provided.
 
@@ -21,7 +21,7 @@ To invoke a Command Class API from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the list of actions, search for and select **Invoke a Command Class API on a node**.
+5. From the list of actions, search for and select **Z-Wave: Invoke a Command Class API on a node**.
 6. Select the Z-Wave entities, devices, or areas to target, then set the **Command class**, **Method name**, and **Parameters**.
 7. Select **Save**.
 

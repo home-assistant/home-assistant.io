@@ -120,7 +120,7 @@ After extracting state values, keep only those that are valid numbers.
 {% example %}
 template: |
   {{
-    expand("group.temperature_sensors")
+    expand("sensor.temperature_sensors")
     | map(attribute="state")
     | select("is_number")
     | map("float")
@@ -137,7 +137,7 @@ Extract values, convert to float, and filter for those above a target.
 {% example %}
 template: |
   {{
-    expand("group.temperature_sensors")
+    expand("sensor.temperature_sensors")
     | map(attribute="state")
     | map("float")
     | select("greaterthan", 21)
@@ -154,7 +154,7 @@ Combine `select` with [`list`](/template-functions/list/) and [`length`](/templa
 {% example %}
 template: |
   {{
-    expand("group.all_doors")
+    expand("binary_sensor.home_doors")
     | map(attribute="state")
     | select("equalto", "on")
     | list

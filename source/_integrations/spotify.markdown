@@ -1,8 +1,8 @@
 ---
 title: Spotify
 description: Instructions on how to integrate Spotify into Home Assistant.
-ha_category:
-  - Media player
+ha_categories:
+  - media_entertainment.music_radio_services
 ha_release: 0.43
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -131,7 +131,7 @@ data:
   source: "Denon AVR-X2000"
 ```
 
-The Spotify API cannot initiate playback to a device not already known to the Spotify API. The source list of available devices can be found in the Details section of the Spotify Media Player Control and the `source_list` attribute in the {% my developer_states title="**Settings** > **Developer tools** > **States**" %}.
+The Spotify API cannot initiate playback to a device not already known to the Spotify API. The source list of available devices can be found in the Details section of the Spotify Media Player Control and the `source_list` attribute in the {% my tools_states title="**Settings** > **Tools** > **States**" %}.
 
 ## Playing Spotify playlists
 

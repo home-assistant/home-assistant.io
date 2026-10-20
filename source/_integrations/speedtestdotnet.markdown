@@ -1,9 +1,8 @@
 ---
 title: Speedtest.net
 description: How to integrate Speedtest.net within Home Assistant.
-ha_category:
-  - Sensor
-  - System monitor
+ha_categories:
+  - computers_network.monitoring
 ha_release: 0.13
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -25,6 +24,15 @@ Most Speedtest.net servers require TCP port 8080 outbound to function. Without t
 By default, a speed test will be run every hour. You can disable polling using system options and use the `update_entity` action to automate the speed test frequency.
 
 {% include common-tasks/define_custom_polling.md %}
+
+## Configuration options
+
+After setup, you can choose which server the speed test runs against. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Speedtest.net** integration, and then select the cogwheel {% icon "mdi:cog-outline" %} (**Configure**).
+
+{% configuration_basic %}
+Select test server:
+  description: "The Speedtest.net server to use for tests. Select `*Auto Detect` to automatically choose a server. Defaults to `*Auto Detect`."
+{% endconfiguration_basic %}
 
 ## Integration sensors
 
@@ -86,3 +94,9 @@ automation:
 - Running this integration can have negative effects on the system's performance as it requires a fair amount of memory.
 - If run frequently, this integration can use a considerable amount of data. Frequent updates should be avoided on bandwidth-capped connections.
 - While the speedtest is running your network capacity is fully utilized. This may have a negative effect on other devices using the network such as gaming consoles or streaming boxes.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

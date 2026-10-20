@@ -1,8 +1,8 @@
 ---
 title: AiDot
 description: Instructions on integrating AiDot Wi-Fi lights with Home Assistant.
-ha_category:
-  - Light
+ha_categories:
+  - lighting.bulbs_lamps
 ha_release: 2026.6
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -14,6 +14,7 @@ ha_platforms:
   - light
 ha_integration_type: hub
 ha_quality_scale: bronze
+ha_dhcp: true
 ---
 
 The [AiDot](https://www.aidot.com/) {% term integration %} allows you to control Wi-Fi lights with Home Assistant.

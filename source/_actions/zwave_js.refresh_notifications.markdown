@@ -7,7 +7,7 @@ description: "Refreshes notifications on a Z-Wave node that supports the Notific
 
 Use this action to refresh the notifications of a given type on a Z-Wave device that supports the Notification Command Class. This is handy when you want to make sure Home Assistant has the device's latest notification state.
 
-Correctly using this action requires advanced knowledge of Z-Wave, including the notification type and event numbers from the Z-Wave specification.
+Correctly using this action requires specific knowledge of Z-Wave, such as the notification type and event numbers from the Z-Wave specification.
 
 You can target the action at one or more entities, devices, or areas. At least one of those must be provided.
 
@@ -19,7 +19,7 @@ To refresh notifications from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the list of actions, search for and select **Refresh notifications on a node**.
+5. From the list of actions, search for and select **Z-Wave: Refresh notifications on a node**.
 6. Select the Z-Wave entities, devices, or areas to target, then set the **Notification Type**.
 7. Select **Save**.
 

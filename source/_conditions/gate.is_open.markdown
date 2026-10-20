@@ -48,8 +48,6 @@ This passes when `cover.driveway_gate` is currently open.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -71,10 +69,8 @@ for:
 
 ## Good to know
 
-- This condition works only with `cover` entities that use the `gate` device class.
-- Entities in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
-- With **Any**, the condition passes if at least one available targeted gate is open.
-- With **All**, the condition passes only if every available targeted gate is open. If every targeted gate is `unavailable` or `unknown`, **All** passes and **Any** fails.
+- The target must be a cover entity with the gate device class.
+{% include conditions/unavailable_targets.md entities="gates" %}
 
 {% include conditions/try_it.md %}
 
@@ -84,7 +80,7 @@ for:
 
 At sunset, this automation checks whether the driveway gate is still open. If it is, Home Assistant sends a reminder so you can secure the property before it gets dark.
 
-- **Trigger**: Sun: Sunset
+- **Trigger**: Sunset
 - **Condition**: Gate is open
   - **Target**: Driveway gate
   - **Condition passes if**: Any
@@ -97,8 +93,7 @@ At sunset, this automation checks whether the driveway gate is still open. If it
 automation: |
   alias: "Remind me if the driveway gate is open at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   conditions:
     - condition: gate.is_open
       target:
@@ -120,7 +115,9 @@ automation: |
 
 When you leave home, this automation checks whether any targeted gate is still open. If one is, you get a warning before you get too far away to do anything about it.
 
-- **Trigger**: Person leaves home zone
+- **Trigger**: Zone left
+  - **Target**: Frenck
+  - **Zone**: Home
 - **Condition**: Gate is open
   - **Target**: Driveway gate and courtyard gate
   - **Condition passes if**: Any
@@ -133,10 +130,11 @@ When you leave home, this automation checks whether any targeted gate is still o
 automation: |
   alias: "Warn me if a gate is open when I leave home"
   triggers:
-    - trigger: zone
-      entity_id: person.frenck
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.frenck
+      options:
+        zone: zone.home
   conditions:
     - condition: gate.is_open
       target:
