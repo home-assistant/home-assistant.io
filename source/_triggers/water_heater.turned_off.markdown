@@ -80,7 +80,7 @@ behavior:
   default: each
 for:
   description: >
-    How long the water heater must stay off before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:15:00` waits 15 minutes.
+    How long the water heater must stay off before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:15:00` waits 15 minutes. For a list of all accepted formats, refer to [Duration of For at least](/docs/automation/trigger/#duration-of-for-at-least).
   required: false
   type: string
   default: "00:00:00"

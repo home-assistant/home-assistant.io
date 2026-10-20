@@ -138,7 +138,7 @@ behavior:
   default: each
 for:
   description: |
-    How long the thermostat setpoint must stay beyond the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the setpoint has been beyond the threshold for 10 seconds, which helps ignore accidental or brief adjustments.
+    How long the thermostat setpoint must stay beyond the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the setpoint has been beyond the threshold for 10 seconds, which helps ignore accidental or brief adjustments. For a list of all accepted formats, refer to [Duration of For at least](/docs/automation/trigger/#duration-of-for-at-least).
   required: false
   type: string
   default: "00:00:00"

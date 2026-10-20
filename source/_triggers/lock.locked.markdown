@@ -59,7 +59,7 @@ behavior:
 for:
   description: >
     How long the lock must stay locked before the trigger fires. Accepts a
-    duration like `00:05:00` for five minutes.
+    duration like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Duration of For at least](/docs/automation/trigger/#duration-of-for-at-least).
   required: false
   type: string
   default: "00:00:00"

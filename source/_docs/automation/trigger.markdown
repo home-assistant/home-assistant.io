@@ -135,6 +135,34 @@ automation:
         name: "{{ trigger.event.data.name }}"
 ```
 
+## Duration of For at least
+
+Many triggers have a **For at least** option. With it, the trigger only reacts after the new state has lasted for the time you set. In the UI, you enter the duration in hours, minutes, and seconds.
+
+In YAML, the `for` option accepts the duration in these formats:
+
+- A duration string in `HH:MM:SS` or `HH:MM` format, such as `"00:05:00"` for 5 minutes.
+- A number of seconds, such as `300` for 5 minutes.
+- A mapping with one or more of `days`, `hours`, `minutes`, `seconds`, and `milliseconds`. For example:
+
+  ```yaml
+  for:
+    minutes: 5
+    seconds: 30
+  ```
+
+[Device triggers](/triggers/device/) only accept the mapping format.
+
+### Templates in For at least
+
+The **State changed**, **Numeric state crossed threshold**, and **Template** triggers also accept a {% term template %} in `for`. The template can return any of the formats above, including a number of seconds. In a mapping, you can also use a template for each value.
+
+```yaml
+for: "{{ states('input_number.delay_in_seconds') | int }}"
+```
+
+Other triggers, such as **Door opened** or **Temperature crossed threshold**, don't accept templates in `for`.
+
 ## Types of triggers
 
 Each trigger has a type that depends on the target of the trigger, usually corresponding to the {% term domain %} of the target.
@@ -292,7 +320,7 @@ automation:
       for: "00:01:00"
 ```
 
-You can also use templates in the `for` option.
+You can also use templates in the `for` option. For a list of all accepted formats, refer to [Duration of For at least](#duration-of-for-at-least).
 
 ```yaml
 automation:

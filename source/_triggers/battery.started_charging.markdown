@@ -68,7 +68,7 @@ behavior:
   default: each
 for:
   description: |
-    How long the device must be actively charging before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:01:00` fires only after the device has been charging for 1 minute.
+    How long the device must be actively charging before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:01:00` fires only after the device has been charging for 1 minute. For a list of all accepted formats, refer to [Duration of For at least](/docs/automation/trigger/#duration-of-for-at-least).
   required: false
   type: string
   default: "00:00:00"

@@ -91,7 +91,7 @@ attribute:
   required: false
   type: string
 for:
-  description: The amount of time the new state or new attribute value must remain unchanged before the trigger fires. With a list of states in `to`, the entity must stay in the state it changed to; changing to another state in the list starts the time again. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds.
+  description: The amount of time the new state or new attribute value must remain unchanged before the trigger fires. With a list of states in `to`, the entity must stay in the state it changed to; changing to another state in the list starts the time again. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds. You can also use a template. For a list of all accepted formats and templates, refer to [Duration of For at least](/docs/automation/trigger/#duration-of-for-at-least).
   required: false
   type: string
   default: "00:00:00"

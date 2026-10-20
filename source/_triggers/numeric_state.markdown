@@ -94,7 +94,7 @@ value_template:
   required: false
   type: string
 for:
-  description: The amount of time the value of the numeric state or attribute must remain unchanged or stay within the configured threshold. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds. Default is `00:00:00` (fires immediately).
+  description: The amount of time the value of the numeric state or attribute must remain unchanged or stay within the configured threshold. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds. Default is `00:00:00` (fires immediately). You can also use a template. For a list of all accepted formats and templates, refer to [Duration of For at least](/docs/automation/trigger/#duration-of-for-at-least).
   required: false
   type: string
   default: "00:00:00"

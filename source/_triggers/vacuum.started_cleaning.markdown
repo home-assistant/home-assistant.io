@@ -63,7 +63,7 @@ behavior:
 for:
   description: >
     The time the vacuum must keep cleaning before the trigger fires.
-    Accepts a duration like `00:00:10` for 10 seconds.
+    Accepts a duration like `00:00:10` for 10 seconds. For a list of all accepted formats, refer to [Duration of For at least](/docs/automation/trigger/#duration-of-for-at-least).
   required: false
   type: string
 {% endoptions_yaml %}

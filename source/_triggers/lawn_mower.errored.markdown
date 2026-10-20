@@ -57,7 +57,7 @@ behavior:
 for:
   description: >
     How long the mower must stay in the error state before the trigger fires.
-    Accepts a duration like `00:01:00` for one minute.
+    Accepts a duration like `00:01:00` for one minute. For a list of all accepted formats, refer to [Duration of For at least](/docs/automation/trigger/#duration-of-for-at-least).
   required: false
   type: string
   default: "00:00:00"

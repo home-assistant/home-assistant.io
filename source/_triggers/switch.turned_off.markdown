@@ -55,7 +55,7 @@ behavior:
   type: string
   default: each
 for:
-  description: How long the switch must stay off before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
+  description: How long the switch must stay off before the trigger fires. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Duration of For at least](/docs/automation/trigger/#duration-of-for-at-least).
   required: false
   type: string
   default: "00:00:00"
