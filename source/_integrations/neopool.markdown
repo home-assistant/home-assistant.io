@@ -275,6 +275,8 @@ If your controller's connection changes, for example a Modbus TCP gateway moves 
 
 The integration verifies the new settings against the controller before saving. If the device reached at the new address reports a different serial number than the one originally configured, the reconfiguration is rejected to prevent pointing the entry at a different controller.
 
+You can't switch between a network and a serial connection this way. To change the connection type, remove the integration and add it again.
+
 ## Diagnostics
 
 This integration provides diagnostic information to help with troubleshooting. To download the diagnostics data:
@@ -342,7 +344,7 @@ If entities stay unavailable for more than a few minutes:
 
 1. Check the Home Assistant logs for `neopool` errors.
 2. On a network connection, power-cycle the Modbus gateway and verify nothing else has taken over the same connection (only one Modbus client per gateway port at a time).
-3. On a serial connection, confirm the adapter is still connected (or the ESPHome serial proxy is still online) and that no other integration or add-on is using the same port.
+3. On a serial connection, confirm the adapter is still connected (or the ESPHome serial proxy is still online) and that no other integration or app is using the same port.
 
 ### Repair issue: "Corrupted GPIO register"
 
