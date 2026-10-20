@@ -75,13 +75,29 @@ Re-authentication is not supported yet. If a newer key has replaced the one Home
 
 ## Troubleshooting
 
-### Setup reports that the key has no connection points
+{% details "Setup reports that the key has no connection points" %}
 
-The key is valid, but no property is attached to it yet. This is normal while a switch to ecosmart is still in progress. Try again once the property is live.
+### Symptom
 
-### The sensor stopped updating and the entry reports an authentication failure
+During setup, the form reports that the key has no connection points yet. The key is valid, but no property is attached to it. This is normal while a switch to ecosmart is still in progress.
 
-The API key was replaced. Creating a key anywhere else disables the key Home Assistant is using. Remove the integration, create a new key in the ecosmart app, and add the integration again. Entity IDs are derived from the ICP, so they come back identical and your automations keep working.
+#### Resolution
+
+Try again once the property is live.
+
+{% enddetails %}
+
+{% details "The sensor stopped updating and the entry reports an authentication failure" %}
+
+### Symptom
+
+The sensor stops updating and the integration reports an authentication failure after the API key was replaced. Creating a key anywhere else disables the key Home Assistant is using.
+
+#### Resolution
+
+Remove the integration, create a new key in the ecosmart app, and add the integration again. Entity IDs are derived from the ICP, so they come back identical and your automations keep working.
+
+{% enddetails %}
 
 ## Removing the integration
 
