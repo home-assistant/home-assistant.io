@@ -22,7 +22,7 @@ To add an ingredient from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Mealie shopping lists you want to read.
 6. From the actions shown for that target, under **Mealie**, select **Get shopping list items**.
-7. Enter the ingredient you want to add. You can provide a **Food ID** and **Unit ID** available from the responses of the **get_recipe** or **parse_ingredient** actions, or supply a note only.
+7. Enter the ingredient you want to add. You can provide a **Food ID** and **Unit ID** available from the responses of the [`Get recipe`](/actions/mealie.get_recipe/) or [`Parse ingredient`](/actions/mealie.parse_ingredient/) actions, or supply a note only.
 8. Select **Save**.
 
 ### Options in the UI
