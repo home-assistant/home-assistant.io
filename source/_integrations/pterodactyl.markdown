@@ -97,9 +97,9 @@ The following sensors are provided as well, but disabled by default:
 
 ## Data updates
 
-This integration {% term polling polls %} the configured game servers of your Pterodactyl server every 60 seconds to refresh their status information. If a game server cannot be reached, all its sensor entities become unavailable and its status goes to `Not running`.
+This integration {% term polling polls %} each game server on your Pterodactyl server every 60 seconds. If a request for one game server fails, entities for all game servers become unavailable until a refresh succeeds.
 
-If a game server is suspended, its button as well as its sensor entities become unavailable and its status goes to `Not running`.
+If a game server is suspended, its button entities become unavailable and its status goes to `Not running`.
 
 ## Removing the integration
 
