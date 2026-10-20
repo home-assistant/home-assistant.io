@@ -77,6 +77,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 - [Sensor](#sensor)
 - [Firmware updates](#firmware-updates)
+- [WAN networks](#wan-networks)
 
 {% include integrations/config_flow.md %}
 
@@ -112,6 +113,8 @@ Include wired network clients:
   description: "Also track wired clients, not just wireless clients."
 Track network devices:
   description: "Create device tracker entities for Ubiquiti network devices such as access points and switches."
+Track WAN networks:
+  description: "Create a device for each WAN network, with its status. See [WAN networks](#wan-networks). Turning this on or off takes effect without a restart. Disabled by default."
 Select SSIDs to track wireless clients on:
   description: "Only track wireless clients connected to the selected SSIDs. Leave empty to track clients on all SSIDs."
 Time in seconds from last seen until considered away:
@@ -282,6 +285,18 @@ Changes may take over 5 seconds to apply as the device must adopt a new configur
 
 This will show if there are firmware updates available for the UniFi network devices connected to the controller. If the configured user has admin privileges, the firmware upgrades can also be installed directly from Home Assistant.
 
+## WAN networks
+
+If your UniFi gateway has more than one internet connection, Home Assistant can show the status of each one. To use this, turn on **Track WAN networks** in the [configuration options](#configuration-options).
+
+Each WAN network on your UniFi Network application, such as **Internet 1**, **Internet 2**, or **UniFi 5G A**, becomes its own device in Home Assistant with this entity:
+
+- **Status**: Shows the state of the connection:
+  - **Disabled**: The WAN is disabled in UniFi Network.
+  - **No link**: There is no link, for example because the cable is unplugged.
+  - **Offline**: The link is up, but the gateway's internet check fails.
+  - **Online**: The WAN is connected and has internet access.
+
 ## Examples
 
 ### Community blueprints
@@ -309,6 +324,8 @@ Integration populates both UniFi devices as well as network clients into Home As
 To manually remove a device entry, go to the Device Info page and select "Delete" from the Device Info menu.
 
 Only clients/devices which are no longer known by UniFi since the startup or reload of the UniFi integration can be removed.
+
+A WAN network device can't be removed while **Track WAN networks** is on and UniFi Network still reports that WAN. If you turn **Track WAN networks** off, you can remove any leftover WAN network devices.
 
 ![4d4ca937-17bb-4902-9949-2ea83e3c2c0c](https://github.com/home-assistant/home-assistant.io/assets/21991867/c926f5c7-18af-47b5-b888-30cc8511d76a)
 
