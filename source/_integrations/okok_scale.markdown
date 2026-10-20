@@ -115,7 +115,7 @@ output: "23.1"
 
 ## Data updates
 
-The scale broadcasts its measurements over Bluetooth while it is awake. The integration listens to these broadcasts ({% term "Local Push" %}).
+The scale broadcasts its measurements over Bluetooth while it is awake. The integration listens to these broadcasts (Local Push).
 
 - **Weight** is read from the broadcasts. How often the sensor updates during a measurement depends on the data format of your scale. Some scales mark a measurement as final once the weight has stabilized, and the integration only updates the sensor with that final value. Other scales don't mark measurements as final, so the sensor can update several times while the reading settles, ending with the final weight.
 - **Impedance** is included in the broadcasts of some scales. Other scales only provide it over an active Bluetooth connection. When the integration detects that a scale provides impedance over a connection, it connects to the scale after each measurement to read it.
