@@ -59,7 +59,8 @@ This action has no additional YAML options beyond the target.
 
 Toggle a cover each time you press a button.
 
-- **Trigger**: Button is pressed
+- **Trigger**: State changed
+  - **Entity**: Toggle blind helper
 - **Action**: Toggle cover
   - **Target**: Living room blind
 

@@ -1,8 +1,8 @@
 ---
 title: MQTT Statestream
 description: Instructions on how to set up MQTT Statestream within Home Assistant.
-ha_category:
-  - Other
+ha_categories:
+  - diy_makers
 ha_release: 0.54
 ha_iot_class: Local Push
 ha_domain: mqtt_statestream

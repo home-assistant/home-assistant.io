@@ -8,13 +8,8 @@ ha_codeowners:
 ha_domain: volvo
 ha_integration_type: device
 ha_config_flow: true
-ha_category:
-  - Binary sensor
-  - Button
-  - Car
-  - Device tracker
-  - Lock
-  - Sensor
+ha_categories:
+  - vehicles_transport.cars_evs
 ha_platforms:
   - binary_sensor
   - button

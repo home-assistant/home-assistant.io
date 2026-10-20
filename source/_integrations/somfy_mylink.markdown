@@ -1,9 +1,8 @@
 ---
 title: Somfy MyLink
 description: Instructions on how to integrate Somfy MyLink devices with Home Assistant.
-ha_category:
-  - Cover
-  - Hub
+ha_categories:
+  - blinds_curtains
 ha_release: 0.92
 ha_iot_class: Assumed State
 ha_domain: somfy_mylink

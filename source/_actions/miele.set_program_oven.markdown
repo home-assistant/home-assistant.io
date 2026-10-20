@@ -1,5 +1,5 @@
 ---
-title: "Set a program on a Miele oven"
+title: "Set program on oven"
 action: miele.set_program_oven
 domain: miele
 description: "Sets and starts a program on a Miele oven."

@@ -1,5 +1,5 @@
 ---
-title: "Issue a Zigbee group command"
+title: "Issue Zigbee group command"
 action: zha.issue_zigbee_group_command
 domain: zha
 description: "Sends a command to a Zigbee cluster on a group of devices."
@@ -20,7 +20,7 @@ To issue a group command from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Issue Zigbee group command**.
+5. Search for and select **Zigbee Home Automation: Issue Zigbee group command**.
 6. Fill in the group, cluster, command, and any arguments.
 7. Select **Save**.
 

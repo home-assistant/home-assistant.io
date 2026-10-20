@@ -1,11 +1,8 @@
 ---
 title: Jellyfin
 description: Instructions on how to integrate the Jellyfin integration into Home Assistant.
-ha_category:
-  - Media player
-  - Media source
-  - Remote
-  - Sensor
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: '2021.12'
 ha_iot_class: Local Polling
 ha_codeowners:

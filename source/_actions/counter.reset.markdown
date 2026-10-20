@@ -22,7 +22,7 @@ To reset a counter from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the counter you want to reset.
-6. From the actions shown for that target, select **Reset counter**.
+6. From the actions shown for that target, under **Counter**, select **Reset counter**.
 7. Select **Save**.
 
 ### Options in the UI
@@ -61,7 +61,7 @@ This action has no additional YAML options beyond the target.
 Set a counter back to its initial value at a set time, for example to start counting from zero again each day.
 
 - **Trigger**: Time: 00:00
-- **Action**: Reset counter
+- **Action**: Counter: Reset counter
   - **Target**: Daily reminders
 
 {% details "Show example YAML" %}

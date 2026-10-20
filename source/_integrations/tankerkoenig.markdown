@@ -1,9 +1,8 @@
 ---
 title: Tankerkoenig
 description: Instructions on how to integrate Tankerkoenig sensors within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - local_services
 ha_release: 0.107
 ha_iot_class: Cloud Polling
 ha_domain: tankerkoenig

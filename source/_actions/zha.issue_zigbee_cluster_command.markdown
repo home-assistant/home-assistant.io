@@ -1,5 +1,5 @@
 ---
-title: "Issue a Zigbee cluster command"
+title: "Issue Zigbee cluster command"
 action: zha.issue_zigbee_cluster_command
 domain: zha
 description: "Sends a command to a Zigbee cluster on a device."
@@ -20,7 +20,7 @@ To issue a cluster command from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Issue Zigbee cluster command**.
+5. Search for and select **Zigbee Home Automation: Issue Zigbee cluster command**.
 6. Fill in the device, endpoint, cluster, command, and any parameters.
 7. Select **Save**.
 

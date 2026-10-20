@@ -64,7 +64,7 @@ other:
 
 This test can also be used as:
 - `equalto` - `value is equalto(other)`
-- `==` - `value is ==(other)`
+- `==` - Only as the name of the test in [`select`](/template-functions/select/) or [`selectattr`](/template-functions/selectattr/), such as `selectattr("state", "==", "on")`. `value is ==(other)` doesn't work.
 
 ## Using with selectattr
 
@@ -85,7 +85,7 @@ output: "['Living Room', 'Kitchen']"
 ## Good to know
 
 - Numbers and strings compare as unequal even when they look the same. `"5" is eq(5)` is `false`.
-- When used with [`selectattr`](/template-functions/selectattr/), comparisons against entity states always compare strings, so wrap numbers in quotes or convert with [`float`](/template-functions/float/) first.
+- Entity states are always strings. To compare a state, use a string, such as `selectattr("state", "eq", "5")`. The number `5` doesn't match a state of `"5"`.
 
 {% include template_functions/try_it.md %}
 
