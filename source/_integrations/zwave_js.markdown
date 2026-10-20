@@ -142,6 +142,68 @@ Do this when you have a device that is still paired with an adapter, but you don
 4. Put the device you want to remove in exclusion mode. Refer to its manual to learn how this is done.
 5. The UI should confirm that the device was removed and the device and entities will be removed from Home Assistant.
 
+## Using a Z-Wave adapter connected to an ESPHome device
+
+Your Z-Wave adapter doesn't have to be plugged into your Home Assistant server. It can also connect to an ESP32-based device running [ESPHome](/integrations/esphome/). The ESPHome device then passes the Z-Wave traffic to Home Assistant over your network. This lets you place the adapter anywhere you have a Wi-Fi or Ethernet connection.
+
+For example, you can use the experimental [Portable Z-Wave](/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/) firmware with a [Home Assistant Connect ZWA-2](/connect/zwa-2). Portable Z-Wave is ESPHome firmware for connecting a Z-Wave adapter to Home Assistant over your network. You can use it in two ways:
+
+- Install it on the Home Assistant Connect ZWA-2 itself. The adapter then connects over its built-in Wi-Fi.
+- Install it on an ESP32 board with Power over Ethernet (PoE). Then plug the Home Assistant Connect ZWA-2 into that board by USB. The adapter keeps its standard firmware.
+
+To install the firmware, use the [Open Home Foundation toolbox](https://toolbox.openhomefoundation.org/home-assistant-connect-zwa-2/).
+
+Over the network, Z-Wave devices respond a little slower than over USB. On most home networks, you won't notice the difference. On a busy network or with a weak Wi-Fi signal, the delay can become noticeable.
+
+### How Home Assistant finds an adapter connected to an ESPHome device
+
+Two integrations work together to find the adapter:
+
+1. The [ESPHome integration](/integrations/esphome/) finds the ESPHome device on your network.
+2. After you add the ESPHome device, it tells Home Assistant that a Z-Wave adapter is connected to it.
+3. The Z-Wave integration then shows the adapter as a discovered device. Its name has the format **Network** _home ID_ **via** _ESPHome device name_ **(ESPHome)**.
+
+### Prerequisites
+
+- {% term "Home Assistant Operating System" %}. The Z-Wave integration can only set up the adapter if it can manage the Z-Wave JS app.
+  - On other installation types, connect your own [Z-Wave JS server](#setting-up-a-z-wave-server-without-using-the-z-wave-js-app) to `esphome://` followed by the IP address of the ESPHome device. For example: `esphome://192.168.1.50`.
+    - If the ESPHome device uses API encryption, add `?key=` followed by its URL-encoded encryption key. For example: `esphome://192.168.1.50?key=YOUR_ENCRYPTION_KEY`. For details, refer to the [Z-Wave JS documentation](https://zwave-js.github.io/zwave-js/#/usage/esphome-connection).
+- An ESP32-based device running ESPHome with the [Z-Wave proxy](https://esphome.io/components/zwave_proxy/) component. A Z-Wave adapter must be connected to it.
+  - For example, a Home Assistant Connect ZWA-2 running Portable Z-Wave, or plugged into an ESP32 board running it.
+- If you already use Z-Wave, your Z-Wave network must run on the Z-Wave JS app.
+  - If you use Z-Wave JS UI, first [migrate to the Z-Wave JS app](#migrating-from-z-wave-js-ui-to-the-z-wave-js-app).
+- If the adapter already holds a Z-Wave network, [back up your Z-Wave network](#backing-up-your-z-wave-network) before you change the adapter's connection.
+
+### To set up a Z-Wave adapter connected to an ESPHome device
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Discovered**, find the ESPHome device and select **Add**.
+   - For example: your Home Assistant Connect ZWA-2 running Portable Z-Wave, or the ESP32 board it's plugged into.
+   - Follow the steps on screen to add the device to the ESPHome integration.
+   - If you already added the ESPHome device, skip this step.
+3. Continue with the Z-Wave adapter:
+   - If the adapter is already part of a Z-Wave network, the Z-Wave setup opens right after you add the ESPHome device.
+   - Otherwise, or if you closed that dialog, wait for the Z-Wave adapter to show up under **Discovered**, then select **Add**. Its name ends with **(ESPHome)**.
+4. Follow the steps that match your situation:
+   - If you don't use Z-Wave yet, select **Recommended installation**.
+     - Then follow the steps to [set up a Z-Wave server](#to-set-up-a-z-wave-server), starting with step 3.
+   - If you already use Z-Wave with a different adapter, the **Migrate to a new adapter** dialog opens. Select **Submit**.
+     - Home Assistant backs up the network from the old adapter.
+     - When asked, unplug the old adapter and select **Submit**.
+     - Result: Home Assistant restores the network to the new adapter.
+   - If you moved your existing adapter to the ESPHome device, select **Recommended installation**.
+     - Result: Home Assistant confirms that the migration was successful. Your Z-Wave devices and entities stay as they are.
+
+### What changes in the Z-Wave JS app
+
+When the adapter is connected to an ESPHome device, the Z-Wave JS app connects to it over your network instead of through a USB port. Home Assistant sets this up for you. You don't need to change any settings in the app.
+
+- On the app's **Configuration** tab, the **Device** option is no longer set.
+- The **Socket** option holds the address of the ESPHome device, for example `esphome://192.168.1.50:6053`.
+  - If the ESPHome device uses API encryption, the address also includes the encryption key.
+- If the IP address of the ESPHome device changes, Home Assistant updates the **Socket** option automatically.
+- The app connects to one adapter at a time. To use a USB adapter and an adapter connected to an ESPHome device at the same time, you need a second Z-Wave JS server.
+
 ## Migrating a Z-Wave network to a new adapter
 
 Do this if you have an existing Z-Wave network and want to replace its adapter with a new adapter. The Z-Wave integration with all its entities will stay in Home Assistant. The new adapter is added to Home Assistant and paired with the existing network.
