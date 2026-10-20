@@ -67,6 +67,7 @@ for:
 
 ## Good to know
 
+- You can use switch entities and [toggle helpers](/integrations/input_boolean/) (`input_boolean`) as [targets](/docs/automation/targets/).
 - A switch in the `unknown` or `unavailable` state does not count as turned on.
 - If the switch turns off before the **For at least** time finishes, the timer resets.
 - To react when a switch stops instead, use [Switch turned off](/triggers/switch.turned_off/).
