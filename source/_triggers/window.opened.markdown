@@ -30,7 +30,7 @@ Trigger when:
   required: false
 For at least:
   description: How long the window must stay open before the trigger fires. Set to zero to fire immediately.
-  required: true
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -58,7 +58,7 @@ behavior:
 for:
   description: >
     Duration the window must stay open before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
-  required: true
+  required: false
   type: string
   default: "00:00:00"
 {% endoptions_yaml %}

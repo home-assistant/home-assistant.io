@@ -130,3 +130,9 @@ The Wi-Fi device still announces over Bluetooth that it supports Improv via BLE.
    - Result: Home Assistant no longer shows the device under **Discovered**.
 
 {% enddetails %}
+
+## Removing the integration
+
+There's nothing to remove. Improv via BLE doesn't keep an entry in your list of integrations, because it only sends your Wi-Fi details to the Wi-Fi device.
+
+To remove a Wi-Fi device that you set up with Improv via BLE, remove it from its own integration, for example, [ESPHome](/integrations/esphome/).
