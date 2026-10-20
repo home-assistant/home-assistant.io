@@ -460,4 +460,4 @@ This integration follows standard integration removal. No extra steps are requir
 
 When you remove a vehicle from your My Renault account, Home Assistant removes it automatically at the next hourly check, or when you reload the integration.
 
-If you removed all vehicles from your account, Home Assistant keeps them, because an empty list usually means a problem with the Renault servers. In that case, remove the Renault integration. You can also delete a vehicle manually: select the vehicle, then select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**. This is only possible for a vehicle that is no longer linked to your account.
+If you removed all vehicles from your account, Home Assistant keeps them, because an empty list usually means a problem with the Renault servers. In that case, remove the Renault integration.
