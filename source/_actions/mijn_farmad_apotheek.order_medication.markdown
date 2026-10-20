@@ -103,7 +103,7 @@ The action returns:
 
 ## Good to know
 
-- The action refuses to order when your draft basket at the pharmacy still holds products or a comment. Submit or clear the draft in the Mijn Farmad Apotheek app, then run the action again.
+- The action refuses to order when your draft basket at the pharmacy still holds products or a comment. Submit or clear the draft in the Mijn Farmad Apotheek app, then run the action again. When the draft holds an order that could not be confirmed, check the order history first.
 - Each order holds one product. To order several products, call the action once per product.
 
 {% include actions/try_it.md %}

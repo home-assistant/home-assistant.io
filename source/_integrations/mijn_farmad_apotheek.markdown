@@ -149,8 +149,8 @@ The app keeps one draft basket per pharmacy. The order action refuses to order i
 #### Resolution
 
 1. Open the Mijn Farmad Apotheek app.
-2. Submit or clear the draft basket at the pharmacy.
-3. Run the action again.
+2. When the draft basket holds the product of an order that could not be confirmed, check the order history first. The pharmacy may already have accepted that order.
+3. Submit the draft basket to place the order it holds, or clear the draft basket and run the action again to place a new order.
 
 {% enddetails %}
 
