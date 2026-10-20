@@ -307,7 +307,7 @@ automation:
 
 The `for` template(s) will be evaluated when the `value_template` becomes 'true'.
 
-A template that uses `now()` or `utcnow()` is rendered again at the start of every minute. A template without entities that doesn't use the time is only rendered once, when Home Assistant sets up the trigger.
+A template that uses the current time, with `now()`, `utcnow()`, `today_at`, `relative_time`, `time_since`, or `time_until`, is rendered again at the start of every minute. For details, refer to [Getting the current time](/docs/templating/dates-and-times/#getting-the-current-time). A template without entities that doesn't use any of these is only rendered once, when Home Assistant sets up the trigger.
 
 {% important %}
 Use of the `for` option will not survive Home Assistant restart or the reload of automations. During restart or reload, automations that were awaiting `for` the trigger to pass, are reset.
