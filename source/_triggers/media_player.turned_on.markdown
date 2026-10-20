@@ -79,9 +79,9 @@ behavior:
   type: string
   default: each
 for:
-  description: How long the media player must stay on before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Duration of For at least](/docs/automation/trigger/#duration-of-for-at-least).
+  description: How long the media player must stay on before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [integer, float, string, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

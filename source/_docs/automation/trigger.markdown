@@ -6,6 +6,8 @@ related:
     title: Adding a custom sentence to trigger an automation
   - docs: /docs/automation/targets/
     title: Automation targets
+  - docs: /docs/automation/durations/
+    title: Durations in automations and scripts
 ---
 
 A trigger is the part of an automation that makes the automation start when something specific happens, for example, when the sun sets, a door opens, or a button is pressed. You add triggers in the **When** section of the automation editor.
@@ -134,34 +136,6 @@ automation:
       variables:
         name: "{{ trigger.event.data.name }}"
 ```
-
-## Duration of For at least
-
-Many triggers have a **For at least** option. With it, the trigger only reacts after the new state has lasted for the time you set. In the UI, you enter the duration in hours, minutes, and seconds.
-
-In YAML, the `for` option accepts the duration in these formats:
-
-- A duration string in `HH:MM:SS` or `HH:MM` format, such as `"00:05:00"` for 5 minutes.
-- A number of seconds, such as `300` for 5 minutes.
-- A mapping with one or more of `days`, `hours`, `minutes`, `seconds`, and `milliseconds`. For example:
-
-  ```yaml
-  for:
-    minutes: 5
-    seconds: 30
-  ```
-
-[Device triggers](/triggers/device/) only accept the mapping format.
-
-### Templates in For at least
-
-The **State changed**, **Numeric state crossed threshold**, and **Template** triggers also accept a {% term template %} in `for`. The template can return any of the formats above, including a number of seconds. In a mapping, you can also use a template for each value.
-
-```yaml
-for: "{{ states('input_number.delay_in_seconds') | int }}"
-```
-
-Other triggers, such as **Door opened** or **Temperature crossed threshold**, don't accept templates in `for`.
 
 ## Types of triggers
 
@@ -320,7 +294,7 @@ automation:
       for: "00:01:00"
 ```
 
-You can also use templates in the `for` option. For a list of all accepted formats, refer to [Duration of For at least](#duration-of-for-at-least).
+You can also use templates in the `for` option. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
 
 ```yaml
 automation:
