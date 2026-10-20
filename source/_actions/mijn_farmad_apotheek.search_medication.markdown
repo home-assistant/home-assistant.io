@@ -22,7 +22,7 @@ To search the catalog from an automation or a script:
 5. From the search box, search for and select **Mijn Farmad Apotheek: Search medication**.
 6. Under **Search term**, enter the product name or CNK code to search for.
 7. Under **Pharmacy**, enter the APB number of the pharmacy to search in, for example `343602`.
-8. In the **Response variable** field, enter a name to store the results in, such as `search_result`.
+8. In the **Response variable** field, enter a name to store the results in, such as `search_result`. This field is required for this action.
 9. Select **Save**.
 
 ### Options in the UI
