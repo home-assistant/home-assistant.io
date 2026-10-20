@@ -352,7 +352,7 @@ With YAML and single component discovery, a child device is set with the `child_
 - Child devices are not supported for device triggers, tags, and subentries.
 - A child device can't be used as the `via_device` of another device.
 
-When a discovery update adds, changes, or removes the `child_device` of an entity, the entity is moved to the new device, and a child device that is no longer used is removed. When discovered items are removed, a parent device is kept as long as it has child devices, and is removed after its last child device when no other items use it.
+When the `child_device` of an entity is added, changed, or removed, for example with a discovery update or a changed YAML configuration, the entity is moved to the new device, and a child device that is no longer used is removed. When discovered items are removed, a parent device is kept as long as it has child devices, and is removed after its last child device when no other items use it.
 
 When the `identifiers` of an existing MQTT device are used for a child device, the existing device is converted into a child device. It keeps its device ID, so automations that use the device keep working. If the existing device is still in use as a regular device, the conversion fails and a warning is logged. In that case, update the configuration of all items that use the device, and reload the MQTT integration.
 
