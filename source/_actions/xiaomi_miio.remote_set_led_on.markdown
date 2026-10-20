@@ -8,7 +8,7 @@ related_actions:
   - xiaomi_miio.remote_learn_command
 ---
 
-The **Remote set LED on** action turns on the blue status LED of a Xiaomi IR remote.
+The **Xiaomi Home: Remote set LED on** action turns on the blue status LED of a Xiaomi IR remote.
 
 {% include actions/ui_header.md %}
 
@@ -19,7 +19,7 @@ To turn on the LED from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Xiaomi IR remote you want to control.
-6. From the actions shown for that target, select **Remote set LED on**.
+6. From the actions shown for that target, under **Xiaomi Home**, select **Remote set LED on**.
 7. Select **Save**.
 
 {% include actions/yaml_header.md %}

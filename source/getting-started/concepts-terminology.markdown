@@ -48,7 +48,7 @@ Areas can also be used for automatically generated cards, such as the [Area card
 
 ## Automations
 
-An automation runs a set of steps by itself when something changes in your home. For example, it turns on the lights in the living room when the sun sets. In the automation editor, an automation has three sections:
+An automation runs a set of steps by itself when something changes in your home. For example, it turns on the lights in the living room when the sun sets. In the visual automation editor, an automation has three sections:
 
 - **When**: the {% term triggers %}
   - A trigger reacts to a change and starts the automation, for example, when the sun sets or a motion sensor detects motion.

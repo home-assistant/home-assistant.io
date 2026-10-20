@@ -1,8 +1,8 @@
 ---
 title: TechnoVE
 description: Instructions on how to integrate TechnoVE smart EV charging stations with Home Assistant.
-ha_category:
-  - Car
+ha_categories:
+  - energy.ev_charging
 ha_release: 2024.2
 ha_iot_class: Local Polling
 ha_domain: technove
@@ -157,7 +157,7 @@ If you see a "Failed to connect" error when trying to add the integration:
 
 If the station keeps going unavailable and coming back:
 
-1. Check the **Signal strength** sensor, if available. This entity may be disabled by default, so you might need to enable it first. If you don't see it, check your router, access point, or manufacturer tools to verify the station's Wi-Fi signal quality. A weak signal can cause intermittent connection issues.
+1. Check the **Signal strength** sensor, if available. This entity may be [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity), so you might need to enable it first. If you don't see it, check your router, access point, or manufacturer tools to verify the station's Wi-Fi signal quality. A weak signal can cause intermittent connection issues.
 2. Consider moving the station closer to your Wi-Fi access point or adding a Wi-Fi extender.
 3. Make sure your network is not blocking local traffic between Home Assistant and the station.
 

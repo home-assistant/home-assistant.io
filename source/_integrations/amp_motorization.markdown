@@ -1,8 +1,6 @@
 ---
 title: AMP Motorization
 description: Connect and control your AMP Motorization devices using the Motionblinds integration
-ha_category:
-  - Cover
 ha_domain: amp_motorization
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds

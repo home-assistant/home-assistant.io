@@ -1,8 +1,8 @@
 ---
 title: Universal media player
 description: Instructions on how to create a universal media player in Home Assistant.
-ha_category:
-  - Media player
+ha_categories:
+  - media_entertainment
 ha_iot_class: Calculated
 ha_release: 0.11
 ha_quality_scale: internal

@@ -1,10 +1,8 @@
 ---
 title: SolarEdge Modbus
 description: Instructions on how to integrate a SolarEdge solar inverter with Home Assistant over Modbus TCP.
-ha_category:
-  - Energy
-  - Modbus-controlled
-  - Sensor
+ha_categories:
+  - energy.solar_batteries
 ha_release: "2026.10"
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -224,7 +222,7 @@ The inverter holds settings of its own, which this integration can change as wel
 
 ### Switches
 
-These switches are flags on the export control. An installer sets them to describe the site, and they are disabled by default.
+These switches are flags on the export control. An installer sets them to describe the site, and they are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 - **External production**: Tells the inverter there is production at the site that it cannot see itself, so it can keep the whole site within its export limit.
 - **Negative site limit**: Lets the site limit go below zero, which turns it into a minimum import rather than a maximum export. It needs a meter at the connection point to mean anything.

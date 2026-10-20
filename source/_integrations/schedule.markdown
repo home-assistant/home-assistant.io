@@ -1,9 +1,8 @@
 ---
 title: Schedule
 description: Instructions on how to make a weekly schedule in Home Assistant.
-ha_category:
-  - Automation
-  - Helper
+ha_categories:
+  - helpers.store_value
 ha_release: 2022.9
 ha_quality_scale: internal
 ha_codeowners:

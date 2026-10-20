@@ -1,8 +1,6 @@
 ---
 title: AI Task
 description: Instructions on how to set up AI task entities with Home Assistant.
-ha_category:
-  - AI
 ha_release: '2025.7'
 ha_quality_scale: internal
 ha_domain: ai_task

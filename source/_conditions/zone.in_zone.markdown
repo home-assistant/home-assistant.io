@@ -57,8 +57,6 @@ This passes when `person.nina` is in `zone.home`.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 zone:
   description: The zone to test against.
@@ -70,9 +68,9 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the target must have been in the zone before the condition passes. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds.
+  description: How long the target must have been in the zone before the condition passes. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -101,7 +99,7 @@ When you target more than one person or device tracker, the **Check when** optio
 ## Good to know
 
 - This condition uses the `in_zones` attribute reported by person and device tracker entities.
-- If a selected person or device tracker is `unknown` or `unavailable`, Home Assistant does not treat that target as being in the zone.
+{% include conditions/unavailable_targets.md entities="people and device trackers" %}
 - To check the opposite state, use [Is not in zone](/conditions/zone.not_in_zone/).
 
 {% include conditions/try_it.md %}
@@ -148,7 +146,8 @@ automation: |
 
 At 09:00, this automation sends a reminder if both selected people are in the work zone.
 
-- **Trigger**: Time is 09:00
+- **Trigger**: Time
+  - **At time**: `09:00`
 - **Condition**: Is in zone
   - **Target**: Nina and Alex
   - **Zone**: Work (`zone.work`)

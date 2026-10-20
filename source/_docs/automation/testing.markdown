@@ -15,10 +15,11 @@ Many automations can be tested directly in the automation editor UI.
 
 ### Checking the state of a condition
 
-While the automation is open in the automation editor, you can see whether each condition passes at every moment. Home Assistant checks the condition again every second, so you can watch it change when the situation changes, for example, when a door opens. It is also checked again when you edit the condition.
+While the automation is open in the automation editor, you can see whether each condition passes at every moment. Home Assistant checks the condition again whenever one of its entities changes, for example, when a door opens. Conditions that depend on the time, a template, or a duration are also checked again every second. This way, you can watch the result change when the situation changes. The condition is also checked again when you edit it.
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
-2. Hover over the state indicator circle on the left side of the condition row.
+2. Hover over the state indicator on the condition's icon, at the start of the condition row.
+   - **Triggered by** conditions don't have a state indicator.
    - Result: The tooltip shows one of the following states:
      - **Condition passes**: the condition is met.
      - **Condition did not pass**: the condition is not met.

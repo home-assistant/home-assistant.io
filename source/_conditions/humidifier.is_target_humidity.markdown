@@ -33,7 +33,7 @@ To use **Humidifier target humidity** in an automation:
 {% options_ui %}
 Threshold type:
   description: |
-    Controls how the target humidity is compared and where the threshold value comes from. **Above** and **Below** are exclusive: a target humidity equal to the threshold does not pass. **In range** is exclusive at both bounds. **Outside range** is inclusive: a target humidity equal to either bound passes. Choose **Number** to enter a fixed percentage between 0 and 100, or **Entity** to use a humidity sensor or input number as the threshold value.
+    Controls how the target humidity is compared and where the threshold value comes from. **Above** and **Below** are exclusive: a target humidity equal to the threshold does not pass. **In range** includes both bounds: a target humidity equal to either bound passes. **Outside range** excludes both bounds: a target humidity equal to either bound does not pass. Choose **Number** to enter a fixed percentage between 0 and 100, or **Entity** to use a humidity sensor or input number as the threshold value.
 Condition passes if:
   description: When multiple humidifiers are targeted, controls how results combine. Pick **Any** to pass if at least one targeted humidifier meets the threshold, or **All** to pass only when every targeted humidifier does. Default is **Any**.
 For at least:
@@ -51,7 +51,9 @@ condition: |
     entity_id: humidifier.bedroom
   options:
     threshold:
-      above: 50
+      type: above
+      value:
+        number: 50
 {% endexample %}
 
 This passes when the bedroom humidifier's target humidity is set above 50%.
@@ -61,15 +63,15 @@ This passes when the bedroom humidifier's target humidity is set above 50%.
 {% options_yaml %}
 threshold:
   description: |
-    The threshold to check the target humidity against. Accepts a mapping with `above`, `below`, or both as keys:
+    The threshold to check the target humidity against:
 
-    - `above` (exclusive): Sets a minimum. The target humidity must be strictly above this value to pass.
-    - `below` (exclusive): Sets a maximum. The target humidity must be strictly below this value to pass.
+    - `type: above` (exclusive): Sets a minimum. The target humidity must be strictly above `value` to pass.
+    - `type: below` (exclusive): Sets a maximum. The target humidity must be strictly below `value` to pass.
+    - `type: between` (inclusive): Defines a range. The target humidity must be between `value_min` and `value_max`, or equal to one of them, to pass.
+    - `type: outside` (exclusive): Defines an outside-range. The target humidity must be below `value_min` or above `value_max` to pass.
 
-    If you provide both `above` and `below`, the target humidity must be between those two values to pass. This matches the UI option **In range**.
-
-    Use a percentage value (0–100) or an `input_number`, `number`, or `sensor` entity as the value for each key.
-  required: false
+    For each value, use a `number` key with a percentage from 0 to 100, or an `entity` key with an `input_number`, `number`, or `sensor` entity that reports its value in `%`.
+  required: true
   type: map
 behavior:
   description: >
@@ -79,9 +81,9 @@ behavior:
   default: any
 for:
   description: >
-    How long the humidifier must have continuously met the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long the humidifier must have continuously met the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -92,7 +94,7 @@ for:
 ## Good to know
 
 - This condition checks the humidifier's _target humidity_ setpoint, not the actual measured humidity in the room. To react to the measured humidity, use a sensor-based numeric condition instead.
-- Humidifiers that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="humidifiers" %}
 - Target humidity is expressed as a percentage. The valid range depends on the device, but is typically between 20% and 90%.
 
 {% include conditions/try_it.md %}
@@ -101,13 +103,14 @@ for:
 
 ### Automation: turn on the ventilation fan when the humidifier is set high
 
-When the bedroom humidifier's target humidity is set to 70% or above, turn on the ventilation fan to reduce the risk of condensation. This keeps air circulating whenever the humidifier is running at a high setting.
+When the bedroom humidifier's target humidity is set above 70%, turn on the ventilation fan to reduce the risk of condensation. This keeps air circulating whenever the humidifier is running at a high setting.
 
 - **Trigger**: State changed, for the `humidity` attribute of the bedroom humidifier
-- **Condition**: Humidifier target humidity (70% or above)
+- **Condition**: Humidifier target humidity (above 70%)
   - **Target**: Bedroom humidifier
   - **Condition passes if**: Any
-- **Action**: Switch: Turn on ventilation fan
+- **Action**: Turn on switch
+  - **Target**: Ventilation fan
 
 {% details "YAML example for turning on the ventilation fan when the target is high" %}
 
@@ -124,7 +127,9 @@ automation: |
         entity_id: humidifier.bedroom
       options:
         threshold:
-          above: 70
+          type: above
+          value:
+            number: 70
         behavior: any
   actions:
     - action: switch.turn_on
