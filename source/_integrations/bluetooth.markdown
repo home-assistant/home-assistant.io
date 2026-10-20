@@ -376,7 +376,7 @@ Home Assistant can use your Bluetooth adapter, but only with limited functions. 
 
 1. Go to {% my info title="**Settings** > **About**" %} and check the **Installation method**.
 2. If it says **Home Assistant Container** or **Unsupported Third Party Container**, add the required permissions to your container. Follow the steps in [Additional details for Container](#additional-details-for-container), then restart the container.
-3. If it says **Home Assistant OS** or **Home Assistant Supervised**, you don't need to change any permissions yourself, because they're set up automatically. If you still see the repair, [report it](https://github.com/home-assistant/core/issues) and include your system information.
+3. If it says **Home Assistant OS** or **Home Assistant Supervised**, you don't need to change any permissions yourself, because they're set up automatically. If you still see the repair, [report the issue](/help/reporting_issues/) and include your [system information](/more-info/system-information/).
 
 {% enddetails %}
 
