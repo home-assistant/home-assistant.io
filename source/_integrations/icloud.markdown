@@ -87,7 +87,7 @@ iCloud photo albums and shared streams are displayed in the media browser, "Medi
 
 #### Symptom: Unknown error when setting up the integration from the UI
 
-Home assistant logs:
+Home Assistant logs:
 ERROR: Failed to verify verification code: You must accept the updated terms of service to continue. Set --accept-terms to accept them.
 
 ##### Description
