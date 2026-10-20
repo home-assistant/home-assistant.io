@@ -268,6 +268,75 @@ automation: |
 
 {% enddetails %}
 
+### Script: let an LLM look up Plex media
+
+Make the search available to an LLM-based voice assistant, so you can ask questions such as "Is Carrie on Plex?" or "How is The Matrix rated?". A script turns the action into a tool that the assistant can call. The script returns a short list instead of the full response, so the assistant only gets what it needs to answer.
+
+This needs a conversation integration that uses an LLM, such as [OpenAI Conversation](/integrations/openai_conversation/), set up to control Home Assistant. For the steps to expose a script, and how to write good descriptions, see [Exposing scripts to LLMs](/voice_control/exposing_scripts_to_llms/).
+
+- **Script name**: Find Plex media
+- **Description**: Explains what the script does and when to use it, so the assistant knows when to call it.
+- **Field**: **Title**, the title of the movie or TV show to look for.
+- **Action**: Plex Media Server: Search
+  - **Query**: the **Title** field
+  - **Response variable**: `matches`
+- **Action**: Set variables, to build a short list of the first three matches with only the title, type, year, summary, rating, genres, and whether you watched it.
+- **Action**: Stop
+  - **Reason for stopping**: A short message, for example "Found the matches"
+  - **Response variable**: the short list
+
+After you save the script, expose it to Assist. The assistant then calls it when you ask about a movie or TV show, and answers from the result.
+
+{% details "Show example YAML" %}
+
+{% example %}
+script: |
+  find_plex_media:
+    alias: "Find Plex media"
+    description: >-
+      Looks up movies and TV shows on the Plex server by title. Use this
+      whenever the user asks about a movie or TV show, for example what it is
+      about, how it is rated, its genres, or whether it has been watched.
+      Takes one argument: title. Returns up to three matches with the title,
+      type, year, summary, audience rating, genres, and watched state. Answer
+      in one or two short sentences and only read the full summary when asked.
+    fields:
+      title:
+        name: Title
+        description: "The title of the movie or TV show to look for, as the user said it."
+        required: true
+        example: "The Matrix"
+        selector:
+          text:
+    sequence:
+      - action: plex.search
+        data:
+          query: "{{ title }}"
+        response_variable: matches
+      - variables:
+          answer:
+            results: >-
+              {% set ns = namespace(items=[]) %}
+              {% for item in matches.results[:3] %}
+              {% set ns.items = ns.items + [{
+                'title': item.title,
+                'type': item.media_type,
+                'year': item.year,
+                'summary': item.summary,
+                'audience_rating': item.audience_rating,
+                'genres': item.genres,
+                'watched': item.is_watched
+              }] %}
+              {% endfor %}
+              {{ ns.items }}
+      - stop: "Found the matches"
+        response_variable: answer
+{% endexample %}
+
+{% enddetails %}
+
+If nothing matches, the list is empty, and the assistant tells you that it found nothing.
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
