@@ -48,7 +48,7 @@ API key:
 
 The integration creates one service device for every <abbr title="Installation Control Point">ICP</abbr> the API key can reach. An ICP is the fifteen-character number that identifies a New Zealand electricity connection, and it appears on your bill. If you have several properties, you get one device per property, each named by its ICP and modeled by its grid exit point, which is the substation where the local network draws power off the national grid.
 
-Every device carries one sensor. It reports cents per kWh including <abbr title="goods and services tax">GST</abbr>, the unit New Zealand power bills are written in. Prices can be negative when the market is oversupplied. That is genuine, and the sensor passes it straight through.
+Every device carries one sensor. It reports cents per kWh including <abbr title="goods and services tax">GST</abbr>, the unit New Zealand power bills are written in. This is the wholesale energy price, not the complete retail rate; network losses, lines charges, metering, levies, and the ecosmart service fee are not included. Prices can be negative when the market is oversupplied. That is genuine, and the sensor passes it straight through.
 
 ### Sensors
 
