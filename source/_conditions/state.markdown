@@ -86,7 +86,7 @@ for:
   description: >
     How long the entity must have had the state. With a list of states, the entity must have had one of them for the whole time. Accepts a duration string in `HH:MM:SS` format, or a time period mapping in hours, minutes, and seconds. You can use a template. Can't be combined with `attribute`, or with a helper entity as the state. For a list of all accepted formats and templates, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: [integer, float, string, map, template]
+  type: [string, integer, map, template]
 {% endoptions_yaml %}
 
 You can use templates in a time period mapping for `for`.

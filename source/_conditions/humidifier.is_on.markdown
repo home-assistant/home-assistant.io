@@ -61,7 +61,7 @@ for:
   description: >
     How long the humidifier must have been continuously on before the condition passes. Useful to confirm the device has been running for a meaningful amount of time before taking action. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: [integer, float, string, map]
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
