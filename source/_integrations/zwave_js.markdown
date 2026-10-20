@@ -250,18 +250,19 @@ There is no easy way to update that device.
 
 1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Connectivity** > **Z-Wave**" %}.
 2. Under **Migrate adapter**, select **Migrate**.
-3. When the **Unplug your adapter** dialog shows up, unplug your old adapter.
+3. When the **Unplug your old adapter** dialog shows up, unplug your old adapter.
    - It is important to remove the old device now, as it might interfere with the new one. Even though it might not throw an error immediately, it might cause issues.
 4. Connect the new adapter.
 5. Select **Submit**.
-6. In the **Select your device** dialog, select the Z-Wave adapter you just connected.
+6. In the **Select your Z-Wave device** dialog, select the Z-Wave adapter you just connected.
    - Typically, you can select the device you connected to a USB port.
-   - To connect to a Z-Wave controller that you exposed elsewhere via TCP (such as [Portable Z-Wave](/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/)), select the **Use socket** option.
+   - If the new adapter is connected over your network, select **Use Socket**. Then, enter its address in **Socket device path**.
+     - For an adapter connected to an ESPHome device, enter `esphome://` followed by the IP address of the ESPHome device. Home Assistant usually finds these adapters on its own. For details, refer to [Using a Z-Wave adapter connected to an ESPHome device](#using-a-z-wave-adapter-connected-to-an-esphome-device).
 7. Select **Submit**.
    - The new adapter is now being paired with your existing Z-Wave network.
-   - Troubleshooting: If the migration fails, it might be because you selected **Use socket** by mistake. If you were using a USB-based controller, plug the old adapter in again, and wait for the network to reload.
+   - Troubleshooting: If the migration fails, it might be because you selected **Use Socket** by mistake. If you were using a USB-based controller, plug the old adapter in again, and wait for the network to reload.
      - Once your old adapter is connected and the network is operational, repeat the migration steps.
-     - Make sure to select the new controller this time (instead of **Use socket**).
+     - Make sure to select the new controller this time (instead of **Use Socket**).
 8. Once the migration has completed, check if you want to rename the adapter. If you have previously changed the name, the new adapter might keep the name of the old adapter.
    - In the top-left corner, select the back button to go back to the integration page.
    - In the list of devices, check the device name.
