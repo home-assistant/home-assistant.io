@@ -7,7 +7,7 @@ related_actions:
   - mijn_farmad_apotheek.order_medication
 ---
 
-The **Search medication** action searches the product catalog of a Farmad pharmacy by product name or CNK code. It returns up to 25 products with price and stock, as [response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data) you can use in the rest of your automation or script. For example, you can look up the CNK code of a product before ordering it with the [Order medication](/actions/mijn_farmad_apotheek.order_medication/) action.
+The **Search medication** action searches the product catalog of a Farmad pharmacy by product name or CNK code. It returns up to 25 products with price and stock, as [response data](/docs/automation/action/#use-templates-to-handle-response-data) you can use in the rest of your automation or script. For example, you can look up the CNK code of a product before ordering it with the [Order medication](/actions/mijn_farmad_apotheek.order_medication/) action.
 
 This action does not support targets. You select the pharmacy through the **Pharmacy** field instead of choosing an area, device, entity, or label.
 
