@@ -59,7 +59,7 @@ To resolve the error:
    - The entry shows the full error, including which integration caused it.
 2. Check the {% term YAML %} configuration of that integration for mistakes, such as a value in the wrong place or a value of the wrong type. Compare it with the documentation of the integration.
 3. If it's a custom integration, update it to the latest version. If the error stays, report it to the author of the custom integration.
-4. If it's a built-in integration and your configuration looks correct, [report it](https://github.com/home-assistant/core/issues) and include the error from the logs.
+4. If it's a built-in integration and your configuration looks correct, [report the issue](/help/reporting_issues/) and include the error from the logs.
 
 #### Problems with dependencies
 
