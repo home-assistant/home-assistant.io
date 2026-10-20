@@ -80,3 +80,22 @@ If you have [Advanced Data Protection](https://support.apple.com/en-us/102651) t
 ## Media source
 
 iCloud photo albums and shared streams are displayed in the media browser, "Media" > "iCloud". This will display a list of configured iCloud accounts, selecting the account will give a choice of "Albums" and "Shared Streams". Selection of these will give a list of available photo albums, and selecting these will display the current contents of the album.
+
+## Troubleshooting
+
+### Accept the updated terms
+
+### Symptom: Unknown Error when setting up integration from UI
+
+Home assistant logs:
+ERROR: Failed to verify verification code: You must accept the updated terms of service to continue. Set --accept-terms to accept them.
+
+##### Description
+
+This means there is updated terms of service you must accept to continue.
+
+##### Resolution
+
+Go to [icloud.com](https://www.icloud.com/) and login and accept the updated terms, then reinstall the integration.
+
+
