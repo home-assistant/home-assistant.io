@@ -56,7 +56,8 @@ This error means that the code that checks the configuration of one of your inte
 To resolve the error:
 
 1. Go to {% my logs title="**Settings** > **System** > **Logs**" %} and open the `Unexpected error validating config` entry.
-   - The entry shows the full error, including which integration caused it.
+   - The entry is logged by `homeassistant.helpers.check_config`, so it can look like a problem in Home Assistant itself.
+   - To find the integration that caused it, look in the full error for a path like `custom_components/<name>/` for a custom integration, or `homeassistant/components/<name>/` for a built-in integration.
 2. Check the {% term YAML %} configuration of that integration for mistakes, such as a value in the wrong place or a value of the wrong type. Compare it with the documentation of the integration.
 3. If it's a custom integration, update it to the latest version. If the error stays, report it to the author of the custom integration.
 4. If it's a built-in integration and your configuration looks correct, [report the issue](/help/reporting_issues/) and include the error from the logs.
