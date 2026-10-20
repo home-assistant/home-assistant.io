@@ -40,7 +40,7 @@ Product:
   description: The CNK code of the product to order. Use the Search medication action to find the CNK code of a product.
   required: true
 Quantity:
-  description: The number of packages to order. The default is 1.
+  description: The number of packages to order. The minimum is 1. The default is 1.
   required: false
 Pharmacy:
   description: The APB number of the pharmacy to order from, for example `343602`.
@@ -77,7 +77,7 @@ product:
   type: string
 quantity:
   description: >
-    The number of packages to order.
+    The number of packages to order. The minimum is 1.
   required: false
   type: integer
   default: 1
