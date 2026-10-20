@@ -1904,7 +1904,7 @@ Download the file for your operating system, enter your sign-in details, and fol
 
 {% note %}
 
-These methods rely on old Xiaomi Home app versions and have not been verified with current versions.
+These methods rely on old Mi Home app versions and have not been verified with current versions.
 Try the [Xiaomi Cloud Tokens Extractor](#xiaomi-cloud-tokens-extractor) first.
 
 Use these methods only if the token extractor is not suitable for your device.
@@ -1920,20 +1920,20 @@ The access token contains 32 hexadecimal characters.
 #### Android (not rooted)
 
 {% note %}
-This method uses Xiaomi Home version `5.4.49`, which was last verified in December 2019.
+This method uses Mi Home version `5.4.49`, which was last verified in December 2019.
 {% endnote %}
 
 1. Set up your vacuum in the current version of the Xiaomi Home app.
 2. If the vacuum is already set up, reset its Wi-Fi settings to generate a new access token.
-3. Install Xiaomi Home version `5.4.49` and locate a text file in the `Smarthome/logs` folder.
+3. Install Mi Home version `5.4.49` and locate a text file in the `Smarthome/logs` folder.
 4. Search the files for `token` to find the 32-character access token.
 
 #### Linux and rooted Android
 
 1. Set up your vacuum in the current version of the Xiaomi Home app.
 2. Assign the vacuum a static IP address in your router.
-3. Install Xiaomi Home version `5.4.54` on your rooted Android device and sign in.
-   You cannot install two Xiaomi Home versions at the same time.
+3. Install Mi Home version `5.4.54` on your rooted Android device and sign in.
+   You cannot install two Mi Home versions at the same time.
 4. Use the same server region that you used to set up the vacuum.
 5. Connect to the device with `adb shell` and become root.
 6. Run `grep -R '"token"' /data/data/com.xiaomi.smarthome` to find the access token.
@@ -1979,7 +1979,7 @@ This method uses Xiaomi Home version `5.4.49`, which was last verified in Decemb
 
 1. Set up the vacuum in the Xiaomi Home app, using the region selected when you set up the vacuum.
 2. Install [BlueStacks](https://www.bluestacks.com).
-3. Install [Xiaomi Home version 5.4.49](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-4-49-release/) in BlueStacks and sign in to synchronize your devices.
+3. Install [Mi Home version 5.4.49](https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-4-49-release/) in BlueStacks and sign in to synchronize your devices.
 4. In the **More Apps** menu, open **File Manager**.
 5. Select **Explore**, then navigate to `sdcard/SmartHome/logs/plug_DeviceManager`.
 6. Select **Export to Windows**, then export one or more files to your local disk.
