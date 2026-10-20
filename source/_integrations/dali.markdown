@@ -82,7 +82,8 @@ Power the DALI bus:
 ## Data updates
 
 The integration {% term polling polls %} the DALI bus every 30 seconds to update
-the state of the control gear.
+the state of the known control gear, and rescans the full short-address range for
+new or removed gear every five minutes.
 
 ## Troubleshooting
 
