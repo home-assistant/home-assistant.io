@@ -53,9 +53,11 @@ URL:
 
 ### Signing in to the MCP server
 
-If the MCP server requires you to sign in, Home Assistant detects this after you enter the URL and asks how you want to sign in:
+If the MCP server requires you to sign in, Home Assistant detects this after you enter the URL. The first time, it asks you for an OAuth **Client ID** and **Client Secret** for the MCP server and stores them as [Application Credentials](/integrations/application_credentials/).
 
-- **Set up new credentials**: Enter a new OAuth **Client ID** and **Client Secret** for the MCP server. Home Assistant stores them as [Application Credentials](/integrations/application_credentials/).
+If you entered OAuth credentials for an MCP server before, Home Assistant asks how you want to sign in instead:
+
+- **Set up new credentials**: Enter a new OAuth **Client ID** and **Client Secret** for the MCP server.
 - **Use existing credentials**: Reuse OAuth credentials you entered before.
 
 After that, you sign in to the service that provides the MCP server and give Home Assistant access.
