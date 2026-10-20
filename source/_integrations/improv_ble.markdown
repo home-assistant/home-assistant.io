@@ -117,11 +117,11 @@ Home Assistant couldn't make a Bluetooth connection to the Wi-Fi device. To send
 
 ### Symptom: The same Improv via BLE device keeps showing up under **Discovered**
 
-A Wi-Fi device keeps showing up under **Discovered** as **Improv via BLE**, also after a restart of Home Assistant. You don't want to set it up, or it's already connected.
+A Wi-Fi device keeps showing up under **Discovered** as **Improv via BLE**, also after a restart of Home Assistant, and you don't want to set it up.
 
 #### Description
 
-The Wi-Fi device still announces over Bluetooth that it supports Improv via BLE. This can happen, for example, with a device that you removed from Home Assistant.
+The Wi-Fi device isn't connected to a Wi-Fi network, so it keeps announcing over Bluetooth that it supports Improv via BLE. For example, it's a spare device, a neighbor's device within Bluetooth range, or a device that lost its Wi-Fi network. As soon as a device is connected to Wi-Fi, it stops showing up under **Discovered** by itself.
 
 #### Resolution
 
