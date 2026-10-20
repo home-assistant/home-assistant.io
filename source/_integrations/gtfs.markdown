@@ -9,6 +9,7 @@ ha_codeowners:
   - '@raman325'
 ha_domain: gtfs
 ha_platforms:
+  - calendar
   - sensor
 ha_integration_type: service
 ha_config_flow: true
@@ -48,11 +49,33 @@ Each route tracks departures from one stop to another. To add a route:
 
 The route is named after its stops, for example **First Street to Third Street**. To use a different name, rename its device.
 
-Each route creates a device with a departure sensor. The sensor's state is the time of the next departure, looking ahead to tomorrow once today's last departure has passed, and its attributes contain information about the trip, such as agency, origin and destination stop, stop times, and route.
+Each route creates a device with a calendar. Every departure is an event that starts when the trip leaves the origin and ends when it arrives at the destination. The event title shows the route and its headsign, for example **1 to Third Street**. The calendar is on during a trip, and its attributes describe the current or next departure.
+
+### Example: notify before a departure
+
+Use a calendar trigger with an offset to be reminded before the next departure.
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Leave for the bus"
+    triggers:
+      - trigger: calendar
+        event: start
+        entity_id: calendar.first_street_to_third_street
+        offset: "-0:10:0"
+    actions:
+      - action: notify.notify
+        data:
+          message: "{{ trigger.calendar_event.summary }} leaves in 10 minutes"
+```
+
+{% endraw %}
 
 ## Data updates
 
-The sensor calculates the next departure from the imported timetable, so it does not contact the agency once the feed is imported. The feed is not updated automatically yet. To load a new timetable, remove the feed and add it again.
+The calendar calculates departures from the imported timetable, so it does not contact the agency once the feed is imported. The feed is not updated automatically yet. To load a new timetable, remove the feed and add it again.
 
 ## Known limitations
 
