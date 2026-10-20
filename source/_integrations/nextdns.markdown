@@ -146,6 +146,10 @@ The **NextDNS** integration provides the following entities.
   - **Description**: Controls cryptojacking protection
 - **Domain generation algorithms protection**
   - **Description**: Controls protection against domain generation algorithms
+- **DNS data exfiltration protection**
+  - **Description**: Controls protection against data exfiltration over DNS
+- **DNS payload delivery protection**
+  - **Description**: Controls protection against malware payload delivery over DNS
 - **DNS rebinding protection**
   - **Description**: Controls DNS rebinding protection
 - **Google safe browsing**
@@ -162,6 +166,8 @@ The **NextDNS** integration provides the following entities.
   - **Description**: Controls access to Web3 and crypto domains
 - **Force YouTube restricted mode**
   - **Description**: Controls YouTube Restricted Mode enforcement
+- **Block newly active domains**
+  - **Description**: Controls blocking of newly active domains
 - **Block newly registered domains**
   - **Description**: Controls blocking of newly registered domains
 - **Block bypass methods**
@@ -176,8 +182,12 @@ The **NextDNS** integration provides the following entities.
   - **Description**: Controls blocking of dynamic DNS hostnames
 - **Block disguised third-party trackers**
   - **Description**: Controls blocking of disguised third-party trackers
+- **Block fast-flux networks**
+  - **Description**: Controls blocking of fast-flux networks
 - **Block free hosting domains**
   - **Description**: Controls blocking of free hosting domains
+- **Block high-risk TLDs**
+  - **Description**: Controls blocking of high-risk top-level domains
 - **Block page**
   - **Description**: Controls the display of the blocking page
 - **Block online gaming**
@@ -197,6 +207,8 @@ The **NextDNS** integration provides the following entities.
   - **Remarks**: This entity is disabled by default
 - **Block tunneling endpoints**
   - **Description**: Controls blocking of tunneling endpoints
+- **Block untrusted certificates**
+  - **Description**: Controls blocking of domains that use untrusted certificates
 - **Block video streaming**
   - **Description**: Controls blocking of video streaming websites
   - **Remarks**: This entity is disabled by default
