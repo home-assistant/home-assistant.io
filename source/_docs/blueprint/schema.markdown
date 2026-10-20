@@ -127,6 +127,7 @@ A blueprint input has the following configuration:
       Show this input only while other inputs have certain values. See
       [showing inputs based on other inputs](#showing-inputs-based-on-other-inputs).
     type: [boolean, map, list]
+    default: true
     required: false
 
 {% endconfiguration %}
@@ -193,6 +194,7 @@ collapsed:
 visible:
   description: Show this section and its inputs only while other inputs have certain values. See [showing inputs based on other inputs](#showing-inputs-based-on-other-inputs).
   type: [boolean, map, list]
+  default: true
   required: false
 input:
   description: >
