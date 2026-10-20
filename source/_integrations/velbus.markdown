@@ -83,6 +83,14 @@ password:
 - port: 27015 if you kept the default
 - password: leave empty
 
+### Advanced mode
+
+After the optional VLP import step, setup finishes with **Advanced mode**. It is disabled by default.
+
+{% configuration_basic %}
+advanced_mode:
+    description: "When enabled, registers the Velbus configuration panel and allows writing module EEPROM (for example channel names, input contact type NO/NC, channel enable flags, and relay or input action links). Changes are stored permanently on the module."
+{% endconfiguration_basic %}
 
 ## Supported functionality
 
@@ -152,15 +160,51 @@ vlp:
 
 If you don't have a VLP file or don't want to import it, you can skip this step, and the integration will perform a scan of the bus to discover the connected modules, but this is known to be less reliable than using a VLP file.
 
+## Velbus configuration panel
+
+When **Advanced mode** is enabled for at least one Velbus config entry, Home Assistant registers the **Velbus** configuration panel. The panel is available only to admin users and lets you inspect modules on the bus and write supported EEPROM settings without VelbusLink.
+
+{% caution %}
+Programming module memory changes how your installation behaves and cannot be undone from Home Assistant alone. Enable advanced mode and use the configuration panel only when you understand the Velbus programming you are applying.
+{% endcaution %}
+
+### Opening the configuration panel
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Open the [Velbus integration page](https://my.home-assistant.io/redirect/integration/?domain=velbus).
+3. On the Velbus config entry, select the **Configure** {% icon "mdi:cog-outline" %} button.
+
+The configuration panel is only registered while advanced mode is enabled. To change connection settings, the VLP file, or advanced mode itself, open the {% icon "mdi:dots-vertical" %} menu on the config entry and select **Reconfigure**.
+
+### Using the panel
+
+The dashboard lists modules discovered on the bus, grouped by type (relays, inputs, covers, dimmers, sensors, and other). You can search and filter the list, then select a module to open its editor.
+
+Depending on the module type, you can:
+
+- **View module details** such as bus address, type name, firmware version, and serial number.
+- **Change channel names** stored in module EEPROM (up to 16 characters per name).
+- **Set input contact type** to normally open (NO) or normally closed (NC) where the module supports it.
+- **Enable or disable channels** where the module supports channel enable flags in EEPROM.
+- **Program action links** on relay and input channels: link a button or input to a relay action, inspect programmed slots, add new links, and clear individual slots.
+
+EEPROM writes require advanced mode to be enabled for the Velbus config entry that owns the bus connection. If advanced mode is off, the module editor is shown in read-only mode and programming actions are blocked.
+
+After changing module memory outside of normal bus traffic (for example with VelbusLink or from this panel), you may need to run the `velbus.clear_cache` action so Home Assistant reloads the updated module data.
+
 ## Re-configuring the integration
 
 You can re-configure the Velbus integration by following these steps:
 
 {% include integrations/option_flow.md %}
 
+The reconfiguration menu offers **Connection settings**, **VLP file**, and **Advanced mode**. Select the section you want to change.
+
 {% configuration_basic %}
 vlp:
     description: "Path to the VLP file to import during re-configuration. If not provided, no VLP file will be imported and a bus scan will be performed."
+advanced_mode:
+    description: "Enable or disable advanced mode and the Velbus configuration panel for this config entry. Reloads the integration when the value changes."
 {% endconfiguration_basic %}
 
 {% include integrations/actions.md %}
@@ -245,7 +289,7 @@ For sensor entities, Velbus modules send periodic updates. The interval of these
 
 ## Known limitations
 
-- The integration will never reprogram Velbus modules. All changes that are not implemented in the [Velbus module protocol](https://github.com/velbus/moduleprotocol) need to be done via VelbusLink software.
+- Module EEPROM programming from Home Assistant is limited to the settings exposed in the [Velbus configuration panel](#velbus-configuration-panel) when advanced mode is enabled. All other memory or configuration changes need to be done with VelbusLink software.
 - The integration does not support upgrading Velbus modules firmware. This needs to be done via VelbusLink software.
 - For relay modules, the integration does not support the forced on/off state. This needs to be done via VelbusLink software.
 
@@ -255,7 +299,7 @@ If you encounter issues with the Velbus integration, you can enable debug loggin
 
 ### Common issues
 
-- If you have changed the configuration of your Velbus modules using VelbusLink software, you may need to clear the Velbus cache using the `velbus.clear_cache` action to ensure that Home Assistant has the latest configuration.
+- If you have changed the configuration of your Velbus modules using VelbusLink software or the Velbus configuration panel, you may need to clear the Velbus cache using the `velbus.clear_cache` action to ensure that Home Assistant has the latest configuration.
 - If you use the VLP file configuration for the integration, ensure that the VLP file is up to date and matches the configuration of your Velbus modules.
 
 ### Enabling debug logging
