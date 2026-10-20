@@ -106,7 +106,7 @@ for:
 ## Good to know
 
 - The target water heater entity must support the operation mode you want to use.
-- This trigger fires when the mode changes _to_ one of the selected modes. It does not fire when the water heater leaves that mode.
+- The trigger only reacts when the operation mode changes to one of the selected modes, not when it leaves it. It also doesn't react when the water heater switches between two selected modes.
 - `unavailable` and `unknown` are not offered as selectable modes.
 - To react when the water heater simply turns on or off, use [Water heater turned on](/triggers/water_heater.turned_on/) or [Water heater turned off](/triggers/water_heater.turned_off/).
 

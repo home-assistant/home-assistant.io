@@ -93,7 +93,7 @@ for:
 
 - The target humidifier entity must support the mode you want to use.
 - The available modes depend entirely on the device. Check your humidifier's documentation or the Home Assistant entity's attributes to see which modes are supported.
-- If you filter by mode, the trigger only fires when the humidifier _enters_ that mode, not when it leaves it.
+- The trigger only reacts when the humidifier changes to one of the selected modes, not when it leaves it. It also doesn't react when the humidifier switches between two selected modes.
 - To check whether the humidifier is currently in a specific mode during a condition step, use the **Humidifier is in mode** condition.
 
 {% include triggers/try_it.md %}
