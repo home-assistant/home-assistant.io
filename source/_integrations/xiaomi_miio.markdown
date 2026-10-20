@@ -1246,6 +1246,8 @@ Home Assistant shows the air quality measured by your Xiaomi Mi Air Quality Moni
 - **Air quality**: Shows the air quality index (AQI).
   Its attributes show the power state, charging state, battery level, display clock, night mode and its schedule, and sensor state.
 
+Depending on the model, a separate air quality entity also provides readings for PM2.5, PM10, carbon dioxide, carbon dioxide equivalent, total volatile organic compounds (TVOC), temperature, and humidity.
+
 ## Xiaomi IR Remote
 
 The Xiaomi IR Remote (`ChuangmiIr`) requires manual YAML configuration.
@@ -1326,11 +1328,12 @@ You can add a named command to a dashboard as an entity button.
 ```yaml
 type: entity-button
 tap_action:
-  action: call-service
-  action: remote.send_command
+  action: perform-action
+  perform_action: remote.send_command
+  target:
+    entity_id: remote.xiaomi_miio_ir
   data:
     command: activate_towel_heater
-    entity_id: remote.xiaomi_miio_ir
 hold_action:
   action: more-info
 show_icon: true
@@ -1342,25 +1345,26 @@ name: Activate Towel Heater
 
 You can also use named commands in a script.
 
-```yaml
-script:
-  towel_heater:
-    sequence:
-      - action: remote.send_command
-        target:
-          entity_id: "remote.bathroom_remote"
-        data:
-          command:
-            - "activate_towel_heater"
-  please_cover_your_ears:
-    sequence:
-      - action: remote.send_command
-        target:
-          entity_id: "remote.bathroom_remote"
-        data:
-          command:
-            - "read_bad_poem"
-```
+{% example %}
+script: |
+  script:
+    towel_heater:
+      sequence:
+        - action: remote.send_command
+          target:
+            entity_id: "remote.bathroom_remote"
+          data:
+            command:
+              - "activate_towel_heater"
+    please_cover_your_ears:
+      sequence:
+        - action: remote.send_command
+          target:
+            entity_id: "remote.bathroom_remote"
+          data:
+            command:
+              - "read_bad_poem"
+{% endexample %}
 
 ### Command formats
 
@@ -1489,19 +1493,24 @@ In addition to the standard [vacuum](/integrations/vacuum/) attributes, the vacu
 
 Example script using [`vacuum.send_command`](/integrations/vacuum/) to clean a specific room:
 
-```yaml
-vacuum_kitchen:
-  alias: "Clean the kitchen"
-  sequence:
-    - action: vacuum.send_command
-      target:
-        entity_id: vacuum.xiaomi_vacuum_cleaner
-      data:
-        command: app_segment_clean
-        params: [18]
-```
+{% example %}
+script: |
+  script:
+    vacuum_kitchen:
+      alias: "Clean the kitchen"
+      sequence:
+        - action: vacuum.send_command
+          target:
+            entity_id: vacuum.xiaomi_vacuum_cleaner
+          data:
+            command: app_segment_clean
+            params:
+              - 18
+{% endexample %}
 
-Where params specify room numbers, for multiple rooms, params can be specified like `[17,18]`. Instructions on how to find the valid room numbers and determine what rooms they map to, read the section [Retrieving room numbers](#retrieving-room-numbers).
+The `params` value specifies a room number.
+To clean multiple rooms, provide a list of room numbers, such as 17 and 18.
+For instructions on finding valid room numbers and the rooms they map to, refer to [Retrieving room numbers](#retrieving-room-numbers).
 
 ### Example on how to reset maintenance hours (brushes, filter, sensors)
 
@@ -1511,24 +1520,27 @@ cleaned or replaced (`main_brush_left`, `side_brush_left`, `filter_left` and
 or replaced you can then reset those values on the vacuum. Here is an example script using
 [`vacuum.send_command`](/integrations/vacuum/) to reset the hours for the main brush:
 
-```yaml
-reset_main_brush_left:
-  alias: "Reset hours for main brush replacement"
-  sequence:
-    - action: vacuum.send_Command
-      target:
-        entity_id: vacuum.xiaomi_vacuum_cleaner
-      data:
-        command: reset_consumable
-        params: ["main_brush_work_time"]
-```
+{% example %}
+script: |
+  script:
+    reset_main_brush_left:
+      alias: "Reset hours for main brush replacement"
+      sequence:
+        - action: vacuum.send_command
+          target:
+            entity_id: vacuum.xiaomi_vacuum_cleaner
+          data:
+            command: reset_consumable
+            params:
+              - "main_brush_work_time"
+{% endexample %}
 
 Allowed `params` for the `reset_consumable` command:
 
-- `['main_brush_work_time']`
-- `['side_brush_work_time']`
-- `['filter_work_time']`
-- `['sensor_dirty_time']`
+- `main_brush_work_time`
+- `side_brush_work_time`
+- `filter_work_time`
+- `sensor_dirty_time`
 
 ### Retrieve zone cleaning coordinates
 
@@ -1546,17 +1558,24 @@ Allowed `params` for the `reset_consumable` command:
 
 Using the map editor you can acquire the coordinates required for zoned clean up. Here is an example script for zoned clean up:
 
-```yaml
-vacuum_kitchen:
-  alias: "vacuum kitchen"
-  sequence:
-    - action: vacuum.send_command
-      target:
-        entity_id: "vacuum.xiaomi_vacuum_cleaner"
-      data:
-        command: app_zoned_clean
-        params: [[23084, 26282, 27628, 29727, 1]]
-```
+{% example %}
+script: |
+  script:
+    vacuum_kitchen:
+      alias: "Vacuum kitchen"
+      sequence:
+        - action: vacuum.send_command
+          target:
+            entity_id: "vacuum.xiaomi_vacuum_cleaner"
+          data:
+            command: app_zoned_clean
+            params:
+              - - 23084
+                - 26282
+                - 27628
+                - 29727
+                - 1
+{% endexample %}
 
 ### Retrieving room numbers
 
