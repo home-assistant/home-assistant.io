@@ -20,15 +20,16 @@ To add an ingredient from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Mealie: Add ingredient**.
-6. Select the **Mealie To-Do list** you want to use, and enter the ingredient you want to add, you can provide a food_id and unit_id available from the responses of the **get_recipe** or **parse_ingredient** actions, or supply a note only.
-7. Select **Save**.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Mealie shopping lists you want to read.
+6. From the actions shown for that target, under **Mealie**, select **Get shopping list items**.
+7. Enter the ingredient you want to add, you can provide a **Food ID** and **Unit ID** available from the responses of the **get_recipe** or **parse_ingredient** actions, or supply a note only.
+8. Select **Save**.
 
 ### Options in the UI
 
+{% include actions/targets.md domain="todo" %}
+
 {% options_ui %}
-Target:
-  description: The Mealie shopping list to add the ingredient to.
 Food ID:
   description: The food ID to add, if omitted a note must be added.
   required: false
@@ -39,7 +40,7 @@ Unit ID:
   description: The unit ID add, if omitted no unit will be added.
   required: false
 Quantity:
-  description: The quantity to add, if omitted no quantity will be added.
+  description: The quantity to add, if omitted quantity will be set to 0.
   required: false
 {% endoptions_ui %}
 
@@ -54,7 +55,7 @@ action: |
     entity_id: todo.YOUR_MEALIE_SHOPPING_LIST
   data:
     food_id: "A_VALID_FOOD_ID"
-    unit_id: "A_VALUD_UNIT_ID"
+    unit_id: "A_VALID_UNIT_ID"
     quantity: 2
     note: "Good brand"
 {% endexample %}
@@ -63,11 +64,9 @@ This adds the food, note, unit, and quantity to the shopping list, if food ID or
 
 ### Options in YAML
 
+{% include actions/targets.md domain="todo" %}
+
 {% options_yaml %}
-target:
-  description: The ID of the Mealie shopping list to add the item to.
-  required: true
-  type: string
 food_id:
   description: The Mealie food ID to add. Required if no note is provided.
   required: false
@@ -89,6 +88,7 @@ note:
 ## Good to know
 
 - If the food ID or unit ID are not valid within Mealie the action fails with the message "An error occurred adding an item to YOUR_GROCERY_LIST."
+- If neither a food ID or unit ID are specified the action failes with the message "Provide a food ID or a note to add an ingredient."
 
 {% include actions/stuck.md %}
 
