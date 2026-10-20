@@ -100,7 +100,7 @@ If the platform rejects your App ID or App secret during normal operation, Home 
 
 Imou Open Platform API usage limits apply to your App ID:
 
-1. Each App ID includes a monthly quota of 30,000 free API requests. Usage above the quota is billed at the [published unit price](https://open.imoulife.com/price).
+1. Each App ID includes 30,000 free API requests per month. Requests after that are rejected until you add quota, billed at the [published unit price](https://open.imoulife.com/price), or until the month resets.
 2. API endpoints are split by region. Select the matching **Server region** during setup. For details, see the [development specification](https://open.imoulife.com/book/http/develop.html).
 3. For additional API documentation, see the HTTP interface section in the [development documentation](https://open.imoulife.com/book/en).
 
@@ -217,7 +217,7 @@ Replace `notify.my_device` with your own notification entity, such as your phone
 
 - **Trigger**: State
   - **Entity**: Living room Status
-  - **To**: offline
+  - **To**: Disconnected
 - **Action**: Send a notification message
   - **Target**: My device (`notify.my_device`)
   - **Message**: The living room camera is offline.
@@ -245,7 +245,7 @@ automation: |
 
 - **Trigger**: State
   - **Entity**: Front door
-  - **To**: on
+  - **To**: Open
 - **Action**: Send a notification message
   - **Target**: My device (`notify.my_device`)
   - **Message**: The front door opened.
@@ -283,7 +283,7 @@ If you changed the **App secret**, Home Assistant may ask you to reauthenticate 
 
 ### API quota is used quickly
 
-The integration polls the platform every 2 minutes. API usage increases with the number of devices on your account. When the monthly calls for this App ID are used up, the device list, live view, and controls cannot reach the cloud until you add quota or the month resets.
+The integration polls the platform every 2 minutes. For one device, each poll sends at least two requests: the device list and the device status. Over 30 days that is about 43,000 requests, which is more than the 30,000 free requests. More devices, and extra readings such as sensors, use more. When the quota is used up, the device list, live view, and controls cannot reach the cloud until you add quota or the month resets.
 
 Open **My Resources** in the Open Platform console to check or add quota, then reload the Imou integration.
 
@@ -328,8 +328,8 @@ The alarm control panel is unavailable when the device is offline or no longer o
 ## Known limitations
 
 - The integration only talks to the Imou cloud. Live view and controls stop when Home Assistant cannot reach the cloud, even if the device is on your local network.
-- Each App ID has a monthly call quota. After it is used up, cloud calls fail until you add quota or the month resets. See [API usage](#api-usage).
-- Status such as online, battery, and power can be up to 2 minutes old.
+- Each App ID includes 30,000 free API requests per month. The 2-minute poll uses more than that for one device. After the quota is used up, cloud calls fail until you add quota or the month resets. See [API usage](#api-usage).
+- Status such as online, battery, power, and door contact state can be up to 2 minutes old. The system does not detect a door that opens and closes again between polls.
 - An entity is created only when the cloud API reports that the device supports it.
 - **Live view HD** is disabled by default.
 - The cloud API doesn't report whether the siren is sounding. Until you turn it on or off, the state is **Unknown**. If the device supports both commands, the state then shows the last command you sent, which might not match the device if the siren stops by itself. See [Siren](#siren).
