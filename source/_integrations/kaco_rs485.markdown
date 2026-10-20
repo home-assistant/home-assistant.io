@@ -85,6 +85,7 @@ These inverters don't report a serial number, so Home Assistant identifies the b
 
 - The same port can only be added once.
 - If the adapter or proxy changes, you have to remove the integration and add it again. Local USB adapters are stored by their stable `/dev/serial/by-id` path, so replugging one into a different socket is fine.
+- Only the inverters found during setup are polled. If you add an inverter to the bus or change an inverter's address, remove the integration and add it again.
 
 Inverter settings can't be changed from Home Assistant. The integration only reads.
 
