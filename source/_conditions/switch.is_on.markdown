@@ -67,6 +67,7 @@ for:
 
 ## Good to know
 
+- You can use switch entities and [toggle helpers](/integrations/input_boolean/) (`input_boolean`) as [targets](/docs/automation/targets/).
 {% include conditions/unavailable_targets.md entities="switches" %}
 - To check for the opposite state, use [Switch is off](/conditions/switch.is_off/).
 

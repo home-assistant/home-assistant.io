@@ -150,7 +150,7 @@ This condition checks one or more entities:
 ## Good to know
 
 - The condition compares the state exactly. To check whether an entity is unavailable (`unavailable`) or has an unknown state (`unknown`), select or enter those states. Otherwise, an unavailable entity doesn't pass.
-- If the entity doesn't exist, the condition fails with an error. The error is shown in the [trace](/automation/testing/#traces).
+- If the entity doesn't exist, the condition fails with an error. The error is shown in the [trace](/docs/automation/testing/#traces).
 - If you use a helper entity as the state, and the helper doesn't exist, the condition fails with an error. The error is shown in the trace.
 - If you select an **Attribute** that the entity doesn't have, the condition doesn't pass.
 - With several states, **For at least** (`for`) checks how long the entity has had its current state. The time isn't added up across the states: when the entity changes from one of the selected states to another, the time starts again. For example, with the states **Off** and **Unavailable** and **For at least** set to 5 minutes, a light that was off for 3 minutes and then unavailable for 3 minutes doesn't pass.

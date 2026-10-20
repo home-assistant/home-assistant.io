@@ -26,7 +26,8 @@ action: |
   action: vacuum.set_fan_speed
   target:
     entity_id: vacuum.cleaner
-  fan_speed: turbo
+  data:
+    fan_speed: turbo
 {% endexample %}
 
 This sets `vacuum.cleaner` to `turbo`.
@@ -77,7 +78,8 @@ automation: |
     - action: vacuum.set_fan_speed
       target:
         entity_id: vacuum.main_floor
-      fan_speed: turbo
+      data:
+        fan_speed: turbo
     - action: vacuum.start
       target:
         entity_id: vacuum.main_floor

@@ -26,8 +26,10 @@ To turn a light off from an automation or a script:
     - To turn off every light in a room, select an area.
     - To turn off every light on a floor, select a floor.
     - To turn off lights sharing a tag, select a label.
-7. _Optional_: under **Additional options**, set a transition or a flash effect.
-8. Select **Save**.
+7. _Optional_: set a **Transition**.
+8. _Optional_: to make the light flash, open **Additional options** and set **Flash**.
+   - **Flash** only shows up if the selected light supports it.
+9. Select **Save**.
 
 ### Options in the UI
 
@@ -36,7 +38,7 @@ Transition:
   description: How long, in seconds, it takes to fade the light out. Use this for a smooth fade instead of switching off instantly.
   required: false
 Flash:
-  description: Ask the light to flash briefly before it turns off, either short or long. Useful as a visual notification.
+  description: Under **Additional options**. Ask the light to flash briefly before it turns off, either short or long. Useful as a visual notification.
   required: false
 {% endoptions_ui %}
 
