@@ -146,7 +146,7 @@ Do this when you have a device that is still paired with an adapter, but you don
 
 Your Z-Wave adapter doesn't have to be plugged into your Home Assistant server. It can also connect to an ESP32-based device running [ESPHome](/integrations/esphome/). The ESPHome device then passes the Z-Wave traffic to Home Assistant over your network. This lets you place the adapter anywhere you have a Wi-Fi or Ethernet connection.
 
-For example, you can use the experimental [Portable Z-Wave](/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/) firmware with a [Home Assistant Connect ZWA-2](/connect/zwa-2). Portable Z-Wave is ESPHome firmware for connecting a Z-Wave adapter to Home Assistant over your network. You can use it in 2 ways:
+For example, you can use the experimental [Portable Z-Wave](/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/) firmware with a [Home Assistant Connect ZWA-2](/connect/zwa-2). Portable Z-Wave is ESPHome firmware for connecting a Z-Wave adapter to Home Assistant over your network. You can use it in two ways:
 
 - Install it on the Home Assistant Connect ZWA-2 itself. The adapter then connects over its built-in Wi-Fi.
 - Install it on an ESP32 board with Power over Ethernet (PoE). Then plug the Home Assistant Connect ZWA-2 into that board by USB. The adapter keeps its standard firmware.
@@ -181,8 +181,9 @@ Two integrations work together to find the adapter:
    - For example: your Home Assistant Connect ZWA-2 running Portable Z-Wave, or the ESP32 board it's plugged into.
    - Follow the steps on screen to add the device to the ESPHome integration.
    - If you already added the ESPHome device, skip this step.
-3. Wait for the Z-Wave adapter to show up under **Discovered**, then select **Add**.
-   - Its name ends with **(ESPHome)**.
+3. Continue with the Z-Wave adapter:
+   - If the adapter is already part of a Z-Wave network, the Z-Wave setup opens right after you add the ESPHome device.
+   - Otherwise, or if you closed that dialog, wait for the Z-Wave adapter to show up under **Discovered**, then select **Add**. Its name ends with **(ESPHome)**.
 4. Follow the steps that match your situation:
    - If you don't use Z-Wave yet, select **Recommended installation**.
      - Then follow the steps to [set up a Z-Wave server](#to-set-up-a-z-wave-server), starting with step 3.
