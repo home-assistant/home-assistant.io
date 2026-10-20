@@ -89,7 +89,7 @@ Try again once the property is live.
 
 {% details "The sensor stopped updating and the entry reports an authentication failure" %}
 
-### Symptom
+### Symptom: Authentication fails after replacing the API key
 
 The sensor stops updating and the integration reports an authentication failure after the API key was replaced. Creating a key anywhere else disables the key Home Assistant is using.
 
