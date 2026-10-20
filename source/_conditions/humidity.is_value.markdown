@@ -119,7 +119,8 @@ This passes when the bedroom humidity sensor reads above the number helper's val
 {% include conditions/threshold_value_options_yaml.md
    range_note="0–100"
    number_final="a percentage value (0–100)"
-   threshold_required="true" %}
+   threshold_required="true"
+   entity_unit="`%`" %}
 
 {% include conditions/targets.md %}
 

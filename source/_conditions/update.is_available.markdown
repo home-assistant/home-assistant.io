@@ -24,8 +24,12 @@ To use this condition in an automation:
 3. In the **And if** section, select **Add condition**.
 4. From the search box, search for and select **Update is available**.
 5. Select what you want to check. Under **By target** (see [Targets](#targets)),
-   pick the device, area, floor, label, or specific update entity you want to
-   evaluate.
+   select the update entities you want to check, or a label that you assigned
+   to them.
+   If you select a device, area, or floor instead, update entities marked as
+   configuration or diagnostic entities are not included. This is common for
+   device firmware updates. For details, refer to
+   [Entities that are not part of a target](/docs/automation/targets/#entities-that-are-not-part-of-a-target).
 6. Under **Condition passes if** (see
    [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
 7. Under **For at least**, enter how long the update must have stayed available

@@ -64,6 +64,81 @@ After the device has joined your Wi-Fi network, add it to Home Assistant with th
 - It only works for Wi-Fi devices that aren't connected to a Wi-Fi network yet.
 - It can't use Bluetooth proxies that don't support active connections, such as Shelly or SMLIGHT proxies.
 
+## Troubleshooting
+
+{% details "The Wi-Fi device can't join your Wi-Fi network" %}
+
+### Symptom: "The device could not connect to the Wi-Fi network"
+
+After you enter your Wi-Fi details, the form shows the message "The device could not connect to the Wi-Fi network. Check that the SSID and password are correct and try again."
+
+#### Description
+
+The Wi-Fi device received your Wi-Fi details, but it couldn't join your Wi-Fi network with them.
+
+#### Resolution
+
+1. Check that the **SSID** matches the name of your Wi-Fi network exactly, including uppercase and lowercase letters.
+2. Check the **Password**.
+3. Make sure your router provides a 2.4 GHz Wi-Fi network. Most devices with an ESP32 chip only connect to 2.4 GHz Wi-Fi networks.
+4. Make sure the Wi-Fi device is within range of your Wi-Fi network.
+5. Enter your Wi-Fi details again, and select **Submit**.
+
+{% enddetails %}
+
+{% details "The setup stops with a message that the Wi-Fi device is already connected" %}
+
+### Symptom: "The device is either already connected to Wi-Fi, or no longer able to connect to Wi-Fi"
+
+During the setup, it stops with the message "The device is either already connected to Wi-Fi, or no longer able to connect to Wi-Fi. If you want to connect it to another network, try factory resetting it first."
+
+#### Description
+
+The Wi-Fi device no longer accepts Wi-Fi details over Bluetooth. Usually, this is because it's already connected to a Wi-Fi network.
+
+#### Resolution
+
+- If the Wi-Fi device is already on your Wi-Fi network, you don't need Improv via BLE. Add the device with its own integration, for example, [ESPHome](/integrations/esphome/).
+- To connect the Wi-Fi device to a different Wi-Fi network, reset it to its factory settings first. For the steps, refer to the manual of the device. Then, set it up again.
+
+{% enddetails %}
+
+{% details "The setup stops with the message Failed to connect" %}
+
+### Symptom: "Failed to connect"
+
+During the setup, it stops with the message "Failed to connect".
+
+#### Description
+
+Home Assistant couldn't make a Bluetooth connection to the Wi-Fi device. To send your Wi-Fi details, Home Assistant needs a connection to the device.
+
+#### Resolution
+
+- Move the Wi-Fi device closer to your Home Assistant server, or to an ESPHome Bluetooth proxy.
+- If the only Bluetooth proxy within range is a Shelly or SMLIGHT proxy, use another way to send the Wi-Fi details. These proxies can't make connections. For the options, refer to [Prerequisites](#prerequisites).
+- Then, start the setup again.
+
+{% enddetails %}
+
+{% details "A Wi-Fi device keeps showing up under Discovered" %}
+
+### Symptom: The same Improv via BLE device keeps showing up under **Discovered**
+
+A Wi-Fi device keeps showing up under **Discovered** as **Improv via BLE**, also after a restart of Home Assistant, and you don't want to set it up.
+
+#### Description
+
+The Wi-Fi device isn't connected to a Wi-Fi network, so it keeps announcing over Bluetooth that it supports Improv via BLE. For example, it's a spare device, a neighbor's device within Bluetooth range, or a device that lost its Wi-Fi network. As soon as a device is connected to Wi-Fi, it stops showing up under **Discovered** by itself.
+
+#### Resolution
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Discovered**, on the card of the Wi-Fi device, select **Ignore**.
+   - Result: Home Assistant no longer shows the device under **Discovered**.
+
+{% enddetails %}
+
 ## Removing the integration
 
 There's nothing to remove. Improv via BLE doesn't keep an entry in your list of integrations, because it only sends your Wi-Fi details to the Wi-Fi device.
