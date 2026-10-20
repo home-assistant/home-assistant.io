@@ -6,6 +6,8 @@ related:
     title: Adding a custom sentence to trigger an automation
   - docs: /docs/automation/targets/
     title: Automation targets
+  - docs: /docs/automation/durations/
+    title: Durations in automations and scripts
 ---
 
 A trigger is the part of an automation that makes the automation start when something specific happens, for example, when the sun sets, a door opens, or a button is pressed. You add triggers in the **When** section of the automation editor.
@@ -292,7 +294,7 @@ automation:
       for: "00:01:00"
 ```
 
-You can also use templates in the `for` option.
+You can also use templates in the `for` option. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
 
 ```yaml
 automation:
