@@ -165,6 +165,14 @@ Before starting migration, you need to update the adapter to SDK 6.61+
 
 {% enddetails %}
 
+{% details "Migrating to an Aeotec Z-Stick 10 Pro" %}
+
+Before starting migration, update the Z-Wave firmware of the Z-Stick 10 Pro to version 7.23.2 or later. Older firmware can cause the migration to fail, especially from a 500 series adapter.
+
+- [Steps to update Aeotec Z-Stick 10 Pro](https://aeotec.freshdesk.com/support/solutions/articles/6000279576).
+
+{% enddetails %}
+
 {% details "Migrating from a Nortek HUSBZB-1 adapter" %}
 
 There is no easy way to update that device.
