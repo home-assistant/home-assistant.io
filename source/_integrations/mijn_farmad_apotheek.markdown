@@ -119,6 +119,23 @@ For a connection error, check that Home Assistant can reach the internet and try
 
 {% enddetails %}
 
+{% details "Actions fail because the pharmacy is not linked" %}
+
+### Symptom
+
+The action fails with the message that your account has no access to the pharmacy.
+
+#### Description
+
+The APB number in the **Pharmacy** field does not belong to a pharmacy linked to your account, for example because of a typo in the number.
+
+#### Resolution
+
+1. Check the APB number and correct it if needed.
+2. If the number is correct, link the pharmacy in the Mijn Farmad Apotheek app, then run the action again.
+
+{% enddetails %}
+
 {% details "Ordering fails because the draft basket is not empty" %}
 
 ### Symptom
