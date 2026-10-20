@@ -21,13 +21,6 @@ and create them as sensors in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
-{% include integrations/option_flow.md %}
-
-{% configuration_basic %}
-Provide legacy period energy sensors:
-  description: Whether the deprecated period energy sensors, which reset at device-local midnight, are provided in addition to the lifetime energy sensors. On by default for devices added before the lifetime sensors were introduced, and off for newly added devices. Disabling this also reduces the number of requests sent to the IoTaWatt device.
-{% endconfiguration_basic %}
-
 ## Energy management and sensor availability
 
 You can use the energy sensors directly with the Home Assistant energy dashboard.
@@ -43,9 +36,9 @@ Any **Outputs** you create within the IoTaWatt unit are also available as sensor
 Previous versions provided energy sensors (suffixed `.wh`) that reset at device-local midnight. These are deprecated and will be removed in a future release. Existing installations keep them alongside the new lifetime sensors and show a repair issue until the migration is completed:
 
 1. Replace the deprecated `.wh` sensors with the corresponding `.wh_lifetime` sensors in the energy dashboard and in automations, scripts, and templates.
-2. Go to {% my repairs title="**Settings** > **System** > **Repairs**" %} and fix the IoTaWatt repair issue. Alternatively, turn off the **Provide legacy period energy sensors** option in the IoTaWatt integration entry.
+2. Go to {% my repairs title="**Settings** > **System** > **Repairs**" %} and fix the IoTaWatt repair issue.
 
-This removes the deprecated sensors; already recorded long-term statistics remain available. Newly added IoTaWatt devices only provide the lifetime sensors.
+This removes the deprecated sensors from the integration entry permanently; already recorded long-term statistics remain available. Fixing the repair issue also reduces the number of requests sent to the IoTaWatt device. Newly added IoTaWatt devices only provide the lifetime sensors.
 
 ## Energy production systems
 
