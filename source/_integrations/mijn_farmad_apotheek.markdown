@@ -2,8 +2,8 @@
 title: Mijn Farmad Apotheek
 description: Search and order medication at your Farmad-connected pharmacy in Home Assistant.
 ha_release: 2026.11
-ha_category:
-  - Health
+ha_categories:
+  - health_wellbeing
 ha_iot_class: Cloud Polling
 ha_domain: mijn_farmad_apotheek
 ha_integration_type: service
