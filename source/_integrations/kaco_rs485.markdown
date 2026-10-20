@@ -39,7 +39,7 @@ Newer KACO inverters, including the blueplanet, TL3, and NX3 families, speak a d
 
 {% include integrations/config_flow.md %}
 
-Home Assistant asks for the serial port and then scans the bus for inverters. The scan asks all 32 addresses, so it takes a while on a bus with few inverters on it: every address with nothing attached costs a reply timeout.
+Home Assistant asks for the serial port and then scans the bus for inverters. The scan checks all 32 addresses, so it takes a while on a bus with few inverters: every address with nothing attached costs a reply timeout.
 
 {% note %}
 These inverters are powered by their solar panels. After dusk, they stop answering entirely, so run setup in daylight.
