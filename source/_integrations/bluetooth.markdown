@@ -70,11 +70,11 @@ For Bluetooth to function on Linux systems:
 
 ### Additional details for Container
 
-{% details "Container configuration for Bluetooth" %}
-
 {% note %}
-You only need these configuration steps for Home Assistant Container installations. Home Assistant Operating System automatically handles all Bluetooth configuration.
+You only need these configuration steps for Home Assistant Container installations. Home Assistant Operating System automatically handles all Bluetooth configuration. To check your installation type, go to {% my info title="**Settings** > **About**" %} and look for **Installation method**.
 {% endnote %}
+
+{% details "Container configuration for Bluetooth" %}
 
 Home Assistant Container requires specific configuration to access Bluetooth adapters.
 
@@ -361,6 +361,24 @@ Bluetooth advertisement bundling reduces traffic between Home Assistant and the 
 On ESPHome ESP32 devices, [active connections](#connection) are turned on by default. To turn them off, use the `active` option of the [Bluetooth proxy component](https://esphome.io/components/bluetooth_proxy/#configuration).
 
 ## Troubleshooting
+
+{% details "Bluetooth adapter requires additional permissions" %}
+
+### Symptom: "Bluetooth adapter requires additional permissions"
+
+Under {% my repairs title="**Settings** > **System** > **Repairs**" %}, you see a repair saying that your Bluetooth adapter is operating in degraded mode, because your container needs additional permissions.
+
+#### Description
+
+Home Assistant can use your Bluetooth adapter, but only with limited functions. For example, it can't reset an adapter that stops responding, and updates from your devices can be less reliable. This happens when Home Assistant runs in a container that doesn't have the permissions it needs to manage Bluetooth.
+
+#### Resolution
+
+1. Go to {% my info title="**Settings** > **About**" %} and check the **Installation method**.
+2. If it says **Home Assistant Container** or **Unsupported Third Party Container**, add the required permissions to your container. Follow the steps in [Additional details for Container](#additional-details-for-container), then restart the container.
+3. If it says **Home Assistant OS** or **Home Assistant Supervised**, you don't need to change any permissions yourself, because they're set up automatically. If you still see the repair, [report it](https://github.com/home-assistant/core/issues) and include your system information.
+
+{% enddetails %}
 
 ### Advertisement monitor
 
