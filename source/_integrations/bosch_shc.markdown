@@ -1,20 +1,8 @@
 ---
 title: Bosch SHC
 description: Integrate Bosch SHC.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Hub
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Valve
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: 2021.6
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -133,6 +121,7 @@ The select platform lets you choose between a set of predefined options. Select 
 - Motion Detector II that supports it: a **Motion sensitivity** select, letting you choose between **high**, **medium**, or **low**. In YAML, the medium option is `middle`.
 - Door/Window Contact II Plus: a **Vibration sensitivity** select, letting you choose between **very high**, **high**, **medium**, **low**, or **very low**. In YAML, the options are `very_high`, `high`, `medium`, `low`, and `very_low`.
 - Smoke Detector that supports it: a **Smoke sensitivity** select, letting you choose between **high**, **medium**, or **low**. In YAML, the medium option is `middle`.
+- Thermostat II and Room Thermostat II: a **Display orientation** select, letting you choose between **Normal** and **Rotated by 180°**, and a **Displayed temperature** select, letting you choose between **Set temperature** and **Measured**. In YAML, the display orientation options are `normal` and `reversed`, and the displayed temperature options are `setpoint` and `measured`.
 
 ### Sensors
 
@@ -147,7 +136,7 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 - Micromodule Shutter Control
 - Micromodule Blinds
 
-Smart Plug Compact devices also provide a communication quality sensor. Thermostats provide diagnostic valve position and valve motor status sensors; the legacy raw valve position sensor is disabled by default because the valve entity provides the position directly.
+Smart Plug Compact devices also provide a communication quality sensor. Thermostats provide diagnostic valve position and valve motor status sensors; the legacy raw valve position sensor is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) because the valve entity provides the position directly.
 
 In addition, a single **Open doors and windows** sensor is added for the whole home, not tied to a specific device. Its state is the total number of currently open doors, windows, and other openings, with the name of each open item listed in the `open_doors`, `open_windows`, and `open_others` state attributes.
 
@@ -194,7 +183,7 @@ Get a reminder if a shutter contact stays open for too long, so an open window d
 - **Trigger**: State changed
   - **Entity**: Front door (binary sensor)
   - **To**: On
-  - **For**: `00:10:00`
+  - **For at least**: `00:10:00`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
   - **Message**: `The front door has been open for 10 minutes.`

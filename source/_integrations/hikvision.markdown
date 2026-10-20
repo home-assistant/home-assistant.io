@@ -1,10 +1,8 @@
 ---
 title: Hikvision
 description: Instructions on how to set up Hikvision cameras and NVRs within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Camera
-  - Event
+ha_categories:
+  - security_safety.cameras
 ha_release: 0.35
 ha_iot_class: Local Push
 ha_codeowners:

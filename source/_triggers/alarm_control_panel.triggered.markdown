@@ -49,8 +49,6 @@ This fires every time `alarm_control_panel.home_alarm` enters the triggered stat
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -88,7 +86,10 @@ The alarm just went off. Every light in the house flashes red and your phone get
   - **Target**: Home alarm panel
   - **Trigger when**: Each
   - **For at least**: 00:00:00
-- **Action**: Flash all lights red
+- **Action**: Turn on light
+  - **Target**: All lights (by label)
+  - **Color name**: Red
+  - **Flash**: Long
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -128,11 +129,13 @@ automation: |
 When the alarm triggers, activate the siren and start recording on all security cameras. The siren deters intruders and the camera footage gives you evidence of what happened.
 
 - **Trigger**: Alarm triggered
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Turn on the siren
-- **Action**: Start camera recording
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Turn on siren
+  - **Target**: Home alarm siren
+- **Action**: Turn on switch
+  - **Target**: Security cameras (by label)
 
 {% details "YAML example for siren and camera recording" %}
 

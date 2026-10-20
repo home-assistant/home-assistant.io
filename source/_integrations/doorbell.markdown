@@ -1,8 +1,6 @@
 ---
 title: Doorbell
 description: This integration provides a doorbell automation trigger.
-ha_category:
-  - Automation
 ha_release: 2026.5
 ha_quality_scale: internal
 ha_codeowners:

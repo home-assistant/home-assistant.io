@@ -10,8 +10,8 @@ ha_integration_type: device
 ha_dhcp: true
 ha_config_flow: true
 ha_quality_scale: silver
-ha_category:
-  - Sensor
+ha_categories:
+  - computers_network.routers_network
 ha_platforms:
   - sensor
 related:

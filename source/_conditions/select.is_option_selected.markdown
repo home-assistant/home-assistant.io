@@ -92,7 +92,7 @@ for:
 
 - The target must be a select entity or an input select dropdown helper.
 - The option string must match the dropdown's option exactly, including capitalization. The UI lets you pick from the available options to avoid typos.
-- A dropdown in the `unknown` or `unavailable` state never matches.
+{% include conditions/unavailable_targets.md entities="dropdowns" %}
 
 {% include conditions/try_it.md %}
 

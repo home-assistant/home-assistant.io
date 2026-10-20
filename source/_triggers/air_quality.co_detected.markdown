@@ -48,8 +48,6 @@ This fires every time `binary_sensor.hallway_co` transitions to the detected sta
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -85,7 +83,7 @@ Imagine everyone in your home is fast asleep and carbon monoxide starts building
 
 - **Trigger**: Carbon monoxide detected
   - **Target**: All CO sensors (by label)
-- **Action**: Siren: Turn on
+- **Action**: Turn on siren
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

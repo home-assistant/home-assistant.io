@@ -1,16 +1,6 @@
 ---
 title: Ariston
 description: Connect and control your Ariston devices using the Midea integration
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Fan
-  - Humidifier
-  - Light
-  - Number
-  - Select
-  - Switch
 ha_release: 2026.8
 ha_domain: ariston
 ha_integration_type: virtual

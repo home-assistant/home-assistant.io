@@ -6,7 +6,7 @@ description: "Move a cover to a target position and tilt at the same time, keepi
 since: "2026.6"
 ---
 
-The **Set cover position and tilt** action moves a cover to a target position and tilt in a single command. Because both values are sent together, the motor keeps running smoothly through the move instead of stopping between the two adjustments.
+The **Overkiz: Set cover position and tilt** action moves a cover to a target position and tilt in a single command. Because both values are sent together, the motor keeps running smoothly through the move instead of stopping between the two adjustments.
 
 This is useful for tilting blinds and shades, such as Somfy venetian blinds, where setting the position and the tilt separately would make the motor pause and start again.
 
@@ -21,7 +21,7 @@ To use this action in an automation or script:
 3. If you're creating an automation, add a trigger in the **When** section.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the cover you want to control. You can also select an area, a floor, a device, or a label.
-6. From the actions shown for that target, select **Set cover position and tilt**.
+6. From the actions shown for that target, under **Overkiz**, select **Set cover position and tilt**.
 7. Under **Position** and **Tilt position**, set the values you want.
 8. Select **Save**.
 
@@ -79,10 +79,10 @@ When the afternoon sun starts shining in, you can lower the blinds part way and 
   - **Entity**: Sun
   - **Attribute**: Elevation
   - **Below**: 25
-- **Action**: Set cover position and tilt
-- **Target**: Living room blind
-- **Position**: 60
-- **Tilt position**: 30
+- **Action**: Overkiz: Set cover position and tilt
+  - **Target**: Living room blind
+  - **Position**: `60`%
+  - **Tilt position**: `30`%
 
 {% details "YAML example for tilting the blinds against the sun" %}
 

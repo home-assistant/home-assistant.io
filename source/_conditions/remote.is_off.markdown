@@ -48,8 +48,6 @@ This passes when the living room remote is currently off.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -71,7 +69,7 @@ for:
 
 ## Good to know
 
-- Remotes that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped and do not count as off. With **Any** behavior, if all targeted remotes are unavailable or have an unknown state, the condition fails. With **All** behavior, if all targeted remotes are unavailable or have an unknown state, the condition passes.
+{% include conditions/unavailable_targets.md entities="remotes" %}
 - To gate an automation on a remote being on instead, use [Remote is on](/conditions/remote.is_on/).
 - Pair with the [Remote turned off](/triggers/remote.turned_off/) trigger to react only when a transition to off happens.
 

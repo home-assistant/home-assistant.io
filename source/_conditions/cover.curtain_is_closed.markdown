@@ -50,8 +50,6 @@ This passes when `cover.living_room_curtain` is currently closed.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -76,9 +74,7 @@ for:
 ## Good to know
 
 - The target must be a cover entity with the curtain device class.
-- Entities in the **Unavailable** or **Unknown** state are ignored when Home Assistant evaluates the condition.
-- With **Any**, the condition passes if at least one available targeted curtain is closed.
-- With **All**, the condition passes only if every available targeted curtain is closed. If every targeted curtain is **Unavailable** or **Unknown**, **All** passes and **Any** fails.
+{% include conditions/unavailable_targets.md entities="curtains" %}
 
 {% include conditions/try_it.md %}
 
@@ -116,7 +112,9 @@ automation: |
 
 If the curtain is still closed when motion is detected, this automation turns on a nearby light so the area is easier to see.
 
-- **Trigger**: Motion detected
+- **Trigger**: State changed
+  - **Entity**: Hallway motion sensor
+  - **To**: Detected
 - **Condition**: Curtain is closed
   - **Target**: Living room curtain
 - **Action**: Turn on light

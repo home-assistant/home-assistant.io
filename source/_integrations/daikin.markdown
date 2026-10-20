@@ -1,11 +1,8 @@
 ---
 title: Daikin AC
 description: Instructions on how to integrate Daikin AC devices with Home Assistant.
-ha_category:
-  - Climate
-  - Energy
-  - Sensor
-  - Switch
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_release: 0.59
 ha_iot_class: Local Polling
 ha_config_flow: true

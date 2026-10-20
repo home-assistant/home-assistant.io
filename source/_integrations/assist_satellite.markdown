@@ -1,8 +1,6 @@
 ---
 title: Assist Satellite
 description: Remote satellites that use Assist.
-ha_category:
-  - Voice
 ha_release: '2024.10'
 ha_codeowners:
   - '@home-assistant/core'

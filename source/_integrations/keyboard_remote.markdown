@@ -1,8 +1,8 @@
 ---
 title: Keyboard Remote
 description: Instructions on how to use a keyboard or remote control as an input device for automations in Home Assistant.
-ha_category:
-  - Other
+ha_categories:
+  - buttons_remotes
 ha_release: 0.29
 ha_iot_class: Local Push
 ha_config_flow: true

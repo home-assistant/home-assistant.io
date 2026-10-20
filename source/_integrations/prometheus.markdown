@@ -1,8 +1,8 @@
 ---
 title: Prometheus
 description: Record events in Prometheus.
-ha_category:
-  - History
+ha_categories:
+  - computers_network.monitoring
 ha_release: 0.49
 ha_iot_class: Assumed State
 ha_domain: prometheus
@@ -167,7 +167,7 @@ You can then configure Prometheus to fetch metrics from Home Assistant by adding
       - targets: ['HOSTNAME:8123']
 ```
 
-Replace `your.longlived.token` with a Home Assistant [generated token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token).
+Replace `your.longlived.token` with a Home Assistant [generated token](https://contributors.home-assistant.io/core/internals/auth-api/#long-lived-access-tokens).
 
 The format to configure the bearer token has changed in Prometheus 2.26, so if you have a newer version, you can use this configuration sample:
 

@@ -7,7 +7,7 @@ related_actions:
   - system_bridge.get_processes_by_name
 ---
 
-The **Get process by ID** action returns a single running process from a System Bridge server, looked up by its process ID (PID).
+The **System Bridge: Get process by ID** action returns a single running process from a System Bridge server, looked up by its process ID (PID).
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 

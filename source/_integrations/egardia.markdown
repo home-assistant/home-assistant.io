@@ -1,10 +1,8 @@
 ---
 title: Egardia
 description: Instructions on how to set up Egardia / Woonveilig within Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Hub
+ha_categories:
+  - security_safety.alarm_systems
 ha_release: 0.65
 ha_iot_class: Local Polling
 ha_codeowners:

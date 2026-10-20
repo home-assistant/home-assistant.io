@@ -1,15 +1,8 @@
 ---
 title: RFXCOM RFXtrx
 description: Instructions on how to integrate RFXtrx into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Cover
-  - Event
-  - Hub
-  - Light
-  - Sensor
-  - Siren
-  - Switch
+ha_categories:
+  - hubs_protocols.wireless_protocols
 ha_iot_class: Local Push
 ha_release: pre 0.7
 ha_config_flow: true

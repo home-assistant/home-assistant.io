@@ -1,8 +1,6 @@
 ---
 title: "MQTT Siren"
 description: "Instructions on how to integrate MQTT sirens into Home Assistant."
-ha_category:
-  - Siren
 ha_release: 2022.3
 ha_iot_class: Configurable
 ha_domain: mqtt
@@ -87,7 +85,7 @@ default_entity_id:
   type: string
 {% include integrations/mqtt_device.md %}
 enabled_by_default:
-  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. When set to `false`, Home Assistant adds the entity as disabled. A disabled entity has no state, and you can't use it in automations or dashboards until you [enable it](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
   required: false
   type: boolean
   default: true
@@ -97,7 +95,7 @@ encoding:
   type: string
   default: "utf-8"
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://contributors.home-assistant.io/core/entities/entity-class/#generic-properties) of the entity.
   required: false
   type: string
 entity_picture:

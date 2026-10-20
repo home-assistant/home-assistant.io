@@ -20,7 +20,7 @@ To get a schedule from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the schedules you want to read.
-6. From the actions shown for that target, select **Schedule: Get schedule**.
+6. From the actions shown for that target, under **Schedule**, select **Get schedule**.
 7. Select **Save**.
 
 ### Options in the UI

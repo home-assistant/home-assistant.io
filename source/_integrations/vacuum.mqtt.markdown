@@ -1,8 +1,6 @@
 ---
 title: "MQTT Vacuum"
 description: "Instructions on how to integrate your MQTT enabled Vacuum within Home Assistant."
-ha_category:
-  - Vacuum
 ha_release: 0.54
 ha_domain: mqtt
 ---
@@ -77,7 +75,7 @@ default_entity_id:
   type: string
 {% include integrations/mqtt_device.md %}
 enabled_by_default:
-  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. Disabled entities are hidden by default until you enable them from the device page.
+  description: Controls whether this entity is enabled by default. When set to `true`, the entity is enabled and usable immediately. When set to `false`, Home Assistant adds the entity as disabled. A disabled entity has no state, and you can't use it in automations or dashboards until you [enable it](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
   required: false
   type: boolean
   default: true

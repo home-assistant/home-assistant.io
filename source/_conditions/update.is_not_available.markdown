@@ -85,10 +85,7 @@ for:
 
 - This condition checks update entities whose state is `off`, which means no
   update is available.
-- Entities in the `unavailable` or `unknown` state are ignored.
-- With **All**, the condition passes only if every available targeted update is
-  up to date. If every targeted entity is `unavailable` or `unknown`, **All**
-  passes and **Any** fails.
+{% include conditions/unavailable_targets.md entities="update entities" %}
 - If you use `for`, each matching update must stay up to date for the full time
   you set.
 
