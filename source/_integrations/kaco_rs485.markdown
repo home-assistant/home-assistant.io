@@ -72,6 +72,15 @@ Each inverter on the bus becomes its own device, named for the model it reports 
 
 ### Get notified when an inverter trips
 
+To create this automation in the UI:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create automation** > **Create new automation**.
+2. Add a state trigger for your inverter's **Fault** binary sensor changing to `on`, which indicates a fault.
+3. Add a notification action, select your notification destination, and enter a message. See [notification actions](/integrations/notify/#actions) for the available options.
+4. Save the automation.
+
+If you manage automations in YAML, you can optionally add the following example to `configuration.yaml`. Replace both inverter entity IDs with your own and select your notification destination.
+
 {% raw %}
 
 ```yaml
