@@ -48,7 +48,7 @@ Organization:
 ### Device trackers
 
 - **Clients**: A tracker for each Wi-Fi or wired client seen in the organization's networks in the last hour. It is home while Meraki reports the client online, and shows the client's IP address, MAC address and hostname.
-- **Bluetooth devices**: A tracker for each Bluetooth device the access points hear, for networks with Bluetooth scanning enabled. It is home while an access point heard it in the last five minutes.
+- **Bluetooth devices**: A tracker for each named Bluetooth device the access points hear, for networks with Bluetooth scanning enabled. It is home while an access point heard it in the last five minutes.
 
 Like other network-based trackers, new trackers are disabled until you enable them, unless another integration already knows the device by its MAC address. Client trackers are then added to that device.
 
@@ -88,9 +88,9 @@ The integration polls the Meraki Dashboard API every minute: one request for the
 
 ## Known limitations
 
-- Each organization is added separately, with its own API key.
+- Each organization is added as a separate entry. The same API key can be used for several organizations.
 - The Dashboard API does not provide a client's position, so unlike the CMX presence detection, the trackers don't show devices on the map. They only tell whether a device is home.
-- Phones and many other devices use Bluetooth addresses that change every few minutes. These cannot be followed and get no tracker.
+- Only Bluetooth devices with a name get a tracker. Phones and many other devices use Bluetooth addresses that change every few minutes and advertise no name; these cannot be followed.
 
 ## Troubleshooting
 
@@ -101,11 +101,13 @@ The integration polls the Meraki Dashboard API every minute: one request for the
 
 ### The integration asks to reauthenticate
 
-The API key was revoked or lost access to the organization. Create a new API key in the Meraki Dashboard and enter it when Home Assistant asks for it.
+The API key was revoked, or its administrator lost access to the organization. Create a new API key in the Meraki Dashboard for an administrator who has access to the organization, or restore the administrator's access first, then enter the key when Home Assistant asks for it.
 
 ## Removing the integration
 
 This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
 
 The CMX presence detection described below is set up in YAML and is removed by removing its configuration from your {% term "`configuration.yaml`" %} file.
 
