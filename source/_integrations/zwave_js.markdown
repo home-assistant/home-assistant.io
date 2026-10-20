@@ -147,7 +147,7 @@ Do this when you have a device that is still paired with an adapter, but you don
 Do this if you have an existing Z-Wave network and want to replace its adapter with a new adapter. The Z-Wave integration with all its entities will stay in Home Assistant. The new adapter is added to Home Assistant and paired with the existing network.
 
 {% tip %}
-You cannot run two Z-Wave adapters at the same time with the same Z-Wave app instance. If you only want to use a single app instance, you need to migrate the network to the new adapter. If you want to use two adapters at the same time, you need a second Z-Wave JS Server instance. You can run this additional Z-Wave JS Server instance in a separate container, or run Z-Wave JS Server or Z-Wave JS UI on another system outside of Home Assistant.
+You cannot run two Z-Wave adapters at the same time with the same Z-Wave JS app instance. If you only want to use a single app instance, you need to migrate the network to the new adapter. If you want to use two adapters at the same time, you need a second Z-Wave JS Server instance. You can run this additional Z-Wave JS Server instance in a separate container, or run Z-Wave JS Server or Z-Wave JS UI on another system outside of Home Assistant.
 {% endtip %}
 
 ### Prerequisites
@@ -697,9 +697,9 @@ Make sure that you keep a backup of these keys in a safe place. You will need to
 
 Once you have the Z-Wave JS server up and running, you need to install and configure the integration in Home Assistant (as described above).
 
-If you're running full Home Assistant with supervisor, you will be presented with a dialog that asks if you want to use the Z-Wave JS Supervisor app. You **must** uncheck this box if you are running the Z-Wave JS server in any manner other than the official Z-Wave JS app, including using Z-Wave JS UI app.
+If you run {% term "Home Assistant Operating System" %}, a dialog asks if you want to use the Z-Wave JS app. If you run the Z-Wave JS server in any other way, including with the Z-Wave JS UI app, you must clear the **Use the Z-Wave JS app** checkbox.
 
-If you're not running the supervisor or you've unchecked the above-mentioned box, you will be asked to enter a WebSocket URL (defaults to ws://localhost:3000). It is very important that you fill in the correct (Docker) IP/hostname here. For example for the Z-Wave JS UI app this is `ws://a0d7b954-zwavejs2mqtt:3000`.
+If you don't run Home Assistant OS, or you cleared that checkbox, you're asked to enter a WebSocket URL (defaults to ws://localhost:3000). It is very important that you fill in the correct (Docker) IP/hostname here. For example for the Z-Wave JS UI app this is `ws://a0d7b954-zwavejs2mqtt:3000`.
 
 ## FAQ: Supported devices and Command Classes
 
