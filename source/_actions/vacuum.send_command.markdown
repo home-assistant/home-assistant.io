@@ -27,9 +27,10 @@ action: |
   action: vacuum.send_command
   target:
     entity_id: vacuum.upstairs
-  command: set_do_not_disturb
-  params:
-    enabled: true
+  data:
+    command: set_do_not_disturb
+    params:
+      enabled: true
 {% endexample %}
 
 This sends the `set_do_not_disturb` command to `vacuum.upstairs`.
@@ -82,9 +83,10 @@ automation: |
     - action: vacuum.send_command
       target:
         entity_id: vacuum.upstairs
-      command: set_do_not_disturb
-      params:
-        enabled: true
+      data:
+        command: set_do_not_disturb
+        params:
+          enabled: true
 {% endexample %}
 
 {% enddetails %}

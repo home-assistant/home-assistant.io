@@ -147,7 +147,7 @@ Do this when you have a device that is still paired with an adapter, but you don
 Do this if you have an existing Z-Wave network and want to replace its adapter with a new adapter. The Z-Wave integration with all its entities will stay in Home Assistant. The new adapter is added to Home Assistant and paired with the existing network.
 
 {% tip %}
-You cannot run two Z-Wave adapters at the same time with the same Z-Wave app instance. If you only want to use a single app instance, you need to migrate the network to the new adapter. If you want to use two adapters at the same time, you need a second Z-Wave JS Server instance. You can run this additional Z-Wave JS Server instance in a separate container, or run Z-Wave JS Server or Z-Wave JS UI on another system outside of Home Assistant.
+You cannot run two Z-Wave adapters at the same time with the same Z-Wave JS app instance. If you only want to use a single app instance, you need to migrate the network to the new adapter. If you want to use two adapters at the same time, you need a second Z-Wave JS Server instance. You can run this additional Z-Wave JS Server instance in a separate container, or run Z-Wave JS Server or Z-Wave JS UI on another system outside of Home Assistant.
 {% endtip %}
 
 ### Prerequisites
@@ -162,6 +162,14 @@ Before starting migration, you need to update the adapter to SDK 6.61+
 
 - Check the documentation of your device to see if and how they can be updated.
 - [Steps to update Aeotec Z-Stick 5](https://aeotec.freshdesk.com/support/solutions/articles/6000252294-z-stick-gen5-v1-02-firmware-update).
+
+{% enddetails %}
+
+{% details "Migrating to an Aeotec Z-Stick 10 Pro" %}
+
+Before starting migration, update the Z-Wave firmware of the Z-Stick 10 Pro to version 7.23.2 or later. Older firmware can cause the migration to fail, especially from a 500 series adapter.
+
+- [Steps to update Aeotec Z-Stick 10 Pro](https://aeotec.freshdesk.com/support/solutions/articles/6000279576).
 
 {% enddetails %}
 
@@ -258,28 +266,22 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
 
    ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-reconfigure-adapter.png)
 
-4. Depending on how your controller is connected, you might need to either select or clear the **Use the Z-Wave Supervisor app** checkbox.
+4. Depending on how your controller is connected, you might need to either select or clear the **Use the Z-Wave JS app** checkbox.
    - _Option 1:_ If you are using a USB-based or TCP-based controller:
-     - Select the **Use the Z-Wave Supervisor app** checkbox.
-
-       ![Selecting the Z-Wave Supervisor app checkbox](/images/integrations/z-wave/z-wave-js-ui-migration-select-option.png)
-
+     - Select the **Use the Z-Wave JS app** checkbox.
      - In the next step, select your controller and select **Submit**.
 
        ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-select-adapter-1.png)
 
    - _Option 2:_ If you are using a GPIO module or if your controller is not showing up in the list:
-     - Clear the **Use the Z-Wave Supervisor app** checkbox.
-
-       ![Deselecting the Z-Wave Supervisor app](/images/integrations/z-wave/z-wave-js-ui-migration-deselect-option.png)
-
+     - Clear the **Use the Z-Wave JS app** checkbox.
      - Enter the connection details for your Z-Wave JS app:
        - In the **URL** field, enter `ws://core-zwave-js:3000`.
 
        ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-enter-url.png)
 
 5. Remove the temporary files you uploaded to the `/tmp` folder for the migration.
-6. Done! Your Z-Wave JS app is now managing your Z-Wave network. You can start the Z-Wave JS app and stop and uninstall the Z-Wave JS UI app.
+6. Done! Your Z-Wave JS app is now managing your Z-Wave network. You can now uninstall the Z-Wave JS UI app.
 
 ## Overriding the radio frequency region of the adapter in the Z-Wave JS app
 
@@ -703,9 +705,9 @@ Make sure that you keep a backup of these keys in a safe place. You will need to
 
 Once you have the Z-Wave JS server up and running, you need to install and configure the integration in Home Assistant (as described above).
 
-If you're running full Home Assistant with supervisor, you will be presented with a dialog that asks if you want to use the Z-Wave JS Supervisor app. You **must** uncheck this box if you are running the Z-Wave JS server in any manner other than the official Z-Wave JS app, including using Z-Wave JS UI app.
+If you run {% term "Home Assistant Operating System" %}, a dialog asks if you want to use the Z-Wave JS app. If you run the Z-Wave JS server in any other way, including with the Z-Wave JS UI app, you must clear the **Use the Z-Wave JS app** checkbox.
 
-If you're not running the supervisor or you've unchecked the above-mentioned box, you will be asked to enter a WebSocket URL (defaults to ws://localhost:3000). It is very important that you fill in the correct (Docker) IP/hostname here. For example for the Z-Wave JS UI app this is `ws://a0d7b954-zwavejs2mqtt:3000`.
+If you don't run Home Assistant OS, or you cleared that checkbox, you're asked to enter a WebSocket URL (defaults to ws://localhost:3000). It is very important that you fill in the correct (Docker) IP/hostname here. For example for the Z-Wave JS UI app this is `ws://a0d7b954-zwavejs2mqtt:3000`.
 
 ## FAQ: Supported devices and Command Classes
 

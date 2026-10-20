@@ -165,7 +165,7 @@ behavior:
 
 ### Automation: skip a weekly reminder when batteries are low
 
-This automation sends a weekly reminder to test your smoke detectors, but only when every detector still has at least 25% battery. If any battery is low, the reminder is skipped so you can replace the batteries first.
+This automation sends a weekly reminder to test your smoke detectors, but only when every detector still has more than 25% battery. If any battery is low, the reminder is skipped so you can replace the batteries first.
 
 - **Trigger**: Time: Every Sunday at 10:00
 - **Condition**: Battery level (above 25%)
