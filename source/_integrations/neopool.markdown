@@ -23,7 +23,7 @@ ha_categories:
   - water.pools_spas
 ---
 
-The **NeoPool** {% term integration %} integrates pool controllers built around the **NeoPool control system** (originally developed by **Sugar Valley**, acquired by **Hayward** in 2016) with Home Assistant. It communicates entirely locally over Modbus TCP, providing real-time monitoring of water chemistry, filtration, and hydrolysis without any cloud dependency.
+The **NeoPool** {% term integration %} integrates pool controllers built around the **NeoPool control system** (originally developed by **Sugar Valley**, acquired by **Hayward** in 2016) with Home Assistant. It communicates entirely locally over Modbus, either over your network (Modbus TCP) or over a direct serial connection (Modbus RTU), providing real-time monitoring of water chemistry, filtration, and hydrolysis without any cloud dependency.
 
 The same control system is sold under many brand names worldwide, including **Hidrolife**, **Aquascenic**, **Oxilife**, **Bionet**, **Hidroniser**, **UVScenic**, **Station**, and **Aquarite**, distributed by **Hayward**, **Brilix** (Albixon), **Bayrol**, **Certikin**, **Poolstar**, **GrupAquadirect**, **Pentair**, **ProducPool**, **Pool Technologie**, **Kripsol**, and others.
 
@@ -56,23 +56,29 @@ The Modbus protocol implemented here follows the official _NeoPool Control Syste
 
 ## Prerequisites
 
-Before setting up the NeoPool integration, make sure:
+Your NeoPool controller is reached either over your network through a Modbus TCP gateway, or over a direct serial (RS-485) connection. Either way, the RS-485 wiring is connected to the controller's `WIFI` or `EXTERNAL` port (do **not** use `DISPLAY` unless the internal LCD is disconnected). The pinout (top to bottom) is:
+
+```text
+.  ___
+1 |*  |– +12V (from internal power supply)
+2 |*  |– NC (not connected)
+3 |*  |– Modbus A+
+4 |*  |– Modbus B-
+5 |*__|– GND
+```
+
+The connector is a standard 2.54 mm 5-pin PCB female header. The NeoPool bus runs at 19200 baud, 1 stop bit, no parity, Modbus RTU.
+
+For a **network** connection, make sure:
 
 - Your NeoPool controller is connected to a Modbus TCP gateway (any RS-485 to TCP converter, such as the USR-DR164) on your home network.
 - The gateway is configured for 19200 baud, 1 stop bit, no parity, Modbus RTU.
 - You know the hostname or IP address and TCP port of the gateway.
-- The RS-485 wiring is connected to the controller's `WIFI` or `EXTERNAL` port (do **not** use `DISPLAY` unless the internal LCD is disconnected). The pinout (top to bottom) is:
 
-  ```text
-  .  ___
-  1 |*  |– +12V (from internal power supply)
-  2 |*  |– NC (not connected)
-  3 |*  |– Modbus A+
-  4 |*  |– Modbus B-
-  5 |*__|– GND
-  ```
+For a **serial** connection, make sure:
 
-  The connector is a standard 2.54 mm 5-pin PCB female header.
+- The controller's RS-485 bus is wired to a USB-to-RS485 adapter on your Home Assistant host. Alternatively, an ESPHome serial proxy with an RS-485 interface can share the port with Home Assistant over the network. To set one up, refer to [Setting up an ESPHome serial proxy](/integrations/serial/#setting-up-an-esphome-serial-proxy).
+- You know which serial port the bus is wired to. Use the stable `/dev/serial/by-id/...` path rather than `/dev/ttyUSB0`, whose mapping can change when USB devices are reordered or the host restarts.
 
 {% note %}
 The NeoPool device acts as a Modbus _server_. This integration is a Modbus _client_. Only one Modbus client can be connected to a given Modbus connector at a time.
@@ -80,17 +86,35 @@ The NeoPool device acts as a Modbus _server_. This integration is a Modbus _clie
 
 {% include integrations/config_flow.md %}
 
+Setting up starts by picking how the controller is reached, **Network (Modbus TCP / RTU-over-socket)** or **Serial (USB RS485 adapter or ESPHome serial proxy)**.
+
 ### Configuration parameters
+
+For a network connection:
 
 {% configuration_basic %}
 Host:
   description: The hostname or IP address of your Modbus TCP gateway, for example `192.168.1.50` or `pool-gateway.local`.
 Port:
   description: The TCP port of your Modbus gateway. Defaults to `502`.
-Unit ID:
-  description: The Modbus unit (server) ID of the NeoPool controller. Defaults to `1`.
 Modbus framer:
-  description: Protocol framer to use. `tcp` works for most gateways. Pick `rtu` only if your gateway forwards raw RTU frames over TCP.
+  description: Protocol framer to use. `tcp` works for most gateways. Pick `rtu` only if your gateway forwards raw RTU frames over TCP, such as an ESPHome stream server.
+{% endconfiguration_basic %}
+
+For a serial connection:
+
+{% configuration_basic %}
+Serial device:
+  description: The serial port the controller's RS-485 bus is wired to. Use the stable `/dev/serial/by-id/...` path rather than `/dev/ttyUSB0`, whose mapping can change. Ports shared over the network by an ESPHome serial proxy are listed alongside the local ones.
+Baud rate:
+  description: The baud rate of the RS-485 bus. NeoPool controllers use `19200`.
+{% endconfiguration_basic %}
+
+Both connection types share the collapsed **More options** section:
+
+{% configuration_basic %}
+Unit ID:
+  description: The Modbus unit (server) ID of the NeoPool controller. Defaults to `1`. Change it only if the controller was given another ID, for example because several devices share one connection.
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
@@ -235,13 +259,13 @@ Replace `abc123device456` with the device ID of your controller. If you only hav
 
 ## Data updates
 
-The integration {% term polling polls %} the controller over Modbus TCP at a fixed interval. To stay responsive, the integration reads data from the controller in as few requests as possible per update cycle.
+The integration {% term polling polls %} the controller over Modbus at a fixed interval. To stay responsive, the integration reads data from the controller in as few requests as possible per update cycle.
 
-If a poll cycle fails (for example, because the Modbus gateway becomes unreachable), all entities transition to `unavailable` until the next successful poll.
+If a poll cycle fails (for example, because the Modbus gateway or serial port becomes unreachable), all entities transition to `unavailable` until the next successful poll.
 
 ## Reconfigure
 
-If your Modbus TCP gateway moves to a different IP address or port, or you need to change the unit ID or Modbus framer, you can update the connection settings without removing and re-adding the integration:
+If your controller's connection changes, for example a Modbus TCP gateway moves to a different IP address or port, a serial device path changes, or you need to change the unit ID, baud rate, or Modbus framer, you can update the connection settings without removing and re-adding the integration:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the NeoPool integration.
@@ -249,6 +273,8 @@ If your Modbus TCP gateway moves to a different IP address or port, or you need 
 4. Update the settings and submit the form.
 
 The integration verifies the new settings against the controller before saving. If the device reached at the new address reports a different serial number than the one originally configured, the reconfiguration is rejected to prevent pointing the entry at a different controller.
+
+You can't switch between a network and a serial connection this way. To change the connection type, remove the integration and add it again.
 
 ## Diagnostics
 
@@ -282,32 +308,42 @@ When trying to set up the integration, the form shows the message **Cannot conne
 
 #### Description
 
-The integration could reach the network address but did not receive a valid Modbus reply within the timeout, or the gateway refused the TCP connection altogether.
+The integration could not exchange a valid Modbus reply with the controller within the timeout. On a network connection, the gateway may be unreachable or refusing the TCP connection; on a serial connection, the port may be wrong or in use, or the line settings may not match.
 
 #### Resolution
 
+For a network connection:
+
 1. Verify the Modbus TCP gateway is reachable from Home Assistant by pinging the gateway IP.
 2. Confirm the gateway is configured for 19200 baud, 1 stop bit, no parity (Modbus RTU).
-3. Check the RS-485 wiring (A+ / B− / GND) and that the connector is plugged into `WIFI` or `EXTERNAL`, not `DISPLAY` (when the LCD is connected).
-4. Make sure the unit ID matches the controller's configured Modbus address (default `1`).
+
+For a serial connection:
+
+1. Confirm the serial port is correct and present, for example that the USB adapter is plugged in, or that the ESPHome serial proxy is online and reachable on your network.
+2. Confirm the baud rate matches the controller's bus (`19200`).
+
+For either connection:
+
+1. Check the RS-485 wiring (A+ / B− / GND) and that the connector is plugged into `WIFI` or `EXTERNAL`, not `DISPLAY` (when the LCD is connected).
+2. Make sure the unit ID matches the controller's configured Modbus address (default `1`).
 
 ### All entities went unavailable suddenly
 
 #### Symptom: every NeoPool entity is `unavailable` at the same time
 
-All entities provided by the integration become `unavailable` simultaneously, often after a network change or gateway restart.
+All entities provided by the integration become `unavailable` simultaneously, often after a network change, a gateway restart, or a serial port or adapter being disconnected.
 
 #### Description
 
-The integration has lost contact with the Modbus gateway. Entities recover automatically on the next successful poll after connectivity is restored.
+The integration has lost contact with the controller. Entities recover automatically on the next successful poll after connectivity is restored.
 
 #### Resolution
 
 If entities stay unavailable for more than a few minutes:
 
 1. Check the Home Assistant logs for `neopool` errors.
-2. Power-cycle the Modbus gateway.
-3. Verify nothing else on the network has taken over the same TCP connection (only one Modbus client per gateway port at a time).
+2. On a network connection, power-cycle the Modbus gateway and verify nothing else has taken over the same connection (only one Modbus client per gateway port at a time).
+3. On a serial connection, confirm the adapter is still connected (or the ESPHome serial proxy is still online) and that no other integration or app is using the same port.
 
 ### Repair issue: "Corrupted GPIO register"
 
