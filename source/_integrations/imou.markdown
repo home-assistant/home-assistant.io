@@ -28,11 +28,21 @@ The **Imou** {% term integration %} connects to the [Imou Open Platform](https:/
 
 Channel devices expose **Live view SD** and **Live view HD** camera entities. Depending on what the cloud API reports for each device, the integration also creates alarm control panel, button, switch, siren, select, binary sensor, and sensor entities. See [Supported functionality](#supported-functionality) for the full list.
 
+## Use cases
+
+- Watch a live stream or a still image from a camera that is online.
+- See whether a camera, gateway, or plug is online, sleeping, or upgrading.
+- Arm or disarm a supported gateway.
+- Turn a supported plug on or off, and read its power use.
+- Get a notification when a supported door or window contact opens.
+
 ## Supported devices
 
-The integration supports Imou devices that are already added to your Imou Open Platform account and reported by the cloud API. Supported button, switch, select, sensor, and binary sensor entities depend on each device type (for example, PTZ controls are only created when the device supports PTZ, and battery sensors only appear on devices that report battery level).
+The integration supports Imou cameras, gateways, plugs, and sensors that are already on your Imou Open Platform account and reported by the cloud API. It does not add a device that Home Assistant only saw on the local network.
 
-Add or remove devices in the Imou Open Platform or Imou app; new devices are picked up on the next data refresh.
+Which entities appear depends on the device. For example, pan and tilt buttons are created only when the device supports them, and a battery sensor appears only when the device reports a battery level.
+
+Add or remove devices in the Imou Open Platform or the Imou app. Home Assistant picks up the change on the next refresh. See [Data updates](#data-updates).
 
 ## Prerequisites
 
@@ -81,7 +91,7 @@ If the platform rejects your App ID or App secret during normal operation, Home 
 
 Imou Open Platform API usage limits apply to your App ID:
 
-1. Each App ID includes a monthly quota of 30,000 free API requests. Usage above the quota is billed at the [published unit price](https://open.imoulife.com/price).
+1. Each App ID includes 30,000 free API requests per month. Requests after that are rejected until you add quota, billed at the [published unit price](https://open.imoulife.com/price), or until the month resets.
 2. API endpoints are split by region. Select the matching **Server region** during setup. For details, see the [development specification](https://open.imoulife.com/book/http/develop.html).
 3. For additional API documentation, see the HTTP interface section in the [development documentation](https://open.imoulife.com/book/en).
 
@@ -182,7 +192,73 @@ Battery, storage used, and status sensors are shown under **Diagnostic** on the 
 
 ## Data updates
 
-The integration {% term polling polls %} Imou cloud APIs every 2 minutes to refresh the device list and online status. New devices on your account are added automatically; devices removed from your account are removed from Home Assistant.
+The integration {% term polling polls %} the Imou cloud every 2 minutes. Each poll refreshes the device list and the status of devices already on the account.
+
+- A device you add in the Imou app or Open Platform is added on the next poll, including its entities.
+- A device you remove from the account is removed from Home Assistant, including its entities.
+- A command, such as a switch, button, select, siren, or alarm control panel action, is sent immediately. Measurements such as battery, power, and online status update on the next poll.
+
+## Examples
+
+{% include docs/paste_yaml_tip.md %}
+
+Replace `notify.my_device` with your own notification entity, such as your phone.
+
+### Automation: Notify when a camera goes offline
+
+- **Trigger**: State
+  - **Entity**: Living room Status
+  - **To**: Disconnected
+- **Action**: Send a notification message
+  - **Target**: My device (`notify.my_device`)
+  - **Message**: The living room camera is offline.
+
+{% details "YAML example for an offline camera" %}
+
+{% example %}
+automation: |
+  alias: "Notify when the living room camera is offline"
+  triggers:
+    - trigger: state
+      entity_id: sensor.living_room_status
+      to: "offline"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The living room camera is offline."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Notify when a door opens
+
+- **Trigger**: State
+  - **Entity**: Front door
+  - **To**: Open
+- **Action**: Send a notification message
+  - **Target**: My device (`notify.my_device`)
+  - **Message**: The front door opened.
+
+{% details "YAML example for an open door" %}
+
+{% example %}
+automation: |
+  alias: "Notify when the front door opens"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.front_door
+      to: "on"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "The front door opened."
+{% endexample %}
+
+{% enddetails %}
 
 ## Security and privacy considerations
 
@@ -198,7 +274,17 @@ If you changed the **App secret**, Home Assistant may ask you to reauthenticate 
 
 ### API quota is used quickly
 
-The integration polls the platform regularly to discover devices and refresh online status. API usage increases with the number of devices on your account. Review your usage on the Imou Open Platform.
+The integration polls the platform every 2 minutes. For one device, each poll sends at least two requests: the device list and the device status. Over 30 days that is about 43,000 requests, which is more than the 30,000 free requests. More devices, and extra readings such as sensors, use more. When the quota is used up, the device list, live view, and controls cannot reach the cloud until you add quota or the month resets.
+
+Open **My Resources** in the Open Platform console to check or add quota, then reload the Imou integration.
+
+### A device does not appear
+
+Confirm the device is on the same Open Platform account as the App ID, and that **Server region** matches that account. A device found only by MAC address on your network is not added automatically. After you add it in the Imou app, wait for the next poll (up to 2 minutes) or reload the integration.
+
+### Live view does not start
+
+Live view needs the device to be online and Home Assistant to reach the Imou cloud. **Live view HD** is disabled by default. Enable that entity if you expect the HD stream. If standard definition also fails, check the device in the Imou app and your monthly quota.
 
 ### A button is unavailable
 
@@ -229,6 +315,15 @@ The siren is unavailable when the device is offline or no longer on your account
 ### An alarm control panel is unavailable
 
 The alarm control panel is unavailable when the device is offline or no longer on your account. Ensure the gateway or hub appears online in the Imou app.
+
+## Known limitations
+
+- The integration only talks to the Imou cloud. Live view and controls stop when Home Assistant cannot reach the cloud, even if the device is on your local network.
+- Each App ID includes 30,000 free API requests per month. The 2-minute poll uses more than that for one device. After the quota is used up, cloud calls fail until you add quota or the month resets. See [API usage](#api-usage).
+- Status such as online, battery, power, and door contact state can be up to 2 minutes old. The system does not detect a door that opens and closes again between polls.
+- An entity is created only when the cloud API reports that the device supports it.
+- **Live view HD** is disabled by default.
+- The cloud API doesn't report whether the siren is sounding. Until you turn it on or off, the state is **Unknown**. If the device supports both commands, the state then shows the last command you sent, which might not match the device if the siren stops by itself. See [Siren](#siren).
 
 ## Removing the integration
 
