@@ -85,6 +85,8 @@ automation: |
 
 The integration polls the Meraki Dashboard API every minute: one request for the organization's networks, plus one for the clients of each network. With a few networks, this stays well within Meraki's rate limit of 10 requests per second per organization.
 
+Meraki marks a client offline after about five minutes without traffic. A phone that leaves, or turns off its Wi-Fi, therefore shows as away about five to six minutes later. Keep this in mind for automations that react to someone leaving.
+
 ## Known limitations
 
 - Each organization is added as a separate entry. The same API key can be used for several organizations.
