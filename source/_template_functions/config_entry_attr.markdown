@@ -7,7 +7,7 @@ available_as:
   - filter
 category: entity
 return_type: any
-limited: false
+limited: true
 since: "2023.3"
 related_functions:
   - config_entry_id

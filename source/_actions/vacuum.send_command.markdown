@@ -1,5 +1,5 @@
 ---
-title: Send command
+title: "Send command to vacuum cleaner"
 action: vacuum.send_command
 domain: vacuum
 description: "Send a platform-specific command."
@@ -36,8 +36,6 @@ This sends the `set_do_not_disturb` command to `vacuum.upstairs`.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 target:
   description: The vacuum to send the command to.
@@ -68,9 +66,9 @@ params:
 Some vacuum platforms support a Do Not Disturb mode through a custom command. This automation sends that command each night so the robot stays quiet during sleeping hours.
 
 - **Trigger**: Time: 23:00
-- **Action**: Send command
-- **Target**: Upstairs vacuum
-- **Command**: `set_do_not_disturb`
+- **Action**: Send command to vacuum cleaner
+  - **Target**: Upstairs vacuum
+  - **Command**: `set_do_not_disturb`
 
 {% details "YAML example for sending a custom vacuum command" %}
 

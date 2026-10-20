@@ -1,8 +1,6 @@
 ---
 title: Assist pipeline
 description: Assist pipeline integration.
-ha_category:
-  - Voice
 ha_iot_class: Local Push
 ha_release: '2023.5'
 ha_codeowners:

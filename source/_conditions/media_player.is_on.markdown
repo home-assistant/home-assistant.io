@@ -89,7 +89,7 @@ for:
 ## Good to know
 
 - This condition checks whether the device is on, even if nothing is playing yet.
-- Media players that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="media players" %}
 - If you need to make sure playback has actually started, use [Media player is playing](/conditions/media_player.is_playing/) instead.
 
 {% include conditions/try_it.md %}
@@ -100,7 +100,8 @@ for:
 
 When you press a dashboard button, change the receiver source only if it is already on.
 
-- **Trigger**: Button pressed
+- **Trigger**: State changed
+  - **Entity**: Receiver source button helper
 - **Condition**: Media player is on
   - **Target**: Receiver
 - **Action**: Select media player source
@@ -132,7 +133,8 @@ automation: |
 
 When the movie scene button is pressed, close the blinds only if every targeted media player in the room is already on.
 
-- **Trigger**: Button pressed
+- **Trigger**: State changed
+  - **Entity**: Movie scene button helper
 - **Condition**: Media player is on
   - **Target**: Media room
   - **Condition passes if**: All

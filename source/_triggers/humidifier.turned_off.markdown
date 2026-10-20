@@ -36,6 +36,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted humidifier turns off.
     - **First**: fires only when the first of a group turns off.
     - **All**: fires only after every targeted humidifier is off.
+  required: false
 For at least:
   description: How long the humidifier must stay off before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -54,8 +55,6 @@ trigger: |
 This fires every time `humidifier.bedroom` transitions from on to off.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 behavior:

@@ -48,7 +48,9 @@ This passes while the sun is rising toward solar noon.
 
 When the living room brightens past a threshold, raise the blinds, but only while the sun is still climbing, so an equally bright evening does not trigger it.
 
-- **Trigger**: Living room illuminance rises above a threshold
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Living room illuminance
+  - **Above**: `5000`
 - **Condition**: Sun is ascending
 - **Action**: Open cover
   - **Target**: Living room blinds

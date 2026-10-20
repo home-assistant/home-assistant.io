@@ -33,6 +33,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple lights are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted light turns off, **First** to fire only when the first of a group of on lights turns off, or **All** to fire only after every targeted light is off.
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -49,8 +50,6 @@ trigger: |
 This fires every time `light.kitchen` transitions from on to off.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 behavior:
@@ -81,7 +80,7 @@ When the last light in the house turns off late at night, arm the alarm automati
 - **Target**: All lights (by label)
 - **Trigger when**: All
 - **Condition**: Time is after 22:30
-- **Action**: Alarm control panel: Arm away
+- **Action**: Arm alarm away
 
 {% details "YAML example for an arm-on-last-light automation" %}
 

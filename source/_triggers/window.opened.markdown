@@ -27,7 +27,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple windows are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted window opens, **First** to fire only when the first targeted window opens, or **All** to fire only after every targeted window is open.
-  required: true
+  required: false
 For at least:
   description: How long the window must stay open before the trigger fires. Set to zero to fire immediately.
   required: true
@@ -48,13 +48,11 @@ This fires when `binary_sensor.kitchen_window` opens.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
     When multiple windows are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:

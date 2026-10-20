@@ -20,7 +20,7 @@ To send a vacuum to a position from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Roborock vacuum you want to send.
-6. From the actions shown for that target, select **Go to position**.
+6. From the actions shown for that target, under **Roborock**, select **Go to position**.
 7. Enter the **X-coordinate** and **Y-coordinate** you want the vacuum to go to.
 8. Select **Save**.
 

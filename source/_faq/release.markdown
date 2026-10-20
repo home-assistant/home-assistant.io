@@ -4,7 +4,7 @@ description: "A new stable version of Home Assistant is released on the first We
 ha_category: Common
 ---
 
-A new stable version of Home Assistant is released on the first Wednesday of every month. The exact dates are listed in the upcoming events calendar on the [Home Assistant Developers](https://developers.home-assistant.io/) website.
+A new stable version of Home Assistant is released on the first Wednesday of every month. The exact dates are listed in the [upcoming events calendar](https://contributors.home-assistant.io/community/reference/events/) on the Home Assistant contributors website.
 
 You can browse the [full release history and announcement blog posts](/blog/categories/core/) for any past release.
 

@@ -1,8 +1,6 @@
 ---
 title: ThermoPlus
 description: Connect and control your ThermoPlus devices using the ThermoBeacon integration
-ha_category:
-  - Sensor
 ha_release: 2022.9
 ha_domain: thermoplus
 ha_integration_type: virtual

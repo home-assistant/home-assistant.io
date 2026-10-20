@@ -35,6 +35,7 @@ Trigger when:
     - **Each** (default): fires every time any targeted humidifier starts humidifying.
     - **First**: fires only on the first humidifier that starts humidifying.
     - **All**: fires only after every targeted humidifier starts humidifying.
+  required: false
 For at least:
   description: How long the humidifier must be actively humidifying before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -53,8 +54,6 @@ trigger: |
 This fires every time `humidifier.bedroom` starts actively adding moisture to the air.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 behavior:

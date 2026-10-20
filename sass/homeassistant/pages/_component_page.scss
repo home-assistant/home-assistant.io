@@ -93,7 +93,7 @@
       border-top: 5px solid black;
     }
 
-    .ha_category {
+    .filter-select {
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
@@ -470,5 +470,543 @@ a.option-card:hover {
   }
   to {
     opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .wwha-device-list {
+    margin-left: 1.2rem;
+  }
+}
+
+.wwha-device-hub {
+  font-size: 1rem;
+  margin-left: 1.2rem;
+}
+
+// Browsing by category. On wide screens: a sidebar with the categories, and
+// the filters above the integrations. On phones: two buttons that open the
+// categories and the filters in a full-screen panel.
+#components-page {
+  .integrations-browser {
+    @media only screen and (min-width: $desk-start) {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 32px;
+      align-items: start;
+    }
+  }
+
+  .browse-toolbar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+
+    @media only screen and (min-width: $desk-start) {
+      display: none;
+    }
+  }
+
+  .browse-button {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    padding: 10px 14px;
+    border: 2px solid $blueDark;
+    border-radius: 8px;
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-size: 15px;
+    cursor: pointer;
+
+    iconify-icon {
+      flex: none;
+      font-size: 20px;
+    }
+  }
+
+  .browse-button-label {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .browse-button-subcategory,
+  .filters-count {
+    color: $gray;
+  }
+
+  // On phones a panel is a full-screen dialog.
+  .browse-panel {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: white;
+    color: inherit;
+
+    &[open] {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .browse-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid $grayLighter;
+    letter-spacing: normal;
+
+    h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+  }
+
+  .browse-panel-close {
+    padding: 4px;
+    border: 0;
+    background: none;
+    color: inherit;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .browse-panel-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+  }
+
+  .browse-panel-footer {
+    padding: 12px 16px;
+    border-top: 1px solid $grayLighter;
+    letter-spacing: normal;
+  }
+
+  .browse-panel-show {
+    width: 100%;
+    padding: 12px;
+    border: 0;
+    border-radius: 8px;
+    background-color: $blueDark;
+    color: white;
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  // On wide screens the panels are part of the page, open or not.
+  @media only screen and (min-width: $desk-start) {
+    .browse-panel {
+      display: block;
+      position: static;
+      width: auto;
+      height: auto;
+      background: none;
+    }
+
+    .browse-panel-header,
+    .browse-panel-footer {
+      display: none;
+    }
+
+    .browse-panel-content {
+      overflow: visible;
+      padding: 0;
+    }
+
+    // The category sidebar scrolls along with the page on purpose. Sticky, it
+    // needs a scrollbar of its own, and the end of that sits off screen,
+    // because the sidebar starts below the title.
+
+    // The sidebar shows here without JavaScript too.
+    .noscript-categories {
+      display: none;
+    }
+  }
+
+  .category-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .category-link,
+  .subcategory-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    color: inherit;
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 20px;
+
+    &:hover {
+      background-color: $grayLighter;
+    }
+
+    // Bold too, so the selection still shows when colors are forced, like
+    // with high contrast on Windows.
+    &.active {
+      background-color: $blueDark;
+      color: white;
+      font-weight: 600;
+
+      .category-count {
+        color: inherit;
+      }
+    }
+
+    iconify-icon {
+      flex: none;
+      font-size: 20px;
+    }
+
+    .category-name {
+      flex: 1;
+    }
+  }
+
+  .subcategory-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 2px 0 6px 20px;
+    padding-left: 8px;
+    border-left: 2px solid $grayLighter;
+    list-style: none;
+
+    &[hidden] {
+      display: none;
+    }
+
+    li {
+      margin: 0;
+    }
+  }
+
+  .subcategory-link {
+    font-size: 14px;
+
+    iconify-icon {
+      font-size: 18px;
+    }
+  }
+
+  .category-count {
+    color: $gray;
+    font-size: 13px;
+  }
+
+  // Nothing in this category matches your search or filters. The one you
+  // are in stays clear, so you still see where you are.
+  .no-results:not(.active) {
+    opacity: 0.5;
+  }
+
+  .category-description {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+
+    iconify-icon {
+      flex: none;
+      font-size: 32px;
+      color: $blueDark;
+    }
+  }
+
+  // The filters: a label above a bordered box, like the category menu.
+  .filter-title {
+    display: block;
+    position: static;
+    margin: 0 0 4px;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    color: $gray;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: left;
+    text-transform: none;
+  }
+
+  // A filter looks like the search field, with an icon for what it filters.
+  // Once set, it turns blue like a chip that is on.
+  .integration-filter.integration-filter-select {
+    margin-bottom: 16px;
+
+    &::after {
+      content: none;
+    }
+  }
+
+  .integration-filter-select .filter-field {
+    position: relative;
+    color: $gray;
+
+    .filter-icon,
+    .filter-chevron {
+      position: absolute;
+      top: 50%;
+      font-size: 20px;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .filter-icon {
+      left: 12px;
+    }
+
+    .filter-chevron {
+      right: 10px;
+    }
+
+    .filter-select {
+      position: static;
+      margin: 0;
+      padding: 9px 36px 9px 42px;
+      border: 1px solid #c3cbd5;
+      border-radius: 8px;
+      background-color: white;
+      color: #222;
+      font-size: 15px;
+      text-align-last: left;
+      cursor: pointer;
+
+      &:hover {
+        border-color: $blueDark;
+      }
+
+      &:focus-visible {
+        outline: 2px solid $blueDark;
+        outline-offset: 1px;
+      }
+    }
+
+    &.active {
+      color: $blueDark;
+
+      .filter-select {
+        border-color: $blueDark;
+        background-color: rgba(3, 169, 244, 0.12);
+        color: $blueDark;
+        font-weight: 600;
+      }
+    }
+  }
+
+  // On wide screens the filters sit in one row, so the icon and the first
+  // option say enough. The label stays for screen readers.
+  @media only screen and (min-width: $desk-start) {
+    .filters-panel .browse-panel-content {
+      margin-left: 0;
+    }
+
+    .grid-filters {
+      gap: 12px;
+
+      .grid__item {
+        flex: 1;
+        width: auto;
+        padding-left: 0;
+      }
+    }
+
+    .filter-title {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+  }
+}
+
+// Featured and Works with Home Assistant: chips you turn on and off, with the
+// number of integrations shown next to them.
+#components-page {
+  // The search field reserved room for the active filter buttons, which
+  // left a gap above the chips.
+  .component-search {
+    min-height: 0;
+    margin-bottom: 16px;
+  }
+
+  .component-search form {
+    position: relative;
+
+    input {
+      padding-right: 40px;
+    }
+  }
+
+  .search-clear {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    display: flex;
+    padding: 4px;
+    border: 0;
+    background: none;
+    color: $gray;
+    font-size: 20px;
+    cursor: pointer;
+    transform: translateY(-50%);
+
+    &:hover {
+      color: $blueDark;
+    }
+  }
+
+  .quick-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .quick-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border: 1px solid #c3cbd5;
+    border-radius: 999px;
+    background: white;
+    color: inherit;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+
+    iconify-icon {
+      font-size: 16px;
+      color: $gray;
+    }
+
+    @media only screen and (max-width: $lap-end) {
+      padding: 5px 11px;
+      font-size: 13px;
+    }
+
+    &:hover {
+      border-color: $blueDark;
+    }
+
+    &[aria-pressed="true"] {
+      border-color: $blueDark;
+      background-color: rgba(3, 169, 244, 0.12);
+      color: $blueDark;
+      font-weight: 600;
+
+      iconify-icon {
+        color: inherit;
+      }
+    }
+  }
+
+  .results-count {
+    margin-left: auto;
+    color: $gray;
+    font-size: 13px;
+  }
+}
+
+// Nothing to show: a big message in the middle, like the empty pages in
+// Home Assistant itself.
+#components-page {
+  .empty-state {
+    grid-column: 1 / -1;
+    padding: 64px 16px;
+    text-align: center;
+
+    iconify-icon {
+      font-size: 96px;
+      color: $gray;
+    }
+
+    h2 {
+      margin: 16px 0 8px;
+      font-size: 28px;
+    }
+
+    .empty-state-text {
+      max-width: 520px;
+      margin: 0 auto 24px;
+      color: $gray;
+      font-size: 17px;
+    }
+  }
+
+  // Where your search does find something.
+  .empty-state-elsewhere {
+    margin-bottom: 24px;
+
+    p {
+      margin: 0 0 12px;
+      font-weight: 500;
+    }
+  }
+
+  .empty-state-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .empty-state-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border: 1px solid #c3cbd5;
+    border-radius: 999px;
+    color: inherit;
+    font-size: 14px;
+    text-decoration: none;
+
+    &:hover {
+      border-color: $blueDark;
+      color: $blueDark;
+    }
+  }
+
+  .empty-state-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .empty-state-action {
+    padding: 8px 18px;
+    border: 2px solid $blueDark;
+    border-radius: 8px;
+    background: none;
+    color: $blueDark;
+    font: inherit;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $blueDark;
+      color: white;
+    }
   }
 }

@@ -48,8 +48,6 @@ This passes when `binary_sensor.kitchen_window` is currently open.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -72,7 +70,7 @@ for:
 ## Good to know
 
 - The target must be a binary sensor or cover with the window device class.
-- Windows that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as open. Home Assistant skips them and evaluates the condition using the remaining targeted windows.
+{% include conditions/unavailable_targets.md entities="windows" %}
 - To check the opposite state, use [Window is closed](/conditions/window.is_closed/).
 
 {% include conditions/try_it.md %}

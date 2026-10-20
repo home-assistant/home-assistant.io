@@ -1,19 +1,10 @@
 ---
 title: SwitchBot Bluetooth
 description: Instructions on how to set up SwitchBot Devices.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Fan
-  - Humidifier
-  - Light
-  - Lock
-  - Select
-  - Sensor
-  - Switch
-  - Vacuum
+ha_categories:
+  - sensors
+  - blinds_curtains
+  - plugs_switches
 ha_release: 0.78
 ha_iot_class: Local Push
 ha_codeowners:
@@ -125,7 +116,15 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 
 {% include integrations/config_flow.md %}
 
-## Supported devices
+## Works with Home Assistant certified devices
+
+SwitchBot is committed to making sure their products are up-to-date and ready to use in Home Assistant. The following devices are certified for Bluetooth. To see the list of SwitchBot Matter-certified devices, visit the [SwitchBot Matter](/integrations/switchbot_matter/) page.
+
+{% include integrations/device_list.html brand="SwitchBot" protocol="Bluetooth" %}
+
+## Other supported devices
+
+In addition to the certified devices, the following devices are also supported:
 
 ### Plugs and switches
 
@@ -140,9 +139,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 ### Cover
 
 - [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain) (version 1 & 2)
-- [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
 - [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
-- [Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
 - [Garage Door Opener](https://www.switch-bot.com/products/switchbot-garage-door-opener)
 
 ### Lights
@@ -161,8 +158,6 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 ### Locks
 
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
-- [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
-- [Lock Ultra (WoLockUltra)](https://www.switch-bot.com/products/switchbot-lock-ultra)
 - [Lock Lite (WoLockLite)](https://www.switchbot.jp/products/switchbot-lock-lite)
 - Lock Vision
 - Lock Vision Pro
@@ -175,14 +170,8 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 
 ### Sensors
 
-- [Meter](https://switch-bot.com/pages/switchbot-meter)
 - [Meter Plus (WoSensorTH)](https://switch-bot.com/pages/switchbot-meter-plus)
-- [Indoor/Outdoor Meter (WoIOSensorTH)](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) 
-- [Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
-- [Meter Pro CO2 Monitor](https://www.switch-bot.com/products/switchbot-meter-pro-co2-monitor)
-- [Contact Sensor (WoContact)](https://switch-bot.com/pages/switchbot-contact-sensor)
 - [Motion Sensor (WoPresence)](https://switch-bot.com/pages/switchbot-motion-sensor)
-- [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
 - [Remote (WoRemote)](https://www.switch-bot.com/products/switchbot-remote) (currently only supports battery level monitoring)
 - [Climate Panel](https://www.switch-bot.com/products/switchbot-home-climate-panel) (currently only supports retrieving sensor data, does not yet support device control)
 - [Presence Sensor](https://www.switch-bot.com/products/switchbot-presence-sensor)
@@ -197,6 +186,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 ### Fans
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
+- [Circulator Fan Pro](https://www.switch-bot.com/products/switchbot-battery-circulator-fan-2-pro)
 
 ### Vacuums
 - [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
@@ -206,11 +196,6 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [K20](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner-k20-pro)
 - [S10](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s10)
 - [S20](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s20)
-
-### Air purifiers
-
-- [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
-- [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
 
 ### Climates
 
@@ -224,27 +209,6 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 
 - [Keypad Vision](https://www.switch-bot.com/products/switchbot-keypad-vision)
 - [Keypad Vision Pro](https://www.switch-bot.com/products/switchbot-keypad-vision-pro)
-
-## Works with Home Assistant
-
-SwitchBot is committed to making sure their products are up-to-date and ready to use in Home Assistant.
-Devices are certified for both Bluetooth and Matter.
-
-The following devices are certified for Bluetooth:
-- [SwitchBot Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
-- [SwitchBot Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
-- [SwitchBot Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
-- [SwitchBot Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
-- [SwitchBot Meter](https://www.switch-bot.com/products/switchbot-meter)
-- [SwitchBot Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
-- [SwitchBot Meter Pro CO2](https://www.switch-bot.com/products/switchbot-meter-pro-co2-monitor)
-- [SwitchBot Indoor/Outdoor Thermo-Hygrometer](https://www.switch-bot.com/products/switchbot-indoor-outdoor-thermo-hygrometer)
-- [SwitchBot Curtain 3](https://www.switch-bot.com/products/switchbot-curtain-3)
-- [SwitchBot Contact Sensor](https://www.switch-bot.com/products/contact-sensor)
-- [SwitchBot Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
-- [SwitchBot Lock Pro](https://www.switch-bot.com/products/switchbot-lock-pro)
-
-To see the list of SwitchBot Matter-certified devices, visit the [SwitchBot Matter](/integrations/switchbot_matter/) page.
 
 ## Supported functionality
 
@@ -577,6 +541,8 @@ Features:
 - get battery
 - motion detection state
 - light detection state
+- on button press event
+- off button press event
 
 #### Keypad Vision (Pro)
 
@@ -848,6 +814,17 @@ Features:
 - set mode
 - oscillate left and right
 - get battery level (Battery Circulator Fan only)
+
+#### Circulator Fan Pro
+
+This is an encrypted device. To set it up, follow [Adding encrypted SwitchBot devices](#adding-encrypted-switchbot-devices).
+
+The Circulator Fan Pro combines a fan with a built-in night light. It adds the following entities:
+
+- A fan that supports turning on or off, setting the speed, setting the mode (including hurricane), and oscillating.
+- A light for the two-level (high and low) night light.
+- A switch for vertical oscillation.
+- A sensor for the battery level.
 
 ### Air Purifiers
 

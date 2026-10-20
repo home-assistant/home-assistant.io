@@ -1,9 +1,8 @@
 ---
 title: Rollease Acmeda Automate
 description: Instructions on setting up Rollease Acmeda Automate within Home Assistant.
-ha_category:
-  - Cover
-  - Hub
+ha_categories:
+  - blinds_curtains
 ha_iot_class: Local Push
 ha_release: 0.111
 ha_config_flow: true
