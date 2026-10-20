@@ -1,10 +1,9 @@
 ---
 title: SolarEdge Modbus
 description: Instructions on how to integrate a SolarEdge solar inverter with Home Assistant over Modbus TCP.
-ha_category:
-  - Energy
-  - Sensor
-ha_release: 2026.10
+ha_categories:
+  - energy.solar_batteries
+ha_release: "2026.10"
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -19,7 +18,7 @@ ha_platforms:
   - switch
 ha_integration_type: device
 ha_zeroconf: true
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
 The **SolarEdge Modbus** {% term integration %} connects Home Assistant to your SolarEdge solar inverter over your own network, using the Modbus TCP interface built into the inverter. There is no account, no API key, and no cloud service involved, so your solar production keeps arriving in Home Assistant even when your internet connection is down.
@@ -153,25 +152,36 @@ The following sensors are added, but disabled. They are useful for troubleshooti
 
 An energy meter measures what passes through it, which is what the inverter cannot see: what your home takes from the grid, and what it sends back. Every meter attached to the inverter gets a device named after its place on it, **Meter 1** through **Meter 3**, with its own sensors.
 
-- **Power**, **Apparent power**, **Reactive power**, and **Power factor**: What the meter measures right now, and how that relates to the grid.
+- **Power**: What the meter measures right now.
 - **Energy imported** and **Energy exported**: The totals since the meter was installed. These are the sensors for the grid on the [Energy dashboard](#energy-dashboard).
-- **Current** and **Frequency**: The current through the meter, and the frequency of the grid it sits on.
-- **Per phase**: Power, current, imported and exported energy for each phase the meter measures. A split-phase meter has two phases rather than three.
+- **Current**: The current through the meter.
+- **Per phase**: Power and current for each phase the meter measures. A split-phase meter has two phases rather than three.
 
-The voltages a meter reports are added but disabled, the same way the inverter's are. Which of them exist depends on the meter: a delta meter has no neutral, so it measures nothing against one.
+The following sensors are added, but disabled, the same way the inverter's are. To use one, enable it in the entity's settings.
+
+- **Voltage**, and per phase **Voltage phase A-N**, **Voltage phase B-N**, **Voltage phase C-N**, **Voltage phase A-B**, **Voltage phase B-C**, and **Voltage phase C-A**: The AC voltage. Which of these exist depends on the meter: a delta meter has no neutral, so it measures nothing against one.
+- **Frequency**: The frequency of the grid the meter sits on.
+- **Apparent power**, **Reactive power**, and **Power factor**: How what the meter measures relates to the grid.
+- **Energy imported** and **Energy exported** per phase: The totals for each phase the meter measures.
 
 ### Battery sensors
 
 A battery attached to the inverter gets a device named after its place on it, **Battery 1** through **Battery 3**, with what it holds and what it is doing with it.
 
 - **State of energy**: How full the battery is, as a percentage.
-- **Available energy**, **Usable capacity**, and **Rated energy**: What is in the battery right now, what it can hold as configured, and what it was rated for when it was built.
+- **Available energy**: What is in the battery right now.
 - **Energy imported** and **Energy exported**: The totals charged into and discharged from the battery. These are the sensors for the battery on the [Energy dashboard](#energy-dashboard).
 - **Status**: What the battery is doing: **Off**, **Standby**, **Initializing**, **Charging**, **Discharging**, **Fault**, **Preserving charge**, **Idle**, or **Power saving**.
 - **State of health**: What is left of the battery's original capacity, as a percentage.
-- **DC power**, **DC voltage**, and **DC current**: What flows between the battery and the inverter. Negative while it is charging.
+- **DC power** and **DC current**: What flows between the battery and the inverter. Negative while it is charging.
+- **Temperature**: How warm the pack is on average.
+
+The following sensors are added, but disabled. To use one, enable it in the entity's settings.
+
+- **Usable capacity** and **Rated energy**: What the battery can hold as configured, and what it was rated for when it was built.
+- **DC voltage**: The voltage between the battery and the inverter.
 - **Maximum charge power** and **Maximum discharge power**, and their peak counterparts: What the battery allows, continuously and in bursts.
-- **Temperature** and **Maximum temperature**: How warm the pack is on average, and the warmest cell in it.
+- **Maximum temperature**: The warmest cell in the pack.
 
 ### Storage state of charge
 
@@ -212,7 +222,7 @@ The inverter holds settings of its own, which this integration can change as wel
 
 ### Switches
 
-These switches are flags on the export control. An installer sets them to describe the site, and they are disabled by default.
+These switches are flags on the export control. An installer sets them to describe the site, and they are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 - **External production**: Tells the inverter there is production at the site that it cannot see itself, so it can keep the whole site within its export limit.
 - **Negative site limit**: Lets the site limit go below zero, which turns it into a minimum import rather than a maximum export. It needs a meter at the connection point to mean anything.
@@ -334,9 +344,17 @@ If part of the installation does not answer a poll, only its {% term entity enti
 
 ## Troubleshooting
 
-### The inverter cannot be reached
+{% details "The inverter cannot be reached" %}
 
-If setup or a later poll cannot reach the inverter, work through the following steps:
+### Symptom: setup fails, or the entities stop updating
+
+Setting up the integration times out, or an entry that worked turns unavailable and stays that way.
+
+#### Description
+
+Nothing is answering on the address the integration polls. The inverter may be off the network, Modbus may have been turned off on it, or another system may be holding the connection it would need.
+
+#### Resolution
 
 1. Make sure the inverter is powered on and reachable on your network, for example by looking it up in your router.
 2. Check that Modbus TCP is still enabled on the inverter. An inverter firmware update or a visit from your installer can turn it off again.
@@ -345,27 +363,59 @@ If setup or a later poll cannot reach the inverter, work through the following s
 
 On an RS485 connection, check the baud rate and the device ID against what the inverter is set to, and that its RS485 port speaks SunSpec rather than talking to a SolarEdge logger.
 
-### Setup says the device does not answer as a SolarEdge inverter
+{% enddetails %}
 
-Something answers on that address and device ID, but it is not a SolarEdge inverter:
+{% details "Setup says the device does not answer as a SolarEdge inverter" %}
+
+### Symptom: the form reports that the device is not a SolarEdge inverter
+
+Setup reaches something on that address, and then reports that it is not a SolarEdge inverter.
+
+#### Description
+
+Something answers on that address and device ID, but it does not identify itself as one. Another Modbus device on your network can answer just as readily.
+
+#### Resolution
 
 1. Check the device ID, which is `1` on SolarEdge inverters. Another Modbus device on the same address can answer on a different ID.
 2. Check that the host belongs to the inverter, and not to another device that took over its address.
 
-### Setup says this is a different inverter
+{% enddetails %}
 
-Home Assistant recognizes your inverter by its serial number. This message means the inverter that answers is not the one this entry was set up for, usually because addresses were handed out again on your network:
+{% details "Setup says this is a different inverter" %}
+
+### Symptom: reconfiguring reports that this is a different inverter
+
+Reconfiguring an entry, or setting one up again, reports that the inverter that answers is not the one the entry belongs to.
+
+#### Description
+
+Home Assistant recognizes your inverter by its serial number rather than by its address. This message means the address now belongs to another inverter, usually because addresses were handed out again on your network.
+
+#### Resolution
 
 1. Look up the inverter's current address, and give it a fixed address while you are there.
 2. Select **Reconfigure** on the integration entry and enter the new address.
 
-### My inverter has a battery, but there is no battery device
+{% enddetails %}
 
-Some inverters do not give Home Assistant access to their battery over Modbus, whatever is wired to them. There is nothing to configure around that; the registers are not served.
+{% details "The inverter has a battery, but there is no battery device" %}
 
-Check whether the inverter has a **Storage state of charge** sensor instead. That is the fallback described under [storage state of charge](#storage-state-of-charge), and a state of charge is all of the battery that such an inverter reports.
+### Symptom: a battery is attached, and no battery device appears
 
-If that sensor is missing too, first check whether the battery was at 0% when the integration started. In that case, reload the integration after the battery has charged. Otherwise, ask your installer whether the inverter can run a grid profile that supports IEEE 1547-2018, which makes those registers available.
+The inverter has a battery wired to it, and Home Assistant shows no battery device for it.
+
+#### Description
+
+Not every inverter serves its battery registers over Modbus. A number of Home Hub inverters keep them to themselves, whatever is wired to them, and there is nothing to configure around that.
+
+#### Resolution
+
+1. Check whether the inverter has a **Storage state of charge** sensor instead. That is the fallback described under [storage state of charge](#storage-state-of-charge), and a state of charge is all of the battery that such an inverter reports.
+2. If that sensor is missing too, check whether the battery was at 0% when the integration started. Reload the integration once the battery has charged.
+3. Otherwise, ask your installer whether the inverter can run a grid profile that supports IEEE 1547-2018, which makes those registers available.
+
+{% enddetails %}
 
 ### Getting to what the inverter reports
 

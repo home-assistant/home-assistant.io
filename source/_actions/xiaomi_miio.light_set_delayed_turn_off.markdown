@@ -7,7 +7,7 @@ related_actions:
   - xiaomi_miio.light_set_scene
 ---
 
-The **Light set delayed turn off** action schedules a Xiaomi Philips light to turn off automatically after a set amount of time.
+The **Xiaomi Home: Light set delayed turn off** action schedules a Xiaomi Philips light to turn off automatically after a set amount of time.
 
 {% include actions/ui_header.md %}
 

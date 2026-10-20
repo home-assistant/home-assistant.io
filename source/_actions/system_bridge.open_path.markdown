@@ -7,7 +7,7 @@ related_actions:
   - system_bridge.open_url
 ---
 
-The **Open path** action opens a file on a System Bridge server using the default application for that file type.
+The **System Bridge: Open path** action opens a file on a System Bridge server using the default application for that file type.
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 

@@ -1,8 +1,6 @@
 ---
 title: HTTP
 description: Configure the HTTP server that serves the Home Assistant frontend and APIs.
-ha_category:
-  - Other
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_quality_scale: internal
@@ -52,7 +50,21 @@ SSL peer certificate path:
   description: The absolute path to a client certificate Home Assistant should require for secure connections.
   required: false
 SSL profile:
-  description: The Mozilla SSL profile to use. Use **Intermediate** only if integrations have SSL handshake issues.
+  description: |
+    The [Mozilla server side TLS profile](https://docs.tlsref.org/server-side-tls.html) that decides which TLS versions and ciphers clients can connect with. Each profile is named after the guideline version it follows.
+
+    - **Modern v6** only accepts TLS 1.3 and is the default for new installations. Browsers and operating systems gained TLS 1.3 support around 2018 to 2019.
+    - **Intermediate v6** accepts TLS 1.2 and newer with current ciphers. Choose this if older devices or apps cannot connect. Support arrived around 2013 to 2016.
+    - **Modern v4** and **Intermediate v4** follow outdated guidelines and are kept for installations that used them before the profiles were versioned.
+
+    Oldest clients that can connect with the current profiles:
+
+    | Profile | Chrome | Firefox | Safari | iOS | Android | Edge |
+    | --- | --- | --- | --- | --- | --- | --- |
+    | Modern v6 | 70 | 63 | 12.1 | 12.2 | 10 | 75 |
+    | Intermediate v6 | 49 | 31 | 9 | 9 | 4.4 | 15 |
+
+    **Modern v4** and **Intermediate v4** accept the same clients as **Intermediate v6**, plus clients that depend on the older ciphers they still allow. Modern v4 adds the CBC suites, which Windows 7 and 8.1 clients with an RSA certificate need. Intermediate v4 additionally allows RSA key exchange and DHE.
   required: false
 Trust X-Forwarded-For:
   description: Trust the `X-Forwarded-For` header when Home Assistant is behind a reverse proxy.
@@ -63,8 +75,11 @@ Trusted proxies:
 Enable IP banning:
   description: Automatically ban IP addresses after repeated failed logins.
   required: false
+Unlimited login attempts:
+  description: Never ban an IP address, no matter how many login attempts fail.
+  required: false
 Login attempts before ban:
-  description: Failed login attempts before an IP address is banned. Set this to `-1` to disable automatic bans.
+  description: Failed login attempts before an IP address is banned, from 1 to 1000. Only shown when **Unlimited login attempts** is turned off.
   required: true
 CORS allowed origins:
   description: Origins that may make cross-origin requests. Include the scheme, for example `https://example.com`.
@@ -105,9 +120,20 @@ The **Trust X-Forwarded-For** and **Trusted proxies** settings only apply when H
 
 {% endnote %}
 
+### Caching behind a reverse proxy or CDN
+
+If your reverse proxy or content delivery network (CDN) caches responses, set it up so your browser always gets the current Home Assistant frontend after an update:
+
+- Do not cache `404` (not found) responses.
+- Do not cache HTML pages, such as the main app page (`index.html`), or the service worker files (`/sw-modern.js` and `/sw-legacy.js`). A cached service worker keeps serving the old frontend after an update.
+- Do not cache responses from `/api/` or `/auth/`. These contain live data and login pages, and caching them can show outdated states or break signing in.
+- You can cache files under `/frontend_latest/`, `/frontend_es5/`, and `/static/`. Home Assistant already tells browsers to cache these for up to a month.
+
+Most reverse proxies and CDNs, such as NGINX and Cloudflare, do not cache HTML by default. You only need to check this if you added your own caching rules.
+
 ## APIs
 
-On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest/), [Python API](https://developers.home-assistant.io/docs/api_lib_index/) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket/) available.
+On top of the `http` integration is a [REST API](https://contributors.home-assistant.io/core/internals/rest-api/), [Python API](https://contributors.home-assistant.io/core/integrations/api-library/) and [WebSocket API](https://contributors.home-assistant.io/core/internals/websocket-api/) available.
 
 The `http` platforms are not real platforms within the meaning of the terminology used around Home Assistant. Home Assistant's [REST API](/developers/rest_api/) sends and receives messages over HTTP.
 
@@ -115,9 +141,9 @@ The `http` platforms are not real platforms within the meaning of the terminolog
 
 To use an HTTP [sensor](#sensor) or [binary sensor](#binary-sensor), you do not need to configure anything in Home Assistant. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity is created after the first message arrives.
 
-If you want to use an HTTP sensor, create a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) on your {% my profile_security title="**User profile** > **Security**" %} page.
+If you want to use an HTTP sensor, create a [Long-Lived Access Token](https://contributors.home-assistant.io/core/internals/auth-api/#long-lived-access-tokens) on your {% my profile_security title="**User profile** > **Security**" %} page.
 
-All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistatesentity_id) need to be sent to the endpoint of the device and use **POST**.
+All [requests](https://contributors.home-assistant.io/core/internals/rest-api/#post-apistatesentity_id) need to be sent to the endpoint of the device and use **POST**.
 
 ## IP filtering and banning
 
@@ -186,7 +212,7 @@ $ curl -X POST -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
     http://localhost:8123/api/states/binary_sensor.radio
 ```
 
-To check if the sensor is working, use again `curl` to retrieve the [current state](https://developers.home-assistant.io/docs/api/rest/).
+To check if the sensor is working, use again `curl` to retrieve the [current state](https://contributors.home-assistant.io/core/internals/rest-api/).
 
 ```bash
 $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
@@ -271,7 +297,7 @@ $ curl -X POST -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
        http://localhost:8123/api/states/sensor.bathroom_temperature
 ```
 
-You can then use `curl` again to retrieve the [current sensor state](https://developers.home-assistant.io/docs/api/rest/) and verify the sensor is working.
+You can then use `curl` again to retrieve the [current sensor state](https://contributors.home-assistant.io/core/internals/rest-api/) and verify the sensor is working.
 
 ```bash
 $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \

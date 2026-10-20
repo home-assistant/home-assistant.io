@@ -1,14 +1,9 @@
 ---
 title: Broadlink
 description: Instructions on setting up Broadlink within Home Assistant.
-ha_category:
-  - Climate
-  - Infrared
-  - Light
-  - Radio Frequency
-  - Remote
-  - Sensor
-  - Switch
+ha_categories:
+  - buttons_remotes
+  - plugs_switches
 ha_release: 0.35
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -19,9 +14,7 @@ ha_domain: broadlink
 ha_config_flow: true
 ha_platforms:
   - climate
-  - infrared
   - light
-  - radio_frequency
   - remote
   - select
   - sensor
@@ -43,7 +36,7 @@ The following devices are supported:
 - Thermostats: `Hysen HY02B05H` and `Floureon HY03WE`
 - Power Strips: `MP1-1K3S2U` and `MP1-1K4S`
 - Sensors: `e-Sensor`
-- Smart Plugs: `SP mini`, `SP mini+`, `SP mini 3`, `SP1`, `SP2`, `SP2-CL`, `SP2-UK/BR/IN`, `SP3`, `SP3-EU`, `SP3S-EU`, `SP3S-US`, `SP4L-EU` and `SP4M-US`
+- Smart Plugs: `SP mini`, `SP mini+`, `SP mini 3`, `SP1`, `SP2`, `SP2-CL`, `SP2-UK/BR/IN`, `SP3`, `SP3-EU`, `SP3S-EU`, `SP3S-US`, `SP4L-EU`, `SP4M-US`, `WS2-W10` and `WS2-W16`
 - Universal Remotes: `RM mini`, `RM mini 3`, `RM pro`, `RM pro+`, `RM plus`, `RM4 mini`, `RM4 pro`, `RM4C mini`, `RM4C pro`, `RM4 TV mate` and `RM5 plus`
 - Wi-Fi Controlled Switches: `BG1`, `SC1`
 - Smart Light Bulbs: `LB1`,`LB2`
@@ -93,7 +86,7 @@ The `remote` {% term entities %} allow you to learn and send codes with universa
 
 ### Learning commands
 
-Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#learned-codes-storage-location). They can be sent with the `remote.send_command` action later. You can learn, send, and delete command codes at {% my developer_services title="**Tools** > **Actions**" %}.
+Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#learned-codes-storage-location). They can be sent with the `remote.send_command` action later. You can learn, send, and delete command codes at {% my tools_actions title="**Tools** > **Actions**" %}.
 
 | Data attribute | Optional | Description                           |
 | ---------------------- | -------- | ------------------------------------- |

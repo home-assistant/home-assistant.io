@@ -2,10 +2,9 @@
 title: Fronius
 description: Instructions on how to connect your Fronius SolarAPI devices to Home Assistant.
 ha_release: 0.96
-ha_category:
-  - Binary sensor
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.solar_batteries
+  - energy.meters_monitoring
 ha_codeowners:
   - '@farmio'
 ha_config_flow: true
@@ -20,6 +19,9 @@ ha_platforms:
 ha_dhcp: true
 ha_integration_type: hub
 ha_quality_scale: platinum
+related:
+  - docs: /integrations/modbus/
+    title: Modbus
 ---
 
 The **Fronius** {% term integration %} polls a [Fronius](https://www.fronius.com/) solar inverter or datalogger for details of a Fronius SolarNet setup and integrate it in your Home Assistant installation.
@@ -52,8 +54,6 @@ You should either set a static IP or assign a static DHCP lease for the Fronius 
 {% note %}
 For Gen24 devices (delivered with Firmware >= 1.14.1) make sure to activate "Solar API" in the inverters web interface. For older devices, Solar API should be enabled by default.
 {% endnote %}
-
-## Configuration
 
 {% include integrations/config_flow.md %}
 
@@ -141,7 +141,7 @@ Leave the data format setting (**float** or **int + SF**) as it is. The integrat
 These entities are added per inverter and updated every minute:
 
 - `MPPT <n> DC power` and `MPPT <n> energy` for each MPP tracker.
-- `MPPT <n> DC current` and `MPPT <n> DC voltage` for each MPP tracker. Disabled by default.
+- `MPPT <n> DC current` and `MPPT <n> DC voltage` for each MPP tracker. [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 - `PV energy total`: lifetime energy from the photovoltaic strings only. Whether this is a DC measurement depends on the device, see below.
 - `Battery charging energy total` and `Battery discharging energy total`: on hybrid inverters that expose their battery as dedicated MPP trackers, such as Gen24 with a battery.
 
