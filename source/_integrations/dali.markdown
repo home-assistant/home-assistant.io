@@ -53,6 +53,10 @@ Before setting up the DALI integration, ensure you have:
 2. Your DALI control gear wired to the bus and the bus powered. The interface
    can power the bus itself if it has a built-in supply; otherwise use an
    external DALI bus power supply.
+3. A DALI short address assigned to each control gear. The integration only
+   scans for existing short addresses, so factory-unaddressed gear does not
+   appear. Commission the addresses first with an external DALI configuration
+   tool.
 
 {% include integrations/config_flow.md %}
 
