@@ -214,6 +214,7 @@ The action returns a list named `results`. Each result includes the following fi
 - `show_title`, `show_rating_key`, `show_guid`, `season_title`, `season_rating_key`, `season_guid`, `season_number`, and `episode_number`: Only for episodes.
 - `artist_name`: Only for albums and tracks.
 - `album_title` and `track_number`: Only for tracks.
+- `match_score`: How well the title matches your search text, from 0 to 1, where 1 is an exact match. It is only set when you search with **Query**. Use it to pick the best match when you search in more than one library.
 - `thumb_url`: A link to the poster. The link is signed and stops working after one hour.
 - `on_deck`: Only for TV shows when **Include on deck** is on. The next episode that is on deck, with the same fields.
 
