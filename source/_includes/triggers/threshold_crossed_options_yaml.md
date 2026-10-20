@@ -32,7 +32,7 @@ threshold:
 
 {% if include.has_unit %}
 
-    When using the `number` key, you must also include `unit_of_measurement` to specify the {{ include.unit_label }} ({{ include.unit_options_code }}). {% if include.entity_unit_note %}{{ include.entity_unit_note }}{% else %}When using the `entity` key, Home Assistant converts the value from the entity's unit. If the entity has no unit, or a unit that Home Assistant can't convert, the threshold doesn't work.{% endif %}
+    When using the `number` key, you must also include `unit_of_measurement` to specify the {{ include.unit_label }} ({{ include.unit_options_code }}). {% if include.entity_unit_note %}{{ include.entity_unit_note }}{% else %}When using the `entity` key, Home Assistant converts the value from the entity's unit. If the entity has no unit, or a unit that Home Assistant can't convert, the trigger doesn't react.{% endif %}
 
     For example:
 
