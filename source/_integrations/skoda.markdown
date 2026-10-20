@@ -1,7 +1,7 @@
 ---
 title: Škoda
 description: Instructions on setting up Škoda within Home Assistant.
-ha_release: '2026.10'
+ha_release: '2026.11'
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@TomVSB'
