@@ -70,7 +70,7 @@ Remove taught frames:
 
 **Remove taught frames** only appears after at least one frame is taught.
 
-Teach more frames when the region looks different, for example at night, with the lights on, or in bright sun. A few frames per state are usually enough.
+Teach more frames when the region looks different, for example at night, with the lights on, or in bright sun. About 10 frames per state, taught across day and night, are usually enough.
 
 ## Supported functionality
 
@@ -166,7 +166,7 @@ The integration {% term polling polls %} a frame from the camera every 5 minutes
 
 #### Description
 
-The camera did not return a frame, or returned one that can't be read, for example because it is offline. The log shows the reason.
+The camera did not return a frame, or returned one that can't be read, for example because it is offline. In rare cases the recognition model fails. The log shows the reason.
 
 #### Resolution
 
