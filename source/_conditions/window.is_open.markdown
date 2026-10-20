@@ -30,7 +30,7 @@ Condition passes if:
   required: true
 For at least:
   description: How long the window must have been open before the condition passes. Set to zero to pass immediately.
-  required: true
+  required: false
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -58,7 +58,7 @@ behavior:
 for:
   description: >
     Duration the window must have been open before the condition passes. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
-  required: true
+  required: false
   type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
