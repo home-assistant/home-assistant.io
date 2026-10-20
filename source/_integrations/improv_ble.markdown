@@ -55,3 +55,9 @@ Password:
 If the device asks for authorization, press the authorization button on the device. For details, refer to the manual of the device.
 
 After the device has joined your Wi-Fi network, add it to Home Assistant with the integration for that device. For example, for a device that runs ESPHome, **Discovered ESPHome device** opens right away. To add the device, select **Submit**. Other devices show up under **Discovered** with their own integration, or show a link to their setup instructions.
+
+## Removing the integration
+
+There's nothing to remove. Improv via BLE doesn't keep an entry in your list of integrations, because it only sends your Wi-Fi details to the Wi-Fi device.
+
+To remove a Wi-Fi device that you set up with Improv via BLE, remove it from its own integration, for example, [ESPHome](/integrations/esphome/).
