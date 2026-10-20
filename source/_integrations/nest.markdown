@@ -689,7 +689,7 @@ fully configured for the project and needs additional information.
 #### Resolution
 
 Visit the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) and
-enter the required fields (App Name, Support Email, Developer Email) and leave everything else as default.
+enter the required fields (App Name, Support Email, Application home page, Application privacy policy link, Authorized domains, Developer Email) and leave everything else as default.
 
 ### Can't find devices
 
