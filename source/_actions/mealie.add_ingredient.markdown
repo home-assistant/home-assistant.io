@@ -22,7 +22,7 @@ To add an ingredient from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Mealie shopping lists you want to read.
 6. From the actions shown for that target, under **Mealie**, select **Get shopping list items**.
-7. Enter the ingredient you want to add, you can provide a **Food ID** and **Unit ID** available from the responses of the **get_recipe** or **parse_ingredient** actions, or supply a note only.
+7. Enter the ingredient you want to add. You can provide a **Food ID** and **Unit ID** available from the responses of the **get_recipe** or **parse_ingredient** actions, or supply a note only.
 8. Select **Save**.
 
 ### Options in the UI
@@ -31,16 +31,16 @@ To add an ingredient from an automation or a script:
 
 {% options_ui %}
 Food ID:
-  description: The food ID to add, if omitted a note must be added.
+  description: The food ID to add. If omitted, a note must be added.
   required: false
 Note:
-  description: The note to add, if omitted a food ID must be added.
+  description: The note to add. If omitted, a food ID must be added.
   required: false
 Unit ID:
-  description: The unit ID add, if omitted no unit will be added.
+  description: The unit ID to add. If omitted, no unit will be added.
   required: false
 Quantity:
-  description: The quantity to add, if omitted quantity will be set to 0.
+  description: The quantity to add. If omitted, the quantity will be set to 0.
   required: false
 {% endoptions_ui %}
 
@@ -60,7 +60,7 @@ action: |
     note: "Good brand"
 {% endexample %}
 
-This adds the food, note, unit, and quantity to the shopping list, if food ID or unit ID are not valid an error will be raised.
+This adds the food, note, unit, and quantity to the shopping list. If the food ID or unit ID is invalid, an error will be raised.
 
 ### Options in YAML
 
@@ -87,8 +87,8 @@ note:
 
 ## Good to know
 
-- If the food ID or unit ID are not valid within Mealie the action fails with the message "An error occurred adding an item to YOUR_GROCERY_LIST."
-- If neither a food ID or unit ID are specified the action failes with the message "Provide a food ID or a note to add an ingredient."
+- If the food ID or unit ID is invalid in Mealie, the action fails with the message "An error occurred adding an item to YOUR_GROCERY_LIST."
+- If neither a food ID nor a unit ID is specified, the action fails with the message "Provide a food ID or a note to add an ingredient."
 
 {% include actions/stuck.md %}
 
