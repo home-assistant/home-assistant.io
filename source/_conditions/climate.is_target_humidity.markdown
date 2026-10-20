@@ -82,7 +82,7 @@ threshold:
     - `type: outside` (exclusive): Defines an outside-range. The setpoint must be beyond either bound to pass. Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.
 
     For the `number` key, use a percentage value (0–100). For the `entity` key, use an `input_number`, `number`, or `sensor` entity.
-  required: false
+  required: true
   type: map
 behavior:
   description: >
