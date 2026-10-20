@@ -2,6 +2,7 @@
 title: SteamVR Base Station
 description: Instructions on how to control Valve Index base stations with Home Assistant over Bluetooth.
 ha_category:
+  - Sensor
   - Switch
 ha_bluetooth: true
 ha_release: '2026.11'
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: steamvr_base_station
 ha_config_flow: true
 ha_platforms:
+  - sensor
   - switch
 ha_integration_type: device
 ha_quality_scale: silver
@@ -40,6 +42,11 @@ Device:
 {% endconfiguration_basic %}
 
 ## Supported functionality
+
+### Sensors
+
+- **Power state**: Whether the station is on, booting, in standby, or sleeping.
+- **Signal strength**: The Bluetooth signal strength of the station's last broadcast, in dBm. Disabled by default.
 
 ### Switch
 
@@ -77,7 +84,7 @@ automation: |
 
 ## Data updates
 
-The base stations broadcast their power state over Bluetooth, so Home Assistant updates the switch without {% term polling %}. Connections are opened briefly to read device information during setup and when the integration loads, and to send commands.
+The base stations broadcast their power state over Bluetooth, so Home Assistant updates the switch and sensors without {% term polling %}. Connections are opened briefly to read device information during setup and when the integration loads, and to send commands.
 
 ## Troubleshooting
 
