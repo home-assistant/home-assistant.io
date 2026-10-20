@@ -212,7 +212,7 @@ layout: null
 /integrations/switch.rflink /integrations/rflink/#switch
 /integrations/switch.xiaomi_aqara/ /integrations/xiaomi_aqara/#switches
 /integrations/switch.pca /integrations/elv/
-/integrations/switch.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-smart-wifi-socket-and-smart-power-strip
+/integrations/switch.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-smart-wi-fi-socket-and-smart-power-strip
 /integrations/telegram_broadcast /integrations/telegram_bot
 /integrations/telegram_polling /integrations/telegram_bot
 /integrations/telegram_webhooks /integrations/telegram_bot
