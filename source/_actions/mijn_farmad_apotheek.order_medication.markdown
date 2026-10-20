@@ -28,7 +28,7 @@ To order a product from an automation or a script:
 5. From the search box, search for and select **Mijn Farmad Apotheek: Order medication**.
 6. Under **Product**, enter the CNK code of the product to order.
 7. Set the **Quantity**, the number of packages to order.
-8. If your account is linked to more than one pharmacy, enter its APB number under **Pharmacy**. Otherwise, leave **Pharmacy** empty to order from your linked pharmacy.
+8. Under **Pharmacy**, enter the APB number of the pharmacy to order from, for example `343602`.
 9. Optionally, enter a **Comment** for the pharmacist.
 10. Optionally, in the **Response variable** field, enter a name to store the order details in, such as `order_result`.
 11. Select **Save**.
@@ -43,8 +43,8 @@ Quantity:
   description: The number of packages to order. The default is 1.
   required: false
 Pharmacy:
-  description: The APB number of the pharmacy to order from, for example `343602`. Required when your account is linked to more than one pharmacy.
-  required: false
+  description: The APB number of the pharmacy to order from, for example `343602`.
+  required: true
 Comment:
   description: A comment for the pharmacist.
   required: false
@@ -59,10 +59,11 @@ action: |
   action: mijn_farmad_apotheek.order_medication
   data:
     product: "3093242"
+    apb: "343602"
     comment: "I will pick the order up on Saturday."
 {% endexample %}
 
-This orders one package, the default, of the product with CNK code 3093242 at your linked pharmacy, with a comment for the pharmacist.
+This orders one package, the default, of the product with CNK code 3093242 at the pharmacy with APB number 343602, with a comment for the pharmacist.
 
 ### Options in YAML
 
@@ -82,9 +83,8 @@ quantity:
   default: 1
 apb:
   description: >
-    The APB number of the pharmacy to order from. Required when your account is
-    linked to more than one pharmacy.
-  required: false
+    The APB number of the pharmacy to order from.
+  required: true
   type: string
 comment:
   description: >
@@ -104,7 +104,6 @@ The action returns:
 
 - The action refuses to order when your draft basket at the pharmacy still holds products or a comment. Submit or clear the draft in the Mijn Farmad Apotheek app, then run the action again.
 - Each order holds one product. To order several products, call the action once per product.
-- If you leave **Pharmacy** empty while your account is linked to more than one pharmacy, the error message lists each linked pharmacy with its APB number.
 
 {% include actions/try_it.md %}
 
@@ -119,6 +118,7 @@ This automation orders a known product on a monthly schedule, with a comment for
 - **Action**: Order medication
   - **Product**: 3093242
   - **Quantity**: 2
+  - **Pharmacy**: 343602
   - **Comment**: For monthly pickup
 
 {% details "YAML example for ordering a product every month" %}
@@ -136,6 +136,7 @@ automation: |
       data:
         product: "3093242"
         quantity: 2
+        apb: "343602"
         comment: "For monthly pickup"
 {% endexample %}
 
@@ -149,6 +150,7 @@ This automation orders a known product when a supply you track in Home Assistant
 - **Condition**: The supply changed from a number, not from unavailable
 - **Action**: Order medication
   - **Product**: 3093242
+  - **Pharmacy**: 343602
 
 {% details "YAML example for ordering when the supply runs low" %}
 
@@ -168,6 +170,7 @@ automation: |
     - action: mijn_farmad_apotheek.order_medication
       data:
         product: "3093242"
+        apb: "343602"
 {% endexample %}
 
 {% enddetails %}

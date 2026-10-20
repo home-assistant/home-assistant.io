@@ -42,7 +42,7 @@ Password:
 
 - The search action finds products in the catalog of a pharmacy by product name or CNK code, and returns up to 25 matches with price and stock.
 - The order action places an order for one product at a pharmacy. Orders are paid at pickup.
-- The **Pharmacy** field of both actions takes the APB number of the pharmacy, for example `343602`. If your account is linked to a single pharmacy, leave the field empty and the integration uses that pharmacy. If your account is linked to several pharmacies, the field is required. Leave it empty once and the error message lists the APB number of each linked pharmacy.
+- The **Pharmacy** field of both actions takes the APB number of the pharmacy, for example `343602`.
 - Only users with administrator rights can run the order action.
 
 {% include integrations/actions.md %}
@@ -60,6 +60,7 @@ This automation orders a known product on a monthly schedule, with a comment for
 - **Action**: Order medication
   - **Product**: 3093242
   - **Quantity**: 2
+  - **Pharmacy**: 343602
   - **Comment**: For monthly pickup
 
 {% details "YAML example for ordering a product every month" %}
@@ -77,6 +78,7 @@ automation: |
       data:
         product: "3093242"
         quantity: 2
+        apb: "343602"
         comment: "For monthly pickup"
 {% endexample %}
 
@@ -131,24 +133,6 @@ The app keeps one draft basket per pharmacy. The order action refuses to order i
 
 1. Open the Mijn Farmad Apotheek app.
 2. Submit or clear the draft basket at the pharmacy.
-3. Run the action again.
-
-{% enddetails %}
-
-{% details "Actions fail because your account is linked to several pharmacies" %}
-
-### Symptom
-
-The action fails with the message that your account is linked to several pharmacies.
-
-#### Description
-
-The action does not know which pharmacy to use. It only picks a pharmacy on its own when your account is linked to exactly one.
-
-#### Resolution
-
-1. Copy the APB number of the pharmacy you want from the error message. The message lists each linked pharmacy as name, city, and APB number.
-2. Enter that number in the **Pharmacy** field of the action.
 3. Run the action again.
 
 {% enddetails %}

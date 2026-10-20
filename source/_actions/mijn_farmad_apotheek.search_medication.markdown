@@ -21,7 +21,7 @@ To search the catalog from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **Mijn Farmad Apotheek: Search medication**.
 6. Under **Search term**, enter the product name or CNK code to search for.
-7. If your account is linked to more than one pharmacy, enter its APB number under **Pharmacy**. Otherwise, leave **Pharmacy** empty to search at your linked pharmacy.
+7. Under **Pharmacy**, enter the APB number of the pharmacy to search in, for example `343602`.
 8. In the **Response variable** field, enter a name to store the results in, such as `search_result`.
 9. Select **Save**.
 
@@ -32,8 +32,8 @@ Search term:
   description: The product name or CNK code to search for.
   required: true
 Pharmacy:
-  description: The APB number of the pharmacy to search in, for example `343602`. Required when your account is linked to more than one pharmacy.
-  required: false
+  description: The APB number of the pharmacy to search in, for example `343602`.
+  required: true
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -45,10 +45,11 @@ action: |
   action: mijn_farmad_apotheek.search_medication
   data:
     query: "paracetamol 500 mg"
+    apb: "343602"
   response_variable: search_result
 {% endexample %}
 
-This searches for paracetamol at your linked pharmacy and stores the matching products in `search_result`.
+This searches for paracetamol at the pharmacy with APB number 343602 and stores the matching products in `search_result`.
 
 ### Options in YAML
 
@@ -62,9 +63,8 @@ query:
   type: string
 apb:
   description: >
-    The APB number of the pharmacy to search in. Required when your account is
-    linked to more than one pharmacy.
-  required: false
+    The APB number of the pharmacy to search in.
+  required: true
   type: string
 {% endoptions_yaml %}
 
@@ -97,7 +97,6 @@ products:
 
 - The search matches product names. A full CNK code matches its own product.
 - Product names in the results are in Dutch.
-- If you leave **Pharmacy** empty while your account is linked to more than one pharmacy, the error message lists each linked pharmacy with its APB number.
 
 {% include actions/try_it.md %}
 
@@ -111,6 +110,7 @@ Each week, this automation looks up a product at your pharmacy and sends the pri
   - **Target**: Weekly price check (`schedule.weekly_price_check`)
 - **Action**: Search medication
   - **Search term**: paracetamol 500 mg
+  - **Pharmacy**: 343602
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -128,6 +128,7 @@ automation: |
     - action: mijn_farmad_apotheek.search_medication
       data:
         query: "paracetamol 500 mg"
+        apb: "343602"
       response_variable: search_result
     - action: notify.send_message
       target:
@@ -154,6 +155,7 @@ Each day, this automation looks up a product at your pharmacy by its CNK code. W
 - **Trigger**: Time: 09:00
 - **Action**: Search medication
   - **Search term**: 3093242
+  - **Pharmacy**: 343602
 - **Action**: If-then
   - **If**: The product has more than zero items in stock
   - **Then**: Send a notification message
@@ -172,6 +174,7 @@ automation: |
     - action: mijn_farmad_apotheek.search_medication
       data:
         query: "3093242"
+        apb: "343602"
       response_variable: search_result
     - if:
         - >-
