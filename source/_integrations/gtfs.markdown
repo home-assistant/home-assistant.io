@@ -46,20 +46,11 @@ Each route tracks departures from one stop to another. To add a route:
 2. Next to the feed, select **Add route**.
 3. Choose the origin and destination stops from the lists of stops in the feed.
 
-{% configuration_basic %}
-Origin stop:
-  description: The stop to depart from.
-Destination stop:
-  description: The stop to travel to.
-Name:
-  description: Optional name for the route. Defaults to the origin and destination stop names.
-Offset:
-  description: Only show departures at least this far in the future.
-Include tomorrow:
-  description: Show tomorrow's first departure once today's departures have ended.
-{% endconfiguration_basic %}
+The route is named after its stops, for example **First Street to Third Street**. To use a different name, rename its device.
 
-Each route creates a device with a departure sensor. The sensor's state is the time of the next departure, and its attributes contain information about the trip, such as agency, origin and destination stop, stop times, and route.
+
+
+Each route creates a device with a departure sensor. The sensor's state is the time of the next departure, looking ahead to tomorrow once today's last departure has passed, and its attributes contain information about the trip, such as agency, origin and destination stop, stop times, and route.
 
 ## Data updates
 
