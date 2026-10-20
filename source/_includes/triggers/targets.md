@@ -15,6 +15,8 @@ This trigger requires a target. The target is the object that Home Assistant wil
 
 You can also select different target types in one trigger. For example, you can add a specific entity and an area as targets in the same trigger to monitor both of them at once.
 
+To learn which entities Home Assistant includes for a device, area, floor, or label, and how it handles several entities, refer to [Automation targets](/docs/automation/targets/).
+
 {% if page.trigger %}
 ### Trigger variables
 

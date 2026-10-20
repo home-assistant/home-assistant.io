@@ -1,15 +1,8 @@
 ---
 title: Change device type of a switch
 description: Instructions on how to convert any Home Assistant switch into something else.
-ha_category:
-  - Cover
-  - Fan
-  - Helper
-  - Light
-  - Lock
-  - Siren
-  - Switch
-  - Valve
+ha_categories:
+  - helpers
 ha_release: 2022.4
 ha_iot_class: Calculated
 ha_quality_scale: internal

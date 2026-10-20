@@ -61,8 +61,6 @@ condition: |
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -85,8 +83,7 @@ for:
 ## Good to know
 
 - This condition checks whether the water heater is on, regardless of which operation mode it is using.
-- `unavailable` and `unknown` do not count as on for this condition.
-- With **Any**, unavailable and unknown water heaters are skipped. With **All**, they make the condition fail.
+{% include conditions/unavailable_targets.md entities="water heaters" %}
 - To react when the water heater turns on instead of checking its current state, use [Water heater turned on](/triggers/water_heater.turned_on/).
 
 {% include conditions/try_it.md %}

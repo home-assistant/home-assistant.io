@@ -23,8 +23,8 @@ threshold:
 
     - `type: above` (exclusive): Sets a minimum. The reading must be strictly above the threshold to pass.{% unless include.has_unit %} Provide `value` with a `number` key ({{ include.range_note }}) or an `entity` key.{% endunless %}
     - `type: below` (exclusive): Sets a maximum. The reading must be strictly below the threshold to pass.{% unless include.has_unit %} Provide `value` with a `number` key ({{ include.range_note }}) or an `entity` key.{% endunless %}
-    - `type: between` (exclusive): Defines a range. The reading must be strictly between both bounds to pass.{% unless include.has_unit %} Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.{% endunless %}
-    - `type: outside` (inclusive): Defines an outside-range. The reading must be at or beyond either bound to pass.{% unless include.has_unit %} Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.{% endunless %}
+    - `type: between` (inclusive): Defines a range. The reading must be between the two bounds, or equal to one of them, to pass.{% unless include.has_unit %} Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.{% endunless %}
+    - `type: outside` (exclusive): Defines an outside-range. The reading must be beyond either bound to pass.{% unless include.has_unit %} Provide `value_min` and `value_max`, each with a `number` key or an `entity` key.{% endunless %}
 {% if include.has_unit %}
 
     For `type: above` and `type: below`, use `value` with either `number` and `unit_of_measurement`, or `entity`. For `type: between` and `type: outside`, use `value_min` and `value_max`, each with either `number` and `unit_of_measurement`, or `entity`. For example:
@@ -36,7 +36,7 @@ threshold:
         entity: {{ include.unit_example_entity }}
       value_max:
         number: {{ include.unit_example_value }}
-        unit_of_measurement: {{ include.unit_default }}
+        unit_of_measurement: "{{ include.unit_default }}"
     ```
 
     When using an `entity`, its current reading is used as the threshold at the moment the condition is evaluated, which lets you compare two readings dynamically.

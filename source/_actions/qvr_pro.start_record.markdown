@@ -69,8 +69,8 @@ Start recording the driveway camera on your QVR Pro server as soon as the motion
 - **Trigger**: State changed
   - **Entity**: Driveway motion (`binary_sensor.driveway_motion`)
   - **To**: Detected
-- **Action**: Start record
-  - **GUID**: The GUID of the driveway camera channel
+- **Action**: QVR Pro: Start record
+  - **GUID**: `YOUR_CHANNEL_GUID`
 
 {% details "YAML example for recording when motion is detected" %}
 

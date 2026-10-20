@@ -1,8 +1,8 @@
 ---
 title: SmartyPlants
 description: Instructions on how to integrate SmartyPlants plant sensors with Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - garden_plants
 ha_release: 2026.11
 ha_iot_class: Cloud Polling
 ha_config_flow: true

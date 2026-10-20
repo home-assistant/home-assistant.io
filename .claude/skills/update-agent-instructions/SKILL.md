@@ -10,10 +10,9 @@ Update the agent instructions for the Home Assistant website.
 Review `.github/copilot-instructions.md` against these current home-assistant.io style-guide sources:
 
 - `./source/_integrations/_integration_docs_template.markdown`
-- `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/integration-docs-examples.md`
-- `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/standards.md`
-- `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/general-style-guide.md`
-- `https://raw.githubusercontent.com/home-assistant/developers.home-assistant/master/docs/documenting/yaml-style-guide.md`
+- `https://contributors.home-assistant.io/writing/reference/integration-page/index.md`
+- `https://contributors.home-assistant.io/writing/reference/style/index.md`
+- `https://contributors.home-assistant.io/writing/reference/yaml/index.md`
 - `https://raw.githubusercontent.com/home-assistant/frontend/refs/heads/dev/gallery/src/pages/brand/personality.markdown`
 
 Update only `.github/copilot-instructions.md`.

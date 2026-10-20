@@ -1,25 +1,8 @@
 ---
 title: Matter
 description: Instructions on how to integrate Matter with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Car
-  - Climate
-  - Cover
-  - Fan
-  - Light
-  - Lock
-  - Number
-  - Pump
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Update
-  - Vacuum
-  - Valve
-  - Water heater
+ha_categories:
+  - hubs_protocols.wireless_protocols
 featured: true
 ha_release: '2022.12'
 ha_iot_class: Local Push
