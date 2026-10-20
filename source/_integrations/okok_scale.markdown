@@ -1,9 +1,8 @@
 ---
 title: OKOK Scale
 description: Instructions to configure the OKOK Scale integration into Home Assistant.
-ha_category:
-  - Health
-  - Sensor
+ha_categories:
+  - health_wellbeing
 ha_release: 2026.11
 ha_iot_class: Local Push
 ha_codeowners:
