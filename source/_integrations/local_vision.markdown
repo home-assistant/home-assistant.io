@@ -80,9 +80,8 @@ The integration provides one binary sensor per region. It is on or off as taught
 
 ### Choosing the region
 
-- Keep the region tight around what changes, such as the door itself or the roof of the parked car.
+- Put the region around what changes, such as the door itself or the parked car. It doesn't have to be exact.
 - Leave out things that move for other reasons, such as people, plants, or things that get moved around.
-- The region needs some detail in every state. A region that only shows a plain surface, such as a bare wall, can't be taught and makes the sensor unknown. Make the region larger so it includes some edges or texture.
 
 ## Local vision automation examples
 
@@ -180,12 +179,12 @@ Check that the camera shows a picture. The sensor recovers on its own when the c
 There are two causes:
 
 - The taught frames don't cover how the region looks right now, for example at night or in different light.
-- The frame shows no detail in the region, for example on a dark night without night vision. Such a frame can't be taught.
+- The frame shows nothing, for example on a dark night without night vision. Such a frame can't be taught.
 
 #### Resolution
 
 - If the region is visible, open the options and teach the current frame with the state it shows.
-- If the region is dark, turn on the camera's night vision or a light that covers the region, then teach a frame. Without visible detail, the sensor stays unknown.
+- If the frame is dark, turn on the camera's night vision or a light that covers the region, then teach a frame. Without a visible picture, the sensor stays unknown.
 
 ## Removing the integration
 
