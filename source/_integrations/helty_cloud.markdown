@@ -76,7 +76,7 @@ When you send a command from Home Assistant, the integration asks the panel to r
 
 ## Known limitations
 
-The integration depends on the manufacturer's cloud. If your internet connection or the Helty cloud is unavailable, the unit cannot be controlled from Home Assistant, even though it is on the same network as your Home Assistant instance. The unit keeps ventilating on its own, and its panel and the app remain the way to control it.
+The integration depends on the manufacturer's cloud. If your internet connection or the Helty cloud is unavailable, the unit cannot be controlled from Home Assistant, even though it is on the same network as your Home Assistant instance. The unit keeps ventilating on its own and can still be controlled from its panel.
 
 Units with the recent panel cannot report whether their **Auto** function is switched on, nor the state of the panel itself. This is a limitation of this generation of machines, confirmed by the manufacturer, and not something the integration can work around. If you run the unit in Auto, Home Assistant shows the speed the unit has settled on, but gives no way to tell Auto apart from that speed having been set by hand.
 
@@ -88,7 +88,7 @@ The cloud API is not documented by the manufacturer and has been reverse-enginee
 
 ### Setup fails with an authentication error
 
-The integration signs in with the same credentials as the Helty Home app. Check that the app can still sign in with them. If you changed the password of your Helty Home account, Home Assistant asks you to enter the new one.
+The integration signs in with the same credentials as the Helty Home app. Check that the app can still sign in with them. If you changed your Helty Home password, remove the integration and add it again with the new password.
 
 ### The entities are unavailable
 
