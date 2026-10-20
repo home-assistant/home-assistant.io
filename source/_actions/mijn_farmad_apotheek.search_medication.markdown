@@ -3,6 +3,7 @@ title: "Search medication"
 action: mijn_farmad_apotheek.search_medication
 domain: mijn_farmad_apotheek
 description: "Searches the catalog of a Farmad pharmacy by product name or CNK and returns up to 25 matching products."
+since: "2026.11"
 related_actions:
   - mijn_farmad_apotheek.order_medication
 ---
