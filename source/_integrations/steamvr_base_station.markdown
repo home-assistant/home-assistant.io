@@ -34,6 +34,11 @@ The **SteamVR Base Station** {% term integration %} lets you control Valve Index
 
 Base stations in range are discovered automatically.
 
+{% configuration_basic %}
+Device:
+  description: "Select the base station to add. Its name (LHB-…) is printed on the back of the station."
+{% endconfiguration_basic %}
+
 ## Supported functionality
 
 ### Switch
