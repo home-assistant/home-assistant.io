@@ -46,7 +46,8 @@ This passes when the office CO2 sensor reads above 1000 ppm.
 {% include conditions/threshold_value_options_yaml.md
    range_note="ppm"
    number_final="a value in ppm"
-   threshold_required="true" %}
+   threshold_required="true"
+   entity_unit="`ppm`" %}
 
 {% include conditions/targets.md domain="sensor" %}
 
