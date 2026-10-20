@@ -30,7 +30,8 @@ To read the meter history from an automation or a script:
 4. From the search box, search for and select **Peblar: Get meter history**.
 5. Under **Peblar EV charger**, select the Peblar charger to read from.
 6. Optionally set **After** and **Before** to narrow the period.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the data in, such as `meter`.
+8. Select **Save**.
 
 ### Options in the UI
 
@@ -57,6 +58,7 @@ action: |
     config_entry_id: "01234567890abcdef01234567890abcd"
     after: "2026-01-01 00:00:00"
     before: "2026-02-01 00:00:00"
+  response_variable: meter
 {% endexample %}
 
 ### Options in YAML
@@ -112,12 +114,12 @@ The session that is still running has no end yet, so its end time, closing meter
 
 - Only administrators can run this action.
 - The charger keeps this log itself, so it reaches back further than Home Assistant does, and a database purge leaves it alone.
-- Times come back in UTC. Use the [`as_local`](/docs/configuration/templating/#time) filter to show them in your own time zone.
+- Times come back in UTC, as text. To show them in your own time zone, convert them first: {% raw %}`{{ session.start_time | as_datetime | as_local }}`{% endraw %}.
 - A record that no longer matches its own checksum is marked `corrupted`. Do not bill on a corrupted record. If the charger returns no checksum outcome for a session, `corrupted` is `null`, not `true` or `false`.
 
 {% include actions/more_examples.md %}
 
-### Automation: send a daily total for one token
+### Automation: Send the total energy charged with one token
 
 Add up the energy of every finished session that used your neighbor's key fob, so you know what to invoice them for.
 
