@@ -77,7 +77,7 @@ Re-authentication is not supported yet. If a newer key has replaced the one Home
 
 {% details "Setup reports that the key has no connection points" %}
 
-### Symptom
+### Symptom: The API key has no connection points
 
 During setup, the form reports that the key has no connection points yet. The key is valid, but no property is attached to it. This is normal while a switch to ecosmart is still in progress.
 
