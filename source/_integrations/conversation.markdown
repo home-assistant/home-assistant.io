@@ -45,7 +45,7 @@ trigger: |
 
 The first example matches both "party time" and "it's party time". The second example matches both "happy new year" and "happy birthday". Punctuation and capitalization are ignored.
 
-For a complete example, see [adding a custom sentence to trigger an automation](/voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation).
+For a complete example, see [adding a custom sentence to trigger an automation](/voice_control/custom_sentences/#to-add-a-custom-sentence-to-trigger-an-automation).
 
 ### Sentence wildcards
 

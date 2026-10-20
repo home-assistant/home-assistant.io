@@ -2,7 +2,7 @@
 title: "Automation triggers"
 description: "Triggers start an automation when something specific happens, such as a door opening, a time of day, the sun setting, or a person arriving home."
 related:
-  - docs: /voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation
+  - docs: /voice_control/custom_sentences/#to-add-a-custom-sentence-to-trigger-an-automation
     title: Adding a custom sentence to trigger an automation
   - docs: /docs/automation/targets/
     title: Automation targets
@@ -10,7 +10,7 @@ related:
 
 A trigger is the part of an automation that makes the automation start when something specific happens, for example, when the sun sets, a door opens, or a button is pressed. You add triggers in the **When** section of the automation editor.
 
-When a trigger reacts, the automation starts: Home Assistant checks the [conditions](/docs/automation/condition/), and if they are met, performs the [actions](/docs/automation/action/). Each run is recorded in a [trace](/docs/automation/troubleshooting/#traces), which shows which trigger started it.
+When a trigger reacts, the automation starts: Home Assistant checks the [conditions](/docs/automation/condition/), and if they are met, performs the [actions](/docs/automation/action/). Each run is recorded in a [trace](/docs/automation/testing/#traces), which shows which trigger started it.
 
 ## Triggers react at a specific moment
 
@@ -73,10 +73,10 @@ automation:
 
 ## Elements of a trigger in YAML
 
-The main elements of a trigger that are defined in the `configuration.yaml` file are:
+In YAML, a trigger can also have the following elements:
 
-- trigger ID
-- trigger variables.
+- Trigger ID
+- Trigger variables
 
 ### Trigger ID
 
@@ -116,7 +116,7 @@ automation:
 
 ### Trigger variables
 
-There are two different types of variables available for triggers. Both work like [script level variables](/integrations/script/#variables).
+There are two different types of variables available for triggers. Both work like [variables in scripts](/building-blocks/variables/).
 
 The first variant allows you to define variables that are set when the trigger reacts. The variables will be able to use templates and have access to [the `trigger` variable](/docs/automation/trigger-data/#trigger-properties).
 
@@ -141,9 +141,11 @@ Each trigger has a type that depends on the target of the trigger, usually corre
 
 For an overview of every trigger across all integrations, see the [triggers reference](/triggers/).
 
-### Event trigger
+<a id="event-trigger"></a>
 
-For setup steps, YAML options, and examples for the event trigger, see [Event trigger](/triggers/event/).
+### Manual event received trigger
+
+For setup steps, YAML options, and examples for the **Manual event received** trigger, see [Manual event received trigger](/triggers/event/).
 
 ### Geolocation trigger
 
@@ -183,13 +185,13 @@ For setup steps, YAML options, and examples for the **State changed** trigger, s
 
 Reacts when the sun is setting or rising—that is, when the sun elevation reaches 0°.
 
+In the automation editor, use the **Sunset** or **Sunrise** trigger. For setup steps and options, refer to [Sunset](/triggers/sun.sunset/) and [Sunrise](/triggers/sun.sunrise/). The following YAML uses the older `sun` trigger, which still works.
+
 An optional time offset can be given to have it react a set time before or after the sun event (for example, 45 minutes before sunset). A negative value makes it react before sunrise or sunset, a positive value afterwards. The offset needs to be specified in number of seconds, or in a hh:mm:ss format.
 
 {% tip %}
-Since the duration of twilight is different throughout the year, it is recommended to use [sun elevation triggers][sun_elevation_trigger] instead of `sunset` or `sunrise` with a time offset to trigger automations during dusk or dawn.
+Since the duration of twilight is different throughout the year, use the [Dusk](/triggers/sun.dusk/), [Dawn](/triggers/sun.dawn/), or [Sun elevation crossed threshold](/triggers/sun.elevation_crossed_threshold/) trigger instead of sunset or sunrise with a time offset to start automations during dusk or dawn.
 {% endtip %}
-
-[sun_elevation_trigger]: /docs/automation/trigger/#sun-elevation-trigger
 
 ```yaml
 automation:
@@ -203,11 +205,13 @@ automation:
 
 #### Sun elevation trigger
 
-Sometimes you may want more granular control over an automation than simply sunset or sunrise and specify an exact elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. For most automations intended to run during dusk or dawn, a number between 0° and -6° is suitable; -4° is used in this example:
+Sometimes you may want more granular control over an automation than simply sunset or sunrise and specify an exact elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. For most automations intended to run during dusk or dawn, a number between 0° and -6° is suitable.
+
+In the automation editor, use the [Sun elevation crossed threshold](/triggers/sun.elevation_crossed_threshold/) trigger. In YAML, you can also use a **Numeric state crossed threshold** trigger on the elevation of `sun.sun`, as in this example, which uses -4°:
 
 ```yaml
 automation:
-  - alias: "Exterior Lighting on when dark outside"
+  - alias: "Exterior lighting on when dark outside"
     triggers:
       - trigger: numeric_state
         entity_id: sun.sun
@@ -334,10 +338,6 @@ automation 3:
       minutes: "/5"
 ```
 
-{% note %}
-Do not prefix numbers with a zero - using `'01'` instead of `'1'` for example will result in errors.
-{% endnote %}
-
 ### Time trigger
 
 For setup steps, YAML options, and examples for the time trigger, see [Time trigger](/triggers/time/).
@@ -370,12 +370,12 @@ automation:
 You can run this automation by sending an HTTP POST request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an example form data payload:
 
 ```shell
-curl -X POST -d 'key=value&key2=value2' https://your-home-assistant:8123/api/webhook/some_hook_id
+curl -X POST -d 'key=value&key2=value2' http://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
-Webhooks support HTTP POST, PUT, HEAD, and GET requests; PUT requests are recommended. HTTP GET and HEAD requests are not enabled by default but can be enabled by adding them to the `allowed_methods` option. The request methods can also be configured in the UI by selecting the settings gear menu button beside the Webhook ID.
+Webhooks support HTTP POST, PUT, HEAD, and GET requests; POST requests are recommended. HTTP GET and HEAD requests are not enabled by default but can be enabled by adding them to the `allowed_methods` option. The request methods can also be configured in the UI by selecting **Webhook settings** {% icon "mdi:cog" %} next to the webhook ID.
 
-By default, webhook triggers can only be accessed from devices on the same network as Home Assistant or via [Nabu Casa Cloud webhooks](https://www.nabucasa.com/config/webhooks/). The `local_only` option should be set to `false` to allow webhooks to be triggered directly via the internet. This option can also be configured in the UI by selecting the settings gear menu button beside the Webhook ID.
+By default, webhook triggers can only be accessed from devices on the same network as Home Assistant or via [Nabu Casa Cloud webhooks](https://www.nabucasa.com/config/webhooks/). The `local_only` option should be set to `false` to allow webhooks to be triggered directly via the internet. This option can also be configured in the UI by selecting **Webhook settings** {% icon "mdi:cog" %} next to the webhook ID.
 
 Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS.
 
@@ -388,7 +388,7 @@ Payloads may either be encoded as form data or JSON. Depending on that, its data
 Note that to use JSON encoded payloads, the `Content-Type` header must be set to `application/json`, for example:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{ "key": "value" }' https://your-home-assistant:8123/api/webhook/some_hook_id
+curl -X POST -H "Content-Type: application/json" -d '{ "key": "value" }' http://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
 #### Webhook security
@@ -403,6 +403,8 @@ Webhook endpoints don't require authentication, other than knowing a valid webho
 ### Zone trigger
 
 Zone trigger reacts when an entity is entering or leaving the zone. The entity can be either a [person](/integrations/person/) or a [device tracker](/integrations/device_tracker/).
+
+In the automation editor, use the **Zone entered** or **Zone left** trigger. For setup steps and options, refer to [Zone entered](/triggers/zone.entered/) and [Zone left](/triggers/zone.left/). The following YAML uses the older `zone` trigger, which still works.
 
 ```yaml
 automation:
@@ -420,7 +422,7 @@ Most triggers that have an entity as the target do not react when an entity tran
 
 ## Disabling a trigger
 
-You can disable a trigger without removing it. In the automation editor, select the three dots {% icon "mdi:dots-vertical" %} menu on the trigger, then select **Disable**. In YAML, add `enabled: false` to the trigger. For example:
+You can disable a trigger without removing it. In the automation editor, on the trigger, select **Menu** {% icon "mdi:dots-vertical" %} > **Disable**. In YAML, add `enabled: false` to the trigger. For example:
 
 ```yaml
 # Example automation with a disabled trigger
@@ -499,7 +501,8 @@ Instead of creating many automations for different groups of related triggers an
 4. Search for the trigger using the search box, for example, and then select it.
 5. In the **Then do** section, select **Add action**, and then select **Blocks** > **Choose**.
 6. Expand the option section, select **Add condition** and, from the **By type** list, select **Triggered by**.
-7. In the condition window on the right, select the trigger that you added in step 4, and then select **Save**. Home Assistant creates an ID for the trigger if needed.
+7. In the condition window on the right, select the trigger that you added in step 4. Home Assistant creates an ID for the trigger if needed.
 8. In the same option, select **Add action**, and choose the action that runs when the related trigger starts the automation.
-9. In the action window on the right, select the target or group of targets, enter any other requested data, and select **Save**.
+9. In the action window on the right, select the target or group of targets, and enter any other requested data.
 10. To add another trigger and related option, repeat steps 3 to 9.
+11. Select **Save**.
