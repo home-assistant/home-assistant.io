@@ -19,23 +19,23 @@ ha_quality_scale: bronze
 
 [Pterodactyl](https://www.pterodactyl.io) is a game server management panel designed to simplify the administration of game servers. It offers a user-friendly interface  which allows users to manage multiple game servers from a single dashboard, supporting popular games like Minecraft. Its key features include an intuitive web-based control panel, automated server installation, real-time server monitoring, scheduled backups and more. Each game server runs in an isolated Docker container, ensuring security and stability.
 
-The Pterodactyl {% term integration %} allows you to monitor and control your game servers of your Pterodactyl server within Home Assistant.
+The Pterodactyl {% term integration %} allows you to monitor and control the game servers on your Pterodactyl server from Home Assistant.
 
 ## Use cases
 
 - Check whether your game servers are running.
 - Track resource usage such as CPU, memory and disk over time.
-- Control (start, stop or restart) your game servers.
+- Start, stop or restart your game servers.
 
 ## Prerequisites
 
 To access your Pterodactyl server, an account API key is required. Follow these steps to create a new one:
 
 1. Access your **Pterodactyl Panel** and log in with your user account.
-2. From the main dashboard, click your **username** or **profile icon** in the top-right corner, then select **API Credentials**.
-3. Enter a **Description** to identify the key (for example, "Home Assistant").
+2. From the main dashboard, select your **username** or **profile icon** in the top-right corner, then select **API Credentials**.
+3. Enter a **Description** to identify the key (for example, `Home Assistant`).
 4. Optionally, specify **Allowed IPs** to restrict where the key can be used (leave blank to allow all IPs).
-5. Click **Create**. The panel will generate and display your new account API key.
+5. Select **Create**. The panel generates and displays your new account API key.
 6. Copy the **account API key** immediately and store it securely. You won’t be able to view it again after leaving the page.
 
 {% important %}
@@ -98,8 +98,6 @@ The following sensors are provided as well, but disabled by default:
 ## Data updates
 
 This integration {% term polling polls %} each game server on your Pterodactyl server every 60 seconds. If a request for one game server fails, entities for all game servers become unavailable until a refresh succeeds.
-
-If a game server is suspended, its button entities become unavailable and its status goes to `Not running`.
 
 ## Removing the integration
 
