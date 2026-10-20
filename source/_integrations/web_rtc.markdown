@@ -1,8 +1,6 @@
 ---
 title: WebRTC
 description: Instructions on how to configure the WebRTC integration for Home Assistant.
-ha_category:
-  - Other
 ha_release: '2026.1'
 ha_quality_scale: internal
 ha_domain: web_rtc

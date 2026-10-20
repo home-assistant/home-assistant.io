@@ -19,7 +19,7 @@ To add an item from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Add shopping list item**.
+5. Search for and select **Shopping list: Add shopping list item**.
 6. Enter the **Name** of the item to add.
 7. Select **Save**.
 
@@ -62,8 +62,11 @@ name:
 
 Add batteries to your shopping list automatically when a device reports a low battery level.
 
-- **Trigger**: A battery level drops below 10%
-- **Action**: Add shopping list item
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Remote battery
+  - **Below**: `10`
+- **Action**: Shopping list: Add shopping list item
+  - **Name**: `Batteries`
 
 {% details "Show example YAML" %}
 

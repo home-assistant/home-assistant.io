@@ -4,11 +4,17 @@
     border-radius: 50%;
     color: #002332;
     height: 100%;
-    padding: 4px;
+    padding: 6px;
     display: grid;
     place-items: center;
-    height: 24px;
-    width: 24px;
+    height: 27px;
+    width: 27px;
+
+    @media (min-width: 1024px) {
+        height: 33px;
+        padding: 8px;
+        width: 33px;
+    }
 
     &:has(use[href="#facebook"]){
         padding: 0;

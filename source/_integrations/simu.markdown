@@ -1,23 +1,6 @@
 ---
 title: SIMU LiveIn2
 description: Connect and control your SIMU LiveIn2 devices using the Overkiz integration
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Fan
-  - Hub
-  - Light
-  - Lock
-  - Number
-  - Scene
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Water heater
 ha_domain: simu
 ha_integration_type: virtual
 ha_supporting_domain: overkiz

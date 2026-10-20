@@ -1,9 +1,8 @@
 ---
 title: Rainforest Eagle
 description: Instructions on how to set up the Rainforest Eagle with Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_release: 0.97
 ha_iot_class: Local Polling
 ha_codeowners:

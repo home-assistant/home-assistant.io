@@ -2,27 +2,8 @@
 title: SmartThings
 description: Instructions on setting up SmartThings within Home Assistant.
 featured: true
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Fan
-  - Hub
-  - Light
-  - Lock
-  - Media player
-  - Number
-  - Scene
-  - Select
-  - Sensor
-  - Switch
-  - Time
-  - Update
-  - Vacuum
-  - Valve
-  - Water heater
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: 0.87
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -314,8 +295,10 @@ The SmartThings Sensor platform lets you view devices that have sensor-related c
 | [`robotCleanerMovement`](https://developer.smartthings.com/docs/devices/capabilities/proposed#robotCleanerMovement)                                           | Movement                                                                 |
 | [`robotCleanerTurboMode`](https://developer.smartthings.com/docs/devices/capabilities/proposed#robotCleanerTurboMode)                                         | Turbo mode                                                               |
 | `samsungce.cooktopHeatingPower`                                                                                                                               | Manual level<br/>Heating mode                                            |
+| `samsungce.dryerOperatingState`                                                                                                                               | Progress                                                                 |
 | `samsungce.ehsDiverterValve`                                                                                                                                  | Diverter valve position                                                  |
 | `samsungce.hoodFilter`                                                                                                                                        | Hood filter usage                                                        |
+| `samsungce.washerOperatingState`                                                                                                                              | Progress                                                                 |
 | `samsungce.waterConsumptionReport`                                                                                                                            | Water consumption                                                        |
 | [`signalStrength`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#signalStrength)                                         | Link quality<br/>Signal strength                                         |
 | [`smokeDetector`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#smokeDetector)                                           | Smoke detector                                                           |

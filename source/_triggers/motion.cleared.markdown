@@ -60,8 +60,6 @@ This fires 1 hour, 5 minutes and 2 seconds after the sensor entity `binary_senso
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: |
@@ -102,7 +100,8 @@ When no movement is detected at the office for 15 minutes, this automation turns
 
 - **Trigger**: Motion cleared
   - **Target**: Office motion sensors (by label)
-- **Action**: Turn off HVAC (in the office)
+- **Action**: Set thermostat HVAC mode
+  - **HVAC mode**: Off
 
 {% details "YAML example for turning off office HVAC after inactivity" %}
 

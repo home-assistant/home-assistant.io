@@ -69,7 +69,9 @@ group_members:
 
 Sync several speakers when a trigger fires, for example to play the same music throughout the house.
 
-- **Trigger**: Party scene activated
+- **Trigger**: State changed
+  - **Entity**: Party mode helper
+  - **To**: On
 - **Action**: Join media players
   - **Target**: Living room speaker
   - **Group members**: Kitchen speaker, Bedroom speaker

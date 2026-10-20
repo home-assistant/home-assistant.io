@@ -1,8 +1,6 @@
 ---
 title: Light
 description: Instructions on how to set up your lights with Home Assistant.
-ha_category:
-  - Light
 ha_release: pre 0.7
 ha_quality_scale: internal
 ha_domain: light
@@ -20,8 +18,8 @@ The **Light** {% term integration %} allows you to track and control various lig
 Light {% term entities %} can have the following {% term states %}: `on` or `off`. The list of available attributes depends on the {% term device %}. Refer to the integration documentation of your light.
 
 <p class='img'>
-  <img src='/images/integrations/light/state_light.png' alt='Screenshot showing three lights with different states: `on`, `off`, or `unavailable`'>
-  Three lights with different states: `on`, `off`, or `unavailable`.
+  <img src='/images/integrations/light/state_light.png' alt='Screenshot of the States tab showing a light with the state on and its attributes, such as brightness and color'>
+  A light with the state <code>on</code> and its attributes.
 </p>
 
 ## Default turn-on values

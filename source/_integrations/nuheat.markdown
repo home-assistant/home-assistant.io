@@ -1,8 +1,8 @@
 ---
 title: NuHeat
 description: Instructions on how to integrate your NuHeat Signature thermostats within Home Assistant.
-ha_category:
-  - Climate
+ha_categories:
+  - climate.thermostats_heating
 ha_release: 0.61
 ha_iot_class: Cloud Polling
 ha_domain: nuheat

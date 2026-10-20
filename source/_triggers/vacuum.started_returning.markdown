@@ -30,7 +30,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When monitoring more than one vacuum, controls when the trigger fires. Pick **Each** to fire every time any targeted vacuum starts returning, **First** to fire only on the first return event, or **All** to fire only after all targeted vacuums have started returning.
-  required: true
+  required: false
 For at least:
   description: The time the vacuum must keep returning before the trigger fires.
   required: false
@@ -53,13 +53,11 @@ trigger: |
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
     When multiple vacuums are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: true
+  required: false
   type: string
   default: each
 for:
@@ -88,9 +86,10 @@ for:
 If your vacuum docks in a darker part of the house, you can turn on a nearby light when it starts heading back so it can finish its route with a clear path.
 
 - **Trigger**: Vacuum cleaner started returning to dock
-- **Target**: Downstairs vacuum
+  - **Target**: Downstairs vacuum
 - **Condition**: Sun is below horizon
-- **Action**: Turn on hallway light
+- **Action**: Turn on light
+  - **Target**: Hallway light
 
 {% details "YAML example for lighting the path back to the dock" %}
 

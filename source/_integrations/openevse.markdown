@@ -1,12 +1,8 @@
 ---
 title: OpenEVSE
 description: Instructions on how to integrate OpenEVSE charging stations with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Car
-  - Energy
-  - Sensor
-  - Switch
+ha_categories:
+  - energy.ev_charging
 ha_release: 0.38
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -20,10 +16,11 @@ ha_platforms:
   - button
   - diagnostics
   - number
+  - select
   - sensor
   - switch
 ha_integration_type: device
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **OpenEVSE** {% term integration %} connects your Home Assistant installation to an [OpenEVSE](https://www.openevse.com/) electric vehicle charging station that runs the OpenEVSE Wi-Fi firmware. The integration talks to the charger locally over your home network, so it works without an internet connection and without a cloud account.
@@ -74,7 +71,7 @@ If the credentials on the charger change later, Home Assistant prompts you to re
 
 ## Supported functionality
 
-The integration adds a single device per charger to Home Assistant and exposes the following entities. Some entities are disabled by default to keep the device page tidy. You can enable them from the device page if you need them.
+The integration adds a single device per charger to Home Assistant and exposes the following entities. Some entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) to keep the device page tidy. You can enable them from the device page if you need them.
 
 ### Sensors
 
@@ -131,6 +128,7 @@ Diagnostic sensors that help with troubleshooting and that are disabled by defau
 ### Binary sensors
 
 - **Vehicle connected**: On when a vehicle is plugged in to the charger.
+- **Station status**: On when the charging station is active and ready to deliver power, and off when disabled.
 - **Divert active**: On when the charger is in solar divert (eco) mode and is matching its output to available surplus power.
 - **Shaper active**: On when the power shaper is actively limiting the charge rate to stay below a household power limit.
 - **Limit active** (disabled by default): On when an energy, time, or session limit is currently being enforced.
@@ -151,6 +149,12 @@ Diagnostic sensors that help with troubleshooting and that are disabled by defau
 - **Current shaper**: Enables or disables the power shaper feature to dynamically limit charging power based on whole-home electrical load.
 - **Manual override**: Toggles manual override on the charger to start or pause charging regardless of scheduled or automatic claim states.
 - **Solar PV divert**: Enables or disables solar divert (eco) mode to dynamically match charging output to surplus solar power generation.
+
+Home Assistant only enables or disables solar divert mode. It does not send solar production or grid import/export data from other Home Assistant integrations to the charger. For solar divert to operate, configure the OpenEVSE firmware with a live solar generation or grid import/export feed. Refer to the [OpenEVSE solar divert documentation](https://github.com/OpenEVSE/openevse_esp32_firmware/blob/master/docs/user/solar-divert.md) for setup instructions.
+
+### Select
+
+- **Override state**: Sets the manual override state on the charger. Options are **Auto** (clears the override), **Active** (forces charging to start), and **Disabled** (forces charging to pause). This entity requires OpenEVSE Wi-Fi firmware version 4.0.1 or later.
 
 ## Examples
 
@@ -225,7 +229,6 @@ You do not need to configure any update interval yourself.
 - The integration manages a single OpenEVSE charger per config entry. If you have multiple chargers, add each one as a separate integration instance.
 - Only OpenEVSE chargers with the official Wi-Fi firmware are supported. Chargers reached only over MQTT, or third-party firmware variants, are not.
 - The **Vehicle state of charge** and **Vehicle range** sensors depend on the connected vehicle reporting this information through the charger. Many vehicles do not, in which case these sensors stay unavailable.
-- Configuring OpenEVSE through YAML is deprecated. Existing YAML configuration is automatically imported into the UI, and the YAML support is removed in a future Home Assistant release. After import, remove the `openevse` block from your {% term "`configuration.yaml`" %} file.
 
 ## Troubleshooting
 

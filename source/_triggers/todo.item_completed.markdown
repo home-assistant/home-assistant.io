@@ -91,7 +91,7 @@ If you want to keep a chore list tidy, this automation removes completed items a
 - **Trigger**: To-do item completed
 - **Target**: Chore list
 - **Condition**: Time is after 21:00
-- **Action**: Remove completed items
+- **Action**: Remove completed to-do list items
 
 {% details "YAML example for clearing completed chores at night" %}
 
