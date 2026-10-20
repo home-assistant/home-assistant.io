@@ -47,6 +47,20 @@ See the [logger](/integrations/logger/) integration for instructions on how to d
 
 If you find any errors or want to expand the documentation, please [let us know](https://github.com/home-assistant/home-assistant.io/issues).
 
+#### Unexpected error validating config
+
+When you check your configuration under {% my tools_yaml title="**Settings** > **Tools** > **YAML**" %} > **Check configuration**, you might see an error that starts with `Unexpected error calling config validator:`. The logs then show `Unexpected error validating config`.
+
+This error means that the code that checks the configuration of one of your integrations stopped unexpectedly, instead of reporting what is wrong. This is usually caused by a bug in the integration, often a custom integration, or by a configuration that the integration doesn't expect.
+
+To resolve the error:
+
+1. Go to {% my logs title="**Settings** > **System** > **Logs**" %} and open the `Unexpected error validating config` entry.
+   - The entry shows the full error, including which integration caused it.
+2. Check the {% term YAML %} configuration of that integration for mistakes, such as a value in the wrong place or a value of the wrong type. Compare it with the documentation of the integration.
+3. If it's a custom integration, update it to the latest version. If the error stays, report it to the author of the custom integration.
+4. If it's a built-in integration and your configuration looks correct, [report it](https://github.com/home-assistant/core/issues) and include the error from the logs.
+
 #### Problems with dependencies
 
 Almost all integrations have external dependencies to communicate with your devices and services. Sometimes Home Assistant is unable to install the necessary dependencies. If this is the case, it should show up in [the logs](/integrations/logger/#viewing-logs).
