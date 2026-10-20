@@ -140,7 +140,7 @@ for:
   description: |
     How long the thermostat setpoint must stay beyond the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the setpoint has been beyond the threshold for 10 seconds, which helps ignore accidental or brief adjustments. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: [integer, float, string, map]
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

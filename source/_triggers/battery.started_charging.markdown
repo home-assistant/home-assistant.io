@@ -70,7 +70,7 @@ for:
   description: |
     How long the device must be actively charging before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:01:00` fires only after the device has been charging for 1 minute. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: [integer, float, string, map]
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

@@ -80,7 +80,7 @@ behavior:
 for:
   description: How long playback must stay paused before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: [integer, float, string, map]
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

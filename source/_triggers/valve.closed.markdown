@@ -69,7 +69,7 @@ for:
   description: >
     How long the valve must stay closed before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the valve has stayed closed for 10 seconds, which helps ignore brief or accidental closures. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: [integer, float, string, map]
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

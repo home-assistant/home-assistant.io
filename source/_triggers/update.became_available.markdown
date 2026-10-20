@@ -72,7 +72,7 @@ for:
     How long the update must stay available before the trigger fires. Use the
     `HH:MM:SS` format, like `00:10:00` for 10 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: [integer, float, string, map]
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

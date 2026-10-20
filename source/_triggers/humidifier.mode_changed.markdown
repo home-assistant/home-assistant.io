@@ -81,7 +81,7 @@ for:
   description: |
     How long the humidifier must remain in the new mode before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the humidifier has stayed in the new mode for 10 seconds, which is useful to ignore brief transitional modes some devices cycle through during startup. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: [integer, float, string, map]
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

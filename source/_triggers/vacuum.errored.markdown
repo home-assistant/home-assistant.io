@@ -68,7 +68,7 @@ for:
     The time the vacuum must remain in the error state before the trigger fires.
     Accepts a duration like `00:00:10` for 10 seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: [integer, float, string, map]
+  type: [string, integer, map]
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}

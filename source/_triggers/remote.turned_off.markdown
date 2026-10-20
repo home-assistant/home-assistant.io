@@ -67,7 +67,7 @@ for:
   description: |
     How long the remote must stay off before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:00:10` fires only after the remote has stayed off for 10 seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: [integer, float, string, map]
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
