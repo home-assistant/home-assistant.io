@@ -25,7 +25,7 @@ The Pterodactyl {% term integration %} allows you to monitor and control the gam
 
 - Check whether your game servers are running.
 - Track resource usage such as CPU, memory and disk over time.
-- Start, stop or restart your game servers.
+- Start, stop, or restart your game servers.
 
 ## Prerequisites
 
