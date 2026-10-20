@@ -10,7 +10,7 @@ related_triggers:
 
 The **Home Assistant updated** trigger fires once after Home Assistant starts on a different version than the one it ran before. That is usually after an update, but going back to an older version, for example by restoring a backup, fires it too. The versions tell you which way it went.
 
-Use it to act right after an update, for example to send a notification with the new version, or to run the checks you like to do after every update.
+Use it to act right after an update, for example to send a notification with the new version, or only when Home Assistant installed the update on its own.
 
 {% include triggers/ui_header.md %}
 
@@ -31,13 +31,14 @@ trigger: |
   trigger: homeassistant.updated
 {% endexample %}
 
-In templates, `trigger.from_version` holds the version Home Assistant ran before, and `trigger.to_version` the version it runs now, such as `2026.10.3` and `2026.11.0`.
+In templates, `trigger.from_version` holds the version Home Assistant ran before, and `trigger.to_version` the version it runs now, such as `2026.10.3` and `2026.11.0`. `trigger.automatic` is `true` when Home Assistant installed the update on its own, and `false` when you installed it.
 
 ## Good to know
 
 - The trigger fires once, right after Home Assistant has started on the new version. A restart on the same version does not fire it.
 - The first start of a new installation does not fire it. There is no version from before to compare with.
 - It works on every installation type, such as Home Assistant OS and Home Assistant Container.
+- `trigger.automatic` can only be `true` on Home Assistant OS, where Home Assistant can install bug fix updates on its own. On other installation types, it is always `false`.
 - If the automation is turned on, or automations are reloaded, after Home Assistant has started, the trigger does not fire for that start. It only fires for automations that are ready when Home Assistant starts.
 
 {% include triggers/try_it.md %}
@@ -73,25 +74,32 @@ automation: |
 
 {% enddetails %}
 
-### Automation: run your checks after an update
+### Automation: notify only after an automatic update
 
-After an update, run a {% term script %} you created with the checks you like to do after every update, such as testing a few devices or sending a status report.
+When Home Assistant installed an update on its own, send a notification, so you know it happened while you were not looking.
 
 - **Trigger**: Home Assistant updated
-- **Action**: Turn on script
-  - **Target**: After update checks (`script.after_update_checks`)
+- **Condition**: Template
+  - The update was automatic.
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
 
-{% details "YAML example for running a script after an update" %}
+{% details "YAML example for an automatic update notification" %}
 
 {% example %}
 automation: |
-  alias: "Run checks after a Home Assistant update"
+  alias: "Notify after an automatic Home Assistant update"
   triggers:
     - trigger: homeassistant.updated
+  conditions: "{{ trigger.automatic }}"
   actions:
-    - action: script.turn_on
+    - action: notify.send_message
       target:
-        entity_id: script.after_update_checks
+        entity_id: notify.my_device
+      data:
+        message: >
+          Home Assistant updated itself from {{ trigger.from_version }}
+          to {{ trigger.to_version }}.
 {% endexample %}
 
 {% enddetails %}
