@@ -131,7 +131,7 @@ Blocking network access can cause the device to stop responding until its intern
 
 #### Resolution
 
-Allow the device to access your network.
+If you block the vacuum's internet access, configure your firewall to reject connections (`REJECT`) instead of silently dropping them (`DROP`).
 For more information, see the [python-miio troubleshooting guide](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#intermittent-connection-issues-timeouts-xiaomi-vacuum).
 
 {% enddetails %}
@@ -1618,7 +1618,7 @@ script: |
                 - 1
 {% endexample %}
 
-### Retrieve room numbers
+### Retrieving room numbers
 
 Use the Miio command-line tool to retrieve room numbers:
 
