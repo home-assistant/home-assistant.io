@@ -25,7 +25,7 @@ Powador inverters of this generation predate network connectivity. Without the s
 
 ## Supported devices
 
-KACO Powador inverters that use the KACO serial protocol, which covers the xi range, including the Powador 6400xi and 8000xi.
+KACO Powador xi inverters that use the KACO serial protocol. The integration was developed against the Powador 6400xi and 8000xi. Other xi models, such as the 2500xi, 3600xi, 4200xi, and 5000xi, are expected to work.
 
 Newer KACO inverters, including the blueplanet, TL3, and NX3 families, speak a different protocol on the same wire. They aren't supported here; use the [KACO Modbus](/integrations/kaco_modbus/) integration instead. If nothing but these answers during setup, Home Assistant reports which addresses they are. If they share a bus with supported inverters, they are skipped without comment.
 
