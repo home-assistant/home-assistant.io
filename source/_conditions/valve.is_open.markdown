@@ -73,7 +73,7 @@ for:
 
 ## Good to know
 
-- Valves that are in the transitional **Opening** state do not satisfy this condition. The condition only passes once the valve is **Open**. You can check the available states in [Valve states](/integrations/valve/#valve-states).
+- This condition doesn't check the valve's state. It checks whether the valve reports that it is closed. So a valve that is **Opening** or **Closing** also passes, as long as it reports that it isn't fully closed. You can check the available states in [Valve states](/integrations/valve/#valve-states).
 - Valves reporting position (0 to 100%) are considered open as soon as their position is above 0. If you need to check for a fully open valve, combine this condition with a numeric state condition on the `current_position` attribute.
 {% include conditions/unavailable_targets.md entities="valves" %}
 - This condition works with any valve entity in Home Assistant, including water, gas, and air valves from integrations such as MQTT, Z-Wave, Zigbee, and ESPHome.

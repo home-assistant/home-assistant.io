@@ -1,6 +1,13 @@
 ## Using this trigger in YAML
 
 If you work directly in YAML, or you want to know exactly what Home Assistant does under the hood, this section has the technical reference. It lists the field names you use in YAML, their types, and which ones are required.
+{%- assign top_level_triggers = "lg_netcast.turn_on,samsungtv.turn_on,webostv.turn_on,zwave_js.event,zwave_js.value_updated" | split: "," -%}
+{%- if page.trigger contains "." -%}
+{%- unless top_level_triggers contains page.trigger %}
+
+In YAML, put the settings that are specific to this trigger under `options`. Keep `target`, if the trigger uses one, and general settings such as `id`, `alias`, `enabled`, and `variables` at the top level, next to `trigger`.
+{%- endunless -%}
+{%- endif %}
 
 {%- assign trigger_domain = page.trigger | split: "." | first -%}
 {%- case page.trigger -%}
