@@ -115,7 +115,7 @@ This automation orders a known product on a monthly schedule, with a comment for
 
 - **Trigger**: Calendar event started
   - **Calendar**: Medication orders (`calendar.medication_orders`)
-- **Action**: Order medication
+- **Action**: Mijn Farmad Apotheek: Order medication
   - **Product**: 3093242
   - **Quantity**: 2
   - **Pharmacy**: 343602
@@ -148,7 +148,7 @@ This automation orders a known product when a supply you track in Home Assistant
 
 - **Trigger**: Numeric state: Paracetamol boxes below 1
 - **Condition**: The supply changed from a number, not from unavailable
-- **Action**: Order medication
+- **Action**: Mijn Farmad Apotheek: Order medication
   - **Product**: 3093242
   - **Pharmacy**: 343602
 

@@ -57,7 +57,7 @@ This automation orders a known product on a monthly schedule, with a comment for
 
 - **Trigger**: Calendar event started
   - **Calendar**: Medication orders (`calendar.medication_orders`)
-- **Action**: Order medication
+- **Action**: Mijn Farmad Apotheek: Order medication
   - **Product**: 3093242
   - **Quantity**: 2
   - **Pharmacy**: 343602

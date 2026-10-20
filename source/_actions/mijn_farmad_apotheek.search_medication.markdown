@@ -108,7 +108,7 @@ Each week, this automation looks up a product at your pharmacy and sends the pri
 
 - **Trigger**: Schedule block started
   - **Target**: Weekly price check (`schedule.weekly_price_check`)
-- **Action**: Search medication
+- **Action**: Mijn Farmad Apotheek: Search medication
   - **Search term**: paracetamol 500 mg
   - **Pharmacy**: 343602
 - **Action**: Send a notification message
@@ -153,7 +153,7 @@ automation: |
 Each day, this automation looks up a product at your pharmacy by its CNK code. When the product is in stock, it sends a message to a phone. The message repeats every day while the product stays in stock.
 
 - **Trigger**: Time: 09:00
-- **Action**: Search medication
+- **Action**: Mijn Farmad Apotheek: Search medication
   - **Search term**: 3093242
   - **Pharmacy**: 343602
 - **Action**: If-then
