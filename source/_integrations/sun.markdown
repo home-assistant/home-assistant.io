@@ -73,7 +73,7 @@ triggers:
 
 ### Classic sun trigger
 
-The classic `sun` trigger is still supported. It reacts when the sun rises or sets, with an optional offset.
+The classic `sun` trigger is still supported. It reacts when the sun rises or sets, with an optional offset. The dedicated triggers offer more sun events, such as dawn, dusk, and golden hour, and let you set the offset as **Before** or **After** in the UI.
 
 The classic sun trigger needs the trigger type `sun` and an event (`sunset` or `sunrise`):
 
