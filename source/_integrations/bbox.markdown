@@ -1,10 +1,9 @@
 ---
 title: Bbox
 description: Instructions on how to integrate Bouygues Bbox routers into Home Assistant.
-ha_category:
-  - Network
-  - Presence detection
-  - Sensor
+ha_categories:
+  - computers_network.routers_network
+  - presence_location.network_presence
 ha_release: 0.31
 ha_iot_class: Local Polling
 ha_domain: bbox

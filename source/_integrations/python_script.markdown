@@ -1,8 +1,8 @@
 ---
 title: Python Scripts
 description: Instructions on how to set up Python scripts within Home Assistant.
-ha_category:
-  - Automation
+ha_categories:
+  - diy_makers
 ha_release: 0.47
 ha_quality_scale: internal
 ha_domain: python_script
@@ -24,7 +24,7 @@ This {% term integration %} allows you to write Python scripts that are exposed 
 Other imports like `min`, `max` are available as builtins. See the [python_script](https://github.com/home-assistant/core/blob/dev/homeassistant/components/python_script/__init__.py) source code for up-to-date information on the available objects inside the script.
   
 
-[hass-api]: https://developers.home-assistant.io/docs/dev_101_hass/
+[hass-api]: https://contributors.home-assistant.io/core/internals/hass/
 [logger-api]: https://docs.python.org/3.7/library/logging.html#logger-objects
 
 {% note %}

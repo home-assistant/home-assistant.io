@@ -1,8 +1,8 @@
 ---
 title: Airly
 description: Instructions on how to integrate Airly within Home Assistant.
-ha_category:
-  - Health
+ha_categories:
+  - weather_alerts.air_quality_pollen
 ha_release: 0.101
 ha_iot_class: Cloud Polling
 ha_config_flow: true

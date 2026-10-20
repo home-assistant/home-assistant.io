@@ -2,24 +2,8 @@
 title: KNX
 description: Instructions on how to integrate KNX components with Home Assistant.
 featured: true
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Date
-  - Fan
-  - Hub
-  - Light
-  - Notifications
-  - Number
-  - Scene
-  - Select
-  - Sensor
-  - Switch
-  - Text
-  - Time
-  - Weather
+ha_categories:
+  - hubs_protocols.building_automation
 ha_release: 0.24
 ha_iot_class: Local Push
 ha_codeowners:
@@ -369,7 +353,7 @@ outgoing:
 
 #### Available trigger data
 
-In addition to the [standard automation trigger data](/docs/automation/templating/#all), the `knx.telegram` trigger platform has additional trigger data available for use.
+In addition to the [standard automation trigger data](/docs/automation/trigger-data/#properties-of-all-triggers), the `knx.telegram` trigger platform has additional trigger data available for use.
 
 - `trigger.destination` Destination group address
 - `trigger.destination_name` Destination group address name
@@ -687,7 +671,7 @@ unique_id:
   required: false
   type: string
 entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  description: The [category](https://contributors.home-assistant.io/core/entities/entity-class/#generic-properties) of the entity.
   required: false
   type: string
   default: None
@@ -2059,7 +2043,7 @@ always_callback:
   type: boolean
   default: false
 state_class:
-  description: Overrides the DPT's default [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes).
+  description: Overrides the DPT's default [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes).
   required: false
   type: string
 device_class:

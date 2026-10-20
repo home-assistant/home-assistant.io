@@ -1,8 +1,6 @@
 ---
 title: Cover
 description: Instructions on how to integrate covers into Home Assistant.
-ha_category:
-  - Cover
 ha_release: 0.27
 ha_quality_scale: internal
 ha_codeowners:

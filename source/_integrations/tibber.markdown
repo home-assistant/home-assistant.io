@@ -1,11 +1,9 @@
 ---
 title: Tibber
 description: Instructions on how to integrate Tibber within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Energy
-  - Notifications
-  - Sensor
+ha_categories:
+  - energy.energy_prices
+  - energy.meters_monitoring
 ha_release: 0.8
 ha_iot_class: Cloud Polling
 ha_codeowners:

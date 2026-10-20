@@ -71,7 +71,7 @@ for:
 
 ## Good to know
 
-- Humidifiers that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as off. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted humidifier is unavailable.
+{% include conditions/unavailable_targets.md entities="humidifiers" %}
 - To gate an automation on the humidifier being on instead, use [Humidifier is on](/conditions/humidifier.is_on/).
 
 {% include conditions/try_it.md %}

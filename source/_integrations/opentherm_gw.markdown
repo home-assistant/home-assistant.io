@@ -1,13 +1,8 @@
 ---
 title: OpenTherm Gateway
 description: Control your OpenTherm Gateway from Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Hub
-  - Select
-  - Sensor
+ha_categories:
+  - climate.thermostats_heating
 ha_release: 0.81
 ha_iot_class: Local Push
 ha_config_flow: true

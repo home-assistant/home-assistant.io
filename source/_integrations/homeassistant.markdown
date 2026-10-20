@@ -2,8 +2,6 @@
 title: Home Assistant Core
 description: Set up core Home Assistant settings, automation triggers, and generic actions.
 ha_release: 0.0
-ha_category:
-  - Other
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'

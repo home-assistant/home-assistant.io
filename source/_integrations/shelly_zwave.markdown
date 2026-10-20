@@ -3,10 +3,9 @@ title: Shelly Z-Wave
 description: Connect and control your Shelly Z-Wave devices using the Z-Wave integration
 ha_release: '2025.6'
 ha_iot_class: Local Push
-ha_category:
-  - Sensor
-  - Switch
-  - Plug
+ha_categories:
+  - plugs_switches
+  - energy.meters_monitoring
 ha_domain: shelly
 ha_integration_type: brand
 ha_platforms:

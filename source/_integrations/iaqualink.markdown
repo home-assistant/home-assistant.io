@@ -1,12 +1,8 @@
 ---
 title: Jandy iAquaLink
 description: Instructions on how to configure Jandy iAquaLink integration.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Light
-  - Sensor
-  - Switch
+ha_categories:
+  - water.pools_spas
 ha_release: 0.99
 ha_iot_class: Cloud Polling
 ha_config_flow: true

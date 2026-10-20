@@ -1,14 +1,8 @@
 ---
 title: Renault
 description: Instructions on how to integrate your Renault, Dacia, or Alpine vehicle into Home Assistant using the My Renault service.
-ha_category:
-  - Binary sensor
-  - Button
-  - Car
-  - Number
-  - Presence detection
-  - Select
-  - Sensor
+ha_categories:
+  - vehicles_transport.cars_evs
 ha_release: 2021.8
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -173,7 +167,7 @@ The **Renault** integration provides the following entities. The entities availa
   - **Description**: The status of the last remote engine start
 - **Last battery activity**, **Last HVAC activity**, and **Last location activity**
   - **Description**: When the vehicle last reported battery, air conditioning, or location data
-  - **Remarks**: These entities are disabled by default
+  - **Remarks**: These entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
 - **Remote engine start code**
   - **Description**: The code of the last remote engine start
   - **Remarks**: This entity is disabled by default

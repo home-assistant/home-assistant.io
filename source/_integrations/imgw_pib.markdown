@@ -1,8 +1,8 @@
 ---
 title: IMGW-PIB
 description: Instructions on how to integrate IMGW-PIB (Polish Institute of Meteorology and Water Management - National Research Institute) hydrological service within Home Assistant.
-ha_category:
-  - Environment
+ha_categories:
+  - weather_alerts.public_warnings
 ha_release: 2024.6
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -48,7 +48,7 @@ The **IMGW-PIB** integration provides the following entities.
   - **Remarks**: Not available for all hydrological stations
 - **Emergent vegetation cover**
   - **Description**: Emergent vegetation cover indicates how much of the river cross-section is occupied by plants that grow above the water surface
-  - **Remarks**: Not available for all hydrological stations, disabled by default
+  - **Remarks**: Not available for all hydrological stations, [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
 - **Floating vegetation cover**
   - **Description**: Floating vegetation cover indicates how much of the river cross-section is covered by plants floating on the water surface
   - **Remarks**: Not available for all hydrological stations, disabled by default

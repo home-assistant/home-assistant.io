@@ -58,7 +58,7 @@ The following entities are not part of a target because of what the trigger, con
 The following entities are not part of a target because of how they are set up:
 
 - Entities that you assigned to a different area than their device, when you target the area of the device. These entities belong to their own area only.
-- Hidden entities. To hide an entity, turn off **Visible** in its settings. For example, if an action turns on all lights in the living room, a hidden light in that room stays off.
+- [Hidden entities](/docs/configuration/customizing-devices/#hidden-entities). For example, if an action turns on all lights in the living room, a hidden light in that room stays off. To hide or show an entity, refer to [Hiding an entity](/docs/configuration/customizing-devices/#hiding-an-entity).
 - Configuration and diagnostic entities, such as a firmware update or the signal strength of a device. If you put a label on the entity itself, and target that label, the entity is part of the target.
 
 ## Targets stay up to date
@@ -79,7 +79,7 @@ Under **Trigger when**, select one of the following:
 
 For **First** and **All**, Home Assistant skips targets that are **Unavailable** or **Unknown**. Most triggers also don't react when a target comes back from **Unavailable** or **Unknown**. For details, refer to [Unavailable and unknown state behavior in triggers](/docs/automation/trigger/#unavailable-and-unknown-state-behavior-in-triggers).
 
-When an automation starts, the trigger data describes the one entity that made the change, not the entire target. For example, `trigger.entity_id` is the light that turned on, and `trigger.from_state` and `trigger.to_state` are the states of that light before and after the change. To learn how to use this data, refer to [Trigger data in templates](/docs/automation/templating/).
+When an automation starts, the trigger data describes the one entity that made the change, not the entire target. For example, `trigger.entity_id` is the light that turned on, and `trigger.from_state` and `trigger.to_state` are the states of that light before and after the change. To learn how to use this data, refer to [Trigger data in templates](/docs/automation/trigger-data/).
 
 ### Conditions: Any and All
 

@@ -1,8 +1,6 @@
 ---
 title: Geolocation
 description: Show events such as earthquakes and bush fires near your home on a map, and use them in automations.
-ha_category:
-  - Geolocation
 ha_release: 0.78
 ha_domain: geo_location
 ha_quality_scale: internal

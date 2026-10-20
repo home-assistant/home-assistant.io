@@ -71,7 +71,7 @@ for:
 
 ## Good to know
 
-- Locks in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
+{% include conditions/unavailable_targets.md entities="locks" %}
 - Use **For at least** if you want to ignore a short unlock before the door is secured again.
 - To check for the secure state instead, use [Lock is locked](/conditions/lock.is_locked/).
 

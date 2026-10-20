@@ -1,10 +1,8 @@
 ---
 title: AirGradient
 description: Instructions on how to set up AirGradient devices in Home Assistant.
-ha_category:
-  - Health
-  - Sensor
-  - Update
+ha_categories:
+  - sensors.air_quality
 ha_config_flow: true
 ha_release: 2024.6
 ha_iot_class: Local Polling
@@ -73,7 +71,7 @@ The integration will fetch data from each device. The following sensors are supp
 - Temperature
 - Total volatile organic compounds index
 - Battery percentage
-- Battery voltage (disabled by default)
+- Battery voltage ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
 - Input voltage (disabled by default)
 - PM0.5 particle count (disabled by default)
 - PM1 particle count (disabled by default)

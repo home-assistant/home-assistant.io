@@ -11,11 +11,11 @@ related:
     title: Sentence wildcards
   - docs: voice_control/custom_sentences_yaml
     title: Customize responses
-  - url: https://developers.home-assistant.io/docs/intent_builtin/
+  - url: https://contributors.home-assistant.io/core/internals/built-in-intents/
     title: View existing intents
 ---
 
-You may add your own sentences to the intent recognizer by either extending an [existing intent](https://developers.home-assistant.io/docs/intent_builtin/) or creating a new one. You may also [customize responses](/voice_control/custom_sentences_yaml#customizing-responses) for existing intents.
+You may add your own sentences to the intent recognizer by either extending an [existing intent](https://contributors.home-assistant.io/core/internals/built-in-intents/) or creating a new one. You may also [customize responses](/voice_control/custom_sentences_yaml#customizing-responses) for existing intents.
 
 ## Prerequisites
 

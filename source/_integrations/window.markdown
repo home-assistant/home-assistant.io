@@ -1,8 +1,6 @@
 ---
 title: Window
 description: Use window triggers and conditions in Home Assistant automations.
-ha_category:
-  - Automation
 ha_release: 2026.4
 ha_quality_scale: internal
 ha_codeowners:

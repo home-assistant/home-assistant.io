@@ -2,23 +2,8 @@
 title: Z-Wave
 description: Instructions on how to integrate Z-Wave with Home Assistant via Z-Wave JS.
 featured: true
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Fan
-  - Hub
-  - Humidifier
-  - Light
-  - Lock
-  - Number
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Update
+ha_categories:
+  - hubs_protocols.wireless_protocols
 ha_release: '2021.2'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -162,7 +147,7 @@ Do this when you have a device that is still paired with an adapter, but you don
 Do this if you have an existing Z-Wave network and want to replace its adapter with a new adapter. The Z-Wave integration with all its entities will stay in Home Assistant. The new adapter is added to Home Assistant and paired with the existing network.
 
 {% tip %}
-You cannot run two Z-Wave adapters at the same time with the same Z-Wave app instance. If you only want to use a single app instance, you need to migrate the network to the new adapter. If you want to use two adapters at the same time, you need a second Z-Wave JS Server instance. You can run this additional Z-Wave JS Server instance in a separate container, or run Z-Wave JS Server or Z-Wave JS UI on another system outside of Home Assistant.
+You cannot run two Z-Wave adapters at the same time with the same Z-Wave JS app instance. If you only want to use a single app instance, you need to migrate the network to the new adapter. If you want to use two adapters at the same time, you need a second Z-Wave JS Server instance. You can run this additional Z-Wave JS Server instance in a separate container, or run Z-Wave JS Server or Z-Wave JS UI on another system outside of Home Assistant.
 {% endtip %}
 
 ### Prerequisites
@@ -273,28 +258,22 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
 
    ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-reconfigure-adapter.png)
 
-4. Depending on how your controller is connected, you might need to either select or clear the **Use the Z-Wave Supervisor app** checkbox.
+4. Depending on how your controller is connected, you might need to either select or clear the **Use the Z-Wave JS app** checkbox.
    - _Option 1:_ If you are using a USB-based or TCP-based controller:
-     - Select the **Use the Z-Wave Supervisor app** checkbox.
-
-       ![Selecting the Z-Wave Supervisor app checkbox](/images/integrations/z-wave/z-wave-js-ui-migration-select-option.png)
-
+     - Select the **Use the Z-Wave JS app** checkbox.
      - In the next step, select your controller and select **Submit**.
 
        ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-select-adapter-1.png)
 
    - _Option 2:_ If you are using a GPIO module or if your controller is not showing up in the list:
-     - Clear the **Use the Z-Wave Supervisor app** checkbox.
-
-       ![Deselecting the Z-Wave Supervisor app](/images/integrations/z-wave/z-wave-js-ui-migration-deselect-option.png)
-
+     - Clear the **Use the Z-Wave JS app** checkbox.
      - Enter the connection details for your Z-Wave JS app:
        - In the **URL** field, enter `ws://core-zwave-js:3000`.
 
        ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-enter-url.png)
 
 5. Remove the temporary files you uploaded to the `/tmp` folder for the migration.
-6. Done! Your Z-Wave JS app is now managing your Z-Wave network. You can start the Z-Wave JS app and stop and uninstall the Z-Wave JS UI app.
+6. Done! Your Z-Wave JS app is now managing your Z-Wave network. You can now uninstall the Z-Wave JS UI app.
 
 ## Overriding the radio frequency region of the adapter in the Z-Wave JS app
 
@@ -422,7 +401,7 @@ The Z-Wave integration provides several special entities, some of which are avai
 
 ### Entities available for every Z-Wave device
 
-1. **Node status** sensor: This sensor shows the node status for a given Z-Wave device. The sensor is disabled by default. The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status). They can be used in state change automations. For example to ping a device when it is dead, or refresh values when it wakes up.
+1. **Node status** sensor: This sensor shows the node status for a given Z-Wave device. The sensor is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). The available node statuses are explained in the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/node?id=status). They can be used in state change automations. For example to ping a device when it is dead, or refresh values when it wakes up.
 2. **Ping** button: This button can be pressed to ping a device. It is an alternative to the `zwave_js.ping` action.
 3. **Adapter/node statistics** sensors: Z-Wave JS collects statistics about communications between [nodes](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot) and the [adapter](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot). The statistics can be used to troubleshoot RF issues in your environment. These statistics are available in the network configuration and device info panels. But they are also available as sensors which are disabled by default.
 
@@ -718,9 +697,9 @@ Make sure that you keep a backup of these keys in a safe place. You will need to
 
 Once you have the Z-Wave JS server up and running, you need to install and configure the integration in Home Assistant (as described above).
 
-If you're running full Home Assistant with supervisor, you will be presented with a dialog that asks if you want to use the Z-Wave JS Supervisor app. You **must** uncheck this box if you are running the Z-Wave JS server in any manner other than the official Z-Wave JS app, including using Z-Wave JS UI app.
+If you run {% term "Home Assistant Operating System" %}, a dialog asks if you want to use the Z-Wave JS app. If you run the Z-Wave JS server in any other way, including with the Z-Wave JS UI app, you must clear the **Use the Z-Wave JS app** checkbox.
 
-If you're not running the supervisor or you've unchecked the above-mentioned box, you will be asked to enter a WebSocket URL (defaults to ws://localhost:3000). It is very important that you fill in the correct (Docker) IP/hostname here. For example for the Z-Wave JS UI app this is `ws://a0d7b954-zwavejs2mqtt:3000`.
+If you don't run Home Assistant OS, or you cleared that checkbox, you're asked to enter a WebSocket URL (defaults to ws://localhost:3000). It is very important that you fill in the correct (Docker) IP/hostname here. For example for the Z-Wave JS UI app this is `ws://a0d7b954-zwavejs2mqtt:3000`.
 
 ## FAQ: Supported devices and Command Classes
 

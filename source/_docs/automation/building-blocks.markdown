@@ -1,15 +1,28 @@
 ---
-title: "Building blocks and actions in automations and scripts"
-description: "Wait, repeat, choose, and perform steps at the same time in your automations and scripts, in the editor or in YAML."
+title: "Building blocks in automations and scripts"
+description: "Use building blocks to wait, repeat, choose, and run steps at the same time in your automations and scripts, in the editor or in YAML."
 toc: true
+related:
+  - docs: /building-blocks/
+    title: List of building blocks
+  - docs: /docs/automation/action/
+    title: Actions
+  - docs: /docs/script/
+    title: Scripts
+  - docs: /docs/automation/editor/
+    title: Automation editors
+  - docs: /docs/automation/yaml/
+    title: Automations in YAML
+  - docs: /docs/automation/trigger-data/
+    title: Trigger data in templates
 ---
 
 When an automation or script runs, it goes through a list of steps. Each step is an action or a building block:
 
-- An **action** makes something happen, for example, turning on a light or sending a notification. Home Assistant performs the action on the targets you choose. For a list of all actions, refer to the [actions reference](/actions/).
-- A **building block** controls whether, when, and in which order the other steps run. It can check a condition, wait, repeat steps, choose between steps, or perform steps at the same time.
+- A **building block** controls whether, when, and in which order the other steps run. It can check a condition, wait, repeat steps, choose between steps, or run steps at the same time.
+- An **action** makes something happen, for example, turning on a light or sending a notification. For more about actions, refer to [Actions in automations and scripts](/docs/automation/action/).
 
-Automations and scripts use the same actions and building blocks.
+Automations and scripts use the same building blocks.
 
 ## How automations and scripts run their steps
 
@@ -19,57 +32,11 @@ The difference is when they run: an automation runs by itself when one of its tr
 
 To add a step in the editor, select **Add action**. To add a building block, select **Blocks** in that dialog. In YAML, you write actions and building blocks in the same list. For details, refer to [Writing steps in YAML](#writing-steps-in-yaml).
 
-For how to create scripts, pass them variables, and wait for them to finish, refer to the [Scripts integration](/integrations/script/).
+For how to create scripts, pass them values, and wait for them to finish, refer to [Scripts](/docs/script/). For scripts in YAML, refer to the [Scripts integration](/integrations/script/).
 
-<a id="perform-an-action"></a>
+## Available building blocks
 
-## Performing an action
-
-To make something happen, such as turning on a light, add an action. Each action has its own page with its options, listed in the [actions reference](/actions/). For how to add an action in the editor or in YAML, and for the options that most actions share, such as targets and data, refer to [Actions in automations and scripts](/docs/automation/action/).
-
-Most actions come from integrations. Two actions are [built into automations and scripts](/actions/#built_in): [**Fire manual event**](/actions/event/) and [**Set conversation response**](/actions/set_conversation_response/).
-
-## Controlling how steps run
-
-Building blocks control the flow of your automation or script. They make decisions, repeat steps, wait, run steps together, and store values in variables. Each building block has its own page with its options and examples, grouped by categories in the [list of building blocks](/building-blocks/).
-
-## Writing steps in YAML
-
-In YAML, the steps are a list under `actions:` in an automation, or under `sequence:` in a script. If there is only one step, you can leave out the list.
-
-Every step can have an `alias`. The alias is the name of the step that the editor and the trace show. In the editor, you set it with **Rename**.
-
-In an automation, the steps go under `actions:`:
-
-{% example %}
-automation: |
-  actions:
-    - alias: "Turn on ceiling light"
-      action: light.turn_on
-      target:
-        entity_id: light.ceiling
-    - alias: "Notify that ceiling light is turned on"
-      action: notify.notify
-      data:
-        message: "Turned on the ceiling light!"
-{% endexample %}
-
-In a script, the same steps go under `sequence:`:
-
-{% example %}
-script: |
-  sequence:
-    - alias: "Turn on ceiling light"
-      action: light.turn_on
-      target:
-        entity_id: light.ceiling
-    - alias: "Notify that ceiling light is turned on"
-      action: notify.notify
-      data:
-        message: "Turned on the ceiling light!"
-{% endexample %}
-
-In an automation, templates in the steps can use the `trigger` variable, which describes what started the automation. For details, refer to [available trigger data](/docs/automation/templating/#available-trigger-data).
+Each building block has its own page with its options and examples, grouped by categories in the [list of building blocks](/building-blocks/).
 
 ## Options for any step
 
@@ -131,14 +98,59 @@ automation: |
         entity_id: light.ceiling
 {% endexample %}
 
-`enabled` can also be a limited template, which can't use the state of entities. In a {% term blueprint %}, it can be a blueprint input. Home Assistant checks the value each time the step is about to run.
+`enabled` can also be a [limited template](/docs/templating/limited-templates/). The limited template can't use variables, such as `trigger`, `this`, or values from the `variables` section. It also can't use the state of entities or the current time. If the limited template refers to a variable, Home Assistant skips the step or stops the run with an error.
+
+In a {% term blueprint %}, set `enabled` directly to a blueprint input with `!input`, not through a template. Use a [boolean selector](/docs/blueprint/selectors/#boolean-selector) for the input, so its value is `true` or `false`. With another selector, such as an entity selector, the value is an entity ID, which counts as `true`, so the step always runs.
 
 ```yaml
+blueprint:
+  name: "Optional delay"
+  domain: automation
+  input:
+    use_delay:
+      name: "Wait 35 minutes"
+      selector:
+        boolean:
+
 actions:
   - delay: "0:35"
-    enabled: !input input_boolean
+    enabled: !input use_delay
 ```
 
-[conditions page]: /conditions/
-[shorthand-template]: /conditions/template/#shorthand-notation
-[script variables]: /integrations/script/#variables
+## Writing steps in YAML
+
+In YAML, the steps are a list under `actions:` in an automation, or under `sequence:` in a script. If there is only one step, you can leave out the list.
+
+Every step can have an `alias`. The alias is the name of the step that the editor and the trace show. In the editor, you set it with **Rename**.
+
+In an automation, the steps go under `actions:`:
+
+{% example %}
+automation: |
+  actions:
+    - alias: "Turn on ceiling light"
+      action: light.turn_on
+      target:
+        entity_id: light.ceiling
+    - alias: "Notify that ceiling light is turned on"
+      action: notify.notify
+      data:
+        message: "Turned on the ceiling light!"
+{% endexample %}
+
+In a script, the same steps go under `sequence:`:
+
+{% example %}
+script: |
+  sequence:
+    - alias: "Turn on ceiling light"
+      action: light.turn_on
+      target:
+        entity_id: light.ceiling
+    - alias: "Notify that ceiling light is turned on"
+      action: notify.notify
+      data:
+        message: "Turned on the ceiling light!"
+{% endexample %}
+
+In an automation, templates in the steps can use the `trigger` variable, which describes what started the automation. For details, refer to [available trigger data](/docs/automation/trigger-data/#trigger-properties).

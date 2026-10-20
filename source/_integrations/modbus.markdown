@@ -1,9 +1,8 @@
 ---
 title: Modbus
 description: Instructions on how to manually register Modbus entities and platforms.
-ha_category:
-  - Hub
-  - Modbus
+ha_categories:
+  - diy_makers
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: modbus
@@ -1699,7 +1698,7 @@ sensors:
       required: false
       type: integer
     state_class:
-      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor."
+      description: "The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor."
       required: false
       type: string
     structure:

@@ -34,7 +34,7 @@ round(
     value: Any,
     precision: int = 0,
     method: str = "common",
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> float | int | Any
 ```
 
@@ -62,7 +62,7 @@ method:
   type: string
 default:
   description: >
-    Value to return if the conversion fails. If not provided, an error is raised on invalid input.
+    The value to return if the conversion fails, such as `0`. If you leave out `default` and the conversion fails, `round` raises an error and the template fails.
   required: false
   type: any
 {% endfunction_parameters %}

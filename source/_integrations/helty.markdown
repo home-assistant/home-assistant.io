@@ -1,10 +1,8 @@
 ---
 title: Helty Flow
 description: Instructions on how to integrate Helty Flow ventilation units with Home Assistant.
-ha_category:
-  - Button
-  - Fan
-  - Sensor
+ha_categories:
+  - climate.fans_ventilation
 ha_release: 2026.7
 ha_iot_class: Local Polling
 ha_config_flow: true

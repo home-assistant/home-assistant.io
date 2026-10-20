@@ -4424,3 +4424,143 @@ For a summary in a more readable format
 [@thecode]: https://github.com/thecode
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@tronikos]: https://github.com/tronikos
+
+## Release 2026.10.2 - October 16
+
+- Fix IndexError on out-of-range heater levels in Tesla Fleet ([@sebr] - [#178049])
+- Deduplicate sleepers within a single SleepIQ bed ([@derekcentrico] - [#181461])
+- Handle Enphase envoy Session is Closed in background tasks ([@catsmanac] - [#183172])
+- Treat MPD protocol errors as a connection failure ([@mattias-arrelid] - [#184481])
+- Bump py-opendisplay to 7.18.1 ([@g4bri3lDev] - [#184911])
+- Bump aiotankerkoenig to 0.5.5 ([@mib1185] - [#185714])
+- Tankerkoenig handle api errors config flow ([@mib1185] - [#185719])
+- Handle Gemini generation parameters and complete WAV TTS responses ([@oohhddaanngg] - [#185723])
+- Fix SmartTub error sensor reporting stale historical errors ([@mdz] - [#185726])
+- Bump aiohttp to 3.14.5 ([@bdraco] - [#185746])
+- Mark Aquacell sensors unavailable when data is stale ([@alexborro] - [#185762])
+- Bump aionanoleaf2 to 1.0.5 ([@feixm1] - [#185777])
+- Bump my-pv to 0.0.13 ([@rrooggiieerr] - [#185797])
+- Catch TimeoutError in the Nettigo Air Monitor integration ([@bieniu] - [#185812])
+- Ignore devices without TR-064 support during FRITZ!Box Tools SSDP discovery ([@mib1185] - [#185816])
+- Bump arcam-fmj to 3.0.1 ([@elupus] - [#185887])
+- Handle Alexa RequireRelink on cloud entity registry updates ([@balloob] - [#185894])
+- Redact schedule coordinates in Teslemetry and Tesla Fleet diagnostics ([@Bre77] - [#185905])
+- Report a dedicated error when the Tedee bridge has no locks ([@zweckj] - [#185907])
+- Prevent WiiM browse failures from marking devices unavailable ([@Linkplay2020] - [#185926])
+- Fix group sensor crash when the group has no members ([@joostlek] - [#185931])
+- Do not cut off KNX SQLite telegram store initialization with a timeout ([@farmio] - [#185940])
+- Bump nyt_games to 1.0.1 ([@joostlek] - [#185968])
+- Gate Nanoleaf event listener on supports_events ([@loebi-ch] - [#185977])
+- Fix MQTT device triggers and tags firing twice after reload ([@klejejs] - [#185998])
+- Fix FRITZ!SmartHome SSDP host selection ([@mib1185] - [#186029])
+- switch Broadlink to broadlink-async (fixes #184800, replaces #184806) ([@DAB-LABS] - [#186053])
+- Fix weatherflow last_reset updating on every device report ([@jeeftor] - [#186141])
+- Bump weatherflow4py to 1.5.12 ([@jeeftor] - [#186142])
+- Bump intellifire4py to 4.5.6 ([@jeeftor] - [#186143])
+- Fix scrape subentry reconfigure flow not finishing ([@joostlek] - [#186144])
+- pin pycares to 5.0.1 ([@aclerici38] - [#186164])
+- Allow a list of states for state conditions with a duration ([@emontnemery] - [#186165])
+- Bump airthings-ble to 1.3.1 ([@LaStrada] - [#186387])
+- Guard owner and existing credentials in auth provider create command ([@zweckj] - [#186398])
+- Fetch missing Renault vehicle details ([@epenet] - [#186402])
+- Fix Discogs random record sensor when release has no format description ([@cerealkiller57540] - [#186405])
+- Fix permissions validation for ProxmoxVE ([@CoMPaTech] - [#186420])
+- Hide MELCloud Home swing modes on units without vanes ([@erwindouna] - [#186468])
+- Fix modbus reload without YAML config ([@joyjit] - [#186554])
+- Revoke refresh tokens when removing a user ([@frenck] - [#186558])
+- Redact credentials and host in SFR Box diagnostics ([@epenet] - [#186668])
+- Fix SolarEdge module statistics sum resetting after a gap ([@tronikos] - [#186753])
+- Bump deebot-client to 18.7.0 ([@edenhaus] - [#186779])
+- Redact identifying data in NRGkick diagnostics ([@andijakl] - [#186781])
+- Persist Ecovacs account credentials to avoid device verification ([@erwindouna] - [#186796])
+- Update frontend to 20260930.4 ([@bramkragten] - [#186813])
+- Fix Fritz setup failing when UPnP info lacks NewEnable key ([@mib1185] - [#186896])
+- Bump aiomelcloudhome to 0.3.0 ([@erwindouna] - [#185769])
+- Pin pypasser below 1.0.0 ([@erwindouna] - [#186527])
+
+[#178049]: https://github.com/home-assistant/core/pull/178049
+[#181461]: https://github.com/home-assistant/core/pull/181461
+[#183172]: https://github.com/home-assistant/core/pull/183172
+[#184481]: https://github.com/home-assistant/core/pull/184481
+[#184911]: https://github.com/home-assistant/core/pull/184911
+[#185714]: https://github.com/home-assistant/core/pull/185714
+[#185719]: https://github.com/home-assistant/core/pull/185719
+[#185723]: https://github.com/home-assistant/core/pull/185723
+[#185726]: https://github.com/home-assistant/core/pull/185726
+[#185746]: https://github.com/home-assistant/core/pull/185746
+[#185762]: https://github.com/home-assistant/core/pull/185762
+[#185769]: https://github.com/home-assistant/core/pull/185769
+[#185777]: https://github.com/home-assistant/core/pull/185777
+[#185797]: https://github.com/home-assistant/core/pull/185797
+[#185812]: https://github.com/home-assistant/core/pull/185812
+[#185816]: https://github.com/home-assistant/core/pull/185816
+[#185887]: https://github.com/home-assistant/core/pull/185887
+[#185894]: https://github.com/home-assistant/core/pull/185894
+[#185905]: https://github.com/home-assistant/core/pull/185905
+[#185907]: https://github.com/home-assistant/core/pull/185907
+[#185926]: https://github.com/home-assistant/core/pull/185926
+[#185931]: https://github.com/home-assistant/core/pull/185931
+[#185940]: https://github.com/home-assistant/core/pull/185940
+[#185968]: https://github.com/home-assistant/core/pull/185968
+[#185977]: https://github.com/home-assistant/core/pull/185977
+[#185998]: https://github.com/home-assistant/core/pull/185998
+[#186029]: https://github.com/home-assistant/core/pull/186029
+[#186053]: https://github.com/home-assistant/core/pull/186053
+[#186141]: https://github.com/home-assistant/core/pull/186141
+[#186142]: https://github.com/home-assistant/core/pull/186142
+[#186143]: https://github.com/home-assistant/core/pull/186143
+[#186144]: https://github.com/home-assistant/core/pull/186144
+[#186164]: https://github.com/home-assistant/core/pull/186164
+[#186165]: https://github.com/home-assistant/core/pull/186165
+[#186387]: https://github.com/home-assistant/core/pull/186387
+[#186398]: https://github.com/home-assistant/core/pull/186398
+[#186402]: https://github.com/home-assistant/core/pull/186402
+[#186405]: https://github.com/home-assistant/core/pull/186405
+[#186420]: https://github.com/home-assistant/core/pull/186420
+[#186468]: https://github.com/home-assistant/core/pull/186468
+[#186527]: https://github.com/home-assistant/core/pull/186527
+[#186554]: https://github.com/home-assistant/core/pull/186554
+[#186558]: https://github.com/home-assistant/core/pull/186558
+[#186668]: https://github.com/home-assistant/core/pull/186668
+[#186753]: https://github.com/home-assistant/core/pull/186753
+[#186779]: https://github.com/home-assistant/core/pull/186779
+[#186781]: https://github.com/home-assistant/core/pull/186781
+[#186796]: https://github.com/home-assistant/core/pull/186796
+[#186813]: https://github.com/home-assistant/core/pull/186813
+[#186896]: https://github.com/home-assistant/core/pull/186896
+[@Bre77]: https://github.com/Bre77
+[@CoMPaTech]: https://github.com/CoMPaTech
+[@DAB-LABS]: https://github.com/DAB-LABS
+[@LaStrada]: https://github.com/LaStrada
+[@Linkplay2020]: https://github.com/Linkplay2020
+[@aclerici38]: https://github.com/aclerici38
+[@alexborro]: https://github.com/alexborro
+[@andijakl]: https://github.com/andijakl
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@catsmanac]: https://github.com/catsmanac
+[@cerealkiller57540]: https://github.com/cerealkiller57540
+[@derekcentrico]: https://github.com/derekcentrico
+[@edenhaus]: https://github.com/edenhaus
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@erwindouna]: https://github.com/erwindouna
+[@farmio]: https://github.com/farmio
+[@feixm1]: https://github.com/feixm1
+[@g4bri3lDev]: https://github.com/g4bri3lDev
+[@jeeftor]: https://github.com/jeeftor
+[@joostlek]: https://github.com/joostlek
+[@joyjit]: https://github.com/joyjit
+[@klejejs]: https://github.com/klejejs
+[@loebi-ch]: https://github.com/loebi-ch
+[@mattias-arrelid]: https://github.com/mattias-arrelid
+[@mdz]: https://github.com/mdz
+[@mib1185]: https://github.com/mib1185
+[@oohhddaanngg]: https://github.com/oohhddaanngg
+[@rrooggiieerr]: https://github.com/rrooggiieerr
+[@sebr]: https://github.com/sebr
+[@tronikos]: https://github.com/tronikos
+[@zweckj]: https://github.com/zweckj

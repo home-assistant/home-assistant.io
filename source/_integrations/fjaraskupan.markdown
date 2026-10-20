@@ -1,10 +1,9 @@
 ---
 title: Fjäråskupan
 description: Instructions on how to configure fjäråskupan integration.
-ha_category:
-  - Binary sensor
-  - Fan
-  - Light
+ha_categories:
+  - appliances_cleaning.cooking
+  - climate.fans_ventilation
 ha_release: 2021.9
 ha_iot_class: Local Polling
 ha_config_flow: true

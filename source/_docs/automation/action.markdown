@@ -5,8 +5,8 @@ toc: true
 related:
   - docs: /actions/
     title: List of available actions
-  - docs: /docs/scripts/
-    title: Building blocks and actions
+  - docs: /docs/automation/building-blocks/
+    title: Building blocks
   - docs: /docs/automation/targets/
     title: Automation targets
   - docs: /docs/templating/
@@ -43,12 +43,12 @@ An automation or script runs its actions one after the other, from top to bottom
 As a result:
 
 - If a condition between the actions isn't met, the actions after the condition don't run. For details, refer to [Condition](/building-blocks/condition/).
-- If an action fails, the actions after the failed action don't run. To continue anyway, refer to [Continuing when a step fails](/docs/scripts/#continuing-when-a-step-fails).
+- If an action fails, the actions after the failed action don't run. To continue anyway, refer to [Continuing when a step fails](/docs/automation/building-blocks/#continuing-when-a-step-fails).
 - Actions don't run at the same time. To run actions at the same time, use [Run in parallel](/building-blocks/parallel/).
 
 ## Actions and building blocks
 
-Building blocks control whether, when, and in which order the actions run. For example, a building block can check a condition, wait a few seconds, repeat steps, or choose between steps. To add a building block in the editor, select **Add action**, and then select **Blocks**. For how steps run, refer to [Building blocks and actions](/docs/scripts/). For all building blocks, refer to the [list of building blocks](/building-blocks/).
+Building blocks control whether, when, and in which order the actions run. For example, a building block can check a condition, wait a few seconds, repeat steps, or choose between steps. To add a building block in the editor, select **Add action**, and then select **Blocks**. For how steps run, refer to [Building blocks](/docs/automation/building-blocks/). For all building blocks, refer to the [list of building blocks](/building-blocks/).
 
 ## Built-in actions
 
@@ -85,7 +85,7 @@ action: |
     brightness: 100
 {% endexample %}
 
-For details on `target` and `data`, refer to [Action targets](#action-targets) and [Action options](#action-options). For how actions fit in the list of steps of an automation or script, refer to [Writing steps in YAML](/docs/scripts/#writing-steps-in-yaml).
+For details on `target` and `data`, refer to [Action targets](#action-targets) and [Action options](#action-options). For how actions fit in the list of steps of an automation or script, refer to [Writing steps in YAML](/docs/automation/building-blocks/#writing-steps-in-yaml).
 
 In older YAML, you may find a shortcut to activate a {% term scene %}. It does the same as the [**Activate scene**](/actions/scene.turn_on/) action. When you open the step in the editor, the editor changes it to `action: scene.turn_on`.
 

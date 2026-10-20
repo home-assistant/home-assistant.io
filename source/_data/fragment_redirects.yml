@@ -7,7 +7,29 @@
   enabling-entities: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
   to-enable-or-disable-a-single-entity: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
   to-enable-or-disable-multiple-entities: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
-"/docs/scripts/":
+"/conditions/":
+  logical-conditions: /conditions/and/
+  and-condition: /conditions/and/
+  or-condition: /conditions/or/
+  mixed-and-and-or-conditions: /conditions/or/#automation-remind-you-to-take-a-jacket-when-its-cold-or-rainy
+  not-condition: /conditions/not/
+  state-condition: /conditions/state/
+  numeric-state-condition: /conditions/numeric_state/
+  time-condition: /conditions/time/
+  template-condition: /conditions/template/
+  template-condition-shorthand-notation: /conditions/template/#shorthand-notation
+  trigger-condition: /conditions/trigger/
+  triggered-by-condition: /conditions/trigger/
+  device-conditions: /conditions/device/
+  sun-condition: /conditions/sun/
+  sun-conditions: /conditions/sun/
+  sun-state-condition: /conditions/sun/
+  sun-elevation-condition: /conditions/sun/
+  sunsetsunrise-condition: /conditions/sun/
+  zone-condition: /conditions/zone/
+  zone-conditions: /conditions/zone/
+  disabling-a-condition: /docs/automation/condition/#disabling-a-condition
+"/docs/automation/building-blocks/":
   choose-a-group-of-actions: /building-blocks/choose/
   adding-choose-in-the-editor: /building-blocks/choose/
   choose-options-in-the-ui: /building-blocks/choose/
@@ -70,6 +92,8 @@
   examples-of-repeat-until: /building-blocks/repeat_until/
   automation-repeat-a-command-until-it-works: /building-blocks/repeat_until/
   adding-an-action-in-the-editor: /docs/automation/action/#adding-an-action-in-the-editor
+  perform-an-action: /docs/automation/action/
+  performing-an-action: /docs/automation/action/
   performing-an-action-in-yaml: /docs/automation/action/#adding-an-action-in-yaml
   activate-a-scene: /docs/automation/action/#adding-an-action-in-yaml
   repeat-until: /building-blocks/repeat_until/
@@ -158,3 +182,24 @@
   good-to-know-about-set-conversation-response: /actions/set_conversation_response/#good-to-know
   examples-of-set-conversation-response: /actions/set_conversation_response/
   automation-answer-whether-the-garage-door-is-open: /actions/set_conversation_response/#automation-answer-whether-the-garage-door-is-open
+"/docs/automation/trigger-data/":
+  available-state-data: /docs/automation/trigger-data/#state-of-the-automation
+  available-trigger-data: /docs/automation/trigger-data/#trigger-properties
+  all: /docs/automation/trigger-data/#properties-of-all-triggers
+  calendar: /docs/automation/trigger-data/#calendar-triggers
+  device: /docs/automation/trigger-data/#device-triggers
+  event: /docs/automation/trigger-data/#event-triggers
+  geolocation: /docs/automation/trigger-data/#geolocation-triggers
+  home-assistant: /docs/automation/trigger-data/#home-assistant-triggers
+  mqtt: /docs/automation/trigger-data/#mqtt-triggers
+  numeric-state: /docs/automation/trigger-data/#numeric-state-triggers
+  sentence: /docs/automation/trigger-data/#sentence-triggers
+  state: /docs/automation/trigger-data/#state-triggers
+  sun: /docs/automation/trigger-data/#sun-triggers
+  tag: /docs/automation/trigger-data/#tag-triggers
+  template: /docs/automation/trigger-data/#template-triggers
+  time: /docs/automation/trigger-data/#time-triggers
+  time-pattern: /docs/automation/trigger-data/#time-pattern-triggers
+  persistent-notification: /docs/automation/trigger-data/#persistent-notification-triggers
+  webhook: /docs/automation/trigger-data/#webhook-triggers
+  zone: /docs/automation/trigger-data/#zone-triggers

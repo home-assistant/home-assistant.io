@@ -1,21 +1,8 @@
 ---
 title: Group
 description: Instructions on how to set up groups within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Cover
-  - Event
-  - Fan
-  - Helper
-  - Light
-  - Lock
-  - Media player
-  - Notifications
-  - Organization
-  - Sensor
-  - Switch
-  - Valve
+ha_categories:
+  - helpers.calculate_value
 ha_release: pre 0.7
 ha_iot_class: Calculated
 ha_quality_scale: internal
@@ -361,7 +348,7 @@ device_class:
   type: string
   required: false
 state_class:
-  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](https://developers.home-assistant.io/docs/core/entity/sensor/#available-state-classes).
+  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](https://contributors.home-assistant.io/core/entities/sensor/#state-classes).
   type: string
   required: false
 {% endconfiguration %}

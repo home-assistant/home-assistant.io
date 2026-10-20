@@ -70,7 +70,7 @@ trigger_variables:
   type: map
   keys:
     PARAMETER_NAME:
-      description: "The value of the variable. Any YAML is valid. Only [limited templates](/docs/templating/where-to-use/#limited-templates) can be used."
+      description: "The value of the variable. Any YAML is valid. Only [limited templates](/docs/templating/limited-templates/) can be used."
       type: any
 mode:
   description: "Controls what happens when the automation is invoked while it is still running from one or more previous invocations. See [Automation modes](/docs/automation/modes/)."
@@ -101,7 +101,7 @@ triggers:
       type: string
       required: false
     enabled:
-      description: "Set to `false` to disable the trigger. You can also use a [limited template](/docs/templating/where-to-use/#limited-templates). For details, refer to [Disabling a trigger](/docs/automation/trigger/#disabling-a-trigger)."
+      description: "Set to `false` to disable the trigger. You can also use a [limited template](/docs/templating/limited-templates/). For details, refer to [Disabling a trigger](/docs/automation/trigger/#disabling-a-trigger)."
       type: [boolean, template]
       required: false
       default: true
@@ -143,13 +143,18 @@ automation my_lights:
         event: sunset
         offset: "-01:00:00"
       - trigger: state
-        entity_id: all
+        entity_id:
+          - person.paulus
+          - person.anne_therese
         to: "home"
     conditions:
       # Prefix the first line of each condition configuration
-      # with a '-'' to enter multiple
+      # with a '-' to enter multiple
       - condition: state
-        entity_id: all
+        entity_id:
+          - person.paulus
+          - person.anne_therese
+        match: any
         state: "home"
       - condition: time
         after: "16:00:00"
@@ -164,8 +169,8 @@ automation my_lights:
   - alias: "Rule 2 - Away Mode"
     triggers:
       - trigger: state
-        entity_id: all
-        to: "not_home"
+        entity_id: zone.home
+        to: "0"
     actions:
       - action: light.turn_off
         target:

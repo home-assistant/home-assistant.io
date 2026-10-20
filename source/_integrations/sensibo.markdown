@@ -1,16 +1,10 @@
 ---
 title: Sensibo
 description: Instructions on how to integrate Sensibo A/C controller into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Fan
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
+ha_categories:
+  - climate.heat_pumps_air_conditioning
+  - climate.air_purifiers_humidifiers
+  - sensors.air_quality
 ha_release: 0.44
 ha_iot_class: Cloud Polling
 ha_config_flow: true

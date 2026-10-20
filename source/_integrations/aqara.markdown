@@ -3,11 +3,10 @@ title: Aqara
 description: Connect and control your Aqara Matter devices using the Matter integration
 ha_release: '2024.10'
 ha_iot_class: Local Push
-ha_category:
-  - Lock
-  - Sensor
-  - Binary sensor
-  - Light
+ha_categories:
+  - sensors
+  - security_safety.locks_access
+  - lighting
 ha_domain: aqara
 ha_integration_type: brand
 works_with:

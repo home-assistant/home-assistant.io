@@ -67,7 +67,7 @@ for:
 ## Good to know
 
 - A paused timer keeps its remaining time until it is restarted or cancelled.
-- Timers that are `unavailable` or `unknown` are skipped for **Any** and cause **All** to fail.
+{% include conditions/unavailable_targets.md entities="timers" %}
 
 {% include conditions/try_it.md %}
 

@@ -31,7 +31,7 @@ output: "2024-03-15T13:50:00+00:00"
 
 ```signature
 value | timestamp_utc(
-    default: Any = None,
+    default: Any,
 ) -> str | Any
 ```
 
@@ -42,7 +42,7 @@ The following parameters can be provided to this filter.
 {% function_parameters %}
 default:
   description: >
-    Value to return if the formatting fails. If not provided, an error is raised on invalid input.
+    The value to return if the formatting fails, such as `"unknown"`. If you leave out `default` and the formatting fails, `timestamp_utc` raises an error and the template fails.
   required: false
   type: any
 {% endfunction_parameters %}

@@ -1,9 +1,8 @@
 ---
 title: Withings
 description: Instructions on how to integrate Withings health products within Home Assistant.
-ha_category:
-  - Health
-  - Sensor
+ha_categories:
+  - health_wellbeing
 ha_release: 0.99
 ha_iot_class: Cloud Push
 ha_config_flow: true

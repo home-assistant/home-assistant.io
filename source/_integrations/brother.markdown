@@ -1,8 +1,8 @@
 ---
 title: Brother Printer
 description: Instructions on how to integrate a Brother printer into Home Assistant.
-ha_category:
-  - System monitor
+ha_categories:
+  - computers_network.printers
 ha_release: 0.104
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -67,7 +67,7 @@ The **Brother Printer** integration provides the following entities.
   - **Description**: Printer door is open
 - **Input tray empty**
   - **Description**: Input tray is empty
-  - **Remarks**: This entity is disabled by default
+  - **Remarks**: This entity is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
 - **Input tray missing**
   - **Description**: Input tray is missing
   - **Remarks**: This entity is disabled by default

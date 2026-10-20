@@ -1,8 +1,6 @@
 ---
 title: Date
 description: Instructions on how to set up date entities within Home Assistant.
-ha_category:
-  - Date
 ha_release: '2023.6'
 ha_domain: date
 ha_quality_scale: internal

@@ -1,22 +1,9 @@
 ---
 title: UniFi Protect
 description: Instructions on how to configure the Ubiquiti UniFi Protect integration.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Camera
-  - Doorbell
-  - Event
-  - Hub
-  - Light
-  - Media player
-  - Media source
-  - Number
-  - Select
-  - Sensor
-  - Siren
-  - Switch
+ha_categories:
+  - security_safety.cameras
+  - security_safety.doorbells_intercoms
 ha_release: 2022.2
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -226,7 +213,7 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
   - configuration sliders for Chime Type, Zoom Level, Microphone Sensitivity, and WDR Level
   - configuration switches Overlay Information, Smart Detections types, Status Light, HDR, High FPS mode, System Sounds
   - configuration text and select for LCD Screen for doorbells to either set custom messages or use predefined messages
-- **Button** - A disabled by default button is added for each camera device. The button will let you reboot your camera device.
+- **Button** - A [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) button is added for each camera device. The button will let you reboot your camera device.
 
 #### PTZ cameras
 

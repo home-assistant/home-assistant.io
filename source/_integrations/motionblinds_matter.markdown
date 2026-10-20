@@ -1,8 +1,8 @@
 ---
 title: Motionblinds Matter
 description: Control your Motionblinds Matter devices using the Matter integration.
-ha_category:
-  - Cover
+ha_categories:
+  - blinds_curtains
 ha_domain: motionblinds_matter
 ha_release: '2025.4'
 ha_codeowners:

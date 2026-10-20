@@ -38,7 +38,7 @@ output: "false"
 ```signature
 bool(
     value: Any,
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> bool | Any
 ```
 
@@ -54,7 +54,7 @@ value:
   type: any
 default:
   description: >
-    Value to return if the conversion fails. If not provided, an error is raised on unrecognized input.
+    The value to return if the conversion fails, such as `false`. If you leave out `default` and the conversion fails, `bool` raises an error and the template fails.
   required: false
   type: any
 {% endfunction_parameters %}

@@ -1,8 +1,8 @@
 ---
 title: GitHub
 description: Instructions on how to integrate the GitHub integration into Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_config_flow: true
 ha_release: 0.88
 ha_iot_class: Cloud Polling
