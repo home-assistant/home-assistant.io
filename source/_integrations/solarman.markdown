@@ -107,7 +107,7 @@ The MR1-D5-W/MR1-D5-WR provides the following sensors:
 
 When the reading from a Solarman voltage sensor stays above your chosen threshold for 5 minutes, this blueprint creates a persistent notification. After importing the blueprint, select a voltage sensor with a unit of V and set your threshold.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/solarman_voltage_threshold_notification.yaml" %}
+{% blueprint_example blueprint="solarman/solarman_voltage_threshold_notification.yaml" %}
 
 ## Data updates
 
