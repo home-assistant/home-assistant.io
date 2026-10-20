@@ -51,10 +51,10 @@ Changing this option reloads the integration.
 
 The integration creates the following sensors:
 
-- **State**: What the charger is doing. One of *Available*, *Starting up*, *Starting*, *Charging*, *Paused by vehicle*, *Paused by charger*, *Finishing*, *Idle*, *Fault*, or *Unavailable*.
+- **State**: What the charger is doing. One of *Available*, *Starting up*, *Starting*, *Charging*, *Paused by vehicle*, *Paused by charger*, *Finishing*, *Idle*, *Fault*, or *Out of service*.
 - **Power**: Power currently being delivered, in watts (W).
 - **Current**: Current currently being delivered, in amperes (A).
-- **Session energy**: Energy delivered during the current or most recent charging session, in kilowatt-hours (kWh). This value resets when a new session starts, so it is not suited to the [Energy dashboard](/home-energy-management).
+- **Session energy**: Energy delivered during the current or most recent charging session, in kilowatt-hours (kWh). This value resets when a new session starts.
 - **Lifetime energy**: Total energy the charger has delivered over its life, in kilowatt-hours (kWh). Use this sensor when adding the charger to the [Energy dashboard](/home-energy-management).
 
 ## Data updates
@@ -70,7 +70,7 @@ The interval is not configurable. Entities become unavailable when the charger c
 
 - The charger accepts only **one Bluetooth client at a time**. While Home Assistant is talking to it, the vendor phone app cannot connect, and vice versa. Which side wins in between polls is what the **Bluetooth connection** option decides.
 - The integration only reads from the charger. Starting and stopping a session, and setting the charging current, are not supported.
-- Chargers are read one at a time per Bluetooth adapter or proxy. Each charger set to **Stay connected** occupies one active connection slot on its proxy for as long as it is configured.
+- Each charger needs a free active connection slot on the Bluetooth adapter or proxy that reaches it. A charger set to **Reconnect each poll** only uses a slot while it is being read, while a charger set to **Stay connected** occupies one for as long as it is configured.
 
 ## Troubleshooting
 
