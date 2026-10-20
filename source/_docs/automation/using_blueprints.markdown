@@ -87,7 +87,7 @@ The quickest way to get these changes, is by re-importing the blueprint. This wi
 
 1. Go to {% my blueprints title="**Settings** > **Automations & scenes** > **Blueprints**" %}.
 2. On the blueprint that you want to re-import, select the three dots {% icon "mdi:dots-vertical" %} menu, and select **Re-import blueprint**.
-   - You can only re-import a blueprint that you imported from a web address. For other blueprints, the menu shows **Unable to re-import blueprint: no source URL**.
+   - You can only re-import a blueprint that has a source address. Blueprints that you import have one, and so do the blueprints that come with Home Assistant. For a blueprint without a source address, the menu shows **Unable to re-import blueprint: no source URL**.
 3. To confirm, select **Re-import**.
 
 ## Updating an imported blueprint in YAML
