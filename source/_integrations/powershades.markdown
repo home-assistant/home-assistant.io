@@ -1,9 +1,9 @@
 ---
 title: PowerShades
 description: Instructions on how to integrate PowerShades motorized shades with Home Assistant.
-ha_category:
-  - Cover
-ha_release: '2026.10'
+ha_categories:
+  - blinds_curtains
+ha_release: '2026.11'
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
