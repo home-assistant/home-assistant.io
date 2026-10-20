@@ -12,6 +12,7 @@ ha_domain: steamvr_base_station
 ha_config_flow: true
 ha_platforms:
   - button
+  - select
   - sensor
   - switch
 ha_integration_type: device
@@ -46,6 +47,11 @@ Device:
 ### Button
 
 - **Identify**: Blinks the station's LED white for about 20 seconds, to tell stations apart.
+
+### Selects
+
+- **Power mode**: Switches the station on, to standby, or to sleep. Standby keeps the motors spinning so the station is back on in about a second, while waking from sleep takes about 11 seconds. Standby is not offered once the station turns out to run firmware without it.
+- **Channel**: The station's tracking channel, from 1 to 16. Each station in the same room needs its own channel.
 
 ### Sensors
 
