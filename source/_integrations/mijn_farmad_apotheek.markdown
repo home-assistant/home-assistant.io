@@ -90,11 +90,19 @@ The integration fetches nothing on a schedule. Each action contacts Farmad when 
 
 ## Known limitations
 
+### Authentication
+
 - Accounts that require multi-factor authentication cannot be set up yet. Support for these accounts is planned.
 - When the Farmad session expires, remove the integration and set it up again. A flow to sign in again without removing the integration is planned.
 - The integration supports a single account per Home Assistant instance.
+
+### Ordering
+
 - Each order holds one product. To order several products, call the order action once per product.
 - Orders are paid at pickup. Paying online is not supported.
+
+### Language
+
 - Product names in the search results and order confirmations are in Dutch.
 
 ## Troubleshooting
