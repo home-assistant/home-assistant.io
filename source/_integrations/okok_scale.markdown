@@ -53,7 +53,7 @@ A scale exposes the following sensors:
 - **Weight**: the measured weight. The unit follows the unit the scale is set to: kilograms or pounds. Measurements in stones and pounds are converted to pounds, and measurements in jin are converted to kilograms.
 - **Impedance**: the measured body impedance in ohms (Ω), if supported by the scale. You need to stand on the scale barefoot for this to be measured.
 - **Battery**: the scale battery percentage.
-- **Signal strength**: the Bluetooth signal strength (diagnostic, disabled by default).
+- **Signal strength**: the Bluetooth signal strength (diagnostic, [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)).
 
 {% important %}
 Updates of the battery sensor, and of the impedance sensor on most scales, require an active Bluetooth connection and relatively close proximity. If you use a <a href="/integrations/bluetooth/#remote-adapters-bluetooth-proxies/" target="_blank">Bluetooth proxy</a>, ensure it supports active connections.
