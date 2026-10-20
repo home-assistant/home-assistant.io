@@ -114,7 +114,7 @@ By the end of this section you will have configured the OAuth consent screen, ne
    - **User support email**: Select your Google account email.
    - **Application home page**: Include a dummy URL, such as: `https://www.home-assistant.io`
    - **Application privacy policy link**: Include another dummy URL, such as: `https://www.home-assistant.io`.
-   - **Authorised domains**: Select Add Domain then include the domain(s) for the URLs in the previous two points, such as: `home-assistant.io`.
+   - **Authorized domains**: Select Add Domain then include the domain(s) for the URLs in the previous two points, such as: `home-assistant.io`.
    - **Developer contact email**: Enter your email address under Developer contact information.
    
    Leave all other fields (App logo, Application terms of service) empty to avoid triggering Google's verification process. Click **Save**.
