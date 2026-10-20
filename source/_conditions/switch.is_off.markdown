@@ -55,9 +55,9 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the switch must have been off for the condition to pass. Accepts a duration string like `00:05:00` for five minutes.
+  description: How long the switch must have been off for the condition to pass. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -67,6 +67,7 @@ for:
 
 ## Good to know
 
+- You can use switch entities and [toggle helpers](/integrations/input_boolean/) (`input_boolean`) as [targets](/docs/automation/targets/).
 {% include conditions/unavailable_targets.md entities="switches" %}
 - To check for the opposite state, use [Switch is on](/conditions/switch.is_on/).
 

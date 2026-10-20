@@ -79,9 +79,9 @@ behavior:
   type: string
   default: each
 for:
-  description: How long the media player must stay muted before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the media player must stay muted before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
