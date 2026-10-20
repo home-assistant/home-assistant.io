@@ -36,7 +36,6 @@ id:
 description:
   description: A description of the automation.
   required: false
-  default: ''
   type: string
 initial_state:
   description: Used to define the state of your automation at startup. When not set, the state will be restored from the last run. If there is no state to restore, the automation is turned on. See [Automation initial state](#automation-initial-state).
