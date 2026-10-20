@@ -21,7 +21,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The **Meraki** {% term integration %} connects Home Assistant to [Cisco Meraki](https://meraki.cisco.com/) networks through the [Meraki Dashboard API](https://developer.cisco.com/meraki/api-v1/). It tracks whether the clients of your networks, such as phones and laptops on Wi-Fi or computers on a Meraki switch, are connected, and which Bluetooth devices your access points hear.
+The **Meraki** {% term integration %} connects Home Assistant to [Cisco Meraki](https://meraki.cisco.com/) networks through the [Meraki Dashboard API](https://developer.cisco.com/meraki/api-v1/). It tracks whether the clients of your networks, such as phones and laptops on Wi-Fi or computers on a Meraki switch, are connected.
 
 An older way of presence detection through the Meraki CMX location service is set up in YAML; see [Presence detection with the CMX location service](#presence-detection-with-the-cmx-location-service).
 
@@ -48,9 +48,8 @@ Organization:
 ### Device trackers
 
 - **Clients**: A tracker for each Wi-Fi or wired client seen in the organization's networks in the last hour. It is home while Meraki reports the client online, and shows the client's IP address, MAC address and hostname.
-- **Bluetooth devices**: A tracker for each named Bluetooth device the access points hear, for networks with Bluetooth scanning enabled. It is home while an access point heard it in the last five minutes.
 
-Like other network-based trackers, new trackers are disabled until you enable them, unless another integration already knows the device by its MAC address. Client trackers are then added to that device.
+Like other network-based trackers, new trackers are disabled until you enable them, unless another integration already knows the device by its MAC address. The tracker is then added to that device.
 
 ## Automation example
 
@@ -84,13 +83,13 @@ automation: |
 
 ## Data updates
 
-The integration polls the Meraki Dashboard API every minute: one request for the organization's networks, plus one for the clients of each network and one for the Bluetooth devices of each network with access points. With a few networks, this stays well within Meraki's rate limit of 10 requests per second per organization.
+The integration polls the Meraki Dashboard API every minute: one request for the organization's networks, plus one for the clients of each network. With a few networks, this stays well within Meraki's rate limit of 10 requests per second per organization.
 
 ## Known limitations
 
 - Each organization is added as a separate entry. The same API key can be used for several organizations.
 - The Dashboard API does not provide a client's position, so unlike the CMX presence detection, the trackers don't show devices on the map. They only tell whether a device is home.
-- Only Bluetooth devices with a name get a tracker. Phones and many other devices use Bluetooth addresses that change every few minutes and advertise no name; these cannot be followed.
+- Bluetooth devices are not tracked yet. The CMX presence detection still covers them.
 
 ## Troubleshooting
 
