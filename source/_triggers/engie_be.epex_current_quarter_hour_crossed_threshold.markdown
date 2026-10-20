@@ -4,9 +4,11 @@ trigger: engie_be.epex_current_quarter_hour_crossed_threshold
 domain: engie_be
 description: "Triggers when the current quarter-hourly EPEX day-ahead price crosses a threshold."
 related_triggers:
-  - engie_be.epex_next_quarter_hour_crossed_threshold
   - engie_be.epex_current_hour_crossed_threshold
+  - engie_be.epex_next_hour_crossed_threshold
+  - engie_be.epex_next_quarter_hour_crossed_threshold
   - engie_be.epex_quarter_hour_became_negative
+  - engie_be.epex_quarter_hour_no_longer_negative
 ---
 
 The **EPEX current quarter-hourly price crossed threshold** trigger fires when the price of the quarter hour you are in crosses a threshold you set. On a dynamic tariff, the EPEX day-ahead auction sets a new price for every quarter hour of the day, and the **EPEX current quarter-hourly price** sensor follows it.
@@ -70,6 +72,22 @@ trigger: |
 {% endexample %}
 
 This fires the moment the price of the current quarter hour crosses below 0.10 EUR/kWh. It does not fire again while the price stays below the threshold; the price has to climb back above it first.
+
+To fire when the price crosses into a cheap range, for example between -0.05 and 0.10 EUR/kWh:
+
+{% example %}
+trigger: |
+  trigger: engie_be.epex_current_quarter_hour_crossed_threshold
+  target:
+    entity_id: sensor.main_street_1_1000_brussels_epex_current_quarter_hourly_price
+  options:
+    threshold:
+      type: between
+      value_min:
+        number: -0.05
+      value_max:
+        number: 0.10
+{% endexample %}
 
 ### Options in YAML
 

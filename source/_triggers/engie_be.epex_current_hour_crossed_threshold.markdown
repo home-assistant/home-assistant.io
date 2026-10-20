@@ -5,8 +5,10 @@ domain: engie_be
 description: "Triggers when the current hourly EPEX day-ahead price crosses a threshold."
 related_triggers:
   - engie_be.epex_next_hour_crossed_threshold
+  - engie_be.epex_next_quarter_hour_crossed_threshold
   - engie_be.epex_current_quarter_hour_crossed_threshold
   - engie_be.epex_hour_became_negative
+  - engie_be.epex_hour_no_longer_negative
 ---
 
 The **EPEX current hour price crossed threshold** trigger fires when the price of the electricity hour you are in crosses a threshold you set. On a dynamic tariff, the EPEX day-ahead auction sets a new price for every hour of the day, and the **EPEX current hour price** sensor follows it.

@@ -4,6 +4,7 @@ trigger: engie_be.epex_low_today_quarter_hour_updated
 domain: engie_be
 description: "Triggers when the lowest quarter-hourly EPEX day-ahead price of today changes."
 related_triggers:
+  - engie_be.epex_high_today_hour_updated
   - engie_be.epex_high_today_quarter_hour_updated
   - engie_be.epex_low_today_hour_updated
 ---

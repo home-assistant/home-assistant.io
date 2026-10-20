@@ -4,9 +4,9 @@ trigger: engie_be.epex_quarter_hour_no_longer_negative
 domain: engie_be
 description: "Triggers when the current quarter-hourly EPEX day-ahead price returns to zero or above."
 related_triggers:
-  - engie_be.epex_quarter_hour_became_negative
+  - engie_be.epex_hour_became_negative
   - engie_be.epex_hour_no_longer_negative
-  - engie_be.epex_current_quarter_hour_crossed_threshold
+  - engie_be.epex_quarter_hour_became_negative
 ---
 
 The **EPEX quarter-hourly price no longer negative** trigger fires when the price of the quarter hour you are in returns to zero or above after being negative. The **EPEX current quarter-hourly price is negative** binary sensor follows the price, and this trigger fires the moment it turns off.
@@ -84,6 +84,7 @@ for:
 ## Good to know
 
 - Only addresses on a dynamic tariff have EPEX price sensors, so the trigger only offers targets when your integration has one.
+- The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs. Wholesale prices can be negative, and then you are paid to consume.
 - The trigger fires on the crossing back to zero or above only. While the price stays at zero or above, it does not fire again.
 - The quarter-hourly price changes on every quarter-hour boundary, so the trigger can fire again as soon as the next negative quarter hour starts.
 - When no price covers the current moment, for example while the EPEX prices are unavailable, the binary sensor reads unknown and the trigger does not fire.

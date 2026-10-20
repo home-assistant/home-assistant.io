@@ -118,7 +118,7 @@ They also get the **EPEX current hour price is negative** and the **EPEX current
 
 ## Examples
 
-These examples cover the common dynamic-tariff automations: run an appliance when electricity gets cheap, hear about tomorrow's prices the moment they are published, and know the cheapest hour of the day as soon as the day starts. They use the triggers and conditions listed above.
+These examples cover the common dynamic-tariff automations: run an appliance when electricity gets cheap, hear about tomorrow's prices the moment they are published, and know the cheapest hour of the day as soon as the day starts. They use the triggers listed above.
 
 ### Running the dishwasher when electricity is cheap
 

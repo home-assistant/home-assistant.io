@@ -5,8 +5,8 @@ domain: engie_be
 description: "Triggers when the current hourly EPEX day-ahead price returns to zero or above."
 related_triggers:
   - engie_be.epex_hour_became_negative
+  - engie_be.epex_quarter_hour_became_negative
   - engie_be.epex_quarter_hour_no_longer_negative
-  - engie_be.epex_current_hour_crossed_threshold
 ---
 
 The **EPEX hour price no longer negative** trigger fires when the price of the electricity hour you are in returns to zero or above after being negative. The **EPEX current hour price is negative** binary sensor follows the price, and this trigger fires the moment it turns off.
@@ -84,6 +84,7 @@ for:
 ## Good to know
 
 - Only addresses on a dynamic tariff have EPEX price sensors, so the trigger only offers targets when your integration has one.
+- The prices are raw wholesale prices in EUR/kWh, without VAT, taxes and levies, or network costs. Wholesale prices can be negative, and then you are paid to consume.
 - The trigger fires on the crossing back to zero or above only. While the price stays at zero or above, it does not fire again.
 - When no price covers the current moment, for example while the EPEX prices are unavailable, the binary sensor reads unknown and the trigger does not fire.
 - To gate an automation while the price is back at zero or above, use the [EPEX hour price meets threshold](/conditions/engie_be.epex_hour_price_meets_threshold/) condition.

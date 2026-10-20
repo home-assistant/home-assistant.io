@@ -5,6 +5,7 @@ domain: engie_be
 description: "Tests if the current quarter-hourly EPEX day-ahead price meets a threshold."
 related_conditions:
   - engie_be.epex_hour_price_meets_threshold
+  - engie_be.epex_hour_price_is_negative
   - engie_be.epex_quarter_hour_price_is_negative
 ---
 

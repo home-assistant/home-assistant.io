@@ -6,6 +6,7 @@ description: "Tests if the current hourly EPEX day-ahead price is negative."
 related_conditions:
   - engie_be.epex_quarter_hour_price_is_negative
   - engie_be.epex_hour_price_meets_threshold
+  - engie_be.epex_quarter_hour_price_meets_threshold
 ---
 
 The **EPEX hour price is negative** condition passes while the price of the electricity hour you are in is below zero. On a dynamic tariff, the EPEX day-ahead price can turn negative: when supply exceeds demand, you are paid to consume. The **EPEX current hour price is negative** binary sensor follows the price, and this condition checks it.

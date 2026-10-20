@@ -5,6 +5,7 @@ domain: engie_be
 description: "Triggers when the highest hourly EPEX day-ahead price of today changes."
 related_triggers:
   - engie_be.epex_low_today_hour_updated
+  - engie_be.epex_low_today_quarter_hour_updated
   - engie_be.epex_high_today_quarter_hour_updated
 ---
 

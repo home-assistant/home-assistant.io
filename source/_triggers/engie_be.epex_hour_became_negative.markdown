@@ -6,7 +6,7 @@ description: "Triggers when the current hourly EPEX day-ahead price turns negati
 related_triggers:
   - engie_be.epex_hour_no_longer_negative
   - engie_be.epex_quarter_hour_became_negative
-  - engie_be.epex_current_hour_crossed_threshold
+  - engie_be.epex_quarter_hour_no_longer_negative
 ---
 
 The **EPEX hour price became negative** trigger fires when the price of the electricity hour you are in drops below zero. On a dynamic tariff, the EPEX day-ahead price can turn negative: when supply exceeds demand, you are paid to consume. The **EPEX current hour price is negative** binary sensor follows the price, and this trigger fires the moment it turns on.
