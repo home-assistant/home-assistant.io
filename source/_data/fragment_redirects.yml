@@ -203,3 +203,6 @@
   persistent-notification: /docs/automation/trigger-data/#persistent-notification-triggers
   webhook: /docs/automation/trigger-data/#webhook-triggers
   zone: /docs/automation/trigger-data/#zone-triggers
+"/docs/automation/trigger/":
+  webhook-data: /triggers/webhook/#sending-a-request-to-a-webhook
+  webhook-security: /triggers/webhook/#webhook-security
