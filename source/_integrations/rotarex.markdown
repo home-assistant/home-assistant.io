@@ -18,17 +18,17 @@ related:
     title: Rotarex digital measurement system product page
 ---
 
-The **Rotarex DIMES SRG** {% term integration %} lets you monitor your [Rotarex DIMES SRG](https://rotarexsrg.com/category/digital-measurement-system) camping gas tanks in Home Assistant. For each tank, you can see how much gas is left and the battery level of its monitoring device.
+The **Rotarex DIMES SRG** {% term integration %} lets you monitor gas cylinders and tanks fitted with a [Rotarex Dimes Wave](https://rotarexsrg.com/category/digital-measurement-system) level sensor in Home Assistant. For each tank, you can see how much gas is left and the battery level of its sensor.
 
 Use case: Get a notification when a tank is running low, so you can replace it before it runs empty.
 
 ## Supported devices
 
-- Rotarex DIMES SRG camping gas tanks added to your Rotarex account
+- Gas cylinders and tanks fitted with a Rotarex Dimes Wave sensor and added to your Rotarex account
 
 ## Prerequisites
 
-1. Install the **Rotarex DIMES SRG Camping** app on your phone.
+1. Install the **ROTAREX DIMES** app on your phone.
 2. Create a Rotarex account, then sign in.
 3. Add your tanks to the app and check that they sync.
 4. Give each tank a name in the app. Home Assistant uses these names for the devices it creates, which makes your tanks easy to tell apart.
@@ -38,9 +38,9 @@ Use case: Get a notification when a tank is running low, so you can replace it b
 
 {% configuration_basic %}
 Email:
-  description: "The email address you use to sign in to the Rotarex DIMES SRG Camping app."
+  description: "The email address you use to sign in to the ROTAREX DIMES app."
 Password:
-  description: "The password you use to sign in to the Rotarex DIMES SRG Camping app."
+  description: "The password you use to sign in to the ROTAREX DIMES app."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -92,7 +92,7 @@ automation: |
 
 ## Data updates
 
-The **Rotarex DIMES SRG** integration {% term polling polls %} the Rotarex cloud every 15 minutes. The Rotarex cloud receives new measurements when the mobile app syncs with your tanks over Bluetooth. If the app has not synced with a tank for a while, Home Assistant keeps showing the last measurements that were uploaded.
+The **Rotarex DIMES SRG** integration {% term polling polls %} the Rotarex cloud every 15 minutes. The Rotarex cloud receives new measurements when the ROTAREX DIMES app syncs with your tanks over Bluetooth. If the app has not synced with a tank for a while, Home Assistant keeps showing the last measurements that were uploaded.
 
 ## Known limitations
 
@@ -115,7 +115,7 @@ The Rotarex cloud does not accept the email address or password you entered.
 #### Resolution
 
 1. Check your email address and password.
-2. Sign in to the Rotarex DIMES SRG Camping app with the same email address and password to make sure they work.
+2. Sign in to the ROTAREX DIMES app with the same email address and password to make sure they work.
 3. If you changed your password after setting up the integration, remove the integration and add it again with your new password.
 
 {% enddetails %}
@@ -133,7 +133,7 @@ Home Assistant cannot reach the Rotarex cloud.
 #### Resolution
 
 1. Make sure Home Assistant is connected to the internet.
-2. Check that the Rotarex DIMES SRG Camping app can load your tanks.
+2. Check that the ROTAREX DIMES app can load your tanks.
 3. Wait a few minutes and try again.
 
 {% enddetails %}
@@ -148,7 +148,7 @@ Home Assistant only shows the tanks of the Rotarex account used to set up the in
 
 #### Resolution
 
-1. Make sure the tank is visible and up to date in the Rotarex DIMES SRG Camping app.
+1. Make sure the tank is visible and up to date in the ROTAREX DIMES app.
 2. Make sure you use the same Rotarex account in the app and in the integration.
 3. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Rotarex DIMES SRG**, and reload the integration.
 
