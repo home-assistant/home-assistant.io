@@ -370,7 +370,7 @@ without waiting for any media to be fetched. See Device Triggers for media suppo
 
 ## Device Triggers
 
-The Nest integration provides [device triggers](/triggers/device/) to enable automation in Home Assistant. You should review the [Tutorial: Create your first automation](/getting-started/automation/) or the [Automation](/docs/automation/) documentation for full details.
+The Nest integration works with the [device trigger](/triggers/device/) to enable automation in Home Assistant. You should review the [Tutorial: Create your first automation](/getting-started/automation/) or the [Automation](/docs/automation/) documentation for full details.
 
 Device triggers will wait to fire after any media associated with the event is downloaded. Use an
 event entity for immediate notifications without media.
