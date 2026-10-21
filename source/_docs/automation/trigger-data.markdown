@@ -231,7 +231,7 @@ These are the properties available for a [**Time pattern** trigger](/triggers/ti
 
 ### Webhook triggers
 
-These are the properties available for a [**Webhook** trigger](/docs/automation/trigger/#webhook-trigger).
+These are the properties available for a [**Webhook** trigger](/triggers/webhook/).
 
 - `trigger.platform`: `webhook`.
 - `trigger.webhook_id`: The webhook ID that was triggered.
