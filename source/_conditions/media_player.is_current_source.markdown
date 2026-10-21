@@ -72,7 +72,6 @@ condition: |
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 source:
@@ -91,9 +90,9 @@ behavior:
   default: any
 for:
   description: >
-    How long the media player must stay on the selected source before the condition passes. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` waits 5 minutes.
+    How long the media player must stay on the selected source before the condition passes. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` waits 5 minutes. For a list of all accepted formats, refer to [Duration formats in YAML](/docs/automation/durations/#duration-formats-in-yaml).
   required: false
-  type: string
+  type: [ string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -116,7 +115,8 @@ for:
 
 When you press the movie night button, activate the cinema {% term scene %}, but only if the living room receiver is already switched to the **HDMI 1** (Blu-ray) source.
 
-- **Trigger**: State: Movie night button pressed
+- **Trigger**: State changed
+  - **Target**: Movie night input button
 - **Condition**: Media player current source
   - **Target**: Living room receiver
   - **Source**: HDMI 1
@@ -149,7 +149,8 @@ automation: |
 
 Every evening, if the amplifier is on one of its external inputs, send a reminder to switch back to streaming.
 
-- **Trigger**: Time: 22:00:00
+- **Trigger**: Time
+  - **At time**: `22:00:00`
 - **Condition**: Media player current source
   - **Target**: Amplifier
   - **Source**: Coax1, Opt1
