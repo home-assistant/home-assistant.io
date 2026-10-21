@@ -8,7 +8,7 @@ If you have a meter that measures the consumption of your whole home, for exampl
 ## Requirements
 
 - A sensor with a `device_class` of `energy` and a `state_class` of `total` or `total_increasing`, measuring your whole home consumption.
-- Optionally, a sensor with a `device_class` of `power`. It is used by the live power views, such as the Now tab.
+- Optionally, a sensor with a `device_class` of `power`, a `state_class` of `measurement`, and a supported power unit, such as `W` or `kW`. It is used by the live power views, such as the **Now** tab.
 
 Only one home meter can be configured.
 
