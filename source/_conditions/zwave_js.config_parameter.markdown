@@ -91,10 +91,6 @@ condition: |
 ### Options in YAML
 
 {% options_yaml %}
-condition:
-  description: The condition type. For this condition, use `zwave_js.config_parameter`.
-  required: true
-  type: string
 device_id:
   description: One or more device IDs of the Z-Wave devices whose nodes to test.
   required: true

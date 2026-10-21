@@ -28,7 +28,7 @@ To set a counter to a specific value from an automation or a script:
 
 {% options_ui %}
 Value:
-  description: The value to set the counter to. Must be 0 or a positive whole number.
+  description: The value to set the counter to. Must be a whole number. Negative numbers are allowed.
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -50,7 +50,7 @@ This sets `counter.paper_towels` to 12.
 
 {% options_yaml %}
 value:
-  description: The value to set the counter to. Must be 0 or a positive whole number.
+  description: The value to set the counter to. Must be a whole number. Negative numbers are allowed.
   required: true
   type: integer
 {% endoptions_yaml %}
@@ -59,7 +59,7 @@ value:
 
 ## Good to know
 
-- The value must be 0 or a positive whole number.
+- The value must be a whole number. Negative numbers, like `-5`, are allowed.
 - The value must be a multiple of the counter's step size, and within the configured minimum and maximum. If it isn't, the action fails.
 
 {% include actions/try_it.md %}
