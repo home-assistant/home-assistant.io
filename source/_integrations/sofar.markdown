@@ -136,8 +136,13 @@ The entity IDs below are named after the inverter, so replace `sofar` with your 
 
 An installation on the roof is easy to forget about, and an inverter that has stopped producing costs you money every sunny hour. This automation sends a notification as soon as the inverter raises a fault or drops out of normal grid-connected operation, so you find out the same day instead of weeks later in the monthly yield.
 
-- **Trigger**: **Grid fault**, **PV fault**, **Battery fault**, or **Thermal fault** turned on
-- **Trigger**: **System state** changed to **Recoverable fault** or **Permanent fault**
+- **Trigger**: State changed
+  - **Entity**: Sofar grid fault sensor, Sofar pv fault sensor, Sofar battery fault sensor, Sofar thermal fault sensor
+  - **From**: Off
+  - **To**: On
+- **Trigger**: State changed
+  - **Entity**: Sofar system state sensor
+  - **To**: Recoverable fault, Permanent fault
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -206,7 +211,9 @@ automation: |
 
 The battery is worth the most in the evening, when the panels have stopped and the grid is expensive. This automation notifies you when the battery drops below a fifth of its capacity, so you can decide whether to hold the rest back or let heavy loads keep running.
 
-- **Trigger**: **Battery state of charge total** below 20
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Sofar battery state of charge total
+  - **Below**: `20`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

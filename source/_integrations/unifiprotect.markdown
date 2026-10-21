@@ -536,7 +536,7 @@ You can obtain the `ulp_id` using the [Action unifiprotect.get_user_keyring_info
 alias: G4 Doorbell Fingerprint Identified Automation
 description: Automation that triggers when a fingerprint is successfully identified on the G4 Doorbell Pro
 trigger:
-  - platform: event
+  - trigger: event
     event_type: state_changed
     event_data:
       entity_id: event.g4_doorbell_pro_poe_fingerprint # Replace with your doorbell entity
@@ -654,7 +654,7 @@ conditions:
          trigger.event.data.new_state.attributes.license_plate in ['ABC123', 'XYZ789']
        }}{% endraw %}
 actions:
-  - action: cover.open
+  - action: cover.open_cover
     target:
       entity_id: cover.garage_door
   - data:

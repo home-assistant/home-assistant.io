@@ -185,8 +185,9 @@ Here are some ideas to get you started.
 
 Send a notification to your phone when your vehicle finishes charging. Replace the entity IDs in the example with the entity IDs of your vehicle and phone.
 
-- **Trigger**: State: **Charge state** changes to **Charge ended**
+- **Trigger**: State changed
   - **Target**: Your vehicle's **Charge state** sensor
+  - **To**: Charge ended
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -216,9 +217,9 @@ Start the air conditioning at 19°C at 7:30 on weekdays, so the cabin is comfort
 - **Trigger**: Time
   - **At time**: `07:30:00`
   - **Days of the week**: Monday, Tuesday, Wednesday, Thursday, and Friday
-- **Action**: Start A/C
-  - **Vehicle**: Your vehicle
-  - **Temperature**: `19`
+- **Action**: Renault: Start A/C
+  - **Vehicle**: `abcde1234567890abcde1234567890ab`
+  - **Temperature**: `19`°C
 
 {% details "YAML example for pre-heating the cabin on weekday mornings" %}
 
