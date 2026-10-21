@@ -96,7 +96,6 @@ Play a movie on a Jellyfin client that supports playback.
 
 - **Action**: Play specified media
   - **Target**: Living room (`media_player.living_room`)
-  - **Media content ID**: `a982a31451450daeda02c89952e6d7cf`
   - **Media content type**: `movie`
   - **Media content id**: `a982a31451450daeda02c89952e6d7cf`
 

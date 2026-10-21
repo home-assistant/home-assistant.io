@@ -198,7 +198,7 @@ Use the **Paper jam** and **No paper** binary sensors to send a notification to 
 
 - **Trigger**: State changed
   - **Target**: Your printer's **Paper jam** and **No paper** binary sensors
-  - **To**: On
+  - **To**: Problem
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
