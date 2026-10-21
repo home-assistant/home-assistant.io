@@ -80,17 +80,18 @@ update_type:
 - The update type **current** doesn't make the trigger react. Home Assistant only uses it to send the list of current notifications to the UI. Use **added** to react to new notifications.
 - When you add a notification with an ID that already exists, it replaces the existing notification. The trigger then reacts with the update type **updated**, not **added**.
 - When you dismiss all notifications at once, the trigger reacts once for each notification.
+- The trigger only reacts to changes after the automation starts. When Home Assistant starts, it sets up integrations before it starts automations. Notifications that it adds during startup don't make the trigger react.
 - For the data that this trigger passes to your conditions and actions, such as `trigger.notification.message`, refer to [Persistent notification triggers](/docs/automation/trigger-data/#persistent-notification-triggers).
 
 {% include triggers/try_it.md %}
 
-For this trigger, create a notification with the [**Create persistent notification**](/actions/persistent_notification.create/) action, for example, in {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}.
+For this trigger, create a notification with the [**Create persistent notification**](/actions/persistent_notification.create/) action, for example, in {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}. If the trigger has a **Notification ID**, use the same ID in the action. To test **removed**, dismiss the notification afterward.
 
 {% include triggers/more_examples.md %}
 
 ### Automation: send a notification when an integration can't be set up
 
-When Home Assistant can't set up an integration, it adds a notification with the ID `invalid_config`. If more integrations fail, it updates that notification. This automation sends the notification to your phone.
+When Home Assistant can't set up an integration, it adds a notification with the ID `invalid_config`. If more integrations fail, it updates that notification. This automation sends the notification to your phone. It catches integrations that fail after Home Assistant has started, for example, when you add or reload an integration. Integrations that fail while Home Assistant starts don't make the trigger react, because automations start after integrations.
 
 - **Trigger**: Persistent notification
   - **Notification ID**: `invalid_config`
