@@ -214,8 +214,6 @@ The table below shows, per device type, which connection mode is required. See [
 **Smart Detections**: Smart detections depend on the camera. Home Assistant creates the detection entities for the detection types your camera reports as supported in UniFi Protect.
 {% endnote %}
 
-The SSH, analytics, insights, mount type, paired camera, lens type, and voltage entities are deprecated and will be removed in 2027.1.0. The same applies to the uptime and link speed sensors, the NVR CPU, memory and temperature sensors, and the camera storage and data rate sensors. New installations and newly added devices no longer get them.
-
 Each UniFi Protect camera will get a device in Home Assistant with the following:
 
 - **Camera** - A camera {% term entity %} for each active RTSPS quality (up to four: high, medium, low, and package). Only the highest-quality stream is enabled by default.
