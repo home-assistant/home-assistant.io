@@ -236,8 +236,8 @@ This automation opens the Bravia TV home screen, waits briefly, and then sends t
 - **Action**: Send remote command
   - **Target**: Bravia TV remote
   - **Command**: `Home`
-- **Action**: Wait for time to pass
-  - **Duration**: 2 seconds
+- **Action**: Wait for time to pass (delay)
+  - **Duration**: `00:00:02`
 - **Action**: Send remote command
   - **Target**: Bravia TV remote
   - **Command**: `Down`

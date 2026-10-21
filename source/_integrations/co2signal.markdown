@@ -104,7 +104,7 @@ This automation starts your dishwasher when the carbon intensity drops below a s
 alias: "Run Dishwasher at Low Carbon Intensity"
 description: "Starts the dishwasher when carbon intensity is low"
 trigger:
-  - platform: numeric_state
+  - trigger: numeric_state
     entity_id: sensor.electricity_maps_carbon_intensity
     below: 100
     for:
