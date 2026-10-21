@@ -15,7 +15,7 @@ related_functions:
   - add
 ---
 
-The `round` filter rounds a numeric value to a specified number of decimal places. It is a Home Assistant override of the standard `round` filter that adds support for a `default` parameter and the `half` rounding method. When rounding to zero decimals, it returns an integer instead of a float.
+The `round` filter rounds a numeric value to a specified number of decimal places. It is a Home Assistant override of the standard `round` filter that adds support for a `default` parameter and the `half` rounding method. When rounding to zero decimals, it returns an integer instead of a float (the `half` method keeps a `.5` result as a float).
 
 Rounding is essential whenever you display {% term sensor %} values on a dashboard or in a notification. A temperature of `21.456789` is not useful on a dashboard; `21.5` is much better. Similarly, you might want to round energy costs to two decimal places, or display a percentage as a whole number. The `round` filter supports four rounding methods to cover different use cases, from standard rounding to always rounding up or down.
 
@@ -50,7 +50,7 @@ value:
   type: any
 precision:
   description: >
-    The number of decimal places to round to. Defaults to `0`, which returns an integer.
+    The number of decimal places to round to. Defaults to `0`, which returns an integer. The `half` method ignores the number of decimal places and always rounds to the nearest 0.5.
   required: false
   default: "0"
   type: integer
@@ -138,10 +138,10 @@ output: "21.5"
 ## Good to know
 
 - The default `common` method uses banker's rounding, where 0.5 rounds to the nearest even number. So `2.5 | round` gives `2`, not `3`.
-- With `precision=0` (the default), the result is an integer. With a nonzero precision, the result is a float.
+- With `precision=0` (the default), the result is an integer. With a nonzero precision, the result is a float. The exception is the `half` method at precision 0: a result ending in .5 stays a float, and only whole results are returned as an integer.
 - The `half` method rounds to the nearest 0.5 rather than the nearest whole number.
 - For example, 2.7 rounds to 3 with common and ceil, and to 2 with floor.
-- With half, set a precision of 1 or higher to keep the .5: 2.7 | round(1, 'half') gives 2.5. At precision 0, the result is cut to a whole number, so 2.7 | round(0, 'half') gives 2
+- The `half` method ignores `precision` and always rounds to the nearest 0.5: `2.7 | round(0, 'half')`, `2.7 | round(1, 'half')`, and `2.7 | round(2, 'half')` all give `2.5`. At precision 0, a whole result is returned as an integer, so `2.8 | round(0, 'half')` gives `3`. With a nonzero precision, the result is always a float, so `2.8 | round(1, 'half')` gives `3.0`.
 
 {% include template_functions/try_it.md %}
 
