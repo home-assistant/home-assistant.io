@@ -197,9 +197,11 @@ The following examples show how to automate an LG TV and an LG air conditioner. 
 
 ### Automation: Toggling the lights with the red button on the TV remote
 
-- **Trigger**: Event: the TV remote sends a command
-- **Condition**: The command is the red button
-- **Action**: Toggle the living room lights
+- **Trigger**: Event received
+  - **Target**: LG TV received command (`event.lg_tv_received_command`)
+  - **Event type**: Red
+- **Action**: Toggle light
+  - **Target**: Living room (`light.living_room`)
 
 {% details "YAML example for toggling the lights with the red button" %}
 
@@ -207,13 +209,12 @@ The following examples show how to automate an LG TV and an LG air conditioner. 
 automation: |
   alias: "Toggle the living room lights with the red button"
   triggers:
-    - trigger: state
-      entity_id: event.lg_tv_received_command
-  conditions:
-    - condition: state
-      entity_id: event.lg_tv_received_command
-      attribute: event_type
-      state: red
+    - trigger: event.received
+      target:
+        entity_id: event.lg_tv_received_command
+      options:
+        event_type:
+          - red
   actions:
     - action: light.toggle
       target:
@@ -224,8 +225,11 @@ automation: |
 
 ### Automation: Turning off the air conditioner when a window opens
 
-- **Trigger**: Window sensor: opened
-- **Action**: Turn off the air conditioner
+- **Trigger**: Window opened
+  - **Target**: Living room window (`binary_sensor.living_room_window`)
+- **Action**: Set thermostat HVAC mode
+  - **Target**: LG AC (`climate.lg_ac`)
+  - **HVAC mode**: Off
 
 {% details "YAML example for turning off the air conditioner when a window opens" %}
 
@@ -233,9 +237,9 @@ automation: |
 automation: |
   alias: "Turn off the air conditioner when the window opens"
   triggers:
-    - trigger: state
-      entity_id: binary_sensor.living_room_window
-      to: "on"
+    - trigger: window.opened
+      target:
+        entity_id: binary_sensor.living_room_window
   actions:
     - action: climate.set_hvac_mode
       target:
@@ -262,7 +266,7 @@ automation: |
 
 ### The TV or air conditioner does not respond to commands
 
-If the entity changes in Home Assistant but your TV or air conditioner does not react, the infrared signal is probably not reaching the device. Make sure the infrared emitter points at the receiver window of the device and that nothing blocks the path between them. For more steps, see the [infrared troubleshooting](/integrations/infrared/#troubleshooting) section.
+If the entity changes in Home Assistant but your TV or air conditioner does not react, the infrared signal is probably not reaching the device. Make sure the infrared emitter points at the receiver window of the device and that nothing blocks the path between them. For more steps, refer to [The device does not respond to commands](/integrations/infrared/#the-device-does-not-respond-to-commands).
 
 If your air conditioner reacts to most commands but not to one mode or button, your model probably does not have that feature. Check your remote or the manual of your unit.
 
@@ -271,7 +275,7 @@ If your air conditioner reacts to most commands but not to one mode or button, y
 The event entity only fires for commands it receives from an LG TV remote. Signals from other remotes, including universal remotes set to another brand, are ignored.
 
 1. Make sure you selected an infrared receiver for the TV during setup.
-2. Check that the infrared receiver entity updates when you press a button. If it does not, see [An infrared receiver does not pick up signals](/integrations/infrared/#an-infrared-receiver-does-not-pick-up-signals).
+2. Check that the infrared receiver entity updates when you press a button. If it does not, refer to [An infrared receiver does not pick up signals](/integrations/infrared/#an-infrared-receiver-does-not-pick-up-signals).
 
 ### Reporting an issue
 
