@@ -11,7 +11,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@MartinaeyNL'
 ha_domain: solyx_energy_cloud
-ha_integration_type: device
+ha_integration_type: hub
 related:
   - url: https://www.solyxenergy.nl
     title: Solyx Energy website
