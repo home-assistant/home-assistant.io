@@ -153,6 +153,7 @@ When your build server reports a failed build, send a notification to your phone
   - **Webhook ID**: The ID that Home Assistant generated
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
+  - **Message**: The build failed.
 
 {% details "YAML example for sending a notification when a build fails" %}
 
