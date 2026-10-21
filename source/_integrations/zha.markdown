@@ -1,25 +1,8 @@
 ---
 title: Zigbee Home Automation
 description: Instructions on how to integrate your Zigbee Home Automation (ZHA) devices within Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Device tracker
-  - Event
-  - Fan
-  - Hub
-  - Light
-  - Lock
-  - Number
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Update
-  - Valve
+ha_categories:
+  - hubs_protocols.wireless_protocols
 ha_release: 0.44
 ha_iot_class: Local Polling
 featured: true
@@ -40,6 +23,7 @@ ha_platforms:
   - diagnostics
   - event
   - fan
+  - infrared
   - light
   - lock
   - number
@@ -64,7 +48,8 @@ This {% term integration %} currently supports the following device types within
 - [Cover](/integrations/cover/)
 - [Device tracker](/integrations/device_tracker/)
 - [Event](/integrations/event/)
-- [Fan](/integrations/fan/)
+- [Fan](/integrations/fan/) 
+- [Infrared](/integrations/infrared/)
 - [Light](/integrations/light/)
 - [Lock](/integrations/lock/)
 - [Number](/integrations/number/) (analog input/output)
@@ -218,7 +203,7 @@ It is strongly encouraged to review the guidance for [Zigbee interference avoida
     - Select **Submit** to proceed to the next step.
 5. Enter the **Serial device path**:
     - Most devices need at the very least the serial device path, such as `/dev/ttyUSB0`, but it is recommended to use the device path from the `/dev/serial/by-id` folder (for example, `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`).
-    - To look up the device path, go to **Settings** > **Connectivity** > **Serial**. Next to the port of your radio, select **Port information** {% icon "mdi:information-outline" %}, and copy the **Device** field. For more details, refer to [Viewing your serial ports](/integrations/serial/#viewing-your-serial-ports).
+    - To look up the device path, go to **Settings** > **Connectivity** > **Serial**. Next to the port of your radio, select **Port information** {% icon "mdi:information-outline" %}, and copy the **Device** field. For more details, refer to [Viewing your serial ports](/integrations/usb/#viewing-your-serial-ports).
 6. Set the **Port speed** (not applicable for all radios).
 7. Set the **Data flow control** (not applicable for all radios).
 8. Press **Submit**.

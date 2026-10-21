@@ -1,9 +1,9 @@
 ---
 title: Generic Thermostat
 description: Turn Home Assistant into a thermostat
-ha_category:
-  - Climate
-  - Helper
+ha_categories:
+  - helpers
+  - climate.thermostats_heating
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: generic_thermostat
@@ -177,3 +177,5 @@ climate:
     away_temp: 16
     precision: 0.1
 ```
+
+{% include integrations/actions.md %}

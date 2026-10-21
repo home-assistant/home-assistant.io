@@ -1,22 +1,6 @@
 ---
 title: Ogemray
 description: Connect and control your Ogemray devices using the Shelly integration
-ha_category:
-  - Binary sensor
-  - Camera
-  - Climate
-  - Cover
-  - Energy
-  - Event
-  - Light
-  - Media player
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Text
-  - Update
-  - Valve
 ha_release: 0.115
 ha_domain: ogemray
 ha_integration_type: virtual

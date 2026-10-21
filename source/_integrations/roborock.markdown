@@ -1,16 +1,9 @@
 ---
 title: Roborock
 description: Instructions on how to integrate Roborock vacuums into Home Assistant
-ha_category:
-  - Binary sensor
-  - Button
-  - Image
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Time
-  - Vacuum
+ha_categories:
+  - appliances_cleaning.cleaning
+  - appliances_cleaning.laundry
 ha_iot_class: Local Polling
 ha_release: 2023.5
 ha_config_flow: true
@@ -164,6 +157,10 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 - **Selected map**
   - **Description**: Choose the map that is loaded on the vacuum.
 
+- **Cleaning cycles**
+  - **Description**: Sets how many times the vacuum cleans each area (1x or 2x).
+  - **Availability**: For Q7 series vacuums.
+
 - **Empty mode**
   - **Description**: You can set the "empty mode" setting including Max, Light, Balanced, and Smart.
   - **Availability**: For vacuum equipped with an auto-empty dock
@@ -290,7 +287,7 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
   - **Availability**: Enabled by default on supported docks that provide a **Dock error** sensor.
   - **Description**: After fixing the cause of a dock error, such as refilling an empty clean water tank, press this button to acknowledge the current dock error. Home Assistant then refreshes the dock status. If no dock error is reported, pressing the button shows an error and sends no command. Whether an interrupted cleaning job resumes depends on the device. The button only acknowledges dock errors.
 
-The following maintenance buttons allow you to reset the various maintenance items on your vacuum. Pressing a maintenance button cannot be undone. For this reason, the maintenance buttons are disabled by default to make sure they are not pressed unintentionally.
+The following maintenance buttons allow you to reset the various maintenance items on your vacuum. Pressing a maintenance button cannot be undone. For this reason, the maintenance buttons are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) to make sure they are not pressed unintentionally.
 
 - **Reset sensor consumable**
   - **Description**: The sensors on your vacuum are expected to be cleaned after 30 hours of use.

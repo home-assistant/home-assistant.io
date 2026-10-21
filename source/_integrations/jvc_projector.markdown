@@ -1,8 +1,8 @@
 ---
 title: JVC Projector
 description: Instructions on how to integrate JVC Projector into Home Assistant.
-ha_category:
-  - Remote
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: '2023.6'
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -92,7 +92,7 @@ The JVC Projector device information includes the projector model and firmware v
 
 ## Sensor
 
-The JVC Projector sensor platform will create the following [Sensors](/integrations/sensor/) entities. The Color depth, Color space, HDR, Resolution, Colorimetry, and Link Rate sensors are disabled by default. Some sensors may not be available for your model.
+The JVC Projector sensor platform will create the following [Sensors](/integrations/sensor/) entities. The Color depth, Color space, HDR, Resolution, Colorimetry, and Link Rate sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). Some sensors may not be available for your model.
 
 - **Status**
   - **Description**: The power status of the projector.

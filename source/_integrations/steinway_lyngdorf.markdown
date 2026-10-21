@@ -1,17 +1,11 @@
 ---
 title: Steinway & Lyngdorf
-description: Connect and control your Steinway & Lyngdorf processors using the Lyngdorf integration
-ha_category:
-  - Media player
-  - Number
-  - Remote
-  - Select
-  - Sensor
+description: Connect and control your Steinway & Lyngdorf devices using the Lyngdorf integration
 ha_domain: steinway_lyngdorf
 ha_integration_type: virtual
 ha_supporting_domain: lyngdorf
 ha_supporting_integration: Lyngdorf
-ha_release: 2026.10
+ha_release: 2026.8
 ha_codeowners:
   - '@fishloa'
 ha_config_flow: true

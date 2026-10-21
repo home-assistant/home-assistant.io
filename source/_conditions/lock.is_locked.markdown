@@ -48,8 +48,6 @@ This passes when `lock.front_door` is currently locked.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -61,9 +59,9 @@ behavior:
 for:
   description: >
     How long the lock must stay locked before the condition passes. Accepts a
-    duration like `00:05:00` for five minutes.
+    duration like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -73,7 +71,7 @@ for:
 
 ## Good to know
 
-- Locks in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
+{% include conditions/unavailable_targets.md entities="locks" %}
 - Use **For at least** when you want to avoid acting on a short state change.
 - To check whether a door is not secured, use [Lock is unlocked](/conditions/lock.is_unlocked/).
 
@@ -124,8 +122,9 @@ Once the front door has stayed locked for a while, you may not need the porch li
 - **Target**: Front door lock
 - **Condition passes if**: Any
 - **For at least**: 00:05:00
-- **Condition**: Sun is below the horizon
-- **Action**: Turn off
+- **Condition**: Sun is set
+- **Action**: Turn off light
+  - **Target**: Porch light
 
 {% details "YAML example for turning off the porch light" %}
 
@@ -142,8 +141,7 @@ automation: |
       options:
         behavior: any
         for: "00:05:00"
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_off
       target:
