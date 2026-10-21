@@ -136,6 +136,7 @@ When the power use of the washing machine stays below 5 W, but not at 0 W, for 3
   - **For at least**: 3 minutes
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
+  - **Message**: The washing machine is done.
 
 {% details "YAML example for sending a notification when the washing machine is done" %}
 
