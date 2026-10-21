@@ -645,24 +645,24 @@ main#page-wth {
     }
 
     // Tinted bands break up the run of flat sections.
+    // The icons come from the site's own icon tag, which renders an
+    // <iconify-icon>. That sizes from font-size rather than width/height.
     #moments .tile-icon,
     #everyone .audience-icon {
+        align-items: center;
         background-color: var(--wth-mint);
         border-radius: 50%;
-        box-sizing: content-box;
         color: var(--wth-ink);
-        padding: 11px;
-    }
-
-    #moments .tile-icon {
-        height: 26px;
-        width: 26px;
+        display: inline-flex;
+        font-size: 26px;
+        height: 48px;
+        justify-content: center;
+        width: 48px;
     }
 
     #everyone {
         .audience-icon {
-            height: 24px;
-            width: 24px;
+            font-size: 24px;
         }
 
         .audience-card {

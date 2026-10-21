@@ -157,10 +157,12 @@ main#page-wth {
             }
         }
 
+        // <iconify-icon> from the site's icon tag sizes from font-size.
         .icon-inline {
-            height: 18px;
-            width: 18px;
+            align-items: center;
+            display: inline-flex;
             flex: 0 0 auto;
+            font-size: 18px;
         }
     }
 
