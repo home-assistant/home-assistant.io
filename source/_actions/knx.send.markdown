@@ -7,6 +7,7 @@ related_actions:
   - knx.read
   - knx.event_register
   - knx.exposure_register
+  - knx.restart_device
 ---
 
 The **KNX: Send to KNX bus** action writes data directly to one or more KNX group addresses. You can send a raw payload or have Home Assistant encode a value using a KNX datapoint type (DPT).
