@@ -78,7 +78,7 @@ Year:
   description: The release year.
   required: false
 Filters:
-  description: More Plex library filters as key and value pairs.
+  description: More Plex library filters as key and value pairs. Advanced filters, such as an `or` condition, are passed on to Plex as they are.
   required: false
 Include on deck:
   description: For TV shows, also return the next episode that is on deck. This takes one extra request for each show.
@@ -170,7 +170,7 @@ year:
   required: false
   type: integer
 filters:
-  description: More Plex library filters as key and value pairs.
+  description: More Plex library filters as key and value pairs. Advanced filters, such as an `or` condition, are passed on to Plex as they are.
   required: false
   type: map
 include_on_deck:
@@ -204,7 +204,8 @@ The action returns a list named `results`. Each result includes the following fi
 - `show_title`, `show_rating_key`, `show_guid`, `season_title`, `season_rating_key`, `season_guid`, `season_number`, and `episode_number`: Only for episodes.
 - `artist_name`: Only for albums and tracks.
 - `album_title` and `track_number`: Only for tracks.
-- `thumb_url`: A link to the poster. The link is signed and stops working after one hour.
+- `thumb_url`: A link to the poster that works in dashboard cards. The link is signed and stays valid for a year or until Home Assistant restarts, whichever comes first.
+- `thumb_path`: The same link without a signature. It does not expire, but it only loads where the request is signed in, such as the media browser or the mobile app. Dashboard cards cannot load it.
 - `on_deck`: Only for TV shows when **Include on deck** is on. The next episode that is on deck, with the same fields.
 
 A shortened example of the response looks like this:
