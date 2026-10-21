@@ -1,6 +1,7 @@
 ---
-title: Model Context Protocol Server
-description: Instructions on how to add a Model Context Protocol Server to Home Assistant.
+title: Model Context Protocol
+description: Instructions on how to add a Model Context Protocol server to Home Assistant.
+featured: true
 ha_categories:
   - ai_voice.ai_models
   - other_ecosystems
@@ -17,7 +18,7 @@ related:
 ha_quality_scale: silver
 ---
 
-The **Model Context Protocol Server** (<abbr title="Model Context Protocol">MCP</abbr>) integration lets you connect an AI agent, such as ChatGPT or Claude, to Home Assistant. The AI agent can then control your devices and see the current state of your home.
+The **Model Context Protocol** (<abbr title="Model Context Protocol">MCP</abbr>) integration lets you connect an AI agent, such as ChatGPT or Claude, to Home Assistant. The AI agent can then control your devices and see the current state of your home.
 
 ## Prerequisites
 
@@ -32,7 +33,7 @@ For detailed configuration instructions, refer to the [Client configuration](#cl
 
 {% include integrations/config_flow.md %}
 
-When you set up the integration, it exposes all LLM APIs and requires an administrator account. To change this, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Model Context Protocol Server**, and then select **Configure**.
+When you set up the integration, it exposes all LLM APIs and requires an administrator account. To change this, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Model Context Protocol**, and then select **Configure**.
 
 ## Configuration options
 
@@ -52,6 +53,11 @@ Require an administrator account:
   description: If only administrator accounts are allowed to use the `/api/mcp` endpoint. This
     option is turned on by default. If you set up the integration before this option existed,
     it stays turned off so that your clients keep working.
+Read-only:
+  description: If MCP clients can only use controls that do not change anything, such as getting
+    the current state of your home. This applies only to the `/api/mcp` endpoint. Endpoints for
+    a specific LLM API, such as `/api/mcp/assist`, are not affected. This option is turned off
+    by default.
 {% endconfiguration_basic %}
 
 ## Client configuration
@@ -183,7 +189,7 @@ subset of MCP features:
 
 - **Prompts**: Supported
 - **Tools**: Supported
-- **Resources**: Supported (Assist only)
+- **Resources**: Supported (**Device control** only)
 - **Sampling**: Not supported
 - **Notifications**: Not supported
 

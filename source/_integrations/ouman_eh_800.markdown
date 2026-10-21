@@ -10,6 +10,7 @@ ha_codeowners:
   - '@Markus98'
 ha_domain: ouman_eh_800
 ha_platforms:
+  - binary_sensor
   - climate
   - number
   - select
@@ -63,7 +64,7 @@ Password:
 
 ## Supported functionality
 
-The integration creates one **Ouman EH-800** device for the controller and one sub-device for each active heating circuit. Sub-devices are named **Heating circuit 1** and **Heating circuit 2** (referred to as H1 and H2 throughout this document and on the controller), with the circuit name configured on the controller appended when available (for example, `Heating circuit 1 Radiator heating`). Climate, number, select, sensor, and valve entities are assigned to the device they belong to.
+The integration creates one **Ouman EH-800** device for the controller and one sub-device for each active heating circuit. Sub-devices are named **Heating circuit 1** and **Heating circuit 2** (referred to as H1 and H2 throughout this document and on the controller), with the circuit name configured on the controller appended when available (for example, `Heating circuit 1 Radiator heating`). Climate, number, select, sensor, binary sensor, and valve entities are assigned to the device they belong to.
 
 ### Climate entities
 
@@ -88,6 +89,8 @@ Enabled by default (categorized as configuration):
 - **H1/H2 Temperature drop**, **Big temperature drop**: Offsets applied to the target when an automatic reduction is active.
 - **H1/H2 Room temperature fine tuning**: Manual offset for the room temperature target.
 - **H1 Constant temperature setpoint** (only when the heating mode is constant-temperature controller): The target supply water temperature.
+- **Autumn drying outdoor temperature limit** (on the main device): The 24-hour average outside temperature below which autumn drying activates. The setting is shared by H1 and H2.
+- **H1/H2 Autumn drying setpoint**: The amount the room temperature (with a room sensor) or the supply water temperature (without a room sensor) is raised while autumn drying is active.
 
 Disabled by default (see [enabling or disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)):
 
@@ -112,6 +115,7 @@ The exact set of sensors depends on which features and circuits are active on yo
 - **H1/H2 valve position**: The current position of the mixing valve, in percent.
 - **H1/H2 room temperature**: The room temperature measured by the room sensor (when installed).
 - **H1/H2 room temperature setpoint**: The target room temperature.
+- **Return water temperature**, **Accumulator temperature**, **Boiler temperature** (on the main device, only when a measurement channel is assigned to that measurement): The temperature measured by the optional sensor.
 
 Additional diagnostic sensors are exposed but disabled by default. See [enabling or disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) to enable them if needed:
 
@@ -120,6 +124,11 @@ Additional diagnostic sensors are exposed but disabled by default. See [enabling
 - **H1 fine adjustment effect**: The temperature offset from the manual fine-adjustment.
 - **H1 room sensor potentiometer**: The room temperature offset from the room sensor's adjustment knob.
 - **H2 delayed outdoor temperature effect**: The delayed outdoor temperature effect applied to the H2 setpoint.
+- **H1/H2 autumn drying effect**: The temperature raise currently applied by autumn drying to the room temperature (with a room sensor) or supply water temperature (without a room sensor).
+
+### Binary sensor entities
+
+- **H1 Summer function**: **On** while the controller's summer function is holding the H1 mixing valve closed. The controller enables and disables the summer function automatically based on the outside temperature.
 
 ### Valve entities
 

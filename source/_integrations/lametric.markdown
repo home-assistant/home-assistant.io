@@ -1,6 +1,6 @@
 ---
 title: LaMetric
-description: Instructions on how to integrate LaMetric TIME with Home Assistant.
+description: Instructions on how to integrate LaMetric TIME and SKY with Home Assistant.
 ha_categories:
   - messaging_notifications.push_notifications
 ha_iot_class: Local Polling
@@ -18,6 +18,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - time
   - update
 ha_integration_type: device
 ha_config_flow: true
@@ -28,7 +29,7 @@ related:
     title: Debug logs and diagnostics
 ---
 
-The **LaMetric** {% term integration %} lets you integrate your [LaMetric TIME](https://lametric.com/) smart clock with Home Assistant, so you can display notifications, charts, and other visual updates on the device.
+The **LaMetric** {% term integration %} lets you integrate your [LaMetric TIME](https://lametric.com/) smart clock or LaMetric SKY smart light with Home Assistant, so you can display notifications, charts, and other visual updates on the device.
 
 Use cases for this integration include:
 
@@ -42,6 +43,9 @@ Use cases for this integration include:
 The following LaMetric devices are known to be supported:
 
 - [LaMetric TIME](https://lametric.com/)
+- [LaMetric SKY](https://lametric.com/)
+
+The screensaver time entities are not available on the LaMetric SKY. The volume and Bluetooth entities are only added when the device reports audio and Bluetooth support, which a LaMetric SKY on recent firmware does not.
 
 ## Prerequisites
 
@@ -51,15 +55,18 @@ Your LaMetric device must be powered on and connected to the same local network 
 
 {% configuration_basic %}
 Host:
-  description: "The hostname or IP address of your LaMetric device. Only required when adding the device manually."
+  description: "The hostname or IP address of your LaMetric device. Only required when adding the device manually, or with a press on its button."
 API key:
   description: "The device API key, which you can find in the LaMetric developer portal. Only required when adding the device manually."
 {% endconfiguration_basic %}
 
-During setup, you can choose between two methods:
+During setup, you can choose between three methods:
 
+- **Press the button**: Enter the device's hostname or IP address, then press the button on top of the device within a minute when it asks for it. The device hands out its API key itself. This method does not require a LaMetric account, and works on devices from 2022 onward.
 - **Automatic**: Sign in with your LaMetric account to let Home Assistant fetch your devices and their credentials for you.
 - **Manual**: Enter the device's hostname or IP address and API key. This method does not require a LaMetric account.
+
+When Home Assistant discovers your device, or asks you to re-authenticate it, it first checks whether the device supports the button press. If it does, setup goes straight to pressing the button. If it does not, like an older LaMetric TIME, only the other two methods are offered.
 
 ## Supported functionality
 
@@ -92,6 +99,9 @@ During setup, you can choose between two methods:
 - **Brightness mode**
   - **Description**: Choose whether the brightness is set manually or automatically based on ambient light.
   - **Entity category**: Configuration
+- **Screensaver mode**
+  - **Description**: Choose when the screensaver turns on: when it gets dark, or on a schedule set with the screensaver time entities. Only the modes the device supports are offered. To switch to the schedule, set its start and end time first. Not available on the LaMetric SKY.
+  - **Entity category**: Configuration
 
 ### Sensors
 
@@ -104,6 +114,26 @@ During setup, you can choose between two methods:
 - **Bluetooth**
   - **Description**: Toggle the device's Bluetooth radio on or off.
   - **Entity category**: Configuration
+- **Screensaver**
+  - **Description**: Turn the screensaver on or off. This leaves the screensaver mode and schedule as they are. Not available on the LaMetric SKY.
+  - **Entity category**: Configuration
+
+### Times
+
+- **Screensaver start time**
+  - **Description**: The time the time-based screensaver starts, in your Home Assistant time zone.
+  - **Entity category**: Configuration
+- **Screensaver end time**
+  - **Description**: The time the time-based screensaver ends, in your Home Assistant time zone.
+  - **Entity category**: Configuration
+
+Changing a time only changes the schedule. If the screensaver is set to turn on when it gets dark, it stays that way.
+
+The device accepts both times only when set together. If you never set a screensaver time on the device, setting one time sets both to that time until you set the other.
+
+The device stores these times in UTC. After a daylight saving time change, the times shift by one hour, so set them again if needed.
+
+These entities are not available on the LaMetric SKY.
 
 ### Update
 
@@ -164,6 +194,10 @@ sound:
   required: false
   type: string
   default: none
+sound_url:
+  description: "An MP3 file to play with the notification, instead of a built-in sound: a media source ID of a file in Home Assistant, or the URL of the file. When `sound` is given as well, that sound plays when the file cannot be fetched."
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Data updates
@@ -218,7 +252,7 @@ actions:
 
 ## Notification sounds
 
-The following notification sounds can be used with the `sound` parameter on the notify and action calls:
+The following notification sounds can be used with the `sound` parameter on the notify and action calls. To play your own sound instead, use the `sound_url` parameter: pick an MP3 file from your media in Home Assistant, or enter the URL of one. The device fetches and plays it, so it must be able to reach Home Assistant, or the URL, on the network.
 
 - `alarm1`
 - `alarm2`
@@ -273,7 +307,7 @@ The following notification sounds can be used with the `sound` parameter on the 
 
 - The integration communicates with the LaMetric device over the local network. If the device is not reachable, its entities become unavailable.
 - When the LaMetric device is powered through a USB port on a computer, the display brightness is limited. For full brightness, use a proper USB charger.
-- The list of supported sounds is fixed by the device firmware. Adding custom sounds is not possible.
+- The list of built-in sounds is fixed by the device firmware. To play another sound, use `sound_url` with an MP3 file.
 
 ## Troubleshooting
 

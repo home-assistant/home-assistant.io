@@ -173,12 +173,18 @@ The integration {% term polling polls %} data from the thermostat every 5 minute
 
 ## Troubleshooting
 
+### Connectivity
+
 As the data is refreshed using an active Bluetooth connection, {% term polling %} can fail due to connection issues.
 
 If you see repeated connection issues, try the following:
 
 1. Move your Home Assistant host closer to the thermostat.
 2. Add [ESPHome Bluetooth proxies](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) closer to the thermostat.
+
+### Viewing device diagnostics
+
+Each setup of this integration contains one thermostat. Its diagnostics include information about the thermostat and its Bluetooth connection, as well as converted data and the most recent raw values received. This information can help troubleshoot conversion or connection issues. To download diagnostics, follow the [steps to download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
 
 ## Removing the integration
 

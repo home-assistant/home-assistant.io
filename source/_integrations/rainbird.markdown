@@ -29,6 +29,7 @@ There is currently support for the following device types within Home Assistant:
 - [Button](#button)
 - [Calendar](#calendar)
 - [Number](#number)
+- [Sensor](#sensor)
 - [Switch](#switch)
 
 Home Assistant allows you to control the irrigation values, log details about
@@ -72,7 +73,8 @@ Default irrigation time:
 
 The Rain Bird integration fetches available irrigation zones once, then polls
 every minute to check the current state of each valve. The irrigation schedule
-calendar is only fetched every 15 minutes.
+is only fetched every 15 minutes, and only while the calendar or a program next run
+sensor is enabled.
 
 ## Supported functionality
 
@@ -96,12 +98,21 @@ The Rain Bird integration provides the following entities.
   - **Available for devices**: All. The number of buttons depends on how many programs your
     controller model supports.
 
+- **Sync time**
+  - **Description**: Sets the controller's date and time to the current time in your Home Assistant
+    time zone. Use it to correct a controller clock that has drifted, for example after a power
+    outage or a daylight saving time change. The button is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). To use it, enable it
+    from the controller's device page.
+  - **Available for devices**: All
+
 #### Calendar
 
 - **Controller irrigation schedule**
   - **Description**: The irrigation schedule {% term calendar %}
     entity is created for each schedule configured in the Rain Bird app. You can view the program schedule
     in the Home Assistant calendar UI, or trigger other automations based on the irrigation start or end time.
+    Each event's description lists the zones the program waters and each zone's run time in minutes, for
+    example `Zone 1: 25 min`. In automations, it is available as `trigger.calendar_event.description`.
   - **Available for devices**: Only available for Rain Bird devices irrigation schedules.
 
 #### Number
@@ -111,6 +122,15 @@ The Rain Bird integration provides the following entities.
     been delayed due to rain. You may use the number entity with an automation such as increasing the number
     of days to delay irrigation when combined with another weather forecast integration in Home Assistant.
   - **Available for devices**: Only available for Rain Bird devices irrigation schedules.
+
+#### Sensor
+
+- **Program next run**
+  - **Description**: One sensor per program (for example, **PGM A next run**) with the next time the
+    program is scheduled to start, taking any rain delay into account. It moves on to the following
+    run as soon as a run starts. The sensor is unknown if the program has no start times or zones.
+    These sensors are disabled by default. To use one, enable it from the controller's device page.
+  - **Available for devices**: Only available for Rain Bird devices with irrigation programs.
 
 #### Switch
 

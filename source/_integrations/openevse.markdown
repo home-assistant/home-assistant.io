@@ -128,6 +128,7 @@ Diagnostic sensors that help with troubleshooting and that are disabled by defau
 ### Binary sensors
 
 - **Vehicle connected**: On when a vehicle is plugged in to the charger.
+- **Station status**: On when the charging station is active and ready to deliver power, and off when disabled.
 - **Divert active**: On when the charger is in solar divert (eco) mode and is matching its output to available surplus power.
 - **Shaper active**: On when the power shaper is actively limiting the charge rate to stay below a household power limit.
 - **Limit active** (disabled by default): On when an energy, time, or session limit is currently being enforced.

@@ -1,5 +1,5 @@
 ---
-title: Model Context Protocol
+title: Model Context Protocol Client
 description: Instructions on how to use the Model Context Protocol with Home Assistant.
 ha_categories:
   - ai_voice.ai_models
@@ -17,13 +17,13 @@ ha_quality_scale: silver
 ---
 
 The [Model Context Protocol](https://modelcontextprotocol.io) is an open protocol that
-standardizes how applications provide context to LLMs. The **Model Context Protocol** {% term integration %}
+standardizes how applications provide context to LLMs. The **Model Context Protocol Client** {% term integration %}
 enables using MCP Servers in Home Assistant for providing additional tools to use with a
 [conversation agent](/integrations/conversation). For example, you can add an MCP server that
 supports memory functionality, or that can search the web using functionality not already
 available in Home Assistant.
 
-Controlling Home Assistant is done by providing MCP clients access to the Assist API of Home
+Controlling Home Assistant is done by providing MCP clients access to the **Device control** API of Home
 Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}.
 
 ## Prerequisites
@@ -56,11 +56,11 @@ This {% term integration %} can provide additional functionality for LLM convers
 
 Home Assistant acts as a client to the MCP server you specify. Home Assistant will
 poll the MCP server SSE endpoint and query the list of available tools. The tools are
-made available for use by Home Assistant conversation agents, similar to the Assist API.
+made available for use by Home Assistant conversation agents, similar to the **Device control** API.
 See the [Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction#general-architecture)
 for more details on the protocol.
 
-The Home Assistant Model Context Protocol integration acts as a client using the
+The Home Assistant Model Context Protocol Client integration acts as a client using the
 [Server-Sent Events (SSE) transport](https://modelcontextprotocol.io/docs/concepts/transports#server-sent-events-sse)
 allowing streaming client-to-server communication. Most MCP clients today only support
 [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio) transport,
@@ -87,7 +87,7 @@ the MCP integration.
 
 ## Known limitations
 
-The Home Assistant Model Context Protocol integration currently only supports a
+The Home Assistant Model Context Protocol Client integration currently only supports a
 subset of MCP features:
 
 | Feature | Supported by Home Assistant |
