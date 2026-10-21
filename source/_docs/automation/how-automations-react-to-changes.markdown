@@ -44,18 +44,18 @@ Reloading, turning an automation off and on, and restarting each affect your aut
 
 - When you reload automations, or save an automation in the editor:
   - Only the automations that you changed are set up again. Other automations aren't affected.
-  - A run of a changed automation stops, and its **For at least** time starts again.
+  - A run of a changed automation stops, and a **For at least** wait that's in progress is canceled.
   - The **Home Assistant** trigger with **Start** doesn't react.
 - When you turn an automation off and on again:
   - Only that automation is set up again.
-  - Turning it off stops its runs, and its **For at least** time starts again.
+  - Turning it off stops its runs and cancels a **For at least** wait that's in progress.
   - The **Home Assistant** trigger with **Start** doesn't react.
 - When you restart Home Assistant:
   - All automations are set up again, at the end of the startup.
-  - All runs stop, and all **For at least** times start again.
+  - All runs stop, and all **For at least** waits that are in progress are canceled.
   - The **Home Assistant** trigger with **Start** reacts.
 
-For the steps to reload automations, refer to [Reloading automations](/docs/automation/yaml/#reloading-automations). For what happens to a run that stops, refer to [When a run stops before it finishes](/docs/automation/modes/#when-a-run-stops-before-it-finishes).
+A canceled **For at least** wait doesn't continue by itself. The trigger only starts waiting again after a new change that it reacts to. For the steps to reload automations, refer to [Reloading automations](/docs/automation/yaml/#reloading-automations). For what happens to a run that stops, refer to [When a run stops before it finishes](/docs/automation/modes/#when-a-run-stops-before-it-finishes).
 
 ## Conditions check the current state
 
