@@ -63,7 +63,7 @@ variables:
       description: "The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable."
       type: any
 trigger_variables:
-  description: "Variables that you can use in the templates of all triggers, for example, in a [template trigger](/docs/automation/trigger/#template-trigger), in the `enabled` option of a trigger, in the `event_type` of an event trigger, in the `webhook_id` of a webhook trigger, or in the `topic` of an MQTT trigger. Home Assistant sets them when it sets up the triggers, for example, when it loads the automation or when you turn the automation on."
+  description: "Variables that you can use in the templates of all triggers, for example, in a [template trigger](/triggers/template/), in the `enabled` option of a trigger, in the `event_type` of an event trigger, in the `webhook_id` of a webhook trigger, or in the `topic` of an MQTT trigger. Home Assistant sets them when it sets up the triggers, for example, when it loads the automation or when you turn the automation on."
   required: false
   default: {}
   type: map

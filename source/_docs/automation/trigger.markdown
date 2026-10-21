@@ -245,42 +245,7 @@ For setup steps, YAML options, and examples for the **Tag** trigger, see [Tag tr
 
 ### Template trigger
 
-Template triggers work by evaluating a [template](/docs/templating/) when any of the recognized entities change state. The trigger reacts if the state change caused the template to render 'true' (a non-zero number or any of the strings `true`, `yes`, `on`, `enable`) when it was previously 'false' (anything else).
-
-This is achieved by having the template result in a true boolean expression (for example `{{ is_state('device_tracker.paulus', 'home') }}`) or by having the template render `true` (example below).
-
-With template triggers you can also evaluate attribute changes by using is_state_attr (like `{{ is_state_attr('climate.living_room', 'away_mode', 'off') }}`)
-
-```yaml
-automation:
-  triggers:
-    - trigger: template
-      value_template: "{% if is_state('device_tracker.paulus', 'home') %}true{% endif %}"
-
-      # If given, will trigger when template remains true for X time.
-      for: "00:01:00"
-```
-
-You can also use templates in the `for` option. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
-
-```yaml
-automation:
-  triggers:
-    - trigger: template
-      value_template: "{{ is_state('device_tracker.paulus', 'home') }}"
-      for:
-        minutes: "{{ states('input_number.minutes')|int(0) }}"
-```
-
-The `for` template(s) will be evaluated when the `value_template` becomes 'true'.
-
-A template that uses the current time, with `now()`, `utcnow()`, `today_at`, `relative_time`, `time_since`, or `time_until`, is rendered again at the start of every minute. For details, refer to [Getting the current time](/docs/templating/dates-and-times/#getting-the-current-time). A template without entities that doesn't use any of these is only rendered once, when Home Assistant sets up the trigger.
-
-{% important %}
-Use of the `for` option will not survive Home Assistant restart or the reload of automations. During restart or reload, automations that were awaiting `for` the trigger to pass, are reset.
-
-If for your use case this is undesired, you could consider using the automation to set an [`input_datetime`](/integrations/input_datetime) to the desired time and then use that [`input_datetime`](/integrations/input_datetime) as an automation trigger to perform the desired actions at the set time.
-{% endimportant %}
+For setup steps, YAML options, and examples for the **Template** trigger, see [Template trigger](/triggers/template/).
 
 ### Time pattern trigger
 
