@@ -1,0 +1,434 @@
+@use 'mixins' as *;
+
+html {
+    scroll-padding-top: 92px;
+}
+
+#landingpage {
+    background-color: var(--wth-bg);
+    color: var(--wth-ink);
+    height: auto;
+
+    .page-content {
+        overflow-x: clip;
+        padding-top: 68px;
+    }
+
+    .content {
+        max-width: unset;
+        margin: 0;
+    }
+
+    img {
+        box-shadow: unset;
+        vertical-align: unset;
+        border: unset;
+    }
+
+    .spacer {
+        display: none;
+    }
+}
+
+main#page-wth {
+    font-family: var(--typography-base-font);
+
+    .container {
+        display: block;
+        margin: 0 auto;
+        max-width: calc(var(--container-max-width) + (var(--container-gutters) * 2));
+        padding: 0 calc(var(--container-gutters) / 2);
+        width: 100%;
+
+        @include bp(desktop) {
+            padding: 0 var(--container-gutters);
+        }
+    }
+
+    section {
+        padding: var(--section-spacing-y) 0;
+        position: relative;
+        z-index: 1;
+
+        // The global `:target` rule sets `display: inline-block`, which breaks
+        // the section layout when it is linked to via a fragment identifier.
+        &:target {
+            display: block;
+        }
+    }
+
+    h1 {
+        font-size: var(--typography-h1-font-size);
+        font-weight: var(--typography-h1-font-weight);
+        line-height: var(--typography-h1-line-height);
+        letter-spacing: -1px;
+        margin: 0;
+    }
+
+    h2 {
+        font-size: var(--typography-h2-font-size);
+        font-weight: var(--typography-h2-font-weight);
+        line-height: var(--typography-h2-line-height);
+        letter-spacing: -0.5px;
+        margin: 0;
+    }
+
+    h3 {
+        font-size: var(--typography-h3-font-size);
+        font-weight: var(--typography-h3-font-weight);
+        line-height: var(--typography-h3-line-height);
+        letter-spacing: unset;
+        text-transform: unset;
+        margin: 0;
+    }
+
+    p {
+        color: var(--wth-ink-soft);
+        font-size: var(--typography-paragraph-font-size);
+        line-height: var(--typography-paragraph-line-height);
+        margin: 0;
+    }
+
+    figure {
+        margin: 0;
+    }
+
+    ol,
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .section-lead {
+        font-size: var(--typography-lead-font-size);
+        line-height: var(--typography-lead-line-height);
+        margin-top: 12px;
+        max-width: 720px;
+    }
+
+    .section-note {
+        color: var(--wth-ink-soft);
+        font-size: var(--typography-paragraph-font-size);
+        margin-top: 24px;
+    }
+}
+
+// Buttons
+main#page-wth {
+    .button {
+        align-items: center;
+        background-color: var(--wth-mint);
+        border: unset;
+        border-radius: 40px;
+        color: var(--wth-ink);
+        display: inline-flex;
+        font-size: 15px;
+        font-weight: 600;
+        gap: 8px;
+        height: unset;
+        line-height: 1.2;
+        margin: unset;
+        overflow: hidden;
+        padding: 14px 26px;
+        transition: color 0.2s ease, background-color 0.2s ease;
+
+        @include bp(desktop) {
+            font-size: 16px;
+        }
+
+        &:before {
+            content: unset;
+        }
+
+        &:hover {
+            background-color: var(--wth-ink);
+            box-shadow: unset;
+            color: #ffffff;
+        }
+
+        &.hollow {
+            background-color: transparent;
+            box-shadow: inset 0 0 0 1px var(--wth-ink);
+
+            &:hover {
+                background-color: var(--wth-ink);
+                color: #ffffff;
+            }
+        }
+
+        .icon-inline {
+            height: 18px;
+            width: 18px;
+            flex: 0 0 auto;
+        }
+    }
+
+    // One ring for everything that takes focus. It sits outside the
+    // element, so a button that turns ink on hover still shows it
+    // against the section behind.
+    a:focus-visible,
+    button:focus-visible,
+    .button:focus-visible,
+    .nav-pill:focus-visible,
+    .edition:focus-visible,
+    [tabindex]:focus-visible {
+        outline: 3px solid var(--wth-focus);
+        outline-offset: 3px;
+    }
+
+    .buttons-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}
+
+// Decorative routing lines, echoing the key visual. The mask cuts a clear
+// column through the middle the width of the content container, so the lines
+// only ever run in the margins either side and never pass behind a heading,
+// a paragraph or a card. Below the width where those margins exist there is
+// nowhere for them to go, so they are hidden.
+.wth-routing {
+    // Width of the column kept clear. Defaults to the content container;
+    // a section with a narrower measure can shrink it.
+    --wth-routing-clear: calc(var(--container-max-width) + (var(--container-gutters) * 2));
+    --wth-routing-fade: 32px;
+
+    display: none;
+    inset: 0;
+    mask-image: linear-gradient(
+        to right,
+        #000 0,
+        #000 calc(50% - (var(--wth-routing-clear) / 2) - var(--wth-routing-fade)),
+        transparent calc(50% - (var(--wth-routing-clear) / 2)),
+        transparent calc(50% + (var(--wth-routing-clear) / 2)),
+        #000 calc(50% + (var(--wth-routing-clear) / 2) + var(--wth-routing-fade)),
+        #000 100%
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        #000 0,
+        #000 calc(50% - (var(--wth-routing-clear) / 2) - var(--wth-routing-fade)),
+        transparent calc(50% - (var(--wth-routing-clear) / 2)),
+        transparent calc(50% + (var(--wth-routing-clear) / 2)),
+        #000 calc(50% + (var(--wth-routing-clear) / 2) + var(--wth-routing-fade)),
+        #000 100%
+    );
+    opacity: 0.75;
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+
+    // 1148px of content column plus a margin worth showing lines in.
+    @include bp(1340px) {
+        display: block;
+    }
+
+    svg {
+        height: 100%;
+        width: 100%;
+    }
+
+    .line-mint {
+        stroke: var(--wth-line-mint);
+    }
+
+    .line-blue {
+        stroke: var(--wth-line-blue);
+    }
+
+    .line-dashed {
+        stroke-dasharray: 2 22;
+    }
+
+    // Nodes are knocked out of whatever surface they sit on, so each
+    // section sets `--wth-routing-surface` to its own background.
+    .node circle {
+        fill: var(--wth-routing-surface, var(--wth-bg));
+        stroke: var(--wth-line-blue);
+        stroke-width: 7;
+    }
+}
+
+
+.wth-sr-only {
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+// PLACEHOLDER: the "What the Heck?!" wordmark approximated as live text
+// until the real SVG lockup is available. Everything from here to the
+// `paint-order` fallback goes when the SVG lands.
+// The "What the Heck?!" wordmark, rebuilt from the key visual as live text.
+//
+// Every word is a separate 3D-rotated plane, matching the key visual, where
+// each word sits at its own angle. Orientation is driven by per-word custom
+// properties so the values can be tuned in one place.
+//
+// Layers, back to front: a mint sticker outline on a pseudo-element, a stepped
+// ink extrude built from stacked text shadows, then the sky-blue letter
+// outline and white fill on the word itself. `text-shadow` paints beneath the
+// element's own fill and stroke, which keeps the extrude behind the letter
+// without a third copy of the text.
+
+// Builds a solid extrude by stacking one hard shadow per step.
+@function wth-extrude($color, $steps, $dx, $dy) {
+    $shadows: ();
+
+    @for $i from 1 through $steps {
+        $shadows: append($shadows, ($dx * $i) ($dy * $i) 0 $color, comma);
+    }
+
+    @return $shadows;
+}
+
+.wth-mark {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    font-family: "Archivo Black", "Figtree", "Helvetica Neue", Arial, sans-serif;
+    // Drives the large line; the small line is sized relative to it.
+    font-size: clamp(38px, 9.5vw, 96px);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 0.86;
+    text-transform: uppercase;
+}
+
+.wth-mark__line {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.16em;
+
+    // The top line is roughly half the size of the bottom one.
+    &:not(.wth-mark__line--lg) {
+        font-size: 0.49em;
+    }
+
+    &--lg {
+        margin-top: 0.06em;
+    }
+}
+
+.wth-mark__word {
+    // Per-word orientation. Overridden by the modifiers below.
+    --wth-persp: 1200px;
+    --wth-rx: 0deg;
+    --wth-ry: 0deg;
+    --wth-rz: 0deg;
+    --wth-scale: 1;
+    --wth-tx: 0em;
+    --wth-ty: 0em;
+
+    color: #ffffff;
+    display: inline-block;
+    // Keeps each word's layers together so later words paint cleanly over
+    // earlier ones where they overlap.
+    isolation: isolate;
+    paint-order: stroke fill;
+    position: relative;
+    text-shadow: wth-extrude(#1E2126, 18, 0.0052em, 0.0037em);
+    transform:
+        translate(var(--wth-tx), var(--wth-ty))
+        perspective(var(--wth-persp))
+        rotateX(var(--wth-rx))
+        rotateY(var(--wth-ry))
+        rotate(var(--wth-rz))
+        scale(var(--wth-scale));
+    white-space: pre;
+    // `paint-order: stroke` puts the stroke behind the fill, so only half the
+    // declared width shows outside the glyph. Widths here are doubled to suit.
+    -webkit-text-stroke: 0.22em var(--wth-sky);
+
+    // Mint sticker outline.
+    &::before {
+        color: var(--wth-mint);
+        content: attr(data-text);
+        left: 0;
+        paint-order: stroke fill;
+        position: absolute;
+        text-shadow: none;
+        top: 0;
+        white-space: pre;
+        z-index: -1;
+        -webkit-text-stroke: 0.44em var(--wth-mint);
+    }
+
+    // The small line needs thicker em-based strokes to match the absolute
+    // weight of the outlines on the large line.
+    .wth-mark__line:not(.wth-mark__line--lg) & {
+        text-shadow: wth-extrude(#1E2126, 18, 0.0106em, 0.0076em);
+        -webkit-text-stroke-width: 0.45em;
+
+        &::before {
+            -webkit-text-stroke-width: 0.9em;
+        }
+    }
+}
+
+// Per-word orientation, derived from the key visual. Each word sits on its
+// own plane: the taper comes from `rotateY` under perspective, the tilt from
+// `rotate`. Perspective is in `em` so the whole lockup stays scale-invariant.
+.wth-mark__word--what {
+    --wth-persp: 7em;
+    --wth-ry: -14deg;
+    --wth-rz: -1.5deg;
+}
+
+.wth-mark__word--the {
+    --wth-persp: 5.5em;
+    --wth-ry: -24deg;
+    --wth-rz: -3deg;
+    --wth-tx: 0.08em;
+    --wth-ty: -0.05em;
+}
+
+.wth-mark__word--heck {
+    --wth-persp: 7em;
+    --wth-ry: -18deg;
+    --wth-rz: 3.5deg;
+}
+
+// Without `paint-order`, the stroke paints centred on the glyph edge and eats
+// into the fill. Thin every layer so the wordmark stays legible.
+@supports not (paint-order: stroke) {
+    .wth-mark__word {
+        -webkit-text-stroke-width: 0.03em;
+
+        &::before {
+            -webkit-text-stroke-width: 0.16em;
+        }
+
+        .wth-mark__line:not(.wth-mark__line--lg) & {
+            -webkit-text-stroke-width: 0.06em;
+
+            &::before {
+                -webkit-text-stroke-width: 0.32em;
+            }
+        }
+    }
+}
+
+// Full-bleed sections, following the pattern the Connect pages already use
+// (sass/homeassistant/pages/connect/_base.scss): release the landing page
+// layout's grid wrapper so section backgrounds reach the viewport edge, then
+// pin the header and footer back to the site width used everywhere else
+// ($site-width, 1560px). The `.container` inside each section keeps the text
+// to a readable measure.
+#landingpage {
+    .grid-wrapper {
+        max-width: unset;
+        min-height: unset;
+    }
+
+    .site-header .grid-wrapper,
+    footer .grid-wrapper {
+        max-width: 1560px !important;
+        padding: 0 24px !important;
+    }
+}

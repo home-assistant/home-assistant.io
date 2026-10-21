@@ -1,0 +1,886 @@
+@use 'mixins' as *;
+
+main#page-wth {
+
+    // Hero. Follows the card pattern the community page uses: a rounded
+    // full-bleed card with the content pinned bottom left, and a pill
+    // floating at the top via `margin-bottom: auto`.
+    #hero {
+        --section-spacing-y: 0;
+
+        background: linear-gradient(135deg, #FFFFFF 0%, #E9F7FF 46%, #D8FBEF 100%);
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        isolation: isolate;
+        justify-content: flex-end;
+        margin: 0 auto;
+        max-width: var(--container-full-max-width);
+        min-height: 480px;
+        overflow: hidden;
+        width: calc(100% - 24px);
+
+        @include bp(tablet) {
+            border-radius: 24px;
+            min-height: 600px;
+            width: calc(100% - 48px);
+        }
+
+        .container {
+            display: flex;
+            // Fill the card so the date can sit at the very top while the
+            // rest of the content stays at the bottom.
+            flex: 1 0 auto;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px 12px;
+
+            @include bp(tablet) {
+                padding: 40px 12px 66px;
+            }
+        }
+
+        .content {
+            align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            max-width: 670px;
+            text-align: left;
+        }
+
+        .hero-date {
+            align-self: flex-start;
+            background-color: #ffffff;
+            border-radius: 60px;
+            color: var(--wth-ink);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin-bottom: auto;
+            padding: 8px 16px;
+
+            @include bp(tablet) {
+                font-size: 16px;
+            }
+        }
+
+        .hero-heading {
+            letter-spacing: unset;
+            margin: 0;
+        }
+
+        .hero-tagline {
+            color: var(--wth-ink);
+            font-size: var(--typography-h2-font-size);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-top: 28px;
+        }
+
+        .lead {
+            font-size: var(--typography-lead-font-size);
+            line-height: var(--typography-lead-line-height);
+            margin-top: 14px;
+            max-width: 46ch;
+        }
+
+        .buttons-container {
+            margin-top: 28px;
+        }
+    }
+
+    // Shared tile and card surfaces
+    .tile-grid,
+    .audience-grid,
+    .quote-wall,
+    .editions-grid {
+        display: grid;
+        gap: 12px;
+        margin-top: 32px;
+
+        @include bp(tablet) {
+            gap: 16px;
+        }
+    }
+
+    // One month, one question
+    #moments {
+        .tile-grid {
+            @include bp(tablet) {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .tile {
+            background-color: var(--wth-surface);
+            border-radius: var(--card-radius);
+            padding: 24px;
+
+            @include bp(tablet) {
+                text-align: center;
+            }
+
+            p {
+                color: var(--wth-ink);
+                font-size: 17px;
+                font-weight: 600;
+                margin-top: 14px;
+            }
+        }
+
+        .tile-icon {
+            color: var(--wth-mint-ink);
+            height: 32px;
+            width: 32px;
+        }
+    }
+
+    // Who we want to hear from
+    #everyone {
+        .audience-grid {
+            @include bp(tablet) {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .audience-card {
+            background-color: var(--wth-surface);
+            border: 1px solid var(--wth-border);
+            border-radius: var(--card-radius);
+            padding: 24px;
+
+            &.is-highlight {
+                background-color: var(--wth-mint);
+                border-color: var(--wth-mint);
+
+                p {
+                    color: var(--wth-ink);
+                }
+
+                .audience-icon {
+                    color: var(--wth-ink);
+                }
+            }
+
+            h3 {
+                margin-top: 14px;
+            }
+
+            p {
+                margin-top: 8px;
+            }
+        }
+
+        .audience-icon {
+            color: var(--wth-mint-ink);
+            height: 28px;
+            width: 28px;
+        }
+    }
+
+    // Quote wall
+    #wall {
+        .quote-wall {
+            @include bp(tablet) {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        .quote {
+            background-color: var(--wth-surface);
+            border-left: 4px solid var(--wth-sky);
+            border-radius: 0 var(--card-radius) var(--card-radius) 0;
+            padding: 22px 24px;
+
+            &.is-shipped {
+                border-left-color: var(--wth-mint);
+            }
+
+            blockquote {
+                border: unset;
+                color: var(--wth-ink);
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 1.4;
+                margin: 0;
+                padding: 0;
+                // inuitcss hangs the opening quote mark with a negative indent.
+                // These quotes have no quote marks, so reset it.
+                text-indent: 0;
+            }
+
+            figcaption {
+                align-items: center;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-top: 14px;
+            }
+
+            .badge {
+                background-color: var(--wth-mint);
+                border-radius: 40px;
+                color: var(--wth-ink);
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: 0.02em;
+                padding: 4px 12px;
+                text-transform: uppercase;
+            }
+
+            a {
+                color: var(--wth-ink-soft);
+                font-size: 14px;
+                text-decoration: underline;
+
+                &:hover {
+                    color: var(--wth-ink);
+                }
+            }
+        }
+    }
+
+    // How it works
+    #how-it-works {
+        .rules {
+            counter-reset: rule;
+            display: grid;
+            gap: 20px;
+            margin-top: 32px;
+
+            @include bp(tablet) {
+                gap: 24px;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            @include bp(desktop) {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+        }
+
+        .rule {
+            border-top: 2px solid var(--wth-mint);
+            padding-top: 16px;
+
+            h3 {
+                margin-top: 10px;
+            }
+
+            p {
+                margin-top: 8px;
+            }
+        }
+
+        .rule-number {
+            color: var(--wth-mint-ink);
+            display: block;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1;
+        }
+    }
+
+    // Homework
+    #homework {
+        .homework-card {
+            background-color: var(--wth-surface);
+            border-radius: var(--card-radius);
+            display: grid;
+            gap: 28px;
+            padding: 28px;
+
+            @include bp(desktop) {
+                gap: 48px;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                padding: 48px;
+            }
+
+            p {
+                margin-top: 14px;
+            }
+
+            .button {
+                margin-top: 24px;
+            }
+        }
+
+        .homework-questions {
+            display: grid;
+            gap: 12px;
+
+            li {
+                border-bottom: 1px solid var(--wth-border);
+                color: var(--wth-ink);
+                font-size: 16px;
+                font-weight: 500;
+                padding-bottom: 12px;
+                padding-left: 26px;
+                position: relative;
+
+                &:last-child {
+                    border-bottom: unset;
+                    padding-bottom: 0;
+                }
+
+                &:before {
+                    background-color: var(--wth-mint);
+                    border-radius: 50%;
+                    content: '';
+                    height: 10px;
+                    left: 0;
+                    position: absolute;
+                    top: 8px;
+                    width: 10px;
+                }
+            }
+        }
+    }
+
+    // Timeline
+    #timeline {
+        .timeline {
+            display: grid;
+            gap: 28px;
+            margin-top: 36px;
+
+            @include bp(tablet) {
+                gap: 24px;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .timeline-step {
+            border-top: 2px solid var(--wth-line-blue);
+            padding-top: 22px;
+            position: relative;
+
+            p {
+                margin-top: 8px;
+            }
+        }
+
+        .timeline-marker {
+            background-color: var(--wth-bg);
+            border: 4px solid var(--wth-mint);
+            border-radius: 50%;
+            height: 18px;
+            left: 0;
+            position: absolute;
+            top: -10px;
+            width: 18px;
+        }
+
+        .timeline-when {
+            color: var(--wth-ink);
+            display: block;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+    }
+
+    // FAQ
+    #faq {
+        .accordion {
+            margin-top: 32px;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--wth-border);
+
+            &:first-child {
+                border-top: 1px solid var(--wth-border);
+            }
+        }
+
+        .accordion-item-checkbox {
+            height: 0;
+            opacity: 0;
+            position: absolute;
+            width: 0;
+        }
+
+        .accordion-item-heading {
+            align-items: center;
+            cursor: pointer;
+            display: flex;
+            gap: 16px;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+
+        .accordion-item-heading-title {
+            color: var(--wth-ink);
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 1.35;
+
+            @include bp(desktop) {
+                font-size: 19px;
+            }
+        }
+
+        .accordion-item-heading-icon {
+            flex: 0 0 auto;
+            height: 16px;
+            position: relative;
+            width: 16px;
+
+            &:before,
+            &:after {
+                background-color: var(--wth-ink);
+                content: '';
+                left: 50%;
+                position: absolute;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                transition: opacity 0.2s ease, transform 0.2s ease;
+            }
+
+            &:before {
+                height: 2px;
+                width: 16px;
+            }
+
+            &:after {
+                height: 16px;
+                width: 2px;
+            }
+        }
+
+        .accordion-item-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.25s ease;
+        }
+
+        .accordion-item-content-inner {
+            overflow: hidden;
+
+            p,
+            pre {
+                color: var(--wth-ink-soft);
+                font-size: var(--typography-paragraph-font-size);
+                line-height: var(--typography-paragraph-line-height);
+                margin: 0 0 12px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            // The accordion answers come from a data file as raw strings, so a
+            // single-paragraph answer has no wrapping element of its own.
+            color: var(--wth-ink-soft);
+            font-size: var(--typography-paragraph-font-size);
+            line-height: var(--typography-paragraph-line-height);
+            padding-bottom: 4px;
+
+            a {
+                color: #0077A3;
+                text-decoration: underline;
+            }
+
+            pre {
+                background-color: var(--wth-surface-soft);
+                border-radius: 8px;
+                padding: 12px 14px;
+                white-space: pre-wrap;
+            }
+        }
+
+        .accordion-item-checkbox:checked ~ .accordion-item-content {
+            grid-template-rows: 1fr;
+        }
+
+        .accordion-item-checkbox:checked + .accordion-item-heading .accordion-item-heading-icon:after {
+            opacity: 0;
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
+
+        .accordion-item-checkbox:focus-visible + .accordion-item-heading .accordion-item-heading-title {
+            outline: 3px solid var(--wth-focus);
+            outline-offset: 4px;
+        }
+
+        .accordion-item-checkbox:checked ~ .accordion-item-content .accordion-item-content-inner {
+            padding-bottom: 24px;
+        }
+    }
+
+    // Previous editions
+    #editions {
+        .editions-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            max-width: 560px;
+        }
+
+        .edition {
+            background-color: var(--wth-surface);
+            border: 1px solid var(--wth-border);
+            border-radius: var(--card-radius);
+            display: block;
+            padding: 18px;
+            text-align: center;
+            transition: border-color 0.2s ease;
+
+            &:hover {
+                border-color: var(--wth-mint);
+            }
+        }
+
+        .edition-year {
+            color: var(--wth-ink);
+            display: block;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .edition-label {
+            color: var(--wth-ink-soft);
+            display: block;
+            font-size: 13px;
+            margin-top: 2px;
+        }
+    }
+
+    // Closing call to action
+    #cta {
+        .cta-card {
+            background-color: var(--wth-surface);
+            border-radius: var(--card-radius);
+            isolation: isolate;
+            overflow: hidden;
+            padding: 48px 24px;
+            position: relative;
+            text-align: center;
+
+            @include bp(desktop) {
+                padding: 72px 24px;
+            }
+
+            p {
+                margin: 16px auto 0;
+                max-width: 54ch;
+            }
+
+            .button {
+                margin-top: 28px;
+            }
+        }
+    }
+}
+
+// Local section nav, matching the pill row other landing pages carry under
+// the site header.
+main#page-wth {
+    #nav {
+        --section-spacing-y: 28px;
+        // The row needs air on both sides: it sits between the site header
+        // above and the hero card below, and crowds both without it.
+        padding-bottom: 22px;
+
+        @include bp(tablet) {
+            --section-spacing-y: 52px;
+            padding-bottom: 32px;
+        }
+    }
+
+    .nav-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .nav-pill {
+        background-color: var(--wth-surface);
+        border-radius: 32px;
+        color: var(--wth-ink);
+        font-size: 13px;
+        font-weight: 500;
+        padding: 7px 14px;
+        text-decoration: none;
+        transition: background-color 0.2s ease, color 0.2s ease;
+        white-space: nowrap;
+
+        &:hover {
+            background-color: var(--wth-mint);
+            color: var(--wth-ink);
+        }
+
+        @include bp(tablet) {
+            font-size: 14px;
+        }
+    }
+}
+
+// Carrying the campaign colours through the page, not just the hero.
+main#page-wth {
+    // A mint rule above each section heading ties the sections together.
+    #moments,
+    #everyone,
+    #wall,
+    #how-it-works,
+    #timeline,
+    #faq,
+    #editions {
+        > .container > .content > h2:first-child {
+            padding-top: 18px;
+            position: relative;
+
+            &:before {
+                background-color: var(--wth-mint);
+                border-radius: 2px;
+                content: '';
+                height: 5px;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: 56px;
+            }
+        }
+    }
+
+    // Tinted bands break up the run of flat sections.
+    #moments .tile-icon,
+    #everyone .audience-icon {
+        background-color: var(--wth-mint);
+        border-radius: 50%;
+        box-sizing: content-box;
+        color: var(--wth-ink);
+        padding: 11px;
+    }
+
+    #moments .tile-icon {
+        height: 26px;
+        width: 26px;
+    }
+
+    #everyone {
+        .audience-icon {
+            height: 24px;
+            width: 24px;
+        }
+
+        .audience-card {
+            border-color: #CDE8F8;
+        }
+
+        // The highlighted card already sits on mint, so invert its icon.
+        .audience-card.is-highlight .audience-icon {
+            background-color: var(--wth-ink);
+            color: var(--wth-mint);
+        }
+    }
+
+    #homework .homework-card {
+        border-top: 6px solid var(--wth-mint);
+    }
+
+    #faq {
+        .accordion-item-checkbox:checked + .accordion-item-heading {
+            .accordion-item-heading-title {
+                color: var(--wth-mint-ink);
+            }
+
+            .accordion-item-heading-icon:before,
+            .accordion-item-heading-icon:after {
+                background-color: var(--wth-mint-ink);
+            }
+        }
+    }
+}
+
+// Inverted sections. Breaking the run of pale sections gives the page a
+// spine, and puts the campaign colours at full strength twice on the way
+// down rather than only in the hero.
+main#page-wth {
+    // Surfaces the routing-line nodes are knocked out of.
+    #timeline {
+        --wth-routing-surface: var(--wth-bg);
+    }
+
+    // How it works, on ink.
+    #how-it-works {
+        --wth-routing-surface: var(--wth-ink);
+        --wth-focus: #ffffff;
+
+        background-color: var(--wth-ink);
+        color: #ffffff;
+
+        h2,
+        h3 {
+            color: #ffffff;
+        }
+
+        p {
+            color: #AEBAC4;
+        }
+
+        .section-lead {
+            color: #CBD5DD;
+        }
+
+        .rule {
+            border-top-color: rgba(22, 243, 190, 0.5);
+        }
+
+        .rule-number {
+            color: var(--wth-mint);
+        }
+
+        .wth-routing {
+            opacity: 0.55;
+
+            .line-mint {
+                stroke: #1C6B59;
+            }
+
+            .line-blue {
+                stroke: #23546B;
+            }
+
+            .node circle {
+                stroke: #23546B;
+            }
+        }
+    }
+
+    // Closing call to action, on mint.
+    #cta .cta-card {
+        --wth-routing-surface: var(--wth-mint);
+
+        background-color: var(--wth-mint);
+
+        h2 {
+            color: var(--wth-ink);
+        }
+
+        p {
+            color: #0A4C3C;
+        }
+
+        .button.primary {
+            background-color: var(--wth-ink);
+            color: #ffffff;
+
+            &:hover {
+                background-color: #ffffff;
+                color: var(--wth-ink);
+            }
+        }
+
+        .wth-routing {
+            .line-mint {
+                stroke: rgba(255, 255, 255, 0.55);
+            }
+
+            .line-blue {
+                stroke: rgba(30, 33, 38, 0.13);
+            }
+
+            .node circle {
+                stroke: rgba(30, 33, 38, 0.18);
+            }
+        }
+    }
+}
+
+// Fix a WTH -- the contributor path. On a white band so it reads as a
+// separate invitation from the sections aimed at everyone else.
+main#page-wth {
+    #fix {
+        --wth-routing-surface: var(--wth-surface);
+
+        background-color: var(--wth-surface);
+
+        .fix-steps {
+            counter-reset: fix;
+            display: grid;
+            gap: 24px;
+            margin-top: 32px;
+
+            @include bp(tablet) {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .fix-step {
+            border-top: 2px solid var(--wth-mint);
+            padding-top: 16px;
+
+            h3 {
+                margin-top: 10px;
+            }
+
+            p {
+                margin-top: 8px;
+            }
+        }
+
+        .fix-step-number {
+            color: var(--wth-mint-ink);
+            display: block;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .section-note a {
+            color: #0077A3;
+            text-decoration: underline;
+
+            &:hover {
+                color: var(--wth-ink);
+            }
+        }
+
+        .buttons-container {
+            margin-top: 28px;
+        }
+    }
+}
+
+// "This year, we want to hear from everyone" and "Not sure yours counts?"
+// read as one band: a single tint behind both, and a single routing layer
+// spanning them, so the lines are not cut at the join.
+main#page-wth .wth-band {
+    --wth-routing-surface: #EAF6FD;
+
+    background-color: #EAF6FD;
+    isolation: isolate;
+    position: relative;
+
+    // The band owns the background, so the sections inside it are
+    // transparent and only contribute their vertical rhythm.
+    > section {
+        background-color: transparent;
+    }
+
+    // The first section's heading rule would otherwise sit tight against
+    // the band edge.
+    > section:first-of-type {
+        padding-top: calc(var(--section-spacing-y) + 8px);
+    }
+}
+
+// The closing card has a narrower measure than the page container, so its
+// lines can come further in without touching the copy.
+main#page-wth #cta .cta-card .wth-routing {
+    --wth-routing-clear: 780px;
+}
+
+// The hero card follows the community pattern, with its content pinned
+// bottom left, so the centre-column mask the body sections use is the wrong
+// shape here. Instead the lines fade out around the bottom-left corner and
+// run strongest across the top and right of the card, where there is nothing
+// but background.
+main#page-wth #hero .wth-routing {
+    display: block;
+    mask-image: radial-gradient(125% 115% at 6% 92%, transparent 0%, transparent 36%, #000 66%);
+    -webkit-mask-image: radial-gradient(125% 115% at 6% 92%, transparent 0%, transparent 36%, #000 66%);
+    opacity: 1;
+}

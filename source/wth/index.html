@@ -1,0 +1,40 @@
+---
+layout: landingpage
+title: "Month of 'What the Heck?!' 2026"
+description: "Home Assistant's Month of 'What the Heck?!' is back for November 2026. Tell us what makes Home Assistant hard, whether you set it up or just live with it."
+og_image: /images/wth/wth-2026-key-visual.png
+frontpage: false
+sidebar: false
+# Single place to update the forum links used across this page.
+forum_url: https://community.home-assistant.io/c/month-of-what-the-heck/61
+---
+
+<!-- Archivo Black is the lettering for the "What the Heck?!" wordmark only. -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" />
+<link rel="stylesheet" href="/stylesheets/homeassistant/pages/wth/index.css" />
+
+<main id="page-wth">
+  <div class="container-full">
+    {% include_relative assets/_icons.html %}
+    {% include_relative components/_nav.html %}
+    {% include_relative components/_hero.html %}
+    {% include_relative components/_moments.html %}
+    {% comment %}
+      These two sections share one tinted band so the routing lines run
+      continuously across both instead of stopping at a colour change.
+    {% endcomment %}
+    <div class="wth-band">
+      {% include_relative components/_routing.html variant="band" %}
+      {% include_relative components/_everyone.html %}
+      {% include_relative components/_wall.html %}
+    </div>
+    {% include_relative components/_how.html %}
+    {% include_relative components/_homework.html %}
+    {% include_relative components/_timeline.html %}
+    {% include_relative components/_fix.html %}
+    {% include_relative components/_faq.html %}
+    {% include_relative components/_editions.html %}
+    {% include_relative components/_cta.html %}
+  </div>
+</main>
