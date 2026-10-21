@@ -1,6 +1,6 @@
 ## Still stuck?
 
-To find out what the action did, run it in the automation editor, and look at the trace of the run. For details, refer to [Testing automations](/docs/automation/testing/). For common problems and their solutions, refer to [Troubleshooting automations](/docs/automation/troubleshooting/).
+To test the action on its own, run it in the automation editor with **Run action**, and check the message that it shows. To see what the action did when the automation ran, open the trace of that run. For details, refer to [Testing automations](/docs/automation/testing/). For common problems and their solutions, refer to [Troubleshooting automations](/docs/automation/troubleshooting/).
 
 If that doesn't help, the Home Assistant community is quick to help: join [Discord](https://discord.gg/home-assistant) for real-time chat, post on the [community forum](https://community.home-assistant.io) with the action you're calling and what you expected to happen, or share on [our subreddit /r/homeassistant](https://reddit.com/r/homeassistant).
 
