@@ -62,7 +62,7 @@ Host:
 ## Supported functionality
 
 Each printer is added as a device in Home Assistant, with the following entities.
-Some entities are disabled by default. To use them, [enable them](/common-tasks/general/#enabling-entities) first.
+Some entities are disabled by default. To use them, [enable them](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) first.
 
 ### Sensors
 
