@@ -84,7 +84,7 @@ You can set up your OVHcloud AI Endpoints conversation agent in an [Assist pipel
 
 - Only models that support the OpenAI-compatible chat completions API of OVHcloud AI Endpoints can be used.
 - Tool calling is required for the **Control Home Assistant** option to work. If the selected model does not support tool calling, the agent will still answer questions but won't be able to control your devices.
-- This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
+- This integration does not integrate with [sentence triggers](/triggers/conversation/).
 
 ## Removing the integration
 

@@ -158,12 +158,12 @@ These properties are available for a [**Persistent notification** trigger](/trig
 
 ### Sentence triggers
 
-These are the properties available for a [**Sentence** trigger](/docs/automation/trigger/#sentence-trigger).
+These are the properties available for a [**Sentence** trigger](/triggers/conversation/).
 
 - `trigger.platform`: `conversation`.
 - `trigger.sentence`: The text of the sentence that you said or typed.
 - `trigger.slots`: Object with matched slot values.
-- `trigger.details`: Object with matched slot details by name, such as [wildcards](/docs/automation/trigger/#sentence-wildcards). Each detail contains:
+- `trigger.details`: Object with matched slot details by name, such as [wildcards](/triggers/conversation/#sentence-wildcards). Each detail contains:
   - `name`: The name of the slot.
   - `text`: The matched text.
   - `value`: The output value. For more information, refer to [lists](https://contributors.home-assistant.io/translate/voice/template-syntax/#lists).
