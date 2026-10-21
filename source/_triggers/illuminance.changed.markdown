@@ -116,7 +116,7 @@ threshold:
   type: map
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="illuminance sensor" example="sensor.living_room_illuminance" %}
 
 ## Good to know
 

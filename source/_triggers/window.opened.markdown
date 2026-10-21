@@ -63,7 +63,7 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="window sensor or motorized window" example="binary_sensor.living_room_window" %}
 
 {% include triggers/behavior.md %}
 
