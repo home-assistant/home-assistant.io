@@ -122,12 +122,15 @@ automation: |
 
 ### Automation: play an album by an artist
 
-When you say "play" followed by the name of an album, "by", and the name of an artist, play that album on the living room media player. The wildcards capture the names, and the action uses the album name.
+When you say "play" followed by the name of an album, "by", and the name of an artist, play that album on the living room speaker. The wildcards capture both names. This example uses the **Play media** action of the [Music Assistant](/integrations/music_assistant/) integration, which can find an album by its name.
 
 - **Trigger**: Sentence
   - **Sentence**: `play {album} by {artist}`
-- **Action**: Play specified media
-  - **Target**: Living room (`media_player.living_room`)
+- **Action**: Play media (Music Assistant)
+  - **Target**: Living room speaker (`media_player.living_room_speaker`)
+  - **Media ID(s)**: {% raw %}`{{ trigger.slots.album }}`{% endraw %}
+  - **Media type**: Album
+  - **Artist name**: {% raw %}`{{ trigger.slots.artist }}`{% endraw %}
 
 {% details "YAML example for playing an album by an artist" %}
 
@@ -138,12 +141,13 @@ automation: |
     - trigger: conversation
       command: "play {album} by {artist}"
   actions:
-    - action: media_player.play_media
+    - action: music_assistant.play_media
       target:
-        entity_id: media_player.living_room
+        entity_id: media_player.living_room_speaker
       data:
-        media_content_id: "{{ trigger.slots.album }}"
-        media_content_type: "album"
+        media_id: "{{ trigger.slots.album }}"
+        media_type: album
+        artist: "{{ trigger.slots.artist }}"
 {% endexample %}
 
 {% enddetails %}
