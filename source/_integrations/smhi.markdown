@@ -52,7 +52,7 @@ The **SMHI** integration provides the following entities for each location.
 ### Weather
 
 - **Weather**
-  - **Description**: The current weather and forecasts for the location. Use it with the weather forecast card on your dashboard, or with the [`weather.get_forecasts`](/integrations/weather/#action-weatherget_forecasts) action in automations and scripts.
+  - **Description**: The current weather and forecasts for the location. Use it with the weather forecast card on your dashboard, or with the [`weather.get_forecasts`](/actions/weather.get_forecasts/) action in automations and scripts.
   - **Current values**: Condition, temperature, humidity, pressure, wind speed, wind gust speed, wind bearing, visibility, and cloud coverage.
   - **Forecasts**: Daily, hourly, and twice-daily (day and night).
   - **Remarks**: The entity is named after the entry, and its entity ID starts with `weather.smhi_`. For example, `weather.smhi_home`.
