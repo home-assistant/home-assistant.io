@@ -1,0 +1,20 @@
+{% comment %}
+  PLACEHOLDER. The "What the Heck?!" wordmark, approximated as live text while
+  the real artwork is prepared. Replace this whole file with the SVG lockup
+  when it lands, and delete the `.wth-mark` rules from
+  sass/homeassistant/pages/wth/_base.scss along with the "Archivo Black"
+  stylesheet link in source/wth/index.html, which exists only for this.
+
+  It is three units -- WHAT, THE and HECK?! -- each rotated in 3D on its own.
+  Layers per unit, inside out: white core, blue stroke, black 3D extrude,
+  mint sticker outline.
+{% endcomment %}
+<span class="wth-mark" aria-hidden="true">
+  <span class="wth-mark__line">
+    <span class="wth-mark__word wth-mark__word--what" data-text="WHAT">WHAT</span>
+    <span class="wth-mark__word wth-mark__word--the" data-text="THE">THE</span>
+  </span>
+  <span class="wth-mark__line wth-mark__line--lg">
+    <span class="wth-mark__word wth-mark__word--heck" data-text="HECK?!">HECK?!</span>
+  </span>
+</span>

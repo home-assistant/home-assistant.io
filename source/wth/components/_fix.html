@@ -1,0 +1,40 @@
+<section id="fix">
+  {% include_relative components/_routing.html variant="right" %}
+  <div class="container">
+    <div class="content">
+      <h2>Or fix one</h2>
+      <p class="section-lead">You don&rsquo;t have to post a WTH to take part. Picking up someone else&rsquo;s and shipping a fix counts just as much, and plenty of them turn out to be small.</p>
+
+      <ol class="fix-steps">
+        <li class="fix-step">
+          <span class="fix-step-number">1</span>
+          <h3>Find one you can take on</h3>
+          <p>Browse the category and sort by votes to see what the most people are running into.</p>
+        </li>
+        <li class="fix-step">
+          <span class="fix-step-number">2</span>
+          <h3>Say you are on it</h3>
+          <p>Reply in the topic first, so two people do not build the same thing twice.</p>
+        </li>
+        <li class="fix-step">
+          <span class="fix-step-number">3</span>
+          <h3>Open a pull request</h3>
+          <p>Link it back to the topic. Everyone following along then knows something is happening.</p>
+        </li>
+      </ol>
+
+      <p class="section-note">Can&rsquo;t decide which one to take on? The <a href="/wth/arcade/">claw machine</a> picks an open WTH for you.</p>
+
+      <p class="section-note">Never contributed before? The <a href="https://developers.home-assistant.io/docs/development_index/">developer documentation</a> walks you through setting up a development environment and opening your first pull request.</p>
+
+      <div class="buttons-container">
+        <a href="{{ page.forum_url }}" class="button primary" target="_blank" rel="noopener">
+          Browse open WTHs
+          <svg class="icon-inline" aria-hidden="true"><use href="#wth-arrow" /></svg>
+        </a>
+        <a href="https://developers.home-assistant.io/docs/development_index/" class="button hollow" target="_blank" rel="noopener">Developer documentation</a>
+        <a href="/wth/arcade/" class="button hollow">Play the claw machine</a>
+      </div>
+    </div>
+  </div>
+</section>

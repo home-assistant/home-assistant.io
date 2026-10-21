@@ -1,0 +1,80 @@
+{% comment %}
+  Decorative routing lines from the key visual. Pass a variant so each
+  section gets a different arrangement:
+  {% include_relative components/_routing.html variant="hero" %}
+
+  Every line keeps the artwork's single stroke weight and 40px corner radius.
+  The variety comes from the routing itself: how many bends a line takes,
+  which edge it enters and leaves by, and how far it runs. Colours come from
+  the section the lines sit in, so a dark section restyles them without
+  needing its own markup.
+{% endcomment %}
+{% assign variant = include.variant | default: "center" %}
+<div class="wth-routing wth-routing--{{ variant }}" aria-hidden="true">
+  <svg viewBox="0 0 1200 {% if variant == 'hero' %}520{% elsif variant == 'band' %}1000{% else %}420{% endif %}" preserveAspectRatio="xMidYMid slice" fill="none">
+    <g stroke-width="7" stroke-linecap="round" fill="none">
+      {% if variant == "hero" %}
+        <path class="line-mint" d="M0 150h160a40 40 0 0 1 40 40v150a40 40 0 0 0 40 40h150a40 40 0 0 0 40-40V0" />
+        <path class="line-blue" d="M760 0v120a40 40 0 0 1-40 40H600a40 40 0 0 0-40 40v320" />
+        <path class="line-mint" d="M1200 300h-160a40 40 0 0 1-40-40V180a40 40 0 0 0-40-40H860" />
+        <path class="line-blue" d="M1060 520V440a40 40 0 0 1 40-40h100" />
+        <path class="line-blue" d="M0 60h60a40 40 0 0 1 40 40v60" />
+        <path class="line-mint line-dashed" d="M300 420v100" />
+      {% elsif variant == "left" %}
+        <path class="line-mint" d="M0 120h80a40 40 0 0 1 40 40v200a40 40 0 0 0 40 40h140" />
+        <path class="line-blue" d="M40 420V300a40 40 0 0 1 40-40h200a40 40 0 0 0 40-40V120" />
+        <path class="line-mint" d="M1200 80h-120a40 40 0 0 0-40 40v260" />
+        <path class="line-blue" d="M1160 420V340a40 40 0 0 0-40-40h-100" />
+        <path class="line-blue line-dashed" d="M220 0v140" />
+      {% elsif variant == "right" %}
+        <path class="line-blue" d="M1200 140h-140a40 40 0 0 0-40 40v180a40 40 0 0 1-40 40H820" />
+        <path class="line-mint" d="M1140 420V320a40 40 0 0 0-40-40H900a40 40 0 0 1-40-40V140" />
+        <path class="line-blue" d="M0 250h60a40 40 0 0 1 40 40v130" />
+        <path class="line-mint" d="M300 420V360a40 40 0 0 1 40-40h120" />
+        <path class="line-mint line-dashed" d="M960 0v120" />
+      {% elsif variant == "band" %}
+        <path class="line-blue" d="M1200 180h-180a40 40 0 0 0-40 40v200a40 40 0 0 1-40 40H780a40 40 0 0 0-40 40v500" />
+        <path class="line-mint" d="M0 300h100a40 40 0 0 1 40 40v160a40 40 0 0 0 40 40h160a40 40 0 0 1 40 40v420" />
+        <path class="line-mint" d="M1140 1000V760a40 40 0 0 0-40-40H900" />
+        <path class="line-blue" d="M60 1000V800a40 40 0 0 1 40-40h140" />
+        <path class="line-blue" d="M1200 620h-80a40 40 0 0 0-40 40v80" />
+        <path class="line-mint" d="M0 900h120a40 40 0 0 0 40-40v-80" />
+        <path class="line-blue" d="M360 0v80a40 40 0 0 0 40 40h140" />
+        <path class="line-blue line-dashed" d="M620 0v200" />
+        <path class="line-mint line-dashed" d="M980 520v160" />
+      {% else %}
+        <path class="line-mint" d="M80 420V260a40 40 0 0 1 40-40h120a40 40 0 0 0 40-40V0" />
+        <path class="line-blue" d="M1120 0v120a40 40 0 0 1-40 40H900a40 40 0 0 0-40 40v180" />
+        <path class="line-blue" d="M1200 320h-100a40 40 0 0 0-40 40v60" />
+        <path class="line-mint" d="M0 120h60a40 40 0 0 1 40 40v40" />
+        <path class="line-blue line-dashed" d="M600 300v120" />
+      {% endif %}
+    </g>
+    <g class="node">
+      {% if variant == "hero" %}
+        <circle cx="430" cy="340" r="11" />
+        <circle cx="560" cy="200" r="11" />
+        <circle cx="1000" cy="180" r="11" />
+        <circle cx="100" cy="160" r="11" />
+      {% elsif variant == "left" %}
+        <circle cx="120" cy="160" r="11" />
+        <circle cx="320" cy="220" r="11" />
+        <circle cx="1040" cy="120" r="11" />
+      {% elsif variant == "right" %}
+        <circle cx="1020" cy="180" r="11" />
+        <circle cx="860" cy="240" r="11" />
+        <circle cx="100" cy="290" r="11" />
+      {% elsif variant == "band" %}
+        <circle cx="980" cy="220" r="11" />
+        <circle cx="740" cy="500" r="11" />
+        <circle cx="140" cy="340" r="11" />
+        <circle cx="380" cy="580" r="11" />
+        <circle cx="1100" cy="720" r="11" />
+        <circle cx="160" cy="780" r="11" />
+      {% else %}
+        <circle cx="280" cy="180" r="11" />
+        <circle cx="860" cy="200" r="11" />
+      {% endif %}
+    </g>
+  </svg>
+</div>
