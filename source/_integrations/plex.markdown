@@ -207,7 +207,7 @@ The `media_content_id` value can be a JSON payload that identifies the Plex medi
 
 - `library_name`: The Plex library to search. Required for most searches.
 - `shuffle`: Shuffles the playback order of the media. Use `true` to enable it.
-- `resume`: Resumes playback at the last partially watched position if available. Otherwise, playback starts from the beginning. When the media is a TV show, playback continues with the next episode that is on deck.
+- `resume`: Resumes playback at the last partially watched position if available. Otherwise, playback starts from the beginning. For a TV show, playback starts with the show's On Deck episode in Plex. This is the episode you were watching, at the position where you stopped, or else the next unwatched episode. If the show has no On Deck episode, playback starts from the first episode.
 - `offset`: The playback start position in seconds.
 - `allow_multiple`: Allows multiple matches in a search and enqueues all found items for playback. Use `true` to enable it.
 - `username`: The local Plex user account to use. This is only needed when the Plex server has multiple users and you want to play media for a specific user.
