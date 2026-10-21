@@ -13,7 +13,7 @@ ha_domain: chirpstack
 ha_integration_type: hub
 ---
 
-The **ChirpStack** {% term integration %} connects your [ChirpStack](https://www.chirpstack.io/) LoRaWAN network to Home Assistant. Select a tenant and its applications to make their devices available to LoRaWAN device integrations.
+The **ChirpStack** {% term integration %} connects your [ChirpStack](https://www.chirpstack.io/) LoRaWAN network to Home Assistant. Select a tenant and its applications to make their devices available to [LoRaWAN](/integrations/lorawan/) device integrations.
 
 ## Supported devices
 
