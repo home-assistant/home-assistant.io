@@ -80,8 +80,12 @@ Blueprints created by the community can go through multiple revisions. For examp
 The quickest way to get these changes is to re-import the blueprint. This overwrites the blueprint you currently have.
 
 {% caution %}
-If the new version of the blueprint isn't compatible with your automations, they can stop working. You then need to adjust them yourself.
-{% endcaution %}
+
+**Before you do this**: If the re-imported blueprint is not compatible, it can break your automations.
+
+- In this case, you will need to manually adjust your automations.
+
+{% endcaution%}
 
 1. Go to {% my blueprints title="**Settings** > **Automations & scenes** > **Blueprints**" %}.
 2. On the blueprint that you want to re-import, select the three dots {% icon "mdi:dots-vertical" %} menu, and select **Re-import blueprint**.
