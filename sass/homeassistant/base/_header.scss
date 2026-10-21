@@ -57,6 +57,10 @@
     height: var(--header-height);
     justify-content: space-between;
     @include layout.container;
+    /* Full width even where a page makes the header a flex container
+       (the Voice Preview Edition page does). */
+    box-sizing: border-box;
+    width: 100%;
   }
 
   /* Logo and version badge */
@@ -321,6 +325,8 @@
       --nav-wash: var(--color-hover-wash-inverse);
     }
 
+    /* The checkbox goes too, or keyboard focus would land on it. */
+    .menu-state,
     .menu-button {
       display: none;
     }
@@ -418,8 +424,12 @@
    homepage hero, where the cyan would blend into the hero's gradient. */
 .site-header .nav-button {
   --button-ink: #002e3e;
-  --surface: #18bcf2;
-  --text: var(--button-ink);
+  /* The resting colors; the states below change --surface and --text,
+     the dark header only this palette. */
+  --rest-surface: #18bcf2;
+  --rest-text: var(--button-ink);
+  --surface: var(--rest-surface);
+  --text: var(--rest-text);
   --ring: transparent;
   --ring-width: 0;
   --icon-surface: #fff;
@@ -502,8 +512,8 @@
 }
 
 .site-header.dark .nav-button {
-  --surface: #006787;
-  --text: #fff;
+  --rest-surface: #006787;
+  --rest-text: #fff;
   --icon-surface: var(--button-ink);
   --icon-color: #fff;
   --hover-surface: #004156;
