@@ -155,7 +155,7 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="illuminance sensor" example="sensor.living_room_illuminance" %}
 
 {% include triggers/behavior.md %}
 

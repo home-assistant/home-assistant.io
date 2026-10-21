@@ -67,7 +67,7 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="motorized shutter" example="cover.kitchen_shutter" %}
 
 {% include triggers/behavior.md %}
 
