@@ -62,6 +62,63 @@ trigger_id:
 
 {% include actions/try_it.md %}
 
+{% include actions/more_examples.md %}
+
+### Automation: start a Protect alarm when the house is armed away
+
+Fire an Alarm Manager trigger when the Home Assistant alarm is armed away, for example to start recording on all cameras.
+
+- **Trigger**: State changed: Home alarm changes to _Armed away_
+- **Action**: Trigger alarm webhook
+
+{% details "YAML example for firing a trigger when armed away" %}
+
+{% example %}
+automation: |
+  alias: "Start Protect alarm when armed away"
+  triggers:
+    - trigger: state
+      entity_id: alarm_control_panel.home_alarm
+      to: "armed_away"
+  actions:
+    - action: unifiprotect.trigger_alarm_webhook
+      data:
+        config_entry_id: 1234567890abcdef1234567890abcdef
+        trigger_id: 0b6c5a2e-9d3f-4c1a-8e7b-2f4d6a8c1e3b
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: sound a chime when a door opens at night
+
+Fire an Alarm Manager trigger when the front door opens at night, for example to play a sound on a chime.
+
+- **Trigger**: State changed: Front door changes to _Open_
+- **Condition**: Time: after 22:00, before 06:00
+- **Action**: Trigger alarm webhook
+
+{% details "YAML example for firing a trigger when a door opens at night" %}
+
+{% example %}
+automation: |
+  alias: "Chime when the front door opens at night"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.front_door
+      to: "on"
+  conditions:
+    - condition: time
+      after: "22:00:00"
+      before: "06:00:00"
+  actions:
+    - action: unifiprotect.trigger_alarm_webhook
+      data:
+        config_entry_id: 1234567890abcdef1234567890abcdef
+        trigger_id: 7d1e4b9a-2c6f-4a8e-b3d5-9f0a1c2e4b6d
+{% endexample %}
+
+{% enddetails %}
+
 {% include actions/stuck.md %}
 
 {% include actions/related.md %}
