@@ -7,10 +7,10 @@
 // served-routes.json, it is only published under /astro-preview/.
 //
 // TODO: the product photos are placeholders exported from the Figma
-// file (src/assets/connect/aux-2/). Replace them with the final photos
-// before launch. The hero photo also shows a third-party speaker logo
-// that the design notes suggest removing.
+// file (src/assets/connect/aux-2/), cropped to the area each Figma
+// frame shows. Replace them with the final photos before launch.
 import { Image } from "astro:assets";
+import ArtDirectedImage from "../../../components/ArtDirectedImage.astro";
 import Site from "../../../layouts/Site.astro";
 import ConnectNav from "../../../components/connect/ConnectNav.astro";
 import ConnectHero from "../../../components/connect/ConnectHero.astro";
@@ -18,9 +18,9 @@ import ConnectSectionHeader from "../../../components/connect/ConnectSectionHead
 import ConnectFeatureCard from "../../../components/connect/ConnectFeatureCard.astro";
 import ConnectHotspots from "../../../components/connect/ConnectHotspots.astro";
 import ConnectLabel from "../../../components/connect/ConnectLabel.astro";
-import portsImage from "../../../assets/connect/aux-2/ports.jpg";
-import musicAssistantDesktop from "../../../assets/connect/aux-2/music-assistant-desktop.jpg";
-import musicAssistantPhone from "../../../assets/connect/aux-2/music-assistant-phone.jpg";
+import portsImage from "../../../assets/connect/aux-2/ports.webp";
+import musicAssistantDesktop from "../../../assets/connect/aux-2/music-assistant-desktop.webp";
+import musicAssistantPhone from "../../../assets/connect/aux-2/music-assistant-phone.webp";
 import musicAssistantIcon from "../../../assets/connect/icons/music-assistant.svg";
 import syncIcon from "../../../assets/connect/icons/sync.svg";
 import losslessIcon from "../../../assets/connect/icons/lossless.svg";
@@ -36,19 +36,24 @@ import serialAux from "../../../assets/connect/aux-2/serial/aux.svg";
 import serialGreen from "../../../assets/connect/aux-2/serial/green.svg";
 import serialReceiver from "../../../assets/connect/aux-2/serial/receiver.svg";
 import serialTv from "../../../assets/connect/aux-2/serial/tv.svg";
+import serialBottomRightShort from "../../../assets/connect/aux-2/serial/bottom-right-short.svg";
+import serialSolar from "../../../assets/connect/aux-2/serial/solar.svg";
+import serialBattery from "../../../assets/connect/aux-2/serial/battery.svg";
 import coverageImage from "../../../assets/connect/aux-2/coverage.png";
-import bestSpotImage from "../../../assets/connect/aux-2/best-spot.jpg";
-import boardImage from "../../../assets/connect/aux-2/board.jpg";
-import backImage from "../../../assets/connect/aux-2/back.jpg";
+import bestSpotImage from "../../../assets/connect/aux-2/best-spot.webp";
+import bestSpotMobileImage from "../../../assets/connect/aux-2/best-spot-mobile.webp";
+import boardImage from "../../../assets/connect/aux-2/board.webp";
+import boardMobileImage from "../../../assets/connect/aux-2/board-mobile.webp";
+import backImage from "../../../assets/connect/aux-2/back.webp";
 import boardLogosImage from "../../../assets/connect/aux-2/board-logos.webp";
 import ConnectPrice from "../../../components/connect/ConnectPrice.astro";
 import ConnectCollaboration from "../../../components/connect/ConnectCollaboration.astro";
 import ConnectSpecs from "../../../components/connect/ConnectSpecs.astro";
 import ConnectFaq from "../../../components/connect/ConnectFaq.astro";
-import explodedImage from "../../../assets/connect/aux-2/exploded.png";
-import { specs, faq } from "./_content";
-import heroImage from "../../../assets/connect/aux-2/hero.jpg";
-import atHomePoster from "../../../assets/connect/aux-2/at-home-poster.jpg";
+import { specs, faq, drawing } from "./_content";
+import heroImage from "../../../assets/connect/aux-2/hero.webp";
+import heroMobileImage from "../../../assets/connect/aux-2/hero-mobile.webp";
+import atHomePoster from "../../../assets/connect/aux-2/at-home-poster.webp";
 import cableLeft1 from "../../../assets/connect/aux-2/cables/left-1.svg";
 import cableLeft2 from "../../../assets/connect/aux-2/cables/left-2.svg";
 import cableLeft3 from "../../../assets/connect/aux-2/cables/left-3.svg";
@@ -76,17 +81,22 @@ const links = [
 // The cables around "Hardware with a mission" (Figma groups "left
 // cables" 2234:16480 and "right cables" 2234:16496), each at its Figma
 // position in px: `x` from the content's left or right edge (negative
-// is outside the content), `y` from the top of the Figma frame, which
-// is 41px below the top of .mission. Some are mirrored in Figma.
+// is outside the content), `y` from the top of .mission (Figma's frame
+// starts 41px further down). Some are mirrored in Figma.
+//
+// The SVGs are inlined so the wires can draw on when the section scrolls
+// into view: each wire (`.wire` in the file) draws out from its plug
+// (`.plug`). `from` says which end of the wire's path the plug is at:
+// 1 for its start, -1 for its end.
 const cables = [
-  { image: cableLeft1, side: "left", x: -217.88, y: -212, flip: "x" },
-  { image: cableLeft2, side: "left", x: -265.17, y: -208.56 },
-  { image: cableLeft3, side: "left", x: -380, y: 59.78 },
-  { image: cableRight1, side: "right", x: -230.58, y: -265 },
-  { image: cableRight2, side: "right", x: -246.75, y: -152.91, flip: "y" },
-  { image: cableRight3, side: "right", x: -281.54, y: -33.12, flip: "y" },
-  { image: cableRight4, side: "right", x: -355.99, y: 115.27, flip: "y" },
-  { image: cableRight5, side: "right", x: -259.6, y: 326.9, flip: "y" },
+  { svg: cableLeft1, side: "left", x: -217.88, y: -171, flip: "x", from: 1 },
+  { svg: cableLeft2, side: "left", x: -265.17, y: -167.56, from: 1 },
+  { svg: cableLeft3, side: "left", x: -380, y: 100.78, from: -1 },
+  { svg: cableRight1, side: "right", x: -230.58, y: -224, from: -1 },
+  { svg: cableRight2, side: "right", x: -246.75, y: -111.91, flip: "y", from: 1 },
+  { svg: cableRight3, side: "right", x: -281.54, y: 7.88, flip: "y", from: -1 },
+  { svg: cableRight4, side: "right", x: -355.99, y: 156.27, flip: "y", from: 1 },
+  { svg: cableRight5, side: "right", x: -259.6, y: 367.9, flip: "y", from: 1 },
 ];
 const rem = (px: number) => `${(px / 16).toFixed(4)}rem`;
 
@@ -139,15 +149,27 @@ const ports = [
 // 2556:6345, 692 × 596), in Figma's layer order, each at its Figma
 // position and width in percent of the diagram. Exported separately
 // because the whole diagram exports as a 171 KB SVG.
+//
+// The diagram plays two scenes on a loop: `a` is Figma's "FRAME A"
+// (a TV and an AV receiver), `b` is "FRAME B" (node 2556:4664: a solar
+// panel and a battery, with a shorter bottom line). Parts without a
+// scene show in both; the AUX-2 sits at the same place in both frames,
+// so FRAME B's parts keep their Figma positions. The line files are
+// inlined (`inline`) so their lines (`.wire`, `.glow`, `.dot`) can
+// animate; the devices are images, cached and loaded lazily.
 const diagram = [
-  { image: serialTopRight, x: 59.97, y: 15.5, w: 39.16 },
-  { image: serialBottomRight, x: 59.97, y: 52.35, w: 39.16 },
-  { image: serialLink, x: 37.3, y: 49.24, w: 7.51 },
-  { image: serialAux, x: 44.51, y: 34.46, w: 32.23 },
-  { image: serialGreen, x: 0, y: 34.89, w: 37.58, flip: true },
-  { image: serialReceiver, x: 74.42, y: 77.68, w: 22.8 },
-  { image: serialTv, x: 71.1, y: 7.55, w: 29.94 },
+  { svg: serialTopRight, x: 59.97, y: 15.5, w: 39.16, inline: true },
+  { svg: serialBottomRight, x: 59.97, y: 52.35, w: 39.16, scene: "a", inline: true },
+  { svg: serialBottomRightShort, x: 59.97, y: 52.35, w: 39.16, scene: "b", inline: true },
+  { svg: serialLink, x: 37.3, y: 49.24, w: 7.51 },
+  { svg: serialAux, x: 44.51, y: 34.46, w: 32.23 },
+  { svg: serialGreen, x: 0, y: 34.89, w: 37.58, flip: true },
+  { svg: serialReceiver, x: 74.42, y: 77.68, w: 22.8, scene: "a" },
+  { svg: serialTv, x: 71.1, y: 7.55, w: 29.94, scene: "a" },
+  { svg: serialSolar, x: 74.13, y: 10.07, w: 23.57, scene: "b" },
+  { svg: serialBattery, x: 75.85, y: 73.16, w: 20.21, scene: "b" },
 ];
+
 ---
 
 <Site
@@ -157,7 +179,9 @@ const diagram = [
   <main class="connect">
     <ConnectHero
       image={heroImage}
-      imageAlt="The Connect AUX-2 on a wooden sideboard between an amplifier and a speaker"
+      mobileImage={heroMobileImage}
+      imageAlt="The Connect AUX-2 on a wooden sideboard between an amplifier, a speaker and a record"
+      imagePosition="52% 50%"
       product={product}
       tagline={["Old speakers.", "New tricks."]}
     >
@@ -197,6 +221,7 @@ const diagram = [
                the video (and this still as its poster) once there is a
                file. -->
           <Image
+            quality={85}
             class="at-home"
             src={atHomePoster}
             alt="The Connect AUX-2 on a shelf next to an amplifier and a plant"
@@ -207,25 +232,22 @@ const diagram = [
       </div>
 
       <div class="mission">
-        <!-- Cables plugged in from beyond the content's edges.
-             Decoration only, on wide screens. -->
-        <div class="cables" aria-hidden="true">
+        <!-- Cables plugged in from beyond the content's edges, over
+             the top of "Connect everything" as in Figma. Decoration
+             only, on wide screens. -->
+        <div class="cables" aria-hidden="true" data-cables>
           {
-            cables.map(({ image, side, x, y, flip }) => (
-              <img
-                class:list={[side, flip && `flip-${flip}`]}
-                src={image.src}
-                width={image.width}
-                height={image.height}
-                alt=""
-                style={`--x: ${rem(x)}; --y: ${rem(y + 41)}; --width: ${rem(image.width)}`}
+            cables.map(({ svg: Cable, side, x, y, flip, from }, i) => (
+              <Cable
+                class:list={["cable", side, flip && `flip-${flip}`]}
+                style={`--x: ${rem(x)}; --y: ${rem(y)}; --width: ${rem(Cable.width)}; --i: ${i}; --from: ${from}`}
               />
             ))
           }
         </div>
         <div class="content">
-          <h2>Hardware with a mission</h2>
-          <p>
+          <h2 class="heading">Hardware with a mission</h2>
+          <p class="lead">
             You can make any device in your home smart with the right tools.
             Connect AUX-2 is all about bringing your favorite devices into your
             smart home, allowing you to use them longer and more efficiently.
@@ -267,6 +289,7 @@ const diagram = [
           <div class="devices" slot="media">
             <div class="laptop">
               <Image
+                quality={85}
                 src={musicAssistantDesktop}
                 alt="Music Assistant on a laptop, grouping the Connect AUX-2 with smart speakers"
                 widths={[640, 1280]}
@@ -275,6 +298,7 @@ const diagram = [
             </div>
             <div class="phone">
               <Image
+                quality={85}
                 src={musicAssistantPhone}
                 alt="The same speaker group in Music Assistant on a phone"
                 widths={[musicAssistantPhone.width]}
@@ -302,19 +326,32 @@ const diagram = [
         <div
           class="diagram"
           role="img"
-          aria-label="The Connect AUX-2 linked to a Home Assistant Green and wired over serial to a TV and an AV receiver"
+          aria-label="The Connect AUX-2 linked to a Home Assistant Green and wired over serial to a TV and an AV receiver, then to a solar panel and a battery"
+          data-serial-diagram
+          data-scene="a"
+          data-lines="on"
         >
           {
-            diagram.map(({ image, x, y, w, flip }) => (
-              <img
-                class:list={{ flip }}
-                src={image.src}
-                width={image.width}
-                height={image.height}
-                alt=""
-                style={`--x: ${x}%; --y: ${y}%; --w: ${w}%`}
-              />
-            ))
+            diagram.map(({ svg: Part, x, y, w, flip, scene, inline }) => {
+              const part = {
+                class: ["part", { flip }, scene && `scene-${scene}`],
+                style: `--x: ${x}%; --y: ${y}%; --w: ${w}%`,
+              };
+              return inline ? (
+                <Part class:list={part.class} style={part.style} aria-hidden="true" />
+              ) : (
+                <img
+                  class:list={part.class}
+                  style={part.style}
+                  src={Part.src}
+                  width={Part.width}
+                  height={Part.height}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+              );
+            })
           }
         </div>
         <div class="serial-cards">
@@ -353,29 +390,41 @@ const diagram = [
       <!-- TODO: a 1x export of the Figma illustration (node 2410:3513);
            replace with a 2x export or an SVG from the design team. -->
       <Image
+        quality={85}
         class="coverage-map"
         src={coverageImage}
         alt="Floor plan of a house: the Connect AUX-2 and a ZWA-2 in the middle of the house, a Home Assistant Green in a corner"
         widths={[coverageImage.width]}
       />
-      <Image
+      <!-- Figma zooms in on the desktop photo; phones show all of it. -->
+      <ArtDirectedImage
         class="coverage-photo"
-        src={bestSpotImage}
+        image={bestSpotImage}
+        mobileImage={bestSpotMobileImage}
         alt="The Connect AUX-2 with a Connect ZWA-2 antenna plugged into its USB port"
-        widths={[bestSpotImage.width]}
-        sizes="(min-width: 71.25rem) 40rem, 100vw"
+        widths={[960, bestSpotImage.width]}
+        sizes="40rem"
+        mobileWidths={[480, 960, 1440, bestSpotMobileImage.width]}
+        mobileSizes="100vw"
       />
     </section>
 
     <!-- Figma frame "Section 6" (desktop node 2198:82433, mobile node
          2201:82723). -->
     <section class="options content">
+      <!-- Figma "Banner Big" from the marketing design system (desktop
+           node 2425:19401, mobile node 2608:2618). -->
       <div class="bluetooth">
-        <Image
-          src={boardImage}
+        <!-- A wide photo from the desk breakpoint; on phones a square
+             one, with room for the text below the board. -->
+        <ArtDirectedImage
+          image={boardImage}
+          mobileImage={boardMobileImage}
           alt="The Connect AUX-2's circuit board with its Bluetooth antenna"
-          widths={[960, 1920, boardImage.width]}
-          sizes="(min-width: 71.25rem) 81rem, 100vw"
+          widths={[1728, 2592, boardImage.width]}
+          sizes="min(100vw, 81.25rem)"
+          mobileWidths={[480, 960, 1440, boardMobileImage.width]}
+          mobileSizes="100vw"
         />
         <div class="bluetooth-text">
           <h2 class="heading">Rock-solid Bluetooth</h2>
@@ -399,6 +448,7 @@ const diagram = [
           </ul>
         </div>
         <Image
+          quality={85}
           src={backImage}
           alt="The back of the Connect AUX-2 with its reset button, USB-C power port and PoE Ethernet port"
           widths={[backImage.width]}
@@ -430,13 +480,11 @@ const diagram = [
       </ConnectCollaboration>
     </div>
 
-    <!-- Figma frame "Specs and illustration" (desktop node 2002:31254).
-         TODO: the drawing is a 1x export (node 2142:53785); replace with
-         a 2x export or an SVG from the design team. -->
+    <!-- Figma frame "Specs and illustration" (desktop node 2002:31254). -->
     <ConnectSpecs
       groups={specs}
-      image={explodedImage}
-      imageAlt="Exploded line drawing of the Connect AUX-2: the case, the circuit board and the base"
+      drawing={drawing}
+      drawingAlt="Exploded line drawing of the Connect AUX-2: the lid lifted off the base, showing the circuit board inside"
     />
 
     <!-- Figma frame "FAQ" (desktop node 2002:36189). -->
@@ -444,8 +492,74 @@ const diagram = [
   </main>
 </Site>
 
+<script>
+  import { reducedMotion, reveal } from "../../../lib/motion";
+
+  // Play the "Deep control with serial" diagram while it is on screen:
+  // the lines grow to the devices and pulse for a few seconds, retract,
+  // the devices cross-fade to the other scene, and so on (styles:
+  // data-lines, data-pulse and data-scene on .diagram). Without the
+  // script, or when the visitor prefers reduced motion, the first scene
+  // stays as a still with its lines drawn.
+  const diagram = document.querySelector<HTMLElement>("[data-serial-diagram]");
+  if (diagram && !reducedMotion.matches) {
+    const wait = (ms: number) => new Promise((done) => setTimeout(done, ms));
+    const retract = () => {
+      diagram.toggleAttribute("data-pulse", false);
+      diagram.dataset.lines = "off";
+    };
+    // Bumped to stop a running loop: each loop checks it after waiting.
+    let run = 0;
+
+    const play = async (id: number) => {
+      // Wait, then say whether this loop should go on.
+      const step = async (ms: number) => (await wait(ms), id === run);
+      while (id === run) {
+        diagram.dataset.lines = "on";
+        if (!(await step(900))) return;
+        diagram.toggleAttribute("data-pulse", true);
+        if (!(await step(3000))) return;
+        retract();
+        if (!(await step(900))) return;
+        diagram.dataset.scene = diagram.dataset.scene === "a" ? "b" : "a";
+        await wait(700);
+      }
+    };
+
+    // Runs while the diagram is on screen and the tab is visible.
+    let inView = false;
+    const update = () => {
+      run++;
+      if (inView && !document.hidden) play(run);
+      else retract();
+    };
+
+    // Start from the retracted lines, so they grow in on arrival.
+    retract();
+    new IntersectionObserver(
+      ([entry]) => {
+        inView = entry.isIntersecting;
+        update();
+      },
+      { threshold: 0.4 },
+    ).observe(diagram);
+    document.addEventListener("visibilitychange", update);
+  }
+
+  // Draw the cables around "Hardware with a mission" on when the
+  // section scrolls into view (styles: .cables.is-armed / .is-revealed).
+  const cables = document.querySelector("[data-cables]");
+  if (cables) {
+    reveal(cables, {
+      target: cables.parentElement!,
+      rootMargin: "0px 0px -20% 0px",
+    });
+  }
+</script>
+
 <style lang="scss">
   @use "../../../styles/breakpoints";
+  @use "../../../styles/fade-border" as *;
   @use "../../../styles/layout";
 
   .connect {
@@ -505,24 +619,8 @@ const diagram = [
       padding-block: var(--space-xlarge) var(--space-xxlarge);
     }
 
-    h2,
-    p {
-      margin: 0;
-    }
-
-    h2 {
+    .heading {
       font-size: var(--font-size-xlarge);
-      font-weight: 600;
-      letter-spacing: -0.04em;
-      line-height: 1;
-      padding-block: var(--space-small);
-    }
-
-    p {
-      color: var(--color-text-inverse-muted);
-      font-size: var(--font-size-large);
-      line-height: 1.2;
-      padding-block: var(--space-xsmall);
     }
   }
 
@@ -587,15 +685,23 @@ const diagram = [
     max-width: 100%;
   }
 
+  /* Figma's 345 × 231 phone crop. */
   .coverage-photo {
+    aspect-ratio: 345 / 231;
     border-radius: var(--radius-medium);
-    height: 24rem;
-    object-fit: cover;
-    object-position: bottom;
-    width: 100%;
+    display: block;
+    overflow: hidden;
+
+    :global(img) {
+      display: block;
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
   }
 
-  /* Rock-solid Bluetooth and Powerful options: two photo panels. */
+  /* Rock-solid Bluetooth: a photo panel. Powerful options: a card and a
+     photo, stacked on phones (Figma's mobile "Second Row"). */
 
   .options {
     display: grid;
@@ -603,37 +709,62 @@ const diagram = [
     padding-block: var(--space-xlarge);
   }
 
-  .bluetooth,
-  .powerful {
+  /* The photo fills the banner, the text over its pale blue at the
+     bottom. Navy text, after the marketing design system's
+     "Text/Text/Heading" and "Text/Text/Body". */
+  .bluetooth {
     border-radius: var(--radius-medium);
+    color: var(--color-ink);
+    container-type: inline-size;
     display: grid;
     overflow: hidden;
+    position: relative;
 
-    img {
-      height: 16rem;
+    :global(img) {
+      height: 100%;
+      inset: 0;
       object-fit: cover;
+      object-position: top;
+      position: absolute;
       width: 100%;
     }
-  }
 
-  .bluetooth {
-    background: var(--color-surface-glass);
-
-    img {
-      object-position: left;
+    .lead,
+    .note {
+      color: var(--color-ink-muted);
     }
   }
 
-  .bluetooth-text,
+  /* The ZBT-2 fading card the other way round: the border starts blue
+     at the bottom and fades towards the top. */
   .powerful-text {
+    background: linear-gradient(rgb(0 19 38 / 80%) 11%, rgb(0 0 0 / 80%));
+    @include fade-border(0deg);
+    border-radius: var(--radius-medium);
     padding: var(--space-xlarge);
   }
 
-  .powerful {
-    background: linear-gradient(rgb(0 19 38 / 80%) 11%, rgb(0 0 0 / 80%));
+  /* The board fills the top 40% of the square photo; the text starts
+     below it at any width. Figma leaves out the footnote on phones,
+     but the lead's asterisk needs it, so the card grows to fit. */
+  .bluetooth-text {
+    max-width: 28rem;
+    padding: 42cqi var(--space-xlarge) var(--space-xlarge);
+    position: relative;
+  }
 
+  .powerful {
+    display: grid;
+    gap: var(--space-xlarge);
+
+    /* Figma's 345 × 238 phone crop; the file is cropped to cover both
+       it and the desktop crop. */
     img {
-      object-position: 50% 65%;
+      aspect-ratio: 345 / 238;
+      border-radius: var(--radius-medium);
+      height: auto;
+      object-fit: cover;
+      width: 100%;
     }
 
     ul {
@@ -744,7 +875,7 @@ const diagram = [
     aspect-ratio: 692 / 596;
     position: relative;
 
-    img {
+    :global(.part) {
       height: auto;
       left: var(--x);
       position: absolute;
@@ -752,8 +883,72 @@ const diagram = [
       width: var(--w);
     }
 
-    .flip {
+    :global(.flip) {
       transform: scaleX(-1);
+    }
+
+    /* The two scenes cross-fade (data-scene). */
+    :global(.scene-a),
+    :global(.scene-b) {
+      transition: opacity 0.6s ease;
+    }
+
+    &[data-scene="a"] :global(.scene-b),
+    &[data-scene="b"] :global(.scene-a) {
+      opacity: 0;
+    }
+
+    /* The lines grow out of the AUX-2 to the devices and retract into
+       it again (data-lines). pathLength="1" in the files: a dash as
+       long as the line, shifted by its length to hide it. */
+    :global(.wire) {
+      stroke-dasharray: 1 1;
+      stroke-dashoffset: 1;
+      transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* The glow and the dot at the device end appear as a line arrives,
+       and go before it retracts. */
+    :global(.glow),
+    :global(.dot) {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &[data-lines="on"] {
+      :global(.wire) {
+        stroke-dashoffset: 0;
+      }
+
+      :global(.glow),
+      :global(.dot) {
+        opacity: 1;
+        transition-delay: 0.6s;
+      }
+
+      :global(.glow) {
+        opacity: 0.8;
+      }
+    }
+
+    /* The glows pulse while the lines are on (data-pulse). */
+    &[data-pulse] :global(.glow) {
+      animation: serial-pulse 1.5s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+  }
+
+  @keyframes serial-pulse {
+    0%,
+    100% {
+      opacity: 0.8;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.35;
+      transform: scale(0.8);
     }
   }
 
@@ -815,6 +1010,7 @@ const diagram = [
     }
 
     .coverage-photo {
+      aspect-ratio: auto;
       grid-column: 2;
       grid-row: 1 / span 2;
       height: 100%;
@@ -824,46 +1020,38 @@ const diagram = [
       padding-block: var(--space-xxlarge);
     }
 
-    /* The board photo fills the banner, the text on its right. */
+    /* The wide photo, the text on its right. */
     .bluetooth {
-      align-items: center;
+      align-content: center;
       height: 24rem;
-      position: relative;
 
-      img {
-        height: 100%;
-        inset: 0;
-        position: absolute;
+      :global(img) {
+        object-position: left;
       }
     }
 
     .bluetooth-text {
       justify-self: end;
       padding: var(--space-xxlarge);
-      position: relative;
       width: 28rem;
     }
 
     /* Figma's 407px card and 793px photo, in proportion. */
     .powerful {
-      background: none;
-      border-radius: 0;
-      gap: var(--space-xlarge);
       grid-template-columns: minmax(0, 407fr) minmax(0, 793fr);
       /* The row is the panel's height, not the photo's. */
       grid-template-rows: minmax(0, 1fr);
       height: 26.625rem;
 
       img {
-        border-radius: var(--radius-medium);
+        aspect-ratio: auto;
         height: 100%;
+        object-position: 50% 33%;
       }
     }
 
     .powerful-text {
       align-content: center;
-      background: linear-gradient(rgb(0 19 38 / 80%) 11%, rgb(0 0 0 / 80%));
-      border-radius: var(--radius-medium);
       display: grid;
       padding: var(--space-xxlarge);
     }
@@ -900,54 +1088,93 @@ const diagram = [
           var(--space-xxxlarge);
       }
 
-      h2 {
+      .heading {
         flex: none;
         font-size: var(--font-size-heading);
         padding-block: var(--space-medium);
       }
-
-      p {
-        font-size: var(--font-size-xxlarge);
-        padding-block: var(--space-small);
-      }
     }
 
     /* Each cable sits where the Figma file has it relative to the
-       content (see `cables` above), behind the content. The layer
-       spans .mission, so 100% is the window's width. */
+       content (see `cables` above), always outside the content, so it
+       can lie over the next section's top as in Figma. The layer spans
+       .mission, so 100% is the window's width. The SVGs are rendered
+       by their own components, hence :global(). */
     .cables {
-      --content-edge: max(
-        var(--layout-gutter-wide),
-        (100% - var(--layout-max-width)) / 2
-      );
+      /* Measured from Figma's 1200px column, not the page's 1300px
+         content, then each cable is pulled 20% of its width further
+         out, so the cables clear the heading and cards. The content
+         stays in front of them anyway (see below). */
+      --content-edge: max(var(--layout-gutter-wide), (100% - 75rem) / 2);
+      --pull: 0.2;
 
       display: block;
       inset: 0;
       pointer-events: none;
       position: absolute;
-      z-index: -1;
+      z-index: 1;
 
-      img {
+      :global(.cable) {
         height: auto;
         position: absolute;
         top: var(--y);
         width: var(--width);
       }
 
-      .left {
-        left: calc(var(--content-edge) + var(--x));
+      :global(.left) {
+        left: calc(var(--content-edge) + var(--x) - var(--width) * var(--pull));
       }
 
-      .right {
-        right: calc(var(--content-edge) + var(--x));
+      :global(.right) {
+        right: calc(var(--content-edge) + var(--x) - var(--width) * var(--pull));
       }
 
-      .flip-x {
+      :global(.flip-x) {
         transform: scaleX(-1);
       }
 
-      .flip-y {
+      :global(.flip-y) {
         transform: scaleY(-1);
+      }
+    }
+
+    /* The cables lie over the next section but behind this section's
+       cards and text. */
+    .features > .content,
+    .mission .content {
+      z-index: 2;
+    }
+
+    /* Drawing on: the script arms the layer (unless the visitor
+       prefers reduced motion), which hides the plugs and wires, then
+       draws them when the section scrolls into view. Each plug fades
+       in, then its wire draws out from it to the window's edge; the
+       cables follow one another. Without the script the cables are
+       simply there. */
+    .cables:global(.is-armed) {
+      :global(.plug) {
+        opacity: 0;
+        transition: opacity 0.4s ease calc(var(--i) * 0.12s);
+      }
+
+      /* pathLength="1" in the files: a dash as long as the wire, then a
+         gap as long, shifted so the gap covers it. --from picks the end
+         the dash grows from. */
+      :global(.wire) {
+        stroke-dasharray: 1 1;
+        stroke-dashoffset: var(--from);
+        transition: stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1)
+          calc(var(--i) * 0.12s + 0.25s);
+      }
+    }
+
+    .cables:global(.is-revealed) {
+      :global(.plug) {
+        opacity: 1;
+      }
+
+      :global(.wire) {
+        stroke-dashoffset: 0;
       }
     }
   }

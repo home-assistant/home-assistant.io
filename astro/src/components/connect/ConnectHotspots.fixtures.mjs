@@ -3,7 +3,7 @@
 // switch the card; from 1140px a line joins the point to its card.
 //
 // Not a port of a Jekyll element, so there is no `liquid` source.
-import portsImage from "../../assets/connect/aux-2/ports.jpg";
+import portsImage from "../../assets/connect/aux-2/ports.webp";
 import wholeHomeAudio from "../../assets/connect/icons/whole-home-audio.svg";
 import advancedControl from "../../assets/connect/icons/advanced-control.svg";
 

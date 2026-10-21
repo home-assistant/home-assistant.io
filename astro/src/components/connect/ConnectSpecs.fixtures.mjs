@@ -1,6 +1,6 @@
 // Fixtures for the Connect specifications, with part of the AUX-2 page's
 // specs: plain items and an item with labelled values.
-import exploded from "../../assets/connect/aux-2/exploded.png";
+import { drawing } from "../../pages/connect/aux-2/_content";
 
 export default {
   title: "Connect specifications",
@@ -13,8 +13,8 @@ export default {
       name: "AUX-2 excerpt",
       dark: true,
       props: {
-        image: exploded,
-        imageAlt: "Exploded line drawing of the Connect AUX-2",
+        drawing,
+        drawingAlt: "Exploded line drawing of the Connect AUX-2",
         groups: [
           {
             title: "Material",

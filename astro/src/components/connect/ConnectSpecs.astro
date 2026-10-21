@@ -12,8 +12,18 @@
 // `value` lines or `details`, labelled values set in two columns (the
 // Audio, Serial, Connectivity and Software items); `wide` items take
 // the group's full width.
+//
+// The drawing is three layers in a box of the drawing's proportions:
+// the base, the circuit board inside it and the lid above, each placed
+// in percent of the box (Figma node 2142:53785: "base", its "Clip path
+// group" and "top"). The lid starts lowered onto the base and lifts to
+// its exploded position when the drawing scrolls into view. The lid's
+// black fill hides the board meanwhile, so it reads as a closed case
+// without the halves having to fit exactly. Without the script, or with
+// reduced motion, the drawing is simply exploded.
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
+import { desk } from "../../lib/breakpoints";
 
 interface Detail {
   term: string;
@@ -32,13 +42,42 @@ interface Group {
   items: Item[];
 }
 
-interface Props {
-  groups: Group[];
+interface Layer {
   image: ImageMetadata;
-  imageAlt: string;
+  // Position and width in percent of the drawing's box.
+  x: number;
+  y: number;
+  w: number;
 }
 
-const { groups, image, imageAlt } = Astro.props;
+interface Drawing {
+  // The drawing's width / height.
+  ratio: number;
+  base: Layer;
+  board: Layer;
+  lid: Layer;
+  // How far the lid starts lowered, in percent of its own height.
+  closed: number;
+}
+
+interface Props {
+  groups: Group[];
+  drawing: Drawing;
+  drawingAlt: string;
+}
+
+const { groups, drawing, drawingAlt } = Astro.props;
+const place = ({ x, y, w }: Layer) => `--x: ${x}%; --y: ${y}%; --w: ${w}%`;
+// The lid and base are SVGs, served as they are.
+const svgLayer = (layer: Layer) => ({
+  src: layer.image.src,
+  width: layer.image.width,
+  height: layer.image.height,
+  alt: "",
+  loading: "lazy",
+  decoding: "async",
+  style: place(layer),
+});
 ---
 
 <section class="connect-specs" id="specs">
@@ -81,8 +120,36 @@ const { groups, image, imageAlt } = Astro.props;
       ))
     }
   </div>
-  <Image class="drawing" src={image} alt={imageAlt} widths={[image.width]} />
+  <div
+    class="drawing"
+    role="img"
+    aria-label={drawingAlt}
+    data-specs-drawing
+    style={`--ratio: ${drawing.ratio}; --closed: ${drawing.closed}%`}
+  >
+    <img class="layer" {...svgLayer(drawing.base)} />
+    <Image
+      class="layer"
+      src={drawing.board.image}
+      alt=""
+      widths={[Math.round(drawing.board.image.width / 2), drawing.board.image.width]}
+      sizes={`${desk} 28rem, 90vw`}
+      quality={90}
+      style={place(drawing.board)}
+    />
+    <img class="layer lid" {...svgLayer(drawing.lid)} />
+  </div>
 </section>
+
+<script>
+  import { reveal } from "../../lib/motion";
+
+  // Lift the lid when the drawing scrolls into view (styles: .is-armed
+  // lowers it, .is-revealed lifts it).
+  for (const drawing of document.querySelectorAll("[data-specs-drawing]")) {
+    reveal(drawing, { threshold: 0.25 });
+  }
+</script>
 
 <style lang="scss">
   @use "../../styles/breakpoints";
@@ -161,9 +228,31 @@ const { groups, image, imageAlt } = Astro.props;
   }
 
   .drawing {
-    height: auto;
+    aspect-ratio: var(--ratio);
     justify-self: center;
-    max-width: 100%;
+    max-width: 31.25rem;
+    position: relative;
+    width: 100%;
+  }
+
+  .layer {
+    height: auto;
+    left: var(--x);
+    position: absolute;
+    top: var(--y);
+    width: var(--w);
+  }
+
+  .lid {
+    transition: transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .drawing:global(.is-armed) .lid {
+    transform: translateY(var(--closed));
+  }
+
+  .drawing:global(.is-revealed) .lid {
+    transform: none;
   }
 
   /* The list beside the drawing, in Figma's 660 : 500 proportion; the

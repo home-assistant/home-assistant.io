@@ -1,6 +1,20 @@
 // Specifications and FAQ of the Connect AUX-2 page, from the Figma file
 // "Connect AUX-2" ("Specs", node 2002:31255; "FAQ", node 2002:36190).
 // The leading underscore keeps this file out of the page routes.
+import explodedBase from "../../../assets/connect/aux-2/exploded-base.svg";
+import explodedBoard from "../../../assets/connect/aux-2/exploded-board.webp";
+import explodedLid from "../../../assets/connect/aux-2/exploded-lid.svg";
+
+// The exploded drawing beside the specs (node 2142:53785, 500 × 620.29)
+// in three layers: the lid and base shell as SVG, the circuit board as
+// a 2x WebP (5,700 shapes, over 1 MB as SVG), at their Figma positions.
+export const drawing = {
+  ratio: 500 / 620.29,
+  base: { image: explodedBase, x: 0, y: 40.02, w: 100 },
+  board: { image: explodedBoard, x: 3.44, y: 41.78, w: 90.4 },
+  lid: { image: explodedLid, x: 1.31, y: 0, w: 97.8 },
+  closed: 60,
+};
 
 // TODO: the dimensions and weights are empty placeholders in the Figma
 // file; fill them in once known.

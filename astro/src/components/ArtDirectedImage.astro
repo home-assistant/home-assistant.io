@@ -1,0 +1,63 @@
+---
+// A photo with an optional phone crop: `image` from the desk breakpoint
+// (1140px), `mobileImage` below it, in one <picture>. Without a
+// `mobileImage`, `image` is used at every width.
+//
+// Encodes at quality 85, which keeps the detail in product photos
+// (Astro's default is 80).
+//
+// Other attributes, such as `class`, go on the <picture>. The <img> is
+// rendered here, so style it from the parent with :global(img).
+import type { ImageMetadata } from "astro";
+import type { HTMLAttributes } from "astro/types";
+import { Image, getImage } from "astro:assets";
+import { desk } from "../lib/breakpoints";
+
+interface Props extends HTMLAttributes<"picture"> {
+  image: ImageMetadata;
+  mobileImage?: ImageMetadata;
+  alt: string;
+  // For `image`.
+  widths: number[];
+  sizes: string;
+  // For `mobileImage`.
+  mobileWidths?: number[];
+  mobileSizes?: string;
+  loading?: "eager" | "lazy";
+  fetchpriority?: "high" | "low" | "auto";
+}
+
+const {
+  image,
+  mobileImage,
+  alt,
+  widths,
+  sizes,
+  mobileWidths = widths,
+  mobileSizes = sizes,
+  loading,
+  fetchpriority,
+  ...attrs
+} = Astro.props;
+
+const quality = 85;
+const deskSet =
+  mobileImage && (await getImage({ src: image, widths, quality }));
+---
+
+<picture {...attrs}>
+  {
+    deskSet && (
+      <source media={desk} srcset={deskSet.srcSet.attribute} sizes={sizes} />
+    )
+  }
+  <Image
+    src={mobileImage ?? image}
+    alt={alt}
+    quality={quality}
+    widths={mobileImage ? mobileWidths : widths}
+    sizes={mobileImage ? mobileSizes : sizes}
+    loading={loading}
+    fetchpriority={fetchpriority}
+  />
+</picture>

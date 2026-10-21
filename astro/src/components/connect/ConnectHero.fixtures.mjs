@@ -7,7 +7,7 @@
 // --layout-product-width.
 //
 // Not a port of a Jekyll element, so there is no `liquid` source.
-import heroImage from "../../assets/connect/aux-2/hero.jpg";
+import heroImage from "../../assets/connect/aux-2/hero.webp";
 
 export default {
   title: "Connect product hero",

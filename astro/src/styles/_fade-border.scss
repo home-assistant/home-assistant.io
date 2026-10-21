@@ -1,0 +1,36 @@
+// A 1px Connect-blue border that fades out across the element, as on
+// the ZBT-2 page's cards
+// (sass/homeassistant/pages/connect/zbt-2/components/_chipset.scss).
+//
+// `$angle` is the gradient's direction, as in linear-gradient(): 180deg
+// starts blue at the top and fades towards the bottom, 0deg the other
+// way round. `$fade` is where the border has faded out completely.
+//
+// The ZBT-2 card draws its border as a pseudo-element behind the card
+// (z-index: -10). Here it is a masked ring on top of the element
+// instead, so it also works on an isolated element, such as one with
+// the border shimmer (src/styles/shimmer.scss). It uses ::before; the
+// shimmer uses ::after.
+//
+// Include it after the element's `background` shorthand, which would
+// otherwise reset the background-origin set here.
+@use "ring" as *;
+
+@mixin fade-border($angle: 180deg, $fade: 60%) {
+	// Keeps the border's 1px in the layout; the ring paints it.
+	border: 1px solid transparent;
+	// Sizes the element's own background gradient to the border box.
+	// Otherwise it repeats into the transparent border, and its first
+	// color shows as a line along the opposite edge.
+	background-origin: border-box;
+	position: relative;
+
+	&::before {
+		@include ring;
+		background: linear-gradient(
+			$angle,
+			var(--color-connect-line),
+			transparent $fade
+		);
+	}
+}

@@ -24,9 +24,10 @@ const { image, imageAlt } = Astro.props;
 
 <section class="connect-collaboration">
   <Image
+    quality={85}
     src={image}
     alt={imageAlt}
-    widths={[486, image.width]}
+    widths={[486, 972, 1440, image.width]}
     sizes="(min-width: 71.25rem) 30rem, 100vw"
   />
   <div class="text">
@@ -47,7 +48,9 @@ const { image, imageAlt } = Astro.props;
   @use "../../styles/breakpoints";
 
   .connect-collaboration {
-    background: linear-gradient(104deg, #aacee3 2%, #c6deeb 96%);
+    /* Figma's "Banner Big" fill (a gradient from #a0c4d8 to #a0c5d8,
+       flat to the eye), the pale blue of the photo's background. */
+    background: #a0c4d8;
     border-radius: var(--radius-medium);
     color: var(--color-ink);
     display: grid;

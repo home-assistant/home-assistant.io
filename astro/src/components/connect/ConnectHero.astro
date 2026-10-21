@@ -19,30 +19,45 @@
 //   - The lead text lines up with the badge's text on desktop instead
 //     of sitting 4px further in.
 import type { ImageMetadata } from "astro";
-import { Image } from "astro:assets";
+import ArtDirectedImage from "../ArtDirectedImage.astro";
 import CollaborationBadge from "../CollaborationBadge.astro";
 
 interface Props {
-  // Product photo, cropped wide enough for desktop and tall enough
-  // for phones; it covers the hero around its upper middle.
+  // Product photo, a wide band of the scene that covers the hero at
+  // any width, centered on the product.
   image: ImageMetadata;
+  // Optional phone crop, used below the desk breakpoint (1140px) when
+  // the design frames the scene differently on phones.
+  mobileImage?: ImageMetadata;
   imageAlt: string;
+  // Where the photo is anchored as the hero crops it, as in
+  // object-position: put the product in view.
+  imagePosition?: string;
   // The product name after "Home Assistant", such as "Connect AUX-2".
   product: string;
   // Tagline lines; the last one, the punchline, is bold.
   tagline: string[];
 }
 
-const { image, imageAlt, product, tagline } = Astro.props;
+const {
+  image,
+  mobileImage,
+  imageAlt,
+  imagePosition = "50% 50%",
+  product,
+  tagline,
+} = Astro.props;
 ---
 
-<header class="connect-hero">
-  <Image
+<header class="connect-hero" style={`--image-position: ${imagePosition}`}>
+  <ArtDirectedImage
     class="photo"
-    src={image}
+    image={image}
+    mobileImage={mobileImage}
     alt={imageAlt}
-    widths={[640, 1280, 1920, image.width]}
+    widths={[640, 1280, 1920, 2560, image.width]}
     sizes="100vw"
+    mobileWidths={mobileImage && [640, 1280, 1920, mobileImage.width]}
     loading="eager"
     fetchpriority="high"
   />
@@ -90,13 +105,17 @@ const { image, imageAlt, product, tagline } = Astro.props;
   }
 
   .photo {
-    height: 100%;
     inset: 0;
-    object-fit: cover;
-    object-position: 50% 28%;
     position: absolute;
-    width: 100%;
     z-index: -2;
+
+    :global(img) {
+      display: block;
+      height: 100%;
+      object-fit: cover;
+      object-position: var(--image-position);
+      width: 100%;
+    }
   }
 
   .content {

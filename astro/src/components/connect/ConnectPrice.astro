@@ -9,8 +9,9 @@
 // Connect pages (`source/connect/*/components/_buy.html`), whose terms
 // text it takes over. Deliberate differences:
 //   - The glow is a CSS radial gradient instead of Figma's blurred
-//     vector, and it does not animate in on scroll as on the Jekyll
-//     pages.
+//     vector. It fades in when the section scrolls into view, as on
+//     the Jekyll pages (1.5s ease-out), and grows slightly as it does.
+//     Without the script, or with reduced motion, it is simply there.
 //   - The prices scale with the window (--font-size-display, 128px at
 //     its largest as in Figma).
 import Button from "../Button.astro";
@@ -25,7 +26,7 @@ interface Props {
 const { usd, eur, buyHref } = Astro.props;
 ---
 
-<section class="connect-price" id="buy">
+<section class="connect-price" id="buy" data-connect-price>
   <p class="strap"><slot /></p>
   <p class="price">
     <span>{usd}</span><span class="slash">/</span><span>{eur}</span><sup>*</sup>
@@ -38,6 +39,16 @@ const { usd, eur, buyHref } = Astro.props;
   </p>
 </section>
 
+<script>
+  import { reveal } from "../../lib/motion";
+
+  // Fade the glow in when the price scrolls into view (styles:
+  // .is-armed hides it, .is-revealed shows it).
+  for (const section of document.querySelectorAll("[data-connect-price]")) {
+    reveal(section, { threshold: 0.35 });
+  }
+</script>
+
 <style lang="scss">
   @use "../../styles/breakpoints";
   @use "../../styles/layout";
@@ -45,17 +56,41 @@ const { usd, eur, buyHref } = Astro.props;
   .connect-price {
     @include layout.container;
     align-items: center;
-    background: radial-gradient(
-      circle 22rem at 50% 45%,
-      rgb(0 95 190 / 55%),
-      transparent
-    );
     color: var(--color-text-inverse);
     display: flex;
     flex-direction: column;
     font-family: var(--font-heading);
+    isolation: isolate;
     padding-block: var(--space-xxlarge);
+    position: relative;
     text-align: center;
+
+    /* The glow, behind the content. */
+    &::before {
+      background: radial-gradient(
+        circle 22rem at 50% 45%,
+        rgb(0 95 190 / 55%),
+        transparent
+      );
+      content: "";
+      inset: 0;
+      pointer-events: none;
+      position: absolute;
+      transition:
+        opacity 1.5s ease-out,
+        transform 1.5s ease-out;
+      z-index: -1;
+    }
+
+    &:global(.is-armed)::before {
+      opacity: 0;
+      transform: scale(0.85);
+    }
+
+    &:global(.is-revealed)::before {
+      opacity: 1;
+      transform: none;
+    }
 
     @media only screen and (min-width: breakpoints.$desk) {
       padding-block: calc(var(--space-xxxlarge) + var(--space-xxlarge));

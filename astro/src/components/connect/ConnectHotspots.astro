@@ -61,10 +61,11 @@ const uid = crypto.randomUUID().slice(0, 8);
   <div class="stage">
     <div class="photo">
       <Image
+        quality={85}
         src={image}
         alt={imageAlt}
-        widths={[960, 1920, image.width]}
-        sizes="(min-width: 71.25rem) 100vw, 200vw"
+        widths={[960, 1440, 1920, image.width]}
+        sizes="(min-width: 71.25rem) 100vw, 180vw"
       />
       <!-- Under the points, so the selected point covers its end. -->
       <svg class="connector" aria-hidden="true">
