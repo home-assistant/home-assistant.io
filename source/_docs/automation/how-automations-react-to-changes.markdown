@@ -1,6 +1,6 @@
 ---
 title: "How automations react to changes"
-description: "How triggers react to changes, when conditions are checked, and how to start an automation when two things are both true."
+description: "How triggers react to changes, what happens at startup, reload, and restart, when conditions are checked, and how to start an automation when two things are both true."
 related:
   - docs: /docs/automation/basics/
     title: Understanding automations
@@ -30,6 +30,29 @@ Not every update of an entity starts an automation:
 - Normally, setting an entity to the state it already has does not produce a state change event, so the trigger does not react. Some entities can be configured to emit updates even when their value has not changed.
 - Most triggers for a specific kind of entity, such as [**Light turned on**](/triggers/light.turned_on/), do not react when an entity comes back from `unavailable` or `unknown`. The **State changed** trigger does react to that change, for example, from `unavailable` to `on`. If the **State changed** trigger has a **From** state, such as `off`, that change doesn't match. For details, refer to [unavailable and unknown states](/docs/automation/trigger/#unavailable-and-unknown-state-behavior-in-triggers).
 - With **For at least**, a change only counts when the new state has lasted for that time. A restart resets the waiting. For details, refer to the [**State changed** trigger](/triggers/state/).
+
+## Startup, reload, and restart
+
+Triggers only react to changes that happen while they are set up. When Home Assistant starts, or when you reload or save an automation, Home Assistant sets up its triggers again.
+
+This is why:
+
+- Triggers are set up at the end of the startup of Home Assistant. Changes that happen earlier while it starts, for example when integrations set up their entities, don't start automations.
+- The [**Home Assistant**](/triggers/homeassistant/) trigger with **Event** set to **Start** only reacts while Home Assistant starts. If you reload, save, or turn on the automation later, the trigger doesn't react until Home Assistant starts again.
+- A threshold that's already passed when a trigger is set up doesn't make it react, also after a restart. For an example, refer to [Triggers react to changes](#triggers-react-to-changes).
+
+A reload and a restart affect your automations differently:
+
+- When you reload automations, or save an automation in the editor:
+  - Only the automations that you changed are set up again. Other automations aren't affected.
+  - A run of a changed automation stops, and its **For at least** time starts again.
+  - The **Home Assistant** trigger with **Start** doesn't react.
+- When you restart Home Assistant:
+  - All automations are set up again, at the end of the startup.
+  - All runs stop, and all **For at least** times start again.
+  - The **Home Assistant** trigger with **Start** reacts.
+
+For the steps to reload automations, refer to [Reloading automations](/docs/automation/yaml/#reloading-automations). For what happens to a run that stops, refer to [When a run stops before it finishes](/docs/automation/modes/#when-a-run-stops-before-it-finishes).
 
 ## Conditions check the current state
 
