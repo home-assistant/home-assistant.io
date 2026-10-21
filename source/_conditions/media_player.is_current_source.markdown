@@ -110,7 +110,7 @@ for:
 
 {% include conditions/more_examples.md %}
 
-### Automation: activate the cinema scene only for the Blu-ray source
+### Automation: Activate the cinema scene only for the Blu-ray source
 
 When you press the movie night button, activate the cinema {% term scene %}, but only if the living room receiver is already switched to the **HDMI 1** (Blu-ray) source.
 
@@ -144,7 +144,7 @@ automation: |
 
 {% enddetails %}
 
-### Automation: send a reminder when the amplifier is on an external input
+### Automation: Send a reminder when the amplifier is on an external input
 
 Every evening, if the amplifier is on one of its external inputs, send a reminder to switch back to streaming.
 
