@@ -1,8 +1,6 @@
 ---
 title: HTTP
 description: Configure the HTTP server that serves the Home Assistant frontend and APIs.
-ha_category:
-  - Other
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_quality_scale: internal
@@ -135,7 +133,7 @@ Most reverse proxies and CDNs, such as NGINX and Cloudflare, do not cache HTML b
 
 ## APIs
 
-On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest/), [Python API](https://developers.home-assistant.io/docs/api_lib_index/) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket/) available.
+On top of the `http` integration is a [REST API](https://contributors.home-assistant.io/core/internals/rest-api/), [Python API](https://contributors.home-assistant.io/core/integrations/api-library/) and [WebSocket API](https://contributors.home-assistant.io/core/internals/websocket-api/) available.
 
 The `http` platforms are not real platforms within the meaning of the terminology used around Home Assistant. Home Assistant's [REST API](/developers/rest_api/) sends and receives messages over HTTP.
 
@@ -143,9 +141,9 @@ The `http` platforms are not real platforms within the meaning of the terminolog
 
 To use an HTTP [sensor](#sensor) or [binary sensor](#binary-sensor), you do not need to configure anything in Home Assistant. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity is created after the first message arrives.
 
-If you want to use an HTTP sensor, create a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) on your {% my profile_security title="**User profile** > **Security**" %} page.
+If you want to use an HTTP sensor, create a [Long-Lived Access Token](https://contributors.home-assistant.io/core/internals/auth-api/#long-lived-access-tokens) on your {% my profile_security title="**User profile** > **Security**" %} page.
 
-All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistatesentity_id) need to be sent to the endpoint of the device and use **POST**.
+All [requests](https://contributors.home-assistant.io/core/internals/rest-api/#post-apistatesentity_id) need to be sent to the endpoint of the device and use **POST**.
 
 ## IP filtering and banning
 
@@ -214,7 +212,7 @@ $ curl -X POST -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
     http://localhost:8123/api/states/binary_sensor.radio
 ```
 
-To check if the sensor is working, use again `curl` to retrieve the [current state](https://developers.home-assistant.io/docs/api/rest/).
+To check if the sensor is working, use again `curl` to retrieve the [current state](https://contributors.home-assistant.io/core/internals/rest-api/).
 
 ```bash
 $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
@@ -299,7 +297,7 @@ $ curl -X POST -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
        http://localhost:8123/api/states/sensor.bathroom_temperature
 ```
 
-You can then use `curl` again to retrieve the [current sensor state](https://developers.home-assistant.io/docs/api/rest/) and verify the sensor is working.
+You can then use `curl` again to retrieve the [current sensor state](https://contributors.home-assistant.io/core/internals/rest-api/) and verify the sensor is working.
 
 ```bash
 $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \

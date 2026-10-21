@@ -1,5 +1,5 @@
 ---
-title: "Update the charge schedules of a Renault vehicle"
+title: "Update charge schedule"
 action: renault.charge_set_schedules
 domain: renault
 description: "Updates the charge schedules of a Renault vehicle."

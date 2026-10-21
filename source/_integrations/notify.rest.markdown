@@ -1,8 +1,6 @@
 ---
 title: "RESTful Notifications"
 description: "Instructions on how to add RESTful notifications to Home Assistant."
-ha_category:
-  - Notifications
 ha_release: 0.13
 ha_domain: rest
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Enable the timer of a Sensibo device"
+title: "Enable timer"
 action: sensibo.enable_timer
 domain: sensibo
 description: "Starts the Sensibo timer to turn an HVAC device on or off after a set number of minutes."
@@ -18,7 +18,7 @@ To enable the timer from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Sensibo climate device.
-6. From the actions shown for that target, select **Sensibo: Enable timer**.
+6. From the actions shown for that target, under **Sensibo**, select **Enable timer**.
 7. Set the number of **Minutes** for the timer.
 8. Select **Save**.
 
@@ -61,7 +61,9 @@ minutes:
 
 Start the Sensibo timer for 30 minutes when you arrive home.
 
-- **Trigger**: You enter the home zone
+- **Trigger**: Zone entered
+  - **Target**: Me
+  - **Zone**: Home
 - **Action**: Sensibo: Enable timer
   - **Target**: Living room
 
@@ -71,10 +73,11 @@ Start the Sensibo timer for 30 minutes when you arrive home.
 automation: |
   alias: "Example timer"
   triggers:
-    - trigger: zone
-      entity_id: person.me
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.me
+      options:
+        zone: zone.home
   actions:
     - action: sensibo.enable_timer
       target:

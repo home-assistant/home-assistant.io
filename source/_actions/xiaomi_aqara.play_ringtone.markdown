@@ -9,7 +9,7 @@ related_actions:
   - xiaomi_aqara.remove_device
 ---
 
-The **Play ringtone** action plays a specific ringtone on a Xiaomi Aqara Gateway.
+The **Xiaomi Gateway (Aqara): Play ringtone** action plays a specific ringtone on a Xiaomi Aqara Gateway.
 
 This is useful for turning the gateway into a doorbell or an alarm sound, for example playing a chime when someone presses a button or an alert when a door opens.
 

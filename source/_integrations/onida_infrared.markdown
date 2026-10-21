@@ -1,9 +1,6 @@
 ---
 title: Onida Infrared
 description: Connect and control your Onida air conditioners using the Gree Infrared integration
-ha_category:
-  - Climate
-  - Infrared-controlled
 ha_release: '2026.10'
 ha_domain: onida_infrared
 ha_integration_type: virtual

@@ -1,8 +1,8 @@
 ---
 title: Jewish Calendar
 description: Instructions on integrating the Jewish Calendar integration within Home Assistant.
-ha_category:
-  - Calendar
+ha_categories:
+  - productivity_information.calendars_todos
 ha_iot_class: Calculated
 ha_release: 0.79
 ha_codeowners:
@@ -78,7 +78,7 @@ By default, the Hebrew date, sunrise (Netz Hachama), sunset (Shkia), and nightfa
 
 ### Learning schedule
 
-The learning schedule calendar shows daily study schedules. This calendar is disabled by default and can be enabled through the entity settings. The following event types can be configured:
+The learning schedule calendar shows daily study schedules. This calendar is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) and can be enabled through the entity settings. The following event types can be configured:
 
 - **Daf Yomi**: The daily Talmud study page according to the Daf Yomi cycle
 

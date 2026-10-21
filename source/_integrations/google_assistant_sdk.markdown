@@ -1,9 +1,8 @@
 ---
 title: Google Assistant SDK
 description: Instructions on how to use Google Assistant SDK in Home Assistant.
-ha_category:
-  - Notifications
-  - Voice
+ha_categories:
+  - ai_voice.voice_assistants
 ha_iot_class: Cloud Polling
 ha_release: 2023.1
 ha_config_flow: true
@@ -104,7 +103,7 @@ This guide is for advanced users only. It requires creating an OAuth client ID o
   - **Result**: If everything was successful, you will get a **The authentication flow has completed. You may close this window** message in your browser.
   - In your terminal you will see the path where the credentials were saved. For example: `credentials saved: C:\Users\user\AppData\Roaming\google-oauthlib-tool\credentials.json`
 14. Open the `credentials.json` in a text editor. Keep it open since you will need to copy several values from it.
-15. In the file editor of your Home Assistant, typically http://homeassistant.local:8123/core_configurator, open `/homeassistant/.storage/application_credentials`.
+15. In the file editor of your Home Assistant, open `/homeassistant/.storage/application_credentials`.
   - Locate the entry for `google_assistant_sdk` and modify `client_id` and `client_secret` to match the ones from `credentials.json`.
   - Save the file.
 16. Open `/homeassistant/.storage/core.config_entries`.

@@ -1,8 +1,6 @@
 ---
 title: HETA
 description: Connect and control your HETA devices using the Fumis integration
-ha_category:
-  - Climate
 ha_release: 2026.5
 ha_domain: heta
 ha_integration_type: virtual

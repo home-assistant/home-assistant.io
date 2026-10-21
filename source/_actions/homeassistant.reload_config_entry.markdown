@@ -22,7 +22,7 @@ To reload a configuration entry from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Reload config entry**.
+5. Search for and select **Home Assistant Core Integration: Reload config entry**.
 6. For **Config entry ID**, select the configuration entry you want to reload.
 7. Select **Save**.
 

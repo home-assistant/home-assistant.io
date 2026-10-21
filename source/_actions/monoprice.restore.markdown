@@ -1,5 +1,5 @@
 ---
-title: "Restore a saved Monoprice zone snapshot"
+title: "Restore"
 action: monoprice.restore
 domain: monoprice
 description: "Restores one or more Monoprice amplifier zones to a previously saved state."
@@ -19,7 +19,7 @@ To restore a snapshot from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the zones you want to restore.
-6. From the actions shown for that target, select **Monoprice 6-Zone Amplifier: Restore**.
+6. From the actions shown for that target, under **Monoprice 6-Zone Amplifier**, select **Restore**.
 7. Select **Save**.
 
 ### Options in the UI

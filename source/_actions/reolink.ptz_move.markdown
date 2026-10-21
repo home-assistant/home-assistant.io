@@ -18,7 +18,7 @@ To move a camera from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Reolink PTZ button entity you want to move, for example **PTZ left**.
-6. From the actions shown for that target, select **PTZ move**.
+6. From the actions shown for that target, under **Reolink**, select **PTZ move**.
 7. Enter the **Speed** you want to move at.
 8. Select **Save**.
 
