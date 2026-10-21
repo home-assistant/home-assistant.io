@@ -94,9 +94,15 @@ The cloud API is not documented by the manufacturer and has been reverse-enginee
 
 ## Troubleshooting
 
-### Setup fails with an authentication error
+### Home Assistant asks you to sign in again
 
-The integration signs in with the same credentials as the Helty Home app. Check that the app can still sign in with them. If you changed your Helty Home password, remove the integration and add it again with the new password.
+The integration signs in with the same credentials as the Helty Home app. When the Helty cloud stops accepting them, for example because you changed your Helty Home password, Home Assistant asks you to re-authenticate.
+
+1. Check that the Helty Home app can sign in with your current credentials.
+2. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}. Helty Flow Cloud is listed among the integrations that need attention: select **Reconfigure**.
+3. Enter the email address and password of your Helty Home account. If you changed the email address of the account in the app, enter the new one.
+
+The credentials must belong to the same Helty Home account the integration was set up with. To connect a different account, add the integration again.
 
 ### The entities are unavailable
 
