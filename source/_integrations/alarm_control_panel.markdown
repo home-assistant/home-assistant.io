@@ -68,7 +68,16 @@ The real power of this integration is combining triggers and conditions into aut
 
 When the last person leaves the house, arm the alarm in away mode automatically. No more wondering whether you remembered to set the alarm after rushing out the door.
 
-- **Trigger**: Everyone leaves the home zone
+- **Trigger**: Zone left
+  - **Target**: Alex
+  - **Zone**: Home
+- **Trigger**: Zone left
+  - **Target**: Jamie
+  - **Zone**: Home
+- **Condition**: Not
+  - **Condition**: Is in zone
+    - **Target**: Alex, Jamie
+    - **Zone**: Home
 - **Action**: Arm alarm away
   - **Target**: Home alarm
 
