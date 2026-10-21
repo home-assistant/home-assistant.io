@@ -76,11 +76,19 @@ When you send a command from Home Assistant, the integration asks the panel to r
 
 ## Known limitations
 
+### Cloud dependency
+
 The integration depends on the manufacturer's cloud. If your internet connection or the Helty cloud is unavailable, the unit cannot be controlled from Home Assistant, even though it is on the same network as your Home Assistant instance. The unit keeps ventilating on its own and can still be controlled from its panel.
+
+### Auto and panel state
 
 Units with the recent panel cannot report whether their **Auto** function is switched on, nor the state of the panel itself. This is a limitation of this generation of machines, confirmed by the manufacturer, and not something the integration can work around. If you run the unit in Auto, Home Assistant shows the speed the unit has settled on, but gives no way to tell Auto apart from that speed having been set by hand.
 
+### Sensor values
+
 Only ventilation is available for now. The temperature, humidity, and filter values the panel reports are not yet exposed.
+
+### Undocumented cloud API
 
 The cloud API is not documented by the manufacturer and has been reverse-engineered. It may change without notice.
 
