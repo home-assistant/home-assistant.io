@@ -112,7 +112,7 @@ threshold:
   type: map
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="moisture sensor" example="sensor.plant_moisture" %}
 
 ## Good to know
 

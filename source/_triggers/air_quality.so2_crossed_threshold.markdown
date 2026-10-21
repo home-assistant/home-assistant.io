@@ -60,7 +60,7 @@ This fires when the outdoor SO2 sensor reading rises above 40 μg/m³.
    unit_example_entity="input_number.so2_alert_level"
    unit_example_value="20" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="sulfur dioxide sensor" example="sensor.living_room_sulfur_dioxide" %}
 
 {% include triggers/behavior.md %}
 

@@ -115,7 +115,7 @@ threshold:
   type: map
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="battery level sensor" example="sensor.phone_battery" %}
 
 ## Good to know
 

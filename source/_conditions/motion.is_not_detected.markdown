@@ -39,12 +39,12 @@ In YAML, refer to this condition as `motion.is_not_detected`. A basic example lo
 condition: |
   condition: motion.is_not_detected
   target:
-    entity_id: motion.sensor_backyard
+    entity_id: binary_sensor.backyard_motion
   options:
     for: "01:10:05"
 {% endexample %}
 
-This passes when the sensor `motion.sensor_backyard` has not detected any motion for 1 hour, 10 minutes and 5 seconds.
+This passes when the sensor `binary_sensor.backyard_motion` has not detected any motion for 1 hour, 10 minutes, and 5 seconds.
 
 ### Options in YAML
 
@@ -63,9 +63,9 @@ for:
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="motion sensor" example="binary_sensor.hallway_motion" %}
 
-{% include triggers/behavior.md %}
+{% include conditions/behavior.md %}
 
 ## Good to know
 
