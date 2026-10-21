@@ -92,13 +92,13 @@ automation: |
 
 ## Data updates
 
-The **Rotarex DIMES SRG** integration {% term polling polls %} the Rotarex cloud every 15 minutes. Your tanks send their measurements to the Rotarex cloud on their own schedule, so Home Assistant shows the most recent values your tanks have sent.
+The **Rotarex DIMES SRG** integration {% term polling polls %} the Rotarex cloud every 15 minutes. The Rotarex cloud receives new measurements when the mobile app syncs with your tanks over Bluetooth. If the app has not synced with a tank for a while, Home Assistant keeps showing the last measurements that were uploaded.
 
 ## Known limitations
 
 - The integration needs an internet connection. Local access to the tanks is not supported.
 - Tanks that you add to your Rotarex account after setting up the integration appear after you reload the integration.
-- A tank that has not sent any measurements yet shows its sensors as unavailable until its first synchronization.
+- A tank whose measurements have not been uploaded by the app yet shows its sensors as unavailable until its first synchronization.
 
 ## Troubleshooting
 
