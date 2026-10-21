@@ -204,7 +204,7 @@ These are the properties available for a [**Tag** trigger](/triggers/tag/).
 
 ### Template triggers
 
-These are the properties available for a [**Template** trigger](/docs/automation/trigger/#template-trigger).
+These are the properties available for a [**Template** trigger](/triggers/template/).
 
 - `trigger.platform`: `template`.
 - `trigger.entity_id`: Entity ID that caused the change.
