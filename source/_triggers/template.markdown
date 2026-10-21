@@ -20,7 +20,7 @@ To use this trigger in an automation:
 3. In the **When** section, select **Add trigger**.
 4. Search for and select the **Template** trigger.
 5. In **Value template**, enter a template that renders `true` when the trigger should react.
-   - For example: {% raw %}`{{ states('sensor.washing_machine_power') | float(0) < 5 }}`{% endraw %}
+   - For example: {% raw %}`{{ is_state('device_tracker.paulus', 'home') }}`{% endraw %}
 6. Optional: In **For at least**, enter how long the template must stay true before the trigger reacts. Instead of a **Duration**, you can enter a **Template**.
 7. Select **Save**.
 
@@ -95,10 +95,10 @@ For this trigger, change one of the entities that the template uses, so that the
 
 ### Automation: run the dishwasher on surplus solar power
 
-When the solar panels produce more than 1.5 kW above what your home uses, for 10 minutes, turn on the dishwasher.
+When the solar panels produce more than 1.5 kW above what your home uses, for 10 minutes, turn on the dishwasher. In this example, both sensors report power in kW. The template only becomes true when both sensors have a value, so the dishwasher doesn't start when one of the sensors is unavailable.
 
 - **Trigger**: Template
-  - **Value template**: The solar power is more than 1.5 kW above the power use of the home
+  - **Value template**: The template from the YAML example below
   - **For at least**: 10 minutes
 - **Action**: Turn on switch
   - **Target**: Dishwasher (`switch.dishwasher`)
@@ -111,9 +111,12 @@ automation: |
   triggers:
     - trigger: template
       value_template: >
-        {{ states('sensor.solar_power') | float(0)
-           - states('sensor.home_power_use') | float(0)
-           > 1.5 }}
+        {{
+          has_value('sensor.solar_power')
+          and has_value('sensor.home_power_use')
+          and states('sensor.solar_power') | float
+            - states('sensor.home_power_use') | float > 1.5
+        }}
       for:
         minutes: 10
   actions:
@@ -129,7 +132,7 @@ automation: |
 When the power use of the washing machine stays below 5 W, but not at 0 W, for 3 minutes, send a notification to your phone. Waiting 3 minutes prevents a notification during short low-power moments in the middle of a cycle, such as when the machine starts or pauses to soak.
 
 - **Trigger**: Template
-  - **Value template**: The washing machine power is between 0 and 5 W
+  - **Value template**: The template from the YAML example below
   - **For at least**: 3 minutes
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
