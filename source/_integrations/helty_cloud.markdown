@@ -85,29 +85,34 @@ The integration creates one device per ventilation unit on the account, each exp
 
 ## Examples
 
-### Get notified when the filter is due
+{% include docs/paste_yaml_tip.md %}
 
-This automation sends a notification when the unit has treated enough air to need a new filter. Replace the entity ID with the one of your unit.
+### Get a reminder before the filter is due
 
-{% raw %}
+The unit raises its filter alarm when the filter has treated 90,000 m³ of air. This automation sends you a reminder a little earlier, at 85,000 m³, so you have time to get a replacement filter before the alarm goes off.
 
-```yaml
-automation:
-  - alias: "Ventilation filter due"
-    triggers:
-      - trigger: numeric_state
-        entity_id: sensor.living_room_air_treated_by_filter
-        above: 85000
-    actions:
-      - action: notify.notify
-        data:
-          message: >
-            The ventilation filter has treated
-            {{ states('sensor.living_room_air_treated_by_filter') }} m³ of air
-            and is due for replacement.
-```
+- **Trigger**: Numeric state
+  - **Entity**: the **Air treated by filter** sensor of your unit
+  - **Above**: 85000
+- **Action**: Notifications: Send a notification
+  - **Message**: The ventilation filter is close to its replacement point.
 
-{% endraw %}
+{% details "YAML example for a filter reminder" %}
+
+{% example %}
+automation: |
+  alias: "Ventilation filter reminder"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.living_room_air_treated_by_filter
+      above: 85000
+  actions:
+    - action: notify.notify
+      data:
+        message: "The ventilation filter is close to its replacement point."
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 
