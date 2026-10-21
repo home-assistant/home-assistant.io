@@ -141,7 +141,7 @@ output: "21.5"
 - With `precision=0` (the default), the result is an integer. With a nonzero precision, the result is a float. The exception is the `half` method at precision 0: a result ending in .5 stays a float, and only whole results are returned as an integer.
 - The `half` method rounds to the nearest 0.5 rather than the nearest whole number.
 - For example, 2.7 rounds to 3 with common and ceil, and to 2 with floor.
-- The `half` method ignores `precision` and always rounds to the nearest 0.5: `2.7 | round(0, 'half')`, `2.7 | round(1, 'half')`, and `2.7 | round(2, 'half')` all give `2.5`. At precision 0, a whole result is returned as an integer, so `2.8 | round(0, 'half')` gives `3`. With a nonzero precision, the result is always a float, so `2.8 | round(1, 'half')` gives `3.0`.
+- The `half` method ignores `precision` and always rounds to the nearest 0.5. `2.7 | round(0, 'half')`, `2.7 | round(1, 'half')`, and `2.7 | round(2, 'half')` all give `2.5`. At precision 0, a whole result is returned as an integer, so `2.8 | round(0, 'half')` gives `3`. With a nonzero precision, the result is always a float, so `2.8 | round(1, 'half')` gives `3.0`.
 
 {% include template_functions/try_it.md %}
 
