@@ -45,7 +45,7 @@ Each route tracks departures from one stop to another. To add a route:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **GTFS** integration.
 2. Next to the feed, select **Add route**.
-3. Choose the origin and destination stops from the lists of stops in the feed.
+3. Choose the origin and destination stops from the lists of stops in the feed. Stations and entrances are not listed, because trips stop at their platforms. Pick the platform instead.
 
 The route is named after its stops, for example **First Street to Third Street**. To use a different name, rename its device.
 
@@ -75,13 +75,29 @@ automation:
 
 ## Data updates
 
-The calendar calculates departures from the imported timetable, so it does not contact the agency once the feed is imported. The feed is not updated automatically yet. To load a new timetable, remove the feed and add it again.
+The calendar calculates departures from the imported timetable, so it does not contact the agency once the feed is imported. It recalculates the upcoming departures every 15 minutes.
+
+The feed is not updated automatically. When the last service date in the feed has passed, the calendars have no more departures and a repair issue appears under {% my repairs title="**Settings** > **System** > **Repairs**" %}. To load a new timetable, reconfigure the feed.
+
+The imported feed is stored in the `.cache/gtfs` folder of your configuration directory. That folder is not included in backups, because feeds can be large. After restoring a backup, the feed is downloaded and imported again when Home Assistant starts.
+
+## Reconfiguration
+
+Reconfiguring a feed downloads it again, for example when the agency publishes a new timetable or moves the feed to a new URL. Your routes are kept.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **GTFS** integration.
+2. Next to the feed, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
+3. Keep the URL or enter a new one, then select **Submit**.
+
+The calendars keep using the old timetable until the new one is imported. If the download or import fails, the old timetable stays in use. If a stop of a route no longer exists in the new feed, that route's calendar has no departures. Remove the route and add it again with the new stop.
 
 ## Known limitations
 
 - This is a _static_ data source. GTFS Realtime delays and advisories are not supported.
 - For feeds with many stops, such as national networks, the stop lists are long.
 - Most agencies follow the GTFS format closely, but some feeds contain data that cannot be imported. The [pygtfs](https://github.com/jarondl/pygtfs) library parses the feed.
+- A trip is left out if the timetable has no time for it at the origin or destination stop. Some feeds only give times at major stops (timepoints) and leave the times of the stops in between empty.
+- Trips defined by frequency in `frequencies.txt`, for example "every 10 minutes", are not supported. Only trips with times in `stop_times.txt` are shown.
 
 ## Removing the integration
 
