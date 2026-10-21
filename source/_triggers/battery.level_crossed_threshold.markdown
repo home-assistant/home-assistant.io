@@ -159,6 +159,7 @@ for:
 ## Good to know
 
 - Use a sensor with the battery device class.
+- If you use an entity as the threshold, it must use `%` as its unit. If it has a different unit, or no unit, the trigger doesn't react.
 - **Above** and **Below** fire on the crossing moment only. Once the reading is above the threshold, the trigger does not fire again until the reading dips back below it and then crosses above again.
 - **In range** (`between`) fires when the reading moves from outside the bounds into the bounds. **Outside range** (`outside`) fires when the reading moves from inside the bounds past either bound.
 - Pair this trigger with the [Battery level changed](/triggers/battery.level_changed/) trigger if you also want to react to smaller fluctuations between crossings.
