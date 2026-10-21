@@ -30,17 +30,17 @@ The **Solyx Energy Cloud** {% term integration %} is used to integrate with Nymo
 1. Open the app store on your Android or iOS device, and install the **Solyx Energy** app.
 2. Create an account.
 3. Add a new device to the app, and follow the instructions to set up your Nymo.
-4. Once finished, go to the home screen and select the Nymo you have added. Press **Change device settings** at the bottom of the screen.
+4. Once finished, go to the home screen and select the Nymo you have added. Go to the **Settings** tab.
 5. Scroll down to the **Connect your Home Assistant** section, and press **Connect**.
-6. Copy the Client ID, Client Secret, and Device ID, and use them when configuring the device in Home Assistant.
+6. Copy the Client ID and Client Secret, and use them when adding the integration in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Client ID:
-    description: "The Client ID of your Nymo device. You can find it under **Change device settings** in the Solyx Energy app."
+    description: "The Client ID of your Solyx Energy account. You can find it under the **Settings tab** of a device in the Solyx Energy app."
 Client Secret:
-    description: "The Client Secret of your Nymo device. You can find it under **Change device settings** in the Solyx Energy app."
+    description: "The Client Secret of your Solyx Energy account. You can find it under the **Settings tab** of a device in the Solyx Energy app."
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -90,7 +90,7 @@ The integration uses a cloud connection; therefore, full local control is not po
 
 #### Authentication error
 
-Verify that you have copied the correct credentials and device ID from the Solyx Energy app. To re-authenticate, remove the integration and set it up again.
+Verify that you have copied the correct credentials from the Solyx Energy app. To re-authenticate, remove the integration and set it up again.
 
 #### Couldn't retrieve device data due to a communication error
 
