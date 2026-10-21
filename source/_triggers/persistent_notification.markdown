@@ -84,7 +84,7 @@ update_type:
 
 {% include triggers/try_it.md %}
 
-For this trigger, create a notification with the [**Create persistent notification**](/actions/persistent_notification.create/) action, for example, in {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
+For this trigger, create a notification with the [**Create persistent notification**](/actions/persistent_notification.create/) action, for example, in {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}.
 
 {% include triggers/more_examples.md %}
 
