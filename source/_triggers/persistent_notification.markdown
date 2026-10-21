@@ -8,7 +8,7 @@ related_triggers:
   - homeassistant
 ---
 
-The **Persistent notification** trigger is useful when you want an automation to react to the notifications that Home Assistant shows in the sidebar under **Notifications**. For example, Home Assistant adds a notification when an integration can't be set up. With this trigger, you can forward that notification to your phone, so you don't miss it.
+The **Persistent notification** trigger is useful when you want an automation to react to the notifications that Home Assistant shows in the sidebar under **Notifications**. For example, Home Assistant adds a notification when someone fails to log in. With this trigger, you can forward that notification to your phone, so you don't miss it.
 
 {% include triggers/ui_header.md %}
 
@@ -49,13 +49,13 @@ In YAML, use `trigger: persistent_notification`. A basic example looks like this
 {% example %}
 trigger: |
   trigger: persistent_notification
-  notification_id: invalid_config
+  notification_id: http-login
   update_type:
     - added
     - updated
 {% endexample %}
 
-This runs when Home Assistant adds or updates the notification about integrations that can't be set up.
+This runs when Home Assistant adds or updates the notification about a failed login attempt.
 
 ### Options in YAML
 
@@ -89,25 +89,25 @@ For this trigger, create a notification with the [**Create persistent notificati
 
 {% include triggers/more_examples.md %}
 
-### Automation: send a notification when an integration can't be set up
+### Automation: send a notification when a login attempt fails
 
-When Home Assistant can't set up an integration, it adds a notification with the ID `invalid_config`. If more integrations fail, it updates that notification. This automation sends the notification to your phone. It catches integrations that fail after Home Assistant has started, for example, when you add or reload an integration. Integrations that fail while Home Assistant starts don't make the trigger react, because automations start after integrations.
+When someone fails to log in to Home Assistant, or an app sends a request with invalid authentication, Home Assistant adds a notification with the ID `http-login` and the title **Login attempt failed**. If it happens again, Home Assistant updates that notification. This automation sends the message of the notification to your phone. The message includes the address that the request came from.
 
 - **Trigger**: Persistent notification
-  - **Notification ID**: `invalid_config`
+  - **Notification ID**: `http-login`
   - **Update type**: **added** and **updated**
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
   - **Message**: {% raw %}`{{ trigger.notification.message }}`{% endraw %}
 
-{% details "YAML example for sending a notification when an integration can't be set up" %}
+{% details "YAML example for sending a notification when a login attempt fails" %}
 
 {% example %}
 automation: |
-  alias: "Notify when an integration can't be set up"
+  alias: "Notify when a login attempt fails"
   triggers:
     - trigger: persistent_notification
-      notification_id: invalid_config
+      notification_id: http-login
       update_type:
         - added
         - updated
