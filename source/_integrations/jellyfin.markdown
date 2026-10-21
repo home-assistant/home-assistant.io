@@ -122,7 +122,6 @@ Add a TV episode to play next on a Jellyfin client.
   - **Media content ID**: `5ae55567cae75c26671a0a6b027bdd5b`
   - **Media content type**: `episode`
   - **Enqueue**: Play next
-  - **Media content id**: `5ae55567cae75c26671a0a6b027bdd5b`
 
 {% details "YAML example for queueing an episode" %}
 
