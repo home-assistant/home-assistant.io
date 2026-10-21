@@ -1,9 +1,9 @@
 ---
 title: HP Printer
 description: Instructions on how to integrate HP printers into Home Assistant.
-ha_category:
-  - Sensor
-ha_release: '2026.11'
+ha_categories:
+  - computers_network.printers
+ha_release: 2026.11
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -50,7 +50,7 @@ The following devices are not supported:
 1. Connect the printer to your network.
 2. Find the printer's IP address. You can usually print it from the printer's control panel, for example in the network settings or by printing a network configuration page.
 3. Optional, but recommended: in your router, give the printer a fixed IP address, so it does not change after a restart.
-4. Check that the printer's built-in web server is reachable: in a browser, open `http://<printer IP address>/DevMgmt/ProductStatusDyn.xml`, replacing `<printer IP address>` with your printer's IP address. The browser should show an XML document.
+4. Check that the printer's built-in web server is reachable: in a browser, open `http://<printer IP address>/DevMgmt/ProductConfigDyn.xml` and `http://<printer IP address>/DevMgmt/ProductStatusDyn.xml`, replacing `<printer IP address>` with your printer's IP address. The browser should show an XML document for both.
 
 {% include integrations/config_flow.md %}
 
@@ -71,8 +71,8 @@ Some entities are disabled by default. To use them, [enable them](/common-tasks/
   - **Values**: Canceling job, Copying, Power save, Off, Printing, Ready, Scanning, Paper tray empty.
   - **Remarks**: If the printer reports a status that is not in this list, the sensor shows as unknown.
 - **Cyan level**, **Magenta level**, **Yellow level**, **Black level**, **Tri-color level**
-  - **Description**: Estimated ink or toner remaining in the cartridge (in percent %).
-  - **Remarks**: One sensor is created for each cartridge the printer reports. Tri-color is used for combined cyan, magenta, and yellow cartridges.
+  - **Description**: Estimated ink or toner remaining in the cartridge as a percentage.
+  - **Remarks**: One sensor is created for each cartridge the printer reports. Tri-color is used for combined cyan, magenta, and yellow cartridges. While a cartridge is removed, its sensors show as unavailable.
 - **Cyan pages remaining**, **Magenta pages remaining**, **Yellow pages remaining**, **Black pages remaining**, **Tri-color pages remaining**
   - **Description**: Estimated number of pages the cartridge can still print.
   - **Remarks**: Only created when the printer reports this estimate. Many inkjet printers don't.
@@ -115,12 +115,6 @@ Some entities are disabled by default. To use them, [enable them](/common-tasks/
 - **Faxed pages**
   - **Description**: Total number of pages faxed.
 
-## Data updates
-
-The **HP Printer** integration {% term polling polls %} the printer every minute.
-
-When the printer is switched off or cannot be reached, its entities become unavailable. They recover on the next update after the printer is back online.
-
 ## HP Printer automation examples
 
 The sensors of this integration are a good basis for supply and maintenance automations.
@@ -132,8 +126,9 @@ Here are a few ideas to get you started.
 
 Send a notification to your phone when the black cartridge drops below 10%, so you can order a new one in time.
 
-- **Trigger**: When the black level drops below 10%
-  - **Target**: Black level (`sensor.office_printer_black_level`)
+- **Trigger**: Numeric state
+  - **Entity**: Black level (`sensor.office_printer_black_level`)
+  - **Below**: 10
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -162,8 +157,9 @@ automation: |
 
 Send a notification to your phone when the printer runs out of paper.
 
-- **Trigger**: When the status changes to Paper tray empty
-  - **Target**: Status (`sensor.office_printer_status`)
+- **Trigger**: State
+  - **Entity**: Status (`sensor.office_printer_status`)
+  - **To**: Paper tray empty
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -185,6 +181,12 @@ automation: |
 {% endexample %}
 
 {% enddetails %}
+
+## Data updates
+
+The **HP Printer** integration {% term polling polls %} the printer every minute.
+
+When the printer is switched off or cannot be reached, its entities become unavailable. They recover on the next update after the printer is back online.
 
 ## Known limitations
 
@@ -208,9 +210,9 @@ Home Assistant could not read the printer's information from its built-in web se
 #### Resolution
 
 1. Make sure the printer is switched on and connected to the network.
-2. In a browser, open `http://<printer IP address>/DevMgmt/ProductStatusDyn.xml`, replacing `<printer IP address>` with your printer's IP address.
-   - If the page does not load, check the IP address and make sure Home Assistant and the printer are on the same network.
-   - If the page loads but shows no XML document, your printer model is not supported.
+2. In a browser, open `http://<printer IP address>/DevMgmt/ProductConfigDyn.xml` and `http://<printer IP address>/DevMgmt/ProductStatusDyn.xml`, replacing `<printer IP address>` with your printer's IP address.
+   - If the pages do not load, check the IP address and make sure Home Assistant and the printer are on the same network.
+   - If either page loads but shows no XML document, your printer model is not supported.
 
 ### Entities are unavailable
 
