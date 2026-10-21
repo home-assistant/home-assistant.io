@@ -1,8 +1,8 @@
 ---
 title: Cloudflare
 description: Automatically update your Cloudflare DNS records.
-ha_category:
-  - Network
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_release: 0.74
 ha_iot_class: Cloud Push
 ha_codeowners:

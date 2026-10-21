@@ -22,7 +22,7 @@ To remove short-lived clients from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the list of actions, search for and select **Remove clients from the UniFi Network**.
+5. From the list of actions, search for and select **UniFi Network: Remove clients from the UniFi Network**.
 6. Select **Save**.
 
 ### Options in the UI
@@ -56,7 +56,7 @@ This action has no options.
 Run the cleanup on a schedule so your client list stays manageable over time.
 
 - **Trigger**: Time: Sunday at 03:00
-- **Action**: Remove clients from the UniFi Network
+- **Action**: UniFi Network: Remove clients from the UniFi Network
 
 {% details "Show example YAML" %}
 

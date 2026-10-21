@@ -1,8 +1,8 @@
 ---
 title: Yi Home Cameras
 description: Instructions on how to integrate a video feed (via FFmpeg) as a camera within Home Assistant.
-ha_category:
-  - Camera
+ha_categories:
+  - security_safety.cameras
 ha_release: 0.56
 ha_iot_class: Local Polling
 ha_codeowners:

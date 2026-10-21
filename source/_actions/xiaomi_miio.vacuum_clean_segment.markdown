@@ -8,7 +8,7 @@ related_actions:
   - xiaomi_miio.vacuum_goto
 ---
 
-The **Vacuum clean segment** action starts a Xiaomi robot vacuum cleaning one or more segments. A segment is a room that the vacuum has mapped, identified by a number. To find out which numbers map to which rooms, see [Retrieving room numbers](/integrations/xiaomi_miio/#retrieving-room-numbers).
+The **Xiaomi Home: Vacuum clean segment** action starts a Xiaomi robot vacuum cleaning one or more segments. A segment is a room that the vacuum has mapped, identified by a number. To find out which numbers map to which rooms, see [Retrieving room numbers](/integrations/xiaomi_miio/#retrieving-room-numbers).
 
 {% include actions/ui_header.md %}
 
@@ -19,7 +19,7 @@ To clean a segment from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Xiaomi robot vacuum you want to control.
-6. From the actions shown for that target, select **Vacuum clean segment**.
+6. From the actions shown for that target, under **Xiaomi Home**, select **Vacuum clean segment**.
 7. Enter the **Segments** to clean.
 8. Select **Save**.
 

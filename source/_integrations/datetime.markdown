@@ -1,8 +1,6 @@
 ---
 title: Date/Time
 description: Instructions on how to set up date/time entities within Home Assistant.
-ha_category:
-  - Date/Time
 ha_release: '2023.6'
 ha_domain: datetime
 ha_quality_scale: internal

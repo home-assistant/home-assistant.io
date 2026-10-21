@@ -1,8 +1,8 @@
 ---
 title: Willow
 description: Integrate Willow plant monitoring sensors into Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - garden_plants
 ha_release: '2026.10'
 ha_iot_class: Cloud Polling
 ha_config_flow: true

@@ -1,8 +1,8 @@
 ---
 title: Ripple
 description: Instructions on how to integrate ripple.com data within Home Assistant.
-ha_category:
-  - Finance
+ha_categories:
+  - finance
 ha_release: 0.47
 ha_iot_class: Cloud Polling
 ha_domain: ripple

@@ -2,8 +2,8 @@
 title: Google Health
 description: Instructions on how to integrate Google Health within Home Assistant.
 ha_release: 2026.8
-ha_category:
-  - Health
+ha_categories:
+  - health_wellbeing
 ha_iot_class: Cloud Polling
 ha_domain: google_health
 ha_codeowners:

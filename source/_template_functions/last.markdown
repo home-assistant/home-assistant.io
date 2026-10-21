@@ -48,27 +48,29 @@ value:
 
 ## Good to know
 
-- Raises an error when the sequence is empty. Chain with [`| default(value)`](/template-functions/default/) for a fallback.
+- If the sequence is empty, the result is undefined. It shows as empty, and the template editor shows a warning. If the template uses that result further, for example, in `(items | last).name`, you get an error. Chain with [`| default(value)`](/template-functions/default/) for a fallback.
 - After a generator-producing filter like [`select`](/template-functions/select/) or [`map`](/template-functions/map/), add [`| list`](/template-functions/list/) first. Otherwise the entire sequence is consumed just to find the end.
 
 {% include template_functions/try_it.md %}
 
 {% include template_functions/more_examples.md %}
 
-### Get the entity with the highest temperature
+### Get the highest temperature
 
-Sort temperature sensors in ascending order and pick the last (highest) one.
+Keep the states of temperature sensors that are numbers, convert them, sort them in ascending order, and pick the last (highest) one.
 
 {% example %}
 template: |
   {{
     expand("sensor.temperature_sensors")
-    | sort(attribute="state")
-    | map(attribute="entity_id")
+    | map(attribute="state")
+    | select("is_number")
+    | map("float")
+    | sort
     | last
   }}
-type: string
-output: "sensor.kitchen_temperature"
+type: float
+output: "23.5"
 {% endexample %}
 
 ### Get the most recently changed entity
@@ -81,6 +83,7 @@ template: |
     expand("light.home_lights")
     | sort(attribute="last_changed")
     | map(attribute="entity_id")
+    | list
     | last
   }}
 type: string

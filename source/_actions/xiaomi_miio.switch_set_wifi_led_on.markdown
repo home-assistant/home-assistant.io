@@ -7,7 +7,7 @@ related_actions:
   - xiaomi_miio.switch_set_wifi_led_off
 ---
 
-The **Switch set Wi-Fi LED on** action turns on the Wi-Fi status LED of a Xiaomi smart plug or power strip.
+The **Xiaomi Home: Switch set Wi-Fi LED on** action turns on the Wi-Fi status LED of a Xiaomi smart plug or power strip.
 
 {% include actions/ui_header.md %}
 

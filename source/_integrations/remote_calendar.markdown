@@ -1,8 +1,8 @@
 ---
 title: Remote Calendar
 description: Instructions on how to use remote calendars in Home Assistant.
-ha_category:
-  - Calendar
+ha_categories:
+  - productivity_information.calendars_todos
 ha_iot_class: Cloud Polling
 ha_release: 2025.4
 ha_config_flow: true
@@ -69,7 +69,7 @@ Individual Calendar *Events* are what powers automations such as:
 
 - Notify me *12 hours before* the *start* of the event named *Garbage collection*.
 
-See [Calendar Automations](/integrations/calendar#automation) for an overview, and read more about [Calendar Trigger Variables](/docs/automation/templating/#calendar) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
+See [Calendar Automations](/integrations/calendar#automation) for an overview, and read more about [Calendar Trigger Variables](/docs/automation/trigger-data/#calendar-triggers) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
 
 ## Removing the integration
 

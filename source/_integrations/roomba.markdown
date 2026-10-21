@@ -1,8 +1,8 @@
 ---
 title: iRobot Roomba and Braava
 description: Instructions on how to integrate your Wi-Fi enabled Roomba and Braava within Home Assistant.
-ha_category:
-  - Vacuum
+ha_categories:
+  - appliances_cleaning.cleaning
 ha_iot_class: Local Push
 ha_release: 0.51
 ha_codeowners:
@@ -53,7 +53,7 @@ Sensors:
 - **Scrubs**: Total number of times the robot has executed a "scrub"
 - **Total cleaning time**: How many hours the robot has spent cleaning in total
 - **Total cleaned area**: The total area in m² the robot has cleaned
-- **Signal strength**: The Wi-Fi signal strength the robot reports, in dBm. Disabled by default.
+- **Signal strength**: The Wi-Fi signal strength the robot reports, in dBm. [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 ### Retrieving your credentials
 

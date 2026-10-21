@@ -1,8 +1,6 @@
 ---
 title: Dooya
 description: Connect and control your Dooya devices using the Motionblinds integration
-ha_category:
-  - Cover
 ha_domain: dooya
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds
