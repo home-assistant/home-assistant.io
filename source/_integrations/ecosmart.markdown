@@ -2,8 +2,7 @@
 title: ecosmart
 description: Instructions on how to integrate ecosmart wholesale electricity prices into Home Assistant.
 ha_category:
-  - Energy
-  - Sensor
+  - energy.energy_prices
 ha_release: "2026.11"
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -72,6 +71,14 @@ The sensor does not guess. When it does not have a value it can stand behind, it
 ### API key replacement
 
 Re-authentication is not supported yet. If a newer key has replaced the one Home Assistant holds, remove the integration and add it again with the current key.
+
+### Energy dashboard costs
+
+The spot price is in cents per kWh, and it is the wholesale price only. Don't use it as the electricity price in the [Energy dashboard](/docs/energy/). The dashboard would treat the value as dollars per kWh, so costs would come out 100 times too high, and they would still leave out line charges, losses, and fees.
+
+### Adding or removing a property
+
+New properties on your ecosmart account are added when you reload the integration. A property that leaves your account keeps its device in Home Assistant until you remove the integration and add it again.
 
 ## Troubleshooting
 
