@@ -1,13 +1,9 @@
 ---
 title: Magic Home
 description: Instructions on how to set up Magic Home within Home Assistant.
-ha_category:
-  - Button
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
+ha_categories:
+  - lighting.led_strips_controllers
+  - lighting.bulbs_lamps
 ha_iot_class: Local Push
 ha_release: 0.25
 ha_domain: flux_led

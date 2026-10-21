@@ -1,8 +1,8 @@
 ---
 title: Media extractor
 description: Instructions on how to integrate the Media extractor into Home Assistant.
-ha_category:
-  - Media player
+ha_categories:
+  - media_entertainment
 ha_iot_class: Calculated
 ha_release: 0.49
 ha_quality_scale: internal

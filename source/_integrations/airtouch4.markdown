@@ -1,8 +1,8 @@
 ---
 title: AirTouch 4
 description: Instructions on how to integrate the AirTouch 4 A/C controller into Home Assistant.
-ha_category:
-  - Climate
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_release: 2021.9
 ha_iot_class: Local Polling
 ha_config_flow: true

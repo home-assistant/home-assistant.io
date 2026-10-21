@@ -1,9 +1,9 @@
 ---
 title: Chacon DiO
 description: Instructions on how to integrate your Chacon Dio devices within Home Assistant.
-ha_category:
-  - Cover
-  - Switch
+ha_categories:
+  - plugs_switches
+  - blinds_curtains
 ha_release: 2024.8
 ha_iot_class: Cloud Push
 ha_config_flow: true

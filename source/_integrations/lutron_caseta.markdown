@@ -2,15 +2,10 @@
 title: Lutron Caséta
 description: Instructions on how to use Lutron Caseta devices with Home Assistant.
 featured: true
-ha_category:
-  - Binary sensor
-  - Button
-  - Cover
-  - Fan
-  - Hub
-  - Light
-  - Scene
-  - Switch
+ha_categories:
+  - lighting.lighting_systems
+  - plugs_switches
+  - blinds_curtains
 ha_release: 0.41
 ha_iot_class: Local Push
 ha_domain: lutron_caseta

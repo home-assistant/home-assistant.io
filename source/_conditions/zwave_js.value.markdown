@@ -10,7 +10,7 @@ related_conditions:
 
 The **Z-Wave JS value** condition passes when a Z-Wave value on the selected nodes equals the value you specify. Use it to check a Command Class value directly, including values that Home Assistant does not expose as an entity.
 
-This condition is the counterpart of the [Z-Wave value updated](/triggers/zwave_js.value_updated/) trigger. Where that trigger fires on a change, this condition tests the current value.
+This condition is the counterpart of the [Z-Wave JS value updated](/triggers/zwave_js.value_updated/) trigger. Where that trigger fires on a change, this condition tests the current value.
 
 This condition is useful when:
 
@@ -92,10 +92,6 @@ condition: |
 ### Options in YAML
 
 {% options_yaml %}
-condition:
-  description: The condition type. For this condition, use `zwave_js.value`.
-  required: true
-  type: string
 device_id:
   description: One or more device IDs of the Z-Wave devices whose nodes to test.
   required: true

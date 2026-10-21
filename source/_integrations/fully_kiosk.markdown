@@ -1,12 +1,8 @@
 ---
 title: Fully Kiosk Browser
 description: Instructions on how to integrate Fully Kiosk Browser with Home Assistant
-ha_category:
-  - Binary sensor
-  - Camera
-  - Notifications
-  - Sensor
-  - Switch
+ha_categories:
+  - computers_network
 ha_release: 2022.9
 ha_iot_class: Local Polling
 ha_config_flow: true

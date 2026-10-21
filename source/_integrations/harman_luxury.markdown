@@ -1,8 +1,8 @@
 ---
 title: Harman Luxury Audio
 description: Instructions on how to integrate Harman Luxury Audio streamers into Home Assistant.
-ha_category:
-  - Media player
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_release: 2026.8
 ha_iot_class: Local Polling
 ha_config_flow: true

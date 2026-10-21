@@ -1,15 +1,10 @@
 ---
 title: BleBox devices
 description: Instructions on how to integrate BleBox devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Light
-  - Sensor
-  - Switch
-  - Update
+ha_categories:
+  - plugs_switches
+  - blinds_curtains
+  - lighting.led_strips_controllers
 ha_release: '0.110'
 ha_iot_class: Local Polling
 ha_config_flow: true
