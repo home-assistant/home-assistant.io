@@ -350,7 +350,12 @@
       }
 
       /* Dropdowns: hover for pointers, focus-within for keyboards. */
+      /* The dropdown panel is light even in the dark header, so it
+         takes back the light navigation colors. */
       > li > ul {
+        --nav-color-active: var(--color-link);
+        --nav-wash: var(--color-hover-wash);
+
         background: var(--color-surface);
         border-radius: var(--radius-small);
         box-shadow: var(--shadow-panel);
@@ -397,8 +402,8 @@
 }
 
 /* "Get started": the Astro Button component, primary scheme with an
-   arrow, or the secondary (navy) scheme over the homepage hero, where
-   the cyan would blend into the hero's gradient. */
+   arrow, or the secondary scheme in its on-dark colors over the
+   homepage hero, where the cyan would blend into the hero's gradient. */
 .site-header .nav-button {
   --button-ink: #002e3e;
   --surface: #18bcf2;
@@ -485,11 +490,13 @@
 }
 
 .site-header.dark .nav-button {
-  --surface: #002e3e;
+  --surface: #006787;
   --text: #fff;
-  --hover-surface: #009ac7;
+  --icon-surface: var(--button-ink);
+  --icon-color: #fff;
+  --hover-surface: #004156;
   --hover-text: #fff;
-  --active-surface: #18bcf2;
+  --active-surface: #009ac7;
   --active-text: #fff;
-  --focus-ring: #7bd4fb;
+  --focus-ring: #b9e6fc;
 }

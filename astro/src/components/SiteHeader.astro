@@ -188,11 +188,13 @@ const versionTitle =
         </li>
 
         <li class="nav-cta">
-          {/* Navy over the homepage hero, where the primary cyan would
-              blend into the hero's gradient. */}
+          {/* The secondary scheme in its on-dark colors over the
+              homepage hero, where the primary cyan would blend into the
+              hero's gradient. */}
           <Button
             href="/installation/"
             scheme={dark ? "secondary" : "primary"}
+            onDark={dark}
             icon
           >
             Get started
@@ -530,7 +532,12 @@ const versionTitle =
       }
 
       /* Dropdowns: hover for pointers, focus-within for keyboards. */
+      /* The dropdown panel is light even in the dark header, so it
+         takes back the light navigation colors. */
       > li > ul {
+        --nav-color-active: var(--color-link);
+        --nav-wash: var(--color-hover-wash);
+
         background: var(--color-surface);
         border-radius: var(--radius-small);
         box-shadow: var(--shadow-panel);
