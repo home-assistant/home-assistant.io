@@ -275,7 +275,7 @@ value:
   description: >
     The value to compare the input with: a string, a number, or a boolean. Use a list of them for `in` and `not_in`.
     Required for all operators except `exists` and `not_exists`.
-  type: [string, integer, float, boolean, list]
+  type: any
   required: false
 {% endconfiguration %}
 
