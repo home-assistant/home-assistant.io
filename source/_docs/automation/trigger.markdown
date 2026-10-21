@@ -241,40 +241,7 @@ A very thorough explanation of this is available in the Wikipedia article about 
 
 ### Tag trigger
 
-Reacts when a [tag](/integrations/tag) is scanned. For example, an NFC tag is
-scanned using the Home Assistant Companion mobile application.
-
-```yaml
-automation:
-  triggers:
-    - trigger: tag
-      tag_id: A7-6B-90-5F
-```
-
-Additionally, you can also only trigger if a card is scanned by a specific
-device/scanner by setting the `device_id`:
-
-```yaml
-automation:
-  triggers:
-    - trigger: tag
-      tag_id: A7-6B-90-5F
-      device_id: 0e19cd3cf2b311ea88f469a7512c307d
-```
-
-Or trigger on multiple possible devices for multiple tags:
-
-```yaml
-automation:
-  triggers:
-    - trigger: tag
-      tag_id:
-        - "A7-6B-90-5F"
-        - "A7-6B-15-AC"
-      device_id:
-        - 0e19cd3cf2b311ea88f469a7512c307d
-        - d0609cb25f4a13922bb27d8f86e4c821
-```
+For setup steps, YAML options, and examples for the **Tag** trigger, see [Tag trigger](/triggers/tag/).
 
 ### Template trigger
 
@@ -317,28 +284,7 @@ If for your use case this is undesired, you could consider using the automation 
 
 ### Time pattern trigger
 
-With the time pattern trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You can specify `*` to match any value.
-
-```yaml
-automation:
-  triggers:
-    - trigger: time_pattern
-      # Matches every hour at 5 minutes past whole
-      minutes: 5
-
-automation 2:
-  triggers:
-    - trigger: time_pattern
-      # Trigger once per minute during the hour of 3
-      hours: "3"
-      minutes: "*"
-
-automation 3:
-  triggers:
-    - trigger: time_pattern
-      # You can also match on interval. This will match every 5 minutes
-      minutes: "/5"
-```
+For setup steps, YAML options, and examples for the **Time pattern** trigger, see [Time pattern trigger](/triggers/time_pattern/).
 
 ### Time trigger
 
