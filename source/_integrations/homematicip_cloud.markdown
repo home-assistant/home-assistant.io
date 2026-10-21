@@ -172,6 +172,7 @@ Floor heating actuators are operated through the climate group and don't need th
 ### Sensors
 
 - Access point duty cycle (`HmIP-HAP`, `HmIP-HAP-B1`)
+- Access point client role, the role of Home Assistant in the Homematic IP user management, shown after setup or a reauthentication (`HmIP-HAP`, `HmIP-HAP-B1`)
 - Wall thermostats (`HmIP-WTH`, `HmIP-WTH-1`, `HmIP-WTH-2`, `HmIP-WTH-B`, `ALPHA-IP-RBG`, `ALPHA-IP-RBGa`)
 - Radiator thermostats (`HmIP-eTRV`, `HmIP-eTRV-2`, `HmIP-eTRV-C`, `HmIP-eTRV-E`)
 - Temperature and humidity sensors (`HmIP-STH`, `HmIP-STHD`, `HmIP-STHO`, `HmIP-STHO-A`)
