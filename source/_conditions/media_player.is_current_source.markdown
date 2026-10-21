@@ -72,7 +72,6 @@ condition: |
 
 ### Options in YAML
 
-
 {% options_yaml %}
 source:
   description: >
