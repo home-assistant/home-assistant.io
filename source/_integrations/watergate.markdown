@@ -151,6 +151,20 @@ The water meter volume entity can be added to the Energy Dashboard, allowing you
 - Send a notification when the water is too cold.
 - Send a notification when water is flowing for too long.
 
+## Troubleshooting
+
+### The Energy dashboard shows a one-time spike in water use
+
+#### Symptom: A large, one-time increase in water use after updating Home Assistant
+
+#### Description
+
+Since Home Assistant 2026.11, **Water meter volume** and **Water meter duration** report only water that flows in the normal direction. Before, they reported the normal reading minus the reverse reading. If your Sonic device had recorded reverse flow, both values rose once by that amount, and Home Assistant counted the rise as water use.
+
+#### Resolution
+
+To remove the spike, [adjust the statistic](/docs/tools/dev-tools/#adjusting-a-statistic) of **Water meter volume** for the hour in which the spike happened.
+
 ## Removing the integration
 
 This integration follows standard integration removal procedures. No extra steps are required.
