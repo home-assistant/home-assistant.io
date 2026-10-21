@@ -1,0 +1,273 @@
+@use '../../../astro/src/styles/breakpoints';
+
+// The "WTH" item in the main menu, promoting the Month of
+// "What the Heck?!". Temporary: remove this partial, its entry in
+// _homeassistant.scss and the `nav-wth` item in
+// source/_includes/site/header.html once the month is over.
+//
+// The header gives every link one style and recolours it through three
+// custom properties, so this item changes those rather than restyling the
+// link. All it adds of its own is the routing decoration.
+
+// The routing box, in rem so it tracks --header-height (4.25rem) and the
+// root font size, which the stylesheet drops to .95rem below $desk. Height
+// matches the bar, so the lines run to its edges; the link is shorter and
+// centred in the bar, so the box reaches past it top and bottom.
+$nav-wth-routing-width: 6rem;
+$nav-wth-routing-height: 4.25rem;
+
+// On the light bar, and in the menu panel, which is light on every page.
+// Dark ink on bright lines, with the node carrying the ink so it reads
+// against the line it sits on.
+$nav-wth-green: #056B51;
+$nav-wth-line-mint: #16F3BE;
+$nav-wth-line-blue: #5AB9EE;
+
+// On the dark bar. The only page that uses it is the home page, whose hero
+// is a bright cyan gradient — rgb(0, 181, 255) behind the nav. "Dark" is
+// about the page, not the backdrop, so the light bar's colours are the wrong
+// way round there: measured against that cyan the mint label scores 1.61 and
+// the sky line 1.06. The scheme inverts, and the node turns bright so it
+// still reads against the line it sits on.
+//
+// Contrast against rgb(0, 181, 255), or against the line for the node:
+//   label 5.3:1   mint line 4.4:1   sky line 4.2:1   node 7.2:1
+$nav-wth-green-on-hero: #033D2E;
+$nav-wth-line-mint-on-hero: #044A38;
+$nav-wth-line-blue-on-hero: #0A4A63;
+$nav-wth-node-on-hero: #16F3BE;
+
+// Recolouring the item means setting the header's own navigation variables
+// and resolving `color` from them here. The header resolves `color:
+// var(--nav-color)` once, on itself, and every link below is `color:
+// inherit`, so overriding the variable alone would never reach the link —
+// it has to be resolved again on this item. Nothing else is restyled: the
+// link keeps the shared padding, radius, font and hover wash.
+.site-header .menu > li.nav-wth {
+  --nav-color: #{$nav-wth-green};
+  --nav-color-active: #{$nav-wth-green};
+
+  color: var(--nav-color);
+}
+
+// The positioning context for the routing. The runs pass above and below
+// the word and never cross it, so the decoration needs no stacking order of
+// its own.
+.nav-wth__label {
+  position: relative;
+}
+
+// Routing lines running past the label, drawn from the same vocabulary as
+// the landing page: one stroke weight, rounded corners, and a node where a
+// run ends. Each line enters from an edge of the bar, turns once and runs
+// past the word to a node, so the pair reads as routing passing through
+// rather than as a bracket around it.
+//
+// Centred on the word rather than sized to the link, so the strokes keep
+// their weight whatever the header's link padding does between breakpoints,
+// and so the panel's full-width row does not drag it off to the middle.
+.nav-wth__routing {
+  display: none;
+  height: $nav-wth-routing-height;
+  left: 50%;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: $nav-wth-routing-width;
+}
+
+.nav-wth__line--mint {
+  stroke: $nav-wth-line-mint;
+}
+
+.nav-wth__line--blue {
+  stroke: $nav-wth-line-blue;
+}
+
+// A node sits on top of a line, so it has to contrast with the line rather
+// than match it. The landing page knocks its nodes out of the section
+// surface, which is not available here: the bar is translucent. Carrying the
+// ink instead reads as a junction and ties the decoration to the word.
+.nav-wth__node {
+  fill: $nav-wth-green;
+  // Pops from its own centre rather than the corner of the viewBox.
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+// On the bar, from the wide breakpoint up. Below it the header tightens its
+// own link padding because, in its words, the bar "has only a few pixels to
+// spare" — measured there, the routing's ink comes within a pixel of the
+// next item's text, so only the label is shown. The label itself fits at
+// every desktop width: the flex bar still clears the logo by 68px at $desk
+// with this item in.
+@media only screen and (min-width: breakpoints.$desk-wide) {
+  .nav-wth__routing {
+    display: block;
+  }
+
+  // Only the bar goes transparent over the hero; the panel is light on every
+  // page, so the inverted scheme belongs here and nowhere else.
+  .site-header.dark .menu > li.nav-wth {
+    --nav-color: #{$nav-wth-green-on-hero};
+    --nav-color-active: #{$nav-wth-green-on-hero};
+  }
+
+  .site-header.dark .nav-wth__line--mint {
+    stroke: $nav-wth-line-mint-on-hero;
+  }
+
+  .site-header.dark .nav-wth__line--blue {
+    stroke: $nav-wth-line-blue-on-hero;
+  }
+
+  .site-header.dark .nav-wth__node {
+    fill: $nav-wth-node-on-hero;
+  }
+}
+
+// In the panel. The routing straddles the word, so it needs the same height
+// it has on the bar to clear the text top and bottom: at the bar's size the
+// runs leave 10px above the label and 14px below. The panel's default row is
+// 38px, which would scale that down to 1px and 3px — the lines close in on
+// the word. So the row is given the bar's height instead and the routing
+// keeps its size.
+@media only screen and (max-width: (breakpoints.$desk - 0.0625rem)) {
+  .nav-wth__routing {
+    display: block;
+  }
+
+  .site-header .menu > li.nav-wth > a {
+    // 26px either side of a 16px line box makes the bar's 68px row.
+    padding-block: 1.625rem;
+    // Nothing should reach a neighbouring row.
+    overflow: hidden;
+  }
+}
+
+// The routing runs on a loop: each line draws itself in from the edge of the
+// bar it enters by, holds, then retracts the way it came, with the node that
+// terminates the run landing and leaving inside that hold. `pathLength="1"`
+// in the markup normalises both paths, so one dash length covers either of
+// them; a dash offset past zero empties a path from the end it was drawn
+// from, which is what retracts it rather than wiping it the other way.
+//
+// The label is not part of the loop. It is the item's actual text, so it
+// fades up once and then stays put.
+$nav-wth-cycle: 6s;
+
+.nav-wth__label {
+  animation: nav-wth-label-in 0.45s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+.nav-wth__line {
+  stroke-dasharray: 1;
+  animation: nav-wth-draw $nav-wth-cycle cubic-bezier(0.4, 0, 0.2, 1) infinite both;
+  transition: stroke-dashoffset 0.25s ease;
+}
+
+.nav-wth__node {
+  animation: nav-wth-pop $nav-wth-cycle ease infinite both;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+// A line and the node that ends it share one delay, so the pair stays
+// together through every cycle.
+.nav-wth__line--mint,
+.nav-wth__node--mint {
+  animation-delay: 0.1s;
+}
+
+.nav-wth__line--blue,
+.nav-wth__node--blue {
+  animation-delay: 0.25s;
+}
+
+// Pointing at the item settles the routing in its drawn state instead of
+// leaving it to carry on mid-cycle.
+.site-header .menu > li.nav-wth > a {
+  &:hover,
+  &:focus {
+    .nav-wth__line {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+
+    .nav-wth__node {
+      animation: none;
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+@keyframes nav-wth-draw {
+  0% {
+    stroke-dashoffset: 1;
+  }
+  12% {
+    stroke-dashoffset: 0;
+  }
+  64% {
+    stroke-dashoffset: 0;
+  }
+  76% {
+    stroke-dashoffset: -1;
+  }
+  100% {
+    stroke-dashoffset: -1;
+  }
+}
+
+@keyframes nav-wth-pop {
+  0%,
+  12% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  18% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  58% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  64%,
+  100% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+@keyframes nav-wth-label-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// The loop runs for as long as the page is open, so opting out of motion has
+// to stop it outright and leave the routing drawn.
+@media (prefers-reduced-motion: reduce) {
+  .nav-wth__label,
+  .nav-wth__line,
+  .nav-wth__node {
+    animation: none;
+    transition: none;
+  }
+
+  .nav-wth__line {
+    stroke-dashoffset: 0;
+  }
+
+  .nav-wth__node {
+    opacity: 1;
+    transform: none;
+  }
+}
