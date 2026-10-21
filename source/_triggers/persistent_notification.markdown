@@ -97,6 +97,7 @@ When Home Assistant can't set up an integration, it adds a notification with the
   - **Update type**: **added** and **updated**
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
+  - **Message**: {% raw %}`{{ trigger.notification.message }}`{% endraw %}
 
 {% details "YAML example for sending a notification when an integration can't be set up" %}
 
