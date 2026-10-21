@@ -146,7 +146,7 @@ This automation saves a picture from the camera every weekday morning, so you ca
 - **Condition**: Time: Weekdays Monday to Friday
 - **Action**: Take camera snapshot
   - **Target**: Hisingsleden norrut (`camera.hisingsleden_norrut`)
-  - **Filename**: `/config/www/traffic/hisingsleden_{{ now().strftime('%Y-%m-%d') }}.jpg`
+  - **Filename**: {% raw %}`/config/www/traffic/hisingsleden_{{ now().strftime('%Y-%m-%d') }}.jpg`{% endraw %}
 
 {% details "YAML example for saving a picture every morning" %}
 
