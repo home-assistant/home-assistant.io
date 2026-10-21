@@ -93,12 +93,7 @@ triggers:
     for:
       minutes: 15
 conditions:
-  - condition: sun
-    after: sunrise
-    after_offset: "01:00:00"
-  - condition: sun
-    before: sunset
-    before_offset: "-01:00:00"
+  - condition: sun.is_up
 actions:
   - action: notify.send_message
     target:

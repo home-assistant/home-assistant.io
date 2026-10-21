@@ -118,7 +118,7 @@ automation: |
 
 Change the display image when the sun sets.
 
-- **Trigger**: Sun: sunset
+- **Trigger**: Sunset
 - **Action**: OpenDisplay: Upload image
   - **Device**: Your OpenDisplay device
   - **Image**: The image to show
@@ -129,8 +129,7 @@ Change the display image when the sun sets.
 automation: |
   alias: "Show a sunset image on the display"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: opendisplay.upload_image
       data:

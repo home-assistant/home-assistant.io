@@ -143,8 +143,7 @@ Cycle the pool light to the next color at sunset every evening:
 automation: |
   alias: "Pool: advance LED color at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: button.press
       target:

@@ -108,10 +108,11 @@ You can use the camera entities in automations, for example to know when a camer
 
 If you rely on a camera to check your route, it's useful to know when it's no longer active. This automation sends a notification to your phone when the **Active** binary sensor has been off for 30 minutes.
 
-- **Trigger**: Entity: State
+- **Trigger**: State changed
   - **Target**: Hisingsleden norrut Active (`binary_sensor.hisingsleden_norrut_active`)
   - **To**: Off
   - **For**: 00:30:00
+  - **For at least**: `00:30:00`
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -143,9 +144,9 @@ This automation saves a picture from the camera every weekday morning, so you ca
 
 - **Trigger**: Time: At 07:00:00
 - **Condition**: Time: Weekdays Monday to Friday
-- **Action**: Take snapshot
+- **Action**: Take camera snapshot
   - **Target**: Hisingsleden norrut (`camera.hisingsleden_norrut`)
-  - **Filename**: {% raw %}`/config/www/traffic/hisingsleden_{{ now().strftime('%Y-%m-%d') }}.jpg`{% endraw %}
+  - **Filename**: `/config/www/traffic/hisingsleden_{{ now().strftime('%Y-%m-%d') }}.jpg`
 
 {% details "YAML example for saving a picture every morning" %}
 
