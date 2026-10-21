@@ -12,6 +12,12 @@
 // `sass/homeassistant/base/_navigation.scss` and the `.site-header`,
 // `.menu` and `.docsearch` rules in `sass/homeassistant/_overrides.scss`.
 //
+// The Jekyll header now mirrors this one, so pages from both stacks
+// look alike during the migration: same markup and class names in
+// `source/_includes/site/header.html`, these styles ported to
+// `sass/homeassistant/base/_header.scss` (which reads the tokens,
+// breakpoints and container from src/styles/). Change both together.
+//
 // Four deliberate differences from the Jekyll markup, all agreed:
 //   - The "Get started" call to action is the design system's Button
 //     (primary, navy secondary on the dark header over the hero) in
