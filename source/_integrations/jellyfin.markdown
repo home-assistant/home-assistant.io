@@ -94,10 +94,11 @@ The following examples show actions you can add to an automation or script to pl
 
 Play a movie on a Jellyfin client that supports playback.
 
-- **Action**: Play media
+- **Action**: Play specified media
   - **Target**: Living room (`media_player.living_room`)
   - **Media content ID**: `a982a31451450daeda02c89952e6d7cf`
   - **Media content type**: `movie`
+  - **Media content id**: `a982a31451450daeda02c89952e6d7cf`
 
 {% details "YAML example for playing a movie" %}
 
@@ -117,11 +118,12 @@ action: |
 
 Add a TV episode to play next on a Jellyfin client.
 
-- **Action**: Play media
+- **Action**: Play specified media
   - **Target**: Living room (`media_player.living_room`)
   - **Media content ID**: `5ae55567cae75c26671a0a6b027bdd5b`
   - **Media content type**: `episode`
-  - **Enqueue**: `next`
+  - **Enqueue**: Play next
+  - **Media content id**: `5ae55567cae75c26671a0a6b027bdd5b`
 
 {% details "YAML example for queueing an episode" %}
 

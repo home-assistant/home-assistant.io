@@ -129,9 +129,9 @@ automation: |
 
 Get a notification when GeoSphere Austria issues an orange or red warning that starts later, together with the type of weather event and when it begins.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Innsbruck advance warning level (`sensor.innsbruck_advance_warning_level`)
-  - **To**: Orange
+  - **To**: Orange, Red
   - **To**: Red
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)

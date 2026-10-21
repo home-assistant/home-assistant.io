@@ -120,8 +120,7 @@ automation: |
       target:
         entity_id: cover.office_blind
   conditions:
-    - condition: sun
-      after: sunrise
+    - condition: sun.is_up
   actions:
     - action: light.turn_off
       target:
