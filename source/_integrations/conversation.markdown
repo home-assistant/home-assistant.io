@@ -153,3 +153,33 @@ It's now possible to say "engage all lights in the bedroom", which will turn on 
 {% include integrations/triggers.md %}
 
 {% include integrations/actions.md %}
+
+## Conversation automation examples
+
+With the [**Sentence** trigger](/triggers/conversation/), you can start an automation by saying or typing a sentence to Assist. Here is an idea to get you started.
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: answer whether the garage door is open
+
+When you ask Assist "Is the garage door open?", this automation answers with the current state of the garage door, for example, "The garage door is closed."
+
+- **Trigger**: Sentence
+  - **Sentence**: `Is the garage door open`
+- **Action**: Set conversation response
+  - **Set conversation response**: {% raw %}`The garage door is {{ states('cover.garage_door') }}.`{% endraw %}
+
+{% details "YAML example for answering whether the garage door is open" %}
+
+{% example %}
+automation: |
+  alias: "Answer whether the garage door is open"
+  triggers:
+    - trigger: conversation
+      command: "Is the garage door open"
+  actions:
+    - set_conversation_response: >
+        The garage door is {{ states('cover.garage_door') }}.
+{% endexample %}
+
+{% enddetails %}
