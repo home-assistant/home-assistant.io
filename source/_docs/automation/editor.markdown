@@ -119,6 +119,27 @@ In YAML, the name is stored in `alias`.
 - To copy or move it, in the **Menu** {% icon "mdi:dots-vertical" %} of the row, select **Copy** or **Cut**. Then, in the **Menu** {% icon "mdi:dots-vertical" %} of another row of the same kind, select **Paste**. The copy is inserted after that row. You can also paste it in another automation that you open in the same browser tab.
 - To change the order, drag the row by its handle {% icon "mdi:drag-horizontal-variant" %}.
 
+### Replacing a trigger, condition, or action
+
+To swap a trigger, condition, or action for a different one, replace it. The new one takes the same place in the automation and keeps the settings it can use. For example, if an action turns on a light and you want it to turn the light off instead, replace it with the turn-off action. The light stays selected.
+
+1. On the right side of the row, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Replace**.
+   - Result: The **Replace trigger**, **Replace condition**, or **Replace action** dialog opens on the same category as the one you're replacing.
+2. Select the new trigger, condition, or action.
+   - Result: It takes the place of the old one.
+3. Check the new one, and fill in any settings that are missing.
+
+The following settings are kept:
+
+- The target, and each option that the new one also has, if the value works for it. A value that uses a template is only kept if the new option is exactly the same as the old one.
+- The trigger ID, the trigger variables, the note, **Continue on error**, and whether it's turned off.
+
+The name isn't kept, because it describes the old one. Settings that the new one doesn't have or can't use are also left out.
+
+To go back to the old one, select **Undo** in the message that appears, or [undo the change](#undoing-and-redoing-changes).
+
+You can't replace building blocks that contain other triggers, conditions, or actions, such as **Choose**, **If-then**, **Repeat**, **Run in parallel**, **Run in sequence**, **Wait for a trigger**, **And**, **Or**, and **Not**. Replacing them would remove everything inside them.
+
 ### Turning off a trigger, condition, or action
 
 To try an automation without one of its triggers, conditions, or actions, turn it off instead of deleting it.
