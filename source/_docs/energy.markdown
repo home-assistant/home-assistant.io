@@ -18,6 +18,7 @@ To add energy data to the dashboard, start with the type of source or device you
 
 - [Integrate your energy use from the electricity grid](/docs/energy/electricity-grid/)
 - [Integrate your solar panels](/docs/energy/solar-panels/)
+- [Integrate your home consumption](/docs/energy/home-consumption/)
 - [Integrate your home batteries](/docs/energy/battery/)
 - [Integrate your gas consumption](/docs/energy/gas/)
 - [Integrate your water consumption](/docs/energy/water/)
