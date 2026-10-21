@@ -25,10 +25,28 @@ The Geocaching integration in Home Assistant pulls data from your [Geocaching.co
 
 The following sensors are available for each account:
 
-- Find count
-- Hide count
+- Total finds
+- Total hides
 - Favorite points
-- Souvenir count
+- Total souvenirs
 - Awarded favorite points
+
+## Tracking caches
+
+Tracked caches are added separately to the Geocaching integration. To add a tracked cache:
+
+1. Go to **Settings** > **Devices & services**.
+2. On the **Geocaching** integration entry, select {% icon "mdi:dots-vertical" %}.
+3. Select **Add tracked cache**.
+4. Under **Geocache code**, enter one GC code, for example `GC12345`.
+5. Select **Submit**.
+
+Repeat these steps for each cache you want to track. You can track up to 50 caches.
+
+Each tracked cache is added as a separate device with the following sensors:
+
+- Found date
+- Favorite points
+- Hidden date
 
 ![Authorized Geocaching developer](/images/integrations/geocaching/geocaching_authorized_developer.png) Powered by Geocaching HQ
