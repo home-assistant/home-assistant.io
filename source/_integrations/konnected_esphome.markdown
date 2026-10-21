@@ -2,13 +2,6 @@
 title: Konnected
 description: Connect and control your Konnected devices using the ESPHome integration
 ha_release: 0.85
-ha_category:
-  - Alarm
-  - DIY
-  - Infrared
-  - Radio frequency
-  - Serial
-  - Update
 ha_domain: konnected_esphome
 ha_integration_type: virtual
 ha_supporting_domain: esphome
@@ -57,10 +50,6 @@ Konnected devices work locally and integrate seamlessly with the [ESPHome](/inte
 
 {% include integrations/supported_brand.md %}
 
-## Supported devices
+## Works with Home Assistant certified devices
 
-The following devices are known to be supported by the integration. They are certified under the [Works with Home Assistant](https://partner.home-assistant.io/) program.
-
-- [Konnected Smart Garage Door Opener blaQ](https://konnected.io/products/smart-garage-door-opener-blaq-myq-alternative)
-- [Konnected Smart Garage Door Opener White (v2)](https://konnected.io/products/smart-garage-door-opener)
-- [Konnected Alarm Panel Pro](https://konnected.io/collections/smart-alarm-panels)
+{% include integrations/device_list.html brand="konnected" %}

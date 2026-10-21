@@ -1,8 +1,6 @@
 ---
 title: USB Discovery
 description: Discover usb devices on the host.
-ha_category:
-  - Utility
 ha_iot_class: Local Push
 ha_release: 2021.9
 ha_domain: usb

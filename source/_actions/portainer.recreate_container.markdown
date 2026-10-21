@@ -7,7 +7,7 @@ related_actions:
   - portainer.prune_images
 ---
 
-The **Recreate container** action recreates a container on a Portainer endpoint. This is more disruptive than a restart, because the container is stopped, removed, and then created again with the same configuration. You can optionally pull the image first to update the container to the latest version.
+The **Portainer: Recreate container** action recreates a container on a Portainer endpoint. This is more disruptive than a restart, because the container is stopped, removed, and then created again with the same configuration. You can optionally pull the image first to update the container to the latest version.
 
 {% caution %}
 Recreating a container stops it, removes it, and creates it again. Any data that is not stored in a volume or bind mount is lost. Use this action with care.
@@ -80,7 +80,8 @@ pull_image:
 
 This automation recreates a container and pulls the latest image first, so the running container picks up a new release.
 
-- **Trigger**: A scheduled time
+- **Trigger**: Time
+  - **At time**: `04:30`
 - **Action**: Portainer: Recreate container
 
 {% details "YAML example for updating a container to the latest image" %}

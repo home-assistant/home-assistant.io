@@ -1,20 +1,10 @@
 ---
 title: SwitchBot Cloud
 description: Instructions on how to set up SwitchBot Devices.
-ha_category:
-  - Binary Sensor
-  - Button
-  - Cover
-  - Fan
-  - Hub
-  - Humidifier
-  - Light
-  - Lock
-  - Plug
-  - Remote
-  - Sensor
-  - Switch
-  - Vacuum
+ha_categories:
+  - sensors
+  - blinds_curtains
+  - plugs_switches
 ha_release: '2023.10'
 ha_iot_class: Cloud Polling
 ha_codeowners:

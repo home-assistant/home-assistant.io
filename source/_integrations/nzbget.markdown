@@ -1,8 +1,9 @@
 ---
 title: NZBGet
 description: Instructions on how to integrate NZBGet within Home Assistant.
-ha_category:
-  - Downloading
+ha_categories:
+  - computers_network.nas_servers
+  - media_entertainment.tv_streaming
 ha_iot_class: Local Polling
 ha_release: 0.17
 ha_config_flow: true

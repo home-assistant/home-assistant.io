@@ -1,5 +1,5 @@
 ---
-title: "Remove file"
+title: "Remove"
 action: minio.remove
 domain: minio
 description: "Deletes a file from a MinIO bucket."
@@ -8,7 +8,7 @@ related_actions:
   - minio.put
 ---
 
-The **Remove** action deletes an object from a MinIO bucket.
+The **Minio: Remove** action deletes an object from a MinIO bucket.
 
 This is useful for cleaning up files you no longer need, for example, removing an old snapshot after you have processed it.
 
@@ -74,7 +74,8 @@ key:
 
 Once a day, delete last week's snapshot from the bucket to keep storage tidy.
 
-- **Trigger**: A daily time trigger
+- **Trigger**: Time
+  - **At time**: `03:00`
 - **Action**: Minio: Remove
 
 {% details "YAML example for removing an old snapshot" %}

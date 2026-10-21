@@ -2,9 +2,8 @@
 title: EZVIZ
 description: Integrate EZVIZ camera within Home Assistant.
 ha_release: 0.107
-ha_category:
-  - Camera
-  - Update
+ha_categories:
+  - security_safety.cameras
 ha_iot_class: Cloud Polling
 ha_domain: ezviz
 ha_codeowners:

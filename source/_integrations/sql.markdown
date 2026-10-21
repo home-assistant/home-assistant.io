@@ -1,9 +1,8 @@
 ---
 title: SQL
 description: Instructions how to integrate SQL sensors into Home Assistant.
-ha_category:
-  - Sensor
-  - Utility
+ha_categories:
+  - diy_makers.web_data_connectors
 ha_release: 0.63
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -101,7 +100,7 @@ sql:
       required: false
       type: string
     state_class:
-      description: "Provide [state class](https://developers.home-assistant.io/docs/core/entity/sensor/#available-state-classes) for this sensor."
+      description: "Provide [state class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) for this sensor."
       required: false
       type: string
     icon:

@@ -1,9 +1,8 @@
 ---
 title: Sunsynk
 description: Instructions on how to integrate Sunsynk inverters within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.solar_batteries
 ha_release: '2026.10'
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -59,7 +58,7 @@ The integration creates the sensors below for each inverter. The sensors are rea
 - **Grid import total** (kWh): The energy that came from the grid since installation.
 - **Grid export today** (kWh): The energy that went to the grid today.
 - **Grid export total** (kWh): The energy that went to the grid since installation.
-- **Grid frequency** (Hz): The frequency of the grid. This sensor is disabled by default.
+- **Grid frequency** (Hz): The frequency of the grid. This sensor is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 ### Battery
 

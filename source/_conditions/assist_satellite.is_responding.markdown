@@ -52,8 +52,6 @@ This passes when `assist_satellite.living_room` is currently playing back a resp
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -65,9 +63,9 @@ behavior:
 for:
   description: >
     Duration the satellite must have been in the responding state before the condition passes.
-    Accepts a duration string like `00:00:30` for 30 seconds. Useful to detect a satellite stuck in the responding state.
+    Accepts a duration string like `00:00:30` for 30 seconds. Useful to detect a satellite stuck in the responding state. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -79,7 +77,7 @@ for:
 
 - Use the **For at least** option with a value longer than your longest expected TTS response (for example, `00:00:30`) to detect satellites that are stuck. This is a reliable way to build a self-healing automation that force-resets the satellite when it does not recover on its own.
 - Prefer local TTS engines such as Piper to minimize response latency and eliminate cloud-dependent failure modes that can cause satellites to get stuck in this state.
-- Satellites that have the **Unavailable** or **Unknown** state do not count as responding. Home Assistant skips them and evaluates the condition using the remaining targeted satellites.
+{% include conditions/unavailable_targets.md entities="satellites" %}
 - To check another pipeline state, use [Satellite is idle](/conditions/assist_satellite.is_idle/), [Satellite is listening](/conditions/assist_satellite.is_listening/), or [Satellite is processing](/conditions/assist_satellite.is_processing/).
 
 {% include conditions/try_it.md %}

@@ -1,9 +1,8 @@
 ---
 title: SolaX Power
 description: Instructions on how to integrate Solax sensor within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.solar_batteries
 ha_release: 0.94
 ha_iot_class: Local Polling
 ha_codeowners:

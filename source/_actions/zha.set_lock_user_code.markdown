@@ -1,5 +1,5 @@
 ---
-title: "Set a lock user code"
+title: "Set lock user code"
 action: zha.set_lock_user_code
 domain: zha
 description: "Stores a user code in a slot on a Zigbee lock."
@@ -20,7 +20,7 @@ To set a lock user code from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the lock you want to set a code on.
-6. From the actions shown for that target, select **Set lock user code**.
+6. From the actions shown for that target, under **Zigbee Home Automation**, select **Set lock user code**.
 7. Set the code slot and the code.
 8. Select **Save**.
 

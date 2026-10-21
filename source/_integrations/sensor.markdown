@@ -1,8 +1,6 @@
 ---
 title: Sensor
 description: Instructions on how to set up your sensors with Home Assistant.
-ha_category:
-  - Sensor
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: sensor
