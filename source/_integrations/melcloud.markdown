@@ -190,7 +190,7 @@ When the air conditioner starts cooling, let the vanes swing from side to side, 
 
 - **Trigger**: State changed
   - **Entity**: Living room thermostat
-  - **Attribute**: Hvac action
+  - **Attribute**: HVAC action
   - **To**: Cooling
 - **Action**: MELCloud: Set vane horizontal
   - **Target**: Living room air conditioner (`climate.living_room`)
