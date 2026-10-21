@@ -213,7 +213,7 @@ This may happen if the Python anthropic client had failed to upgrade to the corr
 
 ## Known limitations
 
-This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
+This integration does not integrate with [sentence triggers](/triggers/conversation/).
 
 ## Removing the integration
 

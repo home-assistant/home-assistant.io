@@ -169,11 +169,11 @@ For setup steps, YAML options, and examples for the **Numeric state crossed thre
 
 ### Sentence trigger
 
-For setup steps, YAML options, and examples of a sentence trigger, see [Sentence triggers](/integrations/conversation/#sentence-triggers).
+For setup steps, YAML options, and examples for the **Sentence** trigger, see [Sentence trigger](/triggers/conversation/).
 
 #### Sentence wildcards
 
-For wildcard syntax and examples, see [Sentence wildcards](/integrations/conversation/#sentence-wildcards).
+For wildcard syntax and examples, see [Sentence wildcards](/triggers/conversation/#sentence-wildcards).
 
 <a id="state-trigger"></a>
 
