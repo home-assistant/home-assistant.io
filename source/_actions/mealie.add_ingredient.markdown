@@ -20,14 +20,12 @@ To add an ingredient from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Mealie shopping lists you want to read.
-6. From the actions shown for that target, under **Mealie**, select **Get shopping list items**.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Mealie shopping lists you want to add the ingredient to.
+6. From the actions shown for that target, under **Mealie**, select **Add ingredient**.
 7. Enter the ingredient you want to add. You can provide a **Food ID** and **Unit ID** available from the responses of the [`Get recipe`](/actions/mealie.get_recipe/) or [`Parse ingredient`](/actions/mealie.parse_ingredient/) actions, or supply a note only.
 8. Select **Save**.
 
 ### Options in the UI
-
-{% include actions/targets.md domain="todo" %}
 
 {% options_ui %}
 Food ID:
@@ -64,8 +62,6 @@ This adds the food, note, unit, and quantity to the shopping list. If the food I
 
 ### Options in YAML
 
-{% include actions/targets.md domain="todo" %}
-
 {% options_yaml %}
 food_id:
   description: The Mealie food ID to add. Required if no note is provided.
@@ -85,10 +81,12 @@ note:
   type: string
 {% endoptions_yaml %}
 
+{% include actions/targets.md domain="todo" %}
+
 ## Good to know
 
 - If the food ID or unit ID is invalid in Mealie, the action fails with the message "An error occurred adding an item to YOUR_GROCERY_LIST."
-- If neither a food ID nor a unit ID is specified, the action fails with the message "Provide a food ID or a note to add an ingredient."
+- If neither a food ID nor a note is specified, the action fails with the message "Provide a food ID or a note to add an ingredient."
 
 {% include actions/stuck.md %}
 
