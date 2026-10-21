@@ -513,6 +513,7 @@ const versionTitle =
       box-shadow: none;
       display: flex;
       max-height: none;
+      flex-wrap: nowrap;
       overflow: visible;
       padding: 0;
       position: static;
@@ -578,6 +579,17 @@ const versionTitle =
 
     .nav-cta {
       margin-left: var(--space-small);
+    }
+  }
+
+  /* Just above the desk breakpoint the bar has only a few pixels to
+     spare, and a classic scrollbar takes those (media queries count it,
+     the layout does not). Tighter link padding up to the wide breakpoint
+     keeps it on one line. */
+  @media only screen and (min-width: breakpoints.$desk) and (max-width: breakpoints.$desk-wide) {
+    .menu > li > a:not(.button),
+    .docsearch :global(.DocSearch-Button) {
+      padding-inline: var(--space-small);
     }
   }
 </style>
