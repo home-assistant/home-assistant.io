@@ -40,6 +40,17 @@ Supported modes:
   description: "The operating modes your air conditioner supports. Select at least one of **Cool**, **Heat**, **Dry**, **Fan only**, and **Auto**. Check your remote or the manual of your unit to see which modes it has. Not all Gree models support heat. Selecting a mode your unit does not have breaks nothing. Your air conditioner simply does not respond to it."
 {% endconfiguration_basic %}
 
+## Reconfiguring the integration
+
+If you replace your infrared emitter, add a receiver later, or want to change the modes of your air conditioner, you can update the device without removing and re-adding the integration.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the **Gree Infrared** integration and select it.
+3. Next to the device you want to change, select the three dots {% icon "mdi:dots-vertical" %} menu and choose **Reconfigure**.
+4. Change the options and select **Submit**.
+
+The same rules as during setup apply: an infrared emitter and at least one supported mode are required. If you remove the receiver, the entities stop following the physical remote. If you remove the mode your air conditioner is currently in, its climate entity shows **Off** until you select another mode.
+
 ## Supported functionality
 
 A climate entity is created for each Gree air conditioner device you set up.
