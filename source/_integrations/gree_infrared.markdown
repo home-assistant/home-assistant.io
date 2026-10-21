@@ -111,6 +111,7 @@ automation: |
       target:
         entity_id: climate.gree_ac
       data:
+        # Use 75 instead if Home Assistant uses Fahrenheit.
         temperature: 24
         hvac_mode: cool
 {% endexample %}
