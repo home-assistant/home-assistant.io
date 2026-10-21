@@ -8,7 +8,7 @@ ha_release: "2026.10"
 ha_config_flow: true
 ha_codeowners:
   - '@Xynergi'
-ha_domain: terrestream_local
+ha_domain: terrestream
 ha_platforms:
   - sensor
 ha_integration_type: device
@@ -68,9 +68,9 @@ Create an automation with a numeric state trigger for the sensor's **Carbon diox
 
 ## Data updates
 
-Home Assistant {% term polling polls %} the sensor every 15 seconds. This keeps scheduled polling within the sensor's 20-second illuminance freshness limit. Air quality, temperature, humidity, and pressure readings expire 60 seconds after acquisition. Illuminance readings expire after 20 seconds. Network delay counts toward these limits.
+Home Assistant {% term polling polls %} the sensor every 30 seconds and keeps the last reported readings between polls. It checks measurement availability when each poll completes. Missing, warming, cleaning, invalid, or stale readings reported by the sensor appear as unavailable. A failed poll makes the sensor entities unavailable until communication recovers.
 
-Missing, warming, cleaning, invalid, or stale readings appear as unavailable. Unavailable readings are never replaced with zero. Readings missed during a connection outage are not added to the history later.
+Unavailable readings are never replaced with zero. Readings missed during a connection outage are not added to the history later.
 
 ## Known limitations
 
