@@ -24,7 +24,9 @@ The **AWS S3** {% term integration %} allows you to use [AWS S3](https://aws.ama
 This integration is specifically designed to work **only with Amazon AWS S3** and not with third-party storage providers that claim S3 API compatibility. Third-party providers like Wasabi, DigitalOcean Spaces, Backblaze B2, Infomaniak, and others are not supported.
 {% endimportant %}
 
-This integration requires an existing S3 bucket and an IAM user that has access to that bucket. For security reasons, it is strongly recommended to scope the IAM policy as narrowly as possible to only the required operations and resources.
+This integration requires an existing S3 bucket and AWS credentials that have access to that bucket. Those credentials usually come from an IAM user you create for this purpose. If Home Assistant itself runs on AWS, you can instead rely on the role attached to the instance or container it runs on, and skip creating an access key entirely — see [using default AWS credentials](#using-default-aws-credentials).
+
+For security reasons, it is strongly recommended to scope the IAM policy as narrowly as possible to only the required operations and resources.
 
 {% details "Create a new S3 bucket" %}
 
@@ -96,10 +98,12 @@ Now, let's create and attach a custom IAM policy to give the user the necessary 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
+Use default AWS credentials:
+  description: "Resolve the credentials from the environment Home Assistant runs in instead of storing an access key. See [using default AWS credentials](#using-default-aws-credentials)."
 Access Key ID:
-  description: "The access key ID for your AWS S3 account."
+  description: "The access key ID for your AWS S3 account. Leave empty when using the default AWS credentials."
 Secret Access Key:
-  description: "The secret access key for your AWS S3 account."
+  description: "The secret access key for your AWS S3 account. Leave empty when using the default AWS credentials."
 Bucket Name:
   description: "S3 bucket name to store the backups. Bucket must already exist and be writable by the provided credentials."
 Endpoint URL:
@@ -113,12 +117,30 @@ Prefix:
 1. In Home Assistant, go to **{% my integrations title="Settings > Devices & services" %}**.
 1. Select **Add Integration** and search for **AWS S3**.
 1. Enter the following details:
-   - Access Key ID and Secret Access Key from the IAM user
+   - Whether to use the default AWS credentials. Leave this off unless Home Assistant runs on AWS infrastructure that provides credentials of its own
+   - Access Key ID and Secret Access Key from the IAM user. Leave both empty if you enabled the default AWS credentials
    - Your bucket name
    - The region endpoint (for example, `https://s3.eu-central-1.amazonaws.com/`)
    - The optional prefix (path inside the bucket for organizing backups; you can leave this empty)
 
 The integration will test the connection and confirm access to your S3 bucket.
+
+## Using default AWS credentials
+
+If Home Assistant runs on AWS infrastructure, such as an EC2 instance or an ECS task, you can avoid storing an access key altogether. Enable **Use default AWS credentials** and leave both key fields empty. Boto3 then resolves the credentials itself, using its [default credential chain](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html), which looks at:
+
+- The `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables
+- A shared credentials or config file, such as `~/.aws/credentials`
+- The IAM role attached to an EC2 instance, through the instance metadata service
+- The role attached to an ECS task or an EKS pod
+
+Grant the bucket access to that role using the same policy as above, instead of attaching it to an IAM user. Nothing credential-related is stored in Home Assistant: temporary credentials are fetched when needed, and access is revoked as soon as you detach the policy from the role.
+
+{% note %}
+
+This option only works if the environment actually provides credentials. If nothing in the chain returns any, the integration reports that the bucket cannot be accessed.
+
+{% endnote %}
 
 ## Organizing backups with the prefix option
 
