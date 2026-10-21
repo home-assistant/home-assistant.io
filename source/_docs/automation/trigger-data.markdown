@@ -146,7 +146,7 @@ These are the properties available for a [**Numeric state crossed threshold** tr
 
 ### Persistent notification triggers
 
-These properties are available for a [**Persistent notification** trigger](/integrations/persistent_notification/#automation).
+These properties are available for a [**Persistent notification** trigger](/triggers/persistent_notification/).
 
 - `trigger.platform`: `persistent_notification`.
 - `trigger.update_type`: Type of persistent notification update: `added`, `removed`, or `updated`.
