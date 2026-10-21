@@ -1,9 +1,8 @@
 ---
 title: Spin EV Charger
 description: Instructions on how to integrate Exicom Spin EV chargers over Bluetooth Low Energy with Home Assistant.
-ha_category:
-  - Car
-  - Energy
+ha_categories:
+  - energy.ev_charging
 ha_release: "2026.11"
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -68,15 +67,20 @@ The interval is not configurable. Entities become unavailable when the charger c
 
 ## Known limitations
 
+### Bluetooth connections
+
 - The charger accepts only **one Bluetooth client at a time**. While Home Assistant is talking to it, the vendor phone app cannot connect, and vice versa. Which side wins in between polls is what the **Bluetooth connection** option decides.
-- The integration only reads from the charger. Starting and stopping a session, and setting the charging current, are not supported.
 - Each charger needs a free active connection slot on the Bluetooth adapter or proxy that reaches it. A charger set to **Reconnect each poll** only uses a slot while it is being read, while a charger set to **Stay connected** occupies one for as long as it is configured.
+
+### Charger control
+
+The integration only reads from the charger. Starting and stopping a session, and setting the charging current, are not supported.
 
 ## Troubleshooting
 
-### No charger is found during setup
+{% details "No charger is found during setup" %}
 
-#### Symptom: "No Spin EV charger was found over Bluetooth"
+### Symptom: "No Spin EV charger was found over Bluetooth"
 
 Setup reports that no charger was found.
 
@@ -90,9 +94,11 @@ To resolve this issue, try the following steps:
 4. Move an ESPHome Bluetooth proxy closer to the charger, or place a local Bluetooth adapter near it.
 5. Make sure the proxy has active connections enabled. A passive-only adapter can see the charger advertise but cannot read from it.
 
-### The charger cannot be connected to
+{% enddetails %}
 
-#### Symptom: "Failed to connect"
+{% details "The charger cannot be connected to" %}
+
+### Symptom: "Failed to connect"
 
 Setup finds the charger but fails to read from it.
 
@@ -108,9 +114,11 @@ To resolve this issue, try the following steps:
 2. Check **Settings** > **Connectivity** > **Bluetooth** > **Connection monitor** and confirm the adapter or proxy has a free active connection slot.
 3. Move the charger, the proxy, or the adapter so they are closer together.
 
-### The sensors become unavailable
+{% enddetails %}
 
-#### Symptom: All charger sensors show as unavailable
+{% details "The sensors become unavailable" %}
+
+### Symptom: All charger sensors show as unavailable
 
 The charger was set up successfully, but its sensors later become unavailable.
 
@@ -122,6 +130,8 @@ To resolve this issue, try the following steps:
 2. Verify that the adapter or proxy that reaches the charger still has free active connection slots.
 3. If the charger is reached through a proxy at the edge of its range, move the proxy closer, or prefer an Ethernet-connected proxy.
 4. Set the **Bluetooth connection** option to **Stay connected**, which keeps the slot claimed rather than competing for it at every poll.
+
+{% enddetails %}
 
 ## Removing the integration
 

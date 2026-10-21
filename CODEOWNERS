@@ -1038,6 +1038,7 @@ source/_integrations/sonos.markdown @peterager @jjlawren
 source/_integrations/soundtouch.markdown @kroimon
 source/_integrations/spaceapi.markdown @fabaff
 source/_integrations/speedtestdotnet.markdown @rohankapoorcom @engrbm87
+source/_integrations/spin_ble.markdown @Dr-Blank
 source/_integrations/splunk.markdown @Bre77
 source/_integrations/spotify.markdown @frenck @joostlek
 source/_integrations/sql.markdown @gjohansson-ST @dougiteixeira
