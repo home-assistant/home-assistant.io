@@ -232,13 +232,13 @@ The forecast always remains an estimate based on weather and historical data, no
 - The free service offers a lower data resolution, updates less often, and supports only a single plane. More frequent updates and multiple planes require a paid Forecast.Solar account.
 - Your panel location must be covered by the EU Photovoltaic Geographical Information System.
 - Declination and azimuth sensors are read at each scheduled forecast update, not the moment they change. See [Data updates](#data-updates).
-- A selected sensor is never replaced by a fixed value. If a sensor can't be read after setup, the forecast keeps using its last reading and logs a warning once. When the sensor can be read again, the next forecast update uses its new value. The last reading isn't kept across a restart or a reload of the integration. If the sensor still can't be read at that point, setup retries. See [Setup keeps retrying because of a sensor](#setup-keeps-retrying-because-of-a-sensor).
+- A selected sensor is never replaced by a fixed value. If a sensor can't be read after setup, the forecast keeps using its last reading and logs a warning once. When the sensor can be read again, the next forecast update uses its new value. The last reading isn't kept across a restart or a reload of the integration. If the sensor still can't be read at that point, setup retries. See **Setup keeps retrying because of a sensor** under [Troubleshooting](#troubleshooting).
 
 ## Troubleshooting
 
-### Setup keeps retrying because of a sensor
+{% details "Setup keeps retrying because of a sensor" %}
 
-#### Symptom: setup retries with an error that names a sensor
+### Symptom: Setup retries with an error that names a sensor
 
 The integration shows that it is retrying setup, and the error names a declination or azimuth sensor.
 
@@ -250,6 +250,8 @@ During setup, including after a restart or a reload of the integration, every se
 
 1. Check that the sensor named in the error exists and reports a number in the accepted range. Refer to the sensor descriptions under [Configuration](#configuration).
 2. If you deleted the sensor, reconfigure the plane and select another sensor or a fixed value. Refer to [Reconfiguring a plane](#reconfiguring-a-plane).
+
+{% enddetails %}
 
 ## Removing the integration
 
