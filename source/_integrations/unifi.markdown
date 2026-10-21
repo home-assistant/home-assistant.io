@@ -14,6 +14,7 @@ With this {% term integration %}, you can bring your UniFi Network into Home Ass
 - Control PoE power on individual switch ports to remotely restart connected devices like cameras or access points.
 - Toggle firewall rules, port forwarding, or traffic rules as part of broader home automations.
 - Get notified about firmware updates and install them from Home Assistant.
+- Monitor the health of your gateway's intrusion prevention system (IPS): engine version, ruleset age, and rule count.
 
 ## Prerequisites
 
@@ -58,6 +59,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 - [Sensor](#sensor)
 - [Firmware updates](#firmware-updates)
+- [IPS engine updates](#ips-engine-updates)
 
 {% include integrations/config_flow.md %}
 
@@ -239,6 +241,13 @@ Get entities reporting the current CPU utilization of a UniFi Network device.
 
 Get entities reporting the current memory utilization of a UniFi Network device.
 
+### IPS ruleset sensors
+
+UniFi gateways that report their intrusion prevention system (IPS) ruleset provide two diagnostic sensors:
+
+- **IPS signatures updated**: the time the IPS signature ruleset was last updated. It is unknown until the gateway downloads the ruleset again, for example right after an IPS engine upgrade.
+- **IPS rule count**: the number of rules in the loaded ruleset. This sensor is disabled by default.
+
 ### Port Bandwidth sensor
 
 Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
@@ -263,6 +272,12 @@ Changes may take over 5 seconds to apply as the device must adopt a new configur
 
 This will show if there are firmware updates available for the UniFi network devices connected to the controller. If the configured user has admin privileges, the firmware upgrades can also be installed directly from Home Assistant.
 
+## IPS engine updates
+
+UniFi gateways that report their Suricata intrusion prevention system (IPS) engine get a diagnostic **IPS engine** update entity. It shows the running engine version and, when the gateway has an engine upgrade queued, the version it will upgrade to. It shows an update as available when a queued engine upgrade has not been applied yet. While the gateway does not report its engine version, the entity state is unknown.
+
+This entity is informational only: the engine upgrade cannot be installed from Home Assistant. The entity is still useful in automations, for example to get notified when an engine upgrade is waiting.
+
 ## Examples
 
 ### Community blueprints
@@ -280,6 +295,7 @@ If the WebSocket connection is lost, the integration automatically tries to reco
 - **Ubiquiti SSO cloud users are not supported.** You must create a local user in your UniFi OS Console. See the [Local user](#local-user) section for instructions.
 - **Early Access and Release Candidate versions of UniFi Network and UniFi OS are not supported.** Only the official Stable Release channel is expected to work with this integration.
 - **Presence detection is not compatible with MAC Address Randomization**, which is enabled by default on most modern smartphones. This feature must be disabled per network on the client device.
+- **IPS engine and ruleset entities need a gateway that reports them.** For example, a UniFi Cloud Gateway Fiber running UniFi Network 11 reports them.
 - **Changes to LED control** on access points may take over 5 seconds to apply because the device must adopt a new configuration first.
 - **Lingering entities**: In some edge cases, clients or devices removed from UniFi Network may remain in the Home Assistant device registry and need to be [removed manually](#removing-a-device-in-home-assistant).
 
