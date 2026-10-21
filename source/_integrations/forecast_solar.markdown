@@ -26,7 +26,7 @@ Forecast.Solar uses data from the [EU Photovoltaic Geographical Information Syst
 
 To create a forecast, the integration needs a few details about your solar setup:
 
-- **Location**: The latitude and longitude of your panels. You can enter fixed coordinates, or let the integration follow your Home Assistant home location, so the forecast keeps up if that location changes, such as for a solar setup on a camper van, motorhome, or boat.
+- **Location**: The latitude and longitude of your panels. You can enter fixed coordinates or follow your Home Assistant home location. Following the home location keeps the forecast up to date when your home moves, for example, with panels on a camper van, motorhome, or boat.
 - **Declination**: The tilt of your panels in degrees. A value of `0` means the panels lie flat, facing straight up, and `90` means they stand fully upright. You can enter a fixed tilt or select a sensor that reports it.
 - **Azimuth**: The compass direction the panels face, on a 360-degree scale. `0` is north, `90` is east, `180` is south, and `270` is west. You can enter a fixed direction or select a sensor that reports it, such as a compass.
 - **Total Watt peak power**: The combined maximum power of all your panels, in Watt peak. Add up the peak power of every panel in the group to get this value.
@@ -63,7 +63,14 @@ Total Watt peak power of your solar modules:
   description: "The combined maximum power of all panels in this group, in Watt peak."
 {% endconfiguration_basic %}
 
-The form doesn't accept a sensor whose current state isn't a usable angle, such as a non-numeric or out-of-range value. It also doesn't accept a sensor that doesn't exist, and shows **The selected sensor doesn't exist.** A sensor that is `unavailable` or `unknown` is accepted. A sensor that has no state yet is accepted only if Home Assistant already knows about it, for example, when its integration hasn't finished loading. When you reconfigure a plane, a sensor it already uses isn't checked again, so a sensor that is briefly unusable doesn't stop you from changing other settings.
+When you select a sensor, the form checks its current state:
+
+- If the sensor doesn't exist, it isn't accepted, and the form shows **The selected sensor doesn't exist.**
+- If the state isn't a number or is out of range, it isn't accepted.
+- A sensor that is `unavailable` or `unknown` is accepted.
+- A sensor that has no state yet is accepted only if Home Assistant already knows about it, for example, when its integration hasn't finished loading.
+
+When you reconfigure a plane, sensors it already uses aren't checked again. A sensor that is briefly unusable doesn't stop you from changing other settings.
 
 If you rename a sensor's entity ID, the plane keeps using it automatically.
 
