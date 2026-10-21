@@ -21,6 +21,7 @@ To use this trigger in an automation:
 5. Optional: In **Notification ID**, enter the ID of the notification to react to.
    - Leave it empty to react to all notifications.
 6. Under **Update type**, select the changes to react to: **added**, **removed**, or **updated**.
+   - **current** is also in the list, but it doesn't make the trigger react. For details, refer to [Good to know](#good-to-know).
    - By default, **added** and **removed** are selected.
 7. Select **Save**.
 
@@ -69,14 +70,13 @@ notification_id:
   required: false
   type: string
 update_type:
-  description: The changes to react to. You can use `added`, `updated`, and `removed`. If you leave it out, the trigger reacts to all changes.
+  description: The changes to react to. You can use `added`, `updated`, and `removed`. `current` is also accepted, but it doesn't make the trigger react. If you leave it out, the trigger reacts to all changes.
   required: false
   type: [string, list]
 {% endoptions_yaml %}
 
 ## Good to know
 
-- In the UI, a new trigger reacts to **added** and **removed**. In YAML, a trigger without `update_type` reacts to all changes, including **updated**.
 - The update type **current** doesn't make the trigger react. Home Assistant only uses it to send the list of current notifications to the UI. Use **added** to react to new notifications.
 - When you add a notification with an ID that already exists, it replaces the existing notification. The trigger then reacts with the update type **updated**, not **added**.
 - When you dismiss all notifications at once, the trigger reacts once for each notification.
