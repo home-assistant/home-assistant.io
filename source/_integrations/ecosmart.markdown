@@ -1,7 +1,7 @@
 ---
 title: ecosmart
 description: Instructions on how to integrate ecosmart wholesale electricity prices into Home Assistant.
-ha_category:
+ha_categories:
   - energy.energy_prices
 ha_release: 2026.11
 ha_iot_class: Cloud Polling
