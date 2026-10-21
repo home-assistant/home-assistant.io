@@ -91,8 +91,11 @@ The following examples show how to automate a Gree air conditioner. For more ide
 ### Automation: Cooling the bedroom before bedtime
 
 - **Trigger**: Time: 21:30
-- **Condition**: Someone is home
-- **Action**: Set the target temperature to 24 °C in **Cool** mode
+- **Condition**: Numeric state: **Home** zone is above 0
+- **Action**: Set thermostat target temperature
+  - **Target**: Gree AC (`climate.gree_ac`)
+  - **Temperature**: 24
+  - **HVAC mode**: Cool
 
 {% details "YAML example for cooling the bedroom before bedtime" %}
 
@@ -120,8 +123,11 @@ automation: |
 
 ### Automation: Turning off the air conditioner when a window opens
 
-- **Trigger**: Window sensor: opened
-- **Action**: Turn off the air conditioner
+- **Trigger**: Window opened
+  - **Target**: Bedroom window (`binary_sensor.bedroom_window`)
+- **Action**: Set thermostat HVAC mode
+  - **Target**: Gree AC (`climate.gree_ac`)
+  - **HVAC mode**: Off
 
 {% details "YAML example for turning off the air conditioner when a window opens" %}
 
@@ -129,9 +135,9 @@ automation: |
 automation: |
   alias: "Turn off the air conditioner when the window opens"
   triggers:
-    - trigger: state
-      entity_id: binary_sensor.bedroom_window
-      to: "on"
+    - trigger: window.opened
+      target:
+        entity_id: binary_sensor.bedroom_window
   actions:
     - action: climate.set_hvac_mode
       target:
@@ -166,7 +172,7 @@ remote_receiver:
 
 ### The air conditioner does not respond to commands
 
-If the climate entity changes in Home Assistant but your air conditioner does not react, the infrared signal is probably not reaching the unit. Make sure the infrared emitter points at the receiver window of the unit and that nothing blocks the path between them. For more steps, see the [infrared troubleshooting](/integrations/infrared/#troubleshooting) section.
+If the climate entity changes in Home Assistant but your air conditioner does not react, the infrared signal is probably not reaching the unit. Make sure the infrared emitter points at the receiver window of the unit and that nothing blocks the path between them. For more steps, refer to [The device does not respond to commands](/integrations/infrared/#the-device-does-not-respond-to-commands).
 
 If the unit reacts to most commands but not to one mode, your model probably does not have that mode. Check your remote or the manual of your unit.
 
