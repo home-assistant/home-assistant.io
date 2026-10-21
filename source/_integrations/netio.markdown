@@ -7,6 +7,7 @@ ha_iot_class: Local Polling
 ha_release: 0.24
 ha_domain: netio
 ha_platforms:
+  - sensor
   - switch
 ha_integration_type: device
 ha_codeowners:
@@ -51,6 +52,10 @@ Verify SSL certificate:
 ## Provided entities
 
 The integration provides a switch entity for every output of the device, allowing you to switch the output on and off. The entities are named after the output names configured on the device.
+
+For outputs with metering, the integration additionally provides sensor entities for the instantaneous load, current, and power factor, as well as the resettable and non-resettable energy counters in both directions. Which measurements are available depends on the device model; outputs without metering do not get sensor entities.
+
+The energy sensors can be used as individual device consumption in the [Home Assistant energy dashboard](/docs/energy/).
 
 ## Data updates
 
