@@ -210,7 +210,7 @@ The sun triggers with a full trigger key, such as **Sunrise** (`sun.sunrise`), h
 - `trigger.type`: Only for **Dawn** (`sun.dawn`) and **Dusk** (`sun.dusk`). The type of twilight that you set: `civil`, `nautical`, or `astronomical`.
 - `trigger.period`: Only for the golden hour and blue hour triggers, such as **Golden hour started** (`sun.golden_hour_started`). The period that you set: `any`, `morning`, or `evening`. It's the option of the trigger, not the time of day when it reacted.
 
-**Sun elevation changed** (`sun.elevation_changed`) and **Sun elevation crossed threshold** (`sun.elevation_crossed_threshold`) are different: they're [entity triggers](#entity-triggers) of `sun.sun`.
+**Sun elevation changed** (`sun.elevation_changed`) and **Sun elevation crossed threshold** (`sun.elevation_crossed_threshold`) have different properties because they're [entity triggers](#entity-triggers) of `sun.sun`.
 
 ### Tag triggers
 
