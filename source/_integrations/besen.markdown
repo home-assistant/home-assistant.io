@@ -1,6 +1,6 @@
 ---
 title: Besen
-description: Instructions on how to integrate Besen EV chargers over Bluetooth Low Energy with Home Assistant.
+description: Instructions on how to integrate Besen EV chargers over Bluetooth Low Energy or your local network with Home Assistant.
 ha_categories:
   - energy.ev_charging
 ha_release: 2026.9
@@ -20,9 +20,9 @@ ha_integration_type: device
 ha_quality_scale: platinum
 ---
 
-The **Besen** {% term integration %} connects Home Assistant to Besen EV chargers over Bluetooth Low Energy.
+The **Besen** {% term integration %} connects Home Assistant to Besen EV chargers over Bluetooth Low Energy or your local network.
 
-This integration talks directly to the charger through Home Assistant's [Bluetooth](/integrations/bluetooth) stack.
+This integration talks directly to the charger through Home Assistant's [Bluetooth](/integrations/bluetooth) stack or over Wi-Fi using its local network address. Both connections provide the same entities and charging controls.
 
 ## Supported devices
 
@@ -34,22 +34,43 @@ Other Besen chargers using the same `ACP#` Bluetooth protocol may also work.
 
 ## Prerequisites
 
-- A Besen charger advertising as `ACP#...`.
+- A compatible Besen charger.
 - The charger's 6-digit PIN.
-- A Bluetooth adapter or ESPHome Bluetooth proxy that supports active GATT connections.
 
-ESPHome Bluetooth proxies need active connections enabled. Each connected charger uses one active GATT connection slot on the selected proxy.
+For Bluetooth, the charger must advertise as `ACP#...`. You need a Bluetooth adapter or ESPHome Bluetooth proxy that supports active GATT connections. ESPHome Bluetooth proxies need active connections enabled. Each connected charger uses one active GATT connection slot on the selected proxy.
+
+For a local network (LAN) connection, connect the charger to Wi-Fi using its mobile app first. Find its IP address in your router's connected-device list. Home Assistant must be able to reach the charger on that network. A Bluetooth adapter or proxy is not required for LAN control.
+
+Allow incoming UDP traffic on port 28376 to Home Assistant and UDP traffic to the charger's command port, normally 7248. If you run Home Assistant Container, use host networking so it can receive the charger's announcements. LAN communication is unencrypted. Use a trusted local network and do not forward these ports from the internet.
 
 {% include integrations/config_flow.md %}
 
-Home Assistant can discover chargers that advertise as `ACP#...`. If your charger is not discovered automatically, add the integration manually and select it from the list of Besen chargers currently visible over Bluetooth. If no charger is found, follow the [discovery troubleshooting steps](#the-charger-is-not-discovered).
+Home Assistant can discover chargers that advertise as `ACP#...` over Bluetooth. If your charger is not discovered automatically, add the integration manually. Select a charger from the **Device** list for Bluetooth, or enter its IP address or hostname in **LAN address (optional)** for LAN. Enter the charger's PIN for either connection. If you enter a LAN address, Home Assistant uses LAN even if you also select a Bluetooth device.
 
 {% configuration_basic %}
 Device:
-  description: "The discovered Besen charger to set up."
+  description: "The discovered Besen charger to set up over Bluetooth. Leave this empty to use LAN."
+LAN address (optional):
+  description: "The IP address or hostname of a charger already connected to Wi-Fi. Leave this empty to use Bluetooth."
 PIN:
-  description: "The charger's 6-digit Bluetooth PIN. Many units default to 123456."
+  description: "The charger's 6-digit PIN. Many units default to 123456."
 {% endconfiguration_basic %}
+
+### Change the connection
+
+To change an existing charger's connection or update its LAN address:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Besen**.
+2. Open the {% icon "mdi:dots-vertical" %} menu for the charger and select **Reconfigure**.
+3. Select **Use LAN** or **Use Bluetooth**.
+4. For LAN, enter **Charger address** and **Charger PIN**. For Bluetooth, enter **Charger PIN**.
+5. Submit the form and wait for Home Assistant to verify the connection.
+
+Home Assistant saves the new connection only after verification. Your existing entities and history are kept. If verification fails or you cancel setup, the previous connection settings are kept.
+
+Before switching an existing Bluetooth charger to LAN, Home Assistant needs its serial number from a previous successful connection. A charger first added through LAN has no saved Bluetooth address and cannot switch to Bluetooth through Reconfigure.
+
+Home Assistant uses one selected connection per charger. If it disconnects, Home Assistant retries that connection. It does not automatically switch between LAN and Bluetooth.
 
 ## Supported functionality
 
@@ -171,9 +192,9 @@ automation: |
 
 ## Data updates
 
-The charger sends status updates over Bluetooth notifications after login. Home Assistant keeps one active Bluetooth connection open, listens for notifications, and responds to charger heartbeats. If notifications stop, the integration reconnects automatically.
+The charger sends status updates after login through Bluetooth notifications or LAN messages. Home Assistant keeps the selected connection active, listens for updates, and responds to charger heartbeats. If updates stop, the integration reconnects automatically using the selected connection.
 
-Sensor values update when the charger sends status and charging-session notifications. The temperature unit select updates after a command is sent successfully and when the charger reports the setting. An entity shows an `unknown` value until the charger reports its corresponding value. All charger entities become `unavailable` while the Bluetooth connection is unavailable or authentication is incomplete.
+Sensor values update when the charger sends status and charging-session messages. The temperature unit select updates after a command is sent successfully and when the charger reports the setting. An entity shows an `unknown` value until the charger reports its corresponding value. All charger entities become `unavailable` while the selected connection is unavailable or authentication is incomplete.
 
 This is a local push integration. There is no cloud dependency.
 
@@ -232,7 +253,9 @@ The charge switch becomes unavailable after the integration was set up.
 
 #### Resolution
 
-To resolve this issue, try the following steps:
+For a LAN connection, check that the charger is connected to Wi-Fi and its address is correct. Use **Reconfigure** > **Use LAN** to update a changed address. Check that incoming UDP port 28376 is available to Home Assistant and traffic can reach the charger's command port, normally 7248. Another application using Home Assistant's UDP port 28376 can prevent the integration from loading.
+
+For Bluetooth, try the following steps:
 
 1. Check **Settings** > **Connectivity** > **Bluetooth** > **Connection monitor**.
 2. Verify the proxy has free active connection slots.
@@ -250,6 +273,8 @@ During setup, Home Assistant reports that the charger rejected the PIN. If the P
 
 - During setup, enter the current 6-digit PIN.
 - If Home Assistant asks you to reauthenticate, follow the reauthentication notification and enter the current 6-digit PIN. Home Assistant checks the PIN with the charger and reloads the integration without removing your entities or automations.
+
+A network disconnection alone does not require reauthentication. Check the selected connection if the charger is unavailable without a PIN rejection.
 
 ## Removing the integration
 
