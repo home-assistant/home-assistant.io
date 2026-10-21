@@ -1,8 +1,6 @@
 ---
 title: Garage door
 description: This integration provides garage door automation triggers and conditions.
-ha_category:
-  - Automation
 ha_release: 2026.4
 ha_quality_scale: internal
 ha_codeowners:

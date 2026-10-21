@@ -5,7 +5,7 @@ domain: sharkiq
 description: "Cleans a specific user-defined room or set of rooms."
 ---
 
-The **Clean room** action sends a Shark IQ robot vacuum to clean one or more specific rooms, instead of cleaning the whole home. The available rooms are the ones you have set up in the Shark Clean app.
+The **Shark IQ: Clean room** action sends a Shark IQ robot vacuum to clean one or more specific rooms, instead of cleaning the whole home. The available rooms are the ones you have set up in the Shark Clean app.
 
 Use this action if you want targeted cleanups. For example, create an automation to clean only the kitchen after dinner without running a full cleaning cycle.
 

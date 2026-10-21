@@ -1,10 +1,9 @@
 ---
 title: Novy Cooker Hood
 description: Instructions on how to integrate Novy cooker hoods into Home Assistant.
-ha_category:
-  - Fan
-  - Light
-  - Radio frequency-controlled
+ha_categories:
+  - appliances_cleaning.cooking
+  - climate.fans_ventilation
 ha_release: 2026.5
 ha_iot_class: Assumed State
 ha_config_flow: true

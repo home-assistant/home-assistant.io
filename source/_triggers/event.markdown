@@ -81,11 +81,11 @@ context:
 - In YAML, you can use one event type or a list of event types.
 - In the UI, you can limit the trigger by user. In YAML, you can also match other context fields.
 - Home Assistant does not allow the `state_reported` event with this trigger.
-- Limited templates in `event_type`, `event_data`, and `context` are evaluated only when the trigger is set up.
+- [Limited templates](/docs/templating/limited-templates/) in `event_type`, `event_data`, and `context` are evaluated only when the trigger is set up.
 
 {% include triggers/try_it.md %}
 
-For this trigger, there is no target entity to change. To test it, fire an event from {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
+For this trigger, there is no target entity to change. To test it, fire an event from {% my tools_events title="**Settings** > **Tools** > **Events**" %}.
 
 {% include triggers/more_examples.md %}
 

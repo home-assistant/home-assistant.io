@@ -84,9 +84,9 @@ code:
 
 Create a "leaving for vacation" script that arms the alarm in vacation mode. You can add other departure tasks to the same script separately.
 
-- **Action**: Alarm control panel: Arm alarm vacation
-- **Target**: Home alarm
-- **Code**: 1234
+- **Action**: Arm alarm vacation
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for arming vacation with a code" %}
 
@@ -108,8 +108,9 @@ If everyone has been away from home for a full day, upgrade the alarm from away 
 - **Trigger**: Zone occupancy cleared
   - **Zone**: Home (`zone.home`)
   - **For at least**: 24:00:00
-- **Action**: Alarm control panel: Arm alarm vacation
-- **Target**: Home alarm
+- **Action**: Arm alarm vacation
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for upgrading to vacation mode after 24 hours" %}
 

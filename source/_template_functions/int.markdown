@@ -38,7 +38,7 @@ output: "87"
 ```signature
 int(
     value: Any,
-    default: Any = _SENTINEL,
+    default: Any,
     base: int = 10,
 ) -> int | Any
 ```
@@ -55,7 +55,7 @@ value:
   type: any
 default:
   description: >
-    Value to return if the conversion fails. If not provided, an error is raised on invalid input. It is strongly recommended to always provide a default.
+    The value to return if the conversion fails, such as `0`. If you leave out `default` and the conversion fails, `int` raises an error and the template fails. It's best to always set `default`.
   required: false
   type: any
 base:

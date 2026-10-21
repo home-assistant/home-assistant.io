@@ -1,10 +1,8 @@
 ---
 title: Proxmox VE
 description: Access your ProxmoxVE instance in Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Sensor
+ha_categories:
+  - computers_network.nas_servers
 ha_release: 0.103
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -22,7 +20,7 @@ ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
+ha_quality_scale: gold
 ha_config_flow: true
 ---
 

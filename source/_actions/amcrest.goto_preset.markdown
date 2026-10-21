@@ -20,7 +20,7 @@ To use this action in an automation or script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the camera you want to control. You can also select an area, a device, or a label.
-6. From the actions shown for that target, select **Amcrest: Go to preset**.
+6. From the actions shown for that target, select **Go to preset**.
 7. In the **Preset** field, enter the preset number you want to move to.
 8. Select **Save**.
 

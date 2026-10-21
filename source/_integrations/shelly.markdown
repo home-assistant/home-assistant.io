@@ -1,22 +1,10 @@
 ---
 title: Shelly
 description: Integrate Shelly devices
-ha_category:
-  - Binary sensor
-  - Camera
-  - Climate
-  - Cover
-  - Energy
-  - Event
-  - Light
-  - Media player
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Text
-  - Update
-  - Valve
+ha_categories:
+  - plugs_switches
+  - lighting.bulbs_lamps
+  - energy.meters_monitoring
 ha_release: 0.115
 ha_codeowners:
   - '@bieniu'
@@ -36,6 +24,7 @@ ha_platforms:
   - cover
   - diagnostics
   - event
+  - infrared
   - light
   - media_player
   - number
@@ -73,7 +62,7 @@ Bluetooth scanner mode:
 
 There are four generations of devices and all generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
 
-Shelly BLU series devices (e.g. Shelly BLU H&T) are not supported; please use BTHome integration to configure such devices with Home Assistant. The exception to this is Shelly BLU TRV, which is supported by this integration via Shelly BLU Gateway Gen3.
+Shelly BLU series devices (for example, Shelly BLU H&T) are not supported; please use the BTHome integration to configure such devices with Home Assistant. The exception to this is Shelly BLU TRV, which is supported by this integration via Shelly BLU Gateway Gen3 or other Shelly devices with built-in BLU TRV support.
 
 ## Shelly Enhanced Security
 
@@ -218,6 +207,8 @@ Shelly 2PM Gen3 supports `tilt` for `cover` entities. To enable this feature, yo
 - Calibrate the cover (**Home** > **Cover** > **Calibration** > **Start**)
 - Enable and configure **Slat control** (**Home** > **Cover** > **Slat control**)
 
+To move a cover and its tilt to target positions with a single command, use the [**Set cover position and tilt**](/actions/shelly.set_cover_position_and_tilt/) action.
+
 ## Binary input sensors
 
 ### Binary input sensors (generation 1)
@@ -275,7 +266,7 @@ If the **BUTTON TYPE** of the switch connected to the device is set to `Momentar
 
 If the **Input Mode** of the switch connected to the device is set to `Button`, the integration creates an event entity for this switch. You can use this entity in your automations.
 
-Each script which generates events using [Shelly.emitEvent()](https://shelly-api-docs.shelly.cloud/gen2/Scripts/ShellyScriptLanguageFeatures#shellyemitevent) also gets an corresponding event entity. This entity is disabled by default. After changing a script, it's required to manually reload the device before new event types show up.
+Each script which generates events using [Shelly.emitEvent()](https://shelly-api-docs.shelly.cloud/gen2/Scripts/ShellyScriptLanguageFeatures#shellyemitevent) also gets an corresponding event entity. This entity is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). After changing a script, it's required to manually reload the device before new event types show up.
 
 {% note %}
 To avoid increased startup time, only the first 5 KB of the script is downloaded and analyzed. If your script exceeds 5 KB, place the event emitting function at the beginning to ensure it is processed.

@@ -60,7 +60,7 @@ This action has no additional YAML options beyond the target.
 
 Stop a valve immediately when a leak sensor reports water, so it does not keep moving.
 
-- **Trigger**: State: Leak sensor turns on
+- **Trigger**: State changed: Leak sensor turns on
 - **Action**: Stop valve
   - **Target**: Garden water valve
 

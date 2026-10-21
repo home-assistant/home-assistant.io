@@ -6,12 +6,9 @@ ha_iot_class: Local Push
 ha_release: 2025.6
 ha_codeowners:
   - '@markhannon'
-ha_category:
-  - Cover
-  - Fan
-  - Light
-  - Sensor
-  - Switch
+ha_categories:
+  - plugs_switches
+  - hubs_protocols.smart_home_hubs
 ha_domain: zimi
 ha_platforms:
   - cover

@@ -1,9 +1,8 @@
 ---
 title: Philips Hue
 description: Instructions on setting up Philips Hue within Home Assistant.
-ha_category:
-  - Hub
-  - Light
+ha_categories:
+  - lighting.lighting_systems
 ha_iot_class: Local Push
 featured: true
 ha_release: '0.60'
@@ -18,6 +17,7 @@ ha_platforms:
   - event
   - light
   - scene
+  - select
   - sensor
   - switch
 ha_zeroconf: true
@@ -44,6 +44,17 @@ You can create, edit, and delete Hue scenes from the official Hue app on iOS and
 
 Using Hue scenes is recommended when you want to control multiple lights at once. If you control multiple lights individually or use Home Assistant scenes, each command is sent to each light one by one. A Hue scene sends commands to all lights at once in an optimized way, resulting in a smoother experience.
 
+### Scene selection
+
+On V2 Hue bridges (square shape), each room and zone has a **Scene** dropdown. It shows the active scene and lets you choose a regular scene or smart scene.
+
+To select a scene:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Philips Hue**.
+2. Open the device for the room or zone you want to control.
+3. Use the **Scene** dropdown to choose a scene.
+   - The **Scene** dropdown is a select entity, so you can add it to a dashboard to select scenes directly from there.
+
 ## Configuration options
 
 After setting up the integration, the following options can be configured by going to {% my integrations title="**Settings** > **Devices & services**" %}, selecting the **Philips Hue** integration, and selecting **Configure**.
@@ -66,7 +77,7 @@ Allow unreachable bulbs to report their state correctly:
 
 ## Hue remotes and switches
 
-Hue remotes such as the Dimmer Switch are stateless devices, meaning that they do not have an on/off state like regular entities in Home Assistant. Instead, these devices emit the event `hue_event` when a button is pressed. You can test what events come in by going to {% my developer_events title="**Settings** > **Tools** > **Events**" %} and subscribing to `hue_event`. Once you know what the event data looks like, you can use it to create automations.
+Hue remotes such as the Dimmer Switch are stateless devices, meaning that they do not have an on/off state like regular entities in Home Assistant. Instead, these devices emit the event `hue_event` when a button is pressed. You can test what events come in by going to {% my tools_events title="**Settings** > **Tools** > **Events**" %} and subscribing to `hue_event`. Once you know what the event data looks like, you can use it to create automations.
 
 {% note %}
 The Hue API limits each device to one event per second. This means that button events are rate-limited to one per second.

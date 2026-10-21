@@ -1,8 +1,8 @@
 ---
 title: LaCrosse
 description: Instructions on how to integrate LaCrosse sensor data received from Jeelink into Home Assistant.
-ha_category:
-  - DIY
+ha_categories:
+  - sensors.temperature_humidity
 ha_release: 0.58
 ha_iot_class: Local Polling
 ha_domain: lacrosse

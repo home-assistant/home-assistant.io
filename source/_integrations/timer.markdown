@@ -1,9 +1,8 @@
 ---
 title: Timer
 description: Instructions on how to integrate timers into Home Assistant.
-ha_category:
-  - Automation
-  - Helper
+ha_categories:
+  - helpers.store_value
 ha_release: 0.57
 ha_quality_scale: internal
 ha_domain: timer

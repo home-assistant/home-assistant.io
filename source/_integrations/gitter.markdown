@@ -1,9 +1,6 @@
 ---
 title: Gitter
 description: Connect and control your Gitter devices using the Matrix integration
-ha_category:
-  - Hub
-  - Notifications
 ha_release: 0.69
 ha_domain: gitter
 ha_integration_type: virtual
