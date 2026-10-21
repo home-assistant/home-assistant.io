@@ -46,8 +46,10 @@ Trigger when:
     When several nodes are selected, controls when the trigger fires:
 
     - **Each** (default): fire every time any selected node changes status.
-    - **First**: fire only for the first node that changes.
+    - **First**: fire only for the first node to match.
     - **All**: fire only once every selected node matches.
+
+    **First** and **All** need **From** or **To** to be set.
 For at least:
   description: How long the new status must hold before the trigger fires. The default is `0`, which fires immediately.
 {% endoptions_ui %}
@@ -104,8 +106,10 @@ behavior:
     When several nodes are selected, controls when the trigger fires:
 
     - `each` (**Each** in the UI, default): fire for every node that changes.
-    - `first` (**First** in the UI): fire only for the first node that changes.
+    - `first` (**First** in the UI): fire only for the first node to match.
     - `all` (**All** in the UI): fire only once every node matches.
+
+    `first` and `all` need `from` or `to` to be set.
   required: false
   type: string
   default: each
@@ -120,13 +124,17 @@ for:
 
 A Z-Wave node is represented in Home Assistant as a device, so this trigger picks nodes with a device picker rather than a target. Behind the scenes it watches the node status sensor of each selected device, so a device's other entities never fire it.
 
+The Z-Wave controller has no node status sensor, so it can't be selected. Hidden node status sensors are still watched, but a disabled one isn't, because it has no state.
+
 ## Behavior with multiple nodes
 
 When you select more than one device, the **Trigger when** option controls when the automation runs:
 
 - **Each** (default): the automation runs every time any selected node changes status. Use this to be told about each node individually.
-- **First**: the automation runs only for the first node that changes, and not again until the others have reset. Use this to avoid a burst of notifications.
+- **First**: the automation runs only for the first node to match, and not again until no node matches. Use this to avoid a burst of notifications.
 - **All**: the automation runs only once every selected node matches. Use this for "the whole group is offline" checks.
+
+**First** and **All** count nodes whose status matches **From** and **To**, not nodes that changed, so they need at least one of the two to be set. A node that moves from one **To** status to another already matched, so it doesn't count again. **Each** fires on every such change.
 
 ## Good to know
 
