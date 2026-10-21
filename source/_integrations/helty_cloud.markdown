@@ -92,7 +92,7 @@ Units with the recent panel cannot report whether their **Auto** function is swi
 
 ### Sensor values
 
-Only ventilation is available for now. The temperature, humidity, and filter values the panel reports are not yet exposed.
+Besides ventilation, only the filter alarm is available for now. The temperature, humidity, and treated-air values the panel reports are not yet exposed.
 
 ### Undocumented cloud API
 
