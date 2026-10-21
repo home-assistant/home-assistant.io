@@ -25,7 +25,8 @@ The **INDI Allsky** {% term integration %} connects Home Assistant with your [IN
 
 ## Prerequisites
 
-You need the connection details of your INDI Allsky web server instance, including the hostname or IP address and port number (defaults to port `443` with SSL enabled).
+- You need the connection details of your INDI Allsky web server instance, including the hostname or IP address and port number (defaults to port `443` with SSL enabled). 
+- If your instance requires a login, you also need the username and password of an INDI Allsky user account.
 
 {% include integrations/config_flow.md %}
 
@@ -35,14 +36,16 @@ Host:
 Port:
   description: "The web server port number for INDI Allsky (default: `443`)."
 Username:
-  description: "Username for your INDI Allsky user account, if authentication is enabled."
+  description: "The username of your INDI Allsky user account. Required if your INDI Allsky instance requires a login to view pages, for example when `INDI_ALLSKY_AUTH_ALL_VIEWS` is enabled. Enter both the username and password, or leave both empty."
 Password:
-  description: "Password for your INDI Allsky user account, if authentication is enabled."
+  description: "The password of your INDI Allsky user account. Required if your INDI Allsky instance requires a login."
 SSL:
   description: "Whether to connect using HTTPS/SSL (default: `true`)."
 Verify SSL:
   description: "Whether to verify the SSL certificate of the INDI Allsky web server (default: `true`)."
 {% endconfiguration_basic %}
+
+If you change the password in INDI Allsky or turn on login after setting up the integration, Home Assistant asks you to enter the username and password.
 
 ## Supported functionality
 
@@ -94,7 +97,7 @@ The camera entity fetches the latest image on-demand from the INDI Allsky server
 
 ## Known limitations
 
-- This integration does not support exclusive OpenID Connect (OIDC) authentication. For authenticated instances, native username and password authentication must be enabled in INDI Allsky.
+- The integration can't sign in with OpenID Connect (OIDC). If you use OIDC with INDI Allsky, keep username and password sign-in turned on (`LOCAL_AUTH_ENABLE` set to `true`) and use a local user account for Home Assistant.
 
 ## Removing the integration
 
