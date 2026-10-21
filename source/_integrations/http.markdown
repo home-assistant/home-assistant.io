@@ -1,8 +1,6 @@
 ---
 title: HTTP
 description: Configure the HTTP server that serves the Home Assistant frontend and APIs.
-ha_category:
-  - Other
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_quality_scale: internal

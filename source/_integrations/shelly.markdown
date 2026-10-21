@@ -1,23 +1,6 @@
 ---
 title: Shelly
 description: Integrate Shelly devices
-ha_category:
-  - Binary sensor
-  - Camera
-  - Climate
-  - Cover
-  - Energy
-  - Event
-  - Infrared
-  - Light
-  - Media player
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Text
-  - Update
-  - Valve
 ha_categories:
   - plugs_switches
   - lighting.bulbs_lamps

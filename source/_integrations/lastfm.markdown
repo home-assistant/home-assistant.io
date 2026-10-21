@@ -1,8 +1,6 @@
 ---
 title: Last.fm
 description: Instructions on how to integrate Last.fm sensors into Home Assistant.
-ha_category:
-  - Social
 ha_categories:
   - media_entertainment.music_radio_services
 ha_iot_class: Cloud Polling

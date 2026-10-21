@@ -1,10 +1,6 @@
 ---
 title: PG LAB Electronics
 description: Instructions on how to integrate PG LAB Electronics with Home Assistant.
-ha_category:
-  - Cover
-  - Sensor
-  - Switch
 ha_categories:
   - plugs_switches
   - blinds_curtains

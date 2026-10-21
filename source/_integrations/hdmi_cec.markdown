@@ -1,8 +1,6 @@
 ---
 title: HDMI-CEC
 description: Instructions on how to interact with HDMI-CEC via Home Assistant.
-ha_category:
-  - Automation
 ha_categories:
   - media_entertainment.tv_streaming
 ha_release: 0.23

@@ -1,8 +1,6 @@
 ---
 title: CityBikes
 description: Instructions on how to integrate data from the CityBikes API into Home Assistant.
-ha_category:
-  - Transport
 ha_categories:
   - vehicles_transport.public_transport
   - vehicles_transport.bikes_scooters

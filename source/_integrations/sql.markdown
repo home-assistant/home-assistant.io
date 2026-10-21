@@ -1,9 +1,6 @@
 ---
 title: SQL
 description: Instructions how to integrate SQL sensors into Home Assistant.
-ha_category:
-  - Sensor
-  - Utility
 ha_categories:
   - diy_makers.web_data_connectors
 ha_release: 0.63

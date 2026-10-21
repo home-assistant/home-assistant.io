@@ -1,8 +1,6 @@
 ---
 title: Scrape
 description: Instructions on how to integrate Web scrape sensors into Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - diy_makers.web_data_connectors
 ha_release: 0.31

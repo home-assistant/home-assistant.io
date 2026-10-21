@@ -1,8 +1,6 @@
 ---
 title: WiiM
 description: Instructions on how to integrate WiiM devices into Home Assistant.
-ha_category:
-  - Media player
 ha_categories:
   - media_entertainment.speakers_audio
 ha_domain: wiim

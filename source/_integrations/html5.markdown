@@ -1,9 +1,6 @@
 ---
 title: HTML5 Push Notifications
 description: Instructions on how to use the HTML5 push notifications platform from Home Assistant.
-ha_category:
-  - Event
-  - Notifications
 ha_categories:
   - messaging_notifications.push_notifications
 ha_release: 0.27

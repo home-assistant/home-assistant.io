@@ -1,8 +1,6 @@
 ---
 title: Tilt Pi
 description: Instructions on how to configure a Tilt Pi.
-ha_category:
-  - Sensor
 ha_categories:
   - appliances_cleaning.cooking
 ha_release: '2025.7'

@@ -1,20 +1,6 @@
 ---
 title: SwitchBot Cloud
 description: Instructions on how to set up SwitchBot Devices.
-ha_category:
-  - Binary Sensor
-  - Button
-  - Cover
-  - Fan
-  - Hub
-  - Humidifier
-  - Light
-  - Lock
-  - Plug
-  - Remote
-  - Sensor
-  - Switch
-  - Vacuum
 ha_categories:
   - sensors
   - blinds_curtains

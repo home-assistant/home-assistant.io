@@ -1,9 +1,6 @@
 ---
 title: Modbus
 description: Instructions on how to manually register Modbus entities and platforms.
-ha_category:
-  - Hub
-  - Modbus
 ha_categories:
   - diy_makers
 ha_release: pre 0.7

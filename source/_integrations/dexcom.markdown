@@ -1,8 +1,6 @@
 ---
 title: Dexcom
 description: Instructions on how to integrate your Dexcom CGM data into Home Assistant.
-ha_category:
-  - Health
 ha_categories:
   - health_wellbeing
 ha_release: 0.113

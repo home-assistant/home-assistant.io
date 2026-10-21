@@ -1,8 +1,6 @@
 ---
 title: Local IP Address
 description: Instructions on how to integrate the Local IP Address sensor into Home Assistant.
-ha_category:
-  - Network
 ha_categories:
   - computers_network.routers_network
 ha_iot_class: Local Polling

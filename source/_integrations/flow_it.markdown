@@ -1,11 +1,6 @@
 ---
 title: Flow-it
 description: Instructions on how to integrate Flow-it ventilation systems into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Fan
-  - Sensor
-  - Switch
 ha_categories:
   - climate.fans_ventilation
 ha_release: 2026.9

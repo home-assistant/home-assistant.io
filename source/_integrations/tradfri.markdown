@@ -5,12 +5,6 @@ featured: true
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: 0.43
-ha_category:
-  - Cover
-  - Fan
-  - Light
-  - Sensor
-  - Switch
 ha_categories:
   - hubs_protocols.smart_home_hubs
   - lighting.bulbs_lamps

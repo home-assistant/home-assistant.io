@@ -14,6 +14,8 @@ related:
 
 This page lists template error messages you might run into, what each one means in plain language, and how to fix it. If the message you see doesn't match exactly, look for the closest one. The names of types and variables change, but the shape of each error stays the same.
 
+You can find most of these messages in the template editor and in the logs. If a template in the conditions or actions of an automation or script fails, the trace of the run also shows the error, on the step where it happened. For the steps to open a trace, refer to [Viewing the traces of an automation](/docs/automation/testing/#viewing-the-traces-of-an-automation).
+
 For a general debugging workflow, refer to [Debugging templates](/docs/templating/debugging/).
 
 ## Undefined value errors
@@ -169,7 +171,7 @@ output: "True"
 
 <h3 class="no_toc">Symptom</h3>
 
-The template editor or the log shows the error `ValueError: Template error: float got invalid input 'unavailable' when rendering template '...' but no default was specified`. The same message comes from other functions, with their name instead of `float`. These include [`int`](/template-functions/int/), [`as_datetime`](/template-functions/as_datetime/), [`as_timestamp`](/template-functions/as_timestamp/), [`strptime`](/template-functions/strptime/), [`round`](/template-functions/round/), and the `timestamp_*` functions.
+The template editor or the log shows the error `ValueError: Template error: float got invalid input 'unavailable' when rendering template '...' but no default was specified`. The same message comes from other functions, with their name instead of `float`. These include [`int`](/template-functions/int/), [`as_timestamp`](/template-functions/as_timestamp/), [`strptime`](/template-functions/strptime/), [`round`](/template-functions/round/), and the `timestamp_*` functions.
 
 #### Description
 
@@ -177,7 +179,7 @@ A conversion function got a value it can't convert, and you didn't give it a def
 
 #### Resolution
 
-Give the function a default value to use instead, for example, `| float(0)` for [`float`](/template-functions/float/), or `as_datetime(value, None)` for [`as_datetime`](/template-functions/as_datetime/):
+Give the function a default value to use instead, for example, `| float(0)` for [`float`](/template-functions/float/):
 
 {% example %}
 template: |
@@ -186,6 +188,8 @@ output: "0"
 {% endexample %}
 
 If the value is the state of an entity, you can also check first whether the entity has a valid state, using [`has_value`](/template-functions/has_value/). `has_value` only checks entity states, not attributes.
+
+[`as_datetime`](/template-functions/as_datetime/) only gives this error for a value that isn't text, such as `None`. If it gets text it can't read as a date, such as `unavailable`, it returns `None` instead of an error.
 
 {% enddetails %}
 
@@ -381,6 +385,8 @@ template: |
   {{ ns.items }}
 output: "['kitchen', 'hall']"
 {% endexample %}
+
+For other ways to build a new list, such as sorting or removing items, refer to [Methods that change a list](/docs/templating/python-methods/#methods-that-change-a-list).
 
 {% enddetails %}
 

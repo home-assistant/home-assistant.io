@@ -1,12 +1,6 @@
 ---
 title: Toon
 description: Instructions on how to integrate Eneco Toon/Engie Electrabel Boxx/Viesgo within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Energy
-  - Sensor
-  - Switch
 ha_categories:
   - climate.thermostats_heating
   - energy.meters_monitoring

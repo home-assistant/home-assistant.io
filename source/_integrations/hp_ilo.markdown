@@ -1,8 +1,6 @@
 ---
 title: HP Integrated Lights-Out (ILO)
 description: How to integrate HP ILO (Integrated Lights-Out) sensors within Home Assistant.
-ha_category:
-  - System monitor
 ha_categories:
   - computers_network.nas_servers
 ha_release: 0.27

@@ -1,8 +1,6 @@
 ---
 title: Flock
 description: Instructions on how to add Flock notifications to Home Assistant.
-ha_category:
-  - Notifications
 ha_categories:
   - messaging_notifications.chat_apps
 ha_iot_class: Cloud Push

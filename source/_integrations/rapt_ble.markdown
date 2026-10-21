@@ -1,8 +1,6 @@
 ---
 title: RAPT Bluetooth
 description: Instructions on how to integrate RAPT Pill Hydrometers configured in Bluetooth mode into Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - appliances_cleaning.cooking
 ha_bluetooth: true

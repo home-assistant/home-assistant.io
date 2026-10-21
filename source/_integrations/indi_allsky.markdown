@@ -1,11 +1,6 @@
 ---
 title: INDI Allsky
 description: Instructions on how to integrate INDI Allsky with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Camera
-  - Image
-  - Sensor
 ha_categories:
   - diy_makers
   - weather_alerts

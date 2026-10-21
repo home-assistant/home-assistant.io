@@ -1,16 +1,6 @@
 ---
 title: Lutron
 description: Instructions on how to use Lutron devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Cover
-  - Event
-  - Fan
-  - Hub
-  - Light
-  - Scene
-  - Select
-  - Switch
 ha_categories:
   - lighting.lighting_systems
   - plugs_switches

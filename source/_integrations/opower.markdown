@@ -1,9 +1,6 @@
 ---
 title: Opower
 description: Instructions on how to integrate Opower within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_categories:
   - energy.meters_monitoring
 ha_release: 2023.8

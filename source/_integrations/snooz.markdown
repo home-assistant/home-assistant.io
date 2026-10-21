@@ -1,8 +1,6 @@
 ---
 title: Snooz
 description: Instructions on how to integrate SNOOZ devices into Home Assistant.
-ha_category:
-  - Fan
 ha_categories:
   - health_wellbeing
 ha_bluetooth: true

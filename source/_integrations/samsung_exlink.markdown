@@ -1,9 +1,6 @@
 ---
 title: Samsung TV via ExLink
 description: Instructions on how to integrate Samsung TVs via their ExLink (RS-232) serial port into Home Assistant.
-ha_category:
-  - Media player
-  - Serial-controlled
 ha_categories:
   - media_entertainment.tv_streaming
 ha_iot_class: Local Polling

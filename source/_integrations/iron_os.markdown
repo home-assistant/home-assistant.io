@@ -1,14 +1,6 @@
 ---
 title: IronOS
 description: Instructions on how to integrate IronOS-based Pinecil V2 devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
 ha_categories:
   - diy_makers.boards_hardware
 ha_iot_class: Local Polling

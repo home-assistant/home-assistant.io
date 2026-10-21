@@ -91,11 +91,11 @@ trigger: |
       value_min:
         number: 20
       value_max:
-        number: 101
+        number: 100
     behavior: all
 {% endexample %}
 
-This fires once both sensors have charged back into the effective 21%–100% range. The `value_max` is set to `number: 101` deliberately so that 100% is included, because `between` is exclusive on both bounds.
+This fires once both sensors have charged back into the 20% to 100% range. The range includes both bounds.
 
 To use a number helper as a dynamic threshold you can adjust without editing the automation:
 
@@ -146,9 +146,9 @@ behavior:
   default: each
 for:
   description: |
-    How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:30:00` fires only after the reading has stayed past the threshold for 30 minutes.
+    How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:30:00` fires only after the reading has stayed past the threshold for 30 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

@@ -1,9 +1,6 @@
 ---
 title: WaterFurnace
 description: Instructions on how to integrate WaterFurnace Geothermal System into Home Assistant.
-ha_category:
-  - Climate
-  - Sensor
 ha_categories:
   - climate.heat_pumps_air_conditioning
 ha_release: 0.62

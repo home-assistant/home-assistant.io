@@ -1,8 +1,6 @@
 ---
 title: X
 description: Instructions on how to add X notifications to Home Assistant.
-ha_category:
-  - Notifications
 ha_categories:
   - news_social_media
 ha_release: 0.12

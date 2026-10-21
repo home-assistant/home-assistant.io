@@ -1,8 +1,6 @@
 ---
 title: Spain electricity hourly pricing (PVPC)
 description: Instructions on how to set up the PVPC Hourly Pricing sensor in Home Assistant.
-ha_category:
-  - Energy
 ha_categories:
   - energy.energy_prices
 ha_release: '0.108'

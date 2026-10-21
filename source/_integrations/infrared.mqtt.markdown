@@ -1,8 +1,6 @@
 ---
 title: "MQTT Infrared"
 description: "Instructions on how to interact with a device exposing infrared capabilities through MQTT from within Home Assistant."
-ha_category:
-  - Infrared
 ha_release: 2026.7
 ha_iot_class: Configurable
 ha_domain: mqtt

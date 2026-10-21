@@ -1,12 +1,6 @@
 ---
 title: Vodafone Station
 description: Instructions on how to integrate Vodafone Station routers into Home Assistant.
-ha_category:
-  - Button
-  - Image
-  - Presence detection
-  - Sensor
-  - Switch
 ha_categories:
   - computers_network.routers_network
 ha_release: 2023.9

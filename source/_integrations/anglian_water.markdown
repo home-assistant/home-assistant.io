@@ -9,8 +9,6 @@ ha_domain: anglian_water
 ha_integration_type: service
 ha_platforms:
   - sensor
-ha_category:
-  - Sensor
 ha_categories:
   - water.meters_leak_detection
 ha_quality_scale: bronze

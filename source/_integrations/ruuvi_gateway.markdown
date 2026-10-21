@@ -1,8 +1,6 @@
 ---
 title: Ruuvi Gateway
 description: Support for Ruuvi Gateway devices acting as BLE remote scanners.
-ha_category:
-  - Sensor
 ha_categories:
   - sensors
   - hubs_protocols.wireless_protocols

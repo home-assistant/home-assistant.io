@@ -1,8 +1,6 @@
 ---
 title: Fido
 description: Instructions on how to integrate Fido data usage within Home Assistant.
-ha_category:
-  - Network
 ha_categories:
   - computers_network.routers_network
 ha_release: 0.39

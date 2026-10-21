@@ -1,20 +1,6 @@
 ---
 title: Bosch SHC
 description: Integrate Bosch SHC.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Hub
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Valve
 ha_categories:
   - hubs_protocols.smart_home_hubs
 ha_release: 2021.6
@@ -101,6 +87,8 @@ The climate platform lets you monitor and control each room's climate control. T
 - **Presets**: **Boost** and **Eco** override the current mode temporarily. A preset is only available if the room supports it.
 
 Setting a target temperature while a room is off has no effect. Turn the room on first, or set the mode in the same action.
+
+A heating circuit also gets a climate entity named after the circuit. It shows the target temperature and whether the circuit is heating or idle, but no current temperature. **Auto** follows the schedule in the Bosch Smart Home app and **Heat** holds the manual target temperature. The target temperature range follows the limits set on the circuit.
 
 ### Covers
 

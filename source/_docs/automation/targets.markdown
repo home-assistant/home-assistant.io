@@ -79,7 +79,7 @@ Under **Trigger when**, select one of the following:
 
 For **First** and **All**, Home Assistant skips targets that are **Unavailable** or **Unknown**. Most triggers also don't react when a target comes back from **Unavailable** or **Unknown**. For details, refer to [Unavailable and unknown state behavior in triggers](/docs/automation/trigger/#unavailable-and-unknown-state-behavior-in-triggers).
 
-When an automation starts, the trigger data describes the one entity that made the change, not the entire target. For example, `trigger.entity_id` is the light that turned on, and `trigger.from_state` and `trigger.to_state` are the states of that light before and after the change. To learn how to use this data, refer to [Trigger data in templates](/docs/automation/templating/).
+When an automation starts, the trigger data describes the one entity that made the change, not the entire target. For example, `trigger.entity_id` is the light that turned on, and `trigger.from_state` and `trigger.to_state` are the states of that light before and after the change. To learn how to use this data, refer to [Trigger data in templates](/docs/automation/trigger-data/).
 
 ### Conditions: Any and All
 

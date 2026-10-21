@@ -1,10 +1,6 @@
 ---
 title: Hypontech Cloud
 description: Instructions on how to integrate Hypontech Cloud solar inverters within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Energy
-  - Sensor
 ha_categories:
   - energy.solar_batteries
 ha_release: 2026.3

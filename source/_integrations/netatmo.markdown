@@ -1,20 +1,6 @@
 ---
 title: Netatmo
 description: Instructions on how to integrate Netatmo integration into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Climate
-  - Cover
-  - Environment
-  - Fan
-  - Hub
-  - Light
-  - Media source
-  - Sensor
-  - Switch
-  - Weather
 ha_categories:
   - climate.thermostats_heating
   - security_safety.cameras

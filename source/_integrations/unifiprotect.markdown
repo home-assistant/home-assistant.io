@@ -1,22 +1,6 @@
 ---
 title: UniFi Protect
 description: Instructions on how to configure the Ubiquiti UniFi Protect integration.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Camera
-  - Doorbell
-  - Event
-  - Hub
-  - Light
-  - Media player
-  - Media source
-  - Number
-  - Select
-  - Sensor
-  - Siren
-  - Switch
 ha_categories:
   - security_safety.cameras
   - security_safety.doorbells_intercoms
@@ -87,7 +71,7 @@ Also, make sure your report is reproducible and provides all necessary context: 
 You can set up the {% term integration %} in one of two ways:
 
 - **Full access**: uses a local user and an API key, and gives you access to all the entities described on this page. This is currently the recommended option for most people.
-- **API key only**: uses only an API key, without a local user. It currently only supports a subset of entities; see the table below for the breakdown by domain, and the [device type table](#device-support) for a breakdown by device. Actions, the media source, and the proxy views are not available in this mode.
+- **API key only**: uses only an API key, without a local user. It currently only supports a subset of entities; see the table below for the breakdown by domain, and the [device type table](#device-support) for a breakdown by device. Actions (except [trigger alarm webhook](/actions/unifiprotect.trigger_alarm_webhook/)), the media source, and the proxy views are not available in this mode.
 
 You can switch between the two modes at any time. See [Reconfiguration](#reconfiguration).
 

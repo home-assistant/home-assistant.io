@@ -1,8 +1,6 @@
 ---
 title: Home Assistant frontend
 description: Provides the official frontend for Home Assistant.
-ha_category:
-  - Other
 ha_release: 0.7
 ha_quality_scale: internal
 ha_codeowners:

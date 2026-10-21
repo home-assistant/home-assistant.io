@@ -1,13 +1,6 @@
 ---
 title: FRITZ!SmartHome
 description: Instructions on how to integrate FRITZ! Smart Home (former AVM FRITZ!DECT) components into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Light
-  - Sensor
-  - Switch
 ha_categories:
   - hubs_protocols.smart_home_hubs
 ha_release: 0.68

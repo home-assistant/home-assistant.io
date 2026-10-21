@@ -1,23 +1,6 @@
 ---
 title: Overkiz
 description: Instructions on how to integrate gateways that use the Overkiz IoT platform with Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Fan
-  - Hub
-  - Light
-  - Lock
-  - Number
-  - Scene
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Water heater
 ha_categories:
   - hubs_protocols.smart_home_hubs
 ha_release: 2022.2

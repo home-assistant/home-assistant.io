@@ -2,8 +2,6 @@
 title: OneDrive
 description: Instructions on how to set up OneDrive to be used with backups.
 ha_release: 2025.2
-ha_category:
-  - Backup
 ha_categories:
   - productivity_information.documents_photos
 ha_iot_class: Cloud Polling

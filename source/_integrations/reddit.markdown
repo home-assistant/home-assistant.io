@@ -1,8 +1,6 @@
 ---
 title: Reddit
 description: How to integrate the Reddit sensor into Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - news_social_media
 ha_release: 0.89

@@ -1,10 +1,6 @@
 ---
 title: Atag
 description: Instructions on how to set up Atag integration.
-ha_category:
-  - Climate
-  - Sensor
-  - Water heater
 ha_categories:
   - climate.thermostats_heating
 ha_release: 0.109

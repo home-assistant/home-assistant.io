@@ -2,17 +2,6 @@
 title: Elk-M1 Control
 description: Instructions to set up the Elk-M1 controller for home security and automation.
 ha_release: 0.81
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Climate
-  - Hub
-  - Light
-  - Number
-  - Scene
-  - Sensor
-  - Switch
-  - Time
 ha_categories:
   - security_safety.alarm_systems
   - hubs_protocols.smart_home_hubs

@@ -61,9 +61,9 @@ behavior:
 for:
   description: >
     How long the awning must have stayed open before the condition
-    passes. Accepts a duration like `00:05:00` for five minutes.
+    passes. Accepts a duration like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -74,9 +74,7 @@ for:
 ## Good to know
 
 - The target must be a cover entity with the awning device class.
-- Entities in the **Unavailable** or **Unknown** state are ignored when Home Assistant evaluates the condition.
-- With **Any**, the condition passes if at least one available targeted awning is open.
-- With **All**, the condition passes only if every available targeted awning is open. If every targeted awning is **Unavailable** or **Unknown**, **All** passes and **Any** fails.
+{% include conditions/unavailable_targets.md entities="awnings" %}
 
 {% include conditions/try_it.md %}
 

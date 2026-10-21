@@ -1,10 +1,6 @@
 ---
 title: EufyHome
 description: Instructions on how to integrate EufyHome devices into Home Assistant.
-ha_category:
-  - Hub
-  - Light
-  - Switch
 ha_categories:
   - lighting.bulbs_lamps
   - plugs_switches

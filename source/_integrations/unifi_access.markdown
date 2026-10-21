@@ -1,10 +1,6 @@
 ---
 title: UniFi Access
 description: Instructions on how to integrate UniFi Access with Home Assistant.
-ha_category:
-  - Doorbell
-  - Lock
-  - Sensor
 ha_categories:
   - security_safety.locks_access
 ha_release: 2026.4

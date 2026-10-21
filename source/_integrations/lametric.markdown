@@ -1,15 +1,6 @@
 ---
 title: LaMetric
 description: Instructions on how to integrate LaMetric TIME and SKY with Home Assistant.
-ha_category:
-  - Button
-  - Notifications
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Time
-  - Update
 ha_categories:
   - messaging_notifications.push_notifications
 ha_iot_class: Local Polling

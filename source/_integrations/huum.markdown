@@ -22,12 +22,6 @@ ha_platforms:
   - light
   - number
   - sensor
-ha_category:
-  - Binary sensor
-  - Climate
-  - Light
-  - Number
-  - Sensor
 ha_categories:
   - water.pools_spas
 ---

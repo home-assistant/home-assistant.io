@@ -1,9 +1,6 @@
 ---
 title: Xiaomi
 description: Instructions on how to integrate a video feed (via FFmpeg) as a camera as well as a router within Home Assistant.
-ha_category:
-  - Camera
-  - Presence detection
 ha_categories:
   - security_safety.cameras
   - presence_location.network_presence

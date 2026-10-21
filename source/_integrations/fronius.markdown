@@ -2,11 +2,6 @@
 title: Fronius
 description: Instructions on how to connect your Fronius SolarAPI devices to Home Assistant.
 ha_release: 0.96
-ha_category:
-  - Binary sensor
-  - Energy
-  - Modbus-controlled
-  - Sensor
 ha_categories:
   - energy.solar_batteries
   - energy.meters_monitoring

@@ -2,9 +2,6 @@
 title: Home Assistant Yellow
 description: Home Assistant Yellow provides hardware information for the hardware configuration page.
 ha_release: 2022.7
-ha_category:
-  - Other
-  - Update
 ha_categories:
   - hubs_protocols.smart_home_hubs
   - hubs_protocols.wireless_protocols

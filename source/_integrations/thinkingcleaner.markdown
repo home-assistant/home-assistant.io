@@ -1,9 +1,6 @@
 ---
 title: Thinking Cleaner
 description: Instructions on how to integrate a ThinkingCleaner within Home Assistant.
-ha_category:
-  - Sensor
-  - Switch
 ha_categories:
   - appliances_cleaning.cleaning
 ha_iot_class: Local Polling

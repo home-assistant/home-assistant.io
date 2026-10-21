@@ -1,8 +1,6 @@
 ---
 title: Foscam
 description: Instructions on how to integrate Foscam IP cameras within Home Assistant.
-ha_category:
-  - Camera
 ha_categories:
   - security_safety.cameras
 ha_iot_class: Local Polling

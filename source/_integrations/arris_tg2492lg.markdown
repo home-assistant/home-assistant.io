@@ -1,8 +1,6 @@
 ---
 title: Arris TG2492LG
 description: Instructions on how to integrate Arris TG2492LG routers into Home Assistant.
-ha_category:
-  - Presence detection
 ha_categories:
   - computers_network.routers_network
   - presence_location.network_presence

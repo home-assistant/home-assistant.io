@@ -1,8 +1,6 @@
 ---
 title: Smart Meter Texas
 description: Instructions on how to integrate Smart Meter Texas into Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - energy.meters_monitoring
 ha_release: 0.115

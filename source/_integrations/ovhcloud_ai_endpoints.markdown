@@ -1,9 +1,6 @@
 ---
 title: OVHcloud AI Endpoints
 description: Instructions on how to integrate OVHcloud AI Endpoints as a conversation agent in Home Assistant.
-ha_category:
-  - AI
-  - Voice
 ha_categories:
   - ai_voice.ai_models
 ha_release: 2026.6

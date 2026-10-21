@@ -1,8 +1,6 @@
 ---
 title: StatsD
 description: Record events in StatsD.
-ha_category:
-  - History
 ha_categories:
   - diy_makers.web_data_connectors
 ha_iot_class: Local Push

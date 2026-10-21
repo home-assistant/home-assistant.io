@@ -1,26 +1,6 @@
 ---
 title: Template
 description: Instructions on how to create template entities in Home Assistant.
-ha_category:
-  - Alarm Control Panel
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Device Tracker
-  - Event
-  - Fan
-  - Helper
-  - Image
-  - Light
-  - Lock
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
-  - Vacuum
-  - Weather
 ha_categories:
   - helpers.calculate_value
 ha_release: 0.12
@@ -141,14 +121,14 @@ template:
 
 If you want more control over when an entity updates, you can define triggers. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#trigger-based-sensor-and-binary-sensor-storing-webhook-information)), or update entities based on a schedule.
 
-Whenever a trigger reacts, all related entities re-render and have access to [the trigger data](/docs/automation/templating/) in the templates.
+Whenever a trigger reacts, all related entities re-render and have access to [the trigger data](/docs/automation/trigger-data/) in the templates.
 
 Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [State changed trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
 
 The state, including attributes, of trigger-based template entities is restored when Home Assistant is restarted. This doesn't apply to buttons, images, and update entities.
 
 {% note %}
-Buttons don't support the `triggers` or `actions` options.
+Buttons don't support the `triggers`, `trigger_variables`, or `actions` options.
 {% endnote %}
 
 ```yaml
@@ -166,6 +146,36 @@ template:
         unit_of_measurement: "Days"
 ```
 
+#### Trigger variables
+
+Some trigger options accept templates, such as the event type of an event trigger. To use your own values in these options, define them under `trigger_variables`. This works the same way as [trigger variables in automations](/docs/automation/trigger/#trigger-variables).
+
+Trigger variables use [limited templates](/docs/templating/limited-templates/), so they can't use functions such as `states()`. Home Assistant renders them once, when the configuration is loaded or reloaded. If a trigger variable can't be rendered, Home Assistant logs an error and doesn't set up the triggers for that entry.
+
+After they are rendered, trigger variables are also available in `variables`, `conditions`, `actions`, and all entity templates. Entity actions, such as the `turn_on` action of a switch, can use them even before a trigger has reacted.
+
+If the same name is defined in more than one place, Home Assistant uses this order of priority:
+
+1. Variables that an entity action receives, such as `brightness` in the `turn_on` action of a light
+2. The trigger data, such as `trigger`
+3. Variables defined under `variables`
+4. Variables defined under `trigger_variables`
+
+```yaml
+# Example configuration entry
+template:
+  - trigger_variables:
+      prefix: kitchen
+    triggers:
+      - trigger: event
+        event_type: "{{ prefix }}_motion"
+    variables:
+      label: "{{ prefix }} motion"
+    sensor:
+      - name: "Kitchen motion"
+        state: "{{ label }}"
+```
+
 ### Configuration reference
 
 {% configuration trigger-based %}
@@ -181,6 +191,15 @@ triggers:
   description: Define one or multiple automation triggers to update the entities. Optional. If omitted updates based on referenced entities. [See trigger documentation](/docs/automation/trigger).
   required: false
   type: list
+trigger_variables:
+  description: Key-value pairs of variable definitions that can be used in trigger options that accept templates (for trigger-based entities only). Requires `triggers`. Values can only use [limited templates](/docs/templating/limited-templates/) and are rendered when the configuration is loaded or reloaded. The rendered values are also available in `variables`, `conditions`, `actions`, and entity templates. [See trigger variables](#trigger-variables).
+  required: false
+  type: map
+  keys:
+    "variable_name: value":
+      description: The variable name and corresponding value.
+      required: true
+      type: string
 unique_id:
   description: The unique ID for this config block. This is prefixed to all unique IDs of all entities in this block.
   required: false
@@ -3641,7 +3660,7 @@ curl --header "Content-Type: application/json" \
 
 ## Template and action variables
 
-State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. The `this` variable is the current [state object](/docs/configuration/state_object) of the entity and aids [self-referencing](#self-referencing) of an entity's state and attributes in templates and actions. Trigger-based entities also provide [the trigger data](/docs/automation/templating/).
+State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. The `this` variable is the current [state object](/docs/configuration/state_object) of the entity and aids [self-referencing](#self-referencing) of an entity's state and attributes in templates and actions. Trigger-based entities also provide [the trigger data](/docs/automation/trigger-data/).
 
 {% note %}
 Self-referencing using `this` provides the state and attributes for the entity before rendering the templates to calculate a new state. In other words, it contains the previous state.

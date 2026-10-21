@@ -1,15 +1,6 @@
 ---
 title: Alexa Devices
 description: Instructions on how to integrate Alexa Devices into Home Assistant.
-ha_category:
-  - Binary Sensor
-  - Button
-  - Media Player
-  - Notifications
-  - Select
-  - Sensor
-  - Switch
-  - To-do list
 ha_categories:
   - ai_voice.voice_assistants
   - media_entertainment.speakers_audio

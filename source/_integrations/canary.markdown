@@ -1,10 +1,6 @@
 ---
 title: Canary
 description: Instructions on how to integrate your Canary devices into Home Assistant.
-ha_category:
-  - Alarm
-  - Camera
-  - Sensor
 ha_categories:
   - security_safety.cameras
   - security_safety.alarm_systems

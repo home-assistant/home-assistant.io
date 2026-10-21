@@ -1,8 +1,6 @@
 ---
 title: AquaCell
 description: Instructions on how to integrate AquaCell with Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - water.water_treatment
 ha_release: 2024.7

@@ -1,8 +1,6 @@
 ---
 title: ebusd
 description: The ebusd integration allows the integration between eBUS heating system and Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - climate.thermostats_heating
   - diy_makers.boards_hardware

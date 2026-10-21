@@ -1,8 +1,6 @@
 ---
 title: Trafikverket Weather Station
 description: Instructions how to integrate Trafikverket WeatherStation within Home Assistant.
-ha_category:
-  - Weather
 ha_categories:
   - weather_alerts
 ha_release: 0.66
@@ -59,3 +57,11 @@ To get a map of valid weather stations, open the [trafikverket website](https://
 <p class='img'>
   <img src='/images/screenshots/get_trafikverket_weather_station_example.png' />
 </p>
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+If you no longer use the API key for anything else, you can also remove it from the [Trafikverket open data portal](https://data.trafikverket.se/).

@@ -1,9 +1,6 @@
 ---
 title: Landis+Gyr Heat Meter
 description: Instructions on how to integrate your Landis+Gyr Heat Meter device into Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_categories:
   - energy.meters_monitoring
 ha_iot_class: Local Polling

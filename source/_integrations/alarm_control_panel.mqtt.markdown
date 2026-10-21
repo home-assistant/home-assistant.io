@@ -1,8 +1,6 @@
 ---
 title: "MQTT Alarm control panel"
 description: "Instructions on how to integrate MQTT capable alarm panels into Home Assistant."
-ha_category:
-  - Alarm
 ha_release: 0.7.4
 ha_iot_class: Configurable
 ha_domain: mqtt

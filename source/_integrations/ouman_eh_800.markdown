@@ -1,13 +1,6 @@
 ---
 title: Ouman EH-800
 description: Instructions on how to integrate the Ouman EH-800 heating controller with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Number
-  - Select
-  - Sensor
-  - Valve
 ha_categories:
   - climate.thermostats_heating
 ha_release: 2026.6

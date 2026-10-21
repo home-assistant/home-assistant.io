@@ -1,11 +1,6 @@
 ---
 title: Bang & Olufsen
 description: Instructions on how to integrate Bang & Olufsen devices into Home Assistant.
-ha_category:
-  - Event
-  - Media Player
-  - Multimedia
-  - Sensor
 ha_categories:
   - media_entertainment.speakers_audio
 ha_release: 2024.2

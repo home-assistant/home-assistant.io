@@ -1,8 +1,6 @@
 ---
 title: Met Éireann
 description: Instructions on how to integrate Met Éireann with Home Assistant.
-ha_category:
-  - Weather
 ha_categories:
   - weather_alerts.forecasts
 ha_release: 2021.5

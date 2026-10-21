@@ -143,13 +143,18 @@ automation my_lights:
         event: sunset
         offset: "-01:00:00"
       - trigger: state
-        entity_id: all
+        entity_id:
+          - person.paulus
+          - person.anne_therese
         to: "home"
     conditions:
       # Prefix the first line of each condition configuration
-      # with a '-'' to enter multiple
+      # with a '-' to enter multiple
       - condition: state
-        entity_id: all
+        entity_id:
+          - person.paulus
+          - person.anne_therese
+        match: any
         state: "home"
       - condition: time
         after: "16:00:00"
@@ -164,8 +169,8 @@ automation my_lights:
   - alias: "Rule 2 - Away Mode"
     triggers:
       - trigger: state
-        entity_id: all
-        to: "not_home"
+        entity_id: zone.home
+        to: "0"
     actions:
       - action: light.turn_off
         target:

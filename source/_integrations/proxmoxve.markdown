@@ -1,11 +1,6 @@
 ---
 title: Proxmox VE
 description: Access your ProxmoxVE instance in Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Sensor
-  - Update
 ha_categories:
   - computers_network.nas_servers
 ha_release: 0.103

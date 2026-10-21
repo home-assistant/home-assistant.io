@@ -1,8 +1,6 @@
 ---
 title: Slack
 description: Instructions on how to add Slack notifications to Home Assistant.
-ha_category:
-  - Notifications
 ha_categories:
   - messaging_notifications.chat_apps
 ha_release: pre 0.7

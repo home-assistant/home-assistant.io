@@ -2,8 +2,6 @@
 title: Azure Storage
 description: Instructions on how to set up Azure storage accounts to be used with backups.
 ha_release: 2025.3
-ha_category:
-  - Backup
 ha_categories:
   - computers_network.cloud_developer_tools
 ha_iot_class: Cloud Polling

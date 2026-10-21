@@ -1,8 +1,6 @@
 ---
 title: Cisco Mobility Express
 description: Instructions on how to integrate Cisco Mobility Express wireless controllers into Home Assistant.
-ha_category:
-  - Presence detection
 ha_categories:
   - presence_location.network_presence
   - computers_network.routers_network

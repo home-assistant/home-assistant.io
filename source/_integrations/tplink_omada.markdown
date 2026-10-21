@@ -1,9 +1,6 @@
 ---
 title: TP-Link Omada
 description: Instructions on integrating TP-Link Omada SDN networking devices to Home Assistant.
-ha_category:
-  - Hub
-  - Update
 ha_categories:
   - computers_network.routers_network
 ha_release: 2023.3

@@ -2,12 +2,6 @@
 title: Pentair ScreenLogic
 description: Instructions on how to integrate a ScreenLogic gateway within Home Assistant.
 ha_release: '2021.4'
-ha_category:
-  - Binary sensor
-  - Climate
-  - Hub
-  - Sensor
-  - Switch
 ha_categories:
   - water.pools_spas
 ha_iot_class: Local Push

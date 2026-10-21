@@ -1,8 +1,6 @@
 ---
 title: KIWI
 description: Instructions on how to integrate KIWI Smart Lock and Smart Entry.
-ha_category:
-  - Lock
 ha_categories:
   - security_safety.locks_access
 ha_release: 0.72

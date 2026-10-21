@@ -2,24 +2,6 @@
 title: KNX
 description: Instructions on how to integrate KNX components with Home Assistant.
 featured: true
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Date
-  - Fan
-  - Hub
-  - Light
-  - Notifications
-  - Number
-  - Scene
-  - Select
-  - Sensor
-  - Switch
-  - Text
-  - Time
-  - Weather
 ha_categories:
   - hubs_protocols.building_automation
 ha_release: 0.24
@@ -371,7 +353,7 @@ outgoing:
 
 #### Available trigger data
 
-In addition to the [standard automation trigger data](/docs/automation/templating/#all), the `knx.telegram` trigger platform has additional trigger data available for use.
+In addition to the [standard automation trigger data](/docs/automation/trigger-data/#properties-of-all-triggers), the `knx.telegram` trigger platform has additional trigger data available for use.
 
 - `trigger.destination` Destination group address
 - `trigger.destination_name` Destination group address name

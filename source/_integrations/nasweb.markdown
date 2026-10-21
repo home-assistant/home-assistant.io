@@ -1,11 +1,6 @@
 ---
 title: NASweb
 description: Integrate NASweb devices
-ha_category:
-  - Alarm
-  - Climate
-  - Sensor
-  - Switch
 ha_categories:
   - hubs_protocols.building_automation
 ha_release: '2024.12'

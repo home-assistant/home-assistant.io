@@ -4,13 +4,6 @@ description: Instructions on how to integrate Rituals Perfume Genie diffusers wi
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_release: 2021.3
-ha_category:
-  - Binary sensor
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
 ha_categories:
   - appliances_cleaning
 ha_codeowners:
@@ -62,7 +55,7 @@ Password:
 
 ## Supported functionality
 
-Each diffuser on your Rituals account is added to Home Assistant as a device, with the entities described below.
+Each diffuser on your Rituals account is added to Home Assistant as a device, with the entities described below. When you add a diffuser to your Rituals account later, it shows up in Home Assistant within a few minutes. When you remove one from your account, its device is removed from Home Assistant as well.
 
 {% note %}
 The entities you see depend on your model. The battery and charging entities appear on the battery-powered model only. On mains-powered models, the **Room size** control is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). You can turn it on from the entity's settings if you want to use it.
@@ -152,7 +145,7 @@ If one of your diffusers does not appear:
 
 1. Open the Rituals mobile app and confirm the diffuser is registered to your account and online.
 2. Make sure the diffuser is connected to your Wi-Fi network.
-3. Reload the integration from its page under {% my integrations title="**Settings** > **Devices & services**" %}.
+3. Wait a few minutes. Home Assistant checks your Rituals account for new diffusers every 5 minutes.
 
 ## Removing the integration
 

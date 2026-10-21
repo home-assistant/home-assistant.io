@@ -1,8 +1,6 @@
 ---
 title: LlamaLab Automate
 description: Instructions on how to add LlamaLab Automate notifications to Home Assistant.
-ha_category:
-  - Notifications
 ha_categories:
   - messaging_notifications.push_notifications
 ha_iot_class: Cloud Push

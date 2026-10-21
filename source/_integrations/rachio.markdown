@@ -1,11 +1,6 @@
 ---
 title: Rachio
 description: Instructions on how to use Rachio with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Calendar
-  - Irrigation
-  - Switch
 ha_categories:
   - garden_plants
 ha_iot_class: Cloud Push

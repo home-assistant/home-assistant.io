@@ -1,9 +1,6 @@
 ---
 title: CalDAV
 description: Instructions on how to integrate a WebDav calendar into Home Assistant.
-ha_category:
-  - Calendar
-  - To-do List
 ha_categories:
   - productivity_information.calendars_todos
 ha_iot_class: Cloud Polling
@@ -176,7 +173,7 @@ Individual Calendar *Events* can power automations such as:
 - Send a notification *5 minutes before the start of any event*
 - Stop the media player *30 minutes after* the *end* of the event named *Exercise*.
 
-See [Calendar Automations](/integrations/calendar#automation) for an overview, and read more about [Calendar Trigger Variables](/docs/automation/templating/#calendar) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
+See [Calendar Automations](/integrations/calendar#automation) for an overview, and read more about [Calendar Trigger Variables](/docs/automation/trigger-data/#calendar-triggers) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
 
 ## Calendar Entity Attributes
 

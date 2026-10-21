@@ -1,8 +1,6 @@
 ---
 title: GeoRSS
 description: Instructions on how to set up GeoRSS sensors within Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - diy_makers.web_data_connectors
   - weather_alerts.public_warnings

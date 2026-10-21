@@ -1,8 +1,6 @@
 ---
 title: Google Drive
 description: Instructions on how to use Google Drive in Home Assistant.
-ha_category:
-  - Backup
 ha_categories:
   - computers_network.cloud_developer_tools
   - productivity_information.documents_photos

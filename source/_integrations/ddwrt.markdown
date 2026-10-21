@@ -1,8 +1,6 @@
 ---
 title: DD-WRT
 description: Instructions on how to integrate DD-WRT based routers into Home Assistant.
-ha_category:
-  - Presence detection
 ha_categories:
   - computers_network.routers_network
   - presence_location.network_presence

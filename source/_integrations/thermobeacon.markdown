@@ -1,8 +1,6 @@
 ---
 title: ThermoBeacon
 description: Instructions on how to integrate ThermoBeacon devices into Home Assistant.
-ha_category:
-  - Sensor
 ha_categories:
   - sensors.temperature_humidity
 ha_bluetooth: true

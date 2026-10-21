@@ -1,8 +1,6 @@
 ---
 title: Google Translate text-to-speech
 description: Instructions on how to set up Google Translate text-to-speech with Home Assistant.
-ha_category:
-  - Text-to-speech
 ha_categories:
   - ai_voice.speech
 ha_release: 0.35

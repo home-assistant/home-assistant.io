@@ -1,10 +1,6 @@
 ---
 title: Min/Max
 description: Instructions on how to integrate min/max sensors into Home Assistant.
-ha_category:
-  - Helper
-  - Sensor
-  - Utility
 ha_categories:
   - helpers.calculate_value
 ha_iot_class: Calculated

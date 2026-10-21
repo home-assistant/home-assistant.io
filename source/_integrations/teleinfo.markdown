@@ -11,9 +11,6 @@ ha_platforms:
   - sensor
 ha_integration_type: device
 ha_quality_scale: silver
-ha_category:
-  - Energy
-  - Serial-controlled
 ha_categories:
   - energy.meters_monitoring
 ---

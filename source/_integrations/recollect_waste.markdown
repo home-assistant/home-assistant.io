@@ -1,9 +1,6 @@
 ---
 title: ReCollect Waste
 description: Instructions on how to set up ReCollect Waste sensor within Home Assistant.
-ha_category:
-  - Calendar
-  - Sensor
 ha_categories:
   - local_services
 ha_release: 0.87

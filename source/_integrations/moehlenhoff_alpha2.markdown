@@ -1,8 +1,6 @@
 ---
 title: Möhlenhoff Alpha 2
 description: Instructions on how to integrate a Möhlenhoff Alpha 2 temperature control system into Home Assistant.
-ha_category:
-  - Climate
 ha_categories:
   - climate.thermostats_heating
 ha_release: 2022.3

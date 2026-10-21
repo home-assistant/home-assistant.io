@@ -1,8 +1,6 @@
 ---
 title: MVG
 description: Instructions on how to integrate Munich public transport departure times into Home Assistant.
-ha_category:
-  - Transport
 ha_categories:
   - vehicles_transport.public_transport
 ha_release: 0.42

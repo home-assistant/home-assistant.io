@@ -1,9 +1,6 @@
 ---
 title: Coinbase
 description: Instructions for how to add Coinbase sensors to Home Assistant.
-ha_category:
-  - Finance
-  - Sensor
 ha_categories:
   - finance
 ha_release: 0.61

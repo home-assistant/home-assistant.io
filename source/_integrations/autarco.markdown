@@ -1,9 +1,6 @@
 ---
 title: Autarco
 description: Instructions on how to integrate Autarco solar system within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
 ha_categories:
   - energy.solar_batteries
 ha_release: 2024.8

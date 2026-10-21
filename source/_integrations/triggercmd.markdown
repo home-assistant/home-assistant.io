@@ -1,9 +1,6 @@
 ---
 title: TRIGGERcmd
 description: How to integrate TRIGGERcmd with Home Assistant.
-ha_category:
-  - Automation
-  - Switch
 ha_categories:
   - computers_network
 ha_release: '2024.10'

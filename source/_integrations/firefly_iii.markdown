@@ -1,9 +1,6 @@
 ---
 title: Firefly III
 description: Instructions on how to integrate Firefly III with Home Assistant.
-ha_category:
-  - Finance
-  - Sensor
 ha_categories:
   - finance
 ha_release: '2025.11'

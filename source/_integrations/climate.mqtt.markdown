@@ -1,8 +1,6 @@
 ---
 title: "MQTT climate (HVAC)"
 description: "Instructions on how to integrate MQTT climate into Home Assistant."
-ha_category:
-  - Climate
 ha_release: 0.55
 ha_iot_class: Local Polling
 ha_domain: mqtt

@@ -1,12 +1,6 @@
 ---
 title: LG Infrared
 description: Integration to control LG TVs and LG split air conditioners using an infrared emitter and to receive commands from an LG remote using an infrared receiver.
-ha_category:
-  - Climate
-  - Event
-  - Infrared-controlled
-  - Media player
-  - Switch
 ha_categories:
   - media_entertainment.tv_streaming
   - climate.heat_pumps_air_conditioning

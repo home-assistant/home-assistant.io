@@ -1,10 +1,6 @@
 ---
 title: ScorpionTrack
 description: Instructions on how to integrate ScorpionTrack shared vehicle locations, speeds, and ignition states into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Device tracker
-  - Sensor
 ha_categories:
   - vehicles_transport.cars_evs
   - presence_location.trackers

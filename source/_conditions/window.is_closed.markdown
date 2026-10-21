@@ -30,7 +30,7 @@ Condition passes if:
   required: true
 For at least:
   description: How long the window must have been closed before the condition passes. Set to zero to pass immediately.
-  required: true
+  required: false
 {% endoptions_ui %}
 
 {% include conditions/yaml_header.md %}
@@ -57,9 +57,9 @@ behavior:
   default: any
 for:
   description: >
-    Duration the window must have been closed before the condition passes. Accepts a duration string like `00:05:00` for five minutes.
-  required: true
-  type: string
+    Duration the window must have been closed before the condition passes. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
+  required: false
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -70,7 +70,7 @@ for:
 ## Good to know
 
 - The target must be a binary sensor or cover with the window device class.
-- Windows that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as closed. Home Assistant skips them and evaluates the condition using the remaining targeted windows.
+{% include conditions/unavailable_targets.md entities="windows" %}
 - To check the opposite state, use [Window is open](/conditions/window.is_open/).
 
 {% include conditions/try_it.md %}

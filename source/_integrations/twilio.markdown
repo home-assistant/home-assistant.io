@@ -1,8 +1,6 @@
 ---
 title: Twilio
 description: Instructions on how to add Twilio notifications to Home Assistant.
-ha_category:
-  - Hub
 ha_categories:
   - messaging_notifications.email_sms_calls
 ha_release: '0.40'

@@ -1,8 +1,6 @@
 ---
 title: Conversation
 description: Instructions on how to have conversations with your Home Assistant.
-ha_category:
-  - Voice
 ha_release: 0.7
 ha_quality_scale: internal
 ha_codeowners:
@@ -47,11 +45,11 @@ trigger: |
 
 The first example matches both "party time" and "it's party time". The second example matches both "happy new year" and "happy birthday". Punctuation and capitalization are ignored.
 
-For a complete example, see [adding a custom sentence to trigger an automation](/voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation).
+For a complete example, see [adding a custom sentence to trigger an automation](/voice_control/custom_sentences/#to-add-a-custom-sentence-to-trigger-an-automation).
 
 ### Sentence wildcards
 
-You can use lists as wildcards to capture text from the matched sentence. Captured text is available in `trigger.slots`. For the full data structure, including `trigger.details`, see [sentence trigger data](/docs/automation/templating/#sentence).
+You can use lists as wildcards to capture text from the matched sentence. Captured text is available in `trigger.slots`. For the full data structure, including `trigger.details`, see [sentence trigger data](/docs/automation/trigger-data/#sentence-triggers).
 
 {% example %}
 automation: |

@@ -1,9 +1,6 @@
 ---
 title: Ohme
 description: Instructions to configure the Ohme integration into Home Assistant.
-ha_category:
-  - Car
-  - Sensor
 ha_categories:
   - energy.ev_charging
 ha_release: 2025.1

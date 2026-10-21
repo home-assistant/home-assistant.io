@@ -1,11 +1,6 @@
 ---
 title: Fjäråskupan
 description: Instructions on how to configure fjäråskupan integration.
-ha_category:
-  - Binary sensor
-  - Button
-  - Fan
-  - Light
 ha_categories:
   - appliances_cleaning.cooking
   - climate.fans_ventilation

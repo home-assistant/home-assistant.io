@@ -1,8 +1,6 @@
 ---
 title: LOQED Touch Smart Lock
 description: Instructions on how to integrate a Loqed Touch Smart Lock
-ha_category:
-  - Lock
 ha_categories:
   - security_safety.locks_access
 ha_release: 2023.7

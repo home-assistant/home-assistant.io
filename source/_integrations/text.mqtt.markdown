@@ -1,8 +1,6 @@
 ---
 title: "MQTT Text"
 description: "Instructions on how to interact with a device exposing text capability through MQTT from within Home Assistant."
-ha_category:
-  - Text
 ha_release: "2022.12"
 ha_iot_class: Configurable
 ha_domain: mqtt

@@ -59,9 +59,9 @@ behavior:
 for:
   description: >
     How long the lock must stay jammed before the condition passes. Accepts a
-    duration like `00:01:00` for one minute.
+    duration like `00:01:00` for one minute. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -71,7 +71,7 @@ for:
 
 ## Good to know
 
-- Locks in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
+{% include conditions/unavailable_targets.md entities="locks" %}
 - Use **For at least** if you want to wait for a lasting problem instead of a brief status report.
 - To check for the normal secure state instead, use [Lock is locked](/conditions/lock.is_locked/).
 

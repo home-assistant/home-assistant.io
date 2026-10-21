@@ -1,10 +1,6 @@
 ---
 title: RDW
 description: Instructions on how to integrate RDW vehicle information with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Car
-  - Sensor
 ha_categories:
   - vehicles_transport.cars_evs
 ha_release: 2021.12

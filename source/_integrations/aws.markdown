@@ -1,8 +1,6 @@
 ---
 title: Amazon Web Services (AWS)
 description: Instructions on how to integrate Amazon Web Services with Home Assistant.
-ha_category:
-  - Notifications
 ha_categories:
   - computers_network.cloud_developer_tools
   - messaging_notifications

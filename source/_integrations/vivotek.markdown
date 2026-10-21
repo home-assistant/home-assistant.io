@@ -1,8 +1,6 @@
 ---
 title: VIVOTEK
 description: Instructions on how to integrate VIVOTEK cameras within Home Assistant.
-ha_category:
-  - Camera
 ha_categories:
   - security_safety.cameras
 ha_release: 0.99

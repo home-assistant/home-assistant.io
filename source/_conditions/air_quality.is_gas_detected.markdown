@@ -58,7 +58,7 @@ behavior:
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as detecting. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted sensor is unavailable.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - To check whether gas is no longer detected, use [Gas cleared](/conditions/air_quality.is_gas_cleared/).
 
 {% include conditions/try_it.md %}

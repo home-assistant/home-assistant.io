@@ -1,8 +1,6 @@
 ---
 title: Google Photos
 description: Instructions on how to use Google Photos in Home Assistant.
-ha_category:
-  - Media source
 ha_categories:
   - productivity_information.documents_photos
 ha_iot_class: Cloud Polling

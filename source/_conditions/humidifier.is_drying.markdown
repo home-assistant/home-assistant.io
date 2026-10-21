@@ -59,9 +59,9 @@ behavior:
   default: any
 for:
   description: >
-    How long the humidifier must have been continuously drying before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long the humidifier must have been continuously drying before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -72,7 +72,7 @@ for:
 ## Good to know
 
 - A dehumidifier can be on but not drying if it has already reached its target humidity and is idling. Use [Humidifier is on](/conditions/humidifier.is_on/) if you only care about whether the device is powered.
-- Humidifiers that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as actively drying. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted device is unavailable.
+{% include conditions/unavailable_targets.md entities="humidifiers" %}
 - This condition applies to devices in a drying cycle. For humidifiers that are actively adding moisture, use [Humidifier is humidifying](/conditions/humidifier.is_humidifying/) instead.
 
 {% include conditions/try_it.md %}

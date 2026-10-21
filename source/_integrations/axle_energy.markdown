@@ -1,10 +1,6 @@
 ---
 title: Axle Energy
 description: Instructions on how to use Axle Energy grid event schedules in Home Assistant.
-ha_category:
-  - Binary sensor
-  - Energy
-  - Sensor
 ha_categories:
   - energy
 ha_release: '2026.10'

@@ -1,19 +1,6 @@
 ---
 title: Z-Wave.Me
 description: Instructions on how to integrate Z-Wave with Home Assistant via Z-Wave.Me Z-Way.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Fan
-  - Hub
-  - Light
-  - Lock
-  - Number
-  - Sensor
-  - Siren
-  - Switch
 ha_categories:
   - hubs_protocols.smart_home_hubs
 ha_release: 2022.3

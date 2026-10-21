@@ -1,8 +1,6 @@
 ---
 title: London Air
 description: Display the current status of London air quality by area and pollution type.
-ha_category:
-  - Health
 ha_categories:
   - weather_alerts.air_quality_pollen
 ha_iot_class: Cloud Polling

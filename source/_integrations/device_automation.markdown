@@ -1,8 +1,6 @@
 ---
 title: Device automation
 description: Information about the device automation plugin.
-ha_category:
-  - Automation
 ha_release: 0.7
 ha_quality_scale: internal
 ha_codeowners:

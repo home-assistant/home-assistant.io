@@ -1,8 +1,6 @@
 ---
 title: Bluetooth
 description: Discover, connect, and monitor bluetooth devices.
-ha_category:
-  - Utility
 ha_categories:
   - hubs_protocols.wireless_protocols
 ha_iot_class: Local Push
@@ -360,6 +358,8 @@ The following remote adapters are supported:
 
 Bluetooth advertisement bundling reduces traffic between Home Assistant and the proxy, significantly improving performance and reducing the time that Bluetooth and WiFi compete for air time for devices that share a radio.
 
+On ESPHome ESP32 devices, [active connections](#connection) are turned on by default. To turn them off, use the `active` option of the [Bluetooth proxy component](https://esphome.io/components/bluetooth_proxy/#configuration).
+
 ## Troubleshooting
 
 ### Advertisement monitor
@@ -510,7 +510,7 @@ A small message that a Bluetooth device broadcasts to announce itself and share 
 
 ### Connection
 
-An active, two-way link between Home Assistant and a Bluetooth device. Some devices only broadcast advertisements, while others need a connection so Home Assistant can read from them or send commands. Making connections requires a scanner that supports active connections. Some proxies can only listen for advertisements and cannot connect to devices.
+An active, two-way link between Home Assistant and a Bluetooth device, also called an active connection. Some devices only broadcast advertisements, while others need a connection so Home Assistant can read from them or send commands. To make a connection, Home Assistant needs an adapter or proxy that can connect to devices. Some proxies can only listen for advertisements and cannot connect to devices.
 
 ### Scanning mode
 

@@ -1,8 +1,6 @@
 ---
 title: OpenRGB
 description: Instructions on how to integrate OpenRGB within Home Assistant.
-ha_category:
-  - Light
 ha_categories:
   - lighting.led_strips_controllers
 ha_release: 2025.11

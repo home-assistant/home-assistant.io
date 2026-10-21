@@ -1,8 +1,6 @@
 ---
 title: Apple iTunes
 description: Instructions on how to integrate iTunes into Home Assistant.
-ha_category:
-  - Media player
 ha_categories:
   - media_entertainment.music_radio_services
   - media_entertainment.speakers_audio

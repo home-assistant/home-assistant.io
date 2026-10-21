@@ -1,17 +1,6 @@
 ---
 title: Husqvarna Automower
 description: Instructions on how to integrate Husqvarna Automower lawn mowers into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Calendar
-  - Device tracker
-  - Event
-  - Lawn Mower
-  - Number
-  - Select
-  - Sensor
-  - Switch
 ha_categories:
   - garden_plants
 ha_release: 2024.3

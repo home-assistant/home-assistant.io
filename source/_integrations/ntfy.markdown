@@ -1,10 +1,6 @@
 ---
 title: ntfy
 description: Instructions on how to integrate ntfy with Home Assistant.
-ha_category:
-  - Event
-  - Notifications
-  - Update
 ha_categories:
   - messaging_notifications.push_notifications
 ha_iot_class: Cloud Push

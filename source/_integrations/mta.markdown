@@ -1,8 +1,6 @@
 ---
 title: MTA New York City Transit
 description: Instructions on how to integrate real-time NYC subway and bus arrival information within Home Assistant.
-ha_category:
-  - Transport
 ha_categories:
   - vehicles_transport.public_transport
 ha_iot_class: Cloud Polling

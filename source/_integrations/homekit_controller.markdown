@@ -1,20 +1,6 @@
 ---
 title: HomeKit Device
 description: Instructions for how to integrate your HomeKit devices within Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Climate
-  - Cover
-  - Fan
-  - Health
-  - Hub
-  - Humidifier
-  - Light
-  - Lock
-  - Number
-  - Sensor
-  - Switch
 ha_categories:
   - hubs_protocols
 ha_release: 0.68
