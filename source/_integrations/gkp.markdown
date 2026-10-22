@@ -72,8 +72,6 @@ Each radiator is available as a climate entity, which provides:
 
 When you change the target temperature, the integration updates the temperature of the active mode. For example, in **Eco**, you change the eco temperature. When the radiator is in **Auto** mode, changing the target temperature starts a boost at that temperature, just like in the GKP Home app. You can't change the target temperature when the radiator is **Off** or in **Frost protection**: select another mode first.
 
-{% include integrations/actions.md %}
-
 ## Examples
 
 ### Lower the temperature when nobody is home
@@ -129,7 +127,7 @@ One or more of your GKP climate entities show as "Unavailable" in Home Assistant
 
 ##### Description
 
-A radiator shows as unavailable when it hasn't answered the requests of the integration for 30 minutes. This usually means the radiator lost its connection to your Wi-Fi network or to the GKP cloud.
+A radiator shows as unavailable when it hasn't answered the requests of the integration for 30 minutes, or when the integration can't reach the GKP cloud. This usually means the radiator lost its connection to your Wi-Fi network, or the GKP cloud is temporarily unavailable.
 
 ##### Resolution
 
@@ -166,7 +164,7 @@ When you change a setting, an error message says there are too many requests to 
 
 ##### Description
 
-The GKP cloud limits the number of requests each account can send in a short time. When this limit is reached, the integration waits for the time requested by the GKP cloud before reading your radiators again.
+The GKP cloud limits the number of requests each account can send in a short time. When this limit is reached, the integration waits for the time requested by the GKP cloud before reading your radiators again. During this time, your radiators show as unavailable.
 
 ##### Resolution
 
