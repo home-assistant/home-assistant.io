@@ -236,7 +236,7 @@ You can use a backup during the onboarding process to restore your configuration
 
 ### Troubleshooting backups
 
-{% details "A backup fails without a reason" %}
+{% details "A backup fails and doesn't show why" %}
 
 #### Symptom: "Last automatic backup failed" or "Failed to create backup"
 
@@ -277,8 +277,9 @@ This only happens with the default SQLite database. If you use MariaDB or Postgr
 
 1. Wait a few minutes, and then create the backup again.
 2. If automatic backups fail, change when they run. The default, **System optimal**, starts between 04:45 and 05:45. That's shortly after the Recorder maintenance at 04:12, and a long repack can still be running then.
-   - Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}. Under **Automatic backups**, select **Configure automatic backups**.
-   - Under **Backup cycle**, set **Time** to **Custom**, and pick a time later in the day.
+   1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}. On the **Automatic backup** card, select **Configure backup settings**.
+   2. Under **Backup cycle**, set **Time** to **Custom**, and pick a time later in the day.
+      - **Time** is only shown when **Schedule** is set to **Daily** or **Custom days**.
 3. If backups keep failing, make the database smaller. For example, keep fewer days of history, or exclude entities that change often. For details, refer to [Preparing for a backup](#preparing-for-a-backup).
 
 {% enddetails %}
