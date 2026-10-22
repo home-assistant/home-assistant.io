@@ -1,7 +1,6 @@
 // Fixtures for the Connect product hero, with the AUX-2 page's photo
-// and copy. On a page the product bar (ConnectNav) fills the hero's
-// `nav` slot; fixtures cannot fill named slots, so the bar is left out
-// here and has its own entry.
+// and copy. On a page the product bar (ConnectNav) comes first and
+// overlaps the hero's top; it has its own entry.
 //
 // The content width here is the site's; product pages narrow it to
 // --layout-product-width.

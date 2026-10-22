@@ -50,7 +50,7 @@ Components in `src/components/connect/`, each with a `.fixtures.mjs`:
 
 | Component | Section(s) |
 | --- | --- |
-| `ConnectNav` | Product bar in the hero; folds into a menu below 1140px. |
+| `ConnectNav` | Product bar, sticky over the hero and frosted white once the page scrolls, as on the ZBT-2 page; folds into a menu below 1140px. |
 | `ConnectHero` | Hero photo, tagline, product name (the page's `h1`), lead, collaboration badge. |
 | `ConnectSectionHeader` | Centered `h2` and lead ("Audio and so much more", "Incredible audio", "Deep control with serial"). |
 | `ConnectFeatureCard` | Dark card with an icon; background and border fade out, with a border shimmer on hover. Variants: `light` (hotspot cards), `large` ("Incredible audio"), `media` slot. |
@@ -281,8 +281,12 @@ Behavior and integration:
 
 - Buy buttons link to `#buy`. Hook up the shared buy dialog
   (`custom/buy-dialog.html` on the Jekyll pages) when it is ported.
-- The product bar is not sticky. The Jekyll Connect pages pin theirs
-  on scroll.
+- The product bar follows the ZBT-2 page's: sticky, 120px over the
+  hero, shrinking to an 80px frosted white bar once the page scrolls.
+  As on the Jekyll Connect pages, the site header scrolls away
+  (`stickyHeader={false}` on `Site`). The ZBT-2 bar also has a "Docs"
+  link to Nabu Casa's help center; add one when the AUX-2 has a docs
+  page.
 - Serve the page at `/connect/aux-2/`. This needs a way to publish
   Astro-only routes: the `rake generate` copy step only replaces pages
   Jekyll also builds.

@@ -1,8 +1,9 @@
 ---
-// Hero of a Connect product page: a full-bleed product photo with the
-// product bar (the `nav` slot, a ConnectNav) at its top, and at its
-// bottom the tagline, the product name as the page's heading, the lead
-// text and the collaboration badge.
+// Hero of a Connect product page: a full-bleed product photo with, at
+// its bottom, the tagline, the product name as the page's heading, the
+// lead text and the collaboration badge. The product bar (ConnectNav)
+// comes before it on the page and overlaps its top, so the hero keeps
+// the bar's 120px clear above the text.
 //
 // Built from the "Hero" frames in the Figma file "Connect AUX-2"
 // (desktop node 2310:3581, mobile node 2310:3664), not ported from
@@ -72,8 +73,6 @@ const {
   />
 
   <div class="content">
-    <slot name="nav" />
-
     <div class="intro">
       <hgroup class="title">
         <p class="tagline">
@@ -136,7 +135,8 @@ const {
     display: flex;
     flex: 1;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
+    padding-top: 7.5rem;
   }
 
   .intro {

@@ -176,8 +176,10 @@ const diagram = [
 <Site
   title="Home Assistant Connect AUX-2"
   description="Bring your audio equipment into your smart home with advanced control and Power-over-Ethernet."
+  stickyHeader={false}
 >
   <main class="connect">
+    <ConnectNav product={product} links={links} buyHref="#buy" />
     <ConnectHero
       image={heroImage}
       mobileImage={heroMobileImage}
@@ -187,7 +189,6 @@ const diagram = [
       product={product}
       tagline={["Old speakers.", "New tricks."]}
     >
-      <ConnectNav slot="nav" product={product} links={links} buyHref="#buy" />
       Bring your audio equipment into your smart home with advanced control
       and Power-over-Ethernet.
     </ConnectHero>

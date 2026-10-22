@@ -17,7 +17,9 @@ import SiteFooter from "../components/SiteFooter.astro";
 import { release, setting } from "../lib/site.mjs";
 import "../styles/tokens.scss";
 
-const { title, description } = Astro.props;
+// `stickyHeader` off lets the site header scroll away with the page,
+// for pages with their own bar pinned at the top (ConnectNav).
+const { title, description, stickyHeader = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -26,7 +28,7 @@ const { title, description } = Astro.props;
     <SiteHead title={title} description={description} />
   </head>
   <body>
-    <div class="masthead">
+    <div class:list={["masthead", { sticky: stickyHeader }]}>
       <SiteHeader
         pathname={Astro.url.pathname}
         version={release.version}
@@ -96,8 +98,12 @@ const { title, description } = Astro.props;
 
 <style>
   .masthead {
+    position: relative;
+    z-index: 100;
+  }
+
+  .masthead.sticky {
     position: sticky;
     top: 0;
-    z-index: 100;
   }
 </style>
