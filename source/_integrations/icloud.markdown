@@ -51,6 +51,23 @@ If you do not receive a verification code, select **Request a new verification c
 
 Delete the integration's configuration (most likely in `/config/.storage/icloud`), then retry.
 
+### Symptom
+
+Updated iCloud terms of service not accepted
+
+#### Description
+
+```
+ERROR: Apple updated the iCloud terms of service and they must be accepted to contine
+```
+
+#### Resolution
+
+Accept the terms in Home Assistant or on [iCloud.com](https://www.icloud.com/)
+
+ 1. Go to [iCloud.com](https://www.icloud.com/), sign in, and accept the updated terms.
+ 2. Return to Home Assistant and retry setting up the iCloud integration (you may need to delete the integration's configuration).
+
 ## Configuration options
 
 The integration provides the following configuration options:
@@ -90,22 +107,6 @@ If you have [Advanced Data Protection](https://support.apple.com/en-us/102651) t
 
 iCloud photo albums and shared streams are displayed in the media browser, "Media" > "iCloud". This will display a list of configured iCloud accounts, selecting the account will give a choice of "Albums" and "Shared Streams". Selection of these will give a list of available photo albums, and selecting these will display the current contents of the album.
 
-## Troubleshooting
 
-### Accept the updated terms
-
-#### Symptom: Unknown error when setting up the integration from the UI
-
-Home Assistant logs:
-ERROR: Failed to verify verification code: You must accept the updated terms of service to continue. Set --accept-terms to accept them.
-
-##### Description
-
-This means there is updated terms of service you must accept to continue.
-
-##### Resolution
-
- 1. Go to [iCloud.com](https://www.icloud.com/), sign in, and accept the updated terms.
- 2. Return to Home Assistant and retry setting up the iCloud integration.
 
 
