@@ -40,8 +40,8 @@ File access depends on your [installation type](/installation/#about-installatio
 To set up file access on the Home Assistant Operating System, follow these steps:
 
 - If you are unsure which option to choose, install the [file editor app](/common-tasks/os/#installing-and-using-the-file-editor-app).
-  - Alternatively, use the [Studio Code Server app](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-app). This editor offers live syntax checking and auto-fill of various Home Assistant entities. But it looks more complex than the file editor.
-  - If you prefer to use a file editor on your computer, use the [Samba app](/common-tasks/os/#installing-and-using-the-samba-app).
+  - Alternatively, use the [Studio Code Server app](/common-tasks/os/#installing-and-using-the-studio-code-server-app). This editor offers live syntax checking and auto-fill of various Home Assistant entities. But it looks more complex than the file editor.
+  - If you prefer to use a file editor on your computer, use the [Samba app](/common-tasks/os/#installing-and-using-the-samba-share-app).
 
 ### To find the configuration directory
 
