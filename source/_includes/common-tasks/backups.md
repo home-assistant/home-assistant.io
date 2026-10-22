@@ -49,7 +49,7 @@ The automatic backup process creates a backup on a schedule and also deletes old
      - Make sure you pick a time when all your backup locations are available. Otherwise, the backup fails for the locations that aren't available.
    - Under **Retention**, define how many backups to keep, or for how many days.
      - Older automatic backups are deleted. For example: if you back up daily and keep 7 backups, the backups that are older than 7 days are deleted.
-     - Manual backups are never deleted automatically.
+     - These retention settings do not delete manual backups. However, Home Assistant Cloud replaces its previous backup whenever a new backup is uploaded, even if the previous backup was created manually.
    - Select **Next**.
 7. On the **Backup data** step, define the data you want to back up, and select **Next**.
    - It is recommended to leave out media and the share folder to reduce the size of the backup.
