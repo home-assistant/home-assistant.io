@@ -50,8 +50,8 @@ Device:
 
 ### Selects
 
-- **Power mode**: Switches the station on, to standby, or to sleep. Standby keeps the motors spinning so the station is back on in about a second, while waking from sleep takes about 11 seconds. Standby is not offered once the station turns out to run firmware without it.
-- **Channel**: The station's tracking channel, from 1 to 16. Each station in the same room needs its own channel.
+- **Power mode**: Switches the station on, to standby, or to sleep. From standby it is back on in about a second, from sleep in about 11 seconds. Standby is hidden on firmware that lacks it.
+- **Channel**: The station's tracking channel, from 1 to 16. SteamVR normally assigns channels itself, so only change it to fix a conflict.
 
 ### Sensors
 
@@ -94,7 +94,7 @@ automation: |
 
 ## Data updates
 
-The base stations broadcast their power state over Bluetooth, so Home Assistant updates the switch and sensors without {% term polling %}. Connections are opened briefly to read device information during setup and when the integration loads, and to send commands.
+The base stations broadcast their power state and channel over Bluetooth, so Home Assistant updates the entities without {% term polling %}. Connections are opened briefly to read device information during setup and when the integration loads, and to send commands.
 
 ## Troubleshooting
 
