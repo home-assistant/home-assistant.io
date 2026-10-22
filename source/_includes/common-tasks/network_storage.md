@@ -74,14 +74,24 @@ Share:
 
 By default, the first storage you add with the **Backup** usage becomes your default local backup location. This can be network storage or a local disk.
 
+The default local backup location is used for backups that don't have their own location. This applies to the following backups:
+
+- Backups that Home Assistant creates before it updates an app.
+- Backups that Home Assistant creates before it updates Home Assistant Core or Home Assistant Operating System, if you haven't set up automatic backups. If you have, these backups are stored in the locations of your automatic backups.
+- Backups that you create with the [**Create full backup**](/actions/hassio.backup_full/) or [**Create partial backup**](/actions/hassio.backup_partial/) action, if you leave **Location** empty. This includes backups that an automation creates with these actions.
+- Backups that you create on the command line with `ha backups new`, if you don't use the `--location` option.
+- Backups that `ha core update --backup` and `ha apps update --backup` create before an update.
+
+Backups that you create on the **Backups** page, including automatic backups, are stored in the locations that you select there. For details, refer to [Defining backup locations](/common-tasks/general/#defining-backup-locations).
+
 To change the default local backup location, follow these steps:
 
 1. Go to {% my backup title="**Settings** > **System** > **Backups**" %}.
-2. Select **Settings and history**.
-3. In the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Change default action location**.
-4. Under **Default location**, select the storage you want to use, then select **Save**.
-   ![Select default location used for local backup](/images/screenshots/network-storage/backup_select_local_default.png)
-5. Troubleshooting: Don't see your external storage location? This list contains only the storage you have added with the **Backup** usage.
+2. Select **Configure backup settings**.
+3. In the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Change default action location**.
+4. Under **Default location**, select the storage you want to use, and then select **Save**.
+   - If you don't see your storage, check that you added it with the **Backup** usage. The list only shows storage with this usage.
+   - To store these backups on the system itself again, select **Use data disk for backup**.
 
 ## Local disk storage
 
