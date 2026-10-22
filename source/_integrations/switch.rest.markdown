@@ -1,8 +1,6 @@
 ---
 title: "RESTful Switch"
 description: "Instructions on how to integrate REST switches into Home Assistant."
-ha_category:
-  - Switch
 ha_release: 0.7.6
 ha_iot_class: Local Polling
 ha_domain: rest

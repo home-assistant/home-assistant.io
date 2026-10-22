@@ -1,10 +1,8 @@
 ---
 title: Tailscale
 description: Instructions on how to integrate Tailscale within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Network
-  - Sensor
+ha_categories:
+  - computers_network.routers_network
 ha_release: 2021.12
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -25,7 +23,7 @@ For each device in your Tailnet, the integration shows details such as when the 
 {% important %}
 This integration monitors your Tailscale network. It does not make Home Assistant itself reachable over Tailscale.
 
-To reach Home Assistant remotely through Tailscale, install Tailscale on your Home Assistant device by following the [Tailscale installation guide](https://tailscale.com/kb/).
+To reach Home Assistant remotely through Tailscale, install Tailscale on your Home Assistant device by following the [Tailscale installation guide](https://tailscale.com/blog/remotely-access-home-assistant).
 {% endimportant %}
 
 ## Prerequisites

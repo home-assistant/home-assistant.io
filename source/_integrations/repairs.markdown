@@ -2,8 +2,6 @@
 title: Repairs
 description: Home Assistant Repairs informs you about issues it has found in your Home Assistant installation.
 ha_release: 2022.8
-ha_category:
-  - Other
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: repairs

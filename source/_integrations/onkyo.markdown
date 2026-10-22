@@ -1,8 +1,8 @@
 ---
 title: Onkyo
 description: Instructions on how to integrate Onkyo and some Pioneer receivers into Home Assistant.
-ha_category:
-  - Media player
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_codeowners:
   - '@arturpragacz'
   - '@eclair4151'

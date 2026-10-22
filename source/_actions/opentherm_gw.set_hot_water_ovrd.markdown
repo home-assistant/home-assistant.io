@@ -7,7 +7,7 @@ related_actions:
   - opentherm_gw.set_hot_water_setpoint
 ---
 
-The **Set hot water override** action sets the domestic hot water enable option on your OpenTherm Gateway. If the boiler is configured to let the room unit control when to keep a small amount of water preheated, this action can influence that behavior.
+The **OpenTherm Gateway: Set hot water override** action sets the domestic hot water enable option on your OpenTherm Gateway. If the boiler is configured to let the room unit control when to keep a small amount of water preheated, this action can influence that behavior.
 
 {% include actions/ui_header.md %}
 

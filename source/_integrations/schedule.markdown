@@ -1,9 +1,8 @@
 ---
 title: Schedule
 description: Instructions on how to make a weekly schedule in Home Assistant.
-ha_category:
-  - Automation
-  - Helper
+ha_categories:
+  - helpers.store_value
 ha_release: 2022.9
 ha_quality_scale: internal
 ha_codeowners:
@@ -143,9 +142,18 @@ When two time blocks on the same day touch (for example, one block from `07:00` 
 - The schedule's state stays `on` across the boundary. It does not briefly flip to `off` between two touching blocks.
 - The `data` attributes are replaced with the new block's data at the moment of the transition.
 - An automation triggering on the state changing to `off` does not fire at a boundary between two touching blocks.
+- A **Schedule block started** trigger fires when each new block starts, including at a boundary between two touching blocks.
+- A **Schedule block ended** trigger does not fire at a boundary between two touching blocks because the schedule does not become inactive (`off`).
 - An automation triggering on an attribute change (for example, a new setpoint) fires once, with the new block's data.
 
 Overlapping time blocks on the same day are not allowed and are rejected during configuration validation.
+
+A time block cannot cross midnight. To keep a schedule active across midnight, create two touching blocks on consecutive days. For example, for a schedule from `22:00` to `05:00`:
+
+1. Create a block from `22:00` to `24:00` on the first day.
+2. Create a block from `00:00` to `05:00` on the following day.
+
+The schedule stays `on` across midnight when these blocks touch.
 
 {% include integrations/triggers.md %}
 

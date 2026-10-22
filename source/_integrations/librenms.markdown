@@ -1,20 +1,20 @@
 ---
 title: LibreNMS
 description: Instructions on how to integrate a LibreNMS instance into Home Assistant.
-ha_category:
-  - Binary Sensor
-  - Sensor
+ha_categories:
+  - computers_network.monitoring
 ha_release: 2026.9
 ha_config_flow: true
 ha_iot_class: Local Polling
 ha_domain: librenms
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
 ha_codeowners:
   - '@mib1185'
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 This {% term integration %} allows you to add a [LibreNMS](https://www.librenms.org/) instance to Home Assistant.
@@ -40,7 +40,7 @@ The integration polls data every 60 seconds.
 
 ## Binary sensors
 
-The following {% term binary_sensor %} entities are created.
+The following {% term "binary sensor" %} entities are created.
 
 | Entity | Description | Default enabled |
 | --- | --- | --- |

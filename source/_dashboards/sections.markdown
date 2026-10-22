@@ -207,9 +207,9 @@ views:
 
 ## Show or hide section conditionally
 
-You can choose to show or hide certain sections based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as that for the conditional card.
+You can choose to show or hide certain sections based on different conditions. The [available conditions](/dashboards/conditional/#conditions-options) are the same as the ones for the conditional card.
 
-To edit the section visibility conditions, select the edit {% icon "mdi:edit" %} button and then select the **Visibility** tab.
+To edit the section visibility conditions, select the edit {% icon "mdi:edit" %} button and then select the **Visibility** tab. Adding, reordering, and checking conditions work the same way as for cards. For the steps, refer to [Showing or hiding a card or badge conditionally](/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally).
 
 ## Editing the footer
 

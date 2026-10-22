@@ -76,9 +76,9 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the media player must stay in a non-playing state before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+  description: How long the media player must stay in a non-playing state before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -89,7 +89,7 @@ for:
 ## Good to know
 
 - This condition covers any non-playing state. If you only want to check for paused playback, use [Media player is paused](/conditions/media_player.is_paused/).
-- Media players that are `unavailable` or `unknown` are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="media players" %}
 - If you need to confirm that playback is active, use [Media player is playing](/conditions/media_player.is_playing/).
 
 {% include conditions/try_it.md %}
@@ -98,12 +98,14 @@ for:
 
 ### Automation: start the vacuum only when the TV is not playing
 
-When everyone leaves home, start the vacuum only if the living room TV is not playing.
+When Alex leaves home, start the vacuum only if the living room TV is not playing.
 
-- **Trigger**: Person leaves home
+- **Trigger**: Zone left
+  - **Target**: Alex
+  - **Zone**: Home
 - **Condition**: Media player is not playing
   - **Target**: Living room TV
-- **Action**: Start vacuuming
+- **Action**: Start vacuum cleaner
   - **Target**: Robot vacuum
 
 {% details "YAML example for starting the vacuum only when playback is idle" %}
@@ -112,10 +114,11 @@ When everyone leaves home, start the vacuum only if the living room TV is not pl
 automation: |
   alias: "Start the vacuum only when the TV is not playing"
   triggers:
-    - trigger: zone
-      entity_id: person.alex
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.alex
+      options:
+        zone: zone.home
   conditions:
     - condition: media_player.is_not_playing
       target:
@@ -132,7 +135,7 @@ automation: |
 
 At sunrise, open the media room blinds only if every targeted media player is not playing.
 
-- **Trigger**: Sun rises
+- **Trigger**: Sunrise
 - **Condition**: Media player is not playing
   - **Target**: Media room
   - **Condition passes if**: All
@@ -145,8 +148,7 @@ At sunrise, open the media room blinds only if every targeted media player is no
 automation: |
   alias: "Open the blinds only when the media room is quiet"
   triggers:
-    - trigger: sun
-      event: sunrise
+    - trigger: sun.sunrise
   conditions:
     - condition: media_player.is_not_playing
       target:

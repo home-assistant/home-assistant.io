@@ -1,5 +1,5 @@
 ---
-title: Reload HomeKit
+title: "Reload"
 action: homekit.reload
 domain: homekit
 description: "Reloads HomeKit and reprocesses the YAML configuration."
@@ -8,7 +8,7 @@ related_actions:
   - homekit.unpair
 ---
 
-The **Reload HomeKit** action reloads the HomeKit Bridge integration and reprocesses its YAML configuration. Use it after you change YAML-defined HomeKit settings and want Home Assistant to apply those changes without a restart.
+The **HomeKit Bridge: Reload** action reloads the HomeKit Bridge integration and reprocesses its YAML configuration. Use it after you change YAML-defined HomeKit settings and want Home Assistant to apply those changes without a restart.
 
 This action only reloads HomeKit instances that are defined in YAML. It does not change instances you manage from the UI.
 
@@ -20,7 +20,7 @@ To use this action in an automation or script:
 2. Open an existing automation or script, or select **Create** to start a new one.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **HomeKit Bridge: Reload HomeKit**.
+5. From the search box, search for and select **HomeKit Bridge: Reload**.
 6. Select **Save**.
 
 This action does not support targets. In the UI, you are not prompted to choose an area, device, entity, or label.
@@ -58,8 +58,9 @@ This action has no additional options in YAML.
 
 If another process updates your HomeKit YAML before a set time, you can schedule this action so Home Assistant picks up those changes automatically.
 
-- **Trigger**: A scheduled time
-- **Action**: HomeKit Bridge: Reload HomeKit
+- **Trigger**: Time
+  - **At time**: `03:05`
+- **Action**: HomeKit Bridge: Reload
 
 {% details "YAML example for reloading HomeKit after a scheduled sync" %}
 

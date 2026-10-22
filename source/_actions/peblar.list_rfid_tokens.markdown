@@ -10,7 +10,7 @@ related:
   - action: peblar.delete_rfid_token
 ---
 
-The **List RFID tokens** action retrieves all RFID tokens stored in the Peblar charger's standalone authorization list. The action returns the full list as response data, which you can use in an automation or script to inspect or react to the tokens configured on your charger.
+The **Peblar: List RFID tokens** action retrieves all RFID tokens stored in the Peblar charger's standalone authorization list. The action returns the full list as response data, which you can use in an automation or script to inspect or react to the tokens configured on your charger.
 
 {% note %}
 This action is only available on Peblar chargers that are equipped with an

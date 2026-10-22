@@ -1,8 +1,8 @@
 ---
 title: OhmConnect
 description: Documentation about the OhmConnect sensor.
-ha_category:
-  - Energy
+ha_categories:
+  - energy
 ha_iot_class: Cloud Polling
 ha_release: 0.26
 ha_codeowners:

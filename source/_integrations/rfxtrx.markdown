@@ -1,15 +1,8 @@
 ---
 title: RFXCOM RFXtrx
 description: Instructions on how to integrate RFXtrx into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Cover
-  - Event
-  - Hub
-  - Light
-  - Sensor
-  - Siren
-  - Switch
+ha_categories:
+  - hubs_protocols.wireless_protocols
 ha_iot_class: Local Push
 ha_release: pre 0.7
 ha_config_flow: true
@@ -341,7 +334,7 @@ automation:
 
 If you need to generate codes for switches and lights, you can use a template (useful, for example, COCO switches).
 
-- Go to: {% my developer_template title="**Settings** > **Tools** > **Template**" %}
+- Go to: {% my tools_template title="**Settings** > **Tools** > **Template**" %}
 - Use the following codes to generate an event:
 
 ### Switch: ARC
