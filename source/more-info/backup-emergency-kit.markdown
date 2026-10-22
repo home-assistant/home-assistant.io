@@ -20,7 +20,7 @@ Encryption is a method of converting data into a coded format so that it can onl
 2. Download the emergency kit:
    - If you haven't set up backups yet, select **Set up backups**. The first step of the setup is **Encryption key**, where you can download the emergency kit. For the full steps, refer to [setting up an automatic backup process](/common-tasks/general/#setting-up-an-automatic-backup-process).
    - If you have already set up backups, on the **Encryption key** card, next to **Download emergency kit**, select **Download**.
-   - If the card shows **Set encryption key** instead, you don't have an encryption key yet. Select **Set** to create one, and download the emergency kit.
+   - If the card shows **Set encryption key** instead, you don't have an encryption key yet. Select **Set** to create one. Download the emergency kit, and then select **Set encryption key** to save the key.
    - To see the encryption key without downloading it, next to **Show my encryption key**, select **Show**.
 3. Store the kit somewhere safe, outside of Home Assistant.
    - Without the encryption key, there is no way to [restore an encrypted backup](/common-tasks/general/#restoring-a-backup).
