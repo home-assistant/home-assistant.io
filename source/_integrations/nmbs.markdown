@@ -3,8 +3,6 @@ title: NMBS
 description: Instructions on how to integrate timetable data for traveling on the NMBS/SNCB Belgian Railway within Home Assistant.
 ha_categories:
   - vehicles_transport.public_transport
-ha_config_flow: true
-ha_iot_class: Cloud Polling
 ha_release: 0.85
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -64,22 +62,22 @@ The travel time sensor has the following attributes:
 - `direction`: the direction of the train
 - `platform_departing` and `platform_arriving`: the track the train departs from and arrives at
 - `vehicle_id`: the vehicle ID of the train, for example `BE.NMBS.IC1832`
-- `departure`: how long until the scheduled departure of the train, for example `In 12 minutes`. The delay is not included, so for a delayed train this can reach zero or turn negative before it departs.
-- `departure_minutes`: the same time as a number of minutes
-- `delay`: the current delay of the train, for example `5 minutes`
+- `departure_time`: the scheduled departure time of the train
+- `departure_minutes`: how long until the scheduled departure, in minutes. The delay is not included, so for a delayed train this can reach zero or turn negative before it departs.
+- `delay_seconds`: the current delay of the train, in seconds
 - `delay_minutes`: the same delay as a number of minutes
-- `canceled`: whether the train from the departure station is canceled. When it is, `departure` and `departure_minutes` have no value. A canceled transfer train is not reported.
+- `canceled`: whether the train from the departure station is canceled. When it is, `departure_minutes` has no value. A canceled transfer train is not reported.
 - `via`: the station where you change trains, together with `via_arrival_platform`, `via_transfer_platform` and `via_transfer_time` (the time you have for the transfer, delay included). These attributes appear when the connection has a transfer and **Direct connections only** is not selected.
 - `latitude` and `longitude`: the coordinates of the departure station, when **Display on map** is selected.
 
 Each liveboard sensor has the following attributes:
 
-- `departure`: how long until the scheduled departure of the next train. The delay is not included, so it can turn negative for a delayed train.
-- `departure_minutes`: the same time as a number of minutes
+- `departure_time`: the scheduled departure time of the next train
+- `departure_minutes`: how long until the scheduled departure, in minutes. The delay is not included, so it can turn negative for a delayed train.
 - `vehicle_id`: the vehicle ID of the train
 - `monitored_station`: the station the sensor watches
 - `extra_train`: whether the train is an extra train outside the regular schedule
-- `delay` and `delay_minutes`: the current delay of the train, only when it is delayed
+- `delay_seconds` and `delay_minutes`: the current delay of the train, only when it is delayed
 
 A liveboard sensor gets an alert icon while its next train is delayed. Its state is the track and the destination of that train, for example `Track 5 - Antwerp-Central`.
 
