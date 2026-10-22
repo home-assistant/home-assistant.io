@@ -97,11 +97,11 @@ Select two different stations. To follow the departures of a single station, pic
 
 ### The API is currently unavailable
 
-Setup stops when the iRail API cannot be reached. Wait a while and try again.
+Setup stops when the iRail API cannot be reached. Wait a while and try again. When an already set up entry fails to load because the API cannot be reached, Home Assistant retries automatically.
 
 ### A configured station no longer exists
 
-One of the stations you set up is no longer in the station list of the iRail API. Delete the integration and set it up again with a station that exists.
+One of the stations you set up is no longer in the station list of the iRail API. Reconfigure the integration and pick a station that exists. You can also delete the integration and set it up again.
 
 ## Removing the integration
 
