@@ -35,7 +35,7 @@ Password:
 
 ## Supported functionality
 
-The **Tractive** integration provides the following entities for each pet registered in your Tractive account. The integration creates two devices per pet: a tracker device named **Tracker** followed by the tracker ID, which holds the entities related to the tracker hardware, and a device named after your pet, which holds the activity, rest, and sleep sensors.
+The **Tractive** integration provides the following entities for each pet registered in your Tractive account. The integration creates two devices per pet: a tracker device named **Tracker** followed by the tracker ID, which holds the entities related to the tracker hardware, and a device named after your pet, which holds the activity, rest, sleep, and weight sensors.
 
 ### Binary sensors
 
@@ -68,6 +68,9 @@ The **Tractive** integration provides the following entities for each pet regist
 - **Status**
   - **Description**: Current status of the tracker.
   - **Options**: Inaccurate position, Not reporting, Operational, System shutdown user, System startup
+- **Weight**
+  - **Description**: Weight of your pet, as stored in your pet's profile in the Tractive app.
+  - **Remarks**: The weight is shown in kilograms by default. You can change the unit in the entity settings. The entity is unavailable if no weight is set for your pet. Home Assistant checks for weight changes every 30 minutes.
 
 ### Switches
 
@@ -84,7 +87,7 @@ The switches are unavailable while the tracker is in a power saving zone.
 
 ## Data updates
 
-The **Tractive** integration receives push updates from the Tractive API. When the integration starts, it fetches the current state of your trackers and pets once. After that, the Tractive API sends state changes, such as a new location, battery level, or activity data, to Home Assistant as they happen, so the entities update in near real time without {% term polling %}.
+The **Tractive** integration receives push updates from the Tractive API. When the integration starts, it fetches the current state of your trackers and pets once. After that, the Tractive API sends state changes, such as a new location, battery level, or activity data, to Home Assistant as they happen, so the entities update in near real time without {% term polling %}. The only exception is the **Weight** sensor: the integration reads the weight from your pet's profile every 30 minutes.
 
 ## Known limitations
 
