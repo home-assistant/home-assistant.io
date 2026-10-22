@@ -33,6 +33,11 @@ interface Props {
   // Where the photo is anchored as the hero crops it, as in
   // object-position: put the product in view.
   imagePosition?: string;
+  // How far to move the phone photo up below the desk breakpoint, as a
+  // length: the photo grows taller by this much and loses it at the
+  // top. For a phone crop that already fits the hero's shape, where
+  // imagePosition has no room to move it.
+  mobileImageLift?: string;
   // The product name after "Home Assistant", such as "Connect AUX-2".
   product: string;
   // Tagline lines; the last one, the punchline, is bold.
@@ -44,12 +49,16 @@ const {
   mobileImage,
   imageAlt,
   imagePosition = "50% 50%",
+  mobileImageLift = "0px",
   product,
   tagline,
 } = Astro.props;
 ---
 
-<header class="connect-hero" style={`--image-position: ${imagePosition}`}>
+<header
+  class="connect-hero"
+  style={`--image-position: ${imagePosition}; --mobile-image-lift: ${mobileImageLift}`}
+>
   <ArtDirectedImage
     class="photo"
     image={image}
@@ -104,16 +113,20 @@ const {
     }
   }
 
+  /* On phones the photo is taller than the hero by the lift and
+     shifted up by it (mobileImageLift). */
   .photo {
     inset: 0;
+    overflow: hidden;
     position: absolute;
     z-index: -2;
 
     :global(img) {
       display: block;
-      height: 100%;
+      height: calc(100% + var(--mobile-image-lift));
       object-fit: cover;
       object-position: var(--image-position);
+      translate: 0 calc(-1 * var(--mobile-image-lift));
       width: 100%;
     }
   }
@@ -161,10 +174,16 @@ const {
     }
   }
 
-  /* Figma's slight tightening keeps the name on one line on a 393px
-     phone; the product name itself never breaks ("AUX-" / "2"). */
+  /* Figma sets the whole name on one line on phones: "Home Assistant
+     Connect AUX-2" is about 14.25em wide, which just fits a 393px
+     phone at 24px. On narrower phones the size shrinks with the space
+     between the gutters (with a little to spare), so the name stays on
+     one line. The product name itself never breaks ("AUX-" / "2"). */
   h1 {
-    font-size: var(--font-size-hero-product);
+    font-size: min(
+      var(--font-size-hero-product),
+      (100vw - 2 * var(--layout-gutter)) / 14.5
+    );
     font-weight: 400;
     letter-spacing: -0.01em;
 
@@ -191,6 +210,11 @@ const {
   }
 
   @media only screen and (min-width: breakpoints.$desk) {
+    .photo :global(img) {
+      height: 100%;
+      translate: none;
+    }
+
     .connect-hero {
       min-height: 51.25rem;
 

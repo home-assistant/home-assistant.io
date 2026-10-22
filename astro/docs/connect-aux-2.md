@@ -94,8 +94,9 @@ Photos:
   choosing between them.
 - `ports.webp` must keep its crop (2732 × 1816, the 1440 × 957 frame):
   the hotspot positions in `index.astro` are measured on it.
-- The hero files are horizontal bands of the scene, so the photo
-  covers the hero at any width without zooming in further.
+- The hero files are 2x crops of the Figma hero frames supplied by
+  design (`hero.webp` 2880 × 1640, `hero-mobile.webp` 786 × 1238), so
+  they match the frames exactly.
 
 Shared styles, scripts and components:
 
@@ -222,9 +223,6 @@ These are also recorded in each component's header comment.
   the icon turns white and the icon bounces once (left out when the
   visitor prefers reduced motion). Pointer hover only: the cards are not
   interactive, so they are not made focusable.
-- Hero photo: Figma draws it about 8% wider than its real shape (on
-  desktop and phones). The page keeps the photo's real proportions, so
-  the product looks slightly narrower than in Figma.
 - Collaboration banner: the near-flat pale blue from Figma
   (`#a0c4d8`), replacing the lighter gradient.
 - The "Powerful options" list sets every lead phrase in bold. Figma
