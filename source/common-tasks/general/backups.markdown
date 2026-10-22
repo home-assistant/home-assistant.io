@@ -302,21 +302,6 @@ You can use a backup during the onboarding process to restore your configuration
    - You will lose the connection to the UI and it will return once the restart is completed.
 6. On the login screen, enter the password and username as they were at the time the backup was taken.
 
-### Testing a backup
-
-To make sure that you can restore a backup, restore it on a second system and check it. For example, use a spare device or a virtual machine.
-
-{% important %}
-The test system starts the same integrations as your real system, and runs the same automations. It can control your devices, and sign in to your cloud services. After you've checked the backup, shut down the test system. You can also keep the test system off your home network.
-{% endimportant %}
-
-1. Install Home Assistant on the second system. For the steps, refer to [Installation](/installation/).
-2. During onboarding, restore the backup. For the steps, refer to [Restoring a backup during onboarding](#restoring-a-backup-during-onboarding).
-   - Have the encryption key from your [backup emergency kit](/more-info/backup-emergency-kit/) ready.
-3. Check that your integrations, automations, and dashboards are there.
-   - If you included the history, also check the history of an entity.
-4. Shut down the test system.
-
 ## Troubleshooting backups
 
 {% details "A backup fails and doesn't show why" %}
