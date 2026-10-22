@@ -96,7 +96,7 @@ Each home battery device has a **Control mode** select that sets how Zonneplan s
 - **Dynamic charging**: Zonneplan trades with the battery on the energy market.
 - **Day-ahead arbitrage**: The battery charges and discharges based on the day-ahead prices.
 
-The select only offers the modes your battery supports. Day-ahead arbitrage has to be set up once in the Zonneplan app; until then, selecting it shows an error.
+The select offers the modes available for your battery and always includes the current mode, even if it is marked as unavailable. Day-ahead arbitrage has to be set up once in the Zonneplan app; until then, selecting it shows an error.
 
 ## Known limitations
 
