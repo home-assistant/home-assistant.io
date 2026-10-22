@@ -56,7 +56,7 @@ The **NMBS** integration provides the following entities.
 - **Travel time**
   - **Description**: The expected total travel time of the next connection, in minutes, current delay included.
   - **Name**: `Train from <departure station> to <arrival station>`
-  - **Remarks**: Shows an alert icon when the train is delayed by 1 minute or more. When no upcoming train is found, the state is unknown, and the sensor only keeps its location when **Display on map** is selected.
+  - **Remarks**: Shows an alert icon when the train is delayed by more than 30 seconds. When no upcoming train is found, the state is unknown, and the sensor only keeps its location when **Display on map** is selected.
 - **Liveboard**
   - **Description**: The track and destination of the next train leaving the station, for example `Track 5 - Antwerp-Central`.
   - **Name**: `Trains in <station>`, one for each of the two stations
@@ -90,7 +90,7 @@ Each liveboard sensor has the following attributes:
 - `monitored_station`: the station the sensor watches
 - `extra_train`: whether the train is an extra train outside the regular schedule
 - `delay_seconds`: the current delay of the train, in seconds, only when it is delayed
-- `delay_minutes` and `delay`: the same delay rounded to minutes, as a number and as text, only when it is 1 minute or more
+- `delay_minutes` and `delay`: the same delay rounded to minutes, as a number and as text, only when it is more than 30 seconds
 
 ## Data updates
 
