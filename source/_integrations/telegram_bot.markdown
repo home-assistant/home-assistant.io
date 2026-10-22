@@ -168,8 +168,12 @@ Actions that send content, such as `telegram_bot.send_message` and `telegram_bot
 - `entity_id`: One or more Telegram bot [notify entities](#notifiers). Each notify entity represents one allowed chat ID.
 - `chat_id`: One or more allowed chat IDs. In the action editor, **Chat ID** and **Config entry ID** are under **Additional options**.
 
-If you don't specify `entity_id` or `chat_id`, the action sends to the first chat ID you allowlisted for the selected bot. With a single Telegram bot, the bot is selected automatically.
-If you have more than one Telegram bot, specify `entity_id` to select a chat, or specify `config_entry_id` to select the bot. When using `config_entry_id`, you can optionally specify `chat_id` to select one or more chats instead of the first allowed chat. Without `entity_id` or `config_entry_id`, the action fails with the error `Please specify at least 1 notify entity.`
+If you don't specify `entity_id` or `chat_id`, the action sends to the first chat ID you allowlisted for the selected bot:
+
+- If you have a single Telegram bot, the bot is selected automatically.
+- If you have more than one Telegram bot, specify `entity_id` to select a chat, or specify `config_entry_id` to select the bot.
+  - When using `config_entry_id`, you can optionally specify `chat_id` to select one or more chats instead of the first allowed chat.
+  - Without `entity_id` or `config_entry_id`, the action fails with the error `Please specify at least 1 notify entity.`
 
 ## Notifiers
 
