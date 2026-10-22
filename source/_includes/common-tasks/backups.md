@@ -2,7 +2,12 @@
 
 It is important to regularly back up your Home Assistant setup. You may have spent many hours configuring your system and creating automations. Keep your configurations safe so that you can [restore](#restoring-a-backup) a system or migrate your Home Assistant to new hardware.
 
-Backups are encrypted by default and stored in a compressed archive file (.tar). Home Assistant stores them locally by default. On Home Assistant OS, they are in the `/backup` folder. On Home Assistant Container, they are in the `backups` folder of your configuration directory.
+### What a backup contains and where it's stored
+
+Backups are encrypted by default and stored in a compressed archive file (.tar). By default, Home Assistant stores them locally, in one of the following folders:
+
+- On {% term "Home Assistant Operating System" %}, backups are in the `/backup` folder.
+- On {% term "Home Assistant Container" %}, for example when you run Home Assistant in Docker, backups are in the `backups` folder of your configuration directory.
 
 On Home Assistant OS, a full backup includes the following folders:
 
@@ -52,7 +57,7 @@ The automatic backup process creates a backup on a schedule and also deletes old
    - Under **Retention**, define how many backups to keep, or for how many days.
      - Older automatic backups are deleted. For example: if you back up daily and keep 7 backups, the backups that are older than 7 days are deleted.
      - These retention settings do not delete manual backups. However, Home Assistant Cloud replaces its previous backup whenever a new backup is uploaded, even if the previous backup was created manually.
-     - On Home Assistant OS, app update backups have their own limit. By default, Home Assistant keeps one backup per app. To change this, select the **App update backup** card on the backups page.
+     - App update backups have their own limit. For details, refer to [App update backups](#app-update-backups).
    - Select **Next**.
 7. On the **Backup data** step, define the data you want to back up, and select **Next**.
    - It is recommended to leave out media and the share folder to reduce the size of the backup.
@@ -148,6 +153,22 @@ There are two ways to download the backup from Home Assistant Cloud:
 - **Option 2**: From your Home Assistant Cloud account
   1. Log in to your [Home Assistant Cloud account](https://account.nabucasa.com/).
   2. Under **Stored files**, you can see the latest available backup file. Select the **Download** button.
+
+### App update backups
+
+On {% term "Home Assistant Operating System" %}, Home Assistant can create a backup of an app before it updates the app. This app update backup contains the app and its data, so you can go back to the previous version of the app if needed.
+
+- App update backups are only stored on this system.
+- By default, Home Assistant keeps one app update backup per app, and deletes older ones.
+- The retention of automatic backups doesn't delete app update backups.
+
+#### Changing app update backup settings
+
+1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, and select the **App update backup** card.
+   - Result: The **App update backups** page opens.
+2. Under **Backup preference when updating**, select **Backup before update** or **Skip backups**.
+   - You can still change this each time you update an app.
+3. Under **Retention**, enter how many app update backups to keep per app.
 
 ### Deleting obsolete backups
 
