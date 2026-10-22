@@ -39,7 +39,7 @@ import serialTv from "../../../assets/connect/aux-2/serial/tv.svg";
 import serialBottomRightShort from "../../../assets/connect/aux-2/serial/bottom-right-short.svg";
 import serialSolar from "../../../assets/connect/aux-2/serial/solar.svg";
 import serialBattery from "../../../assets/connect/aux-2/serial/battery.svg";
-import coverageImage from "../../../assets/connect/aux-2/coverage.png";
+import CoverageMap from "../../../assets/connect/aux-2/coverage.svg";
 import bestSpotImage from "../../../assets/connect/aux-2/best-spot.webp";
 import bestSpotMobileImage from "../../../assets/connect/aux-2/best-spot-mobile.webp";
 import boardImage from "../../../assets/connect/aux-2/board.webp";
@@ -154,14 +154,15 @@ const ports = [
 // (a TV and an AV receiver), `b` is "FRAME B" (node 2556:4664: a solar
 // panel and a battery, with a shorter bottom line). Parts without a
 // scene show in both; the AUX-2 sits at the same place in both frames,
-// so FRAME B's parts keep their Figma positions. The line files are
-// inlined (`inline`) so their lines (`.wire`, `.glow`, `.dot`) can
-// animate; the devices are images, cached and loaded lazily.
+// so FRAME B's parts keep their Figma positions. The line files and
+// the link to the Green are inlined (`inline`) so their lines
+// (`.wire`, `.glow`, `.dot`, `.data`) can animate; the devices are
+// images, cached and loaded lazily.
 const diagram = [
   { svg: serialTopRight, x: 59.97, y: 15.5, w: 39.16, inline: true },
   { svg: serialBottomRight, x: 59.97, y: 52.35, w: 39.16, scene: "a", inline: true },
   { svg: serialBottomRightShort, x: 59.97, y: 52.35, w: 39.16, scene: "b", inline: true },
-  { svg: serialLink, x: 37.3, y: 49.24, w: 7.51 },
+  { svg: serialLink, x: 37.3, y: 49.24, w: 7.51, inline: true },
   { svg: serialAux, x: 44.51, y: 34.46, w: 32.23 },
   { svg: serialGreen, x: 0, y: 34.89, w: 37.58, flip: true },
   { svg: serialReceiver, x: 74.42, y: 77.68, w: 22.8, scene: "a" },
@@ -387,14 +388,13 @@ const diagram = [
           *<a href="#faq">Check your antenna for compatibility</a>
         </p>
       </div>
-      <!-- TODO: a 1x export of the Figma illustration (node 2410:3513);
-           replace with a 2x export or an SVG from the design team. -->
-      <Image
-        quality={85}
+      <!-- The Figma illustration (node 2410:3513) as one SVG, its badges
+           in place. Inlined so its pulses (.pulse) can animate. -->
+      <CoverageMap
         class="coverage-map"
-        src={coverageImage}
-        alt="Floor plan of a house: the Connect AUX-2 and a ZWA-2 in the middle of the house, a Home Assistant Green in a corner"
-        widths={[coverageImage.width]}
+        data-coverage-map
+        role="img"
+        aria-label="Floor plan of a house: the Connect AUX-2 and a ZWA-2 in the middle of the house, a Home Assistant Green in a corner"
       />
       <!-- Figma zooms in on the desktop photo; phones show all of it. -->
       <ArtDirectedImage
@@ -546,6 +546,15 @@ const diagram = [
     document.addEventListener("visibilitychange", update);
   }
 
+  // Pulse the devices on the "Best spot in the house" map only while
+  // it is on screen (styles: data-playing on .coverage-map).
+  const coverageMap = document.querySelector("[data-coverage-map]");
+  if (coverageMap) {
+    new IntersectionObserver(([entry]) => {
+      coverageMap.toggleAttribute("data-playing", entry.isIntersecting);
+    }).observe(coverageMap);
+  }
+
   // Draw the cables around "Hardware with a mission" on when the
   // section scrolls into view (styles: .cables.is-armed / .is-revealed).
   const cables = document.querySelector("[data-cables]");
@@ -683,6 +692,72 @@ const diagram = [
   .coverage-map {
     height: auto;
     max-width: 100%;
+
+    :global(.pulse) {
+      opacity: 0;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+  }
+
+  /* The ZWA-2's signal radiates out through the house without a break:
+     seven filled rings, a second apart, grow at a steady pace and fade,
+     so at any moment they sit evenly spaced like Figma's still rings. The Green and the AUX-2 each ping once
+     every 2 seconds, the Green half a beat after the AUX-2. They play
+     only while the map is on screen (data-playing); without motion or
+     the script, the pulses stay hidden. */
+  @media (prefers-reduced-motion: no-preference) {
+    .coverage-map[data-playing] {
+      :global(.pulse-zwa circle) {
+        animation: coverage-wave 7s linear infinite;
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+
+      @for $i from 2 through 7 {
+        :global(.pulse-zwa circle:nth-child(#{$i})) {
+          animation-delay: -#{$i - 1}s;
+        }
+      }
+
+      :global(.pulse-zwa) {
+        opacity: 1;
+      }
+
+      :global(.pulse-aux),
+      :global(.pulse-green) {
+        animation: coverage-ping 2s ease-out infinite;
+      }
+
+      :global(.pulse-green) {
+        animation-delay: 1s;
+      }
+    }
+  }
+
+  @keyframes coverage-wave {
+    from {
+      opacity: 1;
+      transform: scale(0.06);
+    }
+
+    to {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes coverage-ping {
+    0% {
+      opacity: 0.9;
+      transform: scale(0.38);
+    }
+
+    60%,
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
   }
 
   /* Figma's 345 × 231 phone crop. */
@@ -821,53 +896,60 @@ const diagram = [
   }
 
   /* Music Assistant on a laptop with a phone in front, placed as in
-     the Figma group (node 2599:1485, 712 × 417): white outlines around
-     the screenshots. */
+     the Figma group (node 2599:1485, 712 × 417; on phones node
+     2602:1560 is the same group scaled down). Positions are percentages
+     of the group and sizes are in cqi (1cqi = 7.12px at Figma's width),
+     so the outlines, bezels and corners shrink with it. */
   .devices {
     aspect-ratio: 712 / 417;
+    container-type: inline-size;
     position: relative;
 
     > div {
-      background: #000b18;
-      border: 1.5px solid var(--color-text-inverse);
+      border: max(1px, 0.21cqi) solid var(--color-text-inverse);
       box-sizing: border-box;
-      overflow: hidden;
       position: absolute;
     }
 
     img {
       display: block;
       height: 100%;
-      object-fit: cover;
-      object-position: top;
       width: 100%;
     }
   }
 
+  /* The white outline (591 × 415), then the screenshot (577 × 399)
+     inside it with a 6px dark bezel. */
   .laptop {
-    border-radius: var(--radius-medium);
+    border-radius: 2.81cqi;
     height: 99.52%;
     left: 15.87%;
-    padding: 0.4375rem;
     top: 0.24%;
     width: 83.01%;
 
     img {
-      border-radius: 0.8125rem;
+      border: 0.84cqi solid #000b18;
+      border-radius: 1.83cqi;
+      box-sizing: border-box;
+      height: 96.14%;
+      left: 1.18%;
+      object-fit: cover;
+      object-position: top;
+      position: absolute;
+      top: 1.93%;
+      width: 97.64%;
     }
   }
 
+  /* The white outline (181 × 353) around the screenshot, which has its
+     own black bezel and rounded corners. */
   .phone {
-    border-radius: 1.9375rem;
+    border-radius: 4.35cqi;
     height: 84.65%;
     left: 1.12%;
-    padding: 0.4375rem;
+    overflow: hidden;
     top: 7.43%;
     width: 25.42%;
-
-    img {
-      border-radius: 1.5rem;
-    }
   }
 
   /* The serial diagram, scaling with its column. */
@@ -939,6 +1021,29 @@ const diagram = [
     }
   }
 
+  /* Data flows both ways along the dashed link between the Green and
+     the AUX-2: the dashes move by one dash and gap (12.25) per loop,
+     from the dash offset in the file (3.06). */
+  @media (prefers-reduced-motion: no-preference) {
+    .diagram :global(.data) {
+      animation: serial-data 0.8s linear infinite;
+    }
+
+    .diagram :global(.to-green) {
+      animation-direction: reverse;
+    }
+  }
+
+  @keyframes serial-data {
+    from {
+      stroke-dashoffset: 3.06;
+    }
+
+    to {
+      stroke-dashoffset: -9.19;
+    }
+  }
+
   @keyframes serial-pulse {
     0%,
     100% {
@@ -996,7 +1101,8 @@ const diagram = [
     }
 
     /* Two equal columns, 720px tall: text over the map on the left,
-       the photo on the right. */
+       the photo on the right. The map sits at the bottom, level with
+       the bottom of the photo. */
     .coverage {
       gap: var(--space-xxlarge) var(--space-xlarge);
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1006,7 +1112,7 @@ const diagram = [
     }
 
     .coverage-map {
-      align-self: start;
+      align-self: end;
     }
 
     .coverage-photo {

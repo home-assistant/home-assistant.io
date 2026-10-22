@@ -246,8 +246,13 @@ Assets:
 - "Audio and so much more" is a video in Figma, and the Figma tools
   can't export it. The page shows a 773px still. Swap in the video,
   with the still as its poster.
-- Low-resolution export that needs a 2x export or an SVG from design:
-  the coverage map (`coverage.png`, 590px; the full SVG is 71 KB).
+- The coverage map (`coverage.svg`) is Figma's whole group exported
+  as one SVG (after SVGO), with the badge labels as outlined paths.
+  Figma's static dotted rings around the ZWA-2, the glow discs behind
+  the badges and the glowing dots in the rooms are removed. The
+  animated pulses that replace them (`.pulse-zwa`, `.pulse-aux`,
+  `.pulse-green`) are not in Figma: they were added to the file by
+  hand, under each badge.
 - Hotspot card icons: "Extend your network" and "Expand I/O" reuse the
   "Connect anywhere" icon.
 - A back-side photo or 3D model, then add the rotate button. Figma's
