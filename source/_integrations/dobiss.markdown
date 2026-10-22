@@ -1,8 +1,8 @@
 ---
 title: Dobiss
 description: Control lights connected to a Dobiss NXT controller.
-ha_category:
-  - Light
+ha_categories:
+  - lighting.lighting_systems
 ha_iot_class: Local Polling
 ha_release: "2026.11"
 ha_config_flow: true
