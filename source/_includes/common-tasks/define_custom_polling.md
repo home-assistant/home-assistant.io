@@ -8,7 +8,7 @@ To turn off the default polling and create your own polling automation, follow t
    - If Home Assistant asks you to restart, restart it.
 4. Go to {% my automations title="**Settings** > **Automations & scenes**" %}, and select **Create automation** > **Create new automation**.
 5. Add the triggers and conditions for when you want to poll for data.
-6. Select **Add action**, select **By type**, and then select **Perform action**.
+6. Select **Add action**, select **By type**, select **Perform action**, and then select **+** next to **Perform action**.
 7. Under **Action**, search for and select the [**Update entity**](/actions/homeassistant.update_entity/) action.
 8. Under **Entities to update**, select the entities you want to poll.
    - You can only select entities. Areas, devices, and labels aren't supported.
