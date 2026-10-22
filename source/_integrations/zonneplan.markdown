@@ -96,7 +96,7 @@ If your account has a Zonneplan EV charge point, the integration adds a device f
 
 ### Unsupported devices and functionality
 
-The integration does not yet expose entities for Zonneplan solar panels. Home batteries and EV charge points can't be controlled yet; only the entities listed above are available.
+The integration does not yet expose entities for Zonneplan solar panels. EV charge points can't be controlled yet. Only the charge point entities listed above are available.
 
 ### Delayed usage data
 
