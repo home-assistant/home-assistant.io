@@ -13,22 +13,13 @@ ha_platforms:
   - sensor
 ha_integration_type: service
 ha_quality_scale: bronze
-related:
-  - url: https://developers.home-assistant.io/docs/documenting/standards
-    title: Documentation standard
-  - url: https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/
-    title: Integration Quality Scale - Rules
-  - docs: /docs/glossary/
-    title: Glossary
-  - docs: /docs/tools/quick-search/#my-links
-    title: My link
 ---
 
 The **NMBS** {% term integration %} creates sensors for traveling by train with NMBS/SNCB, the Belgian national railway. It retrieves its data from the [iRail](https://irail.be) API.
 
-The integration follows the connection between two stations of your choice. It shows the travel time of the next train between them, and the next trains leaving either station.
+The integration follows the connection between two stations of your choice. It shows the travel time of the next train between them, and the next train leaving each station.
 
-Use case: See the travel time of your train on a dashboard, and get a notification when your connection is delayed or canceled.
+You can show the travel time of your train on a dashboard, or build an automation that warns you when your train is delayed.
 
 {% include integrations/config_flow.md %}
 
@@ -47,14 +38,18 @@ You pick both stations from a dropdown that lists the stations of the Belgian ra
 
 Once the connection is set up, the integration creates a travel time sensor for it, and a liveboard sensor for each of the two stations.
 
+## Reconfiguration
+
+To change the stations or the options, go to **Settings** > **Devices & services**, select the **NMBS** integration, and select **Reconfigure** on the connection. The sensors keep their entity IDs and settings.
+
 ## Supported functionality
 
 The **NMBS** integration provides the following entities.
 
 ### Sensors
 
-- **Travel time** (named `Train from <departure station> to <arrival station>`): the expected total travel time of the next connection, in minutes, current delay included. The sensor gets an alert icon while the train is delayed.
-- **Liveboard** (named `Trains in <station>`, one for each station): the track and destination of the next train leaving the station. These sensors are turned off by default.
+- **Travel time** (named `Train from <departure station> to <arrival station>`): the expected total travel time of the next connection, in minutes, current delay included. The sensor gets an alert icon while the train is delayed. When no upcoming train is found, the state is unknown and the sensor has no attributes.
+- **Liveboard** (named `Trains in <station>`, one for each station): the track and destination of the next train leaving the station. These sensors are turned off by default. When no train is leaving, the state is unknown.
 
 The travel time sensor has the following attributes:
 
@@ -68,8 +63,11 @@ The travel time sensor has the following attributes:
 - `delay_seconds`: the current delay of the train, in seconds
 - `delay_minutes`: the same delay as a number of minutes
 - `delay`: the same delay in text form, for example `5 minutes`.
-- `canceled`: whether the train from the departure station is canceled. When it is, `departure` and `departure_minutes` have no value. A canceled transfer train is not reported.
-- `via`: the station where you change trains, together with `via_arrival_platform`, `via_transfer_platform` and `via_transfer_time` (the time you have for the transfer, delay included). These attributes appear when the connection has a transfer and **Direct connections only** is not selected.
+- `canceled`: whether the train from the departure station is canceled. When it is, `departure` and `departure_minutes` have no value.
+- `via`: the station where you change trains. This and the next three attributes appear when the connection has a transfer and **Direct connections only** is not selected.
+- `via_arrival_platform`: the track the train arrives at in the transfer station
+- `via_transfer_platform`: the track the next train leaves from in the transfer station
+- `via_transfer_time`: the time you have for the transfer, in minutes, delay included
 - `latitude` and `longitude`: the coordinates of the departure station, when **Display on map** is selected.
 
 Each liveboard sensor has the following attributes:
@@ -90,7 +88,9 @@ The integration polls the iRail API every 60 seconds, and only fetches the data 
 
 ## Known limitations
 
-- The two liveboard sensors are turned off by default. You can turn them on from the entity settings to see the next trains leaving your stations.
+- Only the first transfer of a connection is shown. A connection with two or more transfers only shows the first transfer station.
+- A liveboard sensor shows only the next train leaving its station.
+- A canceled transfer train is not reported. The `canceled` attribute only covers the train from the departure station.
 
 ## Troubleshooting
 
@@ -100,7 +100,11 @@ Select two different stations. To follow the departures of a single station, pic
 
 ### The API is currently unavailable
 
-Setup stops when the iRail API cannot be reached. Wait a while and try again. When an already set up entry fails to load because the API cannot be reached, Home Assistant retries automatically.
+Setup stops when the iRail API cannot be reached. Wait a while and try again.
+
+### Unable to fetch the NMBS station list
+
+Home Assistant could not fetch the station list from the iRail API while starting the integration. Home Assistant retries automatically. When the API is back, the sensors load without any action from you.
 
 ### A configured station no longer exists
 
