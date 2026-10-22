@@ -239,7 +239,7 @@ During setup, you get an invalid authentication error. Or, after setup, **SFR Bo
 
 #### Description
 
-The box does not accept the username and password that Home Assistant uses. This usually happens after you change the password in the box's web interface. Home Assistant detects this during setup, during data updates, or when you press the **Restart** button, which then shows **The provided credentials are invalid.**
+The box doesn't accept the username and password Home Assistant uses. This usually happens after you change the password in the box's web interface. Home Assistant detects this during setup, during data updates, and when you press the **Restart** button. When you press the button, Home Assistant also shows **The provided credentials are invalid.**
 
 #### Resolution
 
