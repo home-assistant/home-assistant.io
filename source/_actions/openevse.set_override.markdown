@@ -41,9 +41,8 @@ Time limit:
   description: Time limit duration for the override session.
   required: false
 Auto release:
-  description: Automatically clear the override when the session completes or limits are reached.
+  description: Automatically clear the override when the session completes or limits are reached. If omitted, the existing value on the charger is retained.
   required: false
-  default: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -81,14 +80,14 @@ energy_limit:
   required: false
   type: integer
 time_limit:
-  description: Time limit duration for the override session (e.g. `01:30:00` or seconds).
+  description: "Time limit duration for the override session, specified as a mapping, for example `{hours: 1, minutes: 30}`."
   required: false
-  type: [string, integer]
+  type: map
 auto_release:
   description: Automatically clear the override when the session completes or limits are reached.
   required: false
   type: boolean
-  default: false
+  default: "Existing value on the charger"
 {% endoptions_yaml %}
 
 <a id="targets"></a>
