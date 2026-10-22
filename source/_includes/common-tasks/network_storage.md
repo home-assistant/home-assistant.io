@@ -63,14 +63,14 @@ Server:
 
 {% configuration_basic "hassio.network_share.usage" %}
 Backup:
-  description: This will become a target. You can use it when creating an automatic or manual backup. The first storage you add of this type becomes your new default target. If you want to change the default target, [check out the documentation below](#change-default-local-backup-location).
+  description: The storage becomes a backup location. You can select it for automatic and manual backups on the **Backups** page. The first storage you add with this usage becomes the default local backup location. For details, refer to [Default local backup location](#default-local-backup-location).
 Media:
   description: A new directory with the name you gave your storage will be created under `/media`. This directory can be accessed by Home Assistant and apps.
 Share:
   description: A new directory with the name you gave your storage will be created under `/share`. This directory can be accessed by Home Assistant and apps.
 {% endconfiguration_basic %}
 
-### Change default local backup location
+### Default local backup location
 
 By default, the first storage you add with the **Backup** usage becomes your default local backup location. This can be network storage or a local disk.
 
@@ -83,6 +83,8 @@ The default local backup location is used for backups that don't have their own 
 - Backups that `ha core update --backup` and `ha apps update --backup` create before an update.
 
 Backups that you create on the **Backups** page, including automatic backups, are stored in the locations that you select there. For details, refer to [Defining backup locations](/common-tasks/general/#defining-backup-locations).
+
+### Change default local backup location
 
 To change the default local backup location, follow these steps:
 
