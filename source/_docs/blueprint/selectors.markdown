@@ -199,6 +199,22 @@ entity:
         For a list of supported features for each entity type, refer to the [entity documentation](https://contributors.home-assistant.io/core/entities/entity-class/).
       type: list
       required: false
+    unit_of_measurement:
+      description: >
+        Limits the list of areas to areas that have entities with a certain
+        unit of measurement, for example, `kWh`. Can be either a string with
+        a single unit of measurement, or a list of string units of measurement
+        to limit the selection to.
+      type: [string, list]
+      required: false
+    translation_key:
+      description: >
+        Limits the list of areas to areas that have entities whose registry
+        entry has the set translation key, for example, `epex_current_hour`.
+        Can be either a string with a single translation key, or a list of
+        string translation keys to limit the selection to.
+      type: [string, list]
+      required: false
 multiple:
   description: >
     Allows selecting multiple areas. If set to `true`, the resulting value of
@@ -609,6 +625,22 @@ entity:
         For a list of supported features for each entity type, refer to the [entity documentation](https://contributors.home-assistant.io/core/entities/entity-class/).
       type: list
       required: false
+    unit_of_measurement:
+      description: >
+        Limits the list of devices to devices that have entities with a certain
+        unit of measurement, for example, `kWh`. Can be either a string with a
+        single unit of measurement, or a list of string units of measurement to
+        limit the selection to.
+      type: [string, list]
+      required: false
+    translation_key:
+      description: >
+        Limits the list of devices to devices that have entities whose registry
+        entry has the set translation key, for example, `epex_current_hour`.
+        Can be either a string with a single translation key, or a list of
+        string translation keys to limit the selection to.
+      type: [string, list]
+      required: false
 filter:
   description: >
     When filter options are provided, the list of devices is filtered by devices
@@ -879,6 +911,23 @@ filter:
         supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
       type: list
       required: false
+    unit_of_measurement:
+      description: >
+        Limits the list of entities to entities with a certain unit of
+        measurement, for example, `kWh`. Can be either a string with a single
+        unit of measurement, or a list of string units of measurement to limit
+        the selection to.
+      type: [string, list]
+      required: false
+    translation_key:
+      description: >
+        Limits the list of entities to entities whose registry entry has the
+        set translation key, for example, `epex_current_hour`. Can be either a
+        string with a single translation key, or a list of string translation
+        keys to limit the selection to. Entities without a registry entry or
+        without a matching translation key are not offered.
+      type: [string, list]
+      required: false
 multiple:
   description: >
     Allows selecting multiple entities. If set to `true`, the resulting value of
@@ -1036,6 +1085,22 @@ entity:
         or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list
         of features.
       type: list
+      required: false
+    unit_of_measurement:
+      description: >
+        When set, the list only includes floors that have entities with a
+        certain unit of measurement, for example, `kWh`. Can be either a string
+        with a single unit of measurement, or a list of string units of
+        measurement to limit the selection to.
+      type: [string, list]
+      required: false
+    translation_key:
+      description: >
+        When set, the list only includes floors that have entities whose
+        registry entry has the set translation key, for example,
+        `epex_current_hour`. Can be either a string with a single translation
+        key, or a list of string translation keys to limit the selection to.
+      type: [string, list]
       required: false
 multiple:
   description: >
@@ -1799,6 +1864,22 @@ entity:
         `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
         For a list of supported features for each entity type, refer to the [entity documentation](https://contributors.home-assistant.io/core/entities/entity-class/).
       type: list
+      required: false
+    unit_of_measurement:
+      description: >
+        Limits the targets to entities with a certain unit of measurement, for
+        example, `kWh`. Can be either a string with a single unit of
+        measurement, or a list of string units of measurement to limit the
+        selection to.
+      type: [string, list]
+      required: false
+    translation_key:
+      description: >
+        Limits the targets to entities whose registry entry has the set
+        translation key, for example, `epex_current_hour`. Can be either a
+        string with a single translation key, or a list of string translation
+        keys to limit the selection to.
+      type: [string, list]
       required: false
 {% endconfiguration %}
 
