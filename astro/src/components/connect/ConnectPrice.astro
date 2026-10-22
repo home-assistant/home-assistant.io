@@ -7,7 +7,8 @@
 // Built from "Price Section" in the Figma file "Connect AUX-2" (node
 // 2002:31233). It replaces the per-page `#buy` section of the Jekyll
 // Connect pages (`source/connect/*/components/_buy.html`), whose terms
-// text it takes over. Deliberate differences:
+// text it takes over. Its Buy button opens the page's BuyDialog, when
+// there is one (otherwise it links to `buyHref`). Deliberate differences:
 //   - The glow is a CSS radial gradient instead of Figma's blurred
 //     vector. It fades in when the section scrolls into view, as on
 //     the Jekyll pages (1.5s ease-out), and grows slightly as it does.
@@ -31,7 +32,13 @@ const { usd, eur, buyHref } = Astro.props;
   <p class="price">
     <span>{usd}</span><span class="slash">/</span><span>{eur}</span><sup>*</sup>
   </p>
-  <Button href={buyHref} scheme="connect-line" onDark>Buy now</Button>
+  <Button
+    href={buyHref}
+    scheme="connect-line"
+    onDark
+    data-buy-dialog
+    data-buy-context="price">Buy now</Button
+  >
   <p class="terms">
     * Recommended MSRP. USD prices exclude taxes, while EUR prices include
     applicable taxes. Prices differ between regions due to varying local

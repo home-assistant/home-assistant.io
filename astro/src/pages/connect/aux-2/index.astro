@@ -12,6 +12,7 @@
 import { Image } from "astro:assets";
 import ArtDirectedImage from "../../../components/ArtDirectedImage.astro";
 import Site from "../../../layouts/Site.astro";
+import BuyDialog from "../../../components/BuyDialog.astro";
 import ConnectNav from "../../../components/connect/ConnectNav.astro";
 import ConnectHero from "../../../components/connect/ConnectHero.astro";
 import ConnectSectionHeader from "../../../components/connect/ConnectSectionHeader.astro";
@@ -71,7 +72,8 @@ const product = "Connect AUX-2";
 
 // Section links as on the other Connect pages; the Figma file only has
 // placeholders. Their "Docs" link is left out until the AUX-2 has help
-// pages. "#buy" is the price section further down the page.
+// pages. "#buy" is the price section further down the page, where the
+// Buy buttons lead without the buy dialog's script.
 const links = [
   { label: "Features", href: "#features" },
   { label: "Specs", href: "#specs" },
@@ -492,6 +494,10 @@ const diagram = [
     <!-- Figma frame "FAQ" (desktop node 2002:36189). -->
     <ConnectFaq items={faq} />
   </main>
+
+  <!-- Where to buy: the distributors listed under "aux-2" in
+       source/_data/products.yml. -->
+  <BuyDialog product="aux-2" />
 </Site>
 
 <script>

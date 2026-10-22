@@ -14,12 +14,27 @@
 //     margin as tall as the bar), white on transparent.
 //   - Once the page scrolls it shrinks from 120px to 80px and fades in
 //     a frosted white panel, with navy text (data-stuck).
-//   - Links get an underline on hover that moves sideways: here the
-//     AUX-2 page's dashed data line rather than the ZBT-2's wave.
+//   - Links get an underline on hover that moves sideways: a dashed
+//     Connect-blue data line (the ZBT-2 page has a wave).
 //   - The open menu (below the desk width) is the same frosted panel
 //     behind the bar, its links centered in a column.
 // The page's site header should scroll away (Site's `stickyHeader`
 // off), as on the Jekyll Connect pages, so only this bar stays on top.
+// The Buy button opens the page's BuyDialog. On a page:
+//
+//   <Site title="…" stickyHeader={false}>
+//     <main class="connect">
+//       <ConnectNav
+//         product="Connect AUX-2"
+//         links={[
+//           { label: "Features", href: "#features" },
+//           { label: "Docs", href: "https://…", external: true },
+//         ]}
+//         buyHref="#buy"
+//       />
+//       <ConnectHero … />
+//       …
+//       <BuyDialog product="aux-2" />
 //
 // Deliberate differences from the Jekyll bar:
 //   - The product name is text, as in Figma, not an image logo; two
@@ -32,12 +47,17 @@ import Button from "../Button.astro";
 interface Link {
   label: string;
   href: string;
+  // Opens in a new tab, such as the product's docs on another site.
+  external?: boolean;
 }
 
 interface Props {
   // The product name after "Home Assistant", such as "Connect AUX-2".
   product: string;
+  // The page's sections ("#features"), and any other pages.
   links: Link[];
+  // Where the Buy button leads without the page's BuyDialog (which it
+  // opens when there is one): usually the price section, "#buy".
   buyHref: string;
 }
 
@@ -66,14 +86,25 @@ const menuId = `connect-menu-${crypto.randomUUID().slice(0, 8)}`;
     <div class="menu">
       <ul class="links">
         {
-          links.map(({ label, href }: Link) => (
+          links.map(({ label, href, external }: Link) => (
             <li>
-              <a href={href}>{label}</a>
+              <a
+                href={href}
+                target={external ? "_blank" : undefined}
+                rel={external ? "noopener" : undefined}
+              >
+                {label}
+              </a>
             </li>
           ))
         }
       </ul>
-      <Button href={buyHref} scheme="connect-line">Buy now</Button>
+      <Button
+        href={buyHref}
+        scheme="connect-line"
+        data-buy-dialog
+        data-buy-context="navbar">Buy now</Button
+      >
     </div>
   </div>
 </nav>

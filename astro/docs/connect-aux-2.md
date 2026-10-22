@@ -50,6 +50,7 @@ Components in `src/components/connect/`, each with a `.fixtures.mjs`:
 
 | Component | Section(s) |
 | --- | --- |
+| `BuyDialog` (in `src/components/`) | Where to buy: distributors by shipping region, from `source/_data/products.yml`; opened by any `data-buy-dialog` element or a `#buy` address. Shared with future Green, Yellow and Voice pages. |
 | `ConnectNav` | Product bar, sticky over the hero and frosted white once the page scrolls, as on the ZBT-2 page; folds into a menu below 1140px. |
 | `ConnectHero` | Hero photo, tagline, product name (the page's `h1`), lead, collaboration badge. |
 | `ConnectSectionHeader` | Centered `h2` and lead ("Audio and so much more", "Incredible audio", "Deep control with serial"). |
@@ -279,8 +280,11 @@ Content (check with the product and docs teams):
 
 Behavior and integration:
 
-- Buy buttons link to `#buy`. Hook up the shared buy dialog
-  (`custom/buy-dialog.html` on the Jekyll pages) when it is ported.
+- The Buy buttons open the buy dialog (`BuyDialog`), which lists the
+  distributors under `aux-2` in `source/_data/products.yml`. That list
+  is empty for now, so the dialog says distributors are not listed
+  yet: add them in the same format as the other products. Without the
+  script, the buttons link to the price section (`#buy`).
 - The product bar follows the ZBT-2 page's: sticky, 120px over the
   hero, shrinking to an 80px frosted white bar once the page scrolls.
   As on the Jekyll Connect pages, the site header scrolls away

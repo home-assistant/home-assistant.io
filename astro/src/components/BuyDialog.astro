@@ -1,0 +1,503 @@
+---
+// Where to buy a product: a modal listing its distributors by the
+// region they ship to, one tab per region. The Astro version of
+// Jekyll's `source/_includes/custom/buy-dialog.html` (styles in
+// `sass/homeassistant/aside/_buy_dialog.scss`), used by the Connect,
+// Green, Yellow and Voice pages.
+//
+// The data is the product's entry in `source/_data/products.yml`, the
+// same file the Jekyll dialog reads (the `products` collection in
+// src/content.config.mjs): `<BuyDialog product="aux-2" />` here is
+// `{% include custom/buy-dialog.html product="aux-2" %}` there.
+//
+// Behavior, as on the Jekyll pages:
+//   - Any element with `data-buy-dialog` opens it; its
+//     `data-buy-context` ("navbar", "price") is sent with Plausible's
+//     "Buy Dialog" event. A link keeps its href (such as "#buy") for
+//     when the script has not run.
+//   - Arriving with `#buy` in the address opens it (context
+//     "fragment").
+//   - On opening, the tab of the visitor's region is chosen from their
+//     time zone ("Europe/Amsterdam" picks "Europe").
+//   - The close button, Escape or a click outside the panel close it.
+// Deliberate differences: it is a native <dialog> (focus stays inside
+// while it is open, and Escape is built in), the regions are real tabs
+// (arrow keys move between them), and a product without distributors
+// yet gets a short notice instead of an empty panel.
+import { getEntry } from "astro:content";
+
+interface Props {
+  // The product's key in source/_data/products.yml, such as "zbt-2".
+  product: string;
+}
+
+interface Distributor {
+  name: string;
+  ship_from: string;
+  ship_to: string;
+  url: string;
+  logo?: string;
+}
+
+const { product } = Astro.props;
+const entry = await getEntry("products", product);
+if (!entry) {
+  throw new Error(
+    `BuyDialog: no product "${product}" in source/_data/products.yml.`,
+  );
+}
+const { name, new: isNew, distributors } = entry.data;
+
+// The distributors' logos, bundled from Jekyll's images so they load
+// wherever the page is served (the Astro dev server and preview do not
+// serve source/images). products.yml names them by their site path,
+// "/images/distributors/amazon.webp".
+const logos = import.meta.glob<{ default: ImageMetadata }>(
+  "../../../source/images/distributors/*.{webp,png,jpg,jpeg,svg}",
+  { eager: true },
+);
+const logoSrc = (path: string) =>
+  logos[`../../../source${path.trim()}`]?.default.src ?? path;
+
+const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+const byName = (a: string, b: string) =>
+  a.localeCompare(b, "en", { sensitivity: "base" });
+
+// The regions in the order they first appear in the file; in each, the
+// distributors by where they ship from, then by name.
+const regions = new Map<string, Distributor[]>();
+for (const distributor of distributors as Distributor[]) {
+  const region = distributor.ship_to.trim();
+  regions.set(region, [...(regions.get(region) ?? []), distributor]);
+}
+const tabs = [...regions].map(([region, items]) => ({
+  region,
+  slug: slugify(region),
+  items: items.toSorted(
+    (a, b) =>
+      byName(a.ship_from.trim(), b.ship_from.trim()) || byName(a.name, b.name),
+  ),
+}));
+
+const id = `buy-${product}`;
+---
+
+<dialog class="buy-dialog" aria-labelledby={`${id}-title`} data-buy-dialog-root>
+  <div class="panel">
+    <div class="header">
+      <h2 class="title" id={`${id}-title`} set:html={name} />
+      <form method="dialog">
+        <button class="close" aria-label="Close">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            ></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    {
+      isNew && (
+        <p class="alert">
+          <strong>New product!</strong> Stock may be limited, and please be
+          patient while our distributors' product pages go live.
+        </p>
+      )
+    }
+
+    {
+      tabs.length > 0 ? (
+        <div class="content">
+          <div class="sidebar">
+            <p class="label" id={`${id}-regions`}>
+              Shipping to
+            </p>
+            <div class="tabs" role="tablist" aria-labelledby={`${id}-regions`}>
+              {tabs.map(({ region, slug }, i) => (
+                <button
+                  class="tab"
+                  type="button"
+                  role="tab"
+                  id={`${id}-tab-${slug}`}
+                  aria-controls={`${id}-${slug}`}
+                  aria-selected={i === 0 ? "true" : "false"}
+                  tabindex={i === 0 ? 0 : -1}
+                  data-region={slug}
+                >
+                  {region}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div class="panels">
+            {tabs.map(({ slug, items }, i) => (
+              <div
+                class="distributors"
+                role="tabpanel"
+                id={`${id}-${slug}`}
+                aria-labelledby={`${id}-tab-${slug}`}
+                hidden={i !== 0}
+              >
+                {items.map(({ name, url, logo, ship_from }) => (
+                  <a
+                    class="distributor"
+                    href={url.trim()}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    {logo ? (
+                      <img src={logoSrc(logo)} alt={name} loading="lazy" />
+                    ) : (
+                      <span class="name">{name}</span>
+                    )}
+                    <span class="from">Ships from {ship_from.trim()}</span>
+                  </a>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <p class="empty">
+          Distributors for this product are not listed yet.
+        </p>
+      )
+    }
+  </div>
+</dialog>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>(
+    "[data-buy-dialog-root]",
+  );
+
+  if (dialog) {
+    const tabs = [...dialog.querySelectorAll<HTMLElement>('[role="tab"]')];
+
+    const select = (tab: HTMLElement) => {
+      for (const other of tabs) {
+        const selected = other === tab;
+        other.setAttribute("aria-selected", String(selected));
+        other.tabIndex = selected ? 0 : -1;
+        const panel = document.getElementById(
+          other.getAttribute("aria-controls")!,
+        );
+        if (panel) {
+          panel.hidden = !selected;
+          // Each region's list starts at its top.
+          panel.scrollTop = 0;
+        }
+      }
+    };
+
+    for (const tab of tabs) {
+      tab.addEventListener("click", () => select(tab));
+      // Arrow keys move between the tabs, as in any tab list.
+      tab.addEventListener("keydown", (event) => {
+        const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[
+          event.key
+        ];
+        if (!step) return;
+        event.preventDefault();
+        const next = tabs[(tabs.indexOf(tab) + step + tabs.length) % tabs.length];
+        select(next);
+        next.focus();
+      });
+    }
+
+    // The visitor's region, from the first part of their time zone.
+    const selectRegion = () => {
+      const region = Intl.DateTimeFormat()
+        .resolvedOptions()
+        .timeZone.split("/")[0]
+        .toLowerCase();
+      const tab = tabs.find((tab) => tab.dataset.region === region);
+      if (tab) select(tab);
+    };
+
+    const open = (context?: string) => {
+      if (dialog.open) return;
+      selectRegion();
+      dialog.showModal();
+      document.documentElement.style.overflow = "hidden";
+      const plausible = (window as { plausible?: Function }).plausible;
+      if (typeof plausible === "function") {
+        if (context) plausible("Buy Dialog", { props: { context } });
+        else plausible("Buy Dialog");
+      }
+    };
+
+    dialog.addEventListener("close", () => {
+      document.documentElement.style.overflow = "";
+    });
+
+    // A click on the backdrop lands on the dialog itself, outside the
+    // panel.
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+
+    for (const trigger of document.querySelectorAll<HTMLElement>(
+      "[data-buy-dialog]",
+    )) {
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        open(trigger.dataset.buyContext);
+      });
+    }
+
+    if (window.location.hash === "#buy") open("fragment");
+  }
+</script>
+
+<style lang="scss">
+  @use "../styles/breakpoints";
+
+  .buy-dialog {
+    background: none;
+    border: 0;
+    box-sizing: border-box;
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    max-height: calc(100% - 2.5rem);
+    max-width: min(39rem, 100% - 2.5rem);
+    padding: 0;
+    width: 100%;
+
+    &::backdrop {
+      background: rgb(0 0 0 / 40%);
+    }
+  }
+
+  .panel {
+    background: var(--color-surface);
+    border-radius: var(--radius-small);
+    display: grid;
+    gap: var(--space-xlarge);
+    padding: var(--space-xlarge);
+  }
+
+  .header {
+    align-items: flex-start;
+    display: flex;
+    gap: var(--space-large);
+    justify-content: space-between;
+  }
+
+  .title {
+    font-size: var(--font-size-xlarge);
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0;
+
+    :global(strong) {
+      font-weight: 600;
+    }
+  }
+
+  .close {
+    background: none;
+    border: 0;
+    border-radius: var(--radius-xsmall);
+    color: inherit;
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+
+    svg {
+      fill: currentColor;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-connect-line);
+    }
+  }
+
+  .alert,
+  .empty {
+    border-radius: var(--radius-small);
+    font-size: var(--font-size-large);
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .alert {
+    background: var(--color-hover-wash);
+    padding: var(--space-medium) var(--space-large);
+  }
+
+  .empty {
+    color: var(--color-ink-muted);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xlarge);
+    min-height: 0;
+  }
+
+  /* The regions: a grey panel of tabs, two to a row on phones. */
+  .sidebar {
+    background: #f0f0f3;
+    border-radius: var(--radius-small);
+    min-width: 8.75rem;
+    padding: var(--space-medium);
+  }
+
+  .label {
+    font-size: var(--font-size-medium);
+    font-weight: 700;
+    margin: 0;
+    padding-bottom: var(--space-small);
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xsmall);
+  }
+
+  .tab {
+    background: none;
+    border: 0;
+    border-radius: var(--radius-xsmall);
+    color: var(--color-ink-muted);
+    cursor: pointer;
+    flex: 1 0 40%;
+    font: inherit;
+    font-size: var(--font-size-large);
+    padding: var(--space-small);
+    text-align: center;
+    transition: background-color 0.1s;
+
+    &:hover {
+      background: #e1e1e1;
+    }
+
+    &[aria-selected="true"] {
+      background: #fcfcff;
+      color: #000;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-connect-line);
+    }
+  }
+
+  /* All the regions' lists share one cell, the hidden ones invisible,
+     so the box is as tall as the longest list whichever tab is chosen
+     and does not jump between tabs. A list longer than 475px scrolls
+     on its own. */
+  .panels {
+    align-items: start;
+    container: buy-distributors / inline-size;
+    display: grid;
+    flex-grow: 1;
+  }
+
+  /* The distributors: logo tiles with where they ship from, in two or
+     three columns (see the container query below), stretching to
+     fill. */
+  .distributors {
+    align-content: start;
+    display: grid;
+    gap: var(--space-small);
+    grid-area: 1 / 1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: 29.6875rem;
+    overflow-y: auto;
+    /* Room for a scrollbar on every list, so the tiles are the same
+       width on every tab. */
+    scrollbar-gutter: stable;
+
+    &[hidden] {
+      display: grid;
+      visibility: hidden;
+    }
+  }
+
+  .distributor {
+    align-items: center;
+    border: 1px solid #f0f0f3;
+    border-radius: var(--radius-small);
+    box-sizing: border-box;
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-small);
+    /* Room for the logo and two lines of text, on every tile. */
+    height: 5.25rem;
+    justify-content: center;
+    padding: var(--space-small);
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.1s;
+
+    &:hover {
+      background: #f0f0f3;
+    }
+
+    /* The logo in a fixed band, so tiles with one or two lines of text
+       keep their logos the same size. */
+    img {
+      flex: none;
+      height: 2.25rem;
+      object-fit: contain;
+      width: 100%;
+    }
+
+    .name {
+      align-items: center;
+      display: flex;
+      flex: 1;
+      font-size: var(--font-size-medium);
+    }
+
+    /* Long places ("Czech Republic") wrap onto a second line. */
+    .from {
+      color: var(--color-ink-muted);
+      font-size: var(--font-size-xsmall);
+      line-height: 1.2;
+      text-wrap: balance;
+    }
+  }
+
+  /* From the lap width: the regions in a column beside the tiles. */
+  @media only screen and (min-width: breakpoints.$lap) {
+    .title {
+      font-size: var(--font-size-heading);
+    }
+
+    .content {
+      flex-direction: row;
+    }
+
+    .tabs {
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+
+    .tab {
+      flex: none;
+      text-align: left;
+    }
+
+  }
+
+  /* Three to a row once the list has room for them (on the desk-sized
+     dialog, beside the regions); two on phones and narrow windows. */
+  @container buy-distributors (min-width: 22rem) {
+    .distributors {
+      gap: var(--space-large);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>

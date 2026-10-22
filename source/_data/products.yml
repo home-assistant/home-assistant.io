@@ -884,3 +884,9 @@ zbt-2:
       ship_to: Australia
       url: https://smartguys.com.au/product/home-assistant-zbt-2-connect-zigbee-thread-adapter/
       logo: /images/distributors/smart-guys.webp
+
+aux-2:
+  name: "<strong>Home Assistant</strong> Connect AUX-2"
+  # TODO: add the distributors once they are confirmed, in the same
+  # format as the other products (name, ship_from, ship_to, url, logo).
+  distributors: []
