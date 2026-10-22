@@ -11,8 +11,6 @@ This section provides tasks that do not depend on a specific Home Assistant inst
 
 ## Defining a custom polling interval
 
-If you want to define a specific interval at which your device is being polled for data, you can disable the default polling interval and create your own polling automation.
-
 ### What is data polling?
 
 Data polling is the process of querying a device or service at regular intervals to check for updates or retrieve data. By defining a custom polling interval, you can control how frequently your system checks for new data, which can help optimize performance and reduce unnecessary network traffic.
@@ -21,8 +19,10 @@ Data polling is the process of querying a device or service at regular intervals
 
 Creating an automation for polling gives you more flexibility on when to poll:
 
-1. Not all integrations have a configurable polling interval. The homeassistant.update_entity service, on the other hand, works with most of the integrations; no code changes are required.
-2. An automation allows you to poll whenever you want. For example, if you have a rate-limited solar panel provider with a maximum number of requests per day, you may want to lower/stop the polling at night but poll more frequently during the day.
+- Not all integrations have a configurable polling interval. The [**Update entity**](/actions/homeassistant.update_entity/) action works with most integrations.
+- An automation allows you to poll whenever you want. For example, if you have a rate-limited solar panel provider with a maximum number of requests per day, you may want to poll less often or stop polling at night, and poll more often during the day.
+
+### To define a custom polling interval
 
 {% include common-tasks/define_custom_polling.md %}
 
