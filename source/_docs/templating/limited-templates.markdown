@@ -57,7 +57,7 @@ Each [template function](/template-functions/) page shows whether the function i
 Only a few fields use limited templates. Other fields that accept templates support all template features. The following fields use limited templates:
 
 - In automations, the [`trigger_variables`](/docs/automation/trigger/#trigger-variables) section, and the `enabled` option of triggers
-- In automations and scripts, the `enabled` option of conditions and of other steps
+- In automations and scripts, the `enabled` option of conditions, except a condition that is a step of its own
 - The following trigger options:
   - [Event trigger](/triggers/event/): `event_type`, `event_data`, and `context`
   - [MQTT trigger](/triggers/mqtt/): `topic`
@@ -84,9 +84,9 @@ Home Assistant works out the limited templates in the triggers of a **Wait for a
 
 - All variables defined before the wait, including `trigger`
 
-### In the `enabled` option of conditions and other steps
+### In the `enabled` option of conditions
 
-Limited templates in the `enabled` option of conditions and other steps can't use any variables. Instead of a variable, use one of the following:
+Limited templates in the `enabled` option of conditions can't use any variables. Instead of a variable, use one of the following:
 
 - A fixed value
 - A blueprint input
@@ -98,7 +98,6 @@ If a limited template uses a function that isn't available, Home Assistant logs 
 - In a trigger option or the `enabled` option of a trigger, the trigger doesn't react. The automation still shows as turned on.
 - In `trigger_variables`, none of the triggers react. The automation still shows as turned on.
 - In the `enabled` option of a condition in **And if**, the automation doesn't load.
-- In the `enabled` option of a step, the run stops at the step.
 - In a **Wait for a trigger** step, a trigger whose limited template fails isn't set up. The step still waits for any remaining triggers or the timeout. If no triggers can be set up, the wait ends right away, and the run continues with the next step.
 
 For how to fix the error, refer to [Use of 'states' is not supported in limited templates](/docs/templating/errors/#templateerror-use-of-states-is-not-supported-in-limited-templates).
