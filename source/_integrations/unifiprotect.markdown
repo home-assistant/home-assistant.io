@@ -194,8 +194,8 @@ write access to each device. If the user you are using has limited access to som
 and in many cases, get a read-only sensor instead of an editable switch/select/number {% term entity %}.
 Some controls are the exception: they use the API key, so they are available regardless of the local user's permissions.
 
-- Floodlights: the light, status light, motion sensitivity, auto-shutoff duration, and light mode.
-- Cameras: the status light, high FPS, overlay, smart detection, HDR mode, and microphone level controls, and the doorbell text select and text entities.
+- Floodlights: the light, status light, motion sensitivity, auto-shutoff duration, and light mode
+- Cameras: the status light, high FPS, overlay, smart detection, HDR mode, and microphone level controls, and the doorbell text select and text entities
 {% endnote %}
 
 The table below shows, per device type, which connection mode is required. See [Connection modes](#connection-modes) for what each mode provides.
