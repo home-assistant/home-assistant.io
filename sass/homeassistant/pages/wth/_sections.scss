@@ -53,19 +53,22 @@ main#page-wth {
             text-align: left;
         }
 
+        // A tag with the wordmark's mint outline, squarer than the buttons
+        // so it does not read as one.
         .hero-date {
             align-self: flex-start;
             background-color: #ffffff;
-            border-radius: 60px;
+            border: 4px solid var(--wth-mint);
+            border-radius: 14px;
             color: var(--wth-ink);
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 0.02em;
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 1.2;
             margin-bottom: auto;
-            padding: 8px 16px;
+            padding: 10px 14px;
 
             @include bp(tablet) {
-                font-size: 16px;
+                font-size: 17px;
             }
         }
 
