@@ -48,7 +48,7 @@ The **NMBS** integration provides the following entities.
 
 ### Sensors
 
-- **Travel time** (named `Train from <departure station> to <arrival station>`): the expected total travel time of the next connection, in minutes, current delay included. The sensor gets an alert icon while the train is delayed. When no upcoming train is found, the state is unknown and the sensor has no attributes.
+- **Travel time** (named `Train from <departure station> to <arrival station>`): the expected total travel time of the next connection, in minutes, current delay included. The sensor gets an alert icon while the train is delayed. When no upcoming train is found, the state is unknown. The sensor then only keeps its location, when **Display on map** is selected.
 - **Liveboard** (named `Trains in <station>`, one for each station): the track and destination of the next train leaving the station. These sensors are turned off by default. When no train is leaving, the state is unknown.
 
 The travel time sensor has the following attributes:
@@ -94,11 +94,11 @@ The integration polls the iRail API every 60 seconds, and only fetches the data 
 
 ## Troubleshooting
 
-### The departure and arrival station cannot be the same
+### The departure and arrival stations cannot be the same
 
 Select two different stations. To follow the departures of a single station, pick any second station for the connection and use the liveboard sensor for the station you want to monitor.
 
-### The API is currently unavailable
+### The iRail API is unavailable
 
 Setup stops when the iRail API cannot be reached. Wait a while and try again.
 
