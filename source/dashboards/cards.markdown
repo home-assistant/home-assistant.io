@@ -117,15 +117,18 @@ You can choose to show or hide certain cards or [badges](/dashboards/badges/) ba
 
 In [sections view](/dashboards/sections/), you can resize cards. Each card has a recommended size, which it keeps until you change it. Follow these steps:
 
-1. On the **Layout** tab, turn off **Use recommended size**.
-   - Below the switch, you can see the recommended size of the card, for example **6 columns × 2 rows**.
+1. On the **Layout** tab, turn off **Use recommended size**. Below the switch, you can see the recommended size of the card, for example **6 columns × 2 rows**.
+
    ![Screenshot of the Layout tab in the card dialog](/images/dashboards/card_resize.png)
+
    - Troubleshooting: Don't see a **Layout** tab?
      - It is not available inside nested cards: vertical stack, horizontal stack, and grid card
      - It is not available on the picture elements card.
 2. Use the grid size picker to adjust the number of columns and rows the card occupies.
 3. If you want to set the width with more precision, select the {% icon "mdi:grid-large" %} button in the corner of the grid to enter precise mode. The last row was done using precise mode.
+
    ![Screenshot of a section using precise mode for some cards](/images/dashboards/precise-mode-example.png)
+
 4. To make the card as tall as its content, enable **Fit height to content**.
 5. To make the card always fill the section, whatever its width, enable **Full width**.
 6. Select **Save**.
