@@ -4,7 +4,7 @@ description: Instructions on how to integrate a BLUETTI power station with Home 
 ha_category:
   - Energy
   - Sensor
-ha_release: 2026.10
+ha_release: 2026.11
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
