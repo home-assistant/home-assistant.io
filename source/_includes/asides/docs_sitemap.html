@@ -243,7 +243,12 @@
   {% icon "mdi:update" %} {% active_link /common-tasks/general/ Common tasks %}
   {% if root == 'common-tasks' or include.docs_index %}
   <ul>
-    <li>{% active_link /common-tasks/general/ Installation independent %}</li>
+    <li>
+      {% active_link /common-tasks/general/ Installation independent %}
+      <ul>
+        <li>{% active_link /common-tasks/general/restarting/ Reload, restart, reboot, shut down %}</li>
+      </ul>
+    </li>
     <li>{% active_link /common-tasks/os/ Home Assistant Operating System %}</li>
     <li>{% active_link /common-tasks/container/ Home Assistant Container %}</li>
     <li>{% active_link /docs/troubleshooting_general/ General troubleshooting %}</li>

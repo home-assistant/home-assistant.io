@@ -28,7 +28,7 @@ The Tools page has the following tabs:
 
 The YAML tab provides buttons to trigger a check of configuration files and to reload the configuration. Reloading is needed to apply changes that you've made to the configuration.
 
-It is almost the same as the option under **Settings** > three dots {% icon "mdi:dots-vertical" %} menu (top right) > **Restart Home Assistant** > **Quick reload**. The only difference is that **Quick reload** reloads all the configuration, whereas this YAML tab allows you to only reload one specific configuration at a time.
+It is almost the same as **Quick reload**, which you open from the power {% icon "mdi:power" %} icon under {% my system_dashboard title="**Settings** > **System**" %}. The only difference is that **Quick reload** reloads all the configuration, whereas this YAML tab allows you to only reload one specific configuration at a time. For the steps of a quick reload, refer to [Reloading the YAML configuration](/common-tasks/general/restarting/#reloading-the-yaml-configuration).
 
 ### Reloading the YAML configuration
 
