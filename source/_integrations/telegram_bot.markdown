@@ -161,6 +161,16 @@ Chat ID:
   description: ID representing the user or group chat to which messages can be sent.
 {% endconfiguration_basic %}
 
+### Recipients of send actions
+
+Actions that send content, such as `telegram_bot.send_message` and `telegram_bot.send_media_group`, send it to the chats you specify with one of these options:
+
+- `entity_id`: One or more Telegram bot [notify entities](#notifiers). Each notify entity represents one allowed chat ID.
+- `chat_id`: One or more allowed chat IDs. In the action editor, **Chat ID** and **Config entry ID** are under **Additional options**.
+
+If you don't specify `entity_id` or `chat_id`, the action sends to the first chat ID you allowlisted for the bot. This only works if you have set up a single Telegram bot.
+If you have more than one Telegram bot, specify `entity_id`, or specify `chat_id` together with `config_entry_id`. Otherwise, the action fails with the error `Please specify at least 1 notify entity.`
+
 ## Notifiers
 
 This integration will add a notify {% term entity %} for each configured chat ID.
@@ -671,10 +681,14 @@ actions:
 
 ## Example: send_media_group
 
+The following example sends a photo and a video as one album to a specific chat.
+A media group must contain between 2 and 10 items. To learn how the action determines the chat, refer to [Recipients of send actions](#recipients-of-send-actions).
+
 ```yaml
 actions:
   - action: telegram_bot.send_media_group
     data:
+      chat_id: YOUR_CHAT_ID # Replace with your allowed chat ID
       media:
         - url: https://example/image.jpg
           caption: My album
