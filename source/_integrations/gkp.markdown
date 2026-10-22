@@ -18,7 +18,7 @@ ha_quality_scale: bronze
 
 The **GKP Home** {% term integration %} lets you control your [GKP](https://www.gkp.se/) Wi-Fi radiators directly from Home Assistant.
 
-GKP Wi-Fi radiators are electric radiators that you set up and control with the **GKP Home** mobile app.
+GKP Wi-Fi radiators are electric radiators that you set up and control with the GKP Home mobile app.
 
 This integration uses the GKP cloud to give you control over each radiator. You can adjust the temperature, switch between heating modes, start a boost, and follow the room temperature of each radiator in your home.
 
@@ -34,24 +34,24 @@ By bringing your GKP radiators into Home Assistant, you can combine them with al
 
 ## Supported devices
 
-The integration supports the GKP Wi-Fi radiators that you can add to the **GKP Home** app.
+The integration supports the GKP Wi-Fi radiators that you can add to the GKP Home app.
 
 ## Prerequisites
 
 Before setting up the integration, make sure you have:
 
-1. A GKP account, created in the **GKP Home** mobile app.
-2. At least one GKP Wi-Fi radiator added to an installation in the **GKP Home** app, and connected to the internet.
+1. A GKP account, created in the GKP Home mobile app.
+2. At least one GKP Wi-Fi radiator added to an installation in the GKP Home app, and connected to the internet.
 
 {% note %}
-The integration uses OAuth2 authentication. During the setup, you are redirected to the GKP login page, where you sign in with the same email address and password as in the **GKP Home** app.
+The integration uses OAuth2 authentication. During the setup, you are redirected to the GKP login page, where you sign in with the same email address and password as in the GKP Home app.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
 
 ## Supported functionality
 
-The integration creates one device for each radiator. Each device is named after the room you gave it in the **GKP Home** app.
+The integration creates one device for each radiator. Each device is named after the room you gave it in the GKP Home app.
 
 ### Climate
 
@@ -61,7 +61,7 @@ Each radiator is available as a climate entity, which provides:
 - **Target temperature**: The temperature the radiator heats to, between 5 °C and 35 °C, in steps of 0.5 °C.
 - **HVAC modes**:
   - **Heat**: The radiator heats to its comfort temperature, or to the temperature of the selected preset.
-  - **Auto**: The radiator follows the weekly program set in the **GKP Home** app.
+  - **Auto**: The radiator follows the weekly program set in the GKP Home app.
   - **Off**: The radiator stops heating.
 - **HVAC action**: Shows whether the radiator is currently heating, idle, or off.
 - **Presets**: Switch between the heating modes of your radiator:
@@ -70,7 +70,7 @@ Each radiator is available as a climate entity, which provides:
   - **Boost**: Heats the room quickly for a limited time. When the boost ends, the radiator goes back to its previous mode.
   - **Frost protection**: Keeps the room just warm enough to prevent frost damage.
 
-When you change the target temperature, the integration updates the temperature of the active mode. For example, in **Eco**, you change the eco temperature. When the radiator is in **Auto** mode, changing the target temperature starts a boost at that temperature, just like in the **GKP Home** app. You can't change the target temperature when the radiator is **Off** or in **Frost protection**: select another mode first.
+When you change the target temperature, the integration updates the temperature of the active mode. For example, in **Eco**, you change the eco temperature. When the radiator is in **Auto** mode, changing the target temperature starts a boost at that temperature, just like in the GKP Home app. You can't change the target temperature when the radiator is **Off** or in **Frost protection**: select another mode first.
 
 {% include integrations/actions.md %}
 
@@ -107,7 +107,7 @@ actions:
 
 The integration {% term polling polls %} the GKP cloud for the state of your radiators every 2 minutes.
 
-GKP radiators only send their current temperature and heating status to the cloud when they are asked to. To keep this information up to date, the integration asks all your radiators for a new reading every 10 minutes, and reads their answer a few seconds later. Changes you make on the radiator itself or in the **GKP Home** app show up within 2 minutes.
+GKP radiators only send their current temperature and heating status to the cloud when they are asked to. To keep this information up to date, the integration asks all your radiators for a new reading every 10 minutes, and reads their answer a few seconds later. Changes you make on the radiator itself or in the GKP Home app show up within 2 minutes.
 
 After you send a command, such as a new temperature or mode, the integration checks the radiator every 5 seconds for one minute, so you see the result quickly.
 
@@ -116,7 +116,7 @@ The integration checks your installations for new or removed radiators every 15 
 ## Known limitations
 
 - The current temperature and heating status can be up to 10 minutes old, because the radiators only report them when the integration asks for a new reading.
-- You can't edit the weekly program or the holiday mode from Home Assistant. Use the **GKP Home** app for these settings.
+- You can't edit the weekly program or the holiday mode from Home Assistant. Use the GKP Home app for these settings.
 - Energy consumption is not available in Home Assistant.
 
 ## Troubleshooting
@@ -136,7 +136,7 @@ A radiator shows as unavailable when it hasn't answered the requests of the inte
 To resolve this issue, try the following steps:
 
 1. Make sure the radiator is powered on.
-2. Open the **GKP Home** app and check that the radiator responds there too.
+2. Open the GKP Home app and check that the radiator responds there too.
 3. If the radiator doesn't respond in the app either, check your Wi-Fi network, and move your router or add an access point if the radiator is far from it.
 4. Wait a few minutes: the radiator shows as available again as soon as it answers the next request.
 
@@ -144,7 +144,7 @@ To resolve this issue, try the following steps:
 
 #### Symptom: A radiator you added or removed in the app doesn't appear or disappear in Home Assistant
 
-After adding a radiator in the **GKP Home** app, or removing one, Home Assistant doesn't show the change right away.
+After adding a radiator in the GKP Home app, or removing one, Home Assistant doesn't show the change right away.
 
 ##### Description
 
@@ -152,7 +152,7 @@ The integration checks your installations for new or removed radiators every 15 
 
 ##### Resolution
 
-1. Wait up to 15 minutes after making the change in the **GKP Home** app.
+1. Wait up to 15 minutes after making the change in the GKP Home app.
 2. If the change still doesn't show, reload the integration:
    - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
    - Select the **GKP Home** integration.

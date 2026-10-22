@@ -81,7 +81,7 @@ Every weekday morning, boost the bathroom radiator to a comfortable temperature 
 - **Trigger**: Time: 06:30 on weekdays
 - **Action**: GKP Home: Activate boost
    - **Target**: Bathroom radiator
-   - **Temperature**: 24
+   - **Temperature**: 23.5
    - **Duration**: 30 minutes
 
 {% details "YAML example for a morning bathroom warm-up" %}
@@ -105,7 +105,7 @@ automation: |
       target:
         entity_id: climate.bathroom
       data:
-        temperature: 24
+        temperature: 23.5
         duration:
           minutes: 30
 {% endexample %}
