@@ -109,7 +109,7 @@ The integration uses the capabilities and token limits reported by Anthropic to 
 
 Anthropic [deprecates and retires models](https://platform.claude.com/docs/en/about-claude/model-deprecations) over time. Deprecated models remain usable until retirement, but you should replace them before their retirement date. Retired models are no longer available and cannot be selected in the integration.
 
-When a configured model becomes deprecated or retired, Home Assistant creates a repair issue. Open **Settings > System > Repairs** and choose an active replacement for each affected conversation or AI task configuration.
+When a configured model becomes deprecated or retired, Home Assistant creates a repair issue. Open **Settings** > **System** > **Repairs** and choose an active replacement for each affected conversation or AI task configuration.
 
 ### Feature matrix
 
