@@ -338,6 +338,7 @@ MQTT entities, device triggers, and tags can be linked to a device in the [devic
 - At least one of `identifiers` or `connections` must be set to identify the device.
 - For entities, the device information is only used when the entity has a `unique_id`.
 - Entities, device triggers, and tags that use the same `identifiers` or `connections` are linked to the same device. When a device is shared, it is enough to set the shared `identifiers` or `connections` for the other items. It is recommended to always include the device `name`.
+- When the device information of an entity changes to another device, for example with a discovery update or a changed YAML configuration, the entity is moved to the new device. The previous device is removed when no other entities, device triggers, or tags use it.
 
 How the device information is set depends on the configuration method.
 
@@ -352,7 +353,7 @@ With YAML and single component discovery, a child device is set with the `child_
 - Child devices are not supported for device triggers, tags, and subentries.
 - A child device can't be used as the `via_device` of another device.
 
-When the `child_device` of an entity is added, changed, or removed, for example with a discovery update or a changed YAML configuration, the entity is moved to the new device, and a child device that is no longer used is removed. When discovered items are removed, a parent device is kept as long as it has child devices, and is removed after its last child device when no other items use it.
+When the `child_device` of an entity is added, changed, or removed, the entity is moved to the new device in the same way, and a child device that is no longer used is removed. When discovered items are removed, a parent device is kept as long as it has child devices, and is removed after its last child device when no other items use it.
 
 When the `identifiers` of an existing MQTT device are used for a child device, the existing device is converted into a child device. It keeps its device ID, so automations that use the device keep working. If the existing device is still in use as a regular device, the conversion fails and a warning is logged. In that case, update the configuration of all items that use the device, and reload the MQTT integration.
 
