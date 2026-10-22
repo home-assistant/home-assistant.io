@@ -233,3 +233,53 @@ You can use a backup during the onboarding process to restore your configuration
 5. Once the restore is complete, Home Assistant restarts to apply the new settings.
    - You will lose the connection to the UI and it will return once the restart is completed.
 6. On the login screen, enter the password and username as they were at the time the backup was taken.
+
+### Troubleshooting backups
+
+{% details "A backup fails and doesn't show why" %}
+
+#### Symptom: "Last automatic backup failed" or "Failed to create backup"
+
+An automatic or manual backup fails, and Home Assistant doesn't say why.
+
+##### Description
+
+The reason is in the logs of Home Assistant.
+
+##### Resolution
+
+1. Go to {% my logs title="**Settings** > **System** > **Logs**" %}.
+2. In **Search logs**, enter `backup`.
+   - Result: The list shows the backup errors. They start with `Error creating backup:` and include the reason, such as `Could not lock database within 30 seconds`.
+3. Find the reason in the problems below. If it isn't listed, use it to search the [community forum](https://community.home-assistant.io).
+
+{% enddetails %}
+
+{% details "A backup fails because the database can't be locked" %}
+
+#### Symptom: "Could not lock database within 30 seconds"
+
+A backup fails, and the logs show `Error during pre-backup: Could not lock database within 30 seconds`.
+
+##### Description
+
+Before Home Assistant creates a backup, the [Recorder](/integrations/recorder/) stops writing to its database, so that the database in the backup is complete. The Recorder first finishes the work that it's busy with. If that takes longer than 30 seconds, the backup fails.
+
+This could be caused, for example, by one of the following situations:
+
+- The Recorder does its maintenance. By default, it cleans up old data every night at 04:12, and repacks the database on the second Sunday of each month.
+- The database is large, or Home Assistant writes a lot of data to it.
+- The storage is slow. For example, you use a USB stick as the [data disk](/common-tasks/os/#using-external-data-disk). An SSD is much faster.
+
+This only happens with the default SQLite database. If you use MariaDB or PostgreSQL, Home Assistant doesn't lock the database, and this error doesn't occur.
+
+##### Resolution
+
+1. Wait a few minutes, and then create the backup again.
+2. If automatic backups fail, change when they run. The default, **System optimal**, starts between 04:45 and 05:45. That's shortly after the Recorder maintenance at 04:12, and a long repack can still be running then.
+   1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}. On the **Automatic backup** card, select **Configure backup settings**.
+   2. Under **Backup cycle**, set **Time** to **Custom**, and pick a time later in the day.
+      - **Time** is only shown when **Schedule** is set to **Daily** or **Custom days**.
+3. If backups keep failing, make the database smaller. For example, keep fewer days of history, or exclude entities that change often. For details, refer to [Preparing for a backup](#preparing-for-a-backup).
+
+{% enddetails %}
