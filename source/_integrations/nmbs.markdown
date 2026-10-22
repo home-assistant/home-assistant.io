@@ -64,9 +64,11 @@ The travel time sensor has the following attributes:
 - `vehicle_id`: the vehicle ID of the train, for example `BE.NMBS.IC1832`
 - `departure_time`: the scheduled departure time of the train
 - `departure_minutes`: how long until the scheduled departure, in minutes. The delay is not included, so for a delayed train this can reach zero or turn negative before it departs.
+- `departure`: the same time in text form, for example `In 10 minutes`. No value when the train is canceled.
 - `delay_seconds`: the current delay of the train, in seconds
 - `delay_minutes`: the same delay as a number of minutes
-- `canceled`: whether the train from the departure station is canceled. When it is, `departure_minutes` has no value. A canceled transfer train is not reported.
+- `delay`: the same delay in text form, for example `5 minutes`.
+- `canceled`: whether the train from the departure station is canceled. When it is, `departure` and `departure_minutes` have no value. A canceled transfer train is not reported.
 - `via`: the station where you change trains, together with `via_arrival_platform`, `via_transfer_platform` and `via_transfer_time` (the time you have for the transfer, delay included). These attributes appear when the connection has a transfer and **Direct connections only** is not selected.
 - `latitude` and `longitude`: the coordinates of the departure station, when **Display on map** is selected.
 
@@ -74,10 +76,11 @@ Each liveboard sensor has the following attributes:
 
 - `departure_time`: the scheduled departure time of the next train
 - `departure_minutes`: how long until the scheduled departure, in minutes. The delay is not included, so it can turn negative for a delayed train.
+- `departure`: the same time in text form, for example `In 10 minutes`.
 - `vehicle_id`: the vehicle ID of the train
 - `monitored_station`: the station the sensor watches
 - `extra_train`: whether the train is an extra train outside the regular schedule
-- `delay_seconds` and `delay_minutes`: the current delay of the train, only when it is delayed
+- `delay_seconds`, `delay` and `delay_minutes`: the current delay of the train, only when it is delayed
 
 A liveboard sensor gets an alert icon while its next train is delayed. Its state is the track and the destination of that train, for example `Track 5 - Antwerp-Central`.
 
