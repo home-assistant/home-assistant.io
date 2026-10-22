@@ -57,7 +57,7 @@ Updated iCloud terms of service not accepted
 
 #### Description
 
-```
+```text
 ERROR: Apple updated the iCloud terms of service and they must be accepted to contine
 ```
 
