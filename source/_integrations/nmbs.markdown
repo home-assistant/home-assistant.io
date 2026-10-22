@@ -40,7 +40,7 @@ Once the connection is set up, the integration creates a travel time sensor for 
 
 ## Reconfiguration
 
-To change **Direct connections only** or **Display on map**, go to **Settings** > **Devices & services**, select the **NMBS** integration, and select **Reconfigure** on the connection. The sensors keep their entity IDs and settings. The stations cannot be changed. To follow another route, select **Add service** on the **NMBS** integration page.
+To change **Direct connections only** or **Display on map**, go to **Settings** > **Devices & services**, select the **NMBS** integration, and select **Reconfigure** on the connection. The sensors keep their entity IDs and settings. If you already have the same route with the other **Direct connections only** setting, reconfiguration stops with an "already configured" message. The stations cannot be changed. To follow another route, select **Add service** on the **NMBS** integration page.
 
 ## Supported functionality
 
@@ -48,7 +48,7 @@ The **NMBS** integration provides the following entities.
 
 ### Sensors
 
-- **Travel time** (named `Train from <departure station> to <arrival station>`): the expected total travel time of the next connection, in minutes, current delay included. The sensor gets an alert icon while the train is delayed. When no upcoming train is found, the state is unknown. The sensor then only keeps its location, when **Display on map** is selected.
+- **Travel time** (named `Train from <departure station> to <arrival station>`): the expected total travel time of the next connection, in minutes, current delay included. The sensor gets an alert icon when the train is delayed by 1 minute or more. When no upcoming train is found, the state is unknown. The sensor then only keeps its location, when **Display on map** is selected.
 - **Liveboard** (named `Trains in <station>`, one for each station): the track and destination of the next train leaving the station. These sensors are turned off by default. When no train is leaving, the state is unknown.
 
 The travel time sensor has the following attributes:
@@ -78,7 +78,8 @@ Each liveboard sensor has the following attributes:
 - `vehicle_id`: the vehicle ID of the train
 - `monitored_station`: the station the sensor watches
 - `extra_train`: whether the train is an extra train outside the regular schedule
-- `delay_seconds`, `delay` and `delay_minutes`: the current delay of the train, only when it is delayed
+- `delay_seconds`: the current delay of the train, in seconds, only when it is delayed
+- `delay_minutes` and `delay`: the same delay rounded to minutes, as a number and as text, only when it is 1 minute or more
 
 A liveboard sensor gets an alert icon while its next train is delayed. Its state is the track and the destination of that train, for example `Track 5 - Antwerp-Central`.
 
