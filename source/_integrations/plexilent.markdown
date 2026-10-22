@@ -65,6 +65,6 @@ Your password was changed, or the account was signed out. Enter your current Ple
 
 ## Removing the integration
 
-This integration follows standard integration removal. Removing it also signs Home Assistant out of your Plexilent account.
+This integration follows standard integration removal. Removing it only deletes the local configuration and sign-in token from Home Assistant; your Plexilent account is not signed out.
 
 {% include integrations/remove_device_service.md %}
