@@ -48,7 +48,8 @@ This passes when the bedroom PM1 sensor reads above 25 μg/m³.
 {% include conditions/threshold_value_options_yaml.md
    range_note="μg/m³"
    number_final="a value in μg/m³"
-   threshold_required="true" %}
+   threshold_required="true"
+   entity_unit="`μg/m³`" %}
 
 {% include conditions/targets.md domain="sensor" %}
 

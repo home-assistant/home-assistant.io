@@ -79,7 +79,7 @@ trigger: |
    unit_example_entity="input_number.radon_upper_limit"
    unit_example_value="50" %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="radon sensor" example="sensor.basement_radon" %}
 
 {% include triggers/behavior.md %}
 

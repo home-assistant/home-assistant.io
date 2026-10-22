@@ -88,6 +88,8 @@ The climate platform lets you monitor and control each room's climate control. T
 
 Setting a target temperature while a room is off has no effect. Turn the room on first, or set the mode in the same action.
 
+A heating circuit also gets a climate entity named after the circuit. It shows the target temperature and whether the circuit is heating or idle, but no current temperature. **Auto** follows the schedule in the Bosch Smart Home app and **Heat** holds the manual target temperature. The target temperature range follows the limits set on the circuit.
+
 ### Covers
 
 The cover platform allows you to control shutters, awnings, and blinds.
@@ -122,6 +124,7 @@ The select platform lets you choose between a set of predefined options. Select 
 - Door/Window Contact II Plus: a **Vibration sensitivity** select, letting you choose between **very high**, **high**, **medium**, **low**, or **very low**. In YAML, the options are `very_high`, `high`, `medium`, `low`, and `very_low`.
 - Smoke Detector that supports it: a **Smoke sensitivity** select, letting you choose between **high**, **medium**, or **low**. In YAML, the medium option is `middle`.
 - Thermostat II and Room Thermostat II: a **Display orientation** select, letting you choose between **Normal** and **Rotated by 180°**, and a **Displayed temperature** select, letting you choose between **Set temperature** and **Measured**. In YAML, the display orientation options are `normal` and `reversed`, and the displayed temperature options are `setpoint` and `measured`.
+- Smart Plug and Smart Plug Compact that support it: a **State after power outage** select, letting you choose between **Off**, **On**, or **Last state**. In YAML, the options are `off`, `on`, and `last_state`.
 
 ### Sensors
 
