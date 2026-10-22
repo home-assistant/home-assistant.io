@@ -1,12 +1,6 @@
 ---
 title: Steinway & Lyngdorf
 description: Connect and control your Steinway & Lyngdorf devices using the Lyngdorf integration
-ha_category:
-  - Media player
-  - Number
-  - Remote
-  - Select
-  - Sensor
 ha_domain: steinway_lyngdorf
 ha_integration_type: virtual
 ha_supporting_domain: lyngdorf

@@ -2,27 +2,8 @@
 title: SmartThings
 description: Instructions on setting up SmartThings within Home Assistant.
 featured: true
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Fan
-  - Hub
-  - Light
-  - Lock
-  - Media player
-  - Number
-  - Scene
-  - Select
-  - Sensor
-  - Switch
-  - Time
-  - Update
-  - Vacuum
-  - Valve
-  - Water heater
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: 0.87
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -227,6 +208,7 @@ The SmartThings Media player lets you control devices that have media player-rel
 | [`mediaInputSource`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#mediaInputSource)         | `select_source`                                                                       |
 | [`mediaPlaybackRepeat`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#mediaPlaybackRepeat)   | `repeat_set`                                                                          |
 | [`mediaPlaybackShuffle`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#mediaPlaybackShuffle) | `shuffle_set`                                                                         |
+| `custom.soundmode`                                                                                                                | `select_sound_mode`                                                                   |
 | [`switch`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#switch)                             | `turn_on`, `turn_off`                                                                 |
 
 ### Number
@@ -251,6 +233,7 @@ The following SmartThings capabilities are supported for Select entities:
 
 | SmartThings capability                                                                                                                     |
 | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `custom.picturemode`                                                                                                                       |
 | `custom.washerSoilLevel`                                                                                                                   |
 | `custom.washerSpinLevel`                                                                                                                   |
 | `custom.washerWaterTemperature`                                                                                                            |

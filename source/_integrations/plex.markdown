@@ -1,11 +1,8 @@
 ---
 title: Plex Media Server
 description: Instructions on how to integrate Plex into Home Assistant.
-ha_category:
-  - Button
-  - Media player
-  - Sensor
-  - Update
+ha_categories:
+  - media_entertainment.tv_streaming
 featured: true
 ha_release: 0.7.4
 ha_iot_class: Local Push
@@ -120,7 +117,7 @@ automation: |
 {% enddetails %}
 
 {% important %}
-The library sensors are disabled by default, but can be enabled via the Plex integration page. After the sensors are enabled, you may need to add a new item to your library before the last added media attribute is populated.
+The library sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity), but can be enabled via the Plex integration page. After the sensors are enabled, you may need to add a new item to your library before the last added media attribute is populated.
 {% endimportant %}
 
 ## Button
@@ -210,7 +207,7 @@ The `media_content_id` value can be a JSON payload that identifies the Plex medi
 
 - `library_name`: The Plex library to search. Required for most searches.
 - `shuffle`: Shuffles the playback order of the media. Use `true` to enable it.
-- `resume`: Resumes playback at the last partially watched position if available. Otherwise, playback starts from the beginning.
+- `resume`: Resumes playback at the last partially watched position if available. Otherwise, playback starts from the beginning. For a TV show, playback starts with the show's On Deck episode in Plex. This is the episode you were watching, at the position where you stopped, or else the next unwatched episode. If the show has no On Deck episode, playback starts from the first episode.
 - `offset`: The playback start position in seconds.
 - `allow_multiple`: Allows multiple matches in a search and enqueues all found items for playback. Use `true` to enable it.
 - `username`: The local Plex user account to use. This is only needed when the Plex server has multiple users and you want to play media for a specific user.

@@ -2,9 +2,9 @@
 title: energieleser
 description: Instructions on how to integrate energieleser devices in Home Assistant.
 ha_release: 2026.7
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.meters_monitoring
+  - water.meters_leak_detection
 ha_codeowners:
   - '@AjinkyaGokhale'
   - '@NiccoFink'
@@ -101,7 +101,7 @@ The energieleser integration primarily provides the following features based on 
 
 ### Common diagnostic sensors
 
-- **Signal strength**: Wi-Fi signal strength of the device (dBm). Disabled by default.
+- **Signal strength**: Wi-Fi signal strength of the device (dBm). [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 ## Data updates
 

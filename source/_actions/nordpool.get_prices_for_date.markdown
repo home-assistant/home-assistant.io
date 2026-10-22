@@ -7,7 +7,7 @@ related_actions:
   - nordpool.get_price_indices_for_date
 ---
 
-The integration entities provide price information only for the current date. The **Get prices for date** action retrieves prices for any date within the last two months or for tomorrow.
+The integration entities provide price information only for the current date. The **Nord Pool: Get prices for date** action retrieves prices for any date within the last two months or for tomorrow.
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example in a trigger-based template sensor.
 

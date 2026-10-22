@@ -1,8 +1,8 @@
 ---
 title: Greencell
 description: Instructions on how to use the Greencell EVSE integration in Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - energy.ev_charging
 ha_iot_class: Local Push
 ha_release: 2026.7
 ha_config_flow: true

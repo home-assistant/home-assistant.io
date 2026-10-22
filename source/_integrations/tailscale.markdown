@@ -1,10 +1,8 @@
 ---
 title: Tailscale
 description: Instructions on how to integrate Tailscale within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Network
-  - Sensor
+ha_categories:
+  - computers_network.routers_network
 ha_release: 2021.12
 ha_iot_class: Cloud Polling
 ha_config_flow: true

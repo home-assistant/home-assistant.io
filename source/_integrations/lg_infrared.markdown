@@ -1,12 +1,9 @@
 ---
 title: LG Infrared
 description: Integration to control LG TVs and LG split air conditioners using an infrared emitter and to receive commands from an LG remote using an infrared receiver.
-ha_category:
-  - Climate
-  - Event
-  - Infrared-controlled
-  - Media player
-  - Switch
+ha_categories:
+  - media_entertainment.tv_streaming
+  - climate.heat_pumps_air_conditioning
 ha_release: 2026.4
 ha_iot_class: Assumed State
 ha_codeowners:
@@ -57,6 +54,19 @@ Supported modes:
 {% endconfiguration_basic %}
 
 For a TV, select at least one of **Infrared emitter** or **Infrared receiver**. Select both if you want to be able to send commands to your TV and react to commands from the remote.
+
+## Reconfiguring the integration
+
+If you replace your infrared emitter, add a receiver later, or want to change the modes of your air conditioner, you can update the device without removing and re-adding the integration.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the **LG Infrared** integration and select it.
+3. Next to the device you want to change, select the three dots {% icon "mdi:dots-vertical" %} menu and choose **Reconfigure**.
+4. Change the options and select **Submit**.
+
+The same rules as during setup apply: an air conditioner needs an infrared emitter, and a TV needs at least one infrared emitter or receiver. The device type cannot be changed. To switch between a TV and an air conditioner, add the integration again.
+
+If you remove the infrared emitter or receiver from a TV, the entities that depend on it are no longer provided. For example, the media player and buttons need an emitter, and the events need a receiver. You can delete those entities from the entity settings. If you remove the mode your air conditioner is currently in, its climate entity shows **Off** until you select another mode.
 
 ## Supported functionality
 
@@ -154,7 +164,7 @@ When an infrared emitter is configured, these button entities are created for th
 
 - **Jet mode**: Runs the unit at maximum power for fast cooling or heating.
 - **Eco mode**: Reduces the unit's power draw. Some remotes label this button Diet.
-- **Viraat mode**: Runs an extra boost mode, separate from **Jet mode**. Only LG India models offer it, so this button is disabled by default. Enable it if your remote has a Viraat button.
+- **Viraat mode**: Runs an extra boost mode, separate from **Jet mode**. Only LG India models offer it, so this button is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). Enable it if your remote has a Viraat button.
 - **AI mode**: Turns on the automatic AI operating mode.
 
 To turn one of these modes off, select any other mode, such as **Cool**.

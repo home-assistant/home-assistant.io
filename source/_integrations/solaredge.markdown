@@ -1,9 +1,8 @@
 ---
 title: SolarEdge
 description: Instructions on how to integrate SolarEdge sensor within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.solar_batteries
 ha_release: 0.85
 ha_iot_class: Cloud Polling
 ha_config_flow: true

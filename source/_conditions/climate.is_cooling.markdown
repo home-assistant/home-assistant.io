@@ -58,9 +58,9 @@ behavior:
   default: any
 for:
   description: >
-    How long the thermostat must have been continuously cooling before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long the thermostat must have been continuously cooling before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -70,8 +70,8 @@ for:
 
 ## Good to know
 
-- A thermostat can be set to cool mode but not actively cooling if it has already reached its target temperature and is idling. Use [Thermostat is in HVAC mode](/conditions/climate.is_hvac_mode/) if you only care about the mode setting.
-- Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as actively cooling. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted thermostat is unavailable.
+- A thermostat can be set to cool mode but not actively cooling if it has already reached its target temperature and is idling. Use [Thermostat HVAC mode](/conditions/climate.is_hvac_mode/) if you only care about the mode setting.
+{% include conditions/unavailable_targets.md entities="thermostats" %}
 - This condition checks the current action of the thermostat, not its mode. To check if a thermostat is simply on (any active mode) or off, use [Thermostat is on](/conditions/climate.is_on/) or [Thermostat is off](/conditions/climate.is_off/).
 
 {% include conditions/try_it.md %}
@@ -83,7 +83,8 @@ for:
 When the living room thermostat is actively cooling and the sun is high in the sky, close the blinds to reduce heat gain. This helps the air conditioner work more efficiently without having to guess whether it's actually running.
 
 - **Trigger**: State changed: Living room thermostat started cooling
-- **Condition**: Sun elevation above 30
+- **Condition**: Sun elevation
+  - **Threshold type**: Above `30`°
 - **Condition**: Thermostat is cooling
   - **Target**: Living room thermostat
 - **Action**:  Close cover
@@ -99,11 +100,12 @@ automation: |
       attribute: hvac_action
       to: "cooling"
   conditions:
-    - condition: sun
-      after: sunrise
-      after_offset: "01:00:00"
-      before: sunset
-      before_offset: "-01:00:00"
+    - condition: sun.elevation
+      options:
+        threshold:
+          type: above
+          value:
+            number: 30
     - condition: climate.is_cooling
       target:
         entity_id: climate.living_room
