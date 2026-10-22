@@ -107,6 +107,7 @@ The following entities are supported:
 - Configuration source
 - Data used for the LED bar
 - Display PM standard
+- Altitude unit
 - Measurement interval
 - CO2 automatic baseline calibration days
 - NOx learning offset
