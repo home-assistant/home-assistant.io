@@ -1,0 +1,24 @@
+{%- comment -%}
+  Every link on the bio page renders here, so markup, accessibility and
+  analytics change in one place. The data-* attributes name the section,
+  source and label of each click, ready to become Plausible event properties.
+{%- endcomment -%}
+{%- assign tile = include.tile -%}
+<li>
+  <a class="bio-tile{% if tile.featured %} bio-tile--featured{% endif %}{% if tile.image %} bio-tile--image{% endif %}"
+     href="{{ tile.url }}"
+     rel="noopener"
+     data-section="{{ include.section | default: 'links' | escape }}"
+     data-source="{{ tile.source }}"
+     data-label="{{ tile.label | escape }}">
+    {%- if tile.image %}
+    <img class="bio-tile__image" src="{{ tile.image }}" width="56" height="56" alt=""{% unless include.eager %} loading="lazy"{% endunless %} decoding="async">
+    {%- endif %}
+    <span class="bio-tile__text">
+      <span class="bio-tile__label">{{ tile.label }}</span>
+      {%- if tile.note %}
+      <span class="bio-tile__note">{{ tile.note }}</span>
+      {%- endif %}
+    </span>
+  </a>
+</li>

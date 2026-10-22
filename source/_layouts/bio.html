@@ -1,0 +1,62 @@
+{%- comment -%}
+  The link-in-bio page. A standalone document on purpose: default, page and
+  landingpage all bring the site header, navigation and footer, which a page
+  opened from an Instagram bio doesn't want. It keeps the site's social
+  metadata and analytics.
+{%- endcomment -%}
+{%- assign bio = page.bio -%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }}</title>
+    <meta name="description" content="{{ page.description | strip_html | escape_once }}">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <meta name="theme-color" content="#18bcf2">
+    {% include site/social_meta.html %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>{% include bio/style.css %}</style>
+    {% include site/plausible.html %}
+  </head>
+  <body>
+    <main class="bio">
+      <header class="bio-header">
+        {%- if bio.avatar %}
+        <img class="bio-header__avatar" src="{{ bio.avatar }}" width="88" height="88" alt="">
+        {%- endif %}
+        <h1 class="bio-header__name">{{ page.title }}</h1>
+        {%- if bio.tagline %}
+        <p class="bio-header__tagline">{{ bio.tagline }}</p>
+        {%- endif %}
+      </header>
+
+      {%- for section in bio.resolved_sections %}
+      <section class="bio-section">
+        {%- if section.title %}
+        <h2 class="bio-section__title">{{ section.title }}</h2>
+        {%- endif %}
+        <ul class="bio-tiles">
+          {%- for tile in section.tiles %}
+          {% include bio/tile.html tile=tile section=section.title eager=forloop.parentloop.first %}
+          {%- endfor %}
+        </ul>
+      </section>
+      {%- endfor %}
+
+      {%- if bio.social_links.size > 0 %}
+      <nav class="bio-socials" aria-label="Home Assistant elsewhere">
+        {%- for social in bio.social_links %}
+        <a class="bio-socials__link" href="{{ social.url }}" rel="noopener" data-section="socials" data-source="curated" data-label="{{ social.platform }}">{{ social.label }}</a>
+        {%- endfor %}
+      </nav>
+      {%- endif %}
+
+      <footer class="bio-footer">
+        <a href="/">home-assistant.io</a> · An <a href="https://www.openhomefoundation.org/">Open Home Foundation</a> project
+      </footer>
+    </main>
+  </body>
+</html>

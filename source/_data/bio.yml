@@ -1,0 +1,68 @@
+# The link-in-bio page at https://www.home-assistant.io/bio/
+#
+# The page is this list, top to bottom. Move a block to move it; delete a
+# block to remove it. A mistake here fails the build and names the line, so
+# nothing broken can reach the live page.
+
+avatar: /images/favicon-192x192-full.png
+tagline: Open source home automation that puts local control and privacy first.
+
+sections:
+  - type: feed
+    title: Latest from the blog
+    source: latest
+    limit: 2
+    images: true
+
+  - type: feed
+    title: Latest release
+    source: releases
+    limit: 1
+
+  - type: links
+    title: Get started
+    items:
+      - label: Install Home Assistant
+        url: /installation/
+        featured: true
+      - label: Documentation
+        url: /docs/
+      - label: Community forum
+        url: https://community.home-assistant.io/
+
+  - type: links
+    title: Support the project
+    items:
+      - label: Home Assistant Cloud
+        url: https://www.nabucasa.com/
+        note: Supports development of Home Assistant
+      - label: Open Home Foundation
+        url: https://www.openhomefoundation.org/
+
+socials:
+  - { platform: mastodon, url: "https://fosstodon.org/@homeassistant" }
+  - { platform: youtube, url: "https://www.youtube.com/@home_assistant" }
+  - { platform: github, url: "https://github.com/home-assistant" }
+  - { platform: discord, url: "https://www.home-assistant.io/join-chat/" }
+
+sources:
+  # Every blog post, newest first, including crossposts.
+  blog:
+    type: posts
+
+  # Monthly release notes.
+  releases:
+    type: posts
+    category: Release-Notes
+
+  # Pin a post here when the timing has to be exact (a launch, an embargo).
+  # While a pin is listed, it replaces the blog feed above. Remove it, or let
+  # `expires` pass, and the page goes back to the latest post by itself.
+  latest:
+    type: pinned
+    items: []
+    #  - title: "2026.11: An example"
+    #    url: /blog/2026/11/05/release-202611/
+    #    image: auto
+    #    expires: 2026-11-12
+    fallback: blog
