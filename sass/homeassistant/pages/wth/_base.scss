@@ -302,9 +302,11 @@ main#page-wth {
 }
 
 // The 3D wordmark from source/javascripts/wth/logo.js. It replaces the CSS
-// version once it has drawn; the script sets the aspect ratio. The negative
-// margins cancel the room the canvas leaves around the wordmark for the
-// tilt, except at the top, which keeps it clear of the date above.
+// version once it has drawn; the script sets the box's aspect ratio, and
+// sizes the canvas to reach past the box on every side, so the intro and
+// the tilt have room. The negative margins cancel the room the box leaves
+// around the wordmark, except at the top, which keeps it clear of the date
+// above.
 .wth-mark--replaced {
     display: none;
 }
@@ -314,7 +316,13 @@ main#page-wth {
     margin: 0 0 -3% -4%;
     max-width: 640px;
     pointer-events: none;
+    position: relative;
     width: 104%;
+}
+
+.wth-logo-3d__canvas {
+    display: block;
+    position: absolute;
 }
 
 .wth-mark__line {
