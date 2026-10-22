@@ -18,9 +18,9 @@ Some apps use the earlier names `addons` and `addon_configs` for `local_apps` an
 
 ---
 
-### Installing and using the Samba app
+### Installing and using the Samba share app
 
-The **Samba share** app allows you to share the directories on Home Assistant with other systems on your network. After installing the app, you can then also edit files using the editor of your preference from your client computer. This app can be installed from the app store's official repository.
+The **Samba share** app allows you to share the directories on Home Assistant with other systems on your network. After installing the app, you can then also edit files using the editor of your preference from your client computer. You can install it from the **Official apps** repository.
 
 To install the app, follow these steps:
 
@@ -53,9 +53,9 @@ To access the Home Assistant directories from the other device, follow these ste
 
 ---
 
-### Installing and using the Visual Studio Code (VSC) app
+### Installing and using the Studio Code Server app
 
-The **Studio Code Server** app provides access through a feature-packed web-based version of the Visual Studio Code editor. It currently only supports AMD64 and aarch64/ARM64 machines. The app also provides access to the Home Assistant Command Line Interface (CLI) using VSC's built-in terminal, which allows for checking logs, stopping, and starting Home Assistant and apps, creating/restoring backups, and more. (See [Home Assistant via Command Line](/common-tasks/os/#home-assistant-via-the-command-line) for further info).
+The **Studio Code Server** app provides access through a feature-packed web-based version of the Visual Studio Code editor. It currently only supports AMD64 and aarch64/ARM64 machines. The app also provides access to the Home Assistant Command Line Interface (CLI) using its built-in terminal, which allows for checking logs, stopping, and starting Home Assistant and apps, creating/restoring backups, and more. (See [Home Assistant via Command Line](/common-tasks/os/#home-assistant-via-the-command-line) for further info).
 
 <p class='img'>
 <img src='/images/docs/configuration/config-yaml_via-vscode.png' alt='Screenshot of an example of a configuration.yaml file, accessed using the Studio Code Server app on a Home Assistant Operating System installation.'>
@@ -74,7 +74,7 @@ To install and use the **Studio Code Server** app, follow these steps:
 
 ### Installing and using the File editor app
 
-The **File editor** app is a web-based file system browser and text editor. It is a more basic and lightweight alternative to Visual Studio Code. YAML files are automatically checked for syntax errors while editing.
+The **File editor** app is a web-based file system browser and text editor. It is a more basic and lightweight alternative to the **Studio Code Server** app. YAML files are automatically checked for syntax errors while editing.
 
 <p class='img'>
 <img src='/images/docs/configuration/config-yaml_via-file-editor.png' alt='Screenshot of an example of a configuration.yaml file, accessed using the File editor app on a Home Assistant Operating System installation.'>
@@ -114,7 +114,7 @@ To get started with the **Terminal & SSH** app, follow these steps:
 2. To use the web terminal, on the **Info** tab, select **Start**, and then select **Open Web UI**.
    - You can now start typing your [commands](/common-tasks/os/#home-assistant-via-the-command-line).
 3. If you want to connect with an SSH client, you need to enter credentials and a port:
-   - Open the **Configuration** tab.
-   - Under **Authorized Keys**, add your public key, or enter a **Password**. Then, select **Save**.
-   - Under **Network**, select **Show disabled ports**. For **SSH Port**, enter a port, for example `22`. Then, select **Save**.
-   - On the **Info** tab, select **Restart**.
+   1. Open the **Configuration** tab.
+   2. Under **Authorized Keys**, add your public key, or enter a **Password**. Then, select **Save**.
+   3. Under **Network**, select **Show disabled ports**. For **SSH Port**, enter a port, for example `22`. Then, select **Save**.
+   4. On the **Info** tab, select **Restart**.

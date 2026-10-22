@@ -40,7 +40,7 @@ You can remove media files using the built-in media browser. This method is idea
 
 If you are running {% term "Home Assistant Operating System" %}, you can use the **Samba** app for bulk file transfers. This method is ideal for transferring large files or many files at once using your computer's file explorer (File Explorer, macOS Finder, or Linux file manager).
 
-1. To install and use the Samba app, follow the instructions on [installing and using the Samba app](/common-tasks/os/#installing-and-using-the-samba-app).
+1. To install and use the Samba app, follow the instructions on [installing and using the Samba app](/common-tasks/os/#installing-and-using-the-samba-share-app).
 2. After setup, you can copy or move media files onto your device using drag and drop in your file explorer.
 3. You can also create folders to organize your media.
 
