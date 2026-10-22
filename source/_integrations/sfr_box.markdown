@@ -243,7 +243,7 @@ You see one of the following:
 
 #### Description
 
-The box doesn't accept the username and password Home Assistant uses. This usually happens after you change the password in the box's web interface. Home Assistant detects this during setup, during data updates, and when you press the **Restart** button. When you press the button, Home Assistant also shows **The provided credentials are invalid.**
+The box doesn't accept the username and password that Home Assistant uses. This usually happens after you change the password in the box's web interface. Home Assistant notices this during setup, during data updates, and when you press the **Restart** button. It then asks you to enter the credentials again.
 
 #### Resolution
 
