@@ -1,7 +1,7 @@
 {% comment %}
   Decorative routing lines from the key visual. Pass a variant so each
   section gets a different arrangement:
-  {% include_relative components/_routing.html variant="hero" %}
+  {% include_relative components/_routing.html variant="left" %}
 
   Every line keeps the artwork's single stroke weight and 40px corner radius.
   The variety comes from the routing itself: how many bends a line takes,
@@ -11,16 +11,9 @@
 {% endcomment %}
 {% assign variant = include.variant | default: "center" %}
 <div class="wth-routing wth-routing--{{ variant }}" aria-hidden="true">
-  <svg viewBox="0 0 1200 {% if variant == 'hero' %}520{% elsif variant == 'band' %}1000{% else %}420{% endif %}" preserveAspectRatio="xMidYMid slice" fill="none">
+  <svg viewBox="0 0 1200 {% if variant == 'band' %}1000{% else %}420{% endif %}" preserveAspectRatio="xMidYMid slice" fill="none">
     <g stroke-width="7" stroke-linecap="round" fill="none">
-      {% if variant == "hero" %}
-        <path class="line-mint" d="M0 150h160a40 40 0 0 1 40 40v150a40 40 0 0 0 40 40h150a40 40 0 0 0 40-40V0" />
-        <path class="line-blue" d="M760 0v120a40 40 0 0 1-40 40H600a40 40 0 0 0-40 40v320" />
-        <path class="line-mint" d="M1200 300h-160a40 40 0 0 1-40-40V180a40 40 0 0 0-40-40H860" />
-        <path class="line-blue" d="M1060 520V440a40 40 0 0 1 40-40h100" />
-        <path class="line-blue" d="M0 60h60a40 40 0 0 1 40 40v60" />
-        <path class="line-mint line-dashed" d="M300 420v100" />
-      {% elsif variant == "left" %}
+      {% if variant == "left" %}
         <path class="line-mint" d="M0 120h80a40 40 0 0 1 40 40v200a40 40 0 0 0 40 40h140" />
         <path class="line-blue" d="M40 420V300a40 40 0 0 1 40-40h200a40 40 0 0 0 40-40V120" />
         <path class="line-mint" d="M1200 80h-120a40 40 0 0 0-40 40v260" />
@@ -51,12 +44,7 @@
       {% endif %}
     </g>
     <g class="node">
-      {% if variant == "hero" %}
-        <circle cx="430" cy="340" r="11" />
-        <circle cx="560" cy="200" r="11" />
-        <circle cx="1000" cy="180" r="11" />
-        <circle cx="100" cy="160" r="11" />
-      {% elsif variant == "left" %}
+      {% if variant == "left" %}
         <circle cx="120" cy="160" r="11" />
         <circle cx="320" cy="220" r="11" />
         <circle cx="1040" cy="120" r="11" />

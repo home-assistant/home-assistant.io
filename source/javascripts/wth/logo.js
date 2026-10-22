@@ -52,7 +52,7 @@ const LINE_DEPTH = 0.35;
 // How far the sky outline reaches beyond the letter.
 const STROKE = 0.08;
 // How far the mint sticker reaches beyond the silhouette, as a share of the
-// canvas width.
+// wordmark's width.
 const STICKER = 0.022;
 // Depth of each layer, front to back.
 const FACE_DEPTH = 0.05;
@@ -78,6 +78,10 @@ const TILT = { x: 0.14, y: 0.22 };
 const CAMERA_DISTANCE = 6;
 // Room around the wordmark for the sticker and the tilt.
 const MARGIN = 1.14;
+// The canvas reaches this far past the wordmark's box on every side, as a
+// share of the box, so the intro overshoot and the tilt are not cut off. The
+// box itself keeps its place in the layout.
+const OVERSCAN = 0.15;
 // The intro: words rise from the back one after another, overshoot a little
 // and bob into place, like a ball coming up to the surface of water. Depth in
 // world units, times in seconds.
@@ -248,9 +252,18 @@ class WthLogo {
         this.build();
 
         this.camera = new PerspectiveCamera(30, 1, 0.1, 100);
+        this.frame = document.createElement('div');
+        this.frame.className = 'wth-logo-3d';
+        this.frame.setAttribute('aria-hidden', 'true');
         this.canvas = document.createElement('canvas');
-        this.canvas.className = 'wth-logo-3d';
-        this.canvas.setAttribute('aria-hidden', 'true');
+        this.canvas.className = 'wth-logo-3d__canvas';
+        Object.assign(this.canvas.style, {
+            left: `${-OVERSCAN * 100}%`,
+            top: `${-OVERSCAN * 100}%`,
+            width: `${(1 + OVERSCAN * 2) * 100}%`,
+            height: `${(1 + OVERSCAN * 2) * 100}%`,
+        });
+        this.frame.append(this.canvas);
         this.renderer = new WebGLRenderer({ canvas: this.canvas, antialias: true, alpha: true });
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         this.setUpSticker(cssColor('--wth-mint', '#16F3BE'));
@@ -259,7 +272,7 @@ class WthLogo {
         this.words.forEach((word) => { word.rest = word.group.position.clone(); });
         this.introPlaying = !this.reducedMotion.matches;
         if (this.introPlaying) this.intro(0);
-        this.mark.after(this.canvas);
+        this.mark.after(this.frame);
 
         this.pointer = { x: 0, y: 0 };
         this.tilt = { x: 0, y: 0 };
@@ -358,7 +371,8 @@ class WthLogo {
     }
 
     // Frames the wordmark at its resting view as the camera sees it,
-    // perspective included, and sizes the canvas to match.
+    // perspective included, and sizes its box to match. The camera sees the
+    // overscan around the box as well.
     fit() {
         const { camera, root } = this;
         camera.position.set(0, 0, CAMERA_DISTANCE);
@@ -395,10 +409,10 @@ class WthLogo {
 
         const width = (bounds.maxX - bounds.minX) * MARGIN;
         const height = (bounds.maxY - bounds.minY) * MARGIN;
-        camera.fov = (2 * Math.atan(height / 2)) / DEG;
+        camera.fov = (2 * Math.atan((height / 2) * (1 + OVERSCAN * 2))) / DEG;
         camera.aspect = width / height;
         camera.updateProjectionMatrix();
-        this.canvas.style.aspectRatio = camera.aspect.toFixed(4);
+        this.frame.style.aspectRatio = camera.aspect.toFixed(4);
     }
 
     listen() {
@@ -426,7 +440,7 @@ class WthLogo {
         const size = this.renderer.getDrawingBufferSize(new Vector2());
         [this.targets.scene, ...this.targets.seeds].forEach((target) => target.setSize(size.x, size.y));
         this.passes.flood.uniforms.resolution.value.copy(size);
-        this.passes.composite.uniforms.radius.value = size.x * STICKER;
+        this.passes.composite.uniforms.radius.value = (size.x * STICKER) / (1 + OVERSCAN * 2);
         this.render();
     }
 

@@ -8,7 +8,11 @@ main#page-wth {
     #hero {
         --section-spacing-y: 0;
 
-        background: linear-gradient(135deg, #FFFFFF 0%, #E9F7FF 46%, #D8FBEF 100%);
+        // The key visual's background: a faint mint-to-blue wash over the
+        // page grey.
+        background:
+            linear-gradient(110deg, rgba(242, 244, 249, 0.1) 10%, rgba(24, 188, 242, 0.1) 55%, rgba(22, 243, 190, 0.1) 97%),
+            var(--wth-bg);
         border-radius: 12px;
         display: flex;
         flex-direction: column;
@@ -18,6 +22,7 @@ main#page-wth {
         max-width: var(--container-full-max-width);
         min-height: 480px;
         overflow: hidden;
+        position: relative;
         width: calc(100% - 24px);
 
         @include bp(tablet) {
@@ -65,6 +70,9 @@ main#page-wth {
         }
 
         .hero-heading {
+            // Full width of the content column, which the 3D wordmark's box
+            // sizes itself against.
+            align-self: stretch;
             letter-spacing: unset;
             margin: 0;
         }
@@ -873,14 +881,24 @@ main#page-wth #cta .cta-card .wth-routing {
     --wth-routing-clear: 780px;
 }
 
-// The hero card follows the community pattern, with its content pinned
-// bottom left, so the centre-column mask the body sections use is the wrong
-// shape here. Instead the lines fade out around the bottom-left corner and
-// run strongest across the top and right of the card, where there is nothing
-// but background.
-main#page-wth #hero .wth-routing {
-    display: block;
-    mask-image: radial-gradient(125% 115% at 6% 92%, transparent 0%, transparent 36%, #000 66%);
-    -webkit-mask-image: radial-gradient(125% 115% at 6% 92%, transparent 0%, transparent 36%, #000 66%);
-    opacity: 1;
+// The hero background from the key visual, from
+// source/wth/components/_hero-background.html. It is anchored to the right,
+// where the artwork is busiest, so narrow screens keep that part.
+// source/javascripts/wth/hero-background.js adds the pulses that travel along
+// the lines on scroll.
+main#page-wth #hero .wth-hero-bg {
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+
+    svg {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+    .wth-hero-bg__art {
+        opacity: 0.4;
+    }
 }
