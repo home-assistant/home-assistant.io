@@ -73,6 +73,11 @@ const POSES = {
 const VIEW = { x: -0.2, y: 0.3 };
 // How far the wordmark turns towards the pointer, in radians.
 const TILT = { x: 0.14, y: 0.22 };
+// On phones and tablets, the device tilt turns the wordmark instead: tilting
+// this many degrees away from how the device is held turns it all the way.
+// The resting angle follows the device slowly, so the wordmark settles when
+// the device is held still at a new angle.
+const MOTION = { range: 25, follow: 0.01 };
 // The camera distance, in world units, sets how strong the perspective is:
 // closer is stronger.
 const CAMERA_DISTANCE = 6;
@@ -97,6 +102,10 @@ function bob(progress) {
 function cssColor(name, fallback) {
     const value = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
     return new Color(value || fallback);
+}
+
+function clamp(value) {
+    return Math.max(-1, Math.min(1, value));
 }
 
 function supportsWebGL() {
@@ -424,13 +433,62 @@ class WthLogo {
         }).observe(this.canvas);
 
         window.addEventListener('pointermove', (event) => {
+            if (this.motion) return;
             const rect = this.canvas.getBoundingClientRect();
-            const clamp = (v) => Math.max(-1, Math.min(1, v));
             this.pointer.x = clamp((event.clientX - (rect.left + rect.width / 2)) / (window.innerWidth / 2));
             this.pointer.y = clamp((event.clientY - (rect.top + rect.height / 2)) / (window.innerHeight / 2));
         }, { passive: true });
 
+        this.listenToMotion();
         this.reducedMotion.addEventListener('change', () => this.start());
+    }
+
+    // Turns the wordmark with the tilt of a phone or tablet. Safari on iPhone
+    // and iPad shares the tilt only after asking, and only from a tap, so
+    // there the question comes when the wordmark is tapped.
+    listenToMotion() {
+        if (!window.matchMedia('(pointer: coarse)').matches || !('DeviceOrientationEvent' in window)) return;
+
+        const onOrientation = (event) => {
+            if (event.beta === null || event.gamma === null) return;
+            // Tilt across and along the screen, whichever way up it is.
+            const angle = window.screen.orientation?.angle ?? 0;
+            const tilt = {
+                0: { x: event.gamma, y: event.beta },
+                90: { x: event.beta, y: -event.gamma },
+                180: { x: -event.gamma, y: -event.beta },
+                270: { x: -event.beta, y: event.gamma },
+            }[angle] ?? { x: event.gamma, y: event.beta };
+
+            if (!this.motion) {
+                this.motion = { ...tilt };
+                // The tilt is coming in, so there is nothing to tap for.
+                this.frame.style.pointerEvents = '';
+            }
+            this.motion.x += (tilt.x - this.motion.x) * MOTION.follow;
+            this.motion.y += (tilt.y - this.motion.y) * MOTION.follow;
+            this.pointer.x = clamp((tilt.x - this.motion.x) / MOTION.range);
+            this.pointer.y = clamp((tilt.y - this.motion.y) / MOTION.range);
+        };
+
+        window.addEventListener('deviceorientation', onOrientation);
+        if (typeof DeviceOrientationEvent.requestPermission !== 'function') return;
+
+        // Other browsers have the same call but send the tilt without it, so
+        // only offer the tap while no tilt has come in.
+        const ask = async () => {
+            if (this.motion) return;
+            try {
+                await DeviceOrientationEvent.requestPermission();
+            } catch {
+                // Declined or unavailable: the wordmark keeps its idle sway.
+            }
+        };
+        this.frame.style.pointerEvents = 'auto';
+        this.frame.addEventListener('click', () => {
+            this.frame.style.pointerEvents = '';
+            ask();
+        }, { once: true });
     }
 
     resize() {
