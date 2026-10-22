@@ -113,7 +113,8 @@ To get started with the **Terminal & SSH** app, follow these steps:
 1. Go to {% my supervisor_addon title="**Settings** > **Apps** > **Terminal & SSH**" addon="core_ssh" %} and select **Install**.
 2. To use the web terminal, on the **Info** tab, select **Start**, and then select **Open Web UI**.
    - You can now start typing your [commands](/common-tasks/os/#home-assistant-via-the-command-line).
-3. If you want to connect with an SSH client, you need to enter credentials:
+3. If you want to connect with an SSH client, you need to enter credentials and a port:
    - Open the **Configuration** tab.
-   - Under **Authorized Keys**, add your public key, or enter a **Password**.
-   - Select **Save**, and then on the **Info** tab, select **Restart**.
+   - Under **Authorized Keys**, add your public key, or enter a **Password**. Then, select **Save**.
+   - Under **Network**, select **Show disabled ports**. For **SSH Port**, enter a port, for example `22`. Then, select **Save**.
+   - On the **Info** tab, select **Restart**.
