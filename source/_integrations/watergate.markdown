@@ -124,6 +124,8 @@ The integration does not provide the ability to control the device buzzer, reboo
 
 Older Sonic firmware does not report the two flow directions separately. On such a device, the **Water meter negative volume** and **Water meter negative duration** entities stay unavailable, and **Water meter volume** and **Water meter duration** report the difference between the normal and reverse readings rather than the normal direction alone.
 
+Separate flow directions are reported by Sonic firmware newer than 2.11. A Sonic connected to the Watergate cloud is kept up to date by Watergate, so it already has this firmware. A Sonic that has been offline may still run an older version. To update it, connect the device to the network; it updates itself within 24 hours.
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
