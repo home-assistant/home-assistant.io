@@ -49,7 +49,7 @@ To go back to an earlier version, restore a backup. Use a backup that you made w
 
 You can also install an earlier version without a backup. But this doesn't undo the changes that the newer version made to your data. For example, an update can convert your database to a new format. It can also convert the settings of some integrations. An earlier version can't read the new format. Your history then stops recording, and some integrations don't load.
 
-A backup contains your settings and your database from the time you made it. When you restore it, your data matches the earlier version again. Any changes you made after the backup are lost.
+For the default database, use a backup that includes both your Home Assistant settings and the database. If you use a database hosted on an external server, also restore a separate database backup made while you were running the earlier version. Restoring these backups brings the included data back to the time you made them. Any later changes to that data are lost.
 
 {% if page.installation == "os" %}
 
