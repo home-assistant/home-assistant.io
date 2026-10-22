@@ -82,17 +82,9 @@ The method for running a configuration check depends on your [installation type]
 
 ## Reloading the configuration to apply changes
 
-For configuration changes to become effective, the configuration must be reloaded. Most integrations in Home Assistant (that do not interact with {% term devices %} or {% term services %}) can reload changes made to their configuration in `configuration.yaml` without needing to restart Home Assistant.
+After you change `configuration.yaml` or another YAML file, apply the changes. Most changes apply with a quick reload, without a restart. Some changes need a restart instead, for example, when you add an integration in YAML for the first time.
 
-1. Under **Settings**, select the three dots menu (top right) {% icon "mdi:dots-vertical" %}, select **Restart Home Assistant** > **Quick reload**.
-
-   ![Settings, three dot menu, restart Home Assistant](/images/docs/configuration/settings_restart_ha.png)
-
-2. If you find that your changes were not applied, you need to restart.
-   - Select **Restart Home Assistant**.
-   - Note: This interrupts automations and scripts.
-
-   ![Reload and restart buttons](/images/docs/configuration/reload_restart.png)
+For the steps, refer to [Reloading the YAML configuration](/common-tasks/general/restarting/#reloading-the-yaml-configuration) and [Restarting Home Assistant](/common-tasks/general/restarting/#restarting-home-assistant).
 
 ## Troubleshooting the configuration
 
