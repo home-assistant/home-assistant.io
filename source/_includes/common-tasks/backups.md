@@ -14,6 +14,8 @@ On Home Assistant OS, a full backup includes the following folders:
 
 A partial backup consists of any number of the above default directories and installed apps.
 
+On Home Assistant Container, a backup contains the Home Assistant settings and, if you choose, the history. Apps, the media and share folders, and network storage are only available on Home Assistant OS.
+
 ### Preparing for a backup
 
 Before creating a backup, check if you can reduce the size of the backup. This is especially important if you want to use the backup to migrate the system to new hardware, for example from a Raspberry Pi Compute Module&nbsp;4 to a Raspberry Pi Compute Module&nbsp;5.
@@ -50,6 +52,7 @@ The automatic backup process creates a backup on a schedule and also deletes old
    - Under **Retention**, define how many backups to keep, or for how many days.
      - Older automatic backups are deleted. For example: if you back up daily and keep 7 backups, the backups that are older than 7 days are deleted.
      - These retention settings do not delete manual backups. However, Home Assistant Cloud replaces its previous backup whenever a new backup is uploaded, even if the previous backup was created manually.
+     - On Home Assistant OS, app update backups have their own limit. By default, Home Assistant keeps one backup per app. To change this, select the **App update backup** card on the backups page.
    - Select **Next**.
 7. On the **Backup data** step, define the data you want to back up, and select **Next**.
    - It is recommended to leave out media and the share folder to reduce the size of the backup.
