@@ -28,7 +28,7 @@ related:
 ha_quality_scale: platinum
 ---
 
-The **Anthropic** {% term integration %} adds conversation agents and AI task entities powered by [Anthropic's Claude models](https://platform.claude.com/docs/en/models/overview) to Home Assistant.
+The **Anthropic** {% term integrations %} adds conversation agents and AI task entities powered by [Anthropic](https://www.anthropic.com)'s Claude models to Home Assistant.
 
 Controlling Home Assistant is done by providing the AI access to the **Device control** API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
@@ -70,11 +70,11 @@ Recommended settings:
   description: If enabled, the recommended model and settings are chosen.
 {% endconfiguration_basic %}
 
-If you choose not to use the recommended settings, you can configure the following options. The available thinking types and effort levels depend on the selected model's capabilities.
+If you choose not to use the recommended settings, you can configure the following options:
 
 {% configuration_basic %}
 Model:
-  description: The model that will complete your prompt. The list excludes retired models. You can also enter a model ID manually. See the [models overview](https://platform.claude.com/docs/en/models/overview) for available models and their capabilities.
+  description: The model that will complete your prompt. See [models overview](https://platform.claude.com/docs/en/models/overview) for additional details and options.
 Maximum Tokens to Return in Response:
   description: The maximum number of output tokens to generate, including thinking tokens and the final response. Claude may stop before reaching this limit. Leave enough room for both reasoning and the answer when thinking is enabled. The upper limit depends on the selected model; see the [models overview](https://platform.claude.com/docs/en/models/overview) for details.
 Caching strategy:
@@ -105,13 +105,11 @@ Enable tool search tool:
 
 ### Models
 
-The integration uses the capabilities and token limits reported by Anthropic to offer settings for the selected model. Newly released models may require a Home Assistant update if they introduce API changes.
+The integration uses the capabilities and token limits reported by Anthropic to offer settings for the selected model. Newly released models may require a Home Assistant update if they introduce backwards-incompatible API changes.
 
 Anthropic [deprecates and retires models](https://platform.claude.com/docs/en/about-claude/model-deprecations) over time. Deprecated models remain usable until retirement, but you should replace them before their retirement date. Retired models are no longer available and cannot be selected in the integration.
 
-When a configured model becomes deprecated or retired, Home Assistant creates a repair issue. Open **Settings > System > Repairs** and choose an active replacement for each affected conversation or AI task configuration. When available, the repair suggests a model from the same model family.
-
-When changing models, review the model-specific settings. Home Assistant retains compatible settings and adjusts thinking type, effort, and token limits to the replacement model. Unsupported tool settings are removed. An unsupported effort level falls back to the nearest supported lower level when available, or the lowest supported level otherwise.
+When a configured model becomes deprecated or retired, Home Assistant creates a repair issue. Open **Settings > System > Repairs** and choose an active replacement for each affected conversation or AI task configuration.
 
 ### Feature matrix
 
@@ -126,8 +124,8 @@ The following table describes which [API features](https://platform.claude.com/d
 | [Batch processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing) | Process large volumes of requests asynchronously for cost savings. Send batches with many queries per batch. Batch API calls cost 50% less than standard API calls. | Not supported | This feature does not apply to Home Assistant. There is currently no clear smart home use case for batch processing. |
 | [Citations](https://platform.claude.com/docs/en/build-with-claude/citations) | Ground Claude's responses in source documents. With Citations, Claude can provide detailed references to the exact sentences and passages it uses to generate responses, leading to more verifiable, trustworthy outputs. | Not supported | We support receiving the citations but don't currently display them in the interface |
 | [Data residency](https://platform.claude.com/docs/en/build-with-claude/data-residency) | Control where model inference runs using geographic controls. Specify `"global"` or `"us"` routing per request via the `inference_geo` parameter. | Not supported | We might add support later, but it is not clear why you would need this in Home Assistant |
-| [Effort](https://platform.claude.com/docs/en/build-with-claude/effort) | Adjust response thoroughness and token usage, independently of the thinking type. | Supported | Use **Effort** on models that support it, including when thinking is disabled |
-| [Extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) | Give Claude a token budget for reasoning before answering. | Supported | Select **Enabled** under **Thinking type** and set **Thinking budget**, where supported. The thinking summaries are displayed in the Assist interface |
+| [Effort](https://platform.claude.com/docs/en/build-with-claude/effort) | Control how many tokens Claude uses when responding with the effort parameter, trading off between response thoroughness and token efficiency. | Supported | Use **Effort** on models that support it, including when thinking is disabled |
+| [Extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) | Enhanced reasoning capabilities for complex tasks, providing transparency into Claude's step-by-step thought process before delivering its final answer. | Supported | Select **Enabled** under **Thinking type** and set **Thinking budget**, where supported. The thinking summaries are displayed in the Assist interface |
 | [PDF support](https://platform.claude.com/docs/en/build-with-claude/pdf-support) | Process and analyze text and visual content from PDF documents. | Supported | Use `ai_task.generate_data` action with attachments to use this feature |
 | [Search results](https://platform.claude.com/docs/en/build-with-claude/search-results) | Enable natural citations for RAG applications by providing search results with proper source attribution. Achieve web search-quality citations for custom knowledge bases and tools. | Not supported | We receive the citations but they are not currently displayed in the interface. The response text itself usually provides sufficient information. |
 | [Structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs) | Guarantee schema conformance with two approaches: JSON outputs for structured data responses, and strict tool use for validated tool inputs. | Supported | Use `ai_task.generate_data` action with response schema to use this feature |
@@ -152,7 +150,7 @@ The following table describes which [API features](https://platform.claude.com/d
 
 | Feature | Description | Status | Notes |
 |---|---|---|---|
-| [Compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) | Server-side summarization of older conversation turns to keep long conversations within the context window. | Not supported | This feature is still in beta |
+| [Compaction](https://platform.claude.com/docs/en/build-with-claude/compaction) | Server-side context summarization for long-running conversations. When context approaches the window limit, the API automatically summarizes earlier parts of the conversation. | Not supported | This feature is still in beta |
 | [Context editing](https://platform.claude.com/docs/en/build-with-claude/context-editing) | Automatically manage conversation context with configurable strategies. Supports clearing tool results when approaching token limits and managing thinking blocks in extended thinking conversations. | Not supported | This feature is still in beta |
 | [Automatic prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#automatic-caching) | Simplify prompt caching to a single API parameter. The system automatically caches the last cacheable block in your request, moving the cache point forward as conversations grow. | Supported | Set **Caching strategy** to **Full** to use this feature |
 | [Prompt caching (5m)](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) | Provide Claude with more background knowledge and example outputs to reduce costs and latency. | Supported | Set **Caching strategy** to **System prompt** to enable caching for the system prompt and tools, but not for individual conversation messages, to keep Anthropic API costs low for typical Home Assistant smart home use cases |
