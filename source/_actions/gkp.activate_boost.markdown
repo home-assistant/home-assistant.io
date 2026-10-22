@@ -68,7 +68,7 @@ duration:
   type: time
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md domain="climate" %}
 
 {% include actions/try_it.md %}
 
