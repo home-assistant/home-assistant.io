@@ -1,9 +1,8 @@
 ---
 title: Linn / OpenHome
 description: Instructions on how to integrate Linn Ds and Openhome renderers into Home Assistant.
-ha_category:
-  - Media player
-  - Update
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_release: 0.39
 ha_iot_class: Local Polling
 ha_config_flow: true

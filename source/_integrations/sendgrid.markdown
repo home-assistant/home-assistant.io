@@ -1,8 +1,8 @@
 ---
 title: SendGrid
 description: Instructions on how to add email notifications via SendGrid to Home Assistant.
-ha_category:
-  - Notifications
+ha_categories:
+  - messaging_notifications.email_sms_calls
 ha_release: 0.14
 ha_domain: sendgrid
 ha_iot_class: Cloud Push

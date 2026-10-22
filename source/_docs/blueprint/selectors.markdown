@@ -47,6 +47,7 @@ The following selectors are currently available:
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
+- [State class selector](#state-class-selector)
 - [Statistic selector](#statistic-selector)
 - [Target selector](#target-selector)
 - [Template selector](#template-selector)
@@ -57,14 +58,14 @@ The following selectors are currently available:
   - [Example - Merging with existing triggers](#example---merging-with-existing-triggers)
 
 Interactive demos of each of these selectors can be found on the
-[Home Assistant Design portal](https://design.home-assistant.io/#components/ha-selector).
+[Home Assistant contributors website](https://contributors.home-assistant.io/design/components/selector/).
 
 If no selector is defined, a text input for a single line will be shown.
 
 ## Action selector
 
 The action selector allows you to input one or more sequences of actions.
-On the user interface, the action part of the automation editor will be shown.
+On the user interface, the action part of the visual automation editor will be shown.
 The value of the input will contain a list of actions to perform.
 
 ![Screenshot of an action selector](/images/blueprints/selector-action.png)
@@ -194,7 +195,7 @@ entity:
       description: >
         Limits the list of areas to areas that have entities with a certain
         supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
-        For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
+        For a list of supported features for each entity type, refer to the [entity documentation](https://contributors.home-assistant.io/core/entities/entity-class/).
       type: list
       required: false
 multiple:
@@ -604,7 +605,7 @@ entity:
       description: >
         Limits the list of devices to devices that have entities with a certain
         supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
-        For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
+        For a list of supported features for each entity type, refer to the [entity documentation](https://contributors.home-assistant.io/core/entities/entity-class/).
       type: list
       required: false
 filter:
@@ -1223,15 +1224,41 @@ media:
     - image/*
 ```
 
+When `accept` is set, you can also set `image_upload` to let the user upload an
+image from their device instead of browsing the media that is already available
+to Home Assistant. The uploaded image is stored by Home Assistant and selected
+automatically, and the user can clear their choice to upload a different image.
+
+```yaml
+media:
+  accept:
+    - image/*
+  image_upload: true
+```
+
 {% configuration media %}
 accept:
   description: >
     List of media types the user is allowed to select.
   type: list
   required: false
+image_upload:
+  description: >
+    Show an upload field instead of a media browser, allowing the user to upload
+    an image from their device. Requires a non-empty `accept`.
+  type: boolean
+  required: false
+  default: false
+multiple:
+  description: >
+    Allows selecting multiple media items. If set to `true`, the resulting value of
+    this selector will be a list instead of a single object.
+  type: boolean
+  default: false
+  required: false
 {% endconfiguration %}
 
-The output of the media selector is a mapping with information about
+The output of the media selector is a mapping or list of mappings with information about
 the selected media device and the selected media to play. There is also
 metadata, which is used by the frontend and should not be used in the
 backend.
@@ -1274,6 +1301,20 @@ metadata:
       media_content_id: >-
         media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
 ```
+
+Example output when `multiple` is set to `true` (a list of media objects):
+
+```yaml
+- media_content_id: media-source://media_source/local/image1.jpg
+  media_content_type: image/jpeg
+  metadata:
+    title: image1.jpg
+- media_content_id: media-source://media_source/local/image2.jpg
+  media_content_type: image/jpeg
+  metadata:
+    title: image2.jpg
+```
+
 
 ## Number selector
 
@@ -1323,7 +1364,7 @@ translation_key:
     Allows translations provided by an integration where `translation_key`
     is the translation key that is providing the unit_of_measurement string
     translation. See the documentation on
-    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
+    [Backend Localization](https://contributors.home-assistant.io/core/integrations/translations/#selectors)
     for more information.
   type: string
   required: false
@@ -1399,6 +1440,10 @@ fields:
   type: map
   required: false
   keys:
+    default:
+      description: The value used to pre-populate this field when adding a new object.
+      required: false
+      type: any
     label:
       description: The label of the field
       required: false
@@ -1427,7 +1472,7 @@ translation_key:
     Allows translations provided by an integration where `translation_key`
     is the translation key that is providing the selector option strings
     translation. See the documentation on
-    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
+    [Backend Localization](https://contributors.home-assistant.io/core/integrations/translations/#selectors)
     for more information.
   type: string
   required: false
@@ -1537,7 +1582,7 @@ translation_key:
     Allows translations provided by an integration where `translation_key`
     is the translation key that is providing the selector option strings
     translation. See the documentation on
-    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
+    [Backend Localization](https://contributors.home-assistant.io/core/integrations/translations/#selectors)
     for more information.
   type: string
   required: false
@@ -1617,6 +1662,55 @@ prettified name shown in the frontend), or a list of states if `multiple` is tru
 
 For example: `heat_cool`.
 
+## State class selector
+
+The state class selector lets you select one or more sensor state classes.
+The selector returns a single state class, or a list of state classes if `multiple` is set to `true`.
+
+![Screenshot of a state class selector](/images/blueprints/selector-state-class.png)
+
+This selector shows all available sensor state classes:
+
+```yaml
+state_class:
+```
+
+This selector limits selectable state classes to the measurement state classes.
+
+```yaml
+state_class:
+  state_classes:
+    - measurement
+    - measurement_angle
+```
+
+{% configuration state_class %}
+multiple:
+  description: >
+    Allows selecting multiple state classes. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
+  type: boolean
+  default: false
+  required: false
+state_classes:
+  description: >
+    Limits the selectable state classes to the state classes supplied. When not configured, all available state classes are selectable.
+  type: list
+  required: false
+{% endconfiguration %}
+
+The output of this selector is the state class, or (in case `multiple` is set to
+`true`) a list of state classes.
+
+```yaml
+# Example state class selector output result, when multiple is set to false
+measurement
+
+# Example state class selector output result, when multiple is set to true
+- measurement
+- total_increasing
+```
+
 ## Statistic selector
 
 The statistic selector selects the statistic ID of an entity that records
@@ -1693,7 +1787,7 @@ entity:
       description: >
         Limits the targets to entities with a certain supported feature, for example,
         `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
-        For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
+        For a list of supported features for each entity type, refer to the [entity documentation](https://contributors.home-assistant.io/core/entities/entity-class/).
       type: list
       required: false
 {% endconfiguration %}

@@ -1,8 +1,8 @@
 ---
 title: Notifications for Android TV / Fire TV
 description: Notifications for Android TV / Fire TV
-ha_category:
-  - Notifications
+ha_categories:
+  - messaging_notifications.push_notifications
 ha_release: 0.32
 ha_config_flow: true
 ha_domain: nfandroidtv
@@ -155,7 +155,7 @@ These examples show how to use the TV notify entity in automations. Replace the 
 
 Show a notification on the TV when the doorbell detects motion.
 
-- **Trigger**: State, doorbell motion changes to detected
+- **Trigger**: State changed, doorbell motion changes to detected
 - **Action**: Send a notification via `notify.living_room_tv`
   - **Message**: Someone is at the front door.
   - **Data**:

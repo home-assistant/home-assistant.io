@@ -41,8 +41,8 @@ Threshold type:
 
     - **Above** (exclusive): fires when the reading crosses to strictly above the threshold. A reading equal to the threshold does not trigger a crossing.
     - **Below** (exclusive): fires when the reading crosses to strictly below the threshold. A reading equal to the threshold does not trigger a crossing.
-    - **In range** (exclusive): fires when the reading crosses into the range. A reading equal to either bound is not considered inside the range.
-    - **Outside range** (inclusive): fires when the reading crosses out of the range. A reading equal to either bound is considered outside the range.
+    - **In range** (inclusive): fires when the reading crosses into the range. A reading equal to either bound is considered inside the range.
+    - **Outside range** (exclusive): fires when the reading crosses out of the range. A reading equal to either bound is still considered inside the range.
 
     For each mode you can enter a fixed percentage (0–100%) or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
 Trigger when:
@@ -122,8 +122,8 @@ threshold:
 
     - `type: above` (exclusive): Sets a minimum. Fires when the reading crosses to strictly above `value`. A reading equal to `value` does not trigger a crossing. Provide `value` with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
     - `type: below` (exclusive): Sets a maximum. Fires when the reading crosses to strictly below `value`. A reading equal to `value` does not trigger a crossing. Provide `value` with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: between` (exclusive): Defines a range. Fires when the reading crosses into the range. A reading equal to either bound is not inside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: outside` (inclusive): Defines an outside-range. Fires when the reading crosses out of the range. A reading equal to either bound is outside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: between` (inclusive): Defines a range. Fires when the reading crosses into the range. A reading equal to either bound is inside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: outside` (exclusive): Defines an outside-range. Fires when the reading crosses out of the range. A reading equal to either bound is still inside the range. Provide `value_min` and `value_max`, each with a `number` key (for a literal percentage 0–100) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
   required: true
   type: map
 behavior:
@@ -138,19 +138,20 @@ behavior:
   default: each
 for:
   description: |
-    How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the reading has stayed past the threshold for 5 minutes.
+    How long the reading must remain past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the reading has stayed past the threshold for 5 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="moisture sensor" example="sensor.plant_moisture" %}
 
 {% include triggers/behavior.md %}
 
 ## Good to know
 
 - This trigger works with sensors that have the **moisture** device class, such as soil moisture probes. For wet/dry leak sensors, use [Moisture detected](/triggers/moisture.detected/) or [Moisture cleared](/triggers/moisture.cleared/) instead.
+- If you use an entity as the threshold, it must use `%` as its unit. If it has a different unit, or no unit, the trigger doesn't react.
 - A crossing only fires once per direction. The reading must leave the zone and come back before it can fire again.
 - To react on every change instead of only on crossings, use [Moisture content changed](/triggers/moisture.changed/).
 

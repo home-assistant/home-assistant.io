@@ -30,7 +30,7 @@ Trigger when:
   required: false
 For at least:
   description: How long the window must stay closed before the trigger fires. Set to zero to fire immediately.
-  required: true
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -48,8 +48,6 @@ This fires when `binary_sensor.bedroom_window` closes.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -59,13 +57,13 @@ behavior:
   default: each
 for:
   description: >
-    Duration the window must stay closed before the trigger fires. Accepts a duration string like `00:05:00` for five minutes.
-  required: true
-  type: string
+    Duration the window must stay closed before the trigger fires. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
+  required: false
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="window sensor or motorized window" example="binary_sensor.living_room_window" %}
 
 {% include triggers/behavior.md %}
 
@@ -121,7 +119,7 @@ When everyone finishes airing out the house, you can wait until every ground flo
 - **Target**: Ground-floor windows label
 - **Trigger when**: All
 - **For at least**: 00:01:00
-- **Action**: Lock: Lock
+- **Action**: Lock lock
 
 {% details "YAML example for locking a door after all windows close" %}
 

@@ -1,20 +1,10 @@
 ---
 title: SwitchBot Cloud
 description: Instructions on how to set up SwitchBot Devices.
-ha_category:
-  - Binary Sensor
-  - Button
-  - Cover
-  - Fan
-  - Hub
-  - Humidifier
-  - Light
-  - Lock
-  - Plug
-  - Remote
-  - Sensor
-  - Switch
-  - Vacuum
+ha_categories:
+  - sensors
+  - blinds_curtains
+  - plugs_switches
 ha_release: '2023.10'
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -95,8 +85,9 @@ Device names configured in the SwitchBot app are transferred into Home Assistant
 - Lock Pro Wifi
 - Lock Lite
 - [Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
-- Lock Vision
-- Lock Vision Pro
+- [Lock Ultra Max](https://www.switch-bot.com/products/switchbot-lock-ultra-max)
+- [Lock Vision](https://www.switch-bot.com/products/switchbot-lock-ultra-vision-combo)
+- [Lock Vision Pro](https://www.switch-bot.com/products/switchbot-lock-ultra-vision-pro-combo)
 
 ### Sensors
 

@@ -1,9 +1,8 @@
 ---
 title: Anthropic
 description: Instructions on how to integrate Anthropic Claude with Home Assistant
-ha_category:
-  - AI
-  - Voice
+ha_categories:
+  - ai_voice.ai_models
 ha_release: 2024.9
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -172,7 +171,7 @@ Set up and configure Claude as a conversation agent in an [Assist pipeline](/int
 
 ### Home Assistant interface
 
-You can set the Claude AI Task entity as the default AI Task entity. To do this, go to {% my config_ai_task title="**Settings** > **System** > **AI tasks**" %} and select the Claude AI Task entity. This makes the Claude AI Task entity the default for blueprints, and for the **Suggest with AI** button in various places in the interface.
+You can set the Claude AI Task entity as the default AI Task entity. To do this, go to {% my config_ai title="**Settings** > **System** > **AI**" %} and select the Claude AI Task entity. This makes the Claude AI Task entity the default for blueprints, and for the **Suggest with AI** button in various places in the interface.
 
 ### Automation
 
@@ -214,7 +213,7 @@ This may happen if the Python anthropic client had failed to upgrade to the corr
 
 ## Known limitations
 
-This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
+This integration does not integrate with [sentence triggers](/triggers/conversation/).
 
 ## Removing the integration
 

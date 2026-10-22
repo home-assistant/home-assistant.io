@@ -1,8 +1,8 @@
 ---
 title: Google Wifi
 description: Instructions on how to integrate Google Wifi/OnHub routers into Home Assistant.
-ha_category:
-  - System monitor
+ha_categories:
+  - computers_network.routers_network
 ha_iot_class: Local Polling
 ha_release: '0.50'
 ha_domain: google_wifi
@@ -49,8 +49,6 @@ monitored_conditions:
     new_version:
       description: Latest available firmware version. If router is up-to-date, this value shows to `Latest`.
     uptime:
-      description: Days since router has been turned on.
-    last_restart:
       description: Date of last restart. Format is `YYYY-MM-DD HH:mm:SS`.
     local_ip:
       description: Local public IP address.

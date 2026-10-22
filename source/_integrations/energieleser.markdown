@@ -2,12 +2,12 @@
 title: energieleser
 description: Instructions on how to integrate energieleser devices in Home Assistant.
 ha_release: 2026.7
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.meters_monitoring
+  - water.meters_leak_detection
 ha_codeowners:
   - '@AjinkyaGokhale'
-  - '@amitkio'
+  - '@NiccoFink'
 ha_quality_scale: platinum
 ha_domain: energieleser
 ha_integration_type: device
@@ -22,7 +22,7 @@ related:
     title: Debug logs and diagnostics
 ---
 
-The energieleser {% term integration %} fetches real-time consumption data reported by energieleser devices, such as stromleser.one, gasleser, wasserleser, and wärmeleser, using local HTTP API.
+The energieleser {% term integration %} fetches real-time consumption data reported by energieleser devices, such as stromleser.one, gasleser, gasleser.pulse, wasserleser, and wärmeleser, using local HTTP API.
 
 [energieleser](https://energieleser.de/) is a brand by nineti GmbH, a German company offering smart readers for utility meters.
 
@@ -32,6 +32,7 @@ The integration supports the following energieleser devices:
 
 - **stromleser.one** (electricity meter reader)
 - **gasleser** (gas meter reader)
+- **gasleser.pulse** (gas meter reader, pulse-counting variant)
 - **wasserleser** (water meter reader)
 - **wärmeleser** (heat meter reader)
 
@@ -70,6 +71,15 @@ The energieleser integration primarily provides the following features based on 
 
 - **Pulse count**: Total number of pulses detected by the meter.
 
+### gasleser.pulse
+
+- **Total gas**: Total gas volume measured by the meter (m³)
+- **Gas flow rate**: Current gas flow rate (m³/h)
+
+#### Diagnostic sensors
+
+- **Pulse count**: Total number of pulses detected by the meter.
+
 ### wasserleser
 
 - **Total water**: Total water volume measured by the meter (m³)
@@ -91,7 +101,7 @@ The energieleser integration primarily provides the following features based on 
 
 ### Common diagnostic sensors
 
-- **Signal strength**: Wi-Fi signal strength of the device (dBm). Disabled by default.
+- **Signal strength**: Wi-Fi signal strength of the device (dBm). [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 ## Data updates
 

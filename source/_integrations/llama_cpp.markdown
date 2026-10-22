@@ -1,9 +1,8 @@
 ---
 title: llama.cpp
 description: Instructions on how to integrate llama.cpp (and other OpenAI-compatible servers) as a conversation agent.
-ha_category:
-  - AI
-  - Voice
+ha_categories:
+  - ai_voice.ai_models
 ha_release: 2026.8
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -35,7 +34,7 @@ If you are using OpenRouter, you should prefer the official [OpenRouter](/integr
 
 Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
-This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
+This integration does not integrate with [sentence triggers](/triggers/conversation/).
 
 ## Prerequisites
 

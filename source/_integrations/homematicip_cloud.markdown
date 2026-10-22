@@ -1,19 +1,8 @@
 ---
 title: HomematicIP Cloud
 description: Instructions for integrating HomematicIP into Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Event
-  - Hub
-  - Light
-  - Lock
-  - Sensor
-  - Switch
-  - Valve
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_iot_class: Cloud Push
 ha_release: 0.66
 ha_config_flow: true
@@ -26,6 +15,7 @@ ha_platforms:
   - cover
   - diagnostics
   - event
+  - fan
   - light
   - lock
   - sensor
@@ -49,6 +39,7 @@ There is currently support for the following device types within Home Assistant:
 - Climate
 - Cover
 - Event
+- Fan
 - Light
 - Lock
 - Sensor
@@ -154,6 +145,10 @@ Floor heating actuators are operated through the climate group and don't need th
 ### Events
 
 - Doorbell events for devices that expose a `DOOR_BELL_INPUT` channel, like `HmIP-DSD-PCB`.
+
+### Fans
+
+- Wall-mounted universal actuator, as a ventilation actuator (`HmIP-WUA`)
 
 ### Lights
 

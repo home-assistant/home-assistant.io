@@ -1,9 +1,8 @@
 ---
 title: Vegetronix VegeHub
 description: Instructions on how to integrate a VegeHub device with Home Assistant.
-ha_category:
-  - Sensor
-  - Switch
+ha_categories:
+  - garden_plants
 ha_config_flow: true
 ha_release: 2025.7
 ha_iot_class: Local Push

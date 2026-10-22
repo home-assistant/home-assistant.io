@@ -80,7 +80,7 @@ value:
 
 Write a new value to a PLC variable whenever an input number helper changes, for example to push a temperature setpoint from Home Assistant to your ADS device.
 
-- **Trigger**: State: Setpoint helper changes
+- **Trigger**: State changed: Setpoint helper changes
 - **Action**: ADS: Write data by name
   - **ADS variable**: `.setpoint`
   - **ADS type**: `int`

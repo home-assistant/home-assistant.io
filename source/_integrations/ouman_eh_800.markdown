@@ -1,12 +1,8 @@
 ---
 title: Ouman EH-800
 description: Instructions on how to integrate the Ouman EH-800 heating controller with Home Assistant.
-ha_category:
-  - Climate
-  - Number
-  - Select
-  - Sensor
-  - Valve
+ha_categories:
+  - climate.thermostats_heating
 ha_release: 2026.6
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -93,7 +89,7 @@ Enabled by default (categorized as configuration):
 - **H1/H2 Room temperature fine tuning**: Manual offset for the room temperature target.
 - **H1 Constant temperature setpoint** (only when the heating mode is constant-temperature controller): The target supply water temperature.
 
-Disabled by default (see [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)):
+Disabled by default (see [enabling or disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)):
 
 - **Trend sampling interval** (on the main device): The polling interval used by the controller's trend recorder, in seconds.
 
@@ -117,7 +113,7 @@ The exact set of sensors depends on which features and circuits are active on yo
 - **H1/H2 room temperature**: The room temperature measured by the room sensor (when installed).
 - **H1/H2 room temperature setpoint**: The target room temperature.
 
-Additional diagnostic sensors are exposed but disabled by default. See [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities) to enable them if needed:
+Additional diagnostic sensors are exposed but disabled by default. See [enabling or disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) to enable them if needed:
 
 - **H1/H2 curve supply water temperature**: The supply water temperature derived from the heating curve.
 - **H1/H2 delayed room temperature**: A smoothed/delayed room temperature reading.

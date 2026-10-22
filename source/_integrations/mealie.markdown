@@ -1,9 +1,8 @@
 ---
 title: Mealie
 description: Instructions on how to set up Mealie devices in Home Assistant.
-ha_category:
-  - Calendar
-  - To-do list
+ha_categories:
+  - productivity_information
 ha_config_flow: true
 ha_release: 2024.7
 ha_iot_class: Local Polling
@@ -31,7 +30,7 @@ ha_quality_scale: platinum
 
 ## Supported versions
 
-Mealie instances version 2 and later are supported.
+Mealie instances version 3.2.0 and later are supported.
 
 ## Prerequisites
 

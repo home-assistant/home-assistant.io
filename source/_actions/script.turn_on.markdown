@@ -11,7 +11,7 @@ related_actions:
 
 Use this action to start a script. The script runs the sequence of actions you defined for it.
 
-Whatever starts the script does not wait for it to finish. The script is started in the background, and the automation or script that started it continues right away. If you want to wait for the script to finish, call the script directly as `script.your_script_name` instead. For a full comparison, see [waiting for a script to complete](/integrations/script/#waiting-for-a-script-to-complete).
+Whatever starts the script does not wait for it to finish. The script is started in the background, and the automation or script that started it continues right away. If you want to wait for the script to finish, call the script directly as `script.your_script_name` instead. For a full comparison, see [waiting for a script to complete](/docs/script/#waiting-for-a-script-to-complete).
 
 {% include actions/ui_header.md %}
 
@@ -22,12 +22,12 @@ To run a script from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the script you want to run.
-6. From the actions shown for that target, select **Turn on script**.
+6. From the actions shown for that target, under **Script**, select **Turn on script**.
 7. Select **Save**.
 
 ### Options in the UI
 
-This action has no additional options beyond the target.
+This action has no additional options beyond the target. To pass values to the script from the UI, add the script itself as an action instead. Its [fields](/docs/script/#fields) then appear as inputs. In YAML, you can pass values with `variables`, as shown below.
 
 {% include actions/yaml_header.md %}
 
@@ -68,7 +68,7 @@ variables:
 
 ## Good to know
 
-- If the script is already running, what happens next depends on its [script mode](/integrations/script/#script-modes). For example, a script in single mode logs a warning and does not start a second run.
+- If the script is already running, what happens next depends on its [script mode](/docs/script/#script-modes). For example, a script in single mode logs a warning and does not start a second run.
 - Errors in the script do not stop the automation or script that started it, because the two run separately.
 - If you target several scripts at once, they are all started, in the order you list them.
 
@@ -82,8 +82,10 @@ Reuse a notification script and pass the message to it, without holding up the r
 
 - **Trigger**: Light turned on
   - **Target**: Bedroom light
-- **Action**: Turn on script
+- **Action**: Script: Turn on script
   - **Target**: Notify Pushover
+
+To pass the title and message with this action, edit the action in YAML as shown below.
 
 {% details "Show example YAML" %}
 

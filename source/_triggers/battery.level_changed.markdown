@@ -40,8 +40,8 @@ Threshold type:
 
     - **Any change**: fires on any change, regardless of direction or new value.
     - **Above** or **Below** (exclusive): fires only when the new reading is strictly above or below the threshold. A reading equal to the threshold does not fire the trigger.
-    - **In range** (exclusive): fires only when the new reading is strictly between the two bounds. A reading equal to either bound does not fire the trigger.
-    - **Outside range** (inclusive): fires when the new reading is at or below the lower bound, or at or above the upper bound. A reading equal to either bound fires the trigger.
+    - **In range** (inclusive): fires when the new reading is between the two bounds. A reading equal to either bound fires the trigger.
+    - **Outside range** (exclusive): fires when the new reading is below the lower bound or above the upper bound. A reading equal to either bound does not fire the trigger.
 
     For each mode you can enter a fixed percentage (0–100%), reference a sensor entity, or a [number helper](/integrations/input_number/) entity.
 {% endoptions_ui %}
@@ -77,12 +77,12 @@ trigger: |
     threshold:
       type: between
       value_min:
-        number: 79
+        number: 80
       value_max:
-        number: 101
+        number: 100
 {% endexample %}
 
-This fires whenever either device charges back into the 80% to 100% range. The `between` threshold is exclusive, so `value_max` with `number: 101` is used to include a reading of 100%.
+This fires whenever either device charges back into the 80% to 100% range. The range includes both bounds, so a reading of 80% or 100% also fires the trigger.
 
 To use a number helper as a dynamic threshold you can adjust without editing the automation:
 
@@ -100,8 +100,6 @@ trigger: |
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: |
@@ -109,19 +107,20 @@ threshold:
 
     - `type: any`: Fires on any change (no additional keys needed).
     - `type: above` or `type: below` (exclusive): fires when the reading is strictly above or below `value`. A reading equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a literal percentage) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: between` (exclusive): fires when the reading is strictly between `value_min` and `value_max`. Readings equal to either bound do not fire the trigger.
-    - `type: outside` (inclusive): fires when the reading is at or below `value_min`, or at or above `value_max`. Readings equal to either bound fire the trigger.
+    - `type: between` (inclusive): fires when the reading is between `value_min` and `value_max`. Readings equal to either bound fire the trigger.
+    - `type: outside` (exclusive): fires when the reading is below `value_min` or above `value_max`. Readings equal to either bound do not fire the trigger.
 
     For `type: between` and `type: outside`, provide `value_min` and `value_max`, each with a `number` key (for a literal percentage) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
   required: true
   type: map
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="battery level sensor" example="sensor.phone_battery" %}
 
 ## Good to know
 
 - Use a sensor with the battery device class.
+- If you use an entity as the threshold, it must use `%` as its unit. If it has a different unit, or no unit, the trigger doesn't react.
 - The threshold type controls both the direction and the landing zone of the change. Use **Above** or **Below** to filter by direction, **In range** to fire only when the new value is inside a range, and **Outside range** to fire only when it escapes a range.
 - Use **Any change** to fire on every reading update regardless of direction or where the new value lands.
 - To react only when a battery level first crosses a specific value, use [Battery level crossed threshold](/triggers/battery.level_crossed_threshold/) instead.

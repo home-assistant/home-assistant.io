@@ -1,10 +1,8 @@
 ---
 title: Sony Bravia TV
 description: Instructions on how to integrate a Sony Bravia TV into Home Assistant.
-ha_category:
-  - Button
-  - Media player
-  - Remote
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_release: 0.23
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -238,8 +236,8 @@ This automation opens the Bravia TV home screen, waits briefly, and then sends t
 - **Action**: Send remote command
   - **Target**: Bravia TV remote
   - **Command**: `Home`
-- **Action**: Wait for time to pass
-  - **Duration**: 2 seconds
+- **Action**: Wait for time to pass (delay)
+  - **Duration**: `00:00:02`
 - **Action**: Send remote command
   - **Target**: Bravia TV remote
   - **Command**: `Down`
