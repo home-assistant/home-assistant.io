@@ -85,24 +85,25 @@ Use this procedure only if the following conditions are met:
 
 #### To reset a user's password, via the container command line
 
-If you are running Home Assistant in a container, you can use the command line in the container with the `hass` command to change your password. The steps below refer to a Home Assistant container in Docker named `homeassistant`. Note that while working in the container, commands will take a few moments to execute.
+If you are running {% term "Home Assistant Container" %}, you can change a password with the `hass` command in the container. The steps below refer to a container in Docker named `homeassistant`. Commands in the container can take a few moments to run.
 
-1. `docker exec -it homeassistant bash` to open to the container command line
-2. `hass` to create a default user, if this is your first time using the tool
-3. `hass --script auth --config /config change_password existing_user new_password` to change the password
-4. `exit` to exit the container command line
-5. `docker restart homeassistant` to restart the container.
+1. To open the container command line, enter `docker exec -it homeassistant bash`.
+2. To change the password, enter `hass --script auth --config /config change_password USERNAME NEW_PASSWORD`.
+   - Replace `USERNAME` with the username, and `NEW_PASSWORD` with the new password.
+   - Result: The message `Password changed` is shown.
+3. To leave the container command line, enter `exit`.
+4. To restart the container, enter `docker restart homeassistant`.
 
 #### To reset a user's password, as an owner via the web interface
 
-Only the owner can change other user's passwords.
+Only the owner can change the passwords of other users.
 
-1. Go to {% my people title="**Settings** > **People**" %} and select the person for which you want to change the password.
-2. At the bottom of the dialog box, select **Change password**.
-   - Note: this is available as the owner, not administrator.
-3. Enter the new password, and select **OK**.
-4. Confirm the new password by entering it again, and select **OK** again.
-5. A confirmation box will be displayed with the text **Password was changed successfully**.
+1. Go to {% my people title="**Settings** > **People**" %}, and select the person whose password you want to change.
+2. Next to **Password**, select the pencil {% icon "mdi:pencil" %} icon.
+   - Only the owner sees this option.
+3. Under **New password** and **Confirm password**, enter the new password, and then select **Change**.
+   - Result: The message **The password has been changed successfully.** is shown.
+4. Select **OK**.
 
 ## Preparing the system to start a new onboarding process
 
