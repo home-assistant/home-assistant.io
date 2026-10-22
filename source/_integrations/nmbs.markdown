@@ -40,7 +40,7 @@ Once the connection is set up, the integration creates a travel time sensor for 
 
 ## Reconfiguration
 
-To change the stations or the options, go to **Settings** > **Devices & services**, select the **NMBS** integration, and select **Reconfigure** on the connection. The sensors keep their entity IDs and settings.
+To change **Direct connections only** or **Display on map**, go to **Settings** > **Devices & services**, select the **NMBS** integration, and select **Reconfigure** on the connection. The sensors keep their entity IDs and settings. The stations cannot be changed. To follow another route, add the integration again.
 
 ## Supported functionality
 
@@ -108,7 +108,7 @@ Home Assistant could not fetch the station list from the iRail API while startin
 
 ### A configured station no longer exists
 
-One of the stations you set up is no longer in the station list of the iRail API. Reconfigure the integration and pick a station that exists. You can also delete the integration and set it up again.
+One of the stations you set up is no longer in the station list of the iRail API. Delete the integration and set it up again with a station that exists.
 
 ## Removing the integration
 
