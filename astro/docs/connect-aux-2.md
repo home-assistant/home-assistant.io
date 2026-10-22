@@ -56,7 +56,7 @@ Components in `src/components/connect/`, each with a `.fixtures.mjs`:
 | `ConnectSectionHeader` | Centered `h2` and lead ("Audio and so much more", "Incredible audio", "Deep control with serial"). |
 | `ConnectFeatureCard` | Dark card with an icon; background and border fade out, with a border shimmer on hover. Variants: `light` (hotspot cards), `large` ("Incredible audio"), `media` slot. |
 | `ConnectLabel` | Blue pill label ("The smart home multi-tool", "Connect anywhere"). |
-| `ConnectHotspots` | "Connect everything": photo with clickable + points, cards and a connector line. |
+| `ConnectHotspots` | "Connect everything": photo with clickable + points, cards and a connector line. Not on the page for now: the section is a black placeholder one window tall with only its label, heading and lead, until it is redesigned. |
 | `ConnectPrice` | Price section, `id="buy"`. |
 | `ConnectCollaboration` | "Every purchase supports the Open Home" banner. |
 | `ConnectSpecs` | Specifications, `id="specs"`. |
