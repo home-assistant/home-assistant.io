@@ -886,10 +886,12 @@ main#page-wth #cta .cta-card .wth-routing {
 
 // The hero background from the key visual, from
 // source/wth/components/_hero-background.html. It is anchored to the right,
-// where the artwork is busiest, so narrow screens keep that part.
+// where the artwork is busiest. Phones get the gradient alone, as the lines
+// crowd the wordmark and the copy there.
 // source/javascripts/wth/hero-background.js adds the pulses that travel along
 // the lines on scroll.
 main#page-wth #hero .wth-hero-bg {
+    display: none;
     inset: 0;
     pointer-events: none;
     position: absolute;
@@ -903,5 +905,9 @@ main#page-wth #hero .wth-hero-bg {
 
     .wth-hero-bg__art {
         opacity: 0.4;
+    }
+
+    @include bp(tablet) {
+        display: block;
     }
 }

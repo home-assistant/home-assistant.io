@@ -8,6 +8,9 @@
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
+// Where the lines show, matching `bp(tablet)` in
+// sass/homeassistant/pages/wth/_sections.scss. Phones get the gradient alone.
+const SHOWN = '(min-width: 768px)';
 // Length of a pulse, in the artwork's units.
 const PULSE = 80;
 // How far pulses and dashes move along their lines per pixel scrolled.
@@ -17,6 +20,16 @@ function init() {
     const background = document.querySelector('.wth-hero-bg');
     if (!background || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+    // Hidden lines cannot be measured, so wait until they show.
+    const shown = window.matchMedia(SHOWN);
+    if (shown.matches) {
+        animate(background);
+    } else {
+        shown.addEventListener('change', () => animate(background), { once: true });
+    }
+}
+
+function animate(background) {
     const art = background.querySelector('.wth-hero-bg__art');
     const pulses = document.createElementNS(SVG_NS, 'g');
     pulses.setAttribute('class', 'wth-hero-bg__pulses');
