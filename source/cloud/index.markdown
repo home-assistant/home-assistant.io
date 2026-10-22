@@ -3,7 +3,6 @@ title: "Home Assistant Cloud"
 description: "Home Assistant Cloud is an optional subscription from Nabu Casa that adds secure remote access, voice assistant integrations with Google and Alexa, and helps fund the project."
 sidebar: false
 ha_release: "0.60"
-ha_category: Voice
 ha_iot_class: Cloud Push
 ha_domain: cloud
 ---

@@ -1,9 +1,8 @@
 ---
 title: Hi-Link HLK-SW16
 description: Instructions on how to integrate HLK-SW16 relay into Home Assistant.
-ha_category:
-  - DIY
-  - Switch
+ha_categories:
+  - plugs_switches
 ha_release: 0.84
 ha_iot_class: Local Push
 ha_codeowners:

@@ -1,8 +1,8 @@
 ---
 title: Bluesound
 description: Instructions on how to integrate Bluesound devices into Home Assistant.
-ha_category:
-  - Media player
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_release: 0.51
 ha_iot_class: Local Polling
 ha_domain: bluesound
@@ -39,7 +39,7 @@ Sets a timer that will turn off the speaker. For each time you call this it will
 If you increase an ongoing timer of for example 13 minutes, it will increase it to 15. If the timer is set to 90, it will remove the time (hence the 0).
 
 {% note %}
-This button is disabled by default.
+This button is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 {% endnote %}
 
 ### Button `button.speaker_name_clear_sleep_timer`

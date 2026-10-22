@@ -122,6 +122,13 @@ A blueprint input has the following configuration:
       by the user of this blueprint.
     type: any
     required: false
+  visible:
+    description: >
+      Show this input only while other inputs have certain values. See
+      [showing inputs based on other inputs](#showing-inputs-based-on-other-inputs).
+    type: [boolean, map, list]
+    default: true
+    required: false
 
 {% endconfiguration %}
 
@@ -184,6 +191,11 @@ collapsed:
   type: boolean
   default: false
   required: false
+visible:
+  description: Show this section and its inputs only while other inputs have certain values. See [showing inputs based on other inputs](#showing-inputs-based-on-other-inputs).
+  type: [boolean, map, list]
+  default: true
+  required: false
 input:
   description: >
     A dictionary of defined user inputs within this section.
@@ -213,12 +225,70 @@ blueprint:
           name: 2nd example input
 ```
 
+### Showing inputs based on other inputs
+
+An input or a section can be shown only while other inputs have certain values, using `visible`. This keeps the form short when some inputs only matter for one choice.
+
+```yaml
+blueprint:
+  name: Motion light
+  domain: automation
+  input:
+    dim_mode:
+      name: Dimming
+      default: none
+      selector:
+        select:
+          options:
+            - none
+            - fixed
+    brightness:
+      name: Brightness
+      default: 50
+      visible:
+        field: dim_mode
+        value: fixed
+      selector:
+        number:
+          min: 1
+          max: 100
+          unit_of_measurement: "%"
+```
+
+In this example, **Brightness** is only shown when **Dimming** is set to `fixed`.
+
+A condition looks at the value of another input, by its name. The input can be in any section.
+
+{% configuration %}
+field:
+  description: The name of the input to look at.
+  type: string
+  required: true
+operator:
+  description: >
+    How to compare the input with `value`: `eq` (equal), `not_eq` (not equal), `in` (one of the values in a list),
+    `not_in` (none of the values in a list), `exists` (the input has a value), or `not_exists` (the input has no value).
+  type: string
+  default: eq
+  required: false
+value:
+  description: >
+    The value to compare the input with: a string, a number, or a boolean. Use a list of them for `in` and `not_in`.
+    Required for all operators except `exists` and `not_exists`.
+  type: any
+  required: false
+{% endconfiguration %}
+
+`visible` also accepts a list of conditions, which must all match, or `true` or `false`.
+
+When an input is hidden, the user doesn't need to fill it in, and anything they entered is ignored. Where the blueprint uses it with `!input`, it gets its `default`, or nothing if it has no default. An input in a hidden section is hidden too.
+
 ### Blueprint inputs in templates
 
 The inputs are available as custom YAML tags, but not as template variables.
 To use a blueprint input in a template, it first needs to be exposed as either
 a [script level variable](/integrations/script/#variables) or in
-a [variable script step](/docs/scripts/#variables).
+a [**Define variables**](/building-blocks/variables/) building block.
 
 ```yaml
 variables:

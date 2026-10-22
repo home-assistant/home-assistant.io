@@ -18,7 +18,7 @@ To set the vacation responder from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select your Google Mail account.
-6. From the actions shown for that target, select **Set vacation**.
+6. From the actions shown for that target, under **Google Mail**, select **Set vacation**.
 7. Turn **Enabled** on and enter a **Message**. Optionally, set a **Title**, a **Start** and **End** date, and the other options.
 8. Select **Save**.
 

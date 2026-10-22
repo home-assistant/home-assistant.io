@@ -20,7 +20,7 @@ To set the tracked light brightness from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the area, floor, device, label, or entity you want to control.
-6. From the actions shown for that target, select **Set light brightness tracked state**.
+6. From the actions shown for that target, under **Bond**, select **Set light brightness tracked state**.
 7. Set the **Brightness** to the value the light is actually at, from 0 to 255.
 8. Select **Save**.
 
@@ -70,10 +70,12 @@ brightness:
 
 Use this automation when a physical remote tells Home Assistant the light was dimmed, so the tracked brightness matches reality.
 
-- **Trigger**: Remote "dim" button pressed
-- **Action**: Set light brightness tracked state
+- **Trigger**: State changed
+  - **Entity**: Light remote button sensor
+  - **To**: Dim
+- **Action**: Bond: Set light brightness tracked state
   - **Target**: Living room lights
-  - **Brightness**: 64
+  - **Brightness**: `64`
 
 {% details "Show example YAML" %}
 

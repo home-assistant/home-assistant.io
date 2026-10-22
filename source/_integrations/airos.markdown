@@ -1,9 +1,8 @@
 ---
 title: Ubiquiti airOS
 description: Ubiquiti UISP airOS integration.
-ha_category:
-  - Sensor
-  - Update
+ha_categories:
+  - computers_network.routers_network
 ha_iot_class: Local Polling
 ha_release: 2025.8
 ha_codeowners:
@@ -86,7 +85,7 @@ The choice between Bridge and Router mode depends on the network architecture an
 
 ### Reboot
 
-Disabled by default, can be enabled to provide a button to reboot the device.
+[Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity), can be enabled to provide a button to reboot the device.
 
 ## Sensor
 

@@ -62,7 +62,9 @@ This action has no additional YAML options beyond the target.
 
 Stop the mower as soon as someone or a pet is on the lawn, so it does not resume on its own once they leave.
 
-- **Trigger**: State: Lawn motion sensor turned on
+- **Trigger**: State changed
+  - **Entity**: Lawn motion sensor
+  - **To**: Detected
 - **Action**: Stop lawn mower
   - **Target**: Backyard mower
 

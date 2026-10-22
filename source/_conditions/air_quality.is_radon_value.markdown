@@ -96,7 +96,7 @@ Set the helper's unit of measurement to `Bq/m³` or `pCi/L`, because an entity w
    unit_example_value="300"
    threshold_required="true" %}
 
-{% include conditions/targets.md domain="sensor" %}
+{% include conditions/targets.md entity_type="radon sensor" example="sensor.basement_radon" %}
 
 {% include conditions/behavior.md %}
 

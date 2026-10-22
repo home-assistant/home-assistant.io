@@ -7,7 +7,7 @@ related_actions:
   - tplink.random_effect
 ---
 
-The **Sequence effect** action plays a repeating sequence of colors on a TP-Link light strip. Unlike the random effect, you define the exact colors and the order they appear in, and the light steps through them in sequence.
+The **TP-Link Smart Home: Sequence effect** action plays a repeating sequence of colors on a TP-Link light strip. Unlike the random effect, you define the exact colors and the order they appear in, and the light steps through them in sequence.
 
 This effect is available on devices that support light effects, such as bulbs and light strips, except for [Kasa bulbs](/integrations/tplink/#no-light-effects-on-kasa-bulbs). Colors are expressed as HSV sequences, where each value is hue, saturation, and brightness.
 
@@ -20,7 +20,7 @@ To play a sequence effect from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the light strip you want to control.
-6. From the actions shown for that target, select **Sequence effect**.
+6. From the actions shown for that target, under **TP-Link Smart Home**, select **Sequence effect**.
 7. Set the options you want to use.
 8. Select **Save**.
 

@@ -7,7 +7,7 @@ related_actions:
   - google_travel_time.get_travel_times
 ---
 
-The **Get transit times** action retrieves route alternatives and travel times between two locations using public transit, and returns them as response data. For driving, walking, or bicycling, use the [Get travel times](/actions/google_travel_time.get_travel_times/) action instead.
+The **Google Maps Travel Time: Get transit times** action retrieves route alternatives and travel times between two locations using public transit, and returns them as response data. For driving, walking, or bicycling, use the [Get travel times](/actions/google_travel_time.get_travel_times/) action instead.
 
 This action does not target an entity. Instead, you select which Google Maps Travel Time configuration entry to use, and provide the origin and destination.
 

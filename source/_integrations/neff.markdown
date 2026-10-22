@@ -1,17 +1,6 @@
 ---
 title: Neff
 description: Connect and control your Neff devices using the Home Connect integration
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Fan
-  - Hub
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
 ha_release: '0.110'
 ha_domain: neff
 ha_integration_type: virtual
