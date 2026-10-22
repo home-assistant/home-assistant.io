@@ -39,7 +39,7 @@ To restore a backup, follow the steps described in [Restoring a backup](/common-
 
 ## Event entity
 
-The **Backup** {% term integration %} provides the **Automatic backup** {% term "Event entity" %} (`event.backup_automatic_backup`). It shows the state of the last backup that Home Assistant created. Despite its name, it also reports manual backups and the backups that Home Assistant creates before an update. You can use its attributes in automations, for example, to get notified when a backup fails.
+The **Backup** {% term integration %} provides the **Automatic backup** {% term "Event entity" %} (`event.backup_automatic_backup`). It shows the state of the last backup that Home Assistant created. Despite its name, it also reports manual backups and the backups that Home Assistant creates before an update. You can use its attributes in automations, for example, to get notified when a backup fails. To react to the result of a backup, use the [**Event received**](/triggers/event.received/) trigger, and select the event type.
 
 The event entity has the following attributes:
 
@@ -95,12 +95,9 @@ The date and time of the last automatic backup that Home Assistant created succe
 
 When a backup fails, send a notification to your phone with the reason.
 
-- **Trigger**: State changed
-  - **Entity**: Automatic backup (`event.backup_automatic_backup`)
-- **Condition**: State
-  - **Entity**: Automatic backup (`event.backup_automatic_backup`)
-  - **Attribute**: Event type
-  - **State**: Failed
+- **Trigger**: Event received
+  - **Target**: Automatic backup (`event.backup_automatic_backup`)
+  - **Event type**: Failed
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
   - **Message**: {% raw %}`The last backup failed: {{ state_attr('event.backup_automatic_backup', 'failed_reason') }}`{% endraw %}
@@ -111,13 +108,12 @@ When a backup fails, send a notification to your phone with the reason.
 automation: |
   alias: "Notify when a backup fails"
   triggers:
-    - trigger: state
-      entity_id: event.backup_automatic_backup
-  conditions:
-    - condition: state
-      entity_id: event.backup_automatic_backup
-      attribute: event_type
-      state: failed
+    - trigger: event.received
+      target:
+        entity_id: event.backup_automatic_backup
+      options:
+        event_type:
+          - failed
   actions:
     - action: notify.send_message
       target:
@@ -135,12 +131,9 @@ automation: |
 
 If your backups are stored on a NAS that you only turn on for backups, shut it down when a backup is complete. This example uses the **Shut down** button that the [Synology DSM](/integrations/synology_dsm/) integration provides. Other NAS integrations can provide a similar button.
 
-- **Trigger**: State changed
-  - **Entity**: Automatic backup (`event.backup_automatic_backup`)
-- **Condition**: State
-  - **Entity**: Automatic backup (`event.backup_automatic_backup`)
-  - **Attribute**: Event type
-  - **State**: Completed successfully
+- **Trigger**: Event received
+  - **Target**: Automatic backup (`event.backup_automatic_backup`)
+  - **Event type**: Completed successfully
 - **Action**: Press button
   - **Target**: NAS Shut down (`button.nas_shut_down`)
 
@@ -150,13 +143,12 @@ If your backups are stored on a NAS that you only turn on for backups, shut it d
 automation: |
   alias: "Shut down the NAS after a backup"
   triggers:
-    - trigger: state
-      entity_id: event.backup_automatic_backup
-  conditions:
-    - condition: state
-      entity_id: event.backup_automatic_backup
-      attribute: event_type
-      state: completed
+    - trigger: event.received
+      target:
+        entity_id: event.backup_automatic_backup
+      options:
+        event_type:
+          - completed
   actions:
     - action: button.press
       target:
