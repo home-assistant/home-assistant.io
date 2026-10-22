@@ -88,7 +88,7 @@ automation: |
 
 ## Data updates
 
-The base stations broadcast their power state over Bluetooth, so Home Assistant updates the switch and sensors without {% term polling %}. Connections are opened briefly to read device information during setup and when the integration loads, and to send commands, such as power changes and identify.
+The base stations broadcast their power state over Bluetooth, so Home Assistant updates the switch and sensors without {% term polling %}. Connections are opened briefly to read device information during setup and when the integration loads, and to send commands.
 
 ## Troubleshooting
 
