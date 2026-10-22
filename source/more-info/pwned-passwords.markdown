@@ -5,6 +5,8 @@ description: "What the warning about insecure secrets in an app means, how to fi
 
 On installations that use the {% term "Home Assistant Supervisor" %}, such as {% term "Home Assistant Operating System" %}, Home Assistant can check whether the passwords in your app configurations have appeared in known data breaches. It uses the [Pwned Passwords](https://haveibeenpwned.com/Passwords) service of Have I Been Pwned (HIBP) for this check. A password that has appeared in a data breach is also called pwned.
 
+Your passwords are never sent anywhere. Home Assistant only sends the first 5 characters of a fingerprint of each password, from which the password can't be read back. For details, refer to [How the check protects your passwords](#how-the-check-protects-your-passwords).
+
 Starting with Supervisor 2026.10.3, the check is off by default. On older versions, or if security settings were previously saved with the check enabled, it can run even if you did not turn it on explicitly. For the steps to turn it on or off, refer to [Turning the check on or off](#turning-the-check-on-or-off).
 
 ## What the warning means
