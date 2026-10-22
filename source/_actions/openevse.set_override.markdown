@@ -7,6 +7,8 @@ description: "Sets or updates the manual override on the charger."
 
 Use this action to set or update a manual override on your OpenEVSE charger. You can specify whether charging should be active or disabled, adjust the target and maximum charge currents, set an energy or time limit for the override session, and choose whether to automatically clear the override when limits are reached or the vehicle disconnects.
 
+This action requires OpenEVSE Wi-Fi firmware version 4.0.1 or later.
+
 {% include actions/ui_header.md %}
 
 To set a manual override from an automation or script:
@@ -89,7 +91,12 @@ auto_release:
   default: false
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+<a id="targets"></a>
+<a id="targets-of-the-action"></a>
+
+## Targets of the action
+
+Target an OpenEVSE device or one of its entities, such as `switch.openevse_manual_override`. The action is applied once per targeted charger, even if multiple selected entities belong to it.
 
 {% include actions/try_it.md %}
 
