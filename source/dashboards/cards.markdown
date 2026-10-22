@@ -125,7 +125,7 @@ In [sections view](/dashboards/sections/), you can resize cards. Each card has a
      - It is not available inside nested cards: vertical stack, horizontal stack, and grid card
      - It is not available on the picture elements card.
 2. Use the grid size picker to adjust the number of columns and rows the card occupies.
-3. If you want to set the width with more precision, select the {% icon "mdi:grid-large" %} button in the corner of the grid to enter precise mode. The last row was done using precise mode.
+3. If you want to set the width with more precision, select the {% icon "mdi:grid-large" %} button in the corner of the grid to enter precise mode. In the example below, all cards were resized using precise mode.
 
    ![Screenshot of a section using precise mode for some cards](/images/dashboards/precise-mode-example.png)
 
