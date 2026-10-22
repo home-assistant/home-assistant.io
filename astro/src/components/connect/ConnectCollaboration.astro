@@ -9,7 +9,8 @@
 // 2002:31185). It replaces the per-page `#collaboration` section of
 // the Jekyll Connect pages
 // (`source/connect/*/components/_collaboration.html`), with the same
-// structure. The photo stacks above the text on phones.
+// structure. The photo stacks above the text on phones, and sits
+// beside it from the tablet width.
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 import nabuCasa from "../../assets/collaboration/nabu-casa-dark.svg";
@@ -28,7 +29,7 @@ const { image, imageAlt } = Astro.props;
     src={image}
     alt={imageAlt}
     widths={[486, 972, 1440, image.width]}
-    sizes="(min-width: 71.25rem) 30rem, 100vw"
+    sizes="(min-width: 71.25rem) 30rem, (min-width: 48rem) 40vw, 100vw"
   />
   <div class="text">
     <p class="partner">
@@ -117,11 +118,25 @@ const { image, imageAlt } = Astro.props;
   }
 
   /* The photo on the left, 486px of the 1200px banner as in Figma,
-     the text beside it. */
+     the text beside it. On tablets the banner grows with its text and
+     the photo with it; from the desk width it is Figma's 330px. */
+  @media only screen and (min-width: breakpoints.$tab) {
+    .connect-collaboration {
+      grid-template-columns: minmax(0, 486fr) minmax(0, 714fr);
+
+      > img {
+        height: 100%;
+      }
+    }
+
+    .text {
+      padding: var(--space-xlarge);
+    }
+  }
+
   @media only screen and (min-width: breakpoints.$desk) {
     .connect-collaboration {
       align-items: center;
-      grid-template-columns: minmax(0, 486fr) minmax(0, 714fr);
       height: 20.625rem;
 
       > img {

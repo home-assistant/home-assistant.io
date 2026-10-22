@@ -617,10 +617,11 @@ const diagram = [
     gap: var(--space-xlarge);
   }
 
+  /* The video's own shape (1280 × 946), so it is never cropped
+     below the desk width. */
   .at-home {
+    aspect-ratio: 1280 / 946;
     border-radius: var(--radius-medium);
-    height: 16rem;
-    object-fit: cover;
     width: 100%;
   }
 
@@ -1064,6 +1065,63 @@ const diagram = [
     }
   }
 
+  /* Tablets, from 768px to the desk width: the sections still stack as
+     on phones, but cards sit two or three to a row, and the diagram,
+     map and photos are sized for the wider column. */
+  @media only screen and (min-width: breakpoints.$tab) {
+    /* Audio and so much more: the cards two by two above the video. */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Incredible audio: the three short cards in a row, the "Syncs old
+       with new" card with the devices (the second) across the row
+       below. The cards are components, hence :global(). */
+    .audio-grid {
+      grid-auto-flow: dense;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      > :global(:nth-child(2)) {
+        grid-column: 1 / -1;
+        grid-row: 2;
+      }
+    }
+
+    /* Deep control with serial: the diagram no wider than 640px,
+       centered, and the cards two by two below it. */
+    .diagram {
+      justify-self: center;
+      max-width: 40rem;
+      width: 100%;
+    }
+
+    .serial-cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Best spot in the house: the map across the column. */
+    .coverage-map {
+      width: 100%;
+    }
+
+    /* Powerful options: the card and the photo side by side, the photo
+       as tall as the card. */
+    .powerful {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      img {
+        aspect-ratio: auto;
+        height: 100%;
+      }
+    }
+
+    .powerful-text {
+      align-content: center;
+      display: grid;
+    }
+  }
+
   @media only screen and (min-width: breakpoints.$desk) {
     .audio,
     .serial {
@@ -1088,10 +1146,19 @@ const diagram = [
       }
     }
 
-    /* Figma's 692px diagram and 468px cards, in proportion. */
+    /* Figma's 692px diagram and 468px cards, in proportion; the cards
+       one under another again. */
     .serial-grid {
       align-items: start;
       grid-template-columns: minmax(0, 692fr) minmax(0, 468fr);
+    }
+
+    .diagram {
+      max-width: none;
+    }
+
+    .serial-cards {
+      grid-template-columns: minmax(0, 1fr);
     }
 
     .heading {
@@ -1120,6 +1187,7 @@ const diagram = [
 
     .coverage-map {
       align-self: end;
+      width: auto;
     }
 
     .coverage-photo {
@@ -1183,12 +1251,14 @@ const diagram = [
 
     .cards {
       flex: none;
+      grid-template-columns: minmax(0, 1fr);
       width: 24rem;
     }
 
+    /* As tall as the cards, cropping the video's sides. */
     .at-home {
+      aspect-ratio: auto;
       flex: 1;
-      height: auto;
       min-width: 0;
     }
 

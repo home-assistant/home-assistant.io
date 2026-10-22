@@ -112,9 +112,17 @@ Shared styles, scripts and components:
   styles are its final state. Used by the cables, the price glow and
   the specs drawing; the serial loop and the shimmer use
   `reducedMotion`.
-- `src/lib/breakpoints.ts`: the desk breakpoint as a media query for
-  `media` and `sizes` attributes. Keep it in step with
+- `src/lib/breakpoints.ts`: the tablet and desk breakpoints as media
+  queries for `media` and `sizes` attributes. Keep it in step with
   `src/styles/_breakpoints.scss`.
+- Three layouts: phones, tablets from 768px (`breakpoints.$tab`) and
+  desktop from 1140px (`breakpoints.$desk`). Tablets keep the stacked
+  sections of phones, with the feature and serial cards two to a row,
+  the three short "Incredible audio" cards in a row above the Music
+  Assistant card, the serial diagram at most 640px wide, the house
+  map across the column, "Powerful options" and the collaboration
+  banner side by side, and the video at its own shape. The photos
+  switch to their desktop crops at 1140px, as before.
 - `src/styles/_ring.scss`: `ring($width)`, the masked ring along an
   element's edge that the fading border and the shimmer draw on.
 - `src/styles/_fade-border.scss`: the ZBT-2 cards' fading Connect-blue
