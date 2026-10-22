@@ -148,7 +148,7 @@ There are two ways to download the backup from Home Assistant Cloud:
 
 ### Deleting obsolete backups
 
-If you defined a retention for automatic backups, old automatic backups are deleted automatically. Manual backups are never deleted automatically, so you might still have some old backups around that you want to delete.
+If you defined a retention for automatic backups, old automatic backups are deleted automatically. The retention doesn't delete manual backups, so you might still have some old backups around that you want to delete. Home Assistant Cloud is an exception: it only keeps the last backup that was uploaded to it, also if that's a manual backup.
 
 To delete old backups, follow these steps:
 
