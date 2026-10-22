@@ -61,11 +61,12 @@ sources:
     type: posts
     category: Release-Notes
 
-  # The Open Home Foundation newsletter. Downloaded before each build; if the
-  # download fails, this section is left out until the next build.
+  # The Open Home Foundation newsletter, downloaded before each build by the
+  # newsletter_data task in the Rakefile. If the download fails, the newest
+  # editions already on file are used, or the section is left out.
   newsletter:
     type: data
-    file: newsletter
+    file: newsletter_data
 
   # Pin a post here when the timing has to be exact (a launch, an embargo).
   # While a pin is listed, it replaces the blog feed above. Remove it, or let

@@ -7,28 +7,28 @@ related_triggers:
   - air_quality.no_crossed_threshold
 ---
 
-The **Nitrogen monoxide level changed** trigger fires after the nitrogen monoxide (NO) reading on one or more air quality sensors changes by a meaningful amount. Nitrogen monoxide is a reactive gas produced mainly by vehicle engines and combustion processes. It quickly converts to nitrogen dioxide in the atmosphere and plays a key role in smog formation. If you live near a busy road or intersection, rush-hour traffic sends NO levels climbing, and that pollution easily seeps indoors through open windows.
+The **Nitrogen monoxide level changed** trigger fires after the nitrogen monoxide (NO) reading on one or more air quality sensors changes. Nitrogen monoxide is a reactive gas produced mainly by vehicle engines and combustion processes. It quickly converts to nitrogen dioxide in the atmosphere and plays a key role in smog formation. If you live near a busy road or intersection, rush-hour traffic sends NO levels climbing, and that pollution easily seeps indoors through open windows.
 
-Imagine your home automatically logging pollution patterns near the driveway so you know which hours to keep the windows shut. Use this trigger to track pollution data, activate ventilation, or send alerts whenever your NO sensor reports a significant shift.
+Imagine your home automatically logging pollution patterns near the driveway so you know which hours to keep the windows shut. Use this trigger to track pollution data, activate ventilation, or send alerts. Use the threshold type to filter which changes matter to your automation.
 
 {% include triggers/ui_header.md %}
 
-To use this trigger in an automation:
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation, or select **Create automation** > **Create new automation**.
-3. In the **When** section, select **Add trigger**.
-4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your air quality sensor is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
-5. From the triggers shown for that target, select **Nitrogen monoxide level changed**.
-6. Under **Threshold type**, set how much the level has to change before the trigger fires.
-7. Select **Save**.
+{% include triggers/threshold_changed_steps.md
+   title="Nitrogen monoxide level changed"
+   sensor="nitrogen monoxide sensor"
+   areas="driveway or garage"
+   unit_phrase_ui="a fixed level"
+   has_unit="true"
+   unit_label="concentration unit"
+   unit_options="ppb or μg/m³" %}
 
 ### Options in the UI
 
-{% options_ui %}
-Threshold type:
-  description: How much the nitrogen monoxide level has to change before the trigger fires. Can be a fixed number, or reference a helper entity that provides the value.
-{% endoptions_ui %}
+{% include triggers/threshold_changed_options_ui.md
+   unit_phrase_ui="a fixed level"
+   has_unit="true"
+   unit_label="concentration unit"
+   unit_options_code="`ppb` or `μg/m³`" %}
 
 {% include triggers/yaml_header.md %}
 
@@ -40,29 +40,32 @@ trigger: |
   target:
     entity_id: sensor.driveway_no
   options:
-    threshold: 10
+    threshold:
+      type: above
+      value:
+        number: 10
+        unit_of_measurement: "ppb"
 {% endexample %}
 
-This fires whenever the driveway NO sensor reading changes by at least 10 ppb.
+This fires whenever the driveway NO sensor reading changes to a value above 10 ppb. To fire on any change, use `type: any` and leave out `value`.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+{% include triggers/threshold_changed_options_yaml.md
+   unit_phrase_yaml="literal number"
+   has_unit="true"
+   unit_label="concentration unit"
+   unit_options_code="`ppb` or `μg/m³`"
+   unit_default="ppb"
+   unit_example_entity="input_number.no_alert_level"
+   unit_example_value="40" %}
 
-{% options_yaml %}
-threshold:
-  description: >
-    The minimum amount the nitrogen monoxide level must change before the trigger fires. Accepts a number, or a reference to an `input_number`, `number`, or `sensor` entity.
-  required: true
-  type: any
-{% endoptions_yaml %}
-
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="nitrogen monoxide sensor" example="sensor.living_room_nitrogen_monoxide" %}
 
 ## Good to know
 
 - Nitrogen monoxide levels spike near busy roads and during rush hour. Monitoring helps you time ventilation to avoid peak traffic pollution.
-- The trigger fires on any change that meets the threshold, whether the level goes up or down.
+- The threshold type controls which changes fire the trigger. Use **Above** or **Below** to fire only when the new level is above or below a value, **In range** to fire only when it's inside a range, and **Outside range** to fire only when it's outside a range. Use **Any change** to fire on every change.
 - To react only when NO crosses a specific concentration in one direction, use [Nitrogen monoxide level crossed threshold](/triggers/air_quality.no_crossed_threshold/) instead.
 
 {% include triggers/try_it.md %}
@@ -71,12 +74,12 @@ threshold:
 
 ### Automation: log roadside pollution changes
 
-Rush-hour traffic sends NO levels spiking near the road, and knowing the pattern helps you decide when to open or close the windows. This automation records a log entry whenever nitrogen monoxide levels near the driveway shift, helping you spot pollution trends over time.
+Rush-hour traffic sends NO levels spiking near the road, and knowing the pattern helps you decide when to open or close the windows. This automation records a log entry whenever the nitrogen monoxide level near the driveway changes to a value above 10 ppb, helping you spot pollution trends over time.
 
 - **Trigger**: Nitrogen monoxide level changed
-- **Target**: Driveway NO sensor
-- **Threshold type**: 10
-- **Action**: Log entry via logbook
+  - **Target**: Driveway NO sensor
+  - **Threshold type**: Above 10 ppb
+- **Action**: Activity: Log activity
 
 {% details "YAML example for NO pollution logging" %}
 
@@ -88,12 +91,16 @@ automation: |
       target:
         entity_id: sensor.driveway_no
       options:
-        threshold: 10
+        threshold:
+          type: above
+          value:
+            number: 10
+            unit_of_measurement: "ppb"
   actions:
     - action: logbook.log
       data:
         name: "Air quality"
-        message: "Nitrogen monoxide level near the driveway changed."
+        message: "Nitrogen monoxide level near the driveway is above 10 ppb."
 {% endexample %}
 
 {% enddetails %}

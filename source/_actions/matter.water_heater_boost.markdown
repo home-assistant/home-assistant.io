@@ -1,5 +1,5 @@
 ---
-title: "Boost a Matter water heater"
+title: "Boost water heater"
 action: matter.water_heater_boost
 domain: matter
 description: "Enables boost mode on a Matter water heater for a set duration."
@@ -16,7 +16,7 @@ To boost a water heater from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the water heater you want to boost.
-6. From the actions shown for that target, select **Boost a Matter water heater**.
+6. From the actions shown for that target, under **Matter**, select **Boost water heater**.
 7. Set the **Duration** of the boost.
 8. Optionally, turn on **Emergency boost** or set a **Temporary setpoint** for the boost period.
 9. Select **Save**.
@@ -65,7 +65,7 @@ temporary_setpoint:
   type: integer
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md entity_type="Matter water heater" example="water_heater.hot_water" %}
 
 {% include actions/more_examples.md %}
 
@@ -73,8 +73,11 @@ temporary_setpoint:
 
 Heat extra water shortly before your household gets up, so there is plenty of hot water ready.
 
-- **Trigger**: Every day at 06:00
-- **Action**: Boost a Matter water heater
+- **Trigger**: Time
+  - **At time**: `06:00`
+- **Action**: Matter: Boost water heater
+  - **Target**: Hot water
+  - **Duration**: `3600`
 
 {% details "Show example YAML" %}
 

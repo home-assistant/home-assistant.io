@@ -35,6 +35,7 @@ Trigger when:
     - **Each** (default): Fire every time any targeted water heater turns off.
     - **First**: Fire only when the first targeted water heater turns off.
     - **All**: Fire only after all targeted water heaters are off.
+  required: false
 For at least:
   description: How long the water heater must stay off before the trigger fires. Default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -60,30 +61,28 @@ trigger: |
   target:
     label_id: vacation_water_heaters
   options:
-    behavior: last
+    behavior: all
     for: "00:15:00"
 {% endexample %}
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 behavior:
   description: |
     When multiple water heaters are targeted, controls when the trigger fires:
 
-    - `any` (**Each** in the UI): Fires every time any targeted water heater turns off.
-    - `first` (**First** in the UI): Fires only when the first targeted water heater turns off.
-    - `last` (**All** in the UI): Fires only after all targeted water heaters are off.
+    - `each` (default): Fires every time any targeted water heater turns off.
+    - `first`: Fires only when the first targeted water heater turns off.
+    - `all`: Fires only after all targeted water heaters are off.
   required: false
   type: string
-  default: any
+  default: each
 for:
   description: >
-    How long the water heater must stay off before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:15:00` waits 15 minutes.
+    How long the water heater must stay off before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:15:00` waits 15 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -147,7 +146,7 @@ automation: |
       target:
         label_id: vacation_water_heaters
       options:
-        behavior: last
+        behavior: all
         for: "00:15:00"
   actions:
     - action: notify.send_message

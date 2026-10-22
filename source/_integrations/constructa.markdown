@@ -1,18 +1,6 @@
 ---
 title: Constructa
 description: Connect and control your Constructa devices using the Home Connect integration
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Fan
-  - Hub
-  - Image
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
 ha_release: '0.110'
 ha_domain: constructa
 ha_integration_type: virtual
@@ -29,7 +17,6 @@ ha_platforms:
   - climate
   - diagnostics
   - fan
-  - image
   - light
   - number
   - select

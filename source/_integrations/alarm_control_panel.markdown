@@ -1,8 +1,6 @@
 ---
 title: Alarm control panel
 description: Connect your home alarm system to Home Assistant for automated arming, disarming, and instant notifications when the alarm triggers.
-ha_category:
-  - Alarm
 ha_release: 0.7.3
 ha_quality_scale: internal
 ha_domain: alarm_control_panel
@@ -20,22 +18,24 @@ The **Alarm control panel** {% term integration %} brings your home alarm system
 
 {% include integrations/building_block_integration.md %}
 
-## The state of an alarm panel entity
+## Alarm control panel states
 
 An alarm panel {% term entity %} reflects the current state of your alarm system. Not every alarm panel supports every state or every arming mode. Home Assistant shows only the modes your hardware provides.
 
-- **Disarmed**: the alarm is off. Sensors are not being monitored.
-- **Armed home**: perimeter protection while you are inside. Doors and windows are monitored, but interior motion sensors are ignored so you move freely around the house.
-- **Armed away**: full protection for when nobody is home. All sensors (perimeter and interior) are active.
-- **Armed night**: similar to home mode, but tuned for sleeping. Typically covers perimeter sensors and selected interior zones while leaving bedroom areas free.
-- **Armed vacation**: extended away protection for longer trips. Some systems enable additional monitoring or alerts in this mode.
-- **Armed custom bypass**: armed with one or more zones deliberately skipped. Useful when you want to leave a specific door or window open while arming the rest of the system.
-- **Arming**: the alarm is counting down its exit delay. You have a short window to leave the house before monitoring begins.
-- **Pending**: the alarm detected a sensor trip and is counting down its entry delay. You have a short window to disarm before the alarm triggers.
-- **Triggered**: the alarm has gone off. Sirens, notifications, and any other alert actions are active.
-- **Disarming**: the alarm is in the process of being disarmed.
-- **Unavailable**: the entity is currently unavailable.
-- **Unknown**: the state is not yet known.
+Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
+
+- **Disarmed** (`disarmed`): The alarm is off. Sensors are not being monitored.
+- **Armed home** (`armed_home`): Perimeter protection while you are inside. Doors and windows are monitored, but interior motion sensors are ignored so you move freely around the house.
+- **Armed away** (`armed_away`): Full protection for when nobody is home. All sensors (perimeter and interior) are active.
+- **Armed night** (`armed_night`): Similar to home mode, but tuned for sleeping. Typically covers perimeter sensors and selected interior zones while leaving bedroom areas free.
+- **Armed vacation** (`armed_vacation`): Extended away protection for longer trips. Some systems enable additional monitoring or alerts in this mode.
+- **Armed custom bypass** (`armed_custom_bypass`): Armed with one or more zones deliberately skipped. Useful when you want to leave a specific door or window open while arming the rest of the system.
+- **Arming** (`arming`): The alarm is counting down its exit delay. You have a short window to leave the house before monitoring begins.
+- **Pending** (`pending`): The alarm detected a sensor trip and is counting down its entry delay. You have a short window to disarm before the alarm triggers.
+- **Triggered** (`triggered`): The alarm has gone off. Sirens, notifications, and any other alert actions are active.
+- **Disarming** (`disarming`): The alarm is in the process of being disarmed.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 ## Using an alarm PIN code in actions
 
@@ -68,8 +68,18 @@ The real power of this integration is combining triggers and conditions into aut
 
 When the last person leaves the house, arm the alarm in away mode automatically. No more wondering whether you remembered to set the alarm after rushing out the door.
 
-- **Trigger**: Everyone leaves the home zone
-- **Action**: Arm the alarm in away mode
+- **Trigger**: Zone left
+  - **Target**: Alex
+  - **Zone**: Home
+- **Trigger**: Zone left
+  - **Target**: Jamie
+  - **Zone**: Home
+- **Condition**: Not
+  - **Condition**: Is in zone
+    - **Target**: Alex, Jamie
+    - **Zone**: Home
+- **Action**: Arm alarm away
+  - **Target**: Home alarm
 
 {% details "YAML example for arming when everyone leaves" %}
 
@@ -77,22 +87,26 @@ When the last person leaves the house, arm the alarm in away mode automatically.
 automation: |
   alias: "Arm alarm when everyone leaves"
   triggers:
-    - trigger: zone
-      entity_id: person.alex
-      zone: zone.home
-      event: leave
-    - trigger: zone
-      entity_id: person.jamie
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.alex
+      options:
+        zone: zone.home
+    - trigger: zone.left
+      target:
+        entity_id: person.jamie
+      options:
+        zone: zone.home
   conditions:
     - condition: not
       conditions:
-        - condition: zone
-          entity_id:
+        - condition: zone.in_zone
+          target:
+            entity_id:
             - person.alex
             - person.jamie
-          zone: zone.home
+          options:
+            zone: zone.home
   actions:
     - action: alarm_control_panel.alarm_arm_away
       target:
@@ -105,8 +119,12 @@ automation: |
 
 When you pull into the driveway, Home Assistant recognizes you are home and disarms the alarm. You walk through the front door without fumbling for a keypad or app.
 
-- **Trigger**: Your person entity enters the home zone
-- **Action**: Disarm the alarm
+- **Trigger**: Zone entered
+  - **Target**: Alex
+  - **Zone**: Home
+- **Action**: Disarm alarm
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for disarming on arrival" %}
 
@@ -114,10 +132,11 @@ When you pull into the driveway, Home Assistant recognizes you are home and disa
 automation: |
   alias: "Disarm alarm on arrival"
   triggers:
-    - trigger: zone
-      entity_id: person.alex
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.alex
+      options:
+        zone: zone.home
   actions:
     - action: alarm_control_panel.alarm_disarm
       target:
@@ -164,8 +183,10 @@ automation: |
 
 When bedtime arrives, switch the alarm to night mode so perimeter sensors stay active while you move freely inside the house.
 
-- **Trigger**: Time reaches 23:00
-- **Action**: Arm the alarm in night mode
+- **Trigger**: Time
+  - **At time**: `23:00`
+- **Action**: Arm alarm night
+  - **Target**: Home alarm
 
 {% details "YAML example for arming at bedtime" %}
 
@@ -188,7 +209,9 @@ automation: |
 If your alarm panel reports who made the change, you get a notification telling you exactly who disarmed the system. Handy for families who want to know when the kids got home, or for keeping a log of who opened up the house.
 
 - **Trigger**: Alarm disarmed
-- **Action**: Send a notification with the name of the person who disarmed it
+- **Action**: Send a notification
+  - **Title**: `Alarm disarmed`
+  - **Message**: `The alarm was disarmed by {{ state_attr( 'alarm_control_panel.home_alarm', 'changed_by') }}.`
 
 {% details "YAML example for a changed-by notification" %}
 

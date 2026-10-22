@@ -1,5 +1,5 @@
 ---
-title: "Z-Wave value updated"
+title: "Z-Wave JS value updated"
 trigger: zwave_js.value_updated
 domain: zwave_js
 description: "Triggers when a Z-Wave value updates, including values that are not exposed as Home Assistant entities."
@@ -8,7 +8,7 @@ related_triggers:
   - state
 ---
 
-The **Z-Wave value updated** trigger fires when a Z-Wave value changes on a node. Use it to react to value changes that Home Assistant does not expose as a regular entity state, or to watch a specific Command Class value directly.
+The **Z-Wave JS value updated** trigger fires when a Z-Wave value changes on a node. Use it to react to value changes that Home Assistant does not expose as a regular entity state, or to watch a specific Command Class value directly.
 
 This trigger is useful when:
 
@@ -16,9 +16,40 @@ This trigger is useful when:
 - A device sends value updates without changing entity state, for example, when the device does not follow the Z-Wave specification.
 - You need to filter on a specific Command Class, property, property key, or endpoint.
 
-{% note %}
-This trigger is configured in YAML only. It cannot be added from the automation editor in the UI.
-{% endnote %}
+{% include triggers/ui_header.md %}
+
+To use **Z-Wave JS value updated** in an automation:
+
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
+2. Open an existing automation, or select **Create automation** > **Create new automation**.
+3. In the **When** section, select **Add trigger**.
+4. Search for **Z-Wave JS value updated** and select it.
+5. Pick the nodes to watch under **Devices**, **Entities**, or both.
+6. Under **Command class**, pick the Command Class of the value, and under **Property**, enter its property.
+7. Optionally set **Property key** and **Endpoint** to narrow down which value is meant.
+8. Optionally set **From** and **To** to only fire on specific previous or new values.
+9. Select **Save**.
+
+### Options in the UI
+
+{% options_ui %}
+Devices:
+  description: The Z-Wave devices whose values to watch.
+Entities:
+  description: Entities whose devices should be watched.
+Command class:
+  description: The Command Class of the Z-Wave value to watch.
+Property:
+  description: The property of the Z-Wave value to watch.
+Property key:
+  description: The property key of the Z-Wave value, for values that have one.
+Endpoint:
+  description: The endpoint of the Z-Wave value.
+From:
+  description: One previous value, or a list of them. The trigger fires when the previous value matches any of them.
+To:
+  description: One new value, or a list of them. The trigger fires when the new value matches any of them.
+{% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
 
@@ -82,11 +113,11 @@ to:
 
 - Property names, property keys, and Command Class IDs come from Z-Wave JS. Refer to the [Z-Wave JS documentation](https://zwave-js.github.io/node-zwave-js/#/api/valueid) for the available values.
 - When `from` or `to` is a list, the trigger fires if the value matches any item in the list.
-- This trigger does not appear in the automation editor in the UI. You can add it by editing the automation in YAML mode.
+- At least one of **Devices** or **Entities** is required, and an entity is resolved to the node behind it.
 
 ### Available trigger data
 
-In addition to the [standard automation trigger data](/docs/automation/templating/#all), this trigger exposes the following template variables:
+In addition to the [standard automation trigger data](/docs/automation/trigger-data/#properties-of-all-triggers), this trigger exposes the following template variables:
 
 - `trigger.device_id`: Device ID for the device in the device registry.
 - `trigger.node_id`: Z-Wave node ID.
@@ -108,11 +139,11 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 
 Some devices report value updates without a corresponding state change. This automation refreshes related switches when the in-wall dual relay switch reports a `currentValue` update.
 
-- **Trigger**: Z-Wave value updated
+- **Trigger**: Z-Wave JS value updated
   - **Entity**: `switch.in_wall_dual_relay_switch`
   - **Command Class**: `37` (Switch Binary)
   - **Property**: `currentValue`
-- **Action**: Z-Wave refresh value
+- **Action**: Refresh values
   - **Targets**: the related switches
 
 {% details "YAML example for refreshing related switches" %}
@@ -139,14 +170,14 @@ automation: |
 
 This automation fires whenever the `latchStatus` value of one of the listed locks changes from `closed` or `jammed` to `opened`.
 
-- **Trigger**: Z-Wave value updated
+- **Trigger**: Z-Wave JS value updated
   - **Device**: Garage Door Lock
   - **Entities**: `lock.front_lock`, `lock.back_door`
   - **Command Class**: `98` (Door Lock)
   - **Property**: `latchStatus`
   - **From**: `closed`, `jammed`
   - **To**: `opened`
-- **Action**: Send a notification
+- **Action**: Send a notification message
 
 {% details "YAML example for reacting to a latch opening" %}
 

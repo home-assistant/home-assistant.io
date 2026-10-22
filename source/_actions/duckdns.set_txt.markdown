@@ -5,7 +5,7 @@ domain: duckdns
 description: "Sets the TXT record of your Duck DNS subdomain."
 ---
 
-The **Set TXT** action sets the TXT record of your Duck DNS subdomain.
+The **Duck DNS: Set TXT** action sets the TXT record of your Duck DNS subdomain.
 
 This is mostly useful for automating an <abbr title="Automatic Certificate Management Environment">ACME</abbr> DNS-01 challenge, where a certificate authority asks you to publish a specific value in your domain's TXT record to prove that you control the domain.
 

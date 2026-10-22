@@ -10,7 +10,7 @@ related_actions:
   - mastodon.unmute_account
 ---
 
-The **Update profile** action changes the information and pictures on your Mastodon profile.
+The **Mastodon: Update profile** action changes the information and pictures on your Mastodon profile.
 
 This is handy when you want your profile to reflect what is happening at home, for example updating your bio with the current indoor temperature or swapping your header image with the season. You can update your display name, bio, pictures, and several profile settings.
 
@@ -82,7 +82,7 @@ action: |
     note: "Automated updates from my smart home."
 {% endexample %}
 
-To find the `config_entry_id`, go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}, select this action, choose your Mastodon account, and switch to YAML mode.
+To find the `config_entry_id`, go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}, select this action, choose your Mastodon account, and switch to YAML mode.
 
 ### Options in YAML
 

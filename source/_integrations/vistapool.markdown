@@ -1,15 +1,8 @@
 ---
 title: Vistapool
 description: Monitor and control Vistapool-compatible pool controllers via the Vistapool cloud API.
-ha_category:
-  - Binary sensor
-  - Button
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Time
+ha_categories:
+  - water.pools_spas
 ha_release: 2026.6
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -150,8 +143,7 @@ Cycle the pool light to the next color at sunset every evening:
 automation: |
   alias: "Pool: advance LED color at sunset"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: button.press
       target:
@@ -170,7 +162,7 @@ The integration provides the following sensors:
 - **UV**: UV module reading (if UV module installed)
 - **Electrolysis / Hydrolysis**: current production level in gr/h
 - **Filtration intel time**: daily runtime in Intel mode
-- **Wi-Fi signal strength**: controller RSSI (diagnostic, disabled by default)
+- **Wi-Fi signal strength**: controller RSSI (diagnostic, [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
 
 ### Binary sensors
 
@@ -214,6 +206,8 @@ The integration exposes the pool light wired through the controller as a standar
 
 - **Pool light**: turn the pool light on or off.
 
+If your controller supports light scheduling, you can also let it run the light on a schedule. See **Light mode** under [Selects](#selects).
+
 ### Numbers
 
 The integration provides the following adjustable values, grouped by what they configure. Each is exposed as a configuration {% term entity %}, so they appear under the **Configuration** section of the device page rather than in the main controls.
@@ -248,6 +242,13 @@ The controller has three independent timer slots. Each slot lets you choose the 
 - **Filtration timer speed 2**: same, for the second slot.
 - **Filtration timer speed 3**: same, for the third slot.
 
+#### Light schedule
+
+If your controller supports light scheduling, you can let it run the pool light on its own schedule instead of switching the light manually.
+
+- **Light mode**: how the pool light is driven. Choose `off` or `on` to control it directly, or `auto` to hand control back to the controller's schedule.
+- **Light schedule frequency**: how often the schedule repeats. Options are `daily` and `weekly`.
+
 ### Times
 
 Each of the three timer slots described above runs between a start time and an end time. These time {% term entities %} let you adjust that filtration schedule directly from Home Assistant, so you can shift the slots around without opening the Vistapool app. Each is exposed as a configuration {% term entity %}, so they appear under the **Configuration** section of the device page rather than in the main controls.
@@ -255,6 +256,10 @@ Each of the three timer slots described above runs between a start time and an e
 - **Filtration interval 1 start**, **Filtration interval 1 end**: start and end time of the first timer slot.
 - **Filtration interval 2 start**, **Filtration interval 2 end**: same, for the second slot.
 - **Filtration interval 3 start**, **Filtration interval 3 end**: same, for the third slot.
+
+If your controller supports light scheduling, two more time entities set the window the pool light runs in when **Light mode** is set to `auto`.
+
+- **Light schedule start**, **Light schedule end**: start and end time of the light schedule. The window can cross midnight, for example from 22:00 to 01:00.
 
 ## Data updates
 

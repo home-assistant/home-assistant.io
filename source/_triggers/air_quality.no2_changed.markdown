@@ -7,28 +7,28 @@ related_triggers:
   - air_quality.no2_crossed_threshold
 ---
 
-The **Nitrogen dioxide level changed** trigger fires after the nitrogen dioxide (NO2) reading on one or more air quality sensors changes by a meaningful amount. Nitrogen dioxide is a reddish-brown gas with a sharp odor, produced mainly by traffic, power plants, and gas stoves. It irritates the airways and contributes to smog and acid rain. Indoors, your gas stove is often the biggest source. Every time you fire up a burner, NO2 levels in the kitchen rise.
+The **Nitrogen dioxide level changed** trigger fires after the nitrogen dioxide (NO2) reading on one or more air quality sensors changes. Nitrogen dioxide is a reddish-brown gas with a sharp odor, produced mainly by traffic, power plants, and gas stoves. It irritates the airways and contributes to smog and acid rain. Indoors, your gas stove is often the biggest source. Every time you fire up a burner, NO2 levels in the kitchen rise.
 
-Imagine your range hood turning on automatically when you start cooking, clearing combustion byproducts before they spread through the house. Use this trigger to start ventilation, close windows facing a busy road, or send a health alert whenever your NO2 sensor reports a significant shift.
+Imagine your range hood turning on automatically when you start cooking, clearing combustion byproducts before they spread through the house. Use this trigger to start ventilation, close windows facing a busy road, or send a health alert. Use the threshold type to filter which changes matter to your automation.
 
 {% include triggers/ui_header.md %}
 
-To use this trigger in an automation:
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation, or select **Create automation** > **Create new automation**.
-3. In the **When** section, select **Add trigger**.
-4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your air quality sensor is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
-5. From the triggers shown for that target, select **Nitrogen dioxide level changed**.
-6. Under **Threshold type**, set how much the level has to change before the trigger fires.
-7. Select **Save**.
+{% include triggers/threshold_changed_steps.md
+   title="Nitrogen dioxide level changed"
+   sensor="nitrogen dioxide sensor"
+   areas="kitchen or street-facing room"
+   unit_phrase_ui="a fixed level"
+   has_unit="true"
+   unit_label="concentration unit"
+   unit_options="ppb, ppm, or μg/m³" %}
 
 ### Options in the UI
 
-{% options_ui %}
-Threshold type:
-  description: How much the nitrogen dioxide level has to change before the trigger fires. Can be a fixed number, or reference a helper entity that provides the value.
-{% endoptions_ui %}
+{% include triggers/threshold_changed_options_ui.md
+   unit_phrase_ui="a fixed level"
+   has_unit="true"
+   unit_label="concentration unit"
+   unit_options_code="`ppb`, `ppm`, or `μg/m³`" %}
 
 {% include triggers/yaml_header.md %}
 
@@ -40,29 +40,32 @@ trigger: |
   target:
     entity_id: sensor.street_side_no2
   options:
-    threshold: 10
+    threshold:
+      type: above
+      value:
+        number: 10
+        unit_of_measurement: "ppb"
 {% endexample %}
 
-This fires whenever the street-side NO2 sensor reading changes by at least 10 ppb.
+This fires whenever the street-side NO2 sensor reading changes to a value above 10 ppb. To fire on any change, use `type: any` and leave out `value`.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+{% include triggers/threshold_changed_options_yaml.md
+   unit_phrase_yaml="literal number"
+   has_unit="true"
+   unit_label="concentration unit"
+   unit_options_code="`ppb`, `ppm`, or `μg/m³`"
+   unit_default="ppb"
+   unit_example_entity="input_number.no2_alert_level"
+   unit_example_value="50" %}
 
-{% options_yaml %}
-threshold:
-  description: >
-    The minimum amount the nitrogen dioxide level must change before the trigger fires. Accepts a number, or a reference to an `input_number`, `number`, or `sensor` entity.
-  required: true
-  type: any
-{% endoptions_yaml %}
-
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="nitrogen dioxide sensor" example="sensor.living_room_nitrogen_dioxide" %}
 
 ## Good to know
 
 - Indoor gas stoves and heaters are common sources of NO2 inside the home. A kitchen NO2 sensor combined with this trigger helps you automate range hood ventilation.
-- The trigger fires on any change that meets the threshold, whether the level goes up or down.
+- The threshold type controls which changes fire the trigger. Use **Above** or **Below** to fire only when the new level is above or below a value, **In range** to fire only when it's inside a range, and **Outside range** to fire only when it's outside a range. Use **Any change** to fire on every change.
 - To react only when NO2 crosses a specific concentration in one direction, use [Nitrogen dioxide level crossed threshold](/triggers/air_quality.no2_crossed_threshold/) instead.
 
 {% include triggers/try_it.md %}
@@ -71,11 +74,11 @@ threshold:
 
 ### Automation: turn on the range hood when cooking produces NO2
 
-Every time you fire up the gas stove, NO2 levels in the kitchen rise. This automation turns on the range hood as soon as the kitchen NO2 sensor detects a shift, clearing combustion byproducts before they spread through the house.
+Every time you fire up the gas stove, NO2 levels in the kitchen rise. This automation turns on the range hood as soon as the kitchen NO2 level changes to a value above 15 ppb, clearing combustion byproducts before they spread through the house.
 
 - **Trigger**: Nitrogen dioxide level changed
-- **Target**: Kitchen NO2 sensor
-- **Threshold type**: 15
+  - **Target**: Kitchen NO2 sensor
+  - **Threshold type**: Above 15 ppb
 - **Action**: Turn on switch
 
 {% details "YAML example for NO2-driven range hood" %}
@@ -88,7 +91,11 @@ automation: |
       target:
         entity_id: sensor.kitchen_no2
       options:
-        threshold: 15
+        threshold:
+          type: above
+          value:
+            number: 15
+            unit_of_measurement: "ppb"
   actions:
     - action: switch.turn_on
       target:

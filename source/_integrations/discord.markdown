@@ -1,8 +1,8 @@
 ---
 title: Discord
 description: Instructions on how to add Discord notifications to Home Assistant.
-ha_category:
-  - Notifications
+ha_categories:
+  - messaging_notifications.chat_apps
 ha_iot_class: Cloud Push
 ha_release: 0.37
 ha_config_flow: true
@@ -79,7 +79,7 @@ When adding the Discord integration, enter the **bot token** from the Discord ap
 
 After setting up the integration, you can test it without creating an automation first:
 
-1. In Home Assistant, go to {% my developer_services title="**Settings** > **Tools** > **Actions**" %}.
+1. In Home Assistant, go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}.
 2. Select the `notify` action that matches the name of your Discord application, for example `notify.home_assistant_notifications`.
 3. Enter a message.
 4. In **Target**, enter the Discord channel ID or user ID.

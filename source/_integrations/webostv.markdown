@@ -1,10 +1,8 @@
 ---
 title: LG webOS TV
 description: Instructions on how to integrate a LG webOS TV within Home Assistant.
-ha_category:
-  - Media player
-  - Notifications
-  - Switch
+ha_categories:
+  - media_entertainment.tv_streaming
 ha_iot_class: Local Push
 ha_release: 0.18
 ha_codeowners:
@@ -64,7 +62,7 @@ The **LG webOS TV** integration provides the following entities.
 ### Switches
 
 - **Screen** (disabled by default)
-  - **Description**: Turns off the TV screen while the TV keeps running, so you can keep listening to the sound. Turn the switch back on to show the picture again. You have to [enable this entity](/common-tasks/general/#to-enable-or-disable-a-single-entity) before you can use it.
+  - **Description**: Turns off the TV screen while the TV keeps running, so you can keep listening to the sound. Turn the switch back on to show the picture again. You have to [enable this entity](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) before you can use it.
   - **Remarks**: This entity is unavailable when the TV is off, even if the TV media player remains available (for example, because you use the [**Device is requested to turn on**](/triggers/webostv.turn_on/) trigger). Not all TVs support turning the screen on or off. If your TV doesn't support it, you'll see an error the first time you use the switch, and the entity becomes unavailable from then on.
 
 {% include integrations/triggers.md %}
@@ -122,7 +120,7 @@ It leverages `select_source` action from the [Media player](/integrations/media_
 
 To find available sources for your TV
 
-1. Go to {% my developer_states title="**Settings** > **Tools** > **States**" %}.
+1. Go to {% my tools_states title="**Settings** > **Tools** > **States**" %}.
 2. Find your TV's media_player entity.
 3. Look for the `source_list` attribute which contains all available sources.
 

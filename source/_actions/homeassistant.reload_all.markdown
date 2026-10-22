@@ -7,6 +7,9 @@ related_actions:
   - homeassistant.reload_core_config
   - homeassistant.reload_custom_templates
   - homeassistant.check_config
+related:
+  - docs: /common-tasks/general/restarting/#reloading-the-yaml-configuration
+    title: Reloading the YAML configuration
 ---
 
 Use this action to reload all the YAML configuration that can be reloaded without restarting Home Assistant. A common use is to apply changes you made to your YAML files in one step, instead of reloading each part separately.
@@ -23,7 +26,7 @@ To reload all configuration from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Search for and select **Reload all Home Assistant configuration**.
+5. Search for and select **Home Assistant Core Integration: Reload all Home Assistant configuration**.
 6. Select **Save**.
 
 ### Options in the UI

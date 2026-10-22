@@ -1,15 +1,10 @@
 ---
 title: BleBox devices
 description: Instructions on how to integrate BleBox devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Light
-  - Sensor
-  - Switch
-  - Update
+ha_categories:
+  - plugs_switches
+  - blinds_curtains
+  - lighting.led_strips_controllers
 ha_release: '0.110'
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -1196,19 +1191,19 @@ This integration adds the Drutex device ("blebox inside") as a sensor entity and
 
 Leaving shutters open after dark can affect your privacy and home security. You can use this blueprint to automatically close your shutterBox blinds every day at sunset.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/blebox_close_shutters_at_sunset.yaml" %}
+{% blueprint_example blueprint="blebox/close_shutters_at_sunset.yaml" %}
 
 ### Close the gate when leaving home
 
 It is easy to forget to close the gate when leaving in a hurry. You can use this blueprint to automatically close your gateBox or rollerGate when the last person leaves home.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/blebox_close_gate_on_leave.yaml" %}
+{% blueprint_example blueprint="blebox/close_gate_on_leave.yaml" %}
 
 ### Close covers when wind speed is too high
 
 Strong winds can damage blinds and awnings left open outside. You can use this blueprint to automatically close your covers when the windSensor PRO detects wind speed above a safe threshold.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/blebox_close_covers_on_high_wind.yaml" %}
+{% blueprint_example blueprint="blebox/close_covers_on_high_wind.yaml" %}
 
 ## Troubleshooting
 

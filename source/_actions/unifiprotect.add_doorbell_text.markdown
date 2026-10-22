@@ -73,7 +73,8 @@ message:
 
 Add a friendly doorbell message in the morning so deliveries see it while you are out.
 
-- **Trigger**: A scheduled time
+- **Trigger**: Time
+  - **At time**: `08:00`
 - **Action**: UniFi Protect: Add doorbell text
 
 {% details "YAML example for adding a doorbell message on a schedule" %}

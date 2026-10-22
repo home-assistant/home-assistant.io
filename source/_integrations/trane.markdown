@@ -1,9 +1,8 @@
 ---
 title: Trane Local
 description: Locally control Trane and American Standard thermostats over the local network.
-ha_category:
-  - Climate
-  - Switch
+ha_categories:
+  - climate.thermostats_heating
 ha_iot_class: Local Push
 ha_quality_scale: bronze
 ha_release: 2026.3

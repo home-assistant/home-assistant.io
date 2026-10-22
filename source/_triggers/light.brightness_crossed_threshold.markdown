@@ -8,32 +8,24 @@ related_triggers:
   - light.turned_on
 ---
 
-The **Light brightness crossed threshold** trigger fires when a light {% term entity %} crosses a specific brightness level. Use it to react to a light passing a particular value in either direction, like starting an automation only once brightness passes 50%.
+The **Light brightness crossed threshold** trigger fires when the brightness of a light {% term entity %} crosses into a zone you define. Use it to react to a light rising above a level, dropping below a level, entering a range, or leaving a range, like starting an automation only once brightness rises above 50%. Brightness is measured as a percentage of full brightness, from 0 to 100.
 
-Unlike [Light brightness changed](/triggers/light.brightness_changed/), which fires on any sizable change, this trigger only fires when the brightness moves across the exact threshold you pick. It fires once per crossing, in whichever direction.
+Unlike [Light brightness changed](/triggers/light.brightness_changed/), which fires on every change that matches the threshold, this trigger only fires at the moment the brightness crosses into the zone. It does not fire again until the brightness leaves the zone and crosses into it again.
+
+When you target more than one light, the trigger's **Trigger when** option controls when it fires.
 
 {% include triggers/ui_header.md %}
 
-To use this trigger in an automation:
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation, or select **Create automation** > **Create new automation**.
-3. In the **When** section, select **Add trigger**.
-4. From the search box, search for and select **Light brightness crossed threshold**.
-5. Under **Targets**, select the light entity, an area, a floor, or a label.
-6. Under **Threshold type**, set the brightness percentage you want the trigger to watch for.
-7. Under **Trigger when**, pick **Each**, **First**, or **All** to control how multiple targets interact.
-8. Select **Save**.
+{% include triggers/threshold_crossed_steps.md
+   title="Light brightness crossed threshold"
+   sensor="light"
+   areas="living room or bedroom"
+   unit_phrase_ui="a fixed percentage (0–100%)" %}
 
 ### Options in the UI
 
-{% options_ui %}
-Threshold type:
-  description: The brightness level the light has to cross for the trigger to fire. Expressed as a percentage of full brightness.
-Trigger when:
-  description: When multiple lights are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted light crosses the threshold, **First** to fire only on the first crossing, or **All** to fire only after all targeted lights have crossed the threshold.
-  required: false
-{% endoptions_ui %}
+{% include triggers/threshold_crossed_options_ui.md
+   unit_phrase_ui="a fixed percentage (0–100%)" %}
 
 {% include triggers/yaml_header.md %}
 
@@ -45,37 +37,30 @@ trigger: |
   target:
     entity_id: light.living_room
   options:
-    threshold: 50
-    behavior: each
+    threshold:
+      type: above
+      value:
+        number: 50
 {% endexample %}
 
-This fires whenever the living room light crosses 50% brightness in either direction.
+This fires when the living room light's brightness rises above 50%.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
-{% options_yaml %}
-threshold:
-  description: >
-    The brightness percentage the light has to cross for the trigger to fire. Accepts a number or a reference to an `input_number`, `number`, or `sensor` entity.
-  required: false
-  type: any
-behavior:
-  description: >
-    When multiple lights are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
-  required: false
-  type: string
-  default: each
-{% endoptions_yaml %}
+{% include triggers/threshold_crossed_options_yaml.md
+   unit_phrase_yaml="literal percentage 0–100"
+   example_value="50" %}
 
 {% include triggers/targets.md %}
 
+{% include triggers/behavior.md %}
+
 ## Good to know
 
-- The trigger fires on any crossing, up or down. If you only want one direction, gate the automation with a numeric condition that checks whether the light's brightness is above or below the threshold.
-- The threshold is measured against the light's brightness percentage. A light at 0% (off) and the same light at 1% are both below a 50% threshold.
-- Pair this trigger with [Light is brightness](/conditions/light.is_brightness/) in follow-up conditions to double-check the final state.
+- The threshold type sets the direction. With **Above**, the trigger fires when the brightness rises above the threshold. With **Below**, it fires when the brightness drops below it.
+- A light that is off has no brightness value. Turning a light off does not fire the trigger, not even with **Below**. Turning a light on fires the trigger if the new brightness is inside the zone, for example, turning a light on at 70% fires an **Above** 50% trigger.
+- If you use an entity as the threshold, it must report its value in percent (`%`). An entity with a different unit, or no unit, is ignored and the trigger does not fire.
+- Pair this trigger with [Light brightness](/conditions/light.is_brightness/) in follow-up conditions to double-check the final state.
 
 {% include triggers/try_it.md %}
 
@@ -86,11 +71,13 @@ behavior:
 When you dim the ceiling light below 40% in the evening, turn on the accent lighting so the room feels layered instead of dim.
 
 - **Trigger**: Light brightness crossed threshold
-- **Target**: Living room ceiling light
-- **Threshold type**: 40
-- **Trigger when**: Each
+  - **Target**: Living room ceiling light
+  - **Threshold type**: Below 40%
+  - **Trigger when**: Each
 - **Condition**: Sun is below horizon
-- **Condition**: Ceiling light brightness is below 40%
+- **Condition**: Light brightness
+  - **Target**: Living room ceiling light
+  - **Threshold type**: Below 40%
 - **Action**: Turn on light (accent lights)
 
 {% details "YAML example for mood lighting on dim" %}
@@ -103,8 +90,10 @@ automation: |
       target:
         entity_id: light.living_room_ceiling
       options:
-        threshold: 40
-        behavior: each
+        threshold:
+          type: below
+          value:
+            number: 40
   conditions:
     - condition: sun
       after: sunset
@@ -112,8 +101,11 @@ automation: |
       target:
         entity_id: light.living_room_ceiling
       options:
-        threshold: 40
-        behavior: each
+        threshold:
+          type: below
+          value:
+            number: 40
+        behavior: any
   actions:
     - action: light.turn_on
       target:

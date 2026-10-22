@@ -35,6 +35,7 @@ Trigger when:
     - **Each**: Fires every time any targeted media player stops playing (default).
     - **First**: Fires when the first targeted media player stops playing.
     - **All**: Fires when every targeted media player stops playing.
+  required: false
 For at least:
   description: How long playback must stay stopped before the trigger fires. The default is `0` (fires immediately).
 {% endoptions_ui %}
@@ -60,7 +61,7 @@ trigger: |
   target:
     area_id: media_room
   options:
-    behavior: last
+    behavior: all
     for: "00:05:00"
 {% endexample %}
 
@@ -71,16 +72,16 @@ behavior:
   description: |
     When multiple media players are targeted, controls how the trigger fires:
 
-    - `any` (**Each** in the UI, default): fires every time any targeted media player stops playing.
-    - `first` (**First** in the UI): fires when the first targeted media player stops playing.
-    - `last` (**All** in the UI): fires when every targeted media player stops playing.
+    - `each` (default): fires every time any targeted media player stops playing.
+    - `first`: fires when the first targeted media player stops playing.
+    - `all`: fires when every targeted media player stops playing.
   required: false
   type: string
-  default: any
+  default: each
 for:
-  description: How long playback must stay stopped before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
+  description: How long playback must stay stopped before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -130,7 +131,7 @@ When the patio speakers stop playing, set the patio climate back to a more comfo
 
 - **Trigger**: Media player stopped playing
   - **Target**: Patio speakers
-- **Action**: Set temperature
+- **Action**: Set thermostat target temperature
   - **Target**: Patio thermostat
 
 {% details "YAML example for restoring temperature after playback stops" %}

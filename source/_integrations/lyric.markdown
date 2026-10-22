@@ -1,11 +1,8 @@
 ---
 title: Honeywell Lyric
 description: How to integrate the Honeywell Lyric integration into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Select
-  - Sensor
+ha_categories:
+  - climate.thermostats_heating
 ha_release: 2021.3
 ha_iot_class: Cloud Polling
 ha_config_flow: true

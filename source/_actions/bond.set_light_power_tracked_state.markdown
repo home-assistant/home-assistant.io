@@ -20,7 +20,7 @@ To set the tracked light power state from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the area, floor, device, label, or entity you want to control.
-6. From the actions shown for that target, select **Set light power tracked state**.
+6. From the actions shown for that target, under **Bond**, select **Set light power tracked state**.
 7. Turn **Power state** on or off to match the light's actual state.
 8. Select **Save**.
 
@@ -71,8 +71,10 @@ power_state:
 
 Use this automation when a physical remote tells Home Assistant the light was turned on, so the tracked state matches reality.
 
-- **Trigger**: Remote "on" button pressed
-- **Action**: Set light power tracked state
+- **Trigger**: State changed
+  - **Entity**: Light remote button sensor
+  - **To**: On
+- **Action**: Bond: Set light power tracked state
   - **Target**: Living room lights
   - **Power state**: On
 

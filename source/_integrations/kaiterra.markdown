@@ -2,8 +2,8 @@
 title: Kaiterra
 description: Instructions on how to integrate your Kaiterra device into Home Assistant.
 ha_iot_class: Cloud Polling
-ha_category:
-  - Health
+ha_categories:
+  - sensors.air_quality
 ha_release: '0.100'
 ha_codeowners:
   - '@Michsior14'
