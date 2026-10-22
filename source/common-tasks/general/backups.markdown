@@ -31,6 +31,24 @@ A partial backup consists of any number of the above default directories and ins
 
 On Home Assistant Container, a backup contains the Home Assistant settings and, if you choose, the history. Apps, the media and share folders, and network storage are only available on Home Assistant OS.
 
+## What isn't in a backup
+
+Some files are never part of a backup, because Home Assistant creates them again, or because they would make the backup much larger. A backup doesn't contain the following files:
+
+- Log files, such as `home-assistant.log`.
+- Caches and temporary files, such as the `tts` folder with cached text-to-speech audio, and the `.cache` folder.
+- Backups that are stored in the configuration folder, so that a backup doesn't contain older backups.
+- On {% term "Home Assistant Operating System" %}, files that Home Assistant marked as damaged.
+
+The history, and on {% term "Home Assistant Operating System" %} the media folder, the share folder, apps, and SSL certificates, are only included if you select them. For details, refer to [What a backup contains and where it's stored](#what-a-backup-contains-and-where-its-stored).
+
+If Home Assistant stores its history in another database, such as MariaDB or PostgreSQL, that database isn't part of the Home Assistant settings in a backup. Where it's backed up depends on where it runs:
+
+- On {% term "Home Assistant Operating System" %}, if you run the database as an app, such as the **MariaDB** app, the database is backed up with the app. Include the app in the backup.
+- If the database runs on another system, it's never part of a backup. Back it up separately, for example, with the backup tools of the database.
+
+For more about other databases, refer to [Custom database engines](/integrations/recorder/#custom-database-engines).
+
 ## Preparing for a backup
 
 Before creating a backup, check if you can reduce the size of the backup. This is especially important if you want to use the backup to migrate the system to new hardware, for example from a Raspberry Pi Compute Module&nbsp;4 to a Raspberry Pi Compute Module&nbsp;5.
@@ -283,6 +301,21 @@ You can use a backup during the onboarding process to restore your configuration
 5. Once the restore is complete, Home Assistant restarts to apply the new settings.
    - You will lose the connection to the UI and it will return once the restart is completed.
 6. On the login screen, enter the password and username as they were at the time the backup was taken.
+
+### Testing a backup
+
+To make sure that you can restore a backup, restore it on a second system and check it. For example, use a spare device or a virtual machine.
+
+{% important %}
+The test system starts the same integrations as your real system, and runs the same automations. It can control your devices, and sign in to your cloud services. After you've checked the backup, shut down the test system. You can also keep the test system off your home network.
+{% endimportant %}
+
+1. Install Home Assistant on the second system. For the steps, refer to [Installation](/installation/).
+2. During onboarding, restore the backup. For the steps, refer to [Restoring a backup during onboarding](#restoring-a-backup-during-onboarding).
+   - Have the encryption key from your [backup emergency kit](/more-info/backup-emergency-kit/) ready.
+3. Check that your integrations, automations, and dashboards are there.
+   - If you included the history, also check the history of an entity.
+4. Shut down the test system.
 
 ## Troubleshooting backups
 
