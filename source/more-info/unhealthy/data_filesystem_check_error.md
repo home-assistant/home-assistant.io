@@ -11,7 +11,7 @@ The data partition stores your configuration, automations, apps, and backups. Th
 
 ## The solution
 
-Try rebooting your system first. If the check was only interrupted, it runs again and the issue goes away. The filesystem check may also be able to repair minor corruption automatically on the next boot attempt. You can reboot by going to {% my hardware title="**Settings** > **System** > **Hardware**" %}, opening the menu in the top right corner, and selecting **Reboot system**.
+Try rebooting your system first. If the check was only interrupted, it runs again and the issue goes away. The filesystem check may also be able to repair minor corruption automatically on the next boot attempt. You can reboot by going to {% my hardware title="**Settings** > **System** > **Hardware**" %}. Then, select the power {% icon "mdi:power" %} icon in the top-right corner, select **More options**, and then select **Reboot system**.
 
 If the system is still accessible after rebooting, create a full [backup][backups] immediately and download it to another device before doing anything else.
 
