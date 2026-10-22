@@ -1,8 +1,6 @@
 ---
 title: Havana Shade
 description: Connect and control your Havana Shade devices using the Motionblinds integration
-ha_category:
-  - Cover
 ha_domain: havana_shade
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds

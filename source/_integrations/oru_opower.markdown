@@ -1,9 +1,6 @@
 ---
 title: Orange and Rockland Utilities (ORU) Opower
 description: Get energy usage from Orange and Rockland Utilities using the Opower integration
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 2023.8
 ha_domain: oru_opower
 ha_integration_type: virtual

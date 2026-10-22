@@ -1,5 +1,5 @@
 ---
-title: "Turn off a light"
+title: "Turn off light"
 action: light.turn_off
 domain: light
 description: "Turn a light off. Optionally fade it out with a transition, or have it flash briefly before it goes dark."
@@ -26,8 +26,10 @@ To turn a light off from an automation or a script:
     - To turn off every light in a room, select an area.
     - To turn off every light on a floor, select a floor.
     - To turn off lights sharing a tag, select a label.
-7. _Optional_: under **Additional options**, set a transition or a flash effect.
-8. Select **Save**.
+7. _Optional_: set a **Transition**.
+8. _Optional_: to make the light flash, open **Additional options** and set **Flash**.
+   - **Flash** only shows up if the selected light supports it.
+9. Select **Save**.
 
 ### Options in the UI
 
@@ -36,7 +38,7 @@ Transition:
   description: How long, in seconds, it takes to fade the light out. Use this for a smooth fade instead of switching off instantly.
   required: false
 Flash:
-  description: Ask the light to flash briefly before it turns off, either short or long. Useful as a visual notification.
+  description: Under **Additional options**. Ask the light to flash briefly before it turns off, either short or long. Useful as a visual notification.
   required: false
 {% endoptions_ui %}
 
@@ -54,8 +56,6 @@ action: |
 This turns off `light.kitchen`.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 transition:
@@ -75,7 +75,7 @@ flash:
 - The **Turn off light** action works on any light {% term entity %}, such as bulbs, groups, fixtures, or strips.
 - If the light is already off, calling this action does nothing.
 - Not every light supports a transition or a flash. Home Assistant quietly skips options the device can't handle.
-- To reverse this action, use [Turn on a light](/actions/light.turn_on/). To flip a light between on and off with a single call, use [Toggle a light](/actions/light.toggle/).
+- To reverse this action, use [Turn on light](/actions/light.turn_on/). To flip a light between on and off with a single call, use [Toggle light](/actions/light.toggle/).
 
 {% include actions/try_it.md %}
 
@@ -86,8 +86,8 @@ flash:
 Fade the bedroom light out over five seconds, which is a much nicer way to end a movie than an instant off.
 
 - **Action**: Turn off light
-- **Target**: Bedroom light
-- **Transition**: 5 seconds
+  - **Target**: Bedroom light
+  - **Transition**: `5` seconds
 
 {% details "YAML example for a gentle fade-out" %}
 
@@ -107,7 +107,7 @@ action: |
 Target a floor instead of a specific entity and Home Assistant resolves it to every light on that floor.
 
 - **Action**: Turn off light
-- **Target**: Ground floor
+  - **Target**: Ground floor
 
 {% details "YAML example for turning off every light on a floor" %}
 
@@ -126,7 +126,7 @@ Turn the porch light off automatically as the sun comes up. No more wasted elect
 
 - **Trigger**: Sunrise
 - **Action**: Turn off light
-- **Target**: Porch light
+  - **Target**: Porch light
 
 {% details "YAML example for a sunrise porch light off" %}
 
@@ -150,7 +150,7 @@ When the last person leaves home, turn off every light in the house. A simple wa
 - **Trigger**: Zone occupancy cleared
   - **Zone**: Home (`zone.home`)
 - **Action**: Turn off light
-- **Target**: All lights (by label)
+  - **Target**: All lights (by label)
 
 {% details "YAML example for turning off all lights when nobody is home" %}
 
@@ -175,8 +175,8 @@ At 11 in the evening, fade every light in the living room out over ten seconds. 
 
 - **Trigger**: Time: 23:00
 - **Action**: Turn off light
-- **Target**: Living room
-- **Transition**: 10 seconds
+  - **Target**: Living room
+  - **Transition**: `10` seconds
 
 {% details "YAML example for a bedtime fade-out" %}
 

@@ -1,9 +1,6 @@
 ---
 title: AEP Texas
 description: Get energy usage from AEP Texas using the Opower integration
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 2023.8
 ha_domain: aep_texas
 ha_integration_type: virtual

@@ -24,14 +24,14 @@ This is useful when you need to display or log times in UTC, share timestamps wi
 {% template_function_usage %}
 filter: '{{ 1710510600 | timestamp_utc }}'
 type: string
-output: "2024-03-15 13:30:00+00:00"
+output: "2024-03-15T13:50:00+00:00"
 {% endtemplate_function_usage %}
 
 {% include template_functions/signatures.md %}
 
 ```signature
 value | timestamp_utc(
-    default: Any = None,
+    default: Any,
 ) -> str | Any
 ```
 
@@ -42,7 +42,7 @@ The following parameters can be provided to this filter.
 {% function_parameters %}
 default:
   description: >
-    Value to return if the formatting fails. If not provided, an error is raised on invalid input.
+    The value to return if the formatting fails, such as `"unknown"`. If you leave out `default` and the formatting fails, `timestamp_utc` raises an error and the template fails.
   required: false
   type: any
 {% endfunction_parameters %}
@@ -75,7 +75,7 @@ Convert the last changed timestamp of an entity to a UTC datetime string.
 template: |
   {{ as_timestamp(states.sensor.temperature.last_changed) | timestamp_utc }}
 type: string
-output: "2024-03-15 13:30:00+00:00"
+output: "2024-03-15T13:30:00+00:00"
 {% endexample %}
 
 ### Compare local and UTC representations
@@ -89,8 +89,8 @@ template: |
   UTC: {{ ts | timestamp_utc }}
 type: string
 output: |
-  Local: 2024-03-15 14:30:00+01:00
-  UTC: 2024-03-15 13:30:00+00:00
+  Local: 2024-03-15T14:30:00+01:00
+  UTC: 2024-03-15T13:30:00+00:00
 {% endexample %}
 
 ### Log an event time in UTC

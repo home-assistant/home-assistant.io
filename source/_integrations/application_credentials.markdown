@@ -4,7 +4,6 @@ description: Allows users to link accounts with integrations that support OAuth2
 ha_release: 2022.6
 ha_domain: application_credentials
 ha_quality_scale: internal
-ha_category: []
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: system

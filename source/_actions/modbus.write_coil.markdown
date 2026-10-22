@@ -9,7 +9,7 @@ related_actions:
   - modbus.reload
 ---
 
-The **Write coil** action writes an on or off state to one or more Modbus coils on a connected device. Use it to switch outputs, relays, or other binary controls directly on your hardware.
+The **Modbus: Write coil** action writes an on or off state to one or more Modbus coils on a connected device. Use it to switch outputs, relays, or other binary controls directly on your hardware.
 
 You can write a single state or a list of states. A single state uses Modbus function code `0x05` (write single coil), while a list uses function code `0x0F` (write multiple coils).
 

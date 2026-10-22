@@ -74,7 +74,8 @@ doorbells:
 
 Unpair all doorbells from a bedroom chime at night, then pair them again in the morning.
 
-- **Trigger**: A scheduled time
+- **Trigger**: Time
+  - **At time**: `22:00`
 - **Action**: UniFi Protect: Set chime paired doorbells
 
 {% details "YAML example for unpairing a chime at night" %}

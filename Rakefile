@@ -3,6 +3,8 @@ require "bundler/setup"
 require "stringex"
 require 'net/http'
 require 'json'
+require 'time'
+require 'fileutils'
 
 ## -- Misc Configs -- ##
 public_dir      = "public/"   # compiled site directory
@@ -46,8 +48,50 @@ task :generate do
   abort("Generating WWHA device data failed") unless success
   success = system "rake allowed_referrers_data"
   abort("Generating allowed referrers data failed") unless success
+  success = system "rake meetups_data"
+  abort("Generating community meetups data failed") unless success
+  success = system "rake newsletter_data"
+  abort("Generating newsletter data failed") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
+  # The Astro build runs on every deploy (see astro/README.md). Jekyll
+  # builds every route; the routes in astro/served-routes.json are then
+  # replaced with Astro's pages, and the whole Astro output is also
+  # browsable under the unlinked, noindexed /astro-preview/ path.
+  # Previews and CI abort on failure (that is what gates merges), while
+  # production deploys only warn: a failed Astro build then publishes
+  # Jekyll's version of the served routes instead of blocking the site.
+  # pnpm comes from the root devDependencies (npx resolves it there),
+  # since Node.js 25+ no longer bundles Corepack.
+  astro_env = { "ASTRO_TELEMETRY_DISABLED" => "1" }
+  astro_success = system(astro_env, "npx pnpm install --frozen-lockfile", chdir: "astro") &&
+                  system(astro_env, "npx pnpm run build", chdir: "astro")
+  if ENV["CONTEXT"] == 'production'
+    puts "## WARNING: Astro build failed, continuing" unless astro_success
+  else
+    abort("Generating Astro site failed") unless astro_success
+  end
+  if astro_success
+    # Make the Astro output browsable at /astro-preview/ on every
+    # deploy, production included. It is not linked from anywhere and
+    # _headers marks the whole path noindex.
+    FileUtils.rm_rf("#{public_dir}astro-preview")
+    FileUtils.cp_r("astro/dist", "#{public_dir}astro-preview")
+    # Astro pages link their bundled stylesheets, scripts and images
+    # with root-absolute /_astro/ paths, which is where they belong
+    # once Astro serves real routes. Publish that directory at the
+    # site root too, or the preview pages lose their styles. The file
+    # names are content-hashed, so nothing can clash with Jekyll's
+    # output.
+    FileUtils.rm_rf("#{public_dir}_astro")
+    FileUtils.cp_r("astro/dist/_astro", "#{public_dir}_astro") if File.directory?("astro/dist/_astro")
+    # Serve the routes listed in astro/served-routes.json from Astro:
+    # their pages replace the ones Jekyll built at the same URL. If the
+    # Astro build failed (production only warns), Jekyll's pages stay.
+    JSON.parse(File.read("astro/served-routes.json")).each do |route|
+      FileUtils.cp("astro/dist/#{route}index.html", "#{public_dir}#{route}index.html")
+    end
+  end
   if ENV["CONTEXT"] != 'production'
     File.open("#{public_dir}robots.txt", 'w') do |f|
       f.write "User-agent: *\n"
@@ -89,6 +133,8 @@ task :preview, :listen do |t, args|
   system "rake alerts_data"
   system "rake wwha_data"
   system "rake allowed_referrers_data"
+  system "rake meetups_data"
+  system "rake newsletter_data"
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
   sassPid = Process.spawn("#{sass_compile} --watch")
   rackupPid = Process.spawn("rackup --port #{server_port} --host #{listen_addr}")
@@ -154,6 +200,141 @@ task :wwha_data do
 
   File.open("#{source_dir}/_data/wwha_devices.json", "w") do |file|
     file.write(JSON.generate(remote_data))
+  end
+end
+
+desc "Download upcoming community meetups from web-api.openhomefoundation.org"
+task :meetups_data do
+  output_file = "#{source_dir}/_data/meetups_data.json"
+  # Both Luma calendars end up on the same map on the community page. The
+  # calendar key is kept on every event so the map can colour and filter them.
+  # Community Day comes first: an event listed on both calendars is a
+  # Community Day event (see the uniq below).
+  calendars = {
+    'ohf-community-day' => 'https://web-api.openhomefoundation.org/events/ohf-community-day',
+    'home-assistant-meetups' => 'https://web-api.openhomefoundation.org/events/home-assistant-meetups',
+  }
+  begin
+    now = Time.now.utc
+    upcoming = []
+
+    calendars.each do |calendar, url|
+      remote_data = JSON.parse(Net::HTTP.get(URI(url)))
+      events = remote_data['events']
+      raise "#{calendar} payload does not contain an events array" unless events.is_a?(Array)
+
+      upcoming.concat(
+        events
+          # Only keep web links: the URL ends up in an href on the community page,
+          # so schemes such as javascript: must never make it into the data file.
+          .select { |event| event['url'].is_a?(String) && event['url'].downcase.start_with?('https://', 'http://') }
+          # The map shows a start time for every meetup, so an event without a
+          # usable start is dropped rather than rendered as an epoch date. An
+          # event that has already begun but hasn't ended yet still counts as
+          # upcoming, hence the end date in the comparison.
+          .select do |event|
+            begin
+              Time.parse(event['start'])
+              Time.parse(event['end'] || event['start']).utc >= now
+            rescue StandardError
+              false
+            end
+          end
+          .map do |event|
+            {
+              'calendar' => calendar,
+              'summary' => event['summary'],
+              'start' => event['start'],
+              # The map expects a list of address lines; upstream occasionally
+              # sends a single string instead.
+              'address' => (event['address'].is_a?(Array) ? event['address'] : [event['address']])
+                .map { |line| line.to_s.strip }
+                .reject(&:empty?),
+              'url' => event['url'],
+              'latitude' => event['latitude'],
+              'longitude' => event['longitude'],
+            }
+          end
+      )
+    end
+
+    # A Luma event can be listed on both calendars. uniq keeps the first copy,
+    # which comes from the Community Day calendar.
+    upcoming = upcoming
+      .uniq { |event| event['url'] }
+      .sort_by { |event| event['start'].to_s }
+
+    File.open(output_file, "w") do |file|
+      file.write(JSON.generate(upcoming))
+    end
+    puts "## Wrote #{upcoming.length} upcoming community meetups"
+  rescue StandardError => e
+    # Never fail the build over the meetups: fall back to the existing file,
+    # or an empty list if none exists yet. The map section falls back to its
+    # "host a meetup" state when the list is empty.
+    warn "## Downloading community meetups failed, keeping existing file. #{e}"
+    File.write(output_file, "[]") unless File.exist?(output_file)
+  end
+end
+
+desc "Download the latest Open Home Foundation newsletter editions"
+task :newsletter_data do
+  output_file = "#{source_dir}/_data/newsletter_data.json"
+  begin
+    require 'rexml/document'
+
+    uri = URI('https://newsletter.openhomefoundation.org/rss/')
+    feed = REXML::Document.new(Net::HTTP.get(uri))
+    items = REXML::XPath.match(feed, '//channel/item')
+    raise "feed does not contain any items" if items.empty?
+
+    # The feed lists the editions newest first; keep that order in the file.
+    editions = items.filter_map do |item|
+      title = item.elements['title']&.text.to_s.strip
+      image = item.elements['media:content']&.attributes&.[]('url').to_s.strip
+      # The image URL ends up in the community page markup, so an edition
+      # without a web link for its cover is dropped rather than rendered.
+      next unless image.start_with?('https://')
+
+      # Ghost serves the original artwork from its storage domain. The resized
+      # variants are only available through the newsletter site itself, so
+      # point the image at the w960 variant there, which is plenty for the
+      # stacked covers on the community page.
+      if image.include?('/content/images/')
+        image = 'https://newsletter.openhomefoundation.org/content/images/size/w960/' +
+                image.split('/content/images/', 2).last
+      end
+
+      { 'title' => title, 'image' => image }
+    end.first(3)
+    raise "feed does not contain any usable editions" if editions.empty?
+
+    File.open(output_file, "w") do |file|
+      file.write(JSON.generate(editions))
+    end
+    puts "## Wrote #{editions.length} newsletter editions"
+  rescue StandardError => e
+    # Never fail the build over the newsletter: fall back to the existing file,
+    # or to the editions that were current when this task was written, so the
+    # community page always has artwork to show.
+    warn "## Downloading newsletter editions failed, keeping existing file. #{e}"
+    unless File.exist?(output_file)
+      fallback = [
+        {
+          'title' => 'Thirteen years of Home Assistant: Leading the way back home',
+          'image' => 'https://newsletter.openhomefoundation.org/content/images/size/w960/2026/09/OHF_Newsletter2609_1200x630.png',
+        },
+        {
+          'title' => 'We sow the seeds, you grow the (open) home',
+          'image' => 'https://newsletter.openhomefoundation.org/content/images/size/w960/2026/08/OHF_Newsletter2608_1200x630.png',
+        },
+        {
+          'title' => 'The walled garden that’s breaking down barriers',
+          'image' => 'https://newsletter.openhomefoundation.org/content/images/size/w960/2026/07/OHF_Newsletter2607_1200x630.png',
+        },
+      ]
+      File.write(output_file, JSON.generate(fallback))
+    end
   end
 end
 

@@ -74,7 +74,7 @@ If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on
 2. Under **Locations**, use the toggle to enable all the backup locations you want to use.
    - If you don't see Home Assistant Cloud in the list, you are not [logged in](https://www.nabucasa.com/config/).
    - If you want to back up to your NAS (such as [Synology](/integrations/synology_dsm/#backup-location)) or a cloud provider (such as [Google Drive](/integrations/google_drive/) or [Microsoft OneDrive](/integrations/onedrive/)), check their integration documentation for specific instructions on setting up a Home Assistant backup.
-   - If you don't see a network storage, you haven't added one. Follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) and select the **Backup** option.
+   - If you don't see your network storage or local disk, you haven't added it with the **Backup** usage. Follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) or [adding a local disk](/common-tasks/os/#adding-a-local-disk), and select the **Backup** usage.
    ![Define the backup locations](/images/screenshots/network-storage/backup_locations_encryption.png)
 3. For each enabled location, select the cog {% icon "mdi:cog-outline" %} to enable/disable encryption.
    - **Info**: The backup stored on Home Assistant Cloud is always encrypted.
@@ -83,7 +83,7 @@ If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on
 
 If the backup automation settings provided in the UI do not match your use case, you can manually configure your own backup automation using the [`backup.create_automatic`](/actions/backup.create_automatic/) action.
 
-Using the {% my developer_call_service service="backup.create_automatic" %} action in your own automation allows you to create automated backups on any schedule you like, or even add conditions and actions around it. For example, you could make an automation that triggers on a calendar, turns on your NAS, waits until it is online, and then triggers a backup.
+Using the {% my tools_perform_action service="backup.create_automatic" %} action in your own automation allows you to create automated backups on any schedule you like, or even add conditions and actions around it. For example, you could make an automation that triggers on a calendar, turns on your NAS, waits until it is online, and then triggers a backup.
 
 ### Creating a manual backup
 
@@ -110,10 +110,9 @@ There are multiple ways to download your local backup from your Home Assistant i
 **Option 1**: Download from the backup page:
 
 1. Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
-2. To select multiple backups, select the {% icon "mdi:order-checkbox-ascending" %} button.
-3. Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Download backup**.
-   - Result: The selected backup is stored in the **Downloads** folder of your computer.
-4. If a backup is stored on multiple locations, you can select where you download it from:
+2. In the list, on the row of the backup you want to download, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Download**.
+   - Result: The backup is stored in the **Downloads** folder of your computer.
+3. If a backup is stored on multiple locations, you can select where you download it from:
    - Select the backup, and under **Locations**, select the three dots {% icon "mdi:dots-vertical" %} and select **Download from this location**.
 
 **Option 2**: Copy backups from the backups folder:
@@ -146,7 +145,7 @@ To delete old backups, follow these steps:
 1. In Home Assistant, under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, select **Show all backups**.
 2. To **delete one backup**: from the list, select the backup of interest.
    - Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
-3. To **delete multiple backups**: select the {% icon "mdi:order-checkbox-ascending" %} button.
+3. To **delete multiple backups**: select the {% icon "mdi:format-list-checks" %} **Enter selection mode** button.
    - From the list of backups, select all the ones you want to delete and select **Delete selected**.
    - {% icon "mdi:information-outline" %} Consider keeping at least one recent backup for recovery purposes.
 4. To **delete a backup that is stored on Home Assistant Cloud**, you have 2 options:

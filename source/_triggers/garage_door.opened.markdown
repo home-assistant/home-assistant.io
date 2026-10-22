@@ -28,9 +28,11 @@ To use this trigger in an automation:
 
 {% options_ui %}
 Trigger when:
-  description: When multiple garage doors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted garage door opens, **First** to fire only when the first targeted garage door opens, or **All** to fire only after every targeted garage door is open.
+  description: When multiple garage doors are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted garage door opens, **First** to fire only when the first targeted garage door opens, or **All** to fire only after every targeted garage door is open. The default is **Each**.
+  required: false
 For at least:
-  description: How long the garage door must stay open before the trigger fires. Set it to zero to fire immediately.
+  description: How long the garage door must stay open before the trigger fires. The default is `0` (fires immediately).
+  required: false
 {% endoptions_ui %}
 
 {% include triggers/yaml_header.md %}
@@ -48,8 +50,6 @@ This fires when `cover.garage_door` opens.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -60,9 +60,9 @@ behavior:
 for:
   description: >
     How long the garage door must stay open before the trigger fires.
-    Accepts a duration like `00:00:10` for 10 seconds.
+    Accepts a duration like `00:00:10` for 10 seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

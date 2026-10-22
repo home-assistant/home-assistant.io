@@ -8,7 +8,7 @@ related_actions:
   - elkm1.speak_word
 ---
 
-The **Alarm display message** action shows up to two lines of text on the keypads of an Elk-M1 area. You can control how long the message stays on screen, whether the keypad beeps, and how it is cleared.
+The **Elk-M1 Control: Alarm display message** action shows up to two lines of text on the keypads of an Elk-M1 area. You can control how long the message stays on screen, whether the keypad beeps, and how it is cleared.
 
 This is useful when you want an automation to leave a note on the keypad, for example a reminder, a status message, or a welcome-home greeting.
 

@@ -1,8 +1,6 @@
 ---
 title: Harvey
 description: Integrate Harvey water softeners with Home Assistant using the AquaCell integration.
-ha_category:
-  - Sensor
 ha_domain: harvey
 ha_release: 2024.7
 ha_integration_type: virtual

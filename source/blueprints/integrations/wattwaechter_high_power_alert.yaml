@@ -1,0 +1,60 @@
+blueprint:
+  name: WattWächter Plus - High power consumption alert
+  description: >
+    Run an action, such as sending a notification, when a WattWächter Plus
+    power sensor stays above a threshold for a chosen duration.
+  domain: automation
+  author: SmartCircuits
+  homeassistant:
+    min_version: 2024.10.0
+
+  input:
+    power_sensor:
+      name: Power sensor
+      description: Select the WattWächter Plus power sensor to monitor.
+      selector:
+        entity:
+          filter:
+            - integration: wattwaechter
+              domain: sensor
+              device_class: power
+
+    threshold:
+      name: Power threshold
+      description: Trigger when the power stays above this value (in watts).
+      default: 4000
+      selector:
+        number:
+          min: 0
+          max: 25000
+          step: 100
+          unit_of_measurement: W
+          mode: box
+
+    duration:
+      name: Duration
+      description: >
+        How long the power must stay above the threshold before triggering.
+      default:
+        minutes: 5
+      selector:
+        duration:
+
+    actions:
+      name: Actions
+      description: >
+        The actions to run when the threshold is exceeded (for example, send a
+        notification).
+      default: []
+      selector:
+        action:
+
+mode: single
+
+triggers:
+  - trigger: numeric_state
+    entity_id: !input power_sensor
+    above: !input threshold
+    for: !input duration
+
+actions: !input actions

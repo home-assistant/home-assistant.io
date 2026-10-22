@@ -2,11 +2,8 @@
 title: Hot Spring
 description: Instructions on how to integrate Hot Spring spas into Home Assistant.
 ha_release: 2026.9
-ha_category:
-  - Binary sensor
-  - Light
-  - Number
-  - Sensor
+ha_categories:
+  - water.pools_spas
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -17,6 +14,7 @@ ha_platforms:
   - diagnostics
   - light
   - number
+  - select
   - sensor
 ha_integration_type: device
 ha_zeroconf: true
@@ -69,14 +67,22 @@ The **Hot Spring** integration provides the following entities:
 
 ### Light
 
-- **Light zone 1**
-  - **Description**: Controls a light zone on the spa (one entity is created per enabled light zone). Supports turning the light on and off, adjusting brightness, and setting an RGB color.
+- **Light zone**
+  - **Description**: Controls a light zone on the spa (one entity is created per enabled light zone, for example, **Light zone 1**). Supports turning the light on and off, adjusting brightness, and setting an RGB color.
 
 ### Number
 
 - **Target temperature**
   - **Description**: Allows setting the target water temperature for the spa.
-  - **Range**: 80 °F to 104 °F
+  - **Range**: 26 °C to 40 °C (80 °F to 104 °F)
+
+### Select
+
+- **Jet**
+  - **Description**: Controls the jet pump speed (one entity is created per enabled jet pump, for example, **Jet 1**). Supports **Off**, **Low**, and **High** on dual-speed jets, and **Off** and **High** on single-speed jets.
+- **Heating mode**
+  - **Description**: Controls the heating operating mode of the spa heater (**Heat saver**, **Heat with boost**, **Auto saver**, **Auto with boost**, and **Chill** (available when a CoolZone heat pump is installed)).
+  - **Availability**: Available when the spa hardware supports heating mode selection.
 
 ### Sensor
 
@@ -93,7 +99,7 @@ The **Hot Spring** integration provides the following entities:
   - **Availability**: Available when a FreshWater Salt System cartridge is installed.
 - **Control box version**
   - **Description**: Firmware version of the spa control box.
-  - **Remarks**: Disabled by default.
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 - **FreshWater Salt System version**
   - **Description**: Firmware version of the FreshWater Salt System module.
   - **Remarks**: Disabled by default. Available when a FreshWater Salt System is detected.
