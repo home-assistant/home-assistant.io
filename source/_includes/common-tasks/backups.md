@@ -158,7 +158,7 @@ There are two ways to download the backup from Home Assistant Cloud:
 
 On {% term "Home Assistant Operating System" %}, Home Assistant can create a backup of an app before it updates the app. This app update backup contains the app and its data, so you can go back to the previous version of the app if needed.
 
-- App update backups are only stored on this system.
+- App update backups are stored in the default local backup location. This is the system itself, unless you added network storage for backups. The first network storage that you add with the **Backup** usage becomes the default location. For details, refer to [Change default local backup location](/common-tasks/os/#change-default-local-backup-location).
 - By default, Home Assistant keeps one app update backup per app, and deletes older ones.
 - The retention of automatic backups doesn't delete app update backups.
 
