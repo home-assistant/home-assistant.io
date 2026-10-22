@@ -54,11 +54,11 @@ Longitude:
 Declination (0 = Horizontal, 90 = Vertical):
   description: "The tilt of your panels in degrees, from 0 (flat) to 90 (upright). Only asked for if you selected **Enter a fixed tilt**."
 Declination sensor:
-  description: "A sensor that reports the tilt of your panels. Only asked for if you selected **Read the tilt from a sensor**. The sensor must report a value from 0 to 90. It doesn't need to use degrees as its unit."
+  description: "A sensor that reports the tilt of your panels. Only asked for if you selected **Read the tilt from a sensor**. The sensor must report a value from 0 to 90. The value is read as degrees. The sensor's unit isn't checked."
 Azimuth (360 degrees, 0 = North, 90 = East, 180 = South, 270 = West):
   description: "The direction your panels face on a 360-degree scale. Only asked for if you selected **Enter a fixed direction**."
 Azimuth sensor:
-  description: "A sensor that reports the direction your panels face. Only asked for if you selected **Read the direction from a sensor, such as a compass**. The sensor can report a value from 0 to 360 or from -180 to 180. Both are accepted. It doesn't need to use degrees as its unit."
+  description: "A sensor that reports the direction your panels face. Only asked for if you selected **Read the direction from a sensor, such as a compass**. The sensor can report a value from 0 to 360 or from -180 to 180. Both are accepted. The value is read as degrees. The sensor's unit isn't checked."
 Total Watt peak power of your solar modules:
   description: "The combined maximum power of all panels in this group, in Watt peak."
 {% endconfiguration_basic %}
@@ -82,7 +82,7 @@ Reconfiguring the integration only changes the location. To change the location:
 2. Select **Reconfigure**. Your current choice is already selected.
 3. Select one of the following, then select **Submit**:
    - **Follow the Home Assistant location, for homes that move such as campers or boats**: Applies right away.
-   - **Enter fixed coordinates**: Shows the latitude and longitude, pre-filled with the current coordinates, so you can change them.
+   - **Enter fixed coordinates**: Shows the latitude and longitude, pre-filled with the current coordinates or your Home Assistant home location, so you can change them.
 
 To change the angles or power of a plane, reconfigure the plane instead. See [Reconfiguring a plane](#reconfiguring-a-plane).
 
