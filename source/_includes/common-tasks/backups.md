@@ -118,7 +118,7 @@ There are multiple ways to download your local backup from your Home Assistant i
 **Option 2**: Copy backups from the backups folder:
 
 1. If you haven't already done so, [configure access to files on Home Assistant](/common-tasks/{{page.installation}}/#configuring-access-to-files), using one of the methods listed there.
-   - For example, [use the samba app](/common-tasks/{{page.installation}}/#installing-and-using-the-samba-app).
+   - For example, [use the samba app](/common-tasks/{{page.installation}}/#installing-and-using-the-samba-share-app).
 2. In your file explorer, access Home Assistant, open the `backup` folder and copy the file to your computer.
 
 ### Downloading a backup from Home Assistant Cloud
