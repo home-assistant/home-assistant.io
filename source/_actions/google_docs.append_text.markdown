@@ -16,7 +16,7 @@ To append text from an automation or a script:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
-4. In the **Then do** section, select **Add action**.
+4. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
 5. From the search box, search for Google Docs and select **Append text**.
 6. Under **Document**, select the document you want to add to.
 7. Set the **Text** to append.
@@ -43,9 +43,9 @@ In YAML, refer to this action as `google_docs.append_text`. Replace `YOUR_GOOGLE
 action: |
   action: google_docs.append_text
   data:
-    config_entry: YOUR_GOOGLE_DOCS_ENTRY_ID
     text: |
       The washing machine finished.
+    config_entry: YOUR_GOOGLE_DOCS_ENTRY_ID
 {% endexample %}
 
 ### Options in YAML
@@ -64,7 +64,8 @@ text:
 ## Good to know
 
 - Text is appended to the first document tab exactly as supplied. No timestamp, separator, or newline is added automatically.
-- The YAML `|` in the example includes a trailing newline, so consecutive calls produce separate lines.
+- The basic YAML example includes a trailing newline, so consecutive calls produce separate lines.
+- Home Assistant trims whitespace from [template results](/docs/templating/yaml/). To preserve a trailing newline in templated messages, the examples below return the entire `data` mapping and include `\n` inside the text.
 - If an append request times out, check the document before repeating the action to avoid duplicate text.
 
 {% include actions/try_it.md %}
@@ -73,7 +74,7 @@ text:
 
 ### Automation: add a timestamp to a log entry
 
-Use a template to include the time in a message. Add this action to your existing washing machine automation:
+Use a template to include the time in a message. Add this action to your existing washing machine automation, then switch the action to YAML to use the example below:
 
 - **Action**: Append text
   - **Document**: Your Google Docs document
@@ -84,17 +85,20 @@ Use a template to include the time in a message. Add this action to your existin
 {% example %}
 action: |
   action: google_docs.append_text
-  data:
-    config_entry: YOUR_GOOGLE_DOCS_ENTRY_ID
-    text: |
-      {{ now().isoformat() }}: The washing machine finished.
+  data: >
+    {{
+      dict(
+        config_entry='YOUR_GOOGLE_DOCS_ENTRY_ID',
+        text=now().isoformat() ~ ': The washing machine finished.\n'
+      )
+    }}
 {% endexample %}
 
 {% enddetails %}
 
 ### Automation: log car charging data
 
-You can store several values as text in one call. This example uses separately created {% term helpers %}, `input_number.car_charging_kwh` and `input_number.car_charging_cost`, in an existing car charging automation:
+You can store several values as text in one call. This example uses separately created {% term helpers %}, `input_number.car_charging_kwh` and `input_number.car_charging_cost`, in an existing car charging automation. Switch the action to YAML to use the example below:
 
 - **Action**: Append text
   - **Document**: Your Google Docs document
@@ -105,12 +109,19 @@ You can store several values as text in one call. This example uses separately c
 {% example %}
 action: |
   action: google_docs.append_text
-  data:
-    config_entry: YOUR_GOOGLE_DOCS_ENTRY_ID
-    text: |
-      Date: {{ now().isoformat() }}
-      Energy: {{ states('input_number.car_charging_kwh') | float(0) }} kWh
-      Cost: {{ states('input_number.car_charging_cost') | float(0) }}
+  data: >
+    {{
+      dict(
+        config_entry='YOUR_GOOGLE_DOCS_ENTRY_ID',
+        text='Date: ' ~ now().isoformat() ~ '\n'
+          ~ 'Energy: '
+          ~ (states('input_number.car_charging_kwh') | float(0))
+          ~ ' kWh\n'
+          ~ 'Cost: '
+          ~ (states('input_number.car_charging_cost') | float(0))
+          ~ '\n'
+      )
+    }}
 {% endexample %}
 
 {% enddetails %}

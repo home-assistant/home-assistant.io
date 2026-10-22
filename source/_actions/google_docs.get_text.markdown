@@ -16,7 +16,7 @@ To get text from an automation or a script:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
-4. In the **Then do** section, select **Add action**.
+4. In the **Then do** section of an automation, or the **Sequence** section of a script, select **Add action**.
 5. From the search box, search for Google Docs and select **Get text**.
 6. Under **Document**, select the document you want to read from.
 7. In the **Response variable** field, enter a name to store the data in, such as `document`.
@@ -100,7 +100,7 @@ script: |
 
 ### Automation: read back an appended message
 
-This script appends a log entry and reads the updated text into `document`:
+This script appends a log entry and reads the updated text into `document`. Switch the append action to YAML to use the `data` template below, which preserves the final newline:
 
 - **Action**: Append text
   - **Document**: Your Google Docs document
@@ -115,10 +115,13 @@ This script appends a log entry and reads the updated text into `document`:
 script: |
   sequence:
     - action: google_docs.append_text
-      data:
-        config_entry: YOUR_GOOGLE_DOCS_ENTRY_ID
-        text: |
-          {{ now().isoformat() }}: The washing machine finished.
+      data: >
+        {{
+          dict(
+            config_entry='YOUR_GOOGLE_DOCS_ENTRY_ID',
+            text=now().isoformat() ~ ': The washing machine finished.\n'
+          )
+        }}
     - action: google_docs.get_text
       data:
         config_entry: YOUR_GOOGLE_DOCS_ENTRY_ID
