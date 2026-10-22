@@ -92,59 +92,66 @@ The device card shows a human-friendly vehicle name when ABRP has a catalog matc
 
 This is a read-only integration. It does not provide vehicle control actions like start charging, stop charging, climate control, or lock and unlock.
 
-## Examples
+## A Better Routeplanner automation examples
 
-You can use ABRP entities in automations created from the automation editor.
+With your vehicle's battery data in Home Assistant, you can react to charge levels in your automations. Here are a few ideas to get you started.
 
-### Notify when the battery drops below 20% (UI)
+{% include docs/paste_yaml_tip.md %}
 
-To create this automation from the Home Assistant interface:
+### Automation: Notify when the battery drops below 20%
 
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Select **Create automation**, then select **Create new automation**.
-3. Under **When**, select **Add trigger**, then **Entity** > **Numeric state**.
-4. Set **Entity** to the **SoC** sensor for your vehicle.
-5. Set **Below** to `20`.
-6. Under **Then do**, select **Add action**, then select **Send a notification message**.
-7. Under **Targets**, select **Add target** and choose your phone.
-8. In the **Message** field, enter a message such as `Battery low: {{ states('sensor.my_ev_soc') }}% remaining.`
-9. Save the automation.
+Get a notification on your phone when your vehicle's battery level drops below 20%, so you remember to charge it.
 
-### Notify when the battery drops below 20% (YAML)
+- **Trigger**: Numeric state: **SoC** sensor of your vehicle below `20`
+- **Action**: Send a notification message to your phone
 
-```yaml
-automation:
-  - alias: "Notify low battery"
-    triggers:
-      - trigger: numeric_state
-        entity_id: sensor.my_ev_soc
-        below: 20
-    actions:
-      - action: notify.send_message
-        target:
-          entity_id: notify.my_phone
-        data:
-          message: "Battery low: {{ states('sensor.my_ev_soc') }}% remaining."
-```
+{% details "YAML example for a low battery notification" %}
 
-### Turn off a charging outlet at 80%
+{% example %}
+automation: |
+  alias: "Notify low battery"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.my_ev_soc
+      below: 20
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_phone
+      data:
+        message: "Battery low: {{ states('sensor.my_ev_soc') }}% remaining."
+{% endexample %}
 
-```yaml
-automation:
-  - alias: "Stop charging at 80%"
-    triggers:
-      - trigger: numeric_state
-        entity_id: sensor.my_ev_soc
-        above: 80
-    conditions:
-      - condition: numeric_state
-        entity_id: sensor.my_ev_power
-        above: 1000
-    actions:
-      - action: switch.turn_off
-        target:
-          entity_id: switch.garage_ev_outlet
-```
+{% enddetails %}
+
+### Automation: Turn off a charging outlet at 80%
+
+Stop charging when your vehicle reaches 80% by turning off the smart outlet or switch that powers your charger.
+
+- **Trigger**: Numeric state: **SoC** sensor of your vehicle above `80`
+- **Condition**: Numeric state: **Power** sensor of your vehicle above `1000`
+- **Action**: Turn off the switch for your charging outlet
+
+{% details "YAML example for turning off a charging outlet at 80%" %}
+
+{% example %}
+automation: |
+  alias: "Stop charging at 80%"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.my_ev_soc
+      above: 80
+  conditions:
+    - condition: numeric_state
+      entity_id: sensor.my_ev_power
+      above: 1000
+  actions:
+    - action: switch.turn_off
+      target:
+        entity_id: switch.garage_ev_outlet
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 
