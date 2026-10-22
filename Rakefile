@@ -47,6 +47,8 @@ task :generate do
   abort("Generating WWHA device data failed") unless success
   success = system "rake allowed_referrers_data"
   abort("Generating allowed referrers data failed") unless success
+  success = system "rake newsletter_data"
+  abort("Generating newsletter data failed") unless success
   success = system "rake meetups_data"
   abort("Generating community meetups data failed") unless success
   success = system "jekyll build"
@@ -238,6 +240,39 @@ task :allowed_referrers_data do
     # Never fail the build over the allow list: fall back to the existing
     # file, or an empty list if none exists yet.
     warn "## Downloading allowed referrers failed, keeping existing file. #{e}"
+    File.write(output_file, "[]") unless File.exist?(output_file)
+  end
+end
+
+desc "Download the latest newsletter issues and output to _data/newsletter.json"
+task :newsletter_data do
+  require 'rexml/document'
+
+  output_file = "#{source_dir}/_data/newsletter.json"
+  begin
+    uri = URI('https://newsletter.openhomefoundation.org/rss/')
+    feed = REXML::Document.new(Net::HTTP.get(uri))
+
+    issues = feed.get_elements('//channel/item').first(5).map do |item|
+      {
+        "title" => item.elements['title']&.text.to_s.strip,
+        "url" => item.elements['link']&.text.to_s.strip,
+        "date" => Time.parse(item.elements['pubDate'].text).utc.iso8601,
+        "image" => item.get_elements('media:content').first&.attributes&.[]('url'),
+      }
+    end
+    raise "feed has no items" if issues.empty?
+    raise "item is missing a title or link" if issues.any? { |i| i["title"].empty? || i["url"].empty? }
+
+    File.open(output_file, "w") do |file|
+      file.write(JSON.generate(issues))
+    end
+    puts "## Wrote #{issues.length} newsletter issues"
+  rescue StandardError => e
+    # Never fail the build over the newsletter: fall back to the existing
+    # file, or an empty list if none exists yet. The bio page then simply
+    # leaves the newsletter out.
+    warn "## Downloading newsletter failed, keeping existing file. #{e}"
     File.write(output_file, "[]") unless File.exist?(output_file)
   end
 end

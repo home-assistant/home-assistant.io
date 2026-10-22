@@ -19,7 +19,7 @@ module Jekyll
       class ConfigError < StandardError; end
 
       SECTION_TYPES = %w[links feed].freeze
-      SOURCE_TYPES = %w[posts pinned].freeze
+      SOURCE_TYPES = %w[posts pinned data].freeze
       OG_ENDPOINT = 'https://assets.openhomefoundation.org/opengraph'.freeze
       PLATFORMS = {
         'mastodon' => 'Mastodon', 'instagram' => 'Instagram', 'github' => 'GitHub',
@@ -61,6 +61,12 @@ module Jekyll
         fail!(path, 'must be a map') unless source.is_a?(Hash)
         unless SOURCE_TYPES.include?(source['type'])
           fail!("#{path}.type", "must be one of: #{SOURCE_TYPES.join(', ')}")
+        end
+        if source['type'] == 'data'
+          unless source['file'].to_s.match?(/\A[\w-]+\z/)
+            fail!("#{path}.file", 'must name a data file, e.g. newsletter for source/_data/newsletter.json')
+          end
+          return
         end
         return unless source['type'] == 'pinned'
 
@@ -156,11 +162,11 @@ module Jekyll
 
       # Returns plain hashes for the layout: only sections with something to
       # show. An empty section would render as a heading above nothing.
-      def resolve(config, posts, now, site_url)
+      def resolve(config, posts, now, site_url, data = {})
         sources = config['sources'] || {}
         newest_first = posts.sort_by(&:date).reverse
         sections = config['sections'] || []
-        feed_tiles = claim_feed_items(sections, sources, newest_first, now)
+        feed_tiles = claim_feed_items(sections, sources, newest_first, now, data)
 
         sections.each_with_index.filter_map do |section, index|
           tiles =
@@ -182,11 +188,11 @@ module Jekyll
       # appear once, under the section that describes it best: a pin first,
       # then a category feed such as releases, and only then the general blog,
       # which backfills with its next post. Sections still render in YAML order.
-      def claim_feed_items(sections, sources, posts, now)
+      def claim_feed_items(sections, sources, posts, now, data)
         candidates = sections.each_with_index.filter_map do |section, index|
           next unless section['type'] == 'feed'
 
-          items = resolve_source(section['source'], sources, posts, now)
+          items = resolve_source(section['source'], sources, posts, now, data)
           [index, section, items]
         end
 
@@ -212,13 +218,14 @@ module Jekyll
         source['category'] ? 1 : 0
       end
 
-      def resolve_source(name, sources, posts, now, seen = [])
+      def resolve_source(name, sources, posts, now, data = {}, seen = [])
         source = sources[name]
         return [] if source.nil? || seen.include?(name)
 
         items =
           case source['type']
           when 'posts' then posts_for(source, posts, name)
+          when 'data' then data_items(data[source['file']], name)
           when 'pinned'
             (source['items'] || [])
               .reject { |item| (expires = parse_time!(item['expires'], name)) && expires <= now }
@@ -227,10 +234,36 @@ module Jekyll
 
         # An expired or empty pin is not an error: it means "back to the feed".
         if items.empty? && source['fallback']
-          return resolve_source(source['fallback'], sources, posts, now, seen + [name])
+          return resolve_source(source['fallback'], sources, posts, now, data, seen + [name])
         end
 
         items
+      end
+
+      # Items downloaded before the build, such as the newsletter (see the
+      # newsletter_data task in the Rakefile). The download never fails the
+      # build, so a missing file, an empty list or a malformed entry just
+      # means fewer items, never an error.
+      def data_items(list, name)
+        return [] unless list.is_a?(Array)
+
+        list.filter_map do |entry|
+          next unless entry.is_a?(Hash) && !blank?(entry['title']) && !blank?(entry['url'])
+
+          date = begin
+            Time.parse(entry['date'].to_s) unless blank?(entry['date'])
+          rescue ArgumentError
+            nil
+          end
+
+          {
+            'title' => entry['title'],
+            'url' => entry['url'],
+            'date' => date,
+            'image' => entry['image'],
+            'source' => name,
+          }
+        end.sort_by { |item| item['date'] || Time.at(0) }.reverse
       end
 
       def posts_for(source, posts, name)
@@ -311,7 +344,7 @@ module Jekyll
         Bio.validate!(config)
 
         page.data['bio'] = config.merge(
-          'resolved_sections' => Bio.resolve(config, site.posts.docs, site.time, site.config['url'].to_s),
+          'resolved_sections' => Bio.resolve(config, site.posts.docs, site.time, site.config['url'].to_s, site.data),
           'social_links' => (config['socials'] || []).map do |social|
             social.merge('label' => social['label'] || Bio::PLATFORMS[social['platform']])
           end,

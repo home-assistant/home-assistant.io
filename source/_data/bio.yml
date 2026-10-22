@@ -19,6 +19,12 @@ sections:
     source: releases
     limit: 1
 
+  - type: feed
+    title: Latest newsletter
+    source: newsletter
+    limit: 1
+    images: true
+
   - type: links
     title: Get started
     items:
@@ -54,6 +60,12 @@ sources:
   releases:
     type: posts
     category: Release-Notes
+
+  # The Open Home Foundation newsletter. Downloaded before each build; if the
+  # download fails, this section is left out until the next build.
+  newsletter:
+    type: data
+    file: newsletter
 
   # Pin a post here when the timing has to be exact (a launch, an embargo).
   # While a pin is listed, it replaces the blog feed above. Remove it, or let
