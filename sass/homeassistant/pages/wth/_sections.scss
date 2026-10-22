@@ -87,6 +87,7 @@ main#page-wth {
             letter-spacing: -0.5px;
             line-height: 1.1;
             margin-top: 28px;
+            text-wrap: balance;
         }
 
         .lead {
@@ -94,6 +95,7 @@ main#page-wth {
             line-height: var(--typography-lead-line-height);
             margin-top: 14px;
             max-width: 46ch;
+            text-wrap: balance;
         }
 
         .buttons-container {
