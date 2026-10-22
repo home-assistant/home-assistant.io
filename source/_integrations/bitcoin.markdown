@@ -31,7 +31,7 @@ To change the currency later, remove the integration and add it again with the n
 
 ## Supported functionality
 
-The **Bitcoin** integration provides the following entities. All of them are created and filled from the same two API calls.
+The **Bitcoin** integration provides the following entities. All of them are created and filled from the same two API calls. If you only need a few, hide or disable the others in the entity settings.
 
 ### Sensors
 
