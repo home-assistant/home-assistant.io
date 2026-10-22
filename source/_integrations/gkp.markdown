@@ -7,18 +7,18 @@ ha_release: '2026.11'
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@theobld-ww'
+  - '@AnthonyPerrier-FRRO'
 ha_domain: gkp
 ha_config_flow: true
 ha_platforms:
   - climate
-  - diagnostics
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
 The **GKP Home** {% term integration %} lets you control your [GKP](https://www.gkp.se/) Wi-Fi radiators directly from Home Assistant.
 
-GKP Wi-Fi radiators are electric radiators that you set up and control with the **GKP Home** mobile app. Each radiator connects to your home Wi-Fi network and to the GKP cloud on its own, without a gateway. In the app, you group your radiators by room in one or more installations.
+GKP Wi-Fi radiators are electric radiators that you set up and control with the **GKP Home** mobile app.
 
 This integration uses the GKP cloud to give you control over each radiator. You can adjust the temperature, switch between heating modes, start a boost, and follow the room temperature of each radiator in your home.
 
@@ -42,7 +42,6 @@ Before setting up the integration, make sure you have:
 
 1. A GKP account, created in the **GKP Home** mobile app.
 2. At least one GKP Wi-Fi radiator added to an installation in the **GKP Home** app, and connected to the internet.
-3. The role of main administrator of that installation. Home Assistant only shows the installations where your account is the main administrator.
 
 {% note %}
 The integration uses OAuth2 authentication. During the setup, you are redirected to the GKP login page, where you sign in with the same email address and password as in the **GKP Home** app.
@@ -116,9 +115,8 @@ The integration checks your installations for new or removed radiators every 15 
 
 ## Known limitations
 
-- Only the installations where your account is the main administrator are available in Home Assistant. Installations that are shared with you are not shown.
 - The current temperature and heating status can be up to 10 minutes old, because the radiators only report them when the integration asks for a new reading.
-- You can't edit the weekly program, the holiday mode, or the comfort, eco, and boost temperatures of the other modes from Home Assistant. Use the **GKP Home** app for these settings.
+- You can't edit the weekly program or the holiday mode from Home Assistant. Use the **GKP Home** app for these settings.
 - Energy consumption is not available in Home Assistant.
 
 ## Troubleshooting
@@ -131,7 +129,7 @@ One or more of your GKP climate entities show as "Unavailable" in Home Assistant
 
 ##### Description
 
-A radiator shows as unavailable when it hasn't answered the requests of the integration for 30 minutes. This usually means the radiator lost its connection to your Wi-Fi network or to the GKP cloud, or that it is switched off at the mains.
+A radiator shows as unavailable when it hasn't answered the requests of the integration for 30 minutes. This usually means the radiator lost its connection to your Wi-Fi network or to the GKP cloud.
 
 ##### Resolution
 
@@ -157,9 +155,8 @@ The integration checks your installations for new or removed radiators every 15 
 1. Wait up to 15 minutes after making the change in the **GKP Home** app.
 2. If the change still doesn't show, reload the integration:
    - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-   - Select the **GKP** integration.
+   - Select the **GKP Home** integration.
    - Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Reload**.
-3. If the radiator still doesn't show up, check that your account is the main administrator of its installation in the **GKP Home** app.
 
 ### "Too many requests to the GKP cloud"
 

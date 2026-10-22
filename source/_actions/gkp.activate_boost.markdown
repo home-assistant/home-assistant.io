@@ -17,7 +17,7 @@ To use this action in an automation or script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **GKP: Activate boost**.
+5. From the search box, search for and select **GKP Home: Activate boost**.
 6. Select the climate entity of the radiator you want to boost.
 7. Set the **Temperature** and **Duration**.
 8. Select **Save**.
@@ -70,11 +70,6 @@ duration:
 
 {% include actions/targets.md %}
 
-## Good to know
-
-- When the boost ends, the radiator automatically goes back to the mode it was in before.
-- The maximum duration is 24 hours.
-
 {% include actions/try_it.md %}
 
 {% include actions/more_examples.md %}
@@ -84,7 +79,7 @@ duration:
 Every weekday morning, boost the bathroom radiator to a comfortable temperature for 30 minutes.
 
 - **Trigger**: Time: 06:30 on weekdays
-- **Action**: GKP: Activate boost
+- **Action**: GKP Home: Activate boost
    - **Target**: Bathroom radiator
    - **Temperature**: 24
    - **Duration**: 30 minutes
