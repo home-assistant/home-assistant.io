@@ -17,6 +17,27 @@ An {% term automation %} makes your home react on its own when something happens
 - [Which tool to use](/docs/automation/which-tool-to-use/): when to use an automation, a script, a scene, a blueprint, or a helper.
 - [Automation editors](/docs/automation/editor/): everything you can do in the editor.
 
+## Reference
+
+To look up what you can use in an automation, use the following references:
+
+- [All triggers](/triggers/): every trigger, grouped by integration.
+- [All conditions](/conditions/): every condition, grouped by integration.
+- [All actions](/actions/): every action, grouped by integration.
+- [All building blocks](/building-blocks/): the steps that control the flow of actions, such as waiting, choosing, and repeating.
+- [Targets](/docs/automation/targets/): which entities a trigger, condition, or action covers when you select an area, floor, label, or device.
+- [Automation modes](/docs/automation/modes/): what happens when an automation starts while it's still running.
+- [Trigger data in templates](/docs/automation/trigger-data/): the data that each trigger passes to your templates.
+- [Automations in YAML](/docs/automation/yaml/): the full YAML structure, and the options that are only available in YAML.
+
+## Scripts, scenes, and blueprints
+
+Automations often work together with scripts, scenes, and blueprints:
+
+- [Scripts](/docs/script/): a saved list of steps that runs when you start it, for example, from an automation or a dashboard.
+- [Scenes](/docs/scene/): set a group of devices to saved states in one step.
+- [Blueprints](/docs/blueprint/): ready-made automations and scripts that you install and adjust for your own home.
+
 ## When something doesn't work
 
 - [Testing automations](/docs/automation/testing/): run an automation or a single step, and read its trace.
