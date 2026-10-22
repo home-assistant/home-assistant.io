@@ -277,7 +277,7 @@ This only happens with the default SQLite database. If you use MariaDB or Postgr
 
 1. Wait a few minutes, and then create the backup again.
 2. If automatic backups fail, change when they run. The default, **System optimal**, starts between 04:45 and 05:45. That's shortly after the Recorder maintenance at 04:12, and a long repack can still be running then.
-   - Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}. On the **Automatic backup** card, select **Configure backup settings**.
+   - Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}. Under **Automatic backups**, select **Configure automatic backups**.
    - Under **Backup cycle**, set **Time** to **Custom**, and pick a time later in the day.
 3. If backups keep failing, make the database smaller. For example, keep fewer days of history, or exclude entities that change often. For details, refer to [Preparing for a backup](#preparing-for-a-backup).
 
