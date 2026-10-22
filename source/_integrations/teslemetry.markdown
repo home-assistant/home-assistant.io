@@ -63,6 +63,13 @@ You only need to do this once per vehicle. If Home Assistant's key is later remo
 
 When the vehicle is within Bluetooth range, its commands use the local connection first, with an automatic fallback to the cloud when needed. This can make commands like locking, unlocking, or flashing the lights feel noticeably faster. When the vehicle is away, its commands use the cloud, and it switches back to Bluetooth on its own when it returns.
 
+### Bluetooth connectivity sensors
+
+Each vehicle paired for Bluetooth control gets two diagnostic binary sensors. Vehicles without Bluetooth control don't have them.
+
+- **Bluetooth**: On when a Home Assistant Bluetooth adapter can currently see the vehicle, meaning the car is in range and reachable over Bluetooth. It does not mean Home Assistant is connected to the vehicle. It only listens for the vehicle's Bluetooth broadcasts, so it never connects to or wakes the car. When the vehicle leaves range, it can take up to about 195 seconds for its broadcasts to be considered stale, plus up to 300 seconds for Home Assistant's next check, before this sensor turns off.
+- **Bluetooth session**: On while Home Assistant has an open Bluetooth connection to the vehicle. A connection is only held while a command is being sent, so this sensor is off most of the time. It is disabled by default.
+
 ### Removing Bluetooth control
 
 Removing the Teslemetry integration, or the pairing for a single vehicle, stops Home Assistant from routing that vehicle's commands over Bluetooth and forgets the stored Bluetooth address. It does not revoke Home Assistant's virtual key from the vehicle itself. That key stays authorized on the car until you remove it there.
@@ -97,6 +104,8 @@ To pair your Powerwall or Backup Gateway:
 
 Once paired, Home Assistant stores your Powerwall's address and password and sends energy commands to it directly, falling back to the cloud automatically whenever your Powerwall can't be reached.
 
+A paired energy site also gets extra entities that are only available from your Powerwall over your local network, such as **Grid OK** and **Contactor closed**. They are marked **Local** in the [energy site entity table](#energy-sites). Each one is only created when your Powerwall reports its value, and it becomes unavailable while your Powerwall can't be reached. If your Powerwall can't be reached when Home Assistant starts, these entities are still created and stay unavailable, then update on their own once your Powerwall responds, with no reload needed.
+
 {% note %}
 Removing the Teslemetry integration doesn't revoke the access key from your Powerwall system, so other apps or integrations using the same key keep working.
 {% endnote %}
@@ -105,13 +114,14 @@ Removing the Teslemetry integration doesn't revoke the access key from your Powe
 
 These are the entities available in the Teslemetry integration. Not all entities are enabled by default, and not all values are always available.
 Entities in the device tracker platform specifically require the `Vehicle location` scope, and will appear unavailable otherwise. 
+The **Enable keep accessory power** and **Disable keep accessory power** buttons are only created for vehicles on firmware 2025.38 or newer.
 
 ### Vehicles
 
 The **Bluetooth** column marks entities whose commands can control the vehicle over Bluetooth when it's paired and within range of a Home Assistant Bluetooth adapter. See [Bluetooth vehicle control](#bluetooth-vehicle-control) for setup and requirements.
 
 {% note %}
-Only vehicle controls send commands over Bluetooth. Reading state, and the updated state that follows a command, always comes through Teslemetry's cloud connection or data stream, even for an entity marked **Yes**. When the vehicle is out of Bluetooth range, its commands use the cloud, and individual commands the local connection can't complete fall back to the cloud automatically. Energy site and Wall Connector entities are not controlled over vehicle Bluetooth.
+Only vehicle controls send commands over Bluetooth. While a paired vehicle that streams its data is within Bluetooth range, the states it broadcasts over Bluetooth also update the **Lock**, the four door binary sensors, the **Charge port door**, **Frunk**, and **Trunk** covers, the Cybertruck tonneau cover, and the **Shift state** sensor, alongside Teslemetry's data stream. Every other state, and all state for a vehicle that polls, comes through Teslemetry's cloud connection or data stream, even for an entity marked **Yes**. The exceptions are the [Bluetooth connectivity sensors](#bluetooth-connectivity-sensors), which come from Home Assistant's own Bluetooth adapters. When the vehicle is out of Bluetooth range, its commands use the cloud, and individual commands the local connection can't complete fall back to the cloud automatically. Energy site and Wall Connector entities are not controlled over vehicle Bluetooth.
 {% endnote %}
 
 |Domain|Name|Enabled|Data|Bluetooth|
@@ -120,6 +130,8 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 |Binary sensor|Automatic emergency braking off|No|Streaming|No|
 |Binary sensor|Battery heater|No|Both|No|
 |Binary sensor|Blind spot collision warning chime|No|Streaming|No|
+|Binary sensor|Bluetooth|Yes|Bluetooth|No|
+|Binary sensor|Bluetooth session|No|Bluetooth|No|
 |Binary sensor|BMS full charge|No|Streaming|No|
 |Binary sensor|Brake pedal|No|Streaming|No|
 |Binary sensor|Cabin overheat protection actively cooling|No|Polling|No|
@@ -176,6 +188,8 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 |Binary sensor|User present|Yes|Polling|No|
 |Binary sensor|Wi-Fi|Yes|Streaming|No|
 |Binary sensor|Wiper heat|No|Streaming|No|
+|Button|Disable keep accessory power|Yes|—|Yes|
+|Button|Enable keep accessory power|Yes|—|Yes|
 |Button|Flash lights|Yes|—|Yes|
 |Button|HomeLink|Yes|—|Yes|
 |Button|Honk horn|Yes|—|Yes|
@@ -315,9 +329,16 @@ Only vehicle controls send commands over Bluetooth. Reading state, and the updat
 |Domain|Name|Enabled|Data|
 |---|---|---|---|
 |Binary sensor|Backup capable|Yes|Polling|
+|Binary sensor|Contactor closed|Yes|Local|
+|Binary sensor|ESCAN firmware updating|Yes|Local|
+|Binary sensor|Grid OK|Yes|Local|
 |Binary sensor|Grid services active|Yes|Polling|
 |Binary sensor|Grid services enabled|Yes|Polling|
 |Binary sensor|Grid status|Yes|Polling|
+|Binary sensor|Microgrid OK|Yes|Local|
+|Binary sensor|PW3CAN firmware updating|Yes|Local|
+|Binary sensor|Site manager running|Yes|Local|
+|Binary sensor|Site running|Yes|Local|
 |Binary sensor|Storm watch active|Yes|Polling|
 |Calendar|Buy tariff|Yes|Polling|
 |Calendar|Sell tariff|Yes|Polling|
@@ -385,6 +406,7 @@ Teslemetry delivers data by streaming or polling, depending on the product. The 
 - **Streaming**: the value arrives over the live stream in real time.
 - **Polling**: the value comes from Teslemetry's cached vehicle data.
 - **Both**: the value can arrive by streaming or polling, depending on the vehicle and its configuration.
+- **Local**: the value is polled directly from your Powerwall over your local network. These entities only exist for energy sites paired for [local Powerwall control](#local-powerwall-control).
 - **—** (em dash): the entity does not report data. Buttons send commands, so they have no data source.
 
 ### Vehicle data
@@ -397,7 +419,9 @@ The integration does not wake a sleeping vehicle to fetch data. Updates pause un
 
 ### Energy site data
 
-Energy sites are cloud-polled: live status and site information every 30 seconds, and energy history every 60 seconds.
+Energy site live status, site information, tariffs, and energy history arrive through the Teslemetry data stream. If you've paired a Powerwall for [local control](#local-powerwall-control), Home Assistant also reads its live values directly over your local network every 5 seconds, and its backup reserve and operation mode every 30 seconds. Whenever your Powerwall can't be reached, Home Assistant uses the cloud values instead. Entity availability still follows the Teslemetry data stream.
+
+For an energy site paired for [local Powerwall control](#local-powerwall-control), entities marked **Local** are polled from your Powerwall's status every 10 seconds.
 
 ## Known limitations
 

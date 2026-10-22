@@ -21,17 +21,45 @@ If you have incorrect entries in your configuration files you can use the config
 
 ### Problems with the configuration
 
-One of the most common problems with Home Assistant is an invalid {% term "`configuration.yaml`" %} or other configuration file.
+One of the most common problems with Home Assistant is an invalid {% term "`configuration.yaml`" %} or other configuration file. To find problems, check your configuration under {% my tools_yaml title="**Settings** > **Tools** > **YAML**" %} > **Check configuration**. You can also run the configuration check from the command line:
 
-- Home Assistant provides a CLI that allows you to see how it interprets them, each installation type has its own section in the common-tasks about this:
-  - [Operating System](/common-tasks/os/#configuration-check)
-  - [Container](/common-tasks/container/#configuration-check)
+- [Home Assistant Operating System](/common-tasks/os/#running-a-configuration-check-from-the-cli)
+- [Home Assistant Container](/common-tasks/container/#configuration-check)
 
-- The configuration files, including {% term "`configuration.yaml`" %} must be UTF-8 encoded. If you see error like `'utf-8' codec can't decode byte`, edit the offending configuration and re-save it as UTF-8.
-- You can verify your configuration's {% term YAML %} structure using [this online YAML parser](https://yaml-online-parser.appspot.com/) or [YAML Validator](https://codebeautify.org/yaml-validator/).
-- To learn more about the quirks of {% term YAML %}, read [YAML IDIOSYNCRASIES](https://docs.saltproject.io/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
+{% details "Home Assistant reports an invalid configuration" %}
 
-`configuration.yaml` does not allow multiple sections to have the same name. If you want to load multiple platforms for one integration, you can append a number or string to the name or nest them:
+#### Symptom: An "Invalid config for" error
+
+The configuration check, or the logs, show an error that starts with `Invalid config for`, followed by the name of an integration. For example: `Invalid config for 'example' at configuration.yaml, line 12: required key 'host' not provided`.
+
+##### Description
+
+The configuration of that integration doesn't match what the integration expects. For example, a required setting is missing, an option is misspelled, or a value has the wrong type. The error usually shows the file and line where the problem is.
+
+##### Resolution
+
+1. Open the file mentioned in the error and go to the line it mentions.
+2. Compare the configuration with the documentation of the integration. You can find it on [the integration pages](/integrations/).
+   - If a required setting is missing, add it.
+   - If an option is invalid, check its spelling. The error often suggests the option you might have meant.
+3. If you're not sure the {% term YAML %} structure is correct, check it with an online tool such as [YAML online parser](https://yaml-online-parser.appspot.com/) or [YAML Validator](https://codebeautify.org/yaml-validator/). To learn more about common YAML mistakes, read [YAML IDIOSYNCRASIES](https://docs.saltproject.io/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack. The examples there are specific to SaltStack, but they explain YAML issues well.
+4. Check your configuration again.
+
+{% enddetails %}
+
+{% details "Only one of several sections with the same name works" %}
+
+#### Symptom: "contains duplicate key"
+
+You added the same top-level section more than once, for example `sensor:` twice, and only one of them works. The logs show a warning like `YAML file configuration.yaml contains duplicate key "sensor". Check lines 10 and 20`.
+
+##### Description
+
+A {% term YAML %} file can only have each top-level section once. If a section appears twice, Home Assistant only uses the last one.
+
+##### Resolution
+
+Combine the sections into one, and list each platform under it:
 
 ```yaml
 sensor:
@@ -41,19 +69,35 @@ sensor:
     ...
 ```
 
-Another common problem is that a required configuration setting is missing. If this is the case, the integration will report this in [the logs](/integrations/logger/#viewing-logs). You can have a look at [the various integration pages](/integrations/) for instructions on how to setup the integrations.
+{% enddetails %}
 
-See the [logger](/integrations/logger/) integration for instructions on how to define the level of logging you require for specific modules.
+{% details "Home Assistant can't read a configuration file" %}
 
-If you find any errors or want to expand the documentation, please [let us know](https://github.com/home-assistant/home-assistant.io/issues).
+#### Symptom: "'utf-8' codec can't decode byte"
 
-#### Unexpected error validating config
+The logs show an error like `Unable to read file configuration.yaml: 'utf-8' codec can't decode byte`.
 
-When you check your configuration under {% my tools_yaml title="**Settings** > **Tools** > **YAML**" %} > **Check configuration**, you might see an error that starts with `Unexpected error calling config validator:`. The logs then show `Unexpected error validating config`.
+##### Description
 
-This error means that the code that checks the configuration of one of your integrations stopped unexpectedly, instead of reporting what is wrong. This is usually caused by a bug in the integration, often a custom integration, or by a configuration that the integration doesn't expect.
+All configuration files, including {% term "`configuration.yaml`" %}, must be saved with UTF-8 encoding. Some editors save files in a different encoding, for example when the file contains special characters.
 
-To resolve the error:
+##### Resolution
+
+Open the file mentioned in the error in a text editor, and save it again with UTF-8 encoding.
+
+{% enddetails %}
+
+{% details "Unexpected error validating config" %}
+
+#### Symptom: "Unexpected error calling config validator"
+
+When you check your configuration, you see an error that starts with `Unexpected error calling config validator:`. The logs then show `Unexpected error validating config`.
+
+##### Description
+
+The code that checks the configuration of one of your integrations stopped unexpectedly, instead of reporting what is wrong. This is usually caused by a bug in the integration, often a custom integration, or by a configuration that the integration doesn't expect.
+
+##### Resolution
 
 1. Go to {% my logs title="**Settings** > **System** > **Logs**" %} and open the `Unexpected error validating config` entry.
    - The entry is logged by `homeassistant.helpers.check_config`, so it can look like a problem in Home Assistant itself.
@@ -62,15 +106,45 @@ To resolve the error:
 3. If it's a custom integration, update it to the latest version. If the error stays, report it to the author of the custom integration.
 4. If it's a built-in integration and your configuration looks correct, [report the issue](/help/reporting_issues/) and include the error from the logs.
 
-#### Problems with dependencies
+{% enddetails %}
 
-Almost all integrations have external dependencies to communicate with your devices and services. Sometimes Home Assistant is unable to install the necessary dependencies. If this is the case, it should show up in [the logs](/integrations/logger/#viewing-logs).
+{% details "An integration can't install its dependencies" %}
 
-The first step is trying to restart Home Assistant and see if the problem persists. If it does, look at the log to see what the error is. If you can't figure it out, please [report it](https://github.com/home-assistant/core/issues) so we can investigate what is going on.
+#### Symptom: A "Requirements for … not found" error
 
-#### Problems with integrations
+The integration doesn't start, and the logs show an error like `Setup failed for 'example': Requirements for example not found`.
 
-It can happen that some integrations either do not work right away or stop working after Home Assistant has been running for a while. If this happens to you, please [report it](https://github.com/home-assistant/core/issues) so that we can have a look.
+##### Description
+
+Almost all integrations use extra software packages to communicate with your devices and services. Home Assistant installs these packages when it sets up the integration. Sometimes, it can't install them, for example because there is no internet connection.
+
+##### Resolution
+
+1. Make sure Home Assistant is connected to the internet.
+2. Restart Home Assistant, and check if the problem persists.
+3. If it does, check [the logs](/integrations/logger/#viewing-logs) for more details about the error.
+4. If you can't find the cause, [report the issue](/help/reporting_issues/) and include the error from the logs.
+
+{% enddetails %}
+
+{% details "An integration stops working" %}
+
+#### Symptom: An integration doesn't work, or stops working after a while
+
+An integration doesn't work right after you set it up, or it stops working after Home Assistant has been running for a while.
+
+##### Description
+
+This can have many causes, such as a problem with the device or service, the network, or a bug in the integration.
+
+##### Resolution
+
+1. Check [the logs](/integrations/logger/#viewing-logs) for errors related to the integration.
+   - To get more details, [turn on debug logging](#enabling-debug-logging) for the integration.
+2. Check the troubleshooting section on the documentation page of the integration.
+3. If you can't find the cause, [report the issue](/help/reporting_issues/) and include the logs.
+
+{% enddetails %}
 
 #### Multiple files
 

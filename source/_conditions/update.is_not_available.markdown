@@ -75,9 +75,9 @@ behavior:
 for:
   description: >
     How long the update must have stayed up to date before the condition
-    passes. Use the `HH:MM:SS` format, like `00:10:00` for 10 minutes.
+    passes. Use the `HH:MM:SS` format, like `00:10:00` for 10 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

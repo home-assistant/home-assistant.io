@@ -128,7 +128,7 @@ Trigger-based entities do not automatically update when states referenced in the
 The state, including attributes, of trigger-based template entities is restored when Home Assistant is restarted. This doesn't apply to buttons, images, and update entities.
 
 {% note %}
-Buttons don't support the `triggers` or `actions` options.
+Buttons don't support the `triggers`, `trigger_variables`, or `actions` options.
 {% endnote %}
 
 ```yaml
@@ -146,6 +146,36 @@ template:
         unit_of_measurement: "Days"
 ```
 
+#### Trigger variables
+
+Some trigger options accept templates, such as the event type of an event trigger. To use your own values in these options, define them under `trigger_variables`. This works the same way as [trigger variables in automations](/docs/automation/trigger/#trigger-variables).
+
+Trigger variables use [limited templates](/docs/templating/limited-templates/), so they can't use functions such as `states()`. Home Assistant renders them once, when the configuration is loaded or reloaded. If a trigger variable can't be rendered, Home Assistant logs an error and doesn't set up the triggers for that entry.
+
+After they are rendered, trigger variables are also available in `variables`, `conditions`, `actions`, and all entity templates. Entity actions, such as the `turn_on` action of a switch, can use them even before a trigger has reacted.
+
+If the same name is defined in more than one place, Home Assistant uses this order of priority:
+
+1. Variables that an entity action receives, such as `brightness` in the `turn_on` action of a light
+2. The trigger data, such as `trigger`
+3. Variables defined under `variables`
+4. Variables defined under `trigger_variables`
+
+```yaml
+# Example configuration entry
+template:
+  - trigger_variables:
+      prefix: kitchen
+    triggers:
+      - trigger: event
+        event_type: "{{ prefix }}_motion"
+    variables:
+      label: "{{ prefix }} motion"
+    sensor:
+      - name: "Kitchen motion"
+        state: "{{ label }}"
+```
+
 ### Configuration reference
 
 {% configuration trigger-based %}
@@ -161,6 +191,15 @@ triggers:
   description: Define one or multiple automation triggers to update the entities. Optional. If omitted updates based on referenced entities. [See trigger documentation](/docs/automation/trigger).
   required: false
   type: list
+trigger_variables:
+  description: Key-value pairs of variable definitions that can be used in trigger options that accept templates (for trigger-based entities only). Requires `triggers`. Values can only use [limited templates](/docs/templating/limited-templates/) and are rendered when the configuration is loaded or reloaded. The rendered values are also available in `variables`, `conditions`, `actions`, and entity templates. [See trigger variables](#trigger-variables).
+  required: false
+  type: map
+  keys:
+    "variable_name: value":
+      description: The variable name and corresponding value.
+      required: true
+      type: string
 unique_id:
   description: The unique ID for this config block. This is prefixed to all unique IDs of all entities in this block.
   required: false
@@ -954,7 +993,7 @@ cover:
   keys:
     attributes:
       description: >
-        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `is_closed`, `current_position`, `current_tilt_position`, and `device_class`.
+        Defines templates for attributes of the entity. The following attributes are not allowed inside the attributes map: `is_closed`, `current_position`, `current_tilt_position`, `supported_speeds`, and `device_class`.
       required: false
       type: [map, template]
       keys:
@@ -984,7 +1023,7 @@ cover:
       required: false
       type: template
     set_cover_position:
-      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` contains the entity's set position.
+      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` contains the entity's set position. If `supported_speeds` is specified, the variable `speed` contains the requested speed.
       required: false
       type: action
     set_cover_tilt_position:
@@ -999,6 +1038,10 @@ cover:
       description: Defines an action to stop the cover.
       required: false
       type: action
+    supported_speeds:
+      description: List of speeds the cover supports, for example `normal` and `fast`. If specified, the `open_cover`, `close_cover`, and `set_cover_position` actions receive the requested speed in the variable `speed`. The variable is `none` if no speed was requested.
+      required: false
+      type: [string, list]
     tilt:
       description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open). If the template produces a `None` value, the current tilt state is set to `unknown`.
       required: false
@@ -1044,6 +1087,30 @@ template:
           action: script.close_garage_door
         stop_cover:
           action: script.stop_garage_door
+```
+
+```yaml
+# Example configuration.yaml entry for a cover with two speeds
+template:
+  - cover:
+      - name: "Living room shutter"
+        state: "{{ states('cover.living_room_shutter_motor') }}"
+        supported_speeds:
+          - "normal"
+          - "fast"
+        open_cover:
+          - action: script.open_living_room_shutter
+            data:
+              # Falls back to normal if no speed was requested
+              speed: "{{ speed or 'normal' }}"
+        close_cover:
+          - action: script.close_living_room_shutter
+            data:
+              speed: "{{ speed or 'normal' }}"
+        stop_cover:
+          - action: cover.stop_cover
+            target:
+              entity_id: cover.living_room_shutter_motor
 ```
 
 ### Cover Optimistic Mode
