@@ -72,6 +72,7 @@ This integration provides {% term sensors %} for the following information from 
 | **Correspondents**       | Indicates the total number of defined correspondents.                          |
 | **Document types**       | Indicates the total number of defined document types.                          |
 | **Documents in inbox**   | Indicates the number of documents currently in the inbox.                      |
+| **Next ASN**             | Indicates the next archive serial number that will be assigned to a document.  |
 | **Tags**                 | Indicates the total number of defined tags                                     |
 | **Total characters**     | Indicates the total number of characters extracted from all documents.         |
 | **Total documents**      | Indicates the total number of documents stored.                                |
@@ -119,6 +120,7 @@ actions:
 This integration retrieves data using a pull-based mechanism.
 
 - **Statistic sensors** are pulled every **120 seconds**  
+- **Next ASN sensor** is pulled every **60 seconds**
 - **Diagnostic sensors** are pulled every **300 seconds**  
 - **Update checks** to detect new Paperless-ngx versions are performed **every 24 hours**
 
