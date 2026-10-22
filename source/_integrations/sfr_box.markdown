@@ -235,7 +235,11 @@ Home Assistant cannot reach the local API of the box with the host you entered.
 
 ### Symptom: Home Assistant asks you to enter the credentials again
 
-During setup, you get an invalid authentication error. Or, after setup, **SFR Box** appears under **Attention required** in **Settings** > **Devices & services**.
+You see one of the following:
+
+- During setup, you get an invalid authentication error.
+- After setup, **SFR Box** appears under **Attention required** in **Settings** > **Devices & services**.
+- When you press the **Restart** button, Home Assistant shows **The provided credentials are invalid.**
 
 #### Description
 
