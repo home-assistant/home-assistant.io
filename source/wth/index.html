@@ -9,10 +9,18 @@ sidebar: false
 forum_url: https://community.home-assistant.io/c/month-of-what-the-heck/61
 ---
 
-<!-- Archivo Black is the lettering for the "What the Heck?!" wordmark only. -->
+<!-- Archivo Black is the lettering for the CSS fallback of the "What the Heck?!" wordmark only. -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" />
 <link rel="stylesheet" href="/stylesheets/homeassistant/pages/wth/index.css" />
+<script type="importmap">
+  {
+    "imports": {
+      "three": "/javascripts/wth/three.min.js"
+    }
+  }
+</script>
+<script src="/javascripts/wth/logo.js" type="module"></script>
 
 <main id="page-wth">
   <div class="container-full">

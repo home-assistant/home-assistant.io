@@ -263,10 +263,9 @@ main#page-wth {
     width: 1px;
 }
 
-// PLACEHOLDER: the "What the Heck?!" wordmark approximated as live text
-// until the real SVG lockup is available. Everything from here to the
-// `paint-order` fallback goes when the SVG lands.
 // The "What the Heck?!" wordmark, rebuilt from the key visual as live text.
+// source/javascripts/wth/logo.js replaces it with a 3D version; this one
+// shows until that has loaded, and stays when WebGL is not available.
 //
 // Every word is a separate 3D-rotated plane, matching the key visual, where
 // each word sits at its own angle. Orientation is driven by per-word custom
@@ -300,6 +299,22 @@ main#page-wth {
     letter-spacing: -0.03em;
     line-height: 0.86;
     text-transform: uppercase;
+}
+
+// The 3D wordmark from source/javascripts/wth/logo.js. It replaces the CSS
+// version once it has drawn; the script sets the aspect ratio. The negative
+// margins cancel the room the canvas leaves around the wordmark for the
+// tilt, except at the top, which keeps it clear of the date above.
+.wth-mark--replaced {
+    display: none;
+}
+
+.wth-logo-3d {
+    display: block;
+    margin: 0 0 -3% -4%;
+    max-width: 640px;
+    pointer-events: none;
+    width: 104%;
 }
 
 .wth-mark__line {
