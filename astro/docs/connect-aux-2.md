@@ -238,13 +238,17 @@ These are also recorded in each component's header comment.
 
 Assets:
 
-- Replace the placeholder photos with the final ones: hero, at-home
-  still, ports, best-spot, board, back and board-logos (and their
-  `-mobile` crops). The October update in Figma removed the
+- Replace the placeholder photos with the final ones: ports,
+  best-spot, board, back and board-logos (and their `-mobile` crops). The October update in Figma removed the
   third-party speaker logo from the hero.
-- "Audio and so much more" is a video in Figma, and the Figma tools
-  can't export it. The page shows a 773px still. Swap in the video,
-  with the still as its poster.
+- "Audio and so much more" is a video (`at-home.mp4`, `AutoplayVideo`):
+  the source file from design (1920 × 1420, 7.1 MB) re-encoded with
+  ffmpeg at 1280px wide, H.264 without sound, CRF 32 with
+  `aq-mode=3` against banding on the plain wall, 122 KB. The poster
+  (`at-home-poster.webp`) is its first frame. To re-encode:
+  `ffmpeg -i source.mp4 -an -vf scale=1280:-2 -c:v libx264 -preset
+  veryslow -crf 32 -x264-params aq-mode=3 -pix_fmt yuv420p -movflags
+  +faststart at-home.mp4`. CRF 36 (68 KB) blotches the wall.
 - The coverage map (`coverage.svg`) is Figma's whole group exported
   as one SVG (after SVGO), with the badge labels as outlined paths.
   Figma's static dotted rings around the ZWA-2, the glow discs behind

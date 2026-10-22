@@ -13,6 +13,7 @@ import { Image } from "astro:assets";
 import ArtDirectedImage from "../../../components/ArtDirectedImage.astro";
 import Site from "../../../layouts/Site.astro";
 import BuyDialog from "../../../components/BuyDialog.astro";
+import AutoplayVideo from "../../../components/AutoplayVideo.astro";
 import ConnectNav from "../../../components/connect/ConnectNav.astro";
 import ConnectHero from "../../../components/connect/ConnectHero.astro";
 import ConnectSectionHeader from "../../../components/connect/ConnectSectionHeader.astro";
@@ -54,6 +55,7 @@ import ConnectFaq from "../../../components/connect/ConnectFaq.astro";
 import { specs, faq, drawing } from "./_content";
 import heroImage from "../../../assets/connect/aux-2/hero.webp";
 import heroMobileImage from "../../../assets/connect/aux-2/hero-mobile.webp";
+import atHomeVideo from "../../../assets/connect/aux-2/at-home.mp4";
 import atHomePoster from "../../../assets/connect/aux-2/at-home-poster.webp";
 import cableLeft1 from "../../../assets/connect/aux-2/cables/left-1.svg";
 import cableLeft2 from "../../../assets/connect/aux-2/cables/left-2.svg";
@@ -221,17 +223,13 @@ const diagram = [
             </ConnectFeatureCard>
           </div>
 
-          <!-- TODO: a video in the Figma file, which the Figma tools
-               cannot export. This is a still from it; replace it with
-               the video (and this still as its poster) once there is a
-               file. -->
-          <Image
-            quality={85}
+          <!-- The video from the Figma file, 1280px wide H.264 without
+               sound (122 KB); the poster is its first frame. -->
+          <AutoplayVideo
             class="at-home"
-            src={atHomePoster}
-            alt="The Connect AUX-2 on a shelf next to an amplifier and a plant"
-            widths={[atHomePoster.width]}
-            sizes="(min-width: 71.25rem) 55rem, 100vw"
+            src={atHomeVideo}
+            poster={atHomePoster}
+            label="The Connect AUX-2 on a shelf beside an amplifier and a plant. Cables plug into it, and sensors and a lamp appear around it, then it is on its own again."
           />
         </div>
       </div>
@@ -475,7 +473,8 @@ const diagram = [
       >
         <h2>Every purchase supports the Open Home</h2>
         <p>
-          Nabu Casa designs and builds official Home Assistant hardware. As the
+          <a href="https://www.nabucasa.com/">Nabu Casa</a> designs and builds
+          official Home Assistant hardware. As the
           commercial partner of the Open Home Foundation, Nabu Casa contributes
           the majority of its profits to the foundation. This means every
           purchase supports the development of projects like Home Assistant,

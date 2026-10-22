@@ -85,6 +85,18 @@ const { image, imageAlt } = Astro.props;
       margin: 0;
       padding-block: var(--space-xsmall);
     }
+
+    /* Links in the text, such as Nabu Casa's website: navy and
+       underlined, as the text has no other color to set them apart. */
+    :global(a) {
+      color: var(--color-ink);
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+
+      &:hover {
+        text-decoration-thickness: 2px;
+      }
+    }
   }
 
   .partner {
