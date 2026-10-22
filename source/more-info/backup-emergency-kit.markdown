@@ -22,7 +22,7 @@ Encryption is a method of converting data into a coded format so that it can onl
    - If you have already set up backups, on the **Encryption key** card, next to **Download emergency kit**, select **Download**.
    - If the card shows **Set encryption key** instead, you don't have an encryption key yet. Select **Set** to create one. Download the emergency kit, and then select **Set encryption key** to save the key.
    - To see the encryption key without downloading it, next to **Show my encryption key**, select **Show**.
-3. Store the kit somewhere safe, outside of Home Assistant.
+3. Store the kit somewhere safe, outside Home Assistant.
    - Without the encryption key, there is no way to [restore an encrypted backup](/common-tasks/general/#restoring-a-backup).
    - If you change the encryption key later, keep the old kit too. You need it to restore the backups that you made before the change.
 
@@ -49,7 +49,7 @@ If you still have access to your Home Assistant instance, you might be able to g
 - If you haven't changed the encryption key, Home Assistant still has it.
   1. In Home Assistant, go to {% my backup title="**Settings** > **System** > **Backups**" %}.
   2. On the **Encryption key** card, download your emergency kit, or show the key and copy it.
-  3. If you download the backup from the Home Assistant backups page, Home Assistant decrypts the backup on the fly.
+     - If you download the backup from the Home Assistant backups page, Home Assistant decrypts the backup on the fly.
 - If you have changed the encryption key, Home Assistant doesn't have the key of older backups anymore.
   - You need the encryption key that belongs to that backup. When you download or restore an older backup, Home Assistant asks for that key.
   - If you have lost that encryption key, there is no way to restore the backup.
@@ -57,6 +57,6 @@ If you still have access to your Home Assistant instance, you might be able to g
 
 ## How Home Assistant encrypts backups
 
-Home Assistant stores backups in the [SecureTar](https://github.com/pvizeli/securetar) format, an open source archive format that supports encryption. Current backups use version 3 of the format. It encrypts the contents of the backup with XChaCha20-Poly1305 and derives the key from your encryption key with Argon2id. This also detects whether a backup file was changed or is incomplete. Backups made with older versions of Home Assistant use AES-128 encryption. You can still restore them.
+Home Assistant stores backups in the [SecureTar](https://github.com/home-assistant-libs/securetar) format, an open source archive format that supports encryption. Current backups use version 3 of the format. It encrypts the contents of the backup with XChaCha20-Poly1305 and derives the key from your encryption key with Argon2id. Version 3 also detects whether a backup file was changed or is incomplete. Backups made with older versions of Home Assistant use <abbr title="Advanced Encryption Standard">AES</abbr>-128 encryption. You can still restore them.
 
 Some information about a backup isn't encrypted, so that Home Assistant can show it without the key. This includes the name and date of the backup, and the Home Assistant version that made it.
