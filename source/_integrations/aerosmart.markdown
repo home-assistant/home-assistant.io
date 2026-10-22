@@ -116,7 +116,7 @@ The integration {% term polling polls %} operating values and the controller clo
 
 Requests to both units are serialized because some serial-to-Modbus-TCP gateways need quiet time between requests. If one subsystem does not answer, only its entities become unavailable. Values from subsystems that answered remain available.
 
-The first update runs in the background so a slow gateway does not delay Home Assistant startup. Entities remain unavailable until their first successful update.
+During setup, the integration waits for the first update from both controller units. A slow gateway can therefore delay setup for more than 30 seconds; if the initial update fails, Home Assistant retries setup. After setup, the integration polls values on its regular intervals.
 
 ## Known limitations
 
