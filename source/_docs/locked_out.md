@@ -89,8 +89,9 @@ If you are running {% term "Home Assistant Container" %}, you can change a passw
 
 1. To open the container command line, enter `docker exec -it homeassistant bash`.
 2. To change the password, enter `hass --script auth --config /config change_password USERNAME NEW_PASSWORD`.
-   - Replace `USERNAME` with the username, and `NEW_PASSWORD` with the new password.
-   - Result: The message `Password changed` is shown.
+   - Replace `USERNAME` with the username that you log in with, and `NEW_PASSWORD` with the new password.
+   - If you don't know the username, enter `hass --script auth --config /config list` to list all users.
+   - Result: The message `Password changed` is shown. If the message `User not found` is shown, check the username.
 3. To leave the container command line, enter `exit`.
 4. To restart the container, enter `docker restart homeassistant`.
 
