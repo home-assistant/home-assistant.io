@@ -1,0 +1,231 @@
+---
+// The link-in-bio page, /bio/: what the "link in bio" on Home Assistant's
+// social profiles points at. Everything on it comes from
+// source/_data/bio.yml (see src/lib/bio.mjs for what it can say), the
+// site's blog posts and release notes, and the newsletter editions
+// `rake newsletter_data` downloads before the build.
+//
+// A standalone page on purpose: no site header, navigation or footer,
+// which a page opened from a social profile doesn't want. It keeps the
+// site's head (social tags, fonts, Plausible).
+//
+// Replaces the Jekyll version (source/_layouts/bio.html and
+// plugins/bio.rb). Port: same look, expressed with the site's tokens;
+// the page's own colors, the home page hero's gradient among them, are
+// custom properties on <body> below, which the Bio* components read.
+import fs from "node:fs";
+import path from "node:path";
+import { getEntry } from "astro:content";
+import SiteHead from "../../components/SiteHead.astro";
+import BioTile from "../../components/BioTile.astro";
+import BioHero from "../../components/BioHero.astro";
+import BioVideo from "../../components/BioVideo.astro";
+import BioSocials from "../../components/BioSocials.astro";
+import { loadPosts, resolve, socialLinks, validate } from "../../lib/bio.mjs";
+import { setting } from "../../lib/site.mjs";
+import "../../styles/tokens.scss";
+
+const root = path.resolve(process.cwd(), "..");
+const config = (await getEntry("bio", "bio"))?.data;
+validate(config);
+
+const now = new Date();
+const posts = loadPosts(path.join(root, "source/_posts"), now);
+
+// Lists downloaded before the build, by file name. A missing file (a
+// local build without the Rake data tasks) means no items, not an error.
+const data = Object.fromEntries(
+  Object.values(config.sources ?? {})
+    .filter((source) => source.type === "data")
+    .map((source) => {
+      try {
+        return [source.file, JSON.parse(fs.readFileSync(path.join(root, `source/_data/${source.file}.json`), "utf8"))];
+      } catch {
+        return [source.file, []];
+      }
+    }),
+);
+
+const sections = resolve(config, posts, now, setting("url"), data);
+const socials = socialLinks(config);
+const name = setting("title");
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SiteHead description={config.tagline} />
+  </head>
+  <body class="bio-page">
+    <main class="bio">
+      <header class="header">
+        {config.avatar && <img class="avatar" src={config.avatar} width="56" height="56" alt="" />}
+        <h1 class="name">{name}</h1>
+        {config.tagline && <p class="tagline">{config.tagline}</p>}
+      </header>
+
+      {
+        sections.map((section, sectionIndex) => (
+          <section class="section">
+            {section.title && <h2 class="section-title">{section.title}</h2>}
+            <ul class="tiles">
+              {section.tiles.map((tile, tileIndex) => {
+                const props = { ...tile, section: section.title };
+                const eager = sectionIndex === 0 && tileIndex < 2;
+                return (
+                  <li>
+                    {tile.kind === "video" ? (
+                      <BioVideo {...props} eager={eager} />
+                    ) : tile.kind === "hero" ? (
+                      <BioHero {...props} />
+                    ) : (
+                      <BioTile {...props} eager={eager} />
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        ))
+      }
+
+      <div class="socials">
+        <BioSocials links={socials} />
+      </div>
+
+      <footer class="footer">
+        <a href="/">home-assistant.io</a> · An <a href="https://www.openhomefoundation.org/">Open Home Foundation</a> project
+      </footer>
+    </main>
+  </body>
+</html>
+
+<style lang="scss" is:global>
+  // The page's palette, read by the Bio* components. Text that sits on
+  // the gradient is dark ink: white on it is 1.5–2.6:1 and fails WCAG AA.
+  body.bio-page {
+    // The home page hero's gradient (sass/homeassistant/homepage/_hero_unit.scss).
+    --bio-page: linear-gradient(340deg, hsl(200deg 100% 50%) 0%, hsl(195deg 100% 50%) 50%, hsl(185deg 100% 50%) 100%);
+    --bio-on-page: #04202b;
+    --bio-on-page-muted: #0b3a4c;
+    --bio-pill: rgb(255 255 255 / 35%);
+    --bio-pill-line: rgb(4 32 43 / 25%);
+    --bio-featured: #04202b;
+    --bio-on-featured: var(--color-text-inverse);
+    --bio-ring: #04202b;
+    --bio-tile: var(--color-surface);
+    --bio-tile-hover: #eef6fa;
+    --bio-line: rgb(4 32 43 / 12%);
+    --bio-text: var(--color-text);
+    --bio-text-muted: var(--color-text-muted);
+
+    margin: 0;
+    min-height: 100vh;
+    background: var(--color-highlight);
+    background: var(--bio-page);
+    color: var(--bio-on-page);
+    font-family: var(--font-sans);
+    line-height: 1.45;
+    -webkit-text-size-adjust: 100%;
+
+    // The same hues, dark enough not to glare at night.
+    @media (prefers-color-scheme: dark) {
+      --bio-page: linear-gradient(340deg, hsl(200deg 100% 16%) 0%, hsl(195deg 100% 14%) 50%, hsl(185deg 100% 13%) 100%);
+      --bio-on-page: #e9f2f6;
+      --bio-on-page-muted: #a9c9d6;
+      --bio-pill: rgb(255 255 255 / 6%);
+      --bio-pill-line: rgb(233 242 246 / 20%);
+      --bio-featured: var(--color-highlight);
+      --bio-on-featured: #04202b;
+      --bio-ring: #6fd6f8;
+      --bio-tile: #13232b;
+      --bio-tile-hover: #1b2f39;
+      --bio-line: rgb(233 242 246 / 10%);
+      --bio-text: #e9f2f6;
+      --bio-text-muted: #97abb5;
+
+      background: #00334d;
+      background: var(--bio-page);
+      color-scheme: dark;
+    }
+  }
+</style>
+
+<style lang="scss">
+  .bio {
+    box-sizing: border-box;
+    max-width: 34rem;
+    margin: 0 auto;
+    padding: var(--space-xlarge) max(var(--space-large), env(safe-area-inset-right)) var(--space-xxlarge)
+      max(var(--space-large), env(safe-area-inset-left));
+  }
+
+  .header {
+    margin-bottom: var(--space-large);
+    text-align: center;
+  }
+
+  .avatar {
+    display: block;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin: 0 auto var(--space-small);
+  }
+
+  .name {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xlarge);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .tagline {
+    max-width: 26rem;
+    margin: var(--space-xsmall) auto 0;
+    color: var(--bio-on-page-muted);
+    font-size: var(--font-size-medium);
+    text-wrap: balance;
+  }
+
+  .section {
+    margin-top: var(--space-xlarge);
+  }
+
+  .header + .section {
+    margin-top: 0;
+  }
+
+  .section-title {
+    margin: 0 0 var(--space-small);
+    color: var(--bio-on-page-muted);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-small);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .tiles {
+    display: grid;
+    gap: var(--space-small);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .socials {
+    margin-top: var(--space-xxlarge);
+  }
+
+  .footer {
+    margin-top: var(--space-xxlarge);
+    color: var(--bio-on-page-muted);
+    font-size: var(--font-size-small);
+    text-align: center;
+
+    a {
+      color: inherit;
+    }
+  }
+</style>

@@ -1,0 +1,73 @@
+---
+// The first item of a `hero: true` feed on the link-in-bio page
+// (/bio/): the item's social image across the top, then a larger
+// title. Social images are 1200×630, so the image keeps that shape and
+// the page doesn't move while it loads.
+//
+// Replaces the `bio-tile--hero` variant of
+// `source/_includes/bio/tile.html` from the Jekyll version. Same look,
+// site tokens; page colors as in BioTile.astro.
+import "../styles/tokens.scss";
+
+const { label, url, note, image, section, source } = Astro.props;
+---
+
+<a class="hero" href={url} rel="noopener" data-section={section ?? "links"} data-source={source} data-label={label}>
+  <img class="image" src={image} width="1200" height="630" alt="" fetchpriority="high" decoding="async" />
+  <span class="text">
+    <span class="label">{label}</span>
+    {note && <span class="note">{note}</span>}
+  </span>
+</a>
+
+<style lang="scss">
+  .hero {
+    box-sizing: border-box;
+    display: block;
+    overflow: hidden;
+    background: var(--bio-tile, var(--color-surface));
+    border: 1px solid var(--bio-line, var(--color-surface-subtle));
+    border-radius: var(--radius-small);
+    color: var(--bio-text, var(--color-text));
+    font-family: var(--font-sans);
+    text-decoration: none;
+
+    &:hover {
+      background: var(--bio-tile-hover, var(--color-hover-wash));
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--bio-ring, var(--color-highlight-shade));
+      outline-offset: 2px;
+    }
+  }
+
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1200 / 630;
+    object-fit: cover;
+    background: var(--bio-line, var(--color-surface-subtle));
+  }
+
+  .text {
+    display: block;
+    padding: var(--space-medium) var(--space-large) var(--space-large);
+  }
+
+  .label {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xlarge);
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .note {
+    display: block;
+    margin-top: var(--space-xsmall);
+    color: var(--bio-text-muted, var(--color-text-muted));
+    font-size: var(--font-size-medium);
+  }
+</style>

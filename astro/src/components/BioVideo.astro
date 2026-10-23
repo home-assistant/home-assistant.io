@@ -1,0 +1,116 @@
+---
+// A YouTube video or livestream on the link-in-bio page (/bio/), from a
+// `type: youtube` item under a feed's `insert:`. It looks like an
+// embedded player (the video's thumbnail with YouTube's play button)
+// but is a plain link: opening it goes to YouTube, which on a phone is
+// the YouTube app. No player script and no YouTube cookies load with
+// the page.
+//
+// New for the Astro version of the page. Site tokens; page colors as in
+// BioTile.astro.
+import "../styles/tokens.scss";
+
+const { label, url, note, image, section, source, eager = false } = Astro.props;
+---
+
+<a class="video" href={url} rel="noopener" data-section={section ?? "links"} data-source={source} data-label={label}>
+  <span class="player">
+    {/* hqdefault is 4:3 with black bars; cropped to 16:9 they disappear. */}
+    <img
+      class="image"
+      src={image}
+      width="480"
+      height="360"
+      alt=""
+      loading={eager ? undefined : "lazy"}
+      fetchpriority={eager ? "high" : undefined}
+      decoding="async"
+    />
+    <svg class="play" viewBox="0 0 68 48" width="68" height="48" aria-hidden="true">
+      <path
+        d="M66.5 7.7a8.6 8.6 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.6 8.6 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.6 8.6 0 0 0 6 6c5.3 1.4 26.5 1.4 26.5 1.4s21.2 0 26.5-1.4a8.6 8.6 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3Z"
+        fill="#f00"
+      />
+      <path d="M45 24 27 14v20Z" fill="#fff" />
+    </svg>
+  </span>
+  <span class="text">
+    <span class="label">{label}</span>
+    {note && <span class="note">{note}</span>}
+  </span>
+</a>
+
+<style lang="scss">
+  .video {
+    box-sizing: border-box;
+    display: block;
+    overflow: hidden;
+    background: var(--bio-tile, var(--color-surface));
+    border: 1px solid var(--bio-line, var(--color-surface-subtle));
+    border-radius: var(--radius-small);
+    color: var(--bio-text, var(--color-text));
+    font-family: var(--font-sans);
+    text-decoration: none;
+
+    &:hover {
+      background: var(--bio-tile-hover, var(--color-hover-wash));
+
+      .play {
+        transform: translate(-50%, -50%) scale(1.08);
+      }
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--bio-ring, var(--color-highlight-shade));
+      outline-offset: 2px;
+    }
+  }
+
+  .player {
+    position: relative;
+    display: block;
+    aspect-ratio: 16 / 9;
+    background: #000;
+  }
+
+  .image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4.25rem;
+    height: auto;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease-out;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  .text {
+    display: block;
+    padding: var(--space-medium) var(--space-large) var(--space-large);
+  }
+
+  .label {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-xlarge);
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .note {
+    display: block;
+    margin-top: var(--space-xsmall);
+    color: var(--bio-text-muted, var(--color-text-muted));
+    font-size: var(--font-size-medium);
+  }
+</style>

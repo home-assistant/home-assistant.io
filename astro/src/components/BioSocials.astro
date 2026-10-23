@@ -1,0 +1,56 @@
+---
+// The row of links to Home Assistant on other platforms, at the foot of
+// the link-in-bio page (/bio/). Text pills, no icons: the page loads no
+// icon script.
+//
+// Replaces the socials row of `source/_layouts/bio.html` from the Jekyll
+// version. Same look, site tokens; page colors as in BioTile.astro.
+import "../styles/tokens.scss";
+
+const { links = [] } = Astro.props;
+---
+
+{
+  links.length > 0 && (
+    <nav class="socials" aria-label="Home Assistant elsewhere">
+      {links.map((link) => (
+        <a class="pill" href={link.url} rel="noopener" data-section="socials" data-source="curated" data-label={link.platform}>
+          {link.label}
+        </a>
+      ))}
+    </nav>
+  )
+}
+
+<style lang="scss">
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-small);
+  }
+
+  .pill {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding: 0 var(--space-medium);
+    background: var(--bio-pill, var(--color-surface));
+    border: 1px solid var(--bio-pill-line, var(--color-surface-subtle));
+    border-radius: var(--radius-pill);
+    color: var(--bio-on-page, var(--color-text));
+    font-family: var(--font-sans);
+    font-size: var(--font-size-medium);
+    text-decoration: none;
+
+    &:hover {
+      border-color: var(--bio-on-page, var(--color-text));
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--bio-ring, var(--color-highlight-shade));
+      outline-offset: 2px;
+    }
+  }
+</style>

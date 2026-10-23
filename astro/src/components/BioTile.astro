@@ -1,0 +1,117 @@
+---
+// One link on the link-in-bio page (/bio/): a label, an optional second
+// line and an optional square thumbnail. `featured` gives the tile the
+// page's strong color.
+//
+// Replaces `source/_includes/bio/tile.html` from the Jekyll version of
+// the page. Port: same look, with the site's tokens for type, spacing
+// and radii; the page's own colors come from custom properties set on
+// the bio page (see src/pages/bio/index.astro), with site tokens as the
+// fallback so the component also renders on its own.
+//
+// The data-* attributes name the section, source and label of each
+// click, ready to become Plausible event properties.
+import "../styles/tokens.scss";
+
+const { label, url, note, image, featured = false, section, source, eager = false } = Astro.props;
+---
+
+<a
+  class:list={["tile", { featured, "has-image": image }]}
+  href={url}
+  rel="noopener"
+  data-section={section ?? "links"}
+  data-source={source}
+  data-label={label}
+>
+  {
+    image && (
+      <img
+        class="thumb"
+        src={image}
+        width="56"
+        height="56"
+        alt=""
+        loading={eager ? undefined : "lazy"}
+        decoding="async"
+      />
+    )
+  }
+  <span class="text">
+    <span class="label">{label}</span>
+    {note && <span class="note">{note}</span>}
+  </span>
+</a>
+
+<style lang="scss">
+  .tile {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: var(--space-medium);
+    min-height: 3.25rem;
+    padding: var(--space-medium) var(--space-large);
+    background: var(--bio-tile, var(--color-surface));
+    border: 1px solid var(--bio-line, var(--color-surface-subtle));
+    border-radius: var(--radius-small);
+    color: var(--bio-text, var(--color-text));
+    font-family: var(--font-sans);
+    text-decoration: none;
+
+    &:hover {
+      background: var(--bio-tile-hover, var(--color-hover-wash));
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--bio-ring, var(--color-highlight-shade));
+      outline-offset: 2px;
+    }
+
+    &.has-image {
+      padding-left: var(--space-small);
+    }
+
+    // A tile in the page's own blue would vanish into the blue page, so
+    // the strong color is dark ink in light mode.
+    &.featured {
+      background: var(--bio-featured, var(--color-highlight-shade));
+      border-color: var(--bio-featured, var(--color-highlight-shade));
+      color: var(--bio-on-featured, var(--color-text-inverse));
+
+      &:hover {
+        filter: brightness(1.15);
+      }
+
+      .note {
+        color: inherit;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .thumb {
+    flex: none;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: var(--radius-xsmall);
+    object-fit: cover;
+    background: var(--bio-line, var(--color-surface-subtle));
+  }
+
+  .text {
+    min-width: 0;
+  }
+
+  .label {
+    display: block;
+    font-size: var(--font-size-large);
+    font-weight: 600;
+  }
+
+  .note {
+    display: block;
+    margin-top: var(--space-xsmall);
+    color: var(--bio-text-muted, var(--color-text-muted));
+    font-size: var(--font-size-medium);
+  }
+</style>
