@@ -28,7 +28,7 @@ export default {
       },
       slot:
         "Bring your audio equipment into your smart home with advanced " +
-        "control and Power-over-Ethernet.",
+        "control and Power over Ethernet.",
     },
   ],
 };

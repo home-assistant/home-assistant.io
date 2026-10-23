@@ -287,8 +287,15 @@ Content (check with the product and docs teams):
   - British spelling ("Analogue") on an American English site.
   - "3,5mm" uses a decimal comma.
   - "when you plug in AUX-2 into them" is ungrammatical.
-- Mobile copy in Figma differs in places, for example "PoE" instead
-  of "Power-over-Ethernet" in the hero. The page uses the desktop copy.
+- Mobile copy in Figma differs in places. The page uses the desktop
+  copy. Mobile-only differences (checked October 2026): the Music
+  Assistant card's body ("But also works out-of-the-box with Home
+  Assistant."), "Synced old with new", a fourth "Powerful options"
+  item ("All at once - Audio, serial, mesh, and Bluetooth,
+  simultaneously."), "59€", and a collaboration text without "Music
+  Assistant".
+- The hero lead says "Power over Ethernet" (Figma, October 2026); the
+  specs still say "Power-over-Ethernet (802.3af)", as in Figma.
 
 Behavior and integration:
 
