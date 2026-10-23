@@ -15,9 +15,8 @@ An {% term automation %} makes your home react on its own when something happens
 
 - [How automations react to changes](/docs/automation/how-automations-react-to-changes/): why an automation starts when something happens, not while something is true.
 - [Which tool to use](/docs/automation/which-tool-to-use/): when to use an automation, a script, a scene, a blueprint, or a helper.
-- [Automation editors](/docs/automation/editor/): everything you can do in the editor.
 
-## Reference
+## What you can use in an automation
 
 To look up what you can use in an automation, use the following references:
 
@@ -26,8 +25,14 @@ To look up what you can use in an automation, use the following references:
 - [All actions](/actions/): every action, grouped by integration.
 - [All building blocks](/building-blocks/): the steps that control the flow of actions, such as waiting, choosing, and repeating.
 - [Targets](/docs/automation/targets/): which entities a trigger, condition, or action covers when you select an area, floor, label, or device.
-- [Automation modes](/docs/automation/modes/): what happens when an automation starts while it's still running.
 - [Trigger data in templates](/docs/automation/trigger-data/): the data that each trigger passes to your templates.
+
+## Setting up an automation
+
+To create and adjust your automations, refer to the following pages:
+
+- [Automation editors](/docs/automation/editor/): how to create and edit automations.
+- [Automation modes](/docs/automation/modes/): what happens when an automation starts while it's still running.
 - [Automations in YAML](/docs/automation/yaml/): the full YAML structure, and the options that are only available in YAML.
 
 ## Scripts, scenes, and blueprints
