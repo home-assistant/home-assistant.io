@@ -11,10 +11,11 @@ ha_codeowners:
 ha_domain: axle_energy
 ha_platforms:
   - binary_sensor
+  - calendar
   - diagnostics
   - sensor
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
 The **Axle Energy** {% term integration %} shows the grid event schedule for your [Axle Energy](https://www.axle.energy/) account. You can use the event direction and start and end times in your automations to prepare for an import or export event.
@@ -59,8 +60,9 @@ Each configured feed creates one service device with the following entities:
 - **Event type** shows whether the published event requests import from or export to the grid.
 - **Event start** shows when the event starts.
 - **Event end** shows when the event ends.
+- **Events** shows the current or next announced timed event. Its summary is **Import** or **Export**. The calendar is empty when there is no known event, including when you have opted out.
 
-You see event timestamps in your configured time zone. You can use the timestamp sensors with a [time trigger](/docs/automation/trigger/#time-trigger) in your own automations.
+You see event timestamps in your configured time zone. You can use the timestamp sensors with a [time trigger](/docs/automation/trigger/#time-trigger) in your own automations. The [Calendar integration documentation](/integrations/calendar/#automation) shows how to use start and end triggers, including offsets.
 
 ## Axle Energy automation examples
 
@@ -295,7 +297,8 @@ When Axle returns an empty schedule or your account is opted out, **Event in pro
 
 - Each entry uses its own Axle API key. You can add another feed with a different key.
 - The integration reads your account's participation status and event schedule. It is read-only and does not control your battery or inverter, or change your Axle participation mode.
-- Countdown and calendar entities are not provided.
+- The **Events** calendar uses the current or next announced event and does not retain a history of previous events.
+- Countdown entities are not provided.
 - The event information depends on Axle's cloud service and may change between updates.
 
 ## Troubleshooting
