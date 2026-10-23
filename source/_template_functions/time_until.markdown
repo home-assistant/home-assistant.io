@@ -55,7 +55,7 @@ value:
   type: datetime
 precision:
   description: >
-    The number of time components to include in the output, from 1 to 6. A precision of 1 might return "6 hours", while a precision of 2 might return "6 hours 15 minutes". Higher precision gives more detail.
+    The number of time components to include in the output. A precision of 1 might return "6 hours", while a precision of 2 might return "6 hours 15 minutes". Higher precision gives more detail. Use 0 to include every time component that isn't zero.
   required: false
   default: "1"
   type: integer
@@ -79,9 +79,13 @@ output: "6 hours 15 minutes 30 seconds"
 
 ## Good to know
 
-- Only works with datetimes in the future. For past datetimes, use [`time_since`](/template-functions/time_since/) instead.
-- Durations shorter than one second return `"0 seconds"`.
-- The input datetime must be time zone aware.
+- Only works with datetimes in the future. A datetime in the past is returned unchanged, without an error. For past datetimes, use [`time_since`](/template-functions/time_since/) instead.
+- The last unit shown is rounded to the nearest whole number. All other units are cut off. For example, 2 hours 45 minutes gives `"3 hours"` with a precision of 1.
+- Because of this rounding, the result doesn't carry over to the next unit. For example, 59 minutes 40 seconds gives `"60 minutes"`, not `"1 hour"`.
+- Units that are zero are skipped and don't count toward the precision. For example, 2 hours and 15 seconds gives `"2 hours 15 seconds"` with a precision of 2.
+- Durations shorter than half a second return `"0 seconds"`.
+- If the input isn't a datetime, it's returned unchanged. This includes `none`, which [`as_datetime`](/template-functions/as_datetime/) returns for states like `unknown`.
+- Datetimes without a time zone are accepted. They're treated as your local time.
 
 {% include template_functions/try_it.md %}
 
@@ -112,7 +116,7 @@ output: "Starts in 2 hours 30 minutes"
 
 ### Time remaining in an automation condition
 
-Only run the rest of an {% term automation %} if a scheduled event is less than 1 hour away. Combine `time_until` with a check on the remaining time using [`today_at`](/template-functions/today_at/) and [`now`](/template-functions/now/).
+Only run the rest of an {% term automation %} if a scheduled event is less than 1 hour away. `time_until` returns text, so you can't compare its result with a duration. Instead, subtract [`now`](/template-functions/now/) from the event time and compare the result with a [`timedelta`](/template-functions/timedelta/).
 
 {% example %}
 automation: |
