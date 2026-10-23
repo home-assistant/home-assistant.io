@@ -83,7 +83,7 @@ For **First** and **All**, Home Assistant skips targets that are **Unavailable**
 If the trigger has a **For at least** duration, it reacts only after the change has lasted that long. Home Assistant times the duration as follows:
 
 - With **Each**, it times the duration separately for every target.
-- With **First** and **All**, it times the duration once, for the entire target.
+- With **First** and **All**, it times the duration once, for all the entities covered by the target.
 - A restart of Home Assistant, or a reload of the automation, stops the timing.
 - After a restart or reload, the timing only starts again when the target changes again, even if the target is still in the new state. For details, refer to [How automations react to changes](/docs/automation/how-automations-react-to-changes/#what-counts-as-a-change).
 
