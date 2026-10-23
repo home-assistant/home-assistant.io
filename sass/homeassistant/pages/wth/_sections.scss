@@ -194,13 +194,18 @@ main#page-wth {
     // Quote wall, inside "Or fix one"
     #fix {
         .quote-wall {
+            margin-top: 48px;
+
             @include bp(tablet) {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 
         .quote {
-            background-color: var(--wth-surface-soft);
+            // The section sits on white, so the cards carry a border rather
+            // than relying on a tint for their edges.
+            background-color: var(--wth-surface);
+            border: 1px solid var(--wth-border);
             border-left: 4px solid var(--wth-sky);
             border-radius: 0 var(--card-radius) var(--card-radius) 0;
             padding: 22px 24px;
