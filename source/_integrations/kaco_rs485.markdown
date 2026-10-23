@@ -60,9 +60,19 @@ Each inverter on the bus becomes its own device, named for the model it reports 
 ### Sensors
 
 - **AC power**: The power the inverter is currently feeding into the grid.
+- **DC power**: The power coming in from the solar panels.
+- **Temperature**: The inverter's internal temperature.
 - **Daily yield**: Energy produced since midnight, in watt-hours. This is the one to add to the [Energy dashboard](/docs/energy/); see [Add production to the Energy dashboard](#add-production-to-the-energy-dashboard) below.
 - **Total yield**: The inverter's lifetime energy counter, in kilowatt-hours.
+- **Daily peak power**: The highest AC power reached today.
+- **Total operating hours**: How long the inverter has been running over its lifetime.
 - **Status**: What the inverter is currently doing, such as MPP tracking, waiting, or one of its fault conditions.
+
+The following sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity):
+
+- **AC voltage** and **AC current**: Measured on the grid side.
+- **DC voltage** and **DC current**: Measured on the solar panel side.
+- **Daily operating hours**: How long the inverter has been running today.
 
 ### Binary sensors
 
