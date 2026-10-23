@@ -106,8 +106,7 @@ main#page-wth {
     // Shared tile and card surfaces
     .tile-grid,
     .audience-grid,
-    .quote-wall,
-    .editions-grid {
+    .quote-wall {
         display: grid;
         gap: 12px;
         margin-top: 32px;
@@ -192,8 +191,8 @@ main#page-wth {
         }
     }
 
-    // Quote wall
-    #wall {
+    // Quote wall, inside "Or fix one"
+    #fix {
         .quote-wall {
             @include bp(tablet) {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -201,7 +200,7 @@ main#page-wth {
         }
 
         .quote {
-            background-color: var(--wth-surface);
+            background-color: var(--wth-surface-soft);
             border-left: 4px solid var(--wth-sky);
             border-radius: 0 var(--card-radius) var(--card-radius) 0;
             padding: 22px 24px;
@@ -394,171 +393,6 @@ main#page-wth {
         }
     }
 
-    // FAQ
-    #faq {
-        .accordion {
-            margin-top: 32px;
-        }
-
-        .accordion-item {
-            border-bottom: 1px solid var(--wth-border);
-
-            &:first-child {
-                border-top: 1px solid var(--wth-border);
-            }
-        }
-
-        .accordion-item-checkbox {
-            height: 0;
-            opacity: 0;
-            position: absolute;
-            width: 0;
-        }
-
-        .accordion-item-heading {
-            align-items: center;
-            cursor: pointer;
-            display: flex;
-            gap: 16px;
-            justify-content: space-between;
-            padding: 20px 0;
-        }
-
-        .accordion-item-heading-title {
-            color: var(--wth-ink);
-            font-size: 17px;
-            font-weight: 600;
-            line-height: 1.35;
-
-            @include bp(desktop) {
-                font-size: 19px;
-            }
-        }
-
-        .accordion-item-heading-icon {
-            flex: 0 0 auto;
-            height: 16px;
-            position: relative;
-            width: 16px;
-
-            &:before,
-            &:after {
-                background-color: var(--wth-ink);
-                content: '';
-                left: 50%;
-                position: absolute;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                transition: opacity 0.2s ease, transform 0.2s ease;
-            }
-
-            &:before {
-                height: 2px;
-                width: 16px;
-            }
-
-            &:after {
-                height: 16px;
-                width: 2px;
-            }
-        }
-
-        .accordion-item-content {
-            display: grid;
-            grid-template-rows: 0fr;
-            transition: grid-template-rows 0.25s ease;
-        }
-
-        .accordion-item-content-inner {
-            overflow: hidden;
-
-            p,
-            pre {
-                color: var(--wth-ink-soft);
-                font-size: var(--typography-paragraph-font-size);
-                line-height: var(--typography-paragraph-line-height);
-                margin: 0 0 12px;
-
-                &:last-child {
-                    margin-bottom: 0;
-                }
-            }
-
-            // The accordion answers come from a data file as raw strings, so a
-            // single-paragraph answer has no wrapping element of its own.
-            color: var(--wth-ink-soft);
-            font-size: var(--typography-paragraph-font-size);
-            line-height: var(--typography-paragraph-line-height);
-            padding-bottom: 4px;
-
-            a {
-                color: #0077A3;
-                text-decoration: underline;
-            }
-
-            pre {
-                background-color: var(--wth-surface-soft);
-                border-radius: 8px;
-                padding: 12px 14px;
-                white-space: pre-wrap;
-            }
-        }
-
-        .accordion-item-checkbox:checked ~ .accordion-item-content {
-            grid-template-rows: 1fr;
-        }
-
-        .accordion-item-checkbox:checked + .accordion-item-heading .accordion-item-heading-icon:after {
-            opacity: 0;
-            transform: translate(-50%, -50%) rotate(90deg);
-        }
-
-        .accordion-item-checkbox:focus-visible + .accordion-item-heading .accordion-item-heading-title {
-            outline: 3px solid var(--wth-focus);
-            outline-offset: 4px;
-        }
-
-        .accordion-item-checkbox:checked ~ .accordion-item-content .accordion-item-content-inner {
-            padding-bottom: 24px;
-        }
-    }
-
-    // Previous editions
-    #editions {
-        .editions-grid {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            max-width: 560px;
-        }
-
-        .edition {
-            background-color: var(--wth-surface);
-            border: 1px solid var(--wth-border);
-            border-radius: var(--card-radius);
-            display: block;
-            padding: 18px;
-            text-align: center;
-            transition: border-color 0.2s ease;
-
-            &:hover {
-                border-color: var(--wth-mint);
-            }
-        }
-
-        .edition-year {
-            color: var(--wth-ink);
-            display: block;
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        .edition-label {
-            color: var(--wth-ink-soft);
-            display: block;
-            font-size: 13px;
-            margin-top: 2px;
-        }
-    }
-
     // Closing call to action
     #cta {
         .cta-card {
@@ -635,11 +469,8 @@ main#page-wth {
     // A mint rule above each section heading ties the sections together.
     #moments,
     #everyone,
-    #wall,
     #how-it-works,
-    #timeline,
-    #faq,
-    #editions {
+    #timeline {
         > .container > .content > h2:first-child {
             padding-top: 18px;
             position: relative;
@@ -693,18 +524,6 @@ main#page-wth {
         border-top: 6px solid var(--wth-mint);
     }
 
-    #faq {
-        .accordion-item-checkbox:checked + .accordion-item-heading {
-            .accordion-item-heading-title {
-                color: var(--wth-mint-ink);
-            }
-
-            .accordion-item-heading-icon:before,
-            .accordion-item-heading-icon:after {
-                background-color: var(--wth-mint-ink);
-            }
-        }
-    }
 }
 
 // Inverted sections. Breaking the run of pale sections gives the page a
@@ -857,9 +676,8 @@ main#page-wth {
     }
 }
 
-// "This year, we want to hear from everyone" and "Not sure yours counts?"
-// read as one band: a single tint behind both, and a single routing layer
-// spanning them, so the lines are not cut at the join.
+// "This year, we want to hear from everyone" sits on a tinted band with its
+// own routing layer, so the lines run the full height of the section.
 main#page-wth .wth-band {
     --wth-routing-surface: #EAF6FD;
 
