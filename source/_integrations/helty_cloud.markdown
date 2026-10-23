@@ -94,19 +94,46 @@ The cloud API is not documented by the manufacturer and has been reverse-enginee
 
 ## Troubleshooting
 
-### Setup fails with an authentication error
+{% details "Home Assistant asks you to sign in again" %}
 
-The integration signs in with the same credentials as the Helty Home app. Check that the app can still sign in with them. If you changed your Helty Home password, remove the integration and add it again with the new password.
+### Symptom: Helty Flow Cloud needs attention
 
-### The entities are unavailable
+On the {% my integrations title="**Settings** > **Devices & services**" %} page, the Helty Flow Cloud integration is listed among the integrations that need attention, and its entities are unavailable.
+
+#### Description
+
+The integration signs in with the same credentials as the Helty Home app. When the Helty cloud stops accepting them, for example because you changed your Helty Home password, Home Assistant asks you to sign in again.
+
+#### Resolution
+
+1. Check that the Helty Home app can sign in with your current credentials.
+2. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+3. On the **Helty Flow Cloud** card marked as needing attention, select **Reconfigure**.
+4. Enter the email address and password of your Helty Home account. If you changed the email address of the account in the app, enter the new one.
+
+The credentials must belong to the same Helty Home account the integration was set up with. To connect a different account, add the integration again.
+
+{% enddetails %}
+
+{% details "The entities are unavailable" %}
+
+### Symptom: All the entities of the unit show as unavailable
+
+The entities of the unit show as unavailable, while the integration does not ask you to sign in again.
+
+#### Description
 
 The entities become unavailable when Home Assistant cannot get a recent report for the unit from the Helty cloud. This happens when your internet connection or the Helty cloud is down, or when the panel has not reported to the cloud for 2 hours.
+
+A panel that has lost its Wi-Fi connection keeps ventilating, but the unit itself gives no sign of the problem.
+
+#### Resolution
 
 1. Check that your Home Assistant instance has a working internet connection.
 2. Check that the unit is powered on and that its panel is connected to your Wi-Fi network.
 3. Open the Helty Home app and check that it shows current values for the unit.
 
-A panel that has lost its Wi-Fi connection keeps ventilating, but the unit itself gives no sign of the problem.
+{% enddetails %}
 
 ## Removing the integration
 

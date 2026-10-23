@@ -18,6 +18,7 @@ ha_codeowners:
 ha_domain: vesync
 ha_platforms:
   - binary_sensor
+  - button
   - diagnostics
   - fan
   - humidifier
@@ -39,6 +40,7 @@ The devices must be added to the VeSync App before this {% term integration %} c
 The following platforms are supported:
 
 - **binary sensor**
+- **button**
 - **fan**
 - **humidifier**
 - **light**
@@ -134,6 +136,10 @@ All VeSync air purifiers expose the remaining filter lifetime, and some also exp
 | Switch                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `display`               | Display On or Off                                                                  | On        |
+
+| Button                  | Description                                                                        |
+| ----------------------- | ---------------------------------------------------------------------------------- |
+| `reset_filter`          | Resets the filter life to 100%. Press it after replacing the filter. (Core 200S)   |
 
 ## Fan exposed attributes
 
