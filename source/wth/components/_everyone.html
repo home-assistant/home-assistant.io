@@ -15,12 +15,33 @@
           <h3>Not a tinkerer</h3>
           <p>You want it to work. Tell us where it doesn&rsquo;t.</p>
         </article>
-        <article class="audience-card is-highlight">
+        <article class="audience-card">
           <span class="audience-icon" aria-hidden="true">{% icon "mdi:home-heart" %}</span>
           <h3>Someone else set it up</h3>
           <p>The group we hear from least, and the one we can learn the most from.</p>
         </article>
+        <article id="homework" class="audience-card homework-card">
+          <div class="homework-intro">
+            <span class="audience-icon" aria-hidden="true">{% icon "mdi:account-group-outline" %}</span>
+            <h3>Run Home Assistant at home? Ask your household.</h3>
+            <p>Not &ldquo;is it working?&rdquo;, because they will politely say yes. Ask them properly. You might not like all the answers, but there is a lot to learn in that conversation.</p>
+            <a class="button primary" href="{{ page.forum_url }}" target="_blank" rel="noopener">
+              Post what you hear
+              <span class="icon-inline" aria-hidden="true">{% icon "mdi:arrow-right" %}</span>
+            </a>
+          </div>
+
+          <ul class="homework-questions">
+            <li>What annoys you most about using Home Assistant?</li>
+            <li>Can you find what you need in the app? Where do you get lost?</li>
+            <li>When the house does something unexpected, do you know why?</li>
+            <li>Is there anything you&rsquo;d change yourself, but don&rsquo;t dare to?</li>
+            <li>If you could change one thing, what would it be?</li>
+          </ul>
+        </article>
       </div>
+
+      <p class="section-note">Better still, help them post it themselves, in their own words. Their words are exactly what we need.</p>
     </div>
   </div>
 </section>

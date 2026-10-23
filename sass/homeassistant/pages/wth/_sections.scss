@@ -298,23 +298,16 @@ main#page-wth {
         }
     }
 
-    // Homework
-    #homework {
+    // Homework, a full-width audience card
+    #everyone {
         .homework-card {
-            background-color: var(--wth-surface);
-            border-radius: var(--card-radius);
             display: grid;
             gap: 28px;
-            padding: 28px;
+            grid-column: 1 / -1;
 
             @include bp(desktop) {
                 gap: 48px;
                 grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-                padding: 48px;
-            }
-
-            p {
-                margin-top: 14px;
             }
 
             .button {
@@ -430,7 +423,8 @@ main#page-wth {
     // A mint rule above each section heading ties the sections together.
     #moments,
     #everyone,
-    #how-it-works {
+    #how-it-works,
+    #fix {
         > .container > .content > h2:first-child {
             padding-top: 18px;
             position: relative;
@@ -478,10 +472,6 @@ main#page-wth {
             background-color: var(--wth-ink);
             color: var(--wth-mint);
         }
-    }
-
-    #homework .homework-card {
-        border-top: 6px solid var(--wth-mint);
     }
 
 }
