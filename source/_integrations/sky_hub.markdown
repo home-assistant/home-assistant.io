@@ -26,6 +26,8 @@ Host:
 
 For each device it finds connected to the router, the integration creates a {% term "device tracker" %} entity that shows whether the device is home or away. Each entity also exposes the device's hostname and MAC address.
 
+Device tracker entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) unless their MAC address matches a device already known to Home Assistant. Enable the entities you want to use for presence detection.
+
 See the [device tracker integration page](/integrations/device_tracker/) for instructions on how to configure the people to be tracked.
 
 ## Troubleshooting
