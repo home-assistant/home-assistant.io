@@ -47,7 +47,7 @@ You also need the hostname or IP address of the device on your network. Giving t
 
 {% include integrations/config_flow.md %}
 
-A Balco 260 on your network is discovered automatically and shows up under {% my integrations title="**Settings** > **Devices & services**" %} as discovered. A discovered power station is reached on port `502` with device ID `1`, the BLUETTI defaults. If yours uses other settings, add it manually with the fields below.
+A Balco 260 on your network is discovered automatically and shows up under {% my integrations title="**Settings** > **Devices & services**" %} as discovered. A discovered power station is reached on port `502` with device ID `1`, the BLUETTI defaults. If yours uses other settings, add it manually with the fields below. When a power station you already added announces itself at a new IP address, Home Assistant updates its entry.
 
 {% configuration_basic %}
 Host:
