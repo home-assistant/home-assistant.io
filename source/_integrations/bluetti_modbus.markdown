@@ -31,7 +31,7 @@ EP2000 is not supported by this integration.
 
 ## Prerequisites
 
-Modbus TCP is turned off by default, so you need to enable it on the device itself first, through its built-in local web server (enabled by default).
+Modbus TCP is turned off by default, so you need to enable it on the device itself first, through its built-in local web server. Depending on the device's firmware and local network security requirements, you may need to activate the web server first.
 
 {% important %}
 Modbus TCP support is only available on some device models and firmware versions. If you cannot find these settings, your device does not support this yet.
