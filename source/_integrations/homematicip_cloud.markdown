@@ -102,6 +102,10 @@ The door opener of the HmIP-FLC and HmIP-FDC is a button entity. As with the HmI
 
 If the access authorization has a PIN, use the `homematicip_cloud.pull_latch` action with its `pin` field. The button itself cannot pass a PIN.
 
+## Arming refused by a sensor
+
+Newer Homematic IP alarm systems refuse to arm while a window is open or a device is unreachable. Home Assistant then reports an error naming those devices, and the **Arming blocked** binary sensor of the access point turns on. It only follows the commands sent from Home Assistant and stays on until the next one goes through.
+
 ## Supported devices
 
 The list below shows which Home Assistant entities each supported Homematic IP device contributes. Devices are grouped by Home Assistant entity platform; a single physical device often contributes entities on more than one platform (for example, a wall thermostat appears under *Climate*, *Sensors*, and *Binary sensors* for the battery state). If your device isn't listed, see [My device isn't recognized](#my-device-isnt-recognized).
@@ -112,7 +116,8 @@ The list below shows which Home Assistant entities each supported Homematic IP d
 
 ### Binary sensors
 
-- Access point cloud connection (`HmIP-HAP`, `HmIP-HAP-B1`)
+- Access point cloud connection and arming blocked (`HmIP-HAP`, `HmIP-HAP-B1`)
+- Arming blocked, set when the alarm system refuses to arm (`HmIP-HAP`, `HmIP-HAP-B1`)
 - Window and door contacts, including the rotary handle sensor (`HmIP-SWDO`, `HmIP-SWDO-PL`, `HmIP-SWDO-I`, `HmIP-SWDM`, `HmIP-SWDM-B2`, `HmIP-SRH`)
 - Contact interfaces (`HmIP-FCI1`, `HmIP-FCI6`, `HmIP-SCI`)
 - Smoke detectors (`HmIP-SWSD`, `HmIP-SWSD-2`)
