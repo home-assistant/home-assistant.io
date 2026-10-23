@@ -358,6 +358,7 @@ source/_integrations/flow_it.markdown @albertogeniola
 source/_integrations/flume.markdown @ChrisMandich @bdraco @jeeftor
 source/_integrations/fluss.markdown @fluss @Marcello17
 source/_integrations/flux_led.markdown @icemanch
+source/_integrations/foreca.markdown @EetuPelkonen @hyvatti-foreca
 source/_integrations/forecast_solar.markdown @klaasnicolaas @frenck
 source/_integrations/forked_daapd.markdown @uvjustin
 source/_integrations/fortios.markdown @kimfrellsen
