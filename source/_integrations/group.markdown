@@ -106,7 +106,7 @@ In short, when any group member entity is `open`, the group will also be `open`.
 - Otherwise, the group state is `open` if at least one group member is `open`.
 - Otherwise, the group state is `closed`.
 
-A cover group supports the speeds of all its members. When an action requests a speed, members that support it move at that speed, and all other members move at their default speed. If at least one member supports speeds but none supports the requested one, the action fails and no member moves.
+A cover group supports the speeds of all its members. When an action requests a speed, members that support it move at that speed, and all other members move at their default speed.
 
 ### Event groups
 
