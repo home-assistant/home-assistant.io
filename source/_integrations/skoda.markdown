@@ -92,14 +92,7 @@ The **Škoda** integration provides the following sensors. The available sensors
 
 ### Diagnostic sensors
 
-These are categorized as diagnostic entities. Some are disabled by default because they are mainly useful for troubleshooting; enable them from the entity's settings if you need them.
-
-- **Last synchronization**: When the vehicle last reported its status to Škoda's servers.
 - **Registration plate**: The vehicle's registration plate, if set in MyŠkoda.
-- **API key expiration** _(disabled by default)_: When your API key expires. Renew it before this date to avoid losing connectivity.
-- **API requests remaining** _(disabled by default)_: Remaining API requests in the current rate-limit window.
-- **API rate limit reset** _(disabled by default)_: When the API rate-limit window resets.
-- **Next update** _(disabled by default)_: When the integration expects to poll the API again.
 
 ## Examples
 
