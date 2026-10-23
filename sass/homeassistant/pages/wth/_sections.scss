@@ -116,6 +116,45 @@ main#page-wth {
         }
     }
 
+    // Numbered steps, in "How it works" and "Or fix one". The line runs
+    // from the number to the edge of the column.
+    .rules {
+        display: grid;
+        gap: 20px;
+        margin-top: 32px;
+
+        @include bp(tablet) {
+            gap: 24px;
+        }
+    }
+
+    .rule {
+        h3 {
+            margin-top: 10px;
+        }
+
+        p {
+            margin-top: 8px;
+        }
+    }
+
+    .rule-number {
+        align-items: center;
+        color: var(--wth-mint-ink);
+        display: flex;
+        font-size: 28px;
+        font-weight: 700;
+        gap: 12px;
+        line-height: 1;
+
+        &:after {
+            background-color: var(--wth-mint);
+            content: '';
+            flex: 1;
+            height: 2px;
+        }
+    }
+
     // One month, one question
     #moments {
         .tile-grid {
@@ -259,42 +298,13 @@ main#page-wth {
     }
 
     // How it works
-    #how-it-works {
-        .rules {
-            counter-reset: rule;
-            display: grid;
-            gap: 20px;
-            margin-top: 32px;
-
-            @include bp(tablet) {
-                gap: 24px;
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            @include bp(desktop) {
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-            }
+    #how-it-works .rules {
+        @include bp(tablet) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .rule {
-            border-top: 2px solid var(--wth-mint);
-            padding-top: 16px;
-
-            h3 {
-                margin-top: 10px;
-            }
-
-            p {
-                margin-top: 8px;
-            }
-        }
-
-        .rule-number {
-            color: var(--wth-mint-ink);
-            display: block;
-            font-size: 28px;
-            font-weight: 700;
-            line-height: 1;
+        @include bp(desktop) {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
         }
     }
 
@@ -501,12 +511,12 @@ main#page-wth {
             color: #CBD5DD;
         }
 
-        .rule {
-            border-top-color: rgba(22, 243, 190, 0.5);
-        }
-
         .rule-number {
             color: var(--wth-mint);
+
+            &:after {
+                background-color: rgba(22, 243, 190, 0.5);
+            }
         }
 
         .wth-routing {
@@ -574,36 +584,10 @@ main#page-wth {
 
         background-color: var(--wth-surface);
 
-        .fix-steps {
-            counter-reset: fix;
-            display: grid;
-            gap: 24px;
-            margin-top: 32px;
-
+        .rules {
             @include bp(tablet) {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
             }
-        }
-
-        .fix-step {
-            border-top: 2px solid var(--wth-mint);
-            padding-top: 16px;
-
-            h3 {
-                margin-top: 10px;
-            }
-
-            p {
-                margin-top: 8px;
-            }
-        }
-
-        .fix-step-number {
-            color: var(--wth-mint-ink);
-            display: block;
-            font-size: 28px;
-            font-weight: 700;
-            line-height: 1;
         }
 
         .section-note a {
@@ -617,6 +601,19 @@ main#page-wth {
 
         .buttons-container {
             margin-top: 28px;
+        }
+
+        // The heading over the quote wall starts a new block after the buttons.
+        .content > h3 {
+            margin-top: 56px;
+
+            @include bp(tablet) {
+                margin-top: 72px;
+            }
+
+            + .section-note {
+                margin-top: 8px;
+            }
         }
     }
 }
