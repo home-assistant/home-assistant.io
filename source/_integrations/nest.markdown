@@ -112,8 +112,8 @@ By the end of this section you will have configured the OAuth consent screen, ne
 3. Click **Branding** in the left sidebar. Fill in the required fields:
    - **App name**: Enter a name (e.g. Home Assistant). This is shown during the OAuth login flow.
    - **User support email**: Select your Google account email.
-   - **Application home page**: Include a dummy URL, such as: `https://www.home-assistant.io`
-   - **Application privacy policy link**: Include another dummy URL, such as: `https://www.home-assistant.io`.
+   - **Application home page**: Enter a placeholder URL, such as `https://home-assistant.io`.
+   - **Application privacy policy link**: Enter a placeholder URL, such as `https://home-assistant.io/privacy`.
    - **Authorized domains**: Select Add Domain then include the domain(s) for the URLs in the previous two points, such as: `home-assistant.io`.
    - **Developer contact email**: Enter your email address under Developer contact information.
    
