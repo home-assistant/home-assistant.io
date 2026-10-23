@@ -50,7 +50,7 @@ value:
 
 - If the sequence is empty, the result is undefined. It shows as empty, and the template editor shows a warning. If the template uses that result further, for example, in `(items | first).name`, you get an error. Chain with [`| default(value)`](/template-functions/default/) if emptiness is possible.
 - Works on any sequence, including strings (returns the first character) and generators.
-- `first` doesn't sort. It returns the first item in the order it receives. For example, the result of [`expand`](/template-functions/expand/) isn't sorted, so add [`| sort`](/template-functions/sort/) first if the order matters.
+- `first` doesn't sort. It returns the first item in the order it receives. For example, the result of [`expand`](/template-functions/expand/) isn't sorted, so add [`| sort(attribute="entity_id")`](/template-functions/sort/) first if the order matters.
 
 {% include template_functions/try_it.md %}
 
@@ -58,12 +58,13 @@ value:
 
 ### Get the entity with the lowest temperature
 
-States are text, so sorting the states directly puts `"9"` after `"21"`. To sort by temperature, this example pairs each temperature, as a number, with its entity ID. It then sorts the pairs and picks the first (lowest) one. Sensors without a number, such as unavailable ones, are left out.
+States are text, so sorting the states directly puts `"9"` after `"21"`. To sort by temperature, this example pairs each temperature, as a number, with its entity ID. It then sorts the pairs and picks the first (lowest) one. Sensors without a number, such as unavailable ones, are left out. If no sensor has a number, the template returns nothing.
 
 {% example %}
 template: |
   {% set sensors = expand("sensor.temperature_sensors")
     | selectattr("state", "is_number") | list %}
+  {% if sensors %}
   {{
     zip(
       sensors | map(attribute="state") | map("float"),
@@ -73,6 +74,7 @@ template: |
     | first
     | last
   }}
+  {% endif %}
 type: string
 output: "sensor.bedroom_temperature"
 {% endexample %}

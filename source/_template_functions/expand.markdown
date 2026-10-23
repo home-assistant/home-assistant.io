@@ -111,12 +111,13 @@ output: "21.3"
 
 ### Find the entity with the highest value
 
-States are text, so sorting the states from high to low puts `"9"` above `"21"`. To sort by value, this example pairs each value, as a number, with its entity ID. It then sorts the pairs from high to low and picks the first one. Sensors without a number, such as unavailable ones, are left out.
+States are text, so sorting the states from high to low puts `"9"` above `"21"`. To sort by value, this example pairs each value, as a number, with its entity ID. It then sorts the pairs from high to low and picks the first one. Sensors without a number, such as unavailable ones, are left out. If no sensor has a number, the template returns nothing.
 
 {% example %}
 template: |
   {% set sensors = expand("sensor.temperature_sensors")
     | selectattr("state", "is_number") | list %}
+  {% if sensors %}
   {{
     zip(
       sensors | map(attribute="state") | map("float"),
@@ -126,6 +127,7 @@ template: |
     | first
     | last
   }}
+  {% endif %}
 type: string
 output: "sensor.kitchen_temperature"
 {% endexample %}
