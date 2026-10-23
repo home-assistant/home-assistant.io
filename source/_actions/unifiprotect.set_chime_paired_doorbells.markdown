@@ -65,7 +65,7 @@ doorbells:
 
 - The doorbells you select replace the current pairing. Doorbells you leave out are unpaired.
 - Leaving the doorbells empty unpairs every doorbell from the chime.
-- A doorbell is selected by its doorbell event entity (`event.*_doorbell`). The deprecated doorbell binary sensor (`binary_sensor.*_doorbell`) is still accepted until it is removed in 2027.1.0.
+- Select a doorbell by its doorbell event entity (`event.*_doorbell`).
 
 {% include actions/try_it.md %}
 

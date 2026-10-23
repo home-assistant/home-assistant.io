@@ -101,7 +101,7 @@ Selects are limited in the same way: the camera HDR mode, the floodlight light m
 
 Sensors are limited in the same way: the smart sensor battery, signal quality, light, humidity and temperature readings with their trip timestamps, and the floodlight last motion.
 
-In API key only mode, binary sensors are limited to the states the public API reports: camera motion and smart detections other than package, which is an event {% term entity %}; floodlight "Is Dark" and motion; and smart sensor contact, motion, leak, tamper, and low battery. The doorbell chime binary sensor and the read-only mirrors of settings are not created, as the switch or light {% term entity %} already exposes the setting.
+In API key only mode, binary sensors are limited to the states the public API reports: camera motion and smart detections other than package, which is an event {% term entity %}; floodlight "Is Dark" and motion; and smart sensor contact, motion, leak, tamper, and low battery. The read-only mirrors of settings are not created, as the switch or light {% term entity %} already exposes the setting.
 
 Events are limited in the same way: the camera motion, smart detection, sound detection and package events, and the key fob buttons. The doorbell ring, NFC, fingerprint and vehicle events need full access.
 
@@ -209,7 +209,6 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
 - **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
 - **Sensors** - Sensors include "Is Dark", "Motion Detected", and detected object sensors (if the camera supports smart detections). Wireless cameras also get a Wi-Fi signal strength sensor.
   - There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected. Package detection is the exception: it is exposed as an event {% term entity %} (see **Events**) rather than a binary sensor.
-  - The doorbell binary sensor (`binary_sensor.*_doorbell`) and the "Last doorbell ring" and "Last motion detected" sensors of cameras are deprecated and will be removed in 2027.1.0. Use the [doorbell](#doorbell-ring-event) (`event.*_doorbell`) and [motion detection](#motion-detection-event) (`event.*_motion_detection`) event entities instead. The state of an event entity is the time of its last event. New installations and newly added cameras no longer get the deprecated sensors.
 - **Events** - Cameras expose event entities for momentary motion and supported smart detections. Smart detection event entities include the raw Protect `event_source`, which distinguishes zone, line-crossing, and loitering detections. Package detection is provided as an event entity (`event.*_package`) rather than a binary sensor, because UniFi Protect reports it as a single, already-ended detection that a sustained binary sensor cannot represent.
 - **Device Configuration** - Cameras will get various configuration controls based on the features available to the camera. Currently provided configuration controls:
   - configuration sliders for Chime Type, Zoom Level, Microphone Sensitivity, and WDR Level
