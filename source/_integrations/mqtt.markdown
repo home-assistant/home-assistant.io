@@ -331,6 +331,112 @@ It's allowed to set an MQTT entity's name to `None` (use `null` in YAML) to mark
 
 Note that on each MQTT entity, the `has_entity_name` attribute will be set to `True`. More details [can be found here](https://contributors.home-assistant.io/core/entities/naming/#use-has_entity_name).
 
+## MQTT device configuration
+
+MQTT entities, device triggers, and tags can be linked to a device in the [device registry](https://contributors.home-assistant.io/core/integrations/device-registry/). The device information is set with the `device` mapping, which can be abbreviated as `dev` in discovery messages.
+
+- At least one of `identifiers` or `connections` must be set to identify the device.
+- For entities, the device information is only used when the entity has a `unique_id`.
+- Entities, device triggers, and tags that use the same `identifiers` or `connections` are linked to the same device. When a device is shared, it is enough to set the shared `identifiers` or `connections` for the other items. It is recommended to always include the device `name`.
+
+How the device information is set depends on the configuration method.
+
+### Device configuration in YAML
+
+Add a `device` mapping to the configuration of each entity that is part of the device. In the example below, both sensors are linked to the same device:
+
+```yaml
+mqtt:
+  - sensor:
+      name: "Temperature"
+      unique_id: "bedroom_temperature"
+      state_topic: "home/bedroom/temperature"
+      device:
+        identifiers: "bedroom01"
+        name: "Bedroom"
+        manufacturer: "Bla electronics"
+        model: "xya"
+  - sensor:
+      name: "Humidity"
+      unique_id: "bedroom_humidity"
+      state_topic: "home/bedroom/humidity"
+      device:
+        identifiers: "bedroom01"
+        name: "Bedroom"
+```
+
+### Device configuration with device discovery
+
+With [device discovery](#device-discovery-payload), the `device` (`dev`) mapping is required and is set once, at the root of the discovery payload. It applies to all components in the payload and can't be overridden per component. Entity components must have a `unique_id`.
+
+### Device configuration with single component discovery
+
+With [single component discovery](#single-component-discovery-payload), the `device` (`dev`) mapping is added to the discovery payload of each component that is part of the device. For device triggers, the `device` mapping is required. Device triggers and tags don't need a `unique_id`.
+
+The options in the `device` mapping can be abbreviated, see [supported abbreviations for device registry configuration](#supported-abbreviations-in-mqtt-discovery-messages).
+
+### Device configuration with subentries
+
+Each [subentry](#configuration-via-subentries) holds one MQTT device. The device details are set in the UI when the subentry is added or reconfigured.
+
+### Device configuration options
+
+{% configuration mqtt.device %}
+device:
+  description: Information about the device to tie an MQTT entity, device trigger, or tag into the [device registry](https://contributors.home-assistant.io/core/integrations/device-registry/). At least one of `identifiers` or `connections` must be set to identify the device.
+  required: false
+  type: map
+  keys:
+    configuration_url:
+      description: A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://`, or an internal `homeassistant://` URL.
+      required: false
+      type: string
+    connections:
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example, the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
+      required: false
+      type: list
+    hw_version:
+      description: The hardware version of the device.
+      required: false
+      type: string
+    identifiers:
+      description: A list of IDs that uniquely identify the device. For example, a serial number.
+      required: false
+      type: [string, list]
+    manufacturer:
+      description: The manufacturer of the device.
+      required: false
+      type: string
+    model:
+      description: The model of the device.
+      required: false
+      type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
+    name:
+      description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: The serial number of the device.
+      required: false
+      type: string
+    suggested_area:
+      description: Suggest an area if the device isn't in one yet.
+      required: false
+      type: string
+    sw_version:
+      description: The firmware version of the device.
+      required: false
+      type: string
+    via_device:
+      description: Identifier of a device that routes messages between this device and Home Assistant. Examples of such devices are hubs, or parent devices of a sub-device. This is used to show the device topology in Home Assistant.
+      required: false
+      type: string
+{% endconfiguration %}
+
 ## Grouping entities
 
 If the MQTT entity represents a group of other entities, the member entities can be made visible in the UI by setting the list of unique IDs of the member entities in the `group` configuration option of the entity group:
@@ -387,7 +493,7 @@ As an alternative, it is also possible for a device [to send a discovery payload
 
 The shared options at the root level of the JSON message must include:
 
-- `device` mapping (abbreviated as `dev`)
+- `device` mapping (abbreviated as `dev`), see [MQTT device configuration](#device-configuration-with-device-discovery)
 - `origin` mapping (abbreviated as `o`)
 
 These mappings are mandatory and cannot be overridden at the entity/component level.
@@ -668,11 +774,7 @@ When using single component discovery messages, the `<component>` part in the di
 
 The options in the payload are only used to set up one specific component. If a device contains multiple components, it is recommended to use [device discovery](/integrations/mqtt/#device-discovery-payload) instead.
 
-MQTT entities can share device configuration, meaning one entity can include the full device configuration and other entities can link to that device by only setting mandatory fields.
-
-{% important %}
-The mandatory fields were previously limited to at least one of `connection` and `identifiers`, but have now been extended to at least one of `connection` and `identifiers` as well as the `name`.
-{% endimportant %}
+MQTT entities can share device configuration, meaning one entity can include the full device configuration and other entities can link to that device by only setting the shared `identifiers` or `connections`. It is recommended to also include the device `name`. See [MQTT device configuration](#device-configuration-with-single-component-discovery).
 
 Example discovery payload:
 
@@ -1256,7 +1358,7 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
 }
 ```
 
-The sensor [`identifiers` or `connections`](/integrations/sensor.mqtt/#device) option allows you to set up multiple entities that share the same device.
+The [`identifiers` or `connections`](#mqtt-device-configuration) device option allows you to set up multiple entities that share the same device.
 
 {% note %}
 If a device configuration is shared, then it is not needed to add all device details to the other entity configs. It is enough to add shared identifiers or connections to the device mapping for the other entity config payloads.
