@@ -177,7 +177,7 @@ These are also recorded in each component's header comment.
 - The hero credits are the shared collaboration badge, not Figma's
   variant (colon, smaller logos). On phones the badge uses 16px logos
   and 12px gaps so it fits on one line. On this page it reads
-  "Designed and manufactured by" with the Nabu Casa logo only, without
+  "Brought to you by" with the Nabu Casa logo only, without
   the Open Home Foundation logo (the hero's `badge` prop); Figma still
   shows "Designed and built by:" with both logos.
 - The decorative cables are positioned from Figma's 1200px column
