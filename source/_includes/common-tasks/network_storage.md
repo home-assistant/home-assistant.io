@@ -3,14 +3,6 @@
 You can configure both Network File System (NFS) and Samba/Windows (CIFS) targets to be used within Home Assistant and apps.
 To list all your currently connected network storages, go to **{% my storage title="Settings > System > Storage" %}** in the UI.
 
-{% if page.installation == "os" %}
-
-{% important %}
-You need to update to Home Assistant Operating System 10.2 before you can use this feature.
-{% endimportant %}
-
-{% endif %}
-
 <p class='img'>
   <picture>
     <source srcset="/images/screenshots/network-storage/list_dark.png" media="(prefers-color-scheme: dark)">
@@ -51,13 +43,15 @@ Server:
   description: "The username to use when connecting to the storage server. Use User Principal Name for domain accounts. For example: `user@domain.com`."
 "[CIFS]<sup>2</sup> Password":
   description: The password to use when connecting to the storage server.
-"[CIFS]<sup>2</sup> Share":
-  description: The share to connect to on the storage server.
+"[CIFS]<sup>2</sup> Remote share":
+  description: The name of the share on the storage server.
+"[CIFS]<sup>2</sup> Samba/Windows (CIFS) version":
+  description: "The version of the CIFS protocol to use. Keep **Auto (2.1+)** unless your storage server only supports an older version. Then, select **Legacy (2.0)** or **Legacy (1.0)**. Older versions are less secure."
 {% endconfiguration_basic %}
 
 <sup>1</sup> _Options prefixed with `[NFS]` are only available for NFS targets._<br>
 <sup>2</sup> _Options prefixed with `[CIFS]` are only available for CIFS targets._<br>
-<sup>3</sup> _For the `CIFS` option, only version 2.1+ is supported._<br>
+<sup>3</sup> _For CIFS, Home Assistant uses version 2.1 or later by default. To use an older version, change the **Samba/Windows (CIFS) version** option._<br>
 
 ##### Usage types
 
