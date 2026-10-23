@@ -48,6 +48,17 @@ Bidet model:
   description: The Alpha Bidet model to control, which determines the IR command set the integration uses.
 {% endconfiguration_basic %}
 
+## Reconfiguring the integration
+
+If you replace your infrared transmitter, or want the bidet controlled by a different one, you can update the device without removing and re-adding the integration.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the **Alpha Bidet Infrared** integration and select it.
+3. Next to the bidet you want to change, select the three dots {% icon "mdi:dots-vertical" %} menu and choose **Reconfigure**.
+4. Select the new infrared transmitter and select **Submit**.
+
+The same rules as during setup apply: each infrared transmitter can control one bidet. The bidet model cannot be changed. To switch models, add the integration again. The bidet's entities and their entity IDs stay the same, so your dashboards and automations keep working.
+
 ## Supported functionality
 
 The **Alpha Bidet Infrared** integration creates one device per bidet, with the following entities.
