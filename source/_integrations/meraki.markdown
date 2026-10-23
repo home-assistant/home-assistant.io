@@ -100,9 +100,9 @@ A client that connects shows as home within about a minute. Meraki only marks a 
 - Make sure API access is enabled for the organization in the Meraki Dashboard.
 - Make sure the API key belongs to an administrator of the organization you want to add.
 
-### The integration asks to reauthenticate
+### The integration fails to set up after it worked before
 
-The API key was revoked, or its administrator lost access to the organization. Create a new API key in the Meraki Dashboard for an administrator who has access to the organization, or restore the administrator's access first, then enter the key when Home Assistant asks for it.
+The API key was revoked, or its administrator lost access to the organization. Create a new API key in the Meraki Dashboard for an administrator who has access to the organization, or restore the administrator's access first. Then remove the integration and add it again with the new key.
 
 ## Removing the integration
 
@@ -113,6 +113,10 @@ This integration follows standard integration removal.
 The CMX presence detection described below is set up in YAML and is removed by removing its configuration from your {% term "`configuration.yaml`" %} file.
 
 ## Presence detection with the CMX location service
+
+{% important %}
+Presence detection with the CMX location service is deprecated and will stop working in Home Assistant 2027.5. Set up the integration in the UI instead, as described above. It tracks whether Wi-Fi and wired clients are connected, without their position on the map. Bluetooth devices are not tracked yet.
+{% endimportant %}
 
 Use your Meraki AP as device tracker. Note that Meraki will see all devices, not only connected to the network. This requires Home Assistant to be reachable from the internet, as Meraki sends the data to it.
 
