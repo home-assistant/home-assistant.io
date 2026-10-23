@@ -62,6 +62,8 @@ If you change the configuration, you have to restart the server. To do that you 
 
 {% endtabbed_block %}
 
+For other ways to apply changes, such as a quick reload without a restart, refer to [Reloading, restarting, rebooting, and shutting down](/common-tasks/general/restarting/#which-option-to-use).
+
 ### Allow time for a clean shutdown
 
 When the container is stopped or restarted, Docker sends `SIGTERM` and then forcibly stops the container after a timeout, which is 10 seconds by default. Home Assistant can need longer than that to close its database. If it is stopped before it has finished, the next start logs warnings such as:
