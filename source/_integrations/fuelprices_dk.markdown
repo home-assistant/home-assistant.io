@@ -1,12 +1,12 @@
 ---
 title: Fuelprices.dk
 description: Use current fuel prices from Danish fuel stations in Home Assistant using the Fuelprices.dk API.
-ha_category:
-  - Sensor
+ha_categories:
+  - local_services
 ha_release: 2026.8
 ha_iot_class: Cloud Polling
 ha_codeowners:
-  - "@MTrab"
+  - '@MTrab'
 ha_domain: fuelprices_dk
 ha_config_flow: true
 ha_integration_type: hub

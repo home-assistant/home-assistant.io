@@ -1,8 +1,8 @@
 ---
 title: YouTube
 description: Instructions on how to integrate YouTube within Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - news_social_media
 ha_release: '2023.6'
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -13,9 +13,8 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: service
-google_dev_console_link: https://console.cloud.google.com/apis/library/youtube.googleapis.com
 api: YouTube Data API v3
-api_link: https://console.cloud.google.com/apis/library/youtube.googleapis.com?project=home-assistant-17698
+api_link: https://console.cloud.google.com/apis/library/youtube.googleapis.com
 ---
 
 The **YouTube** {% term integration %} allows you to connect YouTube channels to Home Assistant.

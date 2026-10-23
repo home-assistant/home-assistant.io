@@ -28,6 +28,7 @@ To use this trigger in an automation:
 {% options_ui %}
 Trigger when:
   description: When multiple timers are targeted, controls when the trigger fires. Pick **Each** to fire every time any targeted timer is cancelled, **First** to fire only for the first cancelled timer, or **All** to fire only after all targeted timers are cancelled.
+  required: false
 For at least:
   description: How long ago the timer must have been cancelled before the trigger fires. Defaults to firing immediately.
 {% endoptions_ui %}
@@ -47,8 +48,6 @@ This fires when `timer.laundry` is cancelled.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: When multiple timers are targeted, controls when the trigger fires. Accepts `each`, `first`, or `all`.
@@ -56,9 +55,9 @@ behavior:
   type: string
   default: each
 for:
-  description: How long ago the timer must have been cancelled before the trigger fires. Accepts a duration string in `HH:MM:SS` format.
+  description: How long ago the timer must have been cancelled before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 

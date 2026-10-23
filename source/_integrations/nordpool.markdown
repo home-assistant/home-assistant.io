@@ -1,10 +1,8 @@
 ---
 title: Nord Pool
 description: Instructions on how to integrate with the Nord Pool Energy market prices.
-ha_category:
-  - Energy
-  - Finance
-  - Sensor
+ha_categories:
+  - energy.energy_prices
 ha_release: 2024.12
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -213,6 +211,6 @@ To use the Nordpool integration in the **Energy** dashboard, when configuring gr
   <img src='/images/integrations/nordpool/nordpool_energy_dashboard.png' alt='Screenshot: Create template sensor'>
 </p>
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}

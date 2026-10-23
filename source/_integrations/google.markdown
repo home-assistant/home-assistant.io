@@ -1,8 +1,8 @@
 ---
 title: Google Calendar
 description: Instructions on how to use Google Calendar in Home Assistant.
-ha_category:
-  - Calendar
+ha_categories:
+  - productivity_information.calendars_todos
 ha_iot_class: Cloud Polling
 ha_release: 0.33
 ha_config_flow: true
@@ -13,7 +13,6 @@ ha_platforms:
 ha_codeowners:
   - '@allenporter'
 ha_integration_type: service
-google_dev_console_link: https://console.developers.google.com/apis/credentials
 api: Google Calendar API
 api_link: https://console.cloud.google.com/apis/library/calendar-json.googleapis.com
 ---
@@ -58,7 +57,7 @@ Individual Calendar *Events* are what is powering automations such as:
 - Send a notification *5 minutes before the start of any event*
 - Stop the media player *30 minutes after* the *end* of the event named *Exercise*.
 
-See [calendar automations](/integrations/calendar#automation) for an overview, and read more about [calendar trigger variables](/docs/automation/templating/#calendar) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
+See [calendar automations](/integrations/calendar#automation) for an overview, and read more about [calendar trigger variables](/docs/automation/trigger-data/#calendar-triggers) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
 
 ## Calendar entity attributes
 

@@ -1,8 +1,8 @@
 ---
 title: Roth Touchline
 description: Instructions on how to integrate Roth Touchline within Home Assistant.
-ha_category:
-  - Climate
+ha_categories:
+  - climate.thermostats_heating
 ha_release: 0.61
 ha_iot_class: Local Polling
 ha_domain: touchline
@@ -30,3 +30,9 @@ The integration will present each Roth Touchline thermostat as a climate entity,
 - Display the current temperature
 - Set a target temperature
 - Assign to a configured **Global Schedule** using Home Assistant climate entity presets.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

@@ -1,14 +1,9 @@
 ---
 title: Plugwise
 description: Plugwise Gateway platform integration.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Number
-  - Select
-  - Sensor
-  - Switch
+ha_categories:
+  - climate.thermostats_heating
+  - energy.meters_monitoring
 ha_iot_class: Local Polling
 ha_release: 0.98
 ha_codeowners:
@@ -26,6 +21,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - water_heater
 ha_integration_type: hub
 ha_quality_scale: platinum
 ---
@@ -96,9 +92,7 @@ Depending on your setup, one or more binary sensors will provide the state of yo
 Modifying specific number-based settings allows you to fine-tune your setup.
 
 - **Maximum boiler temperature setpoint**
-  - **Description**: Adjust the maximum temperature for secondary heater.
-- **Domestic hot water setpoint**
-  - **Description**: Adjust the temperature for your domestic hot water.
+  - **Description**: Adjust the temperature setpoint for the space heating function.
 - **Temperature offset**
   - **Description**: Fine-tune the perceived temperature.
 
@@ -117,16 +111,27 @@ A generous number of sensors is provided for your climate setup. Examples includ
 
 #### Selects
 
+- **DHW mode**
+  - **Description**: Select from available DHW modes.
+- **Gateway mode**
+  - **Description**: Select from available Adam gateway modes.
+- **Regulation mode**
+  - **Description**: Select from available Adam regulation modes.
 - **Thermostat schedule**
-  - **Description**: Select between available schedules, generic (Anna) or for the current zone (Adam).
+  - **Description**: Select from available schedules, generic (Anna) or for the current zone (Adam).
   - **Remark**: Please check the [further configuration](#further-configuration) for requirements on configuring schedules.
+- **Zone profile**
+  - **Description**: Select for the available Adam zone profiles.
 
 #### Switches
 
 - **Cooling**
   - **Description**: Toggle if cooling should be enabled.
-- **DHW Comfort Mode**
-  - **Description**: Toggle comfort mode for domestic hot water.
+
+#### Water heaters
+
+- **Domestic hot water**
+  - **Description**: Adjust the temperature setpoint for the domestic hot water function.
 
 ### Power and gas entities
 
@@ -167,7 +172,7 @@ The interval at which the integration fetches data from the gateway depends on t
 
 ### Climate control actions
 
-For information on how to use the available actions, please refer to the [climate](/integrations/climate#climate-control-actions) integration.
+For information on how to use the available actions, please refer to the [climate](/integrations/climate#list-of-actions) integration.
 
 Available actions to all climate gateways: `climate.set_temperature`, `climate.set_hvac_mode`, and `climate.set_preset_mode`.
 
@@ -293,7 +298,7 @@ automation:
       event: end
       # Calendar when your home is vacant
       entity_id: calendar.vacancy
-      # Offset by some time to allow to pre-condition
+      # Offset by some time to allow pre-conditioning
       offset: -04:00:00
   actions:
     # Change Adam operational mode

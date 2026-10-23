@@ -1,10 +1,7 @@
 ---
 title: Comfee
 description: Connect and control your Comfee devices using the Midea integration
-ha_category:
-  - Climate
-  - Humidifier
-ha_release: 2026.9
+ha_release: 2026.8
 ha_domain: comfee
 ha_integration_type: virtual
 ha_supporting_domain: midea
@@ -15,8 +12,16 @@ ha_codeowners:
   - '@caibinqing'
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
+  - button
   - climate
+  - fan
   - humidifier
+  - light
+  - number
+  - select
+  - switch
+  - time
 ha_iot_class: Local Push
 ---
 

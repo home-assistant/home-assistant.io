@@ -1,8 +1,6 @@
 ---
 title: Home Assistant frontend
 description: Provides the official frontend for Home Assistant.
-ha_category:
-  - Other
 ha_release: 0.7
 ha_quality_scale: internal
 ha_codeowners:
@@ -42,15 +40,15 @@ frontend:
     required: false
     type: list
   development_repo:
-    description: "Allows you to point to a directory containing frontend files instead of taking them from a prebuilt PyPI package. Useful for Frontend development. For more information, see [Frontend development](https://developers.home-assistant.io/docs/frontend/development)."
+    description: "Allows you to point to a directory containing frontend files instead of taking them from a prebuilt PyPI package. Useful for Frontend development. For more information, see [Frontend development](https://contributors.home-assistant.io/frontend/development/)."
     required: false
     type: string
   development_pr:
-    description: "Allows you to point to a specific frontend [pull request](https://github.com/home-assistant/frontend/pulls) containing frontend files instead of taking them from a prebuilt PyPI package. Useful for Frontend development. This requires `github_token` to be set. For more information, see [Frontend development](https://developers.home-assistant.io/docs/frontend/development#test-an-existing-pr)."
+    description: "Allows you to point to a specific frontend [pull request](https://github.com/home-assistant/frontend/pulls) containing frontend files instead of taking them from a prebuilt PyPI package. Useful for Frontend development. This requires `github_token` to be set. For more information, see [Frontend development](https://contributors.home-assistant.io/frontend/development/builds/#try-out-a-pull-request)."
     required: false
     type: integer
   github_token:
-    description: "GitHub token to use when fetching frontend files from a specific pull request. Required when `development_pr` is set. For more information, see [Creating a GitHub token](https://developers.home-assistant.io/docs/frontend/development#creating-a-github-token)."
+    description: "GitHub token to use when fetching frontend files from a specific pull request. Required when `development_pr` is set. For more information, see [Creating a GitHub token](https://contributors.home-assistant.io/frontend/development/builds/#create-a-github-token)."
     required: false
     type: string
 {% endconfiguration %}
@@ -109,6 +107,27 @@ frontend:
 
 The example above defines red color for open garage doors and brown color for inactive media players.
 
+### Panel, toolbar and table backgrounds
+
+The following variables are not set by default. If you leave them unset, the existing backgrounds remain unchanged.
+
+| Variable | Description |
+| -------- | ----------- |
+| `ha-panel-background` | Background of the area behind all panels, such as Settings, History, Logbook, Energy, Map and Profile. Accepts any CSS `background` value (color, gradient, image, including `fixed`). Dashboards are not affected, they keep using `lovelace-background`. |
+| `ha-panel-toolbar-background` | Background of the sticky search bars (Integrations, Installed apps) and of the tab bars in the automation and script traces. | 
+| `ha-data-table-background` | Background of data tables, including the group headers of grouped tables. |
+
+```yaml
+frontend:
+  themes:
+    my_theme:
+      ha-panel-background: "linear-gradient(135deg, #1e3c72, #2a5298) fixed"
+      ha-panel-toolbar-background: "rgba(0, 0, 0, 0.3)"
+      ha-data-table-background: "transparent"
+```
+
+Surfaces such as cards, menus and form fields keep their own colors. To see the panel background through cards, also set `ha-card-background` to a semi-transparent value.
+
 ### Unsupported theme variables
 
 Although we do our best to keep things working, the behavior of other theme variables can change between releases. For a partial list of variables used by the main frontend see [color.globals.ts](https://github.com/home-assistant/frontend/blob/master/src/resources/theme/color/color.globals.ts).
@@ -166,7 +185,7 @@ Check our [community forums](https://community.home-assistant.io/c/29) to find t
 
 When themes are enabled in your {% term "`configuration.yaml`" %} file, you can apply them in two ways.
 
-The first is per user. A theme selector appears on the user profile page, which you can access by selecting your user account initials at the bottom of the sidebar. Choose any installed theme from the dropdown list, and it is applied immediately. This choice is saved to your user profile, so it applies across your devices. It also overrides any theme set through the actions below.
+The first is per user. A theme selector appears on the {% my profile title="**User profile**" %} page, which you can access by selecting your name at the bottom of the sidebar. Choose any installed theme from the dropdown list, and it is applied immediately. This choice is saved to your user profile, so it applies across your devices. It also overrides any theme set through the actions below.
 
 <p class='img'>
   <img src='/images/frontend/user-theme.png' alt='Screenshot showing the theme selector on the user profile page' />
@@ -199,7 +218,7 @@ The ES5 and module versions are never both loaded. Depending on whether the devi
 
 ### Manual language selection
 
-The browser language is automatically detected. To use a different language, go to the user profile page (which you can access by selecting your user account initials at the bottom of the sidebar) and select one. It is applied immediately.
+The browser language is automatically detected. To use a different language, go to {% my profile_localization title="**User profile** > **Localization**" %} and select one. It is applied immediately.
 
 <p class='img'>
   <img src='/images/frontend/user-language.png' alt='Screenshot showing the language selector on the user profile page' />

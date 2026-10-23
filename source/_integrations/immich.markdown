@@ -1,11 +1,8 @@
 ---
 title: Immich
 description: Instructions on how to integrate an Immich user account into Home Assistant.
-ha_category:
-  - Media source
-  - Multimedia
-  - Sensor
-  - Update
+ha_categories:
+  - productivity_information.documents_photos
 ha_release: 2025.6
 ha_config_flow: true
 ha_iot_class: Local Polling
@@ -100,7 +97,7 @@ In any case, when reporting an issue, please enable [debug logging](/docs/config
 
 There are no known limitations.
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}
 

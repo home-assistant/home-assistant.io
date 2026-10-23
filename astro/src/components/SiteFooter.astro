@@ -1,0 +1,422 @@
+---
+// Site footer: skyline artwork, wordmark, link groups, social links and
+// the contact, analytics and hosting notices.
+//
+// Ports the structure and layout of the Jekyll footer in
+// `source/_includes/site/footer.html` (placed by
+// `source/_layouts/default.html`). Styling copies the structure and
+// cleans the surface, as agreed: sizes, spacing and colors snap to the
+// theme tokens instead of the one-off values in the `.page-content >
+// footer` rules of `sass/homeassistant/_overrides.scss` and
+// `sass/homeassistant/base/_footer.scss`; the inuitcss float grid
+// becomes a CSS grid.
+//
+// Deliberate differences from the Jekyll rendering, all agreed:
+//   - The skyline is part of the footer, in normal flow on the page
+//     background. Jekyll positions it absolutely above the footer and
+//     reserves room with a 194px top margin on the footer; here a layout
+//     just places <SiteFooter /> and adds whatever margin it wants
+//     between the content and the footer. As on the live site, it keeps
+//     its drawn size and is clipped on narrow screens: the house in it
+//     is proportioned to the wordmark below, and the two form the
+//     footer's branding.
+//   - The contact, analytics and hosting notices are small, muted text.
+//     Jekyll styles them under a `.social-media` class the markup never
+//     had, so visitors see body text; the intended treatment wins.
+//   - Social icons are inline SVGs (`<Icon>`, Simple Icons paths in
+//     src/lib/icons.ts) instead of `<iconify-icon>` elements, so the footer does not depend on the
+//     Iconify CDN script. The `external-link` class on some links is
+//     dropped: nothing styles or scripts it.
+//   - The homepage's narrower 1100px footer is a landing-page override
+//     that is not carried over; the footer follows the site's content
+//     width, as the header does.
+//   - The hosting notice credits Astro, the stack this footer ships in,
+//     where the Jekyll footer credits Jekyll, and the Oscailte theme
+//     credit is dropped.
+//
+// The social links mirror `source/_data/social_media.yml`; keep the two
+// lists in step until the Astro build reads that file directly.
+import "../styles/tokens.scss";
+import Icon from "./Icon.astro";
+import type { IconName } from "../lib/icons";
+// The wordmark is the text-only mark the footer has always used; the
+// brand assets API offers no wordmark for Home Assistant, and the house
+// mark is already in the skyline. Both artworks and the Netlify badge
+// are copies of the files under source/images/.
+import wordmarkUrl from "../assets/footer-wordmark.svg?url";
+import skylineUrl from "../assets/footer-skyline.svg?url";
+import netlifyBadgeUrl from "../assets/netlify-badge.svg?url";
+
+// Link groups per column, in the order they appear on the page.
+const columns = [
+  [
+    {
+      title: "Join us and contribute!",
+      links: [
+        { label: "GitHub repo", href: "https://github.com/home-assistant/" },
+        {
+          label: "Contributors website",
+          href: "https://contributors.home-assistant.io",
+        },
+        {
+          label: "Community Forum",
+          href: "https://community.home-assistant.io",
+        },
+        {
+          label: "Creator Network",
+          href: "https://creators.home-assistant.io/",
+        },
+        {
+          label: "Works with Home Assistant",
+          href: "https://works-with.home-assistant.io/",
+        },
+        { label: "Our community", href: "/community" },
+        { label: "Reporting issues", href: "/help/reporting_issues/" },
+      ],
+    },
+    {
+      title: "System status",
+      links: [
+        {
+          label: "Integration Alerts",
+          href: "https://alerts.home-assistant.io",
+        },
+        { label: "Security Alerts", href: "/security/" },
+        { label: "System Status", href: "https://status.home-assistant.io" },
+      ],
+    },
+  ],
+  [
+    {
+      title: "Companion apps",
+      links: [
+        {
+          label: "iOS and Apple devices",
+          href: "https://apps.apple.com/app/id1099568401",
+        },
+        {
+          label: "Android and Wear OS",
+          href: "https://play.google.com/store/apps/details?id=io.homeassistant.companion.android",
+        },
+        { label: "...and more!", href: "https://companion.home-assistant.io/" },
+      ],
+    },
+    {
+      title: "Support us",
+      links: [
+        {
+          label: "Merch store",
+          href: "https://store.openhomefoundation.org",
+          newTab: true,
+        },
+        { label: "Home Assistant Cloud", href: "/cloud/" },
+      ],
+    },
+    {
+      title: "Governance",
+      links: [
+        { label: "Privacy Notices", href: "/privacy/" },
+        {
+          label: "Contributor License Agreement",
+          href: "/developers/cla/",
+        },
+        { label: "Terms of Service", href: "/tos/" },
+        { label: "Code of Conduct", href: "/code_of_conduct/" },
+        { label: "License", href: "/developers/license/" },
+      ],
+    },
+  ],
+];
+
+const social: { title: string; href: string; icon: IconName }[] = [
+  { title: "YouTube", href: "https://youtube.com/@home_assistant", icon: "youtube" },
+  { title: "Reddit", href: "https://reddit.com/r/homeassistant", icon: "reddit" },
+  { title: "GitHub", href: "https://github.com/home-assistant", icon: "github" },
+  {
+    title: "Mastodon",
+    href: "https://fosstodon.org/@homeassistant",
+    icon: "mastodon",
+  },
+  {
+    title: "Bluesky",
+    href: "https://bsky.app/profile/home-assistant.io",
+    icon: "bluesky",
+  },
+  { title: "X (formerly Twitter)", href: "https://x.com/home_assistant", icon: "x" },
+  {
+    title: "Facebook",
+    href: "https://www.facebook.com/homeassistantio",
+    icon: "facebook",
+  },
+  {
+    title: "Instagram",
+    href: "https://www.instagram.com/homeassistant/",
+    icon: "instagram",
+  },
+  {
+    title: "LinkedIn",
+    href: "https://www.linkedin.com/company/home-assistant",
+    icon: "linkedin",
+  },
+];
+---
+
+<footer class="site-footer">
+  <div class="skyline">
+    <img src={skylineUrl} alt="" width="740" height="130" />
+  </div>
+
+  <div class="surface">
+    <div class="columns">
+      <div class="column">
+        <img
+          class="wordmark"
+          src={wordmarkUrl}
+          alt="Home Assistant"
+          width="147"
+          height="71"
+        />
+        <p>
+          Home Assistant is a project from the{" "}
+          <a href="https://www.openhomefoundation.org/">Open Home Foundation</a>.
+        </p>
+      </div>
+
+      {
+        columns.map((groups) => (
+          <div class="column">
+            {groups.map(({ title, links }) => (
+              <>
+                <h3>{title}</h3>
+                <ul>
+                  {links.map(({ label, href, newTab }) => (
+                    <li>
+                      <a href={href} target={newTab ? "_blank" : undefined}>
+                        {label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ))}
+          </div>
+        ))
+      }
+
+      <div class="column">
+        <h3>Follow us</h3>
+        <p class="newsletter">
+          <a href="https://newsletter.openhomefoundation.org/#/portal">
+            Sign up for our newsletter
+          </a>
+        </p>
+        <ul class="social">
+          {
+            social.map(({ title, href, icon }) => (
+              <li>
+                <a
+                  href={href}
+                  title={title}
+                  rel="me noopener noreferrer"
+                  target="_blank"
+                >
+                  <Icon name={icon} />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="notice">
+          <p>
+            For partnership inquiries please check out{" "}
+            <a href="https://works-with.home-assistant.io/">
+              Works with Home Assistant
+            </a>. For media,{" "}
+            <a href="mailto:media@openhomefoundation.org">email our team</a>.
+            For other questions, you can{" "}
+            <a href="mailto:hello@home-assistant.io">contact support</a> (No
+            technical support!)
+          </p>
+          <p>
+            This website uses{" "}
+            <a
+              href="https://www.openhomefoundation.org/blog/making-our-web-analytics-open-source-with-plausible/"
+              rel="noopener"
+            >
+              privacy-first analytics
+            </a>{" "}
+            to help us improve the site. You can view all data in our{" "}
+            <a
+              href="https://plausible.openhomefoundation.org/home-assistant.io"
+              rel="noopener"
+            >
+              public dashboard
+            </a>.
+          </p>
+          <p>
+            Website powered by <a href="https://astro.build/">Astro</a>
+          </p>
+          <a class="badge" href="https://www.netlify.com">
+            <img
+              src={netlifyBadgeUrl}
+              alt="Deploys by Netlify"
+              width="114"
+              height="51"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss">
+  @use "../styles/breakpoints";
+  @use "../styles/layout";
+
+  /* Mobile first: one column, then two from the lap width and four
+     from the desk width, which is what the inuitcss grid classes on
+     the Jekyll footer resolve to. */
+
+  .site-footer {
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-large);
+    line-height: 1.5;
+
+    a {
+      color: var(--color-link);
+      text-decoration: none;
+
+      &:hover,
+      &:focus-visible {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  /* Skyline artwork on the page background, right above the surface.
+     The house in it is drawn in proportion to the wordmark below, so
+     the two read as one lockup: the skyline keeps its drawn size at
+     every width and is clipped on narrow screens rather than scaled. */
+
+  .skyline {
+    overflow: hidden;
+    @include layout.container;
+
+    img {
+      display: block;
+      max-width: none;
+    }
+  }
+
+  .surface {
+    background: var(--color-footer-surface);
+  }
+
+  .columns {
+    display: grid;
+    gap: 0 var(--layout-gutter);
+    grid-template-columns: 1fr;
+    padding-block: var(--space-xxlarge);
+    @include layout.container;
+  }
+
+  .column {
+    min-width: 0;
+  }
+
+  /* Wordmark and blurb */
+
+  .wordmark {
+    display: block;
+    height: 4.5rem;
+    margin-bottom: var(--space-xlarge);
+    width: auto;
+  }
+
+  p {
+    margin: 0 0 var(--space-xlarge);
+  }
+
+  /* Link groups */
+
+  h3 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-medium);
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 var(--space-small);
+    text-transform: uppercase;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0 0 var(--space-xlarge);
+    padding: 0;
+  }
+
+  /* Social links: a row of icons that wraps, close under the
+     newsletter line */
+
+  .newsletter {
+    margin-bottom: var(--space-small);
+  }
+
+  .social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-small);
+    margin-bottom: var(--space-large);
+
+    a {
+      color: var(--color-text);
+      display: flex;
+
+      &:hover,
+      &:focus-visible {
+        color: var(--color-link);
+      }
+    }
+
+    /* <Icon> renders in its own scope, hence :global. */
+    :global(.icon) {
+      height: var(--font-size-xlarge);
+      width: var(--font-size-xlarge);
+    }
+  }
+
+  /* Contact, analytics and hosting notices */
+
+  .notice {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-medium);
+
+    p {
+      margin-bottom: var(--space-large);
+    }
+
+    /* The link is only as wide as the badge it wraps. */
+    .badge {
+      display: block;
+      width: fit-content;
+
+      img {
+        display: block;
+      }
+    }
+  }
+
+  @media only screen and (min-width: breakpoints.$lap) {
+    .columns {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media only screen and (min-width: breakpoints.$desk) {
+    .columns {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

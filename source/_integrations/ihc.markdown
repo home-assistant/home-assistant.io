@@ -1,12 +1,8 @@
 ---
 title: IHC Controller
 description: Instructions on how to integrate the IHC integrations with Home Assistant
-ha_category:
-  - Binary sensor
-  - Hub
-  - Light
-  - Sensor
-  - Switch
+ha_categories:
+  - hubs_protocols.building_automation
 ha_release: 0.62
 ha_iot_class: Local Push
 ha_domain: ihc

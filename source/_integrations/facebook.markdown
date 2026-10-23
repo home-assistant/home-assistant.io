@@ -1,8 +1,8 @@
 ---
 title: Facebook Messenger
 description: Instructions on how to add Facebook user notifications to Home Assistant.
-ha_category:
-  - Notifications
+ha_categories:
+  - messaging_notifications.chat_apps
 ha_release: 0.36
 ha_domain: facebook
 ha_iot_class: Cloud Push
