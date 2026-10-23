@@ -68,13 +68,13 @@ Air conditioners report their own measurements to the Electra cloud. Because the
 
 ### Binary sensors
 
-These entities report the maintenance and sensor health flags of the air conditioner. Not every air conditioner reports every flag, so a unit only gets the binary sensors for the flags it reports.
+These entities report the maintenance and sensor health flags of the air conditioner. Not every air conditioner reports every flag, so a unit only gets the binary sensors for the flags it reports, the filter reminder included.
 
 - **Filter cleaning required**: the air conditioner reports that its filter needs cleaning.
 - **Indoor coil sensor fault**: the air conditioner reports a fault in its indoor coil temperature sensor.
 - **Return air sensor fault**: the air conditioner reports a fault in its return air temperature sensor.
 
-The sensors and binary sensors of an air conditioner are diagnostic entities. They appear on the device page and can be used in automations like any other entity.
+The measurement sensors and the two sensor fault binary sensors are diagnostic entities, so they are grouped under Diagnostics on the device page. The filter reminder is not one of them: it is a regular entity, and you can use it in an automation to clean the filter when the air conditioner asks for it.
 
 ## Data updates
 
