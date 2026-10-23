@@ -240,23 +240,26 @@ main#page-wth {
             }
         }
 
+        // Each quote reads like a merged pull request on GitHub: the merge
+        // icon, the quote as the title, and the release as the meta line.
         .quote {
-            // The section sits on white, so the cards carry a border rather
-            // than relying on a tint for their edges.
+            --wth-merged: #8250DF;
+
+            align-items: flex-start;
             background-color: var(--wth-surface);
             border: 1px solid var(--wth-border);
-            border-left: 4px solid var(--wth-sky);
-            border-radius: 0 var(--card-radius) var(--card-radius) 0;
-            padding: 22px 24px;
-
-            &.is-shipped {
-                border-left-color: var(--wth-mint);
-            }
+            border-radius: 6px;
+            display: flex;
+            gap: 12px;
+            margin: 0;
+            padding: 16px;
+            position: relative;
 
             blockquote {
                 border: unset;
                 color: var(--wth-ink);
-                font-size: 18px;
+                font-size: 17px;
+                font-style: normal;
                 font-weight: 600;
                 line-height: 1.4;
                 margin: 0;
@@ -268,32 +271,70 @@ main#page-wth {
 
             figcaption {
                 align-items: center;
+                color: var(--wth-ink-soft);
                 display: flex;
                 flex-wrap: wrap;
-                gap: 10px;
-                margin-top: 14px;
-            }
-
-            .badge {
-                background-color: var(--wth-mint);
-                border-radius: 40px;
-                color: var(--wth-ink);
-                font-size: 12px;
-                font-weight: 700;
-                letter-spacing: 0.02em;
-                padding: 4px 12px;
-                text-transform: uppercase;
-            }
-
-            a {
-                color: var(--wth-ink-soft);
                 font-size: 14px;
-                text-decoration: underline;
+                gap: 6px;
+                margin-top: 6px;
+            }
+        }
 
-                &:hover {
-                    color: var(--wth-ink);
+        // The icon sits on the first line of the title, as on GitHub.
+        .quote-icon {
+            color: var(--wth-merged);
+            display: inline-flex;
+            flex-shrink: 0;
+            font-size: 16px;
+            margin-top: 4px;
+        }
+
+        .quote-body {
+            min-width: 0;
+        }
+
+        // The quote is the link, and it stretches over the whole card.
+        a.quote-link {
+            color: inherit;
+            font-size: inherit;
+            text-decoration: none;
+
+            &:after {
+                border-radius: 6px;
+                content: '';
+                inset: 0;
+                position: absolute;
+            }
+
+            &:focus-visible {
+                outline: none;
+
+                &:after {
+                    outline: 3px solid var(--wth-focus);
+                    outline-offset: 2px;
                 }
             }
+        }
+
+        .quote:hover {
+            border-color: #007FA8;
+
+            a.quote-link {
+                color: #007FA8;
+            }
+        }
+
+        // Matches the version next to the logo in the site header
+        // (.release-date), a little larger to sit with the caption text.
+        .quote-release {
+            background-color: #E8EDF0;
+            border-radius: 4px;
+            color: #007FA8;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.025rem;
+            line-height: 1.5;
+            padding: 0 5px;
         }
     }
 
