@@ -76,7 +76,7 @@ Maximum Tokens to Return in Response:
 Thinking budget:
   description: The token budget for internal reasoning before the model generates a response (Gemini 2.5 models only). Set this to `-1` to let the model decide automatically, `0` to disable reasoning (not available for Gemini 2.5 Pro), or a positive number for a custom budget.
 Thinking level:
-  description: The level of internal reasoning for Gemini 3 and later text models, including the latest text aliases. You can select **Auto**, **Low**, **Medium**, or **High**. **Minimal** is unavailable on Pro models, the latest text aliases, and Gemini 3.6 and later models, except Gemini 3.6 Flash (not Flash-Lite). If your selected level is unsupported, the integration uses the model default and keeps your saved choice. For example, Gemini 3.8 uses the model default when you select **Minimal**. Gemini 2.5 models use the thinking budget instead.
+  description: The level of internal reasoning for Gemini 3 and later text models, including the latest text aliases. You can select **Minimal**, **Auto**, **Low**, **Medium**, or **High**. **Minimal** is unavailable on Pro models, the latest text aliases, and Gemini 3.6 and later models, except Gemini 3.6 Flash (not Flash-Lite). If your selected level is unsupported, the integration uses the model default and keeps your saved choice. For example, Gemini 3.8 uses the model default when you select **Minimal**. Gemini 2.5 models use the thinking budget instead.
 Safety settings:
   description: Thresholds for different [harmful categories](https://ai.google.dev/gemini-api/docs/safety-settings).
 Enable Google Search tool:
