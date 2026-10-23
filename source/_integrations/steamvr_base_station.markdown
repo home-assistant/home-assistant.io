@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: steamvr_base_station
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - button
   - sensor
   - switch
@@ -42,6 +43,10 @@ Device:
 {% endconfiguration_basic %}
 
 ## Supported functionality
+
+### Binary sensor
+
+- **Problem**: On when the station reports a fault.
 
 ### Button
 
