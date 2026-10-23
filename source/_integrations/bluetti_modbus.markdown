@@ -27,7 +27,7 @@ During setup, the integration checks the model the device reports and refuses an
 
 Modbus TCP is available on devices that have a network connection. If you cannot find the setting on your device, updating its firmware usually adds it.
 
-EP2000 is not supported yet: reports so far indicate that model does not expose Modbus TCP on its retail firmware.
+EP2000 is not supported by this integration.
 
 ## Prerequisites
 
