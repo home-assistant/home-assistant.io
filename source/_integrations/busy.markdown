@@ -77,4 +77,4 @@ If you delete the Home Assistant token on the bar or reset the bar, the integrat
 
 {% include integrations/remove_device_service.md %}
 
-Removing the integration does not revoke its access token. You can delete the token on the bar in its Home Assistant settings.
+When you remove the integration, Home Assistant attempts to revoke its access token on the bar. If the bar is unreachable, you can delete the token on the bar in its Home Assistant settings.
