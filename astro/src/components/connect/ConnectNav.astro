@@ -13,9 +13,10 @@
 //     to the top of the window and overlaps the hero (a negative
 //     margin as tall as the bar), white on transparent.
 //   - Once the page scrolls it shrinks from 120px to 80px and fades in
-//     a frosted white panel, with navy text (data-stuck).
+//     a frosted white panel, with navy text (data-stuck). Before that a
+//     dark gradient scrim keeps the white text readable on the photo.
 //   - Links get an underline on hover that moves sideways: a dashed
-//     Connect-blue data line (the ZBT-2 page has a wave).
+//     data line in the links' color (the ZBT-2 page has a wave).
 //   - The open menu (below the desk width) is the same frosted panel
 //     behind the bar, its links centered in a column.
 // The page's site header should scroll away (Site's `stickyHeader`
@@ -168,6 +169,24 @@ const menuId = `connect-menu-${crypto.randomUUID().slice(0, 8)}`;
     &[data-stuck],
     &:has(.menu-state:checked) {
       --nav-text: #002332;
+    }
+
+    /* A dark scrim behind the white text while the bar sits over the
+       hero, so it stays readable over light parts of the photo. It
+       fades out once the frosted panel takes over (stuck, or the menu
+       open). */
+    &::before {
+      background: linear-gradient(rgb(0 0 0 / 55%), rgb(0 0 0 / 0%));
+      content: "";
+      inset: 0 0 calc(var(--space-xxlarge) * -1);
+      position: absolute;
+      transition: opacity 0.3s ease-out;
+      z-index: -1;
+    }
+
+    &[data-stuck]::before,
+    &:has(.menu-state:checked)::before {
+      opacity: 0;
     }
   }
 
@@ -348,12 +367,13 @@ const menuId = `connect-menu-${crypto.randomUUID().slice(0, 8)}`;
       text-decoration: none;
       transition: color 0.3s ease-out;
 
-      /* While hovered, a dashed Connect-blue line moves along under the
-         link, like the data link between the Green and the AUX-2 in the
-         serial diagram: round-capped 6px dashes, 2px apart. */
+      /* While hovered, a dashed line moves along under the link, like
+         the data link between the Green and the AUX-2 in the serial
+         diagram: round-capped 6px dashes, 2px apart. It is the links'
+         color: white over the hero, navy once the bar is frosted. */
       &::after {
         animation: connect-nav-data 0.5s linear infinite;
-        background: var(--color-connect-line);
+        background: var(--nav-text);
         bottom: -0.375rem;
         content: "";
         height: 0.125rem;
@@ -375,6 +395,15 @@ const menuId = `connect-menu-${crypto.randomUUID().slice(0, 8)}`;
           animation: none;
         }
       }
+    }
+  }
+
+  /* With reduced motion the bar changes size at once, without
+     animating its height. */
+  @media (prefers-reduced-motion: reduce) {
+    .bar,
+    .menu {
+      transition: none;
     }
   }
 

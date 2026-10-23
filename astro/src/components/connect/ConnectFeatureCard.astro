@@ -11,20 +11,22 @@
 //
 // The fading border is the ZBT-2 page's (see
 // src/styles/_fade-border.scss), fading from the top. On hover the ring
-// around the icon turns white with the shimmer, and the icon bounces.
-//
-// `light` is the white variant for cards on a photo (node 2586:1443):
-// navy text, a filled ring so the white icon shows, a plain white
-// border and no shimmer.
+// around the icon turns white with the shimmer. The icon itself does
+// not move on hover (the bounce felt random); icons that animate do so
+// inside their own SVG files and play while the pointer is over the
+// card (`animated`: the "Audio and so much more" ones, by Clelia).
 //
 // `large` is the variant of "Incredible audio" (nodes 2022:8454 and
 // 2022:8461): a large blue line icon without a ring above a 28px title,
 // at every width. The `media` slot adds an illustration below the text.
 //
 // Deliberate differences from the Figma file:
-//   - The icons are still. In Figma they animate (the sound waves
-//     pulse, the dots travel along the lines); to be added with the
-//     rest of the page's motion.
+//   - Only the "Audio and so much more" icons animate so far. In Figma
+//     the others animate too; TODO: wire in Clelia's animated icons
+//     for the other cards (Incredible audio, Deep control with serial)
+//     when they arrive, like whole-home-audio.svg: an SVG file with
+//     its own CSS animation, every ID and keyframe name prefixed with
+//     `icon-<file name>-` (it is inlined), and a reduced-motion rule.
 //   - Spacing snaps to the theme: 20px card padding on phones is 24px,
 //     the 6px gap on phones is 8px, and both sizes use the 16px radius
 //     (Figma: 12px on phones).
@@ -36,20 +38,36 @@ interface Props {
   // cards a 53px wide blue one.
   icon: ImageMetadata;
   title: string;
-  light?: boolean;
   large?: boolean;
+  // The icon is an animated SVG (its animation is CSS inside the
+  // file): it is inlined, still at rest and plays from the start while
+  // the pointer is over the card.
+  animated?: boolean;
 }
 
-const { icon, title, light = false, large = false } = Astro.props;
+const {
+  icon,
+  title,
+  large = false,
+  animated = false,
+} = Astro.props;
 const Ring = large ? Fragment : "span";
+// An imported SVG is also a component that inlines it.
+const Icon = icon as unknown as (props: Record<string, unknown>) => unknown;
 ---
 
 <article
-  class:list={["connect-feature-card", { light, large }]}
-  data-shimmer={light ? undefined : "hover"}
+  class:list={["connect-feature-card", { large }]}
+  data-shimmer="hover"
 >
   <Ring class={large ? undefined : "ring"}>
-    <img src={icon.src} width={icon.width} height={icon.height} alt="" />
+    {
+      animated ? (
+        <Icon class="animated-icon" aria-hidden="true" />
+      ) : (
+        <img src={icon.src} width={icon.width} height={icon.height} alt="" />
+      )
+    }
   </Ring>
   <div class="text">
     <h3>{title}</h3>
@@ -76,10 +94,7 @@ const Ring = large ? Fragment : "span";
     font-family: var(--font-heading);
     gap: var(--space-small);
     padding: var(--space-medium) var(--space-xlarge);
-
-    &:not(.light) {
-      @include fade-border(180deg);
-    }
+    @include fade-border(180deg);
   }
 
   .ring {
@@ -94,38 +109,24 @@ const Ring = large ? Fragment : "span";
     transition: border-color 0.3s ease;
     width: 2rem;
 
-    /* White with the shimmer, while the pointer is over the card. */
-    .connect-feature-card:not(.light):hover > & {
+    /* An animated icon holds still until the pointer is over the card
+       (or, on touch screens, the card scrolls through the middle of the
+       screen: .is-active), then plays from the start (the animations
+       are the SVG's own). */
+    .connect-feature-card:not(:hover, :global(.is-active)) > & :global(.animated-icon *) {
+      animation: none !important;
+    }
+
+    :global(.animated-icon) {
+      display: block;
+    }
+
+    /* White with the shimmer, while the pointer is over the card (or it
+       is .is-active on a touch screen). */
+    .connect-feature-card:is(:hover, :global(.is-active)) > & {
       border-color: var(--color-text-inverse);
     }
 
-    /* The icon bounces once as the pointer arrives. */
-    @media (prefers-reduced-motion: no-preference) {
-      .connect-feature-card:not(.light):hover > & img {
-        animation: connect-icon-bounce 0.6s cubic-bezier(0.3, 0, 0.3, 1);
-      }
-    }
-  }
-
-  /* Up with a tilt, down past its place with a little squash, then a
-     smaller hop that settles. */
-  @keyframes connect-icon-bounce {
-    0%,
-    100% {
-      transform: none;
-    }
-
-    30% {
-      transform: translateY(-0.25rem) rotate(-10deg);
-    }
-
-    55% {
-      transform: translateY(0.0625rem) rotate(6deg) scaleY(0.9);
-    }
-
-    75% {
-      transform: translateY(-0.125rem) rotate(-3deg);
-    }
   }
 
   h3,
@@ -145,23 +146,6 @@ const Ring = large ? Fragment : "span";
     color: var(--color-text-inverse-muted);
     font-size: var(--font-size-small);
     padding-block: var(--space-xsmall);
-  }
-
-  .light {
-    background: linear-gradient(rgb(255 255 255 / 80%) 22%, rgb(255 255 255 / 64%));
-    border: 1px solid var(--color-text-inverse);
-
-    .ring {
-      background: var(--color-connect-line);
-    }
-
-    h3 {
-      color: var(--color-ink);
-    }
-
-    p {
-      color: var(--color-ink-muted);
-    }
   }
 
   .large {

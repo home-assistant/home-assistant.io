@@ -5,10 +5,70 @@
 // Add data-shimmer to an element, then call initShimmer(). Modes:
 //   data-shimmer          plays once when scrolled into view (default)
 //   data-shimmer="always" plays every time it scrolls into view
-//   data-shimmer="hover"  plays on hover or keyboard focus
+//   data-shimmer="hover"  plays on hover or keyboard focus; on touch
+//                         screens (no hover), as it scrolls through the
+//                         middle of the screen, one element at a time
+//                         (see `band` below). The playing element has
+//                         the .is-active class, so its other hover
+//                         styles can follow (`:hover, .is-active`)
 //   data-shimmer="manual" only plays when you call shimmer(el)
 
 import { reducedMotion } from "./motion";
+
+// Devices that cannot hover, such as phones.
+const noHover = matchMedia("(hover: none)");
+
+// On touch screens, "hover" elements take turns in the middle fifth of
+// the screen: the first in page order that has not played yet becomes
+// .is-active and shimmers; HOLD later the next one does, and so on.
+// Cards side by side (a tablet's 2 × 2 grid) reach the middle together
+// and play one after the other instead of as a pair. The last one
+// stays active until it leaves the middle; leaving resets an element,
+// so it plays again next time.
+const HOLD = 1200;
+const inBand = new Set<HTMLElement>();
+const played = new WeakSet<HTMLElement>();
+let active: HTMLElement | null = null;
+let holding = 0;
+
+function inPageOrder(a: HTMLElement, b: HTMLElement) {
+  return a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING
+    ? -1
+    : 1;
+}
+
+function playNext() {
+  if (holding) return;
+  const next = [...inBand].sort(inPageOrder).find((el) => !played.has(el));
+  if (!next) return;
+  active?.classList.remove("is-active");
+  active = next;
+  next.classList.add("is-active");
+  played.add(next);
+  shimmer(next);
+  holding = window.setTimeout(() => {
+    holding = 0;
+    playNext();
+  }, HOLD);
+}
+
+const band = new IntersectionObserver(
+  (entries) => {
+    for (const entry of entries) {
+      const el = entry.target as HTMLElement;
+      if (entry.isIntersecting) {
+        inBand.add(el);
+      } else {
+        inBand.delete(el);
+        played.delete(el);
+        el.classList.remove("is-active");
+        if (active === el) active = null;
+      }
+    }
+    playNext();
+  },
+  { rootMargin: "-40% 0px -40% 0px" },
+);
 
 interface Options {
   selector: string;
@@ -80,6 +140,7 @@ export function initShimmer(
     if (mode === "hover") {
       el.addEventListener("pointerenter", onHover);
       el.addEventListener("focusin", onHover);
+      if (noHover.matches) band.observe(el);
     } else if (mode !== "manual") {
       io.observe(el);
     }

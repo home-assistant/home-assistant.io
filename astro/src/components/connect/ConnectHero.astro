@@ -73,6 +73,7 @@ const {
     widths={[640, 1280, 1920, 2560, image.width]}
     sizes="100vw"
     mobileWidths={mobileImage && [640, 1280, 1920, mobileImage.width]}
+    quality={100}
     loading="eager"
     fetchpriority="high"
   />
@@ -163,6 +164,12 @@ const {
       line-height: 1.2;
       margin: 0;
       text-box: trim-both cap alphabetic;
+    }
+
+    /* Tighter lines in the tagline, so its two lines read as one
+       block. */
+    .tagline {
+      line-height: 1.05;
     }
   }
 

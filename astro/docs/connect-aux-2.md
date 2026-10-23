@@ -26,8 +26,7 @@ everything is, what was decided, and what is still open.
   `search_design_system` and `get_variable_defs`; the variable names
   are noted next to the matching tokens in `src/styles/tokens.scss`.
 - The other frames on the canvas ("Section 2 alt", "FRAME A/B",
-  "before", the loose "Card" frames) are experiments. The four loose
-  cards (`2546:1203` to `2546:1225`) supply the hotspot card copy.
+  "before", the loose "Card" frames) are experiments.
 
 Each section in `src/pages/connect/aux-2/index.astro` has a comment
 naming its Figma frame and node IDs.
@@ -37,7 +36,7 @@ naming its Figma frame and node IDs.
 Page:
 
 - `src/pages/connect/aux-2/index.astro`: the page, its section data
-  (hotspots, cables, diagram) and page-level styles.
+  (cables, diagram) and page-level styles.
 - `src/pages/connect/aux-2/_content.ts`: specifications and FAQ data.
 
 Layouts:
@@ -54,9 +53,8 @@ Components in `src/components/connect/`, each with a `.fixtures.mjs`:
 | `ConnectNav` | Product bar, sticky over the hero and frosted white once the page scrolls, as on the ZBT-2 page; folds into a menu below 1140px. |
 | `ConnectHero` | Hero photo, tagline, product name (the page's `h1`), lead, collaboration badge. |
 | `ConnectSectionHeader` | Centered `h2` and lead ("Audio and so much more", "Incredible audio", "Deep control with serial"). |
-| `ConnectFeatureCard` | Dark card with an icon; background and border fade out, with a border shimmer on hover. Variants: `light` (hotspot cards), `large` ("Incredible audio"), `media` slot. |
+| `ConnectFeatureCard` | Dark card with an icon; background and border fade out, with a border shimmer on hover. Variants: `large` ("Incredible audio"), `animated` (inline icon that plays on hover), `media` slot. |
 | `ConnectLabel` | Blue pill label ("The smart home multi-tool", "Connect anywhere"). |
-| `ConnectHotspots` | "Connect everything": photo with clickable + points, cards and a connector line. Not on the page for now: the section is a black placeholder one window tall with only its label, heading and lead, until it is redesigned. |
 | `ConnectPrice` | Price section, `id="buy"`. |
 | `ConnectCollaboration` | "Every purchase supports the Open Home" banner. |
 | `ConnectSpecs` | Specifications, `id="specs"`. |
@@ -85,16 +83,14 @@ Photos:
   compresses each size once, at `quality={85}` on every photo. Crops
   scale evenly; never resize a crop to a different shape, which
   squashes the photo.
-- Some Figma image fills are soft in themselves (back, best-spot,
-  ports: they look upscaled at 100%). Re-exporting from Figma will not
+- Some Figma image fills are soft in themselves (back, best-spot: they
+  look upscaled at 100%). Re-exporting from Figma will not
   fix them; they need the original photos from design.
 - Where the mobile frame frames a photo differently, there is a second
   file with a `-mobile` suffix, used below the desk breakpoint through
   `ArtDirectedImage` (`hero`, `best-spot`, `board`). `back.webp` is cropped to
   cover both the desktop and the phone crop, with `object-position`
   choosing between them.
-- `ports.webp` must keep its crop (2732 × 1816, the 1440 × 957 frame):
-  the hotspot positions in `index.astro` are measured on it.
 - The hero files are 2x crops of the Figma hero frames supplied by
   design (`hero.webp` 2880 × 1640, `hero-mobile.webp` 786 × 1238), so
   they match the frames exactly.
@@ -193,10 +189,6 @@ These are also recorded in each component's header comment.
   script they are simply shown). The SVGs are inlined for this, with
   Figma's layer IDs removed and `.wire` and `.plug` classes added. The
   cables are hidden below 1140px.
-- Hotspots: one point is always selected, so a card always shows. The
-  connector line is drawn by script for every point (Figma draws it
-  only for Audio). On phones the photo zooms in on the product and the
-  card sits below it.
 - The "Click to rotate" button is left out until there is something to
   rotate to.
 - Diagram, house map, device mockup and glow are rebuilt from exported
@@ -245,12 +237,29 @@ These are also recorded in each component's header comment.
   it stays below the board at any width, and the card grows to fit
   instead of keeping Figma's fixed 345 × 284 shape.
 
+## Dev feedback round 1 (October 2026)
+
+Done: a dark scrim behind the product bar over the hero; section
+padding one step up the spacing scale (40px phones, 80px desktop);
+the hero photo encoded at quality 100 (further optimization by hand); a tighter tagline (line-height
+1.05); `NoBreak` (`src/components/NoBreak.astro`, `src/lib/text.ts`)
+around the page content, so "Home Assistant" never wraps; the cables
+pushed further out (`--pull` 0.35) and drawn in one at a time from
+their far ends; no icon bounce on the feature cards; Clelia's animated
+icons for "Audio and so much more" (recolored white for the dark
+cards, with a reduced-motion rule in each file); an ease-out shimmer;
+a `powerfulShimmer` switch in the page (on); TODO comments at the Zigbee
+copy. Open: the Sendspin card, the "hardware with a mission" box-out
+and the other cards' animated icons (blocked on design and assets),
+the ZWA-2 line and the
+"Connect everything" section (a placeholder: its hotspot build,
+`ConnectHotspots` and its data, was removed for a rebuild).
+
 ## Not done yet (TODO)
 
 Assets:
 
-- Replace the placeholder photos with the final ones: ports,
-  best-spot, board, back and board-logos (and their `-mobile` crops). The October update in Figma removed the
+- Replace the placeholder photos with the final ones: best-spot, board, back and board-logos (and their `-mobile` crops). The October update in Figma removed the
   third-party speaker logo from the hero.
 - "Audio and so much more" is a video (`at-home.mp4`, `AutoplayVideo`):
   the source file from design (1920 × 1420, 7.1 MB) re-encoded with
@@ -267,8 +276,6 @@ Assets:
   animated pulses that replace them (`.pulse-zwa`, `.pulse-aux`,
   `.pulse-green`) are not in Figma: they were added to the file by
   hand, under each badge.
-- Hotspot card icons: "Extend your network" and "Expand I/O" reuse the
-  "Connect anywhere" icon.
 - A back-side photo or 3D model, then add the rotate button. Figma's
   mobile frame shows a 3D line-art viewer ("Line art", "Rotate",
   "Export GLB") with spec tables in the cards; that is not built.

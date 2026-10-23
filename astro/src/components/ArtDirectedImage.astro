@@ -3,8 +3,9 @@
 // (1140px), `mobileImage` below it, in one <picture>. Without a
 // `mobileImage`, `image` is used at every width.
 //
-// Encodes at quality 85, which keeps the detail in product photos
-// (Astro's default is 80).
+// Encodes at quality 85 by default, which keeps the detail in product
+// photos (Astro's default is 80); `quality` raises it where a photo
+// needs more, such as a hero exported as an already compressed WebP.
 //
 // Other attributes, such as `class`, go on the <picture>. The <img> is
 // rendered here, so style it from the parent with :global(img).
@@ -25,6 +26,8 @@ interface Props extends HTMLAttributes<"picture"> {
   mobileSizes?: string;
   loading?: "eager" | "lazy";
   fetchpriority?: "high" | "low" | "auto";
+  // Encoding quality, 1 to 100.
+  quality?: number;
 }
 
 const {
@@ -37,10 +40,10 @@ const {
   mobileSizes = sizes,
   loading,
   fetchpriority,
+  quality = 85,
   ...attrs
 } = Astro.props;
 
-const quality = 85;
 const deskSet =
   mobileImage && (await getImage({ src: image, widths, quality }));
 ---

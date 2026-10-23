@@ -14,6 +14,7 @@ import ArtDirectedImage from "../../../components/ArtDirectedImage.astro";
 import Site from "../../../layouts/Site.astro";
 import BuyDialog from "../../../components/BuyDialog.astro";
 import AutoplayVideo from "../../../components/AutoplayVideo.astro";
+import NoBreak from "../../../components/NoBreak.astro";
 import ConnectNav from "../../../components/connect/ConnectNav.astro";
 import ConnectHero from "../../../components/connect/ConnectHero.astro";
 import ConnectSectionHeader from "../../../components/connect/ConnectSectionHeader.astro";
@@ -70,6 +71,10 @@ import bluetooth from "../../../assets/connect/icons/bluetooth.svg";
 
 const product = "Connect AUX-2";
 
+// The "Powerful options" card gets the feature cards' border shimmer
+// on hover; false turns it off.
+const powerfulShimmer = true;
+
 // Section links as on the other Connect pages; the Figma file only has
 // placeholders. Their "Docs" link is left out until the AUX-2 has help
 // pages. "#buy" is the price section further down the page, where the
@@ -87,9 +92,10 @@ const links = [
 // starts 41px further down). Some are mirrored in Figma.
 //
 // The SVGs are inlined so the wires can draw on when the section scrolls
-// into view: each wire (`.wire` in the file) draws out from its plug
-// (`.plug`). `from` says which end of the wire's path the plug is at:
-// 1 for its start, -1 for its end.
+// into view: each wire (`.wire` in the file) draws in towards its plug
+// (`.plug`), one cable after another, from the last in this list to
+// the first. `from` says which end of the
+// wire's path the plug is at: 1 for its start, -1 for its end.
 const cables = [
   { svg: cableLeft1, side: "left", x: -217.88, y: -171, flip: "x", from: 1 },
   { svg: cableLeft2, side: "left", x: -265.17, y: -167.56, from: 1 },
@@ -101,52 +107,6 @@ const cables = [
   { svg: cableRight5, side: "right", x: -259.6, y: 367.9, flip: "y", from: 1 },
 ];
 const rem = (px: number) => `${(px / 16).toFixed(4)}rem`;
-
-// Not shown for now: "Connect everything" is a placeholder (see the
-// markup). The "+" points of "Connect everything", at the centers of the Figma
-// buttons (node 2586:1426) in percent of the 1440 × 957 frame. The card
-// texts are the four loose "Card" frames on the Figma canvas (nodes
-// 2546:1203 to 2546:1225); they have no icons, so the closest card
-// icons stand in (TODO: final icons for "Extend your network" and
-// "Expand I/O").
-const ports = [
-  {
-    id: "usb",
-    label: "USB-A port",
-    x: 30.49,
-    y: 75,
-    icon: connectAnywhere,
-    title: "Extend your network",
-    text: "Connect your ZWA-2 and place it in the optimal location for better coverage.",
-  },
-  {
-    id: "serial",
-    label: "RS-232 ports",
-    x: 40,
-    y: 70.76,
-    icon: advancedControl,
-    title: "Advanced control",
-    text: "Control devices that talk RS-232 with these two ports.",
-  },
-  {
-    id: "grove",
-    label: "Grove port",
-    x: 47.85,
-    y: 67.44,
-    icon: connectAnywhere,
-    title: "Expand I/O",
-    text: "Add in- or output modules easily with the Grove port.",
-  },
-  {
-    id: "audio",
-    label: "Audio port",
-    x: 53.96,
-    y: 65,
-    icon: wholeHomeAudio,
-    title: "Stream audio",
-    text: "Analogue and digital via 3,5mm or SPDIF.",
-  },
-];
 
 // The parts of the "Deep control with serial" diagram (Figma group
 // 2556:6345, 692 × 596), in Figma's layer order, each at its Figma
@@ -182,6 +142,8 @@ const diagram = [
   stickyHeader={false}
 >
   <main class="connect">
+    <!-- "Home Assistant" never breaks across lines anywhere on the page. -->
+    <NoBreak>
     <ConnectNav product={product} links={links} buyHref="#buy" />
     <ConnectHero
       image={heroImage}
@@ -208,17 +170,17 @@ const diagram = [
 
         <div class="feature-grid">
           <div class="cards">
-            <ConnectFeatureCard icon={wholeHomeAudio} title="Whole home audio">
+            <ConnectFeatureCard icon={wholeHomeAudio} title="Whole home audio" animated>
               Syncs classic audio gear to your modern smart speakers.
             </ConnectFeatureCard>
-            <ConnectFeatureCard icon={advancedControl} title="Advanced control">
+            <ConnectFeatureCard icon={advancedControl} title="Advanced control" animated>
               Its serial connection gives you deep control of your audio gear
               and more.
             </ConnectFeatureCard>
-            <ConnectFeatureCard icon={connectAnywhere} title="Connect anywhere">
+            <ConnectFeatureCard icon={connectAnywhere} title="Connect anywhere" animated>
               Easily add PoE or WiFi to your ZWA-2.
             </ConnectFeatureCard>
-            <ConnectFeatureCard icon={bluetooth} title="Rock-solid Bluetooth">
+            <ConnectFeatureCard icon={bluetooth} title="Rock-solid Bluetooth" animated>
               Directly connect devices to Home Assistant.
             </ConnectFeatureCard>
           </div>
@@ -243,12 +205,15 @@ const diagram = [
             cables.map(({ svg: Cable, side, x, y, flip, from }, i) => (
               <Cable
                 class:list={["cable", side, flip && `flip-${flip}`]}
-                style={`--x: ${rem(x)}; --y: ${rem(y)}; --width: ${rem(Cable.width)}; --i: ${i}; --from: ${from}`}
+                style={`--x: ${rem(x)}; --y: ${rem(y)}; --width: ${rem(Cable.width)}; --order: ${cables.length - 1 - i}; --from: ${from}`}
               />
             ))
           }
         </div>
         <div class="content">
+          <!-- TODO [BLOCKED: design]: a possible box-out for "Hardware
+               with a mission" was suggested; waiting for design to
+               confirm it. -->
           <h2 class="heading">Hardware with a mission</h2>
           <p class="lead">
             You can make any device in your home smart with the right tools.
@@ -264,15 +229,14 @@ const diagram = [
 
     <!-- Figma frame "Frame 149" (desktop node 2586:1425).
          TODO: a placeholder for now: the label, heading and lead on a
-         black section one window tall. The finished section is to be
-         designed; until then the photo with the port hotspots
-         (ConnectHotspots, with `ports` above and ports.webp) is left
-         out. -->
+         black section one window tall. The section is to be rebuilt. -->
     <section class="multi-tool-placeholder">
       <div class="content">
         <div class="multi-tool">
           <ConnectLabel>The smart home multi-tool</ConnectLabel>
           <h2 class="heading">Connect everything</h2>
+          <!-- TODO [copy]: Zigbee won't work at launch; this lead mentions
+               it. -->
           <p class="lead">
             Stream audio, control legacy devices over RS-232, add sensors
             and extend your Zigbee or Z-Wave network, all from one small box.
@@ -311,6 +275,10 @@ const diagram = [
             </div>
           </div>
         </ConnectFeatureCard>
+        <!-- TODO [BLOCKED: design/copy]: a Sendspin card for the
+             multiroom cards: one sentence explaining Sendspin, with the
+             Sendspin logo/badge, requested by stakeholders. Waiting for
+             its design and text. -->
         <ConnectFeatureCard icon={losslessIcon} title="Lossless sound" large>
           Choose a clean analogue output, or bit-perfect digital output.
         </ConnectFeatureCard>
@@ -382,6 +350,8 @@ const diagram = [
       <div class="coverage-text">
         <ConnectLabel>Connect anywhere</ConnectLabel>
         <h2 class="heading">Best spot in the house</h2>
+        <!-- TODO [copy]: Zigbee won't work at launch; this lead, and the
+             footnote below (ZBT-1, ZBT-2), mention it. -->
         <p class="lead">
           Move your Zigbee or Z-Wave network wherever the signal is strongest.*
         </p>
@@ -440,7 +410,10 @@ const diagram = [
         </div>
       </div>
       <div class="powerful">
-        <div class="powerful-text">
+        <div
+          class="powerful-text"
+          data-shimmer={powerfulShimmer ? "hover" : undefined}
+        >
           <h2 class="heading">Powerful options</h2>
           <ul>
             <li><strong>Power your way</strong> - PoE or USB-C</li>
@@ -494,6 +467,7 @@ const diagram = [
 
     <!-- Figma frame "FAQ" (desktop node 2002:36189). -->
     <ConnectFaq items={faq} />
+    </NoBreak>
   </main>
 
   <!-- Where to buy: the distributors listed under "aux-2" in
@@ -604,7 +578,7 @@ const diagram = [
     display: flex;
     flex-direction: column;
     gap: var(--space-xlarge);
-    padding-top: var(--space-xlarge);
+    padding-top: var(--space-xxlarge);
   }
 
   .feature-grid {
@@ -635,7 +609,7 @@ const diagram = [
     .content {
       display: flex;
       flex-direction: column;
-      padding-block: var(--space-xlarge) var(--space-xxlarge);
+      padding-block: var(--space-xxlarge);
     }
 
     .heading {
@@ -704,7 +678,7 @@ const diagram = [
   .coverage {
     display: grid;
     gap: var(--space-xlarge);
-    padding-block: var(--space-xlarge);
+    padding-block: var(--space-xxlarge);
   }
 
   .coverage-map {
@@ -799,7 +773,7 @@ const diagram = [
   .options {
     display: grid;
     gap: var(--space-xlarge);
-    padding-block: var(--space-xlarge);
+    padding-block: var(--space-xxlarge);
   }
 
   /* The photo fills the banner, the text over its pale blue at the
@@ -899,7 +873,7 @@ const diagram = [
     display: flex;
     flex-direction: column;
     gap: var(--space-xlarge);
-    padding-block: var(--space-xlarge);
+    padding-block: var(--space-xxlarge);
   }
 
   .audio-grid,
@@ -1136,7 +1110,7 @@ const diagram = [
     .audio,
     .serial {
       gap: var(--space-xxlarge);
-      padding-block: var(--space-xxlarge);
+      padding-block: var(--space-xxxlarge);
     }
 
     /* Three cards in a 388px column, the Music Assistant card beside
@@ -1192,7 +1166,7 @@ const diagram = [
       grid-template-columns: repeat(2, minmax(0, 1fr));
       grid-template-rows: auto 1fr;
       height: 45rem;
-      padding-block: var(--space-xxlarge);
+      padding-block: var(--space-xxxlarge);
     }
 
     .coverage-map {
@@ -1208,7 +1182,7 @@ const diagram = [
     }
 
     .options {
-      padding-block: var(--space-xxlarge);
+      padding-block: var(--space-xxxlarge);
     }
 
     /* The wide photo, the text on its right. */
@@ -1249,7 +1223,7 @@ const diagram = [
 
     .features > .content {
       gap: var(--space-xxlarge);
-      padding-top: var(--space-xxlarge);
+      padding-top: var(--space-xxxlarge);
     }
 
     /* The cards keep Figma's 387px column; the photo takes the rest
@@ -1295,11 +1269,11 @@ const diagram = [
        by their own components, hence :global(). */
     .cables {
       /* Measured from Figma's 1200px column, not the page's 1300px
-         content, then each cable is pulled 20% of its width further
-         out, so the cables clear the heading and cards. The content
-         stays in front of them anyway (see below). */
+         content, then each cable is pulled 35% of its width further
+         out, so the cables keep clear of the heading and cards. The
+         content stays in front of them anyway (see below). */
       --content-edge: max(var(--layout-gutter-wide), (100% - 75rem) / 2);
-      --pull: 0.2;
+      --pull: 0.35;
 
       display: block;
       inset: 0;
@@ -1340,24 +1314,30 @@ const diagram = [
 
     /* Drawing on: the script arms the layer (unless the visitor
        prefers reduced motion), which hides the plugs and wires, then
-       draws them when the section scrolls into view. Each plug fades
-       in, then its wire draws out from it to the window's edge; the
-       cables follow one another. Without the script the cables are
-       simply there. */
+       draws them when the section scrolls into view. One cable at a
+       time (0.3s apart), the last one in the list first (--order):
+       its wire draws in from its far end, at the window's edge, to its
+       plug, which appears as the wire arrives.
+       Ease-out, so it starts quickly and settles. Without the script
+       the cables are simply there. */
     .cables:global(.is-armed) {
+      --step: 0.3s;
+      --draw: 0.9s;
+
       :global(.plug) {
         opacity: 0;
-        transition: opacity 0.4s ease calc(var(--i) * 0.12s);
+        transition: opacity 0.25s ease-out
+          calc(var(--order) * var(--step) + var(--draw) - 0.15s);
       }
 
       /* pathLength="1" in the files: a dash as long as the wire, then a
-         gap as long, shifted so the gap covers it. --from picks the end
-         the dash grows from. */
+         gap as long, shifted so the gap covers it. --from is the end the
+         plug is at; the dash grows from the other end. */
       :global(.wire) {
         stroke-dasharray: 1 1;
-        stroke-dashoffset: var(--from);
-        transition: stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1)
-          calc(var(--i) * 0.12s + 0.25s);
+        stroke-dashoffset: calc(var(--from) * -1);
+        transition: stroke-dashoffset var(--draw) cubic-bezier(0.2, 0.6, 0.35, 1)
+          calc(var(--order) * var(--step));
       }
     }
 

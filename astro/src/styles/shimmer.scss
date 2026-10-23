@@ -30,7 +30,10 @@
 	--shimmer-length: 90deg;
 	--shimmer-start: -60deg;
 	--shimmer-duration: 1.8s;
-	--shimmer-ease: cubic-bezier(0.45, 0, 0.25, 1);
+	/* A gentle ease-out: the comet moves off at once and keeps a fairly
+	   even pace, slowing only at the end. (An ease-in-out felt sluggish:
+	   slow to start, with the stretched tail lingering mid-sweep.) */
+	--shimmer-ease: cubic-bezier(0.25, 0.4, 0.45, 1);
 
 	isolation: isolate;
 	position: relative;

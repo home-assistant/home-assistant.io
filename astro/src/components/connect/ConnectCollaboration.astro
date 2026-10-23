@@ -29,7 +29,7 @@ const { image, imageAlt } = Astro.props;
     src={image}
     alt={imageAlt}
     widths={[486, 972, 1440, image.width]}
-    sizes="(min-width: 71.25rem) 30rem, (min-width: 48rem) 40vw, 100vw"
+    sizes="(min-width: 71.25rem) 30.375rem, (min-width: 48rem) 40vw, 100vw"
   />
   <div class="text">
     <p class="partner">
@@ -124,8 +124,11 @@ const { image, imageAlt } = Astro.props;
     .connect-collaboration {
       grid-template-columns: minmax(0, 486fr) minmax(0, 714fr);
 
+      /* The narrow column crops the photo: keep the board's right edge
+         in view and lose the left instead. */
       > img {
         height: 100%;
+        object-position: right top;
       }
     }
 
@@ -137,16 +140,25 @@ const { image, imageAlt } = Astro.props;
   @media only screen and (min-width: breakpoints.$desk) {
     .connect-collaboration {
       align-items: center;
+      /* Figma's 486 × 330px photo at its own size, whatever the width:
+         the file is exactly that area, so nothing is cropped. The text
+         takes the rest. */
+      grid-template-columns: 30.375rem minmax(0, 1fr);
+      /* The row is the banner's height, not the photo's. */
+      grid-template-rows: minmax(0, 1fr);
       height: 20.625rem;
 
       > img {
         height: 100%;
+        object-position: left top;
       }
     }
 
+    /* Figma's text starts 20px after the photo's column. */
     .text {
       max-width: 40.75rem;
-      padding: var(--space-xxlarge) var(--space-xxlarge) var(--space-xxlarge) 0;
+      padding: var(--space-xxlarge) var(--space-xxlarge) var(--space-xxlarge)
+        var(--space-xlarge);
 
       :global(h2),
       :global(h3) {
