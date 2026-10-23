@@ -140,6 +140,28 @@ To reconfigure the integration:
 3. From the list of gateways, find the one you want to reconfigure.
 4. Next to that gateway, select the three dots menu ({% icon "mdi:dots-vertical" %}), then select **Reconfigure**.
 
+## Supported functionality
+
+### Atlantic heat pump zones
+
+For Atlantic and Sauter heat pumps with zone control, such as Zone Control 2.0, each zone has a climate entity. The entity follows the side that the heat pump is running: heating or cooling, and the last one while the heat pump is stopped or drying.
+
+The entity has two kinds of target temperatures:
+
+- **Target temperature range**: the eco and comfort temperatures of the time program of the side that is running. Changing them edits the time program of the zone permanently, in any mode, and never starts an override. When heating, the low value is the eco temperature and the high value is the comfort temperature. When cooling, the low value is the comfort temperature and the high value is the eco temperature. For example, you can lower the comfort cooling temperature while your solar panels produce more power than your home uses.
+- **Target temperature**: the manual temperature of the zone. While the zone follows its time program, the value is only stored and applies once you switch the zone to manual. In manual mode, changing it starts a temporary override.
+
+The following presets are available:
+
+- **Manual**: the zone follows the manual temperature.
+- **Schedule**: the zone follows its time program, and an active override ends.
+- **Schedule comfort** and **Schedule eco**: show which profile of the time program the zone applies at the moment.
+- **Derogation**, **Derogation comfort** and **Derogation eco**: show that an override started from the remote control or the app is active, and which profile it applies.
+
+You can only select **Manual** and **Schedule**. The other presets only show the current state, because the zone has no command to start an override toward a profile. To start an override, switch the zone to manual and change the target temperature, or use the remote control or the app.
+
+Scenes can save and restore both kinds of target temperatures and the presets of a zone. The range edits the time program of the side that is running when the scene is restored. If the heat pump runs the other side than when you saved the scene, the scene may be refused, or it may overwrite the time program of that side with the saved values.
+
 {% include integrations/actions.md %}
 
 ## Data updates
