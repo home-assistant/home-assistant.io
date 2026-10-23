@@ -126,6 +126,8 @@ Inverter settings can't be changed from Home Assistant. The integration only rea
 
 ## Troubleshooting
 
+If you report a problem, attach the [diagnostics](/integrations/diagnostics/) download. It contains the serial port, the inverter list, and each inverter's last reading.
+
 ### No inverters answered during setup
 
 1. Check the time of day. These inverters go completely silent after dusk and answer nothing until the sun is back on the panels.
