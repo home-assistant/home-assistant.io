@@ -89,9 +89,9 @@ automation: |
 
 The integration fetches nothing on a schedule. Each action contacts Farmad when you run it, so the search results show the current price and stock.
 
-If the Farmad session expires or is rejected, the integration can no longer reach Farmad and its actions fail. Home Assistant will ask you to sign in again.
+If Farmad rejects the stored session, the actions fail and Home Assistant asks you to sign in again.
 
-Your password is only used to sign in, and it is never stored. The integration keeps only your email address and the tokens Farmad hands back, and refreshes them when needed.
+Your password is only used to sign in, and it is never stored. The integration keeps only your email address and the tokens Farmad returns, and refreshes the tokens when needed.
 
 ## Known limitations
 
