@@ -163,17 +163,24 @@ Chat ID:
 
 ### Recipients of send actions
 
-Actions that send content, such as `telegram_bot.send_message` and `telegram_bot.send_media_group`, send it to the chats you specify with one of these options:
+Actions that send content, such as `telegram_bot.send_message` and `telegram_bot.send_media_group`, send it to the chats that you can specify with these options:
 
 - `entity_id`: One or more Telegram bot [notify entities](#notifiers). Each notify entity represents one allowed chat ID.
-- `chat_id`: One or more allowed chat IDs. In the action editor, **Chat ID** and **Config entry ID** are under **Additional options**.
+- `chat_id`: One or more allowed chat IDs. In the action dialog, **Chat ID** is under **Additional options**.
+- `config_entry_id`: The Telegram bot. In the action dialog, **Config entry ID** is under **Additional options**.
 
-If you don't specify `entity_id` or `chat_id`, the action sends to the first chat ID you allowlisted for the selected bot:
+When you have a single Telegram bot:
 
-- If you have a single Telegram bot, the bot is selected automatically.
-- If you have more than one Telegram bot, specify `entity_id` to select a chat, or specify `config_entry_id` to select the bot.
-  - When using `config_entry_id`, you can optionally specify `chat_id` to select one or more chats instead of the first allowed chat.
-  - Without `entity_id` or `config_entry_id`, the action fails with the error `Please specify at least 1 notify entity.`
+- If you don't specify any of the options above, the bot is selected automatically and the action sends to the first chat ID you allowlisted for the bot.
+- If you want to send to other allowed chats, specify them with `entity_id` or `chat_id`.
+
+If you have more than one Telegram bot, specify one of the following:
+
+- `entity_id`: The action sends to the allowed chat ID of a specific bot notify entity or entities. If you also add a `chat_id`, the action ignores it.
+- `config_entry_id`: The action sends to the first chat ID you allowlisted for that bot.
+- `config_entry_id` and `chat_id`: The action sends to the specified allowed chat ID or IDs of that bot.
+
+If you have more than one Telegram bot and specify neither `entity_id` nor `config_entry_id`, the action fails with the error "Please specify at least 1 notify entity."
 
 ## Notifiers
 
@@ -685,14 +692,14 @@ actions:
 
 ## Example: send_media_group
 
-The following example sends a photo and a video as one album to a specific chat.
+The following example sends a photo and a video as one album to the allowed chat of a specific bot notify entity.
 A media group must contain between 2 and 10 items. To learn how the action determines the chat, refer to [Recipients of send actions](#recipients-of-send-actions).
 
 ```yaml
 actions:
   - action: telegram_bot.send_media_group
     data:
-      chat_id: YOUR_CHAT_ID # Replace with your allowed chat ID
+      entity_id: notify.telegram_bot_chat # Replace with your notify entity
       media:
         - url: https://example/image.jpg
           caption: My album
