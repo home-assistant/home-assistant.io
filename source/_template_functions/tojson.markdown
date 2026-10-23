@@ -66,7 +66,7 @@ output: |
 
 - The default output includes a space after each comma and colon, unlike [`to_json`](/template-functions/to_json/), which produces a compact string.
 - The keys of a dictionary are always sorted alphabetically.
-- Some characters are escaped, so the output is safe to place inside HTML. `<`, `>`, `&`, and `'` become `\u003c`, `\u003e`, `\u0026`, and `\u0027`.
+- Some characters are escaped: `<`, `>`, `&`, and `'` become `\u003c`, `\u003e`, `\u0026`, and `\u0027`. This makes the output safe to place in HTML text, in a `<script>` element, or in an HTML attribute with single quotes. Double quotes aren't escaped, so don't place the output in an attribute with double quotes.
 - Characters outside the ASCII range are escaped too. For example, `°C` becomes `\u00b0C`. To keep these characters as they are, use [`to_json`](/template-functions/to_json/).
 - Date and time values and state objects can't be converted. They cause an error.
 
