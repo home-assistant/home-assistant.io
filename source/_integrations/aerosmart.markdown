@@ -16,13 +16,13 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The **aerosmart** {% term integration %} lets you monitor a combined aerosmart ventilation and heat-pump installation. Home Assistant connects locally through a Modbus TCP gateway, without a cloud service.
+The **aerosmart** {% term integration %} lets you monitor a combined aerosmart ventilation and heat-pump installation. Home Assistant connects locally through a Modbus TCP gateway or a directly connected serial Modbus RTU port, without a cloud service.
 
 The integration represents the ventilation controller and heat-pump controller as one device. It provides operating values, filter information, and controller status.
 
 ## Supported devices
 
-The integration supports an aerosmart installation that exposes the expected register map as two Modbus units on one Modbus TCP connection:
+The integration supports an aerosmart installation that exposes the expected register map as two Modbus units on one Modbus connection, reached either over TCP or serial RTU:
 
 - A ventilation controller, typically at unit address `1`.
 - A heat-pump and hot-water controller, typically at unit address `2`.
@@ -31,28 +31,28 @@ The register map was derived from one physical installation because no official 
 
 ## Prerequisites
 
-- Connect the controllers to your network through a gateway that translates their serial Modbus communication to Modbus TCP.
-- Make sure Home Assistant can reach the gateway host and TCP port.
+- For a network setup, connect the controllers through a gateway that translates their serial Modbus communication to Modbus TCP, and make sure Home Assistant can reach its host and port.
+- For a serial setup, connect the aerosmart Modbus bus to a serial port available to Home Assistant.
 - Find the Modbus unit address for each controller. The defaults are `1` for ventilation and `2` for the heat pump.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
+Connection type:
+  description: "Choose Network for a Modbus TCP gateway or Serial port for Modbus RTU."
 Host:
   description: "The hostname or IP address of your Modbus TCP gateway. For example, `192.168.1.100`."
 Port:
   description: "The TCP port of your Modbus gateway. The default is `502`."
+Serial port:
+  description: "The serial port connected to the aerosmart Modbus bus."
+Baud rate:
+  description: "The speed of the serial Modbus RTU connection. The default is `9600`."
 Ventilation unit:
   description: "The Modbus unit address of the ventilation controller. The default is `1`."
 Heat pump unit:
   description: "The Modbus unit address of the heat-pump and hot-water controller. The default is `2`."
 {% endconfiguration_basic %}
-
-## Configuration options
-
-To change the gateway or either unit address, go to {% my integrations title="**Settings** > **Devices & services**" %}, select **aerosmart**, and select **Configure**.
-
-Before saving the new settings, Home Assistant checks that both controllers answer through the specified gateway.
 
 ## Supported functionality
 
@@ -67,10 +67,6 @@ Sensors report information such as:
 - Heat-pump status, pressure inputs, and remaining time in the current state.
 - Filter operating hours, service life, and volume values.
 - Operating-hour counters and controller information.
-
-### Diagnostics
-
-You can download diagnostics from the aerosmart device page. The diagnostics include the latest value of every known register and the state of both polling cycles. The gateway host is redacted.
 
 ## Aerosmart automation examples
 
@@ -122,7 +118,7 @@ During setup, the integration waits for the first update from both controller un
 
 - The register map was derived from one physical installation, not from an official manufacturer specification. Entity names and units might not match every aerosmart installation.
 - The integration creates one Home Assistant device for the whole installation, even though the ventilation controller and heat-pump controller use separate Modbus units.
-- Other Modbus clients can interfere with communication if the gateway accepts only one TCP client at a time.
+- Other Modbus clients can interfere with communication when they share the same gateway or serial bus.
 - Each value is read separately because the reference controller rejects larger combined register reads. A complete update can therefore take more than 30 seconds through a slow gateway.
 
 ## Troubleshooting
@@ -131,15 +127,14 @@ During setup, the integration waits for the first update from both controller un
 
 ### Symptom: Setup reports a connection failure
 
-The setup form reports that Home Assistant cannot connect after you submit the gateway and unit details.
+The setup form reports that Home Assistant cannot connect after you submit the connection and unit details.
 
 #### Resolution
 
-1. Confirm that the gateway is powered on and reachable from Home Assistant.
-2. Check the gateway host and TCP port.
+1. For a network setup, confirm that the gateway is powered on and reachable from Home Assistant, then check its host and TCP port.
+2. For a serial setup, confirm that the selected serial port and baud rate match the Modbus bus.
 3. Check the unit address for both controllers.
-4. Make sure the gateway is translating to Modbus TCP, rather than forwarding raw serial data.
-5. Stop any other Modbus client temporarily if the gateway accepts only one client.
+4. Stop any other Modbus client temporarily if it shares the same gateway or serial bus.
 
 {% enddetails %}
 
