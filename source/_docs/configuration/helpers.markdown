@@ -120,7 +120,10 @@ For a helper that you set up in YAML, you can't change its own settings in the U
 ### Prerequisites
 
 - The helper is set up in YAML.
-  - To check, go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}. A helper that you set up in YAML shows {% icon "mdi:pencil-off" %} in the **Editable** column. Its settings show **The settings of this entity cannot be edited from the UI. Only entities set up from the UI are configurable from the UI.**
+  - To check, go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}. A helper that you set up in YAML shows {% icon "mdi:pencil-off" %} in the **Editable** column. Its settings show one of the following messages:
+    - **The settings of this entity cannot be edited from the UI. Only entities set up from the UI are configurable from the UI.**
+    - A message that the entity doesn't have a unique ID, and that its settings can't be managed from the UI.
+  - You can also look for the helper in your YAML configuration, such as {% term "configuration.yaml" %}.
 
 ### To change a helper in YAML
 
