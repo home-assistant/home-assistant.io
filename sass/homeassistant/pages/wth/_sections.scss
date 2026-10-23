@@ -400,6 +400,8 @@ main#page-wth {
 
     // Closing call to action
     #cta {
+        background-color: var(--wth-surface);
+
         .cta-card {
             background-color: var(--wth-surface);
             border-radius: var(--card-radius);
@@ -550,6 +552,16 @@ main#page-wth {
 
         .section-lead {
             color: #CBD5DD;
+        }
+
+        .buttons-container {
+            margin-top: 40px;
+        }
+
+        // The usual hover turns the button ink, which would vanish here.
+        .button.primary:hover {
+            background-color: #ffffff;
+            color: var(--wth-ink);
         }
 
         .rule-number {
