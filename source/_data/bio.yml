@@ -8,20 +8,23 @@ avatar: /images/favicon-192x192-full.png
 tagline: Open source home automation that puts local control and privacy first.
 
 sections:
-  # Blog posts and newsletter issues in one list, newest first. A pinned
+  # Blog posts, newsletter issues and releases in one list, newest first. A pinned
   # post always comes first. Add or remove feeds in `sources`.
   # hero: true shows the first item as a large card with its image on top.
   - type: feed
     title: Latest
-    sources: [pinned, blog, newsletter]
-    limit: 3
+    sources: [pinned, blog, newsletter, releases]
+    limit: 5
     images: true
     hero: true
 
-  - type: feed
-    title: Latest release
-    source: releases
-    limit: 1
+  # Links that always sit under the Latest list. Add a campaign here, or give
+  # a link starts and ends dates to show it only for a while.
+  - type: links
+    title: Featured
+    items:
+      - label: Merch store
+        url: https://store.openhomefoundation.org
 
   - type: links
     title: Get started
@@ -33,15 +36,6 @@ sections:
         url: /docs/
       - label: Community forum
         url: https://community.home-assistant.io/
-
-  - type: links
-    title: Support the project
-    items:
-      - label: Home Assistant Cloud
-        url: https://www.nabucasa.com/
-        note: Supports development of Home Assistant
-      - label: Open Home Foundation
-        url: https://www.openhomefoundation.org/
 
 socials:
   - { platform: mastodon, url: "https://fosstodon.org/@homeassistant" }
@@ -55,7 +49,8 @@ sources:
   #   limit: the most items it can add to any one list
   # Blog sources can also set category or exclude_category to filter posts.
 
-  # Blog posts, including crossposts. Release notes have their own section.
+  # Blog posts, including crossposts. Release notes come from `releases`
+  # below, so they are labeled "Release" rather than "Blog".
   blog:
     type: posts
     label: Blog
@@ -65,6 +60,8 @@ sources:
   releases:
     type: posts
     category: Release-Notes
+    label: Release
+    limit: 1
 
   # The Open Home Foundation newsletter, downloaded before each build by the
   # newsletter_data task in the Rakefile. If the download fails, the newest
