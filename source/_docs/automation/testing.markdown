@@ -187,11 +187,41 @@ The tabs next to the graph show more information:
 
 Download a trace to share it when you report an issue or ask for help, for example, in the [community forum](https://community.home-assistant.io).
 
+{% important %}
+**Risk of exposing private information**
+
+A downloaded trace can contain private information, such as passwords from your `secrets.yaml` file, or the location of a person.
+
+Before you share a trace, remove this information. For the steps, refer to [Preparing a trace for sharing](#preparing-a-trace-for-sharing).
+{% endimportant %}
+
 1. Open the trace that you want to download. For the steps, refer to [Viewing the traces of an automation](#viewing-the-traces-of-an-automation).
    - If the automation ran after you opened the trace, select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Refresh** to load the new runs.
 2. Select **Menu** {% icon "mdi:dots-vertical" %}, and then select **Download trace**.
    - Result: Your browser downloads the trace and its related activity as a JSON file.
-   - The trace contains the configuration of the automation and the values of your entities. Before you share it, check that it doesn't contain information that you want to keep private.
+   - Before you share the file, prepare it. For the steps, refer to [Preparing a trace for sharing](#preparing-a-trace-for-sharing).
+
+### Preparing a trace for sharing
+
+A trace can contain private information, and anyone you share it with can read it. For example, a trace can contain the following information:
+
+- The configuration of the automation, including the real values from your `secrets.yaml` file, such as passwords, API keys, or webhook IDs.
+- The states and attributes of your entities, such as the location of a person or a phone.
+- The data that started the automation, such as the content of a webhook request.
+- The names of people, devices, and areas in your home.
+
+To remove this information before you share a trace, follow these steps:
+
+1. Download the trace. For the steps, refer to [Downloading a trace](#downloading-a-trace).
+2. Open the downloaded file in a text editor.
+3. Search the file for private values. Look for the following values:
+   - Passwords, API keys, and tokens from your `secrets.yaml` file.
+   - Webhook IDs.
+   - Coordinates (`latitude` and `longitude`), for example, of a person or a phone that started the automation.
+   - Street addresses, if the automation uses an entity whose state is an address, such as the geocoded location sensor of the Companion app.
+   - Phone numbers and email addresses, if the automation sends messages to them, for example, with an SMS or email notification.
+4. Replace each value with a placeholder, such as `REDACTED`. Keep the quotes and the rest of the file as they are.
+5. Save the file, and share the edited copy.
 
 ### How many traces are kept
 
