@@ -118,7 +118,7 @@ The individual trouble sensors are disabled by default. See [Enabling and disabl
 - **External modem command trouble**: Whether there is a command failure to the external modem.
 - **Telephone line bad signal trouble**: Whether there is a poor signal quality on the telephone line.
 - **Telephone line no signal trouble**: Whether there is no signal detected on the telephone line.
-- **Telephone line voltage or auxiliary processor trouble**: Whether there is a voltage or auxiliary processor issue on the telephone line.
+- **Telephone line voltage or auxiliary processor trouble**: Whether there is a telephone line voltage fault or an auxiliary processor fault, depending on the panel model.
 - **Monitoring station {number} trouble**: Whether there is a trouble communicating with the specified monitoring station (stations 1–2).
 
 ## Removing the integration
