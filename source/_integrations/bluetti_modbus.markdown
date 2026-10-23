@@ -1,9 +1,8 @@
 ---
 title: BLUETTI Modbus
 description: Instructions on how to integrate a BLUETTI power station with Home Assistant over Modbus TCP.
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.solar_batteries
 ha_release: 2026.11
 ha_iot_class: Local Polling
 ha_config_flow: true
