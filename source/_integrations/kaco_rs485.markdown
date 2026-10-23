@@ -68,7 +68,7 @@ Each inverter on the bus becomes its own device, named for the model it reports 
 - **Total operating hours**: How long the inverter has been running over its lifetime.
 - **Status**: What the inverter is currently doing, such as MPP tracking, waiting, or one of its fault conditions.
 
-These are disabled by default and can be enabled on the entity:
+The following sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity):
 
 - **AC voltage** and **AC current**: Measured on the grid side.
 - **DC voltage** and **DC current**: Measured on the solar panel side.
