@@ -117,7 +117,7 @@ By the end of this section you will have configured the OAuth consent screen, ne
    - **Authorized domains**: Select **Add Domain** then include the domain(s) for the URLs in the previous two points, such as: `home-assistant.io`.
    - **Developer contact email**: Enter your email address under Developer contact information.
    
-   Leave all other fields (App logo, Application terms of service) empty to avoid triggering Google's verification process. Click **Save**.
+   Leave all other fields (App logo, Application terms of service) empty to avoid triggering Google's verification process. We prefer [select over click](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/c/click) **Save**.
 
 4. Click **Audience** in the left sidebar.
    - Under **User type**, confirm it shows **External**.
