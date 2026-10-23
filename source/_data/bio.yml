@@ -10,11 +10,13 @@ tagline: Open source home automation that puts local control and privacy first.
 sections:
   # Blog posts and newsletter issues in one list, newest first. A pinned
   # post always comes first. Add or remove feeds in `sources`.
+  # hero: true shows the first item as a large card with its image on top.
   - type: feed
     title: Latest
     sources: [pinned, blog, newsletter]
     limit: 3
     images: true
+    hero: true
 
   - type: feed
     title: Latest release

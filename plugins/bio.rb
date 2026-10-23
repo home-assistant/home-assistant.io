@@ -109,6 +109,9 @@ module Jekyll
         unless SECTION_TYPES.include?(section['type'])
           fail!("#{path}.type", "must be one of: #{SECTION_TYPES.join(', ')}")
         end
+        if section.key?('hero') && ![true, false].include?(section['hero'])
+          fail!("#{path}.hero", 'must be true or false')
+        end
 
         if section['type'] == 'feed'
           if section.key?('source') == section.key?('sources')
@@ -194,7 +197,10 @@ module Jekyll
         sections.each_with_index.filter_map do |section, index|
           tiles =
             if section['type'] == 'feed'
-              feed_tiles[index].map { |item| feed_tile(item, section, sources, newest_first, site_url) }
+              feed_tiles[index].each_with_index.map do |item, position|
+                hero = section['hero'] == true && position.zero?
+                feed_tile(item, section, sources, newest_first, site_url, hero: hero)
+              end
             else
               section['items']
                 .select { |item| in_window?(item, now) }
@@ -202,6 +208,12 @@ module Jekyll
             end
 
           next if tiles.empty?
+
+          # The first item becomes a large card with its image on top. Without
+          # an image it stays a normal tile rather than a card with a hole.
+          if section['hero'] == true && tiles.first['image']
+            tiles.first['hero'] = true
+          end
 
           { 'title' => section['title'], 'tiles' => tiles }
         end
@@ -329,7 +341,7 @@ module Jekyll
           end
       end
 
-      def feed_tile(item, section, sources, posts, site_url)
+      def feed_tile(item, section, sources, posts, site_url, hero: false)
         date = item['date']&.strftime('%B %-d, %Y')
         # "Newsletter · October 1, 2026", so a mixed list says what each item is.
         note = [sources.dig(item['source'], 'label'), date].compact.join(' · ')
@@ -337,7 +349,7 @@ module Jekyll
           'label' => item['title'],
           'url' => item['url'],
           'note' => item['note'] || (note.empty? ? nil : note),
-          'image' => section['images'] ? image_for(item, posts, site_url) : nil,
+          'image' => section['images'] || hero ? image_for(item, posts, site_url) : nil,
           'featured' => false,
           'source' => item['source'],
         }

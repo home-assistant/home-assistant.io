@@ -5,13 +5,16 @@
 {%- endcomment -%}
 {%- assign tile = include.tile -%}
 <li>
-  <a class="bio-tile{% if tile.featured %} bio-tile--featured{% endif %}{% if tile.image %} bio-tile--image{% endif %}"
+  <a class="bio-tile{% if tile.hero %} bio-tile--hero{% elsif tile.image %} bio-tile--image{% endif %}{% if tile.featured %} bio-tile--featured{% endif %}"
      href="{{ tile.url }}"
      rel="noopener"
      data-section="{{ include.section | default: 'links' | escape }}"
      data-source="{{ tile.source }}"
      data-label="{{ tile.label | escape }}">
-    {%- if tile.image %}
+    {%- if tile.hero %}
+    {%- comment -%} Social images are 1200×630; reserving that shape stops the page jumping as it loads. {%- endcomment %}
+    <img class="bio-tile__hero-image" src="{{ tile.image }}" width="1200" height="630" alt="" fetchpriority="high" decoding="async">
+    {%- elsif tile.image %}
     <img class="bio-tile__image" src="{{ tile.image }}" width="56" height="56" alt=""{% unless include.eager %} loading="lazy"{% endunless %} decoding="async">
     {%- endif %}
     <span class="bio-tile__text">

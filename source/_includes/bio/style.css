@@ -87,6 +87,25 @@ body {
   object-fit: cover;
   background: var(--line);
 }
+/* The first item of a `hero: true` section: image on top, larger title. */
+.bio-tile--hero {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.bio-tile__hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 630;
+  object-fit: cover;
+  background: var(--line);
+}
+.bio-tile--hero .bio-tile__text { padding: .85rem 1rem 1rem; }
+.bio-tile--hero .bio-tile__label { font-size: 1.15rem; line-height: 1.3; }
+
 .bio-tile__text { min-width: 0; }
 .bio-tile__label { display: block; font-weight: 600; }
 .bio-tile__note { display: block; margin-top: .1rem; color: var(--muted); font-size: .875rem; }
