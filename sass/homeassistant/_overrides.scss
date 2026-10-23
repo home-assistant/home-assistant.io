@@ -1202,10 +1202,14 @@ a.material-card:hover {
     text-decoration: none;
     border: none;
 
+    // Set --caption-color on a card to change its gradient color.
+    // The gradient fades from transparent to the full color.
+    --caption-color: #000;
+
     .caption {
       padding: 48px 24px 24px 24px;
-      background: rgb(0, 0, 0);
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+      background: var(--caption-color);
+      background: linear-gradient(180deg, rgb(from var(--caption-color) r g b / 0) 0%, var(--caption-color) 100%);
       color: white;
       border-bottom-left-radius: 16px;
       border-bottom-right-radius: 16px;
@@ -1226,7 +1230,7 @@ a.material-card:hover {
         font-size: 1rem;
         font-weight: initial;
         text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.33);
-        opacity: .8;
+        opacity: .9;
       }
 
       svg {
@@ -1237,9 +1241,8 @@ a.material-card:hover {
       }
     }
 
-    &.community-day .caption {
-      background: #0B7874;
-      background: linear-gradient(0deg, #0B7874 0%, rgba(11, 120, 116, 0) 100%);
+    &.community-day {
+      --caption-color: #0B7874;
     }
 
     &.picture-top {
@@ -1248,8 +1251,8 @@ a.material-card:hover {
 
       .caption {
         padding: 24px 24px 48px 24px;
-        background: rgb(0, 0, 0);
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+        background: var(--caption-color);
+        background: linear-gradient(0deg, rgb(from var(--caption-color) r g b / 0) 0%, var(--caption-color) 100%);
         border-top-left-radius: 16px;
         border-top-right-radius: 16px;
         border-bottom-left-radius: 0;
