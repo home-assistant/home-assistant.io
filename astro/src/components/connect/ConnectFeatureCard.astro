@@ -14,19 +14,21 @@
 // around the icon turns white with the shimmer. The icon itself does
 // not move on hover (the bounce felt random); icons that animate do so
 // inside their own SVG files and play while the pointer is over the
-// card (`animated`: the "Audio and so much more" ones, by Clelia).
+// card (`animated`: Clelia's, in "Audio and so much more" and "Deep
+// control with serial").
 //
 // `large` is the variant of "Incredible audio" (nodes 2022:8454 and
 // 2022:8461): a large blue line icon without a ring above a 28px title,
 // at every width. The `media` slot adds an illustration below the text.
 //
 // Deliberate differences from the Figma file:
-//   - Only the "Audio and so much more" icons animate so far. In Figma
-//     the others animate too; TODO: wire in Clelia's animated icons
-//     for the other cards (Incredible audio, Deep control with serial)
-//     when they arrive, like whole-home-audio.svg: an SVG file with
-//     its own CSS animation, every ID and keyframe name prefixed with
-//     `icon-<file name>-` (it is inlined), and a reduced-motion rule.
+//   - The "Audio and so much more" and "Deep control with serial"
+//     icons animate (Clelia's). TODO: the "Incredible audio" (`large`)
+//     icons animate in Figma too; when they arrive, prepare them like
+//     whole-home-audio.svg (white, every ID and keyframe name prefixed
+//     with `icon-<file name>-` as it is inlined, a reduced-motion
+//     rule) and make the hover rule below cover large cards, which
+//     have no ring around the icon.
 //   - Spacing snaps to the theme: 20px card padding on phones is 24px,
 //     the 6px gap on phones is 8px, and both sizes use the 16px radius
 //     (Figma: 12px on phones).

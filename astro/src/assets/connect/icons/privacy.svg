@@ -1,5 +1,41 @@
-<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Base">
-<path id="gpp_bad" d="M5.53 9.45L7 7.98L8.47 9.45L9.45 8.47L7.98 7L9.45 5.53L8.47 4.55L7 6.02L5.53 4.55L4.55 5.53L6.02 7L4.55 8.47L5.53 9.45ZM7 14C5.37833 13.5917 4.03958 12.6613 2.98375 11.2088C1.92792 9.75625 1.4 8.14333 1.4 6.37V2.1L7 0L12.6 2.1V6.37C12.6 8.14333 12.0721 9.75625 11.0163 11.2088C9.96042 12.6613 8.62167 13.5917 7 14ZM7 12.53C8.21333 12.145 9.21667 11.375 10.01 10.22C10.8033 9.065 11.2 7.78167 11.2 6.37V3.0625L7 1.4875L2.8 3.0625V6.37C2.8 7.78167 3.19667 9.065 3.99 10.22C4.78333 11.375 5.78667 12.145 7 12.53Z" fill="white"/>
+<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+@keyframes icon-privacy-kf_X_pivot_transform_0 {
+  0% {
+    transform: translate(7px, 7px) rotate(0rad) translate(-7px, -7px);
+  }
+  10% {
+    animation-timing-function: cubic-bezier(0.45, 0, 0.25, 1);
+    transform: translate(7px, 7px) rotate(0rad) translate(-7px, -7px);
+  }
+  80% {
+    transform: translate(7px, 7px) rotate(3.142rad) translate(-7px, -7px);
+  }
+  100% {
+    transform: translate(7px, 7px) rotate(3.142rad) translate(-7px, -7px);
+  }
+}
+#icon-privacy-X_pivot {
+  transform-origin: 0 0;
+  animation: icon-privacy-kf_X_pivot_transform_0 2s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  #icon-privacy-Base * {
+    animation: none !important;
+  }
+}
+</style>
+<g id="icon-privacy-Base" clip-path="url(#icon-privacy-clip0_761_17376)">
+<g id="icon-privacy-Shield">
+<path id="icon-privacy-Shield_outline" transform="translate(1.4)" d="M5.6 14C3.97833 13.5917 2.63958 12.6613 1.58375 11.2088C0.527917 9.75625 0 8.14333 0 6.37V2.1L5.6 0L11.2 2.1V6.37C11.2 8.14333 10.6721 9.75625 9.61625 11.2088C8.56042 12.6613 7.22167 13.5917 5.6 14ZM5.6 12.53C6.81333 12.145 7.81667 11.375 8.61 10.22C9.40333 9.065 9.8 7.78167 9.8 6.37V3.0625L5.6 1.4875L1.4 3.0625V6.37C1.4 7.78167 1.79667 9.065 2.59 10.22C3.38333 11.375 4.38667 12.145 5.6 12.53Z" fill="white"/>
+<g id="icon-privacy-X_pivot">
+<path id="icon-privacy-X" transform="translate(4.55 4.55)" d="M0.98 4.9L2.45 3.43L3.92 4.9L4.9 3.92L3.43 2.45L4.9 0.98L3.92 0L2.45 1.47L0.98 0L0 0.98L1.47 2.45L0 3.92L0.98 4.9Z" fill="white"/>
 </g>
+</g>
+</g>
+<defs>
+<clipPath id="icon-privacy-clip0_761_17376">
+<rect width="14" height="14" fill="white"/>
+</clipPath>
+</defs>
 </svg>
