@@ -115,10 +115,10 @@ The following sensors are available in the library:
 | Energy PV3 Month        | kWh  | Energy of PV string 3 of the current month. |
 | Energy PV3 Year         | kWh  | Energy of PV string 3 of the current year. |
 | Energy PV3 Total        | kWh  | Energy of PV string 3 total. |
-| Energy Yield Day       | kWh  | [Energy yield](#kostal-terminology) of the current day. |
-| Energy Yield Month      | kWh  | [Energy yield](#kostal-terminology) of the current month. |
-| Energy Yield Year       | kWh  | [Energy yield](#kostal-terminology) of the current year. |
-| Energy Yield Total      | kWh  | [Energy yield](#kostal-terminology) total. |
+| Energy Yield Day       | kWh  | [Energy yield](##energy-yield) of the current day. |
+| Energy Yield Month      | kWh  | [Energy yield](##energy-yield) of the current month. |
+| Energy Yield Year       | kWh  | [Energy yield](##energy-yield) of the current year. |
+| Energy Yield Total      | kWh  | [Energy yield](##energy-yield) total. |
 | Energy Discharge to Grid Day    | kWh  | Energy discharged from battery to the Grid of the current day. |
 | Energy Discharge to Grid Month  | kWh  | Energy discharged from battery to the Grid of the current month. |
 | Energy Discharge to Grid Year   | kWh  | Energy discharged from battery to the Grid of the current year. |
@@ -227,6 +227,14 @@ The following diagnostic sensors are available.
 
 Some sensor names use terms from the Kostal inverter:
 
-- **Autarky**: The share of your home consumption that your own system covered, in percent. Kostal also calls this the degree of self-sufficiency. The higher the value, the less energy you bought from the grid.
-- **Own consumption rate**: The share of the PV energy you produced that you used yourself, in percent. Kostal calls this the self-consumption rate.
-- **Energy yield**: The energy the inverter delivers to your home and to the grid, from both PV and battery. Energy yield isn't the same as PV production: PV energy used to charge the battery isn't included.
+### Autarky
+
+The share of your home consumption that your own system covered, in percent. Kostal also calls this the degree of self-sufficiency. The higher the value, the less energy you bought from the grid.
+
+### Energy yield
+
+The energy the inverter delivers to your home and to the grid, from both the solar panels (PV) and the battery. Energy yield isn't the same as solar production, because it doesn't include the PV energy used to charge the battery. To track solar production, use the sensors listed under [Configuration of the energy dashboard](#configuration-of-the-energy-dashboard).
+
+### Own consumption rate
+
+The share of the solar energy you produced that you used yourself, as a percentage. Kostal also calls this the self-consumption rate.
