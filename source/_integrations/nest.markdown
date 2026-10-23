@@ -670,8 +670,8 @@ is required:
 1. Navigate to the [Branding](https://console.cloud.google.com/auth/branding) page.
 2. Remove additional fields that are not required and Save. See the set up instruction above and
 make sure not to enter extra fields.
-2. Remove the app logo and any fields not listed in the setup instructions above, then select **Save**. Keep the application home page, privacy policy link, and authorized domain, as Google requires them to publish the app.
-3. In the left sidebar, select **Branding**.  Fill in the required fields:
+3. Remove the app logo and any fields not listed in the setup instructions above, then select **Save**. Keep the application home page, privacy policy link, and authorized domain, as Google requires them to publish the app.
+4. In the left sidebar, select **Branding**.  Fill in the required fields:
    - **App name**: Enter a name (for example, Home Assistant). This is shown during the OAuth login flow.
    - **User support email**: Select your Google account email.
    - Under **App domain**, enter `https://home-assistant.io` for **Application home page** and `https://home-assistant.io/privacy` for **Application privacy policy link**. Google requires both before you can publish the app.
