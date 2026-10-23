@@ -50,6 +50,8 @@ Several options are provided to adjust the behavior of `media_player` entities. 
 
 **Ignore Plex Web clients**: Do not create `media_player` entities for Plex Web clients.
 
+**Fuzzy search**: Find media even when the title is misspelled or misheard. This is turned off by default. It applies to the [**Search**](/actions/plex.search/) action, which can turn it on or off for a single call.
+
 ### Manual configuration
 
 Alternatively, you can manually configure a Plex server connection by selecting the "Configure Plex server manually" when configuring a Plex integration. This will allow you to specify the server connection options which will be validated before setup is completed. The available options are described below:
