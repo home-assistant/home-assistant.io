@@ -346,61 +346,7 @@ For setup steps, YAML options, and examples for the time trigger, see [Time trig
 
 ### Webhook trigger
 
-Webhook trigger reacts when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. The `webhook_id` can either be a static value or computed using a [template](/docs/templating/).
-
-{% note %}
-Home Assistant renders the `webhook_id` template once, when it sets up the trigger: when the automation loads, is reloaded, or is turned on. It doesn't render the template again when a webhook call comes in, or when a state the template uses changes. In a **Wait for a trigger** step, Home Assistant renders the template each time the wait starts, and the template can use the variables of the run.
-{% endnote %}
-
-```yaml
-automation:
-  trigger_variables:
-    webhook_id_variable: "template_webhook_id"
-  triggers:
-    - trigger: webhook
-      webhook_id: "some_hook_id"
-      allowed_methods:
-        - POST
-        - PUT
-      local_only: true
-    - trigger: webhook
-      webhook_id: "{{ webhook_id_variable }}"
-      allowed_methods:
-        - POST
-```
-
-You can run this automation by sending an HTTP POST request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an example form data payload:
-
-```shell
-curl -X POST -d 'key=value&key2=value2' http://your-home-assistant:8123/api/webhook/some_hook_id
-```
-
-Webhooks support HTTP POST, PUT, HEAD, and GET requests; POST requests are recommended. HTTP GET and HEAD requests are not enabled by default but can be enabled by adding them to the `allowed_methods` option. The request methods can also be configured in the UI by selecting **Webhook settings** {% icon "mdi:cog" %} next to the webhook ID.
-
-By default, webhook triggers can only be accessed from devices on the same network as Home Assistant or via [Nabu Casa Cloud webhooks](https://www.nabucasa.com/config/webhooks/). The `local_only` option should be set to `false` to allow webhooks to be triggered directly via the internet. This option can also be configured in the UI by selecting **Webhook settings** {% icon "mdi:cog" %} next to the webhook ID.
-
-Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS.
-
-Note that a given webhook can only be used in one automation at a time. That is, only one automation trigger can use a specific webhook ID.
-
-#### Webhook data
-
-Payloads may either be encoded as form data or JSON. Depending on that, its data will be available in an automation template as either `trigger.data` or `trigger.json`. URL query parameters are also available in the template as `trigger.query`.
-
-Note that to use JSON encoded payloads, the `Content-Type` header must be set to `application/json`, for example:
-
-```bash
-curl -X POST -H "Content-Type: application/json" -d '{ "key": "value" }' http://your-home-assistant:8123/api/webhook/some_hook_id
-```
-
-#### Webhook security
-
-Webhook endpoints don't require authentication, other than knowing a valid webhook ID. Security best practices for webhooks include:
-
-- Do not use webhooks to trigger automations that are destructive, or that can create safety issues. For example, do not use a webhook to unlock a lock, or open a garage door.
-- Treat a webhook ID like a password: use a unique, non-guessable value, and keep it secret.
-- Do not copy-and-paste webhook IDs from public sources, including blueprints. Always create your own.
-- Keep the `local_only` option enabled for webhooks if access from the internet is not required.
+For setup steps, YAML options, and examples for the **Webhook** trigger, see [Webhook trigger](/triggers/webhook/).
 
 ### Zone trigger
 

@@ -372,7 +372,7 @@ layout: null
 /integrations/hassio /hassio
 /integrations/cloud.alexa /cloud/alexa
 /integrations/imap_email_content /integrations/imap/#using-events
-/integrations/webhook /docs/automation/trigger/#webhook-trigger
+/integrations/webhook /triggers/webhook/
 /getting-started/automation-create-first /getting-started/automation
 /getting-started/automation-2 /getting-started/automation
 /getting-started/automation-action /docs/automation/action
