@@ -14,6 +14,7 @@ ha_platforms:
   - button
   - climate
   - diagnostics
+  - number
   - sensor
   - water_heater
 ha_integration_type: device
@@ -42,6 +43,7 @@ Depending on your system and the available heating circuits, the following entit
 - Button
 - Climate
 - Diagnostics
+- Number
 - Sensor
 - Water heater
 
@@ -69,6 +71,17 @@ The **Sync time** button appears under the **Configuration** section of the devi
 
 - If your heating system exposes domestic hot water controls, Home Assistant creates a water heater entity for it.
 - The water heater entity is grouped under its own sub-device on the BSB-LAN device page.
+
+### Numbers
+
+Home Assistant creates number entities for the setpoints of each heating circuit and of the domestic hot water. They appear under the **Configuration** section of their sub-device page.
+
+- **Comfort temperature** and **Reduced temperature**: the setpoints a heating circuit uses during the comfort and reduced periods of its time program.
+- **Nominal temperature** and **Reduced temperature**: the setpoints of the domestic hot water.
+
+You can change a setpoint at any time, even when the controller is not using it right now. The reduced setpoint can't be higher than the comfort or nominal one, so Home Assistant refuses a change that would break this order.
+
+A number entity only appears if your controller exposes that setpoint.
 
 ### Sensors
 
