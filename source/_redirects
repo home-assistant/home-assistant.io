@@ -719,6 +719,7 @@ layout: null
 /integrations/tahoma /more-info/removed-integration 301
 /integrations/tensorflow /more-info/removed-integration 301
 /integrations/teksavvy /more-info/removed-integration 301
+/integrations/telegram /integrations/telegram_bot#notifiers 301
 /integrations/tesla /more-info/removed-integration 301
 /integrations/tfiac /more-info/removed-integration 301
 /integrations/thermoworks_smoke /more-info/removed-integration 301
