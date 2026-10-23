@@ -82,7 +82,8 @@ We are using a blueprint (courtesy of [@allenporter]) that polls calendar events
 3. Select the blueprint **Conversation agent agenda notification** from the list.
 4. Enter the values for each category.
    ![Add prompt for Mario personality](/images/assist/blueprint_daily_summary_notification_01.png)
-   - Under **Notify service name**, make sure not to leave the default but to use the one you set up previously. For example `notify.nina`.
+   - Under **Notify entity**, select the notify entity of the chat you set up previously. For example `notify.telegram_bot_chat`.
+   - If your notification integration provides a notify action instead of a notify entity, leave **Notify entity** empty. Under **Notify service name**, enter that action instead of the default. For example `notify.mobile_app_pixel`.
    - **Save** your changes.
    - In the dialog, enter a name for your new automation. For example, `Daily summary by Mario`.
 5. To view the automation, go to {% my automations title="**Settings** > **Automations & Scenes**" %}.
