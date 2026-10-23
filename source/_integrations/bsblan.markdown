@@ -74,9 +74,9 @@ The target temperature is the setpoint the controller uses right now. The mode a
 | Heat | Eco | Heats to the reduced setpoint until you change the mode or preset. |
 | Off | | Only heats to protect against frost. |
 
-In **Auto** mode, selecting a preset overrides the time program until its next switch point. The target temperature can't be changed in this mode: switch to **Heat**, or change the **Comfort temperature** or **Reduced temperature** entity of the heating circuit.
+In **Auto** mode, selecting a preset overrides the time program until its next switch point.
 
-In **Heat** mode, changing the target temperature changes the comfort setpoint, or the reduced setpoint when the **Eco** preset is active.
+You can only change the target temperature in **Heat** mode. It changes the comfort setpoint, or the reduced setpoint when the **Eco** preset is active. To change the temperatures **Auto** mode uses, change the **Comfort temperature** or **Reduced temperature** entity of the heating circuit.
 
 Presets are not available on devices connected over PPS.
 
