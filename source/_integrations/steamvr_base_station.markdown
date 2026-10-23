@@ -15,7 +15,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: device
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **SteamVR Base Station** {% term integration %} lets you control Valve Index base stations over Bluetooth Low Energy.
