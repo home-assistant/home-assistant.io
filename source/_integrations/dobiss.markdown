@@ -63,7 +63,16 @@ When you turn on a dimmer without specifying a brightness, the immediate display
 
 The integration uses polling and does not subscribe to WebSocket updates. Reload the integration after adding or renaming outputs in Dobiss. Dobiss scenes and automations are not imported.
 
-The HACS integration [kesteraernoudt/dobiss](https://github.com/kesteraernoudt/dobiss) uses the same integration domain. Automatic migration from that integration is not supported. Before replacing it, back up your Home Assistant configuration and remove the existing custom integration. Check any dashboards, automations, and scripts that refer to its entities after setting up this integration.
+The HACS integration [kesteraernoudt/dobiss](https://github.com/kesteraernoudt/dobiss) uses the same integration domain. Automatic migration from that integration is not supported. To replace it with the built-in integration:
+
+1. Back up your Home Assistant configuration.
+2. Go to **Settings** > **Devices & services** and delete all existing Dobiss integration entries.
+3. Uninstall the Dobiss custom integration through HACS.
+4. Restart Home Assistant before setting up Dobiss again.
+5. Add the built-in Dobiss integration using the configuration steps above.
+6. Check any dashboards, automations, and scripts that refer to the previous entities.
+
+Both removal steps are required: existing configuration entries cannot be reused, and the custom integration overrides the built-in integration while it is installed.
 
 ## Troubleshooting
 
