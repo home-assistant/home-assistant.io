@@ -58,14 +58,7 @@ The model is detected automatically, so you don't need to select it. The device 
 
 ## Configuration options
 
-The integration has no options to set after setup. If the device gets a different <abbr title="Internet Protocol">IP</abbr> address, for example after a router restart, Home Assistant updates it automatically the next time the device is discovered. If discovery doesn't work on your network, you can update the address yourself without removing and re-adding the integration:
-
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and find the **Victron Modbus** integration.
-2. Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reconfigure**.
-3. Enter the new **Host**.
-4. Select **Submit** to save the new settings.
-
-The integration only accepts the new address if it leads to the same device.
+The integration has no options to set after setup. If the device gets a different <abbr title="Internet Protocol">IP</abbr> address, for example after a router restart, Home Assistant updates it automatically the next time the device is discovered. If discovery doesn't work on your network, remove the integration and add it again with the new address.
 
 ## Supported functionality
 
@@ -193,7 +186,7 @@ The integration couldn't reach the device over Modbus UDP. The device may be off
 #### Resolution
 
 1. Make sure the device is powered on and connected to your network.
-2. Confirm the host is correct. If the device's IP address changed, [reconfigure the integration](#configuration-options) to update it.
+2. Confirm the host is correct. If the device's IP address changed, remove the integration and add it again with the new address.
 3. Check that nothing on your network, such as a firewall or a separate network, blocks UDP port `502` between Home Assistant and the device.
 4. If it still fails, include the model of the device in the issue report. If the integration is already added, also enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), reproduce the failure, and include the log.
 
