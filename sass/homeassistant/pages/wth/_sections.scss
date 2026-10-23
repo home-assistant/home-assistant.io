@@ -366,6 +366,11 @@ main#page-wth {
             }
         }
 
+        // The closing line and button follow the questions.
+        .homework-answers > p {
+            margin-top: 24px;
+        }
+
         .homework-questions {
             display: grid;
             gap: 12px;
