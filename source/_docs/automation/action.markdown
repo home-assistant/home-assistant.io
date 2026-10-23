@@ -98,7 +98,8 @@ action: |
 
 The target is what an action controls. Under **Targets**, you can select entities, devices, areas, floors, and labels, or a combination of these. When you select an area, a floor, or a label, the action controls the matching entities that support it. For example, if **Turn on light** targets an area, all lights in that area turn on. To learn which entities are part of a target, refer to [Automation targets](/docs/automation/targets/). To leave out some of them, for example, all lights in an area except one, refer to [Excluding targets](/docs/automation/targets/#excluding-targets).
 
-In YAML, enter what the action controls under `target`. The `target` contains at least one of the following: `entity_id`, `device_id`, `area_id`, `floor_id`, or `label_id`. Each of these can be a list. Use the IDs in lowercase, not the names.
+In YAML, enter what the action controls under `target`. The `target` contains at least one of the following: `entity_id`, `device_id`, `area_id`, `floor_id`, or `label_id`. Each of these can be a list. Use the IDs in lowercase, not the names. To leave out some entities, add an exclude block. For details and an example, refer to [Targets in YAML](/docs/automation/targets/#targets-in-yaml).
+
 
 The following example uses one action to turn on the lights in the living room area, two light devices, and two light entities:
 

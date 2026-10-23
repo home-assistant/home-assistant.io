@@ -70,11 +70,13 @@ Home Assistant keeps the entities in a target up to date. If you've selected an 
 Sometimes a target is broader than you want. For example, you want to turn on all lights on the ground floor, except the lights in the kitchen. You can exclude entities, devices, areas, floors, and labels from the targets of a trigger, condition, or action.
 
 - To exclude something that isn't shown in the targets, select **Exclude** under **Targets**, and then select what to leave out. For example, select a label to leave out all entities with that label.
-- To exclude some of the entities a target covers, open the details of the target and clear the checkbox of the items you want to leave out. To include them again, select the checkbox again.
+- To exclude some of the entities a target covers, open the target's details, clear the checkboxes for the items you want to leave out, and then select **Apply**. To include them again, select the checkbox again and select **Apply**.
 
-Each exclusion is listed below the targets it leaves entities out of, with the number of entities it removes. An exclusion applies to all targets. If an exclusion matches nothing in the targets, it's listed separately, as it has no effect.
+Each exclusion is listed below the targets it excludes, with the number of entities it removes. An exclusion applies to all targets. If an exclusion matches nothing in the targets, it has no effect and is listed under **Exclusions with no effect**, where you can remove it.
 
-Exclusions stay up to date, like targets. If you exclude an area, and later add a light to that area, the light is left out as well. An entity that is left out by an area, a device, a floor, or a label can't be included again on its own. To include it again, remove that exclusion.
+Exclusions stay up to date, like targets. If you exclude an area and later add a light to that area, the light is left out as well. An entity excluded by an area, a device, a floor, or a label can't be included again on its own. The same applies to an entity whose exclusion also leaves out entities from another target. To include it again, remove that exclusion.
+
+Excluding an [old-style group](/integrations/group/#old-style-groups), such as `group.downstairs_lights`, leaves out only the group entity, not its members. This also applies to actions, even though they include old-style group members in the target. To exclude members, exclude them, their area, or their label.
 
 ## When a target covers several entities
 
@@ -111,7 +113,7 @@ An action controls all of its targets. For example, if **Turn on light** targets
 
 In {% term YAML %}, enter the targets under `target`. Use one or more of the following keys: `entity_id`, `device_id`, `area_id`, `floor_id`, and `label_id`. Each key can contain a single ID or a list of IDs. Use the IDs, not the names.
 
-To exclude targets, add an `exclude` block to the `target`. It uses the same keys as the target. An `exclude` block on its own is not a valid target.
+To exclude targets, add an `exclude` block to the `target`. It uses the same keys as the target, but it can't use `all` or `none`, and it can't contain another `exclude` block. An `exclude` block on its own is not a valid target.
 
 For triggers, set **Trigger when** with `behavior` under `options`. The values are `each`, `first`, and `all`. For conditions, set **Condition passes if** the same way. The values are `any` and `all`.
 
