@@ -97,11 +97,12 @@ output: "42"
 
 ### Safe access to trigger data
 
-{% term Trigger %} variables are only available when the {% term automation %} runs. When you test a template outside an automation, `trigger` is undefined. Reading `trigger.to_state` then raises an error before `default` runs. Some triggers also have no `to_state`, for example, when you select **Run actions**. And when an entity is removed, `to_state` is `none`. This example covers all three cases.
+{% term Trigger %} variables are only available when the {% term automation %} runs. When you test a template outside an automation, `trigger` is undefined. Reading `trigger.to_state` then raises an error before `default` runs. Some triggers also have no `to_state`, for example, when you select **Run actions**. And when an entity is removed, `to_state` is `none`. This example covers all three cases. `default(none)` turns a missing `to_state` into `none`, so you don't get a warning in the log.
 
 {% example %}
 template: |
-  {% set to_state = trigger.to_state if trigger is defined else none %}
+  {% set to_state = trigger.to_state | default(none)
+       if trigger is defined else none %}
   {{ to_state.state if to_state else "unknown" }}
 title: Safely access trigger state
 type: string
