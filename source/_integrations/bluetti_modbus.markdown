@@ -47,6 +47,8 @@ You also need the hostname or IP address of the device on your network. Giving t
 
 {% include integrations/config_flow.md %}
 
+A Balco 260 on your network is discovered automatically and shows up under {% my integrations title="**Settings** > **Devices & services**" %} as discovered. A discovered power station is reached on port `502` with device ID `1`, the BLUETTI defaults. If yours uses other settings, add it manually with the fields below.
+
 {% configuration_basic %}
 Host:
   description: "The hostname or IP address of your BLUETTI power station. For example, `192.168.1.100`."
@@ -102,7 +104,6 @@ Home Assistant keeps one Modbus connection per address and shares it between the
 
 ### Connection management
 
-- The device is not discovered automatically yet; add it by its address.
 - There is no way yet to change a device's address, port, or device ID without removing and re-adding the integration.
 - Home Assistant identifies the device by its serial number: if the address ends up reassigned to a different physical unit, entities go unavailable instead of silently showing the wrong device's data, and the Home Assistant log says why.
 - A device accepts a limited number of Modbus TCP connections at the same time. If another system on your network already polls the device, Home Assistant may not be able to connect.
