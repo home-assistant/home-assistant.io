@@ -3,7 +3,6 @@ title: Template
 description: Instructions on how to create template entities in Home Assistant.
 ha_categories:
   - helpers.calculate_value
-  - climate.water_heaters
 ha_release: 0.12
 ha_iot_class: Local Push
 ha_quality_scale: internal
@@ -3414,13 +3413,13 @@ Actions on set temperature:
   description: The action or actions run when a target temperature change is requested. The `temperature` variable holds the requested temperature, and the `operation_mode` variable holds the requested operation mode, if one was given.
   required: false
 Away mode:
-  description: A template that gets the away mode state. Requires **Actions on turn away mode on** and **Actions on turn away mode off**.
+  description: A template that gets the away mode state. Requires **Actions on turn away mode on** and **Actions on turn away mode off**. You find this option under **Additional options**.
   required: false
 Actions on turn away mode on:
-  description: The action or actions run when away mode is turned on.
+  description: The action or actions run when away mode is turned on. You find this option under **Additional options**.
   required: false
 Actions on turn away mode off:
-  description: The action or actions run when away mode is turned off.
+  description: The action or actions run when away mode is turned off. You find this option under **Additional options**.
   required: false
 Actions on turn on:
   description: The action or actions run when the water heater is turned on.
@@ -3435,13 +3434,13 @@ Device:
   description: An existing device to attach this helper to.
   required: false
 Availability:
-  description: A template that gets the available state of the entity.
+  description: A template that gets the available state of the entity. You find this option under **Additional options**.
   required: false
 Minimum temperature:
-  description: The lowest target temperature you can set.
+  description: The lowest target temperature you can set. You find this option under **Additional options**.
   required: false
 Maximum temperature:
-  description: The highest target temperature you can set.
+  description: The highest target temperature you can set. You find this option under **Additional options**.
   required: false
 {% endconfiguration_basic %}
 
@@ -3451,7 +3450,7 @@ Maximum temperature:
 water_heater:
   description: List of water heater entities
   required: true
-  type: map
+  type: list
   keys:
     attributes:
       description: >
@@ -3481,22 +3480,22 @@ water_heater:
       required: false
       type: float
     operation_list:
-      description: Defines a template to get the list of supported operation modes. Must render a list. If `operation_list` is specified, `set_operation_mode` must also be specified.
-      required: inclusive
+      description: Defines a template to get the list of supported operation modes. Must render a list.
+      required: true
       type: template
     operation_mode:
-      description: Defines a template to get the current operation mode of the water heater. Must render a value in `operation_list`. If `operation_mode` is specified, `operation_list` and `set_operation_mode` must also be specified.
+      description: Defines a template to get the current operation mode of the water heater. Must render a value in `operation_list`.
       required: false
       type: template
       default: optimistic
     optimistic:
-      description: Flag that defines if the water heater works in optimistic mode. When enabled, the water heater's state updates immediately when a new option is chosen through the UI or actions, without waiting for the templates to update. When disabled (default), the water heater updates only when its templates return a new value.
+      description: Flag that defines if the water heater's operation mode works in optimistic mode. When enabled, the operation mode updates immediately when a change is requested through the UI or actions, without waiting for the `operation_mode` template to update. When disabled, the operation mode updates only when that template returns a new value.
       required: false
       type: boolean
-      default: false
+      default: "`true` if `operation_mode` is omitted, otherwise `false`."
     set_operation_mode:
-      description: Defines an action or actions to set the operation mode. Receives variable `operation_mode`. If `set_operation_mode` is specified, `operation_list` must also be specified.
-      required: inclusive
+      description: Defines an action or actions to set the operation mode. Receives variable `operation_mode`.
+      required: true
       type: action
     set_temperature:
       description: Defines an action or actions to set the target temperature. Receives variables `temperature` and `operation_mode`. If `target_temperature_step` is specified, `temperature` is rounded to the nearest `target_temperature_step`.
