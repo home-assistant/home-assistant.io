@@ -46,9 +46,6 @@ OAuth client secret:
   description: "The client secret of your Tailscale OAuth client."
 {% endconfiguration_basic %}
 
-{% note %}
-Earlier versions of this integration could also authenticate with a Tailscale API access token, which expires after 90 days. The integration now uses OAuth client credentials exclusively. If you set it up with an API access token, Home Assistant asks you to re-authenticate with an OAuth client after updating. Enter the client ID and secret once, and the integration keeps working without the recurring expiry.
-{% endnote %}
 
 ## Supported functionality
 
@@ -111,6 +108,12 @@ If setup fails with a connection or authentication error:
 2. Check that the OAuth client has the **Devices** > **Core** > **Read** scope. Without it, Tailscale rejects the request.
 3. Confirm that the Tailnet name matches the one shown in the top-left corner of the admin console.
 4. Make sure your Home Assistant instance can reach the internet.
+
+### Home Assistant asks you to re-authenticate after an update
+
+The integration uses an OAuth client to connect to Tailscale. If you set it up with a Tailscale API access token, Home Assistant asks you to re-authenticate. 
+
+Create an OAuth client as described under [Prerequisites](#prerequisites), and enter its client ID and client secret. You only need to do this once, because OAuth clients do not expire.
 
 ## Removing the integration
 
