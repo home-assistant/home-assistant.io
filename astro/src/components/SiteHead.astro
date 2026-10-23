@@ -11,7 +11,7 @@
 // and the Prism, PhotoSwipe and Iconify assets. The site stylesheet is
 // replaced by each component's own styles; DocSearch's stylesheet
 // stays, for the search box in the header.
-import { allowedReferrers, setting } from "../lib/site.mjs";
+import { setting } from "../lib/site.mjs";
 
 const { title, description } = Astro.props;
 
@@ -27,10 +27,6 @@ const pageDescription = description ?? setting("description");
 
 const socialTitle = title ?? siteTitle;
 const socialImage = new URL("/images/default-social.png", siteUrl).href;
-
-// Plausible's referrer filter: referrers outside the allowlist are
-// reported as one aggregate bucket.
-const referrers = allowedReferrers();
 ---
 
 <meta charset="utf-8" />
@@ -81,40 +77,13 @@ const referrers = allowedReferrers();
 
 <script
   async
-  src="https://plausible.openhomefoundation.org/js/pa-GblWI1uyqaEhRvQL3NLz5.js"
+  src="https://www.openhomefoundation.org/plausible.js?site=home-assistant.io"
 ></script>
-<script is:inline define:vars={{ allowedReferrers: referrers }}>
+<script is:inline>
+  // Queues events sent before the loader has run.
   window.plausible =
     window.plausible ||
     function () {
       (plausible.q = plausible.q || []).push(arguments);
     };
-  plausible.init =
-    plausible.init ||
-    function (options) {
-      plausible.o = options || {};
-    };
-  plausible.init({
-    transformRequest(payload) {
-      const ref = payload.r;
-      if (!ref) return payload;
-
-      let host = "";
-      try {
-        host = new URL(ref).hostname.replace(/\.$/, "");
-      } catch {
-        // Unparseable referrer: falls through and gets replaced.
-      }
-
-      const allowed = allowedReferrers.some(
-        (domain) => host === domain || host.endsWith(`.${domain}`),
-      );
-      if (allowed) return payload;
-
-      // One aggregate bucket: .invalid is reserved (RFC 2606) and can
-      // never collide with a real domain.
-      payload.r = "https://unlisted.invalid/";
-      return payload;
-    },
-  });
 </script>
