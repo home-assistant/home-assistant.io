@@ -145,6 +145,8 @@ For a USB adapter, check it's still plugged in. For an ESPHome serial proxy, che
 
 This integration follows standard integration removal.
 
-To remove a single inverter, open its device and select **Delete**. This is only possible once the inverter has stopped answering, so Home Assistant doesn't drop one that's still on the bus. To add it back, remove the integration and add it again.
-
 {% include integrations/remove_device_service.md %}
+
+### To remove a single inverter
+
+Open its device and select **Delete**. This is only possible once the inverter has stopped answering, so Home Assistant doesn't drop one that's still on the bus. To add it back, remove the integration and add it again.
