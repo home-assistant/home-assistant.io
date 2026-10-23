@@ -60,7 +60,12 @@ export function parseTime(value, keyPath) {
   if (iso.length === 10) iso += "T00:00:00";
   if (!/(Z|[+-]\d{2}:?\d{2})$/.test(iso)) iso += "Z";
   const date = new Date(iso.replace(/ ([+-])/, "$1"));
-  if (Number.isNaN(date.getTime())) fail(keyPath, `"${value}" is not a date. Use YYYY-MM-DD`);
+  const calendar = new Date(`${text.slice(0, 10)}T00:00:00Z`);
+  if (
+    Number.isNaN(date.getTime()) ||
+    Number.isNaN(calendar.getTime()) ||
+    calendar.toISOString().slice(0, 10) !== text.slice(0, 10)
+  ) fail(keyPath, `"${value}" is not a date. Use YYYY-MM-DD`);
   return date;
 }
 
