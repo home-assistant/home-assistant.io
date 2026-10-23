@@ -167,7 +167,7 @@ automation: |
 
 The **Victron Modbus** {% term integration %} {% term polling polls %} the power readings, total and per phase, every second, so they follow changes in your home almost immediately. That is useful for automations that react to surplus solar. The other readings, such as voltage, current, frequency, and the energy counters, change slowly and are polled every 10 seconds.
 
-The power, the grid totals, and the phase readings are read separately. If one of them can't be read, only its sensors become unavailable until the next successful update. The energy counters are an exception: they keep their last value while the device is unreachable, so your energy statistics don't get gaps.
+The power, the grid totals, and the phase readings are read separately. If one of them can't be read, only its sensors become unavailable until the next successful update.
 
 ## Known limitations
 
@@ -262,8 +262,6 @@ Modbus over UDP has no retransmission, and a Wi-Fi connection can lose requests.
 1. If the device has an Ethernet port, connect it with a cable.
 2. Improve the Wi-Fi signal at the device, or move the device or your access point closer together.
 3. If it still happens, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), reproduce the problem, and include the log in your issue report.
-
-While a reading is unavailable, the energy totals keep their last value, so your energy statistics don't get gaps.
 
 {% enddetails %}
 
