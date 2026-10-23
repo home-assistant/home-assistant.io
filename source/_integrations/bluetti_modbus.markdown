@@ -76,9 +76,16 @@ Your power station is added as a single device.
 
 The following are added as diagnostic entities: **Battery SoH**, **Battery cycle count**, **Cell count**, **Temperature sensor count**, **Inverter count**, **PV 1 input type** to **PV 4 input type**, **DC PV input count**.
 
-The device's charge limits (max charge / min discharge SoC) and its AC output, grid charging, and grid feed-in switches are not exposed by this integration yet, not even as read-only entities. See [Known limitations](#known-limitations) for the full list.
-
 The device page links to the power station's own web interface. The serial number appears on the device's info page too, alongside the ARM, DSP, and IoT module firmware versions ({% my integrations title="**Settings** > **Devices & services**" %}, select the integration entry, then the device) - neither is a sensor.
+
+### Controls
+
+- **AC output**: Turns the power station's AC output on or off. Anything plugged into it loses power when it is off.
+- **Grid charging**: Whether the power station may charge its battery from the grid.
+- **Grid feed-in**: Whether the power station may feed power into the grid. Check the rules where you live before turning it on.
+- **Charge limit**, **Discharge limit**: The battery levels the power station stops charging at, and stops discharging at. The discharge limit accepts 5 to 90 %.
+
+Grid charging, grid feed-in, and both limits are configuration entities. The controls are read every 60 seconds, so a change made in the BLUETTI app shows up within a minute. They are unavailable while the power station cannot be read.
 
 ## Data updates
 
@@ -90,7 +97,7 @@ Home Assistant keeps one Modbus connection per address and shares it between the
 
 ### Controls and sensors
 
-- Only sensors are provided by this integration today. The writable settings (AC output, grid charging, grid feed-in), the charge limit values, and the fault/warning bits as proper binary sensors are not available yet.
+- The fault and warning bits are not available as binary sensors yet.
 
 ### Battery packs
 
