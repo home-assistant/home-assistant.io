@@ -24,9 +24,9 @@ ha_ssdp: true
 ha_integration_type: device
 ---
 
-The **Nanoleaf** {% term integration %} allows you to control and monitor Nanoleaf Light Panels, Canvas, Shapes, Elements, and Lines.
+The **Nanoleaf** {% term integration %} allows you to control and monitor Nanoleaf Light Panels, Canvas, Shapes, Elements, Lines, and Essentials lights. The Nanoleaf Remote is not supported.
 
-Nanoleaf Essentials lights are supported as well. They do not send state changes to Home Assistant, so changes made outside of Home Assistant (for example in the Nanoleaf app) can take up to a minute to show up. Controlling Nanoleaf Essentials lights over Thread and Bluetooth is also possible using the [HomeKit Controller](/integrations/homekit_controller/) integration.
+Nanoleaf Essentials lights do not send state changes to Home Assistant, so changes made outside of Home Assistant (for example in the Nanoleaf app) can take up to a minute to show up. Controlling Nanoleaf Essentials lights over Thread and Bluetooth is also possible using the [HomeKit Controller](/integrations/homekit_controller/) integration.
 
 {% include integrations/config_flow.md %}
 
