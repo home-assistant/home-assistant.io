@@ -9,7 +9,6 @@ ha_codeowners:
   - '@ldoes'
 ha_domain: victron_modbus
 ha_platforms:
-  - diagnostics
   - sensor
 ha_config_flow: true
 ha_zeroconf: true
@@ -244,9 +243,7 @@ The device answered, but part of its readings couldn't be read.
 
 #### Resolution
 
-Download the {% term diagnostics %} data and include it in the issue report. It includes the device's raw register map and the outcome of the last update, which shows which part of the device failed to read and what values it reported. The serial number is removed. For more information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
-
-To download it, go to {% my integrations title="**Settings** > **Devices & services**" %} and find the **Victron Modbus** integration. Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Download diagnostics**.
+Enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), wait for the sensors to become unavailable, and include the log in the issue report. The log shows which part of the device failed to read.
 
 {% enddetails %}
 
