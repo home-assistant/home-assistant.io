@@ -69,6 +69,7 @@ The **Sync time** button appears under the **Configuration** section of the devi
 
 - If your heating system exposes domestic hot water controls, Home Assistant creates a water heater entity for it.
 - The water heater entity is grouped under its own sub-device on the BSB-LAN device page.
+- The target temperature is the setpoint the controller uses right now: the nominal or the reduced setpoint, depending on the hot water program. Changing the target temperature changes that setpoint. To change the other one, use the **Nominal temperature** or **Reduced temperature** entity of the hot water.
 
 ### Sensors
 
