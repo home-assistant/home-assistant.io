@@ -81,6 +81,8 @@ The following are added as diagnostic entities: **Battery SoH**, **Total battery
 
 The device's charge limits (max charge / min discharge SoC) and its AC output, grid charging, and grid feed-in switches are not exposed by this integration yet, not even as read-only entities. See [Known limitations](#known-limitations) for the full list.
 
+Each BC260 expansion pack is added as a device of its own, **Pack 2** to **Pack 6**, under the power station (the built-in battery is pack 1). It has the same battery sensors: voltage, current, SoC, SoH, cycle count, cell and temperature sensor counts, and charged and discharged energy. When a pack is added or removed, Home Assistant reloads the integration entry to pick up the change. A pack that is no longer attached can be deleted from its device page.
+
 The device page links to the power station's own web interface. The serial number appears on the device's info page too, alongside the ARM, DSP, and IoT module firmware versions ({% my integrations title="**Settings** > **Devices & services**" %}, select the integration entry, then the device) - neither is a sensor.
 
 ## Data updates
@@ -97,7 +99,7 @@ Home Assistant keeps one Modbus connection per address and shares it between the
 
 ### Battery packs
 
-- BC260 expansion packs do not have entities of their own yet. They are counted in the battery pack summary: the total SoC and SoH, the pack count, the battery status, and the time to full or empty.
+- A BC260 expansion pack that the power station knows but that reports nothing answers with its serial number only. Its entities stay unavailable until it reports again. BLUETTI has confirmed this as a firmware issue.
 
 ### Phase measurements
 
