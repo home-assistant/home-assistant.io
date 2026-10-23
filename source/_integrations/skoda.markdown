@@ -157,9 +157,10 @@ The Škoda public API enforces a rate limit per Vehicle Identification Number (V
 
 The Škoda public API enforces a rate limit per Vehicle Identification Number (VIN). If you reach it, wait until the rate-limit window resets. An existing integration entry retries automatically. If the error occurs while adding the integration, submit the configuration form again after the limit resets.
 
-### Re-authentication is requested
+### Re-authentication
 
-If your API key expires or is revoked, the integration prompts you to reauthenticate. Generate a new API key in the MyŠkoda app under **Profile** > **Smart Home**, or through the [Škoda API key portal](https://go.skoda.eu/api-keys), and enter it when prompted.
+If the API key expires or is revoked, the integration can no longer retrieve data from the vehicle. Generate a new API key in the MyŠkoda app under **Profile** > **Smart Home**, or through the [Škoda API key portal](https://go.skoda.eu/api-keys).
+Remove the existing integration entry and add the vehicle again using the new API key.
 
 ## Removing the integration
 
