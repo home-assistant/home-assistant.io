@@ -62,7 +62,7 @@ If you change the configuration, you have to restart the server. To do that you 
 
 {% endtabbed_block %}
 
-For other ways to apply changes, such as a quick reload without a restart, refer to [Restarting Home Assistant](/common-tasks/general/restarting/#restarting-home-assistant).
+For other ways to apply changes, such as a quick reload without a restart, refer to [Reloading, restarting, rebooting, and shutting down](/common-tasks/general/restarting/#which-option-to-use).
 
 ### Allow time for a clean shutdown
 
