@@ -2,13 +2,22 @@
 :root {
   --blue: #18bcf2;
   --ink-on-blue: #04202b;
-  --ring: #0a6e96;
-  --bg: #ffffff;
-  --tile: #f2f6f8;
-  --tile-hover: #e5edf1;
+  --ring: #04202b;
+  /* The home page hero's gradient (sass/homeassistant/homepage/_hero_unit.scss). */
+  --page-bg: linear-gradient(340deg, hsl(200deg, 100%, 50%) 0%, hsl(195deg, 100%, 50%) 50%, hsl(185deg, 100%, 50%) 100%);
+  --page-solid: #18bcf2;
+  /* Text directly on the gradient. White is 1.5–2.6:1 there, so dark ink. */
+  --on-page: #04202b;
+  --on-page-muted: #0b3a4c;
+  --pill: rgba(255, 255, 255, .35);
+  --pill-line: rgba(4, 32, 43, .25);
+  --featured: #04202b;
+  --on-featured: #ffffff;
+  --tile: #ffffff;
+  --tile-hover: #eef6fa;
   --fg: #12232b;
   --muted: #546a75;
-  --line: #d9e3e8;
+  --line: rgba(4, 32, 43, .12);
   --radius: 14px;
   color-scheme: light dark;
 }
@@ -16,12 +25,20 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --ring: #6fd6f8;
-    --bg: #0e171c;
-    --tile: #18242b;
-    --tile-hover: #213039;
+    /* The same hues, dark enough not to glare at night. */
+    --page-bg: linear-gradient(340deg, hsl(200deg, 100%, 16%) 0%, hsl(195deg, 100%, 14%) 50%, hsl(185deg, 100%, 13%) 100%);
+    --page-solid: #00334d;
+    --on-page: #e9f2f6;
+    --on-page-muted: #a9c9d6;
+    --pill: rgba(255, 255, 255, .06);
+    --pill-line: rgba(233, 242, 246, .2);
+    --featured: var(--blue);
+    --on-featured: var(--ink-on-blue);
+    --tile: #13232b;
+    --tile-hover: #1b2f39;
     --fg: #e9f2f6;
     --muted: #97abb5;
-    --line: #2a3a43;
+    --line: rgba(233, 242, 246, .1);
   }
 }
 
@@ -29,8 +46,10 @@
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--fg);
+  min-height: 100vh;
+  background: var(--page-solid);
+  background: var(--page-bg);
+  color: var(--on-page);
   font: 16px/1.45 Figtree, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
@@ -44,13 +63,13 @@ body {
 .bio-header { text-align: center; margin-bottom: 1.25rem; }
 .bio-header__avatar { display: block; width: 56px; height: 56px; margin: 0 auto .6rem; }
 .bio-header__name { margin: 0; font-size: 1.2rem; font-weight: 700; line-height: 1.2; }
-.bio-header__tagline { margin: .3rem auto 0; max-width: 26rem; color: var(--muted); font-size: .875rem; }
+.bio-header__tagline { margin: .3rem auto 0; max-width: 26rem; color: var(--on-page-muted); font-size: .875rem; }
 
 .bio-section { margin-top: 1.75rem; }
 .bio-header + .bio-section { margin-top: 0; }
 .bio-section__title {
   margin: 0 0 .6rem;
-  color: var(--muted);
+  color: var(--on-page-muted);
   font-size: .75rem;
   font-weight: 600;
   letter-spacing: .08em;
@@ -68,17 +87,17 @@ body {
   background: var(--tile);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  color: inherit;
+  color: var(--fg);
   text-decoration: none;
 }
 .bio-tile:hover { background: var(--tile-hover); }
 .bio-tile:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
 .bio-tile--image { padding: .55rem 1rem .55rem .55rem; }
 
-/* Dark ink, not white: white on this blue is about 2.2:1 and fails AA. */
-.bio-tile--featured { background: var(--blue); border-color: var(--blue); color: var(--ink-on-blue); }
-.bio-tile--featured:hover { background: #3cc8f5; }
-.bio-tile--featured .bio-tile__note { color: var(--ink-on-blue); opacity: .8; }
+/* A blue tile would vanish into the blue page, so in light mode it's dark ink. */
+.bio-tile--featured { background: var(--featured); border-color: var(--featured); color: var(--on-featured); }
+.bio-tile--featured:hover { background: var(--featured); filter: brightness(1.15); }
+.bio-tile--featured .bio-tile__note { color: var(--on-featured); opacity: .8; }
 
 .bio-tile__image {
   flex: none;
@@ -117,14 +136,15 @@ body {
   align-items: center;
   min-height: 44px;
   padding: 0 .9rem;
-  border: 1px solid var(--line);
+  background: var(--pill);
+  border: 1px solid var(--pill-line);
   border-radius: 999px;
-  color: var(--muted);
+  color: var(--on-page);
   font-size: .875rem;
   text-decoration: none;
 }
-.bio-socials__link:hover { color: var(--fg); border-color: var(--blue); }
+.bio-socials__link:hover { border-color: var(--on-page); }
 .bio-socials__link:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
 
-.bio-footer { margin-top: 2.25rem; text-align: center; color: var(--muted); font-size: .8rem; }
+.bio-footer { margin-top: 2.25rem; text-align: center; color: var(--on-page-muted); font-size: .8rem; }
 .bio-footer a { color: inherit; }
