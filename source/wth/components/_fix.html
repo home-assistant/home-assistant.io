@@ -1,0 +1,88 @@
+<section id="fix">
+  <div class="container">
+    <div class="content">
+      <h2>Happy with how things work?</h2>
+      <p class="section-lead">Lucky you! No need to feel left out, you can still help. If you&rsquo;re comfortable with code, fix someone else&rsquo;s WTH. Here&rsquo;s how:</p>
+
+      <ol class="rules">
+        <li class="rule">
+          <span class="rule-number">1</span>
+          <h3>Pick it</h3>
+          <p>Browse the WTHs and find one you can take on.</p>
+        </li>
+        <li class="rule">
+          <span class="rule-number">2</span>
+          <h3>Claim it</h3>
+          <p>Reply so nobody builds the same thing twice.</p>
+        </li>
+        <li class="rule">
+          <span class="rule-number">3</span>
+          <h3>Ship it</h3>
+          <p>Open a pull request and link it back to the WTH.</p>
+        </li>
+      </ol>
+
+      <p class="section-note">New to contributing? Our <a href="https://developers.home-assistant.io/docs/development_index/">developer docs</a> walk you through it.</p>
+
+      <div class="buttons-container">
+        <a href="{{ page.forum_url }}" class="button primary" target="_blank" rel="noopener">
+          Browse open WTHs
+          <span class="icon-inline" aria-hidden="true">{% icon "mdi:arrow-right" %}</span>
+        </a>
+      </div>
+      <h3>Some headline</h3>
+      <p class="section-note">Each of these was picked up and built by someone in the community. Every fix from a past edition is <a href="https://github.com/search?q=org%3Ahome-assistant+label%3AWTH+is%3Apr&amp;type=pullrequests" target="_blank" rel="noopener">tagged WTH on GitHub</a>.</p>
+      {% comment %}
+        Every quote is a real forum topic that was picked up and built. The two
+        from 2020 are in the "So, what was fixed?" list of the summing-up post
+        and shipped in 0.115; each caption links to the release that shipped it.
+      {% endcomment %}
+      <div class="quote-wall">
+        <figure class="quote">
+          <span class="quote-icon" aria-hidden="true">{% icon "octicon:git-merge-16" %}</span>
+          <div class="quote-body">
+            <blockquote><a class="quote-link" href="/blog/2020/09/17/release-115/#person-image-upload">How the heck can I set this user picture?</a></blockquote>
+            <figcaption>
+              <span class="quote-state">Released in</span>
+              <span class="quote-release">0.115</span>
+            </figcaption>
+          </div>
+        </figure>
+
+        <figure class="quote">
+          <span class="quote-icon" aria-hidden="true">{% icon "octicon:git-merge-16" %}</span>
+          <div class="quote-body">
+            <blockquote><a class="quote-link" href="/blog/2024/04/03/release-20244/#three-new-ways-to-organize">Why are all automations in one big list?</a></blockquote>
+            <figcaption>
+              <span class="quote-state">Released in</span>
+              <span class="quote-release">2024.4</span>
+            </figcaption>
+          </div>
+        </figure>
+
+        <figure class="quote">
+          <span class="quote-icon" aria-hidden="true">{% icon "octicon:git-merge-16" %}</span>
+          <div class="quote-body">
+            <blockquote><a class="quote-link" href="/blog/2024/11/06/release-202411/#sections-dashboard-no-longer-experimental">WTH can&rsquo;t we drag and drop in the dashboard?</a></blockquote>
+            <figcaption>
+              <span class="quote-state">Released in</span>
+              <span class="quote-release">2024.11</span>
+            </figcaption>
+          </div>
+        </figure>
+
+        <figure class="quote">
+          <span class="quote-icon" aria-hidden="true">{% icon "octicon:git-merge-16" %}</span>
+          <div class="quote-body">
+            <blockquote><a class="quote-link" href="/blog/2020/09/17/release-115/#more-information-in-the-logbook-panel">What the heck turned my light on?</a></blockquote>
+            <figcaption>
+              <span class="quote-state">Released in</span>
+              <span class="quote-release">0.115</span>
+            </figcaption>
+          </div>
+        </figure>
+      </div>
+
+    </div>
+  </div>
+</section>

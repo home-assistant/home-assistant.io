@@ -1,0 +1,733 @@
+@use 'mixins' as *;
+
+main#page-wth {
+
+    // Hero. Follows the card pattern the community page uses: a rounded
+    // full-bleed card with the content pinned bottom left, and a pill
+    // floating at the top via `margin-bottom: auto`.
+    #hero {
+        --section-spacing-y: 0;
+
+        // The key visual's background: a faint mint-to-blue wash over the
+        // page grey.
+        background:
+            linear-gradient(110deg, rgba(242, 244, 249, 0.1) 10%, rgba(24, 188, 242, 0.1) 55%, rgba(22, 243, 190, 0.1) 97%),
+            var(--wth-bg);
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        isolation: isolate;
+        justify-content: flex-end;
+        margin: 0 auto;
+        max-width: var(--container-full-max-width);
+        min-height: 480px;
+        overflow: hidden;
+        position: relative;
+        width: calc(100% - 24px);
+
+        @include bp(tablet) {
+            border-radius: 24px;
+            min-height: 600px;
+            width: calc(100% - 48px);
+        }
+
+        .container {
+            display: flex;
+            // Fill the card so the date can sit at the very top while the
+            // rest of the content stays at the bottom.
+            flex: 1 0 auto;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px 12px;
+
+            @include bp(tablet) {
+                padding: 40px 12px 66px;
+            }
+        }
+
+        .content {
+            align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            max-width: 670px;
+            text-align: left;
+        }
+
+        // A tag with the wordmark's mint outline, squarer than the buttons
+        // so it does not read as one.
+        .hero-date {
+            align-self: flex-start;
+            background-color: #ffffff;
+            border: 4px solid var(--wth-mint);
+            border-radius: 14px;
+            color: var(--wth-ink);
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: auto;
+            padding: 10px 14px;
+
+            @include bp(tablet) {
+                font-size: 17px;
+            }
+        }
+
+        .hero-heading {
+            // Full width of the content column, which the 3D wordmark's box
+            // sizes itself against.
+            align-self: stretch;
+            letter-spacing: unset;
+            margin: 0;
+        }
+
+        .hero-tagline {
+            color: var(--wth-ink);
+            font-size: var(--typography-h2-font-size);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-top: 28px;
+            text-wrap: balance;
+        }
+
+        .lead {
+            font-size: var(--typography-lead-font-size);
+            line-height: var(--typography-lead-line-height);
+            margin-top: 14px;
+            max-width: 46ch;
+            text-wrap: balance;
+        }
+
+        .buttons-container {
+            margin-top: 28px;
+        }
+    }
+
+    // Shared tile and card surfaces
+    .tile-grid,
+    .audience-grid,
+    .quote-wall {
+        display: grid;
+        gap: 12px;
+        margin-top: 32px;
+
+        @include bp(tablet) {
+            gap: 16px;
+        }
+    }
+
+    // Numbered steps, in "How it works" and "Or fix one". The line runs
+    // from the number to the edge of the column.
+    .rules {
+        display: grid;
+        gap: 20px;
+        margin-top: 32px;
+
+        @include bp(tablet) {
+            gap: 24px;
+        }
+    }
+
+    .rule {
+        h3 {
+            margin-top: 10px;
+        }
+
+        p {
+            margin-top: 8px;
+        }
+    }
+
+    .rule-number {
+        align-items: center;
+        color: var(--wth-mint-ink);
+        display: flex;
+        font-size: 28px;
+        font-weight: 700;
+        gap: 12px;
+        line-height: 1;
+
+        &:after {
+            background-color: var(--wth-mint);
+            content: '';
+            flex: 1;
+            height: 2px;
+        }
+    }
+
+    // One month, one question
+    #moments {
+        .tile-grid {
+            @include bp(tablet) {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .tile {
+            background-color: var(--wth-surface);
+            border-radius: var(--card-radius);
+            padding: 24px;
+
+            @include bp(tablet) {
+                text-align: center;
+            }
+
+            p {
+                color: var(--wth-ink);
+                font-size: 17px;
+                font-weight: 600;
+                margin-top: 14px;
+            }
+        }
+
+        .tile-icon {
+            color: var(--wth-mint-ink);
+            height: 32px;
+            width: 32px;
+        }
+    }
+
+    // Who we want to hear from
+    #everyone {
+        .audience-grid {
+            @include bp(tablet) {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .audience-card {
+            background-color: var(--wth-surface);
+            border: 1px solid var(--wth-border);
+            border-radius: var(--card-radius);
+            padding: 24px;
+
+            &.is-highlight {
+                background-color: var(--wth-mint);
+                border-color: var(--wth-mint);
+
+                p {
+                    color: var(--wth-ink);
+                }
+
+                .audience-icon {
+                    color: var(--wth-ink);
+                }
+            }
+
+            h3 {
+                margin-top: 14px;
+            }
+
+            p {
+                margin-top: 8px;
+            }
+        }
+
+        .audience-icon {
+            color: var(--wth-mint-ink);
+            height: 28px;
+            width: 28px;
+        }
+    }
+
+    // Quote wall, inside "Or fix one"
+    #fix {
+        .quote-wall {
+            margin-top: 48px;
+
+            @include bp(tablet) {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        // Each quote reads like a merged pull request on GitHub: the merge
+        // icon, the quote as the title, and the release as the meta line.
+        .quote {
+            --wth-merged: #8250DF;
+
+            align-items: flex-start;
+            background-color: var(--wth-surface);
+            border: 1px solid var(--wth-border);
+            border-radius: 6px;
+            display: flex;
+            gap: 12px;
+            margin: 0;
+            padding: 16px;
+            position: relative;
+
+            blockquote {
+                border: unset;
+                color: var(--wth-ink);
+                font-size: 17px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 1.4;
+                margin: 0;
+                padding: 0;
+                // inuitcss hangs the opening quote mark with a negative indent.
+                // These quotes have no quote marks, so reset it.
+                text-indent: 0;
+            }
+
+            figcaption {
+                align-items: center;
+                color: var(--wth-ink-soft);
+                display: flex;
+                flex-wrap: wrap;
+                font-size: 14px;
+                gap: 6px;
+                margin-top: 6px;
+            }
+        }
+
+        // The icon sits on the first line of the title, as on GitHub.
+        .quote-icon {
+            color: var(--wth-merged);
+            display: inline-flex;
+            flex-shrink: 0;
+            font-size: 16px;
+            margin-top: 4px;
+        }
+
+        .quote-body {
+            min-width: 0;
+        }
+
+        // The quote is the link, and it stretches over the whole card.
+        a.quote-link {
+            color: inherit;
+            font-size: inherit;
+            text-decoration: none;
+
+            &:after {
+                border-radius: 6px;
+                content: '';
+                inset: 0;
+                position: absolute;
+            }
+
+            &:focus-visible {
+                outline: none;
+
+                &:after {
+                    outline: 3px solid var(--wth-focus);
+                    outline-offset: 2px;
+                }
+            }
+        }
+
+        .quote:hover {
+            border-color: #007FA8;
+
+            a.quote-link {
+                color: #007FA8;
+            }
+        }
+
+        // Matches the version next to the logo in the site header
+        // (.release-date), a little larger to sit with the caption text.
+        .quote-release {
+            background-color: #E8EDF0;
+            border-radius: 4px;
+            color: #007FA8;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.025rem;
+            line-height: 1.5;
+            padding: 0 5px;
+        }
+    }
+
+    // How it works
+    #how-it-works .rules {
+        @include bp(tablet) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @include bp(desktop) {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+    }
+
+    // Homework, a full-width audience card
+    #everyone {
+        .homework-card {
+            display: grid;
+            gap: 28px;
+            grid-column: 1 / -1;
+
+            @include bp(desktop) {
+                gap: 48px;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+
+            .button {
+                margin-top: 24px;
+            }
+        }
+
+        // The closing line and button follow the questions.
+        .homework-answers > p {
+            margin-top: 24px;
+        }
+
+        .homework-questions {
+            display: grid;
+            gap: 12px;
+
+            li {
+                border-bottom: 1px solid var(--wth-border);
+                color: var(--wth-ink);
+                font-size: 16px;
+                font-weight: 500;
+                padding-bottom: 12px;
+                padding-left: 26px;
+                position: relative;
+
+                &:last-child {
+                    border-bottom: unset;
+                    padding-bottom: 0;
+                }
+
+                &:before {
+                    background-color: var(--wth-mint);
+                    border-radius: 50%;
+                    content: '';
+                    height: 10px;
+                    left: 0;
+                    position: absolute;
+                    top: 8px;
+                    width: 10px;
+                }
+            }
+        }
+    }
+
+    // Closing call to action
+    #cta {
+        background-color: var(--wth-surface);
+
+        .cta-card {
+            background-color: var(--wth-surface);
+            border-radius: var(--card-radius);
+            isolation: isolate;
+            overflow: hidden;
+            padding: 48px 24px;
+            position: relative;
+            text-align: center;
+
+            @include bp(desktop) {
+                padding: 72px 24px;
+            }
+
+            p {
+                margin: 16px auto 0;
+                max-width: 54ch;
+            }
+
+            .button {
+                margin-top: 28px;
+            }
+        }
+    }
+}
+
+// Local section nav, matching the pill row other landing pages carry under
+// the site header.
+main#page-wth {
+    #nav {
+        --section-spacing-y: 28px;
+        // The row needs air on both sides: it sits between the site header
+        // above and the hero card below, and crowds both without it.
+        padding-bottom: 22px;
+
+        @include bp(tablet) {
+            --section-spacing-y: 52px;
+            padding-bottom: 32px;
+        }
+    }
+
+    .nav-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .nav-pill {
+        background-color: var(--wth-surface);
+        border-radius: 32px;
+        color: var(--wth-ink);
+        font-size: 13px;
+        font-weight: 500;
+        padding: 7px 14px;
+        text-decoration: none;
+        transition: background-color 0.2s ease, color 0.2s ease;
+        white-space: nowrap;
+
+        &:hover {
+            background-color: var(--wth-mint);
+            color: var(--wth-ink);
+        }
+
+        @include bp(tablet) {
+            font-size: 14px;
+        }
+    }
+}
+
+// Carrying the campaign colours through the page, not just the hero.
+main#page-wth {
+    // A mint rule above each section heading ties the sections together.
+    #moments,
+    #everyone,
+    #how-it-works,
+    #fix {
+        > .container > .content > h2:first-child {
+            padding-top: 18px;
+            position: relative;
+
+            &:before {
+                background-color: var(--wth-mint);
+                border-radius: 2px;
+                content: '';
+                height: 5px;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: 56px;
+            }
+        }
+    }
+
+    // Tinted bands break up the run of flat sections.
+    // The icons come from the site's own icon tag, which renders an
+    // <iconify-icon>. That sizes from font-size rather than width/height.
+    #moments .tile-icon,
+    #everyone .audience-icon {
+        align-items: center;
+        background-color: var(--wth-mint);
+        border-radius: 50%;
+        color: var(--wth-ink);
+        display: inline-flex;
+        font-size: 26px;
+        height: 48px;
+        justify-content: center;
+        width: 48px;
+    }
+
+    #everyone {
+        .audience-icon {
+            font-size: 24px;
+        }
+
+        .audience-card {
+            border-color: #CDE8F8;
+        }
+
+        // The highlighted card already sits on mint, so invert its icon.
+        .audience-card.is-highlight .audience-icon {
+            background-color: var(--wth-ink);
+            color: var(--wth-mint);
+        }
+    }
+
+}
+
+// Inverted sections. Breaking the run of pale sections gives the page a
+// spine, and puts the campaign colours at full strength twice on the way
+// down rather than only in the hero.
+main#page-wth {
+    // How it works, on ink.
+    #how-it-works {
+        --wth-routing-surface: var(--wth-ink);
+        --wth-focus: #ffffff;
+
+        background-color: var(--wth-ink);
+        color: #ffffff;
+
+        h2,
+        h3 {
+            color: #ffffff;
+        }
+
+        p {
+            color: #AEBAC4;
+        }
+
+        .section-lead {
+            color: #CBD5DD;
+        }
+
+        .buttons-container {
+            margin-top: 40px;
+        }
+
+        // The usual hover turns the button ink, which would vanish here.
+        .button.primary:hover {
+            background-color: #ffffff;
+            color: var(--wth-ink);
+        }
+
+        .rule-number {
+            color: var(--wth-mint);
+
+            &:after {
+                background-color: rgba(22, 243, 190, 0.5);
+            }
+        }
+
+        .wth-routing {
+            opacity: 0.55;
+
+            .line-mint {
+                stroke: #1C6B59;
+            }
+
+            .line-blue {
+                stroke: #23546B;
+            }
+
+            .node circle {
+                stroke: #23546B;
+            }
+        }
+    }
+
+    // Closing call to action, on mint.
+    #cta .cta-card {
+        --wth-routing-surface: var(--wth-mint);
+
+        background-color: var(--wth-mint);
+
+        h2 {
+            color: var(--wth-ink);
+        }
+
+        p {
+            color: #0A4C3C;
+        }
+
+        .button.primary {
+            background-color: var(--wth-ink);
+            color: #ffffff;
+
+            &:hover {
+                background-color: #ffffff;
+                color: var(--wth-ink);
+            }
+        }
+
+        .wth-routing {
+            .line-mint {
+                stroke: rgba(255, 255, 255, 0.55);
+            }
+
+            .line-blue {
+                stroke: rgba(30, 33, 38, 0.13);
+            }
+
+            .node circle {
+                stroke: rgba(30, 33, 38, 0.18);
+            }
+        }
+    }
+}
+
+// Fix a WTH -- the contributor path. On a white band so it reads as a
+// separate invitation from the sections aimed at everyone else.
+main#page-wth {
+    #fix {
+        --wth-routing-surface: var(--wth-surface);
+
+        background-color: var(--wth-surface);
+
+        .rules {
+            @include bp(tablet) {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .section-note a {
+            color: #0077A3;
+            text-decoration: underline;
+
+            &:hover {
+                color: var(--wth-ink);
+            }
+        }
+
+        .buttons-container {
+            margin-top: 28px;
+        }
+
+        // The heading over the quote wall starts a new block after the buttons.
+        .content > h3 {
+            margin-top: 56px;
+
+            @include bp(tablet) {
+                margin-top: 72px;
+            }
+
+            + .section-note {
+                margin-top: 8px;
+            }
+        }
+    }
+}
+
+// "This year, we want to hear from everyone" sits on a tinted band with its
+// own routing layer, so the lines run the full height of the section.
+main#page-wth .wth-band {
+    --wth-routing-surface: #EAF6FD;
+
+    background-color: #EAF6FD;
+    isolation: isolate;
+    position: relative;
+
+    // The band owns the background, so the sections inside it are
+    // transparent and only contribute their vertical rhythm.
+    > section {
+        background-color: transparent;
+    }
+
+    // The first section's heading rule would otherwise sit tight against
+    // the band edge.
+    > section:first-of-type {
+        padding-top: calc(var(--section-spacing-y) + 8px);
+    }
+}
+
+// The closing card has a narrower measure than the page container, so its
+// lines can come further in without touching the copy.
+main#page-wth #cta .cta-card .wth-routing {
+    --wth-routing-clear: 780px;
+}
+
+// The hero background from the key visual, from
+// source/wth/components/_hero-background.html. It is anchored to the right,
+// where the artwork is busiest. Phones get the gradient alone, as the lines
+// crowd the wordmark and the copy there.
+// source/javascripts/wth/hero-background.js adds the pulses that travel along
+// the lines on scroll.
+main#page-wth #hero .wth-hero-bg {
+    display: none;
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+
+    svg {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+    .wth-hero-bg__art {
+        opacity: 0.4;
+    }
+
+    @include bp(tablet) {
+        display: block;
+    }
+}

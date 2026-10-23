@@ -441,6 +441,10 @@ layout: null
 # Moved marketing pages / rebranding
 /skyconnect /connectzbt1
 
+# Month of "What the Heck?!"
+/what-the-heck /wth/ 301
+/wth-2026 /wth/ 301
+
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
 /cookbook/dropboxbackup https://community.home-assistant.io/t/backing-up-to-dropbox/196960
