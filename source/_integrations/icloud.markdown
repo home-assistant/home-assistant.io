@@ -13,6 +13,7 @@ ha_codeowners:
   - '@nzapponi'
 ha_domain: icloud
 ha_platforms:
+  - binary_sensor
   - button
   - calendar
   - device_tracker
@@ -26,6 +27,7 @@ The **Apple iCloud** {% term integration %} allows you to detect presence using 
 
 There is currently support for the following platforms within Home Assistant:
 
+- [Binary sensor](#binary-sensor)
 - [Button](#button)
 - [Calendar](#calendar)
 - [Device tracker](#device-tracker)
@@ -64,6 +66,21 @@ Include completed reminders:
 {% endconfiguration_basic %}
 
 ## Platforms
+
+### Binary sensor
+
+The iCloud integration adds the following binary sensors for each device on your Apple Account. Some binary sensors are only added if the device supports them.
+
+- **Online**: Whether the device can currently be reached.
+- **Lost mode**: Whether Lost Mode is turned on.
+- **Low power mode**: Whether Low Power Mode is turned on.
+- **Activation lock**: Whether Activation Lock is turned on.
+- **Location services**: Whether location services are turned on.
+- **Location current**: Shows **Problem** when Apple flags the last known location as outdated, and **OK** otherwise. Only added for devices that report a location.
+- **Location accurate**: Shows **Problem** when Apple flags the last known location as inaccurate, and **OK** otherwise. Only added for devices that report a location.
+- **Wipe in progress**: Whether an erase is currently running on the device.
+- **Remote lock**: Whether Apple has accepted a remote lock that has not been applied to the device yet.
+- **Locating**: Whether the device is being located right now. The integration asks Apple for a location on every update, so this entity is on most of the time and is disabled by default.
 
 ### Button
 
