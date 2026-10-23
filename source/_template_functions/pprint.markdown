@@ -14,7 +14,7 @@ related_functions:
 ---
 
 The `pprint` filter formats a value in a human-readable way, making it easier to inspect complex data structures like dictionaries and lists.
-This is primarily useful for debugging templates. It helps you understand the structure of data returned by a {% term sensor %} or another template function. If the value is longer than 80 characters, `pprint` spreads it over several lines. Shorter values stay on one line.
+This is primarily useful for debugging templates. It helps you understand the structure of data returned by a {% term sensor %} or another template function. If the value is longer than 80 characters, `pprint` spreads it over several lines where it can, for example, between the items of a list or a dictionary. Shorter values stay on one line, and so does a single long piece of text.
 
 {% include template_functions/usage.md %}
 
