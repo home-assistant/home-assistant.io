@@ -194,7 +194,7 @@ The data comes from the [SMHI open data API](https://opendata.smhi.se/metfcst). 
 ## Known limitations
 
 - Only locations within the [SMHI forecast area](https://opendata.smhi.se/metfcst/pmp/geographic_area) can be added. This area covers Sweden and the areas close to it.
-- The current weather and the sensor values are based on the SMHI forecast for the current hour. They are not measurements from a weather station.
+- The current weather and the weather sensors use the first hour of the latest SMHI forecast. The fire risk sensors show today's SMHI fire risk forecast. None of these values are weather-station measurements.
 - The weather entity never reports the conditions hail, windy, or exceptional, because the SMHI forecast does not provide them.
 - The fire risk sensors are most useful during the fire season. Outside the season, some of them can show values like **Snow cover** or **Grass fire season over**, or have no value at all.
 - Each entry covers one location. To follow several locations, add the integration once for each location.
