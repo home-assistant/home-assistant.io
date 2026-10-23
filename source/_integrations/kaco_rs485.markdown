@@ -51,7 +51,7 @@ Port:
   description: "The serial port the inverters are wired to. The list shows the ports Home Assistant has detected, including USB adapters and ESPHome serial proxies."
 {% endconfiguration_basic %}
 
-Every inverter the scan finds is added. To leave one out, disable its device after setup, which also removes it from the polling cycle.
+Every inverter the scan finds is added. To leave one out, disable or delete its device after setup. Either one removes it from the polling cycle.
 
 ## Supported functionality
 
@@ -144,5 +144,7 @@ For a USB adapter, check it's still plugged in. For an ESPHome serial proxy, che
 ## Removing the integration
 
 This integration follows standard integration removal.
+
+To remove a single inverter, open its device and select **Delete**. To add it back, remove the integration and add it again.
 
 {% include integrations/remove_device_service.md %}
