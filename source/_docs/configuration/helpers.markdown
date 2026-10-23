@@ -108,7 +108,7 @@ You can change any helper that you created in the UI. For example, you can add a
      - A **Number** shows its **Minimum value** and **Maximum value**.
      - A **Change device type of a switch** helper shows **Show switch as**.
      - A **Toggle**, a **Counter**, or a **Text** helper shows its settings when you select **More options**.
-   - Helpers that calculate a value, and other helpers such as a **Group**, have their own settings in a separate entry, named after the helper type, such as **Template options**. You find it above **Voice assistants**. Select it, change the settings, and then select **Submit**.
+   - Helpers that calculate a value, and other helpers such as a **Group**, have their own settings in a separate entry, named after the helper type, such as **Template options** or **Derivative sensor options**. You find it above **Voice assistants**. Select it, change the settings, and then select **Submit**.
 4. If you changed settings in the settings dialog itself, select **Update**.
 
 ## Changing a helper in YAML
@@ -134,7 +134,7 @@ For a helper that you set up in YAML, you can't change its own settings in the U
 
 ## Creating a similar helper
 
-You can't copy a helper. To use the same settings for several things, create a new helper for each one. For example, to show the average temperature of each floor, create one **Combine the state of several sensors** helper per floor. In each one, select the temperature sensors of that floor.
+You can't copy a helper. To use the same settings for several things, [create a new helper](#creating-a-helper) for each one. For example, to show the average temperature of each floor, create one **Combine the state of several sensors** helper per floor. In each one, select the temperature sensors of that floor.
 
 ## What happens to a helper value after a restart?
 
