@@ -24,6 +24,8 @@ You can also select different target types in one trigger. For example, you can 
 
 To learn which entities Home Assistant includes for a device, area, floor, or label, and how it handles several entities, refer to [Automation targets](/docs/automation/targets/).
 
+To leave out some of these entities, refer to [Excluding targets](/docs/automation/targets/#excluding-targets). For example, you can leave out one {{ target_entity_type }} in an area.
+
 {% if page.trigger %}{% unless include.custom_trigger_variables %}
 ### Trigger variables
 

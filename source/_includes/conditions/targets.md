@@ -16,3 +16,5 @@ This condition requires a target. The target is the object that Home Assistant w
 You can also select different target types in one condition. For example, you can add a specific entity and an area as targets in the same condition to check both of them at once.
 
 To learn which entities Home Assistant includes for a device, area, floor, or label, and how it handles several entities, refer to [Automation targets](/docs/automation/targets/).
+
+To leave out some of these entities, refer to [Excluding targets](/docs/automation/targets/#excluding-targets). For example, you can leave out one {{ target_entity_type }} in an area.
