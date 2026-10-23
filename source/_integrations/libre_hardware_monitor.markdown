@@ -1,8 +1,8 @@
 ---
 title: Libre Hardware Monitor
 description: Instructions on how to integrate Libre Hardware Monitor within Home Assistant.
-ha_category:
-  - System monitor
+ha_categories:
+  - computers_network.monitoring
 ha_release: '2025.10'
 ha_config_flow: true
 ha_codeowners:

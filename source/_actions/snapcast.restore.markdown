@@ -8,7 +8,7 @@ related_actions:
   - snapcast.set_latency
 ---
 
-The **Restore** action returns one or more Snapcast speakers to the playback state you saved earlier with [Snapshot](/actions/snapcast.snapshot/).
+The **Snapcast: Restore** action returns one or more Snapcast speakers to the playback state you saved earlier with [Snapshot](/actions/snapcast.snapshot/).
 
 This pair is handy when you want to interrupt playback for a doorbell or a notification sound and then pick up right where you left off.
 
@@ -21,7 +21,7 @@ To restore a snapshot from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Snapcast speakers you want to restore.
-6. From the actions shown for that target, select **Restore**.
+6. From the actions shown for that target, under **Snapcast**, select **Restore**.
 7. Select **Save**.
 
 ### Options in the UI

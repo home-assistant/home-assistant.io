@@ -7,7 +7,7 @@ related_actions:
   - elkm1.sensor_counter_set
 ---
 
-The **Sensor counter refresh** action retrieves the current value of an Elk-M1 counter from the panel.
+The **Elk-M1 Control: Sensor counter refresh** action retrieves the current value of an Elk-M1 counter from the panel.
 
 This is useful because the panel does not always send counter value updates on its own. Refreshing makes sure Home Assistant shows the current counter value.
 

@@ -1,9 +1,6 @@
 ---
 title: Zone
 description: Instructions on how to set up zones within Home Assistant.
-ha_category:
-  - Organization
-  - Presence detection
 ha_release: 0.69
 ha_quality_scale: internal
 ha_codeowners:

@@ -1,10 +1,8 @@
 ---
 title: Total Connect
 description: Integrate Resideo Total Connect 2.0-enabled alarm systems into Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Button
+ha_categories:
+  - security_safety.alarm_systems
 ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_config_flow: true

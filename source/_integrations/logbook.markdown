@@ -1,8 +1,6 @@
 ---
 title: Activity
 description: Instructions on how to enable the activity integration for Home Assistant.
-ha_category:
-  - History
 ha_release: 0.7
 ha_domain: logbook
 ha_quality_scale: internal

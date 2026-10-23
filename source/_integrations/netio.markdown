@@ -1,8 +1,8 @@
 ---
 title: Netio
 description: Instructions on how to integrate Netio smart power sockets into Home Assistant.
-ha_category:
-  - Switch
+ha_categories:
+  - plugs_switches
 ha_iot_class: Local Polling
 ha_release: 0.24
 ha_domain: netio

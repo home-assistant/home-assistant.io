@@ -1,8 +1,8 @@
 ---
 title: Aurora
 description: Know when auroras might be visible at your location
-ha_category:
-  - Environment
+ha_categories:
+  - weather_alerts.forecasts
 ha_iot_class: Cloud Polling
 ha_release: 0.39
 ha_domain: aurora

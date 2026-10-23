@@ -1,14 +1,8 @@
 ---
 title: IntelliFire
 description: Instructions on the IntelliFire Fireplace integration for Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Fan
-  - Light
-  - Number
-  - Sensor
-  - Switch
+ha_categories:
+  - climate.thermostats_heating
 ha_iot_class: Local Polling
 ha_release: 2022.2
 ha_codeowners:
@@ -105,7 +99,7 @@ The following sensors are available as a **binary sensor** when dealing with on/
 
 ### Diagnostic Sensors
 
-- **Connection Quality** - Local network connection quality _(disabled by default)_.
+- **Connection Quality** - Local network connection quality _([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))_.
 - **Downtime** - Unit downtime. Will read `Unknown` if there is currently no downtime.
 - **ECM Latency** - Electronic Control Module Latency value _(disabled by default)_.
 - **IP** - IP Address of the unit.

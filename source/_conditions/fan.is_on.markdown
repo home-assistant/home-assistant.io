@@ -58,9 +58,9 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the fan must have been on for the condition to pass. Accepts a duration string like `00:05:00` for five minutes.
+  description: How long the fan must have been on for the condition to pass. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -70,8 +70,7 @@ for:
 
 ## Good to know
 
-- A fan in the `unknown` or `unavailable` state does not count as on.
-- With **All**, every targeted fan must match. With **Any**, one matching fan is enough.
+{% include conditions/unavailable_targets.md entities="fans" %}
 - To check for the opposite state, use [Fan is off](/conditions/fan.is_off/).
 
 {% include conditions/try_it.md %}

@@ -1,8 +1,6 @@
 ---
 title: Persistent Notification
 description: Instructions on how to integrate persistent notifications into Home Assistant.
-ha_category:
-  - Other
 ha_iot_class: Local Push
 ha_release: 0.23
 ha_quality_scale: internal
@@ -40,7 +38,7 @@ automation:
         notification_id: invalid_config
 ```
 
-See [Automation Trigger Variables: Persistent Notification](/docs/automation/templating/#persistent-notification) for additional trigger data available for conditions or actions.
+See [Automation Trigger Variables: Persistent Notification](/docs/automation/trigger-data/#persistent-notification-triggers) for additional trigger data available for conditions or actions.
 
 {% include integrations/actions.md %}
 

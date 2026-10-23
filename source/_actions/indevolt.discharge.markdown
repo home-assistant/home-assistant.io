@@ -80,7 +80,9 @@ power:
 When the evening peak tariff window starts and the battery has enough charge, discharge the battery to cover home consumption and avoid drawing expensive and carbon-intensive peak-time grid electricity.
 
 - **Trigger**: Time: 17:00
-- **Condition**: Battery SOC above 30 %
+- **Condition**: Numeric state
+  - **Entity**: Indevolt battery soc
+  - **Above**: `30`
 - **Action**: Indevolt: Discharge (at 800 watts to 20 % SOC)
 
 {% details "YAML example for discharging battery during evening peak" %}

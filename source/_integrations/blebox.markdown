@@ -1,15 +1,10 @@
 ---
 title: BleBox devices
 description: Instructions on how to integrate BleBox devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Light
-  - Sensor
-  - Switch
-  - Update
+ha_categories:
+  - plugs_switches
+  - blinds_curtains
+  - lighting.led_strips_controllers
 ha_release: '0.110'
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -602,7 +597,7 @@ this ID like a password.
 {% note %}
 In order for this integration flow to work, the webhook URL host must be
 resolvable and accessible within the device network. If in doubt, please refer to the
-general [documentation of automations with webhook triggers](/docs/automation/trigger/#webhook-trigger).
+general [documentation of automations with webhook triggers](/triggers/webhook/).
 {% endnote %}
 
 ### uRemote, sRemote, inBox via actionBox

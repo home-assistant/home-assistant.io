@@ -1,9 +1,9 @@
 ---
 title: Qingping
 description: Instructions on how to integrate Qingping devices into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
+ha_categories:
+  - sensors.temperature_humidity
+  - sensors.air_quality
 ha_bluetooth: true
 ha_release: 2022.9
 ha_iot_class: Local Push
@@ -56,7 +56,7 @@ The Qingping integration will automatically discover devices once the [Bluetooth
 All devices provide the following diagnostic sensors:
 
 - **Battery**: the device battery percentage.
-- **Signal strength**: the Bluetooth signal strength (disabled by default).
+- **Signal strength**: the Bluetooth signal strength ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)).
 
 Depending on the model, the devices provide the following sensors:
 

@@ -1,8 +1,8 @@
 ---
 title: Baidu
 description: Instructions on how to set up Baidu TTS with Home Assistant.
-ha_category:
-  - Text-to-speech
+ha_categories:
+  - ai_voice.speech
 ha_iot_class: Cloud Push
 ha_release: 0.59
 ha_domain: baidu

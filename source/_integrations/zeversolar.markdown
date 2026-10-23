@@ -1,8 +1,8 @@
 ---
 title: Zeversolar
 description: Instructions on how to configure the Zeversolar integration within Home Assistant
-ha_category:
-  - Environment
+ha_categories:
+  - energy.solar_batteries
 ha_release: 2023.2
 ha_iot_class: Local Polling
 ha_domain: zeversolar

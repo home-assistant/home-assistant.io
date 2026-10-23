@@ -7,7 +7,7 @@ related_actions:
   - ohme.set_price_cap
 ---
 
-The **List charge slots** action fetches the charge slots from the plan that Ohme generated for your charger. Charge slots are only returned while a charge is in progress.
+The **Ohme: List charge slots** action fetches the charge slots from the plan that Ohme generated for your charger. Charge slots are only returned while a charge is in progress.
 
 This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 

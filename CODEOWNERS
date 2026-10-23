@@ -139,6 +139,7 @@ source/_integrations/bluemaestro.markdown @bdraco
 source/_integrations/bluesound.markdown @thrawnarn @LouisChrist
 source/_integrations/bluetooth.markdown @bdraco
 source/_integrations/bluetooth_adapters.markdown @bdraco
+source/_integrations/bluetti_modbus.markdown @chpego
 source/_integrations/bond.markdown @bdraco @prystupa @joshs85 @marciogranzotto
 source/_integrations/bosch_alarm.markdown @mag1024 @sanjay900
 source/_integrations/bosch_shc.markdown @tschamm @mosandlt
@@ -357,6 +358,7 @@ source/_integrations/flow_it.markdown @albertogeniola
 source/_integrations/flume.markdown @ChrisMandich @bdraco @jeeftor
 source/_integrations/fluss.markdown @fluss @Marcello17
 source/_integrations/flux_led.markdown @icemanch
+source/_integrations/foreca.markdown @EetuPelkonen @hyvatti-foreca
 source/_integrations/forecast_solar.markdown @klaasnicolaas @frenck
 source/_integrations/forked_daapd.markdown @uvjustin
 source/_integrations/fortios.markdown @kimfrellsen
@@ -693,6 +695,7 @@ source/_integrations/metoffice.markdown @MrHarcombe @avee87
 source/_integrations/microbees.markdown @microBeesTech
 source/_integrations/midea.markdown @chemelli74 @rokam
 source/_integrations/miele.markdown @astrandb
+source/_integrations/mijn_farmad_apotheek.markdown @DaanVervacke
 source/_integrations/mijndomein_energie.markdown @klaasnicolaas
 source/_integrations/mikrotik.markdown @engrbm87 @chemelli74
 source/_integrations/mill.markdown @danielhiversen
@@ -1062,6 +1065,7 @@ source/_integrations/soundtouch.markdown @kroimon
 source/_integrations/spaceapi.markdown @fabaff
 source/_integrations/specialized_turbo.markdown @JamieMagee
 source/_integrations/speedtestdotnet.markdown @rohankapoorcom @engrbm87
+source/_integrations/spin_ble.markdown @Dr-Blank
 source/_integrations/splunk.markdown @Bre77
 source/_integrations/spotify.markdown @frenck @joostlek
 source/_integrations/sql.markdown @gjohansson-ST @dougiteixeira
@@ -1429,6 +1433,7 @@ source/_actions/cover.stop_cover.markdown @home-assistant/core
 source/_actions/cover.stop_cover_tilt.markdown @home-assistant/core
 source/_actions/cover.toggle.markdown @home-assistant/core
 source/_actions/cover.toggle_cover_tilt.markdown @home-assistant/core
+source/_actions/daikin.set_demand_control.markdown @fredrike
 source/_actions/date.set_value.markdown @home-assistant/core
 source/_actions/datetime.set_value.markdown @home-assistant/core
 source/_actions/debugpy.start.markdown @frenck
@@ -1703,7 +1708,7 @@ source/_actions/kef.set_treble_db.markdown @basnijholt
 source/_actions/kef.set_wall_db.markdown @basnijholt
 source/_actions/kef.update_dsp.markdown @basnijholt
 source/_actions/keymitt_ble.calibrate.markdown @spycle
-source/_actions/kiosker.blackout_set.markdown @Claeysson
+source/_actions/kiosker.set_blackout.markdown @Claeysson
 source/_actions/kiosker.navigate_url.markdown @Claeysson
 source/_actions/knx.event_register.markdown @Julius2342 @farmio @marvin-w
 source/_actions/knx.exposure_register.markdown @Julius2342 @farmio @marvin-w
@@ -1804,6 +1809,8 @@ source/_actions/media_player.volume_up.markdown @home-assistant/core
 source/_actions/miele.get_programs.markdown @astrandb
 source/_actions/miele.set_program.markdown @astrandb
 source/_actions/miele.set_program_oven.markdown @astrandb
+source/_actions/mijn_farmad_apotheek.order_medication.markdown @DaanVervacke
+source/_actions/mijn_farmad_apotheek.search_medication.markdown @DaanVervacke
 source/_actions/mill.set_room_temperature.markdown @danielhiversen
 source/_actions/min_max.reload.markdown @gjohansson-ST
 source/_actions/minio.get.markdown @tkislan
