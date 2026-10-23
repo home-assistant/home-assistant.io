@@ -57,7 +57,7 @@ The following parameters can be provided to this function.
 {% function_parameters %}
 value:
   description: >
-    The action response dictionary to merge. Each key is an entity ID, and each value contains that entity's response data. Input that isn't a dictionary raises the error `Response is not a dictionary`.
+    The action response dictionary to merge. Each key is an entity ID, and each value is a dictionary with that entity's response data. If the input, or the response of any entity, isn't a dictionary, you get the error `Response is not a dictionary`.
   required: true
   type: map
 {% endfunction_parameters %}
@@ -66,7 +66,7 @@ value:
 
 - Adds an `entity_id` field to each item, so you can tell which entity each response came from after merging.
 - Some responses have exactly one key that holds a list, such as `events`. In that case, the items of all these lists are combined into one list. Each item also gets a `value_key` field with the name of that key, such as `events`.
-- Other response shapes work too. Each entity's response then becomes one item in the list.
+- Other response dictionaries work too, for example, with several keys. Each entity's response then becomes one item in the list.
 - The result isn't sorted. If the order matters, use [`sort`](/template-functions/sort/).
 - An empty response returns an empty list (`[]`).
 
