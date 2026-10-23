@@ -9,15 +9,18 @@
 // which a page opened from a social profile doesn't want. It keeps the
 // site's head (social tags, fonts, Plausible).
 //
-// Replaces the Jekyll version (source/_layouts/bio.html and
-// plugins/bio.rb). Port: same look, expressed with the site's tokens;
-// the page's own colors, the home page hero's gradient among them, are
-// custom properties on <body> below, which the Bio* components read.
+// Designed with the /community page's design system
+// (sass/homeassistant/pages/community/): its light grey page, navy ink,
+// Figtree type with tight headings, cyan panels, pill buttons with a
+// white icon circle and the mint accent. Those colors are custom
+// properties on <body> below, which the Bio* components read; spacing,
+// type sizes and radii come from the site's tokens.
 import fs from "node:fs";
 import path from "node:path";
 import { getEntry } from "astro:content";
 import SiteHead from "../../components/SiteHead.astro";
 import BioTile from "../../components/BioTile.astro";
+import BioButton from "../../components/BioButton.astro";
 import BioHero from "../../components/BioHero.astro";
 import BioVideo from "../../components/BioVideo.astro";
 import BioSocials from "../../components/BioSocials.astro";
@@ -65,28 +68,41 @@ const name = setting("title");
       </header>
 
       {
-        sections.map((section, sectionIndex) => (
-          <section class="section">
-            {section.title && <h2 class="section-title">{section.title}</h2>}
-            <ul class="tiles">
-              {section.tiles.map((tile, tileIndex) => {
-                const props = { ...tile, section: section.title };
-                const eager = sectionIndex === 0 && tileIndex < 2;
-                return (
+        sections.map((section, sectionIndex) =>
+          section.type === "feed" ? (
+            <section class="feed">
+              {section.title && <h2 class="feed-title">{section.title}</h2>}
+              <ul class="tiles">
+                {section.tiles.map((tile, tileIndex) => {
+                  const props = { ...tile, section: section.title };
+                  const eager = sectionIndex === 0 && tileIndex < 2;
+                  return (
+                    <li>
+                      {tile.kind === "video" ? (
+                        <BioVideo {...props} eager={eager} />
+                      ) : tile.kind === "hero" ? (
+                        <BioHero {...props} />
+                      ) : (
+                        <BioTile {...props} eager={eager} />
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+          ) : (
+            <section class="links">
+              {section.title && <h2 class="links-title">{section.title}</h2>}
+              <ul class="buttons">
+                {section.tiles.map((tile) => (
                   <li>
-                    {tile.kind === "video" ? (
-                      <BioVideo {...props} eager={eager} />
-                    ) : tile.kind === "hero" ? (
-                      <BioHero {...props} />
-                    ) : (
-                      <BioTile {...props} eager={eager} />
-                    )}
+                    <BioButton {...tile} section={section.title} />
                   </li>
-                );
-              })}
-            </ul>
-          </section>
-        ))
+                ))}
+              </ul>
+            </section>
+          ),
+        )
       }
 
       <div class="socials">
@@ -101,53 +117,26 @@ const name = setting("title");
 </html>
 
 <style lang="scss" is:global>
-  // The page's palette, read by the Bio* components. Text that sits on
-  // the gradient is dark ink: white on it is 1.5–2.6:1 and fails WCAG AA.
+  // The /community page's palette
+  // (sass/homeassistant/pages/community/_variables.scss, _base.scss),
+  // read by the Bio* components.
   body.bio-page {
-    // The home page hero's gradient (sass/homeassistant/homepage/_hero_unit.scss).
-    --bio-page: linear-gradient(340deg, hsl(200deg 100% 50%) 0%, hsl(195deg 100% 50%) 50%, hsl(185deg 100% 50%) 100%);
-    --bio-on-page: #04202b;
-    --bio-on-page-muted: #0b3a4c;
-    --bio-pill: rgb(255 255 255 / 35%);
-    --bio-pill-line: rgb(4 32 43 / 25%);
-    --bio-featured: #04202b;
-    --bio-on-featured: var(--color-text-inverse);
-    --bio-ring: #04202b;
-    --bio-tile: var(--color-surface);
-    --bio-tile-hover: #eef6fa;
-    --bio-line: rgb(4 32 43 / 12%);
-    --bio-text: var(--color-text);
-    --bio-text-muted: var(--color-text-muted);
+    --bio-page-bg: #f5f6fa;
+    --bio-ink: #002332;
+    --bio-paragraph: #4f606e;
+    --bio-primary: #00aef8;
+    --bio-secondary: #16f3be;
+    --bio-pill: #99dffc;
+    --bio-panel: #cceffe;
+    --bio-radius: 0.75rem;
 
     margin: 0;
     min-height: 100vh;
-    background: var(--color-highlight);
-    background: var(--bio-page);
-    color: var(--bio-on-page);
-    font-family: var(--font-sans);
-    line-height: 1.45;
+    background: var(--bio-page-bg);
+    color: var(--bio-ink);
+    font-family: var(--font-heading);
+    line-height: 1.25;
     -webkit-text-size-adjust: 100%;
-
-    // The same hues, dark enough not to glare at night.
-    @media (prefers-color-scheme: dark) {
-      --bio-page: linear-gradient(340deg, hsl(200deg 100% 16%) 0%, hsl(195deg 100% 14%) 50%, hsl(185deg 100% 13%) 100%);
-      --bio-on-page: #e9f2f6;
-      --bio-on-page-muted: #a9c9d6;
-      --bio-pill: rgb(255 255 255 / 6%);
-      --bio-pill-line: rgb(233 242 246 / 20%);
-      --bio-featured: var(--color-highlight);
-      --bio-on-featured: #04202b;
-      --bio-ring: #6fd6f8;
-      --bio-tile: #13232b;
-      --bio-tile-hover: #1b2f39;
-      --bio-line: rgb(233 242 246 / 10%);
-      --bio-text: #e9f2f6;
-      --bio-text-muted: #97abb5;
-
-      background: #00334d;
-      background: var(--bio-page);
-      color-scheme: dark;
-    }
   }
 </style>
 
@@ -156,12 +145,13 @@ const name = setting("title");
     box-sizing: border-box;
     max-width: 34rem;
     margin: 0 auto;
-    padding: var(--space-xlarge) max(var(--space-large), env(safe-area-inset-right)) var(--space-xxlarge)
-      max(var(--space-large), env(safe-area-inset-left));
+    padding: var(--space-xlarge) max(var(--space-medium), env(safe-area-inset-right)) var(--space-xxlarge)
+      max(var(--space-medium), env(safe-area-inset-left));
   }
 
   .header {
-    margin-bottom: var(--space-large);
+    margin-bottom: var(--space-xlarge);
+    padding: 0 var(--space-small);
     text-align: center;
   }
 
@@ -169,44 +159,54 @@ const name = setting("title");
     display: block;
     width: 3.5rem;
     height: 3.5rem;
-    margin: 0 auto var(--space-small);
+    margin: 0 auto var(--space-medium);
   }
 
   .name {
     margin: 0;
-    font-family: var(--font-heading);
-    font-size: var(--font-size-xlarge);
-    font-weight: 700;
-    line-height: 1.2;
+    font-size: var(--font-size-heading);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1;
   }
 
   .tagline {
-    max-width: 26rem;
-    margin: var(--space-xsmall) auto 0;
-    color: var(--bio-on-page-muted);
-    font-size: var(--font-size-medium);
+    max-width: 24rem;
+    margin: var(--space-small) auto 0;
+    color: var(--bio-paragraph);
+    font-size: var(--font-size-large);
     text-wrap: balance;
   }
 
-  .section {
-    margin-top: var(--space-xlarge);
+  // The feed sits in a cyan panel, like the community page's meetups and
+  // newsletter sections.
+  .feed {
+    padding: var(--space-small);
+    background: var(--bio-panel);
+    border-radius: var(--bio-radius);
   }
 
-  .header + .section {
-    margin-top: 0;
-  }
-
-  .section-title {
-    margin: 0 0 var(--space-small);
-    color: var(--bio-on-page-muted);
-    font-family: var(--font-sans);
-    font-size: var(--font-size-small);
+  .feed-title {
+    margin: var(--space-small) var(--space-small) var(--space-medium);
+    font-size: var(--font-size-xxlarge);
     font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    letter-spacing: -0.04em;
+    line-height: 1;
   }
 
-  .tiles {
+  .links {
+    margin-top: var(--space-xlarge);
+    padding: 0 var(--space-small);
+  }
+
+  .links-title {
+    margin: 0 0 var(--space-medium);
+    font-size: var(--font-size-medium);
+    font-weight: 700;
+  }
+
+  .tiles,
+  .buttons {
     display: grid;
     gap: var(--space-small);
     margin: 0;
@@ -220,7 +220,7 @@ const name = setting("title");
 
   .footer {
     margin-top: var(--space-xxlarge);
-    color: var(--bio-on-page-muted);
+    color: var(--bio-paragraph);
     font-size: var(--font-size-small);
     text-align: center;
 

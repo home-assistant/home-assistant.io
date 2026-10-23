@@ -345,7 +345,7 @@ export function resolve(config, posts, now, siteUrl, data = {}) {
     // already is a large card.
     if (section.hero === true && tiles[0].image && tiles[0].kind === "link") tiles[0].kind = "hero";
 
-    return [{ title: section.title, tiles }];
+    return [{ title: section.title, type: section.type, tiles }];
   });
 }
 

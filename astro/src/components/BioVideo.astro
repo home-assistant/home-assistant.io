@@ -6,8 +6,10 @@
 // the YouTube app. No player script and no YouTube cookies load with
 // the page.
 //
-// New for the Astro version of the page. Site tokens; page colors as in
-// BioTile.astro.
+// Follows the /community page's design system: its dark navy card (the
+// "Host an event in your area" panel in
+// sass/homeassistant/pages/community/components/_meetups.scss), so a
+// video stands apart from the white cards; page colors as in BioTile.astro.
 import "../styles/tokens.scss";
 
 const { label, url, note, image, section, source, eager = false } = Astro.props;
@@ -44,16 +46,16 @@ const { label, url, note, image, section, source, eager = false } = Astro.props;
   .video {
     box-sizing: border-box;
     display: block;
-    overflow: hidden;
-    background: var(--bio-tile, var(--color-surface));
-    border: 1px solid var(--bio-line, var(--color-surface-subtle));
-    border-radius: var(--radius-small);
-    color: var(--bio-text, var(--color-text));
-    font-family: var(--font-sans);
+    padding: var(--space-small);
+    background: var(--bio-ink, #002332);
+    border-radius: var(--bio-radius, 0.75rem);
+    color: var(--color-text-inverse);
+    font-family: var(--font-heading);
     text-decoration: none;
+    transition: box-shadow 0.2s ease;
 
     &:hover {
-      background: var(--bio-tile-hover, var(--color-hover-wash));
+      box-shadow: 0 0 0 2px var(--bio-primary, #00aef8);
 
       .play {
         transform: translate(-50%, -50%) scale(1.08);
@@ -61,16 +63,22 @@ const { label, url, note, image, section, source, eager = false } = Astro.props;
     }
 
     &:focus-visible {
-      outline: 3px solid var(--bio-ring, var(--color-highlight-shade));
+      outline: 3px solid var(--bio-ink, #002332);
       outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
     }
   }
 
   .player {
     position: relative;
     display: block;
+    overflow: hidden;
     aspect-ratio: 16 / 9;
     background: #000;
+    border-radius: var(--radius-small);
   }
 
   .image {
@@ -96,21 +104,22 @@ const { label, url, note, image, section, source, eager = false } = Astro.props;
 
   .text {
     display: block;
-    padding: var(--space-medium) var(--space-large) var(--space-large);
+    padding: var(--space-medium) var(--space-xsmall) var(--space-xsmall);
   }
 
   .label {
     display: block;
-    font-family: var(--font-heading);
-    font-size: var(--font-size-xlarge);
-    font-weight: 700;
-    line-height: 1.3;
+    font-size: var(--font-size-xxlarge);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
   }
 
   .note {
     display: block;
-    margin-top: var(--space-xsmall);
-    color: var(--bio-text-muted, var(--color-text-muted));
-    font-size: var(--font-size-medium);
+    margin-top: var(--space-small);
+    color: var(--bio-secondary, #16f3be);
+    font-size: var(--font-size-small);
+    font-weight: 600;
   }
 </style>

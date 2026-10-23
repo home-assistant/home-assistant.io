@@ -1,16 +1,16 @@
 ---
-// One link on the link-in-bio page (/bio/): a label, an optional second
-// line and an optional square thumbnail. `featured` gives the tile the
-// page's strong color.
+// One item in a feed on the link-in-bio page (/bio/): a label, a second
+// line and an optional thumbnail, with the /community page's arrow
+// badge. `featured` gives it the community page's mint accent.
 //
-// Replaces `source/_includes/bio/tile.html` from the Jekyll version of
-// the page. Port: same look, with the site's tokens for type, spacing
-// and radii; the page's own colors come from custom properties set on
-// the bio page (see src/pages/bio/index.astro), with site tokens as the
-// fallback so the component also renders on its own.
+// Follows the /community page's design system (white cards on its cyan
+// panels: sass/homeassistant/pages/community/components/_meetups.scss,
+// _newsletter.scss); page colors come from custom properties on the bio
+// page, with fallbacks so the component also renders on its own.
 //
 // The data-* attributes name the section, source and label of each
 // click, ready to become Plausible event properties.
+import Icon from "./Icon.astro";
 import "../styles/tokens.scss";
 
 const { label, url, note, image, featured = false, section, source, eager = false } = Astro.props;
@@ -41,6 +41,7 @@ const { label, url, note, image, featured = false, section, source, eager = fals
     <span class="label">{label}</span>
     {note && <span class="note">{note}</span>}
   </span>
+  <span class="arrow"><Icon name="arrow-right" /></span>
 </a>
 
 <style lang="scss">
@@ -49,43 +50,35 @@ const { label, url, note, image, featured = false, section, source, eager = fals
     display: flex;
     align-items: center;
     gap: var(--space-medium);
-    min-height: 3.25rem;
-    padding: var(--space-medium) var(--space-large);
-    background: var(--bio-tile, var(--color-surface));
-    border: 1px solid var(--bio-line, var(--color-surface-subtle));
-    border-radius: var(--radius-small);
-    color: var(--bio-text, var(--color-text));
-    font-family: var(--font-sans);
+    min-height: 3.5rem;
+    padding: var(--space-medium);
+    background: var(--color-surface);
+    border-radius: var(--bio-radius, 0.75rem);
+    color: var(--bio-ink, #002332);
+    font-family: var(--font-heading);
     text-decoration: none;
+    transition: box-shadow 0.2s ease;
 
     &:hover {
-      background: var(--bio-tile-hover, var(--color-hover-wash));
+      box-shadow: 0 0 0 2px var(--bio-primary, #00aef8);
+
+      .arrow {
+        background: var(--bio-primary, #00aef8);
+        color: var(--color-text-inverse);
+      }
     }
 
     &:focus-visible {
-      outline: 3px solid var(--bio-ring, var(--color-highlight-shade));
+      outline: 3px solid var(--bio-ink, #002332);
       outline-offset: 2px;
     }
 
-    &.has-image {
-      padding-left: var(--space-small);
+    &.featured {
+      background: var(--bio-secondary, #16f3be);
     }
 
-    // A tile in the page's own blue would vanish into the blue page, so
-    // the strong color is dark ink in light mode.
-    &.featured {
-      background: var(--bio-featured, var(--color-highlight-shade));
-      border-color: var(--bio-featured, var(--color-highlight-shade));
-      color: var(--bio-on-featured, var(--color-text-inverse));
-
-      &:hover {
-        filter: brightness(1.15);
-      }
-
-      .note {
-        color: inherit;
-        opacity: 0.8;
-      }
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
     }
   }
 
@@ -93,12 +86,13 @@ const { label, url, note, image, featured = false, section, source, eager = fals
     flex: none;
     width: 3.5rem;
     height: 3.5rem;
-    border-radius: var(--radius-xsmall);
+    border-radius: var(--radius-small);
     object-fit: cover;
-    background: var(--bio-line, var(--color-surface-subtle));
+    background: var(--bio-panel, #cceffe);
   }
 
   .text {
+    flex: 1;
     min-width: 0;
   }
 
@@ -106,12 +100,25 @@ const { label, url, note, image, featured = false, section, source, eager = fals
     display: block;
     font-size: var(--font-size-large);
     font-weight: 600;
+    line-height: 1.25;
   }
 
   .note {
     display: block;
     margin-top: var(--space-xsmall);
-    color: var(--bio-text-muted, var(--color-text-muted));
+    color: var(--bio-paragraph, #4f606e);
+    font-size: var(--font-size-small);
+  }
+
+  .arrow {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    background: var(--bio-panel, #cceffe);
+    border-radius: 50%;
     font-size: var(--font-size-medium);
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 </style>
