@@ -105,7 +105,7 @@ output: "22.5"
 - Using `states.sensor.name.state` (dotted notation) for a missing entity gives an empty value and logs a warning. Errors can happen in the next step, for example when you convert the empty value with `| float`. With `states("sensor.name")`, you get `unknown` instead.
 - During startup, or when an entity is unavailable, the state is `unknown` or `unavailable`. Converting that text with `| float` without a default causes an error. Add a default, such as `| float(0)`, or check the entity first with [`has_value`](/template-functions/has_value/).
 - When you loop over states, the entities come in no particular order. They are not sorted.
-- Template entities and other templates that update automatically limit how often a loop over states updates. A loop over all states (`states`) updates at most once per minute. A loop over one domain, such as `states.light`, updates at most once per second.
+- In a template entity without a trigger, a loop over states updates less often. A loop over all states (`states`) updates at most once per minute. A loop over one domain, such as `states.light`, updates at most once per second. A change to an entity that the template names directly still updates it right away. For details, refer to [Rate limiting updates](/integrations/template/#rate-limiting-updates).
 
 {% include template_functions/try_it.md %}
 
