@@ -16,6 +16,7 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - event
   - light
   - select
   - sensor
@@ -104,6 +105,10 @@ The pushbutton LEDs of input modules are [disabled by default](/docs/configurati
 ### Binary sensor
 
 Every input module will be represented as a binary sensor entity in Home Assistant. The binary sensor will be on when the input is active and off when the input is inactive.
+
+### Event
+
+Each physical Velbus button is exposed as an event entity. A short press emits a `short_press` event when the button is released. A long press emits a `long_press` event as soon as the module reports the long press. Releasing a long press does not emit an additional event.
 
 ### Select
 
