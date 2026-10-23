@@ -115,7 +115,7 @@ You can change any helper that you created in the UI. For example, you can add a
 
 You can only change a helper in YAML if you set it up in YAML. Helpers that you created in the UI aren't stored in your YAML configuration.
 
-For a helper that you set up in YAML, you can't change its own settings in the UI, such as the range of a **Number**. You can still change the settings that all entities have, such as the area, in the UI.
+For a helper that you set up in YAML, you can't change its own settings in the UI, such as the range of a **Number**. If the helper has a unique ID, you can still change the settings that all entities have, such as the area, in the UI. Helpers that store a value, such as a **Toggle** or a **Number**, always have one. For other helpers, refer to [Why does this entity not have a unique ID?](/faq/unique_id/).
 
 ### Prerequisites
 
@@ -131,6 +131,7 @@ For a helper that you set up in YAML, you can't change its own settings in the U
 3. Save the file.
 4. [Reload the YAML configuration](/common-tasks/general/restarting/#reloading-the-yaml-configuration).
    - Result: The helper uses its new settings.
+   - Some types of helpers, such as a **Counter**, don't support reloading. If the helper still uses its old settings, [restart Home Assistant](/common-tasks/general/restarting/#restarting-home-assistant).
 
 ## Creating a similar helper
 
