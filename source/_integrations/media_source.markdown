@@ -24,59 +24,32 @@ related:
     title: Media directories configuration
 ---
 
-The **Media source** {% term integration %} platform allows integrations to expose media for
-use inside Home Assistant through the Media Browser panel or through supported
-media players like Google Cast.
+The **Media source** {% term integration %} lets integrations share media with Home Assistant. You can browse this media in the media browser, and play it on supported media players, such as Google Cast devices.
 
 ## Configuration
 
-This integration is configured automatically
-through `default_config` or if another integration implements a media source.
+Home Assistant sets up this integration automatically. It's part of `default_config`, and integrations that provide media load it too.
 
-If your configuration does not contain any of the above, you can add the below
-to your configuration file:
+If your configuration doesn't use `default_config`, add the following to your {% term "configuration.yaml" %}:
 
 ```yaml
-# Example configuration.yaml entry
 media_source:
 ```
 
 ## Local media
 
-By default, the integration looks for media in a specified folder.
-If other `media_dirs` are not declared you need to use `/media/local` path for
-example in companion app notification.
+Your own media files are in your media folder. On {% term "Home Assistant Operating System" %} and {% term "Home Assistant Container" %}, this folder is `/media` by default. In the media browser, it's listed as **My media**.
 
-On {% term "Home Assistant Operating System" %} and {% term "Home Assistant Container" %}, this folder is `/media` by default.
+- To set up the folder, refer to [Setting up local media sources](/more-info/local-media/setup-media/).
+- To add files, refer to [Adding your media to Home Assistant](/more-info/local-media/add-media/).
 
-Home Assistant OS users can access this folder by using,
-for example, the **Samba share** app. Users of Home Assistant Container can
-mount a volume of their choice to `/media`.
+Files in your media folder are only available to people who are logged in to Home Assistant. This is different from the [`www` folder](/integrations/http/#hosting-files), where files are available without a login.
 
-Files served from `media` are protected by Home Assistant authentication
-unlike those served from `www`.
+To link to a file, for example, in a notification of the Companion app, use `/media/local/` followed by the path of the file. If you set up other media folders, use the name of that folder instead of `local`.
 
 ## Using custom or additional media folders
 
-It is also possible to set up custom and additional media directories. To do
-so, you'll need to adjust the [core configuration][basic-configuration].
-
-This example makes two different folders available to the integration:
-
-```yaml
-# Example configuration.yaml
-homeassistant:
-  media_dirs:
-    local: /media
-    recording: /mnt/recordings
-```
-
-The folders under `media_dirs` replace the default media folder. To keep your `/media` folder in the media browser, add it too, like `local: /media` in the example above.
-
-{% tip %}
-If you want to use media from a network storage, the network storage must be connected first. Refer to [these instructions on how to connect network storage](/common-tasks/os/#network-storage).
-The media from the network storage is then automatically added to the local media browser.
-{% endtip %}
+You can add more media folders, for example, from a network storage. For the steps, refer to [Adding additional media directories](/more-info/local-media/setup-media/#adding-additional-media-directories).
 
 ## Browsing your media
 
@@ -92,23 +65,9 @@ The media browser shows your own media, such as the files in your `/media` folde
 
 ## Playing media from a media source
 
-To play media from a media source via an action, use the uri
-scheme `media-source://media_source/<media_dir>/<path>`.
-Default `media_dir` is `local`.
+In an automation or a script, use the [**Play specified media**](/actions/media_player.play_media/) action. Under **Media**, select **Pick media**, and then select the file in the media browser.
 
-{% note %}
-Web browsers and Google Cast media players have very limited video container
-and codec support. The media source integration does not do any transcoding of
-media, meaning media files must be natively supported by your media player or
-web browser (for playing in the frontend).
-
-If a video file is not supported by
-your media player or web browser it will fail to play. Please check the
-documentation of your media player or web browser for lists
-of supported video formats.
-{% endnote %}
-
-Example:
+In YAML, refer to a file with its media source ID: `media-source://media_source/<media_dir>/<path>`. The default `media_dir` is `local`. For example:
 
 ```yaml
 action: media_player.play_media
@@ -116,25 +75,23 @@ target:
   entity_id: media_player.living_room_tv
 data:
   media_content_type: "video/mp4"
-  media_content_id: "media-source://media_source/local/videos/favourites/Epic Sax Guy 10 Hours.mp4"
+  media_content_id: "media-source://media_source/local/videos/favorites/holiday.mp4"
 ```
 
-[basic-configuration]: /integrations/homeassistant/#media_dirs
+{% note %}
+Home Assistant doesn't convert media files. Your media player or web browser must support the format of the file. Web browsers and Google Cast media players support only a few video formats. If a video doesn't play, check the documentation of your media player or web browser for the formats it supports.
+{% endnote %}
 
 ### Identifying a media source from the media browser
 
-If you wish to use the `media-source://` URI for an action, and the media is already available in the media browser (either as locally stored on the Home Assistant machine, or mapped using network storage) the following steps can help to determine the `media-source` uri.
+To use a file in YAML, you need its media source ID. The easiest way to find it is to pick the file in the UI, and then look at the YAML.
 
-1. Select **Media** in the sidebar.
-2. Navigate to the folder containing the media you wish to play.\
-  *In this example, we will go **My media** > **NAS_Media**. This folder is a network share containing a collection of .mp3 files. One of which is named `my-music.mp3`.*
-3. Copy the current URL from the URL bar.\
-  *for example: `https://home-assistant.local/media-browser/browser/app%2Cmedia-source%3A%2F%2Fmedia_source/%2Cmedia-source%3A%2F%2Fmedia_source%2Flocal%2FNAS_Media`*
-4. Search for an online URL Decoder, paste in the copied text and decode.\
-  *`https://home-assistant.local/media-browser/browser/app,media-source://media_source/,media-source://media_source/local/NAS_Media`*
-
-The last media source, in this case `media-source://media_source/local/NAS_Media` makes up the first part of the path, with the complete path being:
-`media-source://media_source/local/NAS_Media/my-music.mp3`
+1. Go to {% my tools_actions title="**Settings** > **Tools** > **Actions**" %}.
+2. In the **Action** dropdown list, select **Play specified media**.
+3. Select **Add target**, and select a media player that supports browsing media.
+4. Under **Media**, select **Pick media**, and then select the file in the media browser.
+5. Select **YAML mode**.
+   - Result: The YAML shows the media source ID of the file under `media_content_id`. For example, `media-source://media_source/local/NAS_Media/my-music.mp3`.
 
 ## Troubleshooting
 
