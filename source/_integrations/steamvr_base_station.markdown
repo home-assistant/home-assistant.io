@@ -51,7 +51,7 @@ Device:
 ### Selects
 
 - **Power mode**: Switches the station on, to standby, or to sleep. From standby it is back on in about a second, from sleep in about 11 seconds. Standby is hidden on firmware that lacks it.
-- **Channel**: The station's tracking channel, from 1 to 16. SteamVR normally assigns channels itself, so only change it to fix a conflict.
+- **Channel**: The station's tracking channel, from 1 to 16. SteamVR normally assigns channels itself, so only change it to fix a conflict. Disabled by default.
 
 ### Sensors
 
