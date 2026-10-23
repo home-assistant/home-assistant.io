@@ -8,7 +8,7 @@ ha_codeowners:
   - '@DavidMagyarics'
   - '@dvx76'
 ha_domain: skoda
-ha_integration_type: hub
+ha_integration_type: device
 ha_config_flow: true
 ha_category:
   - Car
