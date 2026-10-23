@@ -1,8 +1,18 @@
-## Backups
+---
+title: "Backups"
+description: "How to create, store, download, and restore backups of Home Assistant, including automatic backups, backup locations, encryption, and troubleshooting."
+related:
+  - docs: /integrations/backup/
+    title: Backup integration
+  - docs: /more-info/backup-emergency-kit/
+    title: Backup emergency kit
+  - docs: /common-tasks/os/#network-storage
+    title: Network storage
+---
 
 It is important to regularly back up your Home Assistant setup. You may have spent many hours configuring your system and creating automations. Keep your configurations safe so that you can [restore](#restoring-a-backup) a system or migrate your Home Assistant to new hardware.
 
-### What a backup contains and where it's stored
+## What a backup contains and where it's stored
 
 Backups are encrypted by default and stored in a compressed archive file (.tar). By default, Home Assistant stores them locally, in one of the following folders:
 
@@ -21,7 +31,7 @@ A partial backup consists of any number of the above default directories and ins
 
 On Home Assistant Container, a backup contains the Home Assistant settings and, if you choose, the history. Apps, the media and share folders, and network storage are only available on Home Assistant OS.
 
-### Preparing for a backup
+## Preparing for a backup
 
 Before creating a backup, check if you can reduce the size of the backup. This is especially important if you want to use the backup to migrate the system to new hardware, for example from a Raspberry Pi Compute Module&nbsp;4 to a Raspberry Pi Compute Module&nbsp;5.
 
@@ -35,7 +45,7 @@ Before creating a backup, check if you can reduce the size of the backup. This i
    - If you have apps installed that you no longer use, uninstall those apps. Some apps require quite a bit of space.
 3. If you want to store the backup on your network storage instead of just locally on your system, follow the steps on [adding a new network storage](/common-tasks/os/#add-a-new-network-storage) and select the **Backup** option.
 
-### Setting up an automatic backup process
+## Setting up an automatic backup process
 
 The automatic backup process creates a backup on a schedule and also deletes old automatic backups.
 
@@ -72,7 +82,7 @@ To change these settings later, go to {% my supervisor_backups title="**Settings
 
 To download the emergency kit again, or to show or change your encryption key, use the **Encryption key** card on the backups page.
 
-### Defining backup locations
+## Defining backup locations
 
 You might need a backup in case your system has crashed. If you only store backups on the device itself, you won't be able to access them easily. It is recommended to keep a copy on another system (outside of Home Assistant) and ideally also one off-site.
 
@@ -80,11 +90,11 @@ You might need a backup in case your system has crashed. If you only store backu
 You will find an overview of integrations which provide a backup location [here](/integrations/#backup).
 {% endnote %}
 
-#### About the backup storage on Home Assistant Cloud
+### About the backup storage on Home Assistant Cloud
 
 If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on Home Assistant Cloud. This cloud storage space is available for all existing and new Home Assistant Cloud subscribers without additional cost. It stores one backup file: the backup that was last saved to Home Assistant Cloud. These backups are always encrypted. To restore encrypted backups, you need the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
 
-#### To define the backup location for automatic backups
+### To define the backup location for automatic backups
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, and on the **Automatic backup** card, select **Configure backup settings**.
 2. Under **Locations**, turn on all the backup locations you want to use.
@@ -96,13 +106,15 @@ If you have Home Assistant Cloud, you can store a backup of maximum 5&nbsp;GB on
    - Under **Encryption**, select **Turn off** or **Turn on**. Backups on Home Assistant Cloud are always encrypted.
    - Under **Retention for this system**, or the retention for another location, select **Use global settings**, or set a retention for this location only. Home Assistant Cloud always keeps only one backup.
 
-### Creating a backup automation using the backup action
+## Creating a backup automation using the backup action
 
 If the backup automation settings provided in the UI do not match your use case, you can manually configure your own backup automation using the [`backup.create_automatic`](/actions/backup.create_automatic/) action.
 
 Using the {% my tools_perform_action service="backup.create_automatic" %} action in your own automation allows you to create automated backups on any schedule you like, or even add conditions and actions around it. For example, you could make an automation that triggers on a calendar, turns on your NAS, waits until it is online, and then triggers a backup.
 
-### Creating a manual backup
+To get notified when an automatic backup fails, use the event entity and sensors of the [Backup integration](/integrations/backup/#event-entity).
+
+## Creating a manual backup
 
 This creates a backup instantly. You can create a manual backup at any time, irrespective of any automatic backups you may have defined.
 
@@ -119,7 +131,7 @@ This creates a backup instantly. You can create a manual backup at any time, irr
    - To store the backup on Home Assistant Cloud, include the Home Assistant settings in the backup data.
 6. To start the backup process, select **Create backup**.
 
-### Downloading your local backups
+## Downloading your local backups
 
 When you download a backup from the Home Assistant backup page, it is decrypted on the fly, so that you can view the data using your favorite archive tool. This works for all backup locations, including Home Assistant Cloud, if the backup uses your current encryption key. If the backup uses a different key, Home Assistant asks for that key. You can also download the backup encrypted.
 
@@ -139,7 +151,7 @@ There are multiple ways to download your local backup from your Home Assistant i
    - For example, [use the Samba share app](/common-tasks/os/#installing-and-using-the-samba-share-app).
 2. In your file explorer, access Home Assistant, open the `backup` folder and copy the file to your computer.
 
-### Downloading a backup from Home Assistant Cloud
+## Downloading a backup from Home Assistant Cloud
 
 If you were logged in to Home Assistant Cloud and had Cloud backup enabled when creating a backup, your last backup is stored on Home Assistant Cloud.
 
@@ -154,7 +166,7 @@ There are two ways to download the backup from Home Assistant Cloud:
   1. Log in to your [Home Assistant Cloud account](https://account.nabucasa.com/).
   2. Under **Stored files**, you can see the latest available backup file. Select the **Download** button.
 
-### App update backups
+## App update backups
 
 On {% term "Home Assistant Operating System" %}, Home Assistant can create a backup of an app before it updates the app. This app update backup contains the app and its data, so you can go back to the previous version of the app if needed.
 
@@ -162,7 +174,7 @@ On {% term "Home Assistant Operating System" %}, Home Assistant can create a bac
 - By default, Home Assistant keeps one app update backup per app, and deletes older ones.
 - The retention of automatic backups doesn't delete app update backups.
 
-#### Changing app update backup settings
+### Changing app update backup settings
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, and select the **App update backup** card.
    - Result: The **App update backups** page opens.
@@ -170,7 +182,7 @@ On {% term "Home Assistant Operating System" %}, Home Assistant can create a bac
    - You can still change this each time you update an app.
 3. Under **Retention**, enter how many app update backups to keep per app.
 
-### Deleting obsolete backups
+## Deleting obsolete backups
 
 If you defined a retention for automatic backups, old automatic backups are deleted automatically. The retention doesn't delete manual backups, so you might still have some old backups around that you want to delete. Home Assistant Cloud is an exception: it only keeps the last backup that was uploaded to it, also if that's a manual backup.
 
@@ -190,24 +202,24 @@ To delete old backups, follow these steps:
      - Log in to your [Nabu Casa account](https://account.nabucasa.com/).
      - Under **Backups**, delete the backup.
 
-### Restoring a backup
+## Restoring a backup
 
 There are two ways to use a backup:
 
 - On your current system to recover your settings.
 - During onboarding, to migrate your setup to a new device or to a device on which you performed a factory reset.
 
-#### Estimated duration
+### Estimated duration
 
 The time it takes to restore a backup depends on your installation. Home Assistant Core and all apps are being reinstalled. For a larger installation, this process can take about 45 minutes.
 
-#### Restoring a backup during onboarding
+### Restoring a backup during onboarding
 
 You can use a backup during the onboarding process to restore your configuration.
 
 **Migration**: This procedure also works if you want to migrate from one device to another. In that case, use the backup of the old device on the new device. The target device can be a different device type. For example, you can migrate from a Raspberry&nbsp;Pi to another device.
 
-##### Prerequisites
+#### Prerequisites
 
 - This procedure assumes you have already completed the [installation](/installation/) procedure on your target device and are now viewing the welcome screen as part of the [onboarding](/getting-started/onboarding/).
 - The login credentials of the device from which you made the backup.
@@ -223,7 +235,7 @@ You can use a backup during the onboarding process to restore your configuration
   - You do not need to transfer the backup to a USB or SD card to bring it to your device.
   - You will be able to upload the backup file from the device you are accessing the onboarding from.
 
-##### To restore a backup during onboarding
+#### To restore a backup during onboarding
 
 1. If you are migrating to a new device and you had controllers or radios connected (such as a Z-Wave stick or a Connect&nbsp;ZBT-2):
    - make sure to plug them into the new device.
@@ -254,7 +266,7 @@ You can use a backup during the onboarding process to restore your configuration
 8. If you had Zigbee devices, and you migrated to a new device with its own Zigbee radio built-in:
    - Because this is now a different Zigbee radio, you need to [migrate Zigbee](/integrations/zha/#migrating-to-a-new-zigbee-adapter-inside-zha).
 
-#### To restore a backup on your current system
+### To restore a backup on your current system
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, and select **Show all backups**.
    - To restore a backup file from your computer, first upload it: select the three dots {% icon "mdi:dots-vertical" %} menu, select **Upload backup**, and then **Select backup file**. Select the file, and then select **Upload backup**.
@@ -272,19 +284,19 @@ You can use a backup during the onboarding process to restore your configuration
    - You will lose the connection to the UI and it will return once the restart is completed.
 6. On the login screen, enter the password and username as they were at the time the backup was taken.
 
-### Troubleshooting backups
+## Troubleshooting backups
 
 {% details "A backup fails and doesn't show why" %}
 
-#### Symptom: "Last automatic backup failed" or "Failed to create backup"
+### Symptom: "Last automatic backup failed" or "Failed to create backup"
 
 An automatic or manual backup fails, and Home Assistant doesn't say why.
 
-##### Description
+#### Description
 
 The reason is in the logs of Home Assistant.
 
-##### Resolution
+#### Resolution
 
 1. Go to {% my logs title="**Settings** > **System** > **Logs**" %}.
 2. In **Search logs**, enter `backup`.
@@ -295,11 +307,11 @@ The reason is in the logs of Home Assistant.
 
 {% details "A backup fails because the database can't be locked" %}
 
-#### Symptom: "Could not lock database within 30 seconds"
+### Symptom: "Could not lock database within 30 seconds"
 
 A backup fails, and the logs show `Error during pre-backup: Could not lock database within 30 seconds`.
 
-##### Description
+#### Description
 
 Before Home Assistant creates a backup, the [Recorder](/integrations/recorder/) stops writing to its database, so that the database in the backup is complete. The Recorder first finishes the work that it's busy with. If that takes longer than 30 seconds, the backup fails.
 
@@ -311,7 +323,7 @@ This could be caused, for example, by one of the following situations:
 
 This only happens with the default SQLite database. If you use MariaDB or PostgreSQL, Home Assistant doesn't lock the database, and this error doesn't occur.
 
-##### Resolution
+#### Resolution
 
 1. Wait a few minutes, and then create the backup again.
 2. If automatic backups fail, change when they run. The default, **System optimal**, starts between 04:45 and 05:45. That's shortly after the Recorder maintenance at 04:12, and a long repack can still be running then.

@@ -5,7 +5,9 @@ installation_name: "Installation independent"
 ---
 This section provides tasks that do not depend on a specific Home Assistant installation type or a specific integration. They may be referenced in other procedures.
 
-{% include common-tasks/backups.md %}
+## Backups
+
+To create, store, download, or restore a backup, refer to [Backups](/common-tasks/general/backups/).
 
 {% include common-tasks/enable_entities.md %}
 

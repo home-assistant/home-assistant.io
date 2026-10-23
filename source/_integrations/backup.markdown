@@ -15,9 +15,9 @@ ha_platforms:
   - sensor
 ha_integration_type: service
 related:
-  - docs: /common-tasks/general/#backups
+  - docs: /common-tasks/general/backups/
     title: Backups
-  - docs: /common-tasks/general/#defining-backup-locations
+  - docs: /common-tasks/general/backups/#defining-backup-locations
     title: Backup locations
   - docs: /getting-started/onboarding/
     title: Recover from backup during onboarding
@@ -27,15 +27,15 @@ related:
 
 The **Backup** {% term integration %} creates and restores backups across all [installation types](/installation/#about-installation-types).
 
-To learn how to create and restore a backup, refer to the backup section under [common tasks](/common-tasks/general/#backups).
+To learn how to create and restore a backup, refer to the backup section under [common tasks](/common-tasks/general/backups/).
 
-You no longer need to create your own automation to make backups. You can [set up an automatic backup from the UI](/common-tasks/general/#setting-up-an-automatic-backup-process) instead. If you do want to trigger a backup yourself, the integration provides actions for it.
+You no longer need to create your own automation to make backups. You can [set up an automatic backup from the UI](/common-tasks/general/backups/#setting-up-an-automatic-backup-process) instead. If you do want to trigger a backup yourself, the integration provides actions for it.
 
 {% include integrations/actions.md %}
 
 ## Restoring a backup
 
-To restore a backup, follow the steps described in [Restoring a backup](/common-tasks/general/#restoring-a-backup).
+To restore a backup, follow the steps described in [Restoring a backup](/common-tasks/general/backups/#restoring-a-backup).
 
 ## Event entity
 
