@@ -1821,7 +1821,7 @@ The **Wait for a trigger** building block pauses the automation or script until 
 5. Optional: In **Timeout**, enter how long to wait at most.
 6. Optional: To stop the automation or script when the timeout ends, turn off **Continue on timeout**.
 7. Optional: If you set a timeout and **Continue on timeout** is turned on, you can add actions that only run in one of the two cases:
-   - Under **On trigger**, add the actions to run if a trigger reacted in time.
+   - Under **On complete**, add the actions to run if a trigger reacted in time.
    - Under **On timeout**, add the actions to run if the timeout ended first.
 8. Select **Save**.
 
@@ -1836,7 +1836,7 @@ Timeout:
 Continue on timeout:
   description: If turned on, the next steps run when the timeout ends, even though no trigger reacted. If turned off, the automation or script stops. Turned on by default when a timeout is set.
   required: false
-On trigger:
+On complete:
   description: Actions that run only if a trigger reacted before the timeout ended. Shown when a timeout is set and **Continue on timeout** is turned on.
   required: false
 On timeout:
@@ -1875,7 +1875,7 @@ action: |
   continue_on_timeout: false
 {% endexample %}
 
-To run different actions depending on how the wait ended, add `on_trigger` and `on_timeout`. Both need a `timeout`, and they can't be used when `continue_on_timeout` is `false`. After the actions of the matching option have run, the automation or script continues with the next step.
+To run different actions depending on how the wait ended, add `on_complete` and `on_timeout`. Both need a `timeout`, and they can't be used when `continue_on_timeout` is `false`. After the actions of the matching option have run, the automation or script continues with the next step.
 
 {% example %}
 action: |
@@ -1885,7 +1885,7 @@ action: |
       to: "off"
   timeout:
     minutes: 2
-  on_trigger:
+  on_complete:
     - action: notify.notify
       data:
         message: "The front door is closed."
@@ -1925,7 +1925,7 @@ continue_on_timeout:
   required: false
   type: boolean
   default: true
-on_trigger:
+on_complete:
   description: The actions to run if a trigger reacted before the timeout ended. Requires `timeout`, and can't be used when `continue_on_timeout` is `false`.
   required: false
   type: list
@@ -1945,12 +1945,12 @@ After the wait ends, because a trigger reacted or because the timeout ended, the
 - `wait.remaining`: The time left of the timeout, in seconds, or `none` if no timeout is set.
 - `wait.trigger`: Information about the trigger that reacted, in the same format as the [trigger data](/docs/automation/templating/#available-trigger-data) of an automation. `none` if the timeout ended first.
 
-The `wait` variable is also available in the **On trigger** and **On timeout** actions.
+The `wait` variable is also available in the **On complete** and **On timeout** actions.
 
 ### Good to know about Wait for a trigger
 
 - The wait only reacts to a change that happens after the wait starts. If the state is already there, the automation or script keeps waiting. To continue right away in that case, use [**Wait for a template**](#wait-for-a-template). For more about this difference, refer to [Triggers react to changes](/docs/automation/how-automations-react-to-changes/#triggers-react-to-changes).
-- **Continue on timeout** is turned on by default. To run actions only when a trigger reacted, or only when the timeout ended, use **On trigger** and **On timeout**. In templates, you can check `wait.completed` instead.
+- **Continue on timeout** is turned on by default. To run actions only when a trigger reacted, or only when the timeout ended, use **On complete** and **On timeout**. In templates, you can check `wait.completed` instead.
 - A restart of Home Assistant stops automations and scripts that are waiting. They don't continue after the restart.
 - The triggers can use the [trigger variables](/docs/automation/trigger/#trigger-variables), [variables](#define-variables), and [script variables] that are defined before the wait.
 - The **Triggered by** condition only lists the triggers of the automation itself, not the triggers of the wait. To check which trigger ended the wait, use `wait.trigger.id`, as shown in [Wait for a trigger in YAML](#wait-for-a-trigger-in-yaml).
