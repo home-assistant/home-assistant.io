@@ -46,8 +46,6 @@ task :generate do
   abort("Extracting codeowners") unless success
   success = system "rake wwha_data"
   abort("Generating WWHA device data failed") unless success
-  success = system "rake allowed_referrers_data"
-  abort("Generating allowed referrers data failed") unless success
   success = system "rake meetups_data"
   abort("Generating community meetups data failed") unless success
   success = system "rake newsletter_data"
@@ -132,7 +130,6 @@ task :preview, :listen do |t, args|
   system "rake codeowners_data"
   system "rake alerts_data"
   system "rake wwha_data"
-  system "rake allowed_referrers_data"
   system "rake meetups_data"
   system "rake newsletter_data"
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
@@ -335,31 +332,6 @@ task :newsletter_data do
       ]
       File.write(output_file, JSON.generate(fallback))
     end
-  end
-end
-
-desc "Download referrer allow list from openhomefoundation.org"
-task :allowed_referrers_data do
-  output_file = "#{source_dir}/_data/allowed_referrers.json"
-  begin
-    uri = URI('https://www.openhomefoundation.org/allowed-referrers.json')
-
-    remote_data = JSON.parse(Net::HTTP.get(uri))
-    raise "payload is not an array of strings" unless remote_data.is_a?(Array) && remote_data.all? { |d| d.is_a?(String) }
-
-    referrers = remote_data
-      .map { |d| d.strip.downcase.delete_suffix('.') }
-      .reject(&:empty?)
-
-    File.open(output_file, "w") do |file|
-      file.write(JSON.generate(referrers))
-    end
-    puts "## Wrote #{referrers.length} allowed referrer domains"
-  rescue StandardError => e
-    # Never fail the build over the allow list: fall back to the existing
-    # file, or an empty list if none exists yet.
-    warn "## Downloading allowed referrers failed, keeping existing file. #{e}"
-    File.write(output_file, "[]") unless File.exist?(output_file)
   end
 end
 
