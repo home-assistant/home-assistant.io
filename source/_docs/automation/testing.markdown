@@ -190,13 +190,11 @@ Download a trace to share it when you report an issue or ask for help, for examp
 {% important %}
 **Risk of exposing passwords and personal data when you share a trace**
 
-A trace can contain passwords, API keys, and webhook IDs used by the automation, and the location of a person. Anyone who sees it could sign in to your accounts, trigger your automations, or learn when no one is home. Forum posts and GitHub issues are public.
+A downloaded trace can contain private information, such as passwords from your `secrets.yaml` file, or the location of a person.
 
-To avoid this:
+Before you share a trace, remove this information. For the steps, refer to [Preparing a trace for sharing](#preparing-a-trace-for-sharing).
 
-- Before you share a trace, replace private values with placeholders. For the steps, refer to [Preparing a trace for sharing](#preparing-a-trace-for-sharing).
-- If you already shared a password or webhook ID, change it.
-
+If you already shared a password or webhook ID, change it.
 {% endimportant %}
 
 1. Open the trace that you want to download. For the steps, refer to [Viewing the traces of an automation](#viewing-the-traces-of-an-automation).
