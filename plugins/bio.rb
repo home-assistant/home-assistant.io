@@ -62,6 +62,13 @@ module Jekyll
         unless SOURCE_TYPES.include?(source['type'])
           fail!("#{path}.type", "must be one of: #{SOURCE_TYPES.join(', ')}")
         end
+        if source.key?('label') && blank?(source['label'])
+          fail!("#{path}.label", 'must be text, e.g. Newsletter')
+        end
+        validate_limit!(source['limit'], "#{path}.limit") if source.key?('limit')
+        if source.key?('exclude_category') && source['type'] != 'posts'
+          fail!("#{path}.exclude_category", 'only works on sources of type posts')
+        end
         if source['type'] == 'data'
           unless source['file'].to_s.match?(/\A[\w-]+\z/)
             fail!("#{path}.file", 'must name a data file, e.g. newsletter for source/_data/newsletter.json')
@@ -104,13 +111,18 @@ module Jekyll
         end
 
         if section['type'] == 'feed'
-          unless sources.key?(section['source'])
-            fail!("#{path}.source", "unknown source \"#{section['source']}\". Declared: #{sources.keys.join(', ')}")
+          if section.key?('source') == section.key?('sources')
+            fail!(path, 'needs either source: one-source or sources: [a, b], not both')
           end
-          limit = section.fetch('limit', 1)
-          unless limit.is_a?(Integer) && limit.between?(1, 10)
-            fail!("#{path}.limit", 'must be a whole number from 1 to 10')
+          key = section.key?('sources') ? 'sources' : 'source'
+          names = section_sources(section)
+          fail!("#{path}.sources", 'must be a non-empty list of source names') if names.empty?
+          names.each do |name|
+            next if sources.key?(name)
+
+            fail!("#{path}.#{key}", "unknown source \"#{name}\". Declared: #{sources.keys.join(', ')}")
           end
+          validate_limit!(section.fetch('limit', 1), "#{path}.limit")
         else
           items = section['items']
           fail!("#{path}.items", 'must be a non-empty list') unless items.is_a?(Array) && !items.empty?
@@ -122,6 +134,17 @@ module Jekyll
             parse_time!(item['ends'], "#{item_path}.ends")
           end
         end
+      end
+
+      def validate_limit!(limit, path)
+        return if limit.is_a?(Integer) && limit.between?(1, 10)
+
+        fail!(path, 'must be a whole number from 1 to 10')
+      end
+
+      # `source: blog` and `sources: [latest, newsletter]` both work.
+      def section_sources(section)
+        Array(section['sources'] || section['source']).map(&:to_s)
       end
 
       def require_url!(item, path)
@@ -171,7 +194,7 @@ module Jekyll
         sections.each_with_index.filter_map do |section, index|
           tiles =
             if section['type'] == 'feed'
-              feed_tiles[index].map { |item| feed_tile(item, section, newest_first, site_url) }
+              feed_tiles[index].map { |item| feed_tile(item, section, sources, newest_first, site_url) }
             else
               section['items']
                 .select { |item| in_window?(item, now) }
@@ -192,8 +215,7 @@ module Jekyll
         candidates = sections.each_with_index.filter_map do |section, index|
           next unless section['type'] == 'feed'
 
-          items = resolve_source(section['source'], sources, posts, now, data)
-          [index, section, items]
+          [index, section, merged_items(section, sources, posts, now, data)]
         end
 
         claimed = Set.new
@@ -207,6 +229,27 @@ module Jekyll
               .each { |item| claimed << item['url'] }
           end
         result
+      end
+
+      # Everything a feed section's sources produce, as one list: an active pin
+      # first, because someone chose it, then the rest newest first, whichever
+      # feed they came from. A source's `limit` caps how many of its items can
+      # take part, so one busy feed can't crowd out the others.
+      def merged_items(section, sources, posts, now, data)
+        items = section_sources(section).flat_map do |name|
+          resolve_source(name, sources, posts, now, data)
+        end
+
+        items = items
+          .group_by { |item| item['source'] }
+          .flat_map do |name, group|
+            cap = sources.dig(name, 'limit')
+            cap ? group.first(cap) : group
+          end
+          .uniq { |item| item['url'] }
+
+        pinned, dated = items.partition { |item| sources.dig(item['source'], 'type') == 'pinned' }
+        pinned + dated.sort_by { |item| item['date'] || Time.at(0) }.reverse
       end
 
       # Which source actually produced the items: a pin may have fallen back.
@@ -267,9 +310,13 @@ module Jekyll
       end
 
       def posts_for(source, posts, name)
-        category = source['category']&.downcase
+        include = Array(source['category']).map { |c| c.to_s.downcase }
+        exclude = Array(source['exclude_category']).map { |c| c.to_s.downcase }
         posts
-          .select { |post| category.nil? || Array(post.data['categories']).map(&:downcase).include?(category) }
+          .select do |post|
+            categories = Array(post.data['categories']).map(&:downcase)
+            (include.empty? || include.intersect?(categories)) && !exclude.intersect?(categories)
+          end
           .map do |post|
             {
               'title' => post.data['title'],
@@ -282,11 +329,14 @@ module Jekyll
           end
       end
 
-      def feed_tile(item, section, posts, site_url)
+      def feed_tile(item, section, sources, posts, site_url)
+        date = item['date']&.strftime('%B %-d, %Y')
+        # "Newsletter · October 1, 2026", so a mixed list says what each item is.
+        note = [sources.dig(item['source'], 'label'), date].compact.join(' · ')
         {
           'label' => item['title'],
           'url' => item['url'],
-          'note' => item['note'] || (item['date'] && item['date'].strftime('%B %-d, %Y')),
+          'note' => item['note'] || (note.empty? ? nil : note),
           'image' => section['images'] ? image_for(item, posts, site_url) : nil,
           'featured' => false,
           'source' => item['source'],

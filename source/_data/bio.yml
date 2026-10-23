@@ -8,22 +8,18 @@ avatar: /images/favicon-192x192-full.png
 tagline: Open source home automation that puts local control and privacy first.
 
 sections:
+  # Blog posts and newsletter issues in one list, newest first. A pinned
+  # post always comes first. Add or remove feeds in `sources`.
   - type: feed
-    title: Latest from the blog
-    source: latest
-    limit: 2
+    title: Latest
+    sources: [pinned, blog, newsletter]
+    limit: 3
     images: true
 
   - type: feed
     title: Latest release
     source: releases
     limit: 1
-
-  - type: feed
-    title: Latest newsletter
-    source: newsletter
-    limit: 1
-    images: true
 
   - type: links
     title: Get started
@@ -52,9 +48,16 @@ socials:
   - { platform: discord, url: "https://www.home-assistant.io/join-chat/" }
 
 sources:
-  # Every blog post, newest first, including crossposts.
+  # Every source can set:
+  #   label: shown on each item, e.g. "Blog · October 1, 2026"
+  #   limit: the most items it can add to any one list
+  # Blog sources can also set category or exclude_category to filter posts.
+
+  # Blog posts, including crossposts. Release notes have their own section.
   blog:
     type: posts
+    label: Blog
+    exclude_category: Release-Notes
 
   # Monthly release notes.
   releases:
@@ -67,15 +70,16 @@ sources:
   newsletter:
     type: data
     file: newsletter_data
+    label: Newsletter
+    limit: 1
 
-  # Pin a post here when the timing has to be exact (a launch, an embargo).
-  # While a pin is listed, it replaces the blog feed above. Remove it, or let
-  # `expires` pass, and the page goes back to the latest post by itself.
-  latest:
+  # Pin a post when the timing has to be exact, such as a launch. Pinned
+  # items go to the top of the list. Remove them, or let `expires` pass, and
+  # the list is back to newest first.
+  pinned:
     type: pinned
     items: []
     #  - title: "2026.11: An example"
     #    url: /blog/2026/11/05/release-202611/
     #    image: auto
     #    expires: 2026-11-12
-    fallback: blog
