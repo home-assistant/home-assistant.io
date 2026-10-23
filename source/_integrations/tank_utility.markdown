@@ -1,87 +1,61 @@
 ---
 title: Tank Utility
-description: How to integrate Tank Utility sensors within Home Assistant.
+description: How to integrate Tank Utility propane tank monitors within Home Assistant.
 ha_categories:
   - energy
 ha_iot_class: Cloud Polling
 ha_release: 0.53
+ha_codeowners:
+  - '@krismolendyke'
 ha_domain: tank_utility
 ha_platforms:
+  - diagnostics
   - sensor
-ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
+ha_config_flow: true
+ha_integration_type: hub
 ha_quality_scale: legacy
 ---
 
-Add [Tank Utility](https://www.tankutility.com/) propane tank monitors to Home Assistant.
+The **Tank Utility** {% term integration %} integrates [Tank Utility](https://www.tankutility.com/) propane tank monitors into Home Assistant, allowing you to track tank levels and monitor fuel usage.
 
-## Setup
+## Prerequisites
 
-### Authentication
+You need a Tank Utility account with your propane tank monitors already set up in the [Tank Utility app](https://app.tankutility.com).
 
-Authentication for the Tank Utility API is performed with the same email and password credentials used at [https://app.tankutility.com](https://app.tankutility.com).
+{% include integrations/config_flow.md %}
 
-### Devices
+{% configuration_basic %}
+Email:
+  description: "The email address for your [Tank Utility](https://app.tankutility.com) account."
+Password:
+  description: "The password for your [Tank Utility](https://app.tankutility.com) account."
+{% endconfiguration_basic %}
 
-Each item in the list of devices is a 24 character string. These values can be found by clicking on the **Usage Reports** link at the bottom of the graph on the [Tank Utility devices page](https://app.tankutility.com/#/devices).
+## Supported functionality
 
-The device item value is the last segment of the URL path, e.g., the URL
-[https://app.tankutility.com/#/reports/000000000000000000000000](https://app.tankutility.com/#/reports/000000000000000000000000) would indicate `000000000000000000000000` as a device value.
+The **Tank Utility** integration automatically discovers all monitors registered to your account and provides a device for each monitor.
 
-### Using TankUtility API to Obtain Device ID
+### Sensors
 
-1. Obtain your personal token:
+Each monitor provides a sensor {% term entity %} that reports the current tank level as a percentage (`%`), rounded to 1 decimal place.
 
-   ```bash
-   curl --user <my_username>:<my_password> https://data.tankutility.com/api/getToken
-   ```
+The sensor also includes the following extra state attributes when provided by the API:
 
-   The JSON response structure should resemble:
-   
-   ```json
-   {"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0MzgyMjQwODE0NjIsInYiOjAsImQiOnsidWleejoic2ltcGxlbG9naW46MzM1In0sImlhdCI6wwDIyMzk5NX0.kbYzxRtbGB2ke3IBgQTVMNQprHOWJZFgQQnPK6Wyas4"}
-   ```
+- `name`: The name of the tank monitor.
+- `address`: The service address associated with the monitor.
+- `capacity`: The capacity of the tank.
+- `fuelType`: The type of fuel in the tank (for example, `propane`).
+- `orientation`: The orientation of the tank (for example, `horizontal` or `vertical`).
+- `status`: The current status of the monitor.
+- `time`: The timestamp of the last reading (Unix epoch in milliseconds).
+- `time_iso`: The ISO 8601 formatted timestamp of the last reading.
 
-2. Receive the list of devices you have in your account:
+## Data updates
 
-   ```bash
-   curl https://data.tankutility.com/api/devices?token=<my_personal_token>
-   ```
+The **Tank Utility** integration {% term polling polls %} data from the Tank Utility cloud service once every hour.
 
-   The JSON response structure should resemble:
+## Removing the integration
 
-   ```json
-   {"devices":["54df6a066667531535371367","54ff69057492666782350667"]}
-   ```
+This integration follows standard integration removal. No extra steps are required.
 
-## Configuration
-
-To enable the {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: tank_utility
-    email: YOUR_EMAIL_ADDRESS
-    password: YOUR_PASSWORD
-    devices:
-      - "000000000000000000000000"
-```
-
-{% configuration %}
-email:
-  description: "Your [https://app.tankutility.com](https://app.tankutility.com) email address."
-  required: true
-  type: string
-password:
-  description: "Your [https://app.tankutility.com](https://app.tankutility.com) password."
-  required: true
-  type: string
-devices:
-  description: All devices to monitor.
-  required: true
-  type: map
-{% endconfiguration %}
+{% include integrations/remove_device_service.md %}
