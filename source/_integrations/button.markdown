@@ -94,7 +94,10 @@ automation: |
 
 Use the button action when an integration exposes a restart or update button that you want to run from an automation.
 
-- **Trigger**: Internet connection turns off for 10 minutes
+- **Trigger**: State changed
+  - **Entity**: Internet connection sensor
+  - **To**: Off
+  - **For at least**: `00:10:00`
 - **Action**: Press button
   - **Target**: Router restart button
 

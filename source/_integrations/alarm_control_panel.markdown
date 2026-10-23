@@ -68,8 +68,18 @@ The real power of this integration is combining triggers and conditions into aut
 
 When the last person leaves the house, arm the alarm in away mode automatically. No more wondering whether you remembered to set the alarm after rushing out the door.
 
-- **Trigger**: Everyone leaves the home zone
-- **Action**: Arm the alarm in away mode
+- **Trigger**: Zone left
+  - **Target**: Alex
+  - **Zone**: Home
+- **Trigger**: Zone left
+  - **Target**: Jamie
+  - **Zone**: Home
+- **Condition**: Not
+  - **Condition**: Is in zone
+    - **Target**: Alex, Jamie
+    - **Zone**: Home
+- **Action**: Arm alarm away
+  - **Target**: Home alarm
 
 {% details "YAML example for arming when everyone leaves" %}
 
@@ -77,22 +87,26 @@ When the last person leaves the house, arm the alarm in away mode automatically.
 automation: |
   alias: "Arm alarm when everyone leaves"
   triggers:
-    - trigger: zone
-      entity_id: person.alex
-      zone: zone.home
-      event: leave
-    - trigger: zone
-      entity_id: person.jamie
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.alex
+      options:
+        zone: zone.home
+    - trigger: zone.left
+      target:
+        entity_id: person.jamie
+      options:
+        zone: zone.home
   conditions:
     - condition: not
       conditions:
-        - condition: zone
-          entity_id:
+        - condition: zone.in_zone
+          target:
+            entity_id:
             - person.alex
             - person.jamie
-          zone: zone.home
+          options:
+            zone: zone.home
   actions:
     - action: alarm_control_panel.alarm_arm_away
       target:
@@ -105,8 +119,12 @@ automation: |
 
 When you pull into the driveway, Home Assistant recognizes you are home and disarms the alarm. You walk through the front door without fumbling for a keypad or app.
 
-- **Trigger**: Your person entity enters the home zone
-- **Action**: Disarm the alarm
+- **Trigger**: Zone entered
+  - **Target**: Alex
+  - **Zone**: Home
+- **Action**: Disarm alarm
+  - **Target**: Home alarm
+  - **Code**: `1234`
 
 {% details "YAML example for disarming on arrival" %}
 
@@ -114,10 +132,11 @@ When you pull into the driveway, Home Assistant recognizes you are home and disa
 automation: |
   alias: "Disarm alarm on arrival"
   triggers:
-    - trigger: zone
-      entity_id: person.alex
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.alex
+      options:
+        zone: zone.home
   actions:
     - action: alarm_control_panel.alarm_disarm
       target:
@@ -164,8 +183,10 @@ automation: |
 
 When bedtime arrives, switch the alarm to night mode so perimeter sensors stay active while you move freely inside the house.
 
-- **Trigger**: Time reaches 23:00
-- **Action**: Arm the alarm in night mode
+- **Trigger**: Time
+  - **At time**: `23:00`
+- **Action**: Arm alarm night
+  - **Target**: Home alarm
 
 {% details "YAML example for arming at bedtime" %}
 
@@ -188,7 +209,9 @@ automation: |
 If your alarm panel reports who made the change, you get a notification telling you exactly who disarmed the system. Handy for families who want to know when the kids got home, or for keeping a log of who opened up the house.
 
 - **Trigger**: Alarm disarmed
-- **Action**: Send a notification with the name of the person who disarmed it
+- **Action**: Send a notification
+  - **Title**: `Alarm disarmed`
+  - **Message**: `The alarm was disarmed by {{ state_attr( 'alarm_control_panel.home_alarm', 'changed_by') }}.`
 
 {% details "YAML example for a changed-by notification" %}
 

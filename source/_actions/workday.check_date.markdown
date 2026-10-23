@@ -55,7 +55,7 @@ check_date:
   type: string
 {% endoptions_yaml %}
 
-{% include actions/targets.md domain="binary_sensor" %}
+{% include actions/targets.md entity_type="Workday binary sensor" example="binary_sensor.workday" %}
 
 ## Response data
 

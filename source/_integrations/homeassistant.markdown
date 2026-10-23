@@ -345,7 +345,7 @@ If you are about to restart or stop Home Assistant, this automation tells Home A
 
 - **Trigger**: Home Assistant
   - **Event**: Shutdown
-- **Action**: Save persistent states
+- **Action**: Home Assistant Core Integration: Save persistent states
 
 {% details "YAML example for saving persistent states before shutdown" %}
 

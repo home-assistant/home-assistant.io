@@ -105,7 +105,7 @@ automation:
 automation:
 - alias: "Apple TV disconnect"
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: device_tracker.appletv
       to: "not_home"
   actions:
@@ -122,7 +122,7 @@ automation:
 automation:
 - alias: "Vodafone Station CPU high cpu usage"
   triggers:
-    - platform: numeric_state
+    - trigger: numeric_state
       entity_id: sensor.vodafone_station_xxxx_cpu_usage
       above: 80
   actions:

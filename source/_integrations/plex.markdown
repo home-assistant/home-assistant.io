@@ -132,9 +132,9 @@ To create this script from the UI:
 
 1. Go to {% my scripts title="**Settings** > **Automations & scenes**" %}.
 2. Select **Create script**.
-3. Add a **Select source** action for your TV media player and select **Plex** as the source.
+3. Add a **Select media player source** action for your TV media player and select **Plex** as the source.
 4. Add a wait until the TV media player turns on.
-5. Add a **Press** action for the Plex scan clients button.
+5. Add a **Press button** action for the Plex scan clients button.
    - **Target**: Scan clients Plex (`button.scan_clients_plex`)
 6. Add a wait template that checks whether the Plex media player is available.
 7. Add a **Play specified media** action for the Plex media player.

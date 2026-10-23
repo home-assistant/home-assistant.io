@@ -284,7 +284,7 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
    - Do not start the app yet.
 3. Install necessary helper apps:
    - Install the [**Terminal & SSH** app](/common-tasks/os/#installing-and-using-the-ssh-app) so you can run commands on the Home Assistant host.
-   - Install an app that lets you upload and edit files on the Home Assistant host, like the [**File Editor** app](/common-tasks/os/#installing-and-using-the-file-editor-app) or the [**Studio Code Server** app](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-app).
+   - Install an app that lets you upload and edit files on the Home Assistant host, like the [**File Editor** app](/common-tasks/os/#installing-and-using-the-file-editor-app) or the [**Studio Code Server** app](/common-tasks/os/#installing-and-using-the-studio-code-server-app).
 
 ### Downloading the backup from Z-Wave JS UI
 

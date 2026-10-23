@@ -7,6 +7,9 @@
   enabling-entities: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
   to-enable-or-disable-a-single-entity: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
   to-enable-or-disable-multiple-entities: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
+"/common-tasks/os/":
+  installing-and-using-the-samba-app: /common-tasks/os/#installing-and-using-the-samba-share-app
+  installing-and-using-the-visual-studio-code-vsc-app: /common-tasks/os/#installing-and-using-the-studio-code-server-app
 "/conditions/":
   logical-conditions: /conditions/and/
   and-condition: /conditions/and/

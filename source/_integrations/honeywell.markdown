@@ -121,7 +121,7 @@ For more details, see the [humidifier](/integrations/humidifier) integration doc
 automation:
   - alias: "Maintain Comfortable Humidity"
     trigger:
-      - platform: numeric_state
+      - trigger: numeric_state
         entity_id: sensor.indoor_humidity
         below: 30 # Trigger when humidity drops below 30%
     actions:
