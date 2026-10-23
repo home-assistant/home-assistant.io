@@ -10,7 +10,6 @@ ha_codeowners:
   - '@kayloehmann'
 ha_domain: aerosmart
 ha_platforms:
-  - diagnostics
   - sensor
 ha_integration_type: device
 ha_quality_scale: bronze
