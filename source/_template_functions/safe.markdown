@@ -1,7 +1,7 @@
 ---
 title: "Mark as safe HTML: safe"
 function_name: "safe"
-description: "Marks a string as safe HTML. In Home Assistant, the output stays the same."
+description: "Marks a string as safe HTML, so a later escape filter leaves it unchanged."
 available_as:
   - filter
 category: strings
@@ -16,7 +16,9 @@ related_functions:
 
 The `safe` filter marks a string as safe HTML. Some template engines escape HTML characters automatically, and safe text is skipped.
 
-Home Assistant doesn't escape template output. Characters like `<` and `>` stay as they are, with or without `safe`. So in Home Assistant, `safe` doesn't change the output. The filter exists for compatibility with Jinja, the template engine that Home Assistant uses. You can include HTML markup, such as bold text or line breaks, without it.
+Home Assistant doesn't escape template output. Characters like `<` and `>` stay as they are, with or without `safe`. So when you output text directly, `safe` doesn't change it. You can include HTML markup, such as bold text or line breaks, without it.
+
+`safe` only matters if a later filter escapes the text. The [`escape`](/template-functions/escape/) filter leaves text marked as safe unchanged. For example, {% raw %}`{{ '<b>x</b>' | escape }}`{% endraw %} escapes the tags, but {% raw %}`{{ '<b>x</b>' | safe | escape }}`{% endraw %} keeps them.
 
 {% include template_functions/usage.md %}
 
@@ -48,7 +50,7 @@ value:
 
 ## Good to know
 
-- Home Assistant doesn't escape template output, so the result is the same with or without `safe`.
+- Home Assistant doesn't escape template output. When you output text directly, the result is the same with or without `safe`. Only a later `escape` filter treats safe text differently.
 - Use [`forceescape`](/template-functions/forceescape/) downstream to re-escape a value that was marked safe.
 
 {% include template_functions/try_it.md %}
