@@ -1,8 +1,8 @@
 ---
 title: Foreca
 description: Instructions on how to integrate Foreca weather forecasts within Home Assistant.
-ha_category:
-  - Weather
+ha_categories:
+  - weather_alerts.forecasts
 ha_release: '2026.11'
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -42,7 +42,7 @@ API key:
     description: "The API key from the **My API** page of your Foreca developer account."
 {% endconfiguration_basic %}
 
-Setup asks only for the API key. You then add one or more locations to it, each of which becomes a device with its own weather entity.
+Setup asks only for the API key and automatically adds your Home Assistant home location. You can add more locations afterward, each with its own device and weather entity.
 
 ## Configuration options
 
