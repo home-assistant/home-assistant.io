@@ -678,14 +678,12 @@ The automation has a sun trigger with an offset, and it runs before the sunrise 
 
 #### Description
 
-The offset is set to before the event. In the **Sunrise** and **Sunset** triggers, **Offset type** decides this, and **Before** is the default. In the **Sun** trigger, a negative offset means before the event, and a positive offset means after it.
+The offset is set to before the event. In the **Sunrise**, **Sunset**, and **Sun** triggers, a negative offset means before the event, and a positive offset means after it. In the editor, **Offset** shows this as **Before** or **After**.
 
 #### Resolution
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the automation.
-2. In the trigger, set the offset to after the event:
-   - In the **Sunrise** or **Sunset** trigger, set **Offset type** to **After**.
-   - In the **Sun** trigger, remove the `-` from the offset.
+2. In the trigger, under **Offset**, select **After**. In YAML, remove the `-` from the offset.
 3. Select **Save**.
 
 {% enddetails %}
