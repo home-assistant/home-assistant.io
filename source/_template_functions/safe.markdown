@@ -18,7 +18,11 @@ The `safe` filter marks a string as safe HTML. Some template engines escape HTML
 
 Home Assistant doesn't escape template output. Characters like `<` and `>` stay as they are, with or without `safe`. So when you output text directly, `safe` doesn't change it. You can include HTML markup, such as bold text or line breaks, without it.
 
-`safe` only matters if a later filter escapes the text. The [`escape`](/template-functions/escape/) filter leaves text marked as safe unchanged. For example, {% raw %}`{{ '<b>x</b>' | escape }}`{% endraw %} escapes the tags, but {% raw %}`{{ '<b>x</b>' | safe | escape }}`{% endraw %} keeps them.
+`safe` matters when something later in the template treats safe text differently. The following cases are the most common:
+
+- The [`escape`](/template-functions/escape/) filter leaves safe text unchanged. For example, {% raw %}`{{ '<b>x</b>' | escape }}`{% endraw %} escapes the tags, but {% raw %}`{{ '<b>x</b>' | safe | escape }}`{% endraw %} keeps them.
+- When you join safe text with other text using `+`, the other text is escaped. For example, {% raw %}`{{ ('<b>' | safe) + '<i>' }}`{% endraw %} gives `<b>&lt;i&gt;`.
+- The [`xmlattr`](/template-functions/xmlattr/) filter doesn't escape safe text in attribute values.
 
 {% include template_functions/usage.md %}
 
@@ -50,7 +54,7 @@ value:
 
 ## Good to know
 
-- Home Assistant doesn't escape template output. When you output text directly, the result is the same with or without `safe`. Only a later `escape` filter treats safe text differently.
+- Home Assistant doesn't escape template output. When you output text directly, the result is the same with or without `safe`. Later filters and operations, such as `escape`, `xmlattr`, or joining text with `+`, can treat safe text differently.
 - Use [`forceescape`](/template-functions/forceescape/) downstream to re-escape a value that was marked safe.
 
 {% include template_functions/try_it.md %}
