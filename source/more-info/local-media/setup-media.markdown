@@ -6,6 +6,8 @@ related:
     title: Adding your media to Home Assistant
   - docs: /integrations/homeassistant/#media_dirs
     title: Media directories configuration
+  - docs: /integrations/media_source/
+    title: Media source
 ---
 
 Home Assistant includes a built-in media browser (in the sidebar under {% my media_browser title="**Media** > **My media**" %}) that lets you browse and play your local media files. Before you can use it, you need to make sure your media files are accessible to Home Assistant.
