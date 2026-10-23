@@ -38,15 +38,16 @@ body {
 .bio {
   max-width: 34rem;
   margin: 0 auto;
-  padding: 2.25rem max(1rem, env(safe-area-inset-right)) 2.5rem max(1rem, env(safe-area-inset-left));
+  padding: 1.5rem max(1rem, env(safe-area-inset-right)) 2.5rem max(1rem, env(safe-area-inset-left));
 }
 
-.bio-header { text-align: center; margin-bottom: 1.75rem; }
-.bio-header__avatar { display: block; width: 88px; height: 88px; margin: 0 auto .85rem; }
-.bio-header__name { margin: 0; font-size: 1.5rem; font-weight: 700; line-height: 1.2; }
-.bio-header__tagline { margin: .4rem auto 0; max-width: 26rem; color: var(--muted); }
+.bio-header { text-align: center; margin-bottom: 1.25rem; }
+.bio-header__avatar { display: block; width: 56px; height: 56px; margin: 0 auto .6rem; }
+.bio-header__name { margin: 0; font-size: 1.2rem; font-weight: 700; line-height: 1.2; }
+.bio-header__tagline { margin: .3rem auto 0; max-width: 26rem; color: var(--muted); font-size: .875rem; }
 
 .bio-section { margin-top: 1.75rem; }
+.bio-header + .bio-section { margin-top: 0; }
 .bio-section__title {
   margin: 0 0 .6rem;
   color: var(--muted);
