@@ -88,9 +88,20 @@ Home Assistant keeps one Modbus connection per address and shares it between the
 
 ## Known limitations
 
+### Controls and sensors
+
 - Only sensors are provided by this integration today. The writable settings (AC output, grid charging, grid feed-in), the charge limit values, and the fault/warning bits as proper binary sensors are not available yet.
+
+### Battery packs
+
 - The battery pack summary (charge level and state of health across all packs, the pack count, the battery status, and the time to full or empty) is not available yet, and neither are BC260 expansion packs.
+
+### Phase measurements
+
 - Grid, AC output, and inverter voltage and current are only provided for the first phase.
+
+### Connection management
+
 - The device is not discovered automatically yet; add it by its address.
 - There is no way yet to change a device's address, port, or device ID without removing and re-adding the integration.
 - Home Assistant identifies the device by its serial number: if the address ends up reassigned to a different physical unit, entities go unavailable instead of silently showing the wrong device's data, and the Home Assistant log says why.
