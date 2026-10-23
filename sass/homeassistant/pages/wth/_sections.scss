@@ -354,50 +354,6 @@ main#page-wth {
         }
     }
 
-    // Timeline
-    #timeline {
-        .timeline {
-            display: grid;
-            gap: 28px;
-            margin-top: 36px;
-
-            @include bp(tablet) {
-                gap: 24px;
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-        }
-
-        .timeline-step {
-            border-top: 2px solid var(--wth-line-blue);
-            padding-top: 22px;
-            position: relative;
-
-            p {
-                margin-top: 8px;
-            }
-        }
-
-        .timeline-marker {
-            background-color: var(--wth-bg);
-            border: 4px solid var(--wth-mint);
-            border-radius: 50%;
-            height: 18px;
-            left: 0;
-            position: absolute;
-            top: -10px;
-            width: 18px;
-        }
-
-        .timeline-when {
-            color: var(--wth-ink);
-            display: block;
-            font-size: 15px;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-        }
-    }
-
     // Closing call to action
     #cta {
         .cta-card {
@@ -474,8 +430,7 @@ main#page-wth {
     // A mint rule above each section heading ties the sections together.
     #moments,
     #everyone,
-    #how-it-works,
-    #timeline {
+    #how-it-works {
         > .container > .content > h2:first-child {
             padding-top: 18px;
             position: relative;
@@ -535,11 +490,6 @@ main#page-wth {
 // spine, and puts the campaign colours at full strength twice on the way
 // down rather than only in the hero.
 main#page-wth {
-    // Surfaces the routing-line nodes are knocked out of.
-    #timeline {
-        --wth-routing-surface: var(--wth-bg);
-    }
-
     // How it works, on ink.
     #how-it-works {
         --wth-routing-surface: var(--wth-ink);
