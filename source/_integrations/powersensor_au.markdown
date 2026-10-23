@@ -168,6 +168,17 @@ The water sensor may be missing its water meter scale. To set it:
 1. In the Powersensor app, open the water sensor's device screen.
 2. Set the **Water meter scale**.
 
+## Removing a device
+
+To remove a plug or sensor you no longer use from Home Assistant:
+
+1. Unplug the plug, or switch off the sensor.
+2. Wait about 5 minutes, until Home Assistant stops receiving data from it.
+3. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Powersensor**, and select the device.
+4. Select the three dots {% icon "mdi:dots-vertical" %} menu and then select **Delete**.
+
+A device that's still on your network can't be deleted, because it would come back with its next reading. The household view can't be deleted.
+
 ## Removing the integration
 
 This integration follows standard integration removal.
