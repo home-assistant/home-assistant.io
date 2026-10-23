@@ -78,13 +78,9 @@ In YAML, use `trigger: webhook`. A basic example looks like this:
 trigger: |
   trigger: webhook
   webhook_id: "YOUR_WEBHOOK_ID"
-  allowed_methods:
-    - POST
-    - PUT
-  local_only: true
 {% endexample %}
 
-This runs when Home Assistant receives a POST or PUT request from your local network to `/api/webhook/YOUR_WEBHOOK_ID`.
+This runs when Home Assistant receives a request to `/api/webhook/YOUR_WEBHOOK_ID`. By default, the webhook only accepts POST and PUT requests from your local network. To change this, use `allowed_methods` and `local_only`.
 
 ### Options in YAML
 
@@ -136,7 +132,7 @@ A webhook doesn't need a password or a token. Anyone who knows the webhook ID ca
 - Home Assistant renders the `webhook_id` template once, when it sets up the trigger: when the automation loads, is reloaded, or is turned on. It doesn't render the template again when a webhook call comes in, or when a state the template uses changes. In a **Wait for a trigger** step, Home Assistant renders the template each time the wait starts, and the template can use the variables of the run.
 - Several triggers can use the same webhook ID, also in different automations. They all react to each request. Give them the same webhook settings, because Home Assistant uses the settings of the trigger that it sets up first.
 - Requests through Home Assistant Cloud don't count as local. This includes the Home Assistant Cloud webhook addresses and the remote access address of Home Assistant Cloud.
-- Home Assistant always answers a webhook request with `200 OK`, so that nobody can find out whether a webhook ID exists. It also answers `200 OK` when the webhook ID doesn't exist, or when a request from outside your local network reaches a webhook that only accepts local requests. Only a request method that isn't allowed gets `405 Method Not Allowed`. If a webhook doesn't react, check the logs at {% my logs title="**Settings** > **System** > **Logs**" %}.
+- Home Assistant almost always answers a webhook request with `200 OK`, so that nobody can find out whether a webhook ID exists. It also answers `200 OK` when the webhook ID doesn't exist, or when a request from outside your local network reaches a webhook that only accepts local requests. Only a request method that isn't allowed gets `405 Method Not Allowed`. If a webhook doesn't react, check the logs at {% my logs title="**Settings** > **System** > **Logs**" %}.
 - A **HEAD** request always gets `200 OK`, so that apps and services can check that the address exists. If **HEAD** isn't one of the allowed methods, the trigger doesn't react to it.
 
 {% include triggers/try_it.md %}
@@ -169,6 +165,34 @@ automation: |
         entity_id: notify.my_device
       data:
         message: "The build failed."
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: forward a message from the request
+
+When the backup software on your NAS finishes a job, it can send a JSON request with a message, such as `{ "message": "Backup finished" }`. This automation sends that message to your phone. Set up the backup software to send a POST request with a JSON body to the address of the webhook.
+
+- **Trigger**: Webhook
+  - **Webhook ID**: The ID that Home Assistant generated
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+  - **Message**: The message from the request ({% raw %}`{{ trigger.json.message }}`{% endraw %})
+
+{% details "YAML example for forwarding a message from the request" %}
+
+{% example %}
+automation: |
+  alias: "Forward messages from the NAS"
+  triggers:
+    - trigger: webhook
+      webhook_id: "YOUR_WEBHOOK_ID"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: "{{ trigger.json.message }}"
 {% endexample %}
 
 {% enddetails %}
