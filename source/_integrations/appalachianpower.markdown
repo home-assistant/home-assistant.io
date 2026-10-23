@@ -1,9 +1,6 @@
 ---
 title: Appalachian Power
 description: Get energy usage from Appalachian Power using the Opower integration
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 2023.8
 ha_domain: appalachianpower
 ha_integration_type: virtual

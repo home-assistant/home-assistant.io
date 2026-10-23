@@ -1,8 +1,6 @@
 ---
 title: ESERA 1-Wire
 description: Connect and control your ESERA 1-Wire devices using the 1-Wire integration
-ha_category:
-  - DIY
 ha_domain: esera_onewire
 ha_integration_type: virtual
 ha_supporting_domain: onewire

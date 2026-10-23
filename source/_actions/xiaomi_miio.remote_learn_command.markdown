@@ -8,7 +8,7 @@ related_actions:
   - xiaomi_miio.remote_set_led_off
 ---
 
-The **Remote learn command** action puts a Xiaomi IR remote into learning mode. After you start it, point a physical remote at the device and press a button. The learned command is shown as a notification in Overview, ready to copy into your configuration.
+The **Xiaomi Home: Remote learn command** action puts a Xiaomi IR remote into learning mode. After you start it, point a physical remote at the device and press a button. The learned command is shown as a notification in Overview, ready to copy into your configuration.
 
 {% include actions/ui_header.md %}
 
@@ -19,7 +19,7 @@ To learn a command from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Xiaomi IR remote you want to control.
-6. From the actions shown for that target, select **Remote learn command**.
+6. From the actions shown for that target, under **Xiaomi Home**, select **Remote learn command**.
 7. Optionally, set the **Slot** and **Timeout**.
 8. Select **Save**.
 

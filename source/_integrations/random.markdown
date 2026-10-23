@@ -1,11 +1,8 @@
 ---
 title: Random
 description: Instructions on how to integrate random numbers into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Helper
-  - Sensor
-  - Utility
+ha_categories:
+  - helpers
 ha_iot_class: Calculated
 ha_release: 0.32
 ha_quality_scale: internal

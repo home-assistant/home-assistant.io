@@ -1,14 +1,35 @@
 ---
 title: "Automation triggers"
-description: "Triggers are the events that start an automation, such as a sensor changing state, a time of day, the sun setting, or a person arriving home."
+description: "Triggers start an automation when something specific happens, such as a door opening, a time of day, the sun setting, or a person arriving home."
 related:
-  - docs: /voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation
+  - docs: /voice_control/custom_sentences/#to-add-a-custom-sentence-to-trigger-an-automation
     title: Adding a custom sentence to trigger an automation
+  - docs: /docs/automation/targets/
+    title: Automation targets
+  - docs: /docs/automation/durations/
+    title: Durations in automations and scripts
 ---
 
-A trigger is what wakes an automation up. Until something triggers it, an automation just sits there quietly, waiting. The moment a trigger fires, Home Assistant checks any [conditions](/docs/automation/condition/) you set, and if they pass, it runs the [actions](/docs/automation/action/).
+A trigger is the part of an automation that makes the automation start when something specific happens, for example, when the sun sets, a door opens, or a button is pressed. You add triggers in the **When** section of the automation editor.
 
-Triggers can be almost anything that happens in your home or in Home Assistant itself. A motion sensor detecting movement. The sun going down. A specific time of day. A person arriving home. A button on a remote being pressed. Even a voice command spoken to Assist. You can give a single automation more than one trigger, and the automation will start as soon as _any_ of them fires.
+When a trigger reacts, the automation starts: Home Assistant checks the [conditions](/docs/automation/condition/), and if they are met, performs the [actions](/docs/automation/action/). Each run is recorded in a [trace](/docs/automation/testing/#traces), which shows which trigger started it.
+
+## Triggers react at a specific moment
+
+A trigger reacts at a specific moment, not while something is true. For example, a trigger for a door that opens reacts when the door goes from closed to open. It doesn't react again while the door stays open. If the door is already open when you save the automation, the trigger doesn't react until the door closes and opens again.
+
+If an automation should only do something while something is true, combine a trigger for the change with a condition for the situation. For examples, refer to [Triggers react to changes](/docs/automation/how-automations-react-to-changes/#triggers-react-to-changes). For which changes count, refer to [What counts as a change](/docs/automation/how-automations-react-to-changes/#what-counts-as-a-change).
+
+## What can trigger an automation
+
+Almost anything that happens in your home or in Home Assistant can be a trigger, for example:
+
+- A device or entity changes: a door opens, motion is detected, a temperature rises above a value.
+- Time passes: a specific time of day, a repeating interval, sunrise, or sunset.
+- Something happens: a button is pressed, a tag is scanned, Home Assistant starts, or a webhook is called.
+- You say something to Assist: a sentence that you define.
+
+For a list of all triggers, refer to [All triggers](/triggers/). The general triggers, which work with any entity or event, are described in [Types of triggers](#types-of-triggers).
 
 ## Choosing a trigger
 
@@ -16,14 +37,48 @@ After you select **Add trigger** in the automation editor, Home Assistant shows 
 
 These specific triggers handle Home Assistant details for you. Measurement triggers, such as temperature and power triggers, compare compatible units automatically. For example, a temperature sensor can report in Fahrenheit while the trigger threshold is set in Celsius.
 
-General triggers, such as **State** and **Numeric state**, are still available. Use them when you need to watch an exact state, use an attribute, work with a trigger that does not have a more specific option, or edit existing YAML.
+General triggers, such as **State changed** and **Numeric state crossed threshold**, are still available. Use them when you need to watch an exact state, use an attribute, work with a trigger that does not have a more specific option, or edit existing YAML.
+
+## Using several triggers
+
+An automation can have more than one trigger. Any of them can start the automation. If the automation is still running when a trigger reacts, its [mode](/docs/automation/modes/) decides what happens. To do different things depending on which trigger reacted, add a **Triggered by** condition and select the trigger. For the steps, refer to [Creating an automation with actions that depend on different triggers](#creating-an-automation-with-actions-that-depend-on-different-triggers).
+
+One trigger can also watch several targets, for example, all lights in a room. Its **Trigger when** option decides whether it reacts each time one of the targets changes, only for the first one, or once all targets have made the change. For details, refer to [Automation targets](/docs/automation/targets/#triggers-each-first-and-all). To leave out some of the targets, for example, one motion sensor in a room, refer to [Excluding targets](/docs/automation/targets/#excluding-targets).
+
+To start an automation only when two things are both true, add a trigger for each change, and a condition for each of the two things. For an example, refer to [when two things must both be true](/docs/automation/how-automations-react-to-changes/#when-two-things-must-both-be-true).
+
+<a id="multiple-triggers"></a>
+<a id="multiple-entity-ids-for-the-same-trigger"></a>
+
+In YAML, list each trigger under `triggers`. Any of them can start the automation:
+
+```yaml
+automation:
+  triggers:
+    - trigger: time_pattern
+      minutes: 5
+    - trigger: sun
+      event: sunset
+```
+
+To watch several entities with one trigger, list them under `entity_id`. The trigger reacts when any of the entities changes:
+
+```yaml
+automation:
+  triggers:
+    - trigger: state
+      entity_id:
+        - sensor.one
+        - sensor.two
+        - sensor.three
+```
 
 ## Elements of a trigger in YAML
 
-The main elements of a trigger that are defined in the `configuration.yaml` file are:
+In YAML, a trigger can also have the following elements:
 
-- trigger ID
-- trigger variables.
+- Trigger ID
+- Trigger variables
 
 ### Trigger ID
 
@@ -33,12 +88,14 @@ Home Assistant creates and manages the trigger IDs needed for those selections.
 To set a specific trigger ID yourself, edit the automation in YAML.
 All triggers can be assigned an optional `id`.
 If the ID is omitted, Home Assistant uses the trigger's position in the trigger list.
-You can reference the `id` in [trigger conditions and actions](/docs/scripts/conditions/#triggered-by-condition).
+You can reference the `id` in [Triggered by](/conditions/trigger/) conditions and in actions.
 IDs do not have to be unique.
-You can use the same ID to group similar triggers, such as triggers of different types that should all turn an entity on.
+To check for several triggers in one condition, select all of them in the **Triggered by** condition instead of giving them the same ID.
+If triggers share an ID, the editor shows a warning and offers to fix it.
+For details, refer to [Triggered by](/conditions/trigger/#good-to-know).
 
 Trigger IDs allow you to set up an automation with many actions, each action depending on a different trigger.
-An action is connected to a trigger through the trigger ID and runs only if that trigger is verified.
+An action is connected to a trigger through the trigger ID and runs only if that trigger reacted.
 To learn how to create an automation using trigger IDs, see [Creating an automation with actions that depend on different triggers](#creating-an-automation-with-actions-that-depend-on-different-triggers).
 
 #### YAML example
@@ -61,11 +118,11 @@ automation:
 
 ### Trigger variables
 
-There are two different types of variables available for triggers. Both work like [script level variables](/integrations/script/#variables).
+There are two different types of variables available for triggers. Both work like [variables in scripts](/building-blocks/variables/).
 
-The first variant allows you to define variables that will be set when the trigger fires. The variables will be able to use templates and have access to [the `trigger` variable](/docs/automation/templating#available-trigger-data).
+The first variant allows you to define variables that are set when the trigger reacts. The variables will be able to use templates and have access to [the `trigger` variable](/docs/automation/trigger-data/#trigger-properties).
 
-The second variant is setting variables that are available when attaching a trigger when the trigger can contain templated values. These are defined using the `trigger_variables` key at an automation level. These variables can only contain [limited templates](/docs/templating/where-to-use/#limited-templates). The triggers will not re-apply if the value of the template changes. Trigger variables are a feature meant to support using blueprint inputs in triggers.
+The second variant is setting variables that are available when attaching a trigger when the trigger can contain templated values. These are defined using the `trigger_variables` key at an automation level. These variables can only contain [limited templates](/docs/templating/limited-templates/). The triggers will not re-apply if the value of the template changes. Trigger variables are a feature meant to support using blueprint inputs in triggers.
 
 ```yaml
 automation:
@@ -75,7 +132,7 @@ automation:
     - trigger: event
       # Able to use `trigger_variables`
       event_type: "{{ my_event }}"
-      # These variables are evaluated and set when this trigger is triggered
+      # These variables are evaluated and set when this trigger reacts
       variables:
         name: "{{ trigger.event.data.name }}"
 ```
@@ -86,13 +143,15 @@ Each trigger has a type that depends on the target of the trigger, usually corre
 
 For an overview of every trigger across all integrations, see the [triggers reference](/triggers/).
 
-### Event trigger
+<a id="event-trigger"></a>
 
-For setup steps, YAML options, and examples for the event trigger, see [Event trigger](/triggers/event/).
+### Manual event received trigger
+
+For setup steps, YAML options, and examples for the **Manual event received** trigger, see [Manual event received trigger](/triggers/event/).
 
 ### Geolocation trigger
 
-The geolocation trigger fires when an entity that is created by a [Geolocation](/integrations/geo_location/) platform appears in or disappears from a zone. For setup steps, YAML options, and examples for the geolocation trigger, see [Geolocation trigger](/integrations/geo_location/#geolocation-trigger).
+For setup steps, YAML options, and examples for the geolocation trigger, see [Geolocation trigger](/triggers/geo_location/).
 
 ### Home Assistant trigger
 
@@ -102,9 +161,11 @@ For setup steps, YAML options, and examples for the Home Assistant trigger, see 
 
 For setup steps, YAML options, and examples for the MQTT trigger, see [MQTT trigger](/triggers/mqtt/).
 
-### Numeric state trigger
+<a id="numeric-state-trigger"></a>
 
-For setup steps, YAML options, and examples for the numeric state trigger, see [Numeric state trigger](/triggers/numeric_state/).
+### Numeric state crossed threshold trigger
+
+For setup steps, YAML options, and examples for the **Numeric state crossed threshold** trigger, see [Numeric state crossed threshold trigger](/triggers/numeric_state/).
 
 ### Sentence trigger
 
@@ -114,23 +175,25 @@ For setup steps, YAML options, and examples of a sentence trigger, see [Sentence
 
 For wildcard syntax and examples, see [Sentence wildcards](/integrations/conversation/#sentence-wildcards).
 
-### State trigger
+<a id="state-trigger"></a>
 
-For setup steps, YAML options, and examples for the state trigger, see [State trigger](/triggers/state/).
+### State changed trigger
+
+For setup steps, YAML options, and examples for the **State changed** trigger, see [State changed trigger](/triggers/state/).
 
 ### Sun trigger
 
 #### Sunset and Sunrise trigger
 
-Fires when the sun is setting or rising—that is, when the sun elevation reaches 0°.
+Reacts when the sun is setting or rising—that is, when the sun elevation reaches 0°.
 
-An optional time offset can be given to have it fire a set time before or after the sun event (for example, 45 minutes before sunset). A negative value makes it fire before sunrise or sunset, a positive value afterwards. The offset needs to be specified in number of seconds, or in a hh:mm:ss format.
+In the automation editor, use the **Sunset** or **Sunrise** trigger. For setup steps and options, refer to [Sunset](/triggers/sun.sunset/) and [Sunrise](/triggers/sun.sunrise/). The following YAML uses the older `sun` trigger, which still works.
+
+An optional time offset can be given to have it react a set time before or after the sun event (for example, 45 minutes before sunset). A negative value makes it react before sunrise or sunset, a positive value afterwards. The offset needs to be specified in number of seconds, or in a hh:mm:ss format.
 
 {% tip %}
-Since the duration of twilight is different throughout the year, it is recommended to use [sun elevation triggers][sun_elevation_trigger] instead of `sunset` or `sunrise` with a time offset to trigger automations during dusk or dawn.
+Since the duration of twilight is different throughout the year, use the [Dusk](/triggers/sun.dusk/), [Dawn](/triggers/sun.dawn/), or [Sun elevation crossed threshold](/triggers/sun.elevation_crossed_threshold/) trigger instead of sunset or sunrise with a time offset to start automations during dusk or dawn.
 {% endtip %}
-
-[sun_elevation_trigger]: /docs/automation/trigger/#sun-elevation-trigger
 
 ```yaml
 automation:
@@ -144,11 +207,13 @@ automation:
 
 #### Sun elevation trigger
 
-Sometimes you may want more granular control over an automation than simply sunset or sunrise and specify an exact elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. For most automations intended to run during dusk or dawn, a number between 0° and -6° is suitable; -4° is used in this example:
+Sometimes you may want more granular control over an automation than simply sunset or sunrise and specify an exact elevation of the sun. This can be used to layer automations to occur as the sun lowers on the horizon or even after it is below the horizon. This is also useful when the "sunset" event is not dark enough outside and you would like the automation to run later at a precise solar angle instead of the time offset such as turning on exterior lighting. For most automations intended to run during dusk or dawn, a number between 0° and -6° is suitable.
+
+In the automation editor, use the [Sun elevation crossed threshold](/triggers/sun.elevation_crossed_threshold/) trigger. In YAML, you can also use a **Numeric state crossed threshold** trigger on the elevation of `sun.sun`, as in this example, which uses -4°:
 
 ```yaml
 automation:
-  - alias: "Exterior Lighting on when dark outside"
+  - alias: "Exterior lighting on when dark outside"
     triggers:
       - trigger: numeric_state
         entity_id: sun.sun
@@ -176,7 +241,7 @@ A very thorough explanation of this is available in the Wikipedia article about 
 
 ### Tag trigger
 
-Fires when a [tag](/integrations/tag) is scanned. For example, an NFC tag is
+Reacts when a [tag](/integrations/tag) is scanned. For example, an NFC tag is
 scanned using the Home Assistant Companion mobile application.
 
 ```yaml
@@ -213,7 +278,7 @@ automation:
 
 ### Template trigger
 
-Template triggers work by evaluating a [template](/docs/templating/) when any of the recognized entities change state. The trigger will fire if the state change caused the template to render 'true' (a non-zero number or any of the strings `true`, `yes`, `on`, `enable`) when it was previously 'false' (anything else).
+Template triggers work by evaluating a [template](/docs/templating/) when any of the recognized entities change state. The trigger reacts if the state change caused the template to render 'true' (a non-zero number or any of the strings `true`, `yes`, `on`, `enable`) when it was previously 'false' (anything else).
 
 This is achieved by having the template result in a true boolean expression (for example `{{ is_state('device_tracker.paulus', 'home') }}`) or by having the template render `true` (example below).
 
@@ -229,7 +294,7 @@ automation:
       for: "00:01:00"
 ```
 
-You can also use templates in the `for` option.
+You can also use templates in the `for` option. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
 
 ```yaml
 automation:
@@ -275,75 +340,19 @@ automation 3:
       minutes: "/5"
 ```
 
-{% note %}
-Do not prefix numbers with a zero - using `'01'` instead of `'1'` for example will result in errors.
-{% endnote %}
-
 ### Time trigger
 
 For setup steps, YAML options, and examples for the time trigger, see [Time trigger](/triggers/time/).
 
 ### Webhook trigger
 
-Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. The `webhook_id` can either be a static value or computed using [limited templates](/docs/templating/where-to-use/#limited-templates).
-
-{% note %}
-The `webhook_id` template is only evaluated when setting up the trigger, they will not be re-evaluated for incoming webhook triggers.
-{% endnote %}
-
-```yaml
-automation:
-  trigger_variables:
-    webhook_id_variable: "template_webhook_id"
-  triggers:
-    - trigger: webhook
-      webhook_id: "some_hook_id"
-      allowed_methods:
-        - POST
-        - PUT
-      local_only: true
-    - trigger: webhook
-      webhook_id: "{{ webhook_id_variable }}"
-      allowed_methods:
-        - POST
-```
-
-You can run this automation by sending an HTTP POST request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an example form data payload:
-
-```shell
-curl -X POST -d 'key=value&key2=value2' https://your-home-assistant:8123/api/webhook/some_hook_id
-```
-
-Webhooks support HTTP POST, PUT, HEAD, and GET requests; PUT requests are recommended. HTTP GET and HEAD requests are not enabled by default but can be enabled by adding them to the `allowed_methods` option. The request methods can also be configured in the UI by selecting the settings gear menu button beside the Webhook ID.
-
-By default, webhook triggers can only be accessed from devices on the same network as Home Assistant or via [Nabu Casa Cloud webhooks](https://www.nabucasa.com/config/webhooks/). The `local_only` option should be set to `false` to allow webhooks to be triggered directly via the internet. This option can also be configured in the UI by selecting the settings gear menu button beside the Webhook ID.
-
-Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS.
-
-Note that a given webhook can only be used in one automation at a time. That is, only one automation trigger can use a specific webhook ID.
-
-#### Webhook data
-
-Payloads may either be encoded as form data or JSON. Depending on that, its data will be available in an automation template as either `trigger.data` or `trigger.json`. URL query parameters are also available in the template as `trigger.query`.
-
-Note that to use JSON encoded payloads, the `Content-Type` header must be set to `application/json`, for example:
-
-```bash
-curl -X POST -H "Content-Type: application/json" -d '{ "key": "value" }' https://your-home-assistant:8123/api/webhook/some_hook_id
-```
-
-#### Webhook security
-
-Webhook endpoints don't require authentication, other than knowing a valid webhook ID. Security best practices for webhooks include:
-
-- Do not use webhooks to trigger automations that are destructive, or that can create safety issues. For example, do not use a webhook to unlock a lock, or open a garage door.
-- Treat a webhook ID like a password: use a unique, non-guessable value, and keep it secret.
-- Do not copy-and-paste webhook IDs from public sources, including blueprints. Always create your own.
-- Keep the `local_only` option enabled for webhooks if access from the internet is not required.
+For setup steps, YAML options, and examples for the **Webhook** trigger, see [Webhook trigger](/triggers/webhook/).
 
 ### Zone trigger
 
-Zone trigger fires when an entity is entering or leaving the zone. The entity can be either a [person](/integrations/person/) or a [device tracker](/integrations/device_tracker/).
+Zone trigger reacts when an entity is entering or leaving the zone. The entity can be either a [person](/integrations/person/) or a [device tracker](/integrations/device_tracker/).
+
+In the automation editor, use the **Zone entered** or **Zone left** trigger. For setup steps and options, refer to [Zone entered](/triggers/zone.entered/) and [Zone left](/triggers/zone.left/). The following YAML uses the older `zone` trigger, which still works.
 
 ```yaml
 automation:
@@ -357,83 +366,52 @@ automation:
 
 ## Unavailable and unknown state behavior in triggers
 
-Most triggers that have an entity as the target do not fire when an entity transitions _from_ an `unavailable` or `unknown` state. For example, if a light goes offline and comes back on, the `light.turned_on` trigger does not fire for that recovery.
-
-## Multiple triggers
-
-It is possible to specify multiple triggers for the same rule. To do so just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, processing of your automation rule begins.
-
-```yaml
-automation:
-  triggers:
-    # first trigger
-    - trigger: time_pattern
-      minutes: 5
-      # our second trigger is the sunset
-    - trigger: sun
-      event: sunset
-```
-
-## Multiple entity IDs for the same trigger
-
-It is possible to specify multiple entities for the same trigger. To do so add multiple entities using a nested list. The trigger will fire and start, processing your automation each time the trigger is true for any entity listed.
-
-```yaml
-automation:
-  triggers:
-    - trigger: state
-      entity_id:
-        - sensor.one
-        - sensor.two
-        - sensor.three
-```
+Most triggers that have an entity as the target do not react when an entity transitions _from_ an `unavailable` or `unknown` state. For example, if a light goes offline and comes back on, the `light.turned_on` trigger does not react to that recovery. The **State changed** trigger does react to that change, for example, from `unavailable` to `on`.
 
 ## Disabling a trigger
 
-Every individual trigger in an automation can be disabled, without removing it.
-To do so, add `enabled: false` to the trigger. For example:
+You can disable a trigger without removing it. In the automation editor, on the trigger, select **Menu** {% icon "mdi:dots-vertical" %} > **Disable**. In YAML, add `enabled: false` to the trigger. For example:
 
 ```yaml
-# Example script with a disabled trigger
+# Example automation with a disabled trigger
 automation:
   triggers:
-    # This trigger will not trigger, as it is disabled.
-    # This automation does not run when the sun is set.
+    # This trigger is disabled, so the automation
+    # does not start at sunset.
     - enabled: false
-      trigger: sun
-      event: sunset
+      trigger: sun.sunset
 
-    # This trigger will fire, as it is not disabled.
+    # This trigger reacts, as it is not disabled.
     - trigger: time
       at: "15:32:00"
 ```
 
-Triggers can also be disabled based on limited templates or blueprint inputs. These are only evaluated once when the automation is loaded.
+Triggers can also be disabled based on [limited templates](/docs/templating/limited-templates/) or blueprint inputs. These are only evaluated once when the automation is loaded.
 
 ```yaml
 blueprint:
+  name: "Sunrise and sunset"
+  domain: automation
   input:
-    input_boolean:
-      name: Boolean
+    enable_sunrise:
+      name: "React to sunrise"
       selector:
         boolean:
-    input_number:
-      name: Number
+    sunset_threshold:
+      name: "Sunset threshold"
       selector:
         number:
           min: 0
           max: 100
 
-  trigger_variables:
-    _enable_number: !input input_number
+trigger_variables:
+  _sunset_threshold: !input sunset_threshold
 
-  triggers:
-    - trigger: sun
-      event_type: sunrise
-      enabled: !input input_boolean
-    - trigger: sun
-      event_type: sunset
-      enabled: "{{ _enable_number < 50 }}"
+triggers:
+  - trigger: sun.sunrise
+    enabled: !input enable_sunrise
+  - trigger: sun.sunset
+    enabled: "{{ _sunset_threshold < 50 }}"
 ```
 
 ## Merging lists of triggers
@@ -469,9 +447,10 @@ Instead of creating many automations for different groups of related triggers an
 2. In the lower right corner, select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
 4. Search for the trigger using the search box, for example, and then select it.
-5. In the **Then do** section, select **Add action** and then select the **Choose** block.
+5. In the **Then do** section, select **Add action**, and then select **Blocks** > **Choose**.
 6. Expand the option section, select **Add condition** and, from the **By type** list, select **Triggered by**.
-7. In the condition window on the right, select the trigger that you added in step 4, and then select **Save**. Home Assistant creates an ID for the trigger if needed.
+7. In the condition window on the right, select the trigger that you added in step 4. Home Assistant creates an ID for the trigger if needed.
 8. In the same option, select **Add action**, and choose the action that runs when the related trigger starts the automation.
-9. In the action window on the right, select the target or group of targets, enter any other requested data, and select **Save**.
+9. In the action window on the right, select the target or group of targets, and enter any other requested data.
 10. To add another trigger and related option, repeat steps 3 to 9.
+11. Select **Save**.

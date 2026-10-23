@@ -58,8 +58,6 @@ This fires 1 day, 1 hour, 15 minutes and 5 seconds before the start of an event 
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 offset:
   description: >
@@ -75,14 +73,26 @@ offset_type:
 {% endoptions_yaml %}
 
 <!-- Keep the "include" below if your integration supports targets -->
-{% include triggers/targets.md %}
+{% include triggers/targets.md custom_trigger_variables="true" %}
+
+### Trigger variables
+
+When the trigger reacts, the `trigger` variable contains the following data:
+
+- `trigger.entity_id`: Entity ID of the calendar.
+- `trigger.event`: `start`.
+- `trigger.offset`: Timedelta object of the offset. If the trigger has no offset, the offset is zero.
+- `trigger.calendar_event`: The calendar event, with its `summary`, `start`, `end`, `all_day`, `description`, and `location`.
+
+For example, use {% raw %}`{{ trigger.calendar_event.summary }}`{% endraw %} in an action to include the title of the event in a notification.
+
+For all properties of the calendar event, refer to [Calendar triggers](/docs/automation/trigger-data/#calendar-triggers).
 
 ## Good to know
 
 - Note that calendars are read once every 15 minutes. When testing, make sure you do not plan events less than 15 minutes away from the current time, or your {% term trigger %} might not fire.
 - You can also create an automation based on the state of a calendar {% term entity %}.
 - A calendar trigger should not generally use automation mode `single` to ensure the trigger can fire when multiple events start at the same time. For example, use `queued` or `parallel` instead. For details about these modes, refer to the [Automation modes](/docs/automation/modes/) page.
-- In YAML, you can also set up other variables for calendar triggers. See [Automation Trigger Variables: Calendar](/docs/automation/templating/#calendar) to check the available trigger data.
 
 {% include triggers/try_it.md %}
 

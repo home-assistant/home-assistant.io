@@ -7,7 +7,7 @@ related_triggers:
   - lock.locked
 ---
 
-The **Lock opened** trigger helps you react when a lock is no longer secured and releases its latch, so the door can be pushed open without turning the handle. This is the state a lock reaches after the [Open](/actions/lock.open/) action on locks that support it. Use it when you want Home Assistant to respond as someone is let in, like turning on lights, pausing an alarm workflow, or logging entry events.
+The **Lock opened** trigger helps you react when a lock is no longer secured and releases its latch, so the door can be pushed open without turning the handle. This is the state a lock reaches after the [Open lock](/actions/lock.open/) action on locks that support it. Use it when you want Home Assistant to respond as someone is let in, like turning on lights, pausing an alarm workflow, or logging entry events.
 
 {% include triggers/ui_header.md %}
 
@@ -48,8 +48,6 @@ This fires when `lock.front_door` changes to the open state.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -61,9 +59,9 @@ behavior:
 for:
   description: >
     How long the lock must stay open before the trigger fires. Accepts a
-    duration like `00:00:30` for 30 seconds.
+    duration like `00:00:30` for 30 seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -74,7 +72,7 @@ for:
 ## Good to know
 
 - The trigger fires only when a lock changes into the open state from a known state. If a lock comes back from `unavailable` or `unknown`, that recovery does not fire this trigger.
-- Only locks that support the [Open](/actions/lock.open/) action can reach the open state. On other locks, this trigger never fires.
+- Only locks that support the [Open lock](/actions/lock.open/) action can reach the open state. On other locks, this trigger never fires.
 - To react when the same lock is secured again, use [Lock locked](/triggers/lock.locked/).
 
 {% include triggers/try_it.md %}
@@ -90,7 +88,7 @@ When you unlatch the front door to come in after dark, it helps if the hallway i
 - **Trigger when**: Each
 - **For at least**: 00:00:00
 - **Condition**: Sun is below the horizon
-- **Action**: Turn on
+- **Action**: Turn on light
 
 {% details "YAML example for lighting the hall when the lock opens" %}
 

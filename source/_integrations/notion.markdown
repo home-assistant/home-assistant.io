@@ -1,10 +1,9 @@
 ---
 title: Notion
 description: How to integrate Notion kits within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Hub
-  - Sensor
+ha_categories:
+  - sensors
+  - water.meters_leak_detection
 ha_release: 0.96
 ha_iot_class: Cloud Polling
 ha_config_flow: true

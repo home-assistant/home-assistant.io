@@ -22,12 +22,8 @@ ha_platforms:
   - light
   - number
   - sensor
-ha_category:
-  - Binary sensor
-  - Climate
-  - Light
-  - Number
-  - Sensor
+ha_categories:
+  - water.pools_spas
 ---
 
 The **Huum** {% term integration %} lets you monitor and control your [Huum](https://huum.eu/) sauna from Home Assistant. Huum manufactures electric sauna heaters with smart connectivity, allowing you to adjust the temperature and, when your sauna controller supports these features, control the light and manage the steamer humidity level right from your dashboard.

@@ -38,8 +38,8 @@ Threshold type:
 
     - **Above** (exclusive): fires when the elevation crosses to strictly above the angle.
     - **Below** (exclusive): fires when the elevation crosses to strictly below the angle.
-    - **In range** (exclusive): fires when the elevation crosses into the range.
-    - **Outside range** (inclusive): fires when the elevation crosses out of the range.
+    - **In range** (inclusive): fires when the elevation crosses into the range.
+    - **Outside range** (exclusive): fires when the elevation crosses out of the range.
 
     For each mode you can enter a fixed angle in degrees, or reference a sensor entity or a [number helper](/integrations/input_number/) entity.
 For at least:
@@ -64,8 +64,6 @@ This fires when the sun drops below 4° of elevation, a common stand-in for "it'
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 threshold:
   description: |
@@ -73,15 +71,15 @@ threshold:
 
     - `type: above` (exclusive): Fires when the elevation crosses to strictly above `value`. Provide `value` with a `number` key (a fixed angle in degrees) or an `entity` key (an `input_number`, `number`, or `sensor` entity).
     - `type: below` (exclusive): Fires when the elevation crosses to strictly below `value`. Provide `value` with a `number` key (a fixed angle in degrees) or an `entity` key (an `input_number`, `number`, or `sensor` entity).
-    - `type: between` (exclusive): Fires when the elevation crosses into the range. Provide `value_min` and `value_max`, each with a `number` key (a fixed angle in degrees) or an `entity` key.
-    - `type: outside` (inclusive): Fires when the elevation crosses out of the range. Provide `value_min` and `value_max`, each with a `number` key (a fixed angle in degrees) or an `entity` key.
+    - `type: between` (inclusive): Fires when the elevation crosses into the range. Provide `value_min` and `value_max`, each with a `number` key (a fixed angle in degrees) or an `entity` key.
+    - `type: outside` (exclusive): Fires when the elevation crosses out of the range. Provide `value_min` and `value_max`, each with a `number` key (a fixed angle in degrees) or an `entity` key.
   required: true
   type: map
 for:
   description: >
-    How long the elevation must stay past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the elevation has stayed past the threshold for 5 minutes.
+    How long the elevation must stay past the threshold before the trigger fires. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` fires only after the elevation has stayed past the threshold for 5 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -91,6 +89,12 @@ for:
 - The trigger fires only on the crossing moment. Once the elevation is above your threshold, it does not fire again until the elevation drops back below it and then crosses up again.
 - A threshold around 0° corresponds roughly to sunrise and sunset. Negative angles like -6° correspond to civil twilight. Use [Dawn](/triggers/sun.dawn/) and [Dusk](/triggers/sun.dusk/) if you prefer to work with named twilight phases instead of raw angles.
 - The maximum elevation the sun reaches depends on your latitude and the time of year, so pick threshold angles that the sun actually reaches at your location.
+- The threshold can be a decimal number, such as `-4.5`. In the editor, the field expects whole numbers, so set a decimal threshold in YAML.
+- Home Assistant updates the sun's elevation at intervals, and rounds it to 2 decimals. The trigger reacts at the first update after the elevation crosses the threshold. A threshold with more decimals doesn't make the trigger react at a more precise time.
+  - Every 2 minutes when the sun is close to the horizon, from civil twilight up to an elevation of 10°
+  - Every 4 minutes during the rest of the day and in nautical twilight
+  - Every 8 minutes in astronomical twilight
+  - Every 20 minutes at night
 - To react to every elevation change rather than a single crossing, use [Sun elevation changed](/triggers/sun.elevation_changed/).
 
 {% include triggers/try_it.md %}

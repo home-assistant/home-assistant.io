@@ -1,20 +1,10 @@
 ---
 title: TP-Link Smart Home
 description: Instructions on integrating TP-Link Smart Home Devices to Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Climate
-  - Fan
-  - Hub
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Vacuum
+ha_categories:
+  - plugs_switches
+  - lighting.bulbs_lamps
+  - security_safety.cameras
 ha_release: 0.89
 ha_iot_class: Local Polling
 ha_config_flow: true

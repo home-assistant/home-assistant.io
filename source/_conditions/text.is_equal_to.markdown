@@ -63,9 +63,9 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the entity must have held the value for the condition to pass. Accepts a duration string like `00:05:00` for five minutes.
+  description: How long the entity must have held the value for the condition to pass. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -76,7 +76,7 @@ for:
 ## Good to know
 
 - The comparison is exact and case-sensitive: `Away` and `away` are not equal.
-- A text entity in the `unknown` or `unavailable` state never matches a value.
+{% include conditions/unavailable_targets.md entities="text entities" %}
 - To react when a text value changes instead of testing the current value, use the [Text changed](/triggers/text.changed/) trigger.
 
 {% include conditions/try_it.md %}
@@ -87,7 +87,7 @@ for:
 
 When you leave home, this automation checks that the **house mode** helper is set to `away` before turning off the lights and locking the door.
 
-- **Trigger**: State: Person leaves home
+- **Trigger**: State changed: Person leaves home
 - **Condition**: Text is equal to
   - **Target**: House mode
   - **Value**: `away`

@@ -2,12 +2,8 @@
 title: Hot Spring
 description: Instructions on how to integrate Hot Spring spas into Home Assistant.
 ha_release: 2026.9
-ha_category:
-  - Binary sensor
-  - Light
-  - Number
-  - Select
-  - Sensor
+ha_categories:
+  - water.pools_spas
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -103,7 +99,7 @@ The **Hot Spring** integration provides the following entities:
   - **Availability**: Available when a FreshWater Salt System cartridge is installed.
 - **Control box version**
   - **Description**: Firmware version of the spa control box.
-  - **Remarks**: Disabled by default.
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 - **FreshWater Salt System version**
   - **Description**: Firmware version of the FreshWater Salt System module.
   - **Remarks**: Disabled by default. Available when a FreshWater Salt System is detected.
