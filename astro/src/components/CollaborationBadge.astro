@@ -20,17 +20,30 @@
 //   - The text is white instead of #F2F4F9, like the brand API's Open
 //     Home Foundation logo that replaces the local copy. The wrapper
 //     div around each logo is left out.
+// A page can change the wording and leave out the Open Home Foundation
+// logo (the Connect AUX-2: "Designed and manufactured by" Nabu Casa).
 import nabuCasa from "../assets/collaboration/nabu-casa.svg";
 import openHomeFoundation from "../assets/brands/open-home-foundation-lockup-monochrome-dark.svg";
 
+interface Props {
+  // The text before the logos.
+  label?: string;
+  // Whether the Open Home Foundation logo follows Nabu Casa's.
+  foundation?: boolean;
+}
+
+const { label = "Designed and built by", foundation = true } = Astro.props;
+
 const logos = [
   { image: nabuCasa, alt: "Nabu Casa" },
-  { image: openHomeFoundation, alt: "Open Home Foundation" },
+  ...(foundation
+    ? [{ image: openHomeFoundation, alt: "Open Home Foundation" }]
+    : []),
 ];
 ---
 
 <div class="collaboration-badge">
-  <span>Designed and built by</span>
+  <span>{label}</span>
   <div class="collaborators">
     {
       logos.map(({ image, alt }) => (

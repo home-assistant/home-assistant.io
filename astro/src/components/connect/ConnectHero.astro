@@ -43,6 +43,10 @@ interface Props {
   product: string;
   // Tagline lines; the last one, the punchline, is bold.
   tagline: string[];
+  // The collaboration badge's wording and logos (see
+  // CollaborationBadge); "Designed and built by" with both logos
+  // when left out.
+  badge?: { label?: string; foundation?: boolean };
 }
 
 const {
@@ -53,6 +57,7 @@ const {
   mobileImageLift = "0px",
   product,
   tagline,
+  badge = {},
 } = Astro.props;
 ---
 
@@ -85,7 +90,7 @@ const {
 
       <div class="aside">
         <p class="lead"><slot /></p>
-        <CollaborationBadge />
+        <CollaborationBadge {...badge} />
       </div>
     </div>
   </div>
