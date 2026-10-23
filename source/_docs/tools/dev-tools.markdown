@@ -100,8 +100,10 @@ Most actions work on a target, such as an {% term entity %}, a device, or an {% 
 2. In the **Action** dropdown list, select the action. The list shows the name of each action, with its integration on the right. For example, to turn on a light, select **Turn on light**, with **Light** next to it. You can also search by name, integration, or action ID, such as `light.turn_on`.
    - Result: The options of the action are shown.
 3. If the action accepts a target, select **Add target**, and then select what you want to control, for example, an entity or an area.
-4. Fill in the options that you need.
-5. Select **Perform action**.
+4. Optional: To leave out some entities, select **Exclude target**, and then select what to leave out.
+   - For example, leave out one light in an area. For details, refer to [Excluding targets](/docs/automation/targets/#excluding-targets).
+5. Fill in the options that you need.
+6. Select **Perform action**.
    - Result: The action runs. If the action returns data, the data is shown under **Response**. To use the data in a template, select **Copy to clipboard as template**.
 
 ### Performing an action in YAML mode
