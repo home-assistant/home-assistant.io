@@ -115,7 +115,14 @@ The CMX presence detection described below is set up in YAML and is removed by r
 ## Presence detection with the CMX location service
 
 {% important %}
-Presence detection with the CMX location service is deprecated and will stop working in Home Assistant 2027.5. Set up the integration in the UI instead, as described above. It tracks whether Wi-Fi and wired clients are connected, without their position on the map. Bluetooth devices are not tracked yet.
+Presence detection with the CMX location service is deprecated and will stop working in Home Assistant 2027.5. To switch to the integration set up in the UI:
+
+1. Remove the `meraki` platform from the `device_tracker` section of your {% term "`configuration.yaml`" %} file, and the devices it tracked from your `known_devices.yaml` file.
+2. Restart Home Assistant.
+3. Add the Meraki integration in the UI with a Meraki Dashboard API key, as described above.
+4. Enable the trackers of the devices you want to follow, as they start disabled, and update automations and scripts that used the old trackers.
+
+The integration tracks whether Wi-Fi and wired clients are connected, without their position on the map. Bluetooth devices are not tracked yet.
 {% endimportant %}
 
 Use your Meraki AP as device tracker. Note that Meraki will see all devices, not only connected to the network. This requires Home Assistant to be reachable from the internet, as Meraki sends the data to it.
