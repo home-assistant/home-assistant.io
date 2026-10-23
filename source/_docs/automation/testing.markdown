@@ -222,14 +222,14 @@ To remove this information before you share a trace, follow these steps:
    - Coordinates (`latitude` and `longitude`), for example, of a person or a phone that started the automation.
    - Street addresses, if the automation uses an entity whose state is an address, such as the geocoded location sensor of the Companion app.
    - Phone numbers and email addresses, if the automation sends messages to them, for example, with an SMS or email notification.
-4. Replace each value with a placeholder, such as `REDACTED`. Keep the quotes and the rest of the file as they are.
+4. Replace private text with a placeholder such as `REDACTED`, keeping the surrounding quotes. Replace private numbers, such as coordinates, with a numeric placeholder such as `0`. Keep the rest of the JSON structure unchanged.
 5. Save the file, and share the edited copy.
 
 ### How many traces are kept
 
 Home Assistant keeps the last 5 traces of each automation. Some triggers also record a trace when they notice a relevant change but do not start the automation. These traces are marked **Did not trigger**. They are kept separately, so they never replace the traces of real runs.
 
-#### Why the trace you want is missing
+### Why the trace you want is missing
 
 If you can't find the trace of a run, newer runs have most likely replaced it. Every run uses up one of the stored traces, including a run that stops right away. For example, a run stops right away when a condition isn't met, or when the automation is already running in **Single** [mode](/docs/automation/modes/). If an automation starts often, these short runs can push out the trace that you want to see. To keep more traces, refer to [Changing the number of stored traces](#changing-the-number-of-stored-traces).
 
