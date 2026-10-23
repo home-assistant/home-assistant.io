@@ -199,7 +199,7 @@ Home Assistant keeps the last 5 traces of each automation. Some triggers also re
 
 #### Why the trace you want is missing
 
-If you can't find the trace of a run, newer runs have most likely replaced it. Every run uses up one of the stored traces, also a run that stops right away. For example, a run stops right away when a condition isn't met, or when the automation is already running in **Single** [mode](/docs/automation/modes/). If an automation starts often, these short runs can push out the trace that you want to see. To keep more traces, refer to [Changing the number of stored traces](#changing-the-number-of-stored-traces).
+If you can't find the trace of a run, newer runs have most likely replaced it. Every run uses up one of the stored traces, including a run that stops right away. For example, a run stops right away when a condition isn't met, or when the automation is already running in **Single** [mode](/docs/automation/modes/). If an automation starts often, these short runs can push out the trace that you want to see. To keep more traces, refer to [Changing the number of stored traces](#changing-the-number-of-stored-traces).
 
 A trace can also be missing after Home Assistant stops unexpectedly, or if an automation in YAML has no `id`. For details, refer to [Traces after a restart](#traces-after-a-restart) and [Traces of automations created in YAML](#traces-of-automations-created-in-yaml).
 
