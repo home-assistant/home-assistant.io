@@ -17,6 +17,14 @@ sections:
     limit: 5
     images: true
     hero: true
+    # Add anything else to the list here. It sits in date order with the
+    # rest; delete it when it's no longer relevant.
+    insert: []
+    #  - title: "Join us at the State of the Open Home"
+    #    url: https://example.com/your-link/
+    #    date: 2026-11-15
+    #    label: Event            # optional, shown before the date
+    #    image: auto             # optional; auto uses the page's social image
 
   # Links that always sit under the Latest list. Add a campaign here, or give
   # a link starts and ends dates to show it only for a while.

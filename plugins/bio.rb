@@ -126,6 +126,7 @@ module Jekyll
             fail!("#{path}.#{key}", "unknown source \"#{name}\". Declared: #{sources.keys.join(', ')}")
           end
           validate_limit!(section.fetch('limit', 1), "#{path}.limit")
+          validate_inserts!(section['insert'], "#{path}.insert") if section.key?('insert')
         else
           items = section['items']
           fail!("#{path}.items", 'must be a non-empty list') unless items.is_a?(Array) && !items.empty?
@@ -136,6 +137,22 @@ module Jekyll
             parse_time!(item['starts'], "#{item_path}.starts")
             parse_time!(item['ends'], "#{item_path}.ends")
           end
+        end
+      end
+
+      # Items written straight into a feed. The date decides where each one
+      # sits, so it is required.
+      def validate_inserts!(inserts, path)
+        fail!(path, 'must be a list of items') unless inserts.is_a?(Array)
+
+        inserts.each_with_index do |item, i|
+          item_path = "#{path}[#{i}]"
+          fail!(item_path, 'must be a map with title, url and date') unless item.is_a?(Hash)
+          fail!("#{item_path}.title", 'is required') if blank?(item['title'])
+          require_url!(item, item_path)
+          fail!("#{item_path}.date", 'is required, e.g. 2026-11-01') if blank?(item['date'])
+          parse_time!(item['date'], "#{item_path}.date")
+          fail!("#{item_path}.label", 'must be text, e.g. Event') if item.key?('label') && blank?(item['label'])
         end
       end
 
@@ -251,6 +268,7 @@ module Jekyll
         items = section_sources(section).flat_map do |name|
           resolve_source(name, sources, posts, now, data)
         end
+        items += inserted_items(section)
 
         items = items
           .group_by { |item| item['source'] }
@@ -262,6 +280,21 @@ module Jekyll
 
         pinned, dated = items.partition { |item| sources.dig(item['source'], 'type') == 'pinned' }
         pinned + dated.sort_by { |item| item['date'] || Time.at(0) }.reverse
+      end
+
+      # `insert:` entries on a feed section. They have no source of their own,
+      # so they carry their own label and take their place by date.
+      def inserted_items(section)
+        (section['insert'] || []).map do |item|
+          {
+            'title' => item['title'],
+            'url' => item['url'],
+            'date' => parse_time!(item['date'], 'insert'),
+            'image' => item['image'],
+            'label' => item['label'],
+            'source' => 'inserted',
+          }
+        end
       end
 
       # Which source actually produced the items: a pin may have fallen back.
@@ -344,7 +377,7 @@ module Jekyll
       def feed_tile(item, section, sources, posts, site_url, hero: false)
         date = item['date']&.strftime('%B %-d, %Y')
         # "Newsletter · October 1, 2026", so a mixed list says what each item is.
-        note = [sources.dig(item['source'], 'label'), date].compact.join(' · ')
+        note = [item['label'] || sources.dig(item['source'], 'label'), date].compact.join(' · ')
         {
           'label' => item['title'],
           'url' => item['url'],
