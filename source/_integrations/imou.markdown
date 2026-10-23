@@ -21,7 +21,7 @@ ha_platforms:
   - siren
   - switch
 ha_integration_type: hub
-ha_quality_scale: silver
+ha_quality_scale: gold
 ---
 
 The **Imou** {% term integration %} connects to the [Imou Open Platform](https://open.imoulife.com) using your App ID and App secret. Devices linked to your platform account are discovered automatically.
