@@ -266,6 +266,16 @@ Get entities reporting receiving and transmitting bandwidth per port. These sens
 
 Get entities reporting the link negotiation speed for network device ports. These sensors show the connection speed in megabits per second (Mbit/s) at which each port negotiated its link. Entities are disabled by default.
 
+### Firewall policy schedule status sensor
+
+Get entities reporting whether a Zone-Based Firewall Policy is in effect right now. A sensor appears for each policy you created; predefined policies are skipped. The sensor has one of these states:
+
+- **Disabled**: The policy is turned off.
+- **Inactive**: The policy is turned on, but the current time is outside its schedule.
+- **Active**: The policy is turned on and applies now.
+
+The schedule is evaluated in the time zone of the UniFi Network application, not Home Assistant's. A policy with no schedule, or one with a schedule Home Assistant doesn't recognize, reports an unknown state. These sensors are disabled by default.
+
 ## Light
 
 The Light entities will only be available for UniFi access points that support LED ring customization. Not all access points have this capability.
@@ -290,7 +300,7 @@ The Home Assistant community has created blueprints that use the UniFi Network i
 
 ## Data updates
 
-The UniFi Network {% term integration %} uses a local push connection (WebSocket) to the UniFi Network application. This means state changes for clients, devices, and network configuration are received in near-real-time as they happen on the controller, without the need for {% term polling %}.
+The UniFi Network {% term integration %} uses a local push connection (WebSocket) to the UniFi Network application. This means state changes for clients, devices, and network configuration are received in near-real-time as they happen on the controller, without the need for {% term polling %}. Data that the UniFi Network application doesn't push, such as Zone-Based Firewall Policies, is polled every 10 seconds.
 
 If the WebSocket connection is lost, the integration automatically tries to reconnect. While disconnected, entities are marked as unavailable until the connection is restored.
 
@@ -300,6 +310,8 @@ If the WebSocket connection is lost, the integration automatically tries to reco
 - **Early Access and Release Candidate versions of UniFi Network and UniFi OS are not supported.** Only the official Stable Release channel is expected to work with this integration.
 - **Presence detection is not compatible with MAC Address Randomization**, which is enabled by default on most modern smartphones. This feature must be disabled per network on the client device.
 - **Changes to LED control** on access points may take over 5 seconds to apply because the device must adopt a new configuration first.
+- **Firewall policy schedule status can lag** a schedule's start or end by up to 10 seconds, because firewall policies are polled.
+- **The UniFi Network application's time zone is read when the integration starts.** If you change it, reload the integration so firewall policy schedules are evaluated correctly.
 - **Lingering entities**: In some edge cases, clients or devices removed from UniFi Network may remain in the Home Assistant device registry and need to be [removed manually](#removing-a-device-in-home-assistant).
 
 ## Removing a device in Home Assistant
