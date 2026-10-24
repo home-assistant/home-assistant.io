@@ -4646,3 +4646,13 @@ For a summary in a more readable format
 [@rubempoli]: https://github.com/rubempoli
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@tronikos]: https://github.com/tronikos
+
+## Release 2026.10.4 - October 24
+
+- Raise aiohttp client header limits to 64 KiB ([@MichaelMKKelly] - [#188329])
+- Bump pylutron-caseta to 0.30.0 ([@TheJulianJES] - [#188388])
+
+[#188329]: https://github.com/home-assistant/core/pull/188329
+[#188388]: https://github.com/home-assistant/core/pull/188388
+[@MichaelMKKelly]: https://github.com/MichaelMKKelly
+[@TheJulianJES]: https://github.com/TheJulianJES
