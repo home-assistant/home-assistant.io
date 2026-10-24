@@ -104,6 +104,11 @@ The base stations broadcast their power state and channel over Bluetooth, so Hom
 
 Make sure the base station is within range of a Bluetooth adapter or proxy with a free connection slot, then try again.
 
+## Diagnostics
+
+The diagnostics download includes the station's device information, its last known state, and the raw data of its last Bluetooth broadcast, which can help developers reproduce issues without access to the hardware. The station name, serial number, and Bluetooth address are redacted.
+Attach the downloaded file when reporting an issue. For more information, see [Download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
+
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
