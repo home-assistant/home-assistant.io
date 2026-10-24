@@ -6,7 +6,7 @@ installation: container
 
 ## Backup
 
-To learn how to back up the system or how to restore a system from a backup, refer to the backup documentation under [common tasks](/common-tasks/general/#backups).
+To learn how to back up the system or how to restore a system from a backup, refer to the backup documentation under [common tasks](/common-tasks/general/backups/).
 
 ## Update
 

@@ -45,7 +45,7 @@ docker pull {{ site.installation.container }}:{{current_version}}
 
 #### Downgrading to an earlier version
 
-To go back to an earlier version, restore a backup. Use a backup that you made while you were running that version. For the steps, refer to [Restoring a backup](/common-tasks/general/#restoring-a-backup).
+To go back to an earlier version, restore a backup. Use a backup that you made while you were running that version. For the steps, refer to [Restoring a backup](/common-tasks/general/backups/#restoring-a-backup).
 
 You can also install an earlier version without a backup. But this doesn't undo the changes that the newer version made to your data. For example, an update can convert your database to a new format. It can also convert the settings of some integrations. An earlier version can't read the new format. Your history then stops recording, and some integrations don't load.
 

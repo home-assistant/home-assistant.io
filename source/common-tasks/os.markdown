@@ -12,11 +12,11 @@ This section will provide guides to some common tasks and information which you 
 
 ## Backup
 
-To learn how to back up the system or how to restore a system from a backup, refer to the backup documentation under [common tasks](/common-tasks/general/#backups).
+To learn how to back up the system or how to restore a system from a backup, refer to the backup documentation under [common tasks](/common-tasks/general/backups/).
 
 ### Alternative: Creating a backup using the Home Assistant Command Line Interface
 
-In general, to create or restore from a backup, follow the steps described under [common tasks](/common-tasks/general/#backups). However, If you have the {% term "Home Assistant Operating System" %} installed, you can also create a backup from the command line. Follow these steps:
+In general, to create or restore from a backup, follow the steps described under [common tasks](/common-tasks/general/backups/). However, if you have the {% term "Home Assistant Operating System" %} installed, you can also create a backup from the command line. Follow these steps:
 
 1. `ha backups list` - lists backups and their slugnames
 2. `ha backups restore slugname` - restores a specific backup
@@ -41,10 +41,10 @@ Updates of the {% term "Home Assistant Operating System" %} are independent of o
 
 #### Prerequisites
 
-- [Backup your installation](/common-tasks/general/#backups).
-  - Make sure the backup is stored on a [backup location](/common-tasks/general/#defining-backup-locations) outside of the device where Home Assistant is installed.
-    - For example, if Home Assistant is installed on [Home Assistant Green](/green), make sure it is stored on [Home Assistant Cloud](/common-tasks/general/#about-the-backup-storage-on-home-assistant-cloud) or another location.
-  - So that you can [restore from that backup](/common-tasks/general/#restoring-a-backup) in case there is an issue with the system.
+- [Back up your installation](/common-tasks/general/backups/).
+  - Make sure the backup is stored on a [backup location](/common-tasks/general/backups/#defining-backup-locations) outside of the device where Home Assistant is installed.
+    - For example, if Home Assistant is installed on [Home Assistant Green](/green), make sure it is stored on [Home Assistant Cloud](/common-tasks/general/backups/#about-the-backup-storage-on-home-assistant-cloud) or another location.
+  - So that you can [restore from that backup](/common-tasks/general/backups/#restoring-a-backup) in case there is an issue with the system.
 
 #### To update the Home Assistant Operating System
 
