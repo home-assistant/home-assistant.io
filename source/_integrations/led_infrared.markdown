@@ -48,6 +48,12 @@ This integration supports many branded and unbranded LED bulbs, lamps, and LED s
 
 {% enddetails %}
 
+{% details "21-key remote" %}
+
+![21-key remote](/images/integrations/led_infrared/21-key.png)
+
+{% enddetails %}
+
 {% details "13-key remote" %}
 
 ![13-key remote](/images/integrations/led_infrared/13-key.png)
@@ -96,11 +102,11 @@ A light entity is created when an infrared emitter is configured.
 
 - **Brightness up**
   - **Description**: Increases the brightness of the light by one step.
-  - **Available for**: 10-key remote, 13-key remote, 24-key remote, 40-key remote, 44-key remote
+  - **Available for**: 10-key remote, 13-key remote, 21-key remote, 24-key remote, 40-key remote, 44-key remote
 
 - **Brightness down**
   - **Description**: Decreases the brightness of the light by one step.
-  - **Available for**: 10-key remote, 13-key remote, 24-key remote, 40-key remote, 44-key remote
+  - **Available for**: 10-key remote, 13-key remote, 21-key remote, 24-key remote, 40-key remote, 44-key remote
 
 - **Timer**
   - **Description**: Enables the timer, turning the light on for 6 hours and off for 18 hours in a repeating 24-hour cycle.
@@ -185,6 +191,22 @@ A light entity is created when an infrared emitter is configured.
 - **Blue down**
   - **Description**: Decreases the intensity of the blue color channel by one step.
   - **Available for**: 44-key remote
+
+- **Speed up**
+  - **Description**: Increases the playback speed of the active effect.
+  - **Available for**: 21-key remote
+
+- **Speed down**
+  - **Description**: Decreases the playback speed of the active effect.
+  - **Available for**: 21-key remote
+
+- **Mode up**
+  - **Description**: Switches to the next effect.
+  - **Available for**: 21-key remote
+
+- **Mode down**
+  - **Description**: Switches to the previous effect.
+  - **Available for**: 21-key remote
 
 ### Events
 
