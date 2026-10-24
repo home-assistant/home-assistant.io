@@ -13,6 +13,7 @@ ha_codeowners:
   - '@nzapponi'
 ha_domain: icloud
 ha_platforms:
+  - button
   - calendar
   - device_tracker
   - sensor
@@ -24,6 +25,7 @@ The **Apple iCloud** {% term integration %} allows you to detect presence using 
 
 There is currently support for the following platforms within Home Assistant:
 
+- [Button](#button)
 - [Calendar](#calendar)
 - [Device tracker](#device-tracker)
 - [Sensor](#sensor)
@@ -61,6 +63,12 @@ Include completed reminders:
 {% endconfiguration_basic %}
 
 ## Platforms
+
+### Button
+
+The iCloud integration adds a button for each device that can play a sound.
+
+- **Play sound**: Plays the Lost device sound on the device, which is useful for finding a misplaced device. The device rings even when it is set to **Mute** or **Do not disturb**.
 
 ### Calendar
 
