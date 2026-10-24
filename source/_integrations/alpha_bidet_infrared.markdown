@@ -57,7 +57,7 @@ If you replace your infrared transmitter, or want the bidet controlled by a diff
 3. Next to the bidet you want to change, select the three dots {% icon "mdi:dots-vertical" %} menu and choose **Reconfigure**.
 4. Select the new infrared transmitter and select **Submit**.
 
-The same rules as during setup apply: each infrared transmitter can control one bidet. The bidet model cannot be changed. To switch models, add the integration again. The bidet's entities and their entity IDs stay the same, so your dashboards and automations keep working.
+The same rules as during setup apply: each infrared transmitter can control one bidet. Changing the transmitter keeps the bidet's entities and their entity IDs, so your dashboards and automations keep working. The bidet model cannot be changed. To switch models, [remove the integration](#removing-the-integration) and add it again.
 
 ## Supported functionality
 
