@@ -4,7 +4,7 @@
 
 ![Graphics showing the architecture of the data disk feature](/images/haos/usb-data-disk.png)
 
-The data disk feature can be used on an existing installation without losing data: The system will move existing data to the external data disk automatically. However, it is recommended to create and download a full <a href="#backups">Backup</a> before proceeding!
+You can use the data disk feature on an existing installation without losing data. The system moves your existing data to the external data disk automatically. Before you start, [create a backup](/common-tasks/general/backups/#creating-a-manual-backup) that includes everything, and [download it](/common-tasks/general/backups/#downloading-your-local-backups).
 
 {% caution %}
 All data on the target disk will be overwritten!
