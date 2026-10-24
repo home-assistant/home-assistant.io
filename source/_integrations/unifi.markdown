@@ -274,7 +274,7 @@ Get entities reporting whether a Zone-Based Firewall Policy is in effect right n
 - **Inactive**: The policy is turned on, but the current time is outside its schedule.
 - **Active**: The policy is turned on and applies now.
 
-The schedule is evaluated in the time zone of the UniFi Network application, not Home Assistant's. A policy with no schedule, or one with a schedule Home Assistant doesn't recognize, reports an unknown state. These sensors are disabled by default.
+The schedule is evaluated in the time zone of the UniFi Network application. If the application doesn't report a time zone that Home Assistant can use, Home Assistant's time zone is used instead. A turned-on policy with no schedule, or with a schedule Home Assistant doesn't recognize, reports an unknown state. These sensors are disabled by default.
 
 ## Light
 
@@ -300,7 +300,7 @@ The Home Assistant community has created blueprints that use the UniFi Network i
 
 ## Data updates
 
-The UniFi Network {% term integration %} uses a local push connection (WebSocket) to the UniFi Network application. This means state changes for clients, devices, and network configuration are received in near-real-time as they happen on the controller, without the need for {% term polling %}. Data that the UniFi Network application doesn't push, such as Zone-Based Firewall Policies, is polled every 10 seconds.
+The UniFi Network {% term integration %} uses a local push connection (WebSocket) to the UniFi Network application. This means state changes for clients, devices, and network configuration are received in near-real-time as they happen on the controller, without the need for {% term polling %}. Data that the UniFi Network application doesn't push, such as Zone-Based Firewall Policies, is polled every 10 seconds. While a type of data has no items, for example when no firewall policies exist, it is polled every 10 minutes instead, so the first new item can take up to 10 minutes to appear.
 
 If the WebSocket connection is lost, the integration automatically tries to reconnect. While disconnected, entities are marked as unavailable until the connection is restored.
 
