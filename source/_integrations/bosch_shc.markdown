@@ -128,6 +128,7 @@ The select platform lets you choose between a set of predefined options. Select 
 - Smart Plug and Smart Plug Compact that support it: a **State after power outage** select, letting you choose between **Off**, **On**, or **Last state**. In YAML, the options are `off`, `on`, and `last_state`.
 - Micromodule Relay that supports it: a **Switch type** select, letting you choose between **None**, **Push button**, **Rocker switch**, or **No switch**. In YAML, the options are `none`, `pushbutton`, `switch`, and `no_switch`.
 - Thermostat II that supports it: a **Valve type** select (**normally closed** or **normally open**) and a **Heater type** select (**underfloor heating**, **underfloor heating low energy**, **radiator**, **passive convector**, **active convector**, or **central heating**).
+- Micromodule Relay that supports it: an **Output mode** select, letting you choose between **Coupled**, **Disconnected on any key press**, **Disconnected on short press**, **Disconnected on long press**, or **Unsupported**. In YAML, the options are `attached`, `detached`, `detached_short_press`, `detached_long_press`, and `unsupported`.
 
 ### Sensors
 
