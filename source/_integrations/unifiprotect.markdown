@@ -95,7 +95,7 @@ The table below shows which {% term entity %} domains are available in each mode
 
 In API key only mode, switches are limited to the settings the public API can change: the camera status light, high FPS mode, overlay and smart detection toggles, the floodlight status light, the smart sensor detection toggles, and the relay outputs.
 
-Numbers are limited in the same way: the camera microphone level, the floodlight motion sensitivity and auto-shutoff duration, and the smart sensor motion sensitivity.
+Numbers are limited in the same way: the camera microphone level, the floodlight motion sensitivity and auto-shutoff duration, the smart sensor motion sensitivity, and the smart chime ring volume per paired doorbell.
 
 Selects are limited in the same way: the camera HDR mode, the floodlight light mode, and the alarm profile.
 
@@ -190,7 +190,7 @@ The table below shows, per device type, which connection mode is required. See [
 | Floodlight   |     ✅      |       ✅ (light, switches, numbers, selects, sensors, binary sensors)       |
 | Smart sensor |     ✅      |               ✅ (switches, numbers, sensors, binary sensors)               |
 | Viewer       |     ✅      |                                      —                                      |
-| Smart chime  |     ✅      |                                      —                                      |
+| Smart chime  |     ✅      |                         ✅ (ring volume per camera)                         |
 | Relay        |     ✅      |                                     ✅                                      |
 | Siren        |     ✅      |                                     ✅                                      |
 | NVR          |     ✅      |                           ✅ (Alarm Manager only)                           |
@@ -272,6 +272,7 @@ Each UniFi Protect smart chime will get a device in Home Assistant with the foll
 
 - **Button** - A button to trigger the chime manually for each smart chime device. Also, a disabled by default button is added to let you reboot your smart chime device.
 - **Device Configuration** - Smart chimes will get a volume slider to adjust the chime's loudness and a sensor for the last time the chime rang.
+- **Ring volume** - A ring volume slider for each doorbell paired with the chime. It also works in the **API key only** connection mode. The chime's own volume slider and the buttons require **full access**.
 
 ### UniFi Protect relays
 
