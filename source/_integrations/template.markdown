@@ -983,6 +983,8 @@ Device:
   description: An existing device to attach this helper to.
 Availability:
   description: A template that gets the available state of the entity. You find this option under **Additional options**.
+Supported speeds:
+  description: The speeds the cover supports. If set, the actions on open, close, and set position receive the requested speed in the variable `speed`, which is `none` if no speed or a speed not in this list was requested. You find this option under **Additional options**.
 {% endconfiguration_basic %}
 
 ### Options in YAML
