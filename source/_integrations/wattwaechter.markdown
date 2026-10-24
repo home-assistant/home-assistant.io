@@ -79,7 +79,7 @@ The WattWächter Plus provides sensors that are based on your smart meter's repo
 
 ### Additional meter values
 
-Smart meters can report values beyond the well-known ones listed above. The integration creates a sensor for every additional OBIS code your meter reports, deriving the sensor type from the reported unit. Cumulative energy registers are recorded as continuously increasing totals. These additional sensors are disabled by default; enable the ones you need from the device page. Device metadata registers, such as the meter's serial number, do not create sensors.
+Smart meters can report values beyond the well-known ones listed above. The integration creates a sensor for every additional OBIS code your meter reports, deriving the sensor type from the reported unit. Cumulative energy registers of electricity meters and m³ registers of gas and water meters are recorded as continuously increasing totals. These additional sensors are disabled by default; enable the ones you need from the device page. Device metadata registers, such as the meter's serial number, do not create sensors.
 
 ### Gas and water sensors
 
@@ -105,7 +105,7 @@ The integration adds an update entity that reports the firmware version installe
 
 ## Data updates
 
-The integration {% term polling polls %} your WattWächter device locally every 2 minutes (120 seconds). Each poll fetches the meter data (SML/OBIS readings), system information, and the firmware update status.
+The integration {% term polling polls %} your WattWächter device locally every 2 minutes (120 seconds). Each poll fetches the meter data, system information, and the firmware update status.
 
 ## Actions
 
