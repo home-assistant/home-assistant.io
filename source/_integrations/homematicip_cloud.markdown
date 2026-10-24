@@ -132,6 +132,7 @@ The list below shows which Home Assistant entities each supported Homematic IP d
 - Wall-mounted garage door controller (`HmIP-WGC`)
 - Full Flush Lock Controller door opener (`HmIP-FLC`)
 - Full Flush Door Controller door opener (`HmIP-FDC`)
+- Identify, which makes the device signal its location, on devices that support it
 
 ### Climate
 
