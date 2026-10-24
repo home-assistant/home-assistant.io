@@ -114,7 +114,8 @@ data:
 
 ### Automation: List the time blocks of a heating schedule
 
-If you want to create a new schedule based on one you already have, list the time blocks of the existing schedule and use them as a reference when you create the new one. For example, you can create a new heating schedule with extra time blocks for the weekend. This example uses a [button helper](/integrations/input_button/) to start the copy.
+If you want to create a new schedule based on one you already have, list the time blocks of the existing schedule and use them as a reference when you create the new one. For example, you can create a new heating schedule with extra time blocks for the weekend.
+This automation uses a [button helper](/integrations/input_button/) to start the copy and creates a persistent notification with the time blocks.
 
 - **Trigger**: State changed
   - **Entity**: Copy heating schedule button
