@@ -43,10 +43,8 @@ This integration needs a free Airly API key. To get one:
 {% configuration_basic %}
 API key:
     description: "The API key for your Airly account."
-Latitude:
-    description: "The latitude of the location for which to retrieve air quality data. By default, Home Assistant uses your home location."
-Longitude:
-    description: "The longitude of the location for which to retrieve air quality data. By default, Home Assistant uses your home location."
+Location:
+    description: "The location for which to retrieve air quality data. By default, Home Assistant uses your home location."
 {% endconfiguration_basic %}
 
 ## Supported functionality
