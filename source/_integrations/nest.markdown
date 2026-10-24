@@ -197,7 +197,7 @@ The Nest Device Access Console Pub/Sub setup process has changed as of January 2
 This section describes how to configure your Device Access Project with a Pub/Sub topic
 to publish events for devices in your home. Home Assistant and the Device Access Project must be configured to use the *Topic Name* otherwise you will not receive events.
 
-If you previously set up events, then your Device Access Project may have already created a topic for you and you can use that topic name. For new projects, or if you disable events, you need to create the topic yourself following the instructions below.
+Home Assistant can automatically create a Pub/Sub topic in your Google Cloud project and configure permissions for you during the **Link Google Account** or **Reconfigure** steps. Alternatively, if you prefer to create and configure the topic manually in the Google Cloud Console before linking your account, follow the instructions below.
 
 1. Go to the [Pub/Sub Google Cloud Console](https://console.cloud.google.com/cloudpubsub/topic/list).
 
@@ -272,15 +272,13 @@ See [Troubleshooting](#troubleshooting) below for steps to resolve the common mi
 
 7. You will now see a page hosted by *My Home Assistant* asking if you would like to *Link account to Home Assistant?* Select **Link Account** to continue.
 
-8. If all went well, you will next configure events and a Pub/Sub topic. Nest will attempt
-   to automatically find a Pub/Sub topic either created by the Device Access Console
-   or manually by you.
+8. If all went well, you will next configure events and a Pub/Sub topic. Select an existing Pub/Sub topic from your Google Cloud project, or select **Create new topic** to have Home Assistant automatically create one and grant `sdm-publisher@googlegroups.com` permission to publish to it.
 
      ![Screenshot of the Pub/Sub topic selection](/images/integrations/nest/config_flow_with_topic.png)
 
-9.  If you instead see the error message *No eligible Pub/Sub topics found, please ensure Device Access Console has a Pub/Sub topic.* then follow the steps in the previous section to enable events and create a Pub/Sub topic in another browser tab. Once you have created and configured the topic, select **Submit** on this screen to refresh the list of topics and continue.
+9. Confirm that the Device Access Console is configured with the selected Pub/Sub **Topic Name** (follow steps 9–13 in **Enable events and Pub/Sub topic** above to enable events with this topic name in the Device Access Console if you have not already done so), then select **Submit** to continue.
 
-10. Home Assistant uses a *Subscription* to subscribe to device events published on the topic. You can select the subscription you created in the Device Access Console or the integration will automatically create one for you if you don't have one already.
+10. Home Assistant uses a *Subscription* to subscribe to device events published on the topic. Select **Create new subscription** for Home Assistant to create one automatically, or select an existing subscription for the topic.
      ![Screenshot of the Pub/Sub subscription selection](/images/integrations/nest/config_flow_subscription.png)
 
 
@@ -747,8 +745,8 @@ name that is not found in your Google Account. By default, Google pub/sub subscr
 
 To repair the subscriber:
 
-  1. Go to the [Device Access Console](https://console.nest.google.com/device-access/project-list) and re-enable the Pub/Sub topic.
-  2. The Nest integration may need to be recreated to pick up the new Pub/Sub topic.
+  1. Go to the [Device Access Console](https://console.nest.google.com/device-access/project-list) and verify the Pub/Sub topic is enabled.
+  2. In Home Assistant, go to **{% my integrations title="Settings > Devices & services" %} > Nest**, open the integration entry menu, and select **Reconfigure** to select or create a Pub/Sub topic and subscription.
   3. (Optional) To prevent future expirations, go to your [Google Cloud Console Pub/Sub subscription page](https://console.cloud.google.com/cloudpubsub/subscription/list) and edit the Pub/Sub subscription created by Nest to not expire by default.
 
 ### Nest integration data issues
@@ -788,7 +786,7 @@ Changes for things like sensors or thermostat temperature set points should be i
   2. Click the Home Assistant device access project
   3. Verify the *Pub/Sub topic* is *Enabled*. If not, follow the integration configuration instructions.
   4. If the Pub/Sub topic starts with `projects/<your cloud project>/topics/home-assistant-` then you are using a topic created by Home Assistant. You may follow the steps in the next section to verify the topic.
-  5. If the Pub/Sub topic starts with `projects/sdm-prod/topics`, you are using a legacy Google-hosted topic. Google will stop publishing events to these topics after November 30, 2026. Follow the **Enable events and Pub/Sub topic** setup instructions above to create a topic in your own Google Cloud project, then disable the legacy topic and re-enable events with the new topic in the Device Access Console. For more information, refer to Google's [event migration instructions](https://developers.google.com/nest/device-access/subscribe-to-events#enable_events).
+  5. If the Pub/Sub topic starts with `projects/sdm-prod/topics`, you are using a legacy Google-hosted topic. Google will stop publishing events to these topics on November 30, 2026. To migrate, go to **{% my integrations title="Settings > Devices & services" %} > Nest**, open the integration entry menu, and select **Reconfigure**. Select **Create new topic** (or choose an existing topic in your Google Cloud project), then follow the on-screen instructions to disable the legacy topic and enable events with the new topic in the Device Access Console before creating a new subscription. For more information, refer to Google's [event migration instructions](https://developers.google.com/nest/device-access/subscribe-to-events#enable_events).
 
 - **(Optional) Verify topic message publishing.**
 
