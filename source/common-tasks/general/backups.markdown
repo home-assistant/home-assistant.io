@@ -211,7 +211,9 @@ There are two ways to use a backup:
 
 ### Estimated duration
 
-The time it takes to restore a backup depends on your installation. Home Assistant Core and all apps are being reinstalled. For a larger installation, this process can take about 45 minutes.
+The time it takes to restore a backup depends on the size of the backup and on your hardware. Home Assistant reinstalls Home Assistant Core and all apps. For a larger installation, a restore can take about 45 minutes.
+
+Don't turn off or unplug the system while the restore runs. To check that the restore is still running, refer to [The restore seems stuck or shows "Not found"](#symptom-the-restore-seems-stuck-or-shows-not-found).
 
 ### Restoring a backup during onboarding
 
@@ -224,6 +226,11 @@ You can use a backup during the onboarding process to restore your configuration
 - This procedure assumes you have already completed the [installation](/installation/) procedure on your target device and are now viewing the welcome screen as part of the [onboarding](/getting-started/onboarding/).
 - The login credentials of the device from which you made the backup.
 - The [backup emergency kit](/more-info/backup-emergency-kit/) that contains the key needed to decrypt the backup.
+- On {% term "Home Assistant Operating System" %}, the system must meet the following conditions, or the restore doesn't start:
+  - It's connected to the internet.
+  - It has at least 2&nbsp;GB of free storage.
+  - It's healthy.
+  - For details, refer to [The restore is blocked from execution](#symptom-the-restore-is-blocked-from-execution).
 - **Required storage capacity**: If you migrate the installation to a new device, make sure the new device has more storage capacity than the existing device.
   - Before migrating, on the old system, check how much storage you used.
   - Go to **{% my system_health title="Settings > System > Repairs > ... > System Information" %}**, and under **Home Assistant Supervisor**, look at the **Disk used** value.
@@ -267,6 +274,8 @@ You can use a backup during the onboarding process to restore your configuration
    - Because this is now a different Zigbee radio, you need to [migrate Zigbee](/integrations/zha/#migrating-to-a-new-zigbee-adapter-inside-zha).
 
 ### To restore a backup on your current system
+
+On {% term "Home Assistant Operating System" %}, the restore only starts if the system is connected to the internet, has at least 2&nbsp;GB of free storage, and is healthy. For details, refer to [The restore is blocked from execution](#symptom-the-restore-is-blocked-from-execution).
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, and select **Show all backups**.
    - To restore a backup file from your computer, first upload it: select the three dots {% icon "mdi:dots-vertical" %} menu, select **Upload backup**, and then **Select backup file**. Select the file, and then select **Upload backup**.
@@ -331,5 +340,91 @@ This only happens with the default SQLite database. If you use MariaDB or Postgr
    2. Under **Backup cycle**, set **Time** to **Custom**, and pick a time later in the day.
       - **Time** is only shown when **Schedule** is set to **Daily** or **Custom days**.
 3. If backups keep failing, make the database smaller. For example, keep fewer days of history, or exclude entities that change often. For details, refer to [Preparing for a backup](#preparing-for-a-backup).
+
+{% enddetails %}
+
+{% details "A restore doesn't start" %}
+
+### Symptom: The restore is blocked from execution
+
+You start a restore, but it doesn't start. Home Assistant shows an error that contains `blocked from execution`. The error ends with one of the following reasons:
+
+- `no supervisor internet connection` or `no host internet connection`
+- `not enough free space (…GB) left on the device`
+- `system is not healthy`, followed by the problems that were found
+
+#### Description
+
+On {% term "Home Assistant Operating System" %}, a restore only starts if the system meets all of the following conditions:
+
+- It's connected to the internet. Home Assistant checks this by contacting `checkonline.home-assistant.io`.
+- It has at least 2&nbsp;GB of free storage.
+- It's healthy.
+
+This also applies to a restore during onboarding. A system without internet access, such as an offline setup, can't start a restore.
+
+#### Resolution
+
+1. If the error is about the internet connection, connect the system to the internet. Then, start the restore again.
+   - If a firewall or DNS filter blocks `checkonline.home-assistant.io`, allow it for the restore.
+2. If the error is about free space, free up storage. Then, start the restore again.
+   - For example, [delete obsolete backups](#deleting-obsolete-backups).
+   - An uploaded backup also uses storage. On a small storage device, a large backup can leave less than 2&nbsp;GB free. In that case, use a larger storage device.
+3. If the error says the system isn't healthy, go to {% my repairs title="**Settings** > **System** > **Repairs**" %}.
+   - Each problem is listed as **Unhealthy system - …**. Select it for the steps to fix it.
+   - Then, start the restore again.
+
+{% enddetails %}
+
+{% details "A restore seems stuck" %}
+
+### Symptom: The restore seems stuck or shows "Not found"
+
+A restore runs longer than you expect, and the page doesn't change. When you reload the page, it shows `Not found`, or the page doesn't load at all.
+
+#### Description
+
+During a restore, Home Assistant shuts down, and the system restores the backup in the background. Until it's done, the Home Assistant UI isn't reachable. That's why the page shows `Not found`. The restore is still running.
+
+How long a restore takes depends on the size of the backup and on your hardware.
+
+#### Resolution
+
+1. Don't turn off or unplug the system. Leave the restore running.
+2. To check that the restore is still running, on {% term "Home Assistant Operating System" %}, open the Observer. In your browser, go to `http://homeassistant.local:4357`.
+   - If this address doesn't work, use the IP address of your system, for example, `http://192.168.0.10:4357`.
+   - Result: The Observer shows the status of the Supervisor and, during the restore, its log.
+   - As long as new lines appear in the log, the restore is running.
+   - During onboarding, you can also select **Show full log** on the restore page.
+3. If the log shows an error, ask for help in the [community forum](https://community.home-assistant.io). Include the log.
+
+{% enddetails %}
+
+{% details "A backup is damaged or incomplete" %}
+
+### Symptom: "unexpected end of data", "filename './backup.json' not found", or "Invalid password or corrupted backup"
+
+A backup doesn't show up after you upload it, or a restore or download fails. The logs show one of the following errors:
+
+- `unexpected end of data`
+- `filename './backup.json' not found`
+- `Invalid password or corrupted backup.`
+
+A restore can also fail with **The provided encryption key was incorrect, please try again.**, even if the key is correct.
+
+#### Description
+
+The errors mean the following:
+
+- `unexpected end of data`: The backup file is incomplete. For example, a download, upload, or copy stopped before it finished.
+- `filename './backup.json' not found`: The file isn't a Home Assistant backup, or its content was changed. For example, the file was unpacked and packed again. Every backup contains a `backup.json` file that describes the backup.
+- `Invalid password or corrupted backup.`: Home Assistant can't decrypt the backup. Either the encryption key is wrong, or the file is damaged. Home Assistant can't tell these two cases apart. That's why a damaged backup can also show the message about an incorrect encryption key.
+
+#### Resolution
+
+1. Check the encryption key. Use the key from the [backup emergency kit](/more-info/backup-emergency-kit/) of the system that created the backup.
+2. Use another copy of the backup. For example, download it again from Home Assistant Cloud, or use the copy from your network storage or another backup location.
+   - If you copied the file yourself, copy it again. Then, check that the copy is the same size as the original.
+3. Upload the `.tar` file as it is. Don't unpack it and pack it again.
 
 {% enddetails %}
