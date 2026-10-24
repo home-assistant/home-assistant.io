@@ -344,7 +344,7 @@ First, find out which storage has the problem. If it's Home Assistant's own stor
    - On {% term "Home Assistant Operating System" %}, if the [Samba share app](/common-tasks/os/#installing-and-using-the-samba-share-app) is installed, copy it from the `backup` folder.
 5. If you can't download or copy a backup, it might be damaged. Try an older one.
 6. Make sure that you have the encryption key for your backups. You need it to restore them. The key is in the [backup emergency kit](/more-info/backup-emergency-kit/).
-   - If you don't have the emergency kit anymore, download it now: Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}. On the **Automatic backup** card, select **Configure backup settings**. Under **Encryption key**, select **Download emergency kit**.
+   - If you don't have the emergency kit anymore, download it now: Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}. On the **Encryption key** card, next to **Download emergency kit**, select **Download**.
    - The key is also stored on the affected storage. If you replace the storage before you save the key, you can't restore your encrypted backups.
 7. If the storage is connected over USB, such as an external SSD, check the connection.
    1. [Shut down the system](/common-tasks/general/restarting/#shutting-down-the-system).
