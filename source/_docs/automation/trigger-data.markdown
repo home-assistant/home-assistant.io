@@ -117,6 +117,11 @@ These are the properties available for a [**Geolocation** trigger](/triggers/geo
 
 The Home Assistant trigger is recommended for automations instead of [homeassistant_start or homeassistant_stop events](/docs/configuration/events/#homeassistant_start-homeassistant_started).
 
+The Home Assistant triggers with a full trigger key include these properties:
+
+- [**Restart required**](/triggers/homeassistant.restart_required/) (`homeassistant.restart_required`): `trigger.sources`, a list of the integrations that asked for a restart, by their domain. `trigger.description` is `Home Assistant restart required`.
+- [**Host reboot required**](/triggers/homeassistant.host_reboot_required/) (`homeassistant.host_reboot_required`): no more properties. `trigger.description` is `host reboot required`.
+
 These are the properties available for a [**Home Assistant** trigger](/triggers/homeassistant/).
 
 - `trigger.platform`: `homeassistant`.
