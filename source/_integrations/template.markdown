@@ -1025,7 +1025,7 @@ cover:
       required: false
       type: template
     set_cover_position:
-      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` contains the entity's set position. If `supported_speeds` is specified, the variable `speed` contains the requested speed.
+      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` contains the entity's set position. If `supported_speeds` is specified, the variable `speed` contains the requested speed if it is in `supported_speeds`.
       required: false
       type: action
     set_cover_tilt_position:
@@ -1041,7 +1041,7 @@ cover:
       required: false
       type: action
     supported_speeds:
-      description: List of speeds the cover supports, for example `normal` and `fast`. If specified, the `open_cover`, `close_cover`, and `set_cover_position` actions receive the requested speed in the variable `speed`. The variable is `none` if no speed was requested.
+      description: List of speeds the cover supports, for example `normal` and `fast`. If specified, the `open_cover`, `close_cover`, and `set_cover_position` actions receive the requested speed in the variable `speed`. The variable is `none` if no speed or a speed not in `supported_speeds` was requested.
       required: false
       type: [string, list]
     tilt:
