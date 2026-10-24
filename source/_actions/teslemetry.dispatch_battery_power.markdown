@@ -62,7 +62,7 @@ device_id:
   type: string
 power:
   description: >
-    The battery power to hold, in watts. A positive value discharges the battery, a negative value charges it.
+    The battery power to hold, in watts (-100000 to 100000). A positive value discharges the battery, a negative value charges it.
   required: true
   type: integer
 duration:
