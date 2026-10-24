@@ -10,6 +10,7 @@ ha_codeowners:
   - '@ebaschiera'
 ha_domain: helty_cloud
 ha_platforms:
+  - binary_sensor
   - fan
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -68,6 +69,11 @@ The integration creates one device per ventilation unit on the account, each exp
 - **Ventilation**
   - **Description**: Turns the ventilation on and off, sets one of four speeds, and selects a preset mode (**Boost**, **Night**, or **Free cooling**). The fan entity has the same name as its device, so it appears under your unit's name. The four speeds correspond to 25%, 50%, 75%, and 100%. If you turn the fan on without choosing a speed or preset, it always starts at speed 1, not at the last speed you used.
 
+### Binary sensors
+
+- **Filter**
+  - **Description**: Turns on when the unit raises its filter alarm, meaning the filter is due for replacement. Helty Flow units raise this alarm on the volume of air the filter has treated, not on hours of use. The sensor turns off again once the filter has been replaced and reset on the unit.
+
 ## Data updates
 
 The unit's panel reports to the cloud on its own: whenever something changes noticeably, and on a timer besides. Home Assistant {% term polling polls %} the cloud every 5 minutes and reads the most recent of those reports, so a change you make at the panel itself, or through the app, appears within a few minutes rather than instantly.
@@ -86,7 +92,7 @@ Units with the recent panel cannot report whether their **Auto** function is swi
 
 ### Sensor values
 
-Only ventilation is available for now. The temperature, humidity, and filter values the panel reports are not yet exposed.
+Besides ventilation, only the filter alarm is available for now. The temperature, humidity, and treated-air values the panel reports are not yet exposed.
 
 ### Undocumented cloud API
 
