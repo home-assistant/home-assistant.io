@@ -407,6 +407,149 @@ This only happens with the default SQLite database. If you use MariaDB or Postgr
 
 {% enddetails %}
 
+{% details "A backup location is unavailable" %}
+
+### Symptom: "The backup location … is unavailable"
+
+Under {% my repairs title="**Settings** > **System** > **Repairs**" %}, Home Assistant shows **The backup location … is unavailable**. The title shows the internal ID of the location, not its name.
+
+#### Description
+
+The location is still selected for automatic backups, but Home Assistant can't use it. This happens when the integration that provides the location isn't loaded. For example, you removed or disabled the integration, or it failed to start. Automatic backups skip this location until it's available again.
+
+The repair goes away when the location is available again, or when you remove it from the automatic backup settings.
+
+#### Resolution
+
+1. If you still want to use the location, go to {% my integrations title="**Settings** > **Devices & services**" %}, and check the integration that provides it.
+   - If the integration shows an error, fix it. For the steps, refer to the documentation of the integration.
+2. If you no longer use the location, remove it from the automatic backup settings:
+   1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}. On the **Automatic backup** card, select **Configure backup settings**.
+   2. Under **Locations** > **Unavailable locations**, next to the location, select the delete {% icon "mdi:delete" %} icon.
+
+{% enddetails %}
+
+{% details "An automatic backup wasn't uploaded to all locations" %}
+
+### Symptom: "Automatic backup could not be uploaded to the configured locations"
+
+Under {% my repairs title="**Settings** > **System** > **Repairs**" %}, Home Assistant shows **Automatic backup could not be uploaded to the configured locations**. The repair lists the locations that failed.
+
+#### Description
+
+Home Assistant created the backup, but couldn't store it on one or more of the selected locations. For example, the location was offline or full. The backup is still stored on the other locations.
+
+Home Assistant only shows this repair for automatic backups. The repair goes away after the next automatic backup that completes without errors.
+
+#### Resolution
+
+1. Find the reason in the logs. For the steps, refer to ["Last automatic backup failed" or "Failed to create backup"](#symptom-last-automatic-backup-failed-or-failed-to-create-backup).
+2. Fix the problem with the location. For example, free up space on it.
+3. To check the fix right away, [create a manual backup](#creating-a-manual-backup) on that location.
+
+{% enddetails %}
+
+{% details "An automatic backup doesn't include all apps" %}
+
+### Symptom: "Not all apps could be included in automatic backup"
+
+Under {% my repairs title="**Settings** > **System** > **Repairs**" %}, Home Assistant shows **Not all apps could be included in automatic backup**. The repair lists the apps that failed.
+
+#### Description
+
+Home Assistant created the backup, but couldn't back up one or more apps. The backup doesn't contain these apps. The details page of the backup also shows them, under **Failed apps**.
+
+Home Assistant only shows this repair for automatic backups. The repair goes away after the next automatic backup that completes without errors.
+
+#### Resolution
+
+1. Go to {% my logs title="**Settings** > **System** > **Logs**" %}, and in the top-right corner, select **Home Assistant Core** > **Supervisor**.
+   - The log shows why the app couldn't be backed up.
+2. Depending on the error in the log, do the following:
+   - `Failed running pre-/post backup command`: The app's own preparation for the backup failed. To see why, go to {% my supervisor title="**Settings** > **Apps**" %}, select the app, and open the **Log** tab. Restart the app, and then try again.
+   - `Can't write backup tarfile for app`: Home Assistant couldn't add a file of the app to the backup. The end of the error names the file and the reason:
+     - `I/O error`: The storage couldn't read the file. Refer to [A backup fails with an I/O error or a read-only file system](#symptom-errno-5-io-error-or-errno-30-read-only-file-system).
+     - `No such file or directory`: The file was removed while the backup ran. Create the backup again.
+     - `Permission denied`: Home Assistant isn't allowed to read the file. If you don't need the file in the backup, delete it.
+   - For other errors, update the app or restart it, and then try again.
+3. To check the fix right away, [create a manual backup](#creating-a-manual-backup).
+
+{% enddetails %}
+
+{% details "An automatic backup doesn't include all folders" %}
+
+### Symptom: "Not all folders could be included in automatic backup"
+
+Under {% my repairs title="**Settings** > **System** > **Repairs**" %}, Home Assistant shows **Not all folders could be included in automatic backup**. The repair lists the folders that failed, such as `media` or `share`.
+
+#### Description
+
+Home Assistant created the backup, but couldn't back up one or more folders. The backup doesn't contain these folders. The details page of the backup also shows them, under **Failed folders**.
+
+Home Assistant only shows this repair for automatic backups. The repair goes away after the next automatic backup that completes without errors.
+
+#### Resolution
+
+1. Go to {% my logs title="**Settings** > **System** > **Logs**" %}, and in the top-right corner, select **Home Assistant Core** > **Supervisor**.
+   - The log shows why the folder couldn't be backed up.
+2. Find the error that starts with `Can't backup folder`. The end of the error names the file that couldn't be added, and the reason:
+   - `I/O error`: The storage couldn't read the file. Refer to [A backup fails with an I/O error or a read-only file system](#symptom-errno-5-io-error-or-errno-30-read-only-file-system).
+   - `No such file or directory`: The file was removed while the backup ran. Create the backup again.
+   - `Permission denied`: Home Assistant isn't allowed to read the file. If you don't need the file in the backup, delete it.
+3. To check the fix right away, [create a manual backup](#creating-a-manual-backup).
+
+{% enddetails %}
+
+{% details "An automatic backup was created with errors" %}
+
+### Symptom: "Automatic backup was created with errors"
+
+Under {% my repairs title="**Settings** > **System** > **Repairs**" %}, Home Assistant shows **Automatic backup was created with errors**. The repair lists the following:
+
+- The locations the backup couldn't be uploaded to
+- The apps that couldn't be backed up
+- The folders that couldn't be backed up
+
+#### Description
+
+Home Assistant created the backup, but more than one kind of problem occurred. For example, an app couldn't be backed up, and the upload to a location failed. A dash (`-`) in the list means that there was no problem of that kind.
+
+Home Assistant only shows this repair for automatic backups. The repair goes away after the next automatic backup that completes without errors.
+
+#### Resolution
+
+Fix each problem in the list:
+
+- For locations, refer to [An automatic backup wasn't uploaded to all locations](#symptom-automatic-backup-could-not-be-uploaded-to-the-configured-locations).
+- For apps, refer to [An automatic backup doesn't include all apps](#symptom-not-all-apps-could-be-included-in-automatic-backup).
+- For folders, refer to [An automatic backup doesn't include all folders](#symptom-not-all-folders-could-be-included-in-automatic-backup).
+
+{% enddetails %}
+
+{% details "A backup says that some data is missing" %}
+
+### Symptom: "This backup was not created successfully. Some data is missing."
+
+When you open a backup, its details page shows **This backup was not created successfully. Some data is missing.** Below it, the page lists **Failed apps**, **Failed folders**, or both.
+
+#### Description
+
+The backup was created, but some apps or folders couldn't be backed up. The backup doesn't contain them. The rest of the backup was stored as usual.
+
+This applies to both automatic and manual backups.
+
+#### Resolution
+
+1. Go to {% my logs title="**Settings** > **System** > **Logs**" %}, and in the top-right corner, select **Home Assistant Core** > **Supervisor**.
+   - The log shows why the apps or folders couldn't be backed up.
+2. To find out what the error means and how to fix it, refer to one of the following entries:
+   - [An automatic backup doesn't include all apps](#symptom-not-all-apps-could-be-included-in-automatic-backup)
+   - [An automatic backup doesn't include all folders](#symptom-not-all-folders-could-be-included-in-automatic-backup)
+3. [Create a new backup](#creating-a-manual-backup).
+4. Keep the backup with missing data until you have a complete backup.
+
+{% enddetails %}
+
 {% details "A restore doesn't start" %}
 
 ### Symptom: The restore is blocked from execution
