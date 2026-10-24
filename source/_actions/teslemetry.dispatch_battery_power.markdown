@@ -62,7 +62,7 @@ device_id:
   type: string
 power:
   description: >
-    The battery power to hold, in watts (-10000 to 10000). A positive value discharges the battery, a negative value charges it.
+    The battery power to hold, in watts (-100000 to 100000). The Powerwall gateway rejects a power beyond its own limit with an error. A positive value discharges the battery, a negative value charges it.
   required: true
   type: integer
 duration:
