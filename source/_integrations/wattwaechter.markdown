@@ -1,6 +1,6 @@
 ---
-title: WattWächter Plus
-description: Instructions on how to integrate WattWächter Plus into Home Assistant.
+title: WattWächter
+description: Instructions on how to integrate WattWächter devices into Home Assistant.
 ha_categories:
   - energy.meters_monitoring
 ha_release: 2026.7
@@ -18,7 +18,7 @@ ha_integration_type: device
 ha_quality_scale: platinum
 ---
 
-The **WattWächter Plus** {% term integration %} connects Home Assistant to a [WattWächter Plus](https://wattwächter.de) energy monitoring device by [SmartCircuits GmbH](https://smartcircuits.de). The device reads data from your smart electricity meter via the <abbr title="Smart Message Language">SML</abbr>/<abbr title="Object Identification System">OBIS</abbr> protocol and exposes it over a local HTTP API. All communication stays on your local network. No cloud service is involved.
+The **WattWächter** {% term integration %} connects Home Assistant to [WattWächter](https://wattwächter.de) devices by [SmartCircuits GmbH](https://smartcircuits.de). The **WattWächter Plus** energy monitoring device reads data from your smart electricity meter via the <abbr title="Smart Message Language">SML</abbr>/<abbr title="Object Identification System">OBIS</abbr> protocol and exposes it over a local HTTP API. All communication stays on your local network. No cloud service is involved.
 
 The same integration also supports the **WattWächter Gas** and **WattWächter Wasser** devices, which read a mechanical gas or water meter.
 
@@ -101,11 +101,11 @@ The following sensors are created with the diagnostic entity category and are [d
 
 ### Firmware updates
 
-The integration adds an update entity that reports the firmware version installed on your WattWächter Plus and whether a newer version is available. When an update is offered, you can review the release notes and install it directly from Home Assistant. The device downloads and applies the firmware itself.
+The integration adds an update entity that reports the firmware version installed on your WattWächter device and whether a newer version is available. When an update is offered, you can review the release notes and install it directly from Home Assistant. The device downloads and applies the firmware itself.
 
 ## Data updates
 
-The integration {% term polling polls %} your WattWächter Plus device locally every 2 minutes (120 seconds). Each poll fetches the meter data (SML/OBIS readings), system information, and the firmware update status.
+The integration {% term polling polls %} your WattWächter device locally every 2 minutes (120 seconds). Each poll fetches the meter data (SML/OBIS readings), system information, and the firmware update status.
 
 ## Actions
 
@@ -115,7 +115,7 @@ This integration does not provide additional actions.
 
 ### Add your energy data to the Energy dashboard
 
-The WattWächter Plus integration provides energy sensors that can be used in the Energy dashboard. To add your data, follow the steps in the [Energy dashboard documentation](/home-energy-management).
+The WattWächter integration provides energy sensors that can be used in the Energy dashboard. To add your data, follow the steps in the [Energy dashboard documentation](/home-energy-management).
 
 Use the **Total consumption** sensor for grid consumption and the **Total feed-in** sensor for energy returned to the grid. For a WattWächter Gas, add the **Gas consumption** sensor as gas consumption. For a WattWächter Wasser, add the **Water consumption** sensor as water consumption.
 
@@ -178,7 +178,7 @@ Most smart meters need to be unlocked with a PIN from your energy provider befor
 
 ### Device is not discovered automatically
 
-- Make sure the WattWächter Plus is connected to the same network as Home Assistant.
+- Make sure the WattWächter device is connected to the same network as Home Assistant.
 - Verify the device is powered on and reachable (try accessing its web interface in a browser).
 - You can always add the device manually by entering its IP address.
 
