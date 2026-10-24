@@ -127,6 +127,7 @@ The select platform lets you choose between a set of predefined options. Select 
 - Thermostat II and Room Thermostat II: a **Display orientation** select, letting you choose between **Normal** and **Rotated by 180°**, and a **Displayed temperature** select, letting you choose between **Set temperature** and **Measured**. In YAML, the display orientation options are `normal` and `reversed`, and the displayed temperature options are `setpoint` and `measured`.
 - Smart Plug and Smart Plug Compact that support it: a **State after power outage** select, letting you choose between **Off**, **On**, or **Last state**. In YAML, the options are `off`, `on`, and `last_state`.
 - Micromodule Relay that supports it: a **Switch type** select, letting you choose between **None**, **Push button**, **Rocker switch**, or **No switch**. In YAML, the options are `none`, `pushbutton`, `switch`, and `no_switch`.
+- Thermostat II that supports it: a **Valve type** select (**normally closed** or **normally open**) and a **Heater type** select (**underfloor heating**, **underfloor heating low energy**, **radiator**, **passive convector**, **active convector**, or **central heating**).
 
 ### Sensors
 
