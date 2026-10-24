@@ -336,13 +336,15 @@ This only happens with the default SQLite database. If you use MariaDB or Postgr
 
 {% details "A backup is damaged or incomplete" %}
 
-### Symptom: "unexpected end of data", "filename './backup.json' not found", or "Invalid password or corrupted backup"
+### Symptom: A backup can't be read
 
-A backup doesn't show up after you upload it, or a restore or download fails. The logs show one of the following errors:
+An upload fails, or the backup doesn't show up after you upload it. Or, a restore or download fails. The logs show one of the following errors:
 
 - `unexpected end of data`
 - `filename './backup.json' not found`
 - `Invalid password or corrupted backup.`
+
+To see the logs, go to {% my logs title="**Settings** > **System** > **Logs**" %}. On {% term "Home Assistant Operating System" %}, also check the Supervisor log: in the top-right corner, select **Home Assistant Core** > **Supervisor**.
 
 A restore can also fail with **The provided encryption key was incorrect, please try again.**, even if the key is correct.
 
@@ -357,8 +359,10 @@ The errors mean the following:
 #### Resolution
 
 1. Check the encryption key. Use the key from the [backup emergency kit](/more-info/backup-emergency-kit/) of the system that created the backup.
-2. Use another copy of the backup. For example, download it again from Home Assistant Cloud, or use the copy from your network storage or another backup location.
+   - If you changed the encryption key after you created the backup, use the old key.
+2. Use another copy of the backup. For example, [download it again from Home Assistant Cloud](#downloading-a-backup-from-home-assistant-cloud), or use the copy from your network storage or another backup location.
    - If you copied the file yourself, copy it again. Then, check that the copy is the same size as the original.
 3. Upload the `.tar` file as it is. Don't unpack it and pack it again.
+4. If no copy of the backup works, the backup can't be used. Use an older backup.
 
 {% enddetails %}
