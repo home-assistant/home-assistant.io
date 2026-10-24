@@ -77,6 +77,15 @@ Read-only:
 
 Home Assistant implements the standard Model Context Protocol, including OAuth 2.0 with <abbr title="Proof Key for Code Exchange">PKCE</abbr>. It supports [OAuth Client ID Metadata Documents](https://datatracker.ietf.org/doc/draft-ietf-oauth-client-id-metadata-document/), so AI agents set up the client ID and callback URL automatically.
 
+### Device ID
+
+If the device running your MCP client has a corresponding device entry in Home Assistant, you can pass its `device_id` to the MCP server. This allows automatic area selection for tools that support it.
+
+You can pass the device ID in either of these ways:
+
+- The `Home-Assistant-Device-Id` HTTP header.
+- The `"params"."_meta"."io.home-assistant/device_id"` key inside the MCP request. This is the preferred method if your MCP client supports it.
+
 ### Example: Claude
 
 Before you start, copy your MCP server URL as described in the [prerequisites](#prerequisites).
@@ -133,6 +142,8 @@ Claude Code connects to MCP servers over HTTPS only. Use the MCP server URL of y
    claude mcp add --transport http home-assistant <your_mcp_server_url>
    ```
 
+   To send an optional device ID, add `--header "Home-Assistant-Device-Id: <device_id>"` to the command above. Replace `<device_id>` with the device ID.
+
 3. Run the following command:
 
    ```bash
@@ -152,6 +163,12 @@ Claude Code connects to MCP servers over HTTPS only. Use the MCP server URL of y
    ```
 
 3. Codex opens your Home Assistant instance in your web browser. Log in to your Home Assistant instance.
+
+To send an optional device ID, add the following line to the `[mcp_servers.homeassistant]` table in `~/.codex/config.toml`. Replace `<device_id>` with the device ID.
+
+```toml
+http_headers = { "Home-Assistant-Device-Id" = "<device_id>" }
+```
 
 ### Example: OpenCode
 
