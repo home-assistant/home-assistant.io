@@ -87,6 +87,7 @@ A WattWächter Gas or WattWächter Wasser creates the sensors of its medium:
 
 - **Gas consumption (m³)**: The gas meter reading.
 - **Gas flow rate (m³/h)**: The current gas flow.
+- **Gas power (kW)**: The current gas power, calculated by the device from the gas flow and the energy factor (calorific value × gas correction factor) set in its web interface.
 - **Water consumption (m³)**: The water meter reading.
 - **Water flow rate (m³/h)**: The current water flow.
 
