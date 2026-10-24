@@ -93,8 +93,6 @@ Modifying specific number-based settings allows you to fine-tune your setup.
 
 - **Maximum boiler temperature setpoint**
   - **Description**: Adjust the temperature setpoint for the space heating function.
-- **Domestic hot water setpoint**
-  - **Description**: Adjust the temperature setpoint for the domestic hot water function.
 - **Temperature offset**
   - **Description**: Fine-tune the perceived temperature.
 
@@ -129,8 +127,6 @@ A generous number of sensors is provided for your climate setup. Examples includ
 
 - **Cooling**
   - **Description**: Toggle if cooling should be enabled.
-- **DHW Comfort Mode**
-  - **Description**: Toggle comfort mode for domestic hot water.
 
 #### Water heaters
 

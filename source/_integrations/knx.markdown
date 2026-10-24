@@ -471,7 +471,7 @@ Every telegram that matches an address pattern with its destination field will b
 
 ## KNX tools for AI conversation agents
 
-The KNX integration registers an <abbr title="Large Language Model">LLM</abbr> <abbr title="application programming interface">API</abbr> named **KNX**. It gives a conversation agent, and through the [Model Context Protocol Server](/integrations/mcp_server/) also an external <abbr title="Model Context Protocol">MCP</abbr> client, a set of tools to inspect your KNX installation and to interact with the bus.
+The KNX integration registers an <abbr title="Large Language Model">LLM</abbr> <abbr title="application programming interface">API</abbr> named **KNX**. It gives a conversation agent, and through the [Model Context Protocol](/integrations/mcp_server/) also an external <abbr title="Model Context Protocol">MCP</abbr> client, a set of tools to inspect your KNX installation and to interact with the bus.
 
 With these tools, an agent can answer questions such as "Which device sent the last telegram to 1/2/3?", "What is connected to line 1.1?", or "What is the current temperature on 4/0/1?". None of this requires a Home Assistant {% term entity %} for the group address in question.
 
@@ -489,7 +489,7 @@ The KNX API is not used by default. Select it on the {% term integration %} that
 2. Select the conversation agent integration, then select **Configure**.
 3. Add **KNX** to **Control Home Assistant**.
 
-To use the tools from an external MCP client instead, select **KNX** when you set up the [Model Context Protocol Server](/integrations/mcp_server/) integration, or point the client at `/api/mcp/knx`. Connecting to `/api/mcp/knx` requires an administrator token. The base `/api/mcp` endpoint serves the API you selected during setup and is also available to non-administrators.
+To use the tools from an external MCP client instead, select **KNX** when you set up the [Model Context Protocol](/integrations/mcp_server/) integration, or point the client at `/api/mcp/knx`. Connecting to `/api/mcp/knx` requires an administrator token. The base `/api/mcp` endpoint serves the API you selected during setup and is also available to non-administrators.
 
 ### Available tools
 
@@ -1867,6 +1867,8 @@ sync_state:
 
 The KNX scene platform allows you to activate KNX scenes and updates scene entities when the corresponding scene number is received on the KNX bus.
 
+To store the current state of the actuators in a KNX scene, use the [`knx.save_scene` action](/actions/knx.save_scene/).
+
 Scene entities can be created from the frontend in the KNX panel or via YAML.
 
 {% details "Configuration of KNX scene entities via YAML" %}
@@ -1884,7 +1886,7 @@ See also the [common entity configuration options](#common-entity-configuration-
 
 {% configuration %}
 address:
-  description: KNX group address for the scene. *DPT 17.001*
+  description: KNX group address for the scene. *DPT 17.001 or DPT 18.001*
   required: true
   type: [string, list]
 scene_number:
@@ -2539,7 +2541,7 @@ The following table lists the supported numeric Data Point Types (DPT). You can 
 
 - The [KNX tools for AI conversation agents](#knx-tools-for-ai-conversation-agents) return at most 1000 entries per call. An agent can page through the rest, but a question that would need the entire project or the full telegram history in a single answer may not be answered completely.
 
-- The KNX tools work on raw KNX data: group addresses, individual addresses, and <abbr title="data point types">DPTs</abbr>. They do not know about the Home Assistant {% term entities %} you created from those group addresses. To let an agent control those entities as well, keep the built-in Assist API selected alongside the KNX API.
+- The KNX tools work on raw KNX data: group addresses, individual addresses, and <abbr title="data point types">DPTs</abbr>. They do not know about the Home Assistant {% term entities %} you created from those group addresses. To let an agent control those entities as well, keep the built-in **Device control** API selected alongside the KNX API.
 
 - USB bus interfaces are not directly supported by the underlying [`xknx` library](https://github.com/XKNX/xknx). However, you could try to run a software KNX router such as `Calimero` or `knxd` alongside Home Assistant to serve as a USB to IP bridge. For best reliability, using a certified KNX IP interface or router is recommended.
 
