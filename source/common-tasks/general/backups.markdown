@@ -211,7 +211,9 @@ There are two ways to use a backup:
 
 ### Estimated duration
 
-The time it takes to restore a backup depends on your installation. Home Assistant Core and all apps are being reinstalled. For a larger installation, this process can take about 45 minutes.
+The time it takes to restore a backup depends on the size of the backup and on your hardware. Home Assistant reinstalls Home Assistant Core and all apps. For a larger installation, a restore can take about 45 minutes.
+
+Don't turn off or unplug the system while the restore runs. To check that the restore is still running, refer to [The restore seems stuck or shows "Not found"](#symptom-the-restore-seems-stuck-or-shows-not-found).
 
 ### Restoring a backup during onboarding
 
@@ -383,5 +385,30 @@ This also applies to a restore during onboarding. A system without internet acce
    - Each problem has its own page with the steps to fix it. To open the page, select the problem in one of the following places:
      - If you're signed in: in {% my repairs title="**Settings** > **System** > **Repairs**" %}, where it's listed as **Unhealthy system - …**.
      - During onboarding: in the Observer, under **Health**. To open the Observer, in your browser, go to `http://homeassistant.local:4357`. If this address doesn't work, use the IP address of your system, for example, `http://192.168.0.10:4357`.
+
+{% enddetails %}
+
+{% details "A restore seems stuck" %}
+
+### Symptom: The restore seems stuck or shows "Not found"
+
+A restore runs longer than you expect, and the page doesn't change. When you reload the page, it shows `Not found`, or the page doesn't load at all.
+
+#### Description
+
+During a restore, Home Assistant shuts down, and the system restores the backup in the background. Until it's done, the Home Assistant UI isn't reachable. That's why the page shows `Not found`. The restore is still running. When the restore is done, Home Assistant starts again, and you see the login screen.
+
+How long a restore takes depends on the size of the backup and on your hardware.
+
+#### Resolution
+
+1. Don't turn off or unplug the system. Leave the restore running.
+2. To check that the restore is still running, on {% term "Home Assistant Operating System" %}, open the Observer. In your browser, go to `http://homeassistant.local:4357`.
+   - If this address doesn't work, use the IP address of your system, for example, `http://192.168.0.10:4357`.
+   - Result: The Observer shows the status of the Supervisor and, during the restore, its log.
+   - The Observer doesn't update by itself. To see new lines in the log, reload the Observer page. Don't reload the restore page.
+   - New lines in the log show that the restore is making progress. Some steps, such as restoring a large app, can take a while without new lines.
+3. If the log shows an error, the restore might have failed. Check if the error matches one of the other problems in this section.
+4. If it doesn't match, use the error to search the [community forum](https://community.home-assistant.io). If you don't find an answer, ask there.
 
 {% enddetails %}
