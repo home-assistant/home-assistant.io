@@ -157,9 +157,9 @@ Replace the threshold and `notify` target with the values appropriate for your s
 
 Not all smart meters expose the same OBIS codes. For example, some meters do not report per-phase voltage or current. The integration can only show data that your meter provides.
 
-### Switching between gas and water removes the history
+### Switching between gas and water
 
-The sensors of the previous medium are removed together with their long-term statistics. Remove them from the Energy dashboard before you switch the medium.
+The sensors of the previous medium are removed, but their long-term statistics are kept. After switching, add the consumption sensor of the new medium to the Energy dashboard. To delete the statistics of the removed sensors, use {% my tools_statistics title="**Settings** > **Tools** > **Statistics**" %}.
 
 ### Corrected or replaced meter reading
 
