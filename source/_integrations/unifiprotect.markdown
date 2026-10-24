@@ -85,7 +85,7 @@ The table below shows which {% term entity %} domains are available in each mode
 | Camera              |     ✅      | ✅ (streams and snapshots only) |
 | Event               |     ✅      | ✅ (public API detections only) |
 | Light               |     ✅      |               ✅                |
-| Media player        |     ✅      |                —                |
+| Media player        |     ✅      |  ✅ (playback only, no volume)  |
 | Number              |     ✅      |  ✅ (public API settings only)  |
 | Select              |     ✅      |  ✅ (public API settings only)  |
 | Sensor              |     ✅      |   ✅ (public API values only)   |
@@ -95,13 +95,13 @@ The table below shows which {% term entity %} domains are available in each mode
 
 In API key only mode, switches are limited to the settings the public API can change: the camera status light, high FPS mode, overlay and smart detection toggles, the floodlight status light, the smart sensor detection toggles, and the relay outputs.
 
-Numbers are limited in the same way: the camera microphone level, the floodlight motion sensitivity and auto-shutoff duration, and the smart sensor motion sensitivity.
+Numbers are limited in the same way: the camera microphone level, the floodlight motion sensitivity and auto-shutoff duration, the smart sensor motion sensitivity, and the smart chime ring volume for each paired doorbell.
 
 Selects are limited in the same way: the camera HDR mode, the floodlight light mode, and the alarm profile.
 
-Sensors are limited in the same way: the smart sensor battery, signal quality, light, humidity and temperature readings with their trip timestamps, and the floodlight last motion.
+Sensors are limited in the same way: the smart sensor battery, signal strength, signal quality, light, humidity and temperature readings with their trip timestamps, the floodlight last motion, and the key fob sensors.
 
-In API key only mode, binary sensors are limited to the states the public API reports: camera motion and smart detections other than package, which is an event {% term entity %}; floodlight "Is Dark" and motion; and smart sensor contact, motion, leak, tamper, and low battery. The read-only mirrors of settings are not created, as the switch or light {% term entity %} already exposes the setting.
+In API key only mode, binary sensors are limited to the states the public API reports: camera motion, sound detections, and smart detections other than package, which is an event {% term entity %}; floodlight "Is Dark" and motion; smart sensor contact, motion, leak, tamper, and low battery; key fob low battery; and the relay inputs. The read-only mirrors of settings are not created, as the switch or light {% term entity %} already exposes the setting.
 
 Events are limited in the same way: the camera motion, smart detection, sound detection and package events, and the key fob buttons. The doorbell ring, NFC, fingerprint and vehicle events need full access.
 
@@ -183,20 +183,23 @@ Some controls are the exception: they use the API key, so they are available reg
 
 - Floodlights: the light, status light, motion sensitivity, auto-shutoff duration, and light mode
 - Cameras: the status light, high FPS, overlay, smart detection, HDR mode, and microphone level controls, and the doorbell text select and text entities
+- Smart sensors: the detection toggles and the motion sensitivity
+- Smart chimes: the ring volume for each paired doorbell
 {% endnote %}
 
 The table below shows, per device type, which connection mode is required. See [Connection modes](#connection-modes) for what each mode provides.
 
-| Device type  | Full access |                                API key only                                 |
-| ------------ | :---------: | :-------------------------------------------------------------------------: |
-| Camera       |     ✅      | ✅ (streams, snapshots, switches, numbers, selects, binary sensors, events) |
-| Floodlight   |     ✅      |       ✅ (light, switches, numbers, selects, sensors, binary sensors)       |
-| Smart sensor |     ✅      |               ✅ (switches, numbers, sensors, binary sensors)               |
-| Viewer       |     ✅      |                                      —                                      |
-| Smart chime  |     ✅      |                                      —                                      |
-| Relay        |     ✅      |                                     ✅                                      |
-| Siren        |     ✅      |                                     ✅                                      |
-| NVR          |     ✅      |                           ✅ (Alarm Manager only)                           |
+| Device type  | Full access |                                       API key only                                        |
+| ------------ | :---------: | :---------------------------------------------------------------------------------------: |
+| Camera       |     ✅      | ✅ (streams, snapshots, switches, numbers, selects, binary sensors, events, media player) |
+| Floodlight   |     ✅      |              ✅ (light, switches, numbers, selects, sensors, binary sensors)              |
+| Smart sensor |     ✅      |                      ✅ (switches, numbers, sensors, binary sensors)                      |
+| Viewer       |     ✅      |                                             —                                             |
+| Smart chime  |     ✅      |                                     ✅ (ring volume)                                      |
+| Relay        |     ✅      |                                            ✅                                             |
+| Siren        |     ✅      |                                            ✅                                             |
+| Key fob      |     ✅      |                                            ✅                                             |
+| NVR          |     ✅      |                                  ✅ (Alarm Manager only)                                  |
 
 ### UniFi Protect cameras
 
@@ -208,7 +211,7 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
 
 - **Camera** - A camera {% term entity %} for each active RTSPS quality (up to four: high, medium, low, and package). Only the highest-quality stream is enabled by default.
   - If your camera is a G4 Doorbell Pro, an additional camera {% term entity %} is added for the package camera. The package camera has a very low frame rate, so its live feed can be choppy, but it works the same way as the other streams.
-- **Media Player** - If your camera has a speaker, you will get a media player {% term entity %} that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say action](/integrations/tts/#action-say).
+- **Media Player** - If your camera has a speaker, you will get a media player {% term entity %} that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say action](/integrations/tts/#action-say). With **API key only**, you can play audio, but you cannot change the speaker volume.
 - **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
 - **Sensors** - Sensors include "Is Dark", "Motion Detected", and detected object sensors (if the camera supports smart detections). Wireless cameras also get a Wi-Fi signal strength sensor.
   - There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected. Package detection is the exception: it is exposed as an event {% term entity %} (see **Events**) rather than a binary sensor.
@@ -274,7 +277,7 @@ Each UniFi Protect viewer will get a device in Home Assistant with the following
 Each UniFi Protect smart chime will get a device in Home Assistant with the following:
 
 - **Button** - A button to trigger the chime manually for each smart chime device. Also, a disabled by default button is added to let you reboot your smart chime device.
-- **Device Configuration** - Smart chimes will get a volume slider to adjust the chime's loudness and a sensor for the last time the chime rang.
+- **Device Configuration** - Smart chimes will get a volume slider to adjust the chime's loudness, a ring volume slider for each paired doorbell, and a sensor for the last time the chime rang.
 
 ### UniFi Protect relays
 
@@ -299,10 +302,6 @@ Each UniFi Protect key fob (USL-FOB) is added as a separate device in Home Assis
 - **Signal strength**: A diagnostic sensor with the fob's signal strength in dBm. Disabled by default.
 - **Signal quality**: A diagnostic sensor with the fob's signal quality in percent. Disabled by default.
 - **Status**: A diagnostic sensor reporting the fob's presence as _Online_, _Recently seen_, _No recent heartbeat_, or _Device lost_.
-
-{% note %}
-In the **full access** connection mode, a key fob that is paired after Home Assistant has already started is not picked up until the {% term integration %} is reloaded. In **API key only** mode, a newly paired fob is discovered automatically. See [Connection modes](#connection-modes).
-{% endnote %}
 
 ### NVR
 
