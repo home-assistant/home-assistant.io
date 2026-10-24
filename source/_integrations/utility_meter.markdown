@@ -54,7 +54,7 @@ Net consumption:
     This will allow your counter to go both positive and negative.
 Delta values:
   description: >
-    Enable this if the source values are delta values since the last reading instead of absolute values. When this option is enabled, each new value received will be added as-is to the utility meter instead of adding the _difference_ between the new value and previous value.
+    Enable this if the source values are delta values since the last reading instead of absolute values. When this option is enabled, each new value received will be added as-is to the utility meter instead of adding the _difference_ between the new value and previous value. Every state update of the source is counted, even when the value is the same as the previous one, so the source must update exactly once per measurement interval. A source that updates again with an unchanged value without a new measurement, for example on every poll, has that value counted again.
 Periodically resetting:
   description: >
     Enable this if the source sensor can reset, for example, a smart plug that resets on boot. The reset does not have to be to `0`; when **Net consumption** is disabled, decreases in the source value are ignored. When **Net consumption** is enabled, negative differences are treated as valid consumption. When this option is disabled, the _difference_ between the new value and the last valid value is added to the utility meter.
@@ -110,7 +110,7 @@ cron:
   required: true
   type: string
 delta_values:
-  description: Set this to True if the source values are delta values since the last reading instead of absolute values. When this option is enabled, each new value received will be added as-is to the utility meter instead of adding the _difference_ between the new value and previous value. For example, you should enable this when the source sensor returns readings like "1", "0.5", "0.75" versus "1", "1.5", "2.25".
+  description: Set this to True if the source values are delta values since the last reading instead of absolute values. When this option is enabled, each new value received will be added as-is to the utility meter instead of adding the _difference_ between the new value and previous value. For example, you should enable this when the source sensor returns readings like "1", "0.5", "0.75" versus "1", "1.5", "2.25". Every state update of the source is counted, even when the value is the same as the previous one, so the source must update exactly once per measurement interval. A source that updates again with an unchanged value without a new measurement, for example on every poll, has that value counted again.
   required: false
   default: false
   type: boolean
