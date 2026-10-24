@@ -344,7 +344,7 @@ A restore runs longer than you expect, and the page doesn't change. When you rel
 
 #### Description
 
-During a restore, Home Assistant shuts down, and the system restores the backup in the background. Until it's done, the Home Assistant UI isn't reachable. That's why the page shows `Not found`. The restore is still running.
+During a restore, Home Assistant shuts down, and the system restores the backup in the background. Until it's done, the Home Assistant UI isn't reachable. That's why the page shows `Not found`. The restore is still running. When the restore is done, Home Assistant starts again, and you see the login screen.
 
 How long a restore takes depends on the size of the backup and on your hardware.
 
@@ -355,8 +355,8 @@ How long a restore takes depends on the size of the backup and on your hardware.
    - If this address doesn't work, use the IP address of your system, for example, `http://192.168.0.10:4357`.
    - Result: The Observer shows the status of the Supervisor and, during the restore, its log.
    - The Observer doesn't update by itself. To see new lines in the log, reload the Observer page. Don't reload the restore page.
-   - As long as new lines appear in the log, the restore is running.
-   - During onboarding, you can also select **Show full log** on the restore page.
-3. If the log shows an error, ask for help in the [community forum](https://community.home-assistant.io). Include the log.
+   - New lines in the log show that the restore is making progress. Some steps, such as restoring a large app, can take a while without new lines.
+3. If the log shows an error, the restore might have failed. Check if the error matches one of the other problems in this section.
+4. If it doesn't match, use the error to search the [community forum](https://community.home-assistant.io). If you don't find an answer, ask there.
 
 {% enddetails %}
