@@ -56,6 +56,8 @@ Device ID:
   description: "The Modbus device ID of the power station, as configured on the device itself. The default is `1`. You only need to change this if your device was given another ID."
 {% endconfiguration_basic %}
 
+The above configuration can also be adjusted later via {% my integrations title="**Settings** > **Devices & services**" %}, select {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
+
 ## Supported functionality
 
 Your power station is added as a single device.
@@ -103,7 +105,6 @@ Home Assistant keeps one Modbus connection per address and shares it between the
 ### Connection management
 
 - The device is not discovered automatically yet; add it by its address.
-- There is no way yet to change a device's address, port, or device ID without removing and re-adding the integration.
 - Home Assistant identifies the device by its serial number: if the address ends up reassigned to a different physical unit, entities go unavailable instead of silently showing the wrong device's data, and the Home Assistant log says why.
 - A device accepts a limited number of Modbus TCP connections at the same time. If another system on your network already polls the device, Home Assistant may not be able to connect.
 
@@ -132,7 +133,11 @@ Setup stops with this error when the device answers but reports no serial number
 
 ### A different device answers at the address
 
-If the entities are unavailable and the Home Assistant log says a different device answers at the address, the power station this entry was set up for has moved or been replaced. Its entities stay unavailable until it answers at that address again. If it has moved, remove the integration entry and add the power station again at its new address.
+If the entities are unavailable and the Home Assistant log says a different device answers at the address, the power station this entry was set up for has moved or been replaced. Its entities stay unavailable until it answers at that address again. If it has moved, reconfigure the entry with its new address.
+
+### Reconfiguring reports a different serial number
+
+Reconfiguring stops with this error when the power station at the new address is not the one the entry was set up for. Home Assistant recognizes your power station by its serial number, not by its address. Check that you entered the address and device ID of the right power station. To add a different power station, set it up as a new entry instead.
 
 ## Removing the integration
 
