@@ -226,9 +226,11 @@ You can use a backup during the onboarding process to restore your configuration
 - The [backup emergency kit](/more-info/backup-emergency-kit/) that contains the key needed to decrypt the backup.
 - On {% term "Home Assistant Operating System" %}, the system must meet the following conditions, or the restore doesn't start:
   - It's connected to the internet.
-  - It has at least 2&nbsp;GB of free storage.
-  - It's healthy.
-  - For details, refer to [The restore is blocked from execution](#symptom-the-restore-is-blocked-from-execution).
+  - It has at least 2&nbsp;GB of free storage after you upload the backup.
+    - You can't check the free storage during onboarding. Instead, check how much storage your old system uses: On the old system, go to {% my repairs title="**Settings** > **System** > **Repairs**" %}. From the three dots {% icon "mdi:dots-vertical" %} menu, select **System information**. Under **Home Assistant Supervisor**, look at **Disk used**.
+    - The storage of the new device must be larger than this value, plus at least 2&nbsp;GB.
+  - It's healthy. To check, in your browser, go to `http://homeassistant.local:4357`. The Observer opens, and under **Health**, it shows **Healthy**.
+  - If the restore doesn't start because of one of these conditions, refer to [The restore is blocked from execution](#symptom-the-restore-is-blocked-from-execution).
 - **Required storage capacity**: If you migrate the installation to a new device, make sure the new device has more storage capacity than the existing device.
   - Before migrating, on the old system, check how much storage you used.
   - Go to **{% my system_health title="Settings > System > Repairs > ... > System Information" %}**, and under **Home Assistant Supervisor**, look at the **Disk used** value.
@@ -273,7 +275,13 @@ You can use a backup during the onboarding process to restore your configuration
 
 ### To restore a backup on your current system
 
-On {% term "Home Assistant Operating System" %}, the restore only starts if the system is connected to the internet, has at least 2&nbsp;GB of free storage, and is healthy. For details, refer to [The restore is blocked from execution](#symptom-the-restore-is-blocked-from-execution).
+On {% term "Home Assistant Operating System" %}, the restore only starts if the system meets the following conditions:
+
+- It's connected to the internet.
+- It has at least 2&nbsp;GB of free storage. To check, go to {% my system_dashboard title="**Settings** > **System**" %}. Under **Storage**, the description shows how much storage is free, for example, `35% used - 20.5 GB free`.
+- It's healthy. To check, go to {% my repairs title="**Settings** > **System** > **Repairs**" %}. If no **Unhealthy system - …** repair is listed, the system is healthy.
+
+If the restore doesn't start because of one of these conditions, refer to [The restore is blocked from execution](#symptom-the-restore-is-blocked-from-execution).
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, and select **Show all backups**.
    - To restore a backup file from your computer, first upload it: select the three dots {% icon "mdi:dots-vertical" %} menu, select **Upload backup**, and then **Select backup file**. Select the file, and then select **Upload backup**.
@@ -366,10 +374,14 @@ This also applies to a restore during onboarding. A system without internet acce
 1. If the error is about the internet connection, connect the system to the internet. Then, start the restore again.
    - If a firewall or DNS filter blocks `checkonline.home-assistant.io`, allow it for the restore.
 2. If the error is about free space, free up storage. Then, start the restore again.
-   - For example, [delete obsolete backups](#deleting-obsolete-backups).
+   - The error shows how much storage is free, for example, `not enough free space (1.2GB) left on the device`.
+   - To see how much storage is free and what uses it, refer to [Viewing the available disk space](/more-info/free-space/#viewing-the-available-disk-space).
+   - For ways to free up storage, such as deleting obsolete backups, refer to [Clear up storage](/more-info/free-space/).
    - An uploaded backup also uses storage. On a small storage device, a large backup can leave less than 2&nbsp;GB free. In that case, use a larger storage device.
-3. If the error says the system isn't healthy, find the problems and fix them. Then, start the restore again.
-   - If you're signed in, go to {% my repairs title="**Settings** > **System** > **Repairs**" %}. Each problem is listed as **Unhealthy system - …**. Select it for the steps to fix it.
-   - During onboarding, you aren't signed in yet. Open the Observer instead: in your browser, go to `http://homeassistant.local:4357`. Under **Health**, select a problem for the steps to fix it.
+3. If the error says the system isn't healthy, fix each problem that the error lists. Then, start the restore again.
+   - The problems are listed after the dash. For example, `system is not healthy - docker` lists the problem `docker`.
+   - Each problem has its own page with the steps to fix it. To open the page, select the problem in one of the following places:
+     - If you're signed in: in {% my repairs title="**Settings** > **System** > **Repairs**" %}, where it's listed as **Unhealthy system - …**.
+     - During onboarding: in the Observer, under **Health**. To open the Observer, in your browser, go to `http://homeassistant.local:4357`. If this address doesn't work, use the IP address of your system, for example, `http://192.168.0.10:4357`.
 
 {% enddetails %}
