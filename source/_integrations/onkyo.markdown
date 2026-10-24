@@ -12,6 +12,7 @@ ha_integration_type: device
 ha_iot_class: Local Push
 ha_platforms:
   - media_player
+  - number
   - switch
 ha_release: 0.17
 ha_ssdp: true
@@ -56,6 +57,10 @@ If your receiver has a second or third zone available, they are displayed as add
 ### Channel muting switches
 
 If your receiver supports channel muting, the integration creates a switch for each speaker channel. Turning a switch on mutes that channel, and turning it off unmutes it. This lets you mute individual channels independently of the main volume.
+
+### Tone controls
+
+If your receiver has tone controls, the integration creates number entities for the bass and treble of the main zone, from -10 to +10 dB. They can only be changed while the main zone is on; while it is in standby they are unavailable, because the receiver ignores tone changes then.
 
 {% include integrations/actions.md %}
 
