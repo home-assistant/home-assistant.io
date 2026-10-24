@@ -72,7 +72,22 @@ The iCloud integration will track available devices on your iCloud account.
 
 ### Sensor
 
-The iCloud integration will add a battery sensor for each iCloud devices available on your iCloud account.
+The iCloud integration adds a battery sensor for each device on your Apple Account, and the following sensors for devices that report the data:
+
+- **Battery**: The battery level of the device.
+- **Battery status**: Whether the battery is charging, full, or not charging.
+- **Status**: The status Apple reports for the device, such as online, offline, or pending.
+- **Owner**: The family member the device belongs to, or the owner of the Apple Account if you did not set up the integration with family sharing.
+- **Last located**: When the device was last located.
+- **Location type**: How the location was determined, such as GPS, Wi-Fi, or cellular.
+- **Location accuracy**: How accurate the location is, in meters.
+- **Altitude**: The altitude of the location, in meters.
+- **Floor**: The floor level of the location, where Apple reports one.
+- **Last locked**: When the device was last locked.
+- **Last lost**: When the device was last put into Lost Mode.
+- **Last wiped**: When the device was last erased.
+
+The location sensors are only added for devices that report a location, and the lock, Lost Mode, and erase sensors only for devices that support those features. The **Floor**, **Last locked**, **Last lost**, and **Last wiped** entities are disabled by default.
 
 ### To-do list
 
