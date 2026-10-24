@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: helty_cloud
 ha_platforms:
   - fan
+  - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -61,12 +62,57 @@ Password:
 
 ## Supported functionality
 
-The integration creates one device per ventilation unit on the account, each exposing a fan entity.
+The integration creates one device per ventilation unit on the account, each exposing a fan entity and a set of sensors.
 
 ### Fans
 
 - **Ventilation**
   - **Description**: Turns the ventilation on and off, sets one of four speeds, and selects a preset mode (**Boost**, **Night**, or **Free cooling**). The fan entity has the same name as its device, so it appears under your unit's name. The four speeds correspond to 25%, 50%, 75%, and 100%. If you turn the fan on without choosing a speed or preset, it always starts at speed 1, not at the last speed you used.
+
+### Sensors
+
+- **Indoor temperature**
+  - **Description**: The indoor temperature measured by the unit, in °C.
+- **Outdoor temperature**
+  - **Description**: The outdoor temperature measured by the unit, in °C.
+- **Indoor humidity**
+  - **Description**: The indoor relative humidity measured by the unit.
+- **Air treated by filter**
+  - **Description**: The volume of air, in cubic metres, the unit has moved since its filter was last changed. Helty Flow units do not count filter hours: they measure the age of the filter by the air it has treated, and raise the filter alarm when this value reaches 90,000 m³ with current firmware. The value drops back to zero when the filter is reset.
+- **Total air treated**
+  - **Description**: The volume of air, in cubic metres, the unit has moved over its whole life.
+  - **Remarks**: This diagnostic entity is disabled by default.
+
+## Examples
+
+{% include docs/paste_yaml_tip.md %}
+
+### Get a reminder before the filter is due
+
+The unit raises its filter alarm when the filter has treated 90,000 m³ of air. This automation sends you a reminder a little earlier, at 85,000 m³, so you have time to get a replacement filter before the alarm goes off.
+
+- **Trigger**: Numeric state
+  - **Entity**: the **Air treated by filter** sensor of your unit
+  - **Above**: 85000
+- **Action**: Notifications: Send a notification
+  - **Message**: The ventilation filter is close to its replacement point.
+
+{% details "YAML example for a filter reminder" %}
+
+{% example %}
+automation: |
+  alias: "Ventilation filter reminder"
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.living_room_air_treated_by_filter
+      above: 85000
+  actions:
+    - action: notify.notify
+      data:
+        message: "The ventilation filter is close to its replacement point."
+{% endexample %}
+
+{% enddetails %}
 
 ## Data updates
 
@@ -84,9 +130,9 @@ The integration depends on the manufacturer's cloud. If your internet connection
 
 Units with the recent panel cannot report whether their **Auto** function is switched on, nor the state of the panel itself. This is a limitation of this generation of machines, confirmed by the manufacturer, and not something the integration can work around. If you run the unit in Auto, Home Assistant shows the speed the unit has settled on, but gives no way to tell Auto apart from that speed having been set by hand.
 
-### Sensor values
+### CO₂ and VOC
 
-Only ventilation is available for now. The temperature, humidity, and filter values the panel reports are not yet exposed.
+The units can be fitted with optional CO₂ and VOC probes. Their readings are not exposed yet.
 
 ### Undocumented cloud API
 
