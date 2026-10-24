@@ -211,7 +211,9 @@ There are two ways to use a backup:
 
 ### Estimated duration
 
-The time it takes to restore a backup depends on your installation. Home Assistant Core and all apps are being reinstalled. For a larger installation, this process can take about 45 minutes.
+The time it takes to restore a backup depends on the size of the backup and on your hardware. Home Assistant reinstalls Home Assistant Core and all apps. For a larger installation, a restore can take about 45 minutes.
+
+Don't turn off or unplug the system while the restore runs. To check that the restore is still running, refer to [The restore seems stuck or shows "Not found"](#symptom-the-restore-seems-stuck-or-shows-not-found).
 
 ### Restoring a backup during onboarding
 
@@ -224,6 +226,13 @@ You can use a backup during the onboarding process to restore your configuration
 - This procedure assumes you have already completed the [installation](/installation/) procedure on your target device and are now viewing the welcome screen as part of the [onboarding](/getting-started/onboarding/).
 - The login credentials of the device from which you made the backup.
 - The [backup emergency kit](/more-info/backup-emergency-kit/) that contains the key needed to decrypt the backup.
+- On {% term "Home Assistant Operating System" %}, the system must meet the following conditions, or the restore doesn't start:
+  - It's connected to the internet.
+  - It has at least 2&nbsp;GB of free storage after you upload the backup.
+    - You can't check the free storage during onboarding. Instead, check how much storage your old system uses: On the old system, go to {% my repairs title="**Settings** > **System** > **Repairs**" %}. From the three dots {% icon "mdi:dots-vertical" %} menu, select **System information**. Under **Home Assistant Supervisor**, look at **Disk used**.
+    - The storage of the new device must be larger than this value, plus at least 2&nbsp;GB.
+  - It's healthy. To check, in your browser, go to `http://homeassistant.local:4357`. The Observer opens, and under **Health**, it shows **Healthy**.
+  - If the restore doesn't start because of one of these conditions, refer to [The restore is blocked from execution](#symptom-the-restore-is-blocked-from-execution).
 - **Required storage capacity**: If you migrate the installation to a new device, make sure the new device has more storage capacity than the existing device.
   - Before migrating, on the old system, check how much storage you used.
   - Go to **{% my system_health title="Settings > System > Repairs > ... > System Information" %}**, and under **Home Assistant Supervisor**, look at the **Disk used** value.
@@ -267,6 +276,14 @@ You can use a backup during the onboarding process to restore your configuration
    - Because this is now a different Zigbee radio, you need to [migrate Zigbee](/integrations/zha/#migrating-to-a-new-zigbee-adapter-inside-zha).
 
 ### To restore a backup on your current system
+
+On {% term "Home Assistant Operating System" %}, the restore only starts if the system meets the following conditions:
+
+- It's connected to the internet.
+- It has at least 2&nbsp;GB of free storage. To check, go to {% my system_dashboard title="**Settings** > **System**" %}. Under **Storage**, the description shows how much storage is free, for example, `35% used - 20.5 GB free`.
+- It's healthy. To check, go to {% my repairs title="**Settings** > **System** > **Repairs**" %}. If no **Unhealthy system - …** repair is listed, the system is healthy.
+
+If the restore doesn't start because of one of these conditions, refer to [The restore is blocked from execution](#symptom-the-restore-is-blocked-from-execution).
 
 1. Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, and select **Show all backups**.
    - To restore a backup file from your computer, first upload it: select the three dots {% icon "mdi:dots-vertical" %} menu, select **Upload backup**, and then **Select backup file**. Select the file, and then select **Upload backup**.
@@ -331,6 +348,68 @@ This only happens with the default SQLite database. If you use MariaDB or Postgr
    2. Under **Backup cycle**, set **Time** to **Custom**, and pick a time later in the day.
       - **Time** is only shown when **Schedule** is set to **Daily** or **Custom days**.
 3. If backups keep failing, make the database smaller. For example, keep fewer days of history, or exclude entities that change often. For details, refer to [Preparing for a backup](#preparing-for-a-backup).
+
+{% enddetails %}
+
+{% details "A restore doesn't start" %}
+
+### Symptom: The restore is blocked from execution
+
+You start a restore, but it doesn't start. Home Assistant shows an error that contains `blocked from execution`. The error ends with one of the following reasons:
+
+- `no supervisor internet connection` or `no host internet connection`
+- `not enough free space (…GB) left on the device`
+- `system is not healthy`, followed by the problems that were found
+
+#### Description
+
+On {% term "Home Assistant Operating System" %}, a restore only starts if the system meets all of the following conditions:
+
+- It's connected to the internet. Home Assistant checks this by contacting `checkonline.home-assistant.io`.
+- It has at least 2&nbsp;GB of free storage.
+- It's healthy.
+
+This also applies to a restore during onboarding. A system without internet access, such as an offline setup, can't start a restore.
+
+#### Resolution
+
+1. If the error is about the internet connection, connect the system to the internet. Then, start the restore again.
+   - If a firewall or DNS filter blocks `checkonline.home-assistant.io`, allow it for the restore.
+2. If the error is about free space, free up storage. Then, start the restore again.
+   - The error shows how much storage is free, for example, `not enough free space (1.2GB) left on the device`.
+   - To see how much storage is free and what uses it, refer to [Viewing the available disk space](/more-info/free-space/#viewing-the-available-disk-space).
+   - For ways to free up storage, such as deleting obsolete backups, refer to [Clear up storage](/more-info/free-space/).
+   - An uploaded backup also uses storage. On a small storage device, a large backup can leave less than 2&nbsp;GB free. In that case, use a larger storage device.
+3. If the error says the system isn't healthy, fix each problem that the error lists. Then, start the restore again.
+   - The problems are listed after the dash. For example, `system is not healthy - docker` lists the problem `docker`.
+   - Each problem has its own page with the steps to fix it. To open the page, select the problem in one of the following places:
+     - If you're signed in: in {% my repairs title="**Settings** > **System** > **Repairs**" %}, where it's listed as **Unhealthy system - …**.
+     - During onboarding: in the Observer, under **Health**. To open the Observer, in your browser, go to `http://homeassistant.local:4357`. If this address doesn't work, use the IP address of your system, for example, `http://192.168.0.10:4357`.
+
+{% enddetails %}
+
+{% details "A restore seems stuck" %}
+
+### Symptom: The restore seems stuck or shows "Not found"
+
+A restore runs longer than you expect, and the page doesn't change. When you reload the page, it shows `Not found`, or the page doesn't load at all.
+
+#### Description
+
+During a restore, Home Assistant shuts down, and the system restores the backup in the background. Until it's done, the Home Assistant UI isn't reachable. That's why the page shows `Not found`. The restore is still running. When the restore is done, Home Assistant starts again, and you see the login screen.
+
+How long a restore takes depends on the size of the backup and on your hardware.
+
+#### Resolution
+
+1. Don't turn off or unplug the system. Leave the restore running.
+2. To check that the restore is still running, on {% term "Home Assistant Operating System" %}, open the Observer. In your browser, go to `http://homeassistant.local:4357`.
+   - If this address doesn't work, use the IP address of your system, for example, `http://192.168.0.10:4357`.
+   - Result: The Observer shows the status of the Supervisor and, during the restore, its log.
+   - The Observer doesn't update by itself. To see new lines in the log, reload the Observer page. Don't reload the restore page.
+   - New lines in the log show that the restore is making progress. Some steps, such as restoring a large app, can take a while without new lines.
+3. If the log shows an error, the restore might have failed. Check if the error matches one of the other problems in this section.
+4. If it doesn't match, use the error to search the [community forum](https://community.home-assistant.io). If you don't find an answer, ask there.
 
 {% enddetails %}
 
