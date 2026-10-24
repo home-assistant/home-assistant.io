@@ -343,13 +343,14 @@ First, find out which storage has the problem. If it's Home Assistant's own stor
    - [Download it](#downloading-your-local-backups) from the backup page. This also works if Home Assistant only starts in [recovery mode](/integrations/recovery_mode/).
    - On {% term "Home Assistant Operating System" %}, if the [Samba share app](/common-tasks/os/#installing-and-using-the-samba-share-app) is installed, copy it from the `backup` folder.
 5. If you can't download or copy a backup, it might be damaged. Try an older one.
-6. Make sure that you have the encryption key for your backups. You need it to restore them. The key is in the [backup emergency kit](/more-info/backup-emergency-kit/).
+6. Make sure that you have the encryption key for the backup you want to restore. The key is in the [backup emergency kit](/more-info/backup-emergency-kit/).
    - If you don't have the emergency kit anymore, download it now: Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}. On the **Encryption key** card, next to **Download emergency kit**, select **Download**.
-   - The key is also stored on the affected storage. If you replace the storage before you save the key, you can't restore your encrypted backups.
-7. If the storage is connected over USB, such as an external SSD, check the connection.
-   1. [Shut down the system](/common-tasks/general/restarting/#shutting-down-the-system).
-   2. Reconnect the cable, and then start the system again.
-   3. Create a new backup. If the error comes back, try another cable or adapter.
+   - This emergency kit contains your current key. If you changed the key after you created the backup, you need the emergency kit from before the change. Home Assistant doesn't have the old key anymore.
+   - The current key is also stored on the affected storage. If you replace the storage before you save the key, you can't restore backups that use it.
+7. Reboot the system, and then create a new backup. Some errors, such as a read-only file system, can go away after a reboot.
+   - To reboot, refer to [Rebooting the system](/common-tasks/general/restarting/#rebooting-the-system).
+   - If the storage is connected over USB, such as an external SSD, [shut down the system](/common-tasks/general/restarting/#shutting-down-the-system) instead. Reconnect the cable, and then start the system again.
+   - If the error comes back and the storage is connected over USB, try another cable or adapter.
 8. On {% term "Home Assistant Operating System" %}, check how worn the storage device is. Go to {% my storage title="**Settings** > **System** > **Storage**" %}.
    - On the **Disk metrics** card, **Lifetime** shows how much of the expected lifetime of the device is used. The device reports this as an estimate.
    - A high value can explain the errors. A low value doesn't rule out a failing device.
