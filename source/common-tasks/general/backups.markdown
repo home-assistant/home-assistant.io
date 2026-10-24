@@ -412,3 +412,36 @@ How long a restore takes depends on the size of the backup and on your hardware.
 4. If it doesn't match, use the error to search the [community forum](https://community.home-assistant.io). If you don't find an answer, ask there.
 
 {% enddetails %}
+
+{% details "A backup is damaged or incomplete" %}
+
+### Symptom: A backup can't be read
+
+An upload fails, or the backup doesn't show up after you upload it. Or, a restore or download fails. The logs show one of the following errors:
+
+- `unexpected end of data`
+- `filename './backup.json' not found`
+- `Invalid password or corrupted backup.`
+
+To see the logs, go to {% my logs title="**Settings** > **System** > **Logs**" %}. On {% term "Home Assistant Operating System" %}, also check the Supervisor log: in the top-right corner, select **Home Assistant Core** > **Supervisor**.
+
+A restore can also fail with **The provided encryption key was incorrect, please try again.**, even if the key is correct.
+
+#### Description
+
+The errors mean the following:
+
+- `unexpected end of data`: The backup file is incomplete. For example, a download, upload, or copy stopped before it finished.
+- `filename './backup.json' not found`: The file isn't a Home Assistant backup, or its content was changed. For example, the file was unpacked and packed again. Every backup contains a `backup.json` file that describes the backup.
+- `Invalid password or corrupted backup.`: Home Assistant can't decrypt the backup. Either the encryption key is wrong, or the file is damaged. Home Assistant can't tell these two cases apart. That's why a damaged backup can also show the message about an incorrect encryption key.
+
+#### Resolution
+
+1. Check the encryption key. Use the key from the [backup emergency kit](/more-info/backup-emergency-kit/) of the system that created the backup.
+   - If you changed the encryption key after you created the backup, use the old key.
+2. Use another copy of the backup. For example, [download it again from Home Assistant Cloud](#downloading-a-backup-from-home-assistant-cloud), or use the copy from your network storage or another backup location.
+   - If you copied the file yourself, copy it again. Then, check that the copy is the same size as the original.
+3. Upload the `.tar` file as it is. Don't unpack it and pack it again.
+4. If no copy of the backup works, the backup can't be used. Use an older backup.
+
+{% enddetails %}
