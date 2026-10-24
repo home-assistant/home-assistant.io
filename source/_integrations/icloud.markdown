@@ -56,6 +56,8 @@ Delete the integration's configuration (most likely in `/config/.storage/icloud`
 The integration provides the following configuration options:
 
 {% configuration_basic %}
+Automatically delete devices no longer reported by Apple:
+  description: Remove a device and its entities from Home Assistant as soon as Apple stops listing it in your account. Defaults to `false`. You can always remove a device manually from its device page.
 Include completed reminders:
   description: Fetch completed reminders as well as unfinished ones. Defaults to `false`.
 {% endconfiguration_basic %}
