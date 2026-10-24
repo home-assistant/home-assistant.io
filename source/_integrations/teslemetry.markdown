@@ -145,7 +145,7 @@ Only vehicle controls send commands over Bluetooth. While a paired vehicle that 
 |Binary sensor|DC DC|No|Streaming|No|
 |Binary sensor|Defrost for preconditioning|No|Streaming|No|
 |Binary sensor|Drive rail|No|Streaming|No|
-|Binary sensor|Driver seat belt|No|Streaming|No|
+|Binary sensor|Driver seat belt warning|No|Streaming|No|
 |Binary sensor|Driver seat occupied|No|Streaming|No|
 |Binary sensor|Emergency lane departure avoidance|No|Streaming|No|
 |Binary sensor|Europe vehicle|No|Streaming|No|
