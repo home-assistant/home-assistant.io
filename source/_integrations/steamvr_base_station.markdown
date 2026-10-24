@@ -16,10 +16,16 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: device
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **SteamVR Base Station** {% term integration %} lets you control Valve Index base stations over Bluetooth Low Energy.
+
+## Use cases
+
+- Put the base stations to sleep at night or when nobody is home, so they don't keep spinning.
+- Wake the base stations when your gaming PC turns on, so they are ready when you put on the headset.
+- See at a glance whether a base station is on, booting, in standby, or asleep.
 
 ## Supported devices
 
@@ -95,6 +101,11 @@ automation: |
 ## Data updates
 
 The base stations broadcast their power state and channel over Bluetooth, so Home Assistant updates the entities without {% term polling %}. Connections are opened briefly to read device information during setup and when the integration loads, and to send commands.
+
+## Known limitations
+
+- Each command opens a short Bluetooth connection, so it takes a moment and needs an adapter or proxy with a free connection slot.
+- After waking from sleep, a base station needs about 11 seconds before it tracks again.
 
 ## Troubleshooting
 
