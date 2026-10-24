@@ -305,6 +305,51 @@ The reason is in the logs of Home Assistant.
 
 {% enddetails %}
 
+{% details "A backup fails with an I/O error or a read-only file system" %}
+
+### Symptom: "[Errno 5] I/O error" or "[Errno 30] Read-only file system"
+
+A backup fails, and the logs show `[Errno 5] I/O error` or `[Errno 30] Read-only file system`.
+
+#### Description
+
+The system can't reliably read from or write to its storage. A backup is often the first thing that fails, because it reads and writes many files. The same problem can also affect other parts of Home Assistant, such as recording history or saving settings.
+
+`Read-only file system` means that the system stopped writing to the storage after a serious error, to protect the data on it. Until the system reboots, Home Assistant can't save any changes.
+
+This can be caused by one of the following problems:
+
+- The storage device, such as an SD card or an SSD, is worn or failing.
+- The connection to the storage is unstable, such as the USB cable or adapter of an external SSD.
+
+#### Resolution
+
+First, make sure that you have a backup that isn't stored on the affected storage. Then, find and fix the cause.
+
+1. Check if you have a recent backup on another location, such as [Home Assistant Cloud](#about-the-backup-storage-on-home-assistant-cloud) or [network storage](/common-tasks/os/#network-storage).
+   - Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, and select **Show all backups**. The **Locations** column shows where each backup is stored.
+   - Backups on other locations aren't affected by the storage problem. If you have a recent one, continue with step 5.
+2. If you can't reach Home Assistant at all, use a backup from another location.
+   - If you don't have a backup on another location, you can't get your local backups through Home Assistant.
+   - To store future backups on other locations too, refer to [Defining backup locations](#defining-backup-locations).
+3. If all your backups are stored locally, copy the most recent one to another device. Use one of the following ways:
+   - [Download it](#downloading-your-local-backups) from the backup page. This also works if Home Assistant only starts in [recovery mode](/integrations/recovery_mode/).
+   - On {% term "Home Assistant Operating System" %}, if the [Samba share app](/common-tasks/os/#installing-and-using-the-samba-share-app) is installed, copy it from the `backup` folder.
+4. If you can't download or copy a backup, it might be damaged. Try an older one.
+5. If the storage is connected over USB, such as an external SSD, check the connection.
+   1. [Shut down the system](/common-tasks/general/restarting/#shutting-down-the-system).
+   2. Reconnect the cable, and then start the system again.
+   3. Create a new backup. If the error comes back, try another cable or adapter.
+6. On {% term "Home Assistant Operating System" %}, check how worn the storage device is. Go to {% my storage title="**Settings** > **System** > **Storage**" %}.
+   - **Lifetime** shows how much of the expected lifetime of the device is used. The device reports this as an estimate.
+   - A high value can explain the errors. A low value doesn't rule out a failing device.
+   - **Lifetime** is only shown for NVMe SSDs and eMMC storage that report their wear level.
+7. If the errors continue, replace the storage device. Then, install Home Assistant on the new storage, and [restore a backup during onboarding](#restoring-a-backup-during-onboarding).
+   - If you replace an SD card on {% term "Home Assistant Operating System" %}, you can also move your data to an SSD. For the steps, refer to [Using external data disk](/common-tasks/os/#using-external-data-disk).
+   - If Home Assistant also shows the repair **Unhealthy system - Operating System error: Bad message**, refer to [Operating System error: Bad message](/more-info/unhealthy/oserror_bad_message/).
+
+{% enddetails %}
+
 {% details "A backup fails because the database can't be locked" %}
 
 ### Symptom: "Could not lock database within 30 seconds"
