@@ -47,10 +47,8 @@ Azimuth:
 The second step asks only for what you chose in the first step. For each angle, you enter either a fixed value or a sensor, never both.
 
 {% configuration_basic %}
-Latitude:
-  description: "The latitude of your solar panels. Only asked for if you selected **Enter fixed coordinates**. Pre-filled with your Home Assistant home location."
-Longitude:
-  description: "The longitude of your solar panels. Only asked for if you selected **Enter fixed coordinates**. Pre-filled with your Home Assistant home location."
+Location:
+  description: "The location of your solar panels. Only asked for if you selected **Enter fixed coordinates**. Pre-filled with your Home Assistant home location."
 Declination (0 = Horizontal, 90 = Vertical):
   description: "The tilt of your panels in degrees, from 0 (flat) to 90 (upright). Only asked for if you selected **Enter a fixed tilt**."
 Declination sensor:
