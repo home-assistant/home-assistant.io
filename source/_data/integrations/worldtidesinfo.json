@@ -1,0 +1,12 @@
+{
+  "domain": "worldtidesinfo",
+  "name": "World Tides",
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "weather_alerts.forecasts"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

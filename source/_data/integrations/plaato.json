@@ -1,0 +1,17 @@
+{
+  "domain": "plaato",
+  "name": "Plaato",
+  "integration_type": "hub",
+  "codeowners": [
+    "@JohNan"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "appliances_cleaning.cooking"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor"
+  ]
+}

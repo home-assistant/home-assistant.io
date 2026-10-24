@@ -1,0 +1,18 @@
+{
+  "domain": "redgtech",
+  "name": "Redgtech",
+  "integration_type": "service",
+  "codeowners": [
+    "@jonhsady",
+    "@luan-nvg"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "plugs_switches"
+  ],
+  "platforms": [
+    "switch"
+  ]
+}

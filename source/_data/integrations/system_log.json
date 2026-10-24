@@ -1,0 +1,6 @@
+{
+  "domain": "system_log",
+  "name": "System Log",
+  "integration_type": "system",
+  "quality_scale": "internal"
+}

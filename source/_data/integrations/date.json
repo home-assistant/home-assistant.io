@@ -1,0 +1,9 @@
+{
+  "domain": "date",
+  "name": "Date",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

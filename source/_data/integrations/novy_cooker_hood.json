@@ -1,0 +1,20 @@
+{
+  "domain": "novy_cooker_hood",
+  "name": "Novy Cooker Hood",
+  "integration_type": "device",
+  "codeowners": [
+    "@piitaya"
+  ],
+  "config_flow": true,
+  "iot_class": "assumed_state",
+  "quality_scale": "gold",
+  "categories": [
+    "appliances_cleaning.cooking",
+    "climate.fans_ventilation"
+  ],
+  "platforms": [
+    "diagnostics",
+    "fan",
+    "light"
+  ]
+}

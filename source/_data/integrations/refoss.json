@@ -1,0 +1,18 @@
+{
+  "domain": "refoss",
+  "name": "Refoss",
+  "integration_type": "hub",
+  "codeowners": [
+    "@ashionky"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "plugs_switches",
+    "energy.meters_monitoring"
+  ],
+  "platforms": [
+    "sensor",
+    "switch"
+  ]
+}

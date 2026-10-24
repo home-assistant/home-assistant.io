@@ -1,0 +1,9 @@
+{
+  "domain": "air_quality",
+  "name": "Air quality",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

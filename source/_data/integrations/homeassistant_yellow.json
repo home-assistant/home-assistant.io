@@ -1,0 +1,16 @@
+{
+  "domain": "homeassistant_yellow",
+  "name": "Home Assistant Yellow",
+  "integration_type": "hardware",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "categories": [
+    "hubs_protocols.smart_home_hubs",
+    "hubs_protocols.wireless_protocols"
+  ],
+  "platforms": [
+    "switch",
+    "update"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "domain": "wyoming",
+  "name": "Wyoming Protocol",
+  "integration_type": "service",
+  "codeowners": [
+    "@synesthesiam"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "ai_voice.speech",
+    "ai_voice.voice_assistants"
+  ],
+  "platforms": [
+    "assist_satellite",
+    "binary_sensor",
+    "conversation",
+    "number",
+    "select",
+    "stt",
+    "switch",
+    "tts",
+    "wake_word"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

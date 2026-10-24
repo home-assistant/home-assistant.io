@@ -1,0 +1,10 @@
+{
+  "domain": "http",
+  "name": "HTTP",
+  "integration_type": "system",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "iot_class": "local_push",
+  "quality_scale": "internal"
+}

@@ -1,0 +1,12 @@
+{
+  "domain": "fail2ban",
+  "name": "Fail2Ban",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "computers_network.monitoring"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

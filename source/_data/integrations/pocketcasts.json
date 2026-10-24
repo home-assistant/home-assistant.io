@@ -1,0 +1,12 @@
+{
+  "domain": "pocketcasts",
+  "name": "Pocket Casts",
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "media_entertainment.music_radio_services"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

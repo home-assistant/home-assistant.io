@@ -1,0 +1,31 @@
+{
+  "domain": "unifiprotect",
+  "name": "UniFi Protect",
+  "integration_type": "hub",
+  "codeowners": [
+    "@RaHehl"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "platinum",
+  "categories": [
+    "security_safety.cameras",
+    "security_safety.doorbells_intercoms"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "binary_sensor",
+    "button",
+    "camera",
+    "diagnostics",
+    "event",
+    "light",
+    "media_player",
+    "number",
+    "select",
+    "sensor",
+    "siren",
+    "switch",
+    "text"
+  ]
+}

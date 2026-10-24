@@ -1,0 +1,19 @@
+{
+  "domain": "ruckus_unleashed",
+  "name": "Ruckus",
+  "integration_type": "hub",
+  "codeowners": [
+    "@lanrat",
+    "@ms264556",
+    "@gabe565"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "computers_network.routers_network",
+    "presence_location.network_presence"
+  ],
+  "platforms": [
+    "device_tracker"
+  ]
+}

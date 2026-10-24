@@ -1,0 +1,25 @@
+{
+  "domain": "habitica",
+  "name": "Habitica",
+  "integration_type": "service",
+  "codeowners": [
+    "@tr4nt0r"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "productivity_information.calendars_todos"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "calendar",
+    "diagnostics",
+    "image",
+    "notify",
+    "sensor",
+    "switch",
+    "todo"
+  ]
+}
