@@ -313,38 +313,48 @@ A backup fails, and the logs show `[Errno 5] I/O error` or `[Errno 30] Read-only
 
 #### Description
 
-The system can't reliably read from or write to its storage. A backup is often the first thing that fails, because it reads and writes many files. The same problem can also affect other parts of Home Assistant, such as recording history or saving settings.
+The system can't reliably read from or write to the storage that the backup is written to. This can be Home Assistant's own storage, or a [network storage](/common-tasks/os/#network-storage) that you use as a backup location.
 
-`Read-only file system` means that the system stopped writing to the storage after a serious error, to protect the data on it. Until the system reboots, Home Assistant can't save any changes.
+If it's Home Assistant's own storage, a backup is often the first thing that fails, because it reads and writes many files. The same problem can also affect other parts of Home Assistant, such as recording history or saving settings.
+
+`Read-only file system` means that the storage doesn't accept any changes. On Home Assistant's own storage, the system stops writing after a serious error, to protect the data on it. Until the system reboots, Home Assistant can't save any changes. On a network storage, the share might be set to read-only.
 
 This can be caused by one of the following problems:
 
 - The storage device, such as an SD card or an SSD, is worn or failing.
 - The connection to the storage is unstable, such as the USB cable or adapter of an external SSD.
+- A network storage that you use as a backup location has a problem. For example, the share is read-only, or the connection dropped.
 
 #### Resolution
 
-First, make sure that you have a backup that isn't stored on the affected storage. Then, find and fix the cause.
+First, find out which storage has the problem. If it's Home Assistant's own storage, make sure that you have a backup and its encryption key on another device. Then, find and fix the cause.
 
-1. Check if you have a recent backup on another location, such as [Home Assistant Cloud](#about-the-backup-storage-on-home-assistant-cloud) or [network storage](/common-tasks/os/#network-storage).
+1. If you use network storage as a backup location, check if the error is about it.
+   1. Go to {% my logs title="**Settings** > **System** > **Logs**" %}, and in the top-right corner, select **Home Assistant Core** > **Supervisor**.
+   2. Find the error. It includes the path of the file that couldn't be read or written.
+   3. If the path contains `mounts/` followed by the name of your network storage, the problem is on the network storage. Check that the share is available, and that the user you entered in Home Assistant can write to it. The other steps don't apply.
+2. Check if you have a recent backup on another location, such as [Home Assistant Cloud](#about-the-backup-storage-on-home-assistant-cloud) or network storage.
    - Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, and select **Show all backups**. The **Locations** column shows where each backup is stored.
-   - Backups on other locations aren't affected by the storage problem. If you have a recent one, continue with step 5.
-2. If you can't reach Home Assistant at all, use a backup from another location.
+   - Backups on other locations aren't affected by the storage problem. If you have a recent one, continue with step 6.
+3. If you can't reach Home Assistant at all, use a backup from another location.
    - If you don't have a backup on another location, you can't get your local backups through Home Assistant.
    - To store future backups on other locations too, refer to [Defining backup locations](#defining-backup-locations).
-3. If all your backups are stored locally, copy the most recent one to another device. Use one of the following ways:
+4. If all your backups are stored locally, copy the most recent one to another device. Use one of the following ways:
    - [Download it](#downloading-your-local-backups) from the backup page. This also works if Home Assistant only starts in [recovery mode](/integrations/recovery_mode/).
    - On {% term "Home Assistant Operating System" %}, if the [Samba share app](/common-tasks/os/#installing-and-using-the-samba-share-app) is installed, copy it from the `backup` folder.
-4. If you can't download or copy a backup, it might be damaged. Try an older one.
-5. If the storage is connected over USB, such as an external SSD, check the connection.
+5. If you can't download or copy a backup, it might be damaged. Try an older one.
+6. Make sure that you have the encryption key for your backups. You need it to restore them. The key is in the [backup emergency kit](/more-info/backup-emergency-kit/).
+   - If you don't have the emergency kit anymore, download it now: Go to {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}. On the **Automatic backup** card, select **Configure backup settings**. Under **Encryption key**, select **Download emergency kit**.
+   - The key is also stored on the affected storage. If you replace the storage before you save the key, you can't restore your encrypted backups.
+7. If the storage is connected over USB, such as an external SSD, check the connection.
    1. [Shut down the system](/common-tasks/general/restarting/#shutting-down-the-system).
    2. Reconnect the cable, and then start the system again.
    3. Create a new backup. If the error comes back, try another cable or adapter.
-6. On {% term "Home Assistant Operating System" %}, check how worn the storage device is. Go to {% my storage title="**Settings** > **System** > **Storage**" %}.
+8. On {% term "Home Assistant Operating System" %}, check how worn the storage device is. Go to {% my storage title="**Settings** > **System** > **Storage**" %}.
    - On the **Disk metrics** card, **Lifetime** shows how much of the expected lifetime of the device is used. The device reports this as an estimate.
    - A high value can explain the errors. A low value doesn't rule out a failing device.
    - **Lifetime** is only shown for NVMe SSDs and eMMC storage that report their wear level.
-7. If the errors continue, replace the storage device. Then, [install Home Assistant](/installation/) on the new storage, and [restore a backup during onboarding](#restoring-a-backup-during-onboarding).
+9. If the errors continue, replace the storage device. Then, [install Home Assistant](/installation/) on the new storage, and [restore a backup during onboarding](#restoring-a-backup-during-onboarding).
    - If you replace an SD card on {% term "Home Assistant Operating System" %}, you can also move your data to an SSD. For the steps, refer to [Using external data disk](/common-tasks/os/#using-external-data-disk).
    - If Home Assistant also shows the repair **Unhealthy system - Operating System error: Bad message**, refer to [Operating System error: Bad message](/more-info/unhealthy/oserror_bad_message/).
 
