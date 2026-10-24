@@ -31,6 +31,24 @@ A partial backup consists of any number of the above default directories and ins
 
 On Home Assistant Container, a backup contains the Home Assistant settings and, if you choose, the history. Apps, the media and share folders, and network storage are only available on Home Assistant OS.
 
+## What isn't in a backup
+
+Some files are never part of a backup, because Home Assistant creates them again, or because they would make the backup much larger. A backup doesn't contain the following files:
+
+- Log files, such as `home-assistant.log`.
+- Caches and temporary files, such as the `tts` folder with cached text-to-speech audio, and the `.cache` folder.
+- Backups that are stored in the configuration folder, so that a backup doesn't contain older backups.
+- On {% term "Home Assistant Operating System" %}, files that Home Assistant marked as damaged.
+
+The history, and on {% term "Home Assistant Operating System" %} the media folder, the share folder, apps, and SSL certificates, are only included if you select them. For details, refer to [What a backup contains and where it's stored](#what-a-backup-contains-and-where-its-stored).
+
+If Home Assistant stores its history in another database, such as MariaDB or PostgreSQL, that database isn't part of the Home Assistant settings in a backup. Where it's backed up depends on where it runs:
+
+- On {% term "Home Assistant Operating System" %}, if you run the database as an app, such as the **MariaDB** app, the database is backed up with the app. Include the app in the backup.
+- If the database runs on another system, it's never part of a backup. Back it up separately, for example, with the backup tools of the database.
+
+For more about other databases, refer to [Custom database engines](/integrations/recorder/#custom-database-engines).
+
 ## Preparing for a backup
 
 Before creating a backup, check if you can reduce the size of the backup. This is especially important if you want to use the backup to migrate the system to new hardware, for example from a Raspberry Pi Compute Module&nbsp;4 to a Raspberry Pi Compute Module&nbsp;5.
