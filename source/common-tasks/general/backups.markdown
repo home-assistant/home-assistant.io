@@ -341,10 +341,10 @@ First, make sure that you have a backup that isn't stored on the affected storag
    2. Reconnect the cable, and then start the system again.
    3. Create a new backup. If the error comes back, try another cable or adapter.
 6. On {% term "Home Assistant Operating System" %}, check how worn the storage device is. Go to {% my storage title="**Settings** > **System** > **Storage**" %}.
-   - **Lifetime** shows how much of the expected lifetime of the device is used. The device reports this as an estimate.
+   - On the **Disk metrics** card, **Lifetime** shows how much of the expected lifetime of the device is used. The device reports this as an estimate.
    - A high value can explain the errors. A low value doesn't rule out a failing device.
    - **Lifetime** is only shown for NVMe SSDs and eMMC storage that report their wear level.
-7. If the errors continue, replace the storage device. Then, install Home Assistant on the new storage, and [restore a backup during onboarding](#restoring-a-backup-during-onboarding).
+7. If the errors continue, replace the storage device. Then, [install Home Assistant](/installation/) on the new storage, and [restore a backup during onboarding](#restoring-a-backup-during-onboarding).
    - If you replace an SD card on {% term "Home Assistant Operating System" %}, you can also move your data to an SSD. For the steps, refer to [Using external data disk](/common-tasks/os/#using-external-data-disk).
    - If Home Assistant also shows the repair **Unhealthy system - Operating System error: Bad message**, refer to [Operating System error: Bad message](/more-info/unhealthy/oserror_bad_message/).
 
