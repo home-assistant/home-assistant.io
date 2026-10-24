@@ -69,7 +69,7 @@ Home Assistant keeps the entities in a target up to date. If you've selected an 
 
 Sometimes a target is broader than you want. For example, you want to turn on all lights on the ground floor, except the lights in the kitchen. You can exclude entities, devices, areas, floors, and labels from the targets of a trigger, condition, or action.
 
-- To exclude something that isn't shown in the targets, select **Exclude** under **Targets**, and then select what to leave out. For example, select a label to leave out all entities with that label.
+- To exclude something that isn't shown in the targets, select **Exclude target** under **Targets**, and then select what to leave out. For example, select a label to leave out all entities with that label.
 - To exclude some of the entities a target covers, open the target's details, clear the checkboxes for the items you want to leave out, and then select **Apply**. To include them again, select the checkbox again and select **Apply**.
 
 Each exclusion is listed below the targets it excludes, with the number of entities it removes. An exclusion applies to all targets. If an exclusion matches nothing in the targets, it has no effect and is listed under **Exclusions with no effect**, where you can remove it.
