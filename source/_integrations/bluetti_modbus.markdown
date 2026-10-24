@@ -65,6 +65,9 @@ Your power station is added as a single device.
 - **Battery voltage**: The battery's voltage.
 - **Battery current**: The battery's current. The device only reports its magnitude, so it reads the same whether the battery is charging or discharging.
 - **Battery SoC**: The battery's present charge level.
+- **Total battery SoC**: The charge level across all battery packs, the built-in one included.
+- **Battery status**: Whether the batteries are idle, charging, or discharging.
+- **Time to full charge**, **Time to empty**: The device's own estimates. Time to full charge is only shown while the batteries charge, and time to empty while they discharge; the device does not update them otherwise.
 - **Total battery charged energy**, **Total battery discharged energy**: Lifetime battery energy counters, in Wh.
 - **AC output power**, **AC output voltage**, **AC output current**, **Total AC output energy**: What the device is feeding to AC loads.
 - **PV 1 input voltage**, **PV 1 input current**, **PV 1 input power**, and the same for **PV 2** to **PV 4**: Each of the four solar inputs (MPPT trackers). An input with no panel connected reads 0.
@@ -74,7 +77,7 @@ Your power station is added as a single device.
 - **Inverter status**: The inverter's current status.
 - **Inverter voltage**, **Inverter current**, **Total inverter power**: The inverter's output. The power is negative while the inverter charges the battery.
 
-The following are added as diagnostic entities: **Battery SoH**, **Battery cycle count**, **Cell count**, **Temperature sensor count**, **Inverter count**, **PV 1 input type** to **PV 4 input type**, **DC PV input count**.
+The following are added as diagnostic entities: **Battery SoH**, **Total battery SoH**, **Battery pack count**, **Battery cycle count**, **Cell count**, **Temperature sensor count**, **Inverter count**, **PV 1 input type** to **PV 4 input type**, **DC PV input count**.
 
 The device's charge limits (max charge / min discharge SoC) and its AC output, grid charging, and grid feed-in switches are not exposed by this integration yet, not even as read-only entities. See [Known limitations](#known-limitations) for the full list.
 
@@ -94,7 +97,7 @@ Home Assistant keeps one Modbus connection per address and shares it between the
 
 ### Battery packs
 
-- The battery pack summary (charge level and state of health across all packs, the pack count, the battery status, and the time to full or empty) is not available yet, and neither are BC260 expansion packs.
+- BC260 expansion packs do not have entities of their own yet. They are counted in the battery pack summary: the total SoC and SoH, the pack count, the battery status, and the time to full or empty.
 
 ### Phase measurements
 
