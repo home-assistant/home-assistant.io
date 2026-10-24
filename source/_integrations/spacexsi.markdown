@@ -1,15 +1,15 @@
 ---
-title: SpaceXAI
-description: Instructions on how to add Grok as a conversation agent using SpaceXAI
+title: SpaceXSI
+description: Instructions on how to add Grok as a conversation agent using SpaceXSI
 ha_category:
   - AI
   - Voice
-ha_release: '2026.10'
+ha_release: '2026.11'
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@jeffglousher'
-ha_domain: spacexai
+ha_domain: spacexsi
 ha_integration_type: service
 ha_platforms:
   - conversation
@@ -20,12 +20,12 @@ related:
   - docs: /voice_control/assist_create_open_ai_personality/
     title: Create an AI personality
   - url: https://x.ai/
-    title: SpaceXAI
+    title: SpaceXSI
 ---
 
-The **SpaceXAI** {% term integration %} adds a Grok-powered conversation agent from [SpaceXAI](https://x.ai/) to Home Assistant. You sign in to your SpaceXAI account in a browser by using a one-time code. The integration does not accept an API key.
+The **SpaceXSI** {% term integration %} adds a Grok-powered conversation agent from [SpaceXSI](https://x.ai/) to Home Assistant. You sign in to your SpaceXSI account in a browser by using a one-time code. The integration does not accept an API key.
 
-This is a community-maintained integration, not an official SpaceXAI product.
+This is a community-maintained integration, not an official SpaceXSI product.
 
 The Assist API is selected by default during setup. It lets Grok provide information about or control only the entities that you [expose to Assist](/voice_control/voice_remote_expose_devices/).
 
@@ -33,7 +33,7 @@ This integration does not integrate with [sentence triggers](/docs/automation/tr
 
 ## Prerequisites
 
-- A SpaceXAI account with an eligible subscription that allows access to the Grok subscription API through browser sign-in.
+- A SpaceXSI account with an eligible subscription that allows access to the Grok subscription API through browser sign-in.
 - A device with a web browser to complete sign-in.
 
 {% include integrations/config_flow.md %}
@@ -57,13 +57,13 @@ Grok can answer in any language supported by the selected model. If you allow it
 
 ## Data updates
 
-The integration sends requests to SpaceXAI when you send a conversation request. The integration does not poll in the background.
+The integration sends requests to SpaceXSI when you send a conversation request. The integration does not poll in the background.
 
 ### Data sent to the provider
 
-Each conversation request sends your message, conversation history, and configured instructions to SpaceXAI. If you enable Assist access, requests can also include the names and states of exposed entities and the results of Home Assistant actions. Template instructions can include other information you choose to put in the template.
+Each conversation request sends your message, conversation history, and configured instructions to SpaceXSI. If you enable Assist access, requests can also include the names and states of exposed entities and the results of Home Assistant actions. Template instructions can include other information you choose to put in the template.
 
-Review your account's privacy controls, [SpaceXAI privacy information](https://x.ai/legal/privacy-policy), and [service terms](https://x.ai/legal/terms-of-service) before sending personal information. Data handling, retention, usage limits, and any charges depend on the provider's terms for your account. Removing the integration does not delete data already sent to SpaceXAI.
+Review your account's privacy controls, [SpaceXSI privacy information](https://x.ai/legal/privacy-policy), and [service terms](https://x.ai/legal/terms-of-service) before sending personal information. Data handling, retention, usage limits, and any charges depend on the provider's terms for your account. Removing the integration does not delete data already sent to SpaceXSI.
 
 ## Known limitations
 
@@ -77,13 +77,13 @@ Review your account's privacy controls, [SpaceXAI privacy information](https://x
 
 If the code expires before you finish signing in, select **Submit** to request a new code.
 
-### SpaceXAI rejects the sign-in
+### SpaceXSI rejects the sign-in
 
-If your authorization expired or was revoked, remove the SpaceXAI integration and add it again to complete a new browser sign-in.
+Home Assistant refreshes your sign-in automatically. If access is revoked or the sign-in is rejected, open the SpaceXSI integration under **Settings** > **Devices & services** and follow the sign-in prompt. Sign in with the same account you used during setup. Your existing conversation agent and settings are kept.
 
 ### The selected model is no longer available
 
-If Home Assistant reports that the selected model is no longer available to your account, remove the SpaceXAI integration and add it again. Choose one of the available models during setup. If you use Grok with a voice assistant, check that the assistant has the new Grok conversation agent selected.
+If Home Assistant reports that the selected model is no longer available to your account, remove the SpaceXSI integration and add it again. Choose one of the available models during setup. If you use Grok with a voice assistant, check that the assistant has the new Grok conversation agent selected.
 
 ### Grok cannot access an entity
 
@@ -91,7 +91,7 @@ Make sure you selected the Assist API during setup and [exposed the entity to As
 
 ### The account is not allowed to use the service
 
-If SpaceXAI rejects a request because your account does not have access, check the account's subscription and access to the selected model. Signing in again does not grant additional permissions. Try again after access is restored.
+If SpaceXSI rejects a request because your account does not have access, check the account's subscription and access to the selected model. Signing in again does not grant additional permissions. Try again after access is restored.
 
 ## Removing the integration
 
