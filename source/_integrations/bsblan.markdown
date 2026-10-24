@@ -49,8 +49,8 @@ Depending on your system and the available heating circuits, the following entit
 
 The integration groups entities by device in Home Assistant:
 
-- The main BSB-LAN device contains shared entities, like the **Sync time** button and temperature sensors.
-- Each detected heating circuit appears as a sub-device under the main BSB-LAN device.
+- The main BSB-LAN device contains shared entities, like the **Sync time** button and the outside temperature sensor.
+- Each detected heating circuit appears as a sub-device under the main BSB-LAN device, with its climate entity and temperature sensor.
 - If your system supports domestic hot water, it can also appear as its own sub-device.
 
 ### Buttons
@@ -74,7 +74,7 @@ The **Sync time** button appears under the **Configuration** section of the devi
 
 The following sensors are available, depending on your heating system:
 
-- Inside temperature
+- Temperature, one for each heating circuit
 - Outside temperature
 - Total Energy (disabled by default)
 
