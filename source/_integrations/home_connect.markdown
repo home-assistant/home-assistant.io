@@ -112,6 +112,14 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 - **Local control**:
   - **Description**: Indicates whether the home appliance is currently physically controlled by the user.
   - **Availability**: Coffee maker, Cooktop, Hood, Oven, Warming Drawer, Washer, Dryer, Washer Dryer
+- **Remaining program time set**:
+  - **Description**: Indicates if the current program reports a remaining program time, for example, because a duration was set. It's off while a program without a set duration is running.
+  - **Availability**: Coffee maker, Cook processor, Hood, Oven, Microwave, Dishwasher, Dryer, Washer, Washer dryer
+
+{% note %}
+This binary sensor will be available only if the program is running
+{% endnote %}
+
 - **Bottle cooler door**:
   - **Description**: Indicates if the bottle cooler door is open.
   - **Availability**: Fridge freezer, Refrigerator
@@ -873,6 +881,14 @@ Both entities can use these options, but the availability of these will depend o
 - **Finish time**:
   - **Description**: Represents the time when the program will end.
   - **Availability**: Coffee maker, Hood, Oven, Dishwasher, Dryer, Washer, Washer dryer
+
+{% note %}
+This sensor will be available only if the program is running
+{% endnote %}
+
+- **Program start time**:
+  - **Description**: Represents the time when the current program started. It's calculated from the elapsed program time reported by the appliance. If the appliance doesn't report it (for example, dishwashers and washers), the time when the appliance started running the program is used. The start time stays the same while the program is paused and starts over if the program is changed while running.
+  - **Availability**: Coffee maker, Cook processor, Hood, Oven, Microwave, Dishwasher, Dryer, Washer, Washer dryer
 
 {% note %}
 This sensor will be available only if the program is running
