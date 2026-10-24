@@ -1,0 +1,95 @@
+---
+// The row of links to Home Assistant on other platforms, at the foot of
+// the link-in-bio page (/bio/), drawn as the /community page's social
+// buttons: a white circle with the platform's icon, then its name.
+//
+// Follows the /community page's design system
+// (sass/homeassistant/pages/community/_buttons.scss, _icon.scss); page
+// colors come from custom properties on the bio page. Icons come from
+// src/lib/icons.ts; Discord, which that set lacks, from the community
+// page's icon set (source/community/assets/_icons.html).
+import Icon from "./Icon.astro";
+import { icons } from "../lib/icons";
+import "../styles/tokens.scss";
+
+const { links = [] } = Astro.props;
+
+const DISCORD = "M11.0122 1.3375C10.1707 0.94625 9.27094 0.661907 8.33024 0.5C8.21471 0.707559 8.07973 0.986731 7.98668 1.20881C6.98669 1.05937 5.99589 1.05937 5.01429 1.20881C4.92125 0.986731 4.78322 0.707559 4.66665 0.5C3.72494 0.661907 2.82412 0.947295 1.9826 1.33957C0.285265 3.88835 -0.174856 6.37382 0.0552048 8.82399C1.18097 9.6594 2.27197 10.1669 3.34456 10.499C3.60939 10.1368 3.84558 9.75177 4.04905 9.346C3.66153 9.19968 3.29037 9.01911 2.93966 8.80947C3.03271 8.74098 3.12371 8.66937 3.21164 8.59568C5.35069 9.58988 7.67482 9.58988 9.78831 8.59568C9.87727 8.66937 9.96827 8.74098 10.0603 8.80947C9.70855 9.02013 9.33637 9.2007 8.94885 9.34705C9.15232 9.75177 9.3875 10.1378 9.65334 10.5C10.727 10.1679 11.819 9.66045 12.9447 8.82399C13.2147 5.98361 12.4836 3.52097 11.0122 1.3375ZM4.34047 7.31716C3.69835 7.31716 3.17176 6.72147 3.17176 5.99606C3.17176 5.27066 3.6871 4.67394 4.34047 4.67394C4.99385 4.67394 5.52043 5.26961 5.50918 5.99606C5.5102 6.72147 4.99385 7.31716 4.34047 7.31716ZM8.65948 7.31716C8.01736 7.31716 7.49077 6.72147 7.49077 5.99606C7.49077 5.27066 8.0061 4.67394 8.65948 4.67394C9.31285 4.67394 9.83944 5.26961 9.8282 5.99606C9.8282 6.72147 9.31285 7.31716 8.65948 7.31716Z";
+---
+
+{
+  links.length > 0 && (
+    <nav class="socials" aria-label="Home Assistant elsewhere">
+      {links.map((link) => (
+        <a class="pill" href={link.url} rel="noopener" data-section="socials" data-source="curated" data-label={link.platform}>
+          <span class="circle">
+            {link.platform === "discord" ? (
+              <svg class="discord" viewBox="0 0 13 11" aria-hidden="true"><path fill="currentColor" d={DISCORD} /></svg>
+            ) : link.platform in icons ? (
+              <Icon name={link.platform} />
+            ) : null}
+          </span>
+          {link.label}
+        </a>
+      ))}
+    </nav>
+  )
+}
+
+<style lang="scss">
+  // Two even columns: with their icon circles, four pills don't fit one
+  // row on a phone, and a 3 + 1 wrap looks unbalanced.
+  .socials {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-small);
+  }
+
+  .pill {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: var(--space-small);
+    min-height: 2.75rem;
+    padding: var(--space-xsmall) var(--space-large) var(--space-xsmall) var(--space-xsmall);
+    background: var(--bio-pill, #99dffc);
+    border-radius: var(--radius-pill);
+    color: var(--bio-ink, #002332);
+    font-family: var(--font-heading);
+    font-size: var(--font-size-medium);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background: var(--bio-primary, #00aef8);
+      color: var(--color-text-inverse);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--bio-ink, #002332);
+      outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  .circle {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    background: var(--color-surface);
+    border-radius: 50%;
+    color: var(--bio-ink, #002332);
+    font-size: var(--font-size-large);
+  }
+
+  .discord {
+    width: 1em;
+    height: 1em;
+  }
+</style>
