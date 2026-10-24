@@ -430,9 +430,9 @@ layout: null
 /cookbook/#infrastructure /examples/#infrastructure
 /cookbook/#automation-examples /examples
 /cookbook /examples
-/common-tasks/os/#snapshots /common-tasks/general/#backups
-/common-tasks/os/#backups /common-tasks/general/#backups
-/common-tasks/supervised/#snapshots /common-tasks/general/#backups
+/common-tasks/os/#snapshots /common-tasks/general/backups/
+/common-tasks/os/#backups /common-tasks/general/backups/
+/common-tasks/supervised/#snapshots /common-tasks/general/backups/
 /more-info/unsupported/container /more-info/unsupported/software
 /more-info/system-health/   /more-info/system-information/
 /integrations/zigbee /integrations/zha
