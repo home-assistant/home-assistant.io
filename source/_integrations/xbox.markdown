@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - diagnostics
+  - event
   - image
   - media_player
   - remote
@@ -30,7 +31,7 @@ Xbox Network is Microsoft’s online gaming and entertainment service for Xbox c
 
 ## How you can use this integration
 
-The Home Assistant Xbox {% term integration %} lets you monitor and control Xbox One (and newer) consoles and also keep track of your favorite friends on Xbox Network. It exposes your console’s status and activity, and provides friend-related presence and activity information you can use in dashboards and automations.
+The Home Assistant Xbox {% term integration %} lets you monitor and control Xbox One (and newer) consoles and also keep track of your favorite friends on Xbox Network. It exposes your console’s status and activity, and provides friend-related presence and activity information you can use in dashboards and automations. It can also tell you when you or a friend unlocks an achievement.
 
 ## Prerequisites
 
@@ -86,7 +87,7 @@ Any value that does **not** match a supported command will be sent as literal te
 
 ## Xbox automation examples
 
-These examples show common ways to use your Xbox media player and remote entities in automations. In these examples, `media_player.xboxone` and `remote.xboxone` are example entity IDs. Replace them with the entity IDs for your Xbox media player and remote entities.
+These examples show common ways to use your Xbox media player, remote, and event entities in automations. In these examples, `media_player.xboxone`, `remote.xboxone`, and `event.gamertag_achievement_unlocked` are example entity IDs. Replace them with the entity IDs for your Xbox entities.
 
 {% include docs/paste_yaml_tip.md %}
 
@@ -213,6 +214,46 @@ automation: |
           - Right
           - "A"
         delay_secs: 0.1
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Get notified about a rare achievement
+
+This automation sends a notification to your phone when an account unlocks a rare achievement. The condition checks the achievement that triggered the automation, so it also works when several achievements are unlocked at once.
+
+- **Trigger**: Event received
+  - **Target**: Gamertag Achievement unlocked (`event.gamertag_achievement_unlocked`)
+  - **Event type**: Achievement unlocked
+- **Condition**: Template
+  - **Value template**: {% raw %}`{{ trigger.to_state.attributes.rarity == 'rare' }}`{% endraw %}
+- **Action**: Send a notification message
+  - **Target**: My Device (`notify.my_device`)
+
+{% details "YAML example for a rare achievement notification" %}
+
+{% example %}
+automation: |
+  alias: "Notify me about a rare Xbox achievement"
+  triggers:
+    - trigger: event.received
+      target:
+        entity_id: event.gamertag_achievement_unlocked
+      options:
+        event_type:
+          - achievement_unlocked
+  conditions:
+    - condition: template
+      value_template: "{{ trigger.to_state.attributes.rarity == 'rare' }}"
+  actions:
+    - action: notify.send_message
+      target:
+        entity_id: notify.my_device
+      data:
+        message: >-
+          Rare achievement unlocked in {{ trigger.to_state.attributes.game }}:
+          {{ trigger.to_state.attributes.name }}
+          ({{ trigger.to_state.attributes.rarity_percentage }}% of players)
 {% endexample %}
 
 {% enddetails %}
@@ -396,6 +437,28 @@ These sensors track the storage on your own **Xbox consoles** and connected stor
 | **Total space: *{name}*** | Reports the total storage capacity of the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
 | **Free space: *{name}*** | Reports the available (unused) storage space on the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
 
+## Event
+
+The **Xbox event platform** tells you when your own account or a friend unlocks an achievement. It covers Xbox One and Xbox Series games, and Xbox 360 games, including those played through backward compatibility or cloud gaming.
+
+| Entity name              | Description                                                                |
+| ------------------------ | -------------------------------------------------------------------------- |
+| **Achievement unlocked** | Fires an event each time the account unlocks an achievement. When several achievements are unlocked at the same time, each one fires its own event, oldest first. |
+
+The {% term state %} of the entity is the time Home Assistant received the event. The event attributes describe the achievement. Each item shows the interface label, followed by the attribute name:
+
+- **Name** (`name`): The name of the achievement.
+- **Description** (`description`): The description of the achievement.
+- **Gamerscore** (`gamerscore`): The Gamerscore the achievement is worth.
+- **Game** (`game`): The name of the game. For some Xbox 360 games, the name isn't available and this is empty.
+- **Title ID** (`title_id`): The Xbox Network ID of the game.
+- **Rarity** (`rarity`): Either **Rare** (`rare`) or **Common** (`common`). **Unset** (`unset`) means Xbox Network has no rarity for the achievement.
+- **Rarity percentage** (`rarity_percentage`): The percentage of players who have unlocked the achievement.
+- **Time unlocked** (`time_unlocked`): The time the achievement was unlocked.
+- **Image** (`image`): The icon of the achievement. For Xbox 360 games, this is the image of the game.
+
+When you first add the integration or a friend, achievements that were already unlocked don't fire an event. After a restart, only achievements unlocked since the last event fire an event.
+
 ## Image
 
 Image entities provide artwork for the Xbox account or the game the account is currently playing. Game-related image entities are only available while a game is actively being played.
@@ -451,9 +514,15 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 This integration synchronizes your consoles with the Xbox Network every 10 minutes. Console status, including power state and currently playing media, is refreshed every 10 seconds. Presence information is updated every 30 seconds.
 
+Unlocked achievements are checked every 30 seconds for accounts that are online, and once more when an account goes offline. All accounts are also checked every 15 minutes, because accounts that appear offline look offline to Home Assistant too. For those accounts, an event can arrive up to 15 minutes after the achievement was unlocked.
+
 ## Known limitations
 
 - Xbox consoles cannot be woken up through Home Assistant when they are in **energy saving**. When an Xbox is turned off, it will eventually enter energy saving automatically. To enable remote wake via Home Assistant, the console must be set to **sleep mode** in the power options. Be aware that this mode consumes significantly more energy compared to **shutdown (energy saving) mode**. For more details, see the [Xbox documentation on power modes](https://support.xbox.com/en-US/help/hardware-network/power/learn-about-power-modes).
+- Some unlocked achievements don't fire an **Achievement unlocked** event:
+  - Xbox 360 achievements unlocked while offline. Xbox Network doesn't record when they were unlocked.
+  - Achievements that reach Xbox Network more than an hour after they were unlocked. This also stops a flood of old events after Home Assistant has been offline for a while.
+  - Achievements that Xbox Network records with an earlier unlock time than an achievement already reported for the same account.
 
 ## Troubleshooting
 
