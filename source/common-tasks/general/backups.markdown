@@ -333,3 +333,32 @@ This only happens with the default SQLite database. If you use MariaDB or Postgr
 3. If backups keep failing, make the database smaller. For example, keep fewer days of history, or exclude entities that change often. For details, refer to [Preparing for a backup](#preparing-for-a-backup).
 
 {% enddetails %}
+
+{% details "A backup is damaged or incomplete" %}
+
+### Symptom: "unexpected end of data", "filename './backup.json' not found", or "Invalid password or corrupted backup"
+
+A backup doesn't show up after you upload it, or a restore or download fails. The logs show one of the following errors:
+
+- `unexpected end of data`
+- `filename './backup.json' not found`
+- `Invalid password or corrupted backup.`
+
+A restore can also fail with **The provided encryption key was incorrect, please try again.**, even if the key is correct.
+
+#### Description
+
+The errors mean the following:
+
+- `unexpected end of data`: The backup file is incomplete. For example, a download, upload, or copy stopped before it finished.
+- `filename './backup.json' not found`: The file isn't a Home Assistant backup, or its content was changed. For example, the file was unpacked and packed again. Every backup contains a `backup.json` file that describes the backup.
+- `Invalid password or corrupted backup.`: Home Assistant can't decrypt the backup. Either the encryption key is wrong, or the file is damaged. Home Assistant can't tell these two cases apart. That's why a damaged backup can also show the message about an incorrect encryption key.
+
+#### Resolution
+
+1. Check the encryption key. Use the key from the [backup emergency kit](/more-info/backup-emergency-kit/) of the system that created the backup.
+2. Use another copy of the backup. For example, download it again from Home Assistant Cloud, or use the copy from your network storage or another backup location.
+   - If you copied the file yourself, copy it again. Then, check that the copy is the same size as the original.
+3. Upload the `.tar` file as it is. Don't unpack it and pack it again.
+
+{% enddetails %}
