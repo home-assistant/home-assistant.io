@@ -1,0 +1,17 @@
+{
+  "domain": "energyzero",
+  "name": "EnergyZero",
+  "integration_type": "service",
+  "codeowners": [
+    "@klaasnicolaas"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "energy.energy_prices"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "domain": "homekit_controller",
+  "name": "HomeKit Device",
+  "integration_type": "device",
+  "codeowners": [
+    "@Jc2k",
+    "@bdraco"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "hubs_protocols"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "binary_sensor",
+    "button",
+    "camera",
+    "climate",
+    "cover",
+    "diagnostics",
+    "event",
+    "fan",
+    "humidifier",
+    "light",
+    "lock",
+    "media_player",
+    "number",
+    "select",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "bluetooth",
+    "zeroconf"
+  ]
+}

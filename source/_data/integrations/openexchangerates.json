@@ -1,0 +1,16 @@
+{
+  "domain": "openexchangerates",
+  "name": "Open Exchange Rates",
+  "integration_type": "service",
+  "codeowners": [
+    "@MartinHjelmare"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "finance"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "domain": "essent",
+  "name": "Essent",
+  "integration_type": "service",
+  "codeowners": [
+    "@jaapp"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "silver",
+  "categories": [
+    "energy.energy_prices"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

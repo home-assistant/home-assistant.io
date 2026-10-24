@@ -1,0 +1,12 @@
+{
+  "domain": "harman_kardon_avr",
+  "name": "Harman Kardon AVR",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "platforms": [
+    "media_player"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "domain": "nissan_leaf",
+  "name": "Nissan Leaf",
+  "codeowners": [
+    "@filcole"
+  ],
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "vehicles_transport.cars_evs"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "sensor",
+    "switch"
+  ]
+}

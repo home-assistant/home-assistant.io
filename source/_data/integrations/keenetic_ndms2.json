@@ -1,0 +1,21 @@
+{
+  "domain": "keenetic_ndms2",
+  "name": "Keenetic NDMS2 Router",
+  "integration_type": "device",
+  "codeowners": [
+    "@foxel"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "computers_network.routers_network",
+    "presence_location.network_presence"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "device_tracker"
+  ],
+  "discovery": [
+    "ssdp"
+  ]
+}

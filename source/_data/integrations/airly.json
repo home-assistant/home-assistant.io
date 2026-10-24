@@ -1,0 +1,18 @@
+{
+  "domain": "airly",
+  "name": "Airly",
+  "integration_type": "service",
+  "codeowners": [
+    "@bieniu"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "gold",
+  "categories": [
+    "weather_alerts.air_quality_pollen"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

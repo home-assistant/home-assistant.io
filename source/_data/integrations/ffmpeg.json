@@ -1,0 +1,8 @@
+{
+  "domain": "ffmpeg",
+  "name": "FFmpeg",
+  "integration_type": "system",
+  "platforms": [
+    "camera"
+  ]
+}

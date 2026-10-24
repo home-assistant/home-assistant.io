@@ -1,0 +1,9 @@
+{
+  "domain": "map_tiles",
+  "name": "Map tiles",
+  "integration_type": "system",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}
