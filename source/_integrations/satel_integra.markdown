@@ -87,6 +87,40 @@ For example:
         entity_id: input_boolean.movement_detected
 ```
 
+## Supported functionality
+
+### Binary sensors
+
+- **Service mode**: Whether the panel is in service mode, activated during maintenance. This can be used to disable automations while the system is under maintenance.
+- **System trouble**: Whether any system trouble is active on the alarm panel.
+
+#### Individual trouble sensors
+
+{% tip %}
+The individual trouble sensors are disabled by default. See [Enabling and disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) to enable them.
+{% endtip %}
+
+- **Panel AC trouble**: Whether the panel has lost its AC power supply.
+- **Panel battery trouble**: Whether there is a fault with the panel backup battery.
+- **Panel battery missing**: Whether no backup battery is connected to the panel.
+- **Output {number} trouble**: Whether there is a trouble condition on the specified output (outputs 1–4).
+- **Keypad power supply trouble**: Whether there is a fault with the keypad power supply.
+- **Expander power supply trouble**: Whether there is a fault with an expander module power supply.
+- **DT1 trouble**: Whether there is a trouble on the first expander bus data line.
+- **DT2 trouble**: Whether there is a trouble on the second expander bus data line.
+- **DTM trouble**: Whether there is a trouble on the keypad bus data line.
+- **RTC trouble**: Whether there is a real-time clock fault on the panel.
+- **EEPROM or RTC access trouble**: Whether there is a fault accessing the panel's EEPROM or RTC memory.
+- **RAM trouble**: Whether there is a RAM memory fault on the panel.
+- **Panel restart memory trouble**: Whether there is a fault with the panel's restart memory.
+- **External device DTR trouble**: Whether the panel detects no DTR (Data Terminal Ready) signal from an external device.
+- **External modem initialization trouble**: Whether there is a failure during external modem initialization.
+- **External modem command trouble**: Whether there is a command failure to the external modem.
+- **Telephone line bad signal trouble**: Whether there is a poor signal quality on the telephone line.
+- **Telephone line no signal trouble**: Whether there is no signal detected on the telephone line.
+- **Telephone line voltage or auxiliary processor trouble**: Whether there is a telephone line voltage fault or an auxiliary processor fault, depending on the panel model.
+- **Monitoring station {number} trouble**: Whether there is a trouble communicating with the specified monitoring station (stations 1–2).
+
 ## Removing the integration
 
 This integration follows standard integration removal. Once the integration is removed, consider disabling the communication ability to the ETHM-1 Plus module using DLOADX to reduce security risks.
