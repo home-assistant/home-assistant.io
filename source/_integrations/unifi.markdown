@@ -311,7 +311,7 @@ If the WebSocket connection is lost, the integration automatically tries to reco
 - **Presence detection is not compatible with MAC Address Randomization**, which is enabled by default on most modern smartphones. This feature must be disabled per network on the client device.
 - **Changes to LED control** on access points may take over 5 seconds to apply because the device must adopt a new configuration first.
 - **Firewall policy schedule status can lag** a schedule's start or end by up to 10 seconds, because firewall policies are polled.
-- **The UniFi Network application's time zone is read when the integration starts.** If you change it, reload the integration so firewall policy schedules are evaluated correctly.
+- **The UniFi Network application's time zone is read when the integration starts and after it reconnects.** If you change it, reload the integration so firewall policy schedules are evaluated correctly.
 - **Lingering entities**: In some edge cases, clients or devices removed from UniFi Network may remain in the Home Assistant device registry and need to be [removed manually](#removing-a-device-in-home-assistant).
 
 ## Removing a device in Home Assistant
