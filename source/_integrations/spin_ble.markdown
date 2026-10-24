@@ -12,6 +12,7 @@ ha_domain: spin_ble
 ha_bluetooth: true
 ha_platforms:
   - sensor
+  - switch
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
@@ -48,6 +49,8 @@ Changing this option reloads the integration.
 
 ## Supported functionality
 
+### Sensors
+
 The integration creates the following sensors:
 
 - **State**: What the charger is doing. One of *Available*, *Starting up*, *Starting*, *Charging*, *Paused by vehicle*, *Paused by charger*, *Finishing*, *Idle*, *Fault*, or *Out of service*.
@@ -56,6 +59,10 @@ The integration creates the following sensors:
 - **Session energy**: Energy delivered during the current or most recent charging session, in kilowatt-hours (kWh). This value resets when a new session starts.
 - **Lifetime energy**: Total energy the charger has delivered over its life, in kilowatt-hours (kWh). Use this sensor when adding the charger to the [Energy dashboard](/home-energy-management).
 
+### Switches
+
+- **Charging**: Starts and stops a charging session. The switch is on while a session is open, including while it is paused by the vehicle or by the charger, since a paused session resumes without a command. A vehicle must be plugged in for charging to start.
+
 ## Data updates
 
 The integration {% term polling polls %} the charger over Bluetooth. The interval follows what the charger is doing:
@@ -63,7 +70,7 @@ The integration {% term polling polls %} the charger over Bluetooth. The interva
 - Every 60 seconds while a charging session is open, which includes sessions paused by the vehicle or by the charger, since those can resume without a command.
 - Every 5 minutes otherwise, so that a slot handed back between polls leaves the phone app long uncontested stretches.
 
-The interval is not configurable. Entities become unavailable when the charger cannot be reached, for example when it is out of range or another Bluetooth client holds its slot.
+The charger is also read again straight after a command. The interval is not configurable. Entities become unavailable when the charger cannot be reached, for example when it is out of range or another Bluetooth client holds its slot.
 
 ## Known limitations
 
@@ -74,7 +81,9 @@ The interval is not configurable. Entities become unavailable when the charger c
 
 ### Charger control
 
-The integration only reads from the charger. Starting and stopping a session, and setting the charging current, are not supported.
+- Setting the charging current is not supported.
+- The charger refuses to start charging with no vehicle plugged in, and refuses to stop when no session is open. The charger does not say why it refused, so Home Assistant shows the same error for every refusal.
+- A command needs the charger's Bluetooth slot, the same as a poll. While the vendor phone app holds the slot, commands fail.
 
 ## Troubleshooting
 
@@ -113,6 +122,21 @@ To resolve this issue, try the following steps:
 1. Close the vendor phone app and try again.
 2. Check **Settings** > **Connectivity** > **Bluetooth** > **Connection monitor** and confirm the adapter or proxy has a free active connection slot.
 3. Move the charger, the proxy, or the adapter so they are closer together.
+
+{% enddetails %}
+
+{% details "The charger refuses to start or stop charging" %}
+
+### Symptom: "The charger refused the command"
+
+Turning the **Charging** switch on or off reports that the charger refused the command.
+
+#### Resolution
+
+To resolve this issue, try the following steps:
+
+1. To start charging, check that the vehicle is plugged in and that the **State** sensor does not show *Starting up*.
+2. To stop charging, check that the **State** sensor shows a session in progress. If no session is open, there is nothing to stop.
 
 {% enddetails %}
 
