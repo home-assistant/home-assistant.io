@@ -71,6 +71,7 @@ Sensor entities added to Home Assistant, depending on the device model:
 - Illuminance
 - Pressure (relative depending on home elevation)
 - Radon 1-day and longterm average, as well as levels
+- Radon 7-day, 30-day, and 1-year average, as well as levels (Corentium Home 2)
 - Temperature
 - VOC
 - Co2
