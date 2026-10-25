@@ -518,6 +518,7 @@ A backup can only be decrypted with the key that was used when the backup was cr
 - You entered the key of the system that you restore to, instead of the key of the system that created the backup. For example, a new installation has a key of its own.
 - You changed the encryption key after the backup was created. The backup still uses the old key.
 - You restored the Home Assistant settings from another backup after you downloaded the emergency kit. That also restored the encryption key of that backup, so backups made after the restore use that key.
+- The backup was created with the [**Create a full backup**](/actions/hassio.backup_full/) or [**Create a partial backup**](/actions/hassio.backup_partial/) action, and the action set its own **Password**. The backup then uses that password, not the key from the emergency kit.
 - The backup is damaged. Home Assistant can't tell a damaged backup from a wrong key.
 
 #### Resolution
@@ -526,6 +527,7 @@ A backup can only be decrypted with the key that was used when the backup was cr
    - The emergency kit is a text file with a name like `home_assistant_backup_emergency_kit_<date>.txt`. Under `Instance:`, it shows the name of the system, and under `Date:`, when you downloaded it.
 2. If you changed the encryption key after you created the backup, use the emergency kit from before the change. When you changed the key, Home Assistant offered it as **Download old emergency kit**.
 3. Copy the key from the emergency kit and paste it. The key consists of seven groups of four characters, separated by hyphens. Include the hyphens.
+   - If an action created the backup with its own **Password**, enter that password instead. It doesn't have the format of an emergency kit key.
 4. If the key still isn't accepted, the backup might be damaged. Refer to [A backup can't be read](#symptom-a-backup-cant-be-read).
 5. If you don't have the key anymore, refer to [I lost my backup encryption key](/more-info/backup-emergency-kit/#i-lost-my-backup-encryption-key-how-can-i-get-it-back).
 
