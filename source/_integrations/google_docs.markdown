@@ -59,7 +59,7 @@ Use **Get text** to read the document into a response variable for use in later 
 
 If you have an error with your credentials, you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
 
-If the document is unavailable, check that it still exists and that the Google Docs API is enabled. Reauthentication reconnects the existing document and does not create a replacement.
+If the document is unavailable, check that it still exists and that the Google Docs API is enabled.
 
 ## Removing the integration
 
