@@ -10,7 +10,9 @@ ha_codeowners:
   - '@chpego'
 ha_domain: bluetti_modbus
 ha_platforms:
+  - number
   - sensor
+  - switch
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
