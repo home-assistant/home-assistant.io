@@ -359,3 +359,11 @@ The system service on the TV that provides the Sony Bravia REST API, called **We
 3. If the problem occurs very often, reset the **WebApiCore** service. On your TV, go to **Settings** > **Apps** > **See all apps**, select **WebApiCore**, and then select **Clear data**.
 
 {% enddetails %}
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
+
+If you set up the integration with PIN code authentication, Home Assistant stays registered on your TV after you remove the integration. To remove the registration, on your TV, go to **Settings** > **Network** > **Remote device settings** > **Deregister remote device** and remove the Home Assistant entry. If you set up the integration with a pre-shared key (PSK), there is nothing else to clean up on the TV.
