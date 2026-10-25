@@ -67,8 +67,8 @@ This integration provides the following sensors:
 | Memory Free               | Memory (RAM) free in GB                                           |
 | Memory Used               | Memory (RAM) used in GB                                           |
 | Memory Used %             | Memory (RAM) % used                                               |
-| Network Download Rate     | Download rate across all network interfaces, leaving out loopback |
-| Network Upload Rate       | Upload rate across all network interfaces, leaving out loopback   |
+| Network Download Rate     | Total download rate System Bridge reports for the device          |
+| Network Upload Rate       | Total upload rate System Bridge reports for the device            |
 | Interface SSID            | The Wi-Fi network a wireless interface is connected to            |
 | Interface Signal Strength | Wi-Fi signal strength of a wireless interface in dBm              |
 | Operating System          | Version information of the Operating System                       |
