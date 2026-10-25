@@ -35,6 +35,8 @@ If you have the {% term "Home Assistant Operating System" %} installed, you rece
 
 Each of these components needs to be updated separately.
 
+To update apps, integrations, and devices, to install several updates at once, or to skip an update, refer to [Updating Home Assistant, apps, and devices](/common-tasks/general/updating/).
+
 ### Updating the Home Assistant Operating System
 
 Updates of the {% term "Home Assistant Operating System" %} are independent of other updates. They do not trigger repair issues and are usually backward-compatible.
