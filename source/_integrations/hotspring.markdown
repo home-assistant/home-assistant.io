@@ -26,6 +26,7 @@ The **Hot Spring** {% term integration %} allows you to monitor and control your
 ## Supported devices
 
 - Hot Spring spas equipped with the **HotSpring Connected Spa Kit 2** (part number 79994) local network module.
+- Hot Spring spas with the FreshWater IQ water quality system, as an addition to the HotSpring Connected Spa Kit 2 module above.
 
 ## Prerequisites
 
@@ -86,6 +87,8 @@ The **Hot Spring** integration provides the following entities:
 
 ### Sensor
 
+The **Chlorine**, **Oxidation reduction potential**, **pH**, and **Sensor life** entities are available when the spa reports a FreshWater IQ system as installed. If FreshWater IQ data only becomes available later, these entities are created automatically without reconfiguring the integration.
+
 - **Current temperature**
   - **Description**: Current water temperature of the spa.
 - **Salt 10-day check timer**
@@ -97,6 +100,14 @@ The **Hot Spring** integration provides the following entities:
 - **Salt value**
   - **Description**: Current salt level reading from the FreshWater Salt System.
   - **Availability**: Available when a FreshWater Salt System cartridge is installed.
+- **Chlorine**
+  - **Description**: Chlorine reading from the FreshWater IQ system, in parts per million (ppm).
+- **Oxidation reduction potential**
+  - **Description**: Oxidation reduction potential reading from the FreshWater IQ system, in millivolts (mV).
+- **pH**
+  - **Description**: pH reading from the FreshWater IQ system.
+- **Sensor life**
+  - **Description**: Remaining FreshWater IQ sensor life, as a percentage reported by the spa.
 - **Control box version**
   - **Description**: Firmware version of the spa control box.
   - **Remarks**: [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
@@ -106,6 +117,10 @@ The **Hot Spring** integration provides the following entities:
 - **Wi-Fi dongle version**
   - **Description**: Firmware version of the Wi-Fi dongle.
   - **Remarks**: Disabled by default.
+
+{% note %}
+FreshWater IQ readings refresh with the regular integration polling. Invalid readings are shown as `unknown` rather than `unavailable`. A value of `0` can be a genuine reading. If the spa omits a reading, the integration keeps the previously reported value. A reading the spa has not reported yet can appear as `0` until the spa first reports it.
+{% endnote %}
 
 ## Hot Spring automation examples
 
@@ -178,6 +193,14 @@ If Home Assistant cannot establish a connection to your Hot Spring spa:
 - Verify that you can locate the device on your local network router client list.
 - Double-check that the IP address or hostname entered is correct and reachable from your Home Assistant instance.
 - Restart the Hot Spring spa module and reload the integration in Home Assistant.
+
+### FreshWater IQ sensors are missing
+
+If the FreshWater IQ sensor entities do not appear:
+
+- Verify the FreshWater IQ system is installed on the spa and enabled in the Hot Spring app.
+- Verify the spa reports FreshWater IQ status to the Home Network Adapter; the sensor entities are only created once the spa reports FreshWater IQ data.
+- Check that the spa's water quality readings are visible in the Hot Spring app.
 
 ## Diagnostics
 
