@@ -20,4 +20,4 @@ Updates can be installed straight from the user interface, and an [automatic bac
 
 ## Helping test the next release
 
-The last week before each release is the beta period. If you would like to help test the next release, you can opt in to the beta channel from {% my system_dashboard title="Settings > System > Updates" %}. Beta testers can read the [beta release notes](https://rc.home-assistant.io/latest-release-notes/), get help in the `#beta` channel of the [Home Assistant Discord server](/join-chat), and are encouraged to [report issues on GitHub](/help/#bugs-feature-requests-and-alike).
+The last week before each release is the beta period. If you would like to help test the next release, you can opt in to the beta channel from {% my system_dashboard title="Settings > System > Updates" %}. Beta testers can read the [beta release notes](https://rc.home-assistant.io/latest-release-notes/), get help in the `#beta` channel of the [Home Assistant Discord server](/join-chat), and are encouraged to [report issues on GitHub](/help/#bugs-and-feature-requests).
