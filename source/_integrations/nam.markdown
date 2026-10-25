@@ -161,7 +161,6 @@ The **Nettigo Air Monitor** integration {% term polling polls %} data from the d
 ## Known limitations
 
 - Entities exist only for the sensor modules the device reports. To add or enable a sensor module, change the firmware configuration of the device. You cannot do this in Home Assistant.
-- The polling interval cannot be changed.
 
 ## Troubleshooting
 
