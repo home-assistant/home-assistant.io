@@ -81,11 +81,9 @@ The device page links to the power station's own web interface. The serial numbe
 ### Controls
 
 - **AC output**: Turns the power station's AC output on or off. Anything plugged into it loses power when it is off. This entity is disabled by default; enable it from its entity settings if you want to use it.
-- **Grid charging**: Whether the power station may charge its battery from the grid.
-- **Grid feed-in**: Whether the power station may feed power into the grid. Check the rules where you live before turning it on.
 - **Charge limit**, **Discharge limit**: The battery levels the power station stops charging at, and stops discharging at. The discharge limit accepts 5 to 90 %.
 
-Grid charging, grid feed-in, and both limits are configuration entities. The controls are read every 60 seconds, so a change made in the BLUETTI app shows up within a minute. They are unavailable while the power station cannot be read.
+Both limits are configuration entities. The controls are read every 60 seconds, so a change made in the BLUETTI app shows up within a minute. They are unavailable while the power station cannot be read.
 
 Unlike the BLUETTI app, Home Assistant does not ask for confirmation before switching the AC output. To get a confirmation dialog on a dashboard, add the `confirmation` option to the card's action:
 
@@ -111,6 +109,7 @@ Home Assistant keeps one Modbus connection per address and shares it between the
 ### Controls and sensors
 
 - The fault and warning bits are not available as binary sensors yet.
+- Grid charging and grid feed-in are not available. The BLUETTI app sets them through the working mode (AI mode, Self-consumption, Backup, or Custom), which is not available over Modbus, and the device can undo a change made outside it.
 
 ### Battery packs
 
