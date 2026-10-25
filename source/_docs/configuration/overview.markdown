@@ -1,6 +1,6 @@
 ---
 title: "Configuring Home Assistant"
-description: "An overview of the settings that you set up once and keep, such as your home information, people and users, remote access, and the YAML configuration."
+description: "An overview of how you set up your Home Assistant: your home information, people and users, entities and helpers, remote access, and the YAML configuration."
 related:
   - docs: /docs/configuration/basic/
     title: Home information
@@ -8,7 +8,7 @@ related:
     title: The configuration.yaml file
 ---
 
-Configuration covers the settings that you set up once and then keep. You set most of them in the UI, under **Settings**.
+These pages explain how to set up your Home Assistant: the details of your home, the people who use it, how your entities are named and shown, and how you reach your Home Assistant from outside your home. You find most of these settings in the UI, under **Settings**. Some integrations and settings also use YAML, which is optional for most setups.
 
 ## Your home and the people in it
 
@@ -46,7 +46,3 @@ Some integrations and settings are set up in the `configuration.yaml` file inste
 ## Troubleshooting
 
 - [Troubleshooting configuration](/docs/configuration/troubleshooting/): Find and fix problems in your configuration, turn on debug logging, and download diagnostics.
-
-## Storage on Home Assistant OS
-
-On {% term "Home Assistant Operating System" %}, you can also connect network storage, and move your data to an external data disk. For the steps, refer to [Network storage](/common-tasks/os/#network-storage) and [Using external data disk](/common-tasks/os/#using-external-data-disk).
