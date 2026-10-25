@@ -47,7 +47,7 @@ Private Key File:
   required: true
   type: selector
 Remote path:
-  description: Remote path where to upload backups. Directory must already exist and user provided in `Username` must have write access to it.
+  description: Directory where backups are stored. Enter an absolute path, such as `/backups/homeassistant`, or a path relative to your SFTP login directory, such as `backups` or `.`. The directory must already exist, and your SFTP account must have write access to it.
   required: true
   type: string
 {% endconfiguration_basic %}
