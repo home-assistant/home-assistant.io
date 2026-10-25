@@ -8,12 +8,12 @@ related_actions:
   - matter.clear_camera_zone
 ---
 
-Use this action to create or update a zone on a Matter camera. A zone is an area of the image with a use:
+Use this action to create or update a zone on a Matter camera. A zone is an area of the camera picture with a use:
 
 - `privacy`: The camera hides this area, for example a neighbor's window.
 - `focus`: The camera focuses on this area.
 
-You give the corners of the zone in percent of the full camera sensor, measured from the top left corner. For example, `x: 50` and `y: 50` is the center. Home Assistant converts them to the resolution of the camera, so the same values work on every camera.
+You give the corners of the zone in percent of the full camera sensor, measured from the top left corner. For example, `x: 50` and `y: 50` is the center. Home Assistant converts them to the zone coordinates of the camera, so the same values work on every camera. If the camera crops or zooms its picture, the zone may not line up exactly with what you see.
 
 If you leave the zone ID empty, the camera creates a new zone and the action returns its ID. To change a zone, give its ID. Use the [Get camera zones](/actions/matter.get_camera_zones/) action to look up the IDs.
 
@@ -39,7 +39,7 @@ Zone ID:
   description: The ID of the zone to update, from 0 to 65535. Leave empty to create a zone.
   required: false
 Name:
-  description: The name of the zone, up to 32 characters. Some special characters, like `ä`, count as two.
+  description: The name of the zone, up to 32 bytes. Most letters take 1 byte, letters like `ä` take 2, and emoji take 4.
   required: true
 Use:
   description: What the camera uses the zone for, either privacy or focus.
@@ -48,13 +48,13 @@ Corners:
   description: The corners of the zone, in percent of the camera sensor from the top left. 3 to 12 corners.
   required: true
 Color:
-  description: A color for the zone, as `#RRGGBB` or `#RRGGBBAA`. The last two digits set how opaque the zone is. The camera can ignore it.
+  description: A color for the zone, as `#RRGGBB` or `#RRGGBBAA`. The last two digits set how opaque the inside of the zone is. Without them, the inside is fully transparent. The camera can ignore the color.
   required: false
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
 
-In YAML, refer to this action as `matter.set_camera_zone`. This example creates a privacy zone over the top right quarter of the image:
+In YAML, refer to this action as `matter.set_camera_zone`. This example creates a privacy zone over the top right quarter of the camera picture:
 
 {% example %}
 action: |
@@ -106,7 +106,7 @@ zone_id:
   required: false
   type: integer
 name:
-  description: The name of the zone, up to 32 characters. Some special characters, like `ä`, count as two.
+  description: The name of the zone, up to 32 bytes. Most letters take 1 byte, letters like `ä` take 2, and emoji take 4.
   required: true
   type: string
 use:
@@ -118,7 +118,7 @@ vertices:
   required: true
   type: list
 color:
-  description: A color for the zone, as `#RRGGBB` or `#RRGGBBAA`. The last two digits set how opaque the zone is. The camera can ignore it.
+  description: A color for the zone, as `#RRGGBB` or `#RRGGBBAA`. The last two digits set how opaque the inside of the zone is. Without them, the inside is fully transparent. The camera can ignore the color.
   required: false
   type: string
 {% endoptions_yaml %}
@@ -137,8 +137,8 @@ The action returns the ID of the zone it created or updated:
 - Home Assistant rounds the corners to the pixel grid of the camera, so [Get camera zones](/actions/matter.get_camera_zones/) can return slightly different values.
 - Updating a zone replaces all its settings. Give the name, use, and corners again, and the color if you want to keep it.
 - A camera holds a limited number of zones. [Get camera zones](/actions/matter.get_camera_zones/) returns the limit as `max_user_defined_zones`.
-- The camera rejects changes to zones that came with it.
-- Motion zones can't be created yet. Home Assistant doesn't support the triggers they need. [Get camera zones](/actions/matter.get_camera_zones/) still lists existing motion zones, and [Clear camera zone](/actions/matter.clear_camera_zone/) can remove them.
+- The action fails for zones that came with the camera.
+- Motion zones can't be created or changed yet. Home Assistant doesn't support the triggers they need. [Get camera zones](/actions/matter.get_camera_zones/) still lists existing motion zones, and [Clear camera zone](/actions/matter.clear_camera_zone/) can remove them.
 
 {% include actions/stuck.md %}
 

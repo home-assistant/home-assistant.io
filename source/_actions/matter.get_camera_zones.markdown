@@ -8,7 +8,7 @@ related_actions:
   - matter.clear_camera_zone
 ---
 
-Use this action to list the zones of a Matter camera. A zone is an area of the image that the camera uses for motion detection, hides as a privacy area, or focuses on.
+Use this action to list the zones of a Matter camera. A zone is an area of the camera picture that the camera uses for motion detection, hides as a privacy area, or focuses on.
 
 The corners of each zone are given in percent of the full camera sensor, measured from the top left corner. Your camera must support the Matter Zone Management cluster for this action to work.
 

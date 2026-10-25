@@ -60,7 +60,7 @@ zone_id:
 
 ## Good to know
 
-- The camera rejects removing zones that came with it.
+- The action fails for zones that came with the camera.
 - Removing a privacy zone stops the camera from hiding that area.
 
 {% include actions/stuck.md %}
