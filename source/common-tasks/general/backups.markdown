@@ -464,8 +464,8 @@ How long a restore takes depends on the size of the backup and on your hardware.
    - Result: The Observer shows the status of the Supervisor and, during the restore, its log.
    - The Observer doesn't update by itself. To see new lines in the log, reload the Observer page. Don't reload the restore page.
    - New lines in the log show that the restore is making progress. Some steps, such as restoring a large app, can take a while without new lines.
-3. If the log shows an error, the restore might have failed. Check if the error matches one of the other problems in this section.
-4. If it doesn't match, use the error to search the [community forum](https://community.home-assistant.io). If you don't find an answer, ask there.
+3. If the log shows an error, the restore might have failed. If the error is about reading the backup file, such as `unexpected end of data`, refer to [A backup can't be read](#symptom-a-backup-cant-be-read).
+4. For other errors, use the error to search the [community forum](https://community.home-assistant.io). If you don't find an answer, ask there.
 
 {% enddetails %}
 
