@@ -27,6 +27,21 @@ If you have a sensor session running, and you have enabled the Nightscout integr
 The icon changes to indicate the direction or trend, of the glucose readings.
 The state is the last reading from Nightscout, and you can see other information about the reading in the sensor's attributes.
 
+### Glucose threshold sensors
+
+If your Nightscout server reports its configured glucose thresholds, the integration also creates the following diagnostic sensors:
+
+- **Urgent high threshold**: The `BG_HIGH` setting of your Nightscout site.
+- **Target range top**: The `BG_TARGET_TOP` setting of your Nightscout site.
+- **Target range bottom**: The `BG_TARGET_BOTTOM` setting of your Nightscout site.
+- **Urgent low threshold**: The `BG_LOW` setting of your Nightscout site.
+
+Nightscout always reports these thresholds in mg/dL, even if your site displays mmol/L. You can change the unit of measurement in the entity settings.
+
+### Data updates
+
+The integration fetches the latest glucose reading from Nightscout every minute. The server status, including the glucose thresholds, is refreshed every hour.
+
 ### Example automation
 
 ```yaml
