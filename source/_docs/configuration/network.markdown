@@ -14,6 +14,8 @@ You can change the hostname, the IP address, and the Wi-Fi network of your Home 
 
 The **Network** page also has settings for the Home Assistant URL, the network adapter, and the HTTP server. For these, refer to [Remote access to Home Assistant](/docs/configuration/remote/), the [Network integration](/integrations/network/#auto-detection), and the [HTTP integration](/integrations/http/#http-server-settings).
 
+When you open Home Assistant after changing the hostname or the IP address, keep the rest of the address the same: `http://` or `https://`, and the port, if your address has one. For example, `http://homeassistant.local:8123` becomes `http://kitchen.local:8123`.
+
 On {% term "Home Assistant Container" %}, the operating system of your computer manages the network. To change the IP address, the Wi-Fi network, or the hostname, use the settings of that operating system.
 
 ## Changing the hostname
@@ -30,7 +32,7 @@ The hostname is the name of your system on your network. By default, it's `homea
 1. Go to {% my network title="**Settings** > **System** > **Network**" %}.
 2. In the **Hostname** section, enter the new name, and then select **Save**.
 3. To open Home Assistant, use the new name.
-   - For example, if the new hostname is `kitchen`, the address `homeassistant.local` changes to `kitchen.local`.
+   - For example, if the new hostname is `kitchen`, `homeassistant.local` in your address changes to `kitchen.local`. Keep `http://` or `https://`, and the port.
 
 ## Setting a static IP address
 
@@ -59,7 +61,7 @@ Instead of a static IP address, you can also reserve an IP address for Home Assi
    - Under **DNS server**, select a DNS server, or select **Custom** and enter the IP address of your router.
 5. Select **Save**.
    - Home Assistant warns that you might lose the connection.
-6. To open Home Assistant, use the new IP address.
+6. To open Home Assistant, use the new IP address, with the same `http://` or `https://` and port as before.
    - If you can't reach Home Assistant, refer to [I can't reach Home Assistant after changing the network settings](#symptom-i-cant-reach-home-assistant-after-changing-the-network-settings).
 
 ## Connecting to a Wi-Fi network
@@ -83,7 +85,7 @@ If your system has a Wi-Fi adapter, Home Assistant can connect to your network o
 5. Select the security type of your network, **Open**, **WEP**, or **WPA-PSK**, and enter the **Wi-Fi password**.
 6. Select **Save**.
    - Home Assistant warns that you might lose the connection.
-7. To open Home Assistant, use the address that your router assigned to the Wi-Fi interface, or `homeassistant.local`.
+7. To open Home Assistant, use the address that your router assigned to the Wi-Fi interface, or the hostname, for example, `homeassistant.local`. Keep `http://` or `https://`, and the port.
    - If you can't reach Home Assistant, refer to [I can't reach Home Assistant after changing the network settings](#symptom-i-cant-reach-home-assistant-after-changing-the-network-settings).
 
 ## Resetting a network interface
@@ -140,14 +142,15 @@ Home Assistant now uses a different IP address or network, but your browser stil
 
 #### Resolution
 
-1. Try the new address, or `homeassistant.local`, in your browser.
+1. Try the new address, or the hostname, for example, `homeassistant.local`, in your browser.
    - If you changed the hostname, use the new name, for example, `kitchen.local`.
+   - Keep `http://` or `https://`, and the port, if your address has one. For example, `http://homeassistant.local:8123`.
 2. If Home Assistant still doesn't open, connect a monitor and a keyboard to your system, or open the console of your virtual machine.
 3. At the `ha >` prompt, let your router assign the IP address again. Enter `network update eth0 --ipv4-method auto`.
    - Replace `eth0` with the name of your interface. To find it, enter `network info`.
    - If your system only connects over Wi-Fi, connect an Ethernet cable first. Or, correct the Wi-Fi settings with the command in [Changing network settings from the command line](#changing-network-settings-from-the-command-line).
 4. To find the address that your router assigned, enter `network info`.
-5. Open Home Assistant with that address, or with `homeassistant.local`.
+5. Open Home Assistant with that address, or with the hostname. Keep `http://` or `https://`, and the port.
 
 {% enddetails %}
 
@@ -166,7 +169,8 @@ The new network adapter gets a different interface name inside the virtual machi
 1. Open the console of the virtual machine.
 2. At the `ha >` prompt, enter `login`.
    - Result: You're now in the shell of the operating system.
-3. To remove the saved network settings and restart, enter the following commands:
+3. To remove the saved network settings and restart, enter the following commands.
+   - This removes the saved settings of all network interfaces, not only the one that changed. This includes saved Wi-Fi networks and static IP addresses. After the restart, set them up again.
 
    ```bash
    rm -r /mnt/overlay/etc/NetworkManager/system-connections
