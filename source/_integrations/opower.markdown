@@ -125,9 +125,9 @@ The integration adds the following diagnostic sensors for each account:
 - Last changed
 - Last updated
 
-For an electricity account, the integration creates a **Last bill electricity rate** sensor after Opower provides a completed bill whose usage charges can be safely attributed to a positive billed `NET_USAGE` value in kWh. This sensor shows the historical effective billed-net rate for that bill, not the exact current electricity tariff. It can become unavailable if no later completed bill can be used safely.
+For an electricity account, the integration creates a **Last bill effective electricity rate** sensor once Opower reports a bill with positive cost and usage and no exported energy. The value is the bill's cost as reported by your utility divided by its usage, in USD/kWh. It's an average for that billing period, not your current electricity tariff.
 
-On net-metered accounts, energy charges may be deferred until an annual true-up. In this case, the sensor may not be created until Opower provides a qualifying bill.
+If no new bill is reported, the sensor keeps its previous value, including across restarts. It becomes unavailable if a newer bill has no positive cost or usage, or reports exported energy, which can happen on some net-metered accounts.
 
 The integration adds the following sensors only if your utility provides forecasted usage/cost:
 
