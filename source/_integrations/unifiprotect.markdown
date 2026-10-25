@@ -352,7 +352,7 @@ Below are the accepted identifiers to resolve media. Since events do not necessa
 
 The {% term integrations %} provides four proxy views to proxy media content from your Home Assistant instance so you can access thumbnails and video clips from within the context of Home Assistant without having to expose your UniFi Protect NVR Console. As with the media identifiers, all IDs are UniFi Protect IDs as they may not map to specific Home Assistant entities depending on how you have configured your {% term integrations %}.
 
-These URLs work great when trying to send notifications. Home Assistant will automatically sign the URLs and make them safe for external consumption if used in an {% term automation %} or [notify action](/integrations/notify/).
+These URLs work in notifications to the [Home Assistant Companion app](https://companion.home-assistant.io/docs/notifications/notification-attachments). They require authentication, so services that download the file themselves, like [Telegram](/integrations/telegram_bot/), can't load them.
 
 {% note %}
 These proxy views require the **full access** connection mode. They are not available for entries set up with **API key only**. See [Connection modes](#connection-modes).
