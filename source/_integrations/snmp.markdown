@@ -22,18 +22,24 @@ ha_quality_scale: legacy
 
 Many routers, Wi-Fi access points, printers, and other network-connected devices support the [Simple Network Management Protocol (SNMP)](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol). This is a standardized method for monitoring/managing network-connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain continuously updated lists of metrics like network interfaces throughput, disk activity, active devices on the network, toner levels, and such.
 
-There is currently support for the following device types within Home Assistant:
+The following sections describe how to configure and use the integration:
 
-- [Presence detection](#presence-detection)
+- [Adding the integration](#adding-the-integration)
   - [SNMP v1 and v2c configuration](#snmp-v1-and-v2c-configuration)
   - [SNMP v3 configuration](#snmp-v3-configuration)
-  - [YAML v1/v2c configuration (deprecated)](#yaml-v1v2c-configuration-deprecated)
-  - [YAML migration](#yaml-migration)
-- [Sensor](#sensor)
-  - [Finding OIDs](#finding-oids)
-  - [Examples](#examples)
-    - [Printer uptime minutes](#printer-uptime-minutes)
-- [Switch](#switch)
+  - [Base OID](#base-oid)
+  - [Finding the Base OID](#finding-the-base-oid)
+  - [Tracking a second table](#tracking-a-second-table)
+  - [Enabling tracked devices](#enabling-tracked-devices)
+  - [Polling](#polling)
+- [YAML configuration](#yaml-configuration)
+  - [Device tracker (deprecated)](#device-tracker-deprecated)
+  - [Sensor](#sensor)
+    - [Finding OIDs](#finding-oids)
+    - [Examples](#examples)
+      - [Printer uptime minutes](#printer-uptime-minutes)
+  - [Switch](#switch)
+- [Removing the integration](#removing-the-integration)
 
 {% important %}
 This device tracker needs SNMP to be enabled on the target network device. It could be that you need to install SNMP support manually on your router, switch, server, or any other device that you will be trying to extract information from.
@@ -43,7 +49,45 @@ This device tracker needs SNMP to be enabled on the target network device. It co
 Due to SNMP limitations, it is impossible to reliably fetch a stable MAC address from the server. Because of this, the integration cannot follow Home Assistant best practices when it comes to using the MAC address or some other unique reliable string as a `unique_id`. For this reason, you should make sure to set up a static IP address or a DHCP reservation.
 {% endimportant %}
 
-## Presence detection
+## Adding the integration
+
+The `device_tracker` platform is configured through the user interface as part of adding the SNMP integration.
+
+{% include integrations/config_flow.md %}
+
+The setup flow asks for the following information, in this order:
+
+1. **Host**: The IP address or hostname of the SNMP device.
+2. **Port**: The SNMP port. The default is `161`.
+3. **SNMP version**: Choose `1`, `2c`, or `3`.
+4. **Credentials**: For SNMP v1 or v2c, enter the community string. Most devices use `public` with read-only permission, which is sufficient for most purposes. For SNMP v3, enter the user name. Optionally, enter an authentication key and protocol, and a privacy key and protocol. A privacy key requires an authentication key.
+5. **Base OID**: The OID of the table column that holds the MAC addresses of the connected devices. The setup flow asks for the Base OID directly after the credentials.
+
+### SNMP v1 and v2c configuration
+
+- **Community**: The SNMP community which is set for the device. Most devices have a default community set to `public` with read-only permission (which is sufficient for most purposes).
+
+### SNMP v3 configuration
+
+If you choose version 3, you will also need to provide:
+
+- **Username**
+- **Authentication key** and **protocol** (such as MD5 or SHA)
+- **Privacy key** and **protocol** (such as DES or AES)
+- **Context name** (optional)
+
+### Base OID
+
+The Base OID is the OID of a table column, not the OID of the table itself or of a single row. The column must contain the MAC addresses of the connected devices.
+
+For example:
+
+- `1.3.6.1.2.1.4.22.1.2` is the MAC address column of the ARP table.
+- `1.3.6.1.2.1.17.4.3.1.1` is the MAC address column of the bridge forwarding table, used by switches and access points.
+
+Enter a numeric OID. Object names are rejected with the message "The OID could not be resolved." To find the Base OID, check your device's documentation or its MIB file.
+
+### Finding the Base OID
 
 The following OIDs refer to the current MAC Address table from various common router brands. These reflect all recent devices seen on the network. However, since devices are usually not removed from these internal tables until after a predefined timeout (typically in a range of 5-15 minutes after they were last active on the network, depending on the specific manufacturer's implementation), this is less effective for [device tracking](/integrations/device_tracker/) than desirable. If near-realtime values are needed, it is recommended to use [Ping](/integrations/ping) or [Nmap](/integrations/nmap_tracker) integrations instead.
 
@@ -66,31 +110,40 @@ The following OIDs refer to the current MAC Address table from various common ro
 | TP-Link  | Archer VR600                     | `1.3.6.1.2.1.3.1.1.2`                           |
 | Ubiquiti | Edgerouter Lite v1.9.0           | `1.3.6.1.2.1.4.22.1.2`                          |
 
-The **device_tracker** platform can be configured directly through the Home Assistant user interface.
+### Tracking a second table
 
-{% include integrations/config_flow.md %}
+One SNMP device can track several tables. To add another device tracker:
 
-During the setup, you will be asked for:
+1. Open the SNMP integration entry.
+2. Select **Add device tracker**.
+3. Enter the Base OID of the other table.
 
-- **Host**: The IP address or hostname of your SNMP device.
-- **Port**: The SNMP port (default is `161`).
-- **SNMP Version**: Choose between `1`, `2c`, or `3`.
-- **Base OID**: The OID prefix where wireless client registrations can be found, usually vendor-specific. Use numerical notation. To find this base OID, check vendor documentation or the MIB file for your device (for example, `1.3.6.1.2.1.3.1.1.2`).
+Each device tracker polls its own table independently. To change the Base OID of an existing device tracker, select the three dots {% icon "mdi:dots-vertical" %} next to it and select **Reconfigure**. Changing the Base OID stops tracking the previous table, so the devices that only appeared in it are removed.
 
-### SNMP v1 and v2c configuration
+### Enabling tracked devices
 
-- **Community**: The SNMP community which is set for the device. Most devices have a default community set to `public` with read-only permission (which is sufficient for most purposes).
+Tracked devices are created as entities that are disabled by default. If a device with the same MAC address is already known to another integration, its entity is enabled automatically.
 
-### SNMP v3 configuration
-If you choose version 3, you will also need to provide:
+To enable a tracked device:
 
-- **Username**
-- **Authentication Key** and **Protocol** (such as MD5 or SHA)
-- **Privacy Key** and **Protocol** (such as DES or AES)
-- **Context Name** (optional)
+1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
+2. Select the SNMP device tracker entity.
+3. Select the {% icon "mdi:cog" %} icon and turn on **Enabled**.
 
-### YAML v1/v2c configuration (deprecated)
-Alternatively, you can still use the deprecated YAML configuration:
+### Polling
+
+The integration polls each device tracker every 30 seconds. This is fixed and cannot be changed.
+
+## YAML configuration
+
+The `sensor` and `switch` platforms are configured in YAML. The `device_tracker` platform can also still be configured in YAML, but this is deprecated.
+
+### Device tracker (deprecated)
+
+The YAML `device_tracker` platform is deprecated and will be removed in Home Assistant Core 2027.5. While it is configured, a repair issue in Home Assistant points you to the user interface setup.
+
+Only the `device_tracker` platform is affected. The `sensor` and `switch` platforms remain YAML-only and are not deprecated.
+
 ```yaml
 # Example configuration.yaml entry for SNMP version 1 or 2c
 device_tracker:
@@ -100,21 +153,22 @@ device_tracker:
     baseoid: 1.3.6.1.4.1.14988.1.1.1.2.1.1
 ```
 
+To migrate from YAML to the user interface:
+
+1. Stop Home Assistant.
+2. Remove the SNMP `device_tracker` platform from your `configuration.yaml` file.
+3. Delete the devices tracked by SNMP, matched by MAC address, from `known_devices.yaml`.
+4. Start Home Assistant.
+5. Add the SNMP integration through the user interface and enter the Base OID.
+6. Enable the device tracker entities you want to use, and optionally rename them to the entity IDs you used before.
+
+Delete the entries from `known_devices.yaml` before starting Home Assistant. A restored legacy entry keeps its entity ID, so if it is still present when the new tracker is created, the new entity gets a `_2` suffix instead of the previous entity ID.
+
+The legacy `consider_home` and `new_device_defaults` options are not carried over. A device is marked as away as soon as it leaves the tracked table.
+
 See the [device tracker integration page](/integrations/device_tracker/) for instructions on how to configure the people to be tracked.
 
-### YAML migration
-
-While you can still use the old YAML configuration, it is now getting deprecated. If you have an existing configuration in your `configuration.yaml`, Home Assistant will automatically import it into a new config entry upon the first restart of Home Assistant after updating. 
-
-Once the migration is complete, a repair message will appear in your Home Assistant settings, prompting you to safely remove the legacy SNMP section from your YAML files.
-
-{% note %}
-Only the `device_tracker` platform is automatically migrated. Sensors and switches will continue to function from YAML. However, a bug in the legacy implementation caused some binary and string MAC addresses to generate incorrectly named entities. This has been fixed, which may result in new entities being created for some devices. If this happens, you'll need to enable the new entities and update any associated automations. Old entities will remain in the system but will consistently show as `not_home`. These can be safely deleted from `known_devices.yaml` once you've migrated to the new entities.
-{% endnote %}
-
-The legacy YAML options `consider_home` and `new_device_defaults` are not carried over by the import and are ignored. The `device_tracker` config entry has no equivalent option, so a device is now marked as away as soon as it disappears from the MAC address table returned by the device. Any grace period previously configured with `consider_home` no longer applies.
-
-## Sensor
+### Sensor
 
 The `snmp` sensor platform displays values made available by network devices through the SNMP protocol.
 
@@ -243,7 +297,7 @@ Valid values for `priv_protocol`:
 - **aes-cfb-192**
 - **aes-cfb-256**
 
-### Finding OIDs
+#### Finding OIDs
 
 OIDs may vary on different systems because they are vendor-specific. The best place to find OIDs is in your device's manual or vendor documentation. For example, the following OIDs are for the load of a Linux system.
 
@@ -258,9 +312,9 @@ $ snmpwalk -Os -c public -v 2c 192.168.1.32 1.3.6.1.4.1.2021.10.1.3.1
 laLoad.1 = STRING: 0.19
 ```
 
-### Examples
+#### Examples
 
-#### Printer uptime minutes
+##### Printer uptime minutes
 
 According to the most common SNMP standard, the uptime of a device is accessible under OID `1.3.6.1.2.1.1.3.0`. The value represented using a format called `TimeTicks`, in units of hundredths of a second.
 
@@ -282,7 +336,7 @@ The `accept_errors` option will allow the sensor to work even if the printer is 
 
 The `value_template` option converts the original value to minutes.
 
-## Switch
+### Switch
 
 The `snmp` switch platform allows you to control SNMP-enabled equipment.
 
@@ -454,6 +508,8 @@ switch:
 
 ## Removing the integration
 
-The SNMP `device_tracker` platform is set up as a config entry, but the `sensor` and `switch` platforms are still configured in YAML. Before removing the integration instance, remove the SNMP `sensor` and `switch` entries from your `configuration.yaml` file and restart Home Assistant so the YAML configuration is no longer loaded.
+To stop tracking a table, open the SNMP integration entry, select the three dots {% icon "mdi:dots-vertical" %} next to the device tracker, and select **Delete**.
+
+The `sensor` and `switch` platforms are configured in YAML. To remove the SNMP device and all of its device trackers, remove those platforms from your `configuration.yaml` file and restart Home Assistant, then delete the integration entry:
 
 {% include integrations/remove_device_service.md %}
