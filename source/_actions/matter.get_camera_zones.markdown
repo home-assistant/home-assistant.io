@@ -62,6 +62,7 @@ The action returns the zones of the camera and how many zones it supports. The r
 
 ## Good to know
 
+- Zones that aren't defined by corners are left out of the response.
 - Zones with the source `manufacturer` come with the camera. You can't change or remove them.
 
 {% include actions/stuck.md %}

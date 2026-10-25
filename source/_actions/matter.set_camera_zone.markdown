@@ -36,10 +36,10 @@ To set a camera zone from an automation or a script:
 
 {% options_ui %}
 Zone ID:
-  description: The ID of the zone to update, from 0 to 65535. Leave empty to create a zone.
+  description: The ID of the zone to update, from 0 to 65534. Leave empty to create a zone.
   required: false
 Name:
-  description: The name of the zone, up to 32 bytes. Most letters take 1 byte, letters like `ä` take 2, and emoji take 4.
+  description: The name of the zone, up to 32 bytes. Letters like `ä`, letters from other scripts, and emoji take more than 1 byte. The name can't be blank.
   required: true
 Use:
   description: What the camera uses the zone for, either privacy or focus.
@@ -102,11 +102,11 @@ action: |
 
 {% options_yaml %}
 zone_id:
-  description: The ID of the zone to update, from 0 to 65535. Omit this field to create a zone.
+  description: The ID of the zone to update, from 0 to 65534. Omit this field to create a zone.
   required: false
   type: integer
 name:
-  description: The name of the zone, up to 32 bytes. Most letters take 1 byte, letters like `ä` take 2, and emoji take 4.
+  description: The name of the zone, up to 32 bytes. Letters like `ä`, letters from other scripts, and emoji take more than 1 byte. The name can't be blank.
   required: true
   type: string
 use:
@@ -134,7 +134,7 @@ The action returns the ID of the zone it created or updated:
 ## Good to know
 
 - Not every camera supports focus zones. If yours doesn't, the action fails with an error.
-- Home Assistant rounds the corners to the pixel grid of the camera, so [Get camera zones](/actions/matter.get_camera_zones/) can return slightly different values.
+- Home Assistant rounds the corners to the zone coordinates of the camera, so [Get camera zones](/actions/matter.get_camera_zones/) can return slightly different values.
 - Updating a zone replaces all its settings. Give the name, use, and corners again, and the color if you want to keep it.
 - A camera holds a limited number of zones. [Get camera zones](/actions/matter.get_camera_zones/) returns the limit as `max_user_defined_zones`.
 - The action fails for zones that came with the camera.
