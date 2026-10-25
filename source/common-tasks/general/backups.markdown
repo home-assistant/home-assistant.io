@@ -19,15 +19,16 @@ Backups are encrypted by default and stored in a compressed archive file (.tar).
 - On {% term "Home Assistant Operating System" %}, backups are in the `/backup` folder.
 - On {% term "Home Assistant Container" %}, for example when you run Home Assistant in Docker, backups are in the `backups` folder of your configuration directory.
 
-On Home Assistant OS, a full backup includes the following folders:
+On Home Assistant OS, you choose what a backup contains. When you create a backup, you can select the following parts:
 
-- `config`
-- `share`
-- `addons` (only manually installed or created apps, not those installed from the store)
-- `ssl`
-- `media`
+- **Home Assistant settings** are the bare minimum needed to restore the system. They include the `config` folder and the SSL certificates in the `ssl` folder. Automatic backups always include them.
+- **History** is the historical data of your sensors, including your energy dashboard.
+- **Media** is the `media` folder, for example, with camera recordings.
+- **Share folder** is the `share` folder. Apps often use it for custom or older configurations.
+- **Local apps folder** is the `addons` folder. It contains the data of apps that you installed or created yourself, not apps from the app store.
+- **Apps** lets you include all apps, no apps, or the apps that you select.
 
-A partial backup consists of any number of the above default directories and installed apps.
+Some actions still use older terms: a full backup contains all of these parts, and a partial backup only the parts that you choose. For example, refer to [Create a full backup](/actions/hassio.backup_full/) and [Create a partial backup](/actions/hassio.backup_partial/).
 
 On Home Assistant Container, a backup contains the Home Assistant settings and, if you choose, the history. Apps, the media and share folders, and network storage are only available on Home Assistant OS.
 
