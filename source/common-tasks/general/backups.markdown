@@ -262,7 +262,9 @@ You can use a backup during the onboarding process to restore your configuration
 3. In the dialog, select all the parts you want to restore.
       - Your current system will be overwritten with the parts that you choose to restore.
       - If you want to restore the complete configuration with all directories and apps, select everything.
-4. Enter the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/).
+4. Enter the encryption key stored in the [backup emergency kit](/more-info/backup-emergency-kit/) of the system that created the backup.
+   - After the restore, new backups use the encryption key that is saved in the restored settings. Usually, that's the key you entered. To be sure that you have the right key, [download the emergency kit](/more-info/backup-emergency-kit/#storing-the-backup-emergency-kit-somewhere-safe) again after the restore.
+   - If the key isn't accepted, refer to [The encryption key isn't accepted](#symptom-the-provided-encryption-key-was-incorrect).
 5. To start the process, select **Restore backup**.
    - The restore may take a while, depending on the amount of data.
    - Don't refresh the page. Just wait.
@@ -296,6 +298,8 @@ If the restore doesn't start because of one of these conditions, refer to [The r
 4. Select **Restore**.
    - Result: The **Restore backup** dialog opens.
    - If the backup uses a different encryption key than the one on this system, enter that key.
+   - If you restore the Home Assistant settings, new backups use the encryption key that is saved in those settings. To be sure that you have the right key, [download the emergency kit](/more-info/backup-emergency-kit/#storing-the-backup-emergency-kit-somewhere-safe) again after the restore.
+   - If the key isn't accepted, refer to [The encryption key isn't accepted](#symptom-the-provided-encryption-key-was-incorrect).
    - To start the restore, select **Restore**.
    - This may take a while, depending on how much there is to compress or decompress.
 5. Once the restore is complete, Home Assistant restarts to apply the new settings.
@@ -502,5 +506,33 @@ The errors mean the following:
    - If you copied the file yourself, copy it again. Then, check that the copy is the same size as the original.
 3. Upload the `.tar` file as it is. Don't unpack it and pack it again.
 4. If no copy of the backup works, the backup can't be used. Use an older backup.
+
+{% enddetails %}
+
+{% details "The encryption key isn't accepted" %}
+
+### Symptom: "The provided encryption key was incorrect"
+
+When you restore a backup, Home Assistant shows **The provided encryption key was incorrect, please try again.**
+
+#### Description
+
+A backup can only be decrypted with the key that was used when the backup was created. Every Home Assistant system has its own key. The key isn't accepted in one of the following situations:
+
+- You entered the key of the system that you restore to, instead of the key of the system that created the backup. For example, a new installation has a key of its own.
+- You changed the encryption key after the backup was created. The backup still uses the old key.
+- You restored the Home Assistant settings from another backup after you downloaded the emergency kit. That also restored the encryption key that was saved in those settings, so backups made after the restore use that key.
+- The backup was created with the [**Create a full backup**](/actions/hassio.backup_full/) or [**Create a partial backup**](/actions/hassio.backup_partial/) action, and the action set its own **Password**. The backup then uses that password, not the key from the emergency kit.
+- The backup is damaged. Home Assistant can't tell a damaged backup from a wrong key.
+
+#### Resolution
+
+1. Find the [backup emergency kit](/more-info/backup-emergency-kit/) of the system that created the backup.
+   - The emergency kit is a text file with a name like `home_assistant_backup_emergency_kit_<date>.txt`. Under `Instance:`, it shows the name of the system, and under `Date:`, when you downloaded it.
+2. If you changed the encryption key after you created the backup, use the emergency kit from before the change. When you changed the key, Home Assistant offered it as **Download old emergency kit**.
+3. Copy the key from the emergency kit and paste it. The key consists of seven groups of four characters, separated by hyphens. Include the hyphens.
+   - If an action created the backup with its own **Password**, enter that password instead. It doesn't have the format of an emergency kit key.
+4. If the key still isn't accepted, the backup might be damaged. Refer to [A backup can't be read](#symptom-a-backup-cant-be-read).
+5. If you don't have the key anymore, refer to [I lost my backup encryption key](/more-info/backup-emergency-kit/#i-lost-my-backup-encryption-key-how-can-i-get-it-back).
 
 {% enddetails %}
