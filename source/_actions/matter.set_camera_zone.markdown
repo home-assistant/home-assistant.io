@@ -138,7 +138,7 @@ The action returns the ID of the zone it created or updated:
 - Updating a zone replaces all its settings. Give the name, use, and corners again, and the color if you want to keep it.
 - A camera holds a limited number of zones. [Get camera zones](/actions/matter.get_camera_zones/) returns the limit as `max_user_defined_zones`.
 - The action fails for zones that came with the camera.
-- Motion zones can't be created or changed yet. Home Assistant doesn't support the triggers they need. [Get camera zones](/actions/matter.get_camera_zones/) still lists existing motion zones, and [Clear camera zone](/actions/matter.clear_camera_zone/) can remove them.
+- Motion zones can't be created or changed. Home Assistant doesn't support the triggers they need. [Get camera zones](/actions/matter.get_camera_zones/) still lists existing motion zones, and [Clear camera zone](/actions/matter.clear_camera_zone/) can remove them.
 
 {% include actions/stuck.md %}
 
