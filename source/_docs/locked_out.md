@@ -60,7 +60,7 @@ The method used to reset a password depends on your user rights:
   - There is only one owner per system. You cannot add a new owner.
 - If you are an administrator, add a new user as an administrator and give the new user a password you can remember.
   1. Then log out, and log in with this new user.
-  2. Reset your password via this new administrator account (and then [delete this new account](/docs/locked_out/#to-delete-a-user)).
+  2. Reset your password via this new administrator account (and then [delete this new account](/docs/configuration/user-configuration/#deleting-a-user-or-person)).
      - Your configuration will remain, and you don't have to do a new onboarding process.
 
 #### To reset an owner's password, via console

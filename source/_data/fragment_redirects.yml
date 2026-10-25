@@ -32,6 +32,10 @@
 "/common-tasks/os/":
   installing-and-using-the-samba-app: /common-tasks/os/#installing-and-using-the-samba-share-app
   installing-and-using-the-visual-studio-code-vsc-app: /common-tasks/os/#installing-and-using-the-studio-code-server-app
+  flashing-an-odroid-m1s: /installation/odroid/#flashing-an-odroid-m1s
+  flashing-an-odroid-n2: /installation/odroid/#flashing-an-odroid-n2
+  snapshots: /common-tasks/general/backups/
+  backups: /common-tasks/general/backups/
 "/conditions/":
   logical-conditions: /conditions/and/
   and-condition: /conditions/and/
@@ -232,3 +236,7 @@
   accessing-the-media-browser: /integrations/media_source/#browsing-your-media
   adding-media-using-the-media-browser-on-home-assistant-os: /more-info/local-media/add-media/#adding-media-using-the-media-browser
   removing-media-using-the-media-browser-on-home-assistant-os: /more-info/local-media/add-media/#removing-media-using-the-media-browser
+# /common-tasks/supervised redirects to /installation/ (see _redirects), and
+# the browser keeps the anchor.
+"/installation/":
+  snapshots: /common-tasks/general/backups/

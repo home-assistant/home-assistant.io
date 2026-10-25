@@ -51,7 +51,7 @@ Previous backups are not included when you create a new one. But they do take up
 
 1. To delete old backups, follow the steps on [deleting obsolete backups](/common-tasks/general/backups/#deleting-obsolete-backups).
 2. Ideally, backups don't pile up on the system to begin with.
-   - To define how long automatic backups should be kept on the system, follow the steps on [setting up an automatic backup process](/common-tasks/os/#setting-up-an-automatic-backup-process).
+   - To define how long automatic backups should be kept on the system, follow the steps on [setting up an automatic backup process](/common-tasks/general/backups/#setting-up-an-automatic-backup-process).
 
 ### Storing backups outside of Home Assistant
 
