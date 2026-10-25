@@ -72,6 +72,10 @@ The **Hot Spring** integration provides the following entities:
 
 ### Number
 
+- **Salt output level**
+  - **Description**: Sets the chlorine generation output level of the FreshWater Salt System. This control adjusts chlorine generation: it does not measure or add salt (see the **Salt value** sensor).
+  - **Range**: 0 to 10 in whole-number steps. At level 0, chlorine generation stops. Level 10 is the maximum output.
+  - **Availability**: Available when a FreshWater Salt System cartridge is installed. The FreshWater IQ feature is not required.
 - **Target temperature**
   - **Description**: Allows setting the target water temperature for the spa.
   - **Range**: 26 °C to 40 °C (80 °F to 104 °F)
