@@ -94,19 +94,6 @@ The path you entered does not exist, is a file instead of a folder, or Home Assi
 2. Check that the folder exists on the system running Home Assistant.
 3. Check that Home Assistant has permission to read the folder.
 
-### Symptom: Repair issue about the YAML configuration
-
-After updating Home Assistant, you see a repair issue saying the **Folder** YAML configuration could not be imported.
-
-#### Description
-
-Configuring the **Folder** integration in YAML is deprecated. Home Assistant imports your existing YAML configuration automatically. If a folder can't be imported, for example because it is not in `allowlist_external_dirs`, a repair issue explains why.
-
-#### Resolution
-
-1. Follow the steps in the repair issue and restart Home Assistant. The folder is then imported.
-2. After the import succeeds, remove the `folder` sensor entries from your {% term "`configuration.yaml`" %} file.
-
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
