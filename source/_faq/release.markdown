@@ -16,7 +16,7 @@ Yes. The monthly releases are the stable releases of Home Assistant, and they ar
 - Continuous automated testing across hundreds of {% term integrations %} on every change.
 - Smaller patch releases (for example, `2026.5.1`, `2026.5.2`) during the month if any important issues turn up after the initial release.
 
-Updates can be installed straight from the user interface, and an [automatic backup](/common-tasks/general/backups/) is taken before every update so you can roll back if something does not work for you. For more on this, see [Do Home Assistant updates break things?](/faq/#do-home-assistant-updates-break-things).
+Updates can be installed straight from the user interface, and you can create a [backup before every update](/common-tasks/general/backups/#setting-up-an-automatic-backup-process) so you can roll back if something does not work for you. For more on this, see [Do Home Assistant updates break things?](/faq/#do-home-assistant-updates-break-things).
 
 ## Helping test the next release
 
