@@ -2,7 +2,7 @@
 title: "Set camera zone"
 action: matter.set_camera_zone
 domain: matter
-description: "Creates or updates a motion, privacy, or focus zone on a Matter camera."
+description: "Creates or updates a privacy or focus zone on a Matter camera."
 related_actions:
   - matter.get_camera_zones
   - matter.clear_camera_zone
@@ -10,11 +10,10 @@ related_actions:
 
 Use this action to create or update a zone on a Matter camera. A zone is an area of the image with a use:
 
-- `motion`: The camera detects motion in this area.
 - `privacy`: The camera hides this area, for example a neighbor's window.
 - `focus`: The camera focuses on this area.
 
-You give the corners of the zone in percent of the image, measured from the top left corner. For example, `x: 50` and `y: 50` is the center of the image. The camera converts them to its own resolution, so the same values work on every camera.
+You give the corners of the zone in percent of the full camera sensor, measured from the top left corner. For example, `x: 50` and `y: 50` is the center. Home Assistant converts them to the resolution of the camera, so the same values work on every camera.
 
 If you leave the zone ID empty, the camera creates a new zone and the action returns its ID. To change a zone, give its ID. Use the [Get camera zones](/actions/matter.get_camera_zones/) action to look up the IDs.
 
@@ -28,7 +27,7 @@ To set a camera zone from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the camera.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the camera you want to manage.
 6. From the actions shown for that target, under **Matter**, select **Set camera zone**.
 7. Fill in the zone details.
 8. Select **Save**.
@@ -37,19 +36,19 @@ To set a camera zone from an automation or a script:
 
 {% options_ui %}
 Zone ID:
-  description: The ID of the zone to update. Leave empty to create a zone.
+  description: The ID of the zone to update, from 0 to 65535. Leave empty to create a zone.
   required: false
 Name:
-  description: The name of the zone, up to 16 characters.
+  description: The name of the zone, up to 32 characters. Some special characters, like `ä`, count as two.
   required: true
 Use:
-  description: What the camera uses the zone for, either motion, privacy, or focus.
+  description: What the camera uses the zone for, either privacy or focus.
   required: true
 Corners:
-  description: The corners of the zone, in percent of the image from the top left. 3 to 12 corners.
+  description: The corners of the zone, in percent of the camera sensor from the top left. 3 to 12 corners.
   required: true
 Color:
-  description: The color to show the zone in, like `#FF0000`, or `#FF000080` with transparency.
+  description: A color for the zone, as `#RRGGBB` or `#RRGGBBAA`. The last two digits set how opaque the zone is. The camera can ignore it.
   required: false
 {% endoptions_ui %}
 
@@ -77,7 +76,7 @@ action: |
   response_variable: zone
 {% endexample %}
 
-To change the corners of an existing zone, give its ID:
+To change an existing zone, give its ID:
 
 {% example %}
 action: |
@@ -86,8 +85,8 @@ action: |
     entity_id: camera.front_door
   data:
     zone_id: 2
-    name: "Driveway"
-    use: motion
+    name: "Street"
+    use: privacy
     vertices:
       - x: 0
         y: 40
@@ -103,23 +102,23 @@ action: |
 
 {% options_yaml %}
 zone_id:
-  description: The ID of the zone to update. Omit this field to create a zone.
+  description: The ID of the zone to update, from 0 to 65535. Omit this field to create a zone.
   required: false
   type: integer
 name:
-  description: The name of the zone, up to 16 characters.
+  description: The name of the zone, up to 32 characters. Some special characters, like `ä`, count as two.
   required: true
   type: string
 use:
-  description: "What the camera uses the zone for: `motion`, `privacy`, or `focus`."
+  description: "What the camera uses the zone for: `privacy` or `focus`."
   required: true
   type: string
 vertices:
-  description: A list of 3 to 12 corners, each with `x` and `y` from 0 to 100 in percent of the image.
+  description: A list of 3 to 12 corners, each with `x` and `y` from 0 to 100 in percent of the camera sensor.
   required: true
   type: list
 color:
-  description: The color to show the zone in, like `#FF0000`, or `#FF000080` with transparency.
+  description: A color for the zone, as `#RRGGBB` or `#RRGGBBAA`. The last two digits set how opaque the zone is. The camera can ignore it.
   required: false
   type: string
 {% endoptions_yaml %}
@@ -135,9 +134,11 @@ The action returns the ID of the zone it created or updated:
 ## Good to know
 
 - Not every camera supports focus zones. If yours doesn't, the action fails with an error.
-- The camera rounds the corners to its own pixel grid, so [Get camera zones](/actions/matter.get_camera_zones/) can return slightly different values.
-- Zones that came with the camera can't be changed.
-- Home Assistant doesn't show when motion is detected in a zone yet.
+- Home Assistant rounds the corners to the pixel grid of the camera, so [Get camera zones](/actions/matter.get_camera_zones/) can return slightly different values.
+- Updating a zone replaces all its settings. Give the name, use, and corners again, and the color if you want to keep it.
+- A camera holds a limited number of zones. [Get camera zones](/actions/matter.get_camera_zones/) returns the limit as `max_user_defined_zones`.
+- The camera rejects changes to zones that came with it.
+- Motion zones can't be created yet. Home Assistant doesn't support the triggers they need. [Get camera zones](/actions/matter.get_camera_zones/) still lists existing motion zones, and [Clear camera zone](/actions/matter.clear_camera_zone/) can remove them.
 
 {% include actions/stuck.md %}
 

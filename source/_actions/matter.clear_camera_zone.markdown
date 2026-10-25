@@ -10,6 +10,8 @@ related_actions:
 
 Use this action to remove a motion, privacy, or focus zone from a Matter camera. Use the [Get camera zones](/actions/matter.get_camera_zones/) action to look up the ID of the zone.
 
+Your camera must support the Matter Zone Management cluster with user-defined zones for this action to work.
+
 Only Home Assistant administrators can run this action.
 
 {% include actions/ui_header.md %}
@@ -20,7 +22,7 @@ To clear a camera zone from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the camera.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the camera you want to manage.
 6. From the actions shown for that target, under **Matter**, select **Clear camera zone**.
 7. Enter the **Zone ID** to remove.
 8. Select **Save**.
@@ -58,8 +60,8 @@ zone_id:
 
 ## Good to know
 
-- Zones that came with the camera can't be removed.
-- Removing a privacy zone shows that area of the image again.
+- The camera rejects removing zones that came with it.
+- Removing a privacy zone stops the camera from hiding that area.
 
 {% include actions/stuck.md %}
 

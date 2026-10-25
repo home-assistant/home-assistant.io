@@ -10,7 +10,7 @@ related_actions:
 
 Use this action to list the zones of a Matter camera. A zone is an area of the image that the camera uses for motion detection, hides as a privacy area, or focuses on.
 
-The corners of each zone are given in percent of the image, measured from the top left corner. Your camera must support the Matter Zone Management cluster for this action to work.
+The corners of each zone are given in percent of the full camera sensor, measured from the top left corner. Your camera must support the Matter Zone Management cluster for this action to work.
 
 {% include actions/ui_header.md %}
 
@@ -20,7 +20,7 @@ To get the camera zones from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the camera.
+5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the camera you want to query.
 6. From the actions shown for that target, under **Matter**, select **Get camera zones**.
 7. Select **Save**.
 
@@ -51,14 +51,14 @@ This action has no options.
 The action returns the zones of the camera and how many zones it supports. The response includes the following fields:
 
 - `max_zones`: The maximum number of zones the camera can hold.
-- `max_user_defined_zones`: The maximum number of zones you can create yourself.
+- `max_user_defined_zones`: The maximum number of zones you can create yourself. Empty if the camera doesn't let you create zones.
 - `zones`: A list of the zones. Each zone includes the following:
   - `zone_id`: The ID of the zone. Use it to update or remove the zone.
   - `name`: The name of the zone.
-  - `use`: What the camera uses the zone for: `motion`, `privacy`, or `focus`.
-  - `source`: Who created the zone: `manufacturer` or `user`.
-  - `vertices`: The corners of the zone, each with `x` and `y` in percent of the image.
-  - `color`: The color the zone is shown in, if one is set.
+  - `use`: What the camera uses the zone for: `motion`, `privacy`, or `focus`. Empty if Home Assistant doesn't know the use.
+  - `source`: Who created the zone: `manufacturer` or `user`. Empty if Home Assistant doesn't know the source.
+  - `vertices`: The corners of the zone, each with `x` and `y` in percent of the camera sensor.
+  - `color`: The color of the zone, if the camera reports one.
 
 ## Good to know
 
