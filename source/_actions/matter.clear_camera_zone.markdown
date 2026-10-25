@@ -56,7 +56,7 @@ zone_id:
   type: integer
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md domain="camera" %}
 
 ## Good to know
 

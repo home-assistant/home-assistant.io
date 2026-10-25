@@ -123,13 +123,15 @@ color:
   type: string
 {% endoptions_yaml %}
 
-{% include actions/targets.md %}
+{% include actions/targets.md domain="camera" %}
 
 ## Response data
 
-The action returns the ID of the zone it created or updated:
+The action returns the ID of the zone it created or updated, under the entity ID of the camera:
 
 - `zone_id`: The ID of the zone.
+
+With the first example above, the ID is in `zone['camera.front_door'].zone_id`.
 
 ## Good to know
 

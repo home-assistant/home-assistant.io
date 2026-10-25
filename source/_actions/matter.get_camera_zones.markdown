@@ -44,11 +44,11 @@ action: |
 
 This action has no options.
 
-{% include actions/targets.md %}
+{% include actions/targets.md domain="camera" %}
 
 ## Response data
 
-The action returns the zones of the camera and how many zones it supports. The response includes the following fields:
+The action returns the zones of the camera and how many zones it supports, under the entity ID of the camera. With the example above, the zones are in `camera_zones['camera.front_door'].zones`. The response includes the following fields:
 
 - `max_zones`: The maximum number of zones the camera can hold.
 - `max_user_defined_zones`: The maximum number of zones you can create yourself. Empty if the camera doesn't let you create zones.
