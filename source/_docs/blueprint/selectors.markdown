@@ -37,6 +37,7 @@ The following selectors are currently available:
 - [Entity selector](#entity-selector)
 - [Floor selector](#floor-selector)
 - [Icon selector](#icon-selector)
+- [Image region selector](#image-region-selector)
 - [Label selector](#label-selector)
 - [Language selector](#language-selector)
 - [Location selector](#location-selector)
@@ -1102,6 +1103,54 @@ placeholder:
 
 The output of this selector is a string containing the selected icon,
 for example: `mdi:bell`.
+
+## Image region selector
+
+The image region selector lets the user draw a region on the image of a camera,
+like a privacy zone. The user drags on the image to draw a rectangle, and can
+then move the region or its corners, add corners, or type the corners in.
+
+![Screenshot of the Image region selector](/images/blueprints/selector-image-region.png)
+
+```yaml
+image_region:
+```
+
+The image comes from the camera set with `entity_id`. If it is not set, the
+selector in an action uses the first camera the action targets. Without a
+camera, no image is shown, but the region can still be drawn.
+
+{% configuration image_region %}
+entity_id:
+  description: The entity ID of the camera to draw on.
+  type: string
+  required: false
+min_points:
+  description: The minimum number of corners. Must be at least 3.
+  type: integer
+  default: 3
+  required: false
+max_points:
+  description: The maximum number of corners. Must be at least 3 and not lower than `min_points`.
+  type: integer
+  required: false
+{% endconfiguration %}
+
+The output of this selector is a list of corners, each with `x` and `y` from 0
+to 100, in percent of the image width and height, measured from the top left
+corner. The region is closed: the last corner connects back to the first one,
+which is not repeated.
+
+```yaml
+- x: 25
+  y: 25
+- x: 75
+  y: 25
+- x: 75
+  y: 75
+- x: 25
+  y: 75
+```
 
 ## Label selector
 
