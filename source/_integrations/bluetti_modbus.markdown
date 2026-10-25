@@ -27,8 +27,6 @@ During setup, the integration checks the model the device reports and refuses an
 
 Modbus TCP is available on devices that have a network connection. If you cannot find the setting on your device, updating its firmware usually adds it.
 
-EP2000 is not supported by this integration.
-
 ## Prerequisites
 
 Modbus TCP is turned off by default, so you need to enable it on the device itself first, through its built-in local web server. Depending on the device's firmware and local network security requirements, you may need to activate the web server first.
