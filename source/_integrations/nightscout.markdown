@@ -27,6 +27,16 @@ If you have a sensor session running, and you have enabled the Nightscout integr
 The icon changes to indicate the direction or trend, of the glucose readings.
 The state is the last reading from Nightscout, and you can see other information about the reading in the sensor's attributes.
 
+### Glucose reading sensors
+
+In addition to the blood glucose sensor, the integration creates the following sensors from the latest reading:
+
+- **Glucose trend**: The direction of the glucose readings, for example, *Rising slightly*, *Steady*, or *Falling quickly*.
+- **Glucose change**: The difference to the previous reading.
+- **Glucose reading time**: The time of the latest reading. You can use it to detect when no new readings arrive, for example, because your CGM lost its connection.
+
+The trend, change, and time of the reading are also still available as attributes of the blood glucose sensor.
+
 ### Glucose threshold sensors
 
 If your Nightscout server reports its configured glucose thresholds, the integration also creates the following diagnostic sensors:
