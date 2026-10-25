@@ -1,5 +1,5 @@
 ---
-title: Start cleaning
+title: "Start vacuum cleaner"
 action: vacuum.start
 domain: vacuum
 description: "Starts or resumes a cleaning task on a vacuum."
@@ -59,8 +59,8 @@ When the last person leaves home, this automation starts the downstairs vacuum s
 
 - **Trigger**: Zone occupancy cleared
   - **Zone**: Home (`zone.home`)
-- **Action**: Start cleaning
-- **Target**: Downstairs vacuum
+- **Action**: Start vacuum cleaner
+  - **Target**: Downstairs vacuum
 
 {% details "YAML example for starting the vacuum when nobody is home" %}
 

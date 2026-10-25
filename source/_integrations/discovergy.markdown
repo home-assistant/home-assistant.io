@@ -1,9 +1,8 @@
 ---
 title: inexogy
 description: Instructions on how to integrate inexogy smart meters within Home Assistant.
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_release: '2023.7'
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -93,7 +92,7 @@ Example: Send a notification when power consumption exceeds 3000&nbsp;W for 5 mi
 automation:
   - alias: High Power Consumption Detected
     trigger:
-      - platform: numeric_state
+      - trigger: numeric_state
         entity_id: sensor.electricity_example_street_11_total_power
         above: 3000
         for:
@@ -114,7 +113,7 @@ Example: Turn off high-power devices when photovoltaic production is insufficien
 automation:
   - alias: Consumption Control Based on PV Output
     trigger:
-      - platform: state
+      - trigger: state
         entity_id: sensor.electricity_example_street_11_total_power
     condition:
       - condition: numeric_state
@@ -142,7 +141,7 @@ If your sensors are not showing data or values are stale, check the following:
 ### Missing sensors
 
 - **Production sensors**: The electricity production sensor is only available for bidirectional meters. If you have such a meter but don't see it, check your data in the inexogy portal.
-- **Phase sensors**: Per-phase power and voltage sensors are disabled by default and not available for all meters. You can enable them on the integration page under "Entities".
+- **Phase sensors**: Per-phase power and voltage sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) and not available for all meters. You can enable them on the integration page under "Entities".
 
 ### Network issues
 

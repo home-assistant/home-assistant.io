@@ -1,8 +1,6 @@
 ---
 title: Time
 description: Instructions on how to set up time entities within Home Assistant.
-ha_category:
-  - Time
 ha_release: '2022.12'
 ha_domain: time
 ha_quality_scale: internal

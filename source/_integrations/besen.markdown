@@ -1,9 +1,8 @@
 ---
 title: Besen
 description: Instructions on how to integrate Besen EV chargers over Bluetooth Low Energy with Home Assistant.
-ha_category:
-  - Car
-  - Energy
+ha_categories:
+  - energy.ev_charging
 ha_release: 2026.9
 ha_iot_class: Local Push
 ha_codeowners:
@@ -89,7 +88,7 @@ The following diagnostic sensors are disabled by default:
 - **L1 voltage** and **L1 current**: Voltage and current reported for phase L1.
 - **L2 voltage**, **L2 current**, **L3 voltage**, and **L3 current**: Voltage and current reported for phases L2 and L3. These sensors are created only for three-phase chargers.
 
-To use an entity that is disabled by default, [enable the entity](/common-tasks/general/#enabling-or-disabling-entities) from the charger device page.
+To use an entity that is disabled by default, [enable the entity](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) from the charger device page.
 
 ## Actions
 

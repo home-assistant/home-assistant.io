@@ -54,9 +54,9 @@ zone:
   required: true
   type: string
 for:
-  description: How long the zone must have been empty before the condition passes. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds.
+  description: How long the zone must have been empty before the condition passes. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes, and seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -74,7 +74,8 @@ for:
 
 At 10:00, this automation starts the robot vacuum if the home zone is empty.
 
-- **Trigger**: Time is 10:00
+- **Trigger**: Time
+  - **At time**: `10:00`
 - **Condition**: Zone occupancy is not detected
   - **Zone**: Home (`zone.home`)
 - **Action**: Start vacuum cleaner
@@ -104,7 +105,7 @@ automation: |
 
 At sunrise, this automation turns off the porch light if the home zone is empty.
 
-- **Trigger**: Sun rises
+- **Trigger**: Sunrise
 - **Condition**: Zone occupancy is not detected
   - **Zone**: Home (`zone.home`)
 - **Action**: Turn off light
@@ -116,8 +117,7 @@ At sunrise, this automation turns off the porch light if the home zone is empty.
 automation: |
   alias: "Turn off the porch light after sunrise if home is empty"
   triggers:
-    - trigger: sun
-      event: sunrise
+    - trigger: sun.sunrise
   conditions:
     - condition: zone.occupancy_is_not_detected
       options:

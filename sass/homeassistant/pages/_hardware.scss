@@ -151,9 +151,8 @@
     }
   }
 
-  // A copy of the "Get started" button in the header (.menu > li > a.primary
-  // in _overrides.scss, plus what it inherits from the menu), with different
-  // words. It's part of the card link, so it sits under the stretched link and
+  // Modeled on the uppercase "Get started" pill the header used to have,
+  // with different words. It's part of the card link, so it sits under the stretched link and
   // takes its hover state from the tile.
   .hardware-tile-cta {
     display: inline-flex;

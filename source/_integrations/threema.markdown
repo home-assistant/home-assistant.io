@@ -1,8 +1,8 @@
 ---
 title: Threema
 description: Instructions on how to send Threema messages from Home Assistant.
-ha_category:
-  - Notifications
+ha_categories:
+  - messaging_notifications.chat_apps
 ha_release: '2026.10'
 ha_config_flow: true
 ha_iot_class: Cloud Push
@@ -10,7 +10,7 @@ ha_domain: threema
 ha_platforms:
   - notify
 ha_integration_type: service
-ha_quality_scale: silver
+ha_quality_scale: bronze
 ha_codeowners:
   - '@LukasQ'
 ---

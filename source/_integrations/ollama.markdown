@@ -1,9 +1,8 @@
 ---
 title: Ollama
 description: Instructions on how to integrate Ollama
-ha_category:
-  - AI
-  - Voice
+ha_categories:
+  - ai_voice.ai_models
 ha_release: 2024.4
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -16,7 +15,7 @@ related:
     title: Home Assistant Templating
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
-  - docs: /docs/automation/trigger/#sentence-trigger
+  - docs: /triggers/conversation/
     title: Sentence trigger
 ha_platforms:
   - conversation
@@ -26,7 +25,7 @@ The **Ollama** {% term integration %} adds a conversation agent in Home Assistan
 
 Controlling Home Assistant is an experimental feature that provides the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
-This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
+This integration does not integrate with [sentence triggers](/triggers/conversation/).
 
 This integration requires an external Ollama server, which is available for macOS, Linux, and Windows. Follow the [download instructions](https://ollama.com/download) to install the server. Once installed, configure Ollama to be [accessible over the network](https://github.com/ollama/ollama/blob/main/docs/faq.mdx#how-can-i-expose-ollama-on-my-network).
 

@@ -63,9 +63,9 @@ behavior:
 for:
   description: >
     The time the vacuum must keep returning before the trigger fires.
-    Accepts a duration like `00:00:10` for 10 seconds.
+    Accepts a duration like `00:00:10` for 10 seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
 {% endoptions_yaml %}
 
 {% include triggers/targets.md %}
@@ -86,9 +86,10 @@ for:
 If your vacuum docks in a darker part of the house, you can turn on a nearby light when it starts heading back so it can finish its route with a clear path.
 
 - **Trigger**: Vacuum cleaner started returning to dock
-- **Target**: Downstairs vacuum
+  - **Target**: Downstairs vacuum
 - **Condition**: Sun is below horizon
-- **Action**: Turn on hallway light
+- **Action**: Turn on light
+  - **Target**: Hallway light
 
 {% details "YAML example for lighting the path back to the dock" %}
 

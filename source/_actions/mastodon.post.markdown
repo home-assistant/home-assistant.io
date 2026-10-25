@@ -10,7 +10,7 @@ related_actions:
   - mastodon.unmute_account
 ---
 
-The **Post** action publishes a status to your Mastodon account.
+The **Mastodon: Post** action publishes a status to your Mastodon account.
 
 This is handy when you want Home Assistant to share something automatically, for example posting your local weather station readings each morning or announcing when your solar panels hit a production milestone. You can attach media, add a content warning, and control who sees the post.
 

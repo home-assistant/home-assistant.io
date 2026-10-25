@@ -17,16 +17,59 @@
     {% include asides/condition_left_sidebar.html %}
   {%- endif -%}
 
-  {%- if page.ha_category.first -%}
+  {%- if page.building_block -%}
+    {% include asides/building_block_left_sidebar.html %}
+  {%- endif -%}
+
+  {%- if page.ha_categories.first -%}
+    {%- comment -%}
+      A category with its subcategories indented underneath, like a tree.
+      Two subcategories of the same category share that category's row.
+    {%- endcomment -%}
+    {%- assign parent_slugs = "" | split: "" -%}
+    {%- for slug in page.ha_categories -%}
+      {%- assign parent_slug = slug | split: '.' | first -%}
+      {%- unless parent_slugs contains parent_slug -%}
+        {%- assign parent_slugs = parent_slugs | push: parent_slug -%}
+      {%- endunless -%}
+    {%- endfor -%}
     <section id="category-module" class="aside-module grid__item one-whole lap-one-half">
       <div class='section'>
         <h2 class="h1 title epsilon">{% icon "mdi:category" %} Categories</h2>
-        <ul class='divided'>
-        {%- for category in page.ha_category -%}
+        <p class="integration-categories-intro">{{ page.title }} is listed under:</p>
+        <ul class="integration-categories">
+        {%- for parent_slug in parent_slugs -%}
+          {%- assign category = site.data.integration_categories | where: 'slug', parent_slug | first %}
           <li>
-            <a href='/integrations/#{{ category | slugify }}'>{{ category }}</a>
+            <a href='/integrations/category/{{ category.slug }}/'>
+              <iconify-icon icon='{{ category.icon }}'></iconify-icon>
+              <span>{{ category.name }}</span>
+            </a>
+            {%- assign subcategory_count = 0 -%}
+            {%- for slug in page.ha_categories -%}
+              {%- assign parts = slug | split: '.' -%}
+              {%- if parts[0] == parent_slug and parts[1] -%}
+                {%- assign subcategory_count = subcategory_count | plus: 1 -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if subcategory_count > 0 %}
+            <ul class="integration-subcategories">
+            {%- for slug in page.ha_categories -%}
+              {%- assign parts = slug | split: '.' -%}
+              {%- if parts[0] == parent_slug and parts[1] -%}
+                {%- assign subcategory = category.subcategories | where: 'slug', parts[1] | first %}
+              <li>
+                <a href='/integrations/category/{{ category.slug }}/{{ subcategory.slug }}/'>
+                  <iconify-icon icon='{{ subcategory.icon }}'></iconify-icon>
+                  <span>{{ subcategory.name }}</span>
+                </a>
+              </li>
+              {%- endif -%}
+            {%- endfor %}
+            </ul>
+            {%- endif %}
           </li>
-        {%- endfor -%}
+        {%- endfor %}
         </ul>
       </div>
     </section>
@@ -71,6 +114,17 @@
         <h2 class="h1 title epsilon">{% icon "mdi:book-open-variant" %} Learn more</h2>
         <ul class='divided'>
           {% include asides/condition_learn_more.html %}
+        </ul>
+      </div>
+    </section>
+  {%- endif -%}
+
+  {%- if page.building_block -%}
+    <section id="learn-more-module" class="aside-module grid__item one-whole lap-one-half">
+      <div class='section'>
+        <h2 class="h1 title epsilon">{% icon "mdi:book-open-variant" %} Learn more</h2>
+        <ul class='divided'>
+          {% include asides/building_block_learn_more.html %}
         </ul>
       </div>
     </section>

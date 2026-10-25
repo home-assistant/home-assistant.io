@@ -1,10 +1,8 @@
 ---
 title: Network UPS Tools (NUT)
 description: Instructions on how to set up NUT sensors within Home Assistant.
-ha_category:
-  - Button
-  - Switch
-  - System monitor
+ha_categories:
+  - energy.backup_power
 ha_iot_class: Local Polling
 ha_release: 0.34
 ha_domain: nut
@@ -137,7 +135,7 @@ Most of this integration's diagnostic sensors are disabled by default
 to reduce storage overhead for Home Assistant. The diagnostic sensors
 marked with an asterisk \* are enabled by default. To use a disabled
 sensor, you need to enable them first. See the [enabling or disabling
-entities](/common-tasks/general/#enabling-or-disabling-entities)
+entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
 documentation for information on how to do this.
 {% endimportant %}
 

@@ -2,11 +2,6 @@
 title: Home Assistant Cloud
 description: Enable the Home Assistant Cloud integration.
 ha_release: '0.60'
-ha_category:
-  - Backup
-  - Speech-to-text
-  - Text-to-speech
-  - Voice
 ha_iot_class: Cloud Push
 ha_codeowners:
   - '@home-assistant/cloud'
@@ -64,10 +59,9 @@ With the remote access actions, you decide when your Home Assistant is reachable
 
 Only open up remote access when you actually need it. This automation turns it on when you leave home.
 
-- **Trigger**: Zone
-  - **Entity with location**: You (`person.you`)
+- **Trigger**: Zone left
+  - **Target**: You
   - **Zone**: Home
-  - **Event**: Leave
 - **Action**: Home Assistant Cloud: Enable Home Assistant Cloud remote access
 
 {% details "YAML example for turning on remote access when you leave" %}
@@ -76,10 +70,11 @@ Only open up remote access when you actually need it. This automation turns it o
 automation: |
   alias: "Turn on remote access when I leave"
   triggers:
-    - trigger: zone
-      entity_id: person.you
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.you
+      options:
+        zone: zone.home
   actions:
     - action: cloud.remote_connect
 {% endexample %}
@@ -90,10 +85,9 @@ automation: |
 
 When you're home, you reach Home Assistant on your local network. This automation turns remote access off when you arrive.
 
-- **Trigger**: Zone
-  - **Entity with location**: You (`person.you`)
+- **Trigger**: Zone entered
+  - **Target**: You
   - **Zone**: Home
-  - **Event**: Enter
 - **Action**: Home Assistant Cloud: Disable Home Assistant Cloud remote access
 
 {% details "YAML example for turning off remote access when you get home" %}
@@ -102,10 +96,11 @@ When you're home, you reach Home Assistant on your local network. This automatio
 automation: |
   alias: "Turn off remote access when I get home"
   triggers:
-    - trigger: zone
-      entity_id: person.you
-      zone: zone.home
-      event: enter
+    - trigger: zone.entered
+      target:
+        entity_id: person.you
+      options:
+        zone: zone.home
   actions:
     - action: cloud.remote_disconnect
 {% endexample %}

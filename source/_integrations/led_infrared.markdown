@@ -1,11 +1,8 @@
 ---
 title: LED Infrared
 description: Integration to control LED infrared lights using an infrared emitter and to receive commands from a remote using an infrared receiver.
-ha_category:
-  - Button
-  - Event
-  - Infrared-controlled
-  - Light
+ha_categories:
+  - lighting
 ha_release: 2026.8
 ha_iot_class: Assumed State
 ha_codeowners:
@@ -206,8 +203,7 @@ The following example demonstrates how to automate an LED Infrared device. For a
 
 ### Automation: Turning on the LED strip at night
 
-- **Trigger**: Sun: after sunset
-  - **Target**: Optional trigger target if needed
+- **Trigger**: Sunset
 - **Condition**: Optional condition if needed
 - **Action**: Turn on light
 
@@ -217,8 +213,7 @@ The following example demonstrates how to automate an LED Infrared device. For a
 automation: |
   alias: "Turn on the LEDs during the night"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: light.turn_on
       target:

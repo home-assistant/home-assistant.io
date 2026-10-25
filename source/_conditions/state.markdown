@@ -23,7 +23,7 @@ To use this condition in an automation:
 5. In **Entity**, select the entity to check.
 6. Optional: In **Attribute**, select an attribute to check instead of the main state.
 7. In **State**, select the state that the entity must have. To allow several states, select more than one.
-8. Optional: In **For at least**, enter how long the entity must have had the state. This only works with one state. If you selected an **Attribute**, **For at least** isn't available.
+8. Optional: In **For at least**, enter how long the entity must have had the state. If you selected several states, the entity must have had one of them for the whole time. If you selected an **Attribute**, **For at least** isn't available.
 9. Select **Save**.
 
 ### Options in the UI
@@ -39,7 +39,7 @@ State:
   description: The state, or the attribute value, that the entity must have. If you select several states, the condition passes if the entity has one of them.
   required: true
 For at least:
-  description: How long the entity must have had the state. By default, the condition doesn't check how long. Only works with one state. Not available if you select an **Attribute**.
+  description: How long the entity must have had the state. If you select several states, the entity must have had one of them for the whole time. By default, the condition doesn't check how long. Not available if you select an **Attribute**.
   required: false
 {% endoptions_ui %}
 
@@ -84,9 +84,9 @@ match:
   default: all
 for:
   description: >
-    How long the entity must have had the state. Accepts a duration string in `HH:MM:SS` format, or a time period mapping in hours, minutes, and seconds. You can use a template. Can't be combined with `attribute`, a list of states, or a helper entity as the state.
+    How long the entity must have had the state. With a list of states, the entity must have had one of them for the whole time. Accepts a duration string in `HH:MM:SS` format, or a time period mapping in hours, minutes, and seconds. You can use a template. Can't be combined with `attribute`, or with a helper entity as the state. For a list of all accepted formats and templates, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map, template]
 {% endoptions_yaml %}
 
 You can use templates in a time period mapping for `for`.
@@ -102,6 +102,18 @@ condition: |
   for:
     minutes: "{{ states('input_number.lock_min') | int }}"
     seconds: "{{ states('input_number.lock_sec') | int }}"
+{% endexample %}
+
+The following example passes if the light has been `off` for at least 10 minutes, or `unavailable` for at least 10 minutes. If the light changes from `off` to `unavailable`, the 10 minutes start again:
+
+{% example %}
+condition: |
+  condition: state
+  entity_id: light.hallway
+  state:
+    - "off"
+    - "unavailable"
+  for: "00:10:00"
 {% endexample %}
 
 The following example passes if at least one of two motion sensors detects motion:
@@ -138,13 +150,14 @@ This condition checks one or more entities:
 ## Good to know
 
 - The condition compares the state exactly. To check whether an entity is unavailable (`unavailable`) or has an unknown state (`unknown`), select or enter those states. Otherwise, an unavailable entity doesn't pass.
-- If the entity doesn't exist, the condition fails with an error. The error is shown in the [trace](/automation/testing/#traces).
+- If the entity doesn't exist, the condition fails with an error. The error is shown in the [trace](/docs/automation/testing/#traces).
 - If you use a helper entity as the state, and the helper doesn't exist, the condition fails with an error. The error is shown in the trace.
 - If you select an **Attribute** that the entity doesn't have, the condition doesn't pass.
-- **For at least** (`for`) only works with one state. If you select an **Attribute**, **For at least** isn't available. With several states, or with a helper entity as the state, Home Assistant shows an error when you save the automation.
+- With several states, **For at least** (`for`) checks how long the entity has had its current state. The time isn't added up across the states: when the entity changes from one of the selected states to another, the time starts again. For example, with the states **Off** and **Unavailable** and **For at least** set to 5 minutes, a light that was off for 3 minutes and then unavailable for 3 minutes doesn't pass.
+- If you select an **Attribute**, **For at least** isn't available. With a helper entity as the state, Home Assistant shows an error when you save the automation.
 - After Home Assistant restarts, **For at least** counts from the moment the entity was loaded again.
 - To check entities of a specific type, conditions such as [Light is on](/conditions/light.is_on/) can be easier to set up. For all conditions, refer to the [list of available conditions](/conditions/).
-- To check whether a numeric value is above or below a limit, use the [Numeric state](/docs/scripts/conditions/#numeric-state-condition) condition.
+- To check whether a numeric value is above or below a limit, use the [Numeric state](/conditions/numeric_state/) condition.
 
 {% include conditions/try_it.md %}
 

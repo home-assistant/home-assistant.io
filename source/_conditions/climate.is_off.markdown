@@ -61,7 +61,7 @@ behavior:
 
 ## Good to know
 
-- Thermostats that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped and do not count as off. With **Any** behavior, if all targeted thermostats are unavailable or have an unknown state, the condition fails. With **All** behavior, if all targeted thermostats are unavailable or have an unknown state, the condition passes.
+{% include conditions/unavailable_targets.md entities="thermostats" %}
 - To gate an automation on a thermostat being on instead, use [Thermostat is on](/conditions/climate.is_on/).
 - Pair with the [Thermostat turned off](/triggers/climate.turned_off/) trigger to react only when a transition to off happens.
 
@@ -78,7 +78,9 @@ When the outdoor temperature drops below 10°C during winter, automatically turn
 - **Condition**: Thermostat is off
   - **Target**: All thermostats
   - **Condition passes if**: Any
-- **Action**: Turn on thermostats and set to heat mode
+- **Action**: Set thermostat HVAC mode
+  - **Target**: Living room, Bedroom, and Office thermostats
+  - **HVAC mode**: Heat
 
 {% example %}
 automation: |

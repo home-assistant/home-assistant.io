@@ -59,9 +59,9 @@ behavior:
 for:
   description: >
     How long the lock must stay unlocked before the condition passes. Accepts
-    a duration like `00:10:00` for 10 minutes.
+    a duration like `00:10:00` for 10 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -71,7 +71,7 @@ for:
 
 ## Good to know
 
-- Locks in the `unavailable` or `unknown` state are ignored when Home Assistant evaluates the condition.
+{% include conditions/unavailable_targets.md entities="locks" %}
 - Use **For at least** if you want to ignore a short unlock before the door is secured again.
 - To check for the secure state instead, use [Lock is locked](/conditions/lock.is_locked/).
 
@@ -126,8 +126,9 @@ If an outside door stays unlocked after dark, a visible reminder can help. This 
 - **Target**: Outside door locks (by label)
 - **Condition passes if**: Any
 - **For at least**: 00:05:00
-- **Condition**: Sun is below the horizon
-- **Action**: Turn on
+- **Condition**: Sun is set
+- **Action**: Turn on light
+  - **Target**: Living room lamp
 
 {% details "YAML example for a visual unlocked reminder" %}
 
@@ -144,8 +145,7 @@ automation: |
       options:
         behavior: any
         for: "00:05:00"
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

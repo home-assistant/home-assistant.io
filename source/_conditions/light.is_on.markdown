@@ -59,9 +59,9 @@ behavior:
 
 ## Good to know
 
-- Lights that are unavailable (`unavailable`) or have an unknown state (`unknown`) do not count as on. With **Any** behavior, they are skipped. With **All** behavior, the condition fails if every targeted light is unavailable.
+{% include conditions/unavailable_targets.md entities="lights" %}
 - To gate an automation on a light being off instead, use [Light is off](/conditions/light.is_off/).
-- Pair with [Light is brightness](/conditions/light.is_brightness/) when you also want to check whether the light's brightness meets a threshold.
+- Pair with [Light brightness](/conditions/light.is_brightness/) when you also want to check whether the light's brightness meets a threshold.
 
 {% include conditions/try_it.md %}
 

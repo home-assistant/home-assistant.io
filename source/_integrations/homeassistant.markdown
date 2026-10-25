@@ -2,8 +2,6 @@
 title: Home Assistant Core
 description: Set up core Home Assistant settings, automation triggers, and generic actions.
 ha_release: 0.0
-ha_category:
-  - Other
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
@@ -15,7 +13,7 @@ related:
   - docs: /docs/configuration/basic/
     title: Basic information
   - docs: /docs/configuration/
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
 ---
 
 The **Home Assistant Core** {% term integration %} provides generic implementations like the generic `homeassistant.turn_on` action.
@@ -347,7 +345,7 @@ If you are about to restart or stop Home Assistant, this automation tells Home A
 
 - **Trigger**: Home Assistant
   - **Event**: Shutdown
-- **Action**: Save persistent states
+- **Action**: Home Assistant Core Integration: Save persistent states
 
 {% details "YAML example for saving persistent states before shutdown" %}
 
@@ -370,7 +368,7 @@ If a door stays open longer than expected, this automation sends a message to yo
 - **Trigger**: State changed
   - **Entity**: Back door sensor (`binary_sensor.back_door`)
   - **To**: `on`
-  - **For**: 5 minutes
+  - **For at least**: 5 minutes
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

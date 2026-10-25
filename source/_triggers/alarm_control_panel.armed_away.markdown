@@ -58,9 +58,9 @@ behavior:
   default: each
 for:
   description: >
-    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
+    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -83,11 +83,12 @@ for:
 When the alarm is armed in away mode, nobody is home. Save energy by turning off the climate system and make sure the garage door is closed.
 
 - **Trigger**: Alarm armed away
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Turn off the thermostat
-- **Action**: Close the garage door
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Turn off thermostat
+- **Action**: Close cover
+  - **Target**: Garage door
 
 {% details "YAML example for energy saving on away arm" %}
 
@@ -120,7 +121,8 @@ When the alarm switches to away mode, start recording on all security cameras so
 - **Target**: Home alarm panel
 - **Trigger when**: Each
 - **For at least**: 00:00:00
-- **Action**: Turn on security cameras
+- **Action**: Turn on switch
+  - **Target**: Security cameras (by label)
 
 {% details "YAML example for camera recording on away" %}
 

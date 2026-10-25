@@ -1,12 +1,9 @@
 ---
 title: LG Infrared
 description: Integration to control LG TVs and LG split air conditioners using an infrared emitter and to receive commands from an LG remote using an infrared receiver.
-ha_category:
-  - Climate
-  - Event
-  - Infrared-controlled
-  - Media player
-  - Switch
+ha_categories:
+  - media_entertainment.tv_streaming
+  - climate.heat_pumps_air_conditioning
 ha_release: 2026.4
 ha_iot_class: Assumed State
 ha_codeowners:
@@ -27,6 +24,15 @@ ha_quality_scale: silver
 The **LG Infrared** {% term integration %} lets you control an LG TV or a compatible LG split air conditioner using any infrared emitter previously configured in Home Assistant. It can also receive commands from an LG remote when you have an infrared receiver set up, allowing you to use the remote to trigger automations in Home Assistant.
 
 Because the integration communicates over infrared, it operates in a one-way, fire-and-forget fashion: commands are sent to the device but there is no feedback channel to confirm the current state. The integration therefore uses assumed states.
+
+## How you can use the integration
+
+After setup, you can control your LG TV or air conditioner from Home Assistant the same way you would with its remote, and make it part of your automations. For example, you can:
+
+- Turn the air conditioner off when a window opens.
+- Cool a room before you get home.
+- Use spare buttons on your LG TV remote, like the color buttons, to control lights or run scenes.
+- Keep using the physical air conditioner remote. With an infrared receiver, the climate entity follows the changes you make with it.
 
 ## Supported devices
 
@@ -154,7 +160,7 @@ When an infrared emitter is configured, these button entities are created for th
 
 - **Jet mode**: Runs the unit at maximum power for fast cooling or heating.
 - **Eco mode**: Reduces the unit's power draw. Some remotes label this button Diet.
-- **Viraat mode**: Runs an extra boost mode, separate from **Jet mode**. Only LG India models offer it, so this button is disabled by default. Enable it if your remote has a Viraat button.
+- **Viraat mode**: Runs an extra boost mode, separate from **Jet mode**. Only LG India models offer it, so this button is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). Enable it if your remote has a Viraat button.
 - **AI mode**: Turns on the automatic AI operating mode.
 
 To turn one of these modes off, select any other mode, such as **Cool**.
@@ -183,6 +189,67 @@ When an infrared emitter is configured, these switch entities are created for th
 
 If you also have an infrared receiver entity (from an IR blaster that can also listen), you can optionally select it during setup. When selected, the integration decodes signals from the physical LG air conditioner remote and updates the climate entity to match, so the mode, fan speed, target temperature, and swing modes stay in sync.
 
+## LG Infrared automation examples
+
+The following examples show how to automate an LG TV and an LG air conditioner. For more ideas, refer to the media player [actions reference](/integrations/media_player/#list-of-actions) and the climate platform [actions reference](/integrations/climate/#list-of-actions).
+
+{% include docs/paste_yaml_tip.md %}
+
+### Automation: Toggling the lights with the red button on the TV remote
+
+- **Trigger**: Event received
+  - **Target**: LG TV received command (`event.lg_tv_received_command`)
+  - **Event type**: Red
+- **Action**: Toggle light
+  - **Target**: Living room (`light.living_room`)
+
+{% details "YAML example for toggling the lights with the red button" %}
+
+{% example %}
+automation: |
+  alias: "Toggle the living room lights with the red button"
+  triggers:
+    - trigger: event.received
+      target:
+        entity_id: event.lg_tv_received_command
+      options:
+        event_type:
+          - red
+  actions:
+    - action: light.toggle
+      target:
+        entity_id: light.living_room
+{% endexample %}
+
+{% enddetails %}
+
+### Automation: Turning off the air conditioner when a window opens
+
+- **Trigger**: Window opened
+  - **Target**: Living room window (`binary_sensor.living_room_window`)
+- **Action**: Set thermostat HVAC mode
+  - **Target**: LG AC (`climate.lg_ac`)
+  - **HVAC mode**: Off
+
+{% details "YAML example for turning off the air conditioner when a window opens" %}
+
+{% example %}
+automation: |
+  alias: "Turn off the air conditioner when the window opens"
+  triggers:
+    - trigger: window.opened
+      target:
+        entity_id: binary_sensor.living_room_window
+  actions:
+    - action: climate.set_hvac_mode
+      target:
+        entity_id: climate.lg_ac
+      data:
+        hvac_mode: "off"
+{% endexample %}
+
+{% enddetails %}
+
 ## Known limitations
 
 - The TV media player and button entities use assumed state, meaning Home Assistant cannot verify the actual state of the TV. Commands received from the physical remote are exposed as events only and do not update the TV entity state.
@@ -194,6 +261,25 @@ If you also have an infrared receiver entity (from an IR blaster that can also l
 - The air conditioner button entities each send a single command and have no state. The unit does not report whether a feature is currently on or off, so features like **Jet mode** or **Eco mode** cannot be shown as active.
 - The **Energy limit** select for each air conditioner also uses assumed state. It sends a discrete infrared code, but Home Assistant cannot confirm that the unit received it, so the shown option reflects the last command sent.
 - The air conditioner switch entities also use assumed state. Each sends a discrete infrared code, but Home Assistant cannot confirm that the unit received it, so the shown state reflects the last command sent.
+
+## Troubleshooting
+
+### The TV or air conditioner does not respond to commands
+
+If the entity changes in Home Assistant but your TV or air conditioner does not react, the infrared signal is probably not reaching the device. Make sure the infrared emitter points at the receiver window of the device and that nothing blocks the path between them. For more steps, refer to [The device does not respond to commands](/integrations/infrared/#the-device-does-not-respond-to-commands).
+
+If your air conditioner reacts to most commands but not to one mode or button, your model probably does not have that feature. Check your remote or the manual of your unit.
+
+### The event entity does not fire when I press a button on the TV remote
+
+The event entity only fires for commands it receives from an LG TV remote. Signals from other remotes, including universal remotes set to another brand, are ignored.
+
+1. Make sure you selected an infrared receiver for the TV during setup. You can't add one later. Remove the TV from the integration and add it again with the receiver selected.
+2. Check that the infrared receiver entity updates when you press a button. If it does not, refer to [An infrared receiver does not pick up signals](/integrations/infrared/#an-infrared-receiver-does-not-pick-up-signals).
+
+### Reporting an issue
+
+If you need to report an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), then reload the integration. Reproduce the issue, disable debug logging, and attach the automatically downloaded debug log to your report.
 
 ## Removing the integration
 

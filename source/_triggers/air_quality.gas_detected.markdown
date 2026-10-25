@@ -57,13 +57,13 @@ behavior:
   default: each
 for:
   description: >
-    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
-  required: true
-  type: string
+    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
+  required: false
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="gas detector" example="binary_sensor.kitchen_gas" %}
 
 {% include triggers/behavior.md %}
 
@@ -119,7 +119,7 @@ When a gas leak happens while everyone is asleep or nobody is home, you want the
 - **Target**: All gas sensors (by label)
 - **Trigger when**: Each
 - **For at least**: 00:00:30
-- **Action**: Valve: Close
+- **Action**: Close valve
 
 {% details "YAML example for automatic gas shutoff" %}
 

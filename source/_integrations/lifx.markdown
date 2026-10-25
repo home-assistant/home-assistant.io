@@ -1,12 +1,8 @@
 ---
 title: LIFX
 description: Instructions on how to integrate LIFX into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Light
-  - Select
-  - Sensor
+ha_categories:
+  - lighting.bulbs_lamps
 ha_iot_class: Local Polling
 ha_release: 0.81
 ha_config_flow: true
@@ -126,7 +122,7 @@ Both buttons are configuration entities.
 - **RSSI**
   - **Description**: Reports the current Wi-Fi signal strength of the light.
   - **Available for**: all LIFX lights
-  - **Remarks**: Diagnostic entity, disabled by default. To use it, enable the entity first. Home Assistant only asks the light for its signal strength while the entity is enabled, which saves a request on every update. The unit depends on the light's firmware.
+  - **Remarks**: Diagnostic entity, [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). To use it, enable the entity first. Home Assistant only asks the light for its signal strength while the entity is enabled, which saves a request on every update. The unit depends on the light's firmware.
 
 ### Binary sensors
 
@@ -225,9 +221,14 @@ Here are a few automation examples that use the actions provided by the LIFX int
 
 Pulse the living room lights a few times so you notice the doorbell even if the sound is turned down.
 
-- **Trigger**: State of the doorbell button changes to pressed
-- **Action**: Pulse effect
+- **Trigger**: State changed
+  - **Entity**: Doorbell sensor
+  - **To**: On
+- **Action**: LIFX: Pulse effect
   - **Target**: Living room (`light.living_room`)
+  - **Mode**: Breathe
+  - **Color name**: `white`
+  - **Cycles**: `3`
 
 Use the blueprint to pick the sensor, the lights, and the flash color without writing any YAML.
 
@@ -258,9 +259,11 @@ automation: |
 
 Start the Sky effect on a LIFX Ceiling light at sunset, using the slow sunset scene. To return the light to normal control later, use the [**Stop effect**](/actions/lifx.effect_stop/) action.
 
-- **Trigger**: Sun: after sunset
-- **Action**: Sky effect
+- **Trigger**: Sunset
+- **Action**: LIFX: Sky effect
   - **Target**: Bedroom ceiling (`light.bedroom_ceiling`)
+  - **Sky type**: Sunset
+  - **Speed**: `120` seconds
 
 Use the blueprint to choose the lights, the sky type, the speed, and how long after sunset the effect starts.
 
@@ -272,8 +275,7 @@ Use the blueprint to choose the lights, the sky type, the speed, and how long af
 automation: |
   alias: "Sky scene on the bedroom ceiling in the evening"
   triggers:
-    - trigger: sun
-      event: sunset
+    - trigger: sun.sunset
   actions:
     - action: lifx.effect_sky
       target:
@@ -289,10 +291,16 @@ automation: |
 
 Start a two-hour HEV cycle on a LIFX Clean light once the last person leaves home, so the room is cleaned while nobody is in it.
 
-- **Trigger**: Zone: Person leaves home
-- **Condition**: Nobody is home
-- **Action**: Set HEV cycle state
+- **Trigger**: Zone left
+  - **Target**: Jane Doe
+  - **Zone**: Home
+- **Condition**: Numeric state
+  - **Entity**: Home
+  - **Below**: `1`
+- **Action**: LIFX: Set HEV cycle state
   - **Target**: Bathroom (`light.bathroom`)
+  - **Enable**: On
+  - **Duration**: `7200` seconds
 
 Use the blueprint to choose the zone to watch, the LIFX Clean lights, and how long the cycle runs.
 
@@ -304,10 +312,11 @@ Use the blueprint to choose the zone to watch, the LIFX Clean lights, and how lo
 automation: |
   alias: "Run a LIFX clean cycle when everyone leaves"
   triggers:
-    - trigger: zone
-      entity_id: person.jane_doe
-      zone: zone.home
-      event: leave
+    - trigger: zone.left
+      target:
+        entity_id: person.jane_doe
+      options:
+        zone: zone.home
   conditions:
     - condition: numeric_state
       entity_id: zone.home

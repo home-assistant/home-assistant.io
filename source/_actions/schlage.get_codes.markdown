@@ -1,5 +1,5 @@
 ---
-title: "Get the PIN codes of a Schlage lock"
+title: "Get PIN codes"
 action: schlage.get_codes
 domain: schlage
 description: "Returns all PIN codes stored on a Schlage lock."
@@ -10,7 +10,7 @@ related_actions:
 
 Use this action to retrieve all PIN codes stored on a Schlage lock. For example, you can use it to check which codes are set before adding or removing one.
 
-This action returns its result as [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) and does not change anything on the lock.
+This action returns its result as [response data](/docs/automation/action/#action-response-data) and does not change anything on the lock.
 
 {% include actions/ui_header.md %}
 
@@ -21,7 +21,7 @@ To get the PIN codes from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Schlage lock.
-6. From the actions shown for that target, select **Schlage: Get PIN codes**.
+6. From the actions shown for that target, under **Schlage**, select **Get PIN codes**.
 7. Select **Save**.
 
 ### Options in the UI

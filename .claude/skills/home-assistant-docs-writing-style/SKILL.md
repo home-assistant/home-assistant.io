@@ -49,6 +49,7 @@ The full brand personality guide is at [`personality.markdown`](https://raw.gith
 - Do not use "master/slave". Use alternatives such as "client/server", "leader/follower", "main/replica", or "controller/device".
 - Match the official capitalization of brand names, services, protocols, integrations, and platforms. For example, use "Z-Wave", not "Zwave", "Z-wave", "Z Wave", or "ZWave".
 - Follow the terminology rules listed in `.textlintrc.json`.
+- For textlint commands, follow the linting guidance in `home-assistant-markdown-liquid-style`.
 
 ## Lists
 
@@ -62,7 +63,7 @@ The full brand personality guide is at [`personality.markdown`](https://raw.gith
 
 ## Content structure
 
-- Follow the [topic-based authoring guide](https://raw.githubusercontent.com/home-assistant/developers.home-assistant/refs/heads/master/docs/documenting/topic-based-authoring.md) for every documentation page.
+- Follow the [topic-based authoring guide](https://contributors.home-assistant.io/writing/guides/structure/) for every documentation page.
 - Organize each section around one purpose: concept, task, reference, tutorial, or troubleshooting.
 - Keep setup instructions in task sections, options and defined behavior in reference sections, and problem resolution in troubleshooting sections.
 - When a feature is configurable from the UI, document the UI path and options before supported YAML or command-line alternatives.
@@ -105,7 +106,7 @@ When a feature is deprecated or an integration is removed from Home Assistant, r
 
 - If a feature is deprecated, remove the related section from the integration page.
 - Do not add a deprecation notice to the documentation.
-- If an entire integration is deprecated, follow the steps on [removing an integration page](https://raw.githubusercontent.com/home-assistant/developers.home-assistant/refs/heads/master/docs/documenting/remove-page.md).
+- If an entire integration is deprecated, follow the steps on [removing an integration page](https://contributors.home-assistant.io/writing/guides/move-or-remove/).
 
 ## Other documentation rules
 

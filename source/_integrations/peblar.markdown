@@ -1,10 +1,8 @@
 ---
 title: Peblar
 description: Instructions on how to integrate Peblar Rocksolid EV Charger with Home Assistant.
-ha_category:
-  - Car
-  - Energy
-  - Update
+ha_categories:
+  - energy.ev_charging
 ha_release: 2025.1
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -92,7 +90,7 @@ or warning.
 
 {% important %}
 Some of these binary sensors are disabled by default. If you want to use them, you need
-to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
+to enable them first. See the [enabling or disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
 documentation for information on how to do this.
 {% endimportant %}
 
@@ -111,7 +109,7 @@ the charger. The following buttons are available:
 
 {% important %}
 Some of these buttons are disabled by default. If you want to use them, you need
-to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
+to enable them first. See the [enabling or disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
 documentation for information on how to do this.
 {% endimportant %}
 
@@ -245,7 +243,7 @@ as a device.
 
 {% important %}
 The sensors marked with \*\* are disabled by default. If you want to use them,
-you need to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities)
+you need to enable them first. See the [enabling or disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
 documentation for information on how to do this.
 {% endimportant %}
 
@@ -402,7 +400,16 @@ Not all functionality of the Peblar charger is available through this integratio
 
 - The Peblar APIs currently don't communicate when the charger is awaiting authentication (for example, using an RFID card) before it can start charging. As a result, you will see a suspended charging status in Home Assistant when the charger is actually awaiting authentication.
 - Home Assistant manages the charger's local REST API for you. If it is switched off, setting up this integration switches it on, and it stays on afterwards. You can keep using that API yourself alongside the integration.
-- Peblar is also sold as white-label products, such as [CoolBlue BlueBuilt](https://www.coolblue.nl/en/charging-stations/our-charging-stations), [Eneco Connectric®](https://www.eneco.nl/campagnes/laadpalen/) and [Shell Recharge](https://www.shell.nl/b2b-business/shell-fleet-solutions/electric-charging/at-home-ev-charging.html#thuisladers). This integration has been tested only with Peblar branded products, and it's unknown whether it works with these white-label versions.
+- Peblar is also sold as white-label products, such as [CoolBlue BlueBuilt](https://www.coolblue.nl/en/charging-stations/our-charging-stations), [Eneco Connectric®](https://www.eneco.nl/campagnes/laadpalen/) and [Shell Recharge](https://www.shell.nl/bedrijven/shell-fleet-solutions/elektrisch-laden/charging-at-home-and-office.html#laadoplossingen-voor-thuis). Some of these run firmware that is locked by the reseller: they reject generic Peblar firmware and may stay on an older version. On a CoolBlue BlueBuilt charger, the integration works, with these exceptions:
+  - On firmware 1.6.1+1+COOLBLUE-1:
+    - The **Firmware** and **Customization** update entities are not created, because the charger does not report any available update.
+    - The **Socket lock** binary sensor always shows the socket as unlocked, because this firmware reports the socket as unlocked even while the cable is locked in. The **Keep socket locked** switch does lock the cable.
+    - The **List autocharge vehicles**, **Add autocharge vehicle** and **Delete autocharge vehicle** actions do not work, because this firmware does not provide the autocharge vehicle list.
+    - The **Custom solar** smart charging mode is not offered, as it needs firmware 1.10 or later.
+  - On firmware 1.9.2+1+COOLBLUE-1:
+    - The **Socket lock** binary sensor shows whether the cable is locked, and the **Unlock socket** button releases the cable.
+    - The **List autocharge vehicles** action works, but **Add autocharge vehicle** and **Delete autocharge vehicle** fail with the charger error "This endpoint is not available when PLC hardware is not present or enabled".
+    - The other exceptions for firmware 1.6.1+1+COOLBLUE-1 still apply.
 
 ## Troubleshooting
 

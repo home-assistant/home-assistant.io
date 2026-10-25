@@ -1,12 +1,8 @@
 ---
 title: Salda Smarty
 description: Instructions on how to integrate Salda Smarty 2X/3X/4X P/V ventilation systems into Home Assistant.
-ha_category:
-  - Button
-  - Fan
-  - Hub
-  - Sensor
-  - Switch
+ha_categories:
+  - climate.fans_ventilation
 ha_config_flow: true
 ha_iot_class: Local Polling
 ha_release: 0.95

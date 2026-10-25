@@ -3,8 +3,8 @@ title: BEGA
 description: Control your BEGA Zigbee devices using the Zigbee integration.
 ha_release: '2026.4'
 ha_iot_class: Local Push
-ha_category:
-  - Switch
+ha_categories:
+  - lighting
 ha_domain: bega
 ha_integration_type: brand
 works_with:
@@ -17,6 +17,6 @@ ha_brand: true
 
 {% include integrations/wwha.md url="https://www.bega.com/en/" %}
 
-## Supported devices
+## Works with Home Assistant certified devices
 
 {% include integrations/device_list.html brand="BEGA" hide_list="true" %}

@@ -1,8 +1,6 @@
 ---
 title: Switch
 description: Instructions on how to set up your switches with Home Assistant.
-ha_category:
-  - Switch
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: switch
@@ -12,7 +10,7 @@ ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
 related:
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
     title: Customizing devices
   - docs: /dashboards/
     title: Dashboard

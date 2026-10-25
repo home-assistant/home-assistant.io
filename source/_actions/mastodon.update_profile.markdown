@@ -10,7 +10,7 @@ related_actions:
   - mastodon.unmute_account
 ---
 
-The **Update profile** action changes the information and pictures on your Mastodon profile.
+The **Mastodon: Update profile** action changes the information and pictures on your Mastodon profile.
 
 This is handy when you want your profile to reflect what is happening at home, for example updating your bio with the current indoor temperature or swapping your header image with the season. You can update your display name, bio, pictures, and several profile settings.
 

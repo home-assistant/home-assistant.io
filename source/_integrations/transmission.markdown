@@ -1,10 +1,8 @@
 ---
 title: Transmission
 description: Instructions on how to integrate Transmission within Home Assistant.
-ha_category:
-  - Downloading
-  - Sensor
-  - Switch
+ha_categories:
+  - computers_network.nas_servers
 ha_release: 0.87
 ha_iot_class: Local Polling
 ha_config_flow: true

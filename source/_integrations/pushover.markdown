@@ -1,8 +1,8 @@
 ---
 title: Pushover
 description: Instructions on how to add Pushover notifications to Home Assistant.
-ha_category:
-  - Notifications
+ha_categories:
+  - messaging_notifications.push_notifications
 ha_release: pre 0.7
 ha_config_flow: true
 ha_iot_class: Cloud Push
@@ -156,7 +156,7 @@ Receipt tracking is kept in memory. Receipts are lost when Home Assistant restar
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-Example notification triggered from the Alexa integration for an intents is shown below which also uses [Automation Templating](/getting-started/automation-templating/) for the message:
+Example notification triggered from the Alexa integration for an intents is shown below which also uses a [template](/docs/templating/) for the message:
 
 ```yaml
 # Example configuration.yaml entries

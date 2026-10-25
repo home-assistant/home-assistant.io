@@ -1,8 +1,8 @@
 ---
 title: NRGkick
 description: Integrate the NRGkick Gen2 mobile EV charger using the local REST JSON API.
-ha_category:
-  - Energy
+ha_categories:
+  - energy.ev_charging
 ha_iot_class: Local Polling
 ha_quality_scale: silver
 ha_release: 2026.2
@@ -200,7 +200,7 @@ These sensors are only available on NRGkick SIM models.
 - **Domestic plug 2 temperature** (°C): Domestic attachment pin 2 temperature.
 
 {% important %}
-The sensors marked with \*\* are disabled by default. If you want to use them, you need to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities) documentation for information on how to do this.
+The sensors marked with \*\* are disabled by default. If you want to use them, you need to enable them first. See the [enabling or disabling entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) documentation for information on how to do this.
 {% endimportant %}
 
 ### Device tracker

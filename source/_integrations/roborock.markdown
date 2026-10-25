@@ -1,16 +1,9 @@
 ---
 title: Roborock
 description: Instructions on how to integrate Roborock vacuums into Home Assistant
-ha_category:
-  - Binary sensor
-  - Button
-  - Image
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Time
-  - Vacuum
+ha_categories:
+  - appliances_cleaning.cleaning
+  - appliances_cleaning.laundry
 ha_iot_class: Local Polling
 ha_release: 2023.5
 ha_config_flow: true
@@ -286,7 +279,7 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 
 #### Button
 
-There are currently four buttons that allow you to reset the various maintenance items on your vacuum. Pressing the button cannot be undone. For this reason, the buttons are disabled by default to make sure they are not pressed unintentionally.
+There are currently four buttons that allow you to reset the various maintenance items on your vacuum. Pressing the button cannot be undone. For this reason, the buttons are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) to make sure they are not pressed unintentionally.
 
 - **Reset sensor consumable**
   - **Description**: The sensors on your vacuum are expected to be cleaned after 30 hours of use.
@@ -473,7 +466,7 @@ Running a robot vacuum while your alarm system is armed can falsely trigger moti
 alias: "Vacuum: Clean when house is empty"
 description: "Triggers a full clean when the house alarm is armed to away."
 trigger:
-  - platform: state
+  - trigger: state
     entity_id: alarm_control_panel.home_alarm
     to: "armed_away"
 condition:
@@ -481,7 +474,7 @@ condition:
     entity_id: vacuum.roborock_s8
     state: "docked"
 action:
-  - service: vacuum.start
+  - action: vacuum.start
     target:
       entity_id: vacuum.roborock_s8
 mode: single
@@ -504,7 +497,7 @@ alias: "Vacuum: Clean kitchen after cooking"
 description: "Sends the vacuum to the kitchen zone 1 minute after the stovetop turns off."
 mode: single
 trigger:
-  - platform: state
+  - trigger: state
     entity_id: switch.smart_hob_power
     from: "on"
     to: "off"
@@ -515,7 +508,7 @@ condition:
     entity_id: vacuum.roborock_s8
     state: "docked"
 action:
-  - service: vacuum.clean_area
+  - action: vacuum.clean_area
     target:
       entity_id: vacuum.roborock_s8
     data:

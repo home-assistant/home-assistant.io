@@ -1,8 +1,6 @@
 ---
 title: Cover
 description: Instructions on how to integrate covers into Home Assistant.
-ha_category:
-  - Cover
 ha_release: 0.27
 ha_quality_scale: internal
 ha_codeowners:
@@ -10,7 +8,7 @@ ha_codeowners:
 ha_domain: cover
 ha_integration_type: entity
 related:
-  - docs: /docs/configuration/customizing-devices/
+  - docs: /docs/configuration/customizing-entities/
     title: Customizing devices
   - docs: /dashboards/
     title: Dashboard
@@ -122,8 +120,7 @@ automation: |
       target:
         entity_id: cover.office_blind
   conditions:
-    - condition: sun
-      after: sunrise
+    - condition: sun.is_up
   actions:
     - action: light.turn_off
       target:

@@ -60,9 +60,9 @@ behavior:
   default: each
 for:
   description: >
-    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
+    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -85,11 +85,13 @@ for:
 When someone arms the alarm in any mode, the house locks down. The front door locks, the living room lights turn off, and you get a quick confirmation that everything is secured.
 
 - **Trigger**: Alarm armed
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Lock the front door
-- **Action**: Turn off the living room lights
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Lock lock 
+  - **Target**: Front door
+- **Action**: Turn off light
+  - **Target**: Living room lights
 
 {% details "YAML example for locking down on arm" %}
 

@@ -80,7 +80,7 @@
     of your configuration. This can be used to restore your Home Assistant as
     well as migrate to a new system. The backup feature is available for all
     [installation types](/installation/#about-installation-types).
-  link: /common-tasks/general/#backups
+  link: /common-tasks/general/backups/
   aliases:
     - backups
 - term: Binary sensor
@@ -177,7 +177,7 @@
     condition is not met, the actions that come after it in the same sequence do
     not run. At the top level of an automation or script, this stops the
     automation or script.
-  link: /docs/scripts/conditions/
+  link: /docs/automation/condition/
   aliases:
     - conditions
 - term: Configuration file
@@ -437,7 +437,7 @@
     Intent is a term used with voice assistants. The intent is what Home
     Assistant thinks you want it to do when it extracts a command from your
     voice or text utterance.
-  link: https://developers.home-assistant.io/docs/intent_builtin
+  link: https://contributors.home-assistant.io/core/internals/built-in-intents/
   aliases:
     - Intents
 - term: Label
@@ -532,10 +532,10 @@
     Applies the changes made to the Home Assistant configuration files. Changes
     are normally automatically updated. However, changes made outside of the
     front end will not be reflected in Home Assistant and require a reload. To
-    perform a manual reload, go to **Settings** > **System** > **Restart Home
-    Assistant** (top right) > **Quick reload**. More granular reload options
-    are available in *YAML configuration reloading* section in **Settings** >
-    **Tools** > **YAML**.
+    reload, go to **Settings** > **System**, select the power icon in the
+    top-right corner, and then select **Quick reload**. To reload only some
+    parts, go to **Settings** > **Tools** > **YAML**.
+  link: /common-tasks/general/restarting/#reloading-the-yaml-configuration
   excerpt: >
     Applies the changes made to Home Assistant configuration files. Changes are
     normally automatically updated. However, changes made outside of the front
@@ -625,7 +625,7 @@
     A template is an automation definition that can include variables for the
     action or data from the trigger values. This allows automations to generate
     dynamic actions.
-  link: /docs/automation/templating/
+  link: /docs/automation/trigger-data/
   aliases:
     - templates
 
@@ -695,7 +695,7 @@
   definition: >-
     Variables are used to store values in memory that can be processed for
     example, in a script.
-  link: /docs/scripts/#variables
+  link: /building-blocks/variables/
 - term: YAML
   definition: >-
     YAML is a human-readable data serialization language. It is used to store and transmit data in a structured format. In Home Assistant, YAML is used for configuration, for example in the `configuration.yaml` or `automations.yaml` files.

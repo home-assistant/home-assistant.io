@@ -1,26 +1,8 @@
 ---
 title: Template
 description: Instructions on how to create template entities in Home Assistant.
-ha_category:
-  - Alarm Control Panel
-  - Binary sensor
-  - Button
-  - Climate
-  - Cover
-  - Device Tracker
-  - Event
-  - Fan
-  - Helper
-  - Image
-  - Light
-  - Lock
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
-  - Vacuum
-  - Weather
+ha_categories:
+  - helpers.calculate_value
 ha_release: 0.12
 ha_iot_class: Local Push
 ha_quality_scale: internal
@@ -139,7 +121,7 @@ template:
 
 If you want more control over when an entity updates, you can define triggers. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#trigger-based-sensor-and-binary-sensor-storing-webhook-information)), or update entities based on a schedule.
 
-Whenever a trigger reacts, all related entities re-render and have access to [the trigger data](/docs/automation/templating/) in the templates.
+Whenever a trigger reacts, all related entities re-render and have access to [the trigger data](/docs/automation/trigger-data/) in the templates.
 
 Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [State changed trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
 
@@ -168,7 +150,7 @@ template:
 
 {% configuration trigger-based %}
 actions:
-  description: Define actions to run when a trigger reacts (for trigger-based entities only). Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
+  description: Define actions to run when a trigger reacts (for trigger-based entities only). Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/automation/action/#action-response-data). [See action documentation](/docs/automation/action).
   required: false
   type: list
 conditions:
@@ -2644,7 +2626,7 @@ sensor:
       required: true
       type: template
     state_class:
-      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in {% term "Long-term statistics" %}, include this key and assign the appropriate value."
+      description: "The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor. This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in {% term "Long-term statistics" %}, include this key and assign the appropriate value."
       required: false
       type: string
       default: None
@@ -3523,7 +3505,7 @@ The `twice_daily` forecast should contain dictionaries, where each dictionary re
 
 ### Trigger based weather - Weather Forecast from response data
 
-This example demonstrates how to use an `action` to call a [action with response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data)
+This example demonstrates how to use an `action` to call a [action with response data](/docs/automation/action/#action-response-data)
 and use the response in a template.
 
 ```yaml
@@ -3611,7 +3593,7 @@ curl --header "Content-Type: application/json" \
 
 ## Template and action variables
 
-State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. The `this` variable is the current [state object](/docs/configuration/state_object) of the entity and aids [self-referencing](#self-referencing) of an entity's state and attributes in templates and actions. Trigger-based entities also provide [the trigger data](/docs/automation/templating/).
+State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. The `this` variable is the current [state object](/docs/configuration/state_object) of the entity and aids [self-referencing](#self-referencing) of an entity's state and attributes in templates and actions. Trigger-based entities also provide [the trigger data](/docs/automation/trigger-data/).
 
 {% note %}
 Self-referencing using `this` provides the state and attributes for the entity before rendering the templates to calculate a new state. In other words, it contains the previous state.

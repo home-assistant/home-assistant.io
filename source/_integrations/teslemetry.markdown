@@ -1,21 +1,9 @@
 ---
 title: Teslemetry
 description: Instructions on how to integrate Teslemetry within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Calendar
-  - Car
-  - Climate
-  - Cover
-  - Device tracker
-  - Lock
-  - Media player
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
+ha_categories:
+  - vehicles_transport.cars_evs
+  - energy.solar_batteries
 ha_release: 2024.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -59,6 +47,7 @@ By default, Teslemetry sends every vehicle command through the cloud. If Home As
 
 - A Bluetooth adapter available to Home Assistant, such as a built-in adapter or a [Bluetooth proxy](/integrations/bluetooth/#remote-adapters-bluetooth-proxies).
 - The vehicle must be within Bluetooth range of that adapter while you set up pairing.
+- The vehicle must support Tesla's vehicle command protocol. Vehicles that don't, such as certain pre-2021 Model S and Model X vehicles, are not listed when you add a local vehicle.
 
 ### Setting up Bluetooth control
 
@@ -68,9 +57,9 @@ Bluetooth control is opt-in and set up per vehicle. You add each vehicle you wan
 2. Select **Add local vehicle**.
 3. Choose the account vehicle you want to control over Bluetooth, then select **Submit**.
 4. Home Assistant looks for the vehicle over Bluetooth. Make sure the vehicle is within range and that fewer than three phone keys are nearby, then continue.
-5. When prompted, select **Submit**, then approve Home Assistant's virtual key by placing your key card against the center console card reader of the vehicle.
+5. If the vehicle doesn't have Home Assistant's Bluetooth key on its key list yet, Home Assistant asks you to add it. Select **Submit**, then tap your key card on the center console card reader within about 30 seconds. The vehicle's touchscreen shows a prompt while it waits for the card. If the card isn't tapped in time, select **Submit** again and tap it sooner.
 
-You only need to do this once per vehicle.
+You only need to do this once per vehicle. If Home Assistant's key is later removed from the vehicle's key list, the next time you add the vehicle, Home Assistant asks you to tap a key card again.
 
 When the vehicle is within Bluetooth range, its commands use the local connection first, with an automatic fallback to the cloud when needed. This can make commands like locking, unlocking, or flashing the lights feel noticeably faster. When the vehicle is away, its commands use the cloud, and it switches back to Bluetooth on its own when it returns.
 
@@ -442,7 +431,7 @@ Timeouts can occur due to connection issues between Home Assistant, Teslemetry, 
 automation:
   - alias: "Charge Tesla from Solar"
     trigger:
-      - platform: numeric_state
+      - trigger: numeric_state
         entity_id: sensor.home_solar_power
         above: 3000
     actions:
@@ -462,7 +451,7 @@ automation:
 automation:
   - alias: "Precondition for Work"
     trigger:
-      - platform: calendar
+      - trigger: calendar
         event: start
         offset: "-00:15:00"
         entity_id: calendar.work
@@ -521,15 +510,17 @@ blueprint:
           filter:
             - domain: cover
 trigger:
-  - platform: numeric_state
+  - trigger: numeric_state
     entity_id:
       - !input distance_to_arrival_entity
     below: !input distance_to_arrival
     above: 0
 condition:
-  - condition: zone
-    entity_id: !input route_entity
-    zone: !input route_zone
+  - condition: zone.in_zone
+    target:
+      entity_id: !input route_entity
+    options:
+      zone: !input route_zone
 actions:
   - action: cover.open_cover
     target:

@@ -58,9 +58,9 @@ behavior:
   default: each
 for:
   description: >
-    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
+    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -86,7 +86,10 @@ The alarm just went off. Every light in the house flashes red and your phone get
   - **Target**: Home alarm panel
   - **Trigger when**: Each
   - **For at least**: 00:00:00
-- **Action**: Flash all lights red
+- **Action**: Turn on light
+  - **Target**: All lights (by label)
+  - **Color name**: Red
+  - **Flash**: Long
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 
@@ -126,11 +129,13 @@ automation: |
 When the alarm triggers, activate the siren and start recording on all security cameras. The siren deters intruders and the camera footage gives you evidence of what happened.
 
 - **Trigger**: Alarm triggered
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Turn on the siren
-- **Action**: Start camera recording
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Turn on siren
+  - **Target**: Home alarm siren
+- **Action**: Turn on switch
+  - **Target**: Security cameras (by label)
 
 {% details "YAML example for siren and camera recording" %}
 

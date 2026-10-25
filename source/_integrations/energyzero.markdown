@@ -1,8 +1,8 @@
 ---
 title: EnergyZero
 description: Instructions on how to integrate EnergyZero within Home Assistant.
-ha_category:
-  - Energy
+ha_categories:
+  - energy.energy_prices
 ha_release: 2023.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true

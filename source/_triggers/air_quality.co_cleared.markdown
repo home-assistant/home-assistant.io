@@ -57,13 +57,13 @@ behavior:
   default: each
 for:
   description: >
-    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
-  required: true
-  type: string
+    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
+  required: false
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="carbon monoxide detector" example="binary_sensor.hallway_carbon_monoxide" %}
 
 {% include triggers/behavior.md %}
 
@@ -85,7 +85,7 @@ After a carbon monoxide alarm, a blaring siren and anxious waiting are the last 
   - **Target**: All CO sensors (by label)
   - **Trigger when**: All
   - **For at least**: 00:15:00
-- **Action**: Siren: Turn off
+- **Action**: Turn off siren
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
 

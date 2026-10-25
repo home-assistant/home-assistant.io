@@ -1,12 +1,8 @@
 ---
 title: Satel Integra
 description: Instructions on how to integrate a Satel Integra alarm panel with Home Assistant using an ETHM network extension from Satel.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Hub
-  - Sensor
-  - Switch
+ha_categories:
+  - security_safety.alarm_systems
 ha_release: 0.54
 ha_iot_class: Local Push
 ha_config_flow: true
