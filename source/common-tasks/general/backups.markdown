@@ -37,10 +37,10 @@ Some files are never part of a backup, because Home Assistant creates them again
 
 - Log files, such as `home-assistant.log`.
 - Caches and temporary files, such as the `tts` folder with cached text-to-speech audio, and the `.cache` folder.
-- Backups that are stored in the configuration folder, so that a backup doesn't contain older backups.
+- Backup files in the `backups` and `tmp_backups` folders inside the configuration folder, so that a backup doesn't contain older backups. A backup file that you copied to another place in the configuration folder is included.
 - On {% term "Home Assistant Operating System" %}, files that Home Assistant marked as damaged.
 
-The history, and on {% term "Home Assistant Operating System" %} the media folder, the share folder, apps, and SSL certificates, are only included if you select them. For details, refer to [What a backup contains and where it's stored](#what-a-backup-contains-and-where-its-stored).
+The history, and on {% term "Home Assistant Operating System" %} the media folder, the share folder, apps, and SSL certificates, are only included if you select them. To see what a full backup includes, refer to [What a backup contains and where it's stored](#what-a-backup-contains-and-where-its-stored).
 
 If Home Assistant stores its history in another database, such as MariaDB or PostgreSQL, that database isn't part of the Home Assistant settings in a backup. Where it's backed up depends on where it runs:
 
