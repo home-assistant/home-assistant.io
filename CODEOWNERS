@@ -929,6 +929,7 @@ source/_integrations/radio_browser.markdown @frenck
 source/_integrations/radio_frequency.markdown @home-assistant/core
 source/_integrations/radiotherm.markdown @vinnyfuria
 source/_integrations/rainbird.markdown @konikvranik @allenporter
+source/_integrations/rainbowminer.markdown @El1t3Mult1pl3x0r
 source/_integrations/rainforest_eagle.markdown @gtdiehl @jcalbert @hastarin
 source/_integrations/rainforest_raven.markdown @cottsay
 source/_integrations/rainmachine.markdown @bachya

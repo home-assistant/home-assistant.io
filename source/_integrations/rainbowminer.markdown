@@ -1,15 +1,18 @@
 ---
 title: RainbowMiner
 description: Monitor RainbowMiner cryptocurrency mining software from Home Assistant.
-ha_category:
-  - Sensor
-ha_release: 2026.9
+ha_categories:
+  - computers_network.monitoring
+ha_release: '2026.11'
 ha_iot_class: Local Polling
+ha_codeowners:
+  - '@El1t3Mult1pl3x0r'
 ha_domain: rainbowminer
 ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: device
+ha_quality_scale: bronze
 ---
 
 The **RainbowMiner** {% term integration %} allows you to monitor [RainbowMiner](https://github.com/RainbowMiner/RainbowMiner), an open-source cryptocurrency mining application that automatically switches between algorithms, pools, and coins to maximize profitability.
