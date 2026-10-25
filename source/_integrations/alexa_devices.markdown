@@ -3,6 +3,7 @@ title: Alexa Devices
 description: Instructions on how to integrate Alexa Devices into Home Assistant.
 ha_categories:
   - ai_voice.voice_assistants
+  - lighting.bulbs_lamps
   - media_entertainment.speakers_audio
 ha_release: '2025.6'
 ha_domain: alexa_devices
@@ -16,6 +17,7 @@ ha_platforms:
   - button
   - diagnostics
   - event
+  - light
   - media_player
   - notify
   - select
@@ -37,6 +39,7 @@ There is support for the following device families within Home Assistant:
 - **Amazon Echo Auto**
 - **Amazon Echo Dot**
 - **Amazon Echo Flex**
+- **Amazon Echo Glow**
 - **Amazon Echo Plus**
 - **Amazon Echo Show**
 - **Amazon Fire TV Stick**
@@ -113,6 +116,7 @@ All Alexa-enabled devices have timestamp sensors that show the next scheduled al
 In addition to sensors, you can use the following entities:
 
 - **Button** - Execute Alexa routines, restart the device
+- **Light** - Echo Glow on/off, brightness, color, and light modes such as **Campfire** or **Disco** as effects
 - **Media Player** - Play audio/video from several sources
 - **Notify** - Speak and Announce notifications
 - **Select** - Select Drop In status
@@ -294,6 +298,7 @@ The following items are updated through push events, so changes appear in Home A
 - Volume
 - Media state
 - Do not disturb status
+- Light state
 
 ## Known limitations
 
