@@ -470,7 +470,7 @@ Home Assistant only shows this repair for automatic backups. The repair goes awa
    - `Can't write backup tarfile for app`: Home Assistant couldn't add a file of the app to the backup. The end of the error names the file and the reason:
      - `I/O error`: The storage couldn't read the file. Refer to [A backup fails with an I/O error or a read-only file system](#symptom-errno-5-io-error-or-errno-30-read-only-file-system).
      - `No such file or directory`: The file was removed while the backup ran. Create the backup again.
-     - `Permission denied`: Home Assistant isn't allowed to read the file. If you don't need the file in the backup, delete it.
+     - `Permission denied`: Home Assistant isn't allowed to read the file. This can happen with files that another app or tool created. Change the permissions of the file with the tool that created it. Only delete the file if you're sure that nobody needs it anymore.
    - For other errors, update the app or restart it, and then try again.
 3. To check the fix right away, [create a manual backup](#creating-a-manual-backup).
 
@@ -495,7 +495,7 @@ Home Assistant only shows this repair for automatic backups. The repair goes awa
 2. Find the error that starts with `Can't backup folder`. The end of the error names the file that couldn't be added, and the reason:
    - `I/O error`: The storage couldn't read the file. Refer to [A backup fails with an I/O error or a read-only file system](#symptom-errno-5-io-error-or-errno-30-read-only-file-system).
    - `No such file or directory`: The file was removed while the backup ran. Create the backup again.
-   - `Permission denied`: Home Assistant isn't allowed to read the file. If you don't need the file in the backup, delete it.
+   - `Permission denied`: Home Assistant isn't allowed to read the file. This can happen with files that another app or tool created. Change the permissions of the file with the tool that created it. Only delete the file if you're sure that nobody needs it anymore.
 3. To check the fix right away, [create a manual backup](#creating-a-manual-backup).
 
 {% enddetails %}
