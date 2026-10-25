@@ -39,7 +39,7 @@ Each zone has **Bass**, **Treble**, and **Balance** {% term entities %} in the c
 - **Bass** and **Treble** go from -7 to +7.
 - **Balance** goes from -10 (left) to +10 (right), with 0 in the center.
 
-The values are read together with the rest of the zone's status, so they do not add any queries to the amplifier. The controls are unavailable while their zone is off.
+The values are read together with the rest of the zone's status, so they do not add any queries to the amplifier. The controls are unavailable while their zone is off or the amplifier does not answer.
 
 Tone controls are only created for zones whose media player is enabled. If you enable a zone later, the integration reloads and adds its controls.
 
