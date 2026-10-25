@@ -1,0 +1,16 @@
+{
+  "domain": "zhong_hong",
+  "name": "ZhongHong",
+  "integration_type": "hub",
+  "codeowners": [
+    "@crhan"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "climate.heat_pumps_air_conditioning"
+  ],
+  "platforms": [
+    "climate"
+  ]
+}

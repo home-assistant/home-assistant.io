@@ -1,0 +1,11 @@
+{
+  "domain": "intent_script",
+  "name": "Intent Script",
+  "codeowners": [
+    "@arturpragacz"
+  ],
+  "quality_scale": "internal",
+  "categories": [
+    "ai_voice.voice_assistants"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "domain": "google_mail",
+  "name": "Google Mail",
+  "integration_type": "service",
+  "codeowners": [
+    "@tkdrob"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "messaging_notifications.email_sms_calls"
+  ],
+  "platforms": [
+    "notify",
+    "sensor"
+  ]
+}

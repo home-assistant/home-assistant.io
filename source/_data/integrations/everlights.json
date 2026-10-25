@@ -1,0 +1,12 @@
+{
+  "domain": "everlights",
+  "name": "EverLights",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "lighting.lighting_systems"
+  ],
+  "platforms": [
+    "light"
+  ]
+}

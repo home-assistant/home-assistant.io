@@ -1,0 +1,29 @@
+{
+  "domain": "sonos",
+  "name": "Sonos",
+  "integration_type": "hub",
+  "codeowners": [
+    "@peterager",
+    "@jjlawren"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "diagnostics",
+    "media_player",
+    "number",
+    "select",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "ssdp",
+    "zeroconf"
+  ]
+}

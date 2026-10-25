@@ -1,0 +1,13 @@
+{
+  "domain": "actiontec",
+  "name": "Actiontec",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "computers_network.routers_network",
+    "presence_location.network_presence"
+  ],
+  "platforms": [
+    "device_tracker"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "domain": "aidot",
+  "name": "AiDot",
+  "integration_type": "hub",
+  "codeowners": [
+    "@s1eedz",
+    "@HongBryan"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "lighting.bulbs_lamps"
+  ],
+  "platforms": [
+    "light"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

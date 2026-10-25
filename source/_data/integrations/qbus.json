@@ -1,0 +1,28 @@
+{
+  "domain": "qbus",
+  "name": "Qbus",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Qbus-iot",
+    "@thomasddn"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "hubs_protocols.building_automation"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "cover",
+    "light",
+    "scene",
+    "select",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "mqtt"
+  ]
+}

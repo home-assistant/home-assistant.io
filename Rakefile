@@ -363,6 +363,66 @@ task :allowed_referrers_data do
   end
 end
 
+desc "Sync integration metadata from a Home Assistant core checkout, like: rake integrations_data CORE=../core"
+task :integrations_data do
+  core_dir = ENV["CORE"] or abort("Set CORE to the path of a Home Assistant core checkout")
+  components_dir = File.join(core_dir, "homeassistant", "components")
+  abort("No integrations found in #{components_dir}") unless File.directory?(components_dir)
+
+  # Only the entity platforms core knows about count as platforms, plus
+  # diagnostics, so helper modules like `const.py` are never listed.
+  platforms = File.read(File.join(core_dir, "homeassistant", "generated", "entity_platforms.py"))
+    .scan(/^\s+\w+ = "(\w+)"$/).flatten
+  platforms << "diagnostics"
+
+  discovery_methods = %w[bluetooth dhcp homekit mqtt ssdp usb zeroconf]
+
+  output_dir = "#{source_dir}/_data/integrations"
+  FileUtils.rm_rf(output_dir)
+  FileUtils.mkdir_p(output_dir)
+
+  manifests = Dir[File.join(components_dir, "*", "manifest.json")].sort
+  manifests.each do |manifest_file|
+    manifest = JSON.parse(File.read(manifest_file))
+    integration_dir = File.dirname(manifest_file)
+
+    # Discovery keys hold matchers, an empty list means there are none.
+    discovery = discovery_methods.select do |method|
+      value = manifest[method]
+      value.respond_to?(:empty?) ? !value.empty? : value
+    end
+
+    integration_platforms = platforms.select do |platform|
+      File.exist?(File.join(integration_dir, "#{platform}.py")) ||
+        File.exist?(File.join(integration_dir, platform, "__init__.py"))
+    end
+
+    integration = {
+      "domain" => manifest["domain"],
+      "name" => manifest["name"],
+      "integration_type" => manifest["integration_type"],
+      "supported_by" => manifest["supported_by"],
+      "codeowners" => manifest["codeowners"],
+      "config_flow" => manifest["config_flow"],
+      "iot_class" => manifest["iot_class"],
+      "quality_scale" => manifest["quality_scale"],
+      "categories" => manifest["categories"],
+      "iot_standards" => manifest["iot_standards"],
+      "platforms" => integration_platforms.sort,
+      "discovery" => discovery,
+    }.reject { |_key, value| value.nil? || value == [] || value == false }
+
+    File.write(File.join(output_dir, "#{manifest['domain']}.json"), JSON.pretty_generate(integration) + "\n")
+  end
+
+  FileUtils.cp(
+    File.join(core_dir, "homeassistant", "generated", "integration_categories.json"),
+    "#{source_dir}/_data/integration_categories.json"
+  )
+
+  puts "## Wrote metadata for #{manifests.length} integrations to #{output_dir}"
+end
+
 desc "Extract CODEOWNERS and output to _data/codeowners.json"
 task :codeowners_data do
   codeowners = []

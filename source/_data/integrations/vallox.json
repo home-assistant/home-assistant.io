@@ -1,0 +1,24 @@
+{
+  "domain": "vallox",
+  "name": "Vallox",
+  "integration_type": "device",
+  "codeowners": [
+    "@andre-richter",
+    "@slovdahl",
+    "@viiru-",
+    "@yozik04"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "climate.fans_ventilation"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "date",
+    "fan",
+    "number",
+    "sensor",
+    "switch"
+  ]
+}

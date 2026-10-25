@@ -1,0 +1,24 @@
+{
+  "domain": "incomfort",
+  "name": "Intergas gateway",
+  "integration_type": "hub",
+  "codeowners": [
+    "@jbouwh"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "climate",
+    "diagnostics",
+    "sensor",
+    "water_heater"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

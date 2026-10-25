@@ -1,0 +1,23 @@
+{
+  "domain": "powerwall",
+  "name": "Tesla Powerwall",
+  "integration_type": "device",
+  "codeowners": [
+    "@bdraco",
+    "@jrester",
+    "@daniel-simpson"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "energy.solar_batteries"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

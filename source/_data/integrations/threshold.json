@@ -1,0 +1,14 @@
+{
+  "domain": "threshold",
+  "name": "Threshold",
+  "integration_type": "helper",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "internal",
+  "categories": [
+    "helpers.calculate_value"
+  ],
+  "platforms": [
+    "binary_sensor"
+  ]
+}

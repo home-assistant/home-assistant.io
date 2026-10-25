@@ -1,0 +1,22 @@
+{
+  "domain": "ads",
+  "name": "ADS",
+  "codeowners": [
+    "@mrpasztoradam"
+  ],
+  "iot_class": "local_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "hubs_protocols.building_automation",
+    "diy_makers.boards_hardware"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "cover",
+    "light",
+    "select",
+    "sensor",
+    "switch",
+    "valve"
+  ]
+}

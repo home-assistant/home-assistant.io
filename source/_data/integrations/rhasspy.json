@@ -1,0 +1,12 @@
+{
+  "domain": "rhasspy",
+  "name": "Rhasspy",
+  "codeowners": [
+    "@synesthesiam"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "ai_voice.voice_assistants"
+  ]
+}

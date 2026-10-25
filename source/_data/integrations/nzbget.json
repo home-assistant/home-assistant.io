@@ -1,0 +1,18 @@
+{
+  "domain": "nzbget",
+  "name": "NZBGet",
+  "integration_type": "service",
+  "codeowners": [
+    "@chriscla"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "computers_network.nas_servers",
+    "media_entertainment.tv_streaming"
+  ],
+  "platforms": [
+    "sensor",
+    "switch"
+  ]
+}

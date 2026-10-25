@@ -1,0 +1,36 @@
+{
+  "domain": "template",
+  "name": "Template",
+  "integration_type": "helper",
+  "codeowners": [
+    "@Petro31",
+    "@home-assistant/core"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "internal",
+  "categories": [
+    "helpers.calculate_value"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "binary_sensor",
+    "button",
+    "climate",
+    "cover",
+    "device_tracker",
+    "event",
+    "fan",
+    "image",
+    "light",
+    "lock",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "update",
+    "vacuum",
+    "water_heater",
+    "weather"
+  ]
+}

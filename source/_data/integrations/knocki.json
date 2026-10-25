@@ -1,0 +1,22 @@
+{
+  "domain": "knocki",
+  "name": "Knocki",
+  "integration_type": "hub",
+  "codeowners": [
+    "@joostlek",
+    "@jgatto1",
+    "@JakeBosh"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "buttons_remotes"
+  ],
+  "platforms": [
+    "diagnostics",
+    "event"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

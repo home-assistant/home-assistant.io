@@ -1,0 +1,18 @@
+{
+  "domain": "pvoutput",
+  "name": "PVOutput",
+  "integration_type": "device",
+  "codeowners": [
+    "@frenck"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "energy.solar_batteries"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}
