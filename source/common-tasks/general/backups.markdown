@@ -311,14 +311,16 @@ An automatic or manual backup fails, and Home Assistant doesn't say why.
 
 #### Description
 
-The reason is in the logs of Home Assistant.
+The reason is in the logs of Home Assistant. On {% term "Home Assistant Operating System" %}, the Supervisor creates the backup. The Home Assistant Core log then only shows a summary of the error. The details are in the Supervisor log.
 
 #### Resolution
 
 1. Go to {% my logs title="**Settings** > **System** > **Logs**" %}.
 2. In **Search logs**, enter `backup`.
    - Result: The list shows the backup errors. They start with `Error creating backup:` and include the reason, such as `Could not lock database within 30 seconds`.
-3. Find the reason in the problems below. If it isn't listed, use it to search the [community forum](https://community.home-assistant.io).
+3. On {% term "Home Assistant Operating System" %}, also check the Supervisor log. In the top-right corner, select **Home Assistant Core** > **Supervisor**. Then, in **Search logs**, enter `backup` again.
+   - Result: The Supervisor log shows the details, for example, which app or folder couldn't be backed up, and why.
+4. Find the reason in the problems below. If it isn't listed, use it to search the [community forum](https://community.home-assistant.io).
 
 {% enddetails %}
 
