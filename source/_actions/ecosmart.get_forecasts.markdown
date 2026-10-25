@@ -21,7 +21,8 @@ To get the price forecast from an automation or a script:
 4. In the **Then do** section, select **Add action**.
 5. From the search box, search for and select **ecosmart: Get price forecast**.
 6. Select the **Connection point** to forecast. Each connection point on your key is its own device, named after the ICP number on your bill.
-7. Select **Save**.
+7. In the **Response variable** field, enter a name to store the forecast in, such as `forecast`. You'll use this name to read the forecast in later steps.
+8. Select **Save**.
 
 This action does not support targets. You choose the connection point in its own field instead of by area, entity, or label.
 
