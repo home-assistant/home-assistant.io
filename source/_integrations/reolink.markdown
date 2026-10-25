@@ -128,10 +128,10 @@ Depending on the supported features of the camera ([see specifications of the ca
 - IO input+
 - Sleep status+
 
-\++ These sensors receive events using the following 4 methods (in order): TCP push, ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
+\++ These sensors receive events using the following methods (in order): TCP push, Webhook push (battery cameras), ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
 The latency for receiving the events is the best for TCP push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
-To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#reducing-latency-of-motion-events) section.
+To ensure you have the best latency possible, or if motion/AI events are not received, refer to the [Motion/AI events not working or delayed](#motionai-events-not-working-or-delayed) section.
 
 For the **crossline**, **intrusion**, **linger**, **item forgotten**, and **item taken** entities, you first need to configure the lines/zones in the Reolink app (**Settings** > **Detection alarm** > **Smart event detection**). In the Reolink app, you can add up to 3 zones/lines, and for each zone/line, you can enable/disable the person/vehicle/animal detection. Within 60 seconds after making a change in the Reolink app, the corresponding entities will automatically show up in Home Assistant.
 
@@ -848,7 +848,7 @@ Prerequisites:
 - Setting a static IP address for Reolink cameras/NVRs in your router is advisable to prevent (temporal) connectivity issues when the IP address changes.
 - Do not set a static IP in the Reolink device itself, but leave the **Connection Type** on **DHCP** under **Settings** > **Network** > **Network Information** > **Set Up**. If you set it to **static** on the Reolink device itself, this is known to cause incorrect DHCP requests on the network. The incorrect DHCP request causes Home Assistant to use the wrong IP address for the camera, resulting in connection issues. The issue originates from the Reolink firmware, which keeps sending DHCP requests even when you set a static IP address in the Reolink device.
 - Reolink cameras can support a limited amount of simultaneous connections. Therefore using third-party software like Frigate, Blue Iris, or Scrypted, or using the ONVIF integration at the same time can cause the camera to drop connections. This results in short unavailabilities of the Reolink entities in Home Assistant. Especially when the connections are coming from the same device (IP) where Home Assistant is running, the Reolink cameras can get confused, dropping one connection in favor of the other originating from the same host IP. If you experience disconnections/unavailabilities of the entities, please first temporarily shut down the other connections (like Frigate) to diagnose if that is the problem. If that is indeed the problem, you could try moving the third-party software to a different host (IP address) since that is known to solve the problem most of the time. You could also try switching the protocol to FLV on Home Assistant and/or the third-party software, as that is known to be less resource-intensive on the camera.
-- If the Reolink entities go to unavailable for short periods, the camera may be overloaded with requests resulting in short connection drops. To resolve this, first, check if the integration is using `ONVIF push` instead of `ONVIF long polling` (resource intensive) or `Fast polling` (very resource intensive), see the [Reducing latency of motion events](#reducing-latency-of-motion-events) section. Moreover, try switching to the <abbr title="flash video">FLV</abbr> streaming protocol which is the least resource-intensive for the camera, see the [options](#options) section.
+- If the Reolink entities go to unavailable for short periods, the camera may be overloaded with requests resulting in short connection drops. To resolve this, first, check if the integration is using a push method (`TCP push`, `Webhook push`, or `ONVIF push`) instead of `ONVIF long polling` (resource intensive) or `Fast polling` (very resource intensive), see the [Motion/AI events not working or delayed](#motionai-events-not-working-or-delayed) section. Moreover, try switching to the <abbr title="flash video">FLV</abbr> streaming protocol which is the least resource-intensive for the camera, see the [options](#options) section.
 
 ### Battery drains fast
 
@@ -869,18 +869,32 @@ The Reolink Home Assistant integration is supposed to wake battery cameras only 
 
 - Most Reolink cameras use h265 encoding for the high-resolution recording and clear stream to save storage space and bandwidth. Playback of this h265 encoding is not supported by all browsers or apps. Therefore, the high-resolution recording and/or clear stream may not function on all your devices from which you access Home Assistant. To see if a Reolink camera is using h264 or h265 encoding, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find either `"encoding main": "h265"` or `"encoding main": "h264"` in the text file. The low-resolution recording and fluent stream always use h264 encoding and, therefore, do not suffer from this issue.
 
-### Reducing latency of motion events
+### Motion/AI events not working or delayed
 
-TCP push and ONVIF push will result in slightly faster state changes of the binary motion/AI event sensors than ONVIF long polling.
-Moreover, TCP push and ONVIF push are less demanding for the camera than ONVIF long polling or fast polling, resulting in potentially less connection issues.
-TCP push does not have any particular requirements. However, ONVIF push has some additional network configuration requirements:
+The binary motion/AI event sensors receive events using one of the following methods: `TCP push`, `Webhook push`, `ONVIF push`, `ONVIF long polling`, or `Fast polling`.
+The push methods will result in slightly faster state changes of the binary motion/AI event sensors than ONVIF long polling.
+Moreover, the push methods are less demanding for the camera than ONVIF long polling or fast polling, resulting in potentially less connection issues.
+
+- **TCP push** is used by most devices that are not battery powered, and by battery cameras connected through a Reolink Home Hub or NVR. TCP push does not have any particular requirements.
+- **Webhook push** is used by battery cameras that are directly connected to Home Assistant (not through a Home Hub or NVR). Battery cameras do not keep a connection open to save battery life, so they push their motion/AI events to a webhook of Home Assistant instead. The webhook address is based on the (local) **Home Assistant URL** configured in the {% my network title="network settings" %}. Both HTTP and HTTPS addresses are supported.
+- **ONVIF push**, **ONVIF long polling**, and **Fast polling** are used as fallback by devices that do not support TCP push.
+
+Battery cameras only support `Webhook push`; they do not support ONVIF or polling for motion/AI events. Therefore, motion/AI events of a battery camera directly connected to Home Assistant are only received if:
+
+- The battery camera runs a firmware version that supports webhooks. Make sure the camera is updated to the [latest firmware](https://reolink.com/download-center/). For all battery cameras listed under [Tested directly connected models](#tested-directly-connected-models), a firmware version that supports webhook push is available. If the firmware does not support webhooks, a warning `does not support webhooks, no motion/AI push updates` is shown in the Home Assistant logs. In that case, connecting the battery camera through a Reolink Home Hub or NVR is an alternative to receive motion/AI events.
+- A (local) address at which Home Assistant is reachable is configured under **Home Assistant URL** in the {% my network title="network settings" %}.
+- The battery camera can reach Home Assistant on that address. Network restrictions, such as a VLAN or firewall between the Reolink device and Home Assistant, must allow this traffic.
+
+ONVIF push has the following network configuration requirements:
 
 - Reolink products cannot push ONVIF motion events to an HTTPS address (SSL).
 Therefore, make sure a (local) HTTP address at which HA is reachable is configured under **Home Assistant URL** in the {% my network title="network settings" %}.
 A valid address could, for example, be `http://192.168.1.10:8123` where `192.168.1.10` is the IP of the Home Assistant device.
 
-- Since an HTTP address is needed, Reolink push is incompatible with a global SSL certificate.
-Therefore, ensure no Global SSL certificate is configured in the [`configuration.yaml` under HTTP](/integrations/http/#ssl_certificate).
+- The Reolink device must be able to reach Home Assistant on that address. Network restrictions, such as a VLAN or firewall between the Reolink device and Home Assistant, must allow this traffic.
+
+- Since an HTTP address is needed, ONVIF push is incompatible with a global SSL certificate.
+Therefore, ensure no global SSL certificate is configured: under {% my network title="**Settings** > **System** > **Network**" %} > **HTTP server**, leave the **SSL certificate path** and **SSL key path** empty. For more information, see the [HTTP server settings](/integrations/http/#http-server-settings).
 An SSL certificate can still be enforced for external connections, by, for instance, using the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) or [NGINX Proxy Manager add-on](https://github.com/hassio-addons/addon-nginx-proxy-manager) instead of a globally enforced SSL certificate.
 
-To see if a Reolink integration is currently using `TCP push`, `ONVIF push`, `ONVIF long polling` or `Fast polling`, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find the `"event connection": "TCP push"\"ONVIF push"\"ONVIF long polling"\"Fast polling"` in the txt file.
+To see if a Reolink integration is currently using `TCP push`, `Webhook push`, `ONVIF push`, `ONVIF long polling` or `Fast polling`, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find the `"event connection": "TCP push"\"Webhook push"\"ONVIF push"\"ONVIF long polling"\"Fast polling"` in the txt file.
