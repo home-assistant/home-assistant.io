@@ -85,16 +85,38 @@ The device page links to the power station's own web interface. The serial numbe
 
 Both limits are configuration entities. The controls are read every 60 seconds, so a change made in the BLUETTI app shows up within a minute. They are unavailable while the power station cannot be read.
 
-Unlike the BLUETTI app, Home Assistant does not ask for confirmation before switching the AC output. To get a confirmation dialog on a dashboard, add the `confirmation` option to the card's action:
+Unlike the BLUETTI app, Home Assistant does not ask for confirmation before switching the AC output. To get the same confirmations as the app on a dashboard, use one button to turn it on and one to turn it off:
 
 ```yaml
-type: tile
-entity: switch.balco_260_ac_output
-tap_action:
-  action: toggle
-  confirmation:
-    text: "Turning off the AC output cuts power to everything plugged into it. Continue?"
+type: horizontal-stack
+cards:
+  - type: button
+    name: AC output on
+    icon: mdi:power-socket-eu
+    tap_action:
+      action: perform-action
+      perform_action: switch.turn_on
+      target:
+        entity_id: switch.balco_260_ac_output
+      confirmation:
+        text: "Turn on the AC output?"
+    hold_action:
+      action: none
+  - type: button
+    name: AC output off
+    icon: mdi:power-plug-off
+    tap_action:
+      action: perform-action
+      perform_action: switch.turn_off
+      target:
+        entity_id: switch.balco_260_ac_output
+      confirmation:
+        text: "Turn off the AC output?"
+    hold_action:
+      action: none
 ```
+
+Other ways to switch the entity, such as its settings dialog or a tile card's icon, do not ask for confirmation.
 
 Wait at least a minute before turning the AC output back on after turning it off. Switching it off and on again within seconds has been followed by an error on the device.
 
