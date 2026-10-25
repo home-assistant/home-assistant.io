@@ -20,7 +20,7 @@ To set a counter to a specific value from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the counter you want to set.
-6. From the actions shown for that target, select **Set counter value**.
+6. From the actions shown for that target, under **Counter**, select **Set counter value**.
 7. Set the **Value** you want to apply.
 8. Select **Save**.
 
@@ -28,7 +28,7 @@ To set a counter to a specific value from an automation or a script:
 
 {% options_ui %}
 Value:
-  description: The value to set the counter to. Must be 0 or a positive whole number.
+  description: The value to set the counter to. Must be a whole number. Negative numbers are allowed.
 {% endoptions_ui %}
 
 {% include actions/yaml_header.md %}
@@ -50,7 +50,7 @@ This sets `counter.paper_towels` to 12.
 
 {% options_yaml %}
 value:
-  description: The value to set the counter to. Must be 0 or a positive whole number.
+  description: The value to set the counter to. Must be a whole number. Negative numbers are allowed.
   required: true
   type: integer
 {% endoptions_yaml %}
@@ -59,7 +59,7 @@ value:
 
 ## Good to know
 
-- The value must be 0 or a positive whole number.
+- The value must be a whole number. Negative numbers, like `-5`, are allowed.
 - The value must be a multiple of the counter's step size, and within the configured minimum and maximum. If it isn't, the action fails.
 
 {% include actions/try_it.md %}
@@ -70,10 +70,11 @@ value:
 
 Set a counter to a known amount when you restock, for example to reset a paper towel count after buying a new pack.
 
-- **Trigger**: Restock button pressed
-- **Action**: Set counter value
+- **Trigger**: State changed
+  - **Entity**: Paper towels restocked helper
+- **Action**: Counter: Set counter value
   - **Target**: Paper towels
-  - **Value**: 12
+  - **Value**: `12`
 
 {% details "Show example YAML" %}
 

@@ -2,15 +2,14 @@
 title: IOmeter
 description: Instructions on how to integrate IOmeter within Home Assistant.
 ha_release: 2025.3
-ha_category:
-  - Energy
-  - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_codeowners:
   - '@jukrebs'
 ha_quality_scale: bronze
 ha_domain: iometer
 ha_integration_type: device
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:

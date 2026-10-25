@@ -1,5 +1,5 @@
 ---
-title: "Restore a Sonos snapshot"
+title: "Restore"
 action: sonos.restore
 domain: sonos
 description: "Restores a previously taken snapshot on one or more Sonos speakers."
@@ -7,7 +7,7 @@ related_actions:
   - sonos.snapshot
 ---
 
-Use this action to restore a snapshot you previously saved with the [Take a Sonos snapshot](/actions/sonos.snapshot/) action. Together, these two actions let you interrupt playback, for example to play a doorbell sound or a notification, and then resume what was playing.
+Use this action to restore a snapshot you previously saved with the [Snapshot](/actions/sonos.snapshot/) action. Together, these two actions let you interrupt playback, for example to play a doorbell sound or a notification, and then resume what was playing.
 
 {% note %}
 The queue is not part of the snapshot. If the speaker's queue was replaced after the snapshot was taken, restoring brings back the playing position, but within the new queue.
@@ -26,7 +26,7 @@ To restore a Sonos snapshot from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the Sonos speakers you want to restore. You can also select an area, a device, or a label.
-6. From the actions shown for that target, select **Restore**.
+6. From the actions shown for that target, under **Sonos**, select **Restore**.
 7. Optionally, turn off **With group** if you only want to restore the selected speakers.
 8. Select **Save**.
 

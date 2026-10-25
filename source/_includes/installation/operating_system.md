@@ -55,11 +55,15 @@ This guide assumes that you have a dedicated {{ site.installation.types[page.ins
 - This is typically an Intel or AMD-based system.
 - The system must be 64-bit capable and be able to boot using UEFI.
   - Most systems produced in the last 10 years support the UEFI boot mode.
+- The boot medium must support 512-byte logical sectors (512n or 512e).
+  - Most drives support this. However, some NVMe SSDs and hard drives use native 4K sectors (4Kn) only. Home Assistant OS cannot boot from these, so avoid them for your boot medium.
 
 <b>Summary</b>
 
 1. First, you will need to configure your {{ site.installation.types[page.installation_type].board }} PC to use UEFI boot mode.
 2. Then, write the {% term "Home Assistant Operating System" %} disk image to your boot medium.
+
+If you only need the image, [download the image][generic-x86-64].
 
 {% endimportant %}
 
@@ -465,9 +469,8 @@ To create the virtual machine, follow the instructions for the hypervisor you us
          - If you haven't unzipped the archive, unzip it.
          - Within the folder, find the `.vmdk` file and rename it to `home-assistant.vmdk`.
          - Paste the file (not the unzipped folder) into the `C:\home-assistant` folder.
-      14. Right-click the `.vmx` file and select **Open with** > **Notepad**.
-      15. Under `.encoding`, add a line. Enter `firmware = "efi"`.
-      16. Now continue with the next step to start your VM.
+      14. Locate the **Advanced** settings under the **Options** tab and change the **Firmware type** to **UEFI**.
+      15. Now continue with the next step to start your VM.
          - If you see a message about side channel mitigations, select **OK**.
          - If you see a message stating that the `.vmdk` file could not be found, in step 13, you likely pasted the folder, not the file. Repeat step 13.
 
@@ -477,6 +480,17 @@ To create the virtual machine, follow the instructions for the hypervisor you us
 - title: VMware ESXi/vSphere
   content: |
     Use the `E1000` or `E1000E` virtual network adapter. There are confirmed mDNS/Multicast discovery issues when using VMware’s `VMXnet3` virtual network adapter.
+
+    If networking stops working and the virtual machine console repeatedly shows `e1000: Detected Tx Unit Hang`, the emulated `E1000` adapter has stalled. Restart the virtual machine to restore connectivity.
+
+    If you change the network adapter type after installation, reset the network configuration afterwards. The hypervisor assigns the new adapter a different PCI slot, which changes the network interface name inside the virtual machine. The stored network profile no longer matches, and the machine starts up without network access. To reset it, open the virtual machine console, enter `login` at the `ha >` prompt, and run:
+
+    ```bash
+    rm -r /mnt/overlay/etc/NetworkManager/system-connections
+    reboot
+    ```
+
+    Home Assistant OS creates a new default DHCP profile for the new interface during boot. The MAC address stays the same, so an existing DHCP reservation keeps working.
 {% endif %}
 {% if page.installation_type == 'windows' %}
 - title: Hyper-V

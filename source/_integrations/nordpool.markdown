@@ -1,10 +1,8 @@
 ---
 title: Nord Pool
 description: Instructions on how to integrate with the Nord Pool Energy market prices.
-ha_category:
-  - Energy
-  - Finance
-  - Sensor
+ha_categories:
+  - energy.energy_prices
 ha_release: 2024.12
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -97,7 +95,7 @@ Additional sensors are provided for peak and off-peak blocks.
 
 | Sensor                          | Type              | Description                                                                       |
 | ------------------------------- | ----------------- | --------------------------------------------------------------------------------- |
-| [peak/off-peak] highest price   | [Currency]/kWh    | The hightest hourly price during the given timeframe.                             |
+| [peak/off-peak] highest price   | [Currency]/kWh    | The highest hourly price during the given timeframe.                             |
 | [peak/off-peak] lowest  price   | [Currency]/kWh    | The lowest hourly price during the given timeframe.                               |
 | [peak/off-peak] average         | [Currency]/kWh    | The average price of the given timeframe.                                         |
 | [peak/off-peak] time from       | Datetime          | The start date/time of the given timeframe.                                       |
@@ -213,6 +211,6 @@ To use the Nordpool integration in the **Energy** dashboard, when configuring gr
   <img src='/images/integrations/nordpool/nordpool_energy_dashboard.png' alt='Screenshot: Create template sensor'>
 </p>
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}

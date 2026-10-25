@@ -1,0 +1,12 @@
+{
+  "domain": "homeassistant",
+  "name": "Home Assistant Core Integration",
+  "integration_type": "system",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal",
+  "platforms": [
+    "scene"
+  ]
+}

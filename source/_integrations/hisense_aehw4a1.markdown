@@ -2,8 +2,8 @@
 title: Hisense AEH-W4A1
 description: Instructions to set up the Hisense AEH W4A1 WiFi module for ACs.
 ha_release: 0.103
-ha_category:
-  - Climate
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:

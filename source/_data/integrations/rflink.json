@@ -1,0 +1,20 @@
+{
+  "domain": "rflink",
+  "name": "RFLink",
+  "codeowners": [
+    "@javicalle"
+  ],
+  "iot_class": "assumed_state",
+  "quality_scale": "legacy",
+  "categories": [
+    "hubs_protocols.wireless_protocols",
+    "diy_makers.boards_hardware"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "cover",
+    "light",
+    "sensor",
+    "switch"
+  ]
+}

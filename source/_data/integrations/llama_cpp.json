@@ -1,0 +1,17 @@
+{
+  "domain": "llama_cpp",
+  "name": "llama.cpp",
+  "integration_type": "service",
+  "codeowners": [
+    "@allenporter"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "ai_voice.ai_models"
+  ],
+  "platforms": [
+    "conversation"
+  ]
+}

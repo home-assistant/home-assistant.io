@@ -1,9 +1,8 @@
 ---
 title: FYTA
 description: Instructions on how to integrate FYTA sensors within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
+ha_categories:
+  - garden_plants
 ha_release: 2024.4
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -78,6 +77,7 @@ The following sensors are currently available per plant:
 | nutrients_status      |        | FYTA-Status (cf. scale below)              |
 | salinity_status       |        | FYTA-Status (cf. scale below)              |
 | temperature           | °C     | Temperature measured by sensor             |
+| last_update           | date   | Date when the sensor last sent an update to the FYTA hub |
 | light                 | μmol/h | Light measured by sensor (hourly photosynthetically active radiation PAR)|
 | moisture              | %      | Moisture measured by sensor                |
 | salinity              | mS/cm  | Salinity measured by sensor (measured as conductivity)|

@@ -1,0 +1,18 @@
+{
+  "domain": "github",
+  "name": "GitHub",
+  "integration_type": "service",
+  "codeowners": [
+    "@timmo001",
+    "@ludeeus"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "computers_network.cloud_developer_tools"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

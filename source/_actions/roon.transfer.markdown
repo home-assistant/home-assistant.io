@@ -18,7 +18,7 @@ To transfer playback from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the source player you want to transfer playback from.
-6. From the actions shown for that target, select **Transfer**.
+6. From the actions shown for that target, under **RoonLabs music player**, select **Transfer**.
 7. Set the **Transfer ID** to the destination player.
 8. Select **Save**.
 
@@ -70,10 +70,11 @@ transfer_id:
 
 In the evening, move whatever is playing in the living room to the kitchen player.
 
-- **Trigger**: Every day at 18:00
-- **Action**: Transfer
+- **Trigger**: Time
+  - **At time**: `18:00`
+- **Action**: RoonLabs music player: Transfer
   - **Target**: Living room player
-  - **Transfer ID**: Kitchen player
+  - **Transfer ID**: Kitchen media player
 
 {% details "YAML example for moving music in the evening" %}
 

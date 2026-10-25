@@ -1,0 +1,16 @@
+{
+  "domain": "vivotek",
+  "name": "VIVOTEK",
+  "integration_type": "device",
+  "codeowners": [
+    "@HarlemSquirrel"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "security_safety.cameras"
+  ],
+  "platforms": [
+    "camera"
+  ]
+}

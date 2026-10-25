@@ -2,10 +2,8 @@
 title: Pterodactyl
 description: Instructions on how to integrate a Pterodactyl server into Home Assistant.
 ha_release: 2025.4
-ha_category:
-  - Binary sensor
-  - Button
-  - Sensor
+ha_categories:
+  - media_entertainment.gaming
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -51,9 +49,10 @@ Account API key:
 
 ## Binary sensors
 
-This integration provides a binary sensor with the following information for each game server of your Pterodactyl server:
+This integration provides the following {% term binary_sensor "binary sensor" %} entities for each game server on your Pterodactyl server:
 
 - Status: `Running` or `Not running`
+- Suspended: `On` or `Off`
 
 ## Buttons
 
@@ -63,13 +62,17 @@ This integration provides the following {% term buttons %} for each game server 
 - Stop server
 - Restart server
 
-The following button is provided as well, but disabled by default:
+The following button is provided as well, but [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity):
 
 - Force stop server
 
 {% warning %}
 Using **force stop** will terminate the server immediately and may lead to game server file corruption.
 {% endwarning %}
+
+{% note %}
+All buttons are unavailable when the server is suspended.
+{% endnote %}
 
 ## Sensors
 

@@ -1,0 +1,32 @@
+{
+  "domain": "lutron_caseta",
+  "name": "Lutron Caséta",
+  "integration_type": "hub",
+  "codeowners": [
+    "@swails",
+    "@danaues",
+    "@eclair4151"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "lighting.lighting_systems",
+    "plugs_switches",
+    "blinds_curtains"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "cover",
+    "diagnostics",
+    "event",
+    "fan",
+    "light",
+    "scene",
+    "switch"
+  ],
+  "discovery": [
+    "homekit",
+    "zeroconf"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "domain": "futurenow",
+  "name": "P5 FutureNow",
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "plugs_switches",
+    "lighting.lighting_systems"
+  ],
+  "platforms": [
+    "light"
+  ]
+}

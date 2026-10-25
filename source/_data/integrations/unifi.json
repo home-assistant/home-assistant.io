@@ -1,0 +1,25 @@
+{
+  "domain": "unifi",
+  "name": "UniFi Network",
+  "integration_type": "hub",
+  "codeowners": [
+    "@Kane610"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "silver",
+  "categories": [
+    "computers_network.routers_network",
+    "presence_location.network_presence"
+  ],
+  "platforms": [
+    "button",
+    "device_tracker",
+    "diagnostics",
+    "image",
+    "light",
+    "sensor",
+    "switch",
+    "update"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "domain": "ruuvitag_ble",
+  "name": "Ruuvi BLE",
+  "integration_type": "device",
+  "codeowners": [
+    "@akx"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "sensors.temperature_humidity",
+    "sensors.air_quality"
+  ],
+  "platforms": [
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

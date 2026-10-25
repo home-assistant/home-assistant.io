@@ -1,10 +1,8 @@
 ---
 title: SMHI
 description: Instructions on how to integrate SMHI forecasts within Home Assistant.
-ha_category:
-  - Hub
-  - Sensor
-  - Weather
+ha_categories:
+  - weather_alerts.forecasts
 ha_release: 0.81
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -35,7 +33,7 @@ The weather entity provides the current state of the weather as well as detailed
 
 The integration creates entities showing the current state of some additional weather and fire metrics.
 
-The following weather sensors are provided (cloud sensors are disabled by default):
+The following weather sensors are provided (cloud sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)):
 
 - **Thunder probability** (%): Probability of thunder
 - **Total cloud coverage** (%): Mean value of total cloud cover
@@ -62,6 +60,6 @@ The SMHI weather service is free under the Creative Commons Attribution 4.0, int
 
 Details about the API are available in the [SMHI API documentation](https://opendata.smhi.se/metfcst).
 
-## Remove the integration
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}

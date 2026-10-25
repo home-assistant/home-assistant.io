@@ -1,20 +1,10 @@
-{%- assign domains = site.conditions | map: 'domain' | uniq | sort -%}
 <section class="aside-module grid__item one-whole lap-one-half">
   <div class='section'>
     <h2 class="h1 title epsilon">{% icon "mdi:puzzle-outline" %} Integrations</h2>
     <ul class='divided'>
-      {%- for domain_key in domains -%}
-        {%- assign domain_data = site.data.condition_domains | where: 'key', domain_key | first -%}
-        {%- if domain_data -%}
-          {%- assign domain_label = domain_data.label -%}
-          {%- assign domain_icon = domain_data.icon -%}
-        {%- else -%}
-          {%- assign integration = site.integrations | where: 'ha_domain', domain_key | first -%}
-          {%- assign domain_label = integration.title | default: domain_key -%}
-          {%- assign domain_icon = 'mdi:puzzle-outline' -%}
-        {%- endif -%}
-        <li{% if domain_key == page.domain %} class="active"{% endif %}>
-          <a href='/conditions/#{{ domain_key }}'><iconify-icon inline icon='{{ domain_icon }}'></iconify-icon> {{ domain_label }}</a>
+      {%- for entry in site.data.condition_domain_index -%}
+        <li{% if entry.key == page.domain %} class="active"{% endif %}>
+          <a href='/conditions/#{{ entry.key }}'><iconify-icon inline icon='{{ entry.icon }}'></iconify-icon> {{ entry.label }}</a>
         </li>
       {%- endfor -%}
     </ul>

@@ -1,8 +1,8 @@
 ---
 title: System monitor
 description: Instructions on how to monitor the Home Assistant host.
-ha_category:
-  - System monitor
+ha_categories:
+  - computers_network.monitoring
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_domain: systemmonitor
@@ -24,7 +24,7 @@ The **System monitor** {% term integration %} allows you to monitor disk usage, 
 
 {% note %}
 
-All entities are disabled by default, you need to [enable the entities](/common-tasks/general/#enabling-or-disabling-entities) that you wish to use.
+All entities are disabled by default, you need to [enable the entities](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) that you wish to use.
 
 All sensors are also marked as diagnostic and won't be automatically added to automatic dashboards.
 
@@ -63,11 +63,11 @@ This has a severe impact on performance, and it’s useful to distinguish this s
 As such, time spent in this subset of the stall state is tracked separately and exported in the `full` averages.
 
 - Memory Pressure Some/Full 10s, 60s, 300s Average in %
-- Memory Pressure Some/Full Total in accumlated us
+- Memory Pressure Some/Full Total in accumulated us
 - IO Pressure Some/Full 10s, 60s, 300s Average in %
-- IO Pressure Some/Full Total in accumlated us
+- IO Pressure Some/Full Total in accumulated us
 - CPU Pressure Some 10s, 60s, 300s Average in %
-- CPU Pressure Some Total in accumlated us
+- CPU Pressure Some Total in accumulated us
 
 - https://docs.kernel.org/accounting/psi.html
 - https://facebookmicrosites.github.io/psi/docs/overview

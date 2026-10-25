@@ -1,0 +1,19 @@
+{
+  "domain": "google_drive",
+  "name": "Google Drive",
+  "integration_type": "service",
+  "codeowners": [
+    "@tronikos"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "computers_network.cloud_developer_tools",
+    "productivity_information.documents_photos"
+  ],
+  "platforms": [
+    "diagnostics",
+    "sensor"
+  ]
+}

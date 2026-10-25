@@ -1,20 +1,10 @@
 ---
 title: Netatmo
 description: Instructions on how to integrate Netatmo integration into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Climate
-  - Cover
-  - Environment
-  - Fan
-  - Hub
-  - Light
-  - Media source
-  - Sensor
-  - Switch
-  - Weather
+ha_categories:
+  - climate.thermostats_heating
+  - security_safety.cameras
+  - weather_alerts
 ha_release: '0.20'
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -35,6 +25,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 [Netatmo](https://www.netatmo.com/) is a smart home brand from the Legrand group that makes connected devices for the home, including weather stations, indoor and outdoor cameras, video doorbells, smart thermostats and radiator valves, air quality monitors, and Legrand and BTicino electrical products such as switches, dimmers, and power plugs.
@@ -84,7 +75,7 @@ It also exposes [Netatmo Smart Door and Window Sensors](https://www.netatmo.com/
 ## Button
 
 The `netatmo` button sensor platform provides support for moving compatible shutters to a preferred position.
-Not all covers support this functionality, and we cannot automatically determine the capability, so these entities are disabled by default.
+Not all covers support this functionality, and we cannot automatically determine the capability, so these entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 ## Camera
 
@@ -102,7 +93,7 @@ The `netatmo` cover platform provides support for Bubendorff shutters.
 
 ## Fan
 
-The `netatmo` fan plaform provides support for Legrand centralized ventilation control.
+The `netatmo` fan platform provides support for Legrand centralized ventilation control.
 
 ## Light
 
@@ -264,7 +255,7 @@ During the process you have to choose the new Application Credentials name.
 
 ### Receiving events
 
-To confirm your Home Assistant instance is receiving events via webhooks, you can listen to `netatmo_event` in {% my developer_events title="**Settings** > **Tools** > **Events**" %}.
+To confirm your Home Assistant instance is receiving events via webhooks, you can listen to `netatmo_event` in {% my tools_events title="**Settings** > **Tools** > **Events**" %}.
 
 ### Light
 

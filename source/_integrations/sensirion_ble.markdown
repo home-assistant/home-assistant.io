@@ -1,8 +1,9 @@
 ---
 title: Sensirion BLE
 description: Instructions on how to integrate Sensirion BLE devices into Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - sensors.air_quality
+  - sensors.temperature_humidity
 ha_bluetooth: true
 ha_release: '2022.12'
 ha_iot_class: Local Push

@@ -1,8 +1,8 @@
 ---
 title: Picnic
 description: How to set up and use the Picnic integration in Home Assistant.
-ha_category:
-  - Other
+ha_categories:
+  - productivity_information.shopping_groceries
 ha_release: 2021.5
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -22,7 +22,7 @@ The **Picnic** {% term integration %} allows one to get information from [Picnic
 
 ## Sensors
 
-This integration provides the following sensors. Some sensors are disabled by default when adding the integration.
+This integration provides the following sensors. Some sensors are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) when adding the integration.
 
 | Name                           | Description                                                                                                                                         |
 | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -1,5 +1,5 @@
 ---
-title: "Disable a lock user code"
+title: "Disable lock user"
 action: zha.disable_lock_user_code
 domain: zha
 description: "Disables a user code in a slot on a Zigbee lock."
@@ -20,7 +20,7 @@ To disable a lock user code from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the lock with the code you want to disable.
-6. From the actions shown for that target, select **Disable lock user**.
+6. From the actions shown for that target, under **Zigbee Home Automation**, select **Disable lock user**.
 7. Set the code slot.
 8. Select **Save**.
 
@@ -57,7 +57,7 @@ code_slot:
 
 ## Good to know
 
-- The code is kept in the slot. To enable it again, use the [Enable a lock user code](/actions/zha.enable_lock_user_code/) action. To remove it entirely, use the [Clear a lock user code](/actions/zha.clear_lock_user_code/) action.
+- The code is kept in the slot. To enable it again, use the [Enable lock user](/actions/zha.enable_lock_user_code/) action. To remove it entirely, use the [Clear lock user](/actions/zha.clear_lock_user_code/) action.
 
 {% include actions/stuck.md %}
 

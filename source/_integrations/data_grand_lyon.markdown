@@ -2,9 +2,9 @@
 title: Data Grand Lyon
 description: Instructions on how to integrate Grand Lyon open data into Home Assistant.
 ha_release: 2026.6
-ha_category:
-  - Sensor
-  - Transport
+ha_categories:
+  - vehicles_transport.public_transport
+  - local_services
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@Crocmagnon'
@@ -146,7 +146,7 @@ For each Vélo'v station you add, the following sensor entities are created:
   - **Description**: The number of free docking stands available at the station.
 
 - **Capacity**
-  - **Description**: The total number of docking stands at the station. Disabled by default.
+  - **Description**: The total number of docking stands at the station. [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 - **Electrical internal battery bikes**
   - **Description**: The number of electrical bikes with an internal battery available at the station. Disabled by default.
@@ -179,25 +179,7 @@ For each park & ride you add, the following sensor entities are created:
 
 Get fresher upcoming-departure data before your commute without raising the polling rate the rest of the day. This blueprint refreshes a transit stop's sensors at a configurable interval inside a time window — by default, every minute between 8:00 and 9:00.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/data_grand_lyon_refresh_during_time_window.yaml" %}
-
-{% details "Example YAML" %}
-
-```yaml
-triggers:
-  - trigger: time_pattern
-    minutes: "/1"
-conditions:
-  - condition: time
-    after: "08:00:00"
-    before: "09:00:00"
-actions:
-  - action: homeassistant.update_entity
-    target:
-      entity_id: sensor.my_stop_next_departure_1
-```
-
-{% enddetails %}
+{% blueprint_example blueprint="data_grand_lyon/refresh_during_time_window.yaml" %}
 
 ## Data updates
 

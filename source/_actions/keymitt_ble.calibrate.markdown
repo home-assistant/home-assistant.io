@@ -16,7 +16,7 @@ To calibrate a MicroBot Push from an automation or a script:
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), select the MicroBot Push switch entity you want to calibrate.
-6. From the actions shown for that target, select **MicroBot Push: Calibrate**.
+6. From the actions shown for that target, under **Keymitt MicroBot Push**, select **Calibrate**.
 7. Set the **Depth**, **Duration**, and **Mode**.
 8. Select **Save**.
 

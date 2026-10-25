@@ -1,8 +1,8 @@
 ---
 title: Nibe Heat Pump
 description: Instructions on how to integrate a Nibe Heat Pump into Home Assistant.
-ha_category:
-  - Climate
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_release: '2022.10'
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -34,6 +34,7 @@ Supported devices:
 - S320/S325
 - S330/S332
 - F370
+- F372
 - F470
 - F730
 - S735

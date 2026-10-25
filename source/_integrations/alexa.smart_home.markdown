@@ -1,8 +1,6 @@
 ---
 title: "Amazon Alexa Smart Home Skill"
 description: "Instructions on how to build Smart Home skill to connect Amazon Alexa with Home Assistant."
-ha_category:
-  - Voice
 ha_release: "0.54"
 ha_codeowners:
   - '@home-assistant/cloud'
@@ -522,7 +520,7 @@ Turn on and off Alert, Automation, and Group entities as switches.
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presense` are supported.
+Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presence` are supported.
 
 | `device_class` | Alexa Sensor Type |
 | :------------: | :---------------: |
@@ -531,7 +529,7 @@ Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class
 |   `opening`    |      Contact      |
 |    `window`    |      Contact      |
 |    `motion`    |      Motion       |
-|   `presense`   |      Motion       |
+|   `presence`   |      Motion       |
 
 Ask Alexa for the state of a contact sensor.
 
@@ -1111,7 +1109,7 @@ If the water heater entity supports on/off, use _"turn on"_ and _"turn off"_ utt
 <!-- omit in toc -->
 ### Binary Sensor not available in Routine Trigger
 
-Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presense` are supported.
+Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presence` are supported.
 
 Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override the `device_class` attribute to expose a `binary_sensor` to Alexa.
 
@@ -1145,6 +1143,6 @@ logger:
 
 [alexa-dev-console]: https://developer.amazon.com/alexa/console/ask
 [emulated-hue-integration]: /integrations/emulated_hue/
-[generate-long-lived-access-token]: https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token
+[generate-long-lived-access-token]: https://contributors.home-assistant.io/core/internals/auth-api/#long-lived-access-tokens
 [alexa-display-categories]: https://developer.amazon.com/docs/alexa/device-apis/alexa-discovery.html#display-categories
 [alexa-supported-locales]: https://developer.amazon.com/docs/alexa/device-apis/list-of-interfaces.html

@@ -1,8 +1,8 @@
 ---
 title: Spain electricity hourly pricing (PVPC)
 description: Instructions on how to set up the PVPC Hourly Pricing sensor in Home Assistant.
-ha_category:
-  - Energy
+ha_categories:
+  - energy.energy_prices
 ha_release: '0.108'
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -19,9 +19,7 @@ This {% term integration %} uses the official API to get the hourly price of ele
 
 Specifically, it shows the current __active energy invoicing price (FEU)__ in €/kWh, which is the energy term hourly price applied in the consumers' electrical bill with a contracted power not exceeding 15 kW and which are under the PVPC (Voluntary Price for Small Consumer).
 
-It includes the energy term of the access tolls, the charges and the production cost. It does not include taxes. The hourly prices and energy periods are the same throughout the Spanish territory regardless of the time zone, except for the cities of Ceuta and Melilla, where they are slightly different.
-
-<iframe src="https://www.esios.ree.es/en/embed/active-energy-invoicing-price-pvpc" width="100%" height="608"></iframe>
+It includes the energy term of the access tolls, the charges and the production cost. It does not include taxes. The hourly prices and energy periods are the same throughout the Spanish territory regardless of the time zone, except for the cities of Ceuta and Melilla, where they are slightly different. Check the data in [active energy invoicing price](https://www.esios.ree.es/en/embed/active-energy-invoicing-price-pvpc).
 
 More information available at <https://www.cnmc.es/en/> and <https://www.omie.es/en/>
 

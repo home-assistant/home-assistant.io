@@ -1,0 +1,23 @@
+{
+  "domain": "proxmoxve",
+  "name": "Proxmox VE",
+  "integration_type": "service",
+  "codeowners": [
+    "@Corbeno",
+    "@erwindouna",
+    "@CoMPaTech"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "gold",
+  "categories": [
+    "computers_network.nas_servers"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "diagnostics",
+    "sensor",
+    "update"
+  ]
+}

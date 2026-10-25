@@ -2,8 +2,8 @@
 title: EufyLife
 description: Instructions on how to integrate your EufyLife Bluetooth device with Home Assistant.
 ha_release: '2023.2'
-ha_category:
-  - Sensor
+ha_categories:
+  - health_wellbeing
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:

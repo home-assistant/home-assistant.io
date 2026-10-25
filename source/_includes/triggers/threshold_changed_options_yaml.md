@@ -8,11 +8,15 @@ Parameters:
                       Requires unit_label, unit_options_code, unit_default,
                       unit_example_entity, and unit_example_value.
   unit_label          Unit label. For example: "temperature unit", "energy unit".
+  strict_unit         Set (to anything) when entity thresholds must report one of the
+                      allowed units (no system-unit fallback).
   unit_options_code   Inline code list of allowed units. For example: "`°C` or `°F`".
   unit_default        Default unit used in the example. For example: "°C".
   unit_example_entity Entity reference used in the example. For example:
                       "input_number.comfort_temperature_min".
   unit_example_value  Literal number used in the example. For example: "24".
+  entity_unit_note    Optional. Replaces the sentence about the unit of a threshold entity,
+                      for domains with different unit rules.
 {% endcomment %}
 {% options_yaml %}
 threshold:
@@ -22,11 +26,11 @@ threshold:
     - `type: any`: Fires on any change (no additional keys needed).
     - `type: above` (exclusive): Sets a minimum. Fires when the reading is strictly above `value`. A reading equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a {{ include.unit_phrase_yaml }}) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
     - `type: below` (exclusive): Sets a maximum. Fires when the reading is strictly below `value`. A reading equal to `value` does not fire the trigger. Provide `value` with a `number` key (for a {{ include.unit_phrase_yaml }}) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: between` (exclusive): Defines a range. Fires when the reading is strictly between `value_min` and `value_max`. Readings equal to either bound do not fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a {{ include.unit_phrase_yaml }}) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
-    - `type: outside` (inclusive): Defines an outside-range. Fires when the reading is at or below `value_min`, or at or above `value_max`. Readings equal to either bound fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a {{ include.unit_phrase_yaml }}) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: between` (inclusive): Defines a range. Fires when the reading is between `value_min` and `value_max`. Readings equal to either bound fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a {{ include.unit_phrase_yaml }}) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
+    - `type: outside` (exclusive): Defines an outside-range. Fires when the reading is below `value_min` or above `value_max`. Readings equal to either bound do not fire the trigger. Provide `value_min` and `value_max`, each with a `number` key (for a {{ include.unit_phrase_yaml }}) or an `entity` key (for an `input_number`, `number`, or `sensor` entity).
 {% if include.has_unit %}
 
-    When using the `number` key, you must also include `unit_of_measurement` to specify the {{ include.unit_label }} ({{ include.unit_options_code }}). When using the `entity` key, the unit is taken from the entity itself, or assumed to be the system {{ include.unit_label }} if the entity has no unit.
+    When using the `number` key, you must also include `unit_of_measurement` to specify the {{ include.unit_label }} ({{ include.unit_options_code }}). {% if include.entity_unit_note %}{{ include.entity_unit_note }}{% elsif include.strict_unit %}When using the `entity` key, the unit is taken from the entity itself, so the entity must report its unit as {{ include.unit_options_code }}.{% else %}When using the `entity` key, Home Assistant converts the value from the entity's unit. If the entity has no unit, or a unit that Home Assistant can't convert, the trigger doesn't react.{% endif %}
 
     For example:
 
@@ -37,7 +41,7 @@ threshold:
         entity: {{ include.unit_example_entity }}
       value_max:
         number: {{ include.unit_example_value }}
-        unit_of_measurement: {{ include.unit_default }}
+        unit_of_measurement: "{{ include.unit_default }}"
     ```
 
     A `sensor` or `number` entity's current value is used as the threshold, which lets you compare two readings dynamically.

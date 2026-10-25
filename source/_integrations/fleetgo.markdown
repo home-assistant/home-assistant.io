@@ -1,8 +1,9 @@
 ---
 title: FleetGO
 description: Instructions on how to use a FleetGO as a device tracker.
-ha_category:
-  - Car
+ha_categories:
+  - vehicles_transport.cars_evs
+  - presence_location.trackers
 ha_iot_class: Cloud Polling
 ha_release: 0.76
 ha_domain: fleetgo

@@ -59,7 +59,7 @@ This action has no additional YAML options beyond the target.
 
 Skip updates for a specific device as soon as they appear, for example for a device you update manually.
 
-- **Trigger**: State: Update becomes available
+- **Trigger**: State changed: Update becomes available
 - **Action**: Skip update
   - **Target**: Office router update
 

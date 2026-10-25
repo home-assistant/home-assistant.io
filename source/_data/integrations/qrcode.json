@@ -1,0 +1,12 @@
+{
+  "domain": "qrcode",
+  "name": "QR Code",
+  "iot_class": "calculated",
+  "quality_scale": "legacy",
+  "categories": [
+    "ai_voice.image_recognition"
+  ],
+  "platforms": [
+    "image_processing"
+  ]
+}

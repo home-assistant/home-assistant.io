@@ -1,8 +1,9 @@
 ---
 title: Google Cast
 description: Instructions on how to integrate Google Cast into Home Assistant.
-ha_category:
-  - Media player
+ha_categories:
+  - media_entertainment.tv_streaming
+  - media_entertainment.speakers_audio
 featured: true
 ha_release: pre 0.7
 ha_iot_class: Local Polling
@@ -78,7 +79,7 @@ target:
   entity_id: media_player.chromecast
 data:
   media_content_type: "image/jpeg"
-  media_content_id: "http://via.placeholder.com/1024x600.jpg/0B6B94/FFFFFF/?text=Hello,%20Home%20Assistant!"
+  media_content_id: "https://placehold.co/1024x600/0B6B94/FFFFFF/jpeg/?text=Hello,%20Home%20Assistant!"
 ```
 
 Extra media metadata (for example title, subtitle, artist or album name) can be passed into the action and that will be shown on the Chromecast display.

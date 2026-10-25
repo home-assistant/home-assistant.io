@@ -1,15 +1,9 @@
 ---
 title: Tado
 description: Instructions on how to integrate Tado devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Hub
-  - Presence detection
-  - Sensor
-  - Switch
-  - Water heater
-  - Weather
+ha_categories:
+  - climate.thermostats_heating
+  - climate.heat_pumps_air_conditioning
 ha_release: 0.41
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -21,6 +15,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - diagnostics
+  - select
   - sensor
   - switch
   - water_heater
@@ -39,6 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - Sensor - for some additional information of the zones.
 - Weather - for information about the current weather at the location of your Tado home.
 - Switch - for controlling child lock on supported devices.
+- Select - for choosing which heating circuit serves a zone.
 
 The Tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/), which is used by their website and now by this component.
 

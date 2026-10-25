@@ -1,0 +1,14 @@
+{
+  "domain": "chirpstack",
+  "name": "ChirpStack",
+  "integration_type": "hub",
+  "codeowners": [
+    "@balloob"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "hubs_protocols.wireless_protocols"
+  ]
+}

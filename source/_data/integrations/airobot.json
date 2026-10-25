@@ -1,0 +1,25 @@
+{
+  "domain": "airobot",
+  "name": "Airobot",
+  "integration_type": "device",
+  "codeowners": [
+    "@mettolen"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "button",
+    "climate",
+    "diagnostics",
+    "number",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

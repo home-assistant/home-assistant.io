@@ -1,0 +1,27 @@
+{
+  "domain": "freebox",
+  "name": "Freebox",
+  "integration_type": "device",
+  "codeowners": [
+    "@Quentame"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "computers_network.routers_network",
+    "presence_location.network_presence",
+    "security_safety.alarm_systems"
+  ],
+  "platforms": [
+    "alarm_control_panel",
+    "binary_sensor",
+    "button",
+    "camera",
+    "device_tracker",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "zeroconf"
+  ]
+}

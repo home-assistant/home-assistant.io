@@ -1,9 +1,8 @@
 ---
 title: Input select
 description: Instructions on how to integrate the input select integration into Home Assistant.
-ha_category:
-  - Automation
-  - Helper
+ha_categories:
+  - helpers.store_value
 ha_release: 0.13
 ha_quality_scale: internal
 ha_codeowners:

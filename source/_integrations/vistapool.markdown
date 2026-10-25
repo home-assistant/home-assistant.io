@@ -1,13 +1,8 @@
 ---
 title: Vistapool
 description: Monitor and control Vistapool-compatible pool controllers via the Vistapool cloud API.
-ha_category:
-  - Binary sensor
-  - Button
-  - Light
-  - Number
-  - Select
-  - Sensor
+ha_categories:
+  - water.pools_spas
 ha_release: 2026.6
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -22,6 +17,8 @@ ha_platforms:
   - number
   - select
   - sensor
+  - switch
+  - time
 ha_integration_type: hub
 ha_dhcp: true
 ha_quality_scale: bronze
@@ -44,6 +41,13 @@ When your pool controller's Wi-Fi module joins your network, Home Assistant dete
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Vistapool Username:
+  description: "The email address of your Vistapool cloud account. All pools linked to this account are added automatically."
+Password:
+  description: "The password of your Vistapool cloud account."
+{% endconfiguration_basic %}
+
 ## Prerequisites
 
 - A supported Vistapool-compatible pool controller
@@ -65,10 +69,32 @@ Any pool controller compatible with the Vistapool cloud platform, including:
 
 The **Vistapool** integration provides the following entities.
 
+### Switches
+
+The integration provides the following switch {% term entities %}, grouped by what they control.
+
+#### Pool equipment
+
+- **Filtration**: toggle the filtration pump on or off.
+- **Relay 1**, **Relay 2**, **Relay 3**, **Relay 4**: toggle the four generic relay outputs on the controller. The switch reads as on when the controller is currently driving the relay, even if the toggle was last set the other way. This is useful for automations that need to reflect the actual relay state, not just the last command sent.
+
+#### Electrolysis / hydrolysis cell
+
+These are available if your controller has a hydrolysis or electrolysis module installed.
+
+- **Electrolysis cover**: enable cover-mode production reduction (lowers cell output while the pool cover is closed).
+- **Electrolysis boost**: enable boost dosing for shock chlorination.
+
+#### Mode toggles
+
+- **Heating climate**: switch heating into climate mode. Available only if your controller supports Heat mode.
+- **Smart mode freeze**: enable freeze protection in Smart filtration mode. Available only if your controller supports Smart mode.
+
 ### Buttons
 
-If your controller drives a multi-color LED light fixture, the integration exposes a one-shot button to cycle through the available colors from Home Assistant.
+The integration provides the following buttons.
 
+- **Sync time**: set the controller's clock to Home Assistant's current local time. The controller runs its filtration intervals and light schedule on its own clock, which drifts over time, so your schedules can start and stop a few minutes off. Select this button to put the clock back in step. It appears under the **Configuration** section of the device page.
 - **LED next color**: advance the LED fixture to its next color. The integration briefly toggles the pool light off and back on (or just turns it on if it was off). The physical fixture interprets the power cycle as the color-advance signal, just as the **Next** button under **LED Color** does in the Vistapool app's **Illumination** screen. Available only if your controller reports an LED fixture.
 
 #### Examples
@@ -138,7 +164,7 @@ The integration provides the following sensors:
 - **UV**: UV module reading (if UV module installed)
 - **Electrolysis / Hydrolysis**: current production level in gr/h
 - **Filtration intel time**: daily runtime in Intel mode
-- **Wi-Fi signal strength**: controller RSSI (diagnostic, disabled by default)
+- **Wi-Fi signal strength**: controller RSSI (diagnostic, [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
 
 ### Binary sensors
 
@@ -182,6 +208,8 @@ The integration exposes the pool light wired through the controller as a standar
 
 - **Pool light**: turn the pool light on or off.
 
+If your controller supports light scheduling, you can also let it run the light on a schedule. See **Light mode** under [Selects](#selects).
+
 ### Numbers
 
 The integration provides the following adjustable values, grouped by what they configure. Each is exposed as a configuration {% term entity %}, so they appear under the **Configuration** section of the device page rather than in the main controls.
@@ -215,6 +243,25 @@ The controller has three independent timer slots. Each slot lets you choose the 
 - **Filtration timer speed 1**: speed used for the first timer slot. Options are `slow`, `medium`, and `high`.
 - **Filtration timer speed 2**: same, for the second slot.
 - **Filtration timer speed 3**: same, for the third slot.
+
+#### Light schedule
+
+If your controller supports light scheduling, you can let it run the pool light on its own schedule instead of switching the light manually.
+
+- **Light mode**: how the pool light is driven. Choose `off` or `on` to control it directly, or `auto` to hand control back to the controller's schedule.
+- **Light schedule frequency**: how often the schedule repeats. Options are `daily` and `weekly`.
+
+### Times
+
+Each of the three timer slots described above runs between a start time and an end time. These time {% term entities %} let you adjust that filtration schedule directly from Home Assistant, so you can shift the slots around without opening the Vistapool app. Each is exposed as a configuration {% term entity %}, so they appear under the **Configuration** section of the device page rather than in the main controls.
+
+- **Filtration interval 1 start**, **Filtration interval 1 end**: start and end time of the first timer slot.
+- **Filtration interval 2 start**, **Filtration interval 2 end**: same, for the second slot.
+- **Filtration interval 3 start**, **Filtration interval 3 end**: same, for the third slot.
+
+If your controller supports light scheduling, two more time entities set the window the pool light runs in when **Light mode** is set to `auto`.
+
+- **Light schedule start**, **Light schedule end**: start and end time of the light schedule. The window can cross midnight, for example from 22:00 to 01:00.
 
 ## Data updates
 

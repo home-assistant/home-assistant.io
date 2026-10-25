@@ -41,10 +41,10 @@ In YAML, **Battery is not charging** is referred to as `battery.is_not_charging`
 condition: |
   condition: battery.is_not_charging
   target:
-    entity_id: sensor.phone_battery
+    entity_id: binary_sensor.phone_battery_charging
 {% endexample %}
 
-This passes when `sensor.phone_battery` is not charging.
+This passes when `binary_sensor.phone_battery_charging` is not charging.
 
 ### Options in YAML
 
@@ -57,9 +57,9 @@ behavior:
   default: any
 for:
   description: >
-    How long the device must have been continuously not charging before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long the device must have been continuously not charging before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -69,8 +69,8 @@ for:
 
 ## Good to know
 
-- The condition works with sensors and devices that report a charging state, such as devices that expose a battery charging attribute.
-- Devices that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+- The target must be a binary sensor with the battery charging device class.
+{% include conditions/unavailable_targets.md entities="devices" %}
 - A fully charged device with the charger still connected may report as not charging, because the charger has stopped drawing power. If you want to be sure the device is unplugged, combine this condition with [Battery level](/conditions/battery.is_level/).
 - To check the opposite state, use [Battery is charging](/conditions/battery.is_charging/).
 - For an overview of the status of your battery {% term entities %}, open the [**Maintenance** dashboard](/dashboards/dashboards/#dashboards-only-shown-in-the-dashboard-list-by-default). This dashboard allows you to quickly see which batteries need replacing.
@@ -100,7 +100,7 @@ automation: |
   conditions:
     - condition: battery.is_not_charging
       target:
-        entity_id: sensor.phone_battery
+        entity_id: binary_sensor.phone_battery_charging
   actions:
     - action: notify.send_message
       target:

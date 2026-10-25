@@ -1,9 +1,8 @@
 ---
 title: Prosegur Alarm
 description: Instructions on how to integrate Prosegur Smart Alarms into Home Assistant.
-ha_category:
-  - Alarm
-  - Camera
+ha_categories:
+  - security_safety.alarm_systems
 ha_release: 2021.8
 ha_codeowners:
   - '@dgomes'
