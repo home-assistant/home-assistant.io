@@ -70,21 +70,31 @@ The entity exposes a `supply_temperature` attribute. Use the **Supply temperatur
 
 ### Zone control mode
 
-When zones that have a temperature sensor are available, the unit can be put into zone control mode as a system setting. In this mode each individual zone has a temperature target, and the device chooses the zone furthest from its setpoint to control the air conditioner. Home Assistant mirrors that choice on the controller climate entity:
+In zone control mode, a zone drives the air conditioner instead of the unit's return air sensor. Each zone with a temperature sensor has its own target temperature. Depending on the system setting, iZone either picks the zone that is furthest from its target (zones mode), or always uses the zone selected as the control zone (master mode).
 
-- The controller’s current temperature follows the controlling zone’s room sensor.
-- The `control_zone_source` attribute is the climate entity ID of the controlling zone when a zone is driving the unit.
-- The controller has no target temperature in this mode, so `climate.set_temperature` on the controller fails. Set the target on the individual zone climate entities instead.
+Home Assistant mirrors this on the controller climate entity:
 
-Because the controlling zone can change, the controller’s current temperature can jump when the selection changes.
+- The controller's current temperature follows the room sensor of the controlling zone.
+- The `control_zone_source` attribute contains the entity ID of the controlling zone's climate entity.
+- The controller has no target temperature. Set the target temperature on the zone climate entities instead.
+
+When iZone selects a different zone, the controller's current temperature can jump.
 
 ### Return air sensor mode
 
-Without automatic zones, or with certain system settings, the device targets the return air sensor. In this mode the controller is used to set the target temperature, and the current temperature reported is equal to the return air sensor. The `control_zone_source` attribute is not present on the controller climate entity in this mode.
+The controller uses the unit's return air sensor, and you set the target temperature on the controller, when:
+
+- The system is set to return air sensor (RAS) mode.
+- The system is in master mode, and the control zone is set to the unit itself.
+- A climate-controlled (auto) zone has no room temperature reading, for example because its sensor stopped reporting. The controller switches back to zone control when the sensor reports again.
+
+In this mode, the controller's current temperature is the return air temperature, and the `control_zone_source` attribute is not present.
+
+When the **Eco** preset is on, the controller's current temperature is the supply air temperature in both modes.
 
 ### Legacy attributes
 
-The controller climate entity exposes older attributes such as `control_zone`, `control_zone_name`, and `control_zone_setpoint`. Prefer `control_zone_source` and the controller’s current temperature, and set targets on the zone or controller climate entity as above. Those legacy attributes will be removed in a future release.
+The controller climate entity also has the attributes `control_zone`, `control_zone_name`, and `control_zone_setpoint`. For new automations and dashboards, use `control_zone_source` instead. To get the target temperature of the controlling zone, read the `temperature` attribute of the climate entity it names.
 
 ### Sensors
 
