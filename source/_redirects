@@ -302,8 +302,6 @@ layout: null
 /docs/configuration/basic/#allowlist_external_urls /integrations/homeassistant/#allowlist_external_urls
 /docs/configuration/basic/#allowlist_external_dirs /integrations/homeassistant/#allowlist_external_dirs
 /docs/configuration/basic/#external_urls /integrations/homeassistant/#external_urls
-/docs/configuration/customizing-devices/#device-class /integrations/homeassistant/#device-class
-/docs/configuration/customizing-devices/#customizing-entities /integrations/homeassistant/#editing-the-entity-settings-in-yaml
 /android https://companion.home-assistant.io/
 /ios https://companion.home-assistant.io/
 /ios/nfc https://companion.home-assistant.io/
@@ -379,7 +377,8 @@ layout: null
 /getting-started/automation-templating /docs/automation/trigger-data/
 /docs/automation/templating /docs/automation/trigger-data/
 /getting-started/basic /docs/configuration/basic
-/getting-started/customizing-devices /docs/configuration/customizing-devices
+/getting-started/customizing-devices /docs/configuration/customizing-entities
+/docs/configuration/customizing-devices /docs/configuration/customizing-entities
 /getting-started/installation /docs/installation
 /getting-started/installation-docker /docs/installation/docker
 /getting-started/installation-virtualenv /docs/installation/virtualenv

@@ -232,6 +232,11 @@
   persistent-notification: /docs/automation/trigger-data/#persistent-notification-triggers
   webhook: /docs/automation/trigger-data/#webhook-triggers
   zone: /docs/automation/trigger-data/#zone-triggers
+# /docs/configuration/customizing-devices redirects here (see _redirects), and
+# the browser keeps the anchor.
+"/docs/configuration/customizing-entities/":
+  device-class: /integrations/homeassistant/#device-class
+  customizing-entities: /integrations/homeassistant/#editing-entity-settings-in-yaml
 "/more-info/local-media/add-media/":
   accessing-the-media-browser: /integrations/media_source/#browsing-your-media
   adding-media-using-the-media-browser-on-home-assistant-os: /more-info/local-media/add-media/#adding-media-using-the-media-browser
