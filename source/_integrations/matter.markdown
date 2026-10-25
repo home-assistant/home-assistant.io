@@ -13,6 +13,7 @@ ha_domain: matter
 ha_platforms:
   - binary_sensor
   - button
+  - camera
   - climate
   - cover
   - diagnostics
