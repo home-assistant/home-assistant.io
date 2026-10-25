@@ -29,10 +29,8 @@ By default, the integration uses your Home Assistant [home location](/docs/confi
 ## Configuration options
 
 {% configuration_basic %}
-Latitude:
-  description: "The latitude of the location for which to retrieve weather data."
-Longitude:
-  description: "The longitude of the location for which to retrieve weather data."
+Location:
+  description: "The location for which to retrieve weather data."
 Elevation:
   description: "The elevation (in meters) of the location. This affects the accuracy of the temperature forecast, especially in mountainous areas."
 {% endconfiguration_basic %}
