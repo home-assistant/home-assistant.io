@@ -8,11 +8,10 @@ main#page-wth {
     #hero {
         --section-spacing-y: 0;
 
-        // The key visual's background: a faint mint-to-blue wash over the
-        // page grey.
+        // The key visual's background: a faint blue-to-mint wash over white.
         background:
-            linear-gradient(110deg, rgba(242, 244, 249, 0.1) 10%, rgba(24, 188, 242, 0.1) 55%, rgba(22, 243, 190, 0.1) 97%),
-            var(--wth-bg);
+            linear-gradient(110deg, rgba(255, 255, 255, 0.1) 10%, rgba(24, 188, 242, 0.1) 55%, rgba(22, 243, 190, 0.1) 97%),
+            var(--wth-surface);
         border-radius: 12px;
         display: flex;
         flex-direction: column;
@@ -157,14 +156,19 @@ main#page-wth {
 
     // One month, one question
     #moments {
+        background-color: var(--wth-surface);
+
         .tile-grid {
             @include bp(tablet) {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
             }
         }
 
+        // The same blue as the band behind "This year, we want to hear
+        // from everyone".
         .tile {
-            background-color: var(--wth-surface);
+            background-color: #EAF6FD;
+            border: 1px solid #CDE8F8;
             border-radius: var(--card-radius);
             padding: 24px;
 
@@ -455,7 +459,7 @@ main#page-wth {
     }
 
     .nav-pill {
-        background-color: var(--wth-surface);
+        background-color: #EAF6FD;
         border-radius: 32px;
         color: var(--wth-ink);
         font-size: 13px;
@@ -645,15 +649,6 @@ main#page-wth {
         .rules {
             @include bp(tablet) {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-        }
-
-        .section-note a {
-            color: #0077A3;
-            text-decoration: underline;
-
-            &:hover {
-                color: var(--wth-ink);
             }
         }
 

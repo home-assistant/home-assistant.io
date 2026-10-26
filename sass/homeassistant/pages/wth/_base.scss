@@ -31,6 +31,7 @@ html {
 }
 
 main#page-wth {
+    background-color: var(--wth-surface);
     font-family: var(--typography-base-font);
 
     .container {
@@ -111,6 +112,15 @@ main#page-wth {
         color: var(--wth-ink-soft);
         font-size: var(--typography-paragraph-font-size);
         margin-top: 24px;
+
+        a {
+            color: #0077A3;
+            text-decoration: underline;
+
+            &:hover {
+                color: var(--wth-ink);
+            }
+        }
     }
 }
 
