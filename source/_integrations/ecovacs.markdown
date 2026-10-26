@@ -64,6 +64,7 @@ Additionally, **depending on your model**, the integration provides the followin
 - **Number**:
   - `Clean count`: Set the number of times to clean the area.
   - `Cut direction`: Set the mower cutting direction (from 0 to 180 degrees).
+  - `Mop wash interval`: Set after how many minutes of cleaning the station washes the mop. Disabled by default.
   - `Volume`: Set the volume.
   - `Water level`: Set a precise water level used during cleaning with the mop.
 - **Select**:
