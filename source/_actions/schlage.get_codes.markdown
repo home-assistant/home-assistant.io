@@ -2,6 +2,7 @@
 title: "Get PIN codes"
 action: schlage.get_codes
 domain: schlage
+response: required
 description: "Returns all PIN codes stored on a Schlage lock."
 related_actions:
   - schlage.add_code
@@ -49,6 +50,8 @@ This action has no additional YAML options beyond the target.
 {% include actions/targets.md domain="lock" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the result for each targeted lock, keyed by entity ID. For each lock, it returns a mapping of the stored codes, keyed by a unique code identifier. Each code has a `name` and the `code` itself.
 

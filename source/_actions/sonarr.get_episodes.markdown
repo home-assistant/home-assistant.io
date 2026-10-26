@@ -2,6 +2,7 @@
 title: "Get episodes"
 action: sonarr.get_episodes
 domain: sonarr
+response: required
 description: "Retrieves all episodes for a specific series in your Sonarr library."
 related_actions:
   - sonarr.get_series
@@ -10,8 +11,6 @@ related_actions:
 ---
 
 Use this action to retrieve all episodes for a specific series. It's useful for displaying episode details, tracking watched status, or building episode lists.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -76,6 +75,8 @@ season_number:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains an `episodes` key with a mapping of episodes keyed by episode identifier, for example `S01E01`. Each episode includes the following fields:
 

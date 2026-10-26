@@ -2,6 +2,7 @@
 title: "Order medication"
 action: mijn_farmad_apotheek.order_medication
 domain: mijn_farmad_apotheek
+response: optional
 description: "Places an order for one product at a Farmad pharmacy. The product is paid at pickup."
 since: "2026.11"
 related_actions:
@@ -95,6 +96,8 @@ comment:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns:
 

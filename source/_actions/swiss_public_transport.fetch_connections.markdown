@@ -2,12 +2,13 @@
 title: "Fetch connections"
 action: swiss_public_transport.fetch_connections
 domain: swiss_public_transport
+response: required
 description: "Fetches a list of upcoming connections from Swiss public transport."
 ---
 
 Use this action to fetch a list of upcoming connections for one of your configured Swiss public transport instances. Each instance represents a specific start and destination, so the action returns the next departures for that route.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script. For example, you can read out the next train departure on a dashboard or send it in a notification.
+For example, you can read out the next train departure on a dashboard or send it in a notification.
 
 {% include actions/ui_header.md %}
 
@@ -65,6 +66,8 @@ limit:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns a `connections` list. Each connection includes the following information:
 

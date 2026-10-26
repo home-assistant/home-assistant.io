@@ -2,6 +2,7 @@
 title: "Search medication"
 action: mijn_farmad_apotheek.search_medication
 domain: mijn_farmad_apotheek
+response: required
 description: "Searches the catalog of a Farmad pharmacy by product name or CNK and returns up to 25 matching products."
 since: "2026.11"
 related_actions:
@@ -70,6 +71,8 @@ apb:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns a `products` list with up to 25 products. Each product has these fields:
 

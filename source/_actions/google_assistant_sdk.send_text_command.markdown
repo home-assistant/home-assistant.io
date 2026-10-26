@@ -2,6 +2,7 @@
 title: "Send text command"
 action: google_assistant_sdk.send_text_command
 domain: google_assistant_sdk
+response: optional
 description: "Sends a command as a text query to Google Assistant."
 ---
 
@@ -60,6 +61,10 @@ media_player:
   required: false
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 ## Good to know
 

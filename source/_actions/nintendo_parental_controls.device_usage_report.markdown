@@ -2,6 +2,7 @@
 title: "Get device usage report"
 action: nintendo_parental_controls.device_usage_report
 domain: nintendo_parental_controls
+response: required
 description: "Get today's application usage details for a device."
 ---
 
@@ -54,6 +55,8 @@ device_id:
 {% endoptions_yaml %}
 
 ### Response data
+
+{% include actions/response.md %}
 
 The action returns a dictionary mapping each player's nickname on the device to a list of applications played today:
 

@@ -2,6 +2,7 @@
 title: "Get lock info"
 action: matter.get_lock_info
 domain: matter
+response: required
 description: "Returns the capabilities of a Matter lock."
 related_actions:
   - matter.get_lock_users
@@ -10,8 +11,6 @@ related_actions:
 ---
 
 Use this action to find out what a Matter lock supports, such as the credential types it accepts, how many users it can hold, and its PIN length limits. A common use is to check a lock's capabilities before you start adding users or credentials.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -48,6 +47,8 @@ This action has no options.
 {% include actions/targets.md entity_type="Matter lock" example="lock.front_door" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the capabilities of the lock. The response includes the following fields:
 

@@ -2,6 +2,7 @@
 title: "Use a transformation item"
 action: habitica.transformation
 domain: habitica
+response: optional
 description: "Uses a transformation item on a Habitica party member or yourself."
 ---
 
@@ -76,6 +77,10 @@ target:
   required: true
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

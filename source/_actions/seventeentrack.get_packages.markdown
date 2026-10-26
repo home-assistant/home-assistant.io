@@ -2,6 +2,7 @@
 title: "Get packages"
 action: seventeentrack.get_packages
 domain: seventeentrack
+response: required
 description: "Queries the 17Track API for the latest package data."
 related_actions:
   - seventeentrack.add_package
@@ -72,6 +73,8 @@ package_state:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns a `packages` list. Each entry describes a package with the following fields:
 

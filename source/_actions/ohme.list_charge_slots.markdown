@@ -2,14 +2,13 @@
 title: "List charge slots"
 action: ohme.list_charge_slots
 domain: ohme
+response: required
 description: "Returns a list of charge slots."
 related_actions:
   - ohme.set_price_cap
 ---
 
 The **Ohme: List charge slots** action fetches the charge slots from the plan that Ohme generated for your charger. Charge slots are only returned while a charge is in progress.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -68,6 +67,8 @@ response_variable:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains a `slots` list. Each charge slot includes the following fields:
 

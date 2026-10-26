@@ -2,6 +2,7 @@
 title: "Get schedule"
 action: eurotronic_cometblue.get_schedule
 domain: eurotronic_cometblue
+response: required
 description: Retrieves the configured heating time ranges of one or multiple devices.
 since: "2026.7"
 related_actions:
@@ -42,6 +43,10 @@ action: |
 This loads the current schedule from `climate.kitchen` and stores it in the response variable `my_schedule`.
 
 {% include actions/targets.md entity_type="Eurotronic Comet Blue thermostat" example="climate.kitchen" %}
+
+## Response data
+
+{% include actions/response.md %}
 
 ## Good to know
 

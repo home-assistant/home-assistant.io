@@ -2,14 +2,13 @@
 title: "Get processes by name"
 action: system_bridge.get_processes_by_name
 domain: system_bridge
+response: required
 description: "Gets the running processes from a System Bridge server that match a name."
 related_actions:
   - system_bridge.get_process_by_id
 ---
 
 The **System Bridge: Get processes by name** action returns a count and a list of the running processes on a System Bridge server whose name matches the name you provide.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -63,6 +62,8 @@ name:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains the following fields:
 

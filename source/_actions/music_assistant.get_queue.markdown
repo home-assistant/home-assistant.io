@@ -2,6 +2,7 @@
 title: "Get queue details"
 action: music_assistant.get_queue
 domain: music_assistant
+response: required
 description: "Retrieves the details of the active queue of a Music Assistant player."
 related_actions:
   - music_assistant.transfer_queue
@@ -10,7 +11,7 @@ related_actions:
 
 Use this action to retrieve the details of the currently active queue of a Music Assistant player. It returns information about the current and next items in the queue, which you can use to build a custom media dashboard.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script. It does not change anything on the player.
+This action does not change anything on the player.
 
 {% include actions/ui_header.md %}
 
@@ -44,6 +45,8 @@ This action has no additional options in YAML.
 {% include actions/targets.md domain="media_player" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the queue details for the targeted player, keyed by entity ID. Each entry includes the current and next items in the queue along with their metadata.
 

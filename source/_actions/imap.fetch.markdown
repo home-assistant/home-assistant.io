@@ -2,6 +2,7 @@
 title: Fetch message
 action: imap.fetch
 domain: imap
+response: required
 description: "Fetches the text body and part metadata of an IMAP email message."
 related_actions:
   - imap.fetch_part
@@ -11,7 +12,7 @@ related_actions:
 
 The **IMAP: Fetch message** action fetches the text body of an email message on your IMAP server and returns metadata about the parts inside the message. Unlike the `imap_content` event, the returned text is not limited in size.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script. It is meant to run after an `imap_content` event, using the entry and the message `uid` from the event data.
+This action is meant to run after an `imap_content` event, using the entry and the message `uid` from the event data.
 
 {% include actions/ui_header.md %}
 
@@ -66,6 +67,8 @@ uid:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains the following fields:
 

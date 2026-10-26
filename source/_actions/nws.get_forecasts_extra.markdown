@@ -2,6 +2,7 @@
 title: "Get extra forecasts data"
 action: nws.get_forecasts_extra
 domain: nws
+response: required
 description: "Retrieves extra data for weather forecasts."
 ---
 
@@ -58,6 +59,8 @@ type:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is a mapping of the targeted weather entities, each containing a `forecast` field. The `forecast` field is a list of forecasted conditions at a given point in time. Each entry can include:
 

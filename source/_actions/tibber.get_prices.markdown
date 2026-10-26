@@ -2,12 +2,13 @@
 title: "Get energy prices"
 action: tibber.get_prices
 domain: tibber
+response: required
 description: "Fetches hourly Tibber energy prices for a date range."
 ---
 
 Use this action to fetch the hourly energy prices for your Tibber homes. You can fetch the prices for today, or set a date range to get prices for a specific period.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example to find the cheapest time to run an appliance.
+For example, you can use the result to find the cheapest time to run an appliance.
 
 {% include actions/ui_header.md %}
 
@@ -67,6 +68,8 @@ end:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is a dictionary with a `prices` key, which holds an entry for each of your Tibber homes. Each home contains a list of price entries, and each entry includes the following fields:
 

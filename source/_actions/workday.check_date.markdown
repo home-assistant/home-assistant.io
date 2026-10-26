@@ -2,12 +2,11 @@
 title: "Check date"
 action: workday.check_date
 domain: workday
+response: required
 description: "Checks whether a given date is a workday."
 ---
 
 Use this action to check whether a specific date is a workday, based on the workdays and holidays you configured for your Workday sensor.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -58,6 +57,8 @@ check_date:
 {% include actions/targets.md entity_type="Workday binary sensor" example="binary_sensor.workday" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns a `workday` field that is `true` when the date is a workday and `false` when it is not.
 

@@ -2,6 +2,7 @@
 title: "Force-start a pending quest"
 action: habitica.start_quest
 domain: habitica
+response: optional
 description: "Force-starts your Habitica party's quest, bypassing pending invitations."
 ---
 
@@ -54,6 +55,10 @@ config_entry:
   required: true
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

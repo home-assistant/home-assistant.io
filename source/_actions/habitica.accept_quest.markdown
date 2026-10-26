@@ -2,6 +2,7 @@
 title: "Accept a quest invitation"
 action: habitica.accept_quest
 domain: habitica
+response: optional
 description: "Accepts a pending quest invitation for your Habitica party."
 ---
 
@@ -48,6 +49,10 @@ config_entry:
   required: true
   type: string
 {% endoptions_yaml %}
+
+## Response data
+
+{% include actions/response.md %}
 
 {% include actions/try_it.md %}
 

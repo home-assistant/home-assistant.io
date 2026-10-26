@@ -2,6 +2,7 @@
 title: "Set credential"
 action: zwave_js.set_credential
 domain: zwave_js
+response: required
 description: "Adds or updates a PIN code or password for an existing user on a Z-Wave lock."
 related_actions:
   - zwave_js.set_user
@@ -87,6 +88,8 @@ credential_slot:
 {% include actions/targets.md domain="lock" %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response is keyed by lock entity. Each entry includes the assigned credential slot and user index:
 

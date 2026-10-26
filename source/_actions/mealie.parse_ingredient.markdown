@@ -2,6 +2,7 @@
 title: Parse ingredient
 action: mealie.parse_ingredient
 domain: mealie
+response: required
 description: "Parses an ingredient from Mealie attempting to match food items, quantity, and units."
 related_actions:
   - mealie.add_ingredient
@@ -11,8 +12,6 @@ related_actions:
 ---
 
 Use this action to parse an ingredient from Mealie using the recognition method set within options, attempting to find matches in your food items and identify quantities and units.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -66,6 +65,8 @@ ingredient:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the parsed ingredient, how confident Mealie is about the match, and the text you sent. The most useful keys are:
 - `input`: The text you sent, such as `1 kg bananas`.

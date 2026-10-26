@@ -2,14 +2,13 @@
 title: "Send keyboard text"
 action: system_bridge.send_text
 domain: system_bridge
+response: optional
 description: "Sends text for a System Bridge server to type."
 related_actions:
   - system_bridge.send_keypress
 ---
 
 The **System Bridge: Send keyboard text** action sends text for a System Bridge server to type, as if it was typed on the server's keyboard.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -63,6 +62,8 @@ text:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response confirms the text that was sent and includes the following fields:
 

@@ -2,6 +2,7 @@
 title: "Get gas prices"
 action: easyenergy.get_gas_prices
 domain: easyenergy
+response: required
 description: "Requests gas prices from easyEnergy."
 related_actions:
   - easyenergy.get_energy_usage_prices
@@ -89,6 +90,8 @@ end:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response data is a mapping with a `prices` list. Each entry has a `timestamp` (string) and a `price` (number).
 

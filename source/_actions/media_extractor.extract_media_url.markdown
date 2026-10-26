@@ -2,6 +2,7 @@
 title: "Get media URL"
 action: media_extractor.extract_media_url
 domain: media_extractor
+response: required
 description: "Extracts a media URL and returns it in the action response."
 ---
 
@@ -65,6 +66,8 @@ format_query:
 This action does not support targets.
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns the extracted media URL in the action response.
 

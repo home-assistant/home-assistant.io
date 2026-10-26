@@ -2,6 +2,7 @@
 title: Get recipes
 action: mealie.get_recipes
 domain: mealie
+response: required
 description: "Search Mealie for recipes that match your search terms."
 related_actions:
   - mealie.get_recipe
@@ -10,8 +11,6 @@ related_actions:
 ---
 
 Use this action to get a list of recipes that match your search terms. You can use it to find a recipe ID or slug. The response includes a brief description of each recipe. To view the full details and steps for a specific recipe, use the [`mealie.get_recipe`](/actions/mealie.get_recipe/) action afterwards.
-
-This action returns its result in a response variable, which you can use in later steps of the same automation or script.
 
 {% include actions/ui_header.md %}
 
@@ -76,6 +75,8 @@ result_limit:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The action returns a list of recipes that match the search, each with a brief description. Use the recipe ID or slug from the response with the [`mealie.get_recipe`](/actions/mealie.get_recipe/) action to get the full details.
 

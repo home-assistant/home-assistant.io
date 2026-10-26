@@ -2,6 +2,7 @@
 title: "Get wanted"
 action: sonarr.get_wanted
 domain: sonarr
+response: required
 description: "Retrieves wanted (missing) episodes that Sonarr is searching for."
 related_actions:
   - sonarr.get_series
@@ -11,7 +12,7 @@ related_actions:
 
 Use this action to retrieve the wanted (missing) episodes that Sonarr is searching for.
 
-This action returns its result in a response variable, which you can use in later steps of the same automation or script, for example to track how many episodes are still missing from your library.
+For example, you can use the result to track how many episodes are still missing from your library.
 
 {% include actions/ui_header.md %}
 
@@ -69,6 +70,8 @@ max_items:
 {% endoptions_yaml %}
 
 ## Response data
+
+{% include actions/response.md %}
 
 The response contains an `episodes` key with a mapping of wanted episodes keyed by series title and episode identifier, for example `Westworld S00E62`. Each episode includes the following fields:
 
