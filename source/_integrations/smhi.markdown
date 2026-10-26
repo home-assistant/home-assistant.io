@@ -73,7 +73,7 @@ The **SMHI** integration provides the following entities for each location.
 - **Total cloud coverage**
   - **Description**: The mean value of total cloud cover.
   - **Unit**: %
-  - **Remarks**: [Disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+  - **Remarks**: [Disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - **Low cloud coverage**
   - **Description**: The mean value of low-level cloud cover.
   - **Unit**: %
@@ -89,7 +89,7 @@ The **SMHI** integration provides the following entities for each location.
 
 ### Fire risk sensors
 
-All fire risk sensors are disabled by default. To use them, [enable the sensors](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) you need.
+All fire risk sensors are disabled by default. To use them, [enable the sensors](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) you need.
 
 - **FWI index**
   - **Description**: The fire weather index (FWI) as a risk level.

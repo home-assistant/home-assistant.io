@@ -71,7 +71,7 @@ The integration will fetch data from each device. The following sensors are supp
 - Temperature
 - Total volatile organic compounds index
 - Battery percentage
-- Battery voltage ([disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity))
+- Battery voltage ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
 - Input voltage (disabled by default)
 - PM0.5 particle count (disabled by default)
 - PM1 particle count (disabled by default)

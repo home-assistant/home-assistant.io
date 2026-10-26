@@ -115,6 +115,7 @@ The number platform lets you fine-tune numeric device settings:
 - A Smart Plug or Smart Plug Compact that supports energy-saving mode gets an **Energy-saving power threshold** value (0 to 3680 W), controlling the power draw below which the plug switches off automatically.
 - A Smart Plug or Smart Plug Compact gets an **Energy-saving enter duration** value (1 to 3600 seconds), controlling how long the plug stays below the power threshold before energy-saving mode is entered.
 - A Thermostat, Wall Thermostat, or Room Thermostat II that supports it gets a **Temperature offset** value, letting you correct the measured temperature within the range and step the device allows.
+- A Smart Plug or Smart Plug Compact that supports it gets an **LED brightness** value (0 to 100 %), controlling the brightness of the plug's status LED.
 
 ### Select
 
@@ -145,7 +146,7 @@ The sensor platform allows you to monitor the states of your temperature, humidi
 - Micromodule Shutter Control
 - Micromodule Blinds
 
-Smart Plug Compact devices also provide a communication quality sensor. Thermostats provide diagnostic valve position and valve motor status sensors; the legacy raw valve position sensor is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) because the valve entity provides the position directly.
+Smart Plug Compact devices also provide a communication quality sensor. Thermostats provide diagnostic valve position and valve motor status sensors; the legacy raw valve position sensor is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) because the valve entity provides the position directly.
 
 In addition, a single **Open doors and windows** sensor is added for the whole home, not tied to a specific device. Its state is the total number of currently open doors, windows, and other openings, with the name of each open item listed in the `open_doors`, `open_windows`, and `open_others` state attributes.
 

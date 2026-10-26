@@ -218,7 +218,7 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
   - configuration switches Overlay Information, Smart Detections types, Status Light, High FPS mode, System Sounds
   - configuration select for HDR mode (Auto, Always on, Always off)
   - configuration text and select for LCD Screen for doorbells to either set custom messages or use predefined messages
-- **Button** - A [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity) button is added for each camera device. The button will let you reboot your camera device.
+- **Button** - A [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) button is added for each camera device. The button will let you reboot your camera device.
 
 #### PTZ cameras
 

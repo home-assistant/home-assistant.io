@@ -80,7 +80,7 @@ Smart meters can report values beyond the well-known ones listed above. The inte
 
 ### Diagnostic sensors
 
-The following sensors are created with the diagnostic entity category and are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity):
+The following sensors are created with the diagnostic entity category and are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity):
 
 - **Wi-Fi signal (dBm)**: The wireless signal strength of the device.
 - **Wi-Fi SSID**: The wireless network name the device is connected to.

@@ -179,7 +179,7 @@ On the device page, the **Minimum charge level** and **Target charge level** num
   - **Description**: The status of the last remote engine start
 - **Last battery activity**, **Last HVAC activity**, and **Last location activity**
   - **Description**: When the vehicle last reported battery, air conditioning, or location data
-  - **Remarks**: These entities are [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity)
+  - **Remarks**: These entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity)
 - **Remote engine start code**
   - **Description**: The code of the last remote engine start
   - **Remarks**: This entity is disabled by default

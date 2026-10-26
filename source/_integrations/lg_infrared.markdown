@@ -173,7 +173,7 @@ When an infrared emitter is configured, these button entities are created for th
 
 - **Jet mode**: Runs the unit at maximum power for fast cooling or heating.
 - **Eco mode**: Reduces the unit's power draw. Some remotes label this button Diet.
-- **Viraat mode**: Runs an extra boost mode, separate from **Jet mode**. Only LG India models offer it, so this button is [disabled by default](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity). Enable it if your remote has a Viraat button.
+- **Viraat mode**: Runs an extra boost mode, separate from **Jet mode**. Only LG India models offer it, so this button is [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity). Enable it if your remote has a Viraat button.
 - **AI mode**: Turns on the automatic AI operating mode.
 
 To turn one of these modes off, select any other mode, such as **Cool**.

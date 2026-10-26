@@ -25,10 +25,10 @@
   troubleshooting-backups: /common-tasks/general/backups/#troubleshooting-backups
   symptom-last-automatic-backup-failed-or-failed-to-create-backup: /common-tasks/general/backups/#symptom-last-automatic-backup-failed-or-failed-to-create-backup
   symptom-could-not-lock-database-within-30-seconds: /common-tasks/general/backups/#symptom-could-not-lock-database-within-30-seconds
-  enabling-or-disabling-entities: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
-  enabling-entities: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
-  to-enable-or-disable-a-single-entity: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
-  to-enable-or-disable-multiple-entities: /docs/configuration/customizing-devices/#disabling-or-enabling-an-entity
+  enabling-or-disabling-entities: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
+  enabling-entities: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
+  to-enable-or-disable-a-single-entity: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
+  to-enable-or-disable-multiple-entities: /docs/configuration/customizing-entities/#disabling-or-enabling-an-entity
 "/common-tasks/os/":
   installing-and-using-the-samba-app: /common-tasks/os/#installing-and-using-the-samba-share-app
   installing-and-using-the-visual-studio-code-vsc-app: /common-tasks/os/#installing-and-using-the-studio-code-server-app

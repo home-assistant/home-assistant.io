@@ -108,9 +108,9 @@ The list of players shows **Web browser** first. After that, it only shows media
 Check which of the following situations applies to the player:
 
 - The entity of the player is hidden.
-  - To show it again, turn on **Visible** in its settings. For the steps, refer to [Hiding an entity](/docs/configuration/customizing-devices/#hiding-an-entity).
+  - To show it again, turn on **Visible** in its settings. For the steps, refer to [Hiding an entity](/docs/configuration/customizing-entities/#hiding-an-entity).
 - The entity of the player is disabled.
-  - To enable it, refer to [Disabling or enabling an entity](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
+  - To enable it, refer to [Disabling or enabling an entity](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 - The player is visible and enabled, but still missing from the list.
   - The player doesn't support browsing its media. You can still play media on it, for example, with the [**Play specified media**](/actions/media_player.play_media/) action.
 
