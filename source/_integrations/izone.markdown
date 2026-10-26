@@ -13,6 +13,7 @@ ha_homekit: true
 ha_platforms:
   - climate
   - diagnostics
+  - number
   - sensor
 ha_integration_type: hub
 related:
@@ -125,6 +126,18 @@ These sensors always report the unit duct temperatures. They do not change when 
 ## Zones
 
 Zones have three modes available, closed, open, and auto. These are mapped to Home Assistant modes off, fan only, and auto, respectively. Only the auto mode supports setting the temperature.
+
+### Zone dampers
+
+Each zone has the following entities for its damper:
+
+- **Damper minimum**: (configuration) How far the damper stays open at its most closed, as a percentage. You can set it in steps of 5%.
+- **Damper maximum**: (configuration) How far the damper opens at its most open, as a percentage. You can set it in steps of 5%.
+- **Damper position**: The current position of the damper, as a percentage.
+
+If your installer has locked airflow adjustment on the iZone controller, **Damper minimum** and **Damper maximum** are unavailable. If only the minimum airflow is locked, only **Damper minimum** is unavailable.
+
+**Damper position** is only created for zones that report a damper position. Systems without damper position feedback report a constant 50%, so the entity is disabled by default unless at least one zone reports a different value. To use it anyway, [enable the entity](/docs/configuration/customizing-devices/#disabling-or-enabling-an-entity).
 
 ## Diagnostics
 
