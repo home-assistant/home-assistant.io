@@ -19,13 +19,13 @@
 //
 // A row's thumbnail is a fraction of a social image's 1200px width.
 // Scaling down that far, browsers (Chrome drawing on the GPU among
-// them) can skip smoothing, so detail and small text come out jagged. Images from this site are sent at thumbnail size
-// instead, resized by Netlify's image CDN (/.netlify/images), which
-// works on deploys and with `netlify dev`, not with `astro dev`. Images
-// from elsewhere are used as they are.
+// them) can skip smoothing, so detail and small text come out jagged.
+// Thumbnails are sent at thumbnail size instead, resized by Netlify's
+// image CDN (see src/lib/images.mjs for which images it can resize).
 //
 // Other attributes (data-*, rel) pass through to the link.
 import Icon from "./Icon.astro";
+import { resized } from "../lib/images.mjs";
 import "../styles/tokens.scss";
 
 const {
@@ -46,9 +46,8 @@ const {
 // The thumbnail is 6rem (96px) wide (see .row .media). Each screen
 // gets an image at most twice the size it shows, which every browser
 // scales down smoothly.
-const resizable = layout === "row" && /^\/(?!\/)/.test(image ?? "");
-const resized = (width) => `/.netlify/images?url=${encodeURIComponent(image)}&w=${width}`;
-const srcset = resizable ? `${resized(192)} 1x, ${resized(288)} 2x` : undefined;
+const thumbnail = layout === "row" ? resized(image, 192) : null;
+const srcset = thumbnail ? `${thumbnail} 1x, ${resized(image, 288)} 2x` : undefined;
 ---
 
 <a class:list={["card", layout, tone, className]} href={href} {...attributes}>
@@ -57,7 +56,7 @@ const srcset = resizable ? `${resized(192)} 1x, ${resized(288)} 2x` : undefined;
       <span class="media" style={`--aspect: ${imageWidth} / ${imageHeight}`}>
         <img
           class:list={["image", fit]}
-          src={resizable ? resized(192) : image}
+          src={thumbnail ?? image}
           srcset={srcset}
           width={imageWidth}
           height={imageHeight}
