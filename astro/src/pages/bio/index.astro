@@ -78,8 +78,6 @@ const name = setting("title");
                         image={tile.image}
                         layout={video || tile.kind === "hero" ? "stacked" : "row"}
                         tone={video ? "dark" : tile.featured ? "accent" : "default"}
-                        imageWidth={video ? 16 : undefined}
-                        imageHeight={video ? 9 : undefined}
                         eager={sectionIndex === 0 && tileIndex < 2}
                         rel="noopener"
                         data-section={section.title ?? "links"}

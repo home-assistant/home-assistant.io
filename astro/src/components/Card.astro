@@ -3,11 +3,15 @@
 // image, with an arrow. The whole card is the link.
 //
 // Two layouts:
-//   - `row` (the default): a square thumbnail on the left, for lists.
+//   - `row` (the default): a thumbnail on the left, for lists.
 //   - `stacked`: the image across the top and a larger title, for the
-//     one item a list puts first. `imageWidth` and `imageHeight` set
-//     the image's shape (a social image's 1200 × 630 by default), so
-//     the page doesn't move while it loads.
+//     one item a list puts first.
+//
+// Images are 16:9 in both layouts; `imageWidth` and `imageHeight` set
+// another shape. The box keeps its shape while the image loads, so the
+// page doesn't move. `fit` is `cover` (the default: the image fills the
+// box and is cropped to it) or `contain` (the whole image shows, with
+// space around it when its shape differs).
 //
 // `tone` sets the colors: `default` (white), `accent` (mint, as the
 // green button) or `dark` (navy). Anything in the `media` slot sits
@@ -24,28 +28,28 @@ const {
   image,
   layout = "row",
   tone = "default",
-  imageWidth = 1200,
-  imageHeight = 630,
+  imageWidth = 16,
+  imageHeight = 9,
+  fit = "cover",
   eager = false,
   class: className,
   ...attributes
 } = Astro.props;
 
-const stacked = layout === "stacked";
 ---
 
 <a class:list={["card", layout, tone, className]} href={href} {...attributes}>
   {
     image && (
-      <span class="media" style={stacked ? `--aspect: ${imageWidth} / ${imageHeight}` : undefined}>
+      <span class="media" style={`--aspect: ${imageWidth} / ${imageHeight}`}>
         <img
-          class="image"
+          class:list={["image", fit]}
           src={image}
-          width={stacked ? imageWidth : 56}
-          height={stacked ? imageHeight : 56}
+          width={imageWidth}
+          height={imageHeight}
           alt=""
           loading={eager ? undefined : "lazy"}
-          fetchpriority={eager && stacked ? "high" : undefined}
+          fetchpriority={eager && layout === "stacked" ? "high" : undefined}
           decoding="async"
         />
         {Astro.slots.has("media") && (
@@ -127,6 +131,8 @@ const stacked = layout === "stacked";
   }
 
   .media {
+    aspect-ratio: var(--aspect);
+    background: var(--color-surface-subtle);
     border-radius: var(--radius-xsmall);
     display: block;
     flex: none;
@@ -135,20 +141,21 @@ const stacked = layout === "stacked";
   }
 
   .row .media {
-    height: 3.5rem;
-    width: 3.5rem;
-  }
-
-  .stacked .media {
-    aspect-ratio: var(--aspect);
+    width: 6rem;
   }
 
   .image {
-    background: var(--color-surface-subtle);
     display: block;
     height: 100%;
-    object-fit: cover;
     width: 100%;
+  }
+
+  .cover {
+    object-fit: cover;
+  }
+
+  .contain {
+    object-fit: contain;
   }
 
   .overlay {

@@ -11,12 +11,15 @@ export default {
   title: "Card",
   description:
     "Link card with a title, a line of detail and an optional image: a row " +
-    "with a thumbnail, or stacked with the image on top. White, accent or dark.",
+    "with a 16:9 thumbnail, or stacked with the image on top; cropped to fit or " +
+    "shown whole. White, accent or dark.",
   variants: [
     { name: "row", props: { href: "/docs/", title: "Documentation" } },
     { name: "row with thumbnail", props: post },
     { name: "row, accent", props: { href: "/installation/", title: "Install Home Assistant", tone: "accent" } },
+    { name: "row, whole image", props: { ...post, fit: "contain" } },
     { name: "stacked", props: { ...post, layout: "stacked" } },
+    { name: "stacked, whole image", props: { ...post, layout: "stacked", fit: "contain" } },
     {
       name: "stacked, dark",
       props: {
@@ -26,8 +29,6 @@ export default {
         image: "https://i.ytimg.com/vi/XyAL1to3Lm4/hqdefault.jpg",
         layout: "stacked",
         tone: "dark",
-        imageWidth: 16,
-        imageHeight: 9,
       },
     },
   ],
