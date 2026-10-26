@@ -498,7 +498,6 @@ The following battery-powered models have been tested and confirmed to work thro
 - [Reolink Altas PT Ultra](https://reolink.com/product/altas-pt-ultra/)
 - [Reolink Video Doorbell (Battery)](https://reolink.com/product/reolink-doorbell-battery/)
 
-
 Reolink provides [this larger list of battery camera models](https://support.reolink.com/hc/en-us/articles/32379509281561-Reolink-Home-Hub-Compatibility/) which are compatible with the Home Hub and should work with Home Assistant.
 
 ### Models only compatible using a NVR/Home Hub
