@@ -13,7 +13,7 @@ These pages explain how to set up your Home Assistant: the details of your home,
 ## Your home and the people in it
 
 - [Home information](/docs/configuration/basic/): Your home's name, location, time zone, and units of measurement.
-- [Network](/docs/configuration/network/): The hostname, IP address, and Wi-Fi network of your system.
+- [Network](/docs/configuration/network/): The hostname, IP address, and Wi-Fi network settings of your system.
 - [People and user configuration](/docs/configuration/user-configuration/): Your own profile, and the people who use your Home Assistant.
 
 ## Entities and helpers
