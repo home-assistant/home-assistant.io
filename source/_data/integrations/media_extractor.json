@@ -1,0 +1,13 @@
+{
+  "domain": "media_extractor",
+  "name": "Media extractor",
+  "codeowners": [
+    "@joostlek"
+  ],
+  "config_flow": true,
+  "iot_class": "calculated",
+  "quality_scale": "internal",
+  "categories": [
+    "media_entertainment"
+  ]
+}

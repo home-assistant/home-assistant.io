@@ -1,0 +1,11 @@
+{
+  "domain": "assist_satellite",
+  "name": "Assist Satellite",
+  "integration_type": "entity",
+  "codeowners": [
+    "@home-assistant/core",
+    "@synesthesiam",
+    "@arturpragacz"
+  ],
+  "quality_scale": "internal"
+}

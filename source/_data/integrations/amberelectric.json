@@ -1,0 +1,17 @@
+{
+  "domain": "amberelectric",
+  "name": "Amber Electric",
+  "integration_type": "service",
+  "codeowners": [
+    "@madpilot"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "energy.energy_prices"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "sensor"
+  ]
+}

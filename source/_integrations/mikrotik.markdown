@@ -1,15 +1,9 @@
 ---
 title: MikroTik
 description: Instructions on how to integrate MikroTik/RouterOS based devices into Home Assistant.
-ha_category:
-  - Binary Sensor
-  - Button
-  - Hub
-  - Presence detection
-  - Select
-  - Sensor
-  - Switch
-  - Update
+ha_categories:
+  - computers_network.routers_network
+  - presence_location.network_presence
 ha_release: 0.44
 ha_codeowners:
   - '@engrbm87'
@@ -27,6 +21,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: device
+ha_quality_scale: gold
 ---
 
 The **MikroTik** {% term integration %} offers presence detection and device management for [MikroTik](https://mikrotik.com) routers, switches, and Cloud Hosted Routers (CHR) running RouterOS.

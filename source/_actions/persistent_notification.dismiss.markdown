@@ -1,5 +1,5 @@
 ---
-title: Dismiss notification
+title: "Dismiss persistent notification"
 action: persistent_notification.dismiss
 domain: persistent_notification
 description: "Removes a single persistent notification from the Home Assistant frontend."
@@ -8,7 +8,7 @@ related_actions:
   - persistent_notification.dismiss_all
 ---
 
-The **Dismiss notification** action removes a single persistent notification from the Home Assistant frontend. You identify the notification by its notification ID, so this works well to clear a notification that an automation or script created earlier.
+The **Persistent Notification: Dismiss persistent notification** action removes a single persistent notification from the Home Assistant frontend. You identify the notification by its notification ID, so this works well to clear a notification that an automation or script created earlier.
 
 {% include actions/ui_header.md %}
 
@@ -18,7 +18,7 @@ To use this action in an automation or script:
 2. Open an existing automation or script, or select **Create** to start a new one.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Persistent notification: Dismiss**.
+5. From the search box, search for and select **Persistent Notification: Dismiss persistent notification**.
 6. Provide the **Notification ID** of the notification to remove.
 7. Select **Save**.
 

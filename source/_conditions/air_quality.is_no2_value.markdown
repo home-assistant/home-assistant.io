@@ -13,25 +13,22 @@ The **Nitrogen dioxide value** condition passes when a nitrogen dioxide (NO2) se
 
 {% include conditions/ui_header.md %}
 
-To use this condition in an automation:
-
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
-2. Open an existing automation, or select **Create automation** > **Create new automation**.
-3. In the **And if** section, select **Add condition**.
-4. Select what you want to check. Under **By target** (see [Targets](#targets)), pick the area your air quality sensor is in (like your living room or bedroom). You can also select a floor, a device, a specific entity, or a label.
-5. From the conditions shown for that target, select **Nitrogen dioxide value**.
-6. Under **Threshold type**, set the NO2 level the condition checks against.
-7. Under **Condition passes if** (see [Behavior](#behavior-with-multiple-targets)), pick **Any** or **All**.
-8. Select **Save**.
+{% include conditions/threshold_value_steps.md
+   title="Nitrogen dioxide value"
+   sensor="nitrogen dioxide sensor"
+   areas="garden or kitchen"
+   value_long="a fixed level directly, for example `40`"
+   has_unit="true"
+   unit_label="concentration unit"
+   unit_options="ppb, ppm, or μg/m³" %}
 
 ### Options in the UI
 
-{% options_ui %}
-Threshold type:
-  description: The nitrogen dioxide level the sensor has to meet or exceed for the condition to pass.
-Condition passes if:
-  description: When multiple sensors are targeted, controls how results combine. Pick **Any** to pass if at least one sensor meets the threshold, or **All** to pass only when every targeted sensor does.
-{% endoptions_ui %}
+{% include conditions/threshold_value_options_ui.md
+   value_short="a fixed level"
+   has_unit="true"
+   unit_label="concentration unit"
+   unit_options_code="`ppb`, `ppm`, or `μg/m³`" %}
 
 {% include conditions/yaml_header.md %}
 
@@ -43,37 +40,32 @@ condition: |
   target:
     entity_id: sensor.outdoor_no2
   options:
-    threshold: 40
+    threshold:
+      type: above
+      value:
+        number: 40
+        unit_of_measurement: "μg/m³"
     behavior: any
 {% endexample %}
 
-This passes when the outdoor NO2 sensor reads at or above 40 µg/m³.
+This passes when the outdoor NO2 sensor reads above 40 μg/m³.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
+{% include conditions/threshold_value_options_yaml.md
+   has_unit="true"
+   unit_default="μg/m³"
+   unit_example_entity="input_number.no2_alert_level"
+   unit_example_value="25"
+   threshold_required="true" %}
 
-{% options_yaml %}
-threshold:
-  description: >
-    The nitrogen dioxide level the sensor has to meet or exceed for the condition to pass. Accepts a number or a reference to an `input_number`, `number`, or `sensor` entity.
-  required: true
-  type: any
-behavior:
-  description: >
-    When multiple sensors are targeted, controls how results combine. Accepts `all` or `any`.
-  required: true
-  type: string
-  default: any
-{% endoptions_yaml %}
-
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="nitrogen dioxide sensor" example="sensor.living_room_nitrogen_dioxide" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
-- Sensors that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - For related pollutants, see [Nitrogen monoxide value](/conditions/air_quality.is_no_value/), [Nitrous oxide value](/conditions/air_quality.is_n2o_value/), and [Ozone value](/conditions/air_quality.is_ozone_value/).
 
 {% include conditions/try_it.md %}
@@ -82,12 +74,12 @@ behavior:
 
 ### Automation: suggest indoor exercise before your morning run
 
-If you have a daily running routine, you want to know whether the outdoor air is safe before heading out. This automation triggers at 6:30 AM and checks whether outdoor NO2 is at or above 40 μg/m3. If it is, you get a friendly suggestion to exercise indoors instead. On clean-air mornings, you never hear a thing and head out as usual.
+If you have a daily running routine, you want to know whether the outdoor air is safe before heading out. This automation triggers at 6:30 AM and checks whether outdoor NO2 is above 40 μg/m³. If it is, you get a friendly suggestion to exercise indoors instead. On clean-air mornings, you never hear a thing and head out as usual.
 
 - **Trigger**: Time: 06:30
-- **Condition**: Air Quality: Nitrogen dioxide value
+- **Condition**: Nitrogen dioxide value
   - **Target**: Outdoor NO2 sensor
-  - **Threshold type**: 40
+  - **Threshold type**: Above 40 μg/m³
   - **Condition passes if**: Any
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)
@@ -105,7 +97,11 @@ automation: |
       target:
         entity_id: sensor.outdoor_no2
       options:
-        threshold: 40
+        threshold:
+          type: above
+          value:
+            number: 40
+            unit_of_measurement: "μg/m³"
         behavior: any
   actions:
     - action: notify.send_message
@@ -114,7 +110,7 @@ automation: |
       data:
         title: "High NO2 outside"
         message: >
-          Outdoor NO2 is above 40. Consider
+          Outdoor NO2 is above 40 μg/m³. Consider
           exercising indoors today.
 {% endexample %}
 

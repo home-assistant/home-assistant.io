@@ -49,8 +49,6 @@ This fires every time `alarm_control_panel.home_alarm` transitions to the disarm
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -60,9 +58,9 @@ behavior:
   default: each
 for:
   description: >
-    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes.
+    Duration the state must hold before firing. Accepts a duration string like `00:05:00` for five minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
@@ -85,11 +83,13 @@ for:
 When the alarm is disarmed, someone just walked in. Turn on the entryway light and set the thermostat to a comfortable temperature so the house feels warm and inviting from the first step through the door.
 
 - **Trigger**: Alarm disarmed
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Turn on entryway lights
-- **Action**: Set the thermostat to 21 degrees
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Turn on light
+  - **Target**: Entryway lights
+- **Action**: Set thermostat target temperature
+  - **Target temperature**: `21` degrees
 
 {% details "YAML example for a welcome-home routine" %}
 
@@ -121,10 +121,11 @@ automation: |
 When you arrive home from vacation and disarm the alarm, turn off the occupancy simulation helper so lights stop cycling randomly. Your house returns to normal operation.
 
 - **Trigger**: Alarm disarmed
-- **Target**: Home alarm panel
-- **Trigger when**: Each
-- **For at least**: 00:00:00
-- **Action**: Turn off the vacation mode helper
+  - **Target**: Home alarm panel
+  - **Trigger when**: Each
+  - **For at least**: 00:00:00
+- **Action**: Turn off input boolean
+  - **Target**: Vacation mode helper
 
 {% details "YAML example for ending vacation simulation" %}
 

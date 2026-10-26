@@ -71,7 +71,7 @@ device_id:
 
 - Returns an empty list when the device ID does not match. It does not raise an error.
 - Only accepts a device ID, not an entity ID or device name. Use [`device_id`](/template-functions/device_id/) to resolve those first.
-- Hidden and disabled entities are included in the result.
+- Hidden entities are included in the result. Disabled entities are not. For the difference, refer to [Hidden versus disabled entities](/docs/configuration/customizing-entities/#hidden-versus-disabled-entities).
 
 {% include template_functions/try_it.md %}
 

@@ -1,5 +1,5 @@
 ---
-title: "Add an autocharge vehicle"
+title: "Add autocharge vehicle"
 action: peblar.add_vehicle_token
 domain: peblar
 description: "Adds a vehicle to the Peblar charger's autocharge list."
@@ -10,7 +10,7 @@ related:
   - action: peblar.delete_vehicle_token
 ---
 
-The **Add autocharge vehicle** action adds a vehicle to the Peblar charger's autocharge list. Once added, that car authorizes itself as soon as it is plugged in: the charger recognizes the identifier the car's own controller presents, so no card or app is needed.
+The **Peblar: Add autocharge vehicle** action adds a vehicle to the Peblar charger's autocharge list. Once added, that car authorizes itself as soon as it is plugged in: the charger recognizes the identifier the car's own controller presents, so no card or app is needed.
 
 {% note %}
 Autocharge is only available on Peblar chargers that are equipped with power line communication hardware.

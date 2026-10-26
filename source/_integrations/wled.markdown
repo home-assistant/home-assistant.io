@@ -1,11 +1,9 @@
 ---
 title: WLED
 description: Instructions on how to integrate WLED with Home Assistant.
-ha_category:
-  - Light
-  - Sensor
-  - Switch
-  - Update
+ha_categories:
+  - lighting.led_strips_controllers
+  - diy_makers.boards_hardware
 ha_release: 0.102
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -120,13 +118,21 @@ for the following information from WLED:
 - Estimated current (in mA, only when a automatic brightness limiter is configured on the device)
 - Max current (in mA, only when a automatic brightness limiter is configured on the device)
 - LED count
-- Uptime (disabled by default)
+- Uptime ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
 - Free memory (in bytes, disabled by default)
 - Wi-Fi Signal Strength (in %, disabled by default)
 - Wi-Fi Signal Strength (RSSI in dBm, disabled by default)
 - Wi-Fi Channel (disabled by default)
 - Wi-Fi BSSID (disabled by default)
 - IP Address
+
+When the device has a usermod installed that measures temperature or humidity, the {% term integration %} adds sensors for those too:
+
+- Temperature, from the Temperature usermod (like a DS18B20 sensor) or the SHT usermod
+- Humidity, from the SHT usermod
+- Internal temperature of the ESP chip, from the Internal Temperature usermod (disabled by default)
+
+These sensors show up once the usermod reports a reading, in the unit it is configured for.
 
 ### Switches
 
@@ -148,6 +154,12 @@ Can be configured on the WLED itself under
 
 [WLED Sync documentation](https://kno.wled.ge/interfaces/udp-notifier/)
 
+#### Audio reactive
+
+Toggles the AudioReactive usermod, which makes sound-reactive effects follow the audio picked up by a microphone or line input on the WLED device. This switch is only created when the AudioReactive usermod is installed on the device.
+
+[WLED AudioReactive documentation](https://kno.wled.ge/advanced/audio-reactive/)
+
 #### Reverse
 
 Reverses the direction of the LED effect on a segment. One switch is created per segment.
@@ -158,8 +170,10 @@ Freezes the LED effect on a segment. One switch is created per segment.
 
 ### Buttons
 
-This {% term integration %} provides a [button entity](/integrations/button)
-to restart the WLED device.
+This {% term integration %} provides the following [button entities](/integrations/button):
+
+- Restart: Restarts the WLED device.
+- Next playlist entry: Skips the running playlist to its next entry. This button is only available with WLED 0.15.0 or newer.
 
 ### Updates
 
@@ -194,7 +208,7 @@ Information about new WLED releases is checked independently, once every 3 hours
 
 - Custom segment names configured in WLED are not used by the integration. Segments are always named using their index (for example, "Segment 1", "Segment 2"), regardless of any names assigned in the WLED interface.
 
-- The integration does not support controlling WLED usermods, such as the AudioReactive usermod. Features like toggling the microphone on or off are not available.
+- Apart from turning the AudioReactive usermod on and off, the integration does not control WLED usermods. Usermod settings, like the gain of the AudioReactive microphone, are not available.
 
 - There is no segment master control to apply changes (color, effect, brightness) to all segments in a single action. To control multiple segments at once, you can group them using a [light group](/integrations/group#light-group), though this sends separate requests per segment and may result in less smooth transitions compared to WLED's native multi-segment control.
 

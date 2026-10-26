@@ -2,10 +2,6 @@
 title: IoTorero
 description: Connect and control your IoTorero devices using the ESPHome integration
 ha_release: 0.85
-ha_category:
-  - Alarm
-  - DIY
-  - Update
 ha_domain: iotorero
 ha_integration_type: virtual
 ha_supporting_domain: esphome
@@ -17,6 +13,7 @@ ha_codeowners:
   - '@jesserockz'
   - '@kbx81'
   - '@bdraco'
+  - '@arturpragacz'
 ha_config_flow: true
 ha_platforms:
   - alarm_control_panel
@@ -52,6 +49,6 @@ ha_zeroconf: true
 
 {% include integrations/supported_brand.md %}
 
-## Supported devices
+## Works with Home Assistant certified devices
 
 {% include integrations/device_list.html brand="iotorero" %}

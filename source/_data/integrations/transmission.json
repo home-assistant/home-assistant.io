@@ -1,0 +1,21 @@
+{
+  "domain": "transmission",
+  "name": "Transmission",
+  "integration_type": "service",
+  "codeowners": [
+    "@engrbm87",
+    "@JPHutchins",
+    "@andrew-codechimp"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "computers_network.nas_servers"
+  ],
+  "platforms": [
+    "event",
+    "sensor",
+    "switch"
+  ]
+}

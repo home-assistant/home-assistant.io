@@ -1,22 +1,6 @@
 ---
 title: Neo
 description: Connect and control your Neo devices using the Shelly integration
-ha_category:
-  - Binary sensor
-  - Camera
-  - Climate
-  - Cover
-  - Energy
-  - Event
-  - Light
-  - Media player
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Text
-  - Update
-  - Valve
 ha_release: 0.115
 ha_domain: neo
 ha_integration_type: virtual

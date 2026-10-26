@@ -1,5 +1,5 @@
 ---
-title: "Battery low"
+title: "Battery became low"
 trigger: battery.became_low
 domain: battery
 description: "Triggers after one or more battery sensors report a low battery."
@@ -7,21 +7,21 @@ related_triggers:
   - battery.no_longer_low
 ---
 
-The **Battery low** trigger fires when a battery sensor reports that the battery is low.
+The **Battery became low** trigger fires when a battery sensor reports that the battery is low.
 
-Use **Battery low** to send an alert before a device goes offline, pause automations that rely on battery-powered sensors, or keep a log of which devices need attention. Combine it with an area or label target to monitor all battery-powered devices in a room or across your whole home at once.
+Use **Battery became low** to send an alert before a device goes offline, pause automations that rely on battery-powered sensors, or keep a log of which devices need attention. Combine it with an area or label target to monitor all battery-powered devices in a room or across your whole home at once.
 
 For a visual overview of all battery statuses, open the {% my maintenance title="**Maintenance** dashboard" %}.
 
 {% include triggers/ui_header.md %}
 
-To use **Battery low** in an automation:
+To use **Battery became low** in an automation:
 
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
 4. Select what you want to monitor. Under **By target** (see [Targets](#targets)), pick the area your battery-powered device is in (like your hallway or garden). You can also select a device, a specific entity, or a label.
-5. From the triggers shown for that target, select **Battery low**.
+5. From the triggers shown for that target, select **Battery became low**.
 6. Under **Trigger when** (see [Behavior](#behavior-with-multiple-targets)), pick **Each**, **First**, or **All** to control how the trigger behaves when multiple sensors are targeted.
 7. Under **For at least**, enter how long the sensor must remain reporting low battery before the trigger fires. Leave it at zero to fire immediately.
 8. Select **Save**.
@@ -45,7 +45,7 @@ For at least:
 
 {% include triggers/yaml_header.md %}
 
-In YAML, **Battery low** is referred to as `battery.became_low`. A basic example looks like this:
+In YAML, **Battery became low** is referred to as `battery.became_low`. A basic example looks like this:
 
 {% example %}
 trigger: |
@@ -82,13 +82,13 @@ behavior:
   default: each
 for:
   description: |
-    How long the sensor or sensors must remain reporting low battery before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds.
+    How long the sensor or sensors must remain reporting low battery before the trigger fires. Accepts a duration string in `HH:MM:SS` format or a time period mapping in hours, minutes and seconds. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md entity_type="low battery sensor" example="binary_sensor.phone_battery_low" %}
 
 {% include triggers/behavior.md %}
 
@@ -107,7 +107,7 @@ for:
 
 Sensors in out-of-the-way spots like a mailbox or garden shed can run out of battery without you noticing. This automation sends you a notification the moment any battery sensor in your garden reports low battery, so you can replace it before it stops responding.
 
-- **Trigger**: Battery low
+- **Trigger**: Battery became low
   - **Target**: Garden area
 - **Action**: Send a notification message
   - **Target**: My Device (`notify.my_device`)

@@ -1,0 +1,27 @@
+{
+  "domain": "axis",
+  "name": "Axis",
+  "integration_type": "device",
+  "codeowners": [
+    "@Kane610"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "security_safety.cameras",
+    "security_safety.doorbells_intercoms"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "camera",
+    "diagnostics",
+    "event",
+    "light",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp",
+    "ssdp",
+    "zeroconf"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "domain": "notion",
+  "name": "Notion",
+  "integration_type": "hub",
+  "codeowners": [
+    "@bachya"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "categories": [
+    "sensors",
+    "water.meters_leak_detection"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "sensor"
+  ]
+}

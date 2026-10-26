@@ -1,0 +1,25 @@
+{
+  "domain": "neopool",
+  "name": "NeoPool",
+  "integration_type": "hub",
+  "codeowners": [
+    "@svasek"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "water.pools_spas"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "diagnostics",
+    "light",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "time"
+  ]
+}

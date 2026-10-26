@@ -56,7 +56,10 @@ This action has no additional YAML options beyond the target.
 
 Use this automation to press a restart button after the internet connection has been down for a while.
 
-- **Trigger**: Internet connection turns off for 10 minutes
+- **Trigger**: State changed
+  - **Entity**: Internet connection sensor
+  - **To**: Off
+  - **For at least**: `00:10:00`
 - **Action**: Press button
   - **Target**: Router restart button
 
@@ -83,7 +86,9 @@ automation: |
 Use this automation when a device exposes an update button and you want to run it at a quiet time.
 
 - **Trigger**: Time: 03:00
-- **Condition**: Garden controller firmware update is available
+- **Condition**: State
+  - **Entity**: Garden controller firmware update
+  - **State**: On
 - **Action**: Press button
   - **Target**: Garden controller update button
 

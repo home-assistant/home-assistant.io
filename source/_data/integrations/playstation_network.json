@@ -1,0 +1,26 @@
+{
+  "domain": "playstation_network",
+  "name": "PlayStation Network",
+  "integration_type": "hub",
+  "codeowners": [
+    "@jackjpowell",
+    "@tr4nt0r"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_polling",
+  "quality_scale": "bronze",
+  "categories": [
+    "media_entertainment.gaming"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "image",
+    "media_player",
+    "notify",
+    "sensor"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

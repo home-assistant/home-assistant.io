@@ -1,0 +1,12 @@
+{
+  "domain": "lifx_cloud",
+  "name": "LIFX Cloud",
+  "iot_class": "cloud_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "lighting.bulbs_lamps"
+  ],
+  "platforms": [
+    "scene"
+  ]
+}

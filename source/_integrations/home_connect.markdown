@@ -1,17 +1,9 @@
 ---
 title: Home Connect
 description: Instructions on how to set up the Home Connect integration within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Fan
-  - Hub
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Switch
+ha_categories:
+  - appliances_cleaning
+  - climate.heat_pumps_air_conditioning
 ha_iot_class: Cloud Push
 ha_release: '0.110'
 ha_domain: home_connect
@@ -990,7 +982,7 @@ It is not recommended to use the **Current cavity temperature** sensor because t
 #### Event sensors
 
 {% important %}
-The integration adds all the event sensors supported by the appliance type, but they are disabled by default because not every appliance supports all of them.
+The integration adds all the event sensors supported by the appliance type, but they are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity) because not every appliance supports all of them.
 {% endimportant %}
 
 {% details "Event sensor options" %}

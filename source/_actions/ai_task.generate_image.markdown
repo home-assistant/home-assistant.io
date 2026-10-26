@@ -5,6 +5,7 @@ domain: ai_task
 description: "Uses AI to generate an image from a set of instructions."
 related_actions:
   - ai_task.generate_data
+  - ai_task.clear_images
 ---
 
 The **Generate image** action uses AI to generate an image from a set of instructions, and returns information about the result as response data. The generated image is also saved in the first media directory, so you can browse it with the [Media source](/integrations/media_source/) integration.
@@ -19,7 +20,7 @@ To generate an image from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **AI Task: Generate image**.
+5. From the search box, search for and select **Generate image**.
 6. Enter a **Task name** and the **Instructions**, and set any of the options you need.
 7. In the **Response variable** field, enter a name to store the result, for example, `generated_image`.
 8. Select **Save**.
@@ -97,6 +98,8 @@ The response data is a mapping with the following fields:
 ## Good to know
 
 The image is saved in the first media directory and can be browsed with the [Media source](/integrations/media_source/) integration. Files are named using the format `{date}_{time}_{sanitized_task_name}.{ext}`, for example `2025-01-19_123456_home-security-camera.png`.
+
+Home Assistant doesn't delete these images on its own. To remove old ones, use the [Clear images](/actions/ai_task.clear_images/) action.
 
 {% include actions/try_it.md %}
 

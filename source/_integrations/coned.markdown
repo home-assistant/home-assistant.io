@@ -1,9 +1,6 @@
 ---
 title: Consolidated Edison (ConEd)
 description: Get energy usage from Consolidated Edison (ConEd) using the Opower integration
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 2023.8
 ha_domain: coned
 ha_integration_type: virtual

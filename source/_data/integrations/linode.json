@@ -1,0 +1,13 @@
+{
+  "domain": "linode",
+  "name": "Linode",
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "computers_network.cloud_developer_tools"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "switch"
+  ]
+}

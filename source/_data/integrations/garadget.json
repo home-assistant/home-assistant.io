@@ -1,0 +1,12 @@
+{
+  "domain": "garadget",
+  "name": "Garadget",
+  "iot_class": "cloud_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "blinds_curtains"
+  ],
+  "platforms": [
+    "cover"
+  ]
+}

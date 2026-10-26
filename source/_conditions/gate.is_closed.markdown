@@ -48,8 +48,6 @@ This passes when `cover.driveway_gate` is currently closed.
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -59,22 +57,20 @@ behavior:
   default: any
 for:
   description: >
-    How long the gate must have stayed closed before the condition passes.
+    How long the gate must have stayed closed before the condition passes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="motorized gate" example="cover.driveway_gate" %}
 
 {% include conditions/behavior.md %}
 
 ## Good to know
 
 - The target must be a cover entity with the gate device class.
-- Entities in the **Unavailable** or **Unknown** state are ignored when Home Assistant evaluates the condition.
-- With **Any**, the condition passes if at least one available targeted gate is closed.
-- With **All**, the condition passes only if every available targeted gate is closed. If every targeted gate is **Unavailable** or **Unknown**, **All** passes and **Any** fails.
+{% include conditions/unavailable_targets.md entities="gates" %}
 
 {% include conditions/try_it.md %}
 
@@ -88,7 +84,8 @@ At bedtime, this automation arms your home only if the driveway gate and courtya
 - **Condition**: Gate is closed
    - **Target**: Driveway gate and courtyard gate
    - **Condition passes if**: All
-- **Action**: Alarm control panel: Arm away
+- **Action**: Arm alarm away
+  - **Target**: Home alarm
 
 {% details "YAML example for arming only after all gates are closed" %}
 
@@ -122,7 +119,8 @@ If people often walk through the side gate in the morning, this automation waits
 - **Condition**: Gate is closed
    - **Target**: Side gate
    - **For at least**: 00:05:00
-- **Action**: Switch: Turn on
+- **Action**: Turn on switch
+  - **Target**: Garden irrigation
 
 {% details "YAML example for waiting to start irrigation" %}
 

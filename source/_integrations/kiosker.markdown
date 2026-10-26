@@ -1,11 +1,8 @@
 ---
 title: Kiosker
 description: Instructions on how to integrate Kiosker with Home Assistant
-ha_category:
-  - Binary sensor
-  - Button
-  - Sensor
-  - Switch
+ha_categories:
+  - presence_location.phones_companion_apps
 ha_release: 2026.5
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -69,7 +66,7 @@ The **Kiosker** integration provides the following entities.
   - Shows when motion was last detected. This is available if a screensaver with motion detection is scheduled or if the camera sensor is enabled.
 - **Ambient light**
   - Shows the current ambient light level. This is available if a screensaver with motion detection is scheduled or if the camera sensor is enabled.
-- **Blackout text** (disabled by default)
+- **Blackout text** ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
   - Shows the text currently displayed on the blackout screen. Defaults to unknown if no visible blackout.
 - **Blackout icon** (disabled by default)
   - Shows the SF Symbol icon name currently displayed on the blackout screen. Defaults to unknown if no visible blackout.

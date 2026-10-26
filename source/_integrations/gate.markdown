@@ -1,8 +1,6 @@
 ---
 title: Gate
 description: Use gate triggers and conditions in Home Assistant automations.
-ha_category:
-  - Automation
 ha_release: 2026.4
 ha_quality_scale: internal
 ha_codeowners:
@@ -51,8 +49,7 @@ automation: |
       target:
         entity_id: cover.driveway_gate
   conditions:
-    - condition: sun
-      after: sunset
+    - condition: sun.is_set
   actions:
     - action: light.turn_on
       target:

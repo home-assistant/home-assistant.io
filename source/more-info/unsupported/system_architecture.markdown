@@ -18,7 +18,7 @@ You can continue to use the system as is, but it is recommended to move your
 Home Assistant installation onto supported hardware. This makes sure that you'll
 continue to receive software updates, including security updates.
 
-1. To migrate to a supported architecture, [create a full backup](/common-tasks/general/#backups)
+1. To migrate to a supported architecture, [create a full backup](/common-tasks/general/backups/)
 and download it.
 2. Install Home Assistant OS on supported 64-bit hardware. 
    - Use the [restore from backup feature during onboarding](/getting-started/onboarding/) (Option 2).

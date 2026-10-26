@@ -1,0 +1,16 @@
+{
+  "domain": "ephember",
+  "name": "EPH Controls",
+  "codeowners": [
+    "@ttroy50",
+    "@roberty99"
+  ],
+  "iot_class": "local_polling",
+  "quality_scale": "legacy",
+  "categories": [
+    "climate.thermostats_heating"
+  ],
+  "platforms": [
+    "climate"
+  ]
+}

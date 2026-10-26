@@ -1,8 +1,8 @@
 ---
 title: GitHub
 description: Instructions on how to integrate the GitHub integration into Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_config_flow: true
 ha_release: 0.88
 ha_iot_class: Cloud Polling
@@ -108,6 +108,7 @@ These entities are simpler diagnostic entities without any additional attributes
 - **Discussions**: Shows the number of discussions
 - **Forks**: Shows the number of forks
 - **Issues**: Shows the number of open issues
+- **Latest release downloads**: Shows the total number of downloads of the files attached to the latest release (unavailable when the release has no attached files)
 - **Merged pull requests**: Shows the number of merged pull requests
 - **Pull requests**: Shows the number of open pull requests
 - **Stars**: Shows the number of stars
@@ -122,7 +123,7 @@ In addition to the entities for each tracked repository, the integration provide
 - **Public gists**: Shows the number of public gists on your account
 - **Public repositories**: Shows the number of public repositories on your account
 
-To use one of these sensors, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity. Select the cogwheel {% icon "mdi:cog-outline" %} and [enable it](https://www.home-assistant.io/common-tasks/general/#to-enable-or-disable-a-single-entity).
+To use one of these sensors, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select the entity. Select the cogwheel {% icon "mdi:cog-outline" %} and [enable it](https://www.home-assistant.io/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ## Automation
 
