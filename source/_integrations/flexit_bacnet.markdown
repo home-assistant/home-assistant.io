@@ -60,6 +60,7 @@ The integration adds entities for sensors with different readings from the devic
  - Supply air temperature 
  - Exhaust air temperature
  - Extract air temperature
+ - Extract air humidity (only on units with a built-in humidity sensor)
  - Room temperature
  - Fireplace ventilation remaining duration
  - Rapid ventilation remaining duration
