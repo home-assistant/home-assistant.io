@@ -1,12 +1,9 @@
 ---
 title: Voltie Charger
 description: Instructions on how to integrate a Voltie EV charger with Home Assistant.
-ha_category:
-  - Car
-  - Energy
 ha_categories:
   - energy.ev_charging
-ha_release: 2026.12
+ha_release: '2026.12'
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
