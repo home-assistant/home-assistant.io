@@ -1,0 +1,24 @@
+{
+  "domain": "harbor",
+  "name": "Harbor Sleep",
+  "integration_type": "device",
+  "codeowners": [
+    "@Lash-L",
+    "@afgarcia86"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "health_wellbeing",
+    "security_safety.cameras"
+  ],
+  "platforms": [
+    "select",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

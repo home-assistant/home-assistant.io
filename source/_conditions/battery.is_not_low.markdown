@@ -59,13 +59,13 @@ behavior:
   default: any
 for:
   description: >
-    How long the device must have been continuously reporting a normal battery before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long the device must have been continuously reporting a normal battery before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="low battery sensor" example="binary_sensor.phone_battery_low" %}
 
 {% include conditions/behavior.md %}
 
@@ -75,7 +75,7 @@ for:
 - The device must expose a low-battery indicator.
 - Low-battery binary sensors are typically separate entities from the battery percentage sensor and only report `on` (low) or `off` (normal).
 - If your device reports only a battery percentage, use [Battery level](/conditions/battery.is_level/) with a percentage threshold instead.
-- Devices that are unavailable (`unavailable`) or have an unknown state (`unknown`) are skipped for **Any** and fail for **All**.
+{% include conditions/unavailable_targets.md entities="devices" %}
 - To check the opposite state, use [Battery is low](/conditions/battery.is_low/).
 - For an overview of the status of your battery {% term entities %}, open the [**Maintenance** dashboard](/dashboards/dashboards/#dashboards-only-shown-in-the-dashboard-list-by-default). This dashboard allows you to quickly see which batteries need replacing.
 

@@ -1,0 +1,20 @@
+{
+  "domain": "chef_iq",
+  "name": "Chef iQ",
+  "integration_type": "device",
+  "codeowners": [
+    "@Invader444"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "appliances_cleaning.cooking"
+  ],
+  "platforms": [
+    "sensor"
+  ],
+  "discovery": [
+    "bluetooth"
+  ]
+}

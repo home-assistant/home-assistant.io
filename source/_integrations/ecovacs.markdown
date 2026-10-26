@@ -1,10 +1,9 @@
 ---
 title: Ecovacs
 description: Instructions on how to integrate Ecovacs vacuums and mowers within Home Assistant.
-ha_category:
-  - Hub
-  - Lawn mower
-  - Vacuum
+ha_categories:
+  - appliances_cleaning.cleaning
+  - garden_plants
 ha_iot_class: Cloud Push
 ha_release: 0.77
 ha_codeowners:
@@ -55,7 +54,7 @@ Additionally, **depending on your model**, the integration provides the followin
 - **Binary sensor**:
   - `Mop attached`: On if the mop is attached. Note: If you do not see the state change to `Mop attached` in Home Assistant, you may need to wake up the robot to push the state change. Some models report an entity state change only if the overall status of the vacuum has changed. For example, if the overall state changes from `docked` to `cleaning`.
 - **Button**:
-  - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All disabled by default.
+  - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
   - `Relocate`: Button entity to trigger manual relocation.
   - `Station actions`: For each supported station action, a button entity will be created.
 - **Event**:
@@ -65,10 +64,12 @@ Additionally, **depending on your model**, the integration provides the followin
 - **Number**:
   - `Clean count`: Set the number of times to clean the area.
   - `Cut direction`: Set the mower cutting direction (from 0 to 180 degrees).
+  - `Mop wash interval`: Set after how many minutes of cleaning the station washes the mop. Disabled by default.
   - `Volume`: Set the volume.
   - `Water level`: Set a precise water level used during cleaning with the mop.
 - **Select**:
   - `Active map`: Select the active map. The ID will be shown when the map has no name.
+  - `Efficiency mode`: Choose between `Standard` and `Energy efficient` cleaning. Disabled by default.
   - `Water level`: Choose from predefined water levels used during cleaning with the mop.
   - `Work mode`: Specify the mode, how the bot should clean.
 - **Sensor**:
@@ -89,6 +90,7 @@ Additionally, **depending on your model**, the integration provides the followin
     - `Time`: The total cleaning time
 - **Switch**:
   - `Advanced mode`: Enable advanced mode. Disabled by default.
+  - `Auto-empty`: Enable the station to empty the dust bin of the bot automatically. Set how often with the `Auto-empty frequency` select.
   - `Border spin`: Enable border spin, which means the bot will tilt to reach corners during mopping. Present on bots without an extendable mop. Disabled by default.
   - `Border switch`: Enable border switch. Disabled by default.
   - `Carpet auto fan speed boost`: Enable maximum fan speed if a carpet is detected. Disabled by default.

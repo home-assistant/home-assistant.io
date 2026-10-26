@@ -27,7 +27,7 @@ The **System information** dialog provides system details, including:
 This information is useful for:
 
 - Troubleshooting issues with your installation
-- Checking system resources before [creating backups](/common-tasks/general/#backups)
+- Checking system resources before [creating backups](/common-tasks/general/backups/)
 - Verifying your installation meets [requirements for specific integrations](/integrations/)
 - Sharing technical details when [reporting issues on GitHub](#reporting-issues-on-github)
 

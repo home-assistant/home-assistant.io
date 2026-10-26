@@ -7,7 +7,7 @@ related_actions:
   - elkm1.sensor_zone_bypass
 ---
 
-The **Sensor zone trigger** action virtually triggers an Elk-M1 zone. It creates a momentary open condition on the zone, as if the end-of-line hardwired loop had been physically opened.
+The **Elk-M1 Control: Sensor zone trigger** action virtually triggers an Elk-M1 zone. It creates a momentary open condition on the zone, as if the end-of-line hardwired loop had been physically opened.
 
 This is useful when you want an automation to simulate a zone activation, for example for testing or to drive panel logic that reacts to a zone opening.
 

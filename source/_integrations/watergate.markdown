@@ -1,11 +1,8 @@
 ---
 title: Watergate
 description: Instructions on how to integrate Watergate with Home Assistant.
-ha_category:
-  - Sensor
-  - Switch
-  - Valve
-  - Water management
+ha_categories:
+  - water.meters_leak_detection
 ha_release: '2025.1'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -56,9 +53,21 @@ The Watergate integration provides the following entities.
 
 #### Sensors
 
+
 - **Water meter volume**
-  - **Description**: Water volume used by this device for the entire lifetime of a Sonic device.
+  - **Description**: Water volume that flowed through this device in the normal flow direction, for the entire lifetime of a Sonic device.
   - **Remarks**: It can be used in the Energy Dashboard.
+
+- **Water meter duration**
+  - **Description**: Time that water flowed through this device in the normal flow direction, for the entire lifetime of a Sonic device.
+
+- **Water meter negative volume**
+  - **Description**: Water volume that flowed through this device in the reverse direction, for the entire lifetime of a Sonic device.
+  - **Remarks**: Reverse flow is uncommon in a healthy installation, so a rising value can point to a backflow problem. Requires a Sonic firmware version that reports directional readings.
+
+- **Water meter negative duration**
+  - **Description**: Time that water flowed through this device in the reverse direction, for the entire lifetime of a Sonic device.
+  - **Remarks**: Requires a Sonic firmware version that reports directional readings.
 
 - **Water flow rate**
   - **Description**: The current flow rate of water through the device.
@@ -113,6 +122,8 @@ Thanks to the webhook option, Sonic will provide live telemetry every second whe
 
 The integration does not provide the ability to control the device buzzer, reboot the device, or change the device's Wi-Fi configuration.
 
+Sonic firmware 2.11 and older does not report the two flow directions separately. On such a device, the **Water meter negative volume** and **Water meter negative duration** entities stay unavailable, and **Water meter volume** and **Water meter duration** report the difference between the normal and reverse readings rather than the normal direction alone.
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -133,6 +144,34 @@ The water meter volume entity can be added to the Energy Dashboard, allowing you
 - Send a notification when the water is too hot.
 - Send a notification when the water is too cold.
 - Send a notification when water is flowing for too long.
+
+## Troubleshooting
+
+### The Energy dashboard shows a one-time spike in water use
+
+#### Symptom: A large, one-time increase in water use after updating Home Assistant or the Sonic firmware
+
+#### Description
+
+Since Home Assistant 2026.11, **Water meter volume** and **Water meter duration** report only water that flows in the normal direction. Before, they reported the normal reading minus the reverse reading. If your Sonic device had recorded reverse flow, both values rose once by that amount, and Home Assistant counted the rise as water use.
+
+#### Resolution
+
+To remove the spike, [adjust the statistic](/docs/tools/dev-tools/#adjusting-a-statistic) of **Water meter volume** for the hour in which the spike happened.
+
+### The water meter negative entities are unavailable
+
+#### Symptom: The **Water meter negative volume** and **Water meter negative duration** entities are unavailable
+
+#### Description
+
+These entities need Sonic firmware newer than 2.11. A Sonic connected to the Watergate cloud is kept up to date by Watergate, so it already has this firmware. A Sonic that has been offline may still run an older version.
+
+#### Resolution
+
+1. Connect the Sonic to your network. The device updates itself within 24 hours.
+2. After the update, reload the integration: go to {% my integrations title="**Settings** > **Devices & services**" %}, select **Watergate**, select the three dots {% icon "mdi:dots-vertical" %} menu next to the entry, and select **Reload**. Restarting Home Assistant works too.
+3. If your Sonic had recorded reverse flow, **Water meter volume** and **Water meter duration** rise once after the reload. To remove the spike, refer to [The Energy dashboard shows a one-time spike in water use](#the-energy-dashboard-shows-a-one-time-spike-in-water-use).
 
 ## Removing the integration
 

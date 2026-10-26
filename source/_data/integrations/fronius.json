@@ -1,0 +1,25 @@
+{
+  "domain": "fronius",
+  "name": "Fronius",
+  "integration_type": "hub",
+  "codeowners": [
+    "@farmio"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "quality_scale": "platinum",
+  "categories": [
+    "energy.solar_batteries",
+    "energy.meters_monitoring"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "diagnostics",
+    "number",
+    "sensor",
+    "switch"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

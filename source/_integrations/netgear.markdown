@@ -1,9 +1,9 @@
 ---
 title: NETGEAR
 description: Instructions on how to integrate NETGEAR routers into Home Assistant.
-ha_category:
-  - Presence detection
-  - Update
+ha_categories:
+  - computers_network.routers_network
+  - presence_location.network_presence
 ha_iot_class: Local Polling
 ha_release: pre 0.7
 ha_domain: netgear
@@ -42,7 +42,7 @@ Note that not all routers support all features, if a router does not support a f
 
 You might also see the following error in the log `404 service '...', method '...' not found`, to prevent these errors, keep the unsupported entities disabled.
 
-All possibly unsupported entities are disabled by default.
+All possibly unsupported entities are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 ### Reboot button
 

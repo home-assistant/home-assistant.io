@@ -1,0 +1,19 @@
+{
+  "domain": "starlink",
+  "name": "Starlink",
+  "integration_type": "device",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "computers_network.routers_network"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "device_tracker",
+    "diagnostics",
+    "sensor",
+    "switch",
+    "time"
+  ]
+}

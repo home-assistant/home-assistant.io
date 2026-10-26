@@ -72,6 +72,7 @@ label_id_or_name:
 
 - Only returns entities with the label assigned directly. Labels applied to devices or areas do not roll up to their entities.
 - Returns an empty list when the label does not match any entities.
+- Uppercase and lowercase letters and spaces in a label name don't matter. A label ID must match exactly.
 
 {% include template_functions/try_it.md %}
 

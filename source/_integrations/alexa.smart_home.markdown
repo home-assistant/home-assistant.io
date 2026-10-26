@@ -1,8 +1,6 @@
 ---
 title: "Amazon Alexa Smart Home Skill"
 description: "Instructions on how to build Smart Home skill to connect Amazon Alexa with Home Assistant."
-ha_category:
-  - Voice
 ha_release: "0.54"
 ha_codeowners:
   - '@home-assistant/cloud'
@@ -53,6 +51,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Doorbell announcement with binary\_sensor](#doorbell-announcement-with-binary_sensor)
     - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
   - [Camera](#camera)
+    - [WebRTC live view](#webrtc-live-view)
   - [Climate](#climate)
     - [Set Thermostat Temperature](#set-thermostat-temperature)
     - [Thermostat Mode](#thermostat-mode)
@@ -494,7 +493,7 @@ The alarm control panel state `armed_custom_bypass` isn't supported by Alexa and
 
 {% note %}
 Alexa does not support arming with voice PIN. Therefore if the alarm control panel requires a `code` for arming or the `code_arm_required` attribute is `true`, the entity will not be exposed during discovery.
-The alarm control panel may default the `code_arm_required` attribute to `true` even if the platform does not support or require it. Use the [entity customization tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override `code_arm_required` to `false` and expose the alarm control panel during discovery.
+The alarm control panel may default the `code_arm_required` attribute to `true` even if the platform does not support or require it. To expose the alarm control panel during discovery, set `code_arm_required` to `false` in YAML. For the steps, refer to [Manual customization](/integrations/homeassistant/#manual-customization).
 {% endnote %}
 
 #### Disarming
@@ -543,7 +542,7 @@ Requires [Proactive Events](#proactive-events) enabled.
 
 Alexa Routines can be triggered with Binary Sensors exposed as contact or motion sensors.
 
-Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override the `device_class` attribute to expose a `binary_sensor` to Alexa.
+Use the [Entity Customization Tool](/docs/configuration/customizing-entities/#changing-the-attributes-of-an-entity) to override the `device_class` attribute to expose a `binary_sensor` to Alexa.
 
 ### Button, Input Button
 
@@ -628,6 +627,18 @@ The Amazon echo device will request the camera stream from Home Assistant. The H
 
 Enable preload stream option for cameras used with echo devices to reduce response time, and prevent timing out before the 6 second limit.
 
+#### WebRTC live view
+
+Echo Show devices can also show your camera's live view using WebRTC. This works for cameras that support WebRTC, either directly or through the [go2rtc](/integrations/go2rtc/) integration. If your setup also meets the requirements for the stream above, that stream keeps working too.
+
+- The Echo Show only works with IPv4 addresses. If your camera stream is only available on an IPv6 address or a local network name (ending in `.local`), the live view won't work.
+- The video doesn't go straight over your local network. Instead, the Echo Show connects through your public internet address, or through a relay server (a TURN server). If you use Home Assistant Cloud, relay servers are set up for you. Without Home Assistant Cloud, your public internet address may work just fine with the default settings. If the live view doesn't start, add your own TURN server with the [WebRTC](/integrations/web_rtc/) integration.
+- If the live view doesn't work, turn on [debug logging](#debugging) for `homeassistant.components.alexa`. The log shows each live view session, the network addresses sent to the Echo Show, and how long Home Assistant took to respond.
+
+{% important %}
+Alexa only checks if a camera supports WebRTC when it discovers your devices. If WebRTC becomes available later, for example because go2rtc started after Alexa discovered your devices, the live view won't show up for that camera. To fix this, just say _"Alexa, discover devices"_, so Alexa picks up the change.
+{% endimportant %}
+
 ### Climate
 
 Single, double, and triple set-point thermostats are supported. The temperature value from the thermostat will also be exposed at a separate [temperature sensor](#sensor).
@@ -675,7 +686,7 @@ Covers with a `device_class` of `blind`, `shade`, `curtin` are shown as an Inter
 
 Covers with the `device_class` of `garage` are shown as a [Garage Door](#garage-doors) and support the Open by Voice PIN feature.
 
-Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override the `device_class` attribute to correctly expose a `cover` to Alexa.
+Use the [Entity Customization Tool](/docs/configuration/customizing-entities/#changing-the-attributes-of-an-entity) to override the `device_class` attribute to correctly expose a `cover` to Alexa.
 
 #### Open/Close/Raise/Lower
 
@@ -1113,7 +1124,7 @@ If the water heater entity supports on/off, use _"turn on"_ and _"turn off"_ utt
 
 Binary Sensors with a [`device_class`](/integrations/binary_sensor/#device-class) attribute of `door` `garage_door` `opening` `window` `motion` `presence` are supported.
 
-Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override the `device_class` attribute to expose a `binary_sensor` to Alexa.
+Use the [Entity Customization Tool](/docs/configuration/customizing-entities/#changing-the-attributes-of-an-entity) to override the `device_class` attribute to expose a `binary_sensor` to Alexa.
 
 <!-- omit in toc -->
 ### Token Invalid and no Refresh Token Available
@@ -1145,6 +1156,6 @@ logger:
 
 [alexa-dev-console]: https://developer.amazon.com/alexa/console/ask
 [emulated-hue-integration]: /integrations/emulated_hue/
-[generate-long-lived-access-token]: https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token
+[generate-long-lived-access-token]: https://contributors.home-assistant.io/core/internals/auth-api/#long-lived-access-tokens
 [alexa-display-categories]: https://developer.amazon.com/docs/alexa/device-apis/alexa-discovery.html#display-categories
 [alexa-supported-locales]: https://developer.amazon.com/docs/alexa/device-apis/list-of-interfaces.html

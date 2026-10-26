@@ -35,8 +35,8 @@ Threshold type:
     The power value the entity has to meet for the condition to pass.
 
     - **Above** and **Below** are exclusive. A reading equal to the threshold does not pass.
-    - **In range** is exclusive at both bounds.
-    - **Outside range** is inclusive. A reading equal to either bound passes.
+    - **In range** includes both bounds.
+    - **Outside range** excludes both bounds. A reading equal to either bound does not pass.
 
     Choose **Number** to enter a fixed power value, or **Entity** to use a sensor or a user-created [number helper](/integrations/input_number/) as a dynamic threshold.
 Condition passes if:
@@ -114,12 +114,14 @@ threshold:
 
     - `type: above` (exclusive): Sets a minimum. The reading must be strictly above the threshold to pass. Provide `value` with either a `number` and `unit_of_measurement` (for a literal power value) or an `entity` key.
     - `type: below` (exclusive): Sets a maximum. The reading must be strictly below the threshold to pass. Provide `value` with either a `number` and `unit_of_measurement` (for a literal power value) or an `entity` key.
-    - `type: between` (exclusive): Defines a range. The reading must be strictly between both bounds to pass. Provide `value_min` and `value_max`, each with either a `number` and `unit_of_measurement` or an `entity` key.
-    - `type: outside` (inclusive): Defines an outside-range. The reading must be at or beyond either bound to pass. Provide `value_min` and `value_max`, each with either a `number` and `unit_of_measurement` or an `entity` key.
+    - `type: between` (inclusive): Defines a range. The reading must be between the two bounds, or equal to one of them, to pass. Provide `value_min` and `value_max`, each with either a `number` and `unit_of_measurement` or an `entity` key.
+    - `type: outside` (exclusive): Defines an outside-range. The reading must be beyond either bound to pass. Provide `value_min` and `value_max`, each with either a `number` and `unit_of_measurement` or an `entity` key.
 
     When you use a literal number, add `unit_of_measurement` with one of the supported power units.
 
     Supported units are `mW`, `W`, `kW`, `MW`, `GW`, `TW`, and `BTU/h`.
+
+    When using the `entity` key, Home Assistant converts the value from the entity's unit. If the entity has no unit, or a unit that Home Assistant can't convert, the condition doesn't pass.
   required: true
   type: map
 behavior:
@@ -132,13 +134,13 @@ behavior:
   type: string
   default: any
 for:
-  description: How long the reading must meet the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` requires the reading to stay in range for 5 minutes.
+  description: How long the reading must meet the threshold before the condition passes. Accepts a duration string in `HH:MM:SS` format. For example, `00:05:00` requires the reading to stay in range for 5 minutes. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="power sensor" example="sensor.washing_machine_power" %}
 
 {% include conditions/behavior.md %}
 
@@ -147,7 +149,7 @@ for:
 - Use **Power value** to check the current load at the moment the condition runs. If you want to react when a reading changes or crosses a threshold, use [Power changed](/triggers/power.changed/) or [Power crossed threshold](/triggers/power.crossed_threshold/).
 - Supported thresholds can use fixed values, a sensor with the power device class, a number entity with the power device class, or a user-created {% term helper %} from the [Input number integration](/integrations/input_number/).
 - Supported power units are `mW`, `W`, `kW`, `MW`, `GW`, `TW`, and `BTU/h`.
-- Entities that are `unavailable` or `unknown` are skipped when the condition is evaluated. With **Any**, at least one remaining valid entity must match. With **All**, every remaining valid entity must match.
+{% include conditions/unavailable_targets.md entities="sensors" %}
 - When you use a sensor or helper as a dynamic threshold, its current value is read when the condition runs.
 - This condition works with sensors that have the power device class.
 

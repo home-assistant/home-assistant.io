@@ -1,9 +1,8 @@
 ---
 title: Honeywell String Lights
 description: Instructions on how to integrate Honeywell String Lights into Home Assistant.
-ha_category:
-  - Light
-  - Radio frequency-controlled
+ha_categories:
+  - lighting
 ha_release: 2026.5
 ha_iot_class: Assumed State
 ha_config_flow: true

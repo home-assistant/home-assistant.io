@@ -1,0 +1,16 @@
+{
+  "domain": "discord",
+  "name": "Discord",
+  "integration_type": "service",
+  "codeowners": [
+    "@tkdrob"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "messaging_notifications.chat_apps"
+  ],
+  "platforms": [
+    "notify"
+  ]
+}

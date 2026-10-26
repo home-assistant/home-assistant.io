@@ -34,7 +34,7 @@ round(
     value: Any,
     precision: int = 0,
     method: str = "common",
-    default: Any = _SENTINEL,
+    default: Any,
 ) -> float | int | Any
 ```
 
@@ -62,7 +62,7 @@ method:
   type: string
 default:
   description: >
-    Value to return if the conversion fails. If not provided, an error is raised on invalid input.
+    The value to return if the conversion fails, such as `0`. If you leave out `default` and the conversion fails, `round` raises an error and the template fails.
   required: false
   type: any
 {% endfunction_parameters %}
@@ -87,6 +87,20 @@ template: '{{ 2.5 | round(0) }}'
 title: "Banker's rounding: 2.5 rounds to even"
 type: integer
 output: "2"
+{% endexample %}
+
+{% example %}
+template: '{{ 2.7 | round(0) }}'
+title: Values above the halfway point round up
+type: integer
+output: "3"
+{% endexample %}
+
+{% example %}
+template: '{{ 3.5 | round(0) }}'
+title: "Banker's rounding: 3.5 rounds up to the even 4"
+type: integer
+output: "4"
 {% endexample %}
 
 ### Ceil (always round up)
@@ -126,6 +140,8 @@ output: "21.5"
 - The default `common` method uses banker's rounding, where 0.5 rounds to the nearest even number. So `2.5 | round` gives `2`, not `3`.
 - With `precision=0` (the default), the result is an integer. With a nonzero precision, the result is a float.
 - The `half` method rounds to the nearest 0.5 rather than the nearest whole number.
+- For example, 2.7 rounds to 3 with common and ceil, and to 2 with floor.
+- With half, set a precision of 1 or higher to keep the .5: 2.7 | round(1, 'half') gives 2.5. At precision 0, the result is cut to a whole number, so 2.7 | round(0, 'half') gives 2
 
 {% include template_functions/try_it.md %}
 

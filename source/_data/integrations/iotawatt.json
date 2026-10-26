@@ -1,0 +1,18 @@
+{
+  "domain": "iotawatt",
+  "name": "IoTaWatt",
+  "integration_type": "device",
+  "codeowners": [
+    "@gtdiehl",
+    "@jyavenard",
+    "@agners"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "energy.meters_monitoring"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

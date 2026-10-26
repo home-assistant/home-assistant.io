@@ -89,7 +89,9 @@ baudrate:
 
 When the OctoPrint server comes back online, tell it to connect to the printer so it is ready for the next print.
 
-- **Trigger**: The OctoPrint server becomes available
+- **Trigger**: State changed
+  - **Entity**: Octoprint printing sensor
+  - **From**: Unavailable
 - **Action**: OctoPrint: Connect to a printer
 
 {% details "YAML example for reconnecting after a reboot" %}

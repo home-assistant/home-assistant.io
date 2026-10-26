@@ -1,0 +1,14 @@
+{
+  "domain": "panasonic_viera",
+  "name": "Panasonic Viera",
+  "integration_type": "device",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "media_entertainment.tv_streaming"
+  ],
+  "platforms": [
+    "media_player",
+    "remote"
+  ]
+}

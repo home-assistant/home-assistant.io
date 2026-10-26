@@ -48,8 +48,6 @@ This passes when the sensor `binary_sensor.occupancy_office` has been continuous
 
 ### Options in YAML
 
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
-
 {% options_yaml %}
 behavior:
   description: >
@@ -59,13 +57,13 @@ behavior:
   default: any
 for:
   description: >
-    How long one or more occupancy sensors must be continuously reporting the space as not occupied before the condition passes. Accepts a duration string in `HH:MM:SS` format.
+    How long one or more occupancy sensors must be continuously reporting the space as not occupied before the condition passes. Accepts a duration string in `HH:MM:SS` format. For a list of all accepted formats, refer to [Durations in automations and scripts](/docs/automation/durations/).
   required: false
-  type: string
+  type: [string, integer, map]
   default: "00:00:00"
 {% endoptions_yaml %}
 
-{% include conditions/targets.md %}
+{% include conditions/targets.md entity_type="occupancy sensor" example="binary_sensor.office_occupancy" %}
 
 {% include conditions/behavior.md %}
 
@@ -87,7 +85,7 @@ When the playroom has been empty for 10 minutes, this automation pauses the play
 - **Condition**: Occupancy is not detected
   - **Target**: Playroom occupancy sensor
   - **For at least**: 00:10:00
-- **Action**: Media player pause
+- **Action**: Pause media
   - **Target**: Playroom speaker
 
 {% details "YAML example for pausing the playroom speaker when empty" %}

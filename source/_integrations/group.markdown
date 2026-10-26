@@ -1,21 +1,8 @@
 ---
 title: Group
 description: Instructions on how to set up groups within Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Cover
-  - Event
-  - Fan
-  - Helper
-  - Light
-  - Lock
-  - Media player
-  - Notifications
-  - Organization
-  - Sensor
-  - Switch
-  - Valve
+ha_categories:
+  - helpers.calculate_value
 ha_release: pre 0.7
 ha_iot_class: Calculated
 ha_quality_scale: internal
@@ -26,6 +13,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - button
+  - calendar
   - cover
   - event
   - fan
@@ -47,6 +35,7 @@ The following entities can be grouped:
 
 - [binary sensor (binary sensors)](/integrations/binary_sensor/)
 - [button (buttons)](/integrations/button/)
+- [calendar (calendars)](/integrations/calendar/)
 - [cover (covers)](/integrations/cover/)
 - [event (events)](/integrations/event/)
 - [fan (fans)](/integrations/fan/)
@@ -95,6 +84,16 @@ The group state is the last time the grouped button was pressed.
 
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is the last time the grouped button was pressed.
+
+### Calendar groups
+
+A calendar group shows the events of all its member calendars together.
+
+- The group state is `unavailable` if all group members are `unavailable`.
+- Otherwise, the group state is `on` if at least one group member has an event in progress.
+- Otherwise, the group state is `off`.
+- The group attributes show the current event, or the next upcoming event, across all group members.
+- Events can't be created, edited, or deleted through a calendar group. Make these changes in the member calendars.
 
 ### Cover and valve groups
 In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover and valve groups behave:
@@ -174,6 +173,8 @@ To add or remove entities from an existing group, click on `Group options`, all 
 
 ![Group members](/images/integrations/group/Group_members.png)
 
+To hide the members of the group, so that only the group shows, turn on **Hide members**. Home Assistant hides the member entities when you save, and shows them again when you turn the option off. For what hiding does, refer to [Hidden entities](/docs/configuration/customizing-entities/#hidden-entities).
+
 ### Group attributes
 
 These are the attributes available for a group.
@@ -210,6 +211,18 @@ button:
     entities:
       - button.device_1_restart
       - button.device_2_restart
+```
+
+Example YAML configuration of a calendar group:
+
+```yaml
+# Example configuration.yaml entry
+calendar:
+  - platform: group
+    name: "Family"
+    entities:
+      - calendar.work
+      - calendar.school
 ```
 
 Example YAML configuration of a cover group:
@@ -359,7 +372,7 @@ device_class:
   type: string
   required: false
 state_class:
-  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](https://developers.home-assistant.io/docs/core/entity/sensor/#available-state-classes).
+  description: Only available for `sensor` group. Set the state class for the sensor according to [available options](https://contributors.home-assistant.io/core/entities/sensor/#state-classes).
   type: string
   required: false
 {% endconfiguration %}

@@ -1,0 +1,13 @@
+{
+  "domain": "arwn",
+  "name": "Ambient Radio Weather Network",
+  "iot_class": "local_push",
+  "quality_scale": "legacy",
+  "categories": [
+    "weather_alerts",
+    "diy_makers"
+  ],
+  "platforms": [
+    "sensor"
+  ]
+}

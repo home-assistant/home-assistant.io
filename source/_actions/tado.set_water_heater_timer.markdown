@@ -9,7 +9,7 @@ related_actions:
   - tado.add_meter_reading
 ---
 
-The **Set water heater timer** action switches a Tado water heater on for a set time. This is the equivalent of a manual boost: the water heater runs for the period you choose and then returns to its schedule.
+The **Tado: Set water heater timer** action switches a Tado water heater on for a set time. This is the equivalent of a manual boost: the water heater runs for the period you choose and then returns to its schedule.
 
 You can optionally set the target temperature the water heater should reach during the boost.
 

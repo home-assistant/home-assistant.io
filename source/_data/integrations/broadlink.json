@@ -1,0 +1,31 @@
+{
+  "domain": "broadlink",
+  "name": "Broadlink",
+  "integration_type": "device",
+  "codeowners": [
+    "@danielhiversen",
+    "@felipediel",
+    "@L-I-Am",
+    "@DAB-LABS"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "buttons_remotes",
+    "plugs_switches"
+  ],
+  "platforms": [
+    "climate",
+    "infrared",
+    "light",
+    "radio_frequency",
+    "remote",
+    "select",
+    "sensor",
+    "switch",
+    "time"
+  ],
+  "discovery": [
+    "dhcp"
+  ]
+}

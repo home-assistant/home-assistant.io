@@ -2,8 +2,8 @@
 title: Home Assistant Green
 description: Home Assistant Green provides hardware information for the hardware configuration page.
 ha_release: 2023.9
-ha_category:
-  - Other
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: homeassistant_green

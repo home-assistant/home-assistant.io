@@ -1,8 +1,8 @@
 ---
 title: Philips Hue BLE
 description: Instructions on how to set up Philips Hue Bluetooth lights within Home Assistant.
-ha_category:
-  - Light
+ha_categories:
+  - lighting.bulbs_lamps
 ha_release: 2025.12
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -50,6 +50,7 @@ This {% term integration %} is tested to work with the following models:
 | LWA021       | Hue Filament Bulb White                          |
 | LWA031       | Hue White 1600                                   |
 | LTO002       | Hue White ambiance filament globe bulb           |
+| LOM007       | Hue Smart Plug EU                                |
 | Unknown      | Hue White and Color Ambiance Infuse ceiling lamp |
 | Unknown      | Hue White and Color Ambiance Go portable accent light  |
 

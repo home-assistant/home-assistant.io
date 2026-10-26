@@ -2,12 +2,8 @@
 title: ESPHome
 description: Support for ESPHome devices using the native ESPHome API.
 featured: true
-ha_category:
-  - Alarm
-  - DIY
-  - Infrared
-  - Radio frequency
-  - Update
+ha_categories:
+  - diy_makers.boards_hardware
 ha_release: 0.85
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -15,6 +11,7 @@ ha_codeowners:
   - '@jesserockz'
   - '@kbx81'
   - '@bdraco'
+  - '@arturpragacz'
 ha_domain: esphome
 ha_zeroconf: true
 ha_platforms:
@@ -30,12 +27,10 @@ ha_platforms:
   - diagnostics
   - event
   - fan
-  - infrared
   - light
   - lock
   - media_player
   - number
-  - radio_frequency
   - select
   - sensor
   - switch

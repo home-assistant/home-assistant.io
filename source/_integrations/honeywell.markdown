@@ -1,9 +1,8 @@
 ---
 title: Honeywell Total Connect Comfort (US)
 description: Instructions on how to integrate Honeywell thermostats within Home Assistant.
-ha_category:
-  - Climate
-  - Sensor
+ha_categories:
+  - climate.thermostats_heating
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -122,7 +121,7 @@ For more details, see the [humidifier](/integrations/humidifier) integration doc
 automation:
   - alias: "Maintain Comfortable Humidity"
     trigger:
-      - platform: numeric_state
+      - trigger: numeric_state
         entity_id: sensor.indoor_humidity
         below: 30 # Trigger when humidity drops below 30%
     actions:

@@ -2,9 +2,9 @@
 title: Tami4 Edge / Edge+
 description: Tami4 Edge Integration
 ha_release: 2023.11
-ha_category:
-  - Button
-  - Sensor
+ha_categories:
+  - water.water_treatment
+  - appliances_cleaning.cooking
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:

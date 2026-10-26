@@ -1,11 +1,11 @@
 ---
-title: "Rejseplanen"
-description: "Instructions on how to integrate timetable data for Danish Rejseplanen within Home Assistant."
+title: Rejseplanen
+description: Instructions on how to integrate timetable data for Danish Rejseplanen within Home Assistant.
 ha_release: 0.88
-ha_category:
-  - Transport
-ha_iot_class: "Cloud Polling"
-ha_quality_scale: legacy
+ha_categories:
+  - vehicles_transport.public_transport
+ha_iot_class: Cloud Polling
+ha_quality_scale: silver
 ha_config_flow: true
 ha_codeowners:
   - '@Jawar19'
@@ -295,7 +295,7 @@ This example updates the sensors every 2 minutes during the morning rush hour (7
   - Time pattern, every 2 minutes
   - Time, at 08:55, 08:56, 08:57, 08:58, and 08:59
 - **Condition**: Time, between 07:00 and 09:00
-- **Action**: Update entity
+- **Action**: Home Assistant Core Integration: Update entity
 
 {% details "YAML example: more frequent updates during peak hours" %}
 
@@ -330,7 +330,7 @@ automation:
 This example refreshes the departure data whenever you press a dashboard button. The button is an input button {% term helper %} that you create separately under {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}. This example uses a helper with the entity ID `input_button.refresh_departures`.
 
 - **Trigger**: The dashboard button is pressed
-- **Action**: Update entity
+- **Action**: Home Assistant Core Integration: Update entity
 
 {% details "YAML example: update on demand with a button" %}
 
@@ -350,7 +350,8 @@ automation:
 {% enddetails %}
 
 {% important %}
-Be mindful of the API rate limit (50,000 calls per month for private keys). Frequent updates across multiple stops can quickly use up your allocation. Monitor your usage and adjust your intervals.
+Be mindful of the API rate limit (50,000 calls per month for private keys). Frequent updates can quickly use up your allocation. Monitor your usage and adjust your intervals.
+Each data update uses one API call, regardless of the number of configured stops.
 {% endimportant %}
 
 ## Data updates
