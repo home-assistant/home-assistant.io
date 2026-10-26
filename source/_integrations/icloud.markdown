@@ -15,6 +15,7 @@ ha_domain: icloud
 ha_platforms:
   - calendar
   - device_tracker
+  - diagnostics
   - sensor
   - todo
 ha_integration_type: hub
@@ -89,3 +90,12 @@ If you have [Advanced Data Protection](https://support.apple.com/en-us/102651) t
 ## Media source
 
 iCloud photo albums and shared streams are displayed in the media browser, "Media" > "iCloud". This will display a list of configured iCloud accounts, selecting the account will give a choice of "Albums" and "Shared Streams". Selection of these will give a list of available photo albums, and selecting these will display the current contents of the album.
+
+## Diagnostics
+
+The integration provides [diagnostics](/docs/configuration/troubleshooting/#download-diagnostics) to help with troubleshooting. There are two downloads:
+
+- The integration download contains the account information and the data Apple reports for every device.
+- Each device page has its own download, containing the data Apple reports for that device. For devices Apple no longer reports, the download falls back to the account information.
+
+Your username and password, device and personal identifiers, location coordinates, family member names, and the Lost Mode contact number and message are redacted. The device name is kept so you can tell the downloads apart.

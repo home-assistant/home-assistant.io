@@ -70,7 +70,11 @@ The **Tractive** integration provides the following entities for each pet regist
   - **Options**: Inaccurate position, Not reporting, Operational, System shutdown user, System startup
 - **Weight**
   - **Description**: Weight of your pet, as stored in your pet's profile in the Tractive app.
-  - **Remarks**: The weight is shown in kilograms by default. You can change the unit in the entity settings. The entity is unavailable if no weight is set for your pet. Home Assistant checks for weight changes every 30 minutes.
+  - **Remarks**: The entity state is `unknown` if no weight is set for your pet. Home Assistant checks for weight changes every 30 minutes.
+
+{% note %}
+The **Activity time**, **Daily goal**, **Day sleep**, **Night sleep**, and **Rest time** sensors are only created for pets whose tracker provides health data. Trackers without health features and trackers with an inactive subscription do not provide this data.
+{% endnote %}
 
 ### Switches
 
