@@ -217,7 +217,7 @@ Enter your cloud account details first. After authenticating your account, the i
 {% configuration_basic %}
 Server URL:
   description: >-
-    The Visonic cloud server address used by your account. The default is `visonic.tycomonitor.com`. Use the server address provided for your account if it is different.
+    The Visonic cloud server hostname or HTTPS URL used by your account. For example, enter `visonic.tycomonitor.com` or `https://visonic.tycomonitor.com`. Do not include a path, login details, or URL parameters. The default is `visonic.tycomonitor.com`. Use the server address provided for your account if it is different.
 Login Email:
   description: >-
     The email address used to sign in to your Visonic cloud account. This field is required and is initially empty.
