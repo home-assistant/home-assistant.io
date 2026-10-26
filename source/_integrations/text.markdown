@@ -1,8 +1,6 @@
 ---
 title: Text
 description: Instructions on how to set up text entities within Home Assistant.
-ha_category:
-  - Text
 ha_release: '2022.12'
 ha_domain: text
 ha_quality_scale: internal

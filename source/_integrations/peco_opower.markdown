@@ -1,9 +1,6 @@
 ---
 title: PECO Energy Company (PECO)
 description: Get energy usage from PECO Energy Company (PECO) using the Opower integration
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 2023.8
 ha_domain: peco_opower
 ha_integration_type: virtual

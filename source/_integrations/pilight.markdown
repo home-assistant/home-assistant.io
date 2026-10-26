@@ -1,11 +1,9 @@
 ---
 title: Pilight
 description: Instructions on how to set up Pilight within Home Assistant.
-ha_category:
-  - Binary sensor
-  - DIY
-  - Sensor
-  - Switch
+ha_categories:
+  - hubs_protocols.wireless_protocols
+  - diy_makers.boards_hardware
 ha_release: 0.26
 ha_iot_class: Local Push
 ha_domain: pilight

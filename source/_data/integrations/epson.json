@@ -1,0 +1,16 @@
+{
+  "domain": "epson",
+  "name": "Epson",
+  "integration_type": "device",
+  "codeowners": [
+    "@pszafer"
+  ],
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "categories": [
+    "media_entertainment.tv_streaming"
+  ],
+  "platforms": [
+    "media_player"
+  ]
+}

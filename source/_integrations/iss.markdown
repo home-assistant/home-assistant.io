@@ -1,8 +1,8 @@
 ---
 title: International Space Station (ISS)
 description: Show the ISS location and how many people are in space
-ha_category:
-  - Sensor
+ha_categories:
+  - vehicles_transport.flights
 ha_iot_class: Cloud Polling
 ha_release: 0.36
 ha_domain: iss

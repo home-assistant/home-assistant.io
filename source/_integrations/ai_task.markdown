@@ -1,8 +1,6 @@
 ---
 title: AI Task
 description: Instructions on how to set up AI task entities with Home Assistant.
-ha_category:
-  - AI
 ha_release: '2025.7'
 ha_quality_scale: internal
 ha_domain: ai_task
@@ -17,9 +15,14 @@ The **AI Task** {% term integration %} allows you to use AI to help you configur
 
 For each task, you can set a preferred AI task entity. This allows you to use different AI models for different purposes, such as generating text, summarizing information, or even controlling devices. When the entity ID is omitted in the action, the preferred AI task entity will be used.
 
-## The state of an AI task entity
+## AI task states
 
-The {% term state %} of an AI task {% term entity %} is a timestamp showing the date and time when the AI task was last used.
+The {% term state %} of an AI task {% term entity %} is a timestamp showing the date and time when the AI task was last used. Home Assistant stores the timestamp in UTC, for example, `2026-01-01T12:00:00.123456+00:00`. The Home Assistant interface shows it in your local date and time format.
+
+In addition, the entity can have the following states. Each item shows the interface label, followed by the stored state:
+
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 {% include integrations/actions.md %}
 

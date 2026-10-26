@@ -1,10 +1,8 @@
 ---
 title: Arve
 description: Instructions on how to integrate Arve into Home Assistant
-ha_category:
-  - Environment
-  - Health
-  - Sensor
+ha_categories:
+  - sensors.air_quality
 ha_release: '2024.5'
 ha_iot_class: Cloud Polling
 ha_codeowners:

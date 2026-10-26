@@ -1,8 +1,8 @@
 ---
 title: Nmap Tracker
 description: Instructions on how to integrate Nmap into Home Assistant.
-ha_category:
-  - Presence detection
+ha_categories:
+  - presence_location.network_presence
 ha_release: 0.7
 ha_iot_class: Local Polling
 ha_domain: nmap_tracker

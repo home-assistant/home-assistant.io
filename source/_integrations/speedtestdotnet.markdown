@@ -1,9 +1,8 @@
 ---
 title: Speedtest.net
 description: How to integrate Speedtest.net within Home Assistant.
-ha_category:
-  - Sensor
-  - System monitor
+ha_categories:
+  - computers_network.monitoring
 ha_release: 0.13
 ha_iot_class: Cloud Polling
 ha_config_flow: true

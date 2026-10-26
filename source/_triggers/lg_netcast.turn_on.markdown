@@ -18,9 +18,10 @@ To use this trigger in an automation:
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %}.
 2. Open an existing automation, or select **Create automation** > **Create new automation**.
 3. In the **When** section, select **Add trigger**.
-4. Under **By device**, select your LG Netcast device.
-5. From the triggers shown for that device, select **Device is requested to turn on**.
-6. Select **Save**.
+4. Select the **By type** tab. Under **Generic**, select **Device**.
+5. In the **Device** dropdown list, select your LG Netcast TV.
+6. In the **Trigger** dropdown list, select **Device is requested to turn on**.
+7. Select **Save**.
 
 ### Options in the UI
 
@@ -42,8 +43,6 @@ trigger: |
 This fires when something requests the LG Netcast TV to turn on.
 
 ### Options in YAML
-
-YAML sometimes provides additional options for more complex use cases that are not available through the UI.
 
 {% options_yaml %}
 trigger:

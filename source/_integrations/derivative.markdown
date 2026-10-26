@@ -1,11 +1,8 @@
 ---
 title: Derivative
 description: Instructions on how to integrate Derivative Sensor into Home Assistant.
-ha_category:
-  - Energy
-  - Helper
-  - Sensor
-  - Utility
+ha_categories:
+  - helpers.calculate_value
 ha_release: 0.105
 ha_iot_class: Calculated
 ha_qa_scale: internal
@@ -119,3 +116,5 @@ sensor:
     unit_time: h # the resulting "unit_of_measurement" will be °C/h if the sensor.temperate has set °C as its unit
     time_window: "00:30:00"  # we look at the change over the last half hour
 ```
+
+{% include integrations/actions.md %}

@@ -1,12 +1,6 @@
 ---
 title: Levoit
 description: Connect and control your Levoit devices using the VeSync integration
-ha_category:
-  - Fan
-  - Light
-  - Number
-  - Switch
-  - Update
 ha_release: 0.66
 ha_domain: levoit
 ha_integration_type: virtual

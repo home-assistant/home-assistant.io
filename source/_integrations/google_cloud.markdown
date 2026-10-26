@@ -1,10 +1,8 @@
 ---
 title: Google Cloud
 description: Google Cloud Platform integration.
-ha_category:
-  - Speech-to-text
-  - Text-to-speech
-  - Voice
+ha_categories:
+  - ai_voice.speech
 ha_release: 0.95
 ha_config_flow: true
 ha_iot_class: Cloud Push

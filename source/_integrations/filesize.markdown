@@ -1,9 +1,8 @@
 ---
 title: File size
 description: Integration for monitoring the size of a file.
-ha_category:
-  - Sensor
-  - Utility
+ha_categories:
+  - computers_network.monitoring
 ha_iot_class: Local Polling
 ha_release: 0.64
 ha_domain: filesize

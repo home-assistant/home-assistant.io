@@ -1,8 +1,8 @@
 ---
 title: MJPEG IP Camera
 description: Instructions on how to integrate IP cameras within Home Assistant.
-ha_category:
-  - Camera
+ha_categories:
+  - security_safety.cameras
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_domain: mjpeg
@@ -58,5 +58,5 @@ use is automatically detected when using a username and password.
   - Still Image URL: `http://IP/webcam/?action=snapshot`
 
 - Legacy Foscam / wanscam
-  - MJPEG URL: `http://IP:PORT/videostream.cgi` (add ?resultion=32 for 640x480 or ?resultion=32 for 320x240)
+  - MJPEG URL: `http://IP:PORT/videostream.cgi` (add `?resolution=32` for 640x480 or `?resolution=8` for 320x240)
   - Still Image URL: `http://IP:PORT/snapshot.cgi`

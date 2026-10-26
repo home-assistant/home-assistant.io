@@ -1,9 +1,6 @@
 ---
 title: Image upload
 description: The image upload integration handle image assets in Home Assistant.
-ha_category:
-  - Media source
-  - Other
 ha_release: 0.115
 ha_codeowners:
   - '@home-assistant/core'

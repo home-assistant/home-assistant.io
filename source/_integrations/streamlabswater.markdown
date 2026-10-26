@@ -1,9 +1,8 @@
 ---
 title: StreamLabs
 description: Instructions on how to integrate Streamlabs Water devices with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
+ha_categories:
+  - water.meters_leak_detection
 ha_release: '0.95'
 ha_iot_class: Cloud Polling
 ha_domain: streamlabswater

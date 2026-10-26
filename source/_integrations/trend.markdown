@@ -1,10 +1,8 @@
 ---
 title: Trend
 description: Instructions on how to integrate Trend binary sensors into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Helper
-  - Utility
+ha_categories:
+  - helpers.calculate_value
 ha_release: 0.28
 ha_iot_class: Calculated
 ha_quality_scale: internal
@@ -128,6 +126,8 @@ when the temperature is falling by 2 degrees per hour,
 use a gradient of (-2) / (60 x 60) = -0.00055
 
 The current number of stored samples is displayed on the States page.
+
+{% include integrations/actions.md %}
 
 ## Examples
 

@@ -1,8 +1,8 @@
 ---
 title: Pioneer
 description: Instructions on how to integrate a Pioneer Network Receivers into Home Assistant.
-ha_category:
-  - Media player
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_release: 0.19
 ha_iot_class: Local Polling
 ha_domain: pioneer

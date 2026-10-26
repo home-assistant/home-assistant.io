@@ -1,8 +1,8 @@
 ---
 title: Gree Climate
 description: Instructions on how to integrate Gree Smart devices within Home Assistant.
-ha_category:
-  - Climate
+ha_categories:
+  - climate.heat_pumps_air_conditioning
 ha_release: 0.117
 ha_iot_class: Local Polling
 ha_config_flow: true

@@ -1,9 +1,8 @@
 ---
 title: OpenRouter
 description: Instructions on how to integrate OpenRouter as a conversation agent
-ha_category:
-  - AI
-  - Voice
+ha_categories:
+  - ai_voice.ai_models
 ha_release: 2025.8
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -33,11 +32,15 @@ The API key is used to authenticate requests to OpenRouter. To generate an API k
 - To generate a new key, select **Create API Key**.
 - Give the key a name, and be sure to set up billing limits.
 
-# Supported functionality
+## Supported functionality
 
-## Generating data with AI
+### Generating data with AI
 
 The OpenRouter integration allows you to generate data using AI models available on OpenRouter. You can use this functionality in automations, scripts, or directly in the Home Assistant UI.
+
+### Generating images with AI
+
+If you choose a model that can create images when you add an AI task, you can also use it to generate images. Use the [`ai_task.generate_image`](/actions/ai_task.generate_image/) action in your automations and scripts. Models that cannot create images only support generating data.
 
 ## Removing the integration
 

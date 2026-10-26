@@ -1,8 +1,8 @@
 ---
 title: Twilio Call
 description: Instructions on how to add Twilio Call notifications to Home Assistant.
-ha_category:
-  - Notifications
+ha_categories:
+  - messaging_notifications.email_sms_calls
 ha_release: 0.37
 ha_domain: twilio_call
 ha_iot_class: Cloud Push
@@ -50,8 +50,7 @@ Twilio is a notification platform and thus can be controlled by calling the noti
 automation:
   - alias: "The sun has set"
     triggers:
-      - trigger: sun
-        event: sunset
+      - trigger: sun.sunset
     actions:
       - action: notify.twilio_call
         data:

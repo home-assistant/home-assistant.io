@@ -1,8 +1,8 @@
 ---
 title: Aranet
 description: Instructions on how to integrate Aranet devices into Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - sensors.air_quality
 ha_bluetooth: true
 ha_release: 2022.12
 ha_iot_class: Local Push

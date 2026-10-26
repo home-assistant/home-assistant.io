@@ -6,6 +6,7 @@ description: "Returns a lawn mower to its dock."
 related_actions:
   - lawn_mower.start_mowing
   - lawn_mower.pause
+  - lawn_mower.stop
 ---
 
 Use this action to send a robotic lawn mower back to its dock, for example to end a run early when it starts to rain.
@@ -57,7 +58,7 @@ This action has no additional YAML options beyond the target.
 
 Send the mower back to its dock when rain is detected while it is mowing.
 
-- **Trigger**: State: Rain sensor turns on
+- **Trigger**: State changed: Rain sensor turns on
 - **Condition**: Lawn mower is mowing
 - **Action**: Return lawn mower to dock
   - **Target**: Backyard mower

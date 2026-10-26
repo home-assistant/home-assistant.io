@@ -11,13 +11,14 @@ limited: false
 since: "2024.11"
 related_functions:
   - time_until
+  - timedelta_string
   - relative_time
   - now
   - as_datetime
   - as_timestamp
 ---
 
-The `time_since` template function returns a human-readable string describing how much time has elapsed since a given {% term datetime %}. Give it a datetime in the past, and it returns something like "2 hours" or "3 days and 5 hours" instead of a raw number of seconds.
+The `time_since` template function returns a human-readable string describing how much time has elapsed since a given {% term datetime %}. Give it a datetime in the past, and it returns something like "2 hours" or "3 days 5 hours" instead of a raw number of seconds.
 
 This is useful whenever you want to display elapsed time in a natural, readable format. For example, showing "last seen 45 minutes ago" on a dashboard, displaying how long a door has been open, or reporting how long ago a sensor last updated. The function only works with datetimes in the past. For future datetimes, use [`time_until`](/template-functions/time_until/) instead. You can control the level of detail with the optional precision parameter, which determines how many time components (years, months, days, hours, minutes, seconds) to include.
 
@@ -55,7 +56,7 @@ value:
   type: datetime
 precision:
   description: >
-    The number of time components to include in the output, from 1 to 6. A precision of 1 might return "2 hours", while a precision of 2 might return "2 hours and 30 minutes". Higher precision gives more detail.
+    The number of time components to include in the output. A precision of 1 might return "2 hours", while a precision of 2 might return "2 hours 30 minutes". Higher precision gives more detail. Use 0 to include every time component that isn't zero.
   required: false
   default: "1"
   type: integer
@@ -74,14 +75,18 @@ output: "2 hours"
 {% example %}
 template: '{{ time_since(states.binary_sensor.front_door.last_changed, 3) }}'
 type: string
-output: "2 hours, 30 minutes and 15 seconds"
+output: "2 hours 15 minutes 10 seconds"
 {% endexample %}
 
 ## Good to know
 
-- Only works with datetimes in the past. For future datetimes, use [`time_until`](/template-functions/time_until/) instead.
-- Durations shorter than one second return `"0 seconds"`.
-- The input datetime must be time zone aware. Pass something like `states.sensor.foo.last_changed` or `now()`, not a naive datetime.
+- Only works with datetimes in the past. A datetime in the future is returned unchanged, without an error. For future datetimes, use [`time_until`](/template-functions/time_until/) instead.
+- The last unit shown is rounded to the nearest whole number. All other units are cut off. For example, 2 hours 45 minutes gives `"3 hours"` with a precision of 1.
+- Because of this rounding, the result doesn't carry over to the next unit. For example, 59 minutes 40 seconds gives `"60 minutes"`, not `"1 hour"`.
+- Units that are zero are skipped and don't count toward the precision. For example, 2 hours and 15 seconds gives `"2 hours 15 seconds"` with a precision of 2.
+- Durations shorter than half a second return `"0 seconds"`.
+- If the input isn't a datetime, it's returned unchanged. This includes `none`, which [`as_datetime`](/template-functions/as_datetime/) returns for states like `unknown`.
+- Datetimes without a time zone are accepted. They're treated as your local time.
 
 {% include template_functions/try_it.md %}
 

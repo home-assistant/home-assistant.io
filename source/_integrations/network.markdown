@@ -1,8 +1,6 @@
 ---
 title: Network Configuration
 description: Network configuration for Home Assistant
-ha_category:
-  - Other
 ha_release: 2021.6
 ha_domain: network
 ha_iot_class: Local Push

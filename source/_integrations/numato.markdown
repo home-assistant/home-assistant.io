@@ -1,11 +1,8 @@
 ---
 title: Numato USB GPIO Expander
 description: Instructions on how to integrate a Numato GPIO expander into Home Assistant.
-ha_category:
-  - Binary sensor
-  - DIY
-  - Sensor
-  - Switch
+ha_categories:
+  - diy_makers.boards_hardware
 ha_release: '0.110'
 ha_iot_class: Local Push
 ha_domain: numato

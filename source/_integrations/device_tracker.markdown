@@ -1,8 +1,6 @@
 ---
 title: Device tracker
 description: Instructions on how to set up device tracking within Home Assistant.
-ha_category:
-  - Presence detection
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: device_tracker
@@ -22,16 +20,18 @@ The device tracker allows you to track devices in Home Assistant. This can happe
 
 To set up device tracking, add an integration that provides `device_tracker` entities, like the [Home Assistant Companion app](/integrations/mobile_app/) for phone-based location tracking or a router-based integration such as [Ubiquiti UniFi](/integrations/unifi/). You can connect device trackers to [person](/integrations/person/) entities and use them with [zones](/integrations/zone/) for automations that react when people or tracked devices enter or leave a place.
 
-## The state of a tracked device
+## Device tracker states
 
-- The name of the smallest [zone](/integrations/zone/) the device is currently in.
-- **Home** if the device is in the [home zone](/integrations/zone#home-zone).
-- **Not home** if the device is not in any zone.
+A device tracker can have the following states. Each item shows the label you see in the Home Assistant interface, followed by the state as Home Assistant stores it. If you write templates or edit automations in YAML, use the stored state.
+
+- The name of the smallest [zone](/integrations/zone/) the device is currently in. The interface shows the same name.
+- **Home** (`home`): The device is in the [home zone](/integrations/zone#home-zone).
+- **Away** (`not_home`): The device is not in any zone.
 
 In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **Unavailable** (`unavailable`): The entity is currently unavailable.
+- **Unknown** (`unknown`): The state is not yet known.
 
 ### Zones
 
@@ -51,17 +51,11 @@ Device trackers that track the position of a device, for example with GPS or ano
 
 #### Connection trackers
 
-Device trackers that track whether a device is connected to a fixed device have the `tracking_type` state attribute set to `connection`. Connection device trackers assume the device is in their associated zone when connected. The default associated zone is the [home zone](/integrations/zone#home-zone), but you can [customize](/docs/configuration/customizing-devices/) the device tracker to use a different zone.
+Device trackers that track whether a device is connected to a fixed device have the `tracking_type` state attribute set to `connection`. Connection device trackers assume the device is in their associated zone when connected. The default associated zone is the [home zone](/integrations/zone#home-zone), but you can [customize](/docs/configuration/customizing-entities/) the device tracker to use a different zone.
 
 ### Legacy device trackers
 
 Some integrations provide an older device tracker model which do not have the `tracking_type` or `in_zones` state attributes. These device trackers are scheduled for removal in the first half of 2027.
-
-<p class='img'>
-<img src='/images/integrations/device_tracker/state_device_tracker.png' alt='Screenshot showing the state of a device tracker entity in Settings > Tools > States' />
-<img src='/images/integrations/device_tracker/state_device_tracker.png' alt='Screenshot showing the state of a device tracker entity in the States tab of Tools.' />
-Screenshot showing the state of a device tracker entity in {% my developer_states title="Settings > Tools > States" %}
-</p>
 
 ## Automating tracked devices
 
@@ -69,4 +63,4 @@ The recommended path for presence automations is to connect tracked devices to [
 
 Zone triggers can also target a device tracker entity directly, such as `device_tracker.phone`. They can run an automation when a person or tracked device enters or leaves a zone. For example, you can turn on lights when you arrive home or send a notification when a tracked device leaves a school zone.
 
-If you need to react to the raw state of one device tracker entity, use a [state trigger](/triggers/state/). Device tracker states depend on the integration that provides the entity. GPS-based trackers can report zones or custom location names, while router-based trackers usually report `home` or `not_home`.
+If you need to react to the raw state of one device tracker entity, use a [State changed trigger](/triggers/state/). Device tracker states depend on the integration that provides the entity. GPS-based trackers can report zones or custom location names, while router-based trackers usually report `home` or `not_home`.

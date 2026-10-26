@@ -1,0 +1,9 @@
+{
+  "domain": "hardware",
+  "name": "Hardware",
+  "integration_type": "system",
+  "codeowners": [
+    "@home-assistant/core"
+  ],
+  "quality_scale": "internal"
+}

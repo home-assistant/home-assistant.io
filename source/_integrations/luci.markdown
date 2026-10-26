@@ -1,8 +1,9 @@
 ---
 title: OpenWrt (luci)
 description: Instructions on how to integrate OpenWrt routers into Home Assistant.
-ha_category:
-  - Presence detection
+ha_categories:
+  - presence_location.network_presence
+  - computers_network.routers_network
 ha_iot_class: Local Polling
 ha_release: pre 0.7
 ha_config_flow: true

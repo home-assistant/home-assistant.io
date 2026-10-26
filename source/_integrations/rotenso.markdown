@@ -1,16 +1,6 @@
 ---
 title: Rotenso
 description: Connect and control your Rotenso devices using the Midea integration
-ha_category:
-  - Binary sensor
-  - Button
-  - Climate
-  - Fan
-  - Humidifier
-  - Light
-  - Number
-  - Select
-  - Switch
 ha_release: 2026.8
 ha_domain: rotenso
 ha_integration_type: virtual
@@ -19,7 +9,6 @@ ha_supporting_integration: Midea
 ha_codeowners:
   - '@chemelli74'
   - '@rokam'
-  - '@caibinqing'
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
@@ -34,7 +23,9 @@ ha_platforms:
   - sensor
   - switch
   - time
+  - water_heater
 ha_iot_class: Local Polling
+ha_dhcp: true
 ---
 
 {% include integrations/supported_brand.md %}

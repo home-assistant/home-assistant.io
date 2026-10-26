@@ -69,7 +69,9 @@ swing_horizontal_mode:
 
 Set a climate device to swing the airflow horizontally when it starts cooling.
 
-- **Trigger**: Indoor temperature rises above 26 °C
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Living room temperature
+  - **Above**: `26`
 - **Action**: Set thermostat horizontal swing mode
   - **Target**: Living room thermostat
   - **Horizontal swing mode**: on

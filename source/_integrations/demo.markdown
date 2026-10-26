@@ -1,9 +1,8 @@
 ---
 title: Demo
 description: Instructions on how to use the Platform demos with Home Assistant.
-ha_category:
-  - Other
-  - Update
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_release: 0.7
 ha_quality_scale: internal
 ha_codeowners:
@@ -26,6 +25,7 @@ ha_platforms:
   - fan
   - geo_location
   - humidifier
+  - lawn_mower
   - light
   - lock
   - media_player
@@ -68,6 +68,7 @@ Available demo platforms:
 - [Geolocation](/integrations/geo_location/) (`geo_location`)
 - [Humidifier](/integrations/humidifier/) (`humidifier`)
 - [Image processing](/integrations/image_processing/) (`image_processing`)
+- [Lawn mower](/integrations/lawn_mower/) (`lawn_mower`)
 - [Light](/integrations/light/) (`light`)
 - [Lock](/integrations/lock/) (`lock`)
 - [Media player](/integrations/media_player/) (`media_player`)

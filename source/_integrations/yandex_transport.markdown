@@ -1,9 +1,8 @@
 ---
 title: Yandex Transport
 description: Instructions on how to set up Yandex transport with Home Assistant.
-ha_category:
-  - Sensor
-  - Transport
+ha_categories:
+  - vehicles_transport.public_transport
 ha_iot_class: Cloud Polling
 ha_release: '0.100'
 ha_codeowners:

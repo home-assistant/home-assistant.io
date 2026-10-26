@@ -2,8 +2,6 @@
 title: Intelligent Storage Acceleration
 description: Intelligent Storage Acceleration
 ha_release: 2024.6
-ha_category:
-  - Other
 ha_codeowners:
   - '@bdraco'
 ha_domain: isal

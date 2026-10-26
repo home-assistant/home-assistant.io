@@ -1,0 +1,18 @@
+{
+  "domain": "alpha_bidet_infrared",
+  "name": "Alpha Bidet Infrared",
+  "integration_type": "device",
+  "codeowners": [
+    "@eseverson"
+  ],
+  "config_flow": true,
+  "iot_class": "assumed_state",
+  "quality_scale": "bronze",
+  "categories": [
+    "health_wellbeing"
+  ],
+  "platforms": [
+    "button",
+    "select"
+  ]
+}

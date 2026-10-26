@@ -1,9 +1,8 @@
 ---
 title: Kraken
 description: Instructions on how to integrate Kraken.com sensors into Home Assistant.
-ha_category:
-  - Finance
-  - Sensor
+ha_categories:
+  - finance
 ha_iot_class: Cloud Polling
 ha_release: 2021.6
 ha_config_flow: true

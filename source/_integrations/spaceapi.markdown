@@ -1,8 +1,8 @@
 ---
 title: SpaceAPI
 description: Instructions on how to configure the SpaceAPI for Home Assistant.
-ha_category:
-  - Social
+ha_categories:
+  - diy_makers.web_data_connectors
 ha_iot_class: Calculated
 ha_release: '0.70'
 ha_codeowners:

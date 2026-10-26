@@ -69,7 +69,9 @@ repeat:
 
 Set a media player to repeat when a trigger fires, for example to keep music going during a workout.
 
-- **Trigger**: Workout starts
+- **Trigger**: State changed
+  - **Entity**: Workout helper
+  - **To**: On
 - **Action**: Set media player repeat
   - **Target**: Gym speaker
   - **Repeat mode**: all

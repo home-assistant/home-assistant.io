@@ -1,10 +1,9 @@
 ---
 title: Harbor Sleep
 description: Instructions on how to set up Harbor Sleep baby monitors in Home Assistant.
-ha_category:
-  - Select
-  - Sensor
-  - Switch
+ha_categories:
+  - health_wellbeing
+  - security_safety.cameras
 ha_config_flow: true
 ha_release: 2026.8
 ha_iot_class: Local Push

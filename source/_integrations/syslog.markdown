@@ -1,8 +1,8 @@
 ---
 title: Syslog
 description: Instructions on how to add syslog notifications to Home Assistant.
-ha_category:
-  - Notifications
+ha_categories:
+  - computers_network.monitoring
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_domain: syslog

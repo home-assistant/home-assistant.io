@@ -1,10 +1,6 @@
 ---
 title: Nexen
 description: Connect and control your Nexen devices using the Hypontech Cloud integration
-ha_category:
-  - Binary sensor
-  - Energy
-  - Sensor
 ha_release: 2026.3
 ha_domain: nexen
 ha_integration_type: virtual

@@ -8,7 +8,7 @@ related_actions:
   - guardian.upgrade_firmware
 ---
 
-The **Pair sensor** action adds a new paired sensor to a Guardian valve controller.
+The **Elexa Guardian: Pair sensor** action adds a new paired sensor to a Guardian valve controller.
 
 This is handy when you want to add a leak sensor from an automation or a script instead of pairing it by hand, for example as part of a setup routine when you install a new sensor.
 
@@ -20,7 +20,7 @@ To pair a sensor from an automation or a script:
 2. Open an existing automation or script, or select **Create automation** > **Create new automation**.
 3. If you're setting up a new automation, add a trigger in the **When** section. Scripts don't need a trigger. They run when something else calls them.
 4. In the **Then do** section, select **Add action**.
-5. From the search box, search for and select **Guardian: Pair sensor**.
+5. From the search box, search for and select **Elexa Guardian: Pair sensor**.
 6. Select the **Valve controller** to add the sensor to, and enter the sensor **UID**.
 7. Select **Save**.
 This action does not support targets. In the UI, you are not prompted to choose an area, entity, or label. You select the valve controller through the **Valve controller** option instead.

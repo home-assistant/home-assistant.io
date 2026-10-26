@@ -9,7 +9,7 @@ related_actions:
   - tado.add_meter_reading
 ---
 
-The **Set climate temperature offset** action calibrates the temperature reading of a Tado climate device. If the device reports a temperature that is consistently higher or lower than the real room temperature, you can apply an offset to correct it.
+The **Tado: Set climate temperature offset** action calibrates the temperature reading of a Tado climate device. If the device reports a temperature that is consistently higher or lower than the real room temperature, you can apply an offset to correct it.
 
 This is useful when a radiator valve sits close to the radiator and reads warmer than the rest of the room. An automation can keep the offset in sync with a separate, better-placed temperature sensor.
 
@@ -69,11 +69,13 @@ offset:
 
 When a better-placed room sensor and the Tado reading drift apart, recalculate the offset so the Tado device reflects the real room temperature.
 
-- **Trigger**: The room sensor or the Tado temperature changes
-- **Condition**: The two readings differ by more than 0.5°
+- **Trigger**: State changed
+  - **Entity**: Temp sensor room sensor, Tado temperature sensor
+- **Condition**: Template
+  - **Value template**: `{% raw %}{% set tado_temp = states('sensor.tado_temperature') | float(20) %} {% set room_temp = states('sensor.temp_sensor_room') | float(20) %} {{ (tado_temp - room_temp) | abs > 0.5 }}{% endraw %}`
 - **Action**: Tado: Set climate temperature offset
-- **Target**: Tado
-- **Offset**: Calculated from the difference between the two sensors
+  - **Target**: Tado
+  - **Offset**: `{% raw %}{% set tado_temp = states('sensor.tado_temperature') | float(20) %} {% set room_temp = states('sensor.temp_sensor_room') | float(20) %} {% set current_offset = state_attr('climate.tado', 'offset_celsius') %} {{ (-(tado_temp - room_temp) + current_offset) | round(1) }}{% endraw %}`
 
 {% details "YAML example for syncing the offset" %}
 

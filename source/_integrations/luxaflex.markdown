@@ -1,13 +1,6 @@
 ---
 title: Luxaflex
 description: Connect and control your Luxaflex devices using the Hunter Douglas PowerView integration
-ha_category:
-  - Button
-  - Cover
-  - Number
-  - Scene
-  - Select
-  - Sensor
 ha_domain: luxaflex
 ha_integration_type: virtual
 ha_supporting_domain: hunterdouglas_powerview

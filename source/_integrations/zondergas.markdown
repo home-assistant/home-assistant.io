@@ -1,8 +1,6 @@
 ---
 title: ZonderGas
 description: Connect and control your ZonderGas devices using the EnergyZero integration
-ha_category:
-  - Energy
 ha_domain: zondergas
 ha_release: 2023.2
 ha_integration_type: virtual

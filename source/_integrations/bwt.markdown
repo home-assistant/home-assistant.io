@@ -1,13 +1,6 @@
 ---
 title: BWT
 description: Connect and control your BWT devices using the SEKO PoolDose integration
-ha_category:
-  - Binary sensor
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Water Management
 ha_release: '2025.9'
 ha_domain: bwt
 ha_integration_type: virtual

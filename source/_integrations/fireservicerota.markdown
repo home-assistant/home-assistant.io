@@ -1,10 +1,9 @@
 ---
 title: FireServiceRota
 description: Instructions on how to configure the FireServiceRota integration for Home Assistant.
-ha_category:
-  - Binary sensor
-  - Sensor
-  - Switch
+ha_categories:
+  - messaging_notifications.push_notifications
+  - productivity_information.calendars_todos
 ha_iot_class: Cloud Polling
 ha_release: 2020.12
 ha_codeowners:

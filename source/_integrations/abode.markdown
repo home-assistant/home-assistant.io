@@ -1,16 +1,8 @@
 ---
 title: Abode
 description: Instructions on integrating Abode home security with Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Camera
-  - Cover
-  - Hub
-  - Light
-  - Lock
-  - Sensor
-  - Switch
+ha_categories:
+  - security_safety.alarm_systems
 ha_release: 0.52
 ha_iot_class: Cloud Push
 ha_config_flow: true

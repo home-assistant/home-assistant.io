@@ -1,8 +1,8 @@
 ---
 title: FAA Delays
 description: Instructions on how to use FAA Delays data within Home Assistant
-ha_category:
-  - Transport
+ha_categories:
+  - vehicles_transport.flights
 ha_release: 2021.3
 ha_iot_class: Cloud Polling
 ha_config_flow: true

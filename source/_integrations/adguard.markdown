@@ -1,11 +1,8 @@
 ---
 title: AdGuard Home
 description: Instructions on how to integrate AdGuard Home with Home Assistant.
-ha_category:
-  - Network
-  - Sensor
-  - Switch
-  - Update
+ha_categories:
+  - computers_network.routers_network
 ha_release: 0.95
 ha_iot_class: Local Polling
 ha_config_flow: true

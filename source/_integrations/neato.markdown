@@ -1,12 +1,8 @@
 ---
 title: Neato Botvac
 description: Instructions on how to integrate your Neato within Home Assistant.
-ha_category:
-  - Button
-  - Camera
-  - Sensor
-  - Switch
-  - Vacuum
+ha_categories:
+  - appliances_cleaning.cleaning
 ha_iot_class: Cloud Polling
 ha_release: 0.33
 ha_config_flow: true

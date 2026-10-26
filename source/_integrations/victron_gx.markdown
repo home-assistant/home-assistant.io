@@ -1,15 +1,8 @@
 ---
 title: Victron GX
 description: Instructions for connecting Victron Energy GX devices to Home Assistant using MQTT
-ha_category:
-  - Binary sensor
-  - Button
-  - Number
-  - Presence detection
-  - Select
-  - Sensor
-  - Switch
-  - Time
+ha_categories:
+  - energy.solar_batteries
 ha_release: '2026.5'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -26,6 +19,7 @@ ha_platforms:
   - sensor
   - switch
   - time
+  - update
 ha_integration_type: hub
 related:
   - url: https://www.victronenergy.com/communication-centres/cerbo-gx
@@ -199,6 +193,10 @@ Configurable time-of-day settings, such as:
 
 - **Reboot device**
   - **Description**: Reboots the GX device.
+
+#### Updates
+
+The **Venus OS firmware** update entity shows the installed and available firmware versions for your GX device. When an update is available, you can install it from Home Assistant and monitor the installation progress.
 
 ## Known limitations
 

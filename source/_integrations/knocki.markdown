@@ -1,8 +1,8 @@
 ---
 title: Knocki
 description: Instructions on how to set up Knocki devices in Home Assistant.
-ha_category:
-  - Event
+ha_categories:
+  - buttons_remotes
 ha_config_flow: true
 ha_release: 2024.7
 ha_iot_class: Cloud Push

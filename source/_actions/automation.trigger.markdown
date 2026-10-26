@@ -73,7 +73,7 @@ skip_condition:
 ## Good to know
 
 - The automation runs even when it's turned off.
-- Templates in the automation that use trigger data have nothing to read, because there is no trigger. Keep that in mind if the actions rely on the trigger variable.
+- The `trigger` variable is set, but it doesn't contain an `id` or any other trigger data. Templates that read values like `trigger.id` or `trigger.to_state.state` get no value, or fail with an error. Keep that in mind if the actions rely on the trigger variable.
 - To run the same steps from several places, a script is often a better fit than triggering an automation. See [Turn on script](/actions/script.turn_on/).
 
 {% include actions/try_it.md %}
@@ -87,7 +87,7 @@ Reuse an existing evening routine automation when someone presses a button.
 - **Trigger**: Event received
   - **Target**: Hallway button
   - **Event type**: Single press
-- **Action**: Trigger automation
+- **Action**: Automation: Trigger automation
   - **Target**: Evening routine
 
 {% details "Show example YAML" %}

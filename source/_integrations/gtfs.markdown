@@ -1,8 +1,8 @@
 ---
 title: General Transit Feed Specification (GTFS)
 description: Instructions on how to use public transit open data in Home Assistant.
-ha_category:
-  - Transport
+ha_categories:
+  - vehicles_transport.public_transport
 ha_iot_class: Local Polling
 ha_release: 0.17
 ha_domain: gtfs

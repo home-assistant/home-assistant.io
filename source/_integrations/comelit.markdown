@@ -1,14 +1,9 @@
 ---
 title: Comelit SimpleHome
 description: Instructions on how to integrate Comelit SimpleHome home automation devices into Home Assistant.
-ha_category:
-  - Alarm
-  - Climate
-  - Cover
-  - Humidifier
-  - Light
-  - Sensor
-  - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
+  - security_safety.alarm_systems
 ha_release: '2023.9'
 ha_domain: comelit
 ha_config_flow: true
@@ -58,6 +53,23 @@ There is support for the following devices within Home Assistant:
         description: Comelit VEDO System.
 {% endconfiguration_basic %}
 
+## Configuration options
+
+{% include integrations/option_flow.md %}
+
+The device does not report how long a cover takes to fully open or close, so Home Assistant estimates its position based on the elapsed time since it started moving. You can set this travel time individually for each cover, since it depends on the type of cover, for example, a window opens and closes faster than a door-height shutter.
+
+1. Select the cover you want to configure.
+2. Enter the estimated time it takes for the cover to fully open or close.
+3. Select **Submit** to save the changes.
+
+{% configuration_basic %}
+Cover:
+  description: The cover {% term entity %} to set the travel time for.
+Travel time:
+  description: The estimated time, in seconds, for the cover to fully open or close. Enter a value between 1 and 120 seconds. The default is 25 seconds.
+{% endconfiguration_basic %}
+
 ## Examples
 
 ### Automation: Activate the alarm when you leave home
@@ -85,8 +97,7 @@ automation:
 - alias: Close covers at sunset
   id: "covers_close_sunset"
   trigger:
-   - platform: sun
-     event: sunset
+   - trigger: sun.sunset
   condition:
     conditions:
       - alias: "condition alias (not home)"
@@ -110,7 +121,7 @@ The **Comelit SimpleHome** {% term integration %} provides the following entitie
 ### Comelit Serial Bridge
 
 - Climate
-- Cover
+- Cover - open, close, stop, and set position
 - Dehumidifier
 - Humidifier
 - Light

@@ -1,8 +1,6 @@
 ---
 title: ArtSound
 description: Connect and control your ArtSound media players using the LinkPlay integration
-ha_category:
-  - Media player
 ha_domain: artsound
 ha_zeroconf: true
 ha_integration_type: virtual

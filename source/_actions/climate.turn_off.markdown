@@ -58,7 +58,9 @@ This action has no additional YAML options beyond the target.
 
 Turn off a climate device when nobody is home, for example to save energy.
 
-- **Trigger**: Person leaves home
+- **Trigger**: State changed
+  - **Entity**: Home owner person
+  - **To**: Away
 - **Action**: Turn off thermostat
   - **Target**: Living room thermostat
 

@@ -1,13 +1,8 @@
 ---
 title: Renson
 description: Instructions on how to integrate Renson Endura Delta sensors into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Button
-  - Fan
-  - Number
-  - Switch
-  - Time
+ha_categories:
+  - climate.fans_ventilation
 ha_release: 2023.7
 ha_iot_class: Local Polling
 ha_config_flow: true

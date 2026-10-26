@@ -1,14 +1,9 @@
 ---
 title: ADS
 description: Connect Home Assistant to TwinCAT devices via the ADS interface.
-ha_category:
-  - Binary sensor
-  - Cover
-  - Hub
-  - Light
-  - Sensor
-  - Switch
-  - Valve
+ha_categories:
+  - hubs_protocols.building_automation
+  - diy_makers.boards_hardware
 ha_release: '0.60'
 ha_iot_class: Local Push
 ha_domain: ads

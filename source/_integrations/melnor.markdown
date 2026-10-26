@@ -1,9 +1,8 @@
 ---
 title: Melnor Bluetooth
 description: Instructions on setting up Melnor Bluetooth devices within Home Assistant.
-ha_category:
-  - Sensor
-  - Switch
+ha_categories:
+  - garden_plants
 ha_iot_class: Local Polling
 ha_bluetooth: true
 ha_release: 2022.9

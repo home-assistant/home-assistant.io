@@ -89,7 +89,7 @@ data:
 
 When a leak sensor detects moisture, show a notification in Home Assistant.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Kitchen leak sensor (`binary_sensor.kitchen_leak`)
   - **To**: On
 - **Action**: Send a persistent notification
@@ -118,7 +118,7 @@ automation: |
 
 If a leak sensor reports moisture, show or update one persistent notification with the same notification ID.
 
-- **Trigger**: State
+- **Trigger**: State changed
   - **Entity**: Kitchen leak sensor (`binary_sensor.kitchen_leak`)
   - **To**: On
 - **Action**: Send a persistent notification

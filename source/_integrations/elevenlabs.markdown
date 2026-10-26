@@ -1,8 +1,8 @@
 ---
 title: ElevenLabs
 description: Instructions on how to set up ElevenLabs text-to-speech with Home Assistant.
-ha_category:
-  - Text-to-speech
+ha_categories:
+  - ai_voice.speech
 ha_release: 2024.8
 ha_iot_class: Cloud Polling
 ha_domain: elevenlabs

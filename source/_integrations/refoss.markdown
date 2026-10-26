@@ -1,9 +1,9 @@
 ---
 title: Refoss
 description: Integrate Refoss devices
-ha_category:
-  - Sensor
-  - Switch
+ha_categories:
+  - plugs_switches
+  - energy.meters_monitoring
 ha_release: 2024.1
 ha_codeowners:
   - '@ashionky'

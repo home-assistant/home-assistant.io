@@ -1,8 +1,9 @@
 ---
 title: Local file
 description: Instructions how to use local file as a camera within Home Assistant.
-ha_category:
-  - Camera
+ha_categories:
+  - diy_makers.web_data_connectors
+  - security_safety.cameras
 ha_iot_class: Local Polling
 ha_release: 0.22
 ha_domain: local_file

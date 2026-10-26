@@ -1,12 +1,6 @@
 ---
 title: Cosori
 description: Connect and control your Cosori devices using the VeSync integration
-ha_category:
-  - Fan
-  - Light
-  - Number
-  - Switch
-  - Update
 ha_release: 0.66
 ha_domain: cosori
 ha_integration_type: virtual

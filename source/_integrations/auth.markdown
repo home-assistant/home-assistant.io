@@ -1,8 +1,6 @@
 ---
 title: Auth
 description: This integration is responsible for providing the authentication endpoints.
-ha_category:
-  - Other
 ha_release: 0.73
 ha_quality_scale: internal
 ha_codeowners:

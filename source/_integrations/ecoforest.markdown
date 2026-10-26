@@ -1,8 +1,8 @@
 ---
 title: Ecoforest
 description: Instructions on how to integrate Ecoforest fireplaces with Home Assistant.
-ha_category:
-  - Climate
+ha_categories:
+  - climate.thermostats_heating
 ha_release: '2023.10'
 ha_iot_class: Local Polling
 ha_config_flow: true

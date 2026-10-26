@@ -1,8 +1,6 @@
 ---
 title: go2rtc
 description: Instructions on how to set up go2rtc in Home Assistant.
-ha_category:
-  - Camera
 ha_release: 2024.11
 ha_iot_class: Local Polling
 ha_codeowners:

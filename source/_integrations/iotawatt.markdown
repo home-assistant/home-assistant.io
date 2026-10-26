@@ -2,14 +2,15 @@
 title: IoTaWatt
 description: Instructions on how to integrate IoTaWatt into Home Assistant.
 ha_release: 2021.9
-ha_category:
-  - Energy
+ha_categories:
+  - energy.meters_monitoring
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: iotawatt
 ha_codeowners:
   - '@gtdiehl'
   - '@jyavenard'
+  - '@agners'
 ha_platforms:
   - sensor
 ha_integration_type: device

@@ -1,8 +1,6 @@
 ---
 title: Home Assistant Onboarding
 description: This integration is responsible for providing the onboarding endpoints.
-ha_category:
-  - Other
 ha_release: 0.73
 ha_quality_scale: internal
 ha_codeowners:

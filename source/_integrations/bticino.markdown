@@ -1,20 +1,6 @@
 ---
 title: BTicino
 description: Connect and control your BTicino devices using the Netatmo integration
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Climate
-  - Cover
-  - Environment
-  - Fan
-  - Hub
-  - Light
-  - Media source
-  - Sensor
-  - Switch
-  - Weather
 ha_domain: bticino
 ha_integration_type: virtual
 ha_supporting_domain: netatmo

@@ -1,8 +1,8 @@
 ---
 title: Geocaching
 description: Instructions on how to integrate Geocaching accounts within Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - media_entertainment.gaming
 ha_release: 2022.6
 ha_iot_class: Cloud Polling
 ha_config_flow: true

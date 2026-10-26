@@ -1,20 +1,6 @@
 ---
 title: Tapo
 description: Connect and control your Tapo devices using the TP-Link Smart Home integration
-ha_category:
-  - Binary sensor
-  - Button
-  - Camera
-  - Climate
-  - Fan
-  - Hub
-  - Light
-  - Number
-  - Select
-  - Sensor
-  - Siren
-  - Switch
-  - Vacuum
 ha_domain: tplink_tapo
 ha_release: 0.89
 ha_integration_type: virtual

@@ -1,8 +1,6 @@
 ---
 title: "MQTT tag scanner"
 description: "Instructions on how to integrate MQTT scanner within Home Assistant."
-ha_category:
-  - Tag scanner
 ha_release: 0.116
 ha_iot_class: Configurable
 ha_domain: mqtt
@@ -25,7 +23,7 @@ value_template:
   required: false
   type: template
 device:
-  description: "Information about the device this device trigger is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). At least one of identifiers or connections must be present to identify the device."
+  description: "Information about the device this device trigger is a part of to tie it into the [device registry](https://contributors.home-assistant.io/core/integrations/device-registry/). At least one of identifiers or connections must be present to identify the device."
   required: true
   type: map
   keys:

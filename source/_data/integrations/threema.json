@@ -1,0 +1,17 @@
+{
+  "domain": "threema",
+  "name": "Threema",
+  "integration_type": "service",
+  "codeowners": [
+    "@LukasQ"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "quality_scale": "silver",
+  "categories": [
+    "messaging_notifications.chat_apps"
+  ],
+  "platforms": [
+    "notify"
+  ]
+}

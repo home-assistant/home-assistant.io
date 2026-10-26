@@ -42,13 +42,23 @@ This fires every time an item is removed from `todo.shopping_list`.
 
 This trigger has no additional YAML options beyond the target.
 
-{% include triggers/targets.md %}
+{% include triggers/targets.md custom_trigger_variables="true" %}
+
+### Trigger variables
+
+When the trigger reacts, the `trigger` variable contains the following data:
+
+- `trigger.entity_id`: Entity ID of the to-do list.
+- `trigger.item_ids`: List of the unique IDs (`uid`) of the to-do items that were removed.
+
+This trigger doesn't include the previous or new state of the to-do list. The removed items are no longer on the list, so only their IDs are available.
+
+For the data that all triggers include, refer to [Trigger data in templates](/docs/automation/trigger-data/#properties-of-all-triggers).
 
 ## Good to know
 
 - This trigger fires after Home Assistant removes one or more items from the targeted to-do list.
 - Changes to `unavailable` or `unknown` do not count as items being removed.
-- Trigger data includes the to-do list `entity_id` and the affected `item_ids`, which can be useful for tailoring an automation to your needs.
 
 {% include triggers/try_it.md %}
 

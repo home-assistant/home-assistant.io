@@ -296,7 +296,7 @@ We welcome the following new integrations in this release:
   Integrate your Eurotronic Comet Blue (and similar) Bluetooth radiator thermostats with Home Assistant. Read thermostat status and adjust temperatures locally, without a hub or cloud connection. Compatible thermostats include Sygonix HT100 BT, Xavax Hama, and Lidl Silvercrest RT2000BT.
 
 - **[Fumis]**, added by [@frenck] — launching at 🏆 platinum quality  
-  Bring your Fumis-based pellet stove into Home Assistant through the Fumis online service. Monitor your room temperature, set a comfortable target temperature, and turn your stove on or off. Pellet stoves, pellet boilers, and hybrid wood and pellet stoves equipped with a Fumis WiRCU Wi-Fi module are sold under many different brands, including Austroflamm, Eco Spar, HAAS+SOHN, and Heta.
+  Bring your Fumis-based pellet stove into Home Assistant through the Fumis online service. Monitor your room temperature, set a comfortable target temperature, and turn your stove on or off. Pellet stoves, pellet boilers, and hybrid wood and pellet stoves equipped with a Fumis WiRCU Wi-Fi module are sold under many different brands, including Austroflamm, EcoSpar, HAAS+SOHN, and Heta.
 
 - **[Honeywell String Lights]**, added by [@balloob]  
   Control your Honeywell radio frequency (RF) remote-controlled string lights from Home Assistant. Uses the new [Radio frequency](#radio-frequency-joins-infrared-as-a-first-class-citizen) entity platform, so you'll need a compatible sub-GHz RF transmitter (for example, an ESPHome device) to send commands.

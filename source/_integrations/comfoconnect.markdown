@@ -1,9 +1,8 @@
 ---
 title: Zehnder ComfoAir Q
 description: Instructions on how to integrate Zehnder ComfoAir Q350/450/600 ventilation systems into Home Assistant.
-ha_category:
-  - Fan
-  - Sensor
+ha_categories:
+  - climate.fans_ventilation
 ha_release: 0.48
 ha_iot_class: Local Push
 ha_codeowners:

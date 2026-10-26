@@ -1,8 +1,8 @@
 ---
 title: UptimeRobot
 description: Instructions on how to set up UptimeRobot within Home Assistant.
-ha_category:
-  - System monitor
+ha_categories:
+  - computers_network.monitoring
 ha_release: 0.72
 ha_iot_class: Cloud Polling
 ha_codeowners:

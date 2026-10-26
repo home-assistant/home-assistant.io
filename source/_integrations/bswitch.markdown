@@ -1,12 +1,6 @@
 ---
 title: BSwitch
 description: Connect and control your BSwitch devices using the SwitchBee integration
-ha_category:
-  - Button
-  - Climate
-  - Cover
-  - Light
-  - Switch
 ha_domain: bswitch
 ha_integration_type: virtual
 ha_supporting_domain: switchbee

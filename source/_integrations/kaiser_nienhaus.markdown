@@ -1,8 +1,6 @@
 ---
 title: Kaiser Nienhaus
 description: Connect and control your Kaiser Nienhaus devices using the Motionblinds integration
-ha_category:
-  - Cover
 ha_domain: kaiser_nienhaus
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds

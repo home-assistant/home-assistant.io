@@ -1,14 +1,6 @@
 ---
 title: Pinecil
 description: Connect and control your Pinecil devices using the IronOS integration
-ha_category:
-  - Binary sensor
-  - Button
-  - Number
-  - Select
-  - Sensor
-  - Switch
-  - Update
 ha_release: 2024.8
 ha_domain: pinecil
 ha_integration_type: virtual

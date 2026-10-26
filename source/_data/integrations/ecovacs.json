@@ -1,0 +1,29 @@
+{
+  "domain": "ecovacs",
+  "name": "Ecovacs",
+  "integration_type": "hub",
+  "codeowners": [
+    "@mib1185",
+    "@edenhaus",
+    "@Augar"
+  ],
+  "config_flow": true,
+  "iot_class": "cloud_push",
+  "categories": [
+    "appliances_cleaning.cleaning",
+    "garden_plants"
+  ],
+  "platforms": [
+    "binary_sensor",
+    "button",
+    "diagnostics",
+    "event",
+    "image",
+    "lawn_mower",
+    "number",
+    "select",
+    "sensor",
+    "switch",
+    "vacuum"
+  ]
+}

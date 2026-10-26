@@ -1,11 +1,9 @@
 ---
 title: Minut Point
 description: Instructions on how to integrate Minut Point into Home Assistant.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Hub
-  - Sensor
+ha_categories:
+  - security_safety.alarm_systems
+  - sensors
 ha_release: 0.83
 ha_config_flow: true
 ha_iot_class: Cloud Polling

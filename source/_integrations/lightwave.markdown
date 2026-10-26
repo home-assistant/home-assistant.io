@@ -1,10 +1,10 @@
 ---
 title: Lightwave
 description: Instructions on how to integrate Lightwave devices with Home Assistant.
-ha_category:
-  - Hub
-  - Light
-  - Switch
+ha_categories:
+  - hubs_protocols.smart_home_hubs
+  - plugs_switches
+  - climate.thermostats_heating
 ha_release: 0.84
 ha_iot_class: Assumed State
 ha_domain: lightwave

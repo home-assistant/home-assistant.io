@@ -6,7 +6,7 @@ description: "Moves the cover and tilt to the target position simultaneously, pr
 since: "2026.8"
 ---
 
-The **Set cover position and tilt** action moves a cover to a target position and tilt in a single command. Because both values are sent together, the individual actions will not cancel each other out on the WMS radio channel.
+The **WMS WebControl pro: Set cover position and tilt** action moves a cover to a target position and tilt in a single command. Because both values are sent together, the individual actions will not cancel each other out on the WMS radio channel.
 
 This action is available only for covers that support setting both position and tilt, and that accept the combined command. If your cover does not support it, the action returns an error.
 
@@ -19,7 +19,7 @@ To use this action in an automation or script:
 3. If you're creating an automation, add a trigger in the **When** section.
 4. In the **Then do** section, select **Add action**.
 5. Select what you want to control. Under **By target** (see [Targets](#targets)), pick the cover you want to control. You can also select an area, a floor, a device, or a label.
-6. From the actions shown for that target, select **Set cover position and tilt**.
+6. From the actions shown for that target, under **WMS WebControl pro**, select **Set cover position and tilt**.
 7. Under **Position** and **Tilt position**, set the values you want.
 8. Select **Save**.
 
@@ -73,11 +73,14 @@ tilt_position:
 
 When the afternoon sun starts shining in, you can lower the blinds part way and tilt the slats to block the glare while keeping some light, all in one smooth move.
 
-- **Trigger**: Sun: above the horizon at a low elevation
-- **Action**: Set cover position and tilt
+- **Trigger**: Numeric state crossed threshold
+  - **Entity**: Sun
+  - **Attribute**: Elevation
+  - **Below**: `25`
+- **Action**: WMS WebControl pro: Set cover position and tilt
   - **Target**: Living room blind
-  - **Position**: 60
-  - **Tilt position**: 30
+  - **Position**: `60`%
+  - **Tilt position**: `30`%
 
 {% details "YAML example for tilting the blinds against the sun" %}
 

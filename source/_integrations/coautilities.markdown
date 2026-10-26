@@ -1,9 +1,6 @@
 ---
 title: City of Austin Utilities
 description: Get energy usage from City of Austin Utilities using the Opower integration
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 2023.8
 ha_domain: coautilities
 ha_integration_type: virtual

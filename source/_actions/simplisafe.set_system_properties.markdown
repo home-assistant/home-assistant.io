@@ -8,7 +8,7 @@ related_actions:
   - simplisafe.remove_pin
 ---
 
-The **Set system properties** action changes the settings of your SimpliSafe base station, such as how long the alarm sounds, the entry and exit delays, the chime and voice prompt volumes, and whether the base station light shows when the system is armed.
+The **SimpliSafe: Set system properties** action changes the settings of your SimpliSafe base station, such as how long the alarm sounds, the entry and exit delays, the chime and voice prompt volumes, and whether the base station light shows when the system is armed.
 
 You only need to provide the properties you want to change. Anything you leave out keeps its current value. This is handy for adapting your system to the time of day, for example using a longer entry delay during the day and a shorter one at night.
 

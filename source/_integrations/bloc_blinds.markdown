@@ -1,8 +1,6 @@
 ---
 title: Bloc Blinds
 description: Connect and control your Bloc Blinds devices using the Motionblinds integration
-ha_category:
-  - Cover
 ha_domain: bloc_blinds
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds

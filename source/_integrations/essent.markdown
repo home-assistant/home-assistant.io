@@ -1,8 +1,8 @@
 ---
 title: Essent
 description: Monitor dynamic energy prices from Essent Netherlands
-ha_category:
-  - Energy
+ha_categories:
+  - energy.energy_prices
 ha_release: 2025.12
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -34,7 +34,7 @@ The integration provides the following sensors:
 The following sensors are created for electricity prices:
 
 - **Current electricity price** - Current hourly electricity price per kWh including VAT
-- **Next electricity price** - Next hour's electricity price per kWh (disabled by default)
+- **Next electricity price** - Next hour's electricity price per kWh ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
 - **Average electricity price today** - Average of all hourly electricity prices for today
 - **Lowest electricity price today** - Minimum electricity price for today (disabled by default)
 - **Highest electricity price today** - Maximum electricity price for today (disabled by default)

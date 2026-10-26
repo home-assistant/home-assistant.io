@@ -1,8 +1,8 @@
 ---
 title: MaryTTS
 description: Instructions on how to set up MaryTTS with Home Assistant.
-ha_category:
-  - Text-to-speech
+ha_categories:
+  - ai_voice.speech
 ha_iot_class: Local Push
 ha_release: 0.43
 ha_domain: marytts

@@ -1,8 +1,8 @@
 ---
 title: Emoncms
 description: Instructions on how to integrate Emoncms feeds as sensors into Home Assistant.
-ha_category:
-  - Sensor
+ha_categories:
+  - energy.meters_monitoring
 ha_release: 0.29
 ha_iot_class: Local Polling
 ha_domain: emoncms

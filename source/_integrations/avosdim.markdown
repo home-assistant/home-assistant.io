@@ -1,8 +1,6 @@
 ---
 title: Avosdim
 description: Connect and control your Avosdim devices using the Motionblinds integration
-ha_category:
-  - Cover
 ha_domain: avosdim
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds

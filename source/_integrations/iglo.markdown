@@ -1,8 +1,8 @@
 ---
 title: iGlo
 description: Instructions on how to integrate iGlo lights into Home Assistant.
-ha_category:
-  - Light
+ha_categories:
+  - lighting.bulbs_lamps
 ha_iot_class: Local Polling
 ha_release: 0.61
 ha_domain: iglo

@@ -1,8 +1,8 @@
 ---
 title: Kuler Sky
 description: Instructions for integrating Brightech Kuler Sky Bluetooth floor lamps with Home Assistant.
-ha_category:
-  - Light
+ha_categories:
+  - lighting.bulbs_lamps
 ha_iot_class: Local Polling
 ha_release: 2020.12
 ha_domain: kulersky

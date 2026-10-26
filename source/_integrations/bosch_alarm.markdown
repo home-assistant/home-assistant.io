@@ -1,11 +1,8 @@
 ---
 title: Bosch Alarm
 description: Integrate Bosch Alarms.
-ha_category:
-  - Alarm
-  - Binary Sensor
-  - Sensor
-  - Switch
+ha_categories:
+  - security_safety.alarm_systems
 ha_release: 2025.4
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -142,7 +139,7 @@ At startup, the integration checks whether your panel supports push data updates
 automation:
   - alias: "Turn on light when walking into room"
     triggers:
-      - platform: state
+      - trigger: state
         entity_id:
           - binary_sensor.bosch_solution_3000_bedroom
         to: "on"

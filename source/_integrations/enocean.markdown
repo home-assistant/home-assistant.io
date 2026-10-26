@@ -1,12 +1,8 @@
 ---
 title: EnOcean
 description: Connect EnOcean devices to Home Assistant
-ha_category:
-  - Binary sensor
-  - Hub
-  - Light
-  - Sensor
-  - Switch
+ha_categories:
+  - hubs_protocols.wireless_protocols
 ha_release: 0.21
 ha_iot_class: Local Push
 ha_domain: enocean
@@ -119,7 +115,7 @@ automation:
           entity_id: "{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}"
 ```
 
-You can find the `event_data` `id` by going to {% my developer_events title="**Settings** > **Tools** > **Events**" %} and listening to "button_pressed" events. Then hit a button on the device and you should see an event.
+You can find the `event_data` `id` by going to {% my tools_events title="**Settings** > **Tools** > **Events**" %} and listening to "button_pressed" events. Then hit a button on the device and you should see an event.
 
 ## Light
 

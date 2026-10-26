@@ -1,8 +1,8 @@
 ---
 title: Norwegian Institute for Air Research (NILU)
 description: Instructions on how to integrate air pollution data from NILU within Home Assistant.
-ha_category:
-  - Health
+ha_categories:
+  - weather_alerts.air_quality_pollen
 ha_iot_class: Cloud Polling
 ha_release: 0.87
 ha_codeowners:

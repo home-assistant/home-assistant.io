@@ -1,8 +1,8 @@
 ---
 title: rTorrent
 description: Instructions on how to integrate rTorrent sensors within Home Assistant.
-ha_category:
-  - Downloading
+ha_categories:
+  - computers_network.nas_servers
 ha_release: 0.81
 ha_iot_class: Local Polling
 ha_domain: rtorrent

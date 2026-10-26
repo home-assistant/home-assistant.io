@@ -1,8 +1,8 @@
 ---
 title: Remote Python Debugger
 description: Remote Python debugger (debugpy) for Visual Studio Code
-ha_category:
-  - Utility
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_release: 0.112
 ha_codeowners:
   - '@frenck'

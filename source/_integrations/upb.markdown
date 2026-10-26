@@ -1,9 +1,9 @@
 ---
 title: Universal Powerline Bus (UPB)
 description: Instructions on how to set up Universal Powerline Bus integration.
-ha_category:
-  - Light
-  - Scene
+ha_categories:
+  - lighting.lighting_systems
+  - plugs_switches
 ha_release: '0.110'
 ha_config_flow: true
 ha_iot_class: Local Push

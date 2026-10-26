@@ -1,8 +1,9 @@
 ---
 title: FFmpeg Motion
 description: Instructions on how to integrate an FFmpeg-based motion binary sensor
-ha_category:
-  - Image processing
+ha_categories:
+  - security_safety.cameras
+  - sensors.motion_presence
 ha_iot_class: Calculated
 ha_release: 0.27
 ha_domain: ffmpeg_motion

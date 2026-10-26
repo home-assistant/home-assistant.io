@@ -52,4 +52,4 @@
   - I made a change that is related to an upcoming version of Home Assistant and used the `next` branch.
 - [ ] The documentation follows the Home Assistant documentation [standards].
 
-[standards]: https://developers.home-assistant.io/docs/documenting/standards
+[standards]: https://contributors.home-assistant.io/writing/reference/style/

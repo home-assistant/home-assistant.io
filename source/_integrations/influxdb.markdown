@@ -1,9 +1,8 @@
 ---
 title: InfluxDB
 description: Record events in InfluxDB.
-ha_category:
-  - History
-  - Sensor
+ha_categories:
+  - diy_makers.web_data_connectors
 ha_release: 0.9
 ha_iot_class: Local Push
 ha_codeowners:
@@ -152,7 +151,7 @@ ignore_attributes:
 component_config:
   type: string
   required: false
-  description: This attribute contains integration-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains integration-specific override values. See [Editing entity settings in YAML](/integrations/homeassistant/#editing-entity-settings-in-yaml) for format.
   keys:
     override_measurement:
       type: string
@@ -165,7 +164,7 @@ component_config:
 component_config_domain:
   type: string
   required: false
-  description: This attribute contains domain-specific integration override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains domain-specific integration override values. See [Editing entity settings in YAML](/integrations/homeassistant/#editing-entity-settings-in-yaml) for format.
   keys:
     override_measurement:
       type: string
@@ -178,7 +177,7 @@ component_config_domain:
 component_config_glob: 
   type: string
   required: false
-  description: This attribute contains integration-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains integration-specific override values. See [Editing entity settings in YAML](/integrations/homeassistant/#editing-entity-settings-in-yaml) for format.
   keys:
     override_measurement:
       type: string

@@ -1,12 +1,9 @@
 ---
 title: Casper Glow
 description: Instructions on how to integrate Casper Glow lights into Home Assistant.
-ha_category:
-  - Binary Sensor
-  - Button
-  - Light
-  - Select
-  - Sensor
+ha_categories:
+  - lighting.bulbs_lamps
+  - health_wellbeing
 ha_bluetooth: true
 ha_release: 2026.4
 ha_iot_class: Local Polling
@@ -78,7 +75,7 @@ The **Casper Glow** {% term integration %} provides the following entities.
 - **Battery**
   - **Description**: Reports the current battery level of the Glow as a percentage.
 
-- **Dimming end time** (disabled by default)
+- **Dimming end time** ([disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity))
   - **Description**: Shows the projected time when the current dimming sequence will end. This value is a timestamp that updates only when there is a significant change during a poll interval. Such as pausing or resuming dimming, or manually adjusting the physical light.
 
 #### Selects
@@ -92,53 +89,13 @@ The **Casper Glow** {% term integration %} provides the following entities.
 
 Start a dimming sequence at a set time each night. This blueprint lets you pick your bedtime and how long the light takes to dim, so your Glow is ready when you are.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/casper_glow_bedtime_routine.yaml" %}
-
-{% details "Example YAML" %}
-
-{% example %}
-automation: |
-  triggers:
-    - trigger: time
-      at: "22:00:00"
-  actions:
-    - action: select.select_option
-      target:
-        entity_id: select.jar_dimming_time
-      data:
-        option: "30"
-    - action: light.turn_on
-      target:
-        entity_id: light.jar
-{% endexample %}
-
-{% enddetails %}
+{% blueprint_example blueprint="casper_glow/bedtime_routine.yaml" %}
 
 ### Pause on motion
 
 Keep the light from dimming while you're still up. This blueprint pauses the dimming sequence whenever motion is detected, so the light holds its brightness until you settle in.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/casper_glow_pause_on_motion.yaml" %}
-
-{% details "Example YAML" %}
-
-{% example %}
-automation: |
-  triggers:
-    - trigger: state
-      entity_id: binary_sensor.bedroom_motion
-      to: "on"
-  conditions:
-    - condition: state
-      entity_id: light.jar
-      state: "on"
-  actions:
-    - action: button.press
-      target:
-        entity_id: button.jar_pause_dimming
-{% endexample %}
-
-{% enddetails %}
+{% blueprint_example blueprint="casper_glow/pause_on_motion.yaml" %}
 
 ### Turn on and hold at nightlight level
 
@@ -148,42 +105,7 @@ Turn on the Glow and let it dim down to a soft nightlight, then hold it there. T
 The `sensor.jar_dimming_end_time` sensor is disabled by default. You must enable it manually for this blueprint to work correctly.
 {% endnote %}
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/casper_glow_turn_on_pause_nightlight.yaml" %}
-
-{% details "Example YAML" %}
-
-{% example %}
-automation: |
-  triggers:
-    - trigger: time
-      at: "22:00:00"
-  actions:
-    - action: select.select_option
-      target:
-        entity_id: select.jar_dimming_time
-      data:
-        option: "30"
-    - action: light.turn_on
-      target:
-        entity_id: light.jar
-    - wait_for_trigger:
-        - trigger: template
-          value_template: >-
-            {% set end = states('sensor.jar_dimming_end_time') | as_datetime %}
-            {% if end is not none %}
-              {{ ((end - now()).total_seconds() / 60) | round(0) <= 10 }}
-            {% else %}
-              false
-            {% endif %}
-      timeout:
-        minutes: 30
-      continue_on_timeout: false
-    - action: button.press
-      target:
-        entity_id: button.jar_pause_dimming
-{% endexample %}
-
-{% enddetails %}
+{% blueprint_example blueprint="casper_glow/turn_on_pause_nightlight.yaml" %}
 
 ## Data updates
 

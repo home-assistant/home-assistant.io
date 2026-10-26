@@ -1,9 +1,8 @@
 ---
 title: OVHcloud AI Endpoints
 description: Instructions on how to integrate OVHcloud AI Endpoints as a conversation agent in Home Assistant.
-ha_category:
-  - AI
-  - Voice
+ha_categories:
+  - ai_voice.ai_models
 ha_release: 2026.6
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -24,7 +23,7 @@ related:
 
 The **OVHcloud AI Endpoints** {% term integration %} adds a conversation agent powered by [OVHcloud AI Endpoints](https://endpoints.ai.cloud.ovh.net/) to Home Assistant. OVHcloud AI Endpoints is a serverless inference platform that gives you access to a curated catalog of open-weight large language models hosted in Europe.
 
-Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you with information about your devices and control them.
+Controlling Home Assistant is done by providing the AI access to the **Device control** API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you with information about your devices and control them.
 
 This integration is useful if you want to keep your conversation data within a European cloud provider, or if you want to use a specific open-weight model from the OVHcloud AI Endpoints catalog.
 
@@ -85,7 +84,7 @@ You can set up your OVHcloud AI Endpoints conversation agent in an [Assist pipel
 
 - Only models that support the OpenAI-compatible chat completions API of OVHcloud AI Endpoints can be used.
 - Tool calling is required for the **Control Home Assistant** option to work. If the selected model does not support tool calling, the agent will still answer questions but won't be able to control your devices.
-- This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
+- This integration does not integrate with [sentence triggers](/triggers/conversation/).
 
 ## Removing the integration
 

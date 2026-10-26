@@ -1,8 +1,8 @@
 ---
 title: SIA Alarm Systems
 description: Instructions on how to integrate SIA Based Alarm systems.
-ha_category:
-  - Alarm
+ha_categories:
+  - security_safety.alarm_systems
 ha_release: 2021.6
 ha_iot_class: Local Push
 ha_config_flow: true

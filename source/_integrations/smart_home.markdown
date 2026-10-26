@@ -1,8 +1,6 @@
 ---
 title: Smart Home
 description: Connect and control your Smart Home devices using the Motionblinds integration
-ha_category:
-  - Cover
 ha_domain: smart_home
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds

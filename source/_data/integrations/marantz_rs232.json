@@ -1,0 +1,17 @@
+{
+  "domain": "marantz_rs232",
+  "name": "Marantz RS-232",
+  "integration_type": "hub",
+  "codeowners": [
+    "@balloob"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "categories": [
+    "media_entertainment.speakers_audio"
+  ],
+  "platforms": [
+    "media_player"
+  ]
+}

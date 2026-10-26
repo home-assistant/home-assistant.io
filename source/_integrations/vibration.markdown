@@ -1,8 +1,6 @@
 ---
 title: Vibration
 description: This integration provides vibration automation triggers and conditions.
-ha_category:
-  - Automation
 ha_release: 2026.8
 ha_quality_scale: internal
 ha_codeowners:

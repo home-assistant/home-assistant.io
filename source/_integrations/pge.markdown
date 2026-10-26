@@ -1,9 +1,6 @@
 ---
 title: Pacific Gas & Electric (PG&E)
 description: Get energy usage from Pacific Gas & Electric (PG&E) using the Opower integration
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 2023.8
 ha_domain: pge
 ha_integration_type: virtual

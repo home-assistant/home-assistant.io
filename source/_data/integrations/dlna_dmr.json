@@ -1,0 +1,19 @@
+{
+  "domain": "dlna_dmr",
+  "name": "DLNA Digital Media Renderer",
+  "integration_type": "device",
+  "codeowners": [
+    "@chishm"
+  ],
+  "config_flow": true,
+  "iot_class": "local_push",
+  "categories": [
+    "media_entertainment"
+  ],
+  "platforms": [
+    "media_player"
+  ],
+  "discovery": [
+    "ssdp"
+  ]
+}

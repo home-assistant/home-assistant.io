@@ -1,8 +1,6 @@
 ---
 title: Raven Rock MFG
 description: Connect and control your Raven Rock MFG devices using the Motionblinds integration
-ha_category:
-  - Cover
 ha_domain: raven_rock_mfg
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds

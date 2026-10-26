@@ -6,7 +6,7 @@ date_formatted: "July 25, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
 categories: Announcements
-og_image: /images/hassio/screenshots/dashboard.png
+og_image: /images/default-social.png
 ---
 
 **TL;DR:** Today we're introducing [Hass.io]. Hass.io is an operating system that will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows creating/restoring snapshots of your configuration and can easily be extended using [Hass.io add-ons][addons] including [Google Assistant] and [Let's Encrypt].
@@ -20,11 +20,6 @@ Some things have been supported natively in Home Assistant, others have been int
 So we decided to take a step back from day-to-day Home Assistant development and see if we could offer a solution that makes updating a breeze for our users. A solution that you can flash to your Raspberry Pi and no longer worry about. A solution that would still be local first and respect the user's privacy.
 
 And this is how [Pascal Vizeli] came up with Hass.io, an operating system based on [ResinOS] and [Docker]. Hass.io will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows taking/restoring snapshots of your configuration and can easily be extended using [Hass.io add-ons][addons].
-
-<p class='img'>
-<img src='/images/hassio/screenshots/dashboard.png'>
-Hass.io dashboard
-</p>
 
 To install add-ons, a user can browse the built-in add-on store and install, configure and update any available application. Want to turn your device into a Google Assistant or make your configuration accessible via Samba/Windows networking? Both are a couple of clicks away! ([Video demo - 38s, no audio][install-demo])
 

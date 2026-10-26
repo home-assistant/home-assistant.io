@@ -1,8 +1,6 @@
 ---
 title: Diagnostics
 description: The diagnostics integration lets you download integration and device diagnostic information for debugging.
-ha_category:
-  - Other
 ha_release: 2022.2
 ha_quality_scale: internal
 ha_domain: diagnostics

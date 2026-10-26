@@ -1,10 +1,8 @@
 ---
 title: Threshold
 description: Instructions on how to integrate threshold binary sensors into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Helper
-  - Utility
+ha_categories:
+  - helpers.calculate_value
 ha_iot_class: Local Polling
 ha_release: 0.34
 ha_quality_scale: internal

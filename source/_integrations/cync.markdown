@@ -3,8 +3,8 @@ title: Cync
 description: Instructions on how to integrate Cync devices into Home Assistant.
 ha_release: '2025.10'
 ha_iot_class: Cloud Push
-ha_category:
-  - light
+ha_categories:
+  - lighting.bulbs_lamps
 ha_codeowners:
   - '@Kinachi249'
 ha_domain: cync

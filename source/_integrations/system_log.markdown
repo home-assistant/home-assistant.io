@@ -1,8 +1,6 @@
 ---
 title: System Log
 description: Summary of errors and warnings in Home Assistant during runtime.
-ha_category:
-  - Other
 ha_release: 0.58
 ha_quality_scale: internal
 ha_domain: system_log

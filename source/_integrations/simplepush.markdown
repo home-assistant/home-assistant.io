@@ -1,8 +1,8 @@
 ---
 title: Simplepush
 description: Instructions on how to add Simplepush notifications to Home Assistant.
-ha_category:
-  - Notifications
+ha_categories:
+  - messaging_notifications.push_notifications
 ha_iot_class: Cloud Polling
 ha_release: 0.29
 ha_config_flow: true

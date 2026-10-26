@@ -1,8 +1,8 @@
 ---
 title: Open ERZ
 description: Instructions on how to integrate a OpenERZ API for Zurich city waste disposal with Home Assistant
-ha_category:
-  - Sensor
+ha_categories:
+  - local_services
 ha_release: 0.109
 ha_iot_class: Cloud Polling
 ha_domain: openerz

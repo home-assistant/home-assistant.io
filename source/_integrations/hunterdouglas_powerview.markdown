@@ -1,13 +1,8 @@
 ---
 title: Hunter Douglas PowerView
 description: Instructions on how to set up Hunter Douglas PowerView scenes within Home Assistant.
-ha_category:
-  - Button
-  - Cover
-  - Number
-  - Scene
-  - Select
-  - Sensor
+ha_categories:
+  - blinds_curtains
 ha_release: 0.15
 ha_domain: hunterdouglas_powerview
 ha_iot_class: Local Polling

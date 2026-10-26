@@ -1,8 +1,8 @@
 ---
 title: Downloader
 description: Instructions on how to set up the downloader integration with Home Assistant.
-ha_category:
-  - Downloading
+ha_categories:
+  - diy_makers.web_data_connectors
 ha_release: pre 0.7
 ha_quality_scale: internal
 ha_domain: downloader

@@ -1,9 +1,8 @@
 ---
 title: Bayesian
 description: Instructions on how to integrate threshold Bayesian sensors into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Utility
+ha_categories:
+  - helpers.calculate_value
 ha_iot_class: Calculated
 ha_release: 0.53
 ha_quality_scale: internal
@@ -279,3 +278,5 @@ binary_sensor:
       prob_given_false: 0.84 # All the prob_given_false should add to 1
       to_state: "not due"
 ```
+
+{% include integrations/actions.md %}

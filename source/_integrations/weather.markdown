@@ -1,8 +1,6 @@
 ---
 title: Weather
 description: Instructions on how to set up your Weather platforms with Home Assistant.
-ha_category:
-  - Weather
 ha_release: 0.32
 ha_quality_scale: internal
 ha_codeowners:

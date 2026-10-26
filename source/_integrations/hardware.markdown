@@ -1,8 +1,6 @@
 ---
 title: Hardware
 description: Instructions on how to set up the Hardware integration
-ha_category:
-  - Other
 ha_release: 2022.6
 ha_quality_scale: internal
 ha_codeowners:

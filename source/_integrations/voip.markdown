@@ -1,8 +1,8 @@
 ---
 title: Voice over IP
 description: Voice over IP
-ha_category:
-  - Voice
+ha_categories:
+  - ai_voice.voice_assistants
 ha_iot_class: Local Push
 ha_release: '2023.5'
 ha_codeowners:

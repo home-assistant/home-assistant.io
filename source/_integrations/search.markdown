@@ -1,8 +1,6 @@
 ---
 title: Search
 description: Internal search module for Home Assistant.
-ha_category:
-  - Other
 ha_release: 0.105
 ha_codeowners:
   - '@home-assistant/core'

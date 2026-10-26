@@ -1,11 +1,9 @@
 ---
 title: SNMP
 description: Instructions on how to integrate SNMP into Home Assistant.
-ha_category:
-  - Network
-  - Presence detection
-  - Sensor
-  - Switch
+ha_categories:
+  - computers_network.monitoring
+  - presence_location.network_presence
 ha_iot_class: Local Polling
 ha_release: 0.57
 ha_domain: snmp
@@ -189,7 +187,7 @@ priv_protocol:
   type: string
   default: 'none'
 state_class:
-  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  description: The [state_class](https://contributors.home-assistant.io/core/entities/sensor/#state-classes) of the sensor.
   required: false
   type: string
 unique_id:

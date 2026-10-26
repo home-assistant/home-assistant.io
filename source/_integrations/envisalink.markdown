@@ -1,10 +1,8 @@
 ---
 title: Envisalink
 description: Instructions on how to integrate a DSC/Honeywell alarm panel with Home Assistant using an envisalink evl3/evl4 board.
-ha_category:
-  - Alarm
-  - Binary sensor
-  - Sensor
+ha_categories:
+  - security_safety.alarm_systems
 ha_release: 0.23
 ha_iot_class: Local Push
 ha_domain: envisalink

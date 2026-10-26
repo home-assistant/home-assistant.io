@@ -1,11 +1,9 @@
 ---
 title: DROP
 description: Instructions on how to integrate DROP into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Select
-  - Sensor
-  - Switch
+ha_categories:
+  - water.meters_leak_detection
+  - water.water_treatment
 ha_config_flow: true
 ha_codeowners:
   - '@ChandlerSystems'

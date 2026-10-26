@@ -1,8 +1,8 @@
 ---
 title: OpenSky Network
 description: Instructions on how to integrate OpenSky Network into Home Assistant.
-ha_category:
-  - Transport
+ha_categories:
+  - vehicles_transport.flights
 ha_release: 0.43
 ha_iot_class: Cloud Polling
 ha_domain: opensky

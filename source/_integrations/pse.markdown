@@ -1,9 +1,6 @@
 ---
 title: Puget Sound Energy (PSE)
 description: Get energy usage from Puget Sound Energy (PSE) using the Opower integration
-ha_category:
-  - Energy
-  - Sensor
 ha_release: 2023.8
 ha_domain: pse
 ha_integration_type: virtual

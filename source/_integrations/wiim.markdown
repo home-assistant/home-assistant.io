@@ -1,8 +1,8 @@
 ---
 title: WiiM
 description: Instructions on how to integrate WiiM devices into Home Assistant.
-ha_category:
-  - Media player
+ha_categories:
+  - media_entertainment.speakers_audio
 ha_domain: wiim
 ha_zeroconf: true
 ha_integration_type: device
@@ -75,7 +75,7 @@ The media player entity gives you complete control over your WiiM device from Ho
 
 Use the following Blueprint to play a selected WiiM preset every day at a configured time:
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/wiim_play_preset.yaml" %}
+{% blueprint_example blueprint="wiim/play_preset.yaml" %}
 
 ### Play a preset
 

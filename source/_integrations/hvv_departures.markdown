@@ -1,8 +1,8 @@
 ---
 title: HVV Departures
 description: Display the departures of buses, trains and ferries in Hamburg within Home Assistant.
-ha_category:
-  - Transport
+ha_categories:
+  - vehicles_transport.public_transport
 ha_iot_class: Cloud Polling
 ha_release: 0.112
 ha_config_flow: true

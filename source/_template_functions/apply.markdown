@@ -33,11 +33,11 @@ output: "5.0"
 
 ---
 test: |
-  {% if 5 is apply(lt, 10) %}
-    Less than 10
+  {% if "5" is apply(is_number) %}
+    It's a number
   {% endif %}
 type: string
-output: "Less than 10"
+output: "It's a number"
 {% endtemplate_function_usage %}
 
 {% include template_functions/signatures.md %}
@@ -94,10 +94,10 @@ output: "[1.0, 2.0, 3.0]"
 When used as a test, `apply` lets you filter items using any function as a predicate.
 
 {% example %}
-template: '{{ [3, 7, 2, 9, 5] | select("apply", gt, 4) | list }}'
-title: Select values greater than 4
+template: '{{ ["3", "abc", "7"] | select("apply", is_number) | list }}'
+title: Select values that are numbers
 type: list
-output: "[7, 9, 5]"
+output: '["3", "7"]'
 {% endexample %}
 
 ## Good to know

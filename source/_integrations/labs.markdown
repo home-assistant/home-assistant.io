@@ -1,8 +1,6 @@
 ---
 title: Home Assistant Labs
 description: Try new preview features before they become standard in Home Assistant.
-ha_category:
-  - Other
 ha_release: 2025.12
 ha_iot_class: Calculated
 ha_quality_scale: internal

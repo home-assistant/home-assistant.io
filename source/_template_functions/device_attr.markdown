@@ -61,13 +61,14 @@ attr_name:
 
 {% tip %}
 
-To see all available device attributes, go to {% my developer_states title="**Settings** > **Tools** > **States**" %} and look at the device registry entries, or use the **Devices** page in {% my integrations title="**Settings** > **Devices & services**" %} to inspect a specific device.
+Device attributes are stored in the device registry and are separate from entity state attributes. You can view commonly used device information, such as the manufacturer, model, software version, hardware version, and serial number, by going to {% my integrations title="**Settings** > **Devices & services**" %}, selecting **Devices**, and then selecting a device. Not every device registry attribute is shown in the user interface.
 
 {% endtip %}
 
 ## Good to know
 
 - Returns `None` when the device or attribute does not exist, so chain with [`| default(value)`](/template-functions/default/) for display fallbacks.
+- The device or entity ID must be text. If it's `None`, the template fails with the error **Must provide a device or entity ID**. This can happen when you nest two calls, such as `device_attr(device_attr(device_id, "via_device_id"), "name")`. If the inner call returns `None`, the outer call fails.
 - This reads from the device registry, not the entity state. Attributes like `manufacturer` and `sw_version` live here, not in [`state_attr`](/template-functions/state_attr/).
 - Accepts either a device ID or an entity ID. When given an entity ID, it resolves to the device first.
 

@@ -1,11 +1,8 @@
 ---
 title: Intergas gateway
 description: Instructions on how to integrate an Intergas gateway with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Climate
-  - Sensor
-  - Water heater
+ha_categories:
+  - climate.thermostats_heating
 ha_release: 0.93
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -79,7 +76,7 @@ Some older room thermostats might report the wrong setpoint when the setpoint is
 
 ### Sensors for diagnostics
 
-Note that **all** sensors are disabled by default.
+Note that **all** sensors are [disabled by default](/docs/configuration/customizing-entities/#disabling-or-enabling-an-entity).
 
 - **Sensors**
   - Boiler Pressure: Indicates the boilers pressure.

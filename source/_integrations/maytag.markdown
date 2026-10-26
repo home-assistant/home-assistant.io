@@ -1,13 +1,6 @@
 ---
 title: Maytag
 description: Connect and control your Maytag devices using the Whirlpool Appliances integration
-ha_category:
-  - Button
-  - Climate
-  - Hub
-  - Light
-  - Number
-  - Select
 ha_integration_type: virtual
 ha_supporting_domain: whirlpool
 ha_supporting_integration: Whirlpool Appliances

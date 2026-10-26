@@ -1,8 +1,8 @@
 ---
 title: LimitlessLED
 description: Instructions on how to set up LimitlessLED within Home Assistant.
-ha_category:
-  - Light
+ha_categories:
+  - lighting.bulbs_lamps
 ha_iot_class: Assumed State
 ha_release: pre 0.7
 ha_domain: limitlessled
@@ -157,7 +157,7 @@ This lack of synchronization is due to a LimitlessLED limitation.
 <img src='/images/screenshots/limitlessled_assumed_state.png' />
 </p>
 
-Because LimitlessLED lights may have an obsolete state, Home Assistant shows the power switch as two buttons rather than a toggle. This ensures that the power can be set with a single click even if the assumed state is wrong. You can change to use the power toggle with [Customize](/docs/configuration/customizing-devices/):
+Because LimitlessLED lights may have an obsolete state, Home Assistant shows the power switch as two buttons rather than a toggle. This ensures that the power can be set with a single click even if the assumed state is wrong. You can change to use the power toggle with [Customize](/docs/configuration/customizing-entities/):
 
 ```yaml
 homeassistant:

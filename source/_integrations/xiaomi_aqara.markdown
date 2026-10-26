@@ -1,8 +1,8 @@
 ---
 title: Xiaomi Gateway (Aqara)
 description: Instructions for how to integrate the Xiaomi Gateway (Aqara) within Home Assistant.
-ha_category:
-  - Hub
+ha_categories:
+  - hubs_protocols.smart_home_hubs
 ha_release: 0.57
 ha_iot_class: Local Push
 ha_codeowners:
@@ -289,11 +289,11 @@ List of supported binary sensors, including the following properties (if availab
       from: "off"
       to: "on"
   actions:
-    - action: climate.set_operation_mode
+    - action: climate.set_hvac_mode
       target:
         entity_id: climate.livingroom
       data:
-        operation_mode: "Off"
+        hvac_mode: "off"
 - alias: "If the window is closed for 5 minutes turn on the radiator again"
   triggers:
     - trigger: state
@@ -303,11 +303,11 @@ List of supported binary sensors, including the following properties (if availab
       for:
         minutes: 5
   actions:
-    - action: climate.set_operation_mode
+    - action: climate.set_hvac_mode
       target:
         entity_id: climate.livingroom
       data:
-        operation_mode: "Smart schedule"
+        hvac_mode: "auto"
 - alias: "Notify if door is opened when away"
   triggers:
     - trigger: state

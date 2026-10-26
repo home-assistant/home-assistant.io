@@ -1,8 +1,9 @@
 ---
 title: FortiOS
 description: Instructions on how to use Fortinet FortiOS to track devices in Home Assistant.
-ha_category:
-  - Presence detection
+ha_categories:
+  - computers_network.routers_network
+  - presence_location.network_presence
 ha_iot_class: Local Polling
 ha_release: 0.97
 ha_domain: fortios

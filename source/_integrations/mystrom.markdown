@@ -1,11 +1,9 @@
 ---
 title: myStrom
 description: Instructions on how to integrate myStrom WiFi Switches, Bulbs and Motion Sensors into Home Assistant.
-ha_category:
-  - Binary sensor
-  - Light
-  - Sensor
-  - Switch
+ha_categories:
+  - plugs_switches
+  - lighting.bulbs_lamps
 ha_release: 0.43
 ha_iot_class: Local Polling
 ha_config_flow: true

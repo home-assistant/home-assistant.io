@@ -68,7 +68,9 @@ name:
 
 Remove a privacy zone so a camera can see your driveway while you are away.
 
-- **Trigger**: A person's location changes to away
+- **Trigger**: State changed
+  - **Entity**: Alex person
+  - **To**: Away
 - **Action**: UniFi Protect: Remove privacy zone
 
 {% details "YAML example for removing a privacy zone when away" %}

@@ -1,8 +1,8 @@
 ---
 title: ThingSpeak
 description: Record one entity in ThingSpeak
-ha_category:
-  - History
+ha_categories:
+  - diy_makers.web_data_connectors
 ha_iot_class: Cloud Push
 ha_release: 0.32
 ha_domain: thingspeak

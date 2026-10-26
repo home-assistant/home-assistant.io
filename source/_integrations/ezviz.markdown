@@ -2,9 +2,8 @@
 title: EZVIZ
 description: Integrate EZVIZ camera within Home Assistant.
 ha_release: 0.107
-ha_category:
-  - Camera
-  - Update
+ha_categories:
+  - security_safety.cameras
 ha_iot_class: Cloud Polling
 ha_domain: ezviz
 ha_codeowners:
@@ -32,7 +31,7 @@ related:
 The **EZVIZ** integration uses the ezvizlife.com API to interact with the devices.
 It also exposes an RTSP stream, by using the local camera IPs (so the device hosting Home Assistant has to be able to access the local IP of the cameras).
 
-As there is no official documentation for the API, the integration retrieves data from the API used in the EZVIZ mobile app, [hosted here](https://apiieu.ezvizlife.com).
+The integration retrieves data from the API used in the EZVIZ mobile app, [hosted here](https://apiieu.ezvizlife.com).
 
 The password for each camera is usually written near the QR code. This could be underneath the device or in the user manual. It is usually referred to as the camera "verification code".
 

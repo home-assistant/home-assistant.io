@@ -1,8 +1,6 @@
 ---
 title: Inspired Shades
 description: Connect and control your Inspired Shades devices using the Motionblinds integration
-ha_category:
-  - Cover
 ha_domain: inspired_shades
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds

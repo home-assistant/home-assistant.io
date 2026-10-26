@@ -1,8 +1,8 @@
 ---
 title: ClickSend SMS
 description: Instructions on how to add ClickSend notifications to Home Assistant.
-ha_category:
-  - Notifications
+ha_categories:
+  - messaging_notifications.email_sms_calls
 ha_release: 0.48
 ha_domain: clicksend
 ha_iot_class: Cloud Push
@@ -62,7 +62,7 @@ recipient:
   required: true
   type: [string, list]
 sender:
-  description: The name or number of the sender. (Limited to 11 characters.)
+  description: "The ClickSend Sender ID to use for SMS messages, such as an approved Alpha Tag or phone number configured in your ClickSend account. Sender ID availability and requirements vary by country. If your account requires an approved Sender ID, configure this option instead of using the default."
   required: false
   type: string
   default: "`hass`"

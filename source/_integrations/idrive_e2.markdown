@@ -2,8 +2,8 @@
 title: IDrive e2
 description: Instructions on how to set up an IDrive e2 bucket to use as a backup location.
 ha_release: 2026.3
-ha_category:
-  - Backup
+ha_categories:
+  - computers_network.cloud_developer_tools
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: idrive_e2

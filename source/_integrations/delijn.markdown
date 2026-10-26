@@ -2,9 +2,8 @@
 title: De Lijn
 description: Instructions on how to integrate De Lijn (Flemish public transport company) departure times into Home Assistant.
 ha_release: 0.97
-ha_category:
-  - Sensor
-  - Transport
+ha_categories:
+  - vehicles_transport.public_transport
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@bollewolle'

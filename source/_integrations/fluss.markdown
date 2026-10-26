@@ -1,9 +1,9 @@
 ---
 title: Fluss+
 description: Instructions on how to integrate Fluss+ devices within Home Assistant.
-ha_category:
-  - Button
-  - Cover
+ha_categories:
+  - blinds_curtains
+  - security_safety.locks_access
 ha_release: 2026.1
 ha_iot_class: Cloud Polling
 ha_codeowners:

@@ -1,8 +1,8 @@
 ---
 title: Push
 description: Instructions how to use Push Camera within Home Assistant.
-ha_category:
-  - Camera
+ha_categories:
+  - security_safety.cameras
 ha_iot_class: Local Push
 ha_release: 0.74
 ha_codeowners:

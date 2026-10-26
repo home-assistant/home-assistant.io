@@ -1,11 +1,8 @@
 ---
 title: Keba Charging Station
 description: Instructions on how to set up your Keba charging station with Home Assistant.
-ha_category:
-  - Binary sensor
-  - Lock
-  - Notifications
-  - Sensor
+ha_categories:
+  - energy.ev_charging
 ha_iot_class: Local Polling
 ha_release: 0.98
 ha_codeowners:

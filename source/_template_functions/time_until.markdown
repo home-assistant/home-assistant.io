@@ -11,12 +11,13 @@ limited: false
 since: "2024.11"
 related_functions:
   - time_since
+  - timedelta_string
   - now
   - as_datetime
   - today_at
 ---
 
-The `time_until` template function returns a human-readable string describing how much time remains until a given {% term datetime %} in the future. Give it a future datetime, and it returns something like "3 hours" or "2 days and 6 hours" instead of a raw number of seconds.
+The `time_until` template function returns a human-readable string describing how much time remains until a given {% term datetime %} in the future. Give it a future datetime, and it returns something like "3 hours" or "2 days 6 hours" instead of a raw number of seconds.
 
 This is useful whenever you want to display a countdown or remaining time in a natural format. For example, showing how long until the next alarm goes off, displaying "arrives in 45 minutes" for a delivery, or reporting how much time is left on a timer. The function only works with datetimes in the future. For past datetimes, use [`time_since`](/template-functions/time_since/) instead. You can control the level of detail with the optional precision parameter, which determines how many time components (years, months, days, hours, minutes, seconds) to include.
 
@@ -54,7 +55,7 @@ value:
   type: datetime
 precision:
   description: >
-    The number of time components to include in the output, from 1 to 6. A precision of 1 might return "6 hours", while a precision of 2 might return "6 hours and 15 minutes". Higher precision gives more detail.
+    The number of time components to include in the output. A precision of 1 might return "6 hours", while a precision of 2 might return "6 hours 15 minutes". Higher precision gives more detail. Use 0 to include every time component that isn't zero.
   required: false
   default: "1"
   type: integer
@@ -73,14 +74,18 @@ output: "6 hours"
 {% example %}
 template: '{{ time_until(as_datetime(states("sensor.next_alarm")), 3) }}'
 type: string
-output: "6 hours, 15 minutes and 30 seconds"
+output: "6 hours 15 minutes 30 seconds"
 {% endexample %}
 
 ## Good to know
 
-- Only works with datetimes in the future. For past datetimes, use [`time_since`](/template-functions/time_since/) instead.
-- Durations shorter than one second return `"0 seconds"`.
-- The input datetime must be time zone aware.
+- Only works with datetimes in the future. A datetime in the past is returned unchanged, without an error. For past datetimes, use [`time_since`](/template-functions/time_since/) instead.
+- The last unit shown is rounded to the nearest whole number. All other units are cut off. For example, 2 hours 45 minutes gives `"3 hours"` with a precision of 1.
+- Because of this rounding, the result doesn't carry over to the next unit. For example, 59 minutes 40 seconds gives `"60 minutes"`, not `"1 hour"`.
+- Units that are zero are skipped and don't count toward the precision. For example, 2 hours and 15 seconds gives `"2 hours 15 seconds"` with a precision of 2.
+- Durations shorter than half a second return `"0 seconds"`.
+- If the input isn't a datetime, it's returned unchanged. This includes `none`, which [`as_datetime`](/template-functions/as_datetime/) returns for states like `unknown`.
+- Datetimes without a time zone are accepted. They're treated as your local time.
 
 {% include template_functions/try_it.md %}
 
@@ -106,12 +111,12 @@ template: |
   {% set event_time = as_datetime(states("sensor.next_appointment")) %}
   Starts in {{ time_until(event_time, 2) }}
 type: string
-output: "Starts in 2 hours and 30 minutes"
+output: "Starts in 2 hours 30 minutes"
 {% endexample %}
 
 ### Time remaining in an automation condition
 
-Only run the rest of an {% term automation %} if a scheduled event is less than 1 hour away. Combine `time_until` with a check on the remaining time using [`today_at`](/template-functions/today_at/) and [`now`](/template-functions/now/).
+Only run the rest of an {% term automation %} if a scheduled event is less than 1 hour away. `time_until` returns text, so you can't compare its result with a duration. Instead, subtract [`now`](/template-functions/now/) from the event time and compare the result with a [`timedelta`](/template-functions/timedelta/).
 
 {% example %}
 automation: |

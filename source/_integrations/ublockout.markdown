@@ -1,8 +1,6 @@
 ---
 title: Ublockout
 description: Connect and control your Ublockout devices using the Motionblinds integration
-ha_category:
-  - Cover
 ha_domain: ublockout
 ha_integration_type: virtual
 ha_supporting_domain: motion_blinds

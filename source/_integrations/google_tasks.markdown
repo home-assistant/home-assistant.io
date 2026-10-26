@@ -1,8 +1,8 @@
 ---
 title: Google Tasks
 description: Instructions on how to use Google Tasks in Home Assistant.
-ha_category:
-  - To-do list
+ha_categories:
+  - productivity_information.calendars_todos
 ha_iot_class: Cloud Polling
 ha_release: 2023.11
 ha_config_flow: true
@@ -150,7 +150,4 @@ This integration follows standard integration removal. No extra steps are requir
 
 {% include integrations/remove_device_service.md %}
 
-You will be asked if you would like to remove [Application Credentials](/integrations/application_credentials/) which you can do if you no longer plan to use
-Google Tasks with Home Assistant. You may want to also remove any credentials
-in the Google Cloud console, created above in the Prerequisites, if they are no
-longer in use with any of your other Home Assistant integrations.
+If no other integration uses the credentials that you created in the Google Cloud console under [Prerequisites](#prerequisites), you can also delete them there.
