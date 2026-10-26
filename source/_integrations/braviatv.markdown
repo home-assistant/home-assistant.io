@@ -1,22 +1,7 @@
 ---
-title: Sony Bravia TV
 description: Instructions on how to integrate a Sony Bravia TV into Home Assistant.
-ha_categories:
-  - media_entertainment.tv_streaming
 ha_release: 0.23
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@bieniu'
-  - '@Drafteed'
 ha_domain: braviatv
-ha_config_flow: true
-ha_platforms:
-  - button
-  - diagnostics
-  - media_player
-  - remote
-ha_ssdp: true
-ha_integration_type: device
 ---
 
 The **Sony Bravia TV** {% term integration %} allows you to control a [Sony Bravia TV](https://www.sony.com/) from Home Assistant. You can turn the TV on and off, change the volume and the input source, open apps, switch TV channels, and send remote control commands, for example from a dashboard or an {% term automation %}.

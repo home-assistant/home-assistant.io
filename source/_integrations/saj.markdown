@@ -1,22 +1,10 @@
 ---
-title: SAJ Solar Inverter
 description: Instructions on how to connect your SAJ Solar Inverter to Home Assistant.
-ha_categories:
-  - energy.solar_batteries
-ha_iot_class: Local Polling
 ha_release: '0.100'
-ha_config_flow: true
-ha_codeowners:
-  - '@fredericvl'
-  - '@edurenye'
 ha_domain: saj
-ha_platforms:
-  - sensor
-ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ---
 
 The **SAJ Solar Inverter** {% term integration %} polls a [SAJ](https://www.saj-electric.com/) solar inverter through its local web interface and presents the values as sensors in Home Assistant.

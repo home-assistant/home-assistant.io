@@ -1,14 +1,9 @@
 ---
-title: Media player
 description: Control and automate your TVs, speakers, and other media players in Home Assistant.
 ha_release: 0.7
 ha_categories:
   - media_entertainment
-ha_quality_scale: internal
 ha_domain: media_player
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 related:
   - docs: /docs/configuration/customizing-entities/
     title: Customizing devices

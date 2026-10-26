@@ -1,19 +1,7 @@
 ---
-title: Steam
 description: Instructions on how to set up Steam in Home Assistant.
-ha_categories:
-  - media_entertainment.gaming
-ha_config_flow: true
-ha_iot_class: Cloud Polling
 ha_release: 0.14
 ha_domain: steam_online
-ha_platforms:
-  - image
-  - sensor
-ha_codeowners:
-  - '@tr4nt0r'
-  - '@tkdrob'
-ha_integration_type: service
 ---
 
 The **Steam** {% term integration %} will allow you to track the online status of public [Steam](https://steamcommunity.com) accounts.

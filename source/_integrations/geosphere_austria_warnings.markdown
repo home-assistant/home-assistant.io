@@ -1,18 +1,7 @@
 ---
-title: GeoSphere Austria Warnings
 description: Instructions on how to integrate official GeoSphere Austria weather warnings within Home Assistant.
-ha_categories:
-  - weather_alerts.public_warnings
 ha_release: 2026.8
-ha_iot_class: Cloud Polling
 ha_domain: geosphere_austria_warnings
-ha_config_flow: true
-ha_platforms:
-  - sensor
-ha_integration_type: service
-ha_codeowners:
-  - '@tklecka'
-ha_quality_scale: bronze
 ---
 
 The **GeoSphere Austria Warnings** {% term integration %} provides official weather warnings issued by the Austrian national weather service [GeoSphere Austria](https://www.geosphere.at) (formerly known as ZAMG).

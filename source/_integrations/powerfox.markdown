@@ -1,21 +1,7 @@
 ---
-title: Powerfox Cloud
 description: Instructions on how to integrate Powerfox Cloud within Home Assistant.
-ha_categories:
-  - energy.meters_monitoring
-  - water.meters_leak_detection
 ha_release: 2025.1
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@klaasnicolaas'
 ha_domain: powerfox
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: silver
-ha_zeroconf: true
 ---
 
 The **Powerfox Cloud** {% term integration %} allows you to gather data from your [Poweropti](https://shop.powerfox.energy/collections/frontpage) devices, by using their cloud API and fetching the data in Home Assistant.

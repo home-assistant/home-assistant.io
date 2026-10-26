@@ -1,28 +1,7 @@
 ---
-title: WLED
 description: Instructions on how to integrate WLED with Home Assistant.
-ha_categories:
-  - lighting.led_strips_controllers
-  - diy_makers.boards_hardware
 ha_release: 0.102
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@frenck'
-  - '@mik-laj'
 ha_domain: wled
-ha_zeroconf: true
-ha_platforms:
-  - button
-  - diagnostics
-  - light
-  - number
-  - select
-  - sensor
-  - switch
-  - update
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 [WLED](https://kno.wled.ge) is a fast and feature-rich

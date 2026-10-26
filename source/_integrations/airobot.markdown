@@ -1,29 +1,12 @@
 ---
-title: Airobot
 description: Instructions on how to integrate Airobot smart thermostats for intelligent floor heating control into Home Assistant.
 ha_release: 2025.12
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@mettolen'
 ha_domain: airobot
-ha_integration_type: device
-ha_dhcp: true
-ha_config_flow: true
-ha_quality_scale: platinum
 related:
   - url: https://airobothome.com/
     title: Airobot
   - url: https://airobothome.com/heat-control-products/
     title: Airobot Heat Control Products
-ha_categories:
-  - climate.thermostats_heating
-ha_platforms:
-  - button
-  - climate
-  - diagnostics
-  - number
-  - sensor
-  - switch
 ---
 
 The **Airobot** {% term integration %} allows you to control and monitor [Airobot](https://airobothome.com/) smart thermostats for intelligent floor heating control via the local REST API. The thermostat uses adaptive learning with a <abbr title="Time Proportional Integral">TPI</abbr> algorithm to maintain stable temperatures and optimize energy efficiency. Optional built-in carbon dioxide and humidity sensors monitor indoor air quality for a healthier living environment.

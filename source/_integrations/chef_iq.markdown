@@ -1,19 +1,7 @@
 ---
-title: Chef iQ
 description: Instructions on how to integrate Chef iQ wireless probes with Home Assistant.
-ha_categories:
-  - appliances_cleaning.cooking
 ha_release: 2026.7
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@Invader444'
 ha_domain: chef_iq
-ha_integration_type: device
-ha_platforms:
-  - sensor
-ha_bluetooth: true
-ha_quality_scale: bronze
 ---
 
 The **Chef iQ** {% term integration %} lets you read the temperatures from Chef iQ wireless cooking probes directly over Bluetooth Low Energy. No cloud account, base station, or hub is required: the probe broadcasts its readings and Home Assistant listens passively.

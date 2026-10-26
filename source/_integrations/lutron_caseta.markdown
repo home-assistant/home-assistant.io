@@ -1,32 +1,8 @@
 ---
-title: Lutron Caséta
 description: Instructions on how to use Lutron Caseta devices with Home Assistant.
 featured: true
-ha_categories:
-  - lighting.lighting_systems
-  - plugs_switches
-  - blinds_curtains
 ha_release: 0.41
-ha_iot_class: Local Push
 ha_domain: lutron_caseta
-ha_config_flow: true
-ha_codeowners:
-  - '@swails'
-  - '@danaues'
-  - '@eclair4151'
-ha_zeroconf: true
-ha_homekit: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - light
-  - scene
-  - switch
-ha_integration_type: hub
 ---
 
 [Lutron](https://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches, dimmers, occupancy sensors, and HVAC controls. The `lutron_caseta` integration in Home Assistant is responsible for communicating with the Lutron Caseta Smart Bridge for the [Caseta](https://www.casetawireless.com/) product line of dimmers, switches, shades, and sensors. It will also communicate with the Lutron Radio RA2 Main Repeater for the [RA2 Select](https://www.lutron.com/controls/systems/ra2select) product line of dimmers, switches, shades, and sensors.

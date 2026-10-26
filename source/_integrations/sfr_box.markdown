@@ -1,21 +1,7 @@
 ---
-title: SFR Box
 description: Instructions on how to integrate your SFR Box broadband router into Home Assistant.
-ha_categories:
-  - computers_network.routers_network
 ha_release: 2023.2
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@epenet'
 ha_domain: sfr_box
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - sensor
-ha_integration_type: device
-ha_quality_scale: silver
 ---
 
 The **SFR Box** {% term integration %} connects your **SFR** broadband router to Home Assistant over your local network. It shows the state of your internet connection, details about your DSL or fiber line, and the status of your phone line. You can restart the box from Home Assistant.

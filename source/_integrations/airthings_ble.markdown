@@ -1,19 +1,7 @@
 ---
-title: Airthings BLE
 description: Instructions on how to set up Airthings Devices over Bluetooth LE.
-ha_categories:
-  - sensors.air_quality
 ha_release: '2022.11'
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@vincegio'
-  - '@LaStrada'
 ha_domain: airthings_ble
-ha_bluetooth: true
-ha_platforms:
-  - sensor
-ha_config_flow: true
-ha_integration_type: device
 ---
 
 Integrates Airthings BLE {% term sensors %} into Home Assistant.

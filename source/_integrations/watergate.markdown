@@ -1,22 +1,7 @@
 ---
-title: Watergate
 description: Instructions on how to integrate Watergate with Home Assistant.
-ha_categories:
-  - water.meters_leak_detection
 ha_release: '2025.1'
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@adam-the-hero'
 ha_domain: watergate
-ha_platforms:
-  - event
-  - number
-  - sensor
-  - switch
-  - valve
-ha_quality_scale: silver
-ha_integration_type: device
 ---
 
 The **Watergate** {% term integration %} integrates your Watergate Devices (currently Sonic Wi-Fi) with your Home Assistant.

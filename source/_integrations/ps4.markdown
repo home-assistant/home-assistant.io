@@ -1,17 +1,7 @@
 ---
-title: Sony PlayStation 4
 description: Instructions on how to integrate a Sony PlayStation 4 into Home Assistant.
-ha_categories:
-  - media_entertainment.gaming
 ha_release: 0.89
-ha_config_flow: true
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@ktnrg45'
 ha_domain: ps4
-ha_platforms:
-  - media_player
-ha_integration_type: hub
 ---
 
 The **Sony PlayStation 4** {% term integration %} allows you to control a

@@ -1,19 +1,7 @@
 ---
-title: Anthropic
 description: Instructions on how to integrate Anthropic Claude with Home Assistant
-ha_categories:
-  - ai_voice.ai_models
 ha_release: 2024.9
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Shulyaka'
 ha_domain: anthropic
-ha_integration_type: service
-ha_platforms:
-  - ai_task
-  - conversation
-  - diagnostics
 related:
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
@@ -25,7 +13,6 @@ related:
     title: Anthropic
   - url: https://claude.ai
     title: Claude
-ha_quality_scale: platinum
 ---
 
 The **Anthropic** {% term integrations %} adds conversation agents and AI task entities powered by [Anthropic](https://www.anthropic.com)'s Claude models to Home Assistant.

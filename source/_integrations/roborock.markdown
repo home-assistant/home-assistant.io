@@ -1,30 +1,7 @@
 ---
-title: Roborock
 description: Instructions on how to integrate Roborock vacuums into Home Assistant
-ha_categories:
-  - appliances_cleaning.cleaning
-  - appliances_cleaning.laundry
-ha_iot_class: Local Polling
 ha_release: 2023.5
-ha_config_flow: true
-ha_codeowners:
-  - '@Lash-L'
-  - '@allenporter'
 ha_domain: roborock
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - image
-  - number
-  - select
-  - sensor
-  - switch
-  - time
-  - vacuum
-ha_integration_type: hub
-ha_quality_scale: silver
-ha_dhcp: true
 ---
 
 The **Roborock** {% term integration %} allows you to connect your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) robotic vacuums to your Home Assistant. Roborock vacuums are

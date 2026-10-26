@@ -1,25 +1,7 @@
 ---
-title: Huawei LTE
 description: Instructions on how to integrate Huawei LTE router and modem devices with Home Assistant.
-ha_categories:
-  - computers_network.routers_network
 ha_release: 0.79
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@fphammerle'
 ha_domain: huawei_lte
-ha_ssdp: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - device_tracker
-  - diagnostics
-  - notify
-  - select
-  - sensor
-  - switch
-ha_integration_type: device
 ---
 
 The **Huawei LTE** router and modem {% term integration %} for Home Assistant allows you to observe and control [Huawei LTE devices](https://consumer.huawei.com/en/routers/).

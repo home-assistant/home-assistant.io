@@ -1,18 +1,7 @@
 ---
-title: Scrape
 description: Instructions on how to integrate Web scrape sensors into Home Assistant.
-ha_categories:
-  - diy_makers.web_data_connectors
 ha_release: 0.31
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@fabaff'
-  - '@gjohansson-ST'
 ha_domain: scrape
-ha_platforms:
-  - sensor
-ha_integration_type: integration
-ha_config_flow: true
 related:
   - docs: /docs/configuration/
     title: Configuration file

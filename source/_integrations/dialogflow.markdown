@@ -1,13 +1,7 @@
 ---
-title: Dialogflow
 description: Instructions on how integrate Dialogflow with Home Assistant.
-ha_categories:
-  - ai_voice.voice_assistants
 ha_release: 0.56
-ha_config_flow: true
-ha_iot_class: Cloud Push
 ha_domain: dialogflow
-ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file

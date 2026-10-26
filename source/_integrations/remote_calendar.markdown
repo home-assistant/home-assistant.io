@@ -1,20 +1,7 @@
 ---
-title: Remote Calendar
 description: Instructions on how to use remote calendars in Home Assistant.
-ha_categories:
-  - productivity_information.calendars_todos
-ha_iot_class: Cloud Polling
 ha_release: 2025.4
-ha_config_flow: true
 ha_domain: remote_calendar
-ha_platforms:
-  - calendar
-  - diagnostics
-ha_codeowners:
-  - '@Thomas55555'
-  - '@allenporter'
-ha_integration_type: service
-ha_quality_scale: silver
 ---
 
 The **Remote calendar** {% term integration %} allows you to read a calendar in Home Assistant for powering automations.

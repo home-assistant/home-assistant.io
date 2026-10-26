@@ -1,23 +1,7 @@
 ---
-title: Sofar
 description: Instructions on how to integrate a Sofar solar inverter with Home Assistant over Modbus TCP or a serial RS485 connection.
-ha_categories:
-  - energy.solar_batteries
 ha_release: 2026.9
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@darkrain-nl'
 ha_domain: sofar
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - select
-  - sensor
-  - switch
-ha_config_flow: true
-ha_integration_type: device
-ha_quality_scale: platinum
 ---
 
 The **Sofar** {% term integration %} connects Home Assistant to a Sofar Solar inverter over Modbus. You can reach the inverter over the network (Modbus TCP), either directly or through a Modbus TCP bridge, or over a serial port wired to its RS485 terminals (Modbus RTU).

@@ -1,18 +1,7 @@
 ---
-title: ecosmart
 description: Instructions on how to integrate ecosmart wholesale electricity prices into Home Assistant.
-ha_categories:
-  - energy.energy_prices
 ha_release: 2026.11
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Daryn-L'
 ha_domain: ecosmart
-ha_platforms:
-  - sensor
-ha_integration_type: service
-ha_quality_scale: bronze
 related:
   - url: https://www.ecosmart.co.nz/electricity/api/home-assistant/
     title: ecosmart API documentation

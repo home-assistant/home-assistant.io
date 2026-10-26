@@ -1,19 +1,7 @@
 ---
-title: Spin EV Charger
 description: Instructions on how to integrate Exicom Spin EV chargers over Bluetooth Low Energy with Home Assistant.
-ha_categories:
-  - energy.ev_charging
 ha_release: "2026.11"
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Dr-Blank'
 ha_domain: spin_ble
-ha_bluetooth: true
-ha_platforms:
-  - sensor
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Spin EV Charger** {% term integration %} connects Home Assistant to [Exicom](https://www.exicom.in/) Spin EV chargers over Bluetooth Low Energy.

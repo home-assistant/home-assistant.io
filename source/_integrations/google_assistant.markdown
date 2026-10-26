@@ -1,16 +1,8 @@
 ---
-title: Google Assistant
 description: Setup for Google Assistant integration
 featured: true
 ha_release: 0.56
-ha_iot_class: Cloud Push
-ha_codeowners:
-  - '@home-assistant/cloud'
 ha_domain: google_assistant
-ha_integration_type: system
-ha_platforms:
-  - button
-  - diagnostics
 ---
 
 The **Google Assistant** {% term integration %} allows you to control your Home Assistant devices via Google Assistant on your mobile, tablet, or Google Home device.

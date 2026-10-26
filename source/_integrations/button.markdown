@@ -1,12 +1,7 @@
 ---
-title: Button
 description: Instructions on how to set up your button with Home Assistant.
 ha_release: 2021.12
-ha_quality_scale: internal
 ha_domain: button
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 related:
   - docs: /docs/configuration/customizing-entities/
     title: Customizing devices

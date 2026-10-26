@@ -1,21 +1,10 @@
 ---
-title: Bitcoin
 description: Instructions on how to integrate Bitcoin data within Home Assistant.
-ha_categories:
-  - finance
 ha_release: pre 0.7
-ha_iot_class: Cloud Polling
 ha_domain: bitcoin
-ha_platforms:
-  - sensor
-ha_integration_type: service
-ha_codeowners:
-  - '@Nihvel'
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs
-ha_config_flow: true
-ha_quality_scale: legacy
 ---
 
 The **Bitcoin** {% term integration %} shows you details about the [Bitcoin](https://bitcoin.org) network, such as the current exchange rate, the network hash rate, and how busy the network has been over the last 24 hours. The data comes from the public [blockchain.com](https://www.blockchain.com/explorer) API, so you do not need an account or an API key.

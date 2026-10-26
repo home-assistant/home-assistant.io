@@ -1,30 +1,7 @@
 ---
-title: Group
 description: Instructions on how to set up groups within Home Assistant.
-ha_categories:
-  - helpers.calculate_value
 ha_release: pre 0.7
-ha_iot_class: Calculated
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: group
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - calendar
-  - cover
-  - event
-  - fan
-  - light
-  - lock
-  - media_player
-  - notify
-  - sensor
-  - switch
-  - valve
-ha_integration_type: helper
 ---
 
 The **Group** {% term integration %} lets you combine multiple entities into a single entity. Entities that are members of a group can be controlled and monitored as a whole.

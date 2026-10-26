@@ -1,18 +1,7 @@
 ---
-title: Open-Meteo
 description: Instructions on how to integrate Open-Meteo within Home Assistant.
-ha_categories:
-  - weather_alerts.forecasts
 ha_release: 2022.2
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@frenck'
 ha_domain: open_meteo
-ha_platforms:
-  - diagnostics
-  - weather
-ha_integration_type: service
 ---
 
 The **Open-Meteo** {% term integration %} adds free weather forecasts to Home Assistant for any location you choose, with no account or API key to set up.

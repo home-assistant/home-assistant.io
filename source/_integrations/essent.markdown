@@ -1,18 +1,7 @@
 ---
-title: Essent
 description: Monitor dynamic energy prices from Essent Netherlands
-ha_categories:
-  - energy.energy_prices
 ha_release: 2025.12
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@jaapp'
 ha_domain: essent
-ha_platforms:
-  - sensor
-ha_integration_type: service
-ha_quality_scale: silver
 ---
 
 The **Essent** {% term integration %} monitors dynamic energy prices for Essent customers in the Netherlands with Dynamic Contracts.

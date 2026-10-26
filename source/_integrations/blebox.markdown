@@ -1,32 +1,7 @@
 ---
-title: BleBox devices
 description: Instructions on how to integrate BleBox devices with Home Assistant.
-ha_categories:
-  - plugs_switches
-  - blinds_curtains
-  - lighting.led_strips_controllers
 ha_release: '0.110'
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@bbx-a'
-  - '@swistakm'
-  - '@bkobus-bbx'
 ha_domain: blebox
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - light
-  - sensor
-  - switch
-  - update
-ha_integration_type: device
-ha_zeroconf: true
-ha_dhcp: true
-ha_quality_scale: gold
 ---
 
 [BleBox](https://blebox.eu/) produces compact, low-power, feature-rich Wi-Fi devices for home automation. You can find the full product range on the [BleBox products page](https://blebox.eu/en/products/) and in the [BleBox product catalog](https://blebox.eu/en/products/katalog/).

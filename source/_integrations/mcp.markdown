@@ -1,21 +1,12 @@
 ---
-title: Model Context Protocol Client
 description: Instructions on how to give your Home Assistant AI conversation agent extra tools from a Model Context Protocol (MCP) server.
-ha_categories:
-  - ai_voice.ai_models
 ha_release: 2025.2
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@allenporter'
 ha_domain: mcp
-ha_integration_type: integration
 related:
   - docs: /integrations/conversation/
     title: Conversation
   - docs: /integrations/mcp_server/
     title: Model Context Protocol
-ha_quality_scale: silver
 ---
 
 The **Model Context Protocol Client** {% term integration %} gives your AI [conversation agent](/integrations/conversation/) in Home Assistant extra tools from an MCP server of your choice. For example, you can connect the MCP server of a service you already use, such as a project tracker or a note-taking app, and then ask Assist about it. You can also connect to an MCP server that lets Assist remember things between conversations, or search the web in ways Home Assistant can't do on its own.

@@ -1,25 +1,7 @@
 ---
-title: 1-Wire
 description: Instructions on how to integrate 1-Wire sensors and switches into Home Assistant using owserver.
-ha_categories:
-  - diy_makers.boards_hardware
-  - sensors.temperature_humidity
 ha_release: 0.12
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@garbled1'
-  - '@epenet'
 ha_domain: onewire
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - select
-  - sensor
-  - switch
-ha_integration_type: hub
-ha_zeroconf: true
-ha_quality_scale: platinum
 ---
 
 The **1-Wire** {% term integration %} brings devices on a 1-Wire bus into Home Assistant. 1-Wire is a low-cost bus that is popular for DIY projects. A single pair of wires can connect many temperature sensors, counters, and input/output chips.

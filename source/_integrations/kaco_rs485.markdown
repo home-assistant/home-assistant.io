@@ -1,19 +1,7 @@
 ---
-title: KACO RS485
 description: Instructions on how to integrate KACO Powador solar inverters with Home Assistant over RS485.
-ha_categories:
-  - energy.solar_batteries
 ha_release: 2026.11
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@g4bri3lDev'
 ha_domain: kaco_rs485
-ha_platforms:
-  - binary_sensor
-  - sensor
-ha_config_flow: true
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 The **KACO RS485** {% term integration %} connects Home Assistant to [KACO new energy](https://kaco-newenergy.com/) Powador solar inverters over their RS485 serial bus and shows what they are producing. These inverters have no network port and no cloud service, so the serial bus is the only way to read them.

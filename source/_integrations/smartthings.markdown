@@ -1,39 +1,8 @@
 ---
-title: SmartThings
 description: Instructions on setting up SmartThings within Home Assistant.
 featured: true
-ha_categories:
-  - hubs_protocols.smart_home_hubs
 ha_release: 0.87
-ha_iot_class: Cloud Push
-ha_config_flow: true
 ha_domain: smartthings
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - diagnostics
-  - event
-  - fan
-  - light
-  - lock
-  - media_player
-  - number
-  - scene
-  - select
-  - sensor
-  - switch
-  - time
-  - update
-  - vacuum
-  - valve
-  - water_heater
-ha_dhcp: true
-ha_integration_type: hub
-ha_codeowners:
-  - '@joostlek'
-ha_quality_scale: bronze
 ---
 
 [SmartThings](https://www.samsung.com/smartthings/) is a home automation platform for connecting with Samsung or third-party devices.

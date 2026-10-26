@@ -1,22 +1,7 @@
 ---
-title: ScorpionTrack
 description: Instructions on how to integrate ScorpionTrack shared vehicle locations, speeds, and ignition states into Home Assistant.
-ha_categories:
-  - vehicles_transport.cars_evs
-  - presence_location.trackers
 ha_release: 2026.8
-ha_iot_class: Cloud Polling
 ha_domain: scorpiontrack
-ha_platforms:
-  - binary_sensor
-  - device_tracker
-  - diagnostics
-  - sensor
-ha_config_flow: true
-ha_integration_type: hub
-ha_codeowners:
-  - '@Herbertmt978'
-ha_quality_scale: silver
 ---
 
 The **ScorpionTrack** {% term integration %} lets Home Assistant follow the location, speed, and ignition state of vehicles that have been shared through a public ScorpionTrack shared-location link.

@@ -1,20 +1,7 @@
 ---
-title: AEMET OpenData
 description: Instructions on how to integrate AEMET OpenData within Home Assistant.
 ha_release: 2021.3
-ha_categories:
-  - weather_alerts.forecasts
-ha_iot_class: Cloud Polling
-ha_config_flow: true
 ha_domain: aemet
-ha_platforms:
-  - diagnostics
-  - image
-  - sensor
-  - weather
-ha_integration_type: service
-ha_codeowners:
-  - '@Noltari'
 ---
 
 The **AEMET** {% term integration %} uses [AEMET OpenData](https://opendata.aemet.es/) as a source for current meteorological data for your location. AEMET stands for "Agencia Estatal de Meteorología", which is the Spanish Meteorological Agency.

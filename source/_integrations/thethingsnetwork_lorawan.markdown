@@ -1,16 +1,7 @@
 ---
-title: The Things Network
 description: Connect The Things Network and The Things Stack applications to Home Assistant.
-ha_categories:
-  - hubs_protocols.wireless_protocols
 ha_release: 2026.11
-ha_iot_class: Cloud Push
-ha_quality_scale: bronze
-ha_config_flow: true
-ha_codeowners:
-  - '@balloob'
 ha_domain: thethingsnetwork_lorawan
-ha_integration_type: hub
 ---
 
 The **The Things Network** {% term integration %} connects [The Things Network](https://www.thethingsnetwork.org/) or your own The Things Stack server to [LoRaWAN](/integrations/lorawan/). Separate device integrations turn readings from your LoRaWAN sensors into entities you can use in dashboards and automations.

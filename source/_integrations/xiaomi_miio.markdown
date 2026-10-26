@@ -1,36 +1,7 @@
 ---
-title: Xiaomi Home
 description: Instructions on how to integrate Xiaomi devices using the Xiaomi Home integration within Home Assistant.
-ha_categories:
-  - hubs_protocols.smart_home_hubs
-  - climate.air_purifiers_humidifiers
-  - appliances_cleaning.cleaning
-ha_iot_class: Local Polling
 ha_release: 0.51
-ha_codeowners:
-  - '@rytilahti'
-  - '@syssi'
-  - '@starkillerOG'
 ha_domain: xiaomi_miio
-ha_config_flow: true
-ha_zeroconf: true
-ha_platforms:
-  - air_quality
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - device_tracker
-  - diagnostics
-  - fan
-  - humidifier
-  - light
-  - number
-  - remote
-  - select
-  - sensor
-  - switch
-  - vacuum
-ha_integration_type: hub
 ---
 
 The **Xiaomi Home** {% term integration %} supports the following devices:

@@ -1,19 +1,7 @@
 ---
-title: qBittorrent
 description: Instructions on how to integrate qBittorrent sensors within Home Assistant.
-ha_categories:
-  - computers_network.nas_servers
 ha_release: 0.84
-ha_config_flow: true
-ha_iot_class: Local Polling
 ha_domain: qbittorrent
-ha_codeowners:
-  - '@geoffreylagaisse'
-  - '@finder39'
-ha_platforms:
-  - sensor
-  - switch
-ha_integration_type: service
 ---
 
 The **qBittorrent** {% term integration %} allows you to monitor your downloads with [qBittorrent](https://www.qbittorrent.org/) from within Home Assistant and setup automations based on the information.

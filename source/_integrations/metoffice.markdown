@@ -1,20 +1,7 @@
 ---
-title: Met Office
 description: Instructions on how to integrate Met Office weather conditions into Home Assistant.
-ha_categories:
-  - weather_alerts.forecasts
 ha_release: 0.42
-ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@MrHarcombe'
-  - '@avee87'
 ha_domain: metoffice
-ha_config_flow: true
-ha_platforms:
-  - sensor
-  - weather
-ha_integration_type: service
-ha_quality_scale: bronze
 ---
 
 The Met Office is the United Kingdom's national meteorological service.

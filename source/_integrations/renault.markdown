@@ -1,24 +1,7 @@
 ---
-title: Renault
 description: Instructions on how to integrate your Renault, Dacia, or Alpine vehicle into Home Assistant using the My Renault service.
-ha_categories:
-  - vehicles_transport.cars_evs
 ha_release: 2021.8
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@epenet'
 ha_domain: renault
-ha_platforms:
-  - binary_sensor
-  - button
-  - device_tracker
-  - diagnostics
-  - number
-  - select
-  - sensor
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 The **Renault** {% term integration %} connects your Renault, Dacia, or Alpine vehicle to Home Assistant through the **My Renault** cloud service. It uses the same account as the My Renault app on your phone.

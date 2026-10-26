@@ -1,31 +1,7 @@
 ---
-title: Universal Devices ISY/IoX
 description: Instructions on how to set up an ISY controller within Home Assistant.
-ha_categories:
-  - hubs_protocols.smart_home_hubs
 ha_release: 0.28
-ha_iot_class: Local Push
 ha_domain: isy994
-ha_config_flow: true
-ha_codeowners:
-  - '@bdraco'
-  - '@shbatm'
-ha_ssdp: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - event
-  - fan
-  - light
-  - lock
-  - number
-  - select
-  - sensor
-  - switch
-ha_dhcp: true
-ha_integration_type: hub
 ---
 
 ISY is a home automation controller capable of controlling Insteon, X10, Z-Wave and Zigbee/Matter devices connected to supported hardware manufactured by [Universal Devices, Inc.](https://www.universal-devices.com/).

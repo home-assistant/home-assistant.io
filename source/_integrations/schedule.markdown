@@ -1,14 +1,7 @@
 ---
-title: Schedule
 description: Instructions on how to make a weekly schedule in Home Assistant.
-ha_categories:
-  - helpers.store_value
 ha_release: 2022.9
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: schedule
-ha_integration_type: helper
 ---
 
 The **Schedule** {% term integration %} lets you create a weekly schedule {% term entity %} in Home Assistant from time blocks with defined start and end times. The schedule is active when a time block starts and becomes inactive when it ends, so you can use it as a trigger or condition in automations and scripts.

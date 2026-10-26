@@ -1,12 +1,7 @@
 ---
-title: Radio frequency
 description: Instructions on how to use radio frequency entities in Home Assistant.
 ha_release: 2026.5
-ha_quality_scale: internal
 ha_domain: radio_frequency
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 related:
   - docs: /integrations/#radio-frequency
     title: Integrations that provide radio frequency entities

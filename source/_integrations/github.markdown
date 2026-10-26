@@ -1,19 +1,7 @@
 ---
-title: GitHub
 description: Instructions on how to integrate the GitHub integration into Home Assistant.
-ha_categories:
-  - computers_network.cloud_developer_tools
-ha_config_flow: true
 ha_release: 0.88
-ha_iot_class: Cloud Polling
 ha_domain: github
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_codeowners:
-  - '@timmo001'
-  - '@ludeeus'
-ha_integration_type: service
 ---
 
 The **GitHub** {% term integration %} allows you to monitor your favorite [GitHub](https://github.com/) public repositories.

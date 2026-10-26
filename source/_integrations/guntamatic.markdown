@@ -1,19 +1,7 @@
 ---
-title: Guntamatic
 description: Guntamatic wood/pellet heater integration.
-ha_categories:
-  - climate.thermostats_heating
-ha_iot_class: Local Polling
 ha_release: 2026.6
-ha_codeowners:
-  - '@JensTimmerman'
-ha_config_flow: true
 ha_domain: guntamatic
-ha_platforms:
-  - sensor
-ha_dhcp: true
-ha_integration_type: device
-ha_quality_scale: silver
 ---
 
 The Guntamatic integration allows you to monitor your [Guntamatic](https://www.guntamatic.com) wood or pellet heater from Home Assistant.

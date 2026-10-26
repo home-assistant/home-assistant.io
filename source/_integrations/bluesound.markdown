@@ -1,23 +1,10 @@
 ---
-title: Bluesound
 description: Instructions on how to integrate Bluesound devices into Home Assistant.
-ha_categories:
-  - media_entertainment.speakers_audio
 ha_release: 0.51
-ha_iot_class: Local Polling
 ha_domain: bluesound
-ha_platforms:
-  - button
-  - media_player
-ha_codeowners:
-  - '@thrawnarn'
-  - '@LouisChrist'
-ha_integration_type: device
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_config_flow: true
-ha_zeroconf: true
 ---
 
 The **Bluesound** {% term integration %} allows you to control your [Bluesound](https://www.bluesound.com/) HiFi wireless speakers and audio integrations from Home Assistant.

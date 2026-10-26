@@ -1,23 +1,13 @@
 ---
-title: Model Context Protocol
 description: Instructions on how to add a Model Context Protocol server to Home Assistant.
 featured: true
-ha_categories:
-  - ai_voice.ai_models
-  - other_ecosystems
 ha_release: 2025.2
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@allenporter'
 ha_domain: mcp_server
-ha_integration_type: service
 related:
   - docs: /integrations/conversation/
     title: Conversation
   - docs: /integrations/mcp/
     title: Model Context Protocol Client
-ha_quality_scale: silver
 ---
 
 The **Model Context Protocol** (<abbr title="Model Context Protocol">MCP</abbr>) integration lets you connect an AI agent, such as ChatGPT or Claude, to Home Assistant. The AI agent can then control your devices and see the current state of your home.

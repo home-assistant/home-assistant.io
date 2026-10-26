@@ -1,21 +1,7 @@
 ---
-title: TRMNL
 description: Instructions on how to integrate TRMNL with Home Assistant.
-ha_categories:
-  - productivity_information
 ha_release: 2026.4
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@joostlek'
 ha_domain: trmnl
-ha_platforms:
-  - diagnostics
-  - sensor
-  - switch
-  - time
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 The **TRMNL** {% term integration %} allows you to monitor your [TRMNL](https://usetrmnl.com/) e-paper (e-ink) displays in Home Assistant. TRMNL devices are low-power e-ink displays that show content such as calendars, weather, and custom dashboards at a glance.

@@ -1,12 +1,7 @@
 ---
-title: Binary sensor
 description: Instructions on how-to set up binary sensors with Home Assistant.
 ha_release: 0.9
-ha_quality_scale: internal
 ha_domain: binary_sensor
-ha_codeowners:
-  - '@home-assistant/core'
-ha_integration_type: entity
 ---
 
 Binary sensors are similar to other [sensors](/integrations/sensor) in that they

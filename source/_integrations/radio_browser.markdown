@@ -1,15 +1,7 @@
 ---
-title: Radio Browser
 description: Instructions on how to integrate Radio Browser into Home Assistant.
-ha_categories:
-  - media_entertainment.music_radio_services
 ha_release: 2022.3
-ha_iot_class: Cloud Polling
 ha_domain: radio_browser
-ha_config_flow: true
-ha_codeowners:
-  - '@frenck'
-ha_integration_type: service
 ---
 
 The **Radio Browser** {% term integration %} brings the worldwide directory of internet radio stations from [Radio Browser](https://www.radio-browser.info) into Home Assistant. It adds Radio Browser as a media source, so you can browse thousands of stations and play them on your media players, like a speaker in the kitchen or a Cast device in the living room.

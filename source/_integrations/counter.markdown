@@ -1,14 +1,7 @@
 ---
-title: Counter
 description: Instructions on how to integrate counters into Home Assistant.
-ha_categories:
-  - helpers.store_value
 ha_release: 0.53
-ha_quality_scale: internal
-ha_codeowners:
-  - '@fabaff'
 ha_domain: counter
-ha_integration_type: helper
 ---
 
 The **Counter** {% term integration %} lets you track how many times something has happened in Home Assistant.

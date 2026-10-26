@@ -28,6 +28,17 @@ module Jekyll
     # of the integration that supports it, the same way core does.
     INHERITED_KEYS = %w[codeowners config_flow iot_class platforms discovery categories].freeze
 
+    # Front matter keys this plugin always sets or removes, so they have no
+    # effect on a page that has core metadata. `ha_domain` stays, the extra
+    # pages of an integration need it. The last few are old misspellings.
+    SYNCED_KEYS = (
+      %w[title ha_integration_type ha_codeowners ha_config_flow ha_iot_class
+         ha_quality_scale ha_platforms ha_iot_standard ha_supporting_domain
+         ha_supporting_integration] +
+      DISCOVERY_METHODS.map { |method| "ha_#{method}" } +
+      %w[ha_code_owners ha_qa_scale quality_scale integration_type]
+    ).freeze
+
     module_function
 
     def apply(site)
@@ -77,6 +88,13 @@ module Jekyll
       # Not every integration in core has categories yet, keep the ones from
       # the front matter until it does.
       data['ha_categories'] = integration['categories'] if integration['categories']
+    end
+
+    # The front matter keys that are ignored on the page of this integration.
+    def synced_keys(integration, integrations)
+      keys = SYNCED_KEYS
+      keys += ['ha_categories'] if resolve(integration, integrations)['categories']
+      keys
     end
 
     def set(data, key, value)

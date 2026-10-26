@@ -1,27 +1,7 @@
 ---
-title: Broadlink
 description: Instructions on setting up Broadlink within Home Assistant.
-ha_categories:
-  - buttons_remotes
-  - plugs_switches
 ha_release: 0.35
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@danielhiversen'
-  - '@felipediel'
-  - '@L-I-Am'
 ha_domain: broadlink
-ha_config_flow: true
-ha_platforms:
-  - climate
-  - light
-  - remote
-  - select
-  - sensor
-  - switch
-  - time
-ha_dhcp: true
-ha_integration_type: device
 related:
   - docs: /docs/configuration/
     title: Configuration file

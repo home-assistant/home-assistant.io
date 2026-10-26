@@ -1,20 +1,7 @@
 ---
-title: OPNsense
 description: Instructions on how to configure OPNsense integration
-ha_categories:
-  - presence_location.network_presence
-  - computers_network.routers_network
 ha_release: 0.105
-ha_codeowners:
-  - '@HarlemSquirrel'
-  - '@Snuffy2'
 ha_domain: opnsense
-ha_iot_class: Local Polling
-ha_platforms:
-  - device_tracker
-ha_integration_type: hub
-ha_quality_scale: legacy
-ha_config_flow: true
 ---
 
 [OPNsense](https://opnsense.org/) is an open source FreeBSD based firewall

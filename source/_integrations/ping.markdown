@@ -1,21 +1,7 @@
 ---
-title: Ping (ICMP)
 description: Instructions on how to use ICMP ping checks in Home Assistant.
-ha_categories:
-  - presence_location.network_presence
-  - computers_network.monitoring
 ha_release: 0.43
-ha_iot_class: Local Polling
-ha_quality_scale: internal
 ha_domain: ping
-ha_platforms:
-  - binary_sensor
-  - device_tracker
-  - sensor
-ha_integration_type: service
-ha_config_flow: true
-ha_codeowners:
-  - '@jpbede'
 ---
 
 There is currently support for the following device types within Home Assistant:

@@ -1,22 +1,7 @@
 ---
-title: Satel Integra
 description: Instructions on how to integrate a Satel Integra alarm panel with Home Assistant using an ETHM network extension from Satel.
-ha_categories:
-  - security_safety.alarm_systems
 ha_release: 0.54
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@Tommatheussen'
 ha_domain: satel_integra
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - diagnostics
-  - sensor
-  - switch
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **Satel Integra** {% term integration %} allows you to connect your [Satel Integra alarm system](https://www.satel.pl/en/product-category/intruder-alarms/integra/) to Home Assistant to control and monitor your alarm system.

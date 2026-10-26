@@ -1,19 +1,7 @@
 ---
-title: BLUETTI Modbus
 description: Instructions on how to integrate a BLUETTI power station with Home Assistant over Modbus TCP.
-ha_categories:
-  - energy.solar_batteries
 ha_release: 2026.11
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@chpego'
 ha_domain: bluetti_modbus
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: device
-ha_quality_scale: bronze
 ---
 
 The **BLUETTI Modbus** {% term integration %} connects Home Assistant to your [BLUETTI](https://www.bluettipower.com/) power station over your own network, using the Modbus TCP interface built into the device. There is no account, no API key, and no cloud service involved, so your readings keep arriving in Home Assistant even when your internet connection or the BLUETTI cloud service is down.

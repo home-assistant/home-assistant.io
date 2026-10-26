@@ -1,21 +1,7 @@
 ---
-title: Axle Energy
 description: Instructions on how to use Axle Energy grid event schedules in Home Assistant.
-ha_categories:
-  - energy
 ha_release: '2026.10'
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@Herbertmt978'
 ha_domain: axle_energy
-ha_platforms:
-  - binary_sensor
-  - calendar
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 The **Axle Energy** {% term integration %} shows the grid event schedule for your [Axle Energy](https://www.axle.energy/) account. You can use the event direction and start and end times in your automations to prepare for an import or export event.

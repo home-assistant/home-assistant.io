@@ -1,38 +1,8 @@
 ---
-title: KNX
 description: Instructions on how to integrate KNX components with Home Assistant.
 featured: true
-ha_categories:
-  - hubs_protocols.building_automation
 ha_release: 0.24
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@Julius2342'
-  - '@farmio'
-  - '@marvin-w'
 ha_domain: knx
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - cover
-  - date
-  - datetime
-  - diagnostics
-  - fan
-  - light
-  - notify
-  - number
-  - scene
-  - select
-  - sensor
-  - switch
-  - text
-  - time
-  - weather
-ha_config_flow: true
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 The [KNX](https://www.knx.org) {% term integration %} connects Home Assistant to your KNX installation, allowing you to control KNX devices, act on telegrams and forward state changes from other integrations entities to your KNX bus.

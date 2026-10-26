@@ -1,16 +1,7 @@
 ---
-title: Improv via BLE
 description: Send your Wi-Fi details over Bluetooth to Wi-Fi devices that support Improv, such as ESP32 devices running ESPHome, so they can join your Wi-Fi network.
 ha_release: 2023.11
-ha_bluetooth: true
-ha_categories:
-  - diy_makers.boards_hardware
-ha_codeowners:
-  - '@emontnemery'
 ha_domain: improv_ble
-ha_integration_type: device
-ha_iot_class: Local Polling
-ha_config_flow: true
 ---
 
 The **Improv via BLE** {% term integration %} sends your Wi-Fi network name and password to a Wi-Fi device over Bluetooth, so the device can join your Wi-Fi network. It works with Wi-Fi devices that support the open [Improv via BLE](https://www.improv-wifi.com/ble/) standard, such as many devices with an ESP32 chip that run [ESPHome](/integrations/esphome/). After the device is on your Wi-Fi network, it communicates with Home Assistant over Wi-Fi.

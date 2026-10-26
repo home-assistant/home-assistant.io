@@ -1,27 +1,7 @@
 ---
-title: devolo Home Network
 description: Instructions on how to integrate devolo Home Network devices with Home Assistant.
-ha_categories:
-  - computers_network.routers_network
 ha_release: '2021.12'
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@2Fake'
-  - '@Shutgun'
 ha_domain: devolo_home_network
-ha_platforms:
-  - binary_sensor
-  - button
-  - device_tracker
-  - diagnostics
-  - image
-  - sensor
-  - switch
-  - update
-ha_zeroconf: true
-ha_integration_type: device
-ha_quality_scale: silver
 ---
 
 The **devolo Home Network** {% term integration %} allows you to monitor and control your [devolo](https://www.devolo.global) PLC network. Depending on the device you add to Home Assistant, different use cases are possible. Roughly you can categorize the devices into Wi-Fi and non-Wi-Fi devices. Non-Wi-Fi devices are more or less limited in monitoring your PLC network. The Wi-Fi devices, however, can help with presence detection and remote control of your guest Wi-Fi. For details, please continue reading about the [entities](#entities) and look at the [supported devices](#supported-devolo-devices).

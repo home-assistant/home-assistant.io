@@ -1,22 +1,7 @@
 ---
-title: OpenTherm Gateway
 description: Control your OpenTherm Gateway from Home Assistant.
-ha_categories:
-  - climate.thermostats_heating
 ha_release: 0.81
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@mvn23'
 ha_domain: opentherm_gw
-ha_platforms:
-  - binary_sensor
-  - button
-  - climate
-  - select
-  - sensor
-  - switch
-ha_integration_type: device
 ---
 
 The **OpenTherm Gateway** {% term integration %} is used to control the [OpenTherm Gateway](https://otgw.tclcode.com/) from Home Assistant.

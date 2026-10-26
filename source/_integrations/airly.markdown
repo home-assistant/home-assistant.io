@@ -1,19 +1,7 @@
 ---
-title: Airly
 description: Instructions on how to integrate Airly within Home Assistant.
-ha_categories:
-  - weather_alerts.air_quality_pollen
 ha_release: 0.101
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@bieniu'
 ha_domain: airly
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
-ha_quality_scale: silver
 ---
 
 The **Airly** {% term integration %} uses the [Airly](https://airly.org/) web service as a source for air quality data for your location.

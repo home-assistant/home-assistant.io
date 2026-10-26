@@ -1,23 +1,7 @@
 ---
-title: SteamVR Base Station
 description: Instructions on how to control Valve Index base stations with Home Assistant over Bluetooth.
-ha_categories:
-  - media_entertainment.gaming
-ha_bluetooth: true
 ha_release: '2026.11'
-ha_iot_class: Local Push
-ha_codeowners:
-  - '@g4bri3lDev'
 ha_domain: steamvr_base_station
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - select
-  - sensor
-  - switch
-ha_integration_type: device
-ha_quality_scale: silver
 ---
 
 The **SteamVR Base Station** {% term integration %} lets you control Valve Index base stations over Bluetooth Low Energy.

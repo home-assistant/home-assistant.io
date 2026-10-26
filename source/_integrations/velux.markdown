@@ -1,29 +1,7 @@
 ---
-title: Velux
 description: Instructions on how to integrate the Velux KLF 200 with Home Assistant.
-ha_categories:
-  - blinds_curtains
 ha_release: 0.49
-ha_config_flow: true
-ha_iot_class: Local Polling
-ha_codeowners:
-  - '@Julius2342'
-  - '@pawlizio'
-  - '@wollew'
 ha_domain: velux
-ha_platforms:
-  - binary_sensor
-  - button
-  - cover
-  - diagnostics
-  - light
-  - number
-  - scene
-  - switch
-ha_integration_type: hub
-ha_dhcp: true
-ha_quality_scale: silver
-ha_zeroconf: true
 ---
 
 The [Velux](https://www.velux.com/) {% term integration %} for Home Assistant allows you to connect to a Velux KLF 200 interface so you can control [io-homecontrol](http://www.io-homecontrol.com) devices, such as windows, blinds, lights, and switches. The integration lets you start scenes configured on the KLF 200.

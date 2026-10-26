@@ -1,24 +1,7 @@
 ---
-title: MELCloud Home
 description: Instructions on how to integrate MELCloud Home with Home Assistant.
-ha_categories:
-  - climate.heat_pumps_air_conditioning
 ha_release: 2026.7
-ha_iot_class: Cloud Push
-ha_codeowners:
-  - '@erwindouna'
 ha_domain: melcloud_home
-ha_config_flow: true
-ha_platforms:
-  - binary_sensor
-  - climate
-  - diagnostics
-  - number
-  - sensor
-  - switch
-  - water_heater
-ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
 The **MELCloud Home** {% term integration %} connects Home Assistant to [MELCloud Home](https://www.melcloudhome.com/), Mitsubishi Electric's cloud service for managing their air conditioning and heat pump products.

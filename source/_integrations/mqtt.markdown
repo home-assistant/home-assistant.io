@@ -1,52 +1,8 @@
 ---
-title: MQTT
 description: Instructions on how to set up MQTT within Home Assistant.
-ha_categories:
-  - diy_makers
 featured: true
 ha_release: pre 0.7
-ha_iot_class: Local Push
-ha_config_flow: true
-ha_codeowners:
-  - '@emontnemery'
-  - '@jbouwh'
-  - '@bdraco'
 ha_domain: mqtt
-ha_platforms:
-  - alarm_control_panel
-  - binary_sensor
-  - button
-  - camera
-  - climate
-  - cover
-  - date
-  - datetime
-  - device_tracker
-  - diagnostics
-  - event
-  - fan
-  - humidifier
-  - image
-  - lawn_mower
-  - light
-  - lock
-  - notify
-  - number
-  - scene
-  - select
-  - sensor
-  - siren
-  - switch
-  - tag
-  - tag
-  - text
-  - time
-  - update
-  - vacuum
-  - valve
-  - water_heater
-ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.

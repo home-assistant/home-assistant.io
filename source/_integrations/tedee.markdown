@@ -1,22 +1,7 @@
 ---
-title: Tedee
 description: Instructions on how to integrate your Tedee lock with Home Assistant.
 ha_release: 2024.2
-ha_categories:
-  - security_safety.locks_access
-ha_iot_class: Local Push
-ha_config_flow: true
 ha_domain: tedee
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - lock
-  - sensor
-ha_codeowners:
-  - '@patrickhilker'
-  - '@zweckj'
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 This {% term integration %} interacts with your [Tedee](https://tedee.com) locks by communicating with the Tedee bridge through HTTP. The integration will communicate with your lock locally.

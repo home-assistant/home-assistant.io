@@ -1,22 +1,7 @@
 ---
-title: energieleser
 description: Instructions on how to integrate energieleser devices in Home Assistant.
 ha_release: 2026.7
-ha_categories:
-  - energy.meters_monitoring
-  - water.meters_leak_detection
-ha_codeowners:
-  - '@AjinkyaGokhale'
-  - '@NiccoFink'
-ha_quality_scale: platinum
 ha_domain: energieleser
-ha_integration_type: device
-ha_iot_class: Local Polling
-ha_config_flow: true
-ha_zeroconf: true
-ha_platforms:
-  - diagnostics
-  - sensor
 related:
   - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
     title: Debug logs and diagnostics

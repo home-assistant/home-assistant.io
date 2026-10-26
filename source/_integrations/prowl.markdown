@@ -1,15 +1,7 @@
 ---
-title: Prowl
 description: Instructions on how to add Prowl notifications to Home Assistant.
-ha_categories:
-  - messaging_notifications.push_notifications
 ha_release: 0.52
-ha_iot_class: Cloud Push
 ha_domain: prowl
-ha_platforms:
-  - notify
-ha_integration_type: service
-ha_config_flow: true
 ---
 
 The **Prowl** {% term integration %} uses [Prowl](https://www.prowlapp.com/) to deliver push notifications from Home Assistant to your iOS device.

@@ -1,19 +1,7 @@
 ---
-title: Tailscale
 description: Instructions on how to integrate Tailscale within Home Assistant.
-ha_categories:
-  - computers_network.routers_network
 ha_release: 2021.12
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@frenck'
 ha_domain: tailscale
-ha_platforms:
-  - binary_sensor
-  - diagnostics
-  - sensor
-ha_integration_type: hub
 ---
 
 The **Tailscale** {% term integration %} monitors the devices in your [Tailscale](https://www.tailscale.com) network (Tailnet) from Home Assistant. Tailscale is a VPN service that creates secure connections between your devices using WireGuard.

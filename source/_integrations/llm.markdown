@@ -1,13 +1,7 @@
 ---
-title: LLM
 description: Organizes the LLM APIs that large language models can use in Home Assistant.
 ha_release: 2026.7
-ha_iot_class: Calculated
-ha_quality_scale: internal
-ha_codeowners:
-  - '@home-assistant/core'
 ha_domain: llm
-ha_integration_type: system
 ---
 
 The **LLM** {% term integration %} organizes the [LLM APIs](https://contributors.home-assistant.io/core/internals/llm-api/) that large language models can use to interact with Home Assistant. An <abbr title="Large Language Model">LLM</abbr> <abbr title="application programming interface">API</abbr> is a set of tools that a model can call. For example, to control your devices or answer questions about your home.

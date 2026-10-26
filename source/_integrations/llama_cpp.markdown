@@ -1,23 +1,12 @@
 ---
-title: llama.cpp
 description: Instructions on how to integrate llama.cpp (and other OpenAI-compatible servers) as a conversation agent.
-ha_categories:
-  - ai_voice.ai_models
 ha_release: 2026.8
-ha_iot_class: Local Polling
-ha_config_flow: true
 ha_domain: llama_cpp
-ha_integration_type: service
-ha_platforms:
-  - conversation
 related:
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
   - docs: /voice_control/assist_create_open_ai_personality/
     title: Create an AI personality
-ha_quality_scale: bronze
-ha_codeowners:
-  - '@allenporter'
 ---
 
 The **llama.cpp** {% term integration %} allows you to use a local or remote server that implements the OpenAI-compatible chat completions API as a conversation agent in Home Assistant.

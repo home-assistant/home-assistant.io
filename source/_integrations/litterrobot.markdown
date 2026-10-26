@@ -1,29 +1,7 @@
 ---
-title: Whisker
 description: Instructions on how to integrate Whisker's lineup of Wi-Fi-enabled, automatic, self-cleaning litter boxes and pet feeders to Home Assistant.
-ha_categories:
-  - pets
-ha_iot_class: Cloud Push
 ha_release: 2021.3
-ha_config_flow: true
-ha_codeowners:
-  - '@natekspencer'
-  - '@tkdrob'
 ha_domain: litterrobot
-ha_dhcp: true
-ha_platforms:
-  - binary_sensor
-  - button
-  - diagnostics
-  - light
-  - select
-  - sensor
-  - switch
-  - time
-  - update
-  - vacuum
-ha_integration_type: hub
-ha_quality_scale: platinum
 ---
 
 The **Whisker** {% term integration %} allows you to monitor and control your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders. If you have pet profiles set up, you can also track your pet's weight.

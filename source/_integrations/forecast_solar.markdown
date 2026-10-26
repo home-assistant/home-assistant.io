@@ -1,19 +1,7 @@
 ---
-title: Forecast.Solar
 description: Instructions on how to integrate Forecast.Solar within Home Assistant.
-ha_categories:
-  - energy.solar_batteries
 ha_release: 2021.7
-ha_iot_class: Cloud Polling
-ha_config_flow: true
-ha_codeowners:
-  - '@klaasnicolaas'
-  - '@frenck'
 ha_domain: forecast_solar
-ha_platforms:
-  - diagnostics
-  - sensor
-ha_integration_type: service
 ---
 
 The **Forecast.Solar** {% term integration %} estimates how much energy your solar panels will produce, using the [Forecast.Solar](https://forecast.solar/) service. The forecast combines the location, orientation, and size of your panels with historic averages and weather data, so you can plan ahead and use your own solar energy as efficiently as possible.
