@@ -108,8 +108,12 @@ Every input module will be represented as a binary sensor entity in Home Assista
 
 ### Event
 
-Each physical Velbus button is exposed as an event entity. A short press emits a `short_press` event when the button is released. A long press emits a `long_press` event as soon as the module reports the long press. Releasing a long press does not emit an additional event.
+Each physical Velbus button also has an event entity, with the same name as the button's binary sensor. The event entity records how the button was pressed, so you can react to a short or long press in an automation:
 
+- `short_press`: The button was pressed and released without a long press. This is recorded when you release the button.
+- `long_press`: The Velbus module reported a long press. This is recorded right away, while you're still holding the button. Releasing the button afterward doesn't record another press.
+
+The Velbus module decides whether a press counts as long. You can't change this in Home Assistant.
 ### Select
 
 Every module that supports programs will have a select entity in Home Assistant. You can select the program that you want to activate.
