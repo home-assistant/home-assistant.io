@@ -236,6 +236,14 @@ describe("merged lists", () => {
     assert.deepEqual(merged(cfg).map(([label]) => label), ["Voice", "Latest issue", "2026.10"]);
   });
 
+  it("keeps a pinned blog post first when blog is listed first", () => {
+    const cfg = mergedConfig(
+      { sources: ["blog", "pinned"], limit: 1 },
+      { pinned: { type: "pinned", items: [{ title: "Release party", url: "/blog/2026/10/01/release-202610/" }] } },
+    );
+    assert.deepEqual(merged(cfg).map(([label]) => label), ["Release party"]);
+  });
+
   it("excludes a category", () => {
     const cfg = mergedConfig({}, { blog: { type: "posts", label: "Blog", exclude_category: "Release-Notes" } });
     assert.deepEqual(merged(cfg).map(([label]) => label), ["Voice", "Latest issue"]);
@@ -392,6 +400,7 @@ describe("reading posts", () => {
   const write = (name, frontMatter) => fs.writeFileSync(path.join(dir, name), `---\n${frontMatter}\n---\nBody.\n`);
   write("2026-10-01-release-202610.markdown", 'title: "2026.10: You are \\"here\\""\ndate: 2026-10-01 00:00:00\ncategories:\n  - Release-Notes\n  - Core\nog_image: /images/blog/2026-10/social.jpg');
   write("2026-10-20-crosspost.markdown", "title: 'Open home'\ndate: 2026-10-20 00:00:00\ncategories: [Announcements]\nexternal_url: https://www.openhomefoundation.org/blog/open-home/");
+  write("2026-10-15-podcast.markdown", 'title: "Podcast #10" # comment\ndate: 2026-10-15 00:00:00\ncategories: Announcements Media');
   write("2026-10-21-draft.markdown", "title: Draft\npublished: false");
   write("2026-12-01-future.markdown", "title: Future\ndate: 2026-12-01 00:00:00");
   const posts = loadPosts(dir, NOW);
@@ -404,6 +413,11 @@ describe("reading posts", () => {
     assert.equal(release.data.og_image, "/images/blog/2026-10/social.jpg");
   });
 
+  it("keeps a # inside a quoted title", () => assert.ok(byTitle["Podcast #10"]));
+
+  it("splits space-separated categories, as Jekyll does", () =>
+    assert.deepEqual(byTitle["Podcast #10"].data.categories, ["Announcements", "Media"]));
+
   it("gives a crosspost the Open Graph image of its article", () =>
     assert.equal(
       byTitle["Open home"].data.og_image,
@@ -411,5 +425,5 @@ describe("reading posts", () => {
     ));
 
   it("leaves out unpublished and future posts, as Jekyll does", () =>
-    assert.deepEqual(Object.keys(byTitle).sort(), ['2026.10: You are "here"', "Open home"]));
+    assert.deepEqual(Object.keys(byTitle).sort(), ['2026.10: You are "here"', "Open home", "Podcast #10"]));
 });

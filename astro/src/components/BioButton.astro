@@ -34,11 +34,10 @@ const { label, url, note, featured = false, section, source } = Astro.props;
     color: var(--bio-ink, #002332);
     font-family: var(--font-heading);
     text-decoration: none;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease;
 
     &:hover {
       background: var(--bio-primary, #00aef8);
-      color: var(--color-text-inverse);
     }
 
     &:focus-visible {

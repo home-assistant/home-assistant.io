@@ -261,6 +261,8 @@ export function loadPosts(dir, now) {
     const text = fs.readFileSync(path.join(dir, file), "utf8");
     const data = readFrontMatter(text.split(/^---\s*$/m)[1] ?? "");
     if (data.published === false) continue;
+    // As Jekyll: `categories: Announcements Events` is two categories.
+    if (typeof data.categories === "string") data.categories = data.categories.split(/\s+/).filter(Boolean);
 
     const date = data.date ? parsePostDate(data.date) : new Date(`${match[1]}-${match[2]}-${match[3]}T00:00:00Z`);
     if (!date || date > now) continue;
@@ -311,7 +313,9 @@ function readFrontMatter(block) {
 }
 
 function scalar(raw) {
-  const text = raw.replace(/\s+#.*$/, "").trim();
+  // A # inside quotes is text ("Podcast #10"), not a comment.
+  const quoted = raw.trim().match(/^("(?:[^"\\]|\\.)*"|'(?:[^']|'')*')(?:\s+#.*)?$/);
+  const text = quoted ? quoted[1] : raw.replace(/\s+#.*$/, "").trim();
   if (text === "true") return true;
   if (text === "false") return false;
   if (text.startsWith('"') && text.endsWith('"')) {
@@ -380,10 +384,14 @@ function claimFeedItems(sections, sources, posts, now, data) {
 // feed they came from. A source's `limit` caps how many of its items can
 // take part, so one busy feed can't crowd out the others.
 function mergedItems(section, sources, posts, now, data) {
+  // Pins go first before duplicates are dropped, so a pin of a post that
+  // is also in the blog keeps its place and title whatever the order of
+  // `sources`.
+  const isPinned = (item) => (sources[item.source]?.type === "pinned" ? 1 : 0);
   const all = [
     ...sectionSources(section).flatMap((name) => resolveSource(name, sources, posts, now, data)),
     ...insertedItems(section),
-  ];
+  ].sort((a, b) => isPinned(b) - isPinned(a));
 
   const taken = new Map();
   const seenUrls = new Set();
