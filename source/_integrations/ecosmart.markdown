@@ -54,6 +54,8 @@ Every device carries one sensor. It reports cents per kWh including <abbr title=
 - **Spot price**
   - **Description**: The wholesale price at your grid exit point right now.
 
+{% include integrations/actions.md %}
+
 ## Data updates
 
 The integration {% term polling polls %} the ecosmart API for each grid exit point rather than for each ICP, so several properties behind the same substation share one request.
