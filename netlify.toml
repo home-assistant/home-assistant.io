@@ -1,0 +1,13 @@
+# Netlify settings kept with the code. Build settings stay in the
+# Netlify UI.
+
+# Hosts whose images the image CDN (/.netlify/images) may resize, for
+# thumbnails on the Astro pages. Keep in step with REMOTE_IMAGE_HOSTS in
+# astro/src/lib/images.mjs.
+[images]
+  remote_images = [
+    "https://assets\\.openhomefoundation\\.org/.*",
+    "https://i\\.ytimg\\.com/.*",
+    "https://newsletter\\.openhomefoundation\\.org/.*",
+    "https://store\\.openhomefoundation\\.org/.*",
+  ]

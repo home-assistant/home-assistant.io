@@ -13,7 +13,9 @@
 //     `scheme` prop; Figma's "Default" is `primary` here.
 //   - Style (Fill, Outline): `outline` prop.
 //   - Lockup (Default, With Icon, Only Icon): `icon` prop, with or
-//     without slot content. An icon-only button needs `label`.
+//     without slot content. An icon-only button needs `label`. `icon`
+//     is `true` for Figma's arrow, or the name of an icon from
+//     src/lib/icons.ts to show in the circle instead.
 //   - State (Default, Hover, Active, Focus, Disabled): CSS states
 //     (:hover, :active, :focus-visible) and the `disabled` prop.
 //   - Size (Desktop, Mobile): automatic, the mobile size below the
@@ -28,6 +30,7 @@
 //     shadows), so the 1px, 2px and 4px state borders never change its
 //     size; the redundant 1px same-color border on the Tertiary,
 //     Green and Connect line fills is not drawn.
+import Icon from "./Icon.astro";
 import "../styles/tokens.scss";
 
 const {
@@ -70,7 +73,9 @@ const tagAttributes = href
   {!iconOnly && <span class="label" set:html={content} />}
   {
     icon && (
-      <span class="icon" aria-hidden="true" />
+      <span class:list={["icon", { arrow: icon === true }]} aria-hidden="true">
+        {typeof icon === "string" && <Icon name={icon} />}
+      </span>
     )
   }
 </Tag>
@@ -148,11 +153,22 @@ const tagAttributes = href
     text-box: trim-both cap alphabetic;
   }
 
+  /* A button stretched wider than its content (a full-width link) keeps
+     the icon at its right edge and centers the label in the rest. */
+  .button:has(.icon) .label {
+    flex: 1;
+    text-align: center;
+  }
+
   .icon {
     background: var(--icon-surface);
     border-radius: var(--radius-pill);
+    color: var(--icon-color);
+    display: grid;
     flex: none;
+    font-size: var(--font-size-medium);
     height: 1.5rem;
+    place-items: center;
     position: relative;
     width: 1.5rem;
 
@@ -161,7 +177,7 @@ const tagAttributes = href
        whole pixels, so the arrow sits centered in a whole-pixel 12 × 10
        mask (src/assets/button-arrow.svg) that centers exactly in the
        24px circle; at its drawn size it would land 0.5px off. */
-    &::before {
+    &.arrow::before {
       background: var(--icon-color);
       content: "";
       inset: 0;
