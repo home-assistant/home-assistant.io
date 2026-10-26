@@ -1,8 +1,8 @@
 ---
 title: Zentraly
 description: Instructions on how to integrate Zentraly devices with Home Assistant.
-ha_category:
-  - Climate
+ha_categories:
+  - climate.thermostats_heating
 ha_release: "2026.11"
 ha_iot_class: Local Push
 ha_config_flow: true
