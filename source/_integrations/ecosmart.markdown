@@ -47,8 +47,13 @@ API key:
 
 Creating a new key in the ecosmart app disables the one Home Assistant is using. You do not need to remove the integration. Give Home Assistant the new key in either of these ways:
 
-- **Straight away**: go to {% my integrations title="**Settings** > **Devices & services**" %}, select **ecosmart**, select the {% icon "mdi:dots-vertical" %} menu on the entry, then select **Reconfigure** and enter the new key.
-- **When Home Assistant asks**: within about five minutes, Home Assistant notices that the old key was rejected, and the ecosmart entry appears under **Needs attention**. Select **Reconfigure** there and enter the new key.
+If Home Assistant has already noticed that the old key was rejected, the ecosmart entry shows under **Needs attention**. This happens within about five minutes. Select **Reconfigure** there and enter the new key.
+
+To enter the new key straight away:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select **ecosmart**.
+2. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Reconfigure**.
+3. Enter the new key and select **Submit**.
 
 The new key must belong to the same ecosmart account. A key for a different account is refused and the old key stays in place. To add another account, add the integration again.
 
