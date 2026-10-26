@@ -886,7 +886,7 @@ To enable debug logging, follow the steps on [Debug logs and diagnostics](/docs/
 
 ### Add Philips Hue bulbs that have previously been added to another bridge
 
-Philips Hue bulbs that have previously been paired to another bridge or gateway will not show up during search in ZHA to add a Zigbee device. Bulbs must be restored to their factory default settings.
+Philips Hue bulbs that have previously been paired to another bridge or gateway will not join ZHA when you add a Zigbee device. Bulbs must be restored to their factory default settings.
 
 {% important %}
 You must factory-reset the device.
