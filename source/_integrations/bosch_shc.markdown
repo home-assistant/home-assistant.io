@@ -104,7 +104,8 @@ Shutter Control and Micromodule Shutter Control devices support opening, closing
 
 ### Light
 
-A Light Control micromodule dimmer gets a light entity that supports turning on and off and setting the brightness.
+- A Light Control micromodule dimmer gets a light entity that supports turning on and off and setting the brightness.
+- A Motion Detector II gets an **Orientation light** entity that supports turning on and off and setting the brightness.
 
 ### Number
 
