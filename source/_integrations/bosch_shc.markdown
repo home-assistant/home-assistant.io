@@ -155,6 +155,10 @@ Some devices also get an additional, device-specific switch. These are configura
 - Twinguard that supports this feature: **Heartbeat**, which enables or disables its nightly self-test notification
 - Micromodule Relay that supports switch configuration: **Swap inputs** and **Swap outputs**
 
+### Update
+
+The Bosch Smart Home Controller gets a **Software update** entity. It shows the installed and the available firmware version and lets you start the installation when an update is offered.
+
 ### Valve
 
 The valve platform provides a diagnostic entity showing the current valve position of each Thermostat, from fully closed (0%) to fully open (100%).
